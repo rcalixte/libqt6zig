@@ -21,7 +21,7 @@ pub const knscore = struct {
     ///
     /// ` param1: searchrequest_enums.SortMode `
     ///
-    pub fn GetEnumName(param1: i32) []const u8 {
+    pub fn GetEnumName(param1: i32) [:0]const u8 {
         const _ret = qtc.KNSCore_GetEnumName(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -42,7 +42,7 @@ pub const knscore = struct {
     ///
     /// ` param1: searchrequest_enums.Filter `
     ///
-    pub fn GetEnumName2(param1: i32) []const u8 {
+    pub fn GetEnumName2(param1: i32) [:0]const u8 {
         const _ret = qtc.KNSCore_GetEnumName2(@intCast(param1));
         return std.mem.span(_ret);
     }

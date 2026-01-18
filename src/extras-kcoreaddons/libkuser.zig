@@ -40,9 +40,9 @@ pub const kuser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn New4(name: []const u8) QtC.KUser {
+    pub fn New4(name: [:0]const u8) QtC.KUser {
         const name_Cstring = name.ptr;
 
         return qtc.KUser_new4(name_Cstring);
@@ -410,9 +410,9 @@ pub const kusergroup = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn New2(name: []const u8) QtC.KUserGroup {
+    pub fn New2(name: [:0]const u8) QtC.KUserGroup {
         const name_Cstring = name.ptr;
 
         return qtc.KUserGroup_new2(name_Cstring);

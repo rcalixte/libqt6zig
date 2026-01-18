@@ -24,7 +24,7 @@ pub const attica = struct {
 
     /// ### [Upstream resources](https://api.kde.org/attica.html#versionString)
     ///
-    pub fn VersionString() []const u8 {
+    pub fn VersionString() [:0]const u8 {
         const _ret = qtc.Attica_VersionString();
         return std.mem.span(_ret);
     }

@@ -14,9 +14,9 @@ pub const qdbusobjectpath = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []const u8 `
+    /// ` path: [:0]const u8 `
     ///
-    pub fn New2(path: []const u8) QtC.QDBusObjectPath {
+    pub fn New2(path: [:0]const u8) QtC.QDBusObjectPath {
         const path_Cstring = path.ptr;
 
         return qtc.QDBusObjectPath_new2(path_Cstring);
@@ -126,9 +126,9 @@ pub const qdbussignature = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` signature: []const u8 `
+    /// ` signature: [:0]const u8 `
     ///
-    pub fn New2(signature: []const u8) QtC.QDBusSignature {
+    pub fn New2(signature: [:0]const u8) QtC.QDBusSignature {
         const signature_Cstring = signature.ptr;
 
         return qtc.QDBusSignature_new2(signature_Cstring);

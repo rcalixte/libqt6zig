@@ -93,9 +93,9 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsScene_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -146,11 +146,11 @@ pub const qgraphicsscene = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -840,7 +840,7 @@ pub const qgraphicsscene = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsScene_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -854,7 +854,7 @@ pub const qgraphicsscene = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsScene, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsScene_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -868,7 +868,7 @@ pub const qgraphicsscene = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsScene_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -2111,13 +2111,13 @@ pub const qgraphicsscene = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -2131,15 +2131,15 @@ pub const qgraphicsscene = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -2673,7 +2673,7 @@ pub const qgraphicsscene = struct {
     ///
     /// ` wFlags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn AddWidget2(self: ?*anyopaque, widget: ?*anyopaque, wFlags: i64) QtC.QGraphicsProxyWidget {
+    pub fn AddWidget2(self: ?*anyopaque, widget: ?*anyopaque, wFlags: i32) QtC.QGraphicsProxyWidget {
         return qtc.QGraphicsScene_AddWidget2(@ptrCast(self), @ptrCast(widget), @intCast(wFlags));
     }
 
@@ -3120,11 +3120,11 @@ pub const qgraphicsscene = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -3192,11 +3192,11 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -3209,9 +3209,9 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -3315,9 +3315,9 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -3396,13 +3396,13 @@ pub const qgraphicsscene = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -3774,9 +3774,9 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsScene_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -3791,9 +3791,9 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsScene_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }

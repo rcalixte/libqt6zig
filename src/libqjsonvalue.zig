@@ -70,9 +70,9 @@ pub const qjsonvalue = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    pub fn New7(s: []const u8) QtC.QJsonValue {
+    pub fn New7(s: [:0]const u8) QtC.QJsonValue {
         const s_Cstring = s.ptr;
 
         return qtc.QJsonValue_new7(s_Cstring);

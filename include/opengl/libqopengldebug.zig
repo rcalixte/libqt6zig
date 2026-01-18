@@ -57,7 +57,7 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` qopengldebug_enums.Source `
     ///
-    pub fn Source(self: ?*anyopaque) i64 {
+    pub fn Source(self: ?*anyopaque) i32 {
         return qtc.QOpenGLDebugMessage_Source(@ptrCast(self));
     }
 
@@ -71,7 +71,7 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` qopengldebug_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QOpenGLDebugMessage_Type(@ptrCast(self));
     }
 
@@ -85,7 +85,7 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` qopengldebug_enums.Severity `
     ///
-    pub fn Severity(self: ?*anyopaque) i64 {
+    pub fn Severity(self: ?*anyopaque) i32 {
         return qtc.QOpenGLDebugMessage_Severity(@ptrCast(self));
     }
 
@@ -193,7 +193,7 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` severity: qopengldebug_enums.Severity `
     ///
-    pub fn CreateApplicationMessage3(text: []const u8, id: u32, severity: i64) QtC.QOpenGLDebugMessage {
+    pub fn CreateApplicationMessage3(text: []const u8, id: u32, severity: i32) QtC.QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -213,7 +213,7 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` typeVal: qopengldebug_enums.Type `
     ///
-    pub fn CreateApplicationMessage4(text: []const u8, id: u32, severity: i64, typeVal: i64) QtC.QOpenGLDebugMessage {
+    pub fn CreateApplicationMessage4(text: []const u8, id: u32, severity: i32, typeVal: i32) QtC.QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -247,7 +247,7 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` severity: qopengldebug_enums.Severity `
     ///
-    pub fn CreateThirdPartyMessage3(text: []const u8, id: u32, severity: i64) QtC.QOpenGLDebugMessage {
+    pub fn CreateThirdPartyMessage3(text: []const u8, id: u32, severity: i32) QtC.QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -267,7 +267,7 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` typeVal: qopengldebug_enums.Type `
     ///
-    pub fn CreateThirdPartyMessage4(text: []const u8, id: u32, severity: i64, typeVal: i64) QtC.QOpenGLDebugMessage {
+    pub fn CreateThirdPartyMessage4(text: []const u8, id: u32, severity: i32, typeVal: i32) QtC.QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -320,9 +320,9 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` self: QtC.QOpenGLDebugLogger `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLDebugLogger_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -373,11 +373,11 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -585,13 +585,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -605,15 +605,15 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -653,7 +653,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` source: qopengldebug_enums.Source `
     ///
-    pub fn PushGroup3(self: ?*anyopaque, name: []const u8, id: u32, source: i64) void {
+    pub fn PushGroup3(self: ?*anyopaque, name: []const u8, id: u32, source: i32) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -669,7 +669,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
-    pub fn EnableMessages1(self: ?*anyopaque, sources: i64) void {
+    pub fn EnableMessages1(self: ?*anyopaque, sources: i32) void {
         qtc.QOpenGLDebugLogger_EnableMessages1(@ptrCast(self), @intCast(sources));
     }
 
@@ -683,7 +683,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` types: flag of qopengldebug_enums.Type `
     ///
-    pub fn EnableMessages22(self: ?*anyopaque, sources: i64, types: i64) void {
+    pub fn EnableMessages22(self: ?*anyopaque, sources: i32, types: i32) void {
         qtc.QOpenGLDebugLogger_EnableMessages22(@ptrCast(self), @intCast(sources), @intCast(types));
     }
 
@@ -699,7 +699,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` severities: flag of qopengldebug_enums.Severity `
     ///
-    pub fn EnableMessages3(self: ?*anyopaque, sources: i64, types: i64, severities: i64) void {
+    pub fn EnableMessages3(self: ?*anyopaque, sources: i32, types: i32, severities: i32) void {
         qtc.QOpenGLDebugLogger_EnableMessages3(@ptrCast(self), @intCast(sources), @intCast(types), @intCast(severities));
     }
 
@@ -713,7 +713,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
-    pub fn EnableMessages23(self: ?*anyopaque, ids: []u32, sources: i64) void {
+    pub fn EnableMessages23(self: ?*anyopaque, ids: []u32, sources: i32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
@@ -733,7 +733,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` types: flag of qopengldebug_enums.Type `
     ///
-    pub fn EnableMessages32(self: ?*anyopaque, ids: []u32, sources: i64, types: i64) void {
+    pub fn EnableMessages32(self: ?*anyopaque, ids: []u32, sources: i32, types: i32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
@@ -749,7 +749,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
-    pub fn DisableMessages1(self: ?*anyopaque, sources: i64) void {
+    pub fn DisableMessages1(self: ?*anyopaque, sources: i32) void {
         qtc.QOpenGLDebugLogger_DisableMessages1(@ptrCast(self), @intCast(sources));
     }
 
@@ -763,7 +763,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` types: flag of qopengldebug_enums.Type `
     ///
-    pub fn DisableMessages22(self: ?*anyopaque, sources: i64, types: i64) void {
+    pub fn DisableMessages22(self: ?*anyopaque, sources: i32, types: i32) void {
         qtc.QOpenGLDebugLogger_DisableMessages22(@ptrCast(self), @intCast(sources), @intCast(types));
     }
 
@@ -779,7 +779,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` severities: flag of qopengldebug_enums.Severity `
     ///
-    pub fn DisableMessages3(self: ?*anyopaque, sources: i64, types: i64, severities: i64) void {
+    pub fn DisableMessages3(self: ?*anyopaque, sources: i32, types: i32, severities: i32) void {
         qtc.QOpenGLDebugLogger_DisableMessages3(@ptrCast(self), @intCast(sources), @intCast(types), @intCast(severities));
     }
 
@@ -793,7 +793,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
-    pub fn DisableMessages23(self: ?*anyopaque, ids: []u32, sources: i64) void {
+    pub fn DisableMessages23(self: ?*anyopaque, ids: []u32, sources: i32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
@@ -813,7 +813,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` types: flag of qopengldebug_enums.Type `
     ///
-    pub fn DisableMessages32(self: ?*anyopaque, ids: []u32, sources: i64, types: i64) void {
+    pub fn DisableMessages32(self: ?*anyopaque, ids: []u32, sources: i32, types: i32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
@@ -1088,11 +1088,11 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -1160,11 +1160,11 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` self: QtC.QOpenGLDebugLogger `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -1177,9 +1177,9 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` self: QtC.QOpenGLDebugLogger `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -1283,9 +1283,9 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` self: QtC.QOpenGLDebugLogger `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -1364,13 +1364,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -1842,9 +1842,9 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` self: QtC.QOpenGLDebugLogger `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLDebugLogger_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -1859,9 +1859,9 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` self: QtC.QOpenGLDebugLogger `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLDebugLogger_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -1970,7 +1970,7 @@ pub const enums = struct {
         pub const ApplicationSource: i32 = 16;
         pub const OtherSource: i32 = 32;
         pub const LastSource: i32 = 32;
-        pub const AnySource: i64 = 4294967295;
+        pub const AnySource: i32 = -1;
     };
 
     pub const Type = enum {
@@ -1985,7 +1985,7 @@ pub const enums = struct {
         pub const GroupPushType: i32 = 128;
         pub const GroupPopType: i32 = 256;
         pub const LastType: i32 = 256;
-        pub const AnyType: i64 = 4294967295;
+        pub const AnyType: i32 = -1;
     };
 
     pub const Severity = enum {
@@ -1995,7 +1995,7 @@ pub const enums = struct {
         pub const LowSeverity: i32 = 4;
         pub const NotificationSeverity: i32 = 8;
         pub const LastSeverity: i32 = 8;
-        pub const AnySeverity: i64 = 4294967295;
+        pub const AnySeverity: i32 = -1;
     };
 
     pub const LoggingMode = enum {

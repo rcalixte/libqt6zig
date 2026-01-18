@@ -66,8 +66,8 @@ static inline void libqt_free(const void* ptr) { free((void*)ptr); }
 static inline void libqt_string_free(libqt_string* str) {
     if (str && str->data) {
         free((void*)str->data);
-        *(const char**)&str->data = NULL;
-        *(size_t*)&str->len = 0;
+        str->data = NULL;
+        str->len = 0;
     }
 }
 

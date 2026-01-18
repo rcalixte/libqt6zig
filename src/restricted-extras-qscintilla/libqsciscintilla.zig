@@ -44,9 +44,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QsciScintilla_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -97,11 +97,11 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -1728,9 +1728,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` fillups: []const u8 `
+    /// ` fillups: [:0]const u8 `
     ///
-    pub fn SetAutoCompletionFillups(self: ?*anyopaque, fillups: []const u8) void {
+    pub fn SetAutoCompletionFillups(self: ?*anyopaque, fillups: [:0]const u8) void {
         const fillups_Cstring = fillups.ptr;
         qtc.QsciScintilla_SetAutoCompletionFillups(@ptrCast(self), fillups_Cstring);
     }
@@ -2649,7 +2649,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    pub fn WordCharacters(self: ?*anyopaque) []const u8 {
+    pub fn WordCharacters(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QsciScintilla_WordCharacters(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -5864,7 +5864,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` state: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn IndicatorClicked(self: ?*anyopaque, line: i32, index: i32, state: i64) void {
+    pub fn IndicatorClicked(self: ?*anyopaque, line: i32, index: i32, state: i32) void {
         qtc.QsciScintilla_IndicatorClicked(@ptrCast(self), @intCast(line), @intCast(index), @intCast(state));
     }
 
@@ -5876,7 +5876,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
-    pub fn OnIndicatorClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
+    pub fn OnIndicatorClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_IndicatorClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -5892,7 +5892,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` state: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn IndicatorReleased(self: ?*anyopaque, line: i32, index: i32, state: i64) void {
+    pub fn IndicatorReleased(self: ?*anyopaque, line: i32, index: i32, state: i32) void {
         qtc.QsciScintilla_IndicatorReleased(@ptrCast(self), @intCast(line), @intCast(index), @intCast(state));
     }
 
@@ -5904,7 +5904,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
-    pub fn OnIndicatorReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
+    pub fn OnIndicatorReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_IndicatorReleased(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -5942,7 +5942,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` state: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MarginClicked(self: ?*anyopaque, margin: i32, line: i32, state: i64) void {
+    pub fn MarginClicked(self: ?*anyopaque, margin: i32, line: i32, state: i32) void {
         qtc.QsciScintilla_MarginClicked(@ptrCast(self), @intCast(margin), @intCast(line), @intCast(state));
     }
 
@@ -5954,7 +5954,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
-    pub fn OnMarginClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
+    pub fn OnMarginClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_MarginClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -5970,7 +5970,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` state: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MarginRightClicked(self: ?*anyopaque, margin: i32, line: i32, state: i64) void {
+    pub fn MarginRightClicked(self: ?*anyopaque, margin: i32, line: i32, state: i32) void {
         qtc.QsciScintilla_MarginRightClicked(@ptrCast(self), @intCast(margin), @intCast(line), @intCast(state));
     }
 
@@ -5982,7 +5982,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
-    pub fn OnMarginRightClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
+    pub fn OnMarginRightClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_MarginRightClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -6270,13 +6270,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -6290,15 +6290,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -6636,9 +6636,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` wParam: usize `
     ///
-    /// ` lParam: []const u8 `
+    /// ` lParam: [:0]const u8 `
     ///
-    pub fn SendScintilla3(self: ?*anyopaque, msg: u32, wParam: usize, lParam: []const u8) i64 {
+    pub fn SendScintilla3(self: ?*anyopaque, msg: u32, wParam: usize, lParam: [:0]const u8) i64 {
         const lParam_Cstring = lParam.ptr;
         return qtc.QsciScintillaBase_SendScintilla3(@ptrCast(self), @intCast(msg), @intCast(wParam), lParam_Cstring);
     }
@@ -6653,9 +6653,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` lParam: []const u8 `
+    /// ` lParam: [:0]const u8 `
     ///
-    pub fn SendScintilla4(self: ?*anyopaque, msg: u32, lParam: []const u8) i64 {
+    pub fn SendScintilla4(self: ?*anyopaque, msg: u32, lParam: [:0]const u8) i64 {
         const lParam_Cstring = lParam.ptr;
         return qtc.QsciScintillaBase_SendScintilla4(@ptrCast(self), @intCast(msg), lParam_Cstring);
     }
@@ -6670,11 +6670,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` msg: u32 `
     ///
-    /// ` wParam: []const u8 `
+    /// ` wParam: [:0]const u8 `
     ///
-    /// ` lParam: []const u8 `
+    /// ` lParam: [:0]const u8 `
     ///
-    pub fn SendScintilla5(self: ?*anyopaque, msg: u32, wParam: []const u8, lParam: []const u8) i64 {
+    pub fn SendScintilla5(self: ?*anyopaque, msg: u32, wParam: [:0]const u8, lParam: [:0]const u8) i64 {
         const wParam_Cstring = wParam.ptr;
         const lParam_Cstring = lParam.ptr;
         return qtc.QsciScintillaBase_SendScintilla5(@ptrCast(self), @intCast(msg), wParam_Cstring, lParam_Cstring);
@@ -6726,9 +6726,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` cpMax: i64 `
     ///
-    /// ` lpstrText: []u8 `
+    /// ` lpstrText: [:0]u8 `
     ///
-    pub fn SendScintilla8(self: ?*anyopaque, msg: u32, cpMin: i64, cpMax: i64, lpstrText: []u8) i64 {
+    pub fn SendScintilla8(self: ?*anyopaque, msg: u32, cpMin: i64, cpMax: i64, lpstrText: [:0]u8) i64 {
         const lpstrText_Cstring = lpstrText.ptr;
         return qtc.QsciScintillaBase_SendScintilla8(@ptrCast(self), @intCast(msg), @intCast(cpMin), @intCast(cpMax), lpstrText_Cstring);
     }
@@ -6901,7 +6901,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` selection: []const u8 `
+    /// ` selection: [:0]const u8 `
     ///
     /// ` position: i32 `
     ///
@@ -6909,7 +6909,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` method: i32 `
     ///
-    pub fn SCN_AUTOCCOMPLETED(self: ?*anyopaque, selection: []const u8, position: i32, ch: i32, method: i32) void {
+    pub fn SCN_AUTOCCOMPLETED(self: ?*anyopaque, selection: [:0]const u8, position: i32, ch: i32, method: i32) void {
         const selection_Cstring = selection.ptr;
         qtc.QsciScintillaBase_SCN_AUTOCCOMPLETED(@ptrCast(self), selection_Cstring, @intCast(position), @intCast(ch), @intCast(method));
     }
@@ -6922,7 +6922,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` selection: []const u8 `
+    /// ` selection: [:0]const u8 `
     ///
     /// ` position: i32 `
     ///
@@ -6930,7 +6930,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` method: i32 `
     ///
-    pub fn SCN_AUTOCSELECTION(self: ?*anyopaque, selection: []const u8, position: i32, ch: i32, method: i32) void {
+    pub fn SCN_AUTOCSELECTION(self: ?*anyopaque, selection: [:0]const u8, position: i32, ch: i32, method: i32) void {
         const selection_Cstring = selection.ptr;
         qtc.QsciScintillaBase_SCN_AUTOCSELECTION(@ptrCast(self), selection_Cstring, @intCast(position), @intCast(ch), @intCast(method));
     }
@@ -6943,11 +6943,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` selection: []const u8 `
+    /// ` selection: [:0]const u8 `
     ///
     /// ` position: i32 `
     ///
-    pub fn SCN_AUTOCSELECTION2(self: ?*anyopaque, selection: []const u8, position: i32) void {
+    pub fn SCN_AUTOCSELECTION2(self: ?*anyopaque, selection: [:0]const u8, position: i32) void {
         const selection_Cstring = selection.ptr;
         qtc.QsciScintillaBase_SCN_AUTOCSELECTION2(@ptrCast(self), selection_Cstring, @intCast(position));
     }
@@ -6960,13 +6960,13 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` selection: []const u8 `
+    /// ` selection: [:0]const u8 `
     ///
     /// ` id: i32 `
     ///
     /// ` position: i32 `
     ///
-    pub fn SCN_AUTOCSELECTIONCHANGE(self: ?*anyopaque, selection: []const u8, id: i32, position: i32) void {
+    pub fn SCN_AUTOCSELECTIONCHANGE(self: ?*anyopaque, selection: [:0]const u8, id: i32, position: i32) void {
         const selection_Cstring = selection.ptr;
         qtc.QsciScintillaBase_SCN_AUTOCSELECTIONCHANGE(@ptrCast(self), selection_Cstring, @intCast(id), @intCast(position));
     }
@@ -7235,7 +7235,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` param2: i32 `
     ///
-    /// ` param3: []const u8 `
+    /// ` param3: [:0]const u8 `
     ///
     /// ` param4: i32 `
     ///
@@ -7251,7 +7251,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` param10: i32 `
     ///
-    pub fn SCN_MODIFIED(self: ?*anyopaque, param1: i32, param2: i32, param3: []const u8, param4: i32, param5: i32, param6: i32, param7: i32, param8: i32, param9: i32, param10: i32) void {
+    pub fn SCN_MODIFIED(self: ?*anyopaque, param1: i32, param2: i32, param3: [:0]const u8, param4: i32, param5: i32, param6: i32, param7: i32, param8: i32, param9: i32, param10: i32) void {
         const param3_Cstring = param3.ptr;
         qtc.QsciScintillaBase_SCN_MODIFIED(@ptrCast(self), @intCast(param1), @intCast(param2), param3_Cstring, @intCast(param4), @intCast(param5), @intCast(param6), @intCast(param7), @intCast(param8), @intCast(param9), @intCast(param10));
     }
@@ -7370,7 +7370,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` selection: []const u8 `
+    /// ` selection: [:0]const u8 `
     ///
     /// ` id: i32 `
     ///
@@ -7380,7 +7380,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` position: i32 `
     ///
-    pub fn SCN_USERLISTSELECTION(self: ?*anyopaque, selection: []const u8, id: i32, ch: i32, method: i32, position: i32) void {
+    pub fn SCN_USERLISTSELECTION(self: ?*anyopaque, selection: [:0]const u8, id: i32, ch: i32, method: i32, position: i32) void {
         const selection_Cstring = selection.ptr;
         qtc.QsciScintillaBase_SCN_USERLISTSELECTION(@ptrCast(self), selection_Cstring, @intCast(id), @intCast(ch), @intCast(method), @intCast(position));
     }
@@ -7393,7 +7393,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` selection: []const u8 `
+    /// ` selection: [:0]const u8 `
     ///
     /// ` id: i32 `
     ///
@@ -7401,7 +7401,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` method: i32 `
     ///
-    pub fn SCN_USERLISTSELECTION2(self: ?*anyopaque, selection: []const u8, id: i32, ch: i32, method: i32) void {
+    pub fn SCN_USERLISTSELECTION2(self: ?*anyopaque, selection: [:0]const u8, id: i32, ch: i32, method: i32) void {
         const selection_Cstring = selection.ptr;
         qtc.QsciScintillaBase_SCN_USERLISTSELECTION2(@ptrCast(self), selection_Cstring, @intCast(id), @intCast(ch), @intCast(method));
     }
@@ -7414,11 +7414,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` selection: []const u8 `
+    /// ` selection: [:0]const u8 `
     ///
     /// ` id: i32 `
     ///
-    pub fn SCN_USERLISTSELECTION3(self: ?*anyopaque, selection: []const u8, id: i32) void {
+    pub fn SCN_USERLISTSELECTION3(self: ?*anyopaque, selection: [:0]const u8, id: i32) void {
         const selection_Cstring = selection.ptr;
         qtc.QsciScintillaBase_SCN_USERLISTSELECTION3(@ptrCast(self), selection_Cstring, @intCast(id));
     }
@@ -9146,7 +9146,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
+    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -9160,7 +9160,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
+    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -10756,7 +10756,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
+    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
 
@@ -11059,7 +11059,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -11075,7 +11075,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i64 {
+    pub fn WindowFlags(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
 
@@ -11089,7 +11089,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
+    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
     }
 
@@ -11103,7 +11103,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
+    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -11119,7 +11119,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i64 {
+    pub fn WindowType(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
 
@@ -11453,7 +11453,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
 
@@ -11467,7 +11467,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -11605,7 +11605,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -11669,7 +11669,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -11715,7 +11715,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
+    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
 
@@ -11960,11 +11960,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -12032,11 +12032,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -12049,9 +12049,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -12155,9 +12155,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -12236,13 +12236,13 @@ pub const qsciscintilla = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -13048,7 +13048,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QsciScintilla_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -13064,7 +13064,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QsciScintilla_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -13080,7 +13080,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` callback: *const fn (self: QtC.QsciScintilla, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QsciScintilla_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -15470,9 +15470,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QsciScintilla_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -15487,9 +15487,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QsciScintilla_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }

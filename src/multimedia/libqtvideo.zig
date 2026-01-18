@@ -21,7 +21,7 @@ pub const qtvideo = struct {
     ///
     /// ` param1: qtvideo_enums.Rotation `
     ///
-    pub fn GetEnumName(param1: i32) []const u8 {
+    pub fn GetEnumName(param1: i32) [:0]const u8 {
         const _ret = qtc.QtVideo_GetEnumName(@intCast(param1));
         return std.mem.span(_ret);
     }

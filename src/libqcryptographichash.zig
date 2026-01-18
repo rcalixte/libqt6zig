@@ -57,11 +57,11 @@ pub const qcryptographichash = struct {
     ///
     /// ` self: QtC.QCryptographicHash `
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` length: i64 `
     ///
-    pub fn AddData(self: ?*anyopaque, data: []const u8, length: i64) void {
+    pub fn AddData(self: ?*anyopaque, data: [:0]const u8, length: i64) void {
         const data_Cstring = data.ptr;
         qtc.QCryptographicHash_AddData(@ptrCast(self), data_Cstring, @intCast(length));
     }

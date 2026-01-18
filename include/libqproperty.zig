@@ -92,7 +92,7 @@ pub const qpropertybindingsourcelocation = struct {
     ///
     /// ` self: QtC.QPropertyBindingSourceLocation `
     ///
-    pub fn FileName(self: ?*anyopaque) []const u8 {
+    pub fn FileName(self: ?*anyopaque) [:0]const u8 {
         const fileName_ret = qtc.QPropertyBindingSourceLocation_FileName(@ptrCast(self));
         return std.mem.span(fileName_ret);
     }
@@ -103,9 +103,9 @@ pub const qpropertybindingsourcelocation = struct {
     ///
     /// ` self: QtC.QPropertyBindingSourceLocation `
     ///
-    /// ` fileName: []const u8 `
+    /// ` fileName: [:0]const u8 `
     ///
-    pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
+    pub fn SetFileName(self: ?*anyopaque, fileName: [:0]const u8) void {
         const fileName_Cstring = fileName.ptr;
         qtc.QPropertyBindingSourceLocation_SetFileName(@ptrCast(self), fileName_Cstring);
     }
@@ -116,7 +116,7 @@ pub const qpropertybindingsourcelocation = struct {
     ///
     /// ` self: QtC.QPropertyBindingSourceLocation `
     ///
-    pub fn FunctionName(self: ?*anyopaque) []const u8 {
+    pub fn FunctionName(self: ?*anyopaque) [:0]const u8 {
         const functionName_ret = qtc.QPropertyBindingSourceLocation_FunctionName(@ptrCast(self));
         return std.mem.span(functionName_ret);
     }
@@ -127,9 +127,9 @@ pub const qpropertybindingsourcelocation = struct {
     ///
     /// ` self: QtC.QPropertyBindingSourceLocation `
     ///
-    /// ` functionName: []const u8 `
+    /// ` functionName: [:0]const u8 `
     ///
-    pub fn SetFunctionName(self: ?*anyopaque, functionName: []const u8) void {
+    pub fn SetFunctionName(self: ?*anyopaque, functionName: [:0]const u8) void {
         const functionName_Cstring = functionName.ptr;
         qtc.QPropertyBindingSourceLocation_SetFunctionName(@ptrCast(self), functionName_Cstring);
     }

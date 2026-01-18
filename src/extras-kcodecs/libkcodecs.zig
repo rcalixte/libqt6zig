@@ -306,17 +306,17 @@ pub const kcodecs__codec = struct {
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    /// ` scursor: []const u8 `
+    /// ` scursor: [:0]const u8 `
     ///
-    /// ` send: []const u8 `
+    /// ` send: [:0]const u8 `
     ///
-    /// ` dcursor: []u8 `
+    /// ` dcursor: [:0]u8 `
     ///
-    /// ` dend: []const u8 `
+    /// ` dend: [:0]const u8 `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn Encode(self: ?*anyopaque, scursor: []const u8, send: []const u8, dcursor: []u8, dend: []const u8, newline: i32) bool {
+    pub fn Encode(self: ?*anyopaque, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8, newline: i32) bool {
         const scursor_Cstring = scursor.ptr;
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
@@ -330,17 +330,17 @@ pub const kcodecs__codec = struct {
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    /// ` scursor: []const u8 `
+    /// ` scursor: [:0]const u8 `
     ///
-    /// ` send: []const u8 `
+    /// ` send: [:0]const u8 `
     ///
-    /// ` dcursor: []u8 `
+    /// ` dcursor: [:0]u8 `
     ///
-    /// ` dend: []const u8 `
+    /// ` dend: [:0]const u8 `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn Decode(self: ?*anyopaque, scursor: []const u8, send: []const u8, dcursor: []u8, dend: []const u8, newline: i32) bool {
+    pub fn Decode(self: ?*anyopaque, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8, newline: i32) bool {
         const scursor_Cstring = scursor.ptr;
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
@@ -398,7 +398,7 @@ pub const kcodecs__codec = struct {
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    pub fn Name(self: ?*anyopaque) []const u8 {
+    pub fn Name(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.KCodecs__Codec_Name(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -470,15 +470,15 @@ pub const kcodecs__decoder = struct {
     ///
     /// ` self: QtC.KCodecs__Decoder `
     ///
-    /// ` scursor: []const u8 `
+    /// ` scursor: [:0]const u8 `
     ///
-    /// ` send: []const u8 `
+    /// ` send: [:0]const u8 `
     ///
-    /// ` dcursor: []u8 `
+    /// ` dcursor: [:0]u8 `
     ///
-    /// ` dend: []const u8 `
+    /// ` dend: [:0]const u8 `
     ///
-    pub fn Decode(self: ?*anyopaque, scursor: []const u8, send: []const u8, dcursor: []u8, dend: []const u8) bool {
+    pub fn Decode(self: ?*anyopaque, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8) bool {
         const scursor_Cstring = scursor.ptr;
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
@@ -492,11 +492,11 @@ pub const kcodecs__decoder = struct {
     ///
     /// ` self: QtC.KCodecs__Decoder `
     ///
-    /// ` dcursor: []u8 `
+    /// ` dcursor: [:0]u8 `
     ///
-    /// ` dend: []const u8 `
+    /// ` dend: [:0]const u8 `
     ///
-    pub fn Finish(self: ?*anyopaque, dcursor: []u8, dend: []const u8) bool {
+    pub fn Finish(self: ?*anyopaque, dcursor: [:0]u8, dend: [:0]const u8) bool {
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
         return qtc.KCodecs__Decoder_Finish(@ptrCast(self), dcursor_Cstring, dend_Cstring);
@@ -521,15 +521,15 @@ pub const kcodecs__encoder = struct {
     ///
     /// ` self: QtC.KCodecs__Encoder `
     ///
-    /// ` scursor: []const u8 `
+    /// ` scursor: [:0]const u8 `
     ///
-    /// ` send: []const u8 `
+    /// ` send: [:0]const u8 `
     ///
-    /// ` dcursor: []u8 `
+    /// ` dcursor: [:0]u8 `
     ///
-    /// ` dend: []const u8 `
+    /// ` dend: [:0]const u8 `
     ///
-    pub fn Encode(self: ?*anyopaque, scursor: []const u8, send: []const u8, dcursor: []u8, dend: []const u8) bool {
+    pub fn Encode(self: ?*anyopaque, scursor: [:0]const u8, send: [:0]const u8, dcursor: [:0]u8, dend: [:0]const u8) bool {
         const scursor_Cstring = scursor.ptr;
         const send_Cstring = send.ptr;
         const dcursor_Cstring = dcursor.ptr;
@@ -543,11 +543,11 @@ pub const kcodecs__encoder = struct {
     ///
     /// ` self: QtC.KCodecs__Encoder `
     ///
-    /// ` dcursor: []u8 `
+    /// ` dcursor: [:0]u8 `
     ///
-    /// ` dend: []const u8 `
+    /// ` dend: [:0]const u8 `
     ///
-    pub fn Finish(self: ?*anyopaque, dcursor: []u8, dend: []const u8) bool {
+    pub fn Finish(self: ?*anyopaque, dcursor: [:0]u8, dend: [:0]const u8) bool {
         const dcursor_Cstring = dcursor.ptr;
         const dend_Cstring = dend.ptr;
         return qtc.KCodecs__Encoder_Finish(@ptrCast(self), dcursor_Cstring, dend_Cstring);

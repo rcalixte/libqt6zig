@@ -139,7 +139,7 @@ pub const kstandardactions__kstandardactionsinfo = struct {
     ///
     /// ` self: QtC.KStandardActions__KStandardActionsInfo `
     ///
-    pub fn PsLabel(self: ?*anyopaque) []const u8 {
+    pub fn PsLabel(self: ?*anyopaque) [:0]const u8 {
         const psLabel_ret = qtc.KStandardActions__KStandardActionsInfo_PsLabel(@ptrCast(self));
         return std.mem.span(psLabel_ret);
     }
@@ -150,9 +150,9 @@ pub const kstandardactions__kstandardactionsinfo = struct {
     ///
     /// ` self: QtC.KStandardActions__KStandardActionsInfo `
     ///
-    /// ` psLabel: []const u8 `
+    /// ` psLabel: [:0]const u8 `
     ///
-    pub fn SetPsLabel(self: ?*anyopaque, psLabel: []const u8) void {
+    pub fn SetPsLabel(self: ?*anyopaque, psLabel: [:0]const u8) void {
         const psLabel_Cstring = psLabel.ptr;
         qtc.KStandardActions__KStandardActionsInfo_SetPsLabel(@ptrCast(self), psLabel_Cstring);
     }
@@ -163,7 +163,7 @@ pub const kstandardactions__kstandardactionsinfo = struct {
     ///
     /// ` self: QtC.KStandardActions__KStandardActionsInfo `
     ///
-    pub fn PsToolTip(self: ?*anyopaque) []const u8 {
+    pub fn PsToolTip(self: ?*anyopaque) [:0]const u8 {
         const psToolTip_ret = qtc.KStandardActions__KStandardActionsInfo_PsToolTip(@ptrCast(self));
         return std.mem.span(psToolTip_ret);
     }
@@ -174,9 +174,9 @@ pub const kstandardactions__kstandardactionsinfo = struct {
     ///
     /// ` self: QtC.KStandardActions__KStandardActionsInfo `
     ///
-    /// ` psToolTip: []const u8 `
+    /// ` psToolTip: [:0]const u8 `
     ///
-    pub fn SetPsToolTip(self: ?*anyopaque, psToolTip: []const u8) void {
+    pub fn SetPsToolTip(self: ?*anyopaque, psToolTip: [:0]const u8) void {
         const psToolTip_Cstring = psToolTip.ptr;
         qtc.KStandardActions__KStandardActionsInfo_SetPsToolTip(@ptrCast(self), psToolTip_Cstring);
     }

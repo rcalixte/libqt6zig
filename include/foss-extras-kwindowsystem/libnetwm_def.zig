@@ -1295,7 +1295,7 @@ pub const enums = struct {
         pub const OnScreenDisplayMask: i32 = 65536;
         pub const CriticalNotificationMask: i32 = 131072;
         pub const AppletPopupMask: i32 = 262144;
-        pub const AllTypesMask: i64 = 4294967295;
+        pub const AllTypesMask: i32 = -1;
     };
 
     pub const State = enum {
@@ -1381,8 +1381,8 @@ pub const enums = struct {
         pub const WMFrameExtents: i32 = 268435456;
         pub const WMIconName: i32 = 536870912;
         pub const WMVisibleIconName: i32 = 1073741824;
-        pub const WMGeometry: i64 = 2147483648;
-        pub const WMAllProperties: i64 = 4294967295;
+        pub const WMGeometry: i32 = -2147483648;
+        pub const WMAllProperties: i32 = -1;
     };
 
     pub const Property2 = enum {
@@ -1418,8 +1418,8 @@ pub const enums = struct {
         pub const WM2AppMenuServiceName: i32 = 268435456;
         pub const WM2AppMenuObjectPath: i32 = 536870912;
         pub const WM2GTKApplicationId: i32 = 1073741824;
-        pub const WM2GTKShowWindowMenu: i64 = 2147483648;
-        pub const WM2AllProperties: i64 = 4294967295;
+        pub const WM2GTKShowWindowMenu: i32 = -2147483648;
+        pub const WM2AllProperties: i32 = -1;
     };
 
     pub const NET = enum {

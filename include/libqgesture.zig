@@ -38,9 +38,9 @@ pub const qgesture = struct {
     ///
     /// ` self: QtC.QGesture `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -91,11 +91,11 @@ pub const qgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -114,7 +114,7 @@ pub const qgesture = struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: ?*anyopaque) i64 {
+    pub fn GestureType(self: ?*anyopaque) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
@@ -204,13 +204,13 @@ pub const qgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -224,15 +224,15 @@ pub const qgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -497,11 +497,11 @@ pub const qgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -569,11 +569,11 @@ pub const qgesture = struct {
     ///
     /// ` self: QtC.QGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -586,9 +586,9 @@ pub const qgesture = struct {
     ///
     /// ` self: QtC.QGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -692,9 +692,9 @@ pub const qgesture = struct {
     ///
     /// ` self: QtC.QGesture `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -773,13 +773,13 @@ pub const qgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -1251,9 +1251,9 @@ pub const qgesture = struct {
     ///
     /// ` self: QtC.QGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -1268,9 +1268,9 @@ pub const qgesture = struct {
     ///
     /// ` self: QtC.QGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -1400,9 +1400,9 @@ pub const qpangesture = struct {
     ///
     /// ` self: QtC.QPanGesture `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPanGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -1453,11 +1453,11 @@ pub const qpangesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -1546,13 +1546,13 @@ pub const qpangesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1566,15 +1566,15 @@ pub const qpangesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -1596,7 +1596,7 @@ pub const qpangesture = struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: ?*anyopaque) i64 {
+    pub fn GestureType(self: ?*anyopaque) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
@@ -1951,11 +1951,11 @@ pub const qpangesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -2023,11 +2023,11 @@ pub const qpangesture = struct {
     ///
     /// ` self: QtC.QPanGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -2040,9 +2040,9 @@ pub const qpangesture = struct {
     ///
     /// ` self: QtC.QPanGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -2146,9 +2146,9 @@ pub const qpangesture = struct {
     ///
     /// ` self: QtC.QPanGesture `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -2227,13 +2227,13 @@ pub const qpangesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -2705,9 +2705,9 @@ pub const qpangesture = struct {
     ///
     /// ` self: QtC.QPanGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPanGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -2722,9 +2722,9 @@ pub const qpangesture = struct {
     ///
     /// ` self: QtC.QPanGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPanGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -2854,9 +2854,9 @@ pub const qpinchgesture = struct {
     ///
     /// ` self: QtC.QPinchGesture `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPinchGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -2907,11 +2907,11 @@ pub const qpinchgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -3174,13 +3174,13 @@ pub const qpinchgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -3194,15 +3194,15 @@ pub const qpinchgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -3224,7 +3224,7 @@ pub const qpinchgesture = struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: ?*anyopaque) i64 {
+    pub fn GestureType(self: ?*anyopaque) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
@@ -3579,11 +3579,11 @@ pub const qpinchgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -3651,11 +3651,11 @@ pub const qpinchgesture = struct {
     ///
     /// ` self: QtC.QPinchGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -3668,9 +3668,9 @@ pub const qpinchgesture = struct {
     ///
     /// ` self: QtC.QPinchGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -3774,9 +3774,9 @@ pub const qpinchgesture = struct {
     ///
     /// ` self: QtC.QPinchGesture `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -3855,13 +3855,13 @@ pub const qpinchgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -4333,9 +4333,9 @@ pub const qpinchgesture = struct {
     ///
     /// ` self: QtC.QPinchGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPinchGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -4350,9 +4350,9 @@ pub const qpinchgesture = struct {
     ///
     /// ` self: QtC.QPinchGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPinchGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -4482,9 +4482,9 @@ pub const qswipegesture = struct {
     ///
     /// ` self: QtC.QSwipeGesture `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSwipeGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -4535,11 +4535,11 @@ pub const qswipegesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -4602,13 +4602,13 @@ pub const qswipegesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -4622,15 +4622,15 @@ pub const qswipegesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -4652,7 +4652,7 @@ pub const qswipegesture = struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: ?*anyopaque) i64 {
+    pub fn GestureType(self: ?*anyopaque) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
@@ -5007,11 +5007,11 @@ pub const qswipegesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -5079,11 +5079,11 @@ pub const qswipegesture = struct {
     ///
     /// ` self: QtC.QSwipeGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -5096,9 +5096,9 @@ pub const qswipegesture = struct {
     ///
     /// ` self: QtC.QSwipeGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -5202,9 +5202,9 @@ pub const qswipegesture = struct {
     ///
     /// ` self: QtC.QSwipeGesture `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -5283,13 +5283,13 @@ pub const qswipegesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -5761,9 +5761,9 @@ pub const qswipegesture = struct {
     ///
     /// ` self: QtC.QSwipeGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSwipeGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -5778,9 +5778,9 @@ pub const qswipegesture = struct {
     ///
     /// ` self: QtC.QSwipeGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSwipeGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -5910,9 +5910,9 @@ pub const qtapgesture = struct {
     ///
     /// ` self: QtC.QTapGesture `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTapGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -5963,11 +5963,11 @@ pub const qtapgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -6002,13 +6002,13 @@ pub const qtapgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -6022,15 +6022,15 @@ pub const qtapgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -6052,7 +6052,7 @@ pub const qtapgesture = struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: ?*anyopaque) i64 {
+    pub fn GestureType(self: ?*anyopaque) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
@@ -6407,11 +6407,11 @@ pub const qtapgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -6479,11 +6479,11 @@ pub const qtapgesture = struct {
     ///
     /// ` self: QtC.QTapGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -6496,9 +6496,9 @@ pub const qtapgesture = struct {
     ///
     /// ` self: QtC.QTapGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -6602,9 +6602,9 @@ pub const qtapgesture = struct {
     ///
     /// ` self: QtC.QTapGesture `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -6683,13 +6683,13 @@ pub const qtapgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -7161,9 +7161,9 @@ pub const qtapgesture = struct {
     ///
     /// ` self: QtC.QTapGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTapGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -7178,9 +7178,9 @@ pub const qtapgesture = struct {
     ///
     /// ` self: QtC.QTapGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTapGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -7310,9 +7310,9 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` self: QtC.QTapAndHoldGesture `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QTapAndHoldGesture_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -7363,11 +7363,11 @@ pub const qtapandholdgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -7418,13 +7418,13 @@ pub const qtapandholdgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -7438,15 +7438,15 @@ pub const qtapandholdgesture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -7468,7 +7468,7 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: ?*anyopaque) i64 {
+    pub fn GestureType(self: ?*anyopaque) i32 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
 
@@ -7823,11 +7823,11 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -7895,11 +7895,11 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` self: QtC.QTapAndHoldGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -7912,9 +7912,9 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` self: QtC.QTapAndHoldGesture `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -8018,9 +8018,9 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` self: QtC.QTapAndHoldGesture `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -8099,13 +8099,13 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -8577,9 +8577,9 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` self: QtC.QTapAndHoldGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTapAndHoldGesture_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -8594,9 +8594,9 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` self: QtC.QTapAndHoldGesture `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QTapAndHoldGesture_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -8746,7 +8746,7 @@ pub const qgestureevent = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn Gesture(self: ?*anyopaque, typeVal: i64) QtC.QGesture {
+    pub fn Gesture(self: ?*anyopaque, typeVal: i32) QtC.QGesture {
         return qtc.QGestureEvent_Gesture(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -8844,7 +8844,7 @@ pub const qgestureevent = struct {
     ///
     /// ` param2: bool `
     ///
-    pub fn SetAccepted2(self: ?*anyopaque, param1: i64, param2: bool) void {
+    pub fn SetAccepted2(self: ?*anyopaque, param1: i32, param2: bool) void {
         qtc.QGestureEvent_SetAccepted2(@ptrCast(self), @intCast(param1), param2);
     }
 
@@ -8856,7 +8856,7 @@ pub const qgestureevent = struct {
     ///
     /// ` param1: qnamespace_enums.GestureType `
     ///
-    pub fn Accept2(self: ?*anyopaque, param1: i64) void {
+    pub fn Accept2(self: ?*anyopaque, param1: i32) void {
         qtc.QGestureEvent_Accept2(@ptrCast(self), @intCast(param1));
     }
 
@@ -8868,7 +8868,7 @@ pub const qgestureevent = struct {
     ///
     /// ` param1: qnamespace_enums.GestureType `
     ///
-    pub fn Ignore2(self: ?*anyopaque, param1: i64) void {
+    pub fn Ignore2(self: ?*anyopaque, param1: i32) void {
         qtc.QGestureEvent_Ignore2(@ptrCast(self), @intCast(param1));
     }
 
@@ -8880,7 +8880,7 @@ pub const qgestureevent = struct {
     ///
     /// ` param1: qnamespace_enums.GestureType `
     ///
-    pub fn IsAccepted2(self: ?*anyopaque, param1: i64) bool {
+    pub fn IsAccepted2(self: ?*anyopaque, param1: i32) bool {
         return qtc.QGestureEvent_IsAccepted2(@ptrCast(self), @intCast(param1));
     }
 

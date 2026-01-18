@@ -95,9 +95,9 @@ pub const qmetatype = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` typeName: []const u8 `
+    /// ` typeName: [:0]const u8 `
     ///
-    pub fn Type(typeName: []const u8) i32 {
+    pub fn Type(typeName: [:0]const u8) i32 {
         const typeName_Cstring = typeName.ptr;
         return qtc.QMetaType_Type(typeName_Cstring);
     }
@@ -122,7 +122,7 @@ pub const qmetatype = struct {
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn TypeName(typeVal: i32) []const u8 {
+    pub fn TypeName(typeVal: i32) [:0]const u8 {
         const _ret = qtc.QMetaType_TypeName(@intCast(typeVal));
         return std.mem.span(_ret);
     }
@@ -309,7 +309,7 @@ pub const qmetatype = struct {
     ///
     /// ` self: QtC.QMetaType `
     ///
-    pub fn Name(self: ?*anyopaque) []const u8 {
+    pub fn Name(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QMetaType_Name(@ptrCast(self));
         return std.mem.span(_ret);
     }

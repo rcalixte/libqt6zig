@@ -98,9 +98,9 @@ pub const qscicommandset = struct {
     ///
     /// ` qs: QtC.QSettings `
     ///
-    /// ` prefix: []const u8 `
+    /// ` prefix: [:0]const u8 `
     ///
-    pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: [:0]const u8) bool {
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciCommandSet_ReadSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }
@@ -113,9 +113,9 @@ pub const qscicommandset = struct {
     ///
     /// ` qs: QtC.QSettings `
     ///
-    /// ` prefix: []const u8 `
+    /// ` prefix: [:0]const u8 `
     ///
-    pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
+    pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: [:0]const u8) bool {
         const prefix_Cstring = prefix.ptr;
         return qtc.QsciCommandSet_WriteSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }

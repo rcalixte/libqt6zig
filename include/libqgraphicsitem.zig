@@ -562,7 +562,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -574,7 +574,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -2168,7 +2168,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -2180,7 +2180,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -3092,7 +3092,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -3106,7 +3106,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3120,7 +3120,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -3176,7 +3176,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -3190,7 +3190,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3204,7 +3204,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -3218,7 +3218,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -3232,7 +3232,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3248,7 +3248,7 @@ pub const qgraphicsitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -3656,9 +3656,9 @@ pub const qgraphicsobject = struct {
     ///
     /// ` self: QtC.QGraphicsObject `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsObject_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -3709,11 +3709,11 @@ pub const qgraphicsobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -3730,7 +3730,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
+    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
         qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -3742,7 +3742,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
+    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
         qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -4090,13 +4090,13 @@ pub const qgraphicsobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -4110,15 +4110,15 @@ pub const qgraphicsobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -4138,7 +4138,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
         qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -4397,11 +4397,11 @@ pub const qgraphicsobject = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -4469,11 +4469,11 @@ pub const qgraphicsobject = struct {
     ///
     /// ` self: QtC.QGraphicsObject `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -4486,9 +4486,9 @@ pub const qgraphicsobject = struct {
     ///
     /// ` self: QtC.QGraphicsObject `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -4592,9 +4592,9 @@ pub const qgraphicsobject = struct {
     ///
     /// ` self: QtC.QGraphicsObject `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -4673,13 +4673,13 @@ pub const qgraphicsobject = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -5348,7 +5348,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -5362,7 +5362,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -6790,7 +6790,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -6804,7 +6804,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -8823,7 +8823,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsObject_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -8839,7 +8839,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsObject_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -8855,7 +8855,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsObject, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsObject_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -8923,7 +8923,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsObject_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -8939,7 +8939,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsObject_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -8955,7 +8955,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsObject, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsObject_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -8973,7 +8973,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsObject_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -8991,7 +8991,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsObject_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -9007,7 +9007,7 @@ pub const qgraphicsobject = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsObject, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -9157,9 +9157,9 @@ pub const qgraphicsobject = struct {
     ///
     /// ` self: QtC.QGraphicsObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsObject_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -9174,9 +9174,9 @@ pub const qgraphicsobject = struct {
     ///
     /// ` self: QtC.QGraphicsObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsObject_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -10179,7 +10179,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -10193,7 +10193,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -11621,7 +11621,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -11635,7 +11635,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -13270,7 +13270,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QAbstractGraphicsShapeItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -13286,7 +13286,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QAbstractGraphicsShapeItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -13302,7 +13302,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QAbstractGraphicsShapeItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -13370,7 +13370,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QAbstractGraphicsShapeItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -13386,7 +13386,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QAbstractGraphicsShapeItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -13402,7 +13402,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QAbstractGraphicsShapeItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -13420,7 +13420,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QAbstractGraphicsShapeItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -13438,7 +13438,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QAbstractGraphicsShapeItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -13454,7 +13454,7 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractGraphicsShapeItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -14037,7 +14037,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsPathItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -14051,7 +14051,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsPathItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -14065,7 +14065,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsPathItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -14079,7 +14079,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsPathItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -14093,7 +14093,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsPathItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -14109,7 +14109,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsPathItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -14840,7 +14840,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -14854,7 +14854,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -16282,7 +16282,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -16296,7 +16296,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -17695,7 +17695,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsPathItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -17711,7 +17711,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsPathItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -17727,7 +17727,7 @@ pub const qgraphicspathitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsPathItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsPathItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -18366,7 +18366,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsRectItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -18380,7 +18380,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsRectItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -18394,7 +18394,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsRectItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -18408,7 +18408,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsRectItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -18422,7 +18422,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsRectItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -18438,7 +18438,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsRectItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -19169,7 +19169,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -19183,7 +19183,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -20611,7 +20611,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -20625,7 +20625,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -22024,7 +22024,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsRectItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -22040,7 +22040,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsRectItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -22056,7 +22056,7 @@ pub const qgraphicsrectitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsRectItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsRectItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -22739,7 +22739,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsEllipseItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -22753,7 +22753,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsEllipseItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -22767,7 +22767,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsEllipseItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -22781,7 +22781,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsEllipseItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -22795,7 +22795,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsEllipseItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -22811,7 +22811,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsEllipseItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -23542,7 +23542,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -23556,7 +23556,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -24984,7 +24984,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -24998,7 +24998,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -26397,7 +26397,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsEllipseItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -26413,7 +26413,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsEllipseItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -26429,7 +26429,7 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsEllipseItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsEllipseItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -26998,7 +26998,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsPolygonItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -27012,7 +27012,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsPolygonItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -27026,7 +27026,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsPolygonItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -27040,7 +27040,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsPolygonItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -27054,7 +27054,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsPolygonItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -27070,7 +27070,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsPolygonItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -27801,7 +27801,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -27815,7 +27815,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -29243,7 +29243,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -29257,7 +29257,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -30656,7 +30656,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsPolygonItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -30672,7 +30672,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsPolygonItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -30688,7 +30688,7 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsPolygonItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsPolygonItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -31349,7 +31349,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsLineItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -31363,7 +31363,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsLineItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -31377,7 +31377,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsLineItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -31391,7 +31391,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsLineItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -31405,7 +31405,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsLineItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -31421,7 +31421,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsLineItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -32100,7 +32100,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -32114,7 +32114,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -33542,7 +33542,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -33556,7 +33556,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -34955,7 +34955,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsLineItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -34971,7 +34971,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsLineItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -34987,7 +34987,7 @@ pub const qgraphicslineitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsLineItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsLineItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -35662,7 +35662,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsPixmapItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -35676,7 +35676,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsPixmapItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -35690,7 +35690,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsPixmapItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -35704,7 +35704,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsPixmapItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -35718,7 +35718,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsPixmapItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -35734,7 +35734,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsPixmapItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -36413,7 +36413,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -36427,7 +36427,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -37855,7 +37855,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -37869,7 +37869,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -39268,7 +39268,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsPixmapItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -39284,7 +39284,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsPixmapItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -39300,7 +39300,7 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsPixmapItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsPixmapItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -39609,9 +39609,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGraphicsTextItem_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -39662,11 +39662,11 @@ pub const qgraphicstextitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -40985,7 +40985,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsTextItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -40999,7 +40999,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsTextItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -41013,7 +41013,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsTextItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -41025,7 +41025,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsTextItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -41039,7 +41039,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsTextItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -41053,7 +41053,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsTextItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -41067,7 +41067,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsTextItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -41081,7 +41081,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsTextItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsTextItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -41097,7 +41097,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsTextItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -41145,13 +41145,13 @@ pub const qgraphicstextitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -41165,15 +41165,15 @@ pub const qgraphicstextitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -41193,7 +41193,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
+    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
         qtc.QGraphicsObject_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -41207,7 +41207,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
+    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
         qtc.QGraphicsObject_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -41535,7 +41535,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
         qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -41794,11 +41794,11 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -41866,11 +41866,11 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -41883,9 +41883,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -41989,9 +41989,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -42070,13 +42070,13 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -42745,7 +42745,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -42759,7 +42759,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -44187,7 +44187,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -44201,7 +44201,7 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -45258,9 +45258,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsTextItem_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -45275,9 +45275,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// ` self: QtC.QGraphicsTextItem `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QGraphicsTextItem_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -45891,7 +45891,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsSimpleTextItem_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -45905,7 +45905,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsSimpleTextItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -45919,7 +45919,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsSimpleTextItem_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -45933,7 +45933,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsSimpleTextItem_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -45947,7 +45947,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsSimpleTextItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -45963,7 +45963,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsSimpleTextItem_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -46694,7 +46694,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -46708,7 +46708,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -48136,7 +48136,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -48150,7 +48150,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -49549,7 +49549,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsSimpleTextItem_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -49565,7 +49565,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsSimpleTextItem_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -49581,7 +49581,7 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsSimpleTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsSimpleTextItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -50699,7 +50699,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
+    pub fn AcceptedMouseButtons(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
 
@@ -50713,7 +50713,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
+    pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i32) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
 
@@ -52141,7 +52141,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
 
@@ -52155,7 +52155,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -53646,7 +53646,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsItemGroup_InputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -53662,7 +53662,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
         return qtc.QGraphicsItemGroup_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
     }
 
@@ -53678,7 +53678,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsItemGroup_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -53746,7 +53746,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn SupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn SupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsItemGroup_SupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -53762,7 +53762,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` extension: qgraphicsitem_enums.Extension `
     ///
-    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i64) bool {
+    pub fn QBaseSupportsExtension(self: ?*anyopaque, extension: i32) bool {
         return qtc.QGraphicsItemGroup_QBaseSupportsExtension(@ptrCast(self), @intCast(extension));
     }
 
@@ -53778,7 +53778,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, extension: qgraphicsitem_enums.Extension) callconv(.c) bool `
     ///
-    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsItemGroup_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -53796,7 +53796,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn SetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn SetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsItemGroup_SetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -53814,7 +53814,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` variant: QtC.QVariant `
     ///
-    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i64, variant: ?*anyopaque) void {
+    pub fn QBaseSetExtension(self: ?*anyopaque, extension: i32, variant: ?*anyopaque) void {
         qtc.QGraphicsItemGroup_QBaseSetExtension(@ptrCast(self), @intCast(extension), @ptrCast(variant));
     }
 
@@ -53830,7 +53830,7 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// ` callback: *const fn (self: QtC.QGraphicsItemGroup, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void `
     ///
-    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsItemGroup_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -54150,7 +54150,7 @@ pub const enums = struct {
     };
 
     pub const Extension = enum {
-        pub const UserExtension: i64 = 2147483648;
+        pub const UserExtension: i32 = -2147483648;
     };
 
     pub const QGraphicsPathItem = enum {

@@ -93,7 +93,7 @@ pub const qpicture = struct {
     ///
     /// ` self: QtC.QPicture `
     ///
-    pub fn Data(self: ?*anyopaque) []const u8 {
+    pub fn Data(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QPicture_Data(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -104,11 +104,11 @@ pub const qpicture = struct {
     ///
     /// ` self: QtC.QPicture `
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` size: u32 `
     ///
-    pub fn SetData(self: ?*anyopaque, data: []const u8, size: u32) void {
+    pub fn SetData(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
         qtc.QPicture_SetData(@ptrCast(self), data_Cstring, @intCast(size));
     }
@@ -135,11 +135,11 @@ pub const qpicture = struct {
     ///
     /// ` self: QtC.QPicture `
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` size: u32 `
     ///
-    pub fn QBaseSetData(self: ?*anyopaque, data: []const u8, size: u32) void {
+    pub fn QBaseSetData(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
         qtc.QPicture_QBaseSetData(@ptrCast(self), data_Cstring, @intCast(size));
     }

@@ -35,7 +35,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New3(parent: ?*anyopaque, flags: i64) QtC.QMdiSubWindow {
+    pub fn New3(parent: ?*anyopaque, flags: i32) QtC.QMdiSubWindow {
         return qtc.QMdiSubWindow_new3(@ptrCast(parent), @intCast(flags));
     }
 
@@ -53,9 +53,9 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QMdiSubWindow_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -106,11 +106,11 @@ pub const qmdisubwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -1219,13 +1219,13 @@ pub const qmdisubwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1239,15 +1239,15 @@ pub const qmdisubwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -2543,7 +2543,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i64) void {
+    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -2557,7 +2557,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i64) void {
+    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -4153,7 +4153,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
+    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
 
@@ -4456,7 +4456,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -4472,7 +4472,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i64 {
+    pub fn WindowFlags(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
 
@@ -4486,7 +4486,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i64) void {
+    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self), @intCast(param1));
     }
 
@@ -4500,7 +4500,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
+    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -4516,7 +4516,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i64 {
+    pub fn WindowType(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
 
@@ -4850,7 +4850,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i64 {
+    pub fn InputMethodHints(self: ?*anyopaque) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
 
@@ -4864,7 +4864,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
+    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
 
@@ -5002,7 +5002,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i32) void {
+    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
 
@@ -5066,7 +5066,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -5112,7 +5112,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
+    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
 
@@ -5357,11 +5357,11 @@ pub const qmdisubwindow = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -5429,11 +5429,11 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -5446,9 +5446,9 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -5552,9 +5552,9 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -5633,13 +5633,13 @@ pub const qmdisubwindow = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -6799,7 +6799,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
+    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
         return qtc.QMdiSubWindow_InputMethodQuery(@ptrCast(self), @intCast(param1));
     }
 
@@ -6815,7 +6815,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
         return qtc.QMdiSubWindow_QBaseInputMethodQuery(@ptrCast(self), @intCast(param1));
     }
 
@@ -6831,7 +6831,7 @@ pub const qmdisubwindow = struct {
     ///
     /// ` callback: *const fn (self: QtC.QMdiSubWindow, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QMdiSubWindow_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -7345,9 +7345,9 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QMdiSubWindow_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -7362,9 +7362,9 @@ pub const qmdisubwindow = struct {
     ///
     /// ` self: QtC.QMdiSubWindow `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QMdiSubWindow_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }

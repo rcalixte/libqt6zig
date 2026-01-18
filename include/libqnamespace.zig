@@ -182,7 +182,7 @@ pub const qkeycombination = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.Modifier `
     ///
-    pub fn New4(modifiers: i64) QtC.QKeyCombination {
+    pub fn New4(modifiers: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new4(@intCast(modifiers));
     }
 
@@ -192,7 +192,7 @@ pub const qkeycombination = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn New5(modifiers: i64) QtC.QKeyCombination {
+    pub fn New5(modifiers: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new5(@intCast(modifiers));
     }
 
@@ -224,7 +224,7 @@ pub const qkeycombination = struct {
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn New8(modifiers: i64, key: i32) QtC.QKeyCombination {
+    pub fn New8(modifiers: i32, key: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new8(@intCast(modifiers), @intCast(key));
     }
 
@@ -236,7 +236,7 @@ pub const qkeycombination = struct {
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn New9(modifiers: i64, key: i32) QtC.QKeyCombination {
+    pub fn New9(modifiers: i32, key: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new9(@intCast(modifiers), @intCast(key));
     }
 
@@ -274,7 +274,7 @@ pub const qkeycombination = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn KeyboardModifiers(self: ?*anyopaque) i64 {
+    pub fn KeyboardModifiers(self: ?*anyopaque) i32 {
         return qtc.QKeyCombination_KeyboardModifiers(@ptrCast(self));
     }
 
@@ -402,7 +402,7 @@ pub const enums = struct {
         pub const ExtraButton24: i32 = 67108864;
         pub const AllButtons: i32 = 134217727;
         pub const MaxMouseButton: i32 = 67108864;
-        pub const MouseButtonMask: i64 = 4294967295;
+        pub const MouseButtonMask: i32 = -1;
     };
 
     pub const Orientation = enum {
@@ -531,7 +531,7 @@ pub const enums = struct {
         pub const MacWindowToolBarButtonHint: i32 = 268435456;
         pub const BypassGraphicsProxyWidget: i32 = 536870912;
         pub const NoDropShadowWindowHint: i32 = 1073741824;
-        pub const WindowFullscreenButtonHint: i64 = 2147483648;
+        pub const WindowFullscreenButtonHint: i32 = -2147483648;
     };
 
     pub const WindowState = enum {
@@ -1205,7 +1205,7 @@ pub const enums = struct {
         pub const MetaModifier: i32 = 268435456;
         pub const KeypadModifier: i32 = 536870912;
         pub const GroupSwitchModifier: i32 = 1073741824;
-        pub const KeyboardModifierMask: i64 = 4261412864;
+        pub const KeyboardModifierMask: i32 = -33554432;
     };
 
     pub const Modifier = enum {
@@ -1213,7 +1213,7 @@ pub const enums = struct {
         pub const SHIFT: i32 = 33554432;
         pub const CTRL: i32 = 67108864;
         pub const ALT: i32 = 134217728;
-        pub const MODIFIER_MASK: i64 = 4261412864;
+        pub const MODIFIER_MASK: i32 = -33554432;
     };
 
     pub const ArrowType = enum {
@@ -1503,9 +1503,9 @@ pub const enums = struct {
         pub const ImAnchorRectangle: i32 = 16384;
         pub const ImInputItemClipRectangle: i32 = 32768;
         pub const ImReadOnly: i32 = 65536;
-        pub const ImPlatformData: i64 = 2147483648;
+        pub const ImPlatformData: i32 = -2147483648;
         pub const ImQueryInput: i32 = 16570;
-        pub const ImQueryAll: i64 = 4294967295;
+        pub const ImQueryAll: i32 = -1;
     };
 
     pub const InputMethodHint = enum {
@@ -1531,7 +1531,7 @@ pub const enums = struct {
         pub const ImhEmailCharactersOnly: i32 = 2097152;
         pub const ImhUrlCharactersOnly: i32 = 4194304;
         pub const ImhLatinOnly: i32 = 8388608;
-        pub const ImhExclusiveInputMask: i64 = 4294901760;
+        pub const ImhExclusiveInputMask: i32 = -65536;
     };
 
     pub const EnterKeyType = enum {
@@ -1715,7 +1715,7 @@ pub const enums = struct {
         pub const PinchGesture: i32 = 4;
         pub const SwipeGesture: i32 = 5;
         pub const CustomGesture: i32 = 256;
-        pub const LastGestureType: i64 = 4294967295;
+        pub const LastGestureType: i32 = -1;
     };
 
     pub const GestureFlag = enum {

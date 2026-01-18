@@ -692,9 +692,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` c: []u8 `
+    /// ` c: [:0]u8 `
     ///
-    pub fn OperatorShiftRight16(self: ?*anyopaque, c: []u8) QtC.QTextStream {
+    pub fn OperatorShiftRight16(self: ?*anyopaque, c: [:0]u8) QtC.QTextStream {
         const c_Cstring = c.ptr;
         return qtc.QTextStream_OperatorShiftRight16(@ptrCast(self), c_Cstring);
     }
@@ -881,9 +881,9 @@ pub const qtextstream = struct {
     ///
     /// ` self: QtC.QTextStream `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
-    pub fn OperatorShiftLeft18(self: ?*anyopaque, c: []const u8) QtC.QTextStream {
+    pub fn OperatorShiftLeft18(self: ?*anyopaque, c: [:0]const u8) QtC.QTextStream {
         const c_Cstring = c.ptr;
         return qtc.QTextStream_OperatorShiftLeft18(@ptrCast(self), c_Cstring);
     }

@@ -87,7 +87,7 @@ pub const qstylepainter = struct {
     ///
     /// ` opt: QtC.QStyleOption `
     ///
-    pub fn DrawControl(self: ?*anyopaque, ce: i64, opt: ?*anyopaque) void {
+    pub fn DrawControl(self: ?*anyopaque, ce: i32, opt: ?*anyopaque) void {
         qtc.QStylePainter_DrawControl(@ptrCast(self), @intCast(ce), @ptrCast(opt));
     }
 
@@ -101,7 +101,7 @@ pub const qstylepainter = struct {
     ///
     /// ` opt: QtC.QStyleOptionComplex `
     ///
-    pub fn DrawComplexControl(self: ?*anyopaque, cc: i64, opt: ?*anyopaque) void {
+    pub fn DrawComplexControl(self: ?*anyopaque, cc: i32, opt: ?*anyopaque) void {
         qtc.QStylePainter_DrawComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt));
     }
 

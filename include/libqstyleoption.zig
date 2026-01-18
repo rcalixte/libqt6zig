@@ -7034,7 +7034,7 @@ pub const qstyleoptioncomplex = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: ?*anyopaque) i64 {
+    pub fn SubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self));
     }
 
@@ -7046,7 +7046,7 @@ pub const qstyleoptioncomplex = struct {
     ///
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: ?*anyopaque, subControls: i64) void {
+    pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
         qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
     }
 
@@ -7060,7 +7060,7 @@ pub const qstyleoptioncomplex = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: ?*anyopaque) i64 {
+    pub fn ActiveSubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self));
     }
 
@@ -7072,7 +7072,7 @@ pub const qstyleoptioncomplex = struct {
     ///
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i64) void {
+    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
         qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
     }
 
@@ -7631,7 +7631,7 @@ pub const qstyleoptionslider = struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn KeyboardModifiers(self: ?*anyopaque) i64 {
+    pub fn KeyboardModifiers(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionSlider_KeyboardModifiers(@ptrCast(self));
     }
 
@@ -7643,7 +7643,7 @@ pub const qstyleoptionslider = struct {
     ///
     /// ` keyboardModifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetKeyboardModifiers(self: ?*anyopaque, keyboardModifiers: i64) void {
+    pub fn SetKeyboardModifiers(self: ?*anyopaque, keyboardModifiers: i32) void {
         qtc.QStyleOptionSlider_SetKeyboardModifiers(@ptrCast(self), @intCast(keyboardModifiers));
     }
 
@@ -7671,7 +7671,7 @@ pub const qstyleoptionslider = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: ?*anyopaque) i64 {
+    pub fn SubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self));
     }
 
@@ -7685,7 +7685,7 @@ pub const qstyleoptionslider = struct {
     ///
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: ?*anyopaque, subControls: i64) void {
+    pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
         qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
     }
 
@@ -7701,7 +7701,7 @@ pub const qstyleoptionslider = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: ?*anyopaque) i64 {
+    pub fn ActiveSubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self));
     }
 
@@ -7715,7 +7715,7 @@ pub const qstyleoptionslider = struct {
     ///
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i64) void {
+    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
         qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
     }
 
@@ -8078,7 +8078,7 @@ pub const qstyleoptionspinbox = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: ?*anyopaque) i64 {
+    pub fn SubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self));
     }
 
@@ -8092,7 +8092,7 @@ pub const qstyleoptionspinbox = struct {
     ///
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: ?*anyopaque, subControls: i64) void {
+    pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
         qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
     }
 
@@ -8108,7 +8108,7 @@ pub const qstyleoptionspinbox = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: ?*anyopaque) i64 {
+    pub fn ActiveSubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self));
     }
 
@@ -8122,7 +8122,7 @@ pub const qstyleoptionspinbox = struct {
     ///
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i64) void {
+    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
         qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
     }
 
@@ -8609,7 +8609,7 @@ pub const qstyleoptiontoolbutton = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: ?*anyopaque) i64 {
+    pub fn SubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self));
     }
 
@@ -8623,7 +8623,7 @@ pub const qstyleoptiontoolbutton = struct {
     ///
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: ?*anyopaque, subControls: i64) void {
+    pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
         qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
     }
 
@@ -8639,7 +8639,7 @@ pub const qstyleoptiontoolbutton = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: ?*anyopaque) i64 {
+    pub fn ActiveSubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self));
     }
 
@@ -8653,7 +8653,7 @@ pub const qstyleoptiontoolbutton = struct {
     ///
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i64) void {
+    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
         qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
     }
 
@@ -9110,7 +9110,7 @@ pub const qstyleoptioncombobox = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: ?*anyopaque) i64 {
+    pub fn SubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self));
     }
 
@@ -9124,7 +9124,7 @@ pub const qstyleoptioncombobox = struct {
     ///
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: ?*anyopaque, subControls: i64) void {
+    pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
         qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
     }
 
@@ -9140,7 +9140,7 @@ pub const qstyleoptioncombobox = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: ?*anyopaque) i64 {
+    pub fn ActiveSubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self));
     }
 
@@ -9154,7 +9154,7 @@ pub const qstyleoptioncombobox = struct {
     ///
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i64) void {
+    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
         qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
     }
 
@@ -9505,7 +9505,7 @@ pub const qstyleoptiontitlebar = struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn TitleBarFlags(self: ?*anyopaque) i64 {
+    pub fn TitleBarFlags(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionTitleBar_TitleBarFlags(@ptrCast(self));
     }
 
@@ -9517,7 +9517,7 @@ pub const qstyleoptiontitlebar = struct {
     ///
     /// ` titleBarFlags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetTitleBarFlags(self: ?*anyopaque, titleBarFlags: i64) void {
+    pub fn SetTitleBarFlags(self: ?*anyopaque, titleBarFlags: i32) void {
         qtc.QStyleOptionTitleBar_SetTitleBarFlags(@ptrCast(self), @intCast(titleBarFlags));
     }
 
@@ -9545,7 +9545,7 @@ pub const qstyleoptiontitlebar = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: ?*anyopaque) i64 {
+    pub fn SubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self));
     }
 
@@ -9559,7 +9559,7 @@ pub const qstyleoptiontitlebar = struct {
     ///
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: ?*anyopaque, subControls: i64) void {
+    pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
         qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
     }
 
@@ -9575,7 +9575,7 @@ pub const qstyleoptiontitlebar = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: ?*anyopaque) i64 {
+    pub fn ActiveSubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self));
     }
 
@@ -9589,7 +9589,7 @@ pub const qstyleoptiontitlebar = struct {
     ///
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i64) void {
+    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
         qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
     }
 
@@ -10028,7 +10028,7 @@ pub const qstyleoptiongroupbox = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: ?*anyopaque) i64 {
+    pub fn SubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self));
     }
 
@@ -10042,7 +10042,7 @@ pub const qstyleoptiongroupbox = struct {
     ///
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: ?*anyopaque, subControls: i64) void {
+    pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
         qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
     }
 
@@ -10058,7 +10058,7 @@ pub const qstyleoptiongroupbox = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: ?*anyopaque) i64 {
+    pub fn ActiveSubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self));
     }
 
@@ -10072,7 +10072,7 @@ pub const qstyleoptiongroupbox = struct {
     ///
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i64) void {
+    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
         qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
     }
 
@@ -10387,7 +10387,7 @@ pub const qstyleoptionsizegrip = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: ?*anyopaque) i64 {
+    pub fn SubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self));
     }
 
@@ -10401,7 +10401,7 @@ pub const qstyleoptionsizegrip = struct {
     ///
     /// ` subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: ?*anyopaque, subControls: i64) void {
+    pub fn SetSubControls(self: ?*anyopaque, subControls: i32) void {
         qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self), @intCast(subControls));
     }
 
@@ -10417,7 +10417,7 @@ pub const qstyleoptionsizegrip = struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: ?*anyopaque) i64 {
+    pub fn ActiveSubControls(self: ?*anyopaque) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self));
     }
 
@@ -10431,7 +10431,7 @@ pub const qstyleoptionsizegrip = struct {
     ///
     /// ` activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i64) void {
+    pub fn SetActiveSubControls(self: ?*anyopaque, activeSubControls: i32) void {
         qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self), @intCast(activeSubControls));
     }
 

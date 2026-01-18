@@ -30,7 +30,7 @@ pub const qsqlfield = struct {
     ///
     /// ` typeVal: qvariant_enums.Type `
     ///
-    pub fn New3(fieldName: []const u8, typeVal: i64) QtC.QSqlField {
+    pub fn New3(fieldName: []const u8, typeVal: i32) QtC.QSqlField {
         const fieldName_str = qtc.libqt_string{
             .len = fieldName.len,
             .data = fieldName.ptr,
@@ -104,7 +104,7 @@ pub const qsqlfield = struct {
     ///
     /// ` tableName: []const u8 `
     ///
-    pub fn New7(fieldName: []const u8, typeVal: i64, tableName: []const u8) QtC.QSqlField {
+    pub fn New7(fieldName: []const u8, typeVal: i32, tableName: []const u8) QtC.QSqlField {
         const fieldName_str = qtc.libqt_string{
             .len = fieldName.len,
             .data = fieldName.ptr,
@@ -335,7 +335,7 @@ pub const qsqlfield = struct {
     ///
     /// ` qvariant_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QSqlField_Type(@ptrCast(self));
     }
 
@@ -347,7 +347,7 @@ pub const qsqlfield = struct {
     ///
     /// ` typeVal: qvariant_enums.Type `
     ///
-    pub fn SetType(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QSqlField_SetType(@ptrCast(self), @intCast(typeVal));
     }
 

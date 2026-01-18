@@ -16,7 +16,7 @@ pub const kstyleextensions = struct {
     ///
     /// ` qstyle_enums.ControlElement `
     ///
-    pub fn CustomControlElement(param1: []const u8, param2: ?*anyopaque) i64 {
+    pub fn CustomControlElement(param1: []const u8, param2: ?*anyopaque) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -36,7 +36,7 @@ pub const kstyleextensions = struct {
     ///
     /// ` qstyle_enums.StyleHint `
     ///
-    pub fn CustomStyleHint(param1: []const u8, param2: ?*anyopaque) i64 {
+    pub fn CustomStyleHint(param1: []const u8, param2: ?*anyopaque) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -56,7 +56,7 @@ pub const kstyleextensions = struct {
     ///
     /// ` qstyle_enums.SubElement `
     ///
-    pub fn CustomSubElement(param1: []const u8, param2: ?*anyopaque) i64 {
+    pub fn CustomSubElement(param1: []const u8, param2: ?*anyopaque) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

@@ -138,9 +138,9 @@ pub const qimage = struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn New10(fileName: []const u8, format: []const u8) QtC.QImage {
+    pub fn New10(fileName: []const u8, format: [:0]const u8) QtC.QImage {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -1175,9 +1175,9 @@ pub const qimage = struct {
     ///
     /// ` device: QtC.QIODevice `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn Load(self: ?*anyopaque, device: ?*anyopaque, format: []const u8) bool {
+    pub fn Load(self: ?*anyopaque, device: ?*anyopaque, format: [:0]const u8) bool {
         const format_Cstring = format.ptr;
         return qtc.QImage_Load(@ptrCast(self), @ptrCast(device), format_Cstring);
     }
@@ -2245,9 +2245,9 @@ pub const qimage = struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn Load22(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
+    pub fn Load22(self: ?*anyopaque, fileName: []const u8, format: [:0]const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -2264,9 +2264,9 @@ pub const qimage = struct {
     ///
     /// ` data: []const u8 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn LoadFromData22(self: ?*anyopaque, data: []const u8, format: []const u8) bool {
+    pub fn LoadFromData22(self: ?*anyopaque, data: []const u8, format: [:0]const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2285,9 +2285,9 @@ pub const qimage = struct {
     ///
     /// ` lenVal: i32 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn LoadFromData32(self: ?*anyopaque, buf: *const u8, lenVal: i32, format: []const u8) bool {
+    pub fn LoadFromData32(self: ?*anyopaque, buf: *const u8, lenVal: i32, format: [:0]const u8) bool {
         const format_Cstring = format.ptr;
         return qtc.QImage_LoadFromData32(@ptrCast(self), @ptrCast(buf), @intCast(lenVal), format_Cstring);
     }
@@ -2300,9 +2300,9 @@ pub const qimage = struct {
     ///
     /// ` data: []u8 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn LoadFromData23(self: ?*anyopaque, data: []u8, format: []const u8) bool {
+    pub fn LoadFromData23(self: ?*anyopaque, data: []u8, format: [:0]const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2319,9 +2319,9 @@ pub const qimage = struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn Save22(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
+    pub fn Save22(self: ?*anyopaque, fileName: []const u8, format: [:0]const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -2338,11 +2338,11 @@ pub const qimage = struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
     /// ` quality: i32 `
     ///
-    pub fn Save3(self: ?*anyopaque, fileName: []const u8, format: []const u8, quality: i32) bool {
+    pub fn Save3(self: ?*anyopaque, fileName: []const u8, format: [:0]const u8, quality: i32) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -2359,9 +2359,9 @@ pub const qimage = struct {
     ///
     /// ` device: QtC.QIODevice `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn Save23(self: ?*anyopaque, device: ?*anyopaque, format: []const u8) bool {
+    pub fn Save23(self: ?*anyopaque, device: ?*anyopaque, format: [:0]const u8) bool {
         const format_Cstring = format.ptr;
         return qtc.QImage_Save23(@ptrCast(self), @ptrCast(device), format_Cstring);
     }
@@ -2374,11 +2374,11 @@ pub const qimage = struct {
     ///
     /// ` device: QtC.QIODevice `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
     /// ` quality: i32 `
     ///
-    pub fn Save32(self: ?*anyopaque, device: ?*anyopaque, format: []const u8, quality: i32) bool {
+    pub fn Save32(self: ?*anyopaque, device: ?*anyopaque, format: [:0]const u8, quality: i32) bool {
         const format_Cstring = format.ptr;
         return qtc.QImage_Save32(@ptrCast(self), @ptrCast(device), format_Cstring, @intCast(quality));
     }
@@ -2389,9 +2389,9 @@ pub const qimage = struct {
     ///
     /// ` data: []const u8 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn FromData22(data: []const u8, format: []const u8) QtC.QImage {
+    pub fn FromData22(data: []const u8, format: [:0]const u8) QtC.QImage {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2408,9 +2408,9 @@ pub const qimage = struct {
     ///
     /// ` size: i32 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn FromData32(data: *const u8, size: i32, format: []const u8) QtC.QImage {
+    pub fn FromData32(data: *const u8, size: i32, format: [:0]const u8) QtC.QImage {
         const format_Cstring = format.ptr;
         return qtc.QImage_FromData32(@ptrCast(data), @intCast(size), format_Cstring);
     }
@@ -2421,9 +2421,9 @@ pub const qimage = struct {
     ///
     /// ` data: []u8 `
     ///
-    /// ` format: []const u8 `
+    /// ` format: [:0]const u8 `
     ///
-    pub fn FromData23(data: []u8, format: []const u8) QtC.QImage {
+    pub fn FromData23(data: []u8, format: [:0]const u8) QtC.QImage {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

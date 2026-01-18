@@ -21,7 +21,7 @@ pub const kparts = struct {
     ///
     /// ` param1: partloader_enums.PartCapability `
     ///
-    pub fn GetEnumName(param1: i32) []const u8 {
+    pub fn GetEnumName(param1: i32) [:0]const u8 {
         const _ret = qtc.KParts_GetEnumName(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -42,7 +42,7 @@ pub const kparts = struct {
     ///
     /// ` param1: flag of partloader_enums.PartCapability `
     ///
-    pub fn GetEnumName2(param1: i32) []const u8 {
+    pub fn GetEnumName2(param1: i32) [:0]const u8 {
         const _ret = qtc.KParts_GetEnumName2(@intCast(param1));
         return std.mem.span(_ret);
     }

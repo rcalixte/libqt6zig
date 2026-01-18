@@ -235,9 +235,9 @@ pub const qcborvalue = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    pub fn New11(s: []const u8) QtC.QCborValue {
+    pub fn New11(s: [:0]const u8) QtC.QCborValue {
         const s_Cstring = s.ptr;
 
         return qtc.QCborValue_new11(s_Cstring);
@@ -917,11 +917,11 @@ pub const qcborvalue = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn FromCbor3(data: []const u8, lenVal: i64) QtC.QCborValue {
+    pub fn FromCbor3(data: [:0]const u8, lenVal: i64) QtC.QCborValue {
         const data_Cstring = data.ptr;
         return qtc.QCborValue_FromCbor3(data_Cstring, @intCast(lenVal));
     }
@@ -1174,13 +1174,13 @@ pub const qcborvalue = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
     /// ` errorVal: QtC.QCborParserError `
     ///
-    pub fn FromCbor32(data: []const u8, lenVal: i64, errorVal: ?*anyopaque) QtC.QCborValue {
+    pub fn FromCbor32(data: [:0]const u8, lenVal: i64, errorVal: ?*anyopaque) QtC.QCborValue {
         const data_Cstring = data.ptr;
         return qtc.QCborValue_FromCbor32(data_Cstring, @intCast(lenVal), @ptrCast(errorVal));
     }

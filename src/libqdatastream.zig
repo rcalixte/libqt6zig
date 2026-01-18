@@ -327,9 +327,9 @@ pub const qdatastream = struct {
     ///
     /// ` self: QtC.QDataStream `
     ///
-    /// ` str: []u8 `
+    /// ` str: [:0]u8 `
     ///
-    pub fn OperatorShiftRight14(self: ?*anyopaque, str: []u8) void {
+    pub fn OperatorShiftRight14(self: ?*anyopaque, str: [:0]u8) void {
         const str_Cstring = str.ptr;
         qtc.QDataStream_OperatorShiftRight14(@ptrCast(self), str_Cstring);
     }
@@ -472,9 +472,9 @@ pub const qdatastream = struct {
     ///
     /// ` self: QtC.QDataStream `
     ///
-    /// ` str: []const u8 `
+    /// ` str: [:0]const u8 `
     ///
-    pub fn OperatorShiftLeft13(self: ?*anyopaque, str: []const u8) void {
+    pub fn OperatorShiftLeft13(self: ?*anyopaque, str: [:0]const u8) void {
         const str_Cstring = str.ptr;
         qtc.QDataStream_OperatorShiftLeft13(@ptrCast(self), str_Cstring);
     }
@@ -485,11 +485,11 @@ pub const qdatastream = struct {
     ///
     /// ` self: QtC.QDataStream `
     ///
-    /// ` param1: []u8 `
+    /// ` param1: [:0]u8 `
     ///
     /// ` lenVal: *u32 `
     ///
-    pub fn ReadBytes(self: ?*anyopaque, param1: []u8, lenVal: *u32) QtC.QDataStream {
+    pub fn ReadBytes(self: ?*anyopaque, param1: [:0]u8, lenVal: *u32) QtC.QDataStream {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadBytes(@ptrCast(self), param1_Cstring, @ptrCast(lenVal));
     }
@@ -500,11 +500,11 @@ pub const qdatastream = struct {
     ///
     /// ` self: QtC.QDataStream `
     ///
-    /// ` param1: []u8 `
+    /// ` param1: [:0]u8 `
     ///
     /// ` lenVal: *i64 `
     ///
-    pub fn ReadBytes2(self: ?*anyopaque, param1: []u8, lenVal: *i64) QtC.QDataStream {
+    pub fn ReadBytes2(self: ?*anyopaque, param1: [:0]u8, lenVal: *i64) QtC.QDataStream {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadBytes2(@ptrCast(self), param1_Cstring, @ptrCast(lenVal));
     }
@@ -515,11 +515,11 @@ pub const qdatastream = struct {
     ///
     /// ` self: QtC.QDataStream `
     ///
-    /// ` param1: []u8 `
+    /// ` param1: [:0]u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn ReadRawData(self: ?*anyopaque, param1: []u8, lenVal: i64) i64 {
+    pub fn ReadRawData(self: ?*anyopaque, param1: [:0]u8, lenVal: i64) i64 {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
@@ -530,11 +530,11 @@ pub const qdatastream = struct {
     ///
     /// ` self: QtC.QDataStream `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn WriteBytes(self: ?*anyopaque, param1: []const u8, lenVal: i64) void {
+    pub fn WriteBytes(self: ?*anyopaque, param1: [:0]const u8, lenVal: i64) void {
         const param1_Cstring = param1.ptr;
         qtc.QDataStream_WriteBytes(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
@@ -545,11 +545,11 @@ pub const qdatastream = struct {
     ///
     /// ` self: QtC.QDataStream `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn WriteRawData(self: ?*anyopaque, param1: []const u8, lenVal: i64) i64 {
+    pub fn WriteRawData(self: ?*anyopaque, param1: [:0]const u8, lenVal: i64) i64 {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_WriteRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }

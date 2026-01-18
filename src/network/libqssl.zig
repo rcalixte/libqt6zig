@@ -21,7 +21,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.KeyType `
     ///
-    pub fn GetEnumName(param1: i32) []const u8 {
+    pub fn GetEnumName(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -42,7 +42,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.EncodingFormat `
     ///
-    pub fn GetEnumName2(param1: i32) []const u8 {
+    pub fn GetEnumName2(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName2(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -63,7 +63,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.KeyAlgorithm `
     ///
-    pub fn GetEnumName3(param1: i32) []const u8 {
+    pub fn GetEnumName3(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName3(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -84,7 +84,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.AlternativeNameEntryType `
     ///
-    pub fn GetEnumName4(param1: i32) []const u8 {
+    pub fn GetEnumName4(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName4(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -105,7 +105,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.SslProtocol `
     ///
-    pub fn GetEnumName5(param1: i32) []const u8 {
+    pub fn GetEnumName5(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName5(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -126,7 +126,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.SslOption `
     ///
-    pub fn GetEnumName6(param1: i32) []const u8 {
+    pub fn GetEnumName6(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName6(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -147,7 +147,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.AlertLevel `
     ///
-    pub fn GetEnumName7(param1: i32) []const u8 {
+    pub fn GetEnumName7(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName7(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -168,7 +168,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.AlertType `
     ///
-    pub fn GetEnumName8(param1: i32) []const u8 {
+    pub fn GetEnumName8(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName8(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -189,7 +189,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.ImplementedClass `
     ///
-    pub fn GetEnumName9(param1: i32) []const u8 {
+    pub fn GetEnumName9(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName9(@intCast(param1));
         return std.mem.span(_ret);
     }
@@ -210,7 +210,7 @@ pub const qssl = struct {
     ///
     /// ` param1: qssl_enums.SupportedFeature `
     ///
-    pub fn GetEnumName10(param1: i32) []const u8 {
+    pub fn GetEnumName10(param1: i32) [:0]const u8 {
         const _ret = qtc.QSsl_GetEnumName10(@intCast(param1));
         return std.mem.span(_ret);
     }

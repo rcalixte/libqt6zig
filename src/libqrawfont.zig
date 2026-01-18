@@ -595,11 +595,11 @@ pub const qrawfont = struct {
     ///
     /// ` self: QtC.QRawFont `
     ///
-    /// ` tagName: []const u8 `
+    /// ` tagName: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FontTable(self: ?*anyopaque, tagName: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn FontTable(self: ?*anyopaque, tagName: [:0]const u8, allocator: std.mem.Allocator) []u8 {
         const tagName_Cstring = tagName.ptr;
         var _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable(@ptrCast(self), tagName_Cstring);
         defer qtc.libqt_string_free(&_bytearray);

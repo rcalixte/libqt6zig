@@ -21,7 +21,7 @@ pub const knscore__errorcode = struct {
     ///
     /// ` param1: errorcode_enums.ErrorCode `
     ///
-    pub fn GetEnumName(param1: i32) []const u8 {
+    pub fn GetEnumName(param1: i32) [:0]const u8 {
         const _ret = qtc.KNSCore__ErrorCode_GetEnumName(@intCast(param1));
         return std.mem.span(_ret);
     }

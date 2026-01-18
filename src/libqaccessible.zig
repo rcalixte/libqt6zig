@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qaccessible_base_enums = @import("libqaccessible_base.zig").enums;
 const qaccessible_enums = enums;
 const std = @import("std");
-const struct_qtcqaccessibleinterface_i64 = extern struct { first: QtC.QAccessibleInterface, second: i64 };
+const struct_qtcqaccessibleinterface_i32 = extern struct { first: QtC.QAccessibleInterface, second: i32 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html)
 pub const qaccessibleinterface = struct {
@@ -47,7 +47,7 @@ pub const qaccessibleinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Relations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
+    pub fn Relations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
         const _arr: qtc.libqt_list = qtc.QAccessibleInterface_Relations(@ptrCast(self), @intCast(match));
         defer {
             const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
@@ -57,8 +57,8 @@ pub const qaccessibleinterface = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i64, _arr.len) catch @panic("qaccessibleinterface.Relations: Memory allocation failed");
-        const _data: [*]struct_qtcqaccessibleinterface_i64 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleinterface.Relations: Memory allocation failed");
+        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -1182,11 +1182,11 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceText: []const u8 `
+    /// ` sourceText: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(sourceText: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -1499,13 +1499,13 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceText: []const u8 `
+    /// ` sourceText: [:0]const u8 `
     ///
-    /// ` disambiguation: []const u8 `
+    /// ` disambiguation: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(sourceText: [:0]const u8, disambiguation: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
@@ -1519,15 +1519,15 @@ pub const qaccessibleactioninterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceText: []const u8 `
+    /// ` sourceText: [:0]const u8 `
     ///
-    /// ` disambiguation: []const u8 `
+    /// ` disambiguation: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));

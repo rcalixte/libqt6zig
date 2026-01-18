@@ -112,7 +112,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn Data(self: ?*anyopaque) []const u8 {
+    pub fn Data(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QByteArrayView_Data(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -123,7 +123,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn ConstData(self: ?*anyopaque) []const u8 {
+    pub fn ConstData(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QByteArrayView_ConstData(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -694,7 +694,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn Begin(self: ?*anyopaque) []const u8 {
+    pub fn Begin(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QByteArrayView_Begin(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -705,7 +705,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn End(self: ?*anyopaque) []const u8 {
+    pub fn End(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QByteArrayView_End(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -716,7 +716,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn Cbegin(self: ?*anyopaque) []const u8 {
+    pub fn Cbegin(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QByteArrayView_Cbegin(@ptrCast(self));
         return std.mem.span(_ret);
     }
@@ -727,7 +727,7 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    pub fn Cend(self: ?*anyopaque) []const u8 {
+    pub fn Cend(self: ?*anyopaque) [:0]const u8 {
         const _ret = qtc.QByteArrayView_Cend(@ptrCast(self));
         return std.mem.span(_ret);
     }

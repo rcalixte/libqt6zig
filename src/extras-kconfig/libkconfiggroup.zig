@@ -270,11 +270,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` keys: [][]const u8 `
+    /// ` keys: [][:0]const u8 `
     ///
     /// ` other: QtC.KConfigGroup `
     ///
-    pub fn MoveValuesTo(self: ?*anyopaque, keys: [][]const u8, other: ?*anyopaque) void {
+    pub fn MoveValuesTo(self: ?*anyopaque, keys: [][:0]const u8, other: ?*anyopaque) void {
         const keys_list = qtc.libqt_list{
             .len = keys.len,
             .data = keys.ptr,
@@ -437,11 +437,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` aDefault: QtC.QVariant `
     ///
-    pub fn ReadEntry2(self: ?*anyopaque, key: []const u8, aDefault: ?*anyopaque) QtC.QVariant {
+    pub fn ReadEntry2(self: ?*anyopaque, key: [:0]const u8, aDefault: ?*anyopaque) QtC.QVariant {
         const key_Cstring = key.ptr;
         return qtc.KConfigGroup_ReadEntry2(@ptrCast(self), key_Cstring, @ptrCast(aDefault));
     }
@@ -480,13 +480,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` aDefault: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntry4(self: ?*anyopaque, key: []const u8, aDefault: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReadEntry4(self: ?*anyopaque, key: [:0]const u8, aDefault: []const u8, allocator: std.mem.Allocator) []const u8 {
         const key_Cstring = key.ptr;
         const aDefault_str = qtc.libqt_string{
             .len = aDefault.len,
@@ -527,11 +527,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntry6(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReadEntry6(self: ?*anyopaque, key: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const key_Cstring = key.ptr;
         var _str = qtc.KConfigGroup_ReadEntry6(@ptrCast(self), key_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -575,13 +575,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` aDefault: []QtC.QVariant `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntry8(self: ?*anyopaque, key: []const u8, aDefault: []QtC.QVariant, allocator: std.mem.Allocator) []QtC.QVariant {
+    pub fn ReadEntry8(self: ?*anyopaque, key: [:0]const u8, aDefault: []QtC.QVariant, allocator: std.mem.Allocator) []QtC.QVariant {
         const key_Cstring = key.ptr;
         const aDefault_list = qtc.libqt_list{
             .len = aDefault.len,
@@ -648,13 +648,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` aDefault: [][]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntry10(self: ?*anyopaque, key: []const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadEntry10(self: ?*anyopaque, key: [:0]const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
         const key_Cstring = key.ptr;
         var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadEntry10: Memory allocation failed");
         defer allocator.free(aDefault_arr);
@@ -725,11 +725,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadXdgListEntry2(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadXdgListEntry2(self: ?*anyopaque, key: [:0]const u8, allocator: std.mem.Allocator) [][]const u8 {
         const key_Cstring = key.ptr;
         const _arr: qtc.libqt_list = qtc.KConfigGroup_ReadXdgListEntry2(@ptrCast(self), key_Cstring);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -783,13 +783,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` aDefault: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadPathEntry2(self: ?*anyopaque, key: []const u8, aDefault: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReadPathEntry2(self: ?*anyopaque, key: [:0]const u8, aDefault: []const u8, allocator: std.mem.Allocator) []const u8 {
         const key_Cstring = key.ptr;
         const aDefault_str = qtc.libqt_string{
             .len = aDefault.len,
@@ -855,13 +855,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` aDefault: [][]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadPathEntry4(self: ?*anyopaque, key: []const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadPathEntry4(self: ?*anyopaque, key: [:0]const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
         const key_Cstring = key.ptr;
         var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadPathEntry4: Memory allocation failed");
         defer allocator.free(aDefault_arr);
@@ -921,11 +921,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntryUntranslated2(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReadEntryUntranslated2(self: ?*anyopaque, key: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const key_Cstring = key.ptr;
         var _str = qtc.KConfigGroup_ReadEntryUntranslated2(@ptrCast(self), key_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -958,11 +958,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn WriteEntry2(self: ?*anyopaque, key: []const u8, value: ?*anyopaque) void {
+    pub fn WriteEntry2(self: ?*anyopaque, key: [:0]const u8, value: ?*anyopaque) void {
         const key_Cstring = key.ptr;
         qtc.KConfigGroup_WriteEntry2(@ptrCast(self), key_Cstring, @ptrCast(value));
     }
@@ -995,11 +995,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: []const u8 `
     ///
-    pub fn WriteEntry4(self: ?*anyopaque, key: []const u8, value: []const u8) void {
+    pub fn WriteEntry4(self: ?*anyopaque, key: [:0]const u8, value: []const u8) void {
         const key_Cstring = key.ptr;
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -1036,11 +1036,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: []u8 `
     ///
-    pub fn WriteEntry6(self: ?*anyopaque, key: []const u8, value: []u8) void {
+    pub fn WriteEntry6(self: ?*anyopaque, key: [:0]const u8, value: []u8) void {
         const key_Cstring = key.ptr;
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -1057,9 +1057,9 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: []const u8 `
+    /// ` value: [:0]const u8 `
     ///
-    pub fn WriteEntry7(self: ?*anyopaque, key: []const u8, value: []const u8) void {
+    pub fn WriteEntry7(self: ?*anyopaque, key: []const u8, value: [:0]const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1074,11 +1074,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    /// ` value: []const u8 `
+    /// ` value: [:0]const u8 `
     ///
-    pub fn WriteEntry8(self: ?*anyopaque, key: []const u8, value: []const u8) void {
+    pub fn WriteEntry8(self: ?*anyopaque, key: [:0]const u8, value: [:0]const u8) void {
         const key_Cstring = key.ptr;
         const value_Cstring = value.ptr;
         qtc.KConfigGroup_WriteEntry8(@ptrCast(self), key_Cstring, value_Cstring);
@@ -1122,13 +1122,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: [][]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteEntry10(self: ?*anyopaque, key: []const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn WriteEntry10(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry10: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -1173,11 +1173,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: []QtC.QVariant `
     ///
-    pub fn WriteEntry12(self: ?*anyopaque, key: []const u8, value: []QtC.QVariant) void {
+    pub fn WriteEntry12(self: ?*anyopaque, key: [:0]const u8, value: []QtC.QVariant) void {
         const key_Cstring = key.ptr;
         const value_list = qtc.libqt_list{
             .len = value.len,
@@ -1224,13 +1224,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: [][]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteXdgListEntry2(self: ?*anyopaque, key: []const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn WriteXdgListEntry2(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry2: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -1275,11 +1275,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` Key: []const u8 `
+    /// ` Key: [:0]const u8 `
     ///
     /// ` path: []const u8 `
     ///
-    pub fn WritePathEntry2(self: ?*anyopaque, Key: []const u8, path: []const u8) void {
+    pub fn WritePathEntry2(self: ?*anyopaque, Key: [:0]const u8, path: []const u8) void {
         const Key_Cstring = Key.ptr;
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -1326,13 +1326,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: [][]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WritePathEntry4(self: ?*anyopaque, key: []const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn WritePathEntry4(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry4: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -1371,9 +1371,9 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    pub fn DeleteEntry2(self: ?*anyopaque, key: []const u8) void {
+    pub fn DeleteEntry2(self: ?*anyopaque, key: [:0]const u8) void {
         const key_Cstring = key.ptr;
         qtc.KConfigGroup_DeleteEntry2(@ptrCast(self), key_Cstring);
     }
@@ -1400,9 +1400,9 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    pub fn HasKey2(self: ?*anyopaque, key: []const u8) bool {
+    pub fn HasKey2(self: ?*anyopaque, key: [:0]const u8) bool {
         const key_Cstring = key.ptr;
         return qtc.KConfigGroup_HasKey2(@ptrCast(self), key_Cstring);
     }
@@ -1465,9 +1465,9 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    pub fn IsEntryImmutable2(self: ?*anyopaque, key: []const u8) bool {
+    pub fn IsEntryImmutable2(self: ?*anyopaque, key: [:0]const u8) bool {
         const key_Cstring = key.ptr;
         return qtc.KConfigGroup_IsEntryImmutable2(@ptrCast(self), key_Cstring);
     }
@@ -1494,9 +1494,9 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    pub fn RevertToDefault2(self: ?*anyopaque, key: []const u8) void {
+    pub fn RevertToDefault2(self: ?*anyopaque, key: [:0]const u8) void {
         const key_Cstring = key.ptr;
         qtc.KConfigGroup_RevertToDefault2(@ptrCast(self), key_Cstring);
     }
@@ -1523,9 +1523,9 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    pub fn HasDefault2(self: ?*anyopaque, key: []const u8) bool {
+    pub fn HasDefault2(self: ?*anyopaque, key: [:0]const u8) bool {
         const key_Cstring = key.ptr;
         return qtc.KConfigGroup_HasDefault2(@ptrCast(self), key_Cstring);
     }
@@ -1844,13 +1844,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` keys: [][]const u8 `
+    /// ` keys: [][:0]const u8 `
     ///
     /// ` other: QtC.KConfigGroup `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn MoveValuesTo3(self: ?*anyopaque, keys: [][]const u8, other: ?*anyopaque, pFlags: i32) void {
+    pub fn MoveValuesTo3(self: ?*anyopaque, keys: [][:0]const u8, other: ?*anyopaque, pFlags: i32) void {
         const keys_list = qtc.libqt_list{
             .len = keys.len,
             .data = keys.ptr,
@@ -1892,11 +1892,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` aDefault: []const u8 `
+    /// ` aDefault: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntry22(self: ?*anyopaque, key: []const u8, aDefault: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReadEntry22(self: ?*anyopaque, key: []const u8, aDefault: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1915,13 +1915,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    /// ` aDefault: []const u8 `
+    /// ` aDefault: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntry23(self: ?*anyopaque, key: []const u8, aDefault: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReadEntry23(self: ?*anyopaque, key: [:0]const u8, aDefault: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const key_Cstring = key.ptr;
         const aDefault_Cstring = aDefault.ptr;
         var _str = qtc.KConfigGroup_ReadEntry23(@ptrCast(self), key_Cstring, aDefault_Cstring);
@@ -1984,13 +1984,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` aDefault: [][]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadXdgListEntry23(self: ?*anyopaque, key: []const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadXdgListEntry23(self: ?*anyopaque, key: [:0]const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
         const key_Cstring = key.ptr;
         var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadXdgListEntry23: Memory allocation failed");
         defer allocator.free(aDefault_arr);
@@ -2056,13 +2056,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` aDefault: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntryUntranslated23(self: ?*anyopaque, key: []const u8, aDefault: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReadEntryUntranslated23(self: ?*anyopaque, key: [:0]const u8, aDefault: []const u8, allocator: std.mem.Allocator) []const u8 {
         const key_Cstring = key.ptr;
         const aDefault_str = qtc.libqt_string{
             .len = aDefault.len,
@@ -2101,13 +2101,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn WriteEntry33(self: ?*anyopaque, key: []const u8, value: ?*anyopaque, pFlags: i32) void {
+    pub fn WriteEntry33(self: ?*anyopaque, key: [:0]const u8, value: ?*anyopaque, pFlags: i32) void {
         const key_Cstring = key.ptr;
         qtc.KConfigGroup_WriteEntry33(@ptrCast(self), key_Cstring, @ptrCast(value), @intCast(pFlags));
     }
@@ -2142,13 +2142,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn WriteEntry35(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i32) void {
+    pub fn WriteEntry35(self: ?*anyopaque, key: [:0]const u8, value: []const u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -2187,13 +2187,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: []u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn WriteEntry37(self: ?*anyopaque, key: []const u8, value: []u8, pFlags: i32) void {
+    pub fn WriteEntry37(self: ?*anyopaque, key: [:0]const u8, value: []u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -2210,11 +2210,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: []const u8 `
+    /// ` value: [:0]const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn WriteEntry38(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i32) void {
+    pub fn WriteEntry38(self: ?*anyopaque, key: []const u8, value: [:0]const u8, pFlags: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -2229,13 +2229,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
-    /// ` value: []const u8 `
+    /// ` value: [:0]const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn WriteEntry39(self: ?*anyopaque, key: []const u8, value: []const u8, pFlags: i32) void {
+    pub fn WriteEntry39(self: ?*anyopaque, key: [:0]const u8, value: [:0]const u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_Cstring = value.ptr;
         qtc.KConfigGroup_WriteEntry39(@ptrCast(self), key_Cstring, value_Cstring, @intCast(pFlags));
@@ -2281,7 +2281,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: [][]const u8 `
     ///
@@ -2289,7 +2289,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteEntry311(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
+    pub fn WriteEntry311(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry311: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -2336,13 +2336,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: []QtC.QVariant `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn WriteEntry313(self: ?*anyopaque, key: []const u8, value: []QtC.QVariant, pFlags: i32) void {
+    pub fn WriteEntry313(self: ?*anyopaque, key: [:0]const u8, value: []QtC.QVariant, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_list = qtc.libqt_list{
             .len = value.len,
@@ -2391,7 +2391,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: [][]const u8 `
     ///
@@ -2399,7 +2399,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteXdgListEntry32(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
+    pub fn WriteXdgListEntry32(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry32: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -2446,13 +2446,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` Key: []const u8 `
+    /// ` Key: [:0]const u8 `
     ///
     /// ` path: []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn WritePathEntry33(self: ?*anyopaque, Key: []const u8, path: []const u8, pFlags: i32) void {
+    pub fn WritePathEntry33(self: ?*anyopaque, Key: [:0]const u8, path: []const u8, pFlags: i32) void {
         const Key_Cstring = Key.ptr;
         const path_str = qtc.libqt_string{
             .len = path.len,
@@ -2501,7 +2501,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` value: [][]const u8 `
     ///
@@ -2509,7 +2509,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WritePathEntry35(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
+    pub fn WritePathEntry35(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry35: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -2550,11 +2550,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn DeleteEntry23(self: ?*anyopaque, key: []const u8, pFlags: i32) void {
+    pub fn DeleteEntry23(self: ?*anyopaque, key: [:0]const u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         qtc.KConfigGroup_DeleteEntry23(@ptrCast(self), key_Cstring, @intCast(pFlags));
     }
@@ -2583,11 +2583,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` self: QtC.KConfigGroup `
     ///
-    /// ` key: []const u8 `
+    /// ` key: [:0]const u8 `
     ///
     /// ` pFlag: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn RevertToDefault23(self: ?*anyopaque, key: []const u8, pFlag: i32) void {
+    pub fn RevertToDefault23(self: ?*anyopaque, key: [:0]const u8, pFlag: i32) void {
         const key_Cstring = key.ptr;
         qtc.KConfigGroup_RevertToDefault23(@ptrCast(self), key_Cstring, @intCast(pFlag));
     }

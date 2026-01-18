@@ -43,9 +43,9 @@ pub const qopenglshader = struct {
     ///
     /// ` self: QtC.QOpenGLShader `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLShader_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -96,11 +96,11 @@ pub const qopenglshader = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -129,9 +129,9 @@ pub const qopenglshader = struct {
     ///
     /// ` self: QtC.QOpenGLShader `
     ///
-    /// ` source: []const u8 `
+    /// ` source: [:0]const u8 `
     ///
-    pub fn CompileSourceCode(self: ?*anyopaque, source: []const u8) bool {
+    pub fn CompileSourceCode(self: ?*anyopaque, source: [:0]const u8) bool {
         const source_Cstring = source.ptr;
         return qtc.QOpenGLShader_CompileSourceCode(@ptrCast(self), source_Cstring);
     }
@@ -250,13 +250,13 @@ pub const qopenglshader = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -270,15 +270,15 @@ pub const qopenglshader = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -555,11 +555,11 @@ pub const qopenglshader = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -627,11 +627,11 @@ pub const qopenglshader = struct {
     ///
     /// ` self: QtC.QOpenGLShader `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -644,9 +644,9 @@ pub const qopenglshader = struct {
     ///
     /// ` self: QtC.QOpenGLShader `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -750,9 +750,9 @@ pub const qopenglshader = struct {
     ///
     /// ` self: QtC.QOpenGLShader `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -831,13 +831,13 @@ pub const qopenglshader = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -1309,9 +1309,9 @@ pub const qopenglshader = struct {
     ///
     /// ` self: QtC.QOpenGLShader `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLShader_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -1326,9 +1326,9 @@ pub const qopenglshader = struct {
     ///
     /// ` self: QtC.QOpenGLShader `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLShader_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
@@ -1458,9 +1458,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLShaderProgram_Metacast(@ptrCast(self), param1_Cstring);
     }
@@ -1511,11 +1511,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -1573,9 +1573,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit `
     ///
-    /// ` source: []const u8 `
+    /// ` source: [:0]const u8 `
     ///
-    pub fn AddShaderFromSourceCode(self: ?*anyopaque, typeVal: i32, source: []const u8) bool {
+    pub fn AddShaderFromSourceCode(self: ?*anyopaque, typeVal: i32, source: [:0]const u8) bool {
         const source_Cstring = source.ptr;
         return qtc.QOpenGLShaderProgram_AddShaderFromSourceCode(@ptrCast(self), @intCast(typeVal), source_Cstring);
     }
@@ -1642,9 +1642,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit `
     ///
-    /// ` source: []const u8 `
+    /// ` source: [:0]const u8 `
     ///
-    pub fn AddCacheableShaderFromSourceCode(self: ?*anyopaque, typeVal: i32, source: []const u8) bool {
+    pub fn AddCacheableShaderFromSourceCode(self: ?*anyopaque, typeVal: i32, source: [:0]const u8) bool {
         const source_Cstring = source.ptr;
         return qtc.QOpenGLShaderProgram_AddCacheableShaderFromSourceCode(@ptrCast(self), @intCast(typeVal), source_Cstring);
     }
@@ -1919,11 +1919,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` location: i32 `
     ///
-    pub fn BindAttributeLocation(self: ?*anyopaque, name: []const u8, location: i32) void {
+    pub fn BindAttributeLocation(self: ?*anyopaque, name: [:0]const u8, location: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_BindAttributeLocation(@ptrCast(self), name_Cstring, @intCast(location));
     }
@@ -1970,9 +1970,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn AttributeLocation(self: ?*anyopaque, name: []const u8) i32 {
+    pub fn AttributeLocation(self: ?*anyopaque, name: [:0]const u8) i32 {
         const name_Cstring = name.ptr;
         return qtc.QOpenGLShaderProgram_AttributeLocation(@ptrCast(self), name_Cstring);
     }
@@ -2157,11 +2157,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: f32 `
     ///
-    pub fn SetAttributeValue10(self: ?*anyopaque, name: []const u8, value: f32) void {
+    pub fn SetAttributeValue10(self: ?*anyopaque, name: [:0]const u8, value: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue10(@ptrCast(self), name_Cstring, @floatCast(value));
     }
@@ -2172,13 +2172,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` x: f32 `
     ///
     /// ` y: f32 `
     ///
-    pub fn SetAttributeValue11(self: ?*anyopaque, name: []const u8, x: f32, y: f32) void {
+    pub fn SetAttributeValue11(self: ?*anyopaque, name: [:0]const u8, x: f32, y: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue11(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y));
     }
@@ -2189,7 +2189,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` x: f32 `
     ///
@@ -2197,7 +2197,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn SetAttributeValue12(self: ?*anyopaque, name: []const u8, x: f32, y: f32, z: f32) void {
+    pub fn SetAttributeValue12(self: ?*anyopaque, name: [:0]const u8, x: f32, y: f32, z: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue12(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y), @floatCast(z));
     }
@@ -2208,7 +2208,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` x: f32 `
     ///
@@ -2218,7 +2218,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` w: f32 `
     ///
-    pub fn SetAttributeValue13(self: ?*anyopaque, name: []const u8, x: f32, y: f32, z: f32, w: f32) void {
+    pub fn SetAttributeValue13(self: ?*anyopaque, name: [:0]const u8, x: f32, y: f32, z: f32, w: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue13(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(w));
     }
@@ -2229,11 +2229,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVector2D `
     ///
-    pub fn SetAttributeValue14(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetAttributeValue14(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue14(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -2244,11 +2244,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVector3D `
     ///
-    pub fn SetAttributeValue15(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetAttributeValue15(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue15(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -2259,11 +2259,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVector4D `
     ///
-    pub fn SetAttributeValue16(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetAttributeValue16(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue16(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -2274,11 +2274,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QColor `
     ///
-    pub fn SetAttributeValue17(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetAttributeValue17(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue17(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -2289,7 +2289,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: []const f32 `
     ///
@@ -2297,7 +2297,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` rows: i32 `
     ///
-    pub fn SetAttributeValue18(self: ?*anyopaque, name: []const u8, values: []const f32, columns: i32, rows: i32) void {
+    pub fn SetAttributeValue18(self: ?*anyopaque, name: [:0]const u8, values: []const f32, columns: i32, rows: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue18(@ptrCast(self), name_Cstring, values.ptr, @intCast(columns), @intCast(rows));
     }
@@ -2384,13 +2384,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: []const f32 `
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeArray6(self: ?*anyopaque, name: []const u8, values: []const f32, tupleSize: i32) void {
+    pub fn SetAttributeArray6(self: ?*anyopaque, name: [:0]const u8, values: []const f32, tupleSize: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray6(@ptrCast(self), name_Cstring, values.ptr, @intCast(tupleSize));
     }
@@ -2401,11 +2401,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QVector2D `
     ///
-    pub fn SetAttributeArray7(self: ?*anyopaque, name: []const u8, values: ?*anyopaque) void {
+    pub fn SetAttributeArray7(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray7(@ptrCast(self), name_Cstring, @ptrCast(values));
     }
@@ -2416,11 +2416,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QVector3D `
     ///
-    pub fn SetAttributeArray8(self: ?*anyopaque, name: []const u8, values: ?*anyopaque) void {
+    pub fn SetAttributeArray8(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray8(@ptrCast(self), name_Cstring, @ptrCast(values));
     }
@@ -2431,11 +2431,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QVector4D `
     ///
-    pub fn SetAttributeArray9(self: ?*anyopaque, name: []const u8, values: ?*anyopaque) void {
+    pub fn SetAttributeArray9(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray9(@ptrCast(self), name_Cstring, @ptrCast(values));
     }
@@ -2446,7 +2446,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` typeVal: u32 `
     ///
@@ -2454,7 +2454,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeArray10(self: ?*anyopaque, name: []const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32) void {
+    pub fn SetAttributeArray10(self: ?*anyopaque, name: [:0]const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray10(@ptrCast(self), name_Cstring, @intCast(typeVal), @ptrCast(values), @intCast(tupleSize));
     }
@@ -2483,7 +2483,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` typeVal: u32 `
     ///
@@ -2491,7 +2491,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeBuffer2(self: ?*anyopaque, name: []const u8, typeVal: u32, offset: i32, tupleSize: i32) void {
+    pub fn SetAttributeBuffer2(self: ?*anyopaque, name: [:0]const u8, typeVal: u32, offset: i32, tupleSize: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeBuffer2(@ptrCast(self), name_Cstring, @intCast(typeVal), @intCast(offset), @intCast(tupleSize));
     }
@@ -2514,9 +2514,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn EnableAttributeArray2(self: ?*anyopaque, name: []const u8) void {
+    pub fn EnableAttributeArray2(self: ?*anyopaque, name: [:0]const u8) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_EnableAttributeArray2(@ptrCast(self), name_Cstring);
     }
@@ -2539,9 +2539,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn DisableAttributeArray2(self: ?*anyopaque, name: []const u8) void {
+    pub fn DisableAttributeArray2(self: ?*anyopaque, name: [:0]const u8) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_DisableAttributeArray2(@ptrCast(self), name_Cstring);
     }
@@ -2552,9 +2552,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn UniformLocation(self: ?*anyopaque, name: []const u8) i32 {
+    pub fn UniformLocation(self: ?*anyopaque, name: [:0]const u8) i32 {
         const name_Cstring = name.ptr;
         return qtc.QOpenGLShaderProgram_UniformLocation(@ptrCast(self), name_Cstring);
     }
@@ -2833,11 +2833,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: f32 `
     ///
-    pub fn SetUniformValue25(self: ?*anyopaque, name: []const u8, value: f32) void {
+    pub fn SetUniformValue25(self: ?*anyopaque, name: [:0]const u8, value: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue25(@ptrCast(self), name_Cstring, @floatCast(value));
     }
@@ -2848,11 +2848,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: i32 `
     ///
-    pub fn SetUniformValue26(self: ?*anyopaque, name: []const u8, value: i32) void {
+    pub fn SetUniformValue26(self: ?*anyopaque, name: [:0]const u8, value: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue26(@ptrCast(self), name_Cstring, @intCast(value));
     }
@@ -2863,11 +2863,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: u32 `
     ///
-    pub fn SetUniformValue27(self: ?*anyopaque, name: []const u8, value: u32) void {
+    pub fn SetUniformValue27(self: ?*anyopaque, name: [:0]const u8, value: u32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue27(@ptrCast(self), name_Cstring, @intCast(value));
     }
@@ -2878,13 +2878,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` x: f32 `
     ///
     /// ` y: f32 `
     ///
-    pub fn SetUniformValue28(self: ?*anyopaque, name: []const u8, x: f32, y: f32) void {
+    pub fn SetUniformValue28(self: ?*anyopaque, name: [:0]const u8, x: f32, y: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue28(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y));
     }
@@ -2895,7 +2895,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` x: f32 `
     ///
@@ -2903,7 +2903,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn SetUniformValue29(self: ?*anyopaque, name: []const u8, x: f32, y: f32, z: f32) void {
+    pub fn SetUniformValue29(self: ?*anyopaque, name: [:0]const u8, x: f32, y: f32, z: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue29(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y), @floatCast(z));
     }
@@ -2914,7 +2914,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` x: f32 `
     ///
@@ -2924,7 +2924,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` w: f32 `
     ///
-    pub fn SetUniformValue30(self: ?*anyopaque, name: []const u8, x: f32, y: f32, z: f32, w: f32) void {
+    pub fn SetUniformValue30(self: ?*anyopaque, name: [:0]const u8, x: f32, y: f32, z: f32, w: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue30(@ptrCast(self), name_Cstring, @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(w));
     }
@@ -2935,11 +2935,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVector2D `
     ///
-    pub fn SetUniformValue31(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetUniformValue31(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue31(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -2950,11 +2950,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVector3D `
     ///
-    pub fn SetUniformValue32(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetUniformValue32(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue32(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -2965,11 +2965,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVector4D `
     ///
-    pub fn SetUniformValue33(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetUniformValue33(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue33(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -2980,11 +2980,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` color: QtC.QColor `
     ///
-    pub fn SetUniformValue34(self: ?*anyopaque, name: []const u8, color: ?*anyopaque) void {
+    pub fn SetUniformValue34(self: ?*anyopaque, name: [:0]const u8, color: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue34(@ptrCast(self), name_Cstring, @ptrCast(color));
     }
@@ -2995,11 +2995,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` point: QtC.QPoint `
     ///
-    pub fn SetUniformValue35(self: ?*anyopaque, name: []const u8, point: ?*anyopaque) void {
+    pub fn SetUniformValue35(self: ?*anyopaque, name: [:0]const u8, point: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue35(@ptrCast(self), name_Cstring, @ptrCast(point));
     }
@@ -3010,11 +3010,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` point: QtC.QPointF `
     ///
-    pub fn SetUniformValue36(self: ?*anyopaque, name: []const u8, point: ?*anyopaque) void {
+    pub fn SetUniformValue36(self: ?*anyopaque, name: [:0]const u8, point: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue36(@ptrCast(self), name_Cstring, @ptrCast(point));
     }
@@ -3025,11 +3025,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` size: QtC.QSize `
     ///
-    pub fn SetUniformValue37(self: ?*anyopaque, name: []const u8, size: ?*anyopaque) void {
+    pub fn SetUniformValue37(self: ?*anyopaque, name: [:0]const u8, size: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue37(@ptrCast(self), name_Cstring, @ptrCast(size));
     }
@@ -3040,11 +3040,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` size: QtC.QSizeF `
     ///
-    pub fn SetUniformValue38(self: ?*anyopaque, name: []const u8, size: ?*anyopaque) void {
+    pub fn SetUniformValue38(self: ?*anyopaque, name: [:0]const u8, size: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue38(@ptrCast(self), name_Cstring, @ptrCast(size));
     }
@@ -3055,11 +3055,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QMatrix4x4 `
     ///
-    pub fn SetUniformValue47(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetUniformValue47(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue47(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -3070,11 +3070,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QTransform `
     ///
-    pub fn SetUniformValue48(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetUniformValue48(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue48(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -3199,7 +3199,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: []const f32 `
     ///
@@ -3207,7 +3207,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetUniformValueArray16(self: ?*anyopaque, name: []const u8, values: []const f32, count: i32, tupleSize: i32) void {
+    pub fn SetUniformValueArray16(self: ?*anyopaque, name: [:0]const u8, values: []const f32, count: i32, tupleSize: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray16(@ptrCast(self), name_Cstring, values.ptr, @intCast(count), @intCast(tupleSize));
     }
@@ -3218,13 +3218,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: []const i32 `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray17(self: ?*anyopaque, name: []const u8, values: []const i32, count: i32) void {
+    pub fn SetUniformValueArray17(self: ?*anyopaque, name: [:0]const u8, values: []const i32, count: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray17(@ptrCast(self), name_Cstring, values.ptr, @intCast(count));
     }
@@ -3235,13 +3235,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: []const u32 `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray18(self: ?*anyopaque, name: []const u8, values: []const u32, count: i32) void {
+    pub fn SetUniformValueArray18(self: ?*anyopaque, name: [:0]const u8, values: []const u32, count: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray18(@ptrCast(self), name_Cstring, values.ptr, @intCast(count));
     }
@@ -3252,13 +3252,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QVector2D `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray19(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, count: i32) void {
+    pub fn SetUniformValueArray19(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque, count: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray19(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
     }
@@ -3269,13 +3269,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QVector3D `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray20(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, count: i32) void {
+    pub fn SetUniformValueArray20(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque, count: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray20(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
     }
@@ -3286,13 +3286,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QVector4D `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray21(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, count: i32) void {
+    pub fn SetUniformValueArray21(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque, count: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray21(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
     }
@@ -3303,13 +3303,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QMatrix4x4 `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray30(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, count: i32) void {
+    pub fn SetUniformValueArray30(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque, count: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray30(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
     }
@@ -3324,13 +3324,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -3344,15 +3344,15 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: [:0]const u8 `
     ///
-    /// ` c: []const u8 `
+    /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
@@ -3454,7 +3454,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: []const f32 `
     ///
@@ -3462,7 +3462,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray43(self: ?*anyopaque, name: []const u8, values: []const f32, tupleSize: i32, stride: i32) void {
+    pub fn SetAttributeArray43(self: ?*anyopaque, name: [:0]const u8, values: []const f32, tupleSize: i32, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray43(@ptrCast(self), name_Cstring, values.ptr, @intCast(tupleSize), @intCast(stride));
     }
@@ -3473,13 +3473,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QVector2D `
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray35(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, stride: i32) void {
+    pub fn SetAttributeArray35(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray35(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(stride));
     }
@@ -3490,13 +3490,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QVector3D `
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray36(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, stride: i32) void {
+    pub fn SetAttributeArray36(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray36(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(stride));
     }
@@ -3507,13 +3507,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` values: QtC.QVector4D `
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray37(self: ?*anyopaque, name: []const u8, values: ?*anyopaque, stride: i32) void {
+    pub fn SetAttributeArray37(self: ?*anyopaque, name: [:0]const u8, values: ?*anyopaque, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray37(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(stride));
     }
@@ -3524,7 +3524,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` typeVal: u32 `
     ///
@@ -3534,7 +3534,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray53(self: ?*anyopaque, name: []const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32, stride: i32) void {
+    pub fn SetAttributeArray53(self: ?*anyopaque, name: [:0]const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray53(@ptrCast(self), name_Cstring, @intCast(typeVal), @ptrCast(values), @intCast(tupleSize), @intCast(stride));
     }
@@ -3565,7 +3565,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` typeVal: u32 `
     ///
@@ -3575,7 +3575,7 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeBuffer52(self: ?*anyopaque, name: []const u8, typeVal: u32, offset: i32, tupleSize: i32, stride: i32) void {
+    pub fn SetAttributeBuffer52(self: ?*anyopaque, name: [:0]const u8, typeVal: u32, offset: i32, tupleSize: i32, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeBuffer52(@ptrCast(self), name_Cstring, @intCast(typeVal), @intCast(offset), @intCast(tupleSize), @intCast(stride));
     }
@@ -3845,11 +3845,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
+    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
@@ -3917,11 +3917,11 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
     /// ` value: QtC.QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
         const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
@@ -3934,9 +3934,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
         const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
@@ -4040,9 +4040,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` classname: []const u8 `
+    /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
+    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
@@ -4121,13 +4121,13 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    /// ` member: []const u8 `
+    /// ` member: [:0]const u8 `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -4599,9 +4599,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLShaderProgram_Receivers(@ptrCast(self), signal_Cstring);
     }
@@ -4616,9 +4616,9 @@ pub const qopenglshaderprogram = struct {
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
     ///
-    /// ` signal: []const u8 `
+    /// ` signal: [:0]const u8 `
     ///
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLShaderProgram_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }

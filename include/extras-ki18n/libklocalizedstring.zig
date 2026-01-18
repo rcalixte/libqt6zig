@@ -96,11 +96,11 @@ pub const klocalizedstring = struct {
     ///
     /// ` self: QtC.KLocalizedString `
     ///
-    /// ` domain: []const u8 `
+    /// ` domain: [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString3(self: ?*anyopaque, domain: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString3(self: ?*anyopaque, domain: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
         const domain_Cstring = domain.ptr;
         var _str = qtc.KLocalizedString_ToString3(@ptrCast(self), domain_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -159,9 +159,9 @@ pub const klocalizedstring = struct {
     ///
     /// ` self: QtC.KLocalizedString `
     ///
-    /// ` domain: []const u8 `
+    /// ` domain: [:0]const u8 `
     ///
-    pub fn WithDomain(self: ?*anyopaque, domain: []const u8) QtC.KLocalizedString {
+    pub fn WithDomain(self: ?*anyopaque, domain: [:0]const u8) QtC.KLocalizedString {
         const domain_Cstring = domain.ptr;
         return qtc.KLocalizedString_WithDomain(@ptrCast(self), domain_Cstring);
     }

@@ -270,11 +270,11 @@ pub const kfilterbase = struct {
     ///
     /// ` self: QtC.KFilterBase `
     ///
-    /// ` data: []u8 `
+    /// ` data: [:0]u8 `
     ///
     /// ` maxlen: u32 `
     ///
-    pub fn SetOutBuffer(self: ?*anyopaque, data: []u8, maxlen: u32) void {
+    pub fn SetOutBuffer(self: ?*anyopaque, data: [:0]u8, maxlen: u32) void {
         const data_Cstring = data.ptr;
         qtc.KFilterBase_SetOutBuffer(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -301,11 +301,11 @@ pub const kfilterbase = struct {
     ///
     /// ` self: QtC.KFilterBase `
     ///
-    /// ` data: []u8 `
+    /// ` data: [:0]u8 `
     ///
     /// ` maxlen: u32 `
     ///
-    pub fn QBaseSetOutBuffer(self: ?*anyopaque, data: []u8, maxlen: u32) void {
+    pub fn QBaseSetOutBuffer(self: ?*anyopaque, data: [:0]u8, maxlen: u32) void {
         const data_Cstring = data.ptr;
         qtc.KFilterBase_QBaseSetOutBuffer(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -316,11 +316,11 @@ pub const kfilterbase = struct {
     ///
     /// ` self: QtC.KFilterBase `
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` size: u32 `
     ///
-    pub fn SetInBuffer(self: ?*anyopaque, data: []const u8, size: u32) void {
+    pub fn SetInBuffer(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
         qtc.KFilterBase_SetInBuffer(@ptrCast(self), data_Cstring, @intCast(size));
     }
@@ -347,11 +347,11 @@ pub const kfilterbase = struct {
     ///
     /// ` self: QtC.KFilterBase `
     ///
-    /// ` data: []const u8 `
+    /// ` data: [:0]const u8 `
     ///
     /// ` size: u32 `
     ///
-    pub fn QBaseSetInBuffer(self: ?*anyopaque, data: []const u8, size: u32) void {
+    pub fn QBaseSetInBuffer(self: ?*anyopaque, data: [:0]const u8, size: u32) void {
         const data_Cstring = data.ptr;
         qtc.KFilterBase_QBaseSetInBuffer(@ptrCast(self), data_Cstring, @intCast(size));
     }
