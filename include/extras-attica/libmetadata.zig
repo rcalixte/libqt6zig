@@ -249,6 +249,22 @@ pub const attica__metadata = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#setHeaders)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Attica__Metadata `
+    ///
+    /// ` headers: []struct_u8_u8 `
+    ///
+    pub fn SetHeaders(self: ?*anyopaque, headers: []struct_u8_u8) void {
+        const headers_list = qtc.libqt_list{
+            .len = headers.len,
+            .data = headers.ptr,
+        };
+        qtc.Attica__Metadata_SetHeaders(@ptrCast(self), headers_list);
+    }
+
     /// Delete this object from C++ memory.
     ///
     /// ## Parameter:

@@ -129,6 +129,11 @@ bool QWebEnginePage_Event(QWebEnginePage* self, QEvent* param1) {
     }
 }
 
+void QWebEnginePage_FindText(QWebEnginePage* self, const libqt_string subString) {
+    QString subString_QString = QString::fromUtf8(subString.data, subString.len);
+    self->findText(subString_QString);
+}
+
 bool QWebEnginePage_IsLoading(const QWebEnginePage* self) {
     return self->isLoading();
 }
@@ -201,6 +206,11 @@ QPointF* QWebEnginePage_ScrollPosition(const QWebEnginePage* self) {
 
 QSizeF* QWebEnginePage_ContentsSize(const QWebEnginePage* self) {
     return new QSizeF(self->contentsSize());
+}
+
+void QWebEnginePage_RunJavaScript2(QWebEnginePage* self, const libqt_string scriptSource) {
+    QString scriptSource_QString = QString::fromUtf8(scriptSource.data, scriptSource.len);
+    self->runJavaScript(scriptSource_QString);
 }
 
 QWebEngineScriptCollection* QWebEnginePage_Scripts(QWebEnginePage* self) {
@@ -966,6 +976,11 @@ bool QWebEnginePage_AcceptNavigationRequest(QWebEnginePage* self, const QUrl* ur
     return {};
 }
 
+void QWebEnginePage_FindText2(QWebEnginePage* self, const libqt_string subString, int options) {
+    QString subString_QString = QString::fromUtf8(subString.data, subString.len);
+    self->findText(subString_QString, static_cast<QWebEnginePage::FindFlags>(options));
+}
+
 void QWebEnginePage_Download2(QWebEnginePage* self, const QUrl* url, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     self->download(*url, filename_QString);
@@ -988,6 +1003,11 @@ void QWebEnginePage_SetContent3(QWebEnginePage* self, const libqt_string data, c
     self->setContent(data_QByteArray, mimeType_QString, *baseUrl);
 }
 
+void QWebEnginePage_RunJavaScript22(QWebEnginePage* self, const libqt_string scriptSource, unsigned int worldId) {
+    QString scriptSource_QString = QString::fromUtf8(scriptSource.data, scriptSource.len);
+    self->runJavaScript(scriptSource_QString, static_cast<quint32>(worldId));
+}
+
 void QWebEnginePage_SetWebChannel2(QWebEnginePage* self, QWebChannel* param1, unsigned int worldId) {
     self->setWebChannel(param1, static_cast<quint32>(worldId));
 }
@@ -997,7 +1017,7 @@ void QWebEnginePage_Save2(const QWebEnginePage* self, const libqt_string filePat
     self->save(filePath_QString, static_cast<QWebEngineDownloadRequest::SavePageFormat>(format));
 }
 
-void QWebEnginePage_PrintToPdf2(QWebEnginePage* self, const libqt_string filePath, const QPageLayout* layout) {
+void QWebEnginePage_PrintToPdf22(QWebEnginePage* self, const libqt_string filePath, const QPageLayout* layout) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString, *layout);
 }

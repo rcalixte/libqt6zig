@@ -379,6 +379,22 @@ pub const qwebengineview = struct {
         qtc.QWebEngineView_SetZoomFactor(@ptrCast(self), @floatCast(factor));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#findText)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineView `
+    ///
+    /// ` subString: []const u8 `
+    ///
+    pub fn FindText(self: ?*anyopaque, subString: []const u8) void {
+        const subString_str = qtc.libqt_string{
+            .len = subString.len,
+            .data = subString.ptr,
+        };
+        qtc.QWebEngineView_FindText(@ptrCast(self), subString_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#sizeHint)
     ///
     /// ## Parameter(s):
@@ -1351,6 +1367,24 @@ pub const qwebengineview = struct {
         qtc.QWebEngineView_TriggerPageAction2(@ptrCast(self), @intCast(action), checked);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#findText)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineView `
+    ///
+    /// ` subString: []const u8 `
+    ///
+    /// ` options: flag of qwebenginepage_enums.FindFlag `
+    ///
+    pub fn FindText2(self: ?*anyopaque, subString: []const u8, options: i32) void {
+        const subString_str = qtc.libqt_string{
+            .len = subString.len,
+            .data = subString.ptr,
+        };
+        qtc.QWebEngineView_FindText2(@ptrCast(self), subString_str, @intCast(options));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
     ///
     /// ## Parameter(s):
@@ -1361,12 +1395,12 @@ pub const qwebengineview = struct {
     ///
     /// ` layout: QtC.QPageLayout `
     ///
-    pub fn PrintToPdf2(self: ?*anyopaque, filePath: []const u8, layout: ?*anyopaque) void {
+    pub fn PrintToPdf22(self: ?*anyopaque, filePath: []const u8, layout: ?*anyopaque) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWebEngineView_PrintToPdf2(@ptrCast(self), filePath_str, @ptrCast(layout));
+        qtc.QWebEngineView_PrintToPdf22(@ptrCast(self), filePath_str, @ptrCast(layout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)

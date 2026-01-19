@@ -69,6 +69,7 @@ QMetaObject* KRichTextWidget_MetaObject(const KRichTextWidget* self);
 void* KRichTextWidget_Metacast(KRichTextWidget* self, const char* param1);
 int KRichTextWidget_Metacall(KRichTextWidget* self, int param1, int param2, void** param3);
 libqt_list /* of QAction* */ KRichTextWidget_CreateActions(KRichTextWidget* self);
+void KRichTextWidget_SetRichTextSupport(KRichTextWidget* self, const int* support);
 int KRichTextWidget_RichTextSupport(const KRichTextWidget* self);
 void KRichTextWidget_UpdateActionStates(KRichTextWidget* self);
 void KRichTextWidget_SetActionsEnabled(KRichTextWidget* self, bool enabled);

@@ -138,6 +138,27 @@ pub const kpluginmetadata = struct {
         return qtc.KPluginMetaData_FindPluginById(directory_str, pluginId_str);
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#findPlugins)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` directory: []const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn FindPlugins(directory: []const u8, allocator: std.mem.Allocator) []QtC.KPluginMetaData {
+        const directory_str = qtc.libqt_string{
+            .len = directory.len,
+            .data = directory.ptr,
+        };
+        const _arr: qtc.libqt_list = qtc.KPluginMetaData_FindPlugins(directory_str);
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.KPluginMetaData, _arr.len) catch @panic("kpluginmetadata.FindPlugins: Memory allocation failed");
+        const _data: [*]QtC.KPluginMetaData = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
     /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#isValid)
     ///
     /// ## Parameter(s):

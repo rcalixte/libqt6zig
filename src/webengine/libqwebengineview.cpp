@@ -188,6 +188,11 @@ void QWebEngineView_SetZoomFactor(QWebEngineView* self, double factor) {
     self->setZoomFactor(static_cast<qreal>(factor));
 }
 
+void QWebEngineView_FindText(QWebEngineView* self, const libqt_string subString) {
+    QString subString_QString = QString::fromUtf8(subString.data, subString.len);
+    self->findText(subString_QString);
+}
+
 QSize* QWebEngineView_SizeHint(const QWebEngineView* self) {
     auto* vqwebengineview = dynamic_cast<const VirtualQWebEngineView*>(self);
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
@@ -504,7 +509,12 @@ void QWebEngineView_TriggerPageAction2(QWebEngineView* self, int action, bool ch
     self->triggerPageAction(static_cast<QWebEnginePage::WebAction>(action), checked);
 }
 
-void QWebEngineView_PrintToPdf2(QWebEngineView* self, const libqt_string filePath, const QPageLayout* layout) {
+void QWebEngineView_FindText2(QWebEngineView* self, const libqt_string subString, int options) {
+    QString subString_QString = QString::fromUtf8(subString.data, subString.len);
+    self->findText(subString_QString, static_cast<QWebEnginePage::FindFlags>(options));
+}
+
+void QWebEngineView_PrintToPdf22(QWebEngineView* self, const libqt_string filePath, const QPageLayout* layout) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString, *layout);
 }

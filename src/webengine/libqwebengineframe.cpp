@@ -66,7 +66,7 @@ bool QWebEngineFrame_IsMainFrame(const QWebEngineFrame* self) {
     return self->isMainFrame();
 }
 
-void QWebEngineFrame_RunJavaScript(QWebEngineFrame* self, const libqt_string script) {
+void QWebEngineFrame_RunJavaScript3(QWebEngineFrame* self, const libqt_string script) {
     QString script_QString = QString::fromUtf8(script.data, script.len);
     self->runJavaScript(script_QString);
 }
