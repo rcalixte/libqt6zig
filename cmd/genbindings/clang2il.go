@@ -1149,7 +1149,7 @@ func parseTypeString(typeString, className string) (CppParameter, []CppParameter
 	}
 
 	// Trim away "noexcept" if present
-	typeString = strings.Split(typeString, "noexcept")[0]
+	typeString = strings.Split(strings.TrimSpace(typeString), "noexcept")[0]
 
 	// Cut to exterior-most (, ) pair
 	opos := strings.Index(typeString, "(")
@@ -1161,13 +1161,13 @@ func parseTypeString(typeString, className string) (CppParameter, []CppParameter
 
 	isConst := strings.Contains(typeString[epos:], "const")
 
-	returnType := parseSingleTypeString(strings.TrimSpace(typeString[0:opos]), className)
+	returnType := parseSingleTypeString(strings.TrimSpace(typeString[:opos]), className)
 
 	inner := typeString[opos+1 : epos]
 
-	// Should be no more brackets
-	if strings.ContainsAny(inner, "()") {
-		return CppParameter{}, nil, false, ErrTooComplex
+	// If the parameter list is empty, return no parameters
+	if strings.TrimSpace(inner) == "" {
+		return returnType, []CppParameter{}, isConst, nil
 	}
 
 	// Parameters are separated by commas and nesting can not be possible
@@ -1175,6 +1175,10 @@ func parseTypeString(typeString, className string) (CppParameter, []CppParameter
 
 	ret := make([]CppParameter, 0, len(params))
 	for _, p := range params {
+		p = strings.TrimSpace(p)
+		if p == "" {
+			continue
+		}
 
 		insert := parseSingleTypeString(p, className)
 
