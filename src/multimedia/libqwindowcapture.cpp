@@ -43,7 +43,7 @@ int QWindowCapture_Metacall(QWindowCapture* self, int param1, int param2, void**
 libqt_list /* of QCapturableWindow* */ QWindowCapture_CapturableWindows() {
     QList<QCapturableWindow> _ret = QWindowCapture::capturableWindows();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QCapturableWindow** _arr = static_cast<QCapturableWindow**>(malloc(sizeof(QCapturableWindow*) * (_ret.size() + 1)));
+    QCapturableWindow** _arr = static_cast<QCapturableWindow**>(malloc(sizeof(QCapturableWindow*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QCapturableWindow(_ret[i]);
     }

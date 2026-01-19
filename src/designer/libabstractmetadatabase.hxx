@@ -118,7 +118,7 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
         if (qdesignermetadatabaseiteminterface_settaborder_callback != nullptr) {
             const QList<QWidget*>& tabOrder_ret = tabOrder;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QWidget** tabOrder_arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (tabOrder_ret.size() + 1)));
+            QWidget** tabOrder_arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (tabOrder_ret.size())));
             for (qsizetype i = 0; i < tabOrder_ret.size(); ++i) {
                 tabOrder_arr[i] = tabOrder_ret[i];
             }

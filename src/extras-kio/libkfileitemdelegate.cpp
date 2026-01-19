@@ -132,7 +132,7 @@ void KFileItemDelegate_SetShowInformation2(KFileItemDelegate* self, int informat
 libqt_list /* of int */ KFileItemDelegate_ShowInformation(const KFileItemDelegate* self) {
     QList<KFileItemDelegate::Information> _ret = self->showInformation();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
@@ -461,7 +461,7 @@ libqt_list /* of int */ KFileItemDelegate_PaintingRoles(const KFileItemDelegate*
     if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
         QList<int> _ret = vkfileitemdelegate->paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -472,7 +472,7 @@ libqt_list /* of int */ KFileItemDelegate_PaintingRoles(const KFileItemDelegate*
     } else {
         QList<int> _ret = self->KFileItemDelegate::paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -490,7 +490,7 @@ libqt_list /* of int */ KFileItemDelegate_QBasePaintingRoles(const KFileItemDele
         vkfileitemdelegate->setKFileItemDelegate_PaintingRoles_IsBase(true);
         QList<int> _ret = vkfileitemdelegate->paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -501,7 +501,7 @@ libqt_list /* of int */ KFileItemDelegate_QBasePaintingRoles(const KFileItemDele
     } else {
         QList<int> _ret = self->KFileItemDelegate::paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

@@ -488,7 +488,7 @@ libqt_list /* of libqt_string */ KColorSchemeModel_MimeTypes(const KColorSchemeM
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         QList<QString> _ret = vkcolorschememodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -507,7 +507,7 @@ libqt_list /* of libqt_string */ KColorSchemeModel_MimeTypes(const KColorSchemeM
     } else {
         QList<QString> _ret = self->KColorSchemeModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -533,7 +533,7 @@ libqt_list /* of libqt_string */ KColorSchemeModel_QBaseMimeTypes(const KColorSc
         vkcolorschememodel->setKColorSchemeModel_MimeTypes_IsBase(true);
         QList<QString> _ret = vkcolorschememodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -552,7 +552,7 @@ libqt_list /* of libqt_string */ KColorSchemeModel_QBaseMimeTypes(const KColorSc
     } else {
         QList<QString> _ret = self->KColorSchemeModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1003,7 +1003,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_Match(const KColorSchemeModel
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         QList<QModelIndex> _ret = vkcolorschememodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1014,7 +1014,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_Match(const KColorSchemeModel
     } else {
         QList<QModelIndex> _ret = self->KColorSchemeModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1032,7 +1032,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_QBaseMatch(const KColorScheme
         vkcolorschememodel->setKColorSchemeModel_Match_IsBase(true);
         QList<QModelIndex> _ret = vkcolorschememodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1043,7 +1043,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_QBaseMatch(const KColorScheme
     } else {
         QList<QModelIndex> _ret = self->KColorSchemeModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2110,7 +2110,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_PersistentIndexList(const KCo
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         QList<QModelIndex> _ret = vkcolorschememodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2121,7 +2121,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_PersistentIndexList(const KCo
     } else {
         QList<QModelIndex> _ret = ((VirtualKColorSchemeModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2139,7 +2139,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_QBasePersistentIndexList(cons
         vkcolorschememodel->setKColorSchemeModel_PersistentIndexList_IsBase(true);
         QList<QModelIndex> _ret = vkcolorschememodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2150,7 +2150,7 @@ libqt_list /* of QModelIndex* */ KColorSchemeModel_QBasePersistentIndexList(cons
     } else {
         QList<QModelIndex> _ret = ((VirtualKColorSchemeModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

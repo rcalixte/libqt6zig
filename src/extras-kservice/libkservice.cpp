@@ -199,7 +199,7 @@ libqt_string KService_UntranslatedName(const KService* self) {
 libqt_list /* of libqt_string */ KService_Keywords(const KService* self) {
     QList<QString> _ret = self->keywords();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -220,7 +220,7 @@ libqt_list /* of libqt_string */ KService_Keywords(const KService* self) {
 libqt_list /* of libqt_string */ KService_Categories(const KService* self) {
     QList<QString> _ret = self->categories();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -241,7 +241,7 @@ libqt_list /* of libqt_string */ KService_Categories(const KService* self) {
 libqt_list /* of libqt_string */ KService_MimeTypes(const KService* self) {
     QList<QString> _ret = self->mimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -262,7 +262,7 @@ libqt_list /* of libqt_string */ KService_MimeTypes(const KService* self) {
 libqt_list /* of libqt_string */ KService_SchemeHandlers(const KService* self) {
     QList<QString> _ret = self->schemeHandlers();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -283,7 +283,7 @@ libqt_list /* of libqt_string */ KService_SchemeHandlers(const KService* self) {
 libqt_list /* of libqt_string */ KService_SupportedProtocols(const KService* self) {
     QList<QString> _ret = self->supportedProtocols();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -309,7 +309,7 @@ bool KService_HasMimeType(const KService* self, const libqt_string mimeType) {
 libqt_list /* of KServiceAction* */ KService_Actions(const KService* self) {
     QList<KServiceAction> _ret = self->actions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KServiceAction** _arr = static_cast<KServiceAction**>(malloc(sizeof(KServiceAction*) * (_ret.size() + 1)));
+    KServiceAction** _arr = static_cast<KServiceAction**>(malloc(sizeof(KServiceAction*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KServiceAction(_ret[i]);
     }

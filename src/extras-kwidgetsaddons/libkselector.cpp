@@ -1933,35 +1933,29 @@ int KGradientSelector_Metacall(KGradientSelector* self, int param1, int param2, 
     }
 }
 
-void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of libqt_pair tuple of double and QColor* */ stops) {
+void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of pair_double_qcolor tuple of double and QColor* */ stops) {
     QList<QPair<double, QColor>> stops_QList;
     stops_QList.reserve(stops.len);
-    libqt_pair /* tuple of double and QColor* */* stops_arr = static_cast<libqt_pair /* tuple of double and QColor* */*>(stops.data);
+    pair_double_qcolor /* tuple of double and QColor* */* stops_arr = static_cast<pair_double_qcolor /* tuple of double and QColor* */*>(stops.data);
     for (size_t i = 0; i < stops.len; ++i) {
         QPair<double, QColor> stops_arr_i_QPair;
-        double* stops_arr_i_first = static_cast<double*>(stops_arr[i].first);
-        QColor** stops_arr_i_second = static_cast<QColor**>(stops_arr[i].second);
-        stops_arr_i_QPair.first = static_cast<double>(stops_arr_i_first[0]);
-        stops_arr_i_QPair.second = *(stops_arr_i_second[0]);
+        stops_arr_i_QPair.first = stops_arr[i].first;
+        stops_arr_i_QPair.second = *(stops_arr[i].second);
         stops_QList.push_back(stops_arr_i_QPair);
     }
     self->setStops(stops_QList);
 }
 
-libqt_list /* of libqt_pair tuple of double and QColor* */ KGradientSelector_Stops(const KGradientSelector* self) {
+libqt_list /* of pair_double_qcolor tuple of double and QColor* */ KGradientSelector_Stops(const KGradientSelector* self) {
     QList<QPair<double, QColor>> _ret = self->stops();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QColor* */* _arr = static_cast<libqt_pair /* tuple of double and QColor* */*>(malloc(sizeof(libqt_pair /* tuple of double and QColor* */) * (_ret.size() + 1)));
+    pair_double_qcolor /* tuple of double and QColor* */* _arr = static_cast<pair_double_qcolor /* tuple of double and QColor* */*>(malloc(sizeof(pair_double_qcolor /* tuple of double and QColor* */) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QColor> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
-        double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
-        QColor** _lv_second = static_cast<QColor**>(malloc(sizeof(QColor*)));
-        *_lv_first = _lv_ret.first;
-        *_lv_second = new QColor(_lv_ret.second);
-        libqt_pair _lv_out;
-        _lv_out.first = static_cast<void*>(_lv_first);
-        _lv_out.second = static_cast<void*>(_lv_second);
+        pair_double_qcolor /* tuple of double and QColor* */ _lv_out;
+        _lv_out.first = _lv_ret.first;
+        _lv_out.second = new QColor(_lv_ret.second);
         _arr[i] = _lv_out;
     }
     libqt_list _out;

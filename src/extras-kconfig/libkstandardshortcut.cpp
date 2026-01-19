@@ -11,7 +11,7 @@
 libqt_list /* of QKeySequence* */ KStandardShortcut_Shortcut(int param1) {
     const QList<QKeySequence>& _ret = KStandardShortcut::shortcut(static_cast<KStandardShortcut::StandardShortcut>(param1));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -69,7 +69,7 @@ int KStandardShortcut_FindByName(const libqt_string param1) {
 libqt_list /* of QKeySequence* */ KStandardShortcut_HardcodedDefaultShortcut(int param1) {
     QList<QKeySequence> _ret = KStandardShortcut::hardcodedDefaultShortcut(static_cast<KStandardShortcut::StandardShortcut>(param1));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -96,7 +96,7 @@ int KStandardShortcut_Category(int param1) {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Open() {
     const QList<QKeySequence>& _ret = KStandardShortcut::open();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -109,7 +109,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Open() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_OpenNew() {
     const QList<QKeySequence>& _ret = KStandardShortcut::openNew();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -122,7 +122,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_OpenNew() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Close() {
     const QList<QKeySequence>& _ret = KStandardShortcut::close();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -135,7 +135,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Close() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Save() {
     const QList<QKeySequence>& _ret = KStandardShortcut::save();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -148,7 +148,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Save() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Print() {
     const QList<QKeySequence>& _ret = KStandardShortcut::print();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -161,7 +161,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Print() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Quit() {
     const QList<QKeySequence>& _ret = KStandardShortcut::quit();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -174,7 +174,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Quit() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Undo() {
     const QList<QKeySequence>& _ret = KStandardShortcut::undo();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -187,7 +187,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Undo() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Redo() {
     const QList<QKeySequence>& _ret = KStandardShortcut::redo();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -200,7 +200,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Redo() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Cut() {
     const QList<QKeySequence>& _ret = KStandardShortcut::cut();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -213,7 +213,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Cut() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Copy() {
     const QList<QKeySequence>& _ret = KStandardShortcut::copy();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -226,7 +226,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Copy() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Paste() {
     const QList<QKeySequence>& _ret = KStandardShortcut::paste();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -239,7 +239,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Paste() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_PasteSelection() {
     const QList<QKeySequence>& _ret = KStandardShortcut::pasteSelection();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -252,7 +252,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_PasteSelection() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_SelectAll() {
     const QList<QKeySequence>& _ret = KStandardShortcut::selectAll();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -265,7 +265,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_SelectAll() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_DeleteWordBack() {
     const QList<QKeySequence>& _ret = KStandardShortcut::deleteWordBack();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -278,7 +278,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_DeleteWordBack() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_DeleteWordForward() {
     const QList<QKeySequence>& _ret = KStandardShortcut::deleteWordForward();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -291,7 +291,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_DeleteWordForward() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Find2() {
     const QList<QKeySequence>& _ret = KStandardShortcut::find();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -304,7 +304,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Find2() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_FindNext() {
     const QList<QKeySequence>& _ret = KStandardShortcut::findNext();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -317,7 +317,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_FindNext() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_FindPrev() {
     const QList<QKeySequence>& _ret = KStandardShortcut::findPrev();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -330,7 +330,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_FindPrev() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Replace() {
     const QList<QKeySequence>& _ret = KStandardShortcut::replace();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -343,7 +343,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Replace() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_ZoomIn() {
     const QList<QKeySequence>& _ret = KStandardShortcut::zoomIn();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -356,7 +356,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_ZoomIn() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_ZoomOut() {
     const QList<QKeySequence>& _ret = KStandardShortcut::zoomOut();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -369,7 +369,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_ZoomOut() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Home() {
     const QList<QKeySequence>& _ret = KStandardShortcut::home();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -382,7 +382,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Home() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Begin() {
     const QList<QKeySequence>& _ret = KStandardShortcut::begin();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -395,7 +395,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Begin() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_End() {
     const QList<QKeySequence>& _ret = KStandardShortcut::end();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -408,7 +408,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_End() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_BeginningOfLine() {
     const QList<QKeySequence>& _ret = KStandardShortcut::beginningOfLine();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -421,7 +421,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_BeginningOfLine() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_EndOfLine() {
     const QList<QKeySequence>& _ret = KStandardShortcut::endOfLine();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -434,7 +434,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_EndOfLine() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Prior() {
     const QList<QKeySequence>& _ret = KStandardShortcut::prior();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -447,7 +447,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Prior() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Next() {
     const QList<QKeySequence>& _ret = KStandardShortcut::next();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -460,7 +460,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Next() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_GotoLine() {
     const QList<QKeySequence>& _ret = KStandardShortcut::gotoLine();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -473,7 +473,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_GotoLine() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_AddBookmark() {
     const QList<QKeySequence>& _ret = KStandardShortcut::addBookmark();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -486,7 +486,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_AddBookmark() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_TabNext() {
     const QList<QKeySequence>& _ret = KStandardShortcut::tabNext();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -499,7 +499,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_TabNext() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_TabPrev() {
     const QList<QKeySequence>& _ret = KStandardShortcut::tabPrev();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -512,7 +512,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_TabPrev() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_FullScreen() {
     const QList<QKeySequence>& _ret = KStandardShortcut::fullScreen();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -525,7 +525,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_FullScreen() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Help() {
     const QList<QKeySequence>& _ret = KStandardShortcut::help();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -538,7 +538,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Help() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Completion() {
     const QList<QKeySequence>& _ret = KStandardShortcut::completion();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -551,7 +551,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Completion() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_PrevCompletion() {
     const QList<QKeySequence>& _ret = KStandardShortcut::prevCompletion();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -564,7 +564,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_PrevCompletion() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_NextCompletion() {
     const QList<QKeySequence>& _ret = KStandardShortcut::nextCompletion();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -577,7 +577,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_NextCompletion() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_SubstringCompletion() {
     const QList<QKeySequence>& _ret = KStandardShortcut::substringCompletion();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -590,7 +590,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_SubstringCompletion() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_RotateUp() {
     const QList<QKeySequence>& _ret = KStandardShortcut::rotateUp();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -603,7 +603,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_RotateUp() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_RotateDown() {
     const QList<QKeySequence>& _ret = KStandardShortcut::rotateDown();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -616,7 +616,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_RotateDown() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_WhatsThis2() {
     const QList<QKeySequence>& _ret = KStandardShortcut::whatsThis();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -629,7 +629,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_WhatsThis2() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Reload() {
     const QList<QKeySequence>& _ret = KStandardShortcut::reload();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -642,7 +642,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Reload() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Up() {
     const QList<QKeySequence>& _ret = KStandardShortcut::up();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -655,7 +655,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Up() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Back() {
     const QList<QKeySequence>& _ret = KStandardShortcut::back();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -668,7 +668,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Back() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Forward() {
     const QList<QKeySequence>& _ret = KStandardShortcut::forward();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -681,7 +681,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Forward() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_BackwardWord() {
     const QList<QKeySequence>& _ret = KStandardShortcut::backwardWord();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -694,7 +694,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_BackwardWord() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_ForwardWord() {
     const QList<QKeySequence>& _ret = KStandardShortcut::forwardWord();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -707,7 +707,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_ForwardWord() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_ShowMenubar() {
     const QList<QKeySequence>& _ret = KStandardShortcut::showMenubar();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -720,7 +720,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_ShowMenubar() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_DeleteFile() {
     const QList<QKeySequence>& _ret = KStandardShortcut::deleteFile();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -733,7 +733,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_DeleteFile() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_RenameFile() {
     const QList<QKeySequence>& _ret = KStandardShortcut::renameFile();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -746,7 +746,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_RenameFile() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_CreateFolder() {
     const QList<QKeySequence>& _ret = KStandardShortcut::createFolder();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -759,7 +759,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_CreateFolder() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_MoveToTrash() {
     const QList<QKeySequence>& _ret = KStandardShortcut::moveToTrash();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -772,7 +772,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_MoveToTrash() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_Preferences() {
     const QList<QKeySequence>& _ret = KStandardShortcut::preferences();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -785,7 +785,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Preferences() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_ShowHideHiddenFiles() {
     const QList<QKeySequence>& _ret = KStandardShortcut::showHideHiddenFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -798,7 +798,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_ShowHideHiddenFiles() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_OpenMainMenu() {
     const QList<QKeySequence>& _ret = KStandardShortcut::openMainMenu();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -811,7 +811,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_OpenMainMenu() {
 libqt_list /* of QKeySequence* */ KStandardShortcut_OpenContextMenu() {
     const QList<QKeySequence>& _ret = KStandardShortcut::openContextMenu();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }

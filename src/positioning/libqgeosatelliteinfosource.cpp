@@ -72,7 +72,7 @@ QGeoSatelliteInfoSource* QGeoSatelliteInfoSource_CreateSource2(const libqt_strin
 libqt_list /* of libqt_string */ QGeoSatelliteInfoSource_AvailableSources() {
     QList<QString> _ret = QGeoSatelliteInfoSource::availableSources();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -195,7 +195,7 @@ void QGeoSatelliteInfoSource_Connect_SatellitesInViewUpdated(QGeoSatelliteInfoSo
     QGeoSatelliteInfoSource::connect(self, &QGeoSatelliteInfoSource::satellitesInViewUpdated, [self, slotFunc](const QList<QGeoSatelliteInfo>& satellites) {
         const QList<QGeoSatelliteInfo>& satellites_ret = satellites;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoSatelliteInfo** satellites_arr = static_cast<QGeoSatelliteInfo**>(malloc(sizeof(QGeoSatelliteInfo*) * (satellites_ret.size() + 1)));
+        QGeoSatelliteInfo** satellites_arr = static_cast<QGeoSatelliteInfo**>(malloc(sizeof(QGeoSatelliteInfo*) * (satellites_ret.size())));
         for (qsizetype i = 0; i < satellites_ret.size(); ++i) {
             satellites_arr[i] = new QGeoSatelliteInfo(satellites_ret[i]);
         }
@@ -222,7 +222,7 @@ void QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(QGeoSatelliteInfoSou
     QGeoSatelliteInfoSource::connect(self, &QGeoSatelliteInfoSource::satellitesInUseUpdated, [self, slotFunc](const QList<QGeoSatelliteInfo>& satellites) {
         const QList<QGeoSatelliteInfo>& satellites_ret = satellites;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoSatelliteInfo** satellites_arr = static_cast<QGeoSatelliteInfo**>(malloc(sizeof(QGeoSatelliteInfo*) * (satellites_ret.size() + 1)));
+        QGeoSatelliteInfo** satellites_arr = static_cast<QGeoSatelliteInfo**>(malloc(sizeof(QGeoSatelliteInfo*) * (satellites_ret.size())));
         for (qsizetype i = 0; i < satellites_ret.size(); ++i) {
             satellites_arr[i] = new QGeoSatelliteInfo(satellites_ret[i]);
         }

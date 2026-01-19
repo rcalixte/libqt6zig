@@ -161,7 +161,7 @@ void KXMLGUIClient_RemoveChildClient(KXMLGUIClient* self, KXMLGUIClient* child) 
 libqt_list /* of KXMLGUIClient* */ KXMLGUIClient_ChildClients(KXMLGUIClient* self) {
     QList<KXMLGUIClient*> _ret = self->childClients();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KXMLGUIClient** _arr = static_cast<KXMLGUIClient**>(malloc(sizeof(KXMLGUIClient*) * (_ret.size() + 1)));
+    KXMLGUIClient** _arr = static_cast<KXMLGUIClient**>(malloc(sizeof(KXMLGUIClient*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -700,7 +700,7 @@ void KXMLGUIClient_Delete(KXMLGUIClient* self) {
 libqt_list /* of libqt_string */ KXMLGUIClient__StateChange_ActionsToEnable(const KXMLGUIClient__StateChange* self) {
     QList<QString> actionsToEnable_ret = self->actionsToEnable;
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* actionsToEnable_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (actionsToEnable_ret.size() + 1)));
+    libqt_string* actionsToEnable_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (actionsToEnable_ret.size())));
     for (qsizetype i = 0; i < actionsToEnable_ret.size(); ++i) {
         QString actionsToEnable_lv_ret = actionsToEnable_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -732,7 +732,7 @@ void KXMLGUIClient__StateChange_SetActionsToEnable(KXMLGUIClient__StateChange* s
 libqt_list /* of libqt_string */ KXMLGUIClient__StateChange_ActionsToDisable(const KXMLGUIClient__StateChange* self) {
     QList<QString> actionsToDisable_ret = self->actionsToDisable;
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* actionsToDisable_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (actionsToDisable_ret.size() + 1)));
+    libqt_string* actionsToDisable_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (actionsToDisable_ret.size())));
     for (qsizetype i = 0; i < actionsToDisable_ret.size(); ++i) {
         QString actionsToDisable_lv_ret = actionsToDisable_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -61,7 +61,7 @@ bool Accounts__AccountService_IsEnabled(const Accounts__AccountService* self) {
 libqt_list /* of libqt_string */ Accounts__AccountService_AllKeys(const Accounts__AccountService* self) {
     QList<QString> _ret = self->allKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -87,7 +87,7 @@ void Accounts__AccountService_BeginGroup(Accounts__AccountService* self, const l
 libqt_list /* of libqt_string */ Accounts__AccountService_ChildGroups(const Accounts__AccountService* self) {
     QList<QString> _ret = self->childGroups();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -108,7 +108,7 @@ libqt_list /* of libqt_string */ Accounts__AccountService_ChildGroups(const Acco
 libqt_list /* of libqt_string */ Accounts__AccountService_ChildKeys(const Accounts__AccountService* self) {
     QList<QString> _ret = self->childKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -182,7 +182,7 @@ QVariant* Accounts__AccountService_Value3(const Accounts__AccountService* self, 
 libqt_list /* of libqt_string */ Accounts__AccountService_ChangedFields(const Accounts__AccountService* self) {
     QList<QString> _ret = self->changedFields();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

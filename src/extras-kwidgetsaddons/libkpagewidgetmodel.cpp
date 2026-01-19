@@ -127,7 +127,7 @@ void KPageWidgetItem_SetHeaderVisible(KPageWidgetItem* self, bool visible) {
 libqt_list /* of QAction* */ KPageWidgetItem_Actions(const KPageWidgetItem* self) {
     QList<QAction*> _ret = self->actions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -1100,7 +1100,7 @@ libqt_list /* of libqt_string */ KPageWidgetModel_MimeTypes(const KPageWidgetMod
     if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
         QList<QString> _ret = vkpagewidgetmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1119,7 +1119,7 @@ libqt_list /* of libqt_string */ KPageWidgetModel_MimeTypes(const KPageWidgetMod
     } else {
         QList<QString> _ret = self->KPageWidgetModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1145,7 +1145,7 @@ libqt_list /* of libqt_string */ KPageWidgetModel_QBaseMimeTypes(const KPageWidg
         vkpagewidgetmodel->setKPageWidgetModel_MimeTypes_IsBase(true);
         QList<QString> _ret = vkpagewidgetmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1164,7 +1164,7 @@ libqt_list /* of libqt_string */ KPageWidgetModel_QBaseMimeTypes(const KPageWidg
     } else {
         QList<QString> _ret = self->KPageWidgetModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1644,7 +1644,7 @@ libqt_list /* of QModelIndex* */ KPageWidgetModel_Match(const KPageWidgetModel* 
     if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
         QList<QModelIndex> _ret = vkpagewidgetmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1655,7 +1655,7 @@ libqt_list /* of QModelIndex* */ KPageWidgetModel_Match(const KPageWidgetModel* 
     } else {
         QList<QModelIndex> _ret = self->KPageWidgetModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1673,7 +1673,7 @@ libqt_list /* of QModelIndex* */ KPageWidgetModel_QBaseMatch(const KPageWidgetMo
         vkpagewidgetmodel->setKPageWidgetModel_Match_IsBase(true);
         QList<QModelIndex> _ret = vkpagewidgetmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1684,7 +1684,7 @@ libqt_list /* of QModelIndex* */ KPageWidgetModel_QBaseMatch(const KPageWidgetMo
     } else {
         QList<QModelIndex> _ret = self->KPageWidgetModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2751,7 +2751,7 @@ libqt_list /* of QModelIndex* */ KPageWidgetModel_PersistentIndexList(const KPag
     if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
         QList<QModelIndex> _ret = vkpagewidgetmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2762,7 +2762,7 @@ libqt_list /* of QModelIndex* */ KPageWidgetModel_PersistentIndexList(const KPag
     } else {
         QList<QModelIndex> _ret = ((VirtualKPageWidgetModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2780,7 +2780,7 @@ libqt_list /* of QModelIndex* */ KPageWidgetModel_QBasePersistentIndexList(const
         vkpagewidgetmodel->setKPageWidgetModel_PersistentIndexList_IsBase(true);
         QList<QModelIndex> _ret = vkpagewidgetmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2791,7 +2791,7 @@ libqt_list /* of QModelIndex* */ KPageWidgetModel_QBasePersistentIndexList(const
     } else {
         QList<QModelIndex> _ret = ((VirtualKPageWidgetModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

@@ -115,7 +115,7 @@ void KRecentFilesMenu_SetMaximumItems(KRecentFilesMenu* self, size_t maximumItem
 libqt_list /* of QUrl* */ KRecentFilesMenu_RecentFiles(const KRecentFilesMenu* self) {
     QList<QUrl> _ret = self->recentFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }

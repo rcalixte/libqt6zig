@@ -86,7 +86,7 @@ void QCandlestickSeries_Clear(QCandlestickSeries* self) {
 libqt_list /* of QCandlestickSet* */ QCandlestickSeries_Sets(const QCandlestickSeries* self) {
     QList<QCandlestickSet*> _ret = self->sets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QCandlestickSet** _arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * (_ret.size() + 1)));
+    QCandlestickSet** _arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -265,7 +265,7 @@ void QCandlestickSeries_Connect_CandlestickSetsAdded(QCandlestickSeries* self, i
     QCandlestickSeries::connect(self, &QCandlestickSeries::candlestickSetsAdded, [self, slotFunc](const QList<QCandlestickSet*>& sets) {
         const QList<QCandlestickSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * (sets_ret.size() + 1)));
+        QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * (sets_ret.size())));
         for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
@@ -292,7 +292,7 @@ void QCandlestickSeries_Connect_CandlestickSetsRemoved(QCandlestickSeries* self,
     QCandlestickSeries::connect(self, &QCandlestickSeries::candlestickSetsRemoved, [self, slotFunc](const QList<QCandlestickSet*>& sets) {
         const QList<QCandlestickSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * (sets_ret.size() + 1)));
+        QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * (sets_ret.size())));
         for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }

@@ -170,16 +170,9 @@ pub const qgraphicsitemanimation = struct {
     ///
     pub fn PosList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqpointf {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_PosList(@ptrCast(self));
-        defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
-            }
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.PosList: Memory allocation failed");
         const _data: [*]struct_f64_qtcqpointf = @ptrCast(@alignCast(_arr.data));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.PosList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -232,16 +225,9 @@ pub const qgraphicsitemanimation = struct {
     ///
     pub fn RotationList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_f64 {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_RotationList(@ptrCast(self));
-        defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
-            }
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc(struct_f64_f64, _arr.len) catch @panic("qgraphicsitemanimation.RotationList: Memory allocation failed");
         const _data: [*]struct_f64_f64 = @ptrCast(@alignCast(_arr.data));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(struct_f64_f64, _arr.len) catch @panic("qgraphicsitemanimation.RotationList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -294,16 +280,9 @@ pub const qgraphicsitemanimation = struct {
     ///
     pub fn TranslationList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqpointf {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_TranslationList(@ptrCast(self));
-        defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
-            }
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.TranslationList: Memory allocation failed");
         const _data: [*]struct_f64_qtcqpointf = @ptrCast(@alignCast(_arr.data));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.TranslationList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -358,16 +337,9 @@ pub const qgraphicsitemanimation = struct {
     ///
     pub fn ScaleList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqpointf {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_ScaleList(@ptrCast(self));
-        defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
-            }
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.ScaleList: Memory allocation failed");
         const _data: [*]struct_f64_qtcqpointf = @ptrCast(@alignCast(_arr.data));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.ScaleList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -422,16 +394,9 @@ pub const qgraphicsitemanimation = struct {
     ///
     pub fn ShearList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqpointf {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_ShearList(@ptrCast(self));
-        defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
-            }
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.ShearList: Memory allocation failed");
         const _data: [*]struct_f64_qtcqpointf = @ptrCast(@alignCast(_arr.data));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.ShearList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }

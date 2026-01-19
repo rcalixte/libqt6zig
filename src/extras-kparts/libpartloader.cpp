@@ -33,7 +33,7 @@ libqt_list /* of KPluginMetaData* */ KParts__PartLoader_PartsForMimeType(const l
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QList<KPluginMetaData> _ret = KParts::PartLoader::partsForMimeType(param1_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size() + 1)));
+    KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KPluginMetaData(_ret[i]);
     }

@@ -126,7 +126,7 @@ libqt_map* /* of libqt_string to libqt_string */ KParts__NavigationExtension_Act
         _varr[_ctr] = _mapval_str;
         _ctr++;
     }
-    libqt_map* _out;
+    libqt_map* _out = static_cast<libqt_map*>(malloc(sizeof(libqt_map)));
     _out->len = _ret->size();
     _out->keys = static_cast<void*>(_karr);
     _out->values = static_cast<void*>(_varr);
@@ -250,8 +250,8 @@ void KParts__NavigationExtension_PopupMenu5(KParts__NavigationExtension* self, c
         QList<QAction*> actionGroups_varr_i_QList;
         actionGroups_varr_i_QList.reserve(actionGroups_varr[i].len);
         QAction** actionGroups_varr_i_arr = static_cast<QAction**>(actionGroups_varr[i].data);
-        for (size_t i = 0; i < actionGroups_varr[i].len; ++i) {
-            actionGroups_varr_i_QList.push_back(actionGroups_varr_i_arr[i]);
+        for (size_t j = 0; j < actionGroups_varr[i].len; ++j) {
+            actionGroups_varr_i_QList.push_back(actionGroups_varr_i_arr[j]);
         }
         actionGroups_QMap[actionGroups_karr_i_QString] = actionGroups_varr_i_QList;
     }
@@ -279,8 +279,8 @@ void KParts__NavigationExtension_PopupMenu6(KParts__NavigationExtension* self, c
         QList<QAction*> actionGroups_varr_i_QList;
         actionGroups_varr_i_QList.reserve(actionGroups_varr[i].len);
         QAction** actionGroups_varr_i_arr = static_cast<QAction**>(actionGroups_varr[i].data);
-        for (size_t i = 0; i < actionGroups_varr[i].len; ++i) {
-            actionGroups_varr_i_QList.push_back(actionGroups_varr_i_arr[i]);
+        for (size_t j = 0; j < actionGroups_varr[i].len; ++j) {
+            actionGroups_varr_i_QList.push_back(actionGroups_varr_i_arr[j]);
         }
         actionGroups_QMap[actionGroups_karr_i_QString] = actionGroups_varr_i_QList;
     }

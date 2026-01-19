@@ -64,7 +64,7 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
             int cbval2 = pos;
             QList<QString>& retVal_ret = retVal;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size() + 1)));
+            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size())));
             for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
                 QString retVal_lv_ret = retVal_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -106,7 +106,7 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
             int cbval2 = pos;
             QList<QString>& retVal_ret = retVal;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size() + 1)));
+            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size())));
             for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
                 QString retVal_lv_ret = retVal_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -198,7 +198,7 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
             int cbval2 = pos;
             QList<QString>& retVal_ret = retVal;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size() + 1)));
+            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size())));
             for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
                 QString retVal_lv_ret = retVal_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -240,7 +240,7 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
             int cbval2 = pos;
             QList<QString>& retVal_ret = retVal;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size() + 1)));
+            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size())));
             for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
                 QString retVal_lv_ret = retVal_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -278,7 +278,7 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
             libqt_string cbval1 = str_str;
             QList<QString>& retVal_ret = retVal;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size() + 1)));
+            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size())));
             for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
                 QString retVal_lv_ret = retVal_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -372,7 +372,7 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
             int cbval2 = pos;
             QList<QString>& retVal_ret = retVal;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size() + 1)));
+            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size())));
             for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
                 QString retVal_lv_ret = retVal_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -414,7 +414,7 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
             int cbval2 = pos;
             QList<QString>& retVal_ret = retVal;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size() + 1)));
+            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size())));
             for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
                 QString retVal_lv_ret = retVal_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -444,7 +444,7 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
             QChar* cbval1 = new QChar(chr);
             QList<QString>& retVal_ret = retVal;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size() + 1)));
+            libqt_string* retVal_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (retVal_ret.size())));
             for (qsizetype i = 0; i < retVal_ret.size(); ++i) {
                 QString retVal_lv_ret = retVal_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

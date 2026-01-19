@@ -120,7 +120,7 @@ libqt_string QDesignerFormEditorInterface_ResourceLocation(const QDesignerFormEd
 libqt_list /* of QDesignerOptionsPageInterface* */ QDesignerFormEditorInterface_OptionsPages(const QDesignerFormEditorInterface* self) {
     QList<QDesignerOptionsPageInterface*> _ret = self->optionsPages();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDesignerOptionsPageInterface** _arr = static_cast<QDesignerOptionsPageInterface**>(malloc(sizeof(QDesignerOptionsPageInterface*) * (_ret.size() + 1)));
+    QDesignerOptionsPageInterface** _arr = static_cast<QDesignerOptionsPageInterface**>(malloc(sizeof(QDesignerOptionsPageInterface*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -171,7 +171,7 @@ void QDesignerFormEditorInterface_SetOptionsPages(QDesignerFormEditorInterface* 
 libqt_list /* of QObject* */ QDesignerFormEditorInterface_PluginInstances(const QDesignerFormEditorInterface* self) {
     QList<QObject*> _ret = self->pluginInstances();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size() + 1)));
+    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

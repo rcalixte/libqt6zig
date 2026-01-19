@@ -120,7 +120,7 @@ libqt_list /* of QSize* */ QIconEngine_AvailableSizes(QIconEngine* self, int mod
     if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
         QList<QSize> _ret = self->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size() + 1)));
+        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
@@ -131,7 +131,7 @@ libqt_list /* of QSize* */ QIconEngine_AvailableSizes(QIconEngine* self, int mod
     } else {
         QList<QSize> _ret = ((VirtualQIconEngine*)self)->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size() + 1)));
+        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
@@ -389,7 +389,7 @@ libqt_list /* of QSize* */ QIconEngine_QBaseAvailableSizes(QIconEngine* self, in
         vqiconengine->setQIconEngine_AvailableSizes_IsBase(true);
         QList<QSize> _ret = vqiconengine->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size() + 1)));
+        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
@@ -400,7 +400,7 @@ libqt_list /* of QSize* */ QIconEngine_QBaseAvailableSizes(QIconEngine* self, in
     } else {
         QList<QSize> _ret = self->QIconEngine::availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size() + 1)));
+        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }

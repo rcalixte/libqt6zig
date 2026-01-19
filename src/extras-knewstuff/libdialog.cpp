@@ -77,7 +77,7 @@ KNSCore__EngineBase* KNSWidgets__Dialog_Engine(KNSWidgets__Dialog* self) {
 libqt_list /* of KNSCore__Entry* */ KNSWidgets__Dialog_ChangedEntries(const KNSWidgets__Dialog* self) {
     QList<KNSCore::Entry> _ret = self->changedEntries();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KNSCore__Entry** _arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (_ret.size() + 1)));
+    KNSCore__Entry** _arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KNSCore::Entry(_ret[i]);
     }

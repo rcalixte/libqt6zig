@@ -66,7 +66,7 @@ int QAction_Metacall(QAction* self, int param1, int param2, void** param3) {
 libqt_list /* of QObject* */ QAction_AssociatedObjects(const QAction* self) {
     QList<QObject*> _ret = self->associatedObjects();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size() + 1)));
+    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -218,7 +218,7 @@ void QAction_SetShortcuts2(QAction* self, int shortcuts) {
 libqt_list /* of QKeySequence* */ QAction_Shortcuts(const QAction* self) {
     QList<QKeySequence> _ret = self->shortcuts();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }

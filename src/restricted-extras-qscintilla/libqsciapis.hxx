@@ -148,7 +148,7 @@ class VirtualQsciAPIs final : public QsciAPIs {
         } else if (qsciapis_updateautocompletionlist_callback != nullptr) {
             const QList<QString>& context_ret = context;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (context_ret.size() + 1)));
+            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (context_ret.size())));
             for (qsizetype i = 0; i < context_ret.size(); ++i) {
                 QString context_lv_ret = context_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -166,7 +166,7 @@ class VirtualQsciAPIs final : public QsciAPIs {
             libqt_list /* of libqt_string */ cbval1 = context_out;
             QList<QString>& list_ret = list;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* list_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (list_ret.size() + 1)));
+            libqt_string* list_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (list_ret.size())));
             for (qsizetype i = 0; i < list_ret.size(); ++i) {
                 QString list_lv_ret = list_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -219,7 +219,7 @@ class VirtualQsciAPIs final : public QsciAPIs {
         } else if (qsciapis_calltips_callback != nullptr) {
             const QList<QString>& context_ret = context;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (context_ret.size() + 1)));
+            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (context_ret.size())));
             for (qsizetype i = 0; i < context_ret.size(); ++i) {
                 QString context_lv_ret = context_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -239,7 +239,7 @@ class VirtualQsciAPIs final : public QsciAPIs {
             int cbval3 = static_cast<int>(style);
             QList<int>& shifts_ret = shifts;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* shifts_arr = static_cast<int*>(malloc(sizeof(int) * (shifts_ret.size() + 1)));
+            int* shifts_arr = static_cast<int*>(malloc(sizeof(int) * (shifts_ret.size())));
             for (qsizetype i = 0; i < shifts_ret.size(); ++i) {
                 shifts_arr[i] = shifts_ret[i];
             }

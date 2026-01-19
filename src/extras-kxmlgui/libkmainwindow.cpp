@@ -101,7 +101,7 @@ bool KMainWindow_HasMenuBar(KMainWindow* self) {
 libqt_list /* of KMainWindow* */ KMainWindow_MemberList() {
     QList<KMainWindow*> _ret = KMainWindow::memberList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KMainWindow** _arr = static_cast<KMainWindow**>(malloc(sizeof(KMainWindow*) * (_ret.size() + 1)));
+    KMainWindow** _arr = static_cast<KMainWindow**>(malloc(sizeof(KMainWindow*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -118,7 +118,7 @@ KToolBar* KMainWindow_ToolBar(KMainWindow* self) {
 libqt_list /* of KToolBar* */ KMainWindow_ToolBars(const KMainWindow* self) {
     QList<KToolBar*> _ret = self->toolBars();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KToolBar** _arr = static_cast<KToolBar**>(malloc(sizeof(KToolBar*) * (_ret.size() + 1)));
+    KToolBar** _arr = static_cast<KToolBar**>(malloc(sizeof(KToolBar*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

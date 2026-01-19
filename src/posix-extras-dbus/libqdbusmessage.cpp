@@ -215,7 +215,7 @@ void QDBusMessage_SetArguments(QDBusMessage* self, const libqt_list /* of QVaria
 libqt_list /* of QVariant* */ QDBusMessage_Arguments(const QDBusMessage* self) {
     QList<QVariant> _ret = self->arguments();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
+    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QVariant(_ret[i]);
     }

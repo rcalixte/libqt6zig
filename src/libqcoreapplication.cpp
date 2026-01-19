@@ -46,7 +46,7 @@ int QCoreApplication_Metacall(QCoreApplication* self, int param1, int param2, vo
 libqt_list /* of libqt_string */ QCoreApplication_Arguments() {
     QList<QString> _ret = QCoreApplication::arguments();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -255,7 +255,7 @@ void QCoreApplication_SetLibraryPaths(const libqt_list /* of libqt_string */ lib
 libqt_list /* of libqt_string */ QCoreApplication_LibraryPaths() {
     QList<QString> _ret = QCoreApplication::libraryPaths();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

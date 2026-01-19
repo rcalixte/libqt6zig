@@ -53,7 +53,7 @@ int QPlaceMatchReply_Type(const QPlaceMatchReply* self) {
 libqt_list /* of QPlace* */ QPlaceMatchReply_Places(const QPlaceMatchReply* self) {
     QList<QPlace> _ret = self->places();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPlace** _arr = static_cast<QPlace**>(malloc(sizeof(QPlace*) * (_ret.size() + 1)));
+    QPlace** _arr = static_cast<QPlace**>(malloc(sizeof(QPlace*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPlace(_ret[i]);
     }

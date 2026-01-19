@@ -157,13 +157,25 @@ typedef struct QOpenGLVersionFunctionsStorage QOpenGLVersionFunctionsStorage;
 typedef struct QOpenGLVersionStatus QOpenGLVersionStatus;
 #endif
 
+struct pair_int_int;
+
+typedef struct pair_int_int pair_int_int;
+
+#ifndef PAIR_INT_INT
+#define PAIR_INT_INT
+struct pair_int_int {
+    int first;
+    int second;
+};
+#endif
+
 QOpenGLVersionStatus* QOpenGLVersionStatus_new(const QOpenGLVersionStatus* other);
 QOpenGLVersionStatus* QOpenGLVersionStatus_new2(QOpenGLVersionStatus* other);
 QOpenGLVersionStatus* QOpenGLVersionStatus_new3();
 QOpenGLVersionStatus* QOpenGLVersionStatus_new4(int majorVersion, int minorVersion, int functionStatus);
 QOpenGLVersionStatus* QOpenGLVersionStatus_new5(const QOpenGLVersionStatus* param1);
-libqt_pair /* tuple of int and int */ QOpenGLVersionStatus_Version(const QOpenGLVersionStatus* self);
-void QOpenGLVersionStatus_SetVersion(QOpenGLVersionStatus* self, libqt_pair /* tuple of int and int */ version);
+pair_int_int /* tuple of int and int */ QOpenGLVersionStatus_Version(const QOpenGLVersionStatus* self);
+void QOpenGLVersionStatus_SetVersion(QOpenGLVersionStatus* self, pair_int_int /* tuple of int and int */ version);
 int QOpenGLVersionStatus_Status(const QOpenGLVersionStatus* self);
 void QOpenGLVersionStatus_SetStatus(QOpenGLVersionStatus* self, int status);
 void QOpenGLVersionStatus_OperatorAssign(QOpenGLVersionStatus* self, const QOpenGLVersionStatus* param1);

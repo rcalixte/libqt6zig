@@ -28,7 +28,7 @@ void KRecentDocument_MoveAssign(KRecentDocument* self, KRecentDocument* other) {
 libqt_list /* of QUrl* */ KRecentDocument_RecentUrls() {
     QList<QUrl> _ret = KRecentDocument::recentUrls();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }

@@ -69,7 +69,7 @@ libqt_string KUriFilterSearchProvider_IconName(const KUriFilterSearchProvider* s
 libqt_list /* of libqt_string */ KUriFilterSearchProvider_Keys(const KUriFilterSearchProvider* self) {
     QList<QString> _ret = self->keys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -394,7 +394,7 @@ libqt_string KUriFilterData_SearchProvider(const KUriFilterData* self) {
 libqt_list /* of libqt_string */ KUriFilterData_PreferredSearchProviders(const KUriFilterData* self) {
     QList<QString> _ret = self->preferredSearchProviders();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -434,7 +434,7 @@ libqt_list /* of libqt_string */ KUriFilterData_AllQueriesForSearchProvider(cons
     QString provider_QString = QString::fromUtf8(provider.data, provider.len);
     QList<QString> _ret = self->allQueriesForSearchProvider(provider_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -468,7 +468,7 @@ libqt_string KUriFilterData_IconNameForPreferredSearchProvider(const KUriFilterD
 libqt_list /* of libqt_string */ KUriFilterData_AlternateSearchProviders(const KUriFilterData* self) {
     QList<QString> _ret = self->alternateSearchProviders();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -623,7 +623,7 @@ bool KUriFilter_FilterSearchUri(KUriFilter* self, KUriFilterData* data, int type
 libqt_list /* of libqt_string */ KUriFilter_PluginNames(const KUriFilter* self) {
     QList<QString> _ret = self->pluginNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

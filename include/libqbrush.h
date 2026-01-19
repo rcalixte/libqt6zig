@@ -32,6 +32,18 @@ typedef struct QTransform QTransform;
 typedef struct QVariant QVariant;
 #endif
 
+struct pair_double_qcolor;
+
+typedef struct pair_double_qcolor pair_double_qcolor;
+
+#ifndef PAIR_DOUBLE_QCOLOR
+#define PAIR_DOUBLE_QCOLOR
+struct pair_double_qcolor {
+    double first;
+    QColor* second;
+};
+#endif
+
 QBrush* QBrush_new();
 QBrush* QBrush_new2(int bs);
 QBrush* QBrush_new3(const QColor* color);
@@ -72,8 +84,8 @@ int QGradient_Type(const QGradient* self);
 void QGradient_SetSpread(QGradient* self, int spread);
 int QGradient_Spread(const QGradient* self);
 void QGradient_SetColorAt(QGradient* self, double pos, const QColor* color);
-void QGradient_SetStops(QGradient* self, const libqt_list /* of libqt_pair tuple of double and QColor* */ stops);
-libqt_list /* of libqt_pair tuple of double and QColor* */ QGradient_Stops(const QGradient* self);
+void QGradient_SetStops(QGradient* self, const libqt_list /* of pair_double_qcolor tuple of double and QColor* */ stops);
+libqt_list /* of pair_double_qcolor tuple of double and QColor* */ QGradient_Stops(const QGradient* self);
 int QGradient_CoordinateMode(const QGradient* self);
 void QGradient_SetCoordinateMode(QGradient* self, int mode);
 int QGradient_InterpolationMode(const QGradient* self);

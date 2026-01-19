@@ -21,6 +21,28 @@ typedef struct QOpenGLPixelTransferOptions QOpenGLPixelTransferOptions;
 typedef struct QOpenGLTexture QOpenGLTexture;
 #endif
 
+struct pair_float_float;
+struct pair_int_int;
+
+typedef struct pair_float_float pair_float_float;
+typedef struct pair_int_int pair_int_int;
+
+#ifndef PAIR_FLOAT_FLOAT
+#define PAIR_FLOAT_FLOAT
+struct pair_float_float {
+    float first;
+    float second;
+};
+#endif
+
+#ifndef PAIR_INT_INT
+#define PAIR_INT_INT
+struct pair_int_int {
+    int first;
+    int second;
+};
+#endif
+
 QOpenGLTexture* QOpenGLTexture_new(int target);
 QOpenGLTexture* QOpenGLTexture_new2(const QImage* image);
 QOpenGLTexture* QOpenGLTexture_new3(const QImage* image, int genMipMaps);
@@ -80,7 +102,7 @@ int QOpenGLTexture_MipBaseLevel(const QOpenGLTexture* self);
 void QOpenGLTexture_SetMipMaxLevel(QOpenGLTexture* self, int maxLevel);
 int QOpenGLTexture_MipMaxLevel(const QOpenGLTexture* self);
 void QOpenGLTexture_SetMipLevelRange(QOpenGLTexture* self, int baseLevel, int maxLevel);
-libqt_pair /* tuple of int and int */ QOpenGLTexture_MipLevelRange(const QOpenGLTexture* self);
+pair_int_int /* tuple of int and int */ QOpenGLTexture_MipLevelRange(const QOpenGLTexture* self);
 void QOpenGLTexture_SetAutoMipMapGenerationEnabled(QOpenGLTexture* self, bool enabled);
 bool QOpenGLTexture_IsAutoMipMapGenerationEnabled(const QOpenGLTexture* self);
 void QOpenGLTexture_GenerateMipMaps(QOpenGLTexture* self);
@@ -99,7 +121,7 @@ int QOpenGLTexture_MinificationFilter(const QOpenGLTexture* self);
 void QOpenGLTexture_SetMagnificationFilter(QOpenGLTexture* self, int filter);
 int QOpenGLTexture_MagnificationFilter(const QOpenGLTexture* self);
 void QOpenGLTexture_SetMinMagFilters(QOpenGLTexture* self, int minificationFilter, int magnificationFilter);
-libqt_pair /* tuple of int and int */ QOpenGLTexture_MinMagFilters(const QOpenGLTexture* self);
+pair_int_int /* tuple of int and int */ QOpenGLTexture_MinMagFilters(const QOpenGLTexture* self);
 void QOpenGLTexture_SetMaximumAnisotropy(QOpenGLTexture* self, float anisotropy);
 float QOpenGLTexture_MaximumAnisotropy(const QOpenGLTexture* self);
 void QOpenGLTexture_SetWrapMode(QOpenGLTexture* self, int mode);
@@ -118,7 +140,7 @@ float QOpenGLTexture_MinimumLevelOfDetail(const QOpenGLTexture* self);
 void QOpenGLTexture_SetMaximumLevelOfDetail(QOpenGLTexture* self, float value);
 float QOpenGLTexture_MaximumLevelOfDetail(const QOpenGLTexture* self);
 void QOpenGLTexture_SetLevelOfDetailRange(QOpenGLTexture* self, float min, float max);
-libqt_pair /* tuple of float and float */ QOpenGLTexture_LevelOfDetailRange(const QOpenGLTexture* self);
+pair_float_float /* tuple of float and float */ QOpenGLTexture_LevelOfDetailRange(const QOpenGLTexture* self);
 void QOpenGLTexture_SetLevelofDetailBias(QOpenGLTexture* self, float bias);
 float QOpenGLTexture_LevelofDetailBias(const QOpenGLTexture* self);
 void QOpenGLTexture_Bind22(QOpenGLTexture* self, unsigned int unit, int reset);

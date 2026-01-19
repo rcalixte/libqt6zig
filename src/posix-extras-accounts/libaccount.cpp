@@ -445,7 +445,7 @@ bool Accounts__Account_SupportsService(const Accounts__Account* self, const libq
 libqt_list /* of Accounts__Service* */ Accounts__Account_Services(const Accounts__Account* self) {
     QList<Accounts::Service> _ret = self->services();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size() + 1)));
+    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Accounts::Service(_ret[i]);
     }
@@ -458,7 +458,7 @@ libqt_list /* of Accounts__Service* */ Accounts__Account_Services(const Accounts
 libqt_list /* of Accounts__Service* */ Accounts__Account_EnabledServices(const Accounts__Account* self) {
     QList<Accounts::Service> _ret = self->enabledServices();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size() + 1)));
+    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Accounts::Service(_ret[i]);
     }
@@ -532,7 +532,7 @@ Accounts__Service* Accounts__Account_SelectedService(const Accounts__Account* se
 libqt_list /* of libqt_string */ Accounts__Account_AllKeys(const Accounts__Account* self) {
     QList<QString> _ret = self->allKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -558,7 +558,7 @@ void Accounts__Account_BeginGroup(Accounts__Account* self, const libqt_string pr
 libqt_list /* of libqt_string */ Accounts__Account_ChildGroups(const Accounts__Account* self) {
     QList<QString> _ret = self->childGroups();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -579,7 +579,7 @@ libqt_list /* of libqt_string */ Accounts__Account_ChildGroups(const Accounts__A
 libqt_list /* of libqt_string */ Accounts__Account_ChildKeys(const Accounts__Account* self) {
     QList<QString> _ret = self->childKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -794,7 +794,7 @@ libqt_list /* of Accounts__Service* */ Accounts__Account_Services1(const Account
     QString serviceType_QString = QString::fromUtf8(serviceType.data, serviceType.len);
     QList<Accounts::Service> _ret = self->services(serviceType_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size() + 1)));
+    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Accounts::Service(_ret[i]);
     }

@@ -220,7 +220,7 @@ int QPrinter_Duplex(const QPrinter* self) {
 libqt_list /* of int */ QPrinter_SupportedResolutions(const QPrinter* self) {
     QList<int> _ret = self->supportedResolutions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

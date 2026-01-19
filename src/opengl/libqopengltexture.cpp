@@ -243,16 +243,12 @@ void QOpenGLTexture_SetMipLevelRange(QOpenGLTexture* self, int baseLevel, int ma
     self->setMipLevelRange(static_cast<int>(baseLevel), static_cast<int>(maxLevel));
 }
 
-libqt_pair /* tuple of int and int */ QOpenGLTexture_MipLevelRange(const QOpenGLTexture* self) {
+pair_int_int /* tuple of int and int */ QOpenGLTexture_MipLevelRange(const QOpenGLTexture* self) {
     QPair<int, int> _ret = self->mipLevelRange();
     // Convert QPair<> from C++ memory to manually-managed C memory
-    int* _first = static_cast<int*>(malloc(sizeof(int)));
-    int* _second = static_cast<int*>(malloc(sizeof(int)));
-    *_first = _ret.first;
-    *_second = _ret.second;
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_int_int /* tuple of int and int */ _out;
+    _out.first = _ret.first;
+    _out.second = _ret.second;
     return _out;
 }
 
@@ -328,16 +324,12 @@ void QOpenGLTexture_SetMinMagFilters(QOpenGLTexture* self, int minificationFilte
     self->setMinMagFilters(static_cast<QOpenGLTexture::Filter>(minificationFilter), static_cast<QOpenGLTexture::Filter>(magnificationFilter));
 }
 
-libqt_pair /* tuple of int and int */ QOpenGLTexture_MinMagFilters(const QOpenGLTexture* self) {
+pair_int_int /* tuple of int and int */ QOpenGLTexture_MinMagFilters(const QOpenGLTexture* self) {
     QPair<QOpenGLTexture::Filter, QOpenGLTexture::Filter> _ret = self->minMagFilters();
     // Convert QPair<> from C++ memory to manually-managed C memory
-    int* _first = static_cast<int*>(malloc(sizeof(int)));
-    int* _second = static_cast<int*>(malloc(sizeof(int)));
-    *_first = static_cast<int>(_ret.first);
-    *_second = static_cast<int>(_ret.second);
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_int_int /* tuple of int and int */ _out;
+    _out.first = _ret.first;
+    _out.second = _ret.second;
     return _out;
 }
 
@@ -413,16 +405,12 @@ void QOpenGLTexture_SetLevelOfDetailRange(QOpenGLTexture* self, float min, float
     self->setLevelOfDetailRange(static_cast<float>(min), static_cast<float>(max));
 }
 
-libqt_pair /* tuple of float and float */ QOpenGLTexture_LevelOfDetailRange(const QOpenGLTexture* self) {
+pair_float_float /* tuple of float and float */ QOpenGLTexture_LevelOfDetailRange(const QOpenGLTexture* self) {
     QPair<float, float> _ret = self->levelOfDetailRange();
     // Convert QPair<> from C++ memory to manually-managed C memory
-    float* _first = static_cast<float*>(malloc(sizeof(float)));
-    float* _second = static_cast<float*>(malloc(sizeof(float)));
-    *_first = _ret.first;
-    *_second = _ret.second;
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_float_float /* tuple of float and float */ _out;
+    _out.first = _ret.first;
+    _out.second = _ret.second;
     return _out;
 }
 

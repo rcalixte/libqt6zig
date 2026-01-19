@@ -49,16 +49,9 @@ pub const qaccessibleinterface = struct {
     ///
     pub fn Relations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
         const _arr: qtc.libqt_list = qtc.QAccessibleInterface_Relations(@ptrCast(self), @intCast(match));
-        defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
-            }
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleinterface.Relations: Memory allocation failed");
         const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleinterface.Relations: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }

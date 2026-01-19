@@ -81,7 +81,7 @@ long long KIO__ApplicationLauncherJob_Pid(const KIO__ApplicationLauncherJob* sel
 libqt_list /* of long long */ KIO__ApplicationLauncherJob_Pids(const KIO__ApplicationLauncherJob* self) {
     QList<long long> _ret = self->pids();
     // Convert QList<> from C++ memory to manually-managed C memory
-    long long* _arr = static_cast<long long*>(malloc(sizeof(long long) * (_ret.size() + 1)));
+    long long* _arr = static_cast<long long*>(malloc(sizeof(long long) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

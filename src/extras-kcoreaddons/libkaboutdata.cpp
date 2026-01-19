@@ -725,7 +725,7 @@ const char* KAboutData_InternalBugAddress(const KAboutData* self) {
 libqt_list /* of KAboutPerson* */ KAboutData_Authors(const KAboutData* self) {
     QList<KAboutPerson> _ret = self->authors();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size() + 1)));
+    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KAboutPerson(_ret[i]);
     }
@@ -738,7 +738,7 @@ libqt_list /* of KAboutPerson* */ KAboutData_Authors(const KAboutData* self) {
 libqt_list /* of KAboutPerson* */ KAboutData_Credits(const KAboutData* self) {
     QList<KAboutPerson> _ret = self->credits();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size() + 1)));
+    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KAboutPerson(_ret[i]);
     }
@@ -751,7 +751,7 @@ libqt_list /* of KAboutPerson* */ KAboutData_Credits(const KAboutData* self) {
 libqt_list /* of KAboutPerson* */ KAboutData_Translators(const KAboutData* self) {
     QList<KAboutPerson> _ret = self->translators();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size() + 1)));
+    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KAboutPerson(_ret[i]);
     }
@@ -776,7 +776,7 @@ libqt_string KAboutData_AboutTranslationTeam() {
 libqt_list /* of KAboutComponent* */ KAboutData_Components(const KAboutData* self) {
     QList<KAboutComponent> _ret = self->components();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAboutComponent** _arr = static_cast<KAboutComponent**>(malloc(sizeof(KAboutComponent*) * (_ret.size() + 1)));
+    KAboutComponent** _arr = static_cast<KAboutComponent**>(malloc(sizeof(KAboutComponent*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KAboutComponent(_ret[i]);
     }
@@ -801,7 +801,7 @@ libqt_string KAboutData_OtherText(const KAboutData* self) {
 libqt_list /* of KAboutLicense* */ KAboutData_Licenses(const KAboutData* self) {
     QList<KAboutLicense> _ret = self->licenses();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAboutLicense** _arr = static_cast<KAboutLicense**>(malloc(sizeof(KAboutLicense*) * (_ret.size() + 1)));
+    KAboutLicense** _arr = static_cast<KAboutLicense**>(malloc(sizeof(KAboutLicense*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KAboutLicense(_ret[i]);
     }

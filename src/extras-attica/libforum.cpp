@@ -117,7 +117,7 @@ void Attica__Forum_SetChildren(Attica__Forum* self, libqt_list /* of Attica__For
 libqt_list /* of Attica__Forum* */ Attica__Forum_Children(const Attica__Forum* self) {
     QList<Attica::Forum> _ret = self->children();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__Forum** _arr = static_cast<Attica__Forum**>(malloc(sizeof(Attica__Forum*) * (_ret.size() + 1)));
+    Attica__Forum** _arr = static_cast<Attica__Forum**>(malloc(sizeof(Attica__Forum*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::Forum(_ret[i]);
     }

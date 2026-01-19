@@ -97,7 +97,7 @@ libqt_map* /* of libqt_string to libqt_string */ KConfigDialogManager_PropertyMa
         _varr[_ctr] = _hashval_str;
         _ctr++;
     }
-    libqt_map* _out;
+    libqt_map* _out = static_cast<libqt_map*>(malloc(sizeof(libqt_map)));
     _out->len = _ret->size();
     _out->keys = static_cast<void*>(_karr);
     _out->values = static_cast<void*>(_varr);

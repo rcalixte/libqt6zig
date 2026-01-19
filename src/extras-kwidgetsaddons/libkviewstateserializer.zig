@@ -224,11 +224,8 @@ pub const kviewstateserializer = struct {
     /// ` self: QtC.KViewStateSerializer `
     ///
     pub fn ScrollState(self: ?*anyopaque) struct_i32_i32 {
-        const _pair: qtc.libqt_pair = qtc.KViewStateSerializer_ScrollState(@ptrCast(self));
-        return struct_i32_i32{
-            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.KViewStateSerializer_ScrollState(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#restoreSelection)

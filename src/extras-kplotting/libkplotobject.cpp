@@ -125,7 +125,7 @@ void KPlotObject_SetBarBrush(KPlotObject* self, const QBrush* b) {
 libqt_list /* of KPlotPoint* */ KPlotObject_Points(const KPlotObject* self) {
     QList<KPlotPoint*> _ret = self->points();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size() + 1)));
+    KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

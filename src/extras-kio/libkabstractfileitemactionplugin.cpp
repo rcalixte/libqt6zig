@@ -42,7 +42,7 @@ libqt_list /* of QAction* */ KAbstractFileItemActionPlugin_Actions(KAbstractFile
     if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
         QList<QAction*> _ret = vkabstractfileitemactionplugin->actions(*fileItemInfos, parentWidget);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -53,7 +53,7 @@ libqt_list /* of QAction* */ KAbstractFileItemActionPlugin_Actions(KAbstractFile
     } else {
         QList<QAction*> _ret = ((VirtualKAbstractFileItemActionPlugin*)self)->actions(*fileItemInfos, parentWidget);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -110,7 +110,7 @@ libqt_list /* of QAction* */ KAbstractFileItemActionPlugin_QBaseActions(KAbstrac
         vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Actions_IsBase(true);
         QList<QAction*> _ret = vkabstractfileitemactionplugin->actions(*fileItemInfos, parentWidget);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -121,7 +121,7 @@ libqt_list /* of QAction* */ KAbstractFileItemActionPlugin_QBaseActions(KAbstrac
     } else {
         QList<QAction*> _ret = ((VirtualKAbstractFileItemActionPlugin*)self)->actions(*fileItemInfos, parentWidget);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

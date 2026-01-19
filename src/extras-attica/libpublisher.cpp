@@ -66,7 +66,7 @@ void Attica__Field_SetRequired(Attica__Field* self, bool required) {
 libqt_list /* of libqt_string */ Attica__Field_Options(const Attica__Field* self) {
     QList<QString> options_ret = self->options;
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* options_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (options_ret.size() + 1)));
+    libqt_string* options_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (options_ret.size())));
     for (qsizetype i = 0; i < options_ret.size(); ++i) {
         QString options_lv_ret = options_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -173,7 +173,7 @@ void Attica__Publisher_AddField(Attica__Publisher* self, const Attica__Field* pa
 libqt_list /* of Attica__Field* */ Attica__Publisher_Fields(const Attica__Publisher* self) {
     QList<Attica::Field> _ret = self->fields();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__Field** _arr = static_cast<Attica__Field**>(malloc(sizeof(Attica__Field*) * (_ret.size() + 1)));
+    Attica__Field** _arr = static_cast<Attica__Field**>(malloc(sizeof(Attica__Field*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::Field(_ret[i]);
     }
@@ -190,7 +190,7 @@ void Attica__Publisher_AddTarget(Attica__Publisher* self, const Attica__Target* 
 libqt_list /* of Attica__Target* */ Attica__Publisher_Targets(const Attica__Publisher* self) {
     QList<Attica::Target> _ret = self->targets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__Target** _arr = static_cast<Attica__Target**>(malloc(sizeof(Attica__Target*) * (_ret.size() + 1)));
+    Attica__Target** _arr = static_cast<Attica__Target**>(malloc(sizeof(Attica__Target*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::Target(_ret[i]);
     }

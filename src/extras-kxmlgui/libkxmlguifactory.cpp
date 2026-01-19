@@ -98,7 +98,7 @@ void KXMLGUIFactory_UnplugActionList(KXMLGUIFactory* self, KXMLGUIClient* client
 libqt_list /* of KXMLGUIClient* */ KXMLGUIFactory_Clients(const KXMLGUIFactory* self) {
     QList<KXMLGUIClient*> _ret = self->clients();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KXMLGUIClient** _arr = static_cast<KXMLGUIClient**>(malloc(sizeof(KXMLGUIClient*) * (_ret.size() + 1)));
+    KXMLGUIClient** _arr = static_cast<KXMLGUIClient**>(malloc(sizeof(KXMLGUIClient*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -117,7 +117,7 @@ libqt_list /* of QWidget* */ KXMLGUIFactory_Containers(KXMLGUIFactory* self, con
     QString tagName_QString = QString::fromUtf8(tagName.data, tagName.len);
     QList<QWidget*> _ret = self->containers(tagName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

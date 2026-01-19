@@ -128,7 +128,7 @@ int KFilePlacesModel_GroupType(const KFilePlacesModel* self, const QModelIndex* 
 libqt_list /* of QModelIndex* */ KFilePlacesModel_GroupIndexes(const KFilePlacesModel* self, const int typeVal) {
     QList<QModelIndex> _ret = self->groupIndexes(static_cast<const KFilePlacesModel::GroupType>(typeVal));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
@@ -320,7 +320,7 @@ libqt_list /* of libqt_string */ KFilePlacesModel_MimeTypes(const KFilePlacesMod
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         QList<QString> _ret = self->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -339,7 +339,7 @@ libqt_list /* of libqt_string */ KFilePlacesModel_MimeTypes(const KFilePlacesMod
     } else {
         QList<QString> _ret = ((VirtualKFilePlacesModel*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -404,7 +404,7 @@ void KFilePlacesModel_SetSupportedSchemes(KFilePlacesModel* self, const libqt_li
 libqt_list /* of libqt_string */ KFilePlacesModel_SupportedSchemes(const KFilePlacesModel* self) {
     QList<QString> _ret = self->supportedSchemes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -754,7 +754,7 @@ libqt_list /* of libqt_string */ KFilePlacesModel_QBaseMimeTypes(const KFilePlac
         vkfileplacesmodel->setKFilePlacesModel_MimeTypes_IsBase(true);
         QList<QString> _ret = vkfileplacesmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -773,7 +773,7 @@ libqt_list /* of libqt_string */ KFilePlacesModel_QBaseMimeTypes(const KFilePlac
     } else {
         QList<QString> _ret = self->KFilePlacesModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1498,7 +1498,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_Match(const KFilePlacesModel* 
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         QList<QModelIndex> _ret = vkfileplacesmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1509,7 +1509,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_Match(const KFilePlacesModel* 
     } else {
         QList<QModelIndex> _ret = self->KFilePlacesModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1527,7 +1527,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_QBaseMatch(const KFilePlacesMo
         vkfileplacesmodel->setKFilePlacesModel_Match_IsBase(true);
         QList<QModelIndex> _ret = vkfileplacesmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1538,7 +1538,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_QBaseMatch(const KFilePlacesMo
     } else {
         QList<QModelIndex> _ret = self->KFilePlacesModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2496,7 +2496,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_PersistentIndexList(const KFil
     if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
         QList<QModelIndex> _ret = vkfileplacesmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2507,7 +2507,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_PersistentIndexList(const KFil
     } else {
         QList<QModelIndex> _ret = ((VirtualKFilePlacesModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2525,7 +2525,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_QBasePersistentIndexList(const
         vkfileplacesmodel->setKFilePlacesModel_PersistentIndexList_IsBase(true);
         QList<QModelIndex> _ret = vkfileplacesmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2536,7 +2536,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesModel_QBasePersistentIndexList(const
     } else {
         QList<QModelIndex> _ret = ((VirtualKFilePlacesModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

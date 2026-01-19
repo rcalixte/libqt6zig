@@ -195,17 +195,13 @@ bool QHostAddress_IsPrivateUse(const QHostAddress* self) {
     return self->isPrivateUse();
 }
 
-libqt_pair /* tuple of QHostAddress* and int */ QHostAddress_ParseSubnet(const libqt_string subnet) {
+pair_qhostaddress_int /* tuple of QHostAddress* and int */ QHostAddress_ParseSubnet(const libqt_string subnet) {
     QString subnet_QString = QString::fromUtf8(subnet.data, subnet.len);
     QPair<QHostAddress, int> _ret = QHostAddress::parseSubnet(subnet_QString);
     // Convert QPair<> from C++ memory to manually-managed C memory
-    QHostAddress** _first = static_cast<QHostAddress**>(malloc(sizeof(QHostAddress*)));
-    int* _second = static_cast<int*>(malloc(sizeof(int)));
-    *_first = new QHostAddress(_ret.first);
-    *_second = _ret.second;
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_qhostaddress_int /* tuple of QHostAddress* and int */ _out;
+    _out.first = new QHostAddress(_ret.first);
+    _out.second = _ret.second;
     return _out;
 }
 

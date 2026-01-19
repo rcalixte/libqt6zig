@@ -45,7 +45,7 @@ bool KTextEditor__Application_Quit(KTextEditor__Application* self) {
 libqt_list /* of KTextEditor__MainWindow* */ KTextEditor__Application_MainWindows(KTextEditor__Application* self) {
     QList<KTextEditor::MainWindow*> _ret = self->mainWindows();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__MainWindow** _arr = static_cast<KTextEditor__MainWindow**>(malloc(sizeof(KTextEditor__MainWindow*) * (_ret.size() + 1)));
+    KTextEditor__MainWindow** _arr = static_cast<KTextEditor__MainWindow**>(malloc(sizeof(KTextEditor__MainWindow*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -62,7 +62,7 @@ KTextEditor__MainWindow* KTextEditor__Application_ActiveMainWindow(KTextEditor__
 libqt_list /* of KTextEditor__Document* */ KTextEditor__Application_Documents(KTextEditor__Application* self) {
     QList<KTextEditor::Document*> _ret = self->documents();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__Document** _arr = static_cast<KTextEditor__Document**>(malloc(sizeof(KTextEditor__Document*) * (_ret.size() + 1)));
+    KTextEditor__Document** _arr = static_cast<KTextEditor__Document**>(malloc(sizeof(KTextEditor__Document*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

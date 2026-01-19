@@ -74,7 +74,7 @@ void KNewFileMenu_SetSupportedMimeTypes(KNewFileMenu* self, const libqt_list /* 
 libqt_list /* of libqt_string */ KNewFileMenu_SupportedMimeTypes(const KNewFileMenu* self) {
     QList<QString> _ret = self->supportedMimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -539,7 +539,7 @@ libqt_list /* of QWidget* */ KNewFileMenu_CreatedWidgets(const KNewFileMenu* sel
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         QList<QWidget*> _ret = vknewfilemenu->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -550,7 +550,7 @@ libqt_list /* of QWidget* */ KNewFileMenu_CreatedWidgets(const KNewFileMenu* sel
     } else {
         QList<QWidget*> _ret = ((VirtualKNewFileMenu*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -568,7 +568,7 @@ libqt_list /* of QWidget* */ KNewFileMenu_QBaseCreatedWidgets(const KNewFileMenu
         vknewfilemenu->setKNewFileMenu_CreatedWidgets_IsBase(true);
         QList<QWidget*> _ret = vknewfilemenu->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -579,7 +579,7 @@ libqt_list /* of QWidget* */ KNewFileMenu_QBaseCreatedWidgets(const KNewFileMenu
     } else {
         QList<QWidget*> _ret = ((VirtualKNewFileMenu*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

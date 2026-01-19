@@ -99,7 +99,7 @@ uint32_t QOpenGLFramebufferObject_Texture(const QOpenGLFramebufferObject* self) 
 libqt_list /* of uint32_t */ QOpenGLFramebufferObject_Textures(const QOpenGLFramebufferObject* self) {
     QList<GLuint> _ret = self->textures();
     // Convert QList<> from C++ memory to manually-managed C memory
-    uint32_t* _arr = static_cast<uint32_t*>(malloc(sizeof(uint32_t) * (_ret.size() + 1)));
+    uint32_t* _arr = static_cast<uint32_t*>(malloc(sizeof(uint32_t) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -124,7 +124,7 @@ QSize* QOpenGLFramebufferObject_Size(const QOpenGLFramebufferObject* self) {
 libqt_list /* of QSize* */ QOpenGLFramebufferObject_Sizes(const QOpenGLFramebufferObject* self) {
     QList<QSize> _ret = self->sizes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size() + 1)));
+    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSize(_ret[i]);
     }

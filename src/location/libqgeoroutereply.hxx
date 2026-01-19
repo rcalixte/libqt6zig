@@ -315,7 +315,7 @@ class VirtualQGeoRouteReply final : public QGeoRouteReply {
         } else if (qgeoroutereply_setroutes_callback != nullptr) {
             const QList<QGeoRoute>& routes_ret = routes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QGeoRoute** routes_arr = static_cast<QGeoRoute**>(malloc(sizeof(QGeoRoute*) * (routes_ret.size() + 1)));
+            QGeoRoute** routes_arr = static_cast<QGeoRoute**>(malloc(sizeof(QGeoRoute*) * (routes_ret.size())));
             for (qsizetype i = 0; i < routes_ret.size(); ++i) {
                 routes_arr[i] = new QGeoRoute(routes_ret[i]);
             }
@@ -338,7 +338,7 @@ class VirtualQGeoRouteReply final : public QGeoRouteReply {
         } else if (qgeoroutereply_addroutes_callback != nullptr) {
             const QList<QGeoRoute>& routes_ret = routes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QGeoRoute** routes_arr = static_cast<QGeoRoute**>(malloc(sizeof(QGeoRoute*) * (routes_ret.size() + 1)));
+            QGeoRoute** routes_arr = static_cast<QGeoRoute**>(malloc(sizeof(QGeoRoute*) * (routes_ret.size())));
             for (qsizetype i = 0; i < routes_ret.size(); ++i) {
                 routes_arr[i] = new QGeoRoute(routes_ret[i]);
             }

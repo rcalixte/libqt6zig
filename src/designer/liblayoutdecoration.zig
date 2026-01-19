@@ -275,11 +275,8 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` self: QtC.QDesignerLayoutDecorationExtension `
     ///
     pub fn CurrentCell(self: ?*anyopaque) struct_i32_i32 {
-        const _pair: qtc.libqt_pair = qtc.QDesignerLayoutDecorationExtension_CurrentCell(@ptrCast(self));
-        return struct_i32_i32{
-            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QDesignerLayoutDecorationExtension_CurrentCell(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentCell)
@@ -305,11 +302,8 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` self: QtC.QDesignerLayoutDecorationExtension `
     ///
     pub fn QBaseCurrentCell(self: ?*anyopaque) struct_i32_i32 {
-        const _pair: qtc.libqt_pair = qtc.QDesignerLayoutDecorationExtension_QBaseCurrentCell(@ptrCast(self));
-        return struct_i32_i32{
-            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QDesignerLayoutDecorationExtension_QBaseCurrentCell(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertWidget)
@@ -323,13 +317,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` cell: struct_i32_i32 `
     ///
     pub fn InsertWidget(self: ?*anyopaque, widget: ?*anyopaque, cell: struct_i32_i32) void {
-        var cell_first = cell.first;
-        var cell_second = cell.second;
-        const cell_pair = qtc.libqt_pair{
-            .first = @ptrCast(&cell_first),
-            .second = @ptrCast(&cell_second),
-        };
-        qtc.QDesignerLayoutDecorationExtension_InsertWidget(@ptrCast(self), @ptrCast(widget), cell_pair);
+        qtc.QDesignerLayoutDecorationExtension_InsertWidget(@ptrCast(self), @ptrCast(widget), @bitCast(cell));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertWidget)
@@ -359,13 +347,7 @@ pub const qdesignerlayoutdecorationextension = struct {
     /// ` cell: struct_i32_i32 `
     ///
     pub fn QBaseInsertWidget(self: ?*anyopaque, widget: ?*anyopaque, cell: struct_i32_i32) void {
-        var cell_first = cell.first;
-        var cell_second = cell.second;
-        const cell_pair = qtc.libqt_pair{
-            .first = @ptrCast(&cell_first),
-            .second = @ptrCast(&cell_second),
-        };
-        qtc.QDesignerLayoutDecorationExtension_QBaseInsertWidget(@ptrCast(self), @ptrCast(widget), cell_pair);
+        qtc.QDesignerLayoutDecorationExtension_QBaseInsertWidget(@ptrCast(self), @ptrCast(widget), @bitCast(cell));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#removeWidget)

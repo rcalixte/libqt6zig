@@ -77,7 +77,7 @@ ptrdiff_t QGeoRoute_SegmentsCount(const QGeoRoute* self) {
 libqt_list /* of QGeoRouteSegment* */ QGeoRoute_Segments(const QGeoRoute* self) {
     QList<QGeoRouteSegment> _ret = self->segments();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoRouteSegment** _arr = static_cast<QGeoRouteSegment**>(malloc(sizeof(QGeoRouteSegment*) * (_ret.size() + 1)));
+    QGeoRouteSegment** _arr = static_cast<QGeoRouteSegment**>(malloc(sizeof(QGeoRouteSegment*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoRouteSegment(_ret[i]);
     }
@@ -124,7 +124,7 @@ void QGeoRoute_SetPath(QGeoRoute* self, const libqt_list /* of QGeoCoordinate* *
 libqt_list /* of QGeoCoordinate* */ QGeoRoute_Path(const QGeoRoute* self) {
     QList<QGeoCoordinate> _ret = self->path();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size() + 1)));
+    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoCoordinate(_ret[i]);
     }
@@ -147,7 +147,7 @@ void QGeoRoute_SetRouteLegs(QGeoRoute* self, const libqt_list /* of QGeoRoute* *
 libqt_list /* of QGeoRoute* */ QGeoRoute_RouteLegs(const QGeoRoute* self) {
     QList<QGeoRoute> _ret = self->routeLegs();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoRoute** _arr = static_cast<QGeoRoute**>(malloc(sizeof(QGeoRoute*) * (_ret.size() + 1)));
+    QGeoRoute** _arr = static_cast<QGeoRoute**>(malloc(sizeof(QGeoRoute*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoRoute(_ret[i]);
     }

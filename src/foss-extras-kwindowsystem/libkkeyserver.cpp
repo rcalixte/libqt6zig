@@ -79,7 +79,7 @@ bool KKeyServer_KeyQtToSymX(int param1, int* param2) {
 libqt_list /* of int */ KKeyServer_KeyQtToSymXs(int param1) {
     QList<int> _ret = KKeyServer::keyQtToSymXs(static_cast<int>(param1));
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -96,7 +96,7 @@ bool KKeyServer_KeyQtToCodeX(int param1, int* param2) {
 libqt_list /* of int */ KKeyServer_KeyQtToCodeXs(int param1) {
     QList<int> _ret = KKeyServer::keyQtToCodeXs(static_cast<int>(param1));
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

@@ -21,16 +21,12 @@ void QOpenGLVersionProfile_OperatorAssign(QOpenGLVersionProfile* self, const QOp
     self->operator=(*rhs);
 }
 
-libqt_pair /* tuple of int and int */ QOpenGLVersionProfile_Version(const QOpenGLVersionProfile* self) {
+pair_int_int /* tuple of int and int */ QOpenGLVersionProfile_Version(const QOpenGLVersionProfile* self) {
     QPair<int, int> _ret = self->version();
     // Convert QPair<> from C++ memory to manually-managed C memory
-    int* _first = static_cast<int*>(malloc(sizeof(int)));
-    int* _second = static_cast<int*>(malloc(sizeof(int)));
-    *_first = _ret.first;
-    *_second = _ret.second;
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_int_int /* tuple of int and int */ _out;
+    _out.first = _ret.first;
+    _out.second = _ret.second;
     return _out;
 }
 

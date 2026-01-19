@@ -121,7 +121,7 @@ libqt_list /* of libqt_string */ QHttpHeaders_Values(const QHttpHeaders* self, l
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QList<QByteArray> _ret = self->values(QAnyStringView(name_QString));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
@@ -140,7 +140,7 @@ libqt_list /* of libqt_string */ QHttpHeaders_Values(const QHttpHeaders* self, l
 libqt_list /* of libqt_string */ QHttpHeaders_Values2(const QHttpHeaders* self, int name) {
     QList<QByteArray> _ret = self->values(static_cast<QHttpHeaders::WellKnownHeader>(name));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
@@ -262,7 +262,7 @@ QHttpHeaders* QHttpHeaders_FromMultiHash(const libqt_map /* of libqt_string to l
 libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QHttpHeaders_ToListOfPairs(const QHttpHeaders* self) {
     QList<QPair<QByteArray, QByteArray>> _ret = self->toListOfPairs();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size() + 1)));
+    libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<QByteArray, QByteArray> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory

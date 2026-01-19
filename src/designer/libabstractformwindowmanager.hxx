@@ -297,7 +297,7 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         if (qdesignerformwindowmanagerinterface_dragitems_callback != nullptr) {
             const QList<QDesignerDnDItemInterface*>& item_list_ret = item_list;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QDesignerDnDItemInterface** item_list_arr = static_cast<QDesignerDnDItemInterface**>(malloc(sizeof(QDesignerDnDItemInterface*) * (item_list_ret.size() + 1)));
+            QDesignerDnDItemInterface** item_list_arr = static_cast<QDesignerDnDItemInterface**>(malloc(sizeof(QDesignerDnDItemInterface*) * (item_list_ret.size())));
             for (qsizetype i = 0; i < item_list_ret.size(); ++i) {
                 item_list_arr[i] = item_list_ret[i];
             }

@@ -88,7 +88,7 @@ bool PackageKit__Daemon_Locked() {
 libqt_list /* of libqt_string */ PackageKit__Daemon_MimeTypes() {
     QList<QString> _ret = PackageKit::Daemon::mimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -153,7 +153,7 @@ void PackageKit__Daemon_SetHints2(const libqt_string hints) {
 libqt_list /* of libqt_string */ PackageKit__Daemon_Hints() {
     QList<QString> _ret = PackageKit::Daemon::hints();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

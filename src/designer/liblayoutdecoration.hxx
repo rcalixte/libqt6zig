@@ -23,8 +23,8 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
     using QDesignerLayoutDecorationExtension_IndexOf2_Callback = int (*)(const QDesignerLayoutDecorationExtension*, QLayoutItem*);
     using QDesignerLayoutDecorationExtension_CurrentInsertMode_Callback = int (*)();
     using QDesignerLayoutDecorationExtension_CurrentIndex_Callback = int (*)();
-    using QDesignerLayoutDecorationExtension_CurrentCell_Callback = libqt_pair /* tuple of int and int */ (*)();
-    using QDesignerLayoutDecorationExtension_InsertWidget_Callback = void (*)(QDesignerLayoutDecorationExtension*, QWidget*, libqt_pair /* tuple of int and int */);
+    using QDesignerLayoutDecorationExtension_CurrentCell_Callback = pair_int_int /* tuple of int and int */ (*)();
+    using QDesignerLayoutDecorationExtension_InsertWidget_Callback = void (*)(QDesignerLayoutDecorationExtension*, QWidget*, pair_int_int /* tuple of int and int */);
     using QDesignerLayoutDecorationExtension_RemoveWidget_Callback = void (*)(QDesignerLayoutDecorationExtension*, QWidget*);
     using QDesignerLayoutDecorationExtension_InsertRow_Callback = void (*)(QDesignerLayoutDecorationExtension*, int);
     using QDesignerLayoutDecorationExtension_InsertColumn_Callback = void (*)(QDesignerLayoutDecorationExtension*, int);
@@ -200,12 +200,10 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
     // Virtual method for C ABI access and custom callback
     virtual QPair<int, int> currentCell() const override {
         if (qdesignerlayoutdecorationextension_currentcell_callback != nullptr) {
-            libqt_pair /* tuple of int and int */ callback_ret = qdesignerlayoutdecorationextension_currentcell_callback();
+            pair_int_int /* tuple of int and int */ callback_ret = qdesignerlayoutdecorationextension_currentcell_callback();
             QPair<int, int> callback_ret_QPair;
-            int* callback_ret_first = static_cast<int*>(callback_ret.first);
-            int* callback_ret_second = static_cast<int*>(callback_ret.second);
-            callback_ret_QPair.first = static_cast<int>(callback_ret_first[0]);
-            callback_ret_QPair.second = static_cast<int>(callback_ret_second[0]);
+            callback_ret_QPair.first = callback_ret.first;
+            callback_ret_QPair.second = callback_ret.second;
             return callback_ret_QPair;
         } else {
             return {};
@@ -218,14 +216,10 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
             QWidget* cbval1 = widget;
             const QPair<int, int>& cell_ret = cell;
             // Convert QPair<> from C++ memory to manually-managed C memory
-            int* cell_first = static_cast<int*>(malloc(sizeof(int)));
-            int* cell_second = static_cast<int*>(malloc(sizeof(int)));
-            *cell_first = cell_ret.first;
-            *cell_second = cell_ret.second;
-            libqt_pair cell_out;
-            cell_out.first = static_cast<void*>(cell_first);
-            cell_out.second = static_cast<void*>(cell_second);
-            libqt_pair /* tuple of int and int */ cbval2 = cell_out;
+            pair_int_int /* tuple of int and int */ cell_out;
+            cell_out.first = cell_ret.first;
+            cell_out.second = cell_ret.second;
+            pair_int_int /* tuple of int and int */ cbval2 = cell_out;
 
             qdesignerlayoutdecorationextension_insertwidget_callback(this, cbval1, cbval2);
         }

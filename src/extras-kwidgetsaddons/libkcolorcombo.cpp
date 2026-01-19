@@ -94,7 +94,7 @@ void KColorCombo_SetColors(KColorCombo* self, const libqt_list /* of QColor* */ 
 libqt_list /* of QColor* */ KColorCombo_Colors(const KColorCombo* self) {
     QList<QColor> _ret = self->colors();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QColor** _arr = static_cast<QColor**>(malloc(sizeof(QColor*) * (_ret.size() + 1)));
+    QColor** _arr = static_cast<QColor**>(malloc(sizeof(QColor*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QColor(_ret[i]);
     }

@@ -181,8 +181,8 @@ pub const kconfigdialogmanager = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PropertyMap(allocator: std.mem.Allocator) *map_constu8_u8 {
-        const _map: qtc.libqt_map = qtc.KConfigDialogManager_PropertyMap();
+    pub fn PropertyMap(allocator: std.mem.Allocator) map_constu8_u8 {
+        const _map: qtc.libqt_map = qtc.KConfigDialogManager_PropertyMap().?.*;
         var _ret: map_constu8_u8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));

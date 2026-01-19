@@ -1841,7 +1841,7 @@ void KCommandBar__ActionGroup_SetName(KCommandBar__ActionGroup* self, libqt_stri
 libqt_list /* of QAction* */ KCommandBar__ActionGroup_Actions(const KCommandBar__ActionGroup* self) {
     QList<QAction*> actions_ret = self->actions;
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAction** actions_arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (actions_ret.size() + 1)));
+    QAction** actions_arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (actions_ret.size())));
     for (qsizetype i = 0; i < actions_ret.size(); ++i) {
         actions_arr[i] = actions_ret[i];
     }

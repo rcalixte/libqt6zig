@@ -55,7 +55,7 @@ libqt_string KOSRelease_Id(const KOSRelease* self) {
 libqt_list /* of libqt_string */ KOSRelease_IdLike(const KOSRelease* self) {
     QList<QString> _ret = self->idLike();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -244,7 +244,7 @@ libqt_string KOSRelease_Logo(const KOSRelease* self) {
 libqt_list /* of libqt_string */ KOSRelease_ExtraKeys(const KOSRelease* self) {
     QList<QString> _ret = self->extraKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -24,7 +24,7 @@ QFormBuilder* QFormBuilder_new() {
 libqt_list /* of libqt_string */ QFormBuilder_PluginPaths(const QFormBuilder* self) {
     QList<QString> _ret = self->pluginPaths();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -65,7 +65,7 @@ void QFormBuilder_SetPluginPath(QFormBuilder* self, const libqt_list /* of libqt
 libqt_list /* of QDesignerCustomWidgetInterface* */ QFormBuilder_CustomWidgets(const QFormBuilder* self) {
     QList<QDesignerCustomWidgetInterface*> _ret = self->customWidgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDesignerCustomWidgetInterface** _arr = static_cast<QDesignerCustomWidgetInterface**>(malloc(sizeof(QDesignerCustomWidgetInterface*) * (_ret.size() + 1)));
+    QDesignerCustomWidgetInterface** _arr = static_cast<QDesignerCustomWidgetInterface**>(malloc(sizeof(QDesignerCustomWidgetInterface*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

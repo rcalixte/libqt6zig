@@ -66,7 +66,7 @@ void KTextEditor__MainWindow_Connect_UnhandledShortcutOverride(KTextEditor__Main
 libqt_list /* of KTextEditor__View* */ KTextEditor__MainWindow_Views(KTextEditor__MainWindow* self) {
     QList<KTextEditor::View*> _ret = self->views();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__View** _arr = static_cast<KTextEditor__View**>(malloc(sizeof(KTextEditor__View*) * (_ret.size() + 1)));
+    KTextEditor__View** _arr = static_cast<KTextEditor__View**>(malloc(sizeof(KTextEditor__View*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -228,7 +228,7 @@ bool KTextEditor__MainWindow_RemoveWidget(KTextEditor__MainWindow* self, QWidget
 libqt_list /* of QWidget* */ KTextEditor__MainWindow_Widgets(KTextEditor__MainWindow* self) {
     QList<QWidget*> _ret = self->widgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

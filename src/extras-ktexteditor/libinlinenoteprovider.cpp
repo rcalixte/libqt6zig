@@ -43,7 +43,7 @@ libqt_list /* of int */ KTextEditor__InlineNoteProvider_InlineNotes(const KTextE
     if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
         QList<int> _ret = vktexteditor__inlinenoteprovider->inlineNotes(static_cast<int>(line));
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -54,7 +54,7 @@ libqt_list /* of int */ KTextEditor__InlineNoteProvider_InlineNotes(const KTextE
     } else {
         QList<int> _ret = ((VirtualKTextEditorInlineNoteProvider*)self)->inlineNotes(static_cast<int>(line));
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -168,7 +168,7 @@ libqt_list /* of int */ KTextEditor__InlineNoteProvider_QBaseInlineNotes(const K
         vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_InlineNotes_IsBase(true);
         QList<int> _ret = vktexteditorinlinenoteprovider->inlineNotes(static_cast<int>(line));
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -179,7 +179,7 @@ libqt_list /* of int */ KTextEditor__InlineNoteProvider_QBaseInlineNotes(const K
     } else {
         QList<int> _ret = ((VirtualKTextEditorInlineNoteProvider*)self)->inlineNotes(static_cast<int>(line));
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

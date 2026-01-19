@@ -67,7 +67,7 @@ void QGeoRouteSegment_SetPath(QGeoRouteSegment* self, const libqt_list /* of QGe
 libqt_list /* of QGeoCoordinate* */ QGeoRouteSegment_Path(const QGeoRouteSegment* self) {
     QList<QGeoCoordinate> _ret = self->path();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size() + 1)));
+    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoCoordinate(_ret[i]);
     }

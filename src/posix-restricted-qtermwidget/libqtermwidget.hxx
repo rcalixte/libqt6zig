@@ -984,7 +984,7 @@ class VirtualQTermWidget final : public QTermWidget {
         } else if (qtermwidget_setenvironment_callback != nullptr) {
             const QList<QString>& environment_ret = environment;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* environment_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (environment_ret.size() + 1)));
+            libqt_string* environment_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (environment_ret.size())));
             for (qsizetype i = 0; i < environment_ret.size(); ++i) {
                 QString environment_lv_ret = environment_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1073,7 +1073,7 @@ class VirtualQTermWidget final : public QTermWidget {
         } else if (qtermwidget_setargs_callback != nullptr) {
             const QList<QString>& args_ret = args;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* args_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (args_ret.size() + 1)));
+            libqt_string* args_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (args_ret.size())));
             for (qsizetype i = 0; i < args_ret.size(); ++i) {
                 QString args_lv_ret = args_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -1218,7 +1218,7 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
         } else if (kimagefilepreview_setsupportedmimetypes_callback != nullptr) {
             const QList<QString>& mimeTypes_ret = mimeTypes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* mimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (mimeTypes_ret.size() + 1)));
+            libqt_string* mimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (mimeTypes_ret.size())));
             for (qsizetype i = 0; i < mimeTypes_ret.size(); ++i) {
                 QString mimeTypes_lv_ret = mimeTypes_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

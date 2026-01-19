@@ -232,7 +232,7 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         if (kwidgetitemdelegate_updateitemwidgets_callback != nullptr) {
             const QList<QWidget*>& widgets_ret = widgets;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QWidget** widgets_arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (widgets_ret.size() + 1)));
+            QWidget** widgets_arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (widgets_ret.size())));
             for (qsizetype i = 0; i < widgets_ret.size(); ++i) {
                 widgets_arr[i] = widgets_ret[i];
             }
@@ -552,7 +552,7 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             QWidget* cbval1 = widget;
             const QList<QEvent::Type>& types_ret = types;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* types_arr = static_cast<int*>(malloc(sizeof(int) * (types_ret.size() + 1)));
+            int* types_arr = static_cast<int*>(malloc(sizeof(int) * (types_ret.size())));
             for (qsizetype i = 0; i < types_ret.size(); ++i) {
                 types_arr[i] = static_cast<int>(types_ret[i]);
             }

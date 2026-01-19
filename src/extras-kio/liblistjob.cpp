@@ -54,7 +54,7 @@ void KIO__ListJob_Connect_Entries(KIO__ListJob* self, intptr_t slot) {
         KIO__Job* sigval1 = job;
         const QList<KIO::UDSEntry>& list_ret = list;
         // Convert QList<> from C++ memory to manually-managed C memory
-        KIO__UDSEntry** list_arr = static_cast<KIO__UDSEntry**>(malloc(sizeof(KIO__UDSEntry*) * (list_ret.size() + 1)));
+        KIO__UDSEntry** list_arr = static_cast<KIO__UDSEntry**>(malloc(sizeof(KIO__UDSEntry*) * (list_ret.size())));
         for (qsizetype i = 0; i < list_ret.size(); ++i) {
             list_arr[i] = new KIO::UDSEntry(list_ret[i]);
         }

@@ -31,7 +31,7 @@ int Solid__PortableMediaPlayer_DeviceInterfaceType() {
 libqt_list /* of libqt_string */ Solid__PortableMediaPlayer_SupportedProtocols(const Solid__PortableMediaPlayer* self) {
     QList<QString> _ret = self->supportedProtocols();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -52,7 +52,7 @@ libqt_list /* of libqt_string */ Solid__PortableMediaPlayer_SupportedProtocols(c
 libqt_list /* of libqt_string */ Solid__PortableMediaPlayer_SupportedDrivers(const Solid__PortableMediaPlayer* self) {
     QList<QString> _ret = self->supportedDrivers();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -79,7 +79,7 @@ libqt_list /* of libqt_string */ Solid__PortableMediaPlayer_SupportedDrivers1(co
     QString protocol_QString = QString::fromUtf8(protocol.data, protocol.len);
     QList<QString> _ret = self->supportedDrivers(protocol_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

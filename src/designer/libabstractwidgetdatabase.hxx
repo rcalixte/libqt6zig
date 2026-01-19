@@ -487,7 +487,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
         if (qdesignerwidgetdatabaseiteminterface_setdefaultpropertyvalues_callback != nullptr) {
             const QList<QVariant>& list_ret = list;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QVariant** list_arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (list_ret.size() + 1)));
+            QVariant** list_arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (list_ret.size())));
             for (qsizetype i = 0; i < list_ret.size(); ++i) {
                 list_arr[i] = new QVariant(list_ret[i]);
             }

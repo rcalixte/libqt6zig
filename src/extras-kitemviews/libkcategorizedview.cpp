@@ -142,7 +142,7 @@ libqt_list /* of QModelIndex* */ KCategorizedView_Block(KCategorizedView* self, 
     QString category_QString = QString::fromUtf8(category.data, category.len);
     QList<QModelIndex> _ret = self->block(category_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
@@ -155,7 +155,7 @@ libqt_list /* of QModelIndex* */ KCategorizedView_Block(KCategorizedView* self, 
 libqt_list /* of QModelIndex* */ KCategorizedView_Block2(KCategorizedView* self, const QModelIndex* representative) {
     QList<QModelIndex> _ret = self->block(*representative);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
@@ -1143,7 +1143,7 @@ libqt_list /* of QModelIndex* */ KCategorizedView_SelectedIndexes(const KCategor
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         QList<QModelIndex> _ret = vkcategorizedview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1154,7 +1154,7 @@ libqt_list /* of QModelIndex* */ KCategorizedView_SelectedIndexes(const KCategor
     } else {
         QList<QModelIndex> _ret = ((VirtualKCategorizedView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1172,7 +1172,7 @@ libqt_list /* of QModelIndex* */ KCategorizedView_QBaseSelectedIndexes(const KCa
         vkcategorizedview->setKCategorizedView_SelectedIndexes_IsBase(true);
         QList<QModelIndex> _ret = vkcategorizedview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1183,7 +1183,7 @@ libqt_list /* of QModelIndex* */ KCategorizedView_QBaseSelectedIndexes(const KCa
     } else {
         QList<QModelIndex> _ret = ((VirtualKCategorizedView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

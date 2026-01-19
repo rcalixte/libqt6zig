@@ -61,7 +61,7 @@ libqt_string QDesignerFormWindowInterface_Contents(const QDesignerFormWindowInte
 libqt_list /* of libqt_string */ QDesignerFormWindowInterface_CheckContents(const QDesignerFormWindowInterface* self) {
     QList<QString> _ret = self->checkContents();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -172,7 +172,7 @@ void QDesignerFormWindowInterface_SetExportMacro(QDesignerFormWindowInterface* s
 libqt_list /* of libqt_string */ QDesignerFormWindowInterface_IncludeHints(const QDesignerFormWindowInterface* self) {
     QList<QString> _ret = self->includeHints();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -212,7 +212,7 @@ void QDesignerFormWindowInterface_SetResourceFileSaveMode(QDesignerFormWindowInt
 libqt_list /* of libqt_string */ QDesignerFormWindowInterface_ActiveResourceFilePaths(const QDesignerFormWindowInterface* self) {
     QList<QString> _ret = self->activeResourceFilePaths();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -320,7 +320,7 @@ void QDesignerFormWindowInterface_EmitSelectionChanged(QDesignerFormWindowInterf
 libqt_list /* of libqt_string */ QDesignerFormWindowInterface_ResourceFiles(const QDesignerFormWindowInterface* self) {
     QList<QString> _ret = self->resourceFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

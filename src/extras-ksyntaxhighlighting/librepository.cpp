@@ -51,7 +51,7 @@ libqt_list /* of KSyntaxHighlighting__Definition* */ KSyntaxHighlighting__Reposi
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QList<KSyntaxHighlighting::Definition> _ret = self->definitionsForFileName(fileName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KSyntaxHighlighting__Definition** _arr = static_cast<KSyntaxHighlighting__Definition**>(malloc(sizeof(KSyntaxHighlighting__Definition*) * (_ret.size() + 1)));
+    KSyntaxHighlighting__Definition** _arr = static_cast<KSyntaxHighlighting__Definition**>(malloc(sizeof(KSyntaxHighlighting__Definition*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KSyntaxHighlighting::Definition(_ret[i]);
     }
@@ -70,7 +70,7 @@ libqt_list /* of KSyntaxHighlighting__Definition* */ KSyntaxHighlighting__Reposi
     QString mimeType_QString = QString::fromUtf8(mimeType.data, mimeType.len);
     QList<KSyntaxHighlighting::Definition> _ret = self->definitionsForMimeType(mimeType_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KSyntaxHighlighting__Definition** _arr = static_cast<KSyntaxHighlighting__Definition**>(malloc(sizeof(KSyntaxHighlighting__Definition*) * (_ret.size() + 1)));
+    KSyntaxHighlighting__Definition** _arr = static_cast<KSyntaxHighlighting__Definition**>(malloc(sizeof(KSyntaxHighlighting__Definition*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KSyntaxHighlighting::Definition(_ret[i]);
     }
@@ -83,7 +83,7 @@ libqt_list /* of KSyntaxHighlighting__Definition* */ KSyntaxHighlighting__Reposi
 libqt_list /* of KSyntaxHighlighting__Definition* */ KSyntaxHighlighting__Repository_Definitions(const KSyntaxHighlighting__Repository* self) {
     QList<KSyntaxHighlighting::Definition> _ret = self->definitions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KSyntaxHighlighting__Definition** _arr = static_cast<KSyntaxHighlighting__Definition**>(malloc(sizeof(KSyntaxHighlighting__Definition*) * (_ret.size() + 1)));
+    KSyntaxHighlighting__Definition** _arr = static_cast<KSyntaxHighlighting__Definition**>(malloc(sizeof(KSyntaxHighlighting__Definition*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KSyntaxHighlighting::Definition(_ret[i]);
     }
@@ -96,7 +96,7 @@ libqt_list /* of KSyntaxHighlighting__Definition* */ KSyntaxHighlighting__Reposi
 libqt_list /* of KSyntaxHighlighting__Theme* */ KSyntaxHighlighting__Repository_Themes(const KSyntaxHighlighting__Repository* self) {
     QList<KSyntaxHighlighting::Theme> _ret = self->themes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KSyntaxHighlighting__Theme** _arr = static_cast<KSyntaxHighlighting__Theme**>(malloc(sizeof(KSyntaxHighlighting__Theme*) * (_ret.size() + 1)));
+    KSyntaxHighlighting__Theme** _arr = static_cast<KSyntaxHighlighting__Theme**>(malloc(sizeof(KSyntaxHighlighting__Theme*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KSyntaxHighlighting::Theme(_ret[i]);
     }
@@ -131,7 +131,7 @@ void KSyntaxHighlighting__Repository_AddCustomSearchPath(KSyntaxHighlighting__Re
 libqt_list /* of libqt_string */ KSyntaxHighlighting__Repository_CustomSearchPaths(const KSyntaxHighlighting__Repository* self) {
     QList<QString> _ret = self->customSearchPaths();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

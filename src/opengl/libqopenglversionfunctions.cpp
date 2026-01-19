@@ -51,25 +51,19 @@ QOpenGLVersionStatus* QOpenGLVersionStatus_new5(const QOpenGLVersionStatus* para
     return new QOpenGLVersionStatus(*param1);
 }
 
-libqt_pair /* tuple of int and int */ QOpenGLVersionStatus_Version(const QOpenGLVersionStatus* self) {
+pair_int_int /* tuple of int and int */ QOpenGLVersionStatus_Version(const QOpenGLVersionStatus* self) {
     QPair<int, int> version_ret = self->version;
     // Convert QPair<> from C++ memory to manually-managed C memory
-    int* version_first = static_cast<int*>(malloc(sizeof(int)));
-    int* version_second = static_cast<int*>(malloc(sizeof(int)));
-    *version_first = version_ret.first;
-    *version_second = version_ret.second;
-    libqt_pair version_out;
-    version_out.first = static_cast<void*>(version_first);
-    version_out.second = static_cast<void*>(version_second);
+    pair_int_int /* tuple of int and int */ version_out;
+    version_out.first = version_ret.first;
+    version_out.second = version_ret.second;
     return version_out;
 }
 
-void QOpenGLVersionStatus_SetVersion(QOpenGLVersionStatus* self, libqt_pair /* tuple of int and int */ version) {
+void QOpenGLVersionStatus_SetVersion(QOpenGLVersionStatus* self, pair_int_int /* tuple of int and int */ version) {
     QPair<int, int> version_QPair;
-    int* version_first = static_cast<int*>(version.first);
-    int* version_second = static_cast<int*>(version.second);
-    version_QPair.first = static_cast<int>(version_first[0]);
-    version_QPair.second = static_cast<int>(version_second[0]);
+    version_QPair.first = version.first;
+    version_QPair.second = version.second;
     self->version = version_QPair;
 }
 

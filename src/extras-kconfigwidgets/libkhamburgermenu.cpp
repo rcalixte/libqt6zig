@@ -370,7 +370,7 @@ libqt_list /* of QWidget* */ KHamburgerMenu_CreatedWidgets(const KHamburgerMenu*
     if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
         QList<QWidget*> _ret = vkhamburgermenu->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -381,7 +381,7 @@ libqt_list /* of QWidget* */ KHamburgerMenu_CreatedWidgets(const KHamburgerMenu*
     } else {
         QList<QWidget*> _ret = ((VirtualKHamburgerMenu*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -399,7 +399,7 @@ libqt_list /* of QWidget* */ KHamburgerMenu_QBaseCreatedWidgets(const KHamburger
         vkhamburgermenu->setKHamburgerMenu_CreatedWidgets_IsBase(true);
         QList<QWidget*> _ret = vkhamburgermenu->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -410,7 +410,7 @@ libqt_list /* of QWidget* */ KHamburgerMenu_QBaseCreatedWidgets(const KHamburger
     } else {
         QList<QWidget*> _ret = ((VirtualKHamburgerMenu*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

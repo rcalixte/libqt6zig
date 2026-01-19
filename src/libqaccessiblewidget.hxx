@@ -21,7 +21,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
     using QAccessibleWidget_Window_Callback = QWindow* (*)();
     using QAccessibleWidget_ChildCount_Callback = int (*)();
     using QAccessibleWidget_IndexOfChild_Callback = int (*)(const QAccessibleWidget*, QAccessibleInterface*);
-    using QAccessibleWidget_Relations_Callback = libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ (*)(const QAccessibleWidget*, int);
+    using QAccessibleWidget_Relations_Callback = libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ (*)(const QAccessibleWidget*, int);
     using QAccessibleWidget_FocusChild_Callback = QAccessibleInterface* (*)();
     using QAccessibleWidget_Rect_Callback = QRect* (*)();
     using QAccessibleWidget_Parent_Callback = QAccessibleInterface* (*)();
@@ -261,16 +261,14 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
         } else if (qaccessiblewidget_relations_callback != nullptr) {
             int cbval1 = static_cast<int>(match);
 
-            libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ callback_ret = qaccessiblewidget_relations_callback(this, cbval1);
+            libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ callback_ret = qaccessiblewidget_relations_callback(this, cbval1);
             QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
-            libqt_pair /* tuple of QAccessibleInterface* and int */* callback_ret_arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(callback_ret.data);
+            pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */* callback_ret_arr = static_cast<pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
                 QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>> callback_ret_arr_i_QPair;
-                QAccessibleInterface** callback_ret_arr_i_first = static_cast<QAccessibleInterface**>(callback_ret_arr[i].first);
-                int* callback_ret_arr_i_second = static_cast<int*>(callback_ret_arr[i].second);
-                callback_ret_arr_i_QPair.first = callback_ret_arr_i_first[0];
-                callback_ret_arr_i_QPair.second = static_cast<QFlags<QAccessible::RelationFlag>>(callback_ret_arr_i_second[0]);
+                callback_ret_arr_i_QPair.first = callback_ret_arr[i].first;
+                callback_ret_arr_i_QPair.second = static_cast<QFlags<QAccessible::RelationFlag>>(callback_ret_arr[i].second);
                 callback_ret_QList.push_back(callback_ret_arr_i_QPair);
             }
             return callback_ret_QList;

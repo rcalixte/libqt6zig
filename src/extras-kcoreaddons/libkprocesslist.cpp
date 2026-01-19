@@ -84,7 +84,7 @@ void KProcessList__KProcessInfo_Delete(KProcessList__KProcessInfo* self) {
 libqt_list /* of KProcessList__KProcessInfo* */ KProcessList_ProcessInfoList() {
     QList<KProcessList::KProcessInfo> _ret = KProcessList::processInfoList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KProcessList__KProcessInfo** _arr = static_cast<KProcessList__KProcessInfo**>(malloc(sizeof(KProcessList__KProcessInfo*) * (_ret.size() + 1)));
+    KProcessList__KProcessInfo** _arr = static_cast<KProcessList__KProcessInfo**>(malloc(sizeof(KProcessList__KProcessInfo*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KProcessList::KProcessInfo(_ret[i]);
     }

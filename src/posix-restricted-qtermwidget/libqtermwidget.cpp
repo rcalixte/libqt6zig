@@ -288,7 +288,7 @@ libqt_list /* of libqt_string */ QTermWidget_GetAvailableColorSchemes(QTermWidge
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         QList<QString> _ret = self->getAvailableColorSchemes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -307,7 +307,7 @@ libqt_list /* of libqt_string */ QTermWidget_GetAvailableColorSchemes(QTermWidge
     } else {
         QList<QString> _ret = ((VirtualQTermWidget*)self)->getAvailableColorSchemes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -329,7 +329,7 @@ libqt_list /* of libqt_string */ QTermWidget_GetAvailableColorSchemes(QTermWidge
 libqt_list /* of libqt_string */ QTermWidget_AvailableColorSchemes() {
     QList<QString> _ret = QTermWidget::availableColorSchemes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -437,7 +437,7 @@ void QTermWidget_SetFlowControlWarningEnabled(QTermWidget* self, bool enabled) {
 libqt_list /* of libqt_string */ QTermWidget_AvailableKeyBindings() {
     QList<QString> _ret = QTermWidget::availableKeyBindings();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -617,7 +617,7 @@ libqt_list /* of QAction* */ QTermWidget_FilterActions(QTermWidget* self, const 
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         QList<QAction*> _ret = self->filterActions(*position);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -628,7 +628,7 @@ libqt_list /* of QAction* */ QTermWidget_FilterActions(QTermWidget* self, const 
     } else {
         QList<QAction*> _ret = ((VirtualQTermWidget*)self)->filterActions(*position);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -1521,7 +1521,7 @@ libqt_list /* of libqt_string */ QTermWidget_QBaseGetAvailableColorSchemes(QTerm
         vqtermwidget->setQTermWidget_GetAvailableColorSchemes_IsBase(true);
         QList<QString> _ret = vqtermwidget->getAvailableColorSchemes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1540,7 +1540,7 @@ libqt_list /* of libqt_string */ QTermWidget_QBaseGetAvailableColorSchemes(QTerm
     } else {
         QList<QString> _ret = self->QTermWidget::getAvailableColorSchemes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2025,7 +2025,7 @@ libqt_list /* of QAction* */ QTermWidget_QBaseFilterActions(QTermWidget* self, c
         vqtermwidget->setQTermWidget_FilterActions_IsBase(true);
         QList<QAction*> _ret = vqtermwidget->filterActions(*position);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2036,7 +2036,7 @@ libqt_list /* of QAction* */ QTermWidget_QBaseFilterActions(QTermWidget* self, c
     } else {
         QList<QAction*> _ret = self->QTermWidget::filterActions(*position);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

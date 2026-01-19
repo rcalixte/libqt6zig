@@ -479,7 +479,7 @@ libqt_list /* of int */ QItemDelegate_PaintingRoles(const QItemDelegate* self) {
     if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
         QList<int> _ret = vqitemdelegate->paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -490,7 +490,7 @@ libqt_list /* of int */ QItemDelegate_PaintingRoles(const QItemDelegate* self) {
     } else {
         QList<int> _ret = self->QItemDelegate::paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -508,7 +508,7 @@ libqt_list /* of int */ QItemDelegate_QBasePaintingRoles(const QItemDelegate* se
         vqitemdelegate->setQItemDelegate_PaintingRoles_IsBase(true);
         QList<int> _ret = vqitemdelegate->paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -519,7 +519,7 @@ libqt_list /* of int */ QItemDelegate_QBasePaintingRoles(const QItemDelegate* se
     } else {
         QList<int> _ret = self->QItemDelegate::paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

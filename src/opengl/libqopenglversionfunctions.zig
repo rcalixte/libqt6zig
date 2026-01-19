@@ -62,11 +62,8 @@ pub const qopenglversionstatus = struct {
     /// ` self: QtC.QOpenGLVersionStatus `
     ///
     pub fn Version(self: ?*anyopaque) struct_i32_i32 {
-        const version_pair: qtc.libqt_pair = qtc.QOpenGLVersionStatus_Version(@ptrCast(self));
-        return struct_i32_i32{
-            .first = @as(*i32, @ptrCast(@alignCast(version_pair.first))).*,
-            .second = @as(*i32, @ptrCast(@alignCast(version_pair.second))).*,
-        };
+        const version_pair = qtc.QOpenGLVersionStatus_Version(@ptrCast(self));
+        return @bitCast(version_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#version-var)
@@ -78,13 +75,7 @@ pub const qopenglversionstatus = struct {
     /// ` version: struct_i32_i32 `
     ///
     pub fn SetVersion(self: ?*anyopaque, version: struct_i32_i32) void {
-        var version_first = version.first;
-        var version_second = version.second;
-        const version_pair = qtc.libqt_pair{
-            .first = @ptrCast(&version_first),
-            .second = @ptrCast(&version_second),
-        };
-        qtc.QOpenGLVersionStatus_SetVersion(@ptrCast(self), version_pair);
+        qtc.QOpenGLVersionStatus_SetVersion(@ptrCast(self), @bitCast(version));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#status-var)

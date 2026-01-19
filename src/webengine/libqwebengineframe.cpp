@@ -44,7 +44,7 @@ libqt_string QWebEngineFrame_HtmlName(const QWebEngineFrame* self) {
 libqt_list /* of QWebEngineFrame* */ QWebEngineFrame_Children(const QWebEngineFrame* self) {
     QList<QWebEngineFrame> _ret = self->children();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEngineFrame** _arr = static_cast<QWebEngineFrame**>(malloc(sizeof(QWebEngineFrame*) * (_ret.size() + 1)));
+    QWebEngineFrame** _arr = static_cast<QWebEngineFrame**>(malloc(sizeof(QWebEngineFrame*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineFrame(_ret[i]);
     }

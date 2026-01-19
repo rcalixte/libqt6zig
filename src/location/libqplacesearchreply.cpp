@@ -53,7 +53,7 @@ int QPlaceSearchReply_Type(const QPlaceSearchReply* self) {
 libqt_list /* of QPlaceSearchResult* */ QPlaceSearchReply_Results(const QPlaceSearchReply* self) {
     QList<QPlaceSearchResult> _ret = self->results();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPlaceSearchResult** _arr = static_cast<QPlaceSearchResult**>(malloc(sizeof(QPlaceSearchResult*) * (_ret.size() + 1)));
+    QPlaceSearchResult** _arr = static_cast<QPlaceSearchResult**>(malloc(sizeof(QPlaceSearchResult*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPlaceSearchResult(_ret[i]);
     }

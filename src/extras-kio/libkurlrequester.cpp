@@ -139,7 +139,7 @@ void KUrlRequester_SetNameFilter(KUrlRequester* self, const libqt_string filter)
 libqt_list /* of libqt_string */ KUrlRequester_NameFilters(const KUrlRequester* self) {
     QList<QString> _ret = self->nameFilters();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -171,7 +171,7 @@ void KUrlRequester_SetMimeTypeFilters(KUrlRequester* self, const libqt_list /* o
 libqt_list /* of libqt_string */ KUrlRequester_MimeTypeFilters(const KUrlRequester* self) {
     QList<QString> _ret = self->mimeTypeFilters();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

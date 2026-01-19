@@ -156,13 +156,29 @@ pub const kstatusbarjobtracker = struct {
             .len = title.len,
             .data = title.ptr,
         };
+        var field1_first_str = qtc.libqt_string{
+            .len = field1.first.len,
+            .data = field1.first.ptr,
+        };
+        var field1_second_str = qtc.libqt_string{
+            .len = field1.second.len,
+            .data = field1.second.ptr,
+        };
         const field1_pair = qtc.libqt_pair{
-            .first = @ptrCast(field1.first),
-            .second = @ptrCast(field1.second),
+            .first = @ptrCast(&field1_first_str),
+            .second = @ptrCast(&field1_second_str),
+        };
+        var field2_first_str = qtc.libqt_string{
+            .len = field2.first.len,
+            .data = field2.first.ptr,
+        };
+        var field2_second_str = qtc.libqt_string{
+            .len = field2.second.len,
+            .data = field2.second.ptr,
         };
         const field2_pair = qtc.libqt_pair{
-            .first = @ptrCast(field2.first),
-            .second = @ptrCast(field2.second),
+            .first = @ptrCast(&field2_first_str),
+            .second = @ptrCast(&field2_second_str),
         };
         qtc.KStatusBarJobTracker_Description(@ptrCast(self), @ptrCast(job), title_str, field1_pair, field2_pair);
     }

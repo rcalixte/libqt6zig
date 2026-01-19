@@ -193,7 +193,7 @@ void QColumnView_SetColumnWidths(QColumnView* self, const libqt_list /* of int *
 libqt_list /* of int */ QColumnView_ColumnWidths(const QColumnView* self) {
     QList<int> _ret = self->columnWidths();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -1264,7 +1264,7 @@ libqt_list /* of QModelIndex* */ QColumnView_SelectedIndexes(const QColumnView* 
     if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
         QList<QModelIndex> _ret = vqcolumnview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1275,7 +1275,7 @@ libqt_list /* of QModelIndex* */ QColumnView_SelectedIndexes(const QColumnView* 
     } else {
         QList<QModelIndex> _ret = ((VirtualQColumnView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1293,7 +1293,7 @@ libqt_list /* of QModelIndex* */ QColumnView_QBaseSelectedIndexes(const QColumnV
         vqcolumnview->setQColumnView_SelectedIndexes_IsBase(true);
         QList<QModelIndex> _ret = vqcolumnview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1304,7 +1304,7 @@ libqt_list /* of QModelIndex* */ QColumnView_QBaseSelectedIndexes(const QColumnV
     } else {
         QList<QModelIndex> _ret = ((VirtualQColumnView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

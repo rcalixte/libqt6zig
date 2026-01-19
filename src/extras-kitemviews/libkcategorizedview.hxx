@@ -1090,7 +1090,7 @@ class VirtualKCategorizedView final : public KCategorizedView {
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size() + 1)));
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size())));
             for (qsizetype i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }

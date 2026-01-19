@@ -365,7 +365,7 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
         } else if (qgeocodereply_setlocations_callback != nullptr) {
             const QList<QGeoLocation>& locations_ret = locations;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QGeoLocation** locations_arr = static_cast<QGeoLocation**>(malloc(sizeof(QGeoLocation*) * (locations_ret.size() + 1)));
+            QGeoLocation** locations_arr = static_cast<QGeoLocation**>(malloc(sizeof(QGeoLocation*) * (locations_ret.size())));
             for (qsizetype i = 0; i < locations_ret.size(); ++i) {
                 locations_arr[i] = new QGeoLocation(locations_ret[i]);
             }

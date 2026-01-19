@@ -376,7 +376,7 @@ libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_DefaultProper
     if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
         QList<QVariant> _ret = vqdesignerwidgetdatabaseiteminterface->defaultPropertyValues();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
+        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QVariant(_ret[i]);
         }
@@ -387,7 +387,7 @@ libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_DefaultProper
     } else {
         QList<QVariant> _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->defaultPropertyValues();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
+        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QVariant(_ret[i]);
         }
@@ -1005,7 +1005,7 @@ libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_QBaseDefaultP
         vqdesignerwidgetdatabaseiteminterface->setQDesignerWidgetDataBaseItemInterface_DefaultPropertyValues_IsBase(true);
         QList<QVariant> _ret = vqdesignerwidgetdatabaseiteminterface->defaultPropertyValues();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
+        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QVariant(_ret[i]);
         }
@@ -1016,7 +1016,7 @@ libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_QBaseDefaultP
     } else {
         QList<QVariant> _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->defaultPropertyValues();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
+        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QVariant(_ret[i]);
         }

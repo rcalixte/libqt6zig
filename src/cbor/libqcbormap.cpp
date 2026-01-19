@@ -52,7 +52,7 @@ void QCborMap_Clear(QCborMap* self) {
 libqt_list /* of QCborValue* */ QCborMap_Keys(const QCborMap* self) {
     QList<QCborValue> _ret = self->keys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QCborValue** _arr = static_cast<QCborValue**>(malloc(sizeof(QCborValue*) * (_ret.size() + 1)));
+    QCborValue** _arr = static_cast<QCborValue**>(malloc(sizeof(QCborValue*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QCborValue(_ret[i]);
     }
@@ -248,12 +248,10 @@ QCborMap__Iterator* QCborMap_Insert4(QCborMap* self, const QCborValue* key, cons
     return new QCborMap::Iterator(self->insert(*key, *value_));
 }
 
-QCborMap__Iterator* QCborMap_Insert5(QCborMap* self, libqt_pair /* tuple of QCborValue* and QCborValue* */ v) {
+QCborMap__Iterator* QCborMap_Insert5(QCborMap* self, pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ v) {
     QPair<QCborValue, QCborValue> v_QPair;
-    QCborValue** v_first = static_cast<QCborValue**>(v.first);
-    QCborValue** v_second = static_cast<QCborValue**>(v.second);
-    v_QPair.first = *(v_first[0]);
-    v_QPair.second = *(v_second[0]);
+    v_QPair.first = *(v.first);
+    v_QPair.second = *(v.second);
     return new QCborMap::Iterator(self->insert(v_QPair));
 }
 
@@ -360,29 +358,21 @@ void QCborMap__Iterator_OperatorAssign(QCborMap__Iterator* self, const QCborMap_
     self->operator=(*other);
 }
 
-libqt_pair /* tuple of QCborValue* and QCborValue* */ QCborMap__Iterator_OperatorMultiply(const QCborMap__Iterator* self) {
+pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ QCborMap__Iterator_OperatorMultiply(const QCborMap__Iterator* self) {
     QPair<QCborValue, QCborValue> _ret = self->operator*();
     // Convert QPair<> from C++ memory to manually-managed C memory
-    QCborValue** _first = static_cast<QCborValue**>(malloc(sizeof(QCborValue*)));
-    QCborValue** _second = static_cast<QCborValue**>(malloc(sizeof(QCborValue*)));
-    *_first = new QCborValue(_ret.first);
-    *_second = new QCborValue(_ret.second);
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ _out;
+    _out.first = new QCborValue(_ret.first);
+    _out.second = new QCborValue(_ret.second);
     return _out;
 }
 
-libqt_pair /* tuple of QCborValue* and QCborValue* */ QCborMap__Iterator_OperatorSubscript(const QCborMap__Iterator* self, ptrdiff_t j) {
+pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ QCborMap__Iterator_OperatorSubscript(const QCborMap__Iterator* self, ptrdiff_t j) {
     QPair<QCborValue, QCborValue> _ret = self->operator[]((qsizetype)(j));
     // Convert QPair<> from C++ memory to manually-managed C memory
-    QCborValue** _first = static_cast<QCborValue**>(malloc(sizeof(QCborValue*)));
-    QCborValue** _second = static_cast<QCborValue**>(malloc(sizeof(QCborValue*)));
-    *_first = new QCborValue(_ret.first);
-    *_second = new QCborValue(_ret.second);
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ _out;
+    _out.first = new QCborValue(_ret.first);
+    _out.second = new QCborValue(_ret.second);
     return _out;
 }
 
@@ -466,29 +456,21 @@ void QCborMap__ConstIterator_OperatorAssign(QCborMap__ConstIterator* self, const
     self->operator=(*other);
 }
 
-libqt_pair /* tuple of QCborValue* and QCborValue* */ QCborMap__ConstIterator_OperatorMultiply(const QCborMap__ConstIterator* self) {
+pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ QCborMap__ConstIterator_OperatorMultiply(const QCborMap__ConstIterator* self) {
     QPair<QCborValue, QCborValue> _ret = self->operator*();
     // Convert QPair<> from C++ memory to manually-managed C memory
-    QCborValue** _first = static_cast<QCborValue**>(malloc(sizeof(QCborValue*)));
-    QCborValue** _second = static_cast<QCborValue**>(malloc(sizeof(QCborValue*)));
-    *_first = new QCborValue(_ret.first);
-    *_second = new QCborValue(_ret.second);
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ _out;
+    _out.first = new QCborValue(_ret.first);
+    _out.second = new QCborValue(_ret.second);
     return _out;
 }
 
-libqt_pair /* tuple of QCborValue* and QCborValue* */ QCborMap__ConstIterator_OperatorSubscript(const QCborMap__ConstIterator* self, ptrdiff_t j) {
+pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ QCborMap__ConstIterator_OperatorSubscript(const QCborMap__ConstIterator* self, ptrdiff_t j) {
     QPair<QCborValue, QCborValue> _ret = self->operator[]((qsizetype)(j));
     // Convert QPair<> from C++ memory to manually-managed C memory
-    QCborValue** _first = static_cast<QCborValue**>(malloc(sizeof(QCborValue*)));
-    QCborValue** _second = static_cast<QCborValue**>(malloc(sizeof(QCborValue*)));
-    *_first = new QCborValue(_ret.first);
-    *_second = new QCborValue(_ret.second);
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ _out;
+    _out.first = new QCborValue(_ret.first);
+    _out.second = new QCborValue(_ret.second);
     return _out;
 }
 

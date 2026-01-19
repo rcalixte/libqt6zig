@@ -59,7 +59,7 @@ void QGeoPath_SetPath(QGeoPath* self, const libqt_list /* of QGeoCoordinate* */ 
 libqt_list /* of QGeoCoordinate* */ QGeoPath_Path(const QGeoPath* self) {
     const QList<QGeoCoordinate>& _ret = self->path();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size() + 1)));
+    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoCoordinate(_ret[i]);
     }
@@ -86,7 +86,7 @@ void QGeoPath_SetVariantPath(QGeoPath* self, const libqt_list /* of QVariant* */
 libqt_list /* of QVariant* */ QGeoPath_VariantPath(const QGeoPath* self) {
     QList<QVariant> _ret = self->variantPath();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
+    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QVariant(_ret[i]);
     }

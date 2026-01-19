@@ -32,7 +32,7 @@ libqt_list /* of libqt_string */ KStringHandler_Capwords2(const libqt_list /* of
     }
     QList<QString> _ret = KStringHandler::capwords(param1_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -94,7 +94,7 @@ libqt_list /* of libqt_string */ KStringHandler_PerlSplit2(const libqt_string pa
     QString param2_QString = QString::fromUtf8(param2.data, param2.len);
     QList<QString> _ret = KStringHandler::perlSplit(param1_QString, param2_QString, static_cast<int>(param3));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -116,7 +116,7 @@ libqt_list /* of libqt_string */ KStringHandler_PerlSplit3(const QChar* param1, 
     QString param2_QString = QString::fromUtf8(param2.data, param2.len);
     QList<QString> _ret = KStringHandler::perlSplit(*param1, param2_QString, static_cast<int>(param3));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -138,7 +138,7 @@ libqt_list /* of libqt_string */ KStringHandler_PerlSplit4(const QRegularExpress
     QString param2_QString = QString::fromUtf8(param2.data, param2.len);
     QList<QString> _ret = KStringHandler::perlSplit(*param1, param2_QString, static_cast<int>(param3));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

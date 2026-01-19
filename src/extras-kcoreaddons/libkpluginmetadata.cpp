@@ -60,7 +60,7 @@ libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins(const libqt_str
     QString directory_QString = QString::fromUtf8(directory.data, directory.len);
     QList<KPluginMetaData> _ret = KPluginMetaData::findPlugins(directory_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size() + 1)));
+    KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KPluginMetaData(_ret[i]);
     }
@@ -121,7 +121,7 @@ libqt_string KPluginMetaData_Description(const KPluginMetaData* self) {
 libqt_list /* of KAboutPerson* */ KPluginMetaData_Authors(const KPluginMetaData* self) {
     QList<KAboutPerson> _ret = self->authors();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size() + 1)));
+    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KAboutPerson(_ret[i]);
     }
@@ -134,7 +134,7 @@ libqt_list /* of KAboutPerson* */ KPluginMetaData_Authors(const KPluginMetaData*
 libqt_list /* of KAboutPerson* */ KPluginMetaData_Translators(const KPluginMetaData* self) {
     QList<KAboutPerson> _ret = self->translators();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size() + 1)));
+    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KAboutPerson(_ret[i]);
     }
@@ -147,7 +147,7 @@ libqt_list /* of KAboutPerson* */ KPluginMetaData_Translators(const KPluginMetaD
 libqt_list /* of KAboutPerson* */ KPluginMetaData_OtherContributors(const KPluginMetaData* self) {
     QList<KAboutPerson> _ret = self->otherContributors();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size() + 1)));
+    KAboutPerson** _arr = static_cast<KAboutPerson**>(malloc(sizeof(KAboutPerson*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KAboutPerson(_ret[i]);
     }
@@ -268,7 +268,7 @@ libqt_string KPluginMetaData_BugReportUrl(const KPluginMetaData* self) {
 libqt_list /* of libqt_string */ KPluginMetaData_MimeTypes(const KPluginMetaData* self) {
     QList<QString> _ret = self->mimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -294,7 +294,7 @@ bool KPluginMetaData_SupportsMimeType(const KPluginMetaData* self, const libqt_s
 libqt_list /* of libqt_string */ KPluginMetaData_FormFactors(const KPluginMetaData* self) {
     QList<QString> _ret = self->formFactors();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -350,7 +350,7 @@ libqt_list /* of libqt_string */ KPluginMetaData_Value8(const KPluginMetaData* s
     }
     QList<QString> _ret = self->value(key_QString, defaultValue_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

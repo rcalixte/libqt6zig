@@ -52,7 +52,7 @@ int KNSCore__EngineBase_Metacall(KNSCore__EngineBase* self, int param1, int para
 libqt_list /* of libqt_string */ KNSCore__EngineBase_AvailableConfigFiles() {
     QList<QString> _ret = KNSCore::EngineBase::availableConfigFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -119,7 +119,7 @@ void KNSCore__EngineBase_UploadEnabledChanged(KNSCore__EngineBase* self) {
 libqt_list /* of libqt_string */ KNSCore__EngineBase_Categories(const KNSCore__EngineBase* self) {
     QList<QString> _ret = self->categories();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -140,7 +140,7 @@ libqt_list /* of libqt_string */ KNSCore__EngineBase_Categories(const KNSCore__E
 libqt_list /* of KNSCore__Provider__CategoryMetadata* */ KNSCore__EngineBase_CategoriesMetadata(KNSCore__EngineBase* self) {
     QList<KNSCore::Provider::CategoryMetadata> _ret = self->categoriesMetadata();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KNSCore__Provider__CategoryMetadata** _arr = static_cast<KNSCore__Provider__CategoryMetadata**>(malloc(sizeof(KNSCore__Provider__CategoryMetadata*) * (_ret.size() + 1)));
+    KNSCore__Provider__CategoryMetadata** _arr = static_cast<KNSCore__Provider__CategoryMetadata**>(malloc(sizeof(KNSCore__Provider__CategoryMetadata*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KNSCore::Provider::CategoryMetadata(_ret[i]);
     }
@@ -153,7 +153,7 @@ libqt_list /* of KNSCore__Provider__CategoryMetadata* */ KNSCore__EngineBase_Cat
 libqt_list /* of KNSCore__CategoryMetadata* */ KNSCore__EngineBase_CategoriesMetadata2(KNSCore__EngineBase* self) {
     QList<KNSCore::CategoryMetadata> _ret = self->categoriesMetadata2();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KNSCore__CategoryMetadata** _arr = static_cast<KNSCore__CategoryMetadata**>(malloc(sizeof(KNSCore__CategoryMetadata*) * (_ret.size() + 1)));
+    KNSCore__CategoryMetadata** _arr = static_cast<KNSCore__CategoryMetadata**>(malloc(sizeof(KNSCore__CategoryMetadata*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KNSCore::CategoryMetadata(_ret[i]);
     }
@@ -166,7 +166,7 @@ libqt_list /* of KNSCore__CategoryMetadata* */ KNSCore__EngineBase_CategoriesMet
 libqt_list /* of KNSCore__Provider__SearchPreset* */ KNSCore__EngineBase_SearchPresets(KNSCore__EngineBase* self) {
     QList<KNSCore::Provider::SearchPreset> _ret = self->searchPresets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KNSCore__Provider__SearchPreset** _arr = static_cast<KNSCore__Provider__SearchPreset**>(malloc(sizeof(KNSCore__Provider__SearchPreset*) * (_ret.size() + 1)));
+    KNSCore__Provider__SearchPreset** _arr = static_cast<KNSCore__Provider__SearchPreset**>(malloc(sizeof(KNSCore__Provider__SearchPreset*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KNSCore::Provider::SearchPreset(_ret[i]);
     }
@@ -179,7 +179,7 @@ libqt_list /* of KNSCore__Provider__SearchPreset* */ KNSCore__EngineBase_SearchP
 libqt_list /* of KNSCore__SearchPreset* */ KNSCore__EngineBase_SearchPresets2(KNSCore__EngineBase* self) {
     QList<KNSCore::SearchPreset> _ret = self->searchPresets2();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KNSCore__SearchPreset** _arr = static_cast<KNSCore__SearchPreset**>(malloc(sizeof(KNSCore__SearchPreset*) * (_ret.size() + 1)));
+    KNSCore__SearchPreset** _arr = static_cast<KNSCore__SearchPreset**>(malloc(sizeof(KNSCore__SearchPreset*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KNSCore::SearchPreset(_ret[i]);
     }
@@ -192,7 +192,7 @@ libqt_list /* of KNSCore__SearchPreset* */ KNSCore__EngineBase_SearchPresets2(KN
 libqt_list /* of Attica__Provider* */ KNSCore__EngineBase_AtticaProviders(const KNSCore__EngineBase* self) {
     QList<Attica::Provider*> _ret = self->atticaProviders();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__Provider** _arr = static_cast<Attica__Provider**>(malloc(sizeof(Attica__Provider*) * (_ret.size() + 1)));
+    Attica__Provider** _arr = static_cast<Attica__Provider**>(malloc(sizeof(Attica__Provider*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -216,7 +216,7 @@ void KNSCore__EngineBase_SetTagFilter(KNSCore__EngineBase* self, const libqt_lis
 libqt_list /* of libqt_string */ KNSCore__EngineBase_TagFilter(const KNSCore__EngineBase* self) {
     QList<QString> _ret = self->tagFilter();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -253,7 +253,7 @@ void KNSCore__EngineBase_SetDownloadTagFilter(KNSCore__EngineBase* self, const l
 libqt_list /* of libqt_string */ KNSCore__EngineBase_DownloadTagFilter(const KNSCore__EngineBase* self) {
     QList<QString> _ret = self->downloadTagFilter();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -295,7 +295,7 @@ void KNSCore__EngineBase_BecomeFan(KNSCore__EngineBase* self, const KNSCore__Ent
 libqt_list /* of libqt_string */ KNSCore__EngineBase_ProviderIDs(const KNSCore__EngineBase* self) {
     QList<QString> _ret = self->providerIDs();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

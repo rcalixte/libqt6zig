@@ -1234,7 +1234,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesView_SelectedIndexes(const KFilePlac
     if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
         QList<QModelIndex> _ret = vkfileplacesview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1245,7 +1245,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesView_SelectedIndexes(const KFilePlac
     } else {
         QList<QModelIndex> _ret = ((VirtualKFilePlacesView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1263,7 +1263,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesView_QBaseSelectedIndexes(const KFil
         vkfileplacesview->setKFilePlacesView_SelectedIndexes_IsBase(true);
         QList<QModelIndex> _ret = vkfileplacesview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1274,7 +1274,7 @@ libqt_list /* of QModelIndex* */ KFilePlacesView_QBaseSelectedIndexes(const KFil
     } else {
         QList<QModelIndex> _ret = ((VirtualKFilePlacesView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

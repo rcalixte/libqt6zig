@@ -92,7 +92,7 @@ libqt_string KSelectAction_CurrentText(const KSelectAction* self) {
 libqt_list /* of QAction* */ KSelectAction_Actions(const KSelectAction* self) {
     QList<QAction*> _ret = self->actions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -170,7 +170,7 @@ void KSelectAction_SetItems(KSelectAction* self, const libqt_list /* of libqt_st
 libqt_list /* of libqt_string */ KSelectAction_Items(const KSelectAction* self) {
     QList<QString> _ret = self->items();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -653,7 +653,7 @@ libqt_list /* of QWidget* */ KSelectAction_CreatedWidgets(const KSelectAction* s
     if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
         QList<QWidget*> _ret = vkselectaction->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -664,7 +664,7 @@ libqt_list /* of QWidget* */ KSelectAction_CreatedWidgets(const KSelectAction* s
     } else {
         QList<QWidget*> _ret = ((VirtualKSelectAction*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -682,7 +682,7 @@ libqt_list /* of QWidget* */ KSelectAction_QBaseCreatedWidgets(const KSelectActi
         vkselectaction->setKSelectAction_CreatedWidgets_IsBase(true);
         QList<QWidget*> _ret = vkselectaction->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -693,7 +693,7 @@ libqt_list /* of QWidget* */ KSelectAction_QBaseCreatedWidgets(const KSelectActi
     } else {
         QList<QWidget*> _ret = ((VirtualKSelectAction*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

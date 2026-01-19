@@ -87,7 +87,7 @@ void KShortcutsDialog_AddCollection(KShortcutsDialog* self, KActionCollection* c
 libqt_list /* of KActionCollection* */ KShortcutsDialog_ActionCollections(const KShortcutsDialog* self) {
     QList<KActionCollection*> _ret = self->actionCollections();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KActionCollection** _arr = static_cast<KActionCollection**>(malloc(sizeof(KActionCollection*) * (_ret.size() + 1)));
+    KActionCollection** _arr = static_cast<KActionCollection**>(malloc(sizeof(KActionCollection*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

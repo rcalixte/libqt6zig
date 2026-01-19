@@ -232,20 +232,27 @@ pub const attica__metadata = struct {
     ///
     pub fn Headers(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_u8_u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Metadata_Headers(@ptrCast(self));
+        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
-            var _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
-                qtc.libqt_string_free(@ptrCast(&_pair[i].first));
-                qtc.libqt_free(_pair[i].first);
-
-                qtc.libqt_string_free(@ptrCast(&_pair[i].second));
-                qtc.libqt_free(_pair[i].second);
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].first)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_u8_u8, _arr.len) catch @panic("attica::metadata.Headers: Memory allocation failed");
-        const _data: [*]struct_u8_u8 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |i| {
+            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("attica::metadata.Headers: Memory allocation failed");
+            @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
+            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("attica::metadata.Headers: Memory allocation failed");
+            @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
+            _ret[i] = struct_u8_u8{
+                .first = _first_slice,
+                .second = _second_slice,
+            };
+        }
         return _ret;
     }
 
@@ -257,10 +264,30 @@ pub const attica__metadata = struct {
     ///
     /// ` headers: []struct_u8_u8 `
     ///
-    pub fn SetHeaders(self: ?*anyopaque, headers: []struct_u8_u8) void {
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn SetHeaders(self: ?*anyopaque, headers: []struct_u8_u8, allocator: std.mem.Allocator) void {
+        var headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("attica::metadata.SetHeaders: Memory allocation failed");
+        defer allocator.free(headers_pairs);
+        var headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("attica::metadata.SetHeaders: Memory allocation failed");
+        defer allocator.free(headers_str);
+        for (headers, 0..) |headers_item, i| {
+            headers_str[i * 2] = qtc.libqt_string{
+                .len = headers_item.first.len,
+                .data = headers_item.first.ptr,
+            };
+            headers_str[i * 2 + 1] = qtc.libqt_string{
+                .len = headers_item.second.len,
+                .data = headers_item.second.ptr,
+            };
+            headers_pairs[i] = qtc.libqt_pair{
+                .first = @ptrCast(&headers_str[i * 2]),
+                .second = @ptrCast(&headers_str[i * 2 + 1]),
+            };
+        }
         const headers_list = qtc.libqt_list{
             .len = headers.len,
-            .data = headers.ptr,
+            .data = @ptrCast(headers_pairs.ptr),
         };
         qtc.Attica__Metadata_SetHeaders(@ptrCast(self), headers_list);
     }

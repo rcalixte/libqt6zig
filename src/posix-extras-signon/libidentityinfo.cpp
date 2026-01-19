@@ -115,7 +115,7 @@ void SignOn__IdentityInfo_SetRealms(SignOn__IdentityInfo* self, const libqt_list
 libqt_list /* of libqt_string */ SignOn__IdentityInfo_Realms(const SignOn__IdentityInfo* self) {
     QList<QString> _ret = self->realms();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -174,7 +174,7 @@ void SignOn__IdentityInfo_SetAccessControlList2(SignOn__IdentityInfo* self, cons
 libqt_list /* of libqt_string */ SignOn__IdentityInfo_AccessControlList(const SignOn__IdentityInfo* self) {
     QList<QString> _ret = self->accessControlList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -195,7 +195,7 @@ libqt_list /* of libqt_string */ SignOn__IdentityInfo_AccessControlList(const Si
 libqt_list /* of SignOn__SecurityContext* */ SignOn__IdentityInfo_AccessControlListFull(const SignOn__IdentityInfo* self) {
     QList<SignOn::SecurityContext> _ret = self->accessControlListFull();
     // Convert QList<> from C++ memory to manually-managed C memory
-    SignOn__SecurityContext** _arr = static_cast<SignOn__SecurityContext**>(malloc(sizeof(SignOn__SecurityContext*) * (_ret.size() + 1)));
+    SignOn__SecurityContext** _arr = static_cast<SignOn__SecurityContext**>(malloc(sizeof(SignOn__SecurityContext*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new SignOn::SecurityContext(_ret[i]);
     }
@@ -233,7 +233,7 @@ int SignOn__IdentityInfo_Type(const SignOn__IdentityInfo* self) {
 libqt_list /* of libqt_string */ SignOn__IdentityInfo_Methods(const SignOn__IdentityInfo* self) {
     QList<QString> _ret = self->methods();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -255,7 +255,7 @@ libqt_list /* of libqt_string */ SignOn__IdentityInfo_Mechanisms(const SignOn__I
     QString method_QString = QString::fromUtf8(method.data, method.len);
     QList<QString> _ret = self->mechanisms(method_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

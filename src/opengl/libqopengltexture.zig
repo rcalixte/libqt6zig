@@ -859,11 +859,8 @@ pub const qopengltexture = struct {
     /// ` self: QtC.QOpenGLTexture `
     ///
     pub fn MipLevelRange(self: ?*anyopaque) struct_i32_i32 {
-        const _pair: qtc.libqt_pair = qtc.QOpenGLTexture_MipLevelRange(@ptrCast(self));
-        return struct_i32_i32{
-            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QOpenGLTexture_MipLevelRange(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setAutoMipMapGenerationEnabled)
@@ -1113,11 +1110,8 @@ pub const qopengltexture = struct {
     /// ` struct_i32_i32 (first: qopengltexture_enums.Filter) (second: qopengltexture_enums.Filter) `
     ///
     pub fn MinMagFilters(self: ?*anyopaque) struct_i32_i32 {
-        const _pair: qtc.libqt_pair = qtc.QOpenGLTexture_MinMagFilters(@ptrCast(self));
-        return struct_i32_i32{
-            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QOpenGLTexture_MinMagFilters(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMaximumAnisotropy)
@@ -1361,11 +1355,8 @@ pub const qopengltexture = struct {
     /// ` self: QtC.QOpenGLTexture `
     ///
     pub fn LevelOfDetailRange(self: ?*anyopaque) struct_f32_f32 {
-        const _pair: qtc.libqt_pair = qtc.QOpenGLTexture_LevelOfDetailRange(@ptrCast(self));
-        return struct_f32_f32{
-            .first = @as(*f32, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*f32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QOpenGLTexture_LevelOfDetailRange(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setLevelofDetailBias)

@@ -63,20 +63,16 @@ QPointF* QGraphicsItemAnimation_PosAt(const QGraphicsItemAnimation* self, double
     return new QPointF(self->posAt(static_cast<qreal>(step)));
 }
 
-libqt_list /* of libqt_pair tuple of double and QPointF* */ QGraphicsItemAnimation_PosList(const QGraphicsItemAnimation* self) {
+libqt_list /* of pair_double_qpointf tuple of double and QPointF* */ QGraphicsItemAnimation_PosList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, QPointF>> _ret = self->posList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * (_ret.size() + 1)));
+    pair_double_qpointf /* tuple of double and QPointF* */* _arr = static_cast<pair_double_qpointf /* tuple of double and QPointF* */*>(malloc(sizeof(pair_double_qpointf /* tuple of double and QPointF* */) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
-        double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
-        QPointF** _lv_second = static_cast<QPointF**>(malloc(sizeof(QPointF*)));
-        *_lv_first = _lv_ret.first;
-        *_lv_second = new QPointF(_lv_ret.second);
-        libqt_pair _lv_out;
-        _lv_out.first = static_cast<void*>(_lv_first);
-        _lv_out.second = static_cast<void*>(_lv_second);
+        pair_double_qpointf /* tuple of double and QPointF* */ _lv_out;
+        _lv_out.first = _lv_ret.first;
+        _lv_out.second = new QPointF(_lv_ret.second);
         _arr[i] = _lv_out;
     }
     libqt_list _out;
@@ -97,20 +93,16 @@ double QGraphicsItemAnimation_RotationAt(const QGraphicsItemAnimation* self, dou
     return static_cast<double>(self->rotationAt(static_cast<qreal>(step)));
 }
 
-libqt_list /* of libqt_pair tuple of double and double */ QGraphicsItemAnimation_RotationList(const QGraphicsItemAnimation* self) {
+libqt_list /* of pair_double_double tuple of double and double */ QGraphicsItemAnimation_RotationList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, double>> _ret = self->rotationList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and double */* _arr = static_cast<libqt_pair /* tuple of double and double */*>(malloc(sizeof(libqt_pair /* tuple of double and double */) * (_ret.size() + 1)));
+    pair_double_double /* tuple of double and double */* _arr = static_cast<pair_double_double /* tuple of double and double */*>(malloc(sizeof(pair_double_double /* tuple of double and double */) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, double> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
-        double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
-        double* _lv_second = static_cast<double*>(malloc(sizeof(double)));
-        *_lv_first = _lv_ret.first;
-        *_lv_second = _lv_ret.second;
-        libqt_pair _lv_out;
-        _lv_out.first = static_cast<void*>(_lv_first);
-        _lv_out.second = static_cast<void*>(_lv_second);
+        pair_double_double /* tuple of double and double */ _lv_out;
+        _lv_out.first = _lv_ret.first;
+        _lv_out.second = _lv_ret.second;
         _arr[i] = _lv_out;
     }
     libqt_list _out;
@@ -131,20 +123,16 @@ double QGraphicsItemAnimation_YTranslationAt(const QGraphicsItemAnimation* self,
     return static_cast<double>(self->yTranslationAt(static_cast<qreal>(step)));
 }
 
-libqt_list /* of libqt_pair tuple of double and QPointF* */ QGraphicsItemAnimation_TranslationList(const QGraphicsItemAnimation* self) {
+libqt_list /* of pair_double_qpointf tuple of double and QPointF* */ QGraphicsItemAnimation_TranslationList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, QPointF>> _ret = self->translationList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * (_ret.size() + 1)));
+    pair_double_qpointf /* tuple of double and QPointF* */* _arr = static_cast<pair_double_qpointf /* tuple of double and QPointF* */*>(malloc(sizeof(pair_double_qpointf /* tuple of double and QPointF* */) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
-        double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
-        QPointF** _lv_second = static_cast<QPointF**>(malloc(sizeof(QPointF*)));
-        *_lv_first = _lv_ret.first;
-        *_lv_second = new QPointF(_lv_ret.second);
-        libqt_pair _lv_out;
-        _lv_out.first = static_cast<void*>(_lv_first);
-        _lv_out.second = static_cast<void*>(_lv_second);
+        pair_double_qpointf /* tuple of double and QPointF* */ _lv_out;
+        _lv_out.first = _lv_ret.first;
+        _lv_out.second = new QPointF(_lv_ret.second);
         _arr[i] = _lv_out;
     }
     libqt_list _out;
@@ -165,20 +153,16 @@ double QGraphicsItemAnimation_HorizontalScaleAt(const QGraphicsItemAnimation* se
     return static_cast<double>(self->horizontalScaleAt(static_cast<qreal>(step)));
 }
 
-libqt_list /* of libqt_pair tuple of double and QPointF* */ QGraphicsItemAnimation_ScaleList(const QGraphicsItemAnimation* self) {
+libqt_list /* of pair_double_qpointf tuple of double and QPointF* */ QGraphicsItemAnimation_ScaleList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, QPointF>> _ret = self->scaleList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * (_ret.size() + 1)));
+    pair_double_qpointf /* tuple of double and QPointF* */* _arr = static_cast<pair_double_qpointf /* tuple of double and QPointF* */*>(malloc(sizeof(pair_double_qpointf /* tuple of double and QPointF* */) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
-        double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
-        QPointF** _lv_second = static_cast<QPointF**>(malloc(sizeof(QPointF*)));
-        *_lv_first = _lv_ret.first;
-        *_lv_second = new QPointF(_lv_ret.second);
-        libqt_pair _lv_out;
-        _lv_out.first = static_cast<void*>(_lv_first);
-        _lv_out.second = static_cast<void*>(_lv_second);
+        pair_double_qpointf /* tuple of double and QPointF* */ _lv_out;
+        _lv_out.first = _lv_ret.first;
+        _lv_out.second = new QPointF(_lv_ret.second);
         _arr[i] = _lv_out;
     }
     libqt_list _out;
@@ -199,20 +183,16 @@ double QGraphicsItemAnimation_HorizontalShearAt(const QGraphicsItemAnimation* se
     return static_cast<double>(self->horizontalShearAt(static_cast<qreal>(step)));
 }
 
-libqt_list /* of libqt_pair tuple of double and QPointF* */ QGraphicsItemAnimation_ShearList(const QGraphicsItemAnimation* self) {
+libqt_list /* of pair_double_qpointf tuple of double and QPointF* */ QGraphicsItemAnimation_ShearList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, QPointF>> _ret = self->shearList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * (_ret.size() + 1)));
+    pair_double_qpointf /* tuple of double and QPointF* */* _arr = static_cast<pair_double_qpointf /* tuple of double and QPointF* */*>(malloc(sizeof(pair_double_qpointf /* tuple of double and QPointF* */) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
-        double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
-        QPointF** _lv_second = static_cast<QPointF**>(malloc(sizeof(QPointF*)));
-        *_lv_first = _lv_ret.first;
-        *_lv_second = new QPointF(_lv_ret.second);
-        libqt_pair _lv_out;
-        _lv_out.first = static_cast<void*>(_lv_first);
-        _lv_out.second = static_cast<void*>(_lv_second);
+        pair_double_qpointf /* tuple of double and QPointF* */ _lv_out;
+        _lv_out.first = _lv_ret.first;
+        _lv_out.second = new QPointF(_lv_ret.second);
         _arr[i] = _lv_out;
     }
     libqt_list _out;

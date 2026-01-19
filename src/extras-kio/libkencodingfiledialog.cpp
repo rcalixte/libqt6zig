@@ -238,7 +238,7 @@ KEncodingFileDialog__Result* KEncodingFileDialog__Result_new(const KEncodingFile
 libqt_list /* of libqt_string */ KEncodingFileDialog__Result_FileNames(const KEncodingFileDialog__Result* self) {
     QList<QString> fileNames_ret = self->fileNames;
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* fileNames_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (fileNames_ret.size() + 1)));
+    libqt_string* fileNames_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (fileNames_ret.size())));
     for (qsizetype i = 0; i < fileNames_ret.size(); ++i) {
         QString fileNames_lv_ret = fileNames_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -270,7 +270,7 @@ void KEncodingFileDialog__Result_SetFileNames(KEncodingFileDialog__Result* self,
 libqt_list /* of QUrl* */ KEncodingFileDialog__Result_URLs(const KEncodingFileDialog__Result* self) {
     QList<QUrl> URLs_ret = self->URLs;
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** URLs_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (URLs_ret.size() + 1)));
+    QUrl** URLs_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (URLs_ret.size())));
     for (qsizetype i = 0; i < URLs_ret.size(); ++i) {
         URLs_arr[i] = new QUrl(URLs_ret[i]);
     }

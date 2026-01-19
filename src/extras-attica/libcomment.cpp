@@ -137,7 +137,7 @@ void Attica__Comment_SetChildren(Attica__Comment* self, libqt_list /* of Attica_
 libqt_list /* of Attica__Comment* */ Attica__Comment_Children(const Attica__Comment* self) {
     QList<Attica::Comment> _ret = self->children();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__Comment** _arr = static_cast<Attica__Comment**>(malloc(sizeof(Attica__Comment*) * (_ret.size() + 1)));
+    Attica__Comment** _arr = static_cast<Attica__Comment**>(malloc(sizeof(Attica__Comment*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::Comment(_ret[i]);
     }

@@ -130,7 +130,7 @@ void KDirOperator_SetMimeFilter(KDirOperator* self, const libqt_list /* of libqt
 libqt_list /* of libqt_string */ KDirOperator_MimeFilter(const KDirOperator* self) {
     QList<QString> _ret = self->mimeFilter();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -162,7 +162,7 @@ void KDirOperator_SetNewFileMenuSupportedMimeTypes(KDirOperator* self, const lib
 libqt_list /* of libqt_string */ KDirOperator_NewFileMenuSupportedMimeTypes(const KDirOperator* self) {
     QList<QString> _ret = self->newFileMenuSupportedMimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -308,7 +308,7 @@ QAction* KDirOperator_Action(const KDirOperator* self, int action) {
 libqt_list /* of QAction* */ KDirOperator_AllActions(const KDirOperator* self) {
     QList<QAction*> _ret = self->allActions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -473,7 +473,7 @@ bool KDirOperator_IsSaving(const KDirOperator* self) {
 libqt_list /* of libqt_string */ KDirOperator_SupportedSchemes(const KDirOperator* self) {
     QList<QString> _ret = self->supportedSchemes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -806,7 +806,7 @@ void KDirOperator_Connect_Dropped(KDirOperator* self, intptr_t slot) {
         QDropEvent* sigval2 = event;
         const QList<QUrl>& urls_ret = urls;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size() + 1)));
+        QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size())));
         for (qsizetype i = 0; i < urls_ret.size(); ++i) {
             urls_arr[i] = new QUrl(urls_ret[i]);
         }
@@ -871,7 +871,7 @@ void KDirOperator_Connect_RenamingFinished(KDirOperator* self, intptr_t slot) {
     KDirOperator::connect(self, &KDirOperator::renamingFinished, [self, slotFunc](const QList<QUrl>& urls) {
         const QList<QUrl>& urls_ret = urls;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size() + 1)));
+        QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (urls_ret.size())));
         for (qsizetype i = 0; i < urls_ret.size(); ++i) {
             urls_arr[i] = new QUrl(urls_ret[i]);
         }

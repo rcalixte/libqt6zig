@@ -317,7 +317,7 @@ libqt_string KFileItem_IconName(const KFileItem* self) {
 libqt_list /* of libqt_string */ KFileItem_Overlays(const KFileItem* self) {
     QList<QString> _ret = self->overlays();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -481,7 +481,7 @@ KFileItem* KFileItemList_FindByUrl(const KFileItemList* self, const QUrl* url) {
 libqt_list /* of QUrl* */ KFileItemList_UrlList(const KFileItemList* self) {
     QList<QUrl> _ret = self->urlList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }
@@ -494,7 +494,7 @@ libqt_list /* of QUrl* */ KFileItemList_UrlList(const KFileItemList* self) {
 libqt_list /* of QUrl* */ KFileItemList_TargetUrlList(const KFileItemList* self) {
     QList<QUrl> _ret = self->targetUrlList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }

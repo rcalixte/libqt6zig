@@ -274,7 +274,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		k = mapParamToString(k)
 		v = mapParamToString(v)
 
-		return ifv(p.Pointer, "*", "") + "map_" + k + "_" + v
+		return "map_" + k + "_" + v
 	}
 
 	if t1, t2, ok := p.QPairOf(); ok {
@@ -944,13 +944,67 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			preamble += "        .data = item.ptr,\n"
 			preamble += "    };\n"
 			preamble += "}\n"
+
+		} else if t.ParameterType == "char" && t.PointerCount == 1 {
+			preamble += "var " + nameprefix + "_cStr = allocator.alloc([*c]" + ifv(t.Const, "const ", "") + " u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "defer allocator.free(" + nameprefix + "_cStr);\n"
+			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |" + p.ParameterName + "_item, i| {\n"
+			preamble += "    " + nameprefix + "_cStr[i] = @ptrCast(" + p.ParameterName + "_item.ptr);\n"
+			preamble += "}\n"
+
+		} else if _, _, ok := t.QListOf(); ok {
+			preamble += "var " + nameprefix + "_arr = allocator.alloc(qtc.libqt_list, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
+			preamble += "for (" + p.ParameterName + ", 0.." + ") |" + nameprefix + "_inner, i| {\n"
+			preamble += "    " + nameprefix + "_arr[i] = qtc.libqt_list{\n"
+			preamble += "        .len = " + nameprefix + "_inner.len,\n"
+			preamble += "        .data = @ptrCast(" + nameprefix + "_inner.ptr),\n"
+			preamble += "    };\n"
+			preamble += "}\n"
+
+		} else if f, s, ok := t.QPairOf(); ok {
+			if (f.ParameterType == "QString" || f.ParameterType == "QByteArray") && (s.ParameterType == "QString" || s.ParameterType == "QByteArray") {
+				preamble += "var " + p.ParameterName + "_pairs = allocator.alloc(qtc.libqt_pair, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				preamble += "defer allocator.free(" + p.ParameterName + "_pairs);\n"
+				preamble += "var " + nameprefix + "_str = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len * 2) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				preamble += "defer allocator.free(" + nameprefix + "_str);\n"
+				preamble += "for (" + p.ParameterName + ", 0.." + ") |" + p.ParameterName + "_item, i| {\n"
+				preamble += "    " + p.ParameterName + "_str[i * 2] = qtc.libqt_string{\n"
+				preamble += "        .len = " + p.ParameterName + "_item.first.len,\n"
+				preamble += "        .data = " + p.ParameterName + "_item.first.ptr,\n"
+				preamble += "    };\n"
+				preamble += "    " + p.ParameterName + "_str[i * 2 + 1] = qtc.libqt_string{\n"
+				preamble += "        .len = " + p.ParameterName + "_item.second.len,\n"
+				preamble += "        .data = " + p.ParameterName + "_item.second.ptr,\n"
+				preamble += "    };\n"
+				preamble += "    " + p.ParameterName + "_pairs[i] = qtc.libqt_pair{\n"
+				preamble += "        .first = @ptrCast(&" + p.ParameterName + "_str[i * 2]),\n"
+				preamble += "        .second = @ptrCast(&" + p.ParameterName + "_str[i * 2 + 1]),\n"
+				preamble += "    };\n"
+				preamble += "}\n"
+			}
 		}
+
 		preamble += "const " + nameprefix + "_list = qtc.libqt_list{\n"
 		preamble += "    .len = " + p.ParameterName + ".len,\n"
 		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" || t.ParameterType == "SignOn::MethodName" {
 			preamble += "    .data = " + nameprefix + "_arr.ptr,\n"
+
+		} else if t.ParameterType == "char" && t.PointerCount == 1 {
+			preamble += "    .data = @ptrCast(" + nameprefix + "_cStr.ptr),\n"
+
 		} else if t.QtClassType() {
 			preamble += "    .data = @ptrCast(" + p.ParameterName + ".ptr),\n"
+
+		} else if _, _, ok := t.QListOf(); ok {
+			preamble += "    .data = @ptrCast(" + nameprefix + "_arr.ptr),\n"
+
+		} else if f, s, ok := t.QPairOf(); ok {
+			if (f.ParameterType == "QString" || f.ParameterType == "QByteArray") && (s.ParameterType == "QString" || s.ParameterType == "QByteArray") {
+				preamble += "    .data = @ptrCast(" + nameprefix + "_pairs.ptr),\n"
+			} else if (f.IntType() || IsKnownClass(f.ParameterType)) && (s.IntType() || IsKnownClass(s.ParameterType)) {
+				preamble += "    .data = @ptrCast(" + p.ParameterName + ".ptr),\n"
+			}
 		} else {
 			preamble += "    .data = " + p.ParameterName + ".ptr,\n"
 		}
@@ -1138,32 +1192,50 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		preamble += "};\n"
 		rvalue = maybePointer + nameprefix + "_map"
 
-	} else if kType, vType, ok := p.QPairOf(); ok {
-		// QPair<K,V>
-		zfs.imports["struct_"+kType.RenderTypeZig(zfs, false, true)+"_"+vType.RenderTypeZig(zfs, false, true)] = struct{}{}
+	} else if fType, sType, ok := p.QPairOf(); ok {
+		// QPair<F,S>
+		zfs.imports["struct_"+fType.RenderTypeZig(zfs, false, true)+"_"+sType.RenderTypeZig(zfs, false, true)] = struct{}{}
 
-		kAddr := ""
-		kDesc := "."
-		if kType.parameterTypeZig() == "i32" {
-			kAddr = "&"
-			kDesc = "_"
-			preamble += "var " + nameprefix + "_first = " + nameprefix + ".first;\n"
+		if (fType.IntType() || IsKnownClass(fType.ParameterType)) && (sType.IntType() || IsKnownClass(sType.ParameterType)) {
+			rvalue = "@bitCast(" + nameprefix + ")"
+		} else {
+			fAddr := ""
+			fParam := ".first"
+			if fType.ParameterType == "QString" || fType.ParameterType == "QByteArray" {
+				fAddr = "&"
+				preamble += "var " + nameprefix + "_first_str = qtc.libqt_string{\n"
+				preamble += "    .len = " + p.ParameterName + fParam + ".len,\n"
+				preamble += "    .data = " + p.ParameterName + fParam + ".ptr,\n"
+				preamble += "};\n"
+				fParam = "_first_str"
+			} else if fType.IntType() {
+				fAddr = "&"
+				fParam = "_first"
+				preamble += "var " + nameprefix + "_first = " + nameprefix + ".first;\n"
+			}
+
+			sAddr := ""
+			sParam := ".second"
+			if sType.ParameterType == "QString" || sType.ParameterType == "QByteArray" {
+				sAddr = "&"
+				preamble += "var " + nameprefix + "_second_str = qtc.libqt_string{\n"
+				preamble += "    .len = " + p.ParameterName + sParam + ".len,\n"
+				preamble += "    .data = " + p.ParameterName + sParam + ".ptr,\n"
+				preamble += "};\n"
+				sParam = "_second_str"
+			} else if sType.IntType() {
+				sAddr = "&"
+				sParam = "_second"
+				preamble += "var " + nameprefix + "_second = " + nameprefix + ".second;\n"
+			}
+
+			// Create the pair struct
+			preamble += "const " + nameprefix + "_pair = qtc.libqt_pair {\n"
+			preamble += "    .first = @ptrCast(" + fAddr + nameprefix + fParam + "),\n"
+			preamble += "    .second = @ptrCast(" + sAddr + nameprefix + sParam + "),\n"
+			preamble += "};\n"
+			rvalue = nameprefix + "_pair"
 		}
-
-		vAddr := ""
-		vDesc := "."
-		if vType.parameterTypeZig() == "i32" {
-			vAddr = "&"
-			vDesc = "_"
-			preamble += "var " + nameprefix + "_second = " + nameprefix + ".second;\n"
-		}
-
-		// Create the pair struct
-		preamble += "const " + nameprefix + "_pair = qtc.libqt_pair {\n"
-		preamble += "    .first = @ptrCast(" + kAddr + nameprefix + kDesc + "first),\n"
-		preamble += "    .second = @ptrCast(" + vAddr + nameprefix + vDesc + "second),\n"
-		preamble += "};\n"
-		rvalue = nameprefix + "_pair"
 
 	} else if p.Pointer && p.ParameterType == "char" {
 		switch p.PointerCount {
@@ -1213,6 +1285,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		} else {
 			rvalue = p.ParameterName
 		}
+
 	} else {
 		// Default
 		rvalue = p.ParameterName
@@ -1345,31 +1418,69 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		} else if f, s, ok := t.QPairOf(); ok {
 			// QList<QPair<F,S>>
-			if (f.ParameterType == "QString" || f.ParameterType == "QByteArray") && (s.ParameterType == "QString" || s.ParameterType == "QByteArray") {
-				afterword += "defer {\n"
-				afterword += "var " + namePrefix + "_pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
-				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
-				afterword += "qtc.libqt_string_free(@ptrCast(&" + namePrefix + "_pair[i].first));\n"
-				afterword += "qtc.libqt_free(" + namePrefix + "_pair[i].first);\n\n"
-				afterword += "qtc.libqt_string_free(@ptrCast(&" + namePrefix + "_pair[i].second));\n"
-				afterword += "qtc.libqt_free(" + namePrefix + "_pair[i].second);\n"
-				afterword += "}\n"
-				afterword += "qtc.libqt_free(" + namePrefix + "_arr.data);\n"
-				afterword += "}\n"
+			if (f.IntType() || IsKnownClass(f.ParameterType)) && (s.IntType() || IsKnownClass(s.ParameterType)) {
+				afterword += "const " + namePrefix + "_data: [*]" + arrType + " = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
+				afterword += "defer qtc.libqt_free(" + namePrefix + "_arr.data);\n"
+				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_data[0.." + namePrefix + "_arr.len]);\n"
+
 			} else {
+				afterword += "const " + namePrefix + "_data: [*]qtc.libqt_pair = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
+
+				var firstFree, secondFree, firstLoop, secondLoop, firstParam, secondParam string
+
+				if f.ParameterType == "QString" || f.ParameterType == "QByteArray" {
+					firstFree = "        qtc.libqt_string_free(@ptrCast(@alignCast(" + namePrefix + "_data[i].first)));\n"
+					firstLoop = "    const " + namePrefix + "_first_str: *qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_data[i].first));\n"
+					firstLoop += "    const " + namePrefix + "_first_slice = allocator.alloc(u8, " + namePrefix + `_first_str.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+					firstLoop += "    @memcpy(" + namePrefix + "_first_slice, " + namePrefix + "_first_str.data[0.." + namePrefix + "_first_str.len]);\n"
+					firstParam = namePrefix + "_first_slice"
+				} else if IsKnownClass(f.ParameterType) {
+					firstParam = "@ptrCast(" + namePrefix + "_data[i].first)"
+				} else if f.IntType() {
+					firstFree = "        qtc.libqt_free(@ptrCast(@alignCast(" + namePrefix + "_data[i].first)));\n"
+					firstParam = "@as(*" + f.parameterTypeZig() + ", @ptrCast(@alignCast(" + namePrefix + "_data[i].first))).*"
+				} else {
+					panic("UNHANDLED LIST OF FIRST PAIR TYPE: " + f.ParameterType + " with " + s.ParameterType)
+				}
+
+				if s.ParameterType == "QString" || s.ParameterType == "QByteArray" {
+					secondFree = "        qtc.libqt_string_free(@ptrCast(@alignCast(" + namePrefix + "_data[i].second)));\n"
+					secondLoop = "    const " + namePrefix + "_second_str: *qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_data[i].second));\n"
+					secondLoop += "    const " + namePrefix + "_second_slice = allocator.alloc(u8, " + namePrefix + `_second_str.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed")` + ";\n"
+					secondLoop += "    @memcpy(" + namePrefix + "_second_slice, " + namePrefix + "_second_str.data[0.." + namePrefix + "_second_str.len]);\n"
+					secondParam = namePrefix + "_second_slice"
+				} else if IsKnownClass(s.ParameterType) {
+					secondParam = "@ptrCast(" + namePrefix + "_data[i].second)"
+				} else if s.IntType() {
+					secondFree = "        qtc.libqt_free(@ptrCast(@alignCast(" + namePrefix + "_data[i].second)));\n"
+					secondParam = "@as(*" + s.parameterTypeZig() + ", @ptrCast(@alignCast(" + namePrefix + "_data[i].second))).*"
+				} else {
+					panic("UNHANDLED LIST OF SECOND PAIR TYPE: " + s.ParameterType + " with first " + f.ParameterType)
+				}
+
 				afterword += "defer {\n"
-				afterword += "const " + namePrefix + "_pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
-				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
-				afterword += "qtc.libqt_free(" + namePrefix + "_pair[i].first);\n"
-				afterword += "qtc.libqt_free(" + namePrefix + "_pair[i].second);\n"
+
+				if firstFree != "" || secondFree != "" {
+					afterword += "    for (0.." + namePrefix + "_arr.len) |i| {\n"
+					afterword += firstFree
+					afterword += secondFree
+					afterword += "    }\n"
+				}
+
+				afterword += "    qtc.libqt_free(" + namePrefix + "_arr.data);\n"
 				afterword += "}\n"
-				afterword += "qtc.libqt_free(" + namePrefix + "_arr.data);\n"
+
+				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
+				afterword += firstLoop
+				afterword += secondLoop
+				afterword += "    " + namePrefix + "_ret[i] = " + arrType + "{\n"
+				afterword += "        .first = " + firstParam + ",\n"
+				afterword += "        .second = " + secondParam + ",\n"
+				afterword += "    };\n"
 				afterword += "}\n"
 			}
-
-			afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
-			afterword += "const " + namePrefix + "_data: [*]" + arrType + " = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
-			afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_data[0.." + namePrefix + "_arr.len]);\n"
 
 		} else if p, _, ok := t.QListOf(); ok {
 			// QList<QList<P>>
@@ -1451,6 +1562,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 			afterword += assignExpr + " " + namePrefix + "_ret;"
 			return shouldReturn + " " + rvalue + ";\n" + afterword
+
 		} else {
 			panic("*UNHANDLED QSET TYPE*\trt:" + rt.ParameterType + "\tt: " + t.ParameterType)
 		}
@@ -1460,6 +1572,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		// depending on the type of the hash map (Auto vs String)
 		zfs.imports["std"] = struct{}{}
 		shouldReturn = "const " + namePrefix + "_map: qtc.libqt_map = "
+		maybeDeref := ifv(rt.Pointer, ".?.*", "")
 		isQMulti := ifv(containerType == "QMultiHash" || containerType == "QMultiMap", true, false)
 
 		// TODO front-end implementation mostly works, following back-end implementation is very messy
@@ -1607,33 +1720,40 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		afterword += "}\n"
 		afterword += assignExpr + " " + namePrefix + "_ret;\n"
-		return shouldReturn + " " + rvalue + ";\n" + afterword
+		return shouldReturn + " " + rvalue + maybeDeref + ";\n" + afterword
 
 	} else if kType, vType, ok := rt.QPairOf(); ok {
-		// QPair is a struct containing two pointers to the inner types
+		// QPair is a struct containing two inner types
 		// e.g. QPair<QString, QString>
-		shouldReturn = "const " + namePrefix + "_pair: qtc.libqt_pair = "
+		if (kType.IntType() || IsKnownClass(kType.ParameterType)) && (vType.IntType() || IsKnownClass(vType.ParameterType)) {
+			shouldReturn = "const " + namePrefix + "_pair ="
+			afterword += assignExpr + " @bitCast(" + namePrefix + "_pair);"
 
-		kCast := "@ptrCast("
-		kClose := ")"
-		kTypeZig := kType.RenderTypeZig(zfs, false, false)
-		if kType.IntType() {
-			kCast = "@as(*" + kTypeZig + ", @ptrCast(@alignCast("
-			kClose = "))).*"
+		} else {
+			shouldReturn = "const " + namePrefix + "_pair: qtc.libqt_pair = "
+
+			kCast := "@ptrCast("
+			kClose := ")"
+			kTypeZig := kType.RenderTypeZig(zfs, false, false)
+			if kType.IntType() {
+				kCast = "@as(*" + kTypeZig + ", @ptrCast(@alignCast("
+				kClose = "))).*"
+			}
+
+			vCast := "@ptrCast("
+			vClose := ")"
+			vTypeZig := vType.RenderTypeZig(zfs, false, false)
+			if vType.IntType() {
+				vCast = "@as(*" + vTypeZig + ", @ptrCast(@alignCast("
+				vClose = "))).*"
+			} else if vType.ParameterType == "void" && vType.Pointer {
+				vCast = ""
+				vClose = ""
+			}
+
+			afterword += assignExpr + " " + rt.RenderTypeZig(zfs, true, true) + " { .first = " + kCast + namePrefix + "_pair.first" + kClose + ", .second = " + vCast + namePrefix + "_pair.second" + vClose + ", };\n"
 		}
 
-		vCast := "@ptrCast("
-		vClose := ")"
-		vTypeZig := vType.RenderTypeZig(zfs, false, false)
-		if vType.IntType() {
-			vCast = "@as(*" + vTypeZig + ", @ptrCast(@alignCast("
-			vClose = "))).*"
-		} else if vType.ParameterType == "void" && vType.Pointer {
-			vCast = ""
-			vClose = ""
-		}
-
-		afterword += assignExpr + " " + rt.RenderTypeZig(zfs, true, true) + " { .first = " + kCast + namePrefix + "_pair.first" + kClose + ", .second = " + vCast + namePrefix + "_pair.second" + vClose + ", };\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
 	} else if rt.QtClassType() {

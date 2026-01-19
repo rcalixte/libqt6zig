@@ -40,7 +40,7 @@ void KStandardShortcut__StandardShortcutWatcher_Connect_ShortcutChanged(KStandar
         int sigval1 = static_cast<int>(id);
         const QList<QKeySequence>& shortcut_ret = shortcut;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QKeySequence** shortcut_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (shortcut_ret.size() + 1)));
+        QKeySequence** shortcut_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (shortcut_ret.size())));
         for (qsizetype i = 0; i < shortcut_ret.size(); ++i) {
             shortcut_arr[i] = new QKeySequence(shortcut_ret[i]);
         }

@@ -97,7 +97,7 @@ bool KCompletionBox_ActivateOnSelect(const KCompletionBox* self) {
 libqt_list /* of libqt_string */ KCompletionBox_Items(const KCompletionBox* self) {
     QList<QString> _ret = self->items();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -507,7 +507,7 @@ libqt_list /* of libqt_string */ KCompletionBox_MimeTypes(const KCompletionBox* 
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         QList<QString> _ret = vkcompletionbox->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -526,7 +526,7 @@ libqt_list /* of libqt_string */ KCompletionBox_MimeTypes(const KCompletionBox* 
     } else {
         QList<QString> _ret = ((VirtualKCompletionBox*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -552,7 +552,7 @@ libqt_list /* of libqt_string */ KCompletionBox_QBaseMimeTypes(const KCompletion
         vkcompletionbox->setKCompletionBox_MimeTypes_IsBase(true);
         QList<QString> _ret = vkcompletionbox->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -571,7 +571,7 @@ libqt_list /* of libqt_string */ KCompletionBox_QBaseMimeTypes(const KCompletion
     } else {
         QList<QString> _ret = ((VirtualKCompletionBox*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1436,7 +1436,7 @@ libqt_list /* of QModelIndex* */ KCompletionBox_SelectedIndexes(const KCompletio
     if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
         QList<QModelIndex> _ret = vkcompletionbox->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1447,7 +1447,7 @@ libqt_list /* of QModelIndex* */ KCompletionBox_SelectedIndexes(const KCompletio
     } else {
         QList<QModelIndex> _ret = ((VirtualKCompletionBox*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1465,7 +1465,7 @@ libqt_list /* of QModelIndex* */ KCompletionBox_QBaseSelectedIndexes(const KComp
         vkcompletionbox->setKCompletionBox_SelectedIndexes_IsBase(true);
         QList<QModelIndex> _ret = vkcompletionbox->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1476,7 +1476,7 @@ libqt_list /* of QModelIndex* */ KCompletionBox_QBaseSelectedIndexes(const KComp
     } else {
         QList<QModelIndex> _ret = ((VirtualKCompletionBox*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

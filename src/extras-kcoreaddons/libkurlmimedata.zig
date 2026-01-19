@@ -108,11 +108,11 @@ pub const kurlmimedata = struct {
     ///
     /// ` param2: flag of kurlmimedata_enums.DecodeOption `
     ///
-    /// ` param3: *map_constu8_constu8 `
+    /// ` param3: map_constu8_constu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i32, param3: *map_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn UrlsFromMimeData(param1: ?*anyopaque, param2: i32, param3: map_constu8_constu8, allocator: std.mem.Allocator) []QtC.QUrl {
         const param3_keys = allocator.alloc(qtc.libqt_string, param3.count()) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
         defer allocator.free(param3_keys);
         const param3_values = allocator.alloc(qtc.libqt_string, param3.count()) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");

@@ -280,7 +280,7 @@ class VirtualKShellCompletion final : public KShellCompletion {
         } else if (kshellcompletion_postprocessmatches_callback != nullptr) {
             QList<QString>* matches_ret = matches;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* matches_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (matches_ret->size() + 1)));
+            libqt_string* matches_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (matches_ret->size())));
             for (qsizetype i = 0; i < matches_ret->size(); ++i) {
                 QString matches_lv_ret = (*matches_ret)[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -530,7 +530,7 @@ class VirtualKShellCompletion final : public KShellCompletion {
         } else if (kshellcompletion_setitems_callback != nullptr) {
             const QList<QString>& itemList_ret = itemList;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* itemList_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (itemList_ret.size() + 1)));
+            libqt_string* itemList_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (itemList_ret.size())));
             for (qsizetype i = 0; i < itemList_ret.size(); ++i) {
                 QString itemList_lv_ret = itemList_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

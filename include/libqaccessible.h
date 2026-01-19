@@ -49,10 +49,22 @@ typedef struct QVariant QVariant;
 typedef struct QWindow QWindow;
 #endif
 
+struct pair_qaccessibleinterface_int;
+
+typedef struct pair_qaccessibleinterface_int pair_qaccessibleinterface_int;
+
+#ifndef PAIR_QACCESSIBLEINTERFACE_INT
+#define PAIR_QACCESSIBLEINTERFACE_INT
+struct pair_qaccessibleinterface_int {
+    QAccessibleInterface* first;
+    int second;
+};
+#endif
+
 bool QAccessibleInterface_IsValid(const QAccessibleInterface* self);
 QObject* QAccessibleInterface_Object(const QAccessibleInterface* self);
 QWindow* QAccessibleInterface_Window(const QAccessibleInterface* self);
-libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleInterface_Relations(const QAccessibleInterface* self, int match);
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleInterface_Relations(const QAccessibleInterface* self, int match);
 QAccessibleInterface* QAccessibleInterface_FocusChild(const QAccessibleInterface* self);
 QAccessibleInterface* QAccessibleInterface_ChildAt(const QAccessibleInterface* self, int x, int y);
 QAccessibleInterface* QAccessibleInterface_Parent(const QAccessibleInterface* self);

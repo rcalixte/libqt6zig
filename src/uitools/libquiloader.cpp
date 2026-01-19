@@ -47,7 +47,7 @@ int QUiLoader_Metacall(QUiLoader* self, int param1, int param2, void** param3) {
 libqt_list /* of libqt_string */ QUiLoader_PluginPaths(const QUiLoader* self) {
     QList<QString> _ret = self->pluginPaths();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -81,7 +81,7 @@ QWidget* QUiLoader_Load(QUiLoader* self, QIODevice* device) {
 libqt_list /* of libqt_string */ QUiLoader_AvailableWidgets(const QUiLoader* self) {
     QList<QString> _ret = self->availableWidgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -102,7 +102,7 @@ libqt_list /* of libqt_string */ QUiLoader_AvailableWidgets(const QUiLoader* sel
 libqt_list /* of libqt_string */ QUiLoader_AvailableLayouts(const QUiLoader* self) {
     QList<QString> _ret = self->availableLayouts();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -107,7 +107,7 @@ QFont* KCharSelect_CurrentFont(const KCharSelect* self) {
 libqt_list /* of QChar* */ KCharSelect_DisplayedChars(const KCharSelect* self) {
     QList<QChar> _ret = self->displayedChars();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QChar** _arr = static_cast<QChar**>(malloc(sizeof(QChar*) * (_ret.size() + 1)));
+    QChar** _arr = static_cast<QChar**>(malloc(sizeof(QChar*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QChar(_ret[i]);
     }
@@ -120,7 +120,7 @@ libqt_list /* of QChar* */ KCharSelect_DisplayedChars(const KCharSelect* self) {
 libqt_list /* of unsigned int */ KCharSelect_DisplayedCodePoints(const KCharSelect* self) {
     QList<unsigned int> _ret = self->displayedCodePoints();
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

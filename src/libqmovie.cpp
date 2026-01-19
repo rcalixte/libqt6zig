@@ -79,7 +79,7 @@ int QMovie_Metacall(QMovie* self, int param1, int param2, void** param3) {
 libqt_list /* of libqt_string */ QMovie_SupportedFormats() {
     QList<QByteArray> _ret = QMovie::supportedFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;

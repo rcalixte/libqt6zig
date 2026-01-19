@@ -145,7 +145,7 @@ QSize* QSplitter_MinimumSizeHint(const QSplitter* self) {
 libqt_list /* of int */ QSplitter_Sizes(const QSplitter* self) {
     QList<int> _ret = self->sizes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

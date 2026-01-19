@@ -180,7 +180,7 @@ void Attica__Achievement_RemoveDependency(Attica__Achievement* self, const libqt
 libqt_list /* of libqt_string */ Attica__Achievement_Dependencies(const Attica__Achievement* self) {
     QList<QString> _ret = self->dependencies();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -238,7 +238,7 @@ void Attica__Achievement_RemoveOption(Attica__Achievement* self, const libqt_str
 libqt_list /* of libqt_string */ Attica__Achievement_Options(const Attica__Achievement* self) {
     QList<QString> _ret = self->options();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -248,17 +248,24 @@ pub const kacl = struct {
     ///
     pub fn AllUserPermissions(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_constu8_u16 {
         const _arr: qtc.libqt_list = qtc.KACL_AllUserPermissions(@ptrCast(self));
+        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].first)));
+                qtc.libqt_free(@ptrCast(@alignCast(_data[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_constu8_u16, _arr.len) catch @panic("kacl.AllUserPermissions: Memory allocation failed");
-        const _data: [*]struct_constu8_u16 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |i| {
+            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("kacl.AllUserPermissions: Memory allocation failed");
+            @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
+            _ret[i] = struct_constu8_u16{
+                .first = _first_slice,
+                .second = @as(*u16, @ptrCast(@alignCast(_data[i].second))).*,
+            };
+        }
         return _ret;
     }
 
@@ -308,17 +315,24 @@ pub const kacl = struct {
     ///
     pub fn AllGroupPermissions(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_constu8_u16 {
         const _arr: qtc.libqt_list = qtc.KACL_AllGroupPermissions(@ptrCast(self));
+        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].first)));
+                qtc.libqt_free(@ptrCast(@alignCast(_data[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_constu8_u16, _arr.len) catch @panic("kacl.AllGroupPermissions: Memory allocation failed");
-        const _data: [*]struct_constu8_u16 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |i| {
+            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("kacl.AllGroupPermissions: Memory allocation failed");
+            @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
+            _ret[i] = struct_constu8_u16{
+                .first = _first_slice,
+                .second = @as(*u16, @ptrCast(@alignCast(_data[i].second))).*,
+            };
+        }
         return _ret;
     }
 

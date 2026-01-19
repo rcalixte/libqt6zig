@@ -160,7 +160,7 @@ libqt_list /* of libqt_string */ QsciLexerSpice_AutoCompletionWordSeparators(con
     if (vqscilexerspice && vqscilexerspice->isVirtualQsciLexerSpice) {
         QList<QString> _ret = vqscilexerspice->autoCompletionWordSeparators();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -179,7 +179,7 @@ libqt_list /* of libqt_string */ QsciLexerSpice_AutoCompletionWordSeparators(con
     } else {
         QList<QString> _ret = ((VirtualQsciLexerSpice*)self)->autoCompletionWordSeparators();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -205,7 +205,7 @@ libqt_list /* of libqt_string */ QsciLexerSpice_QBaseAutoCompletionWordSeparator
         vqscilexerspice->setQsciLexerSpice_AutoCompletionWordSeparators_IsBase(true);
         QList<QString> _ret = vqscilexerspice->autoCompletionWordSeparators();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -224,7 +224,7 @@ libqt_list /* of libqt_string */ QsciLexerSpice_QBaseAutoCompletionWordSeparator
     } else {
         QList<QString> _ret = ((VirtualQsciLexerSpice*)self)->autoCompletionWordSeparators();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

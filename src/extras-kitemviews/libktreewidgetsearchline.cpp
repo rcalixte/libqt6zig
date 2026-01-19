@@ -91,7 +91,7 @@ int KTreeWidgetSearchLine_CaseSensitivity(const KTreeWidgetSearchLine* self) {
 libqt_list /* of int */ KTreeWidgetSearchLine_SearchColumns(const KTreeWidgetSearchLine* self) {
     QList<int> _ret = self->searchColumns();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -112,7 +112,7 @@ QTreeWidget* KTreeWidgetSearchLine_TreeWidget(const KTreeWidgetSearchLine* self)
 libqt_list /* of QTreeWidget* */ KTreeWidgetSearchLine_TreeWidgets(const KTreeWidgetSearchLine* self) {
     QList<QTreeWidget*> _ret = self->treeWidgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTreeWidget** _arr = static_cast<QTreeWidget**>(malloc(sizeof(QTreeWidget*) * (_ret.size() + 1)));
+    QTreeWidget** _arr = static_cast<QTreeWidget**>(malloc(sizeof(QTreeWidget*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

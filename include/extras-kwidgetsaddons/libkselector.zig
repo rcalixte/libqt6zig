@@ -8322,7 +8322,7 @@ pub const kgradientselector = struct {
     pub fn SetStops(self: ?*anyopaque, stops: []struct_f64_qtcqcolor) void {
         const stops_list = qtc.libqt_list{
             .len = stops.len,
-            .data = stops.ptr,
+            .data = @ptrCast(stops.ptr),
         };
         qtc.KGradientSelector_SetStops(@ptrCast(self), stops_list);
     }
@@ -8337,16 +8337,9 @@ pub const kgradientselector = struct {
     ///
     pub fn Stops(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqcolor {
         const _arr: qtc.libqt_list = qtc.KGradientSelector_Stops(@ptrCast(self));
-        defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
-            }
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc(struct_f64_qtcqcolor, _arr.len) catch @panic("kgradientselector.Stops: Memory allocation failed");
         const _data: [*]struct_f64_qtcqcolor = @ptrCast(@alignCast(_arr.data));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(struct_f64_qtcqcolor, _arr.len) catch @panic("kgradientselector.Stops: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }

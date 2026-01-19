@@ -30,6 +30,18 @@ typedef struct QObject QObject;
 typedef struct QTextCursor QTextCursor;
 #endif
 
+struct pair_int_int;
+
+typedef struct pair_int_int pair_int_int;
+
+#ifndef PAIR_INT_INT
+#define PAIR_INT_INT
+struct pair_int_int {
+    int first;
+    int second;
+};
+#endif
+
 QAccessible* QAccessible_new(const QAccessible* other);
 QAccessible* QAccessible_new2(QAccessible* other);
 void QAccessible_CopyAssign(QAccessible* self, QAccessible* other);
@@ -46,7 +58,7 @@ bool QAccessible_IsActive();
 void QAccessible_SetActive(bool active);
 void QAccessible_SetRootObject(QObject* object);
 void QAccessible_Cleanup();
-libqt_pair /* tuple of int and int */ QAccessible_QAccessibleTextBoundaryHelper(const QTextCursor* cursor, int boundaryType);
+pair_int_int /* tuple of int and int */ QAccessible_QAccessibleTextBoundaryHelper(const QTextCursor* cursor, int boundaryType);
 void QAccessible_Delete(QAccessible* self);
 
 QAccessible__State* QAccessible__State_new(const QAccessible__State* other);

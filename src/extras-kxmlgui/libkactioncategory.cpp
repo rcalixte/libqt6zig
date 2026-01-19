@@ -54,7 +54,7 @@ QAction* KActionCategory_AddAction2(KActionCategory* self, int actionType) {
 libqt_list /* of QAction* */ KActionCategory_Actions(const KActionCategory* self) {
     const QList<QAction*> _ret = self->actions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

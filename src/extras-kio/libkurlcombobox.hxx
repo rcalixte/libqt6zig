@@ -617,7 +617,7 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         } else if (kurlcombobox_setcompleteditems_callback != nullptr) {
             const QList<QString>& items_ret = items;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* items_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (items_ret.size() + 1)));
+            libqt_string* items_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (items_ret.size())));
             for (qsizetype i = 0; i < items_ret.size(); ++i) {
                 QString items_lv_ret = items_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1541,8 +1541,8 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
                 QList<QKeySequence> callback_ret_varr_i_QList;
                 callback_ret_varr_i_QList.reserve(callback_ret_varr[i].len);
                 QKeySequence** callback_ret_varr_i_arr = static_cast<QKeySequence**>(callback_ret_varr[i].data);
-                for (size_t i = 0; i < callback_ret_varr[i].len; ++i) {
-                    callback_ret_varr_i_QList.push_back(*(callback_ret_varr_i_arr[i]));
+                for (size_t j = 0; j < callback_ret_varr[i].len; ++j) {
+                    callback_ret_varr_i_QList.push_back(*(callback_ret_varr_i_arr[j]));
                 }
                 callback_ret_QMap[static_cast<KCompletionBase::KeyBindingType>(callback_ret_karr[i])] = callback_ret_varr_i_QList;
             }
@@ -1567,7 +1567,7 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
                 keyBindingMap_karr[keyBindingMap_ctr] = static_cast<int>(keyBindingMap_itr->first);
                 QList<QKeySequence> keyBindingMap_mapval_ret = keyBindingMap_itr->second;
                 // Convert QList<> from C++ memory to manually-managed C memory
-                QKeySequence** keyBindingMap_mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (keyBindingMap_mapval_ret.size() + 1)));
+                QKeySequence** keyBindingMap_mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (keyBindingMap_mapval_ret.size())));
                 for (qsizetype i = 0; i < keyBindingMap_mapval_ret.size(); ++i) {
                     keyBindingMap_mapval_arr[i] = new QKeySequence(keyBindingMap_mapval_ret[i]);
                 }
