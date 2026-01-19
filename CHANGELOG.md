@@ -1,4 +1,12 @@
 
+### 6.8.2 rev54 (19 January 2026)
+
+* **BREAKING CHANGES:**
+  * Optimize QPair projections for primitive types and extend container implementations (#107)
+  * Update blocks and backend parsing logic (#106)
+  * Update sentinel types and enums (#105)
+  * Block internal Qt classes that should not be projected (#104)
+
 ### 6.8.2 rev53 (11 January 2026)
 
 * Add support for QMultiHash and QMultiMap (#103)
