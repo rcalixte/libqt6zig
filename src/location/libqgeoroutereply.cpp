@@ -69,7 +69,7 @@ QGeoRouteRequest* QGeoRouteReply_Request(const QGeoRouteReply* self) {
 libqt_list /* of QGeoRoute* */ QGeoRouteReply_Routes(const QGeoRouteReply* self) {
     QList<QGeoRoute> _ret = self->routes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoRoute** _arr = static_cast<QGeoRoute**>(malloc(sizeof(QGeoRoute*) * (_ret.size() + 1)));
+    QGeoRoute** _arr = static_cast<QGeoRoute**>(malloc(sizeof(QGeoRoute*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoRoute(_ret[i]);
     }

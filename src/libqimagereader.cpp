@@ -104,7 +104,7 @@ int QImageReader_ImageFormat(const QImageReader* self) {
 libqt_list /* of libqt_string */ QImageReader_TextKeys(const QImageReader* self) {
     QList<QString> _ret = self->textKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -204,7 +204,7 @@ libqt_string QImageReader_SubType(const QImageReader* self) {
 libqt_list /* of libqt_string */ QImageReader_SupportedSubTypes(const QImageReader* self) {
     QList<QByteArray> _ret = self->supportedSubTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
@@ -304,7 +304,7 @@ libqt_string QImageReader_ImageFormat3(QIODevice* device) {
 libqt_list /* of libqt_string */ QImageReader_SupportedImageFormats() {
     QList<QByteArray> _ret = QImageReader::supportedImageFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
@@ -323,7 +323,7 @@ libqt_list /* of libqt_string */ QImageReader_SupportedImageFormats() {
 libqt_list /* of libqt_string */ QImageReader_SupportedMimeTypes() {
     QList<QByteArray> _ret = QImageReader::supportedMimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
@@ -343,7 +343,7 @@ libqt_list /* of libqt_string */ QImageReader_ImageFormatsForMimeType(const libq
     QByteArray mimeType_QByteArray(mimeType.data, mimeType.len);
     QList<QByteArray> _ret = QImageReader::imageFormatsForMimeType(mimeType_QByteArray);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;

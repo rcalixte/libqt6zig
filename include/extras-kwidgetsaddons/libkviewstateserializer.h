@@ -28,6 +28,18 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
+struct pair_int_int;
+
+typedef struct pair_int_int pair_int_int;
+
+#ifndef PAIR_INT_INT
+#define PAIR_INT_INT
+struct pair_int_int {
+    int first;
+    int second;
+};
+#endif
+
 KViewStateSerializer* KViewStateSerializer_new();
 KViewStateSerializer* KViewStateSerializer_new2(QObject* parent);
 QMetaObject* KViewStateSerializer_MetaObject(const KViewStateSerializer* self);
@@ -40,7 +52,7 @@ void KViewStateSerializer_SetSelectionModel(KViewStateSerializer* self, QItemSel
 libqt_list /* of libqt_string */ KViewStateSerializer_SelectionKeys(const KViewStateSerializer* self);
 libqt_list /* of libqt_string */ KViewStateSerializer_ExpansionKeys(const KViewStateSerializer* self);
 libqt_string KViewStateSerializer_CurrentIndexKey(const KViewStateSerializer* self);
-libqt_pair /* tuple of int and int */ KViewStateSerializer_ScrollState(const KViewStateSerializer* self);
+pair_int_int /* tuple of int and int */ KViewStateSerializer_ScrollState(const KViewStateSerializer* self);
 void KViewStateSerializer_RestoreSelection(KViewStateSerializer* self, const libqt_list /* of libqt_string */ indexStrings);
 void KViewStateSerializer_RestoreCurrentItem(KViewStateSerializer* self, const libqt_string indexString);
 void KViewStateSerializer_RestoreExpanded(KViewStateSerializer* self, const libqt_list /* of libqt_string */ indexStrings);

@@ -48,7 +48,7 @@ int KActionCollection_Metacall(KActionCollection* self, int param1, int param2, 
 libqt_list /* of KActionCollection* */ KActionCollection_AllCollections() {
     const QList<KActionCollection*>& _ret = KActionCollection::allCollections();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KActionCollection** _arr = static_cast<KActionCollection**>(malloc(sizeof(KActionCollection*) * (_ret.size() + 1)));
+    KActionCollection** _arr = static_cast<KActionCollection**>(malloc(sizeof(KActionCollection*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -77,7 +77,7 @@ void KActionCollection_RemoveAssociatedWidget(KActionCollection* self, QWidget* 
 libqt_list /* of QWidget* */ KActionCollection_AssociatedWidgets(const KActionCollection* self) {
     QList<QWidget*> _ret = self->associatedWidgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -152,7 +152,7 @@ QAction* KActionCollection_Action2(const KActionCollection* self, const libqt_st
 libqt_list /* of QAction* */ KActionCollection_Actions(const KActionCollection* self) {
     QList<QAction*> _ret = self->actions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -165,7 +165,7 @@ libqt_list /* of QAction* */ KActionCollection_Actions(const KActionCollection* 
 libqt_list /* of QAction* */ KActionCollection_ActionsWithoutGroup(const KActionCollection* self) {
     const QList<QAction*> _ret = self->actionsWithoutGroup();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -178,7 +178,7 @@ libqt_list /* of QAction* */ KActionCollection_ActionsWithoutGroup(const KAction
 libqt_list /* of QActionGroup* */ KActionCollection_ActionGroups(const KActionCollection* self) {
     const QList<QActionGroup*> _ret = self->actionGroups();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QActionGroup** _arr = static_cast<QActionGroup**>(malloc(sizeof(QActionGroup*) * (_ret.size() + 1)));
+    QActionGroup** _arr = static_cast<QActionGroup**>(malloc(sizeof(QActionGroup*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -321,7 +321,7 @@ QKeySequence* KActionCollection_DefaultShortcut(QAction* action) {
 libqt_list /* of QKeySequence* */ KActionCollection_DefaultShortcuts(QAction* action) {
     QList<QKeySequence> _ret = KActionCollection::defaultShortcuts(action);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }

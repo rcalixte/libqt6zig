@@ -92,7 +92,7 @@ void KIO__PreviewJob_SetDevicePixelRatio(KIO__PreviewJob* self, double dpr) {
 libqt_list /* of libqt_string */ KIO__PreviewJob_AvailablePlugins() {
     QList<QString> _ret = KIO::PreviewJob::availablePlugins();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -113,7 +113,7 @@ libqt_list /* of libqt_string */ KIO__PreviewJob_AvailablePlugins() {
 libqt_list /* of KPluginMetaData* */ KIO__PreviewJob_AvailableThumbnailerPlugins() {
     QList<KPluginMetaData> _ret = KIO::PreviewJob::availableThumbnailerPlugins();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size() + 1)));
+    KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KPluginMetaData(_ret[i]);
     }
@@ -126,7 +126,7 @@ libqt_list /* of KPluginMetaData* */ KIO__PreviewJob_AvailableThumbnailerPlugins
 libqt_list /* of libqt_string */ KIO__PreviewJob_DefaultPlugins() {
     QList<QString> _ret = KIO::PreviewJob::defaultPlugins();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -147,7 +147,7 @@ libqt_list /* of libqt_string */ KIO__PreviewJob_DefaultPlugins() {
 libqt_list /* of libqt_string */ KIO__PreviewJob_SupportedMimeTypes() {
     QList<QString> _ret = KIO::PreviewJob::supportedMimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -753,7 +753,7 @@ libqt_list /* of KJob* */ KIO__PreviewJob_Subjobs(const KIO__PreviewJob* self) {
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         const QList<KJob*>& _ret = vkiopreviewjob->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -764,7 +764,7 @@ libqt_list /* of KJob* */ KIO__PreviewJob_Subjobs(const KIO__PreviewJob* self) {
     } else {
         const QList<KJob*>& _ret = ((VirtualKIOPreviewJob*)self)->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -782,7 +782,7 @@ libqt_list /* of KJob* */ KIO__PreviewJob_QBaseSubjobs(const KIO__PreviewJob* se
         vkiopreviewjob->setKIO__PreviewJob_Subjobs_IsBase(true);
         const QList<KJob*>& _ret = vkiopreviewjob->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -793,7 +793,7 @@ libqt_list /* of KJob* */ KIO__PreviewJob_QBaseSubjobs(const KIO__PreviewJob* se
     } else {
         const QList<KJob*>& _ret = ((VirtualKIOPreviewJob*)self)->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

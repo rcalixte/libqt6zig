@@ -977,7 +977,7 @@ class VirtualKCompletionBox final : public KCompletionBox {
         } else if (kcompletionbox_mimedata_callback != nullptr) {
             const QList<QListWidgetItem*>& items_ret = items;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QListWidgetItem** items_arr = static_cast<QListWidgetItem**>(malloc(sizeof(QListWidgetItem*) * (items_ret.size() + 1)));
+            QListWidgetItem** items_arr = static_cast<QListWidgetItem**>(malloc(sizeof(QListWidgetItem*) * (items_ret.size())));
             for (qsizetype i = 0; i < items_ret.size(); ++i) {
                 items_arr[i] = items_ret[i];
             }
@@ -1143,7 +1143,7 @@ class VirtualKCompletionBox final : public KCompletionBox {
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size() + 1)));
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size())));
             for (qsizetype i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }

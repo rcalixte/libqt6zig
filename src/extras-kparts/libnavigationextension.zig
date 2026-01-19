@@ -311,8 +311,8 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActionSlotMap(allocator: std.mem.Allocator) *map_u8_u8 {
-        const _map: qtc.libqt_map = qtc.KParts__NavigationExtension_ActionSlotMap();
+    pub fn ActionSlotMap(allocator: std.mem.Allocator) map_u8_u8 {
+        const _map: qtc.libqt_map = qtc.KParts__NavigationExtension_ActionSlotMap().?.*;
         var _ret: map_u8_u8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));

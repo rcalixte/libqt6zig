@@ -690,7 +690,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemView_SelectedIndexes(const QAbstra
     if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
         QList<QModelIndex> _ret = vqabstractitemview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1566,7 +1566,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemView_QBaseSelectedIndexes(const QA
         vqabstractitemview->setQAbstractItemView_SelectedIndexes_IsBase(true);
         QList<QModelIndex> _ret = vqabstractitemview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1577,7 +1577,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemView_QBaseSelectedIndexes(const QA
     } else {
         QList<QModelIndex> _ret = ((VirtualQAbstractItemView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

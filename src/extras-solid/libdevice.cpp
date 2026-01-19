@@ -25,7 +25,7 @@ Solid__Device* Solid__Device_new3(const libqt_string udi) {
 libqt_list /* of Solid__Device* */ Solid__Device_AllDevices() {
     QList<Solid::Device> _ret = Solid::Device::allDevices();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size() + 1)));
+    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Solid::Device(_ret[i]);
     }
@@ -38,7 +38,7 @@ libqt_list /* of Solid__Device* */ Solid__Device_AllDevices() {
 libqt_list /* of Solid__Device* */ Solid__Device_ListFromType(const int* typeVal) {
     QList<Solid::Device> _ret = Solid::Device::listFromType((const Solid::DeviceInterface::Type&)(*typeVal));
     // Convert QList<> from C++ memory to manually-managed C memory
-    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size() + 1)));
+    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Solid::Device(_ret[i]);
     }
@@ -51,7 +51,7 @@ libqt_list /* of Solid__Device* */ Solid__Device_ListFromType(const int* typeVal
 libqt_list /* of Solid__Device* */ Solid__Device_ListFromQuery(const Solid__Predicate* predicate) {
     QList<Solid::Device> _ret = Solid::Device::listFromQuery(*predicate);
     // Convert QList<> from C++ memory to manually-managed C memory
-    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size() + 1)));
+    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Solid::Device(_ret[i]);
     }
@@ -65,7 +65,7 @@ libqt_list /* of Solid__Device* */ Solid__Device_ListFromQuery2(const libqt_stri
     QString predicate_QString = QString::fromUtf8(predicate.data, predicate.len);
     QList<Solid::Device> _ret = Solid::Device::listFromQuery(predicate_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size() + 1)));
+    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Solid::Device(_ret[i]);
     }
@@ -155,7 +155,7 @@ libqt_string Solid__Device_Icon(const Solid__Device* self) {
 libqt_list /* of libqt_string */ Solid__Device_Emblems(const Solid__Device* self) {
     QList<QString> _ret = self->emblems();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -213,7 +213,7 @@ libqt_list /* of Solid__Device* */ Solid__Device_ListFromType2(const int* typeVa
     QString parentUdi_QString = QString::fromUtf8(parentUdi.data, parentUdi.len);
     QList<Solid::Device> _ret = Solid::Device::listFromType((const Solid::DeviceInterface::Type&)(*typeVal), parentUdi_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size() + 1)));
+    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Solid::Device(_ret[i]);
     }
@@ -227,7 +227,7 @@ libqt_list /* of Solid__Device* */ Solid__Device_ListFromQuery22(const Solid__Pr
     QString parentUdi_QString = QString::fromUtf8(parentUdi.data, parentUdi.len);
     QList<Solid::Device> _ret = Solid::Device::listFromQuery(*predicate, parentUdi_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size() + 1)));
+    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Solid::Device(_ret[i]);
     }
@@ -242,7 +242,7 @@ libqt_list /* of Solid__Device* */ Solid__Device_ListFromQuery23(const libqt_str
     QString parentUdi_QString = QString::fromUtf8(parentUdi.data, parentUdi.len);
     QList<Solid::Device> _ret = Solid::Device::listFromQuery(predicate_QString, parentUdi_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size() + 1)));
+    Solid__Device** _arr = static_cast<Solid__Device**>(malloc(sizeof(Solid__Device*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Solid::Device(_ret[i]);
     }

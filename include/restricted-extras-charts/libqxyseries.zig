@@ -797,11 +797,8 @@ pub const qxyseries = struct {
     /// ` ok: *bool `
     ///
     pub fn BestFitLineEquation(self: ?*anyopaque, ok: *bool) struct_f64_f64 {
-        const _pair: qtc.libqt_pair = qtc.QXYSeries_BestFitLineEquation(@ptrCast(self), @ptrCast(ok));
-        return struct_f64_f64{
-            .first = @as(*f64, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*f64, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QXYSeries_BestFitLineEquation(@ptrCast(self), @ptrCast(ok));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#setBestFitLinePen)

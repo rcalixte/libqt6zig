@@ -230,7 +230,7 @@ void QBarSet_ToggleSelection(QBarSet* self, const libqt_list /* of int */ indexe
 libqt_list /* of int */ QBarSet_SelectedBars(const QBarSet* self) {
     QList<int> _ret = self->selectedBars();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -459,7 +459,7 @@ void QBarSet_Connect_SelectedBarsChanged(QBarSet* self, intptr_t slot) {
     QBarSet::connect(self, &QBarSet::selectedBarsChanged, [self, slotFunc](const QList<int>& indexes) {
         const QList<int>& indexes_ret = indexes;
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* indexes_arr = static_cast<int*>(malloc(sizeof(int) * (indexes_ret.size() + 1)));
+        int* indexes_arr = static_cast<int*>(malloc(sizeof(int) * (indexes_ret.size())));
         for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
             indexes_arr[i] = indexes_ret[i];
         }

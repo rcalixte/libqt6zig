@@ -385,7 +385,7 @@ libqt_list /* of QModelIndex* */ QTableView_SelectedIndexes(const QTableView* se
     if (vqtableview && vqtableview->isVirtualQTableView) {
         QList<QModelIndex> _ret = vqtableview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -811,7 +811,7 @@ libqt_list /* of QModelIndex* */ QTableView_QBaseSelectedIndexes(const QTableVie
         vqtableview->setQTableView_SelectedIndexes_IsBase(true);
         QList<QModelIndex> _ret = vqtableview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -822,7 +822,7 @@ libqt_list /* of QModelIndex* */ QTableView_QBaseSelectedIndexes(const QTableVie
     } else {
         QList<QModelIndex> _ret = ((VirtualQTableView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

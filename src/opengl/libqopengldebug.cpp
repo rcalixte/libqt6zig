@@ -191,7 +191,7 @@ void QOpenGLDebugLogger_DisableMessages2(QOpenGLDebugLogger* self, const libqt_l
 libqt_list /* of QOpenGLDebugMessage* */ QOpenGLDebugLogger_LoggedMessages(const QOpenGLDebugLogger* self) {
     QList<QOpenGLDebugMessage> _ret = self->loggedMessages();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QOpenGLDebugMessage** _arr = static_cast<QOpenGLDebugMessage**>(malloc(sizeof(QOpenGLDebugMessage*) * (_ret.size() + 1)));
+    QOpenGLDebugMessage** _arr = static_cast<QOpenGLDebugMessage**>(malloc(sizeof(QOpenGLDebugMessage*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QOpenGLDebugMessage(_ret[i]);
     }

@@ -44,7 +44,7 @@ int Solid__OpticalDrive_WriteSpeed(const Solid__OpticalDrive* self) {
 libqt_list /* of int */ Solid__OpticalDrive_WriteSpeeds(const Solid__OpticalDrive* self) {
     QList<int> _ret = self->writeSpeeds();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

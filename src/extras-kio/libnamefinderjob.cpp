@@ -609,7 +609,7 @@ libqt_list /* of KJob* */ KIO__NameFinderJob_Subjobs(const KIO__NameFinderJob* s
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         const QList<KJob*>& _ret = vkionamefinderjob->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -620,7 +620,7 @@ libqt_list /* of KJob* */ KIO__NameFinderJob_Subjobs(const KIO__NameFinderJob* s
     } else {
         const QList<KJob*>& _ret = ((VirtualKIONameFinderJob*)self)->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -638,7 +638,7 @@ libqt_list /* of KJob* */ KIO__NameFinderJob_QBaseSubjobs(const KIO__NameFinderJ
         vkionamefinderjob->setKIO__NameFinderJob_Subjobs_IsBase(true);
         const QList<KJob*>& _ret = vkionamefinderjob->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -649,7 +649,7 @@ libqt_list /* of KJob* */ KIO__NameFinderJob_QBaseSubjobs(const KIO__NameFinderJ
     } else {
         const QList<KJob*>& _ret = ((VirtualKIONameFinderJob*)self)->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

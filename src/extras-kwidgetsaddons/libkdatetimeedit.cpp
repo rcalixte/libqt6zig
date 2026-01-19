@@ -94,7 +94,7 @@ QTimeZone* KDateTimeEdit_TimeZone(const KDateTimeEdit* self) {
 libqt_list /* of QLocale* */ KDateTimeEdit_CalendarLocalesList(const KDateTimeEdit* self) {
     QList<QLocale> _ret = self->calendarLocalesList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size() + 1)));
+    QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QLocale(_ret[i]);
     }
@@ -153,7 +153,7 @@ int KDateTimeEdit_TimeListInterval(const KDateTimeEdit* self) {
 libqt_list /* of QTime* */ KDateTimeEdit_TimeList(const KDateTimeEdit* self) {
     QList<QTime> _ret = self->timeList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTime** _arr = static_cast<QTime**>(malloc(sizeof(QTime*) * (_ret.size() + 1)));
+    QTime** _arr = static_cast<QTime**>(malloc(sizeof(QTime*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTime(_ret[i]);
     }
@@ -166,7 +166,7 @@ libqt_list /* of QTime* */ KDateTimeEdit_TimeList(const KDateTimeEdit* self) {
 libqt_list /* of QTimeZone* */ KDateTimeEdit_TimeZones(const KDateTimeEdit* self) {
     QList<QTimeZone> _ret = self->timeZones();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTimeZone** _arr = static_cast<QTimeZone**>(malloc(sizeof(QTimeZone*) * (_ret.size() + 1)));
+    QTimeZone** _arr = static_cast<QTimeZone**>(malloc(sizeof(QTimeZone*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTimeZone(_ret[i]);
     }

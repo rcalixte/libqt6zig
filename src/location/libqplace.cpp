@@ -36,7 +36,7 @@ void QPlace_Swap(QPlace* self, QPlace* other) {
 libqt_list /* of QPlaceCategory* */ QPlace_Categories(const QPlace* self) {
     QList<QPlaceCategory> _ret = self->categories();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size() + 1)));
+    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPlaceCategory(_ret[i]);
     }
@@ -240,7 +240,7 @@ void QPlace_SetDetailsFetched(QPlace* self, bool fetched) {
 libqt_list /* of libqt_string */ QPlace_ExtendedAttributeTypes(const QPlace* self) {
     QList<QString> _ret = self->extendedAttributeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -276,7 +276,7 @@ void QPlace_RemoveExtendedAttribute(QPlace* self, const libqt_string attributeTy
 libqt_list /* of libqt_string */ QPlace_ContactTypes(const QPlace* self) {
     QList<QString> _ret = self->contactTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -298,7 +298,7 @@ libqt_list /* of QPlaceContactDetail* */ QPlace_ContactDetails(const QPlace* sel
     QString contactType_QString = QString::fromUtf8(contactType.data, contactType.len);
     QList<QPlaceContactDetail> _ret = self->contactDetails(contactType_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPlaceContactDetail** _arr = static_cast<QPlaceContactDetail**>(malloc(sizeof(QPlaceContactDetail*) * (_ret.size() + 1)));
+    QPlaceContactDetail** _arr = static_cast<QPlaceContactDetail**>(malloc(sizeof(QPlaceContactDetail*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPlaceContactDetail(_ret[i]);
     }

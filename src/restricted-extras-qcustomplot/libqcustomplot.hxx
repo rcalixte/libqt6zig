@@ -4155,7 +4155,7 @@ class VirtualQCPLayout : public QCPLayout {
         } else if (qcplayout_getsectionsizes_callback != nullptr) {
             QVector<int> maxSizes_ret = maxSizes;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* maxSizes_arr = static_cast<int*>(malloc(sizeof(int) * (maxSizes_ret.size() + 1)));
+            int* maxSizes_arr = static_cast<int*>(malloc(sizeof(int) * (maxSizes_ret.size())));
             for (qsizetype i = 0; i < maxSizes_ret.size(); ++i) {
                 maxSizes_arr[i] = maxSizes_ret[i];
             }
@@ -4165,7 +4165,7 @@ class VirtualQCPLayout : public QCPLayout {
             libqt_list /* of int */ cbval1 = maxSizes_out;
             QVector<int> minSizes_ret = minSizes;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* minSizes_arr = static_cast<int*>(malloc(sizeof(int) * (minSizes_ret.size() + 1)));
+            int* minSizes_arr = static_cast<int*>(malloc(sizeof(int) * (minSizes_ret.size())));
             for (qsizetype i = 0; i < minSizes_ret.size(); ++i) {
                 minSizes_arr[i] = minSizes_ret[i];
             }
@@ -4175,7 +4175,7 @@ class VirtualQCPLayout : public QCPLayout {
             libqt_list /* of int */ cbval2 = minSizes_out;
             QVector<double> stretchFactors_ret = stretchFactors;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* stretchFactors_arr = static_cast<double*>(malloc(sizeof(double) * (stretchFactors_ret.size() + 1)));
+            double* stretchFactors_arr = static_cast<double*>(malloc(sizeof(double) * (stretchFactors_ret.size())));
             for (qsizetype i = 0; i < stretchFactors_ret.size(); ++i) {
                 stretchFactors_arr[i] = stretchFactors_ret[i];
             }
@@ -5190,7 +5190,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         } else if (qcplayoutgrid_getminimumrowcolsizes_callback != nullptr) {
             QVector<int>* minColWidths_ret = minColWidths;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* minColWidths_arr = static_cast<int*>(malloc(sizeof(int) * (minColWidths_ret->size() + 1)));
+            int* minColWidths_arr = static_cast<int*>(malloc(sizeof(int) * (minColWidths_ret->size())));
             for (qsizetype i = 0; i < minColWidths_ret->size(); ++i) {
                 minColWidths_arr[i] = (*minColWidths_ret)[i];
             }
@@ -5200,7 +5200,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             libqt_list /* of int */ cbval1 = minColWidths_out;
             QVector<int>* minRowHeights_ret = minRowHeights;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* minRowHeights_arr = static_cast<int*>(malloc(sizeof(int) * (minRowHeights_ret->size() + 1)));
+            int* minRowHeights_arr = static_cast<int*>(malloc(sizeof(int) * (minRowHeights_ret->size())));
             for (qsizetype i = 0; i < minRowHeights_ret->size(); ++i) {
                 minRowHeights_arr[i] = (*minRowHeights_ret)[i];
             }
@@ -5223,7 +5223,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         } else if (qcplayoutgrid_getmaximumrowcolsizes_callback != nullptr) {
             QVector<int>* maxColWidths_ret = maxColWidths;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* maxColWidths_arr = static_cast<int*>(malloc(sizeof(int) * (maxColWidths_ret->size() + 1)));
+            int* maxColWidths_arr = static_cast<int*>(malloc(sizeof(int) * (maxColWidths_ret->size())));
             for (qsizetype i = 0; i < maxColWidths_ret->size(); ++i) {
                 maxColWidths_arr[i] = (*maxColWidths_ret)[i];
             }
@@ -5233,7 +5233,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             libqt_list /* of int */ cbval1 = maxColWidths_out;
             QVector<int>* maxRowHeights_ret = maxRowHeights;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* maxRowHeights_arr = static_cast<int*>(malloc(sizeof(int) * (maxRowHeights_ret->size() + 1)));
+            int* maxRowHeights_arr = static_cast<int*>(malloc(sizeof(int) * (maxRowHeights_ret->size())));
             for (qsizetype i = 0; i < maxRowHeights_ret->size(); ++i) {
                 maxRowHeights_arr[i] = (*maxRowHeights_ret)[i];
             }
@@ -5296,7 +5296,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         } else if (qcplayoutgrid_getsectionsizes_callback != nullptr) {
             QVector<int> maxSizes_ret = maxSizes;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* maxSizes_arr = static_cast<int*>(malloc(sizeof(int) * (maxSizes_ret.size() + 1)));
+            int* maxSizes_arr = static_cast<int*>(malloc(sizeof(int) * (maxSizes_ret.size())));
             for (qsizetype i = 0; i < maxSizes_ret.size(); ++i) {
                 maxSizes_arr[i] = maxSizes_ret[i];
             }
@@ -5306,7 +5306,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             libqt_list /* of int */ cbval1 = maxSizes_out;
             QVector<int> minSizes_ret = minSizes;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* minSizes_arr = static_cast<int*>(malloc(sizeof(int) * (minSizes_ret.size() + 1)));
+            int* minSizes_arr = static_cast<int*>(malloc(sizeof(int) * (minSizes_ret.size())));
             for (qsizetype i = 0; i < minSizes_ret.size(); ++i) {
                 minSizes_arr[i] = minSizes_ret[i];
             }
@@ -5316,7 +5316,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             libqt_list /* of int */ cbval2 = minSizes_out;
             QVector<double> stretchFactors_ret = stretchFactors;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* stretchFactors_arr = static_cast<double*>(malloc(sizeof(double) * (stretchFactors_ret.size() + 1)));
+            double* stretchFactors_arr = static_cast<double*>(malloc(sizeof(double) * (stretchFactors_ret.size())));
             for (qsizetype i = 0; i < stretchFactors_ret.size(); ++i) {
                 stretchFactors_arr[i] = stretchFactors_ret[i];
             }
@@ -6361,7 +6361,7 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         } else if (qcplayoutinset_getsectionsizes_callback != nullptr) {
             QVector<int> maxSizes_ret = maxSizes;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* maxSizes_arr = static_cast<int*>(malloc(sizeof(int) * (maxSizes_ret.size() + 1)));
+            int* maxSizes_arr = static_cast<int*>(malloc(sizeof(int) * (maxSizes_ret.size())));
             for (qsizetype i = 0; i < maxSizes_ret.size(); ++i) {
                 maxSizes_arr[i] = maxSizes_ret[i];
             }
@@ -6371,7 +6371,7 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             libqt_list /* of int */ cbval1 = maxSizes_out;
             QVector<int> minSizes_ret = minSizes;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* minSizes_arr = static_cast<int*>(malloc(sizeof(int) * (minSizes_ret.size() + 1)));
+            int* minSizes_arr = static_cast<int*>(malloc(sizeof(int) * (minSizes_ret.size())));
             for (qsizetype i = 0; i < minSizes_ret.size(); ++i) {
                 minSizes_arr[i] = minSizes_ret[i];
             }
@@ -6381,7 +6381,7 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             libqt_list /* of int */ cbval2 = minSizes_out;
             QVector<double> stretchFactors_ret = stretchFactors;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* stretchFactors_arr = static_cast<double*>(malloc(sizeof(double) * (stretchFactors_ret.size() + 1)));
+            double* stretchFactors_arr = static_cast<double*>(malloc(sizeof(double) * (stretchFactors_ret.size())));
             for (qsizetype i = 0; i < stretchFactors_ret.size(); ++i) {
                 stretchFactors_arr[i] = stretchFactors_ret[i];
             }
@@ -6698,7 +6698,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             int cbval4 = precision;
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -6708,7 +6708,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             libqt_list /* of double */ cbval5 = ticks_out;
             QVector<double>* subTicks_ret = subTicks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size() + 1)));
+            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size())));
             for (qsizetype i = 0; i < subTicks_ret->size(); ++i) {
                 subTicks_arr[i] = (*subTicks_ret)[i];
             }
@@ -6718,7 +6718,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size() + 1)));
+            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
                 QString tickLabels_vv_ret = (*tickLabels_ret)[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -6826,7 +6826,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             int cbval1 = subTickCount;
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -6855,7 +6855,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
         } else if (qcpaxisticker_createlabelvector_callback != nullptr) {
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -6896,7 +6896,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -6921,7 +6921,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             double cbval1 = target;
             const QVector<double>& candidates_ret = candidates;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size() + 1)));
+            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size())));
             for (qsizetype i = 0; i < candidates_ret.size(); ++i) {
                 candidates_arr[i] = candidates_ret[i];
             }
@@ -7191,7 +7191,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             int cbval4 = precision;
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -7201,7 +7201,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             libqt_list /* of double */ cbval5 = ticks_out;
             QVector<double>* subTicks_ret = subTicks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size() + 1)));
+            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size())));
             for (qsizetype i = 0; i < subTicks_ret->size(); ++i) {
                 subTicks_arr[i] = (*subTicks_ret)[i];
             }
@@ -7211,7 +7211,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size() + 1)));
+            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
                 QString tickLabels_vv_ret = (*tickLabels_ret)[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -7243,7 +7243,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             int cbval1 = subTickCount;
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -7272,7 +7272,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
         } else if (qcpaxistickerdatetime_createlabelvector_callback != nullptr) {
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -7313,7 +7313,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -7338,7 +7338,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             double cbval1 = target;
             const QVector<double>& candidates_ret = candidates;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size() + 1)));
+            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size())));
             for (qsizetype i = 0; i < candidates_ret.size(); ++i) {
                 candidates_arr[i] = candidates_ret[i];
             }
@@ -7572,7 +7572,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             int cbval4 = precision;
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -7582,7 +7582,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             libqt_list /* of double */ cbval5 = ticks_out;
             QVector<double>* subTicks_ret = subTicks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size() + 1)));
+            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size())));
             for (qsizetype i = 0; i < subTicks_ret->size(); ++i) {
                 subTicks_arr[i] = (*subTicks_ret)[i];
             }
@@ -7592,7 +7592,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size() + 1)));
+            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
                 QString tickLabels_vv_ret = (*tickLabels_ret)[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -7647,7 +7647,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             int cbval1 = subTickCount;
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -7676,7 +7676,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
         } else if (qcpaxistickertime_createlabelvector_callback != nullptr) {
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -7741,7 +7741,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -7766,7 +7766,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             double cbval1 = target;
             const QVector<double>& candidates_ret = candidates;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size() + 1)));
+            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size())));
             for (qsizetype i = 0; i < candidates_ret.size(); ++i) {
                 candidates_arr[i] = candidates_ret[i];
             }
@@ -7960,7 +7960,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             int cbval4 = precision;
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -7970,7 +7970,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             libqt_list /* of double */ cbval5 = ticks_out;
             QVector<double>* subTicks_ret = subTicks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size() + 1)));
+            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size())));
             for (qsizetype i = 0; i < subTicks_ret->size(); ++i) {
                 subTicks_arr[i] = (*subTicks_ret)[i];
             }
@@ -7980,7 +7980,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size() + 1)));
+            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
                 QString tickLabels_vv_ret = (*tickLabels_ret)[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -8071,7 +8071,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             int cbval1 = subTickCount;
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -8100,7 +8100,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
         } else if (qcpaxistickerfixed_createlabelvector_callback != nullptr) {
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -8141,7 +8141,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -8166,7 +8166,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             double cbval1 = target;
             const QVector<double>& candidates_ret = candidates;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size() + 1)));
+            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size())));
             for (qsizetype i = 0; i < candidates_ret.size(); ++i) {
                 candidates_arr[i] = candidates_ret[i];
             }
@@ -8417,7 +8417,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             int cbval4 = precision;
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -8427,7 +8427,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             libqt_list /* of double */ cbval5 = ticks_out;
             QVector<double>* subTicks_ret = subTicks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size() + 1)));
+            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size())));
             for (qsizetype i = 0; i < subTicks_ret->size(); ++i) {
                 subTicks_arr[i] = (*subTicks_ret)[i];
             }
@@ -8437,7 +8437,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size() + 1)));
+            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
                 QString tickLabels_vv_ret = (*tickLabels_ret)[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -8469,7 +8469,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             int cbval1 = subTickCount;
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -8498,7 +8498,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
         } else if (qcpaxistickertext_createlabelvector_callback != nullptr) {
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -8539,7 +8539,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -8564,7 +8564,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             double cbval1 = target;
             const QVector<double>& candidates_ret = candidates;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size() + 1)));
+            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size())));
             for (qsizetype i = 0; i < candidates_ret.size(); ++i) {
                 candidates_arr[i] = candidates_ret[i];
             }
@@ -8822,7 +8822,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             int cbval4 = precision;
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -8832,7 +8832,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             libqt_list /* of double */ cbval5 = ticks_out;
             QVector<double>* subTicks_ret = subTicks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size() + 1)));
+            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size())));
             for (qsizetype i = 0; i < subTicks_ret->size(); ++i) {
                 subTicks_arr[i] = (*subTicks_ret)[i];
             }
@@ -8842,7 +8842,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size() + 1)));
+            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
                 QString tickLabels_vv_ret = (*tickLabels_ret)[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -8897,7 +8897,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             int cbval1 = subTickCount;
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -8926,7 +8926,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
         } else if (qcpaxistickerpi_createlabelvector_callback != nullptr) {
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -9048,7 +9048,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -9073,7 +9073,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             double cbval1 = target;
             const QVector<double>& candidates_ret = candidates;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size() + 1)));
+            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size())));
             for (qsizetype i = 0; i < candidates_ret.size(); ++i) {
                 candidates_arr[i] = candidates_ret[i];
             }
@@ -9296,7 +9296,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             int cbval4 = precision;
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -9306,7 +9306,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             libqt_list /* of double */ cbval5 = ticks_out;
             QVector<double>* subTicks_ret = subTicks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size() + 1)));
+            double* subTicks_arr = static_cast<double*>(malloc(sizeof(double) * (subTicks_ret->size())));
             for (qsizetype i = 0; i < subTicks_ret->size(); ++i) {
                 subTicks_arr[i] = (*subTicks_ret)[i];
             }
@@ -9316,7 +9316,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             libqt_list /* of double */ cbval6 = subTicks_out;
             QVector<QString>* tickLabels_ret = tickLabels;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size() + 1)));
+            libqt_string* tickLabels_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tickLabels_ret->size())));
             for (qsizetype i = 0; i < tickLabels_ret->size(); ++i) {
                 QString tickLabels_vv_ret = (*tickLabels_ret)[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -9386,7 +9386,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             int cbval1 = subTickCount;
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -9415,7 +9415,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
         } else if (qcpaxistickerlog_createlabelvector_callback != nullptr) {
             const QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -9456,7 +9456,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
             QVector<double>& ticks_ret = ticks;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size() + 1)));
+            double* ticks_arr = static_cast<double*>(malloc(sizeof(double) * (ticks_ret.size())));
             for (qsizetype i = 0; i < ticks_ret.size(); ++i) {
                 ticks_arr[i] = ticks_ret[i];
             }
@@ -9481,7 +9481,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             double cbval1 = target;
             const QVector<double>& candidates_ret = candidates;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size() + 1)));
+            double* candidates_arr = static_cast<double*>(malloc(sizeof(double) * (candidates_ret.size())));
             for (qsizetype i = 0; i < candidates_ret.size(); ++i) {
                 candidates_arr[i] = candidates_ret[i];
             }
@@ -14674,7 +14674,7 @@ class VirtualQCustomPlot final : public QCustomPlot {
             bool cbval2 = onlySelectable;
             QList<QVariant>* selectionDetails_ret = selectionDetails;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QVariant** selectionDetails_arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (selectionDetails_ret->size() + 1)));
+            QVariant** selectionDetails_arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (selectionDetails_ret->size())));
             for (qsizetype i = 0; i < selectionDetails_ret->size(); ++i) {
                 selectionDetails_arr[i] = new QVariant((*selectionDetails_ret)[i]);
             }
@@ -18552,7 +18552,7 @@ class VirtualQCPLegend final : public QCPLegend {
         } else if (qcplegend_getminimumrowcolsizes_callback != nullptr) {
             QVector<int>* minColWidths_ret = minColWidths;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* minColWidths_arr = static_cast<int*>(malloc(sizeof(int) * (minColWidths_ret->size() + 1)));
+            int* minColWidths_arr = static_cast<int*>(malloc(sizeof(int) * (minColWidths_ret->size())));
             for (qsizetype i = 0; i < minColWidths_ret->size(); ++i) {
                 minColWidths_arr[i] = (*minColWidths_ret)[i];
             }
@@ -18562,7 +18562,7 @@ class VirtualQCPLegend final : public QCPLegend {
             libqt_list /* of int */ cbval1 = minColWidths_out;
             QVector<int>* minRowHeights_ret = minRowHeights;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* minRowHeights_arr = static_cast<int*>(malloc(sizeof(int) * (minRowHeights_ret->size() + 1)));
+            int* minRowHeights_arr = static_cast<int*>(malloc(sizeof(int) * (minRowHeights_ret->size())));
             for (qsizetype i = 0; i < minRowHeights_ret->size(); ++i) {
                 minRowHeights_arr[i] = (*minRowHeights_ret)[i];
             }
@@ -18585,7 +18585,7 @@ class VirtualQCPLegend final : public QCPLegend {
         } else if (qcplegend_getmaximumrowcolsizes_callback != nullptr) {
             QVector<int>* maxColWidths_ret = maxColWidths;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* maxColWidths_arr = static_cast<int*>(malloc(sizeof(int) * (maxColWidths_ret->size() + 1)));
+            int* maxColWidths_arr = static_cast<int*>(malloc(sizeof(int) * (maxColWidths_ret->size())));
             for (qsizetype i = 0; i < maxColWidths_ret->size(); ++i) {
                 maxColWidths_arr[i] = (*maxColWidths_ret)[i];
             }
@@ -18595,7 +18595,7 @@ class VirtualQCPLegend final : public QCPLegend {
             libqt_list /* of int */ cbval1 = maxColWidths_out;
             QVector<int>* maxRowHeights_ret = maxRowHeights;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* maxRowHeights_arr = static_cast<int*>(malloc(sizeof(int) * (maxRowHeights_ret->size() + 1)));
+            int* maxRowHeights_arr = static_cast<int*>(malloc(sizeof(int) * (maxRowHeights_ret->size())));
             for (qsizetype i = 0; i < maxRowHeights_ret->size(); ++i) {
                 maxRowHeights_arr[i] = (*maxRowHeights_ret)[i];
             }
@@ -18658,7 +18658,7 @@ class VirtualQCPLegend final : public QCPLegend {
         } else if (qcplegend_getsectionsizes_callback != nullptr) {
             QVector<int> maxSizes_ret = maxSizes;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* maxSizes_arr = static_cast<int*>(malloc(sizeof(int) * (maxSizes_ret.size() + 1)));
+            int* maxSizes_arr = static_cast<int*>(malloc(sizeof(int) * (maxSizes_ret.size())));
             for (qsizetype i = 0; i < maxSizes_ret.size(); ++i) {
                 maxSizes_arr[i] = maxSizes_ret[i];
             }
@@ -18668,7 +18668,7 @@ class VirtualQCPLegend final : public QCPLegend {
             libqt_list /* of int */ cbval1 = maxSizes_out;
             QVector<int> minSizes_ret = minSizes;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            int* minSizes_arr = static_cast<int*>(malloc(sizeof(int) * (minSizes_ret.size() + 1)));
+            int* minSizes_arr = static_cast<int*>(malloc(sizeof(int) * (minSizes_ret.size())));
             for (qsizetype i = 0; i < minSizes_ret.size(); ++i) {
                 minSizes_arr[i] = minSizes_ret[i];
             }
@@ -18678,7 +18678,7 @@ class VirtualQCPLegend final : public QCPLegend {
             libqt_list /* of int */ cbval2 = minSizes_out;
             QVector<double> stretchFactors_ret = stretchFactors;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* stretchFactors_arr = static_cast<double*>(malloc(sizeof(double) * (stretchFactors_ret.size() + 1)));
+            double* stretchFactors_arr = static_cast<double*>(malloc(sizeof(double) * (stretchFactors_ret.size())));
             for (qsizetype i = 0; i < stretchFactors_ret.size(); ++i) {
                 stretchFactors_arr[i] = stretchFactors_ret[i];
             }
@@ -20632,7 +20632,7 @@ class VirtualQCPGraph final : public QCPGraph {
     using QCPGraph_DataToStepCenterLines_Callback = QPointF** (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
     using QCPGraph_DataToImpulseLines_Callback = QPointF** (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
     using QCPGraph_GetNonNanSegments_Callback = QCPDataRange** (*)(const QCPGraph*, libqt_list /* of QPointF* */, int);
-    using QCPGraph_GetOverlappingSegments_Callback = libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ (*)(const QCPGraph*, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */);
+    using QCPGraph_GetOverlappingSegments_Callback = libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDataRange* */ (*)(const QCPGraph*, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */);
     using QCPGraph_SegmentsIntersect_Callback = bool (*)(const QCPGraph*, double, double, double, double, int*);
     using QCPGraph_GetFillBasePoint_Callback = QPointF* (*)(const QCPGraph*, QPointF*);
     using QCPGraph_FindIndexBelowX_Callback = int (*)(const QCPGraph*, libqt_list /* of QPointF* */, double);
@@ -21096,7 +21096,7 @@ class VirtualQCPGraph final : public QCPGraph {
             QCPPainter* cbval1 = painter;
             QVector<QPointF>* lines_ret = lines;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size() + 1)));
+            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size())));
             for (qsizetype i = 0; i < lines_ret->size(); ++i) {
                 lines_arr[i] = new QPointF((*lines_ret)[i]);
             }
@@ -21120,7 +21120,7 @@ class VirtualQCPGraph final : public QCPGraph {
             QCPPainter* cbval1 = painter;
             const QVector<QPointF>& scatters_ret = scatters;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret.size() + 1)));
+            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret.size())));
             for (qsizetype i = 0; i < scatters_ret.size(); ++i) {
                 scatters_arr[i] = new QPointF(scatters_ret[i]);
             }
@@ -21147,7 +21147,7 @@ class VirtualQCPGraph final : public QCPGraph {
             QCPPainter* cbval1 = painter;
             const QVector<QPointF>& lines_ret = lines;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret.size() + 1)));
+            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret.size())));
             for (qsizetype i = 0; i < lines_ret.size(); ++i) {
                 lines_arr[i] = new QPointF(lines_ret[i]);
             }
@@ -21171,7 +21171,7 @@ class VirtualQCPGraph final : public QCPGraph {
             QCPPainter* cbval1 = painter;
             const QVector<QPointF>& lines_ret = lines;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret.size() + 1)));
+            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret.size())));
             for (qsizetype i = 0; i < lines_ret.size(); ++i) {
                 lines_arr[i] = new QPointF(lines_ret[i]);
             }
@@ -21602,7 +21602,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_getlines_callback != nullptr) {
             QVector<QPointF>* lines_ret = lines;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size() + 1)));
+            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size())));
             for (qsizetype i = 0; i < lines_ret->size(); ++i) {
                 lines_arr[i] = new QPointF((*lines_ret)[i]);
             }
@@ -21628,7 +21628,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_getscatters_callback != nullptr) {
             QVector<QPointF>* scatters_ret = scatters;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret->size() + 1)));
+            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret->size())));
             for (qsizetype i = 0; i < scatters_ret->size(); ++i) {
                 scatters_arr[i] = new QPointF((*scatters_ret)[i]);
             }
@@ -21654,7 +21654,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_datatolines_callback != nullptr) {
             const QVector<QCPGraphData>& data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size() + 1)));
+            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size())));
             for (qsizetype i = 0; i < data_ret.size(); ++i) {
                 data_arr[i] = new QCPGraphData(data_ret[i]);
             }
@@ -21684,7 +21684,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_datatostepleftlines_callback != nullptr) {
             const QVector<QCPGraphData>& data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size() + 1)));
+            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size())));
             for (qsizetype i = 0; i < data_ret.size(); ++i) {
                 data_arr[i] = new QCPGraphData(data_ret[i]);
             }
@@ -21714,7 +21714,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_datatosteprightlines_callback != nullptr) {
             const QVector<QCPGraphData>& data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size() + 1)));
+            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size())));
             for (qsizetype i = 0; i < data_ret.size(); ++i) {
                 data_arr[i] = new QCPGraphData(data_ret[i]);
             }
@@ -21744,7 +21744,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_datatostepcenterlines_callback != nullptr) {
             const QVector<QCPGraphData>& data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size() + 1)));
+            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size())));
             for (qsizetype i = 0; i < data_ret.size(); ++i) {
                 data_arr[i] = new QCPGraphData(data_ret[i]);
             }
@@ -21774,7 +21774,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_datatoimpulselines_callback != nullptr) {
             const QVector<QCPGraphData>& data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size() + 1)));
+            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size())));
             for (qsizetype i = 0; i < data_ret.size(); ++i) {
                 data_arr[i] = new QCPGraphData(data_ret[i]);
             }
@@ -21804,7 +21804,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_getnonnansegments_callback != nullptr) {
             const QVector<QPointF>* lineData_ret = lineData;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lineData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lineData_ret->size() + 1)));
+            QPointF** lineData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lineData_ret->size())));
             for (qsizetype i = 0; i < lineData_ret->size(); ++i) {
                 lineData_arr[i] = new QPointF((*lineData_ret)[i]);
             }
@@ -21835,7 +21835,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_getoverlappingsegments_callback != nullptr) {
             QVector<QCPDataRange> thisSegments_ret = thisSegments;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QCPDataRange** thisSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (thisSegments_ret.size() + 1)));
+            QCPDataRange** thisSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (thisSegments_ret.size())));
             for (qsizetype i = 0; i < thisSegments_ret.size(); ++i) {
                 thisSegments_arr[i] = new QCPDataRange(thisSegments_ret[i]);
             }
@@ -21845,7 +21845,7 @@ class VirtualQCPGraph final : public QCPGraph {
             libqt_list /* of QCPDataRange* */ cbval1 = thisSegments_out;
             const QVector<QPointF>* thisData_ret = thisData;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** thisData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (thisData_ret->size() + 1)));
+            QPointF** thisData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (thisData_ret->size())));
             for (qsizetype i = 0; i < thisData_ret->size(); ++i) {
                 thisData_arr[i] = new QPointF((*thisData_ret)[i]);
             }
@@ -21855,7 +21855,7 @@ class VirtualQCPGraph final : public QCPGraph {
             libqt_list /* of QPointF* */ cbval2 = thisData_out;
             QVector<QCPDataRange> otherSegments_ret = otherSegments;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QCPDataRange** otherSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (otherSegments_ret.size() + 1)));
+            QCPDataRange** otherSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (otherSegments_ret.size())));
             for (qsizetype i = 0; i < otherSegments_ret.size(); ++i) {
                 otherSegments_arr[i] = new QCPDataRange(otherSegments_ret[i]);
             }
@@ -21865,7 +21865,7 @@ class VirtualQCPGraph final : public QCPGraph {
             libqt_list /* of QCPDataRange* */ cbval3 = otherSegments_out;
             const QVector<QPointF>* otherData_ret = otherData;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** otherData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (otherData_ret->size() + 1)));
+            QPointF** otherData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (otherData_ret->size())));
             for (qsizetype i = 0; i < otherData_ret->size(); ++i) {
                 otherData_arr[i] = new QPointF((*otherData_ret)[i]);
             }
@@ -21874,16 +21874,14 @@ class VirtualQCPGraph final : public QCPGraph {
             otherData_out.data = static_cast<void*>(otherData_arr);
             libqt_list /* of QPointF* */ cbval4 = otherData_out;
 
-            libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ callback_ret = qcpgraph_getoverlappingsegments_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDataRange* */ callback_ret = qcpgraph_getoverlappingsegments_callback(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QPair<QCPDataRange, QCPDataRange>> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
-            libqt_pair /* tuple of QCPDataRange* and QCPDataRange* */* callback_ret_arr = static_cast<libqt_pair /* tuple of QCPDataRange* and QCPDataRange* */*>(callback_ret.data);
+            pair_qcpdatarange_qcpdatarange /* tuple of QCPDataRange* and QCPDataRange* */* callback_ret_arr = static_cast<pair_qcpdatarange_qcpdatarange /* tuple of QCPDataRange* and QCPDataRange* */*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
                 QPair<QCPDataRange, QCPDataRange> callback_ret_arr_i_QPair;
-                QCPDataRange** callback_ret_arr_i_first = static_cast<QCPDataRange**>(callback_ret_arr[i].first);
-                QCPDataRange** callback_ret_arr_i_second = static_cast<QCPDataRange**>(callback_ret_arr[i].second);
-                callback_ret_arr_i_QPair.first = *(callback_ret_arr_i_first[0]);
-                callback_ret_arr_i_QPair.second = *(callback_ret_arr_i_second[0]);
+                callback_ret_arr_i_QPair.first = *(callback_ret_arr[i].first);
+                callback_ret_arr_i_QPair.second = *(callback_ret_arr[i].second);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QPair);
             }
             return callback_ret_QVector;
@@ -21934,7 +21932,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_findindexbelowx_callback != nullptr) {
             const QVector<QPointF>* data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** data_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (data_ret->size() + 1)));
+            QPointF** data_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (data_ret->size())));
             for (qsizetype i = 0; i < data_ret->size(); ++i) {
                 data_arr[i] = new QPointF((*data_ret)[i]);
             }
@@ -21959,7 +21957,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_findindexabovex_callback != nullptr) {
             const QVector<QPointF>* data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** data_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (data_ret->size() + 1)));
+            QPointF** data_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (data_ret->size())));
             for (qsizetype i = 0; i < data_ret->size(); ++i) {
                 data_arr[i] = new QPointF((*data_ret)[i]);
             }
@@ -21984,7 +21982,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_findindexbelowy_callback != nullptr) {
             const QVector<QPointF>* data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** data_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (data_ret->size() + 1)));
+            QPointF** data_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (data_ret->size())));
             for (qsizetype i = 0; i < data_ret->size(); ++i) {
                 data_arr[i] = new QPointF((*data_ret)[i]);
             }
@@ -22009,7 +22007,7 @@ class VirtualQCPGraph final : public QCPGraph {
         } else if (qcpgraph_findindexabovey_callback != nullptr) {
             const QVector<QPointF>* data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** data_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (data_ret->size() + 1)));
+            QPointF** data_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (data_ret->size())));
             for (qsizetype i = 0; i < data_ret->size(); ++i) {
                 data_arr[i] = new QPointF((*data_ret)[i]);
             }
@@ -22233,8 +22231,8 @@ class VirtualQCPGraph final : public QCPGraph {
     friend libqt_list /* of QPointF* */ QCPGraph_QBaseDataToImpulseLines(const QCPGraph* self, const libqt_list /* of QCPGraphData* */ data);
     friend libqt_list /* of QCPDataRange* */ QCPGraph_GetNonNanSegments(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, int keyOrientation);
     friend libqt_list /* of QCPDataRange* */ QCPGraph_QBaseGetNonNanSegments(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, int keyOrientation);
-    friend libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_GetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
-    friend libqt_list /* of libqt_pair tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_QBaseGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
+    friend libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_GetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
+    friend libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDataRange* */ QCPGraph_QBaseGetOverlappingSegments(const QCPGraph* self, libqt_list /* of QCPDataRange* */ thisSegments, const libqt_list /* of QPointF* */ thisData, libqt_list /* of QCPDataRange* */ otherSegments, const libqt_list /* of QPointF* */ otherData);
     friend bool QCPGraph_SegmentsIntersect(const QCPGraph* self, double aLower, double aUpper, double bLower, double bUpper, int* bPrecedence);
     friend bool QCPGraph_QBaseSegmentsIntersect(const QCPGraph* self, double aLower, double aUpper, double bLower, double bUpper, int* bPrecedence);
     friend QPointF* QCPGraph_GetFillBasePoint(const QCPGraph* self, QPointF* matchingDataPoint);
@@ -22734,7 +22732,7 @@ class VirtualQCPCurve final : public QCPCurve {
             QCPPainter* cbval1 = painter;
             const QVector<QPointF>& lines_ret = lines;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret.size() + 1)));
+            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret.size())));
             for (qsizetype i = 0; i < lines_ret.size(); ++i) {
                 lines_arr[i] = new QPointF(lines_ret[i]);
             }
@@ -22758,7 +22756,7 @@ class VirtualQCPCurve final : public QCPCurve {
             QCPPainter* cbval1 = painter;
             const QVector<QPointF>& points_ret = points;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** points_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (points_ret.size() + 1)));
+            QPointF** points_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (points_ret.size())));
             for (qsizetype i = 0; i < points_ret.size(); ++i) {
                 points_arr[i] = new QPointF(points_ret[i]);
             }
@@ -23192,7 +23190,7 @@ class VirtualQCPCurve final : public QCPCurve {
         } else if (qcpcurve_getcurvelines_callback != nullptr) {
             QVector<QPointF>* lines_ret = lines;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size() + 1)));
+            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size())));
             for (qsizetype i = 0; i < lines_ret->size(); ++i) {
                 lines_arr[i] = new QPointF((*lines_ret)[i]);
             }
@@ -23219,7 +23217,7 @@ class VirtualQCPCurve final : public QCPCurve {
         } else if (qcpcurve_getscatters_callback != nullptr) {
             QVector<QPointF>* scatters_ret = scatters;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret->size() + 1)));
+            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret->size())));
             for (qsizetype i = 0; i < scatters_ret->size(); ++i) {
                 scatters_arr[i] = new QPointF((*scatters_ret)[i]);
             }
@@ -23369,7 +23367,7 @@ class VirtualQCPCurve final : public QCPCurve {
             double cbval6 = valueMin;
             QVector<QPointF>& beforeTraverse_ret = beforeTraverse;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** beforeTraverse_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (beforeTraverse_ret.size() + 1)));
+            QPointF** beforeTraverse_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (beforeTraverse_ret.size())));
             for (qsizetype i = 0; i < beforeTraverse_ret.size(); ++i) {
                 beforeTraverse_arr[i] = new QPointF(beforeTraverse_ret[i]);
             }
@@ -23379,7 +23377,7 @@ class VirtualQCPCurve final : public QCPCurve {
             libqt_list /* of QPointF* */ cbval7 = beforeTraverse_out;
             QVector<QPointF>& afterTraverse_ret = afterTraverse;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** afterTraverse_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (afterTraverse_ret.size() + 1)));
+            QPointF** afterTraverse_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (afterTraverse_ret.size())));
             for (qsizetype i = 0; i < afterTraverse_ret.size(); ++i) {
                 afterTraverse_arr[i] = new QPointF(afterTraverse_ret[i]);
             }
@@ -28874,7 +28872,7 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         } else if (qcperrorbars_getdatasegments_callback != nullptr) {
             QList<QCPDataRange>& selectedSegments_ret = selectedSegments;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QCPDataRange** selectedSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (selectedSegments_ret.size() + 1)));
+            QCPDataRange** selectedSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (selectedSegments_ret.size())));
             for (qsizetype i = 0; i < selectedSegments_ret.size(); ++i) {
                 selectedSegments_arr[i] = new QCPDataRange(selectedSegments_ret[i]);
             }
@@ -28884,7 +28882,7 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             libqt_list /* of QCPDataRange* */ cbval1 = selectedSegments_out;
             QList<QCPDataRange>& unselectedSegments_ret = unselectedSegments;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QCPDataRange** unselectedSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (unselectedSegments_ret.size() + 1)));
+            QCPDataRange** unselectedSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (unselectedSegments_ret.size())));
             for (qsizetype i = 0; i < unselectedSegments_ret.size(); ++i) {
                 unselectedSegments_arr[i] = new QCPDataRange(unselectedSegments_ret[i]);
             }
@@ -39463,7 +39461,7 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             QPointF* cbval2 = const_cast<QPointF*>(&center_ret);
             const QVector<double>& coords_ret = coords;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* coords_arr = static_cast<double*>(malloc(sizeof(double) * (coords_ret.size() + 1)));
+            double* coords_arr = static_cast<double*>(malloc(sizeof(double) * (coords_ret.size())));
             for (qsizetype i = 0; i < coords_ret.size(); ++i) {
                 coords_arr[i] = coords_ret[i];
             }
@@ -39494,7 +39492,7 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             double cbval3 = radius;
             const QVector<QPointF>& ticksCosSin_ret = ticksCosSin;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** ticksCosSin_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (ticksCosSin_ret.size() + 1)));
+            QPointF** ticksCosSin_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (ticksCosSin_ret.size())));
             for (qsizetype i = 0; i < ticksCosSin_ret.size(); ++i) {
                 ticksCosSin_arr[i] = new QPointF(ticksCosSin_ret[i]);
             }
@@ -39524,7 +39522,7 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             QPointF* cbval2 = const_cast<QPointF*>(&center_ret);
             const QVector<double>& coords_ret = coords;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            double* coords_arr = static_cast<double*>(malloc(sizeof(double) * (coords_ret.size() + 1)));
+            double* coords_arr = static_cast<double*>(malloc(sizeof(double) * (coords_ret.size())));
             for (qsizetype i = 0; i < coords_ret.size(); ++i) {
                 coords_arr[i] = coords_ret[i];
             }
@@ -41062,7 +41060,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             QCPPainter* cbval1 = painter;
             const QVector<QPointF>& lines_ret = lines;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret.size() + 1)));
+            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret.size())));
             for (qsizetype i = 0; i < lines_ret.size(); ++i) {
                 lines_arr[i] = new QPointF(lines_ret[i]);
             }
@@ -41086,7 +41084,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             QCPPainter* cbval1 = painter;
             QVector<QPointF>* lines_ret = lines;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size() + 1)));
+            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size())));
             for (qsizetype i = 0; i < lines_ret->size(); ++i) {
                 lines_arr[i] = new QPointF((*lines_ret)[i]);
             }
@@ -41110,7 +41108,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             QCPPainter* cbval1 = painter;
             const QVector<QPointF>& scatters_ret = scatters;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret.size() + 1)));
+            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret.size())));
             for (qsizetype i = 0; i < scatters_ret.size(); ++i) {
                 scatters_arr[i] = new QPointF(scatters_ret[i]);
             }
@@ -41404,7 +41402,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         } else if (qcppolargraph_getdatasegments_callback != nullptr) {
             QList<QCPDataRange>& selectedSegments_ret = selectedSegments;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QCPDataRange** selectedSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (selectedSegments_ret.size() + 1)));
+            QCPDataRange** selectedSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (selectedSegments_ret.size())));
             for (qsizetype i = 0; i < selectedSegments_ret.size(); ++i) {
                 selectedSegments_arr[i] = new QCPDataRange(selectedSegments_ret[i]);
             }
@@ -41414,7 +41412,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             libqt_list /* of QCPDataRange* */ cbval1 = selectedSegments_out;
             QList<QCPDataRange>& unselectedSegments_ret = unselectedSegments;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QCPDataRange** unselectedSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (unselectedSegments_ret.size() + 1)));
+            QCPDataRange** unselectedSegments_arr = static_cast<QCPDataRange**>(malloc(sizeof(QCPDataRange*) * (unselectedSegments_ret.size())));
             for (qsizetype i = 0; i < unselectedSegments_ret.size(); ++i) {
                 unselectedSegments_arr[i] = new QCPDataRange(unselectedSegments_ret[i]);
             }
@@ -41438,7 +41436,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             QCPPainter* cbval1 = painter;
             const QVector<QPointF>& lineData_ret = lineData;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lineData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lineData_ret.size() + 1)));
+            QPointF** lineData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lineData_ret.size())));
             for (qsizetype i = 0; i < lineData_ret.size(); ++i) {
                 lineData_arr[i] = new QPointF(lineData_ret[i]);
             }
@@ -41461,7 +41459,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         } else if (qcppolargraph_getlines_callback != nullptr) {
             QVector<QPointF>* lines_ret = lines;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size() + 1)));
+            QPointF** lines_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lines_ret->size())));
             for (qsizetype i = 0; i < lines_ret->size(); ++i) {
                 lines_arr[i] = new QPointF((*lines_ret)[i]);
             }
@@ -41487,7 +41485,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         } else if (qcppolargraph_getscatters_callback != nullptr) {
             QVector<QPointF>* scatters_ret = scatters;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret->size() + 1)));
+            QPointF** scatters_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (scatters_ret->size())));
             for (qsizetype i = 0; i < scatters_ret->size(); ++i) {
                 scatters_arr[i] = new QPointF((*scatters_ret)[i]);
             }
@@ -41513,7 +41511,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         } else if (qcppolargraph_datatolines_callback != nullptr) {
             const QVector<QCPGraphData>& data_ret = data;
             // Convert QVector<> from C++ memory to manually-managed C memory
-            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size() + 1)));
+            QCPGraphData** data_arr = static_cast<QCPGraphData**>(malloc(sizeof(QCPGraphData*) * (data_ret.size())));
             for (qsizetype i = 0; i < data_ret.size(); ++i) {
                 data_arr[i] = new QCPGraphData(data_ret[i]);
             }

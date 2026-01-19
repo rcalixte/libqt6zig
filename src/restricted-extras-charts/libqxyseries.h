@@ -30,6 +30,18 @@ typedef struct QVariant QVariant;
 typedef struct QXYSeries QXYSeries;
 #endif
 
+struct pair_double_double;
+
+typedef struct pair_double_double pair_double_double;
+
+#ifndef PAIR_DOUBLE_DOUBLE
+#define PAIR_DOUBLE_DOUBLE
+struct pair_double_double {
+    double first;
+    double second;
+};
+#endif
+
 QMetaObject* QXYSeries_MetaObject(const QXYSeries* self);
 void* QXYSeries_Metacast(QXYSeries* self, const char* param1);
 int QXYSeries_Metacall(QXYSeries* self, int param1, int param2, void** param3);
@@ -91,7 +103,7 @@ void QXYSeries_SetMarkerSize(QXYSeries* self, double size);
 double QXYSeries_MarkerSize(const QXYSeries* self);
 void QXYSeries_SetBestFitLineVisible(QXYSeries* self);
 bool QXYSeries_BestFitLineVisible(const QXYSeries* self);
-libqt_pair /* tuple of double and double */ QXYSeries_BestFitLineEquation(const QXYSeries* self, bool* ok);
+pair_double_double /* tuple of double and double */ QXYSeries_BestFitLineEquation(const QXYSeries* self, bool* ok);
 void QXYSeries_SetBestFitLinePen(QXYSeries* self, const QPen* pen);
 QPen* QXYSeries_BestFitLinePen(const QXYSeries* self);
 void QXYSeries_SetBestFitLineColor(QXYSeries* self, const QColor* color);

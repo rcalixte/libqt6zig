@@ -2023,14 +2023,21 @@ pub const accounts__account = struct {
     ///
     /// ` tokens: [][:0]const u8 `
     ///
-    pub fn VerifyWithTokens(self: ?*anyopaque, key: []const u8, tokens: [][:0]const u8) bool {
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn VerifyWithTokens(self: ?*anyopaque, key: []const u8, tokens: [][:0]const u8, allocator: std.mem.Allocator) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
+        var tokens_cStr = allocator.alloc([*c]const u8, tokens.len) catch @panic("accounts::account.VerifyWithTokens: Memory allocation failed");
+        defer allocator.free(tokens_cStr);
+        for (tokens, 0..tokens.len) |tokens_item, i| {
+            tokens_cStr[i] = @ptrCast(tokens_item.ptr);
+        }
         const tokens_list = qtc.libqt_list{
             .len = tokens.len,
-            .data = tokens.ptr,
+            .data = @ptrCast(tokens_cStr.ptr),
         };
         return qtc.Accounts__Account_VerifyWithTokens(@ptrCast(self), key_str, tokens_list);
     }

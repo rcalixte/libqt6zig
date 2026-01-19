@@ -575,17 +575,23 @@ pub const ksyntaxhighlighting__definition = struct {
     ///
     pub fn CharacterEncodings(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_qtcqchar_constu8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_CharacterEncodings(@ptrCast(self));
+        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_qtcqchar_constu8, _arr.len) catch @panic("ksyntaxhighlighting::definition.CharacterEncodings: Memory allocation failed");
-        const _data: [*]struct_qtcqchar_constu8 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |i| {
+            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("ksyntaxhighlighting::definition.CharacterEncodings: Memory allocation failed");
+            @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
+            _ret[i] = struct_qtcqchar_constu8{
+                .first = @ptrCast(_data[i].first),
+                .second = _second_slice,
+            };
+        }
         return _ret;
     }
 

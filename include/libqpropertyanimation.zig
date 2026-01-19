@@ -454,16 +454,9 @@ pub const qpropertyanimation = struct {
     ///
     pub fn KeyValues(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqvariant {
         const _arr: qtc.libqt_list = qtc.QVariantAnimation_KeyValues(@ptrCast(self));
-        defer {
-            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |i| {
-                qtc.libqt_free(_pair[i].first);
-                qtc.libqt_free(_pair[i].second);
-            }
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc(struct_f64_qtcqvariant, _arr.len) catch @panic("qpropertyanimation.KeyValues: Memory allocation failed");
         const _data: [*]struct_f64_qtcqvariant = @ptrCast(@alignCast(_arr.data));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(struct_f64_qtcqvariant, _arr.len) catch @panic("qpropertyanimation.KeyValues: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -481,7 +474,7 @@ pub const qpropertyanimation = struct {
     pub fn SetKeyValues(self: ?*anyopaque, values: []struct_f64_qtcqvariant) void {
         const values_list = qtc.libqt_list{
             .len = values.len,
-            .data = values.ptr,
+            .data = @ptrCast(values.ptr),
         };
         qtc.QVariantAnimation_SetKeyValues(@ptrCast(self), values_list);
     }

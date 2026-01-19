@@ -160,7 +160,7 @@ void SignOn__AuthService_Connect_Identities(SignOn__AuthService* self, intptr_t 
     SignOn::AuthService::connect(self, &SignOn::AuthService::identities, [self, slotFunc](const QList<SignOn::IdentityInfo>& identityList) {
         const QList<SignOn::IdentityInfo>& identityList_ret = identityList;
         // Convert QList<> from C++ memory to manually-managed C memory
-        SignOn__IdentityInfo** identityList_arr = static_cast<SignOn__IdentityInfo**>(malloc(sizeof(SignOn__IdentityInfo*) * (identityList_ret.size() + 1)));
+        SignOn__IdentityInfo** identityList_arr = static_cast<SignOn__IdentityInfo**>(malloc(sizeof(SignOn__IdentityInfo*) * (identityList_ret.size())));
         for (qsizetype i = 0; i < identityList_ret.size(); ++i) {
             identityList_arr[i] = new SignOn::IdentityInfo(identityList_ret[i]);
         }

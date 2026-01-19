@@ -51,7 +51,7 @@ KTextEditor__Document* KTextEditor__Editor_CreateDocument(KTextEditor__Editor* s
 libqt_list /* of KTextEditor__Document* */ KTextEditor__Editor_Documents(KTextEditor__Editor* self) {
     QList<KTextEditor::Document*> _ret = self->documents();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__Document** _arr = static_cast<KTextEditor__Document**>(malloc(sizeof(KTextEditor__Document*) * (_ret.size() + 1)));
+    KTextEditor__Document** _arr = static_cast<KTextEditor__Document**>(malloc(sizeof(KTextEditor__Document*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -150,7 +150,7 @@ KTextEditor__Command* KTextEditor__Editor_QueryCommand(const KTextEditor__Editor
 libqt_list /* of KTextEditor__Command* */ KTextEditor__Editor_Commands(const KTextEditor__Editor* self) {
     QList<KTextEditor::Command*> _ret = self->commands();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__Command** _arr = static_cast<KTextEditor__Command**>(malloc(sizeof(KTextEditor__Command*) * (_ret.size() + 1)));
+    KTextEditor__Command** _arr = static_cast<KTextEditor__Command**>(malloc(sizeof(KTextEditor__Command*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -163,7 +163,7 @@ libqt_list /* of KTextEditor__Command* */ KTextEditor__Editor_Commands(const KTe
 libqt_list /* of libqt_string */ KTextEditor__Editor_CommandList(const KTextEditor__Editor* self) {
     QList<QString> _ret = self->commandList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

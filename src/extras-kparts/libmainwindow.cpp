@@ -1907,7 +1907,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_ContainerTags(const KParts__
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         QList<QString> _ret = vkpartsmainwindow->containerTags();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1926,7 +1926,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_ContainerTags(const KParts__
     } else {
         QList<QString> _ret = self->KParts::MainWindow::containerTags();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1952,7 +1952,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_QBaseContainerTags(const KPa
         vkpartsmainwindow->setKParts__MainWindow_ContainerTags_IsBase(true);
         QList<QString> _ret = vkpartsmainwindow->containerTags();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1971,7 +1971,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_QBaseContainerTags(const KPa
     } else {
         QList<QString> _ret = self->KParts::MainWindow::containerTags();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2062,7 +2062,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_CustomTags(const KParts__Mai
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         QList<QString> _ret = vkpartsmainwindow->customTags();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2081,7 +2081,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_CustomTags(const KParts__Mai
     } else {
         QList<QString> _ret = self->KParts::MainWindow::customTags();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2107,7 +2107,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_QBaseCustomTags(const KParts
         vkpartsmainwindow->setKParts__MainWindow_CustomTags_IsBase(true);
         QList<QString> _ret = vkpartsmainwindow->customTags();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2126,7 +2126,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_QBaseCustomTags(const KParts
     } else {
         QList<QString> _ret = self->KParts::MainWindow::customTags();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -46,7 +46,7 @@ void KNSCore__ResultsStream_Connect_EntriesFound(KNSCore__ResultsStream* self, i
     KNSCore::ResultsStream::connect(self, &KNSCore::ResultsStream::entriesFound, [self, slotFunc](const QList<KNSCore::Entry>& entries) {
         const QList<KNSCore::Entry>& entries_ret = entries;
         // Convert QList<> from C++ memory to manually-managed C memory
-        KNSCore__Entry** entries_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (entries_ret.size() + 1)));
+        KNSCore__Entry** entries_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (entries_ret.size())));
         for (qsizetype i = 0; i < entries_ret.size(); ++i) {
             entries_arr[i] = new KNSCore::Entry(entries_ret[i]);
         }

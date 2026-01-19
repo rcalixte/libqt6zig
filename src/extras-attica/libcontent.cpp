@@ -170,7 +170,7 @@ Attica__DownloadDescription* Attica__Content_DownloadUrlDescription(const Attica
 libqt_list /* of Attica__DownloadDescription* */ Attica__Content_DownloadUrlDescriptions(const Attica__Content* self) {
     QList<Attica::DownloadDescription> _ret = self->downloadUrlDescriptions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__DownloadDescription** _arr = static_cast<Attica__DownloadDescription**>(malloc(sizeof(Attica__DownloadDescription*) * (_ret.size() + 1)));
+    Attica__DownloadDescription** _arr = static_cast<Attica__DownloadDescription**>(malloc(sizeof(Attica__DownloadDescription*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::DownloadDescription(_ret[i]);
     }
@@ -187,7 +187,7 @@ Attica__HomePageEntry* Attica__Content_HomePageEntry(const Attica__Content* self
 libqt_list /* of Attica__HomePageEntry* */ Attica__Content_HomePageEntries(Attica__Content* self) {
     QList<Attica::HomePageEntry> _ret = self->homePageEntries();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__HomePageEntry** _arr = static_cast<Attica__HomePageEntry**>(malloc(sizeof(Attica__HomePageEntry*) * (_ret.size() + 1)));
+    Attica__HomePageEntry** _arr = static_cast<Attica__HomePageEntry**>(malloc(sizeof(Attica__HomePageEntry*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::HomePageEntry(_ret[i]);
     }
@@ -260,7 +260,7 @@ libqt_string Attica__Content_Author(const Attica__Content* self) {
 libqt_list /* of Attica__Icon* */ Attica__Content_Icons(Attica__Content* self) {
     QList<Attica::Icon> _ret = self->icons();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__Icon** _arr = static_cast<Attica__Icon**>(malloc(sizeof(Attica__Icon*) * (_ret.size() + 1)));
+    Attica__Icon** _arr = static_cast<Attica__Icon**>(malloc(sizeof(Attica__Icon*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::Icon(_ret[i]);
     }
@@ -273,7 +273,7 @@ libqt_list /* of Attica__Icon* */ Attica__Content_Icons(Attica__Content* self) {
 libqt_list /* of Attica__Icon* */ Attica__Content_Icons2(const Attica__Content* self) {
     QList<Attica::Icon> _ret = self->icons();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__Icon** _arr = static_cast<Attica__Icon**>(malloc(sizeof(Attica__Icon*) * (_ret.size() + 1)));
+    Attica__Icon** _arr = static_cast<Attica__Icon**>(malloc(sizeof(Attica__Icon*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::Icon(_ret[i]);
     }
@@ -296,7 +296,7 @@ void Attica__Content_SetIcons(Attica__Content* self, libqt_list /* of Attica__Ic
 libqt_list /* of QUrl* */ Attica__Content_Videos(Attica__Content* self) {
     QList<QUrl> _ret = self->videos();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }
@@ -319,7 +319,7 @@ void Attica__Content_SetVideos(Attica__Content* self, libqt_list /* of QUrl* */ 
 libqt_list /* of libqt_string */ Attica__Content_Tags(const Attica__Content* self) {
     QList<QString> _ret = self->tags();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

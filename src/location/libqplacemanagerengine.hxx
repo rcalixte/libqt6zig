@@ -548,7 +548,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         } else if (qplacemanagerengine_setlocales_callback != nullptr) {
             const QList<QLocale>& locales_ret = locales;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QLocale** locales_arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (locales_ret.size() + 1)));
+            QLocale** locales_arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (locales_ret.size())));
             for (qsizetype i = 0; i < locales_ret.size(); ++i) {
                 locales_arr[i] = new QLocale(locales_ret[i]);
             }

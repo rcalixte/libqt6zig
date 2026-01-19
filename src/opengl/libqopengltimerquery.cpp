@@ -469,7 +469,7 @@ bool QOpenGLTimeMonitor_IsCreated(const QOpenGLTimeMonitor* self) {
 libqt_list /* of uint32_t */ QOpenGLTimeMonitor_ObjectIds(const QOpenGLTimeMonitor* self) {
     QList<GLuint> _ret = self->objectIds();
     // Convert QList<> from C++ memory to manually-managed C memory
-    uint32_t* _arr = static_cast<uint32_t*>(malloc(sizeof(uint32_t) * (_ret.size() + 1)));
+    uint32_t* _arr = static_cast<uint32_t*>(malloc(sizeof(uint32_t) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -490,7 +490,7 @@ bool QOpenGLTimeMonitor_IsResultAvailable(const QOpenGLTimeMonitor* self) {
 libqt_list /* of uint64_t */ QOpenGLTimeMonitor_WaitForSamples(const QOpenGLTimeMonitor* self) {
     QList<GLuint64> _ret = self->waitForSamples();
     // Convert QList<> from C++ memory to manually-managed C memory
-    uint64_t* _arr = static_cast<uint64_t*>(malloc(sizeof(uint64_t) * (_ret.size() + 1)));
+    uint64_t* _arr = static_cast<uint64_t*>(malloc(sizeof(uint64_t) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -503,7 +503,7 @@ libqt_list /* of uint64_t */ QOpenGLTimeMonitor_WaitForSamples(const QOpenGLTime
 libqt_list /* of uint64_t */ QOpenGLTimeMonitor_WaitForIntervals(const QOpenGLTimeMonitor* self) {
     QList<GLuint64> _ret = self->waitForIntervals();
     // Convert QList<> from C++ memory to manually-managed C memory
-    uint64_t* _arr = static_cast<uint64_t*>(malloc(sizeof(uint64_t) * (_ret.size() + 1)));
+    uint64_t* _arr = static_cast<uint64_t*>(malloc(sizeof(uint64_t) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

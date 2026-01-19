@@ -297,7 +297,7 @@ class VirtualQPlaceMatchReply final : public QPlaceMatchReply {
         } else if (qplacematchreply_setplaces_callback != nullptr) {
             const QList<QPlace>& results_ret = results;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QPlace** results_arr = static_cast<QPlace**>(malloc(sizeof(QPlace*) * (results_ret.size() + 1)));
+            QPlace** results_arr = static_cast<QPlace**>(malloc(sizeof(QPlace*) * (results_ret.size())));
             for (qsizetype i = 0; i < results_ret.size(); ++i) {
                 results_arr[i] = new QPlace(results_ret[i]);
             }

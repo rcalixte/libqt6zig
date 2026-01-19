@@ -39,7 +39,7 @@ libqt_list /* of libqt_string */ KCompletion_SubstringCompletion(const KCompleti
     QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
     QList<QString> _ret = self->substringCompletion(stringVal_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -85,7 +85,7 @@ libqt_string KCompletion_LastMatch(const KCompletion* self) {
 libqt_list /* of libqt_string */ KCompletion_Items(const KCompletion* self) {
     QList<QString> _ret = self->items();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -153,7 +153,7 @@ bool KCompletion_ShouldAutoSuggest(const KCompletion* self) {
 libqt_list /* of libqt_string */ KCompletion_AllMatches(KCompletion* self) {
     QList<QString> _ret = self->allMatches();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -175,7 +175,7 @@ libqt_list /* of libqt_string */ KCompletion_AllMatches2(KCompletion* self, cons
     QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
     QList<QString> _ret = self->allMatches(stringVal_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

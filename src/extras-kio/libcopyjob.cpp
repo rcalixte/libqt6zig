@@ -34,7 +34,7 @@ int KIO__CopyJob_OperationMode(const KIO__CopyJob* self) {
 libqt_list /* of QUrl* */ KIO__CopyJob_SrcUrls(const KIO__CopyJob* self) {
     QList<QUrl> _ret = self->srcUrls();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }

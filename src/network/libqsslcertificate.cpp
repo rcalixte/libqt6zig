@@ -105,7 +105,7 @@ libqt_string QSslCertificate_Digest(const QSslCertificate* self) {
 libqt_list /* of libqt_string */ QSslCertificate_IssuerInfo(const QSslCertificate* self, int info) {
     QList<QString> _ret = self->issuerInfo(static_cast<QSslCertificate::SubjectInfo>(info));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -127,7 +127,7 @@ libqt_list /* of libqt_string */ QSslCertificate_IssuerInfo2(const QSslCertifica
     QByteArray attribute_QByteArray(attribute.data, attribute.len);
     QList<QString> _ret = self->issuerInfo(attribute_QByteArray);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -148,7 +148,7 @@ libqt_list /* of libqt_string */ QSslCertificate_IssuerInfo2(const QSslCertifica
 libqt_list /* of libqt_string */ QSslCertificate_SubjectInfo(const QSslCertificate* self, int info) {
     QList<QString> _ret = self->subjectInfo(static_cast<QSslCertificate::SubjectInfo>(info));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -170,7 +170,7 @@ libqt_list /* of libqt_string */ QSslCertificate_SubjectInfo2(const QSslCertific
     QByteArray attribute_QByteArray(attribute.data, attribute.len);
     QList<QString> _ret = self->subjectInfo(attribute_QByteArray);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -215,7 +215,7 @@ libqt_string QSslCertificate_SubjectDisplayName(const QSslCertificate* self) {
 libqt_list /* of libqt_string */ QSslCertificate_SubjectInfoAttributes(const QSslCertificate* self) {
     QList<QByteArray> _ret = self->subjectInfoAttributes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
@@ -234,7 +234,7 @@ libqt_list /* of libqt_string */ QSslCertificate_SubjectInfoAttributes(const QSs
 libqt_list /* of libqt_string */ QSslCertificate_IssuerInfoAttributes(const QSslCertificate* self) {
     QList<QByteArray> _ret = self->issuerInfoAttributes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
@@ -295,7 +295,7 @@ QSslKey* QSslCertificate_PublicKey(const QSslCertificate* self) {
 libqt_list /* of QSslCertificateExtension* */ QSslCertificate_Extensions(const QSslCertificate* self) {
     QList<QSslCertificateExtension> _ret = self->extensions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificateExtension** _arr = static_cast<QSslCertificateExtension**>(malloc(sizeof(QSslCertificateExtension*) * (_ret.size() + 1)));
+    QSslCertificateExtension** _arr = static_cast<QSslCertificateExtension**>(malloc(sizeof(QSslCertificateExtension*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificateExtension(_ret[i]);
     }
@@ -341,7 +341,7 @@ libqt_list /* of QSslCertificate* */ QSslCertificate_FromPath(const libqt_string
     QString path_QString = QString::fromUtf8(path.data, path.len);
     QList<QSslCertificate> _ret = QSslCertificate::fromPath(path_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -354,7 +354,7 @@ libqt_list /* of QSslCertificate* */ QSslCertificate_FromPath(const libqt_string
 libqt_list /* of QSslCertificate* */ QSslCertificate_FromDevice(QIODevice* device) {
     QList<QSslCertificate> _ret = QSslCertificate::fromDevice(device);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -368,7 +368,7 @@ libqt_list /* of QSslCertificate* */ QSslCertificate_FromData(const libqt_string
     QByteArray data_QByteArray(data.data, data.len);
     QList<QSslCertificate> _ret = QSslCertificate::fromData(data_QByteArray);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -387,7 +387,7 @@ libqt_list /* of QSslError* */ QSslCertificate_Verify(const libqt_list /* of QSs
     }
     QList<QSslError> _ret = QSslCertificate::verify(certificateChain_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslError** _arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (_ret.size() + 1)));
+    QSslError** _arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslError(_ret[i]);
     }
@@ -419,7 +419,7 @@ libqt_list /* of QSslCertificate* */ QSslCertificate_FromPath2(const libqt_strin
     QString path_QString = QString::fromUtf8(path.data, path.len);
     QList<QSslCertificate> _ret = QSslCertificate::fromPath(path_QString, static_cast<QSsl::EncodingFormat>(format));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -433,7 +433,7 @@ libqt_list /* of QSslCertificate* */ QSslCertificate_FromPath3(const libqt_strin
     QString path_QString = QString::fromUtf8(path.data, path.len);
     QList<QSslCertificate> _ret = QSslCertificate::fromPath(path_QString, static_cast<QSsl::EncodingFormat>(format), static_cast<QSslCertificate::PatternSyntax>(syntax));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -446,7 +446,7 @@ libqt_list /* of QSslCertificate* */ QSslCertificate_FromPath3(const libqt_strin
 libqt_list /* of QSslCertificate* */ QSslCertificate_FromDevice2(QIODevice* device, int format) {
     QList<QSslCertificate> _ret = QSslCertificate::fromDevice(device, static_cast<QSsl::EncodingFormat>(format));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -460,7 +460,7 @@ libqt_list /* of QSslCertificate* */ QSslCertificate_FromData2(const libqt_strin
     QByteArray data_QByteArray(data.data, data.len);
     QList<QSslCertificate> _ret = QSslCertificate::fromData(data_QByteArray, static_cast<QSsl::EncodingFormat>(format));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -480,7 +480,7 @@ libqt_list /* of QSslError* */ QSslCertificate_Verify2(const libqt_list /* of QS
     QString hostName_QString = QString::fromUtf8(hostName.data, hostName.len);
     QList<QSslError> _ret = QSslCertificate::verify(certificateChain_QList, hostName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslError** _arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (_ret.size() + 1)));
+    QSslError** _arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslError(_ret[i]);
     }

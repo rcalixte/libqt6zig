@@ -30,7 +30,7 @@ void QPlaceMatchRequest_Swap(QPlaceMatchRequest* self, QPlaceMatchRequest* other
 libqt_list /* of QPlace* */ QPlaceMatchRequest_Places(const QPlaceMatchRequest* self) {
     QList<QPlace> _ret = self->places();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPlace** _arr = static_cast<QPlace**>(malloc(sizeof(QPlace*) * (_ret.size() + 1)));
+    QPlace** _arr = static_cast<QPlace**>(malloc(sizeof(QPlace*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPlace(_ret[i]);
     }

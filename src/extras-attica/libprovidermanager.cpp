@@ -47,7 +47,7 @@ void Attica__ProviderManager_LoadDefaultProviders(Attica__ProviderManager* self)
 libqt_list /* of QUrl* */ Attica__ProviderManager_DefaultProviderFiles(Attica__ProviderManager* self) {
     QList<QUrl> _ret = self->defaultProviderFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }
@@ -85,7 +85,7 @@ void Attica__ProviderManager_AddProviderFile(Attica__ProviderManager* self, cons
 libqt_list /* of QUrl* */ Attica__ProviderManager_ProviderFiles(const Attica__ProviderManager* self) {
     QList<QUrl> _ret = self->providerFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }
@@ -98,7 +98,7 @@ libqt_list /* of QUrl* */ Attica__ProviderManager_ProviderFiles(const Attica__Pr
 libqt_list /* of Attica__Provider* */ Attica__ProviderManager_Providers(const Attica__ProviderManager* self) {
     QList<Attica::Provider> _ret = self->providers();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__Provider** _arr = static_cast<Attica__Provider**>(malloc(sizeof(Attica__Provider*) * (_ret.size() + 1)));
+    Attica__Provider** _arr = static_cast<Attica__Provider**>(malloc(sizeof(Attica__Provider*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::Provider(_ret[i]);
     }

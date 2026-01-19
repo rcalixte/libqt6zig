@@ -170,11 +170,8 @@ pub const qaccessible = struct {
     /// ` boundaryType: qaccessible_base_enums.TextBoundaryType `
     ///
     pub fn QAccessibleTextBoundaryHelper(cursor: ?*anyopaque, boundaryType: i32) struct_i32_i32 {
-        const _pair: qtc.libqt_pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor), @intCast(boundaryType));
-        return struct_i32_i32{
-            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor), @intCast(boundaryType));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#dtor.QAccessible)

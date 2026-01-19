@@ -35,7 +35,7 @@ bool KSambaShare_IsDirectoryShared(const KSambaShare* self, const libqt_string p
 libqt_list /* of libqt_string */ KSambaShare_SharedDirectories(const KSambaShare* self) {
     QList<QString> _ret = self->sharedDirectories();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -61,7 +61,7 @@ bool KSambaShare_IsShareNameAvailable(const KSambaShare* self, const libqt_strin
 libqt_list /* of libqt_string */ KSambaShare_ShareNames(const KSambaShare* self) {
     QList<QString> _ret = self->shareNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -88,7 +88,7 @@ libqt_list /* of KSambaShareData* */ KSambaShare_GetSharesByPath(const KSambaSha
     QString path_QString = QString::fromUtf8(path.data, path.len);
     QList<KSambaShareData> _ret = self->getSharesByPath(path_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KSambaShareData** _arr = static_cast<KSambaShareData**>(malloc(sizeof(KSambaShareData*) * (_ret.size() + 1)));
+    KSambaShareData** _arr = static_cast<KSambaShareData**>(malloc(sizeof(KSambaShareData*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KSambaShareData(_ret[i]);
     }

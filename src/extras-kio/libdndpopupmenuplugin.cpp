@@ -42,7 +42,7 @@ libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_Setup(KIO__DndPopupMenuPlug
     if (vkio__dndpopupmenuplugin && vkio__dndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
         QList<QAction*> _ret = vkio__dndpopupmenuplugin->setup(*popupMenuInfo, *destination);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -53,7 +53,7 @@ libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_Setup(KIO__DndPopupMenuPlug
     } else {
         QList<QAction*> _ret = ((VirtualKIODndPopupMenuPlugin*)self)->setup(*popupMenuInfo, *destination);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -90,7 +90,7 @@ libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_QBaseSetup(KIO__DndPopupMen
         vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Setup_IsBase(true);
         QList<QAction*> _ret = vkiodndpopupmenuplugin->setup(*popupMenuInfo, *destination);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -101,7 +101,7 @@ libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_QBaseSetup(KIO__DndPopupMen
     } else {
         QList<QAction*> _ret = ((VirtualKIODndPopupMenuPlugin*)self)->setup(*popupMenuInfo, *destination);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

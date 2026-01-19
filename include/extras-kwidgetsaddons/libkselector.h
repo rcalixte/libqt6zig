@@ -54,6 +54,18 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
+struct pair_double_qcolor;
+
+typedef struct pair_double_qcolor pair_double_qcolor;
+
+#ifndef PAIR_DOUBLE_QCOLOR
+#define PAIR_DOUBLE_QCOLOR
+struct pair_double_qcolor {
+    double first;
+    QColor* second;
+};
+#endif
+
 KSelector* KSelector_new(QWidget* parent);
 KSelector* KSelector_new2();
 KSelector* KSelector_new3(int o);
@@ -263,8 +275,8 @@ KGradientSelector* KGradientSelector_new4(int o, QWidget* parent);
 QMetaObject* KGradientSelector_MetaObject(const KGradientSelector* self);
 void* KGradientSelector_Metacast(KGradientSelector* self, const char* param1);
 int KGradientSelector_Metacall(KGradientSelector* self, int param1, int param2, void** param3);
-void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of libqt_pair tuple of double and QColor* */ stops);
-libqt_list /* of libqt_pair tuple of double and QColor* */ KGradientSelector_Stops(const KGradientSelector* self);
+void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of pair_double_qcolor tuple of double and QColor* */ stops);
+libqt_list /* of pair_double_qcolor tuple of double and QColor* */ KGradientSelector_Stops(const KGradientSelector* self);
 void KGradientSelector_SetColors(KGradientSelector* self, const QColor* col1, const QColor* col2);
 void KGradientSelector_SetText(KGradientSelector* self, const libqt_string t1, const libqt_string t2);
 void KGradientSelector_SetFirstColor(KGradientSelector* self, const QColor* col);

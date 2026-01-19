@@ -309,7 +309,7 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         } else if (qplacesearchreply_setresults_callback != nullptr) {
             const QList<QPlaceSearchResult>& results_ret = results;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QPlaceSearchResult** results_arr = static_cast<QPlaceSearchResult**>(malloc(sizeof(QPlaceSearchResult*) * (results_ret.size() + 1)));
+            QPlaceSearchResult** results_arr = static_cast<QPlaceSearchResult**>(malloc(sizeof(QPlaceSearchResult*) * (results_ret.size())));
             for (qsizetype i = 0; i < results_ret.size(); ++i) {
                 results_arr[i] = new QPlaceSearchResult(results_ret[i]);
             }

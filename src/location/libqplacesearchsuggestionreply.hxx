@@ -291,7 +291,7 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
         } else if (qplacesearchsuggestionreply_setsuggestions_callback != nullptr) {
             const QList<QString>& suggestions_ret = suggestions;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* suggestions_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (suggestions_ret.size() + 1)));
+            libqt_string* suggestions_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (suggestions_ret.size())));
             for (qsizetype i = 0; i < suggestions_ret.size(); ++i) {
                 QString suggestions_lv_ret = suggestions_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

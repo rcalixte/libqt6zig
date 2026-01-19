@@ -50,11 +50,8 @@ pub const qopenglversionprofile = struct {
     /// ` self: QtC.QOpenGLVersionProfile `
     ///
     pub fn Version(self: ?*anyopaque) struct_i32_i32 {
-        const _pair: qtc.libqt_pair = qtc.QOpenGLVersionProfile_Version(@ptrCast(self));
-        return struct_i32_i32{
-            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QOpenGLVersionProfile_Version(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#setVersion)

@@ -89,7 +89,7 @@ libqt_list /* of libqt_string */ QSqlDriver_Tables(const QSqlDriver* self, int t
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         QList<QString> _ret = self->tables(static_cast<QSql::TableType>(tableType));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -108,7 +108,7 @@ libqt_list /* of libqt_string */ QSqlDriver_Tables(const QSqlDriver* self, int t
     } else {
         QList<QString> _ret = ((VirtualQSqlDriver*)self)->tables(static_cast<QSql::TableType>(tableType));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -303,7 +303,7 @@ libqt_list /* of libqt_string */ QSqlDriver_SubscribedToNotifications(const QSql
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         QList<QString> _ret = self->subscribedToNotifications();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -322,7 +322,7 @@ libqt_list /* of libqt_string */ QSqlDriver_SubscribedToNotifications(const QSql
     } else {
         QList<QString> _ret = ((VirtualQSqlDriver*)self)->subscribedToNotifications();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -554,7 +554,7 @@ libqt_list /* of libqt_string */ QSqlDriver_QBaseTables(const QSqlDriver* self, 
         vqsqldriver->setQSqlDriver_Tables_IsBase(true);
         QList<QString> _ret = vqsqldriver->tables(static_cast<QSql::TableType>(tableType));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -573,7 +573,7 @@ libqt_list /* of libqt_string */ QSqlDriver_QBaseTables(const QSqlDriver* self, 
     } else {
         QList<QString> _ret = self->QSqlDriver::tables(static_cast<QSql::TableType>(tableType));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -894,7 +894,7 @@ libqt_list /* of libqt_string */ QSqlDriver_QBaseSubscribedToNotifications(const
         vqsqldriver->setQSqlDriver_SubscribedToNotifications_IsBase(true);
         QList<QString> _ret = vqsqldriver->subscribedToNotifications();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -913,7 +913,7 @@ libqt_list /* of libqt_string */ QSqlDriver_QBaseSubscribedToNotifications(const
     } else {
         QList<QString> _ret = self->QSqlDriver::subscribedToNotifications();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -124,7 +124,7 @@ void Attica__BuildService_AddTarget(Attica__BuildService* self, const Attica__Ta
 libqt_list /* of Attica__Target* */ Attica__BuildService_Targets(const Attica__BuildService* self) {
     QList<Attica::Target> _ret = self->targets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Attica__Target** _arr = static_cast<Attica__Target**>(malloc(sizeof(Attica__Target*) * (_ret.size() + 1)));
+    Attica__Target** _arr = static_cast<Attica__Target**>(malloc(sizeof(Attica__Target*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Attica::Target(_ret[i]);
     }

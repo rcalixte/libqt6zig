@@ -19,7 +19,7 @@ libqt_list /* of QWidget* */ QDesignerLayoutDecorationExtension_Widgets(const QD
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         QList<QWidget*> _ret = vqdesignerlayoutdecorationextension->widgets(layout);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -30,7 +30,7 @@ libqt_list /* of QWidget* */ QDesignerLayoutDecorationExtension_Widgets(const QD
     } else {
         QList<QWidget*> _ret = ((VirtualQDesignerLayoutDecorationExtension*)self)->widgets(layout);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -86,39 +86,29 @@ int QDesignerLayoutDecorationExtension_CurrentIndex(const QDesignerLayoutDecorat
     }
 }
 
-libqt_pair /* tuple of int and int */ QDesignerLayoutDecorationExtension_CurrentCell(const QDesignerLayoutDecorationExtension* self) {
+pair_int_int /* tuple of int and int */ QDesignerLayoutDecorationExtension_CurrentCell(const QDesignerLayoutDecorationExtension* self) {
     auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         QPair<int, int> _ret = vqdesignerlayoutdecorationextension->currentCell();
         // Convert QPair<> from C++ memory to manually-managed C memory
-        int* _first = static_cast<int*>(malloc(sizeof(int)));
-        int* _second = static_cast<int*>(malloc(sizeof(int)));
-        *_first = _ret.first;
-        *_second = _ret.second;
-        libqt_pair _out;
-        _out.first = static_cast<void*>(_first);
-        _out.second = static_cast<void*>(_second);
+        pair_int_int /* tuple of int and int */ _out;
+        _out.first = _ret.first;
+        _out.second = _ret.second;
         return _out;
     } else {
         QPair<int, int> _ret = ((VirtualQDesignerLayoutDecorationExtension*)self)->currentCell();
         // Convert QPair<> from C++ memory to manually-managed C memory
-        int* _first = static_cast<int*>(malloc(sizeof(int)));
-        int* _second = static_cast<int*>(malloc(sizeof(int)));
-        *_first = _ret.first;
-        *_second = _ret.second;
-        libqt_pair _out;
-        _out.first = static_cast<void*>(_first);
-        _out.second = static_cast<void*>(_second);
+        pair_int_int /* tuple of int and int */ _out;
+        _out.first = _ret.first;
+        _out.second = _ret.second;
         return _out;
     }
 }
 
-void QDesignerLayoutDecorationExtension_InsertWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget, const libqt_pair /* tuple of int and int */ cell) {
+void QDesignerLayoutDecorationExtension_InsertWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget, const pair_int_int /* tuple of int and int */ cell) {
     QPair<int, int> cell_QPair;
-    int* cell_first = static_cast<int*>(cell.first);
-    int* cell_second = static_cast<int*>(cell.second);
-    cell_QPair.first = static_cast<int>(cell_first[0]);
-    cell_QPair.second = static_cast<int>(cell_second[0]);
+    cell_QPair.first = cell.first;
+    cell_QPair.second = cell.second;
     auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->insertWidget(widget, cell_QPair);
@@ -197,7 +187,7 @@ libqt_list /* of QWidget* */ QDesignerLayoutDecorationExtension_QBaseWidgets(con
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_Widgets_IsBase(true);
         QList<QWidget*> _ret = vqdesignerlayoutdecorationextension->widgets(layout);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -208,7 +198,7 @@ libqt_list /* of QWidget* */ QDesignerLayoutDecorationExtension_QBaseWidgets(con
     } else {
         QList<QWidget*> _ret = ((VirtualQDesignerLayoutDecorationExtension*)self)->widgets(layout);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -323,30 +313,22 @@ void QDesignerLayoutDecorationExtension_OnCurrentIndex(const QDesignerLayoutDeco
 }
 
 // Base class handler implementation
-libqt_pair /* tuple of int and int */ QDesignerLayoutDecorationExtension_QBaseCurrentCell(const QDesignerLayoutDecorationExtension* self) {
+pair_int_int /* tuple of int and int */ QDesignerLayoutDecorationExtension_QBaseCurrentCell(const QDesignerLayoutDecorationExtension* self) {
     auto* vqdesignerlayoutdecorationextension = const_cast<VirtualQDesignerLayoutDecorationExtension*>(dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self));
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_CurrentCell_IsBase(true);
         QPair<int, int> _ret = vqdesignerlayoutdecorationextension->currentCell();
         // Convert QPair<> from C++ memory to manually-managed C memory
-        int* _first = static_cast<int*>(malloc(sizeof(int)));
-        int* _second = static_cast<int*>(malloc(sizeof(int)));
-        *_first = _ret.first;
-        *_second = _ret.second;
-        libqt_pair _out;
-        _out.first = static_cast<void*>(_first);
-        _out.second = static_cast<void*>(_second);
+        pair_int_int /* tuple of int and int */ _out;
+        _out.first = _ret.first;
+        _out.second = _ret.second;
         return _out;
     } else {
         QPair<int, int> _ret = ((VirtualQDesignerLayoutDecorationExtension*)self)->currentCell();
         // Convert QPair<> from C++ memory to manually-managed C memory
-        int* _first = static_cast<int*>(malloc(sizeof(int)));
-        int* _second = static_cast<int*>(malloc(sizeof(int)));
-        *_first = _ret.first;
-        *_second = _ret.second;
-        libqt_pair _out;
-        _out.first = static_cast<void*>(_first);
-        _out.second = static_cast<void*>(_second);
+        pair_int_int /* tuple of int and int */ _out;
+        _out.first = _ret.first;
+        _out.second = _ret.second;
         return _out;
     }
 }
@@ -360,13 +342,11 @@ void QDesignerLayoutDecorationExtension_OnCurrentCell(const QDesignerLayoutDecor
 }
 
 // Base class handler implementation
-void QDesignerLayoutDecorationExtension_QBaseInsertWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget, const libqt_pair /* tuple of int and int */ cell) {
+void QDesignerLayoutDecorationExtension_QBaseInsertWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget, const pair_int_int /* tuple of int and int */ cell) {
     auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
     QPair<int, int> cell_QPair;
-    int* cell_first = static_cast<int*>(cell.first);
-    int* cell_second = static_cast<int*>(cell.second);
-    cell_QPair.first = static_cast<int>(cell_first[0]);
-    cell_QPair.second = static_cast<int>(cell_second[0]);
+    cell_QPair.first = cell.first;
+    cell_QPair.second = cell.second;
     if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
         vqdesignerlayoutdecorationextension->setQDesignerLayoutDecorationExtension_InsertWidget_IsBase(true);
         vqdesignerlayoutdecorationextension->insertWidget(widget, cell_QPair);

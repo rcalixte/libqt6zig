@@ -49,7 +49,7 @@ void QGeoPolygon_SetPerimeter(QGeoPolygon* self, const libqt_list /* of QGeoCoor
 libqt_list /* of QGeoCoordinate* */ QGeoPolygon_Perimeter(const QGeoPolygon* self) {
     const QList<QGeoCoordinate>& _ret = self->perimeter();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size() + 1)));
+    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoCoordinate(_ret[i]);
     }
@@ -76,7 +76,7 @@ void QGeoPolygon_AddHole2(QGeoPolygon* self, const libqt_list /* of QGeoCoordina
 libqt_list /* of QVariant* */ QGeoPolygon_Hole(const QGeoPolygon* self, ptrdiff_t index) {
     const QList<QVariant> _ret = self->hole((qsizetype)(index));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
+    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QVariant(_ret[i]);
     }
@@ -89,7 +89,7 @@ libqt_list /* of QVariant* */ QGeoPolygon_Hole(const QGeoPolygon* self, ptrdiff_
 libqt_list /* of QGeoCoordinate* */ QGeoPolygon_HolePath(const QGeoPolygon* self, ptrdiff_t index) {
     const QList<QGeoCoordinate> _ret = self->holePath((qsizetype)(index));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size() + 1)));
+    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoCoordinate(_ret[i]);
     }

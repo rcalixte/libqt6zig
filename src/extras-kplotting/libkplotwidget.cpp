@@ -133,7 +133,7 @@ void KPlotWidget_AddPlotObjects(KPlotWidget* self, const libqt_list /* of KPlotO
 libqt_list /* of KPlotObject* */ KPlotWidget_PlotObjects(const KPlotWidget* self) {
     QList<KPlotObject*> _ret = self->plotObjects();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KPlotObject** _arr = static_cast<KPlotObject**>(malloc(sizeof(KPlotObject*) * (_ret.size() + 1)));
+    KPlotObject** _arr = static_cast<KPlotObject**>(malloc(sizeof(KPlotObject*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -1725,7 +1725,7 @@ libqt_list /* of KPlotPoint* */ KPlotWidget_PointsUnderPoint(const KPlotWidget* 
     if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
         QList<KPlotPoint*> _ret = vkplotwidget->pointsUnderPoint(*p);
         // Convert QList<> from C++ memory to manually-managed C memory
-        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size() + 1)));
+        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -1736,7 +1736,7 @@ libqt_list /* of KPlotPoint* */ KPlotWidget_PointsUnderPoint(const KPlotWidget* 
     } else {
         QList<KPlotPoint*> _ret = ((VirtualKPlotWidget*)self)->pointsUnderPoint(*p);
         // Convert QList<> from C++ memory to manually-managed C memory
-        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size() + 1)));
+        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -1754,7 +1754,7 @@ libqt_list /* of KPlotPoint* */ KPlotWidget_QBasePointsUnderPoint(const KPlotWid
         vkplotwidget->setKPlotWidget_PointsUnderPoint_IsBase(true);
         QList<KPlotPoint*> _ret = vkplotwidget->pointsUnderPoint(*p);
         // Convert QList<> from C++ memory to manually-managed C memory
-        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size() + 1)));
+        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -1765,7 +1765,7 @@ libqt_list /* of KPlotPoint* */ KPlotWidget_QBasePointsUnderPoint(const KPlotWid
     } else {
         QList<KPlotPoint*> _ret = ((VirtualKPlotWidget*)self)->pointsUnderPoint(*p);
         // Convert QList<> from C++ memory to manually-managed C memory
-        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size() + 1)));
+        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

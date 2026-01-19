@@ -49,7 +49,7 @@ int QPlaceContent_Type(const QPlaceContent* self) {
 libqt_list /* of int */ QPlaceContent_DataTags(const QPlaceContent* self) {
     QList<QPlaceContent::DataTag> _ret = self->dataTags();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }

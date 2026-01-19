@@ -57,7 +57,7 @@ libqt_string KFileFilter_Label(const KFileFilter* self) {
 libqt_list /* of libqt_string */ KFileFilter_FilePatterns(const KFileFilter* self) {
     QList<QString> _ret = self->filePatterns();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -78,7 +78,7 @@ libqt_list /* of libqt_string */ KFileFilter_FilePatterns(const KFileFilter* sel
 libqt_list /* of libqt_string */ KFileFilter_MimePatterns(const KFileFilter* self) {
     QList<QString> _ret = self->mimePatterns();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -131,7 +131,7 @@ libqt_list /* of KFileFilter* */ KFileFilter_FromMimeTypes(const libqt_list /* o
     }
     QList<KFileFilter> _ret = KFileFilter::fromMimeTypes(mimeTypes_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KFileFilter** _arr = static_cast<KFileFilter**>(malloc(sizeof(KFileFilter*) * (_ret.size() + 1)));
+    KFileFilter** _arr = static_cast<KFileFilter**>(malloc(sizeof(KFileFilter*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KFileFilter(_ret[i]);
     }

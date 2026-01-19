@@ -13,7 +13,7 @@
 libqt_list /* of QDesignerPromotionInterface__PromotedClass* */ QDesignerPromotionInterface_PromotedClasses(const QDesignerPromotionInterface* self) {
     QList<QDesignerPromotionInterface::PromotedClass> _ret = self->promotedClasses();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDesignerPromotionInterface__PromotedClass** _arr = static_cast<QDesignerPromotionInterface__PromotedClass**>(malloc(sizeof(QDesignerPromotionInterface__PromotedClass*) * (_ret.size() + 1)));
+    QDesignerPromotionInterface__PromotedClass** _arr = static_cast<QDesignerPromotionInterface__PromotedClass**>(malloc(sizeof(QDesignerPromotionInterface__PromotedClass*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDesignerPromotionInterface::PromotedClass(_ret[i]);
     }
@@ -49,7 +49,7 @@ libqt_list /* set of libqt_string */ QDesignerPromotionInterface_ReferencedPromo
 libqt_list /* of QDesignerWidgetDataBaseItemInterface* */ QDesignerPromotionInterface_PromotionBaseClasses(const QDesignerPromotionInterface* self) {
     QList<QDesignerWidgetDataBaseItemInterface*> _ret = self->promotionBaseClasses();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDesignerWidgetDataBaseItemInterface** _arr = static_cast<QDesignerWidgetDataBaseItemInterface**>(malloc(sizeof(QDesignerWidgetDataBaseItemInterface*) * (_ret.size() + 1)));
+    QDesignerWidgetDataBaseItemInterface** _arr = static_cast<QDesignerWidgetDataBaseItemInterface**>(malloc(sizeof(QDesignerWidgetDataBaseItemInterface*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

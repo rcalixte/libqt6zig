@@ -12,7 +12,7 @@
 libqt_list /* of libqt_string */ KProtocolInfo_Protocols() {
     QList<QString> _ret = KProtocolInfo::protocols();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -55,7 +55,7 @@ libqt_string KProtocolInfo_Exec(const libqt_string protocol) {
 libqt_list /* of KProtocolInfo__ExtraField* */ KProtocolInfo_ExtraFields(const QUrl* url) {
     QList<KProtocolInfo::ExtraField> _ret = KProtocolInfo::extraFields(*url);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KProtocolInfo__ExtraField** _arr = static_cast<KProtocolInfo__ExtraField**>(malloc(sizeof(KProtocolInfo__ExtraField*) * (_ret.size() + 1)));
+    KProtocolInfo__ExtraField** _arr = static_cast<KProtocolInfo__ExtraField**>(malloc(sizeof(KProtocolInfo__ExtraField*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KProtocolInfo::ExtraField(_ret[i]);
     }
@@ -172,7 +172,7 @@ libqt_list /* of libqt_string */ KProtocolInfo_Capabilities(const libqt_string p
     QString protocol_QString = QString::fromUtf8(protocol.data, protocol.len);
     QList<QString> _ret = KProtocolInfo::capabilities(protocol_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -194,7 +194,7 @@ libqt_list /* of libqt_string */ KProtocolInfo_ArchiveMimetypes(const libqt_stri
     QString protocol_QString = QString::fromUtf8(protocol.data, protocol.len);
     QList<QString> _ret = KProtocolInfo::archiveMimetypes(protocol_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

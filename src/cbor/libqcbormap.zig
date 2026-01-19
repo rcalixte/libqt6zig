@@ -668,11 +668,7 @@ pub const qcbormap = struct {
     /// ` v: struct_qtcqcborvalue_qtcqcborvalue `
     ///
     pub fn Insert5(self: ?*anyopaque, v: struct_qtcqcborvalue_qtcqcborvalue) QtC.QCborMap__Iterator {
-        const v_pair = qtc.libqt_pair{
-            .first = @ptrCast(v.first),
-            .second = @ptrCast(v.second),
-        };
-        return qtc.QCborMap_Insert5(@ptrCast(self), v_pair);
+        return qtc.QCborMap_Insert5(@ptrCast(self), @bitCast(v));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#fromVariantMap)
@@ -881,11 +877,8 @@ pub const qcbormap__iterator = struct {
     /// ` self: QtC.QCborMap__Iterator `
     ///
     pub fn OperatorMultiply(self: ?*anyopaque) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair: qtc.libqt_pair = qtc.QCborMap__Iterator_OperatorMultiply(@ptrCast(self));
-        return struct_qtcqcborvalue_qtcqcborvalue{
-            .first = @ptrCast(_pair.first),
-            .second = @ptrCast(_pair.second),
-        };
+        const _pair = qtc.QCborMap__Iterator_OperatorMultiply(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-5b-5d)
@@ -897,11 +890,8 @@ pub const qcbormap__iterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, j: i64) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair: qtc.libqt_pair = qtc.QCborMap__Iterator_OperatorSubscript(@ptrCast(self), @intCast(j));
-        return struct_qtcqcborvalue_qtcqcborvalue{
-            .first = @ptrCast(_pair.first),
-            .second = @ptrCast(_pair.second),
-        };
+        const _pair = qtc.QCborMap__Iterator_OperatorSubscript(@ptrCast(self), @intCast(j));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator--gt)
@@ -1106,11 +1096,8 @@ pub const qcbormap__constiterator = struct {
     /// ` self: QtC.QCborMap__ConstIterator `
     ///
     pub fn OperatorMultiply(self: ?*anyopaque) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair: qtc.libqt_pair = qtc.QCborMap__ConstIterator_OperatorMultiply(@ptrCast(self));
-        return struct_qtcqcborvalue_qtcqcborvalue{
-            .first = @ptrCast(_pair.first),
-            .second = @ptrCast(_pair.second),
-        };
+        const _pair = qtc.QCborMap__ConstIterator_OperatorMultiply(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-5b-5d)
@@ -1122,11 +1109,8 @@ pub const qcbormap__constiterator = struct {
     /// ` j: i64 `
     ///
     pub fn OperatorSubscript(self: ?*anyopaque, j: i64) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair: qtc.libqt_pair = qtc.QCborMap__ConstIterator_OperatorSubscript(@ptrCast(self), @intCast(j));
-        return struct_qtcqcborvalue_qtcqcborvalue{
-            .first = @ptrCast(_pair.first),
-            .second = @ptrCast(_pair.second),
-        };
+        const _pair = qtc.QCborMap__ConstIterator_OperatorSubscript(@ptrCast(self), @intCast(j));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator--gt)

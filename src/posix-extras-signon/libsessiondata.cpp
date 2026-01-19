@@ -41,7 +41,7 @@ SignOn__SessionData* SignOn__SessionData_OperatorPlusAssign(SignOn__SessionData*
 libqt_list /* of libqt_string */ SignOn__SessionData_PropertyNames(const SignOn__SessionData* self) {
     const QList<QString> _ret = self->propertyNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -67,7 +67,7 @@ QVariant* SignOn__SessionData_GetProperty(const SignOn__SessionData* self, const
 libqt_list /* of libqt_string */ SignOn__SessionData_GetAccessControlTokens(const SignOn__SessionData* self) {
     QList<QString> _ret = self->getAccessControlTokens();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -135,7 +135,7 @@ libqt_string KDesktopFile_ReadUrl(const KDesktopFile* self) {
 libqt_list /* of libqt_string */ KDesktopFile_ReadActions(const KDesktopFile* self) {
     QList<QString> _ret = self->readActions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -156,7 +156,7 @@ libqt_list /* of libqt_string */ KDesktopFile_ReadActions(const KDesktopFile* se
 libqt_list /* of libqt_string */ KDesktopFile_ReadMimeTypes(const KDesktopFile* self) {
     QList<QString> _ret = self->readMimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -241,7 +241,7 @@ libqt_string KDesktopFile_FileName(const KDesktopFile* self) {
 libqt_list /* of KDesktopFileAction* */ KDesktopFile_Actions(const KDesktopFile* self) {
     QList<KDesktopFileAction> _ret = self->actions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KDesktopFileAction** _arr = static_cast<KDesktopFileAction**>(malloc(sizeof(KDesktopFileAction*) * (_ret.size() + 1)));
+    KDesktopFileAction** _arr = static_cast<KDesktopFileAction**>(malloc(sizeof(KDesktopFileAction*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KDesktopFileAction(_ret[i]);
     }
@@ -373,7 +373,7 @@ libqt_list /* of libqt_string */ KDesktopFile_GroupList(const KDesktopFile* self
     if (vkdesktopfile && vkdesktopfile->isVirtualKDesktopFile) {
         QList<QString> _ret = vkdesktopfile->groupList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -392,7 +392,7 @@ libqt_list /* of libqt_string */ KDesktopFile_GroupList(const KDesktopFile* self
     } else {
         QList<QString> _ret = self->KDesktopFile::groupList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -418,7 +418,7 @@ libqt_list /* of libqt_string */ KDesktopFile_QBaseGroupList(const KDesktopFile*
         vkdesktopfile->setKDesktopFile_GroupList_IsBase(true);
         QList<QString> _ret = vkdesktopfile->groupList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -437,7 +437,7 @@ libqt_list /* of libqt_string */ KDesktopFile_QBaseGroupList(const KDesktopFile*
     } else {
         QList<QString> _ret = self->KDesktopFile::groupList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

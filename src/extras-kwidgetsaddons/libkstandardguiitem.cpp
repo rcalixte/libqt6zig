@@ -125,16 +125,12 @@ KGuiItem* KStandardGuiItem_Configure() {
     return new KGuiItem(KStandardGuiItem::configure());
 }
 
-libqt_pair /* tuple of KGuiItem* and KGuiItem* */ KStandardGuiItem_BackAndForward() {
+pair_kguiitem_kguiitem /* tuple of KGuiItem* and KGuiItem* */ KStandardGuiItem_BackAndForward() {
     QPair<KGuiItem, KGuiItem> _ret = KStandardGuiItem::backAndForward();
     // Convert QPair<> from C++ memory to manually-managed C memory
-    KGuiItem** _first = static_cast<KGuiItem**>(malloc(sizeof(KGuiItem*)));
-    KGuiItem** _second = static_cast<KGuiItem**>(malloc(sizeof(KGuiItem*)));
-    *_first = new KGuiItem(_ret.first);
-    *_second = new KGuiItem(_ret.second);
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_kguiitem_kguiitem /* tuple of KGuiItem* and KGuiItem* */ _out;
+    _out.first = new KGuiItem(_ret.first);
+    _out.second = new KGuiItem(_ret.second);
     return _out;
 }
 

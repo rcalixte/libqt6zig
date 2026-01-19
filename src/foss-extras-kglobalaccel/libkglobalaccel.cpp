@@ -47,7 +47,7 @@ bool KGlobalAccel_IsComponentActive(const libqt_string componentName) {
 libqt_list /* of KGlobalShortcutInfo* */ KGlobalAccel_GlobalShortcutsByKey(const QKeySequence* seq) {
     QList<KGlobalShortcutInfo> _ret = KGlobalAccel::globalShortcutsByKey(*seq);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KGlobalShortcutInfo** _arr = static_cast<KGlobalShortcutInfo**>(malloc(sizeof(KGlobalShortcutInfo*) * (_ret.size() + 1)));
+    KGlobalShortcutInfo** _arr = static_cast<KGlobalShortcutInfo**>(malloc(sizeof(KGlobalShortcutInfo*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KGlobalShortcutInfo(_ret[i]);
     }
@@ -108,7 +108,7 @@ bool KGlobalAccel_SetGlobalShortcut2(QAction* action, const QKeySequence* shortc
 libqt_list /* of QKeySequence* */ KGlobalAccel_DefaultShortcut(const KGlobalAccel* self, const QAction* action) {
     QList<QKeySequence> _ret = self->defaultShortcut(action);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -121,7 +121,7 @@ libqt_list /* of QKeySequence* */ KGlobalAccel_DefaultShortcut(const KGlobalAcce
 libqt_list /* of QKeySequence* */ KGlobalAccel_Shortcut(const KGlobalAccel* self, const QAction* action) {
     QList<QKeySequence> _ret = self->shortcut(action);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -136,7 +136,7 @@ libqt_list /* of QKeySequence* */ KGlobalAccel_GlobalShortcut(const KGlobalAccel
     QString actionId_QString = QString::fromUtf8(actionId.data, actionId.len);
     QList<QKeySequence> _ret = self->globalShortcut(componentName_QString, actionId_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -185,7 +185,7 @@ void KGlobalAccel_Connect_GlobalShortcutActiveChanged(KGlobalAccel* self, intptr
 libqt_list /* of KGlobalShortcutInfo* */ KGlobalAccel_GlobalShortcutsByKey2(const QKeySequence* seq, int typeVal) {
     QList<KGlobalShortcutInfo> _ret = KGlobalAccel::globalShortcutsByKey(*seq, static_cast<KGlobalAccel::MatchType>(typeVal));
     // Convert QList<> from C++ memory to manually-managed C memory
-    KGlobalShortcutInfo** _arr = static_cast<KGlobalShortcutInfo**>(malloc(sizeof(KGlobalShortcutInfo*) * (_ret.size() + 1)));
+    KGlobalShortcutInfo** _arr = static_cast<KGlobalShortcutInfo**>(malloc(sizeof(KGlobalShortcutInfo*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KGlobalShortcutInfo(_ret[i]);
     }

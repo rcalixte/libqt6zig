@@ -11,7 +11,7 @@ libqt_list /* of libqt_string */ KRecentDirs_List(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QList<QString> _ret = KRecentDirs::list(param1_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

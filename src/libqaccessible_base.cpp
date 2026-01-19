@@ -74,16 +74,12 @@ void QAccessible_Cleanup() {
     QAccessible::cleanup();
 }
 
-libqt_pair /* tuple of int and int */ QAccessible_QAccessibleTextBoundaryHelper(const QTextCursor* cursor, int boundaryType) {
+pair_int_int /* tuple of int and int */ QAccessible_QAccessibleTextBoundaryHelper(const QTextCursor* cursor, int boundaryType) {
     QPair<int, int> _ret = QAccessible::qAccessibleTextBoundaryHelper(*cursor, static_cast<QAccessible::TextBoundaryType>(boundaryType));
     // Convert QPair<> from C++ memory to manually-managed C memory
-    int* _first = static_cast<int*>(malloc(sizeof(int)));
-    int* _second = static_cast<int*>(malloc(sizeof(int)));
-    *_first = _ret.first;
-    *_second = _ret.second;
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_int_int /* tuple of int and int */ _out;
+    _out.first = _ret.first;
+    _out.second = _ret.second;
     return _out;
 }
 

@@ -28,6 +28,18 @@ typedef struct QRect QRect;
 typedef struct QWindow QWindow;
 #endif
 
+struct pair_qaccessibleinterface_int;
+
+typedef struct pair_qaccessibleinterface_int pair_qaccessibleinterface_int;
+
+#ifndef PAIR_QACCESSIBLEINTERFACE_INT
+#define PAIR_QACCESSIBLEINTERFACE_INT
+struct pair_qaccessibleinterface_int {
+    QAccessibleInterface* first;
+    int second;
+};
+#endif
+
 QAccessibleObject* QAccessibleObject_new(QObject* object);
 bool QAccessibleObject_IsValid(const QAccessibleObject* self);
 QObject* QAccessibleObject_Object(const QAccessibleObject* self);
@@ -47,9 +59,9 @@ QAccessibleInterface* QAccessibleObject_QBaseChildAt(const QAccessibleObject* se
 QWindow* QAccessibleObject_Window(const QAccessibleObject* self);
 void QAccessibleObject_OnWindow(const QAccessibleObject* self, intptr_t slot);
 QWindow* QAccessibleObject_QBaseWindow(const QAccessibleObject* self);
-libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleObject_Relations(const QAccessibleObject* self, int match);
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleObject_Relations(const QAccessibleObject* self, int match);
 void QAccessibleObject_OnRelations(const QAccessibleObject* self, intptr_t slot);
-libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleObject_QBaseRelations(const QAccessibleObject* self, int match);
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleObject_QBaseRelations(const QAccessibleObject* self, int match);
 QAccessibleInterface* QAccessibleObject_FocusChild(const QAccessibleObject* self);
 void QAccessibleObject_OnFocusChild(const QAccessibleObject* self, intptr_t slot);
 QAccessibleInterface* QAccessibleObject_QBaseFocusChild(const QAccessibleObject* self);
@@ -130,9 +142,9 @@ void QAccessibleApplication_QBaseSetText(QAccessibleApplication* self, int t, co
 QAccessibleInterface* QAccessibleApplication_ChildAt(const QAccessibleApplication* self, int x, int y);
 void QAccessibleApplication_OnChildAt(const QAccessibleApplication* self, intptr_t slot);
 QAccessibleInterface* QAccessibleApplication_QBaseChildAt(const QAccessibleApplication* self, int x, int y);
-libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleApplication_Relations(const QAccessibleApplication* self, int match);
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleApplication_Relations(const QAccessibleApplication* self, int match);
 void QAccessibleApplication_OnRelations(const QAccessibleApplication* self, intptr_t slot);
-libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleApplication_QBaseRelations(const QAccessibleApplication* self, int match);
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleApplication_QBaseRelations(const QAccessibleApplication* self, int match);
 QColor* QAccessibleApplication_ForegroundColor(const QAccessibleApplication* self);
 void QAccessibleApplication_OnForegroundColor(const QAccessibleApplication* self, intptr_t slot);
 QColor* QAccessibleApplication_QBaseForegroundColor(const QAccessibleApplication* self);

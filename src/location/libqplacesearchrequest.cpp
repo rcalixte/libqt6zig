@@ -46,7 +46,7 @@ void QPlaceSearchRequest_SetSearchTerm(QPlaceSearchRequest* self, const libqt_st
 libqt_list /* of QPlaceCategory* */ QPlaceSearchRequest_Categories(const QPlaceSearchRequest* self) {
     QList<QPlaceCategory> _ret = self->categories();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size() + 1)));
+    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPlaceCategory(_ret[i]);
     }

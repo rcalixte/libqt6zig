@@ -270,7 +270,7 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
         if (knscore__provider_setcachedentries_callback != nullptr) {
             const QList<KNSCore::Entry>& cachedEntries_ret = cachedEntries;
             // Convert QList<> from C++ memory to manually-managed C memory
-            KNSCore__Entry** cachedEntries_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (cachedEntries_ret.size() + 1)));
+            KNSCore__Entry** cachedEntries_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (cachedEntries_ret.size())));
             for (qsizetype i = 0; i < cachedEntries_ret.size(); ++i) {
                 cachedEntries_arr[i] = new KNSCore::Entry(cachedEntries_ret[i]);
             }

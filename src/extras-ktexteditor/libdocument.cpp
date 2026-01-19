@@ -74,7 +74,7 @@ KTextEditor__View* KTextEditor__Document_CreateView(KTextEditor__Document* self,
 libqt_list /* of KTextEditor__View* */ KTextEditor__Document_Views(const KTextEditor__Document* self) {
     QList<KTextEditor::View*> _ret = self->views();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__View** _arr = static_cast<KTextEditor__View**>(malloc(sizeof(KTextEditor__View*) * (_ret.size() + 1)));
+    KTextEditor__View** _arr = static_cast<KTextEditor__View**>(malloc(sizeof(KTextEditor__View*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -328,7 +328,7 @@ bool KTextEditor__Document_IsValidTextPosition(const KTextEditor__Document* self
 libqt_list /* of libqt_string */ KTextEditor__Document_TextLines(const KTextEditor__Document* self, KTextEditor__Range* range, bool block) {
     QList<QString> _ret = self->textLines(*range, block);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -478,7 +478,7 @@ libqt_list /* of KTextEditor__Range* */ KTextEditor__Document_SearchText(const K
     QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
     QList<KTextEditor::Range> _ret = self->searchText(*range, pattern_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__Range** _arr = static_cast<KTextEditor__Range**>(malloc(sizeof(KTextEditor__Range*) * (_ret.size() + 1)));
+    KTextEditor__Range** _arr = static_cast<KTextEditor__Range**>(malloc(sizeof(KTextEditor__Range*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KTextEditor::Range(_ret[i]);
     }
@@ -633,7 +633,7 @@ libqt_string KTextEditor__Document_HighlightingMode(const KTextEditor__Document*
 libqt_list /* of libqt_string */ KTextEditor__Document_EmbeddedHighlightingModes(const KTextEditor__Document* self) {
     QList<QString> _ret = self->embeddedHighlightingModes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -666,7 +666,7 @@ libqt_string KTextEditor__Document_HighlightingModeAt(KTextEditor__Document* sel
 libqt_list /* of libqt_string */ KTextEditor__Document_Modes(const KTextEditor__Document* self) {
     QList<QString> _ret = self->modes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -687,7 +687,7 @@ libqt_list /* of libqt_string */ KTextEditor__Document_Modes(const KTextEditor__
 libqt_list /* of libqt_string */ KTextEditor__Document_HighlightingModes(const KTextEditor__Document* self) {
     QList<QString> _ret = self->highlightingModes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -884,7 +884,7 @@ void KTextEditor__Document_Connect_AboutToInvalidateMovingInterfaceContent(KText
 libqt_list /* of libqt_string */ KTextEditor__Document_ConfigKeys(const KTextEditor__Document* self) {
     QList<QString> _ret = self->configKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1095,7 +1095,7 @@ libqt_list /* of KTextEditor__Range* */ KTextEditor__Document_SearchText3(const 
     QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
     QList<KTextEditor::Range> _ret = self->searchText(*range, pattern_QString, static_cast<const KTextEditor::SearchOptions>(options));
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__Range** _arr = static_cast<KTextEditor__Range**>(malloc(sizeof(KTextEditor__Range*) * (_ret.size() + 1)));
+    KTextEditor__Range** _arr = static_cast<KTextEditor__Range**>(malloc(sizeof(KTextEditor__Range*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KTextEditor::Range(_ret[i]);
     }

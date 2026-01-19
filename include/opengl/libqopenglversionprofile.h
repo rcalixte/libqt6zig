@@ -19,11 +19,23 @@ typedef struct QOpenGLVersionProfile QOpenGLVersionProfile;
 typedef struct QSurfaceFormat QSurfaceFormat;
 #endif
 
+struct pair_int_int;
+
+typedef struct pair_int_int pair_int_int;
+
+#ifndef PAIR_INT_INT
+#define PAIR_INT_INT
+struct pair_int_int {
+    int first;
+    int second;
+};
+#endif
+
 QOpenGLVersionProfile* QOpenGLVersionProfile_new();
 QOpenGLVersionProfile* QOpenGLVersionProfile_new2(const QSurfaceFormat* format);
 QOpenGLVersionProfile* QOpenGLVersionProfile_new3(const QOpenGLVersionProfile* other);
 void QOpenGLVersionProfile_OperatorAssign(QOpenGLVersionProfile* self, const QOpenGLVersionProfile* rhs);
-libqt_pair /* tuple of int and int */ QOpenGLVersionProfile_Version(const QOpenGLVersionProfile* self);
+pair_int_int /* tuple of int and int */ QOpenGLVersionProfile_Version(const QOpenGLVersionProfile* self);
 void QOpenGLVersionProfile_SetVersion(QOpenGLVersionProfile* self, int majorVersion, int minorVersion);
 int QOpenGLVersionProfile_Profile(const QOpenGLVersionProfile* self);
 void QOpenGLVersionProfile_SetProfile(QOpenGLVersionProfile* self, int profile);

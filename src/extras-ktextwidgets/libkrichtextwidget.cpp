@@ -88,7 +88,7 @@ libqt_list /* of QAction* */ KRichTextWidget_CreateActions(KRichTextWidget* self
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         QList<QAction*> _ret = self->createActions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -99,7 +99,7 @@ libqt_list /* of QAction* */ KRichTextWidget_CreateActions(KRichTextWidget* self
     } else {
         QList<QAction*> _ret = ((VirtualKRichTextWidget*)self)->createActions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -159,7 +159,7 @@ libqt_list /* of QAction* */ KRichTextWidget_QBaseCreateActions(KRichTextWidget*
         vkrichtextwidget->setKRichTextWidget_CreateActions_IsBase(true);
         QList<QAction*> _ret = vkrichtextwidget->createActions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -170,7 +170,7 @@ libqt_list /* of QAction* */ KRichTextWidget_QBaseCreateActions(KRichTextWidget*
     } else {
         QList<QAction*> _ret = self->KRichTextWidget::createActions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

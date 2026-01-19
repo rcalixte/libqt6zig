@@ -32,7 +32,7 @@ libqt_list /* of KNSCore__Entry* */ KNSCore__Cache_RegistryForProvider(KNSCore__
     QString providerId_QString = QString::fromUtf8(providerId.data, providerId.len);
     QList<KNSCore::Entry> _ret = self->registryForProvider(providerId_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KNSCore__Entry** _arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (_ret.size() + 1)));
+    KNSCore__Entry** _arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KNSCore::Entry(_ret[i]);
     }
@@ -45,7 +45,7 @@ libqt_list /* of KNSCore__Entry* */ KNSCore__Cache_RegistryForProvider(KNSCore__
 libqt_list /* of KNSCore__Entry* */ KNSCore__Cache_Registry(const KNSCore__Cache* self) {
     QList<KNSCore::Entry> _ret = self->registry();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KNSCore__Entry** _arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (_ret.size() + 1)));
+    KNSCore__Entry** _arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KNSCore::Entry(_ret[i]);
     }
@@ -72,7 +72,7 @@ void KNSCore__Cache_InsertRequest(KNSCore__Cache* self, const KNSCore__Provider_
 libqt_list /* of KNSCore__Entry* */ KNSCore__Cache_RequestFromCache(KNSCore__Cache* self, const KNSCore__Provider__SearchRequest* param1) {
     QList<KNSCore::Entry> _ret = self->requestFromCache(*param1);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KNSCore__Entry** _arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (_ret.size() + 1)));
+    KNSCore__Entry** _arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KNSCore::Entry(_ret[i]);
     }

@@ -193,20 +193,27 @@ pub const qurlquery = struct {
     ///
     pub fn QueryItems(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_constu8_constu8 {
         const _arr: qtc.libqt_list = qtc.QUrlQuery_QueryItems(@ptrCast(self));
+        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
-            var _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
-                qtc.libqt_string_free(@ptrCast(&_pair[i].first));
-                qtc.libqt_free(_pair[i].first);
-
-                qtc.libqt_string_free(@ptrCast(&_pair[i].second));
-                qtc.libqt_free(_pair[i].second);
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].first)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_constu8_constu8, _arr.len) catch @panic("qurlquery.QueryItems: Memory allocation failed");
-        const _data: [*]struct_constu8_constu8 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |i| {
+            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("qurlquery.QueryItems: Memory allocation failed");
+            @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
+            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("qurlquery.QueryItems: Memory allocation failed");
+            @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
+            _ret[i] = struct_constu8_constu8{
+                .first = _first_slice,
+                .second = _second_slice,
+            };
+        }
         return _ret;
     }
 
@@ -383,20 +390,27 @@ pub const qurlquery = struct {
     ///
     pub fn QueryItems1(self: ?*anyopaque, encoding: u32, allocator: std.mem.Allocator) []struct_constu8_constu8 {
         const _arr: qtc.libqt_list = qtc.QUrlQuery_QueryItems1(@ptrCast(self), @intCast(encoding));
+        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
-            var _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
-                qtc.libqt_string_free(@ptrCast(&_pair[i].first));
-                qtc.libqt_free(_pair[i].first);
-
-                qtc.libqt_string_free(@ptrCast(&_pair[i].second));
-                qtc.libqt_free(_pair[i].second);
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].first)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_constu8_constu8, _arr.len) catch @panic("qurlquery.QueryItems1: Memory allocation failed");
-        const _data: [*]struct_constu8_constu8 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |i| {
+            const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("qurlquery.QueryItems1: Memory allocation failed");
+            @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
+            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("qurlquery.QueryItems1: Memory allocation failed");
+            @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
+            _ret[i] = struct_constu8_constu8{
+                .first = _first_slice,
+                .second = _second_slice,
+            };
+        }
         return _ret;
     }
 

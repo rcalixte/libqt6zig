@@ -2047,7 +2047,7 @@ Konsole__Filter__HotSpot* Konsole__FilterChain_HotSpotAt(const Konsole__FilterCh
 libqt_list /* of Konsole__Filter__HotSpot* */ Konsole__FilterChain_HotSpots(const Konsole__FilterChain* self) {
     QList<Konsole::Filter::HotSpot*> _ret = self->hotSpots();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Konsole__Filter__HotSpot** _arr = static_cast<Konsole__Filter__HotSpot**>(malloc(sizeof(Konsole__Filter__HotSpot*) * (_ret.size() + 1)));
+    Konsole__Filter__HotSpot** _arr = static_cast<Konsole__Filter__HotSpot**>(malloc(sizeof(Konsole__Filter__HotSpot*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -2120,7 +2120,7 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_Actions(Konsole__Filter__H
     if (vkonsole__filter__hotspot && vkonsole__filter__hotspot->isVirtualKonsoleFilterHotSpot) {
         QList<QAction*> _ret = self->actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2131,7 +2131,7 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_Actions(Konsole__Filter__H
     } else {
         QList<QAction*> _ret = ((VirtualKonsoleFilterHotSpot*)self)->actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2169,7 +2169,7 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_QBaseActions(Konsole__Filt
         vkonsolefilterhotspot->setKonsole__Filter__HotSpot_Actions_IsBase(true);
         QList<QAction*> _ret = vkonsolefilterhotspot->actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2180,7 +2180,7 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_QBaseActions(Konsole__Filt
     } else {
         QList<QAction*> _ret = self->Konsole::Filter::HotSpot::actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2264,7 +2264,7 @@ void Konsole__RegExpFilter__HotSpot_SetCapturedTexts(Konsole__RegExpFilter__HotS
 libqt_list /* of libqt_string */ Konsole__RegExpFilter__HotSpot_CapturedTexts(const Konsole__RegExpFilter__HotSpot* self) {
     QList<QString> _ret = self->capturedTexts();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -2308,7 +2308,7 @@ libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_Actions(Konsole__Reg
     if (vkonsoleregexpfilterhotspot && vkonsoleregexpfilterhotspot->isVirtualKonsoleRegExpFilterHotSpot) {
         QList<QAction*> _ret = vkonsoleregexpfilterhotspot->actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2319,7 +2319,7 @@ libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_Actions(Konsole__Reg
     } else {
         QList<QAction*> _ret = self->Konsole::RegExpFilter::HotSpot::actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2337,7 +2337,7 @@ libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_QBaseActions(Konsole
         vkonsoleregexpfilterhotspot->setKonsole__RegExpFilter__HotSpot_Actions_IsBase(true);
         QList<QAction*> _ret = vkonsoleregexpfilterhotspot->actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2348,7 +2348,7 @@ libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_QBaseActions(Konsole
     } else {
         QList<QAction*> _ret = self->Konsole::RegExpFilter::HotSpot::actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2413,7 +2413,7 @@ libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_Actions(Konsole__UrlFil
     if (vkonsole__urlfilter__hotspot && vkonsole__urlfilter__hotspot->isVirtualKonsoleUrlFilterHotSpot) {
         QList<QAction*> _ret = self->actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2424,7 +2424,7 @@ libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_Actions(Konsole__UrlFil
     } else {
         QList<QAction*> _ret = ((VirtualKonsoleUrlFilterHotSpot*)self)->actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2452,7 +2452,7 @@ libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_QBaseActions(Konsole__U
         vkonsoleurlfilterhotspot->setKonsole__UrlFilter__HotSpot_Actions_IsBase(true);
         QList<QAction*> _ret = vkonsoleurlfilterhotspot->actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -2463,7 +2463,7 @@ libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_QBaseActions(Konsole__U
     } else {
         QList<QAction*> _ret = self->Konsole::UrlFilter::HotSpot::actions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

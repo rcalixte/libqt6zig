@@ -731,7 +731,7 @@ void KStartupInfoData_AddPid(KStartupInfoData* self, pid_t pid) {
 libqt_list /* of pid_t */ KStartupInfoData_Pids(const KStartupInfoData* self) {
     QList<pid_t> _ret = self->pids();
     // Convert QList<> from C++ memory to manually-managed C memory
-    pid_t* _arr = static_cast<pid_t*>(malloc(sizeof(pid_t) * (_ret.size() + 1)));
+    pid_t* _arr = static_cast<pid_t*>(malloc(sizeof(pid_t) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

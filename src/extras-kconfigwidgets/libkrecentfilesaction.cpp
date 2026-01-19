@@ -99,7 +99,7 @@ void KRecentFilesAction_RemoveUrl(KRecentFilesAction* self, const QUrl* url) {
 libqt_list /* of QUrl* */ KRecentFilesAction_Urls(const KRecentFilesAction* self) {
     QList<QUrl> _ret = self->urls();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }
@@ -564,7 +564,7 @@ libqt_list /* of QWidget* */ KRecentFilesAction_CreatedWidgets(const KRecentFile
     if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
         QList<QWidget*> _ret = vkrecentfilesaction->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -575,7 +575,7 @@ libqt_list /* of QWidget* */ KRecentFilesAction_CreatedWidgets(const KRecentFile
     } else {
         QList<QWidget*> _ret = ((VirtualKRecentFilesAction*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -593,7 +593,7 @@ libqt_list /* of QWidget* */ KRecentFilesAction_QBaseCreatedWidgets(const KRecen
         vkrecentfilesaction->setKRecentFilesAction_CreatedWidgets_IsBase(true);
         QList<QWidget*> _ret = vkrecentfilesaction->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -604,7 +604,7 @@ libqt_list /* of QWidget* */ KRecentFilesAction_QBaseCreatedWidgets(const KRecen
     } else {
         QList<QWidget*> _ret = ((VirtualKRecentFilesAction*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

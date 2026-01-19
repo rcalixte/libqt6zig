@@ -599,7 +599,7 @@ libqt_list /* of libqt_string */ KTextEditor__CodeCompletionModel_MimeTypes(cons
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         QList<QString> _ret = vktexteditorcodecompletionmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -618,7 +618,7 @@ libqt_list /* of libqt_string */ KTextEditor__CodeCompletionModel_MimeTypes(cons
     } else {
         QList<QString> _ret = self->KTextEditor::CodeCompletionModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -644,7 +644,7 @@ libqt_list /* of libqt_string */ KTextEditor__CodeCompletionModel_QBaseMimeTypes
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MimeTypes_IsBase(true);
         QList<QString> _ret = vktexteditorcodecompletionmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -663,7 +663,7 @@ libqt_list /* of libqt_string */ KTextEditor__CodeCompletionModel_QBaseMimeTypes
     } else {
         QList<QString> _ret = self->KTextEditor::CodeCompletionModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1172,7 +1172,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_Match(const KT
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         QList<QModelIndex> _ret = vktexteditorcodecompletionmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1183,7 +1183,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_Match(const KT
     } else {
         QList<QModelIndex> _ret = self->KTextEditor::CodeCompletionModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1201,7 +1201,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_QBaseMatch(con
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Match_IsBase(true);
         QList<QModelIndex> _ret = vktexteditorcodecompletionmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1212,7 +1212,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_QBaseMatch(con
     } else {
         QList<QModelIndex> _ret = self->KTextEditor::CodeCompletionModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2308,7 +2308,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_PersistentInde
     if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
         QList<QModelIndex> _ret = vktexteditorcodecompletionmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2319,7 +2319,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_PersistentInde
     } else {
         QList<QModelIndex> _ret = ((VirtualKTextEditorCodeCompletionModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2337,7 +2337,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_QBasePersisten
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_PersistentIndexList_IsBase(true);
         QList<QModelIndex> _ret = vktexteditorcodecompletionmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2348,7 +2348,7 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_QBasePersisten
     } else {
         QList<QModelIndex> _ret = ((VirtualKTextEditorCodeCompletionModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

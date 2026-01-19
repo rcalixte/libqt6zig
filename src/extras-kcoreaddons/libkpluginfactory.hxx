@@ -139,7 +139,7 @@ class VirtualKPluginFactory final : public KPluginFactory {
             QObject* cbval3 = parent;
             const QList<QVariant>& args_ret = args;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QVariant** args_arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (args_ret.size() + 1)));
+            QVariant** args_arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (args_ret.size())));
             for (qsizetype i = 0; i < args_ret.size(); ++i) {
                 args_arr[i] = new QVariant(args_ret[i]);
             }

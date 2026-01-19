@@ -29,7 +29,7 @@ int KIO__DeleteJob_Metacall(KIO__DeleteJob* self, int param1, int param2, void**
 libqt_list /* of QUrl* */ KIO__DeleteJob_Urls(const KIO__DeleteJob* self) {
     QList<QUrl> _ret = self->urls();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }

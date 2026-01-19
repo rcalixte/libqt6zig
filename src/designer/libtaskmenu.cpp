@@ -23,7 +23,7 @@ libqt_list /* of QAction* */ QDesignerTaskMenuExtension_TaskActions(const QDesig
     if (vqdesignertaskmenuextension && vqdesignertaskmenuextension->isVirtualQDesignerTaskMenuExtension) {
         QList<QAction*> _ret = vqdesignertaskmenuextension->taskActions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -34,7 +34,7 @@ libqt_list /* of QAction* */ QDesignerTaskMenuExtension_TaskActions(const QDesig
     } else {
         QList<QAction*> _ret = ((VirtualQDesignerTaskMenuExtension*)self)->taskActions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -71,7 +71,7 @@ libqt_list /* of QAction* */ QDesignerTaskMenuExtension_QBaseTaskActions(const Q
         vqdesignertaskmenuextension->setQDesignerTaskMenuExtension_TaskActions_IsBase(true);
         QList<QAction*> _ret = vqdesignertaskmenuextension->taskActions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -82,7 +82,7 @@ libqt_list /* of QAction* */ QDesignerTaskMenuExtension_QBaseTaskActions(const Q
     } else {
         QList<QAction*> _ret = ((VirtualQDesignerTaskMenuExtension*)self)->taskActions();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
+        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

@@ -66,20 +66,16 @@ void QVariantAnimation_SetKeyValueAt(QVariantAnimation* self, double step, const
     self->setKeyValueAt(static_cast<qreal>(step), *value);
 }
 
-libqt_list /* of libqt_pair tuple of double and QVariant* */ QVariantAnimation_KeyValues(const QVariantAnimation* self) {
+libqt_list /* of pair_double_qvariant tuple of double and QVariant* */ QVariantAnimation_KeyValues(const QVariantAnimation* self) {
     QList<QPair<double, QVariant>> _ret = self->keyValues();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QVariant* */* _arr = static_cast<libqt_pair /* tuple of double and QVariant* */*>(malloc(sizeof(libqt_pair /* tuple of double and QVariant* */) * (_ret.size() + 1)));
+    pair_double_qvariant /* tuple of double and QVariant* */* _arr = static_cast<pair_double_qvariant /* tuple of double and QVariant* */*>(malloc(sizeof(pair_double_qvariant /* tuple of double and QVariant* */) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QVariant> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
-        double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
-        QVariant** _lv_second = static_cast<QVariant**>(malloc(sizeof(QVariant*)));
-        *_lv_first = _lv_ret.first;
-        *_lv_second = new QVariant(_lv_ret.second);
-        libqt_pair _lv_out;
-        _lv_out.first = static_cast<void*>(_lv_first);
-        _lv_out.second = static_cast<void*>(_lv_second);
+        pair_double_qvariant /* tuple of double and QVariant* */ _lv_out;
+        _lv_out.first = _lv_ret.first;
+        _lv_out.second = new QVariant(_lv_ret.second);
         _arr[i] = _lv_out;
     }
     libqt_list _out;
@@ -88,16 +84,14 @@ libqt_list /* of libqt_pair tuple of double and QVariant* */ QVariantAnimation_K
     return _out;
 }
 
-void QVariantAnimation_SetKeyValues(QVariantAnimation* self, const libqt_list /* of libqt_pair tuple of double and QVariant* */ values) {
+void QVariantAnimation_SetKeyValues(QVariantAnimation* self, const libqt_list /* of pair_double_qvariant tuple of double and QVariant* */ values) {
     QList<QPair<double, QVariant>> values_QList;
     values_QList.reserve(values.len);
-    libqt_pair /* tuple of double and QVariant* */* values_arr = static_cast<libqt_pair /* tuple of double and QVariant* */*>(values.data);
+    pair_double_qvariant /* tuple of double and QVariant* */* values_arr = static_cast<pair_double_qvariant /* tuple of double and QVariant* */*>(values.data);
     for (size_t i = 0; i < values.len; ++i) {
         QPair<double, QVariant> values_arr_i_QPair;
-        double* values_arr_i_first = static_cast<double*>(values_arr[i].first);
-        QVariant** values_arr_i_second = static_cast<QVariant**>(values_arr[i].second);
-        values_arr_i_QPair.first = static_cast<double>(values_arr_i_first[0]);
-        values_arr_i_QPair.second = *(values_arr_i_second[0]);
+        values_arr_i_QPair.first = values_arr[i].first;
+        values_arr_i_QPair.second = *(values_arr[i].second);
         values_QList.push_back(values_arr_i_QPair);
     }
     self->setKeyValues(values_QList);

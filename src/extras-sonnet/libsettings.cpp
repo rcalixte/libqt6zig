@@ -70,7 +70,7 @@ void Sonnet__Settings_SetPreferredLanguages(Sonnet__Settings* self, const libqt_
 libqt_list /* of libqt_string */ Sonnet__Settings_PreferredLanguages(const Sonnet__Settings* self) {
     QList<QString> _ret = self->preferredLanguages();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -159,7 +159,7 @@ void Sonnet__Settings_SetCurrentIgnoreList(Sonnet__Settings* self, const libqt_l
 libqt_list /* of libqt_string */ Sonnet__Settings_CurrentIgnoreList(const Sonnet__Settings* self) {
     QList<QString> _ret = self->currentIgnoreList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -180,7 +180,7 @@ libqt_list /* of libqt_string */ Sonnet__Settings_CurrentIgnoreList(const Sonnet
 libqt_list /* of libqt_string */ Sonnet__Settings_Clients(const Sonnet__Settings* self) {
     QList<QString> _ret = self->clients();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -213,7 +213,7 @@ void Sonnet__Settings_Save(Sonnet__Settings* self) {
 libqt_list /* of libqt_string */ Sonnet__Settings_DefaultIgnoreList() {
     QList<QString> _ret = Sonnet::Settings::defaultIgnoreList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -266,7 +266,7 @@ libqt_string Sonnet__Settings_DefaultDefaultLanguage() {
 libqt_list /* of libqt_string */ Sonnet__Settings_DefaultPreferredLanguages() {
     QList<QString> _ret = Sonnet::Settings::defaultPreferredLanguages();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

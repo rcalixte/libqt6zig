@@ -19,6 +19,18 @@ typedef struct QHostAddress QHostAddress;
 typedef struct QIPv6Address QIPv6Address;
 #endif
 
+struct pair_qhostaddress_int;
+
+typedef struct pair_qhostaddress_int pair_qhostaddress_int;
+
+#ifndef PAIR_QHOSTADDRESS_INT
+#define PAIR_QHOSTADDRESS_INT
+struct pair_qhostaddress_int {
+    QHostAddress* first;
+    int second;
+};
+#endif
+
 QIPv6Address* QIPv6Address_new();
 QIPv6Address* QIPv6Address_new2(const QIPv6Address* param1);
 unsigned char* QIPv6Address_OperatorSubscript(QIPv6Address* self, int index);
@@ -62,7 +74,7 @@ bool QHostAddress_IsUniqueLocalUnicast(const QHostAddress* self);
 bool QHostAddress_IsMulticast(const QHostAddress* self);
 bool QHostAddress_IsBroadcast(const QHostAddress* self);
 bool QHostAddress_IsPrivateUse(const QHostAddress* self);
-libqt_pair /* tuple of QHostAddress* and int */ QHostAddress_ParseSubnet(const libqt_string subnet);
+pair_qhostaddress_int /* tuple of QHostAddress* and int */ QHostAddress_ParseSubnet(const libqt_string subnet);
 unsigned int QHostAddress_ToIPv4Address1(const QHostAddress* self, bool* ok);
 bool QHostAddress_IsEqual2(const QHostAddress* self, const QHostAddress* address, int mode);
 void QHostAddress_Delete(QHostAddress* self);

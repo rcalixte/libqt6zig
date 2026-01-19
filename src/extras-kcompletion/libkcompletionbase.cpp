@@ -86,7 +86,7 @@ bool KCompletionBase_SetKeyBinding(KCompletionBase* self, int item, const libqt_
 libqt_list /* of QKeySequence* */ KCompletionBase_KeyBinding(const KCompletionBase* self, int item) {
     QList<QKeySequence> _ret = self->keyBinding(static_cast<KCompletionBase::KeyBindingType>(item));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -276,7 +276,7 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_KeyBinding
             _karr[_ctr] = static_cast<int>(_itr->first);
             QList<QKeySequence> _mapval_ret = _itr->second;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size() + 1)));
+            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
             for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
                 _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
             }
@@ -301,7 +301,7 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_KeyBinding
             _karr[_ctr] = static_cast<int>(_itr->first);
             QList<QKeySequence> _mapval_ret = _itr->second;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size() + 1)));
+            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
             for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
                 _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
             }
@@ -333,7 +333,7 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_QBaseKeyBi
             _karr[_ctr] = static_cast<int>(_itr->first);
             QList<QKeySequence> _mapval_ret = _itr->second;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size() + 1)));
+            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
             for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
                 _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
             }
@@ -358,7 +358,7 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KCompletionBase_QBaseKeyBi
             _karr[_ctr] = static_cast<int>(_itr->first);
             QList<QKeySequence> _mapval_ret = _itr->second;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size() + 1)));
+            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
             for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
                 _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
             }
@@ -394,8 +394,8 @@ void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int
         QList<QKeySequence> keyBindingMap_varr_i_QList;
         keyBindingMap_varr_i_QList.reserve(keyBindingMap_varr[i].len);
         QKeySequence** keyBindingMap_varr_i_arr = static_cast<QKeySequence**>(keyBindingMap_varr[i].data);
-        for (size_t i = 0; i < keyBindingMap_varr[i].len; ++i) {
-            keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[i]));
+        for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
+            keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
         }
         keyBindingMap_QMap[static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i])] = keyBindingMap_varr_i_QList;
     }
@@ -416,8 +416,8 @@ void KCompletionBase_QBaseSetKeyBindingMap(KCompletionBase* self, libqt_map /* o
         QList<QKeySequence> keyBindingMap_varr_i_QList;
         keyBindingMap_varr_i_QList.reserve(keyBindingMap_varr[i].len);
         QKeySequence** keyBindingMap_varr_i_arr = static_cast<QKeySequence**>(keyBindingMap_varr[i].data);
-        for (size_t i = 0; i < keyBindingMap_varr[i].len; ++i) {
-            keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[i]));
+        for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
+            keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
         }
         keyBindingMap_QMap[static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i])] = keyBindingMap_varr_i_QList;
     }

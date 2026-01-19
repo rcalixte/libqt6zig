@@ -87,7 +87,7 @@ libqt_list /* of KBookmarkOwner__FutureBookmark* */ KBookmarkOwner_CurrentBookma
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         QList<KBookmarkOwner::FutureBookmark> _ret = self->currentBookmarkList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size() + 1)));
+        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new KBookmarkOwner::FutureBookmark(_ret[i]);
         }
@@ -98,7 +98,7 @@ libqt_list /* of KBookmarkOwner__FutureBookmark* */ KBookmarkOwner_CurrentBookma
     } else {
         QList<KBookmarkOwner::FutureBookmark> _ret = ((VirtualKBookmarkOwner*)self)->currentBookmarkList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size() + 1)));
+        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new KBookmarkOwner::FutureBookmark(_ret[i]);
         }
@@ -269,7 +269,7 @@ libqt_list /* of KBookmarkOwner__FutureBookmark* */ KBookmarkOwner_QBaseCurrentB
         vkbookmarkowner->setKBookmarkOwner_CurrentBookmarkList_IsBase(true);
         QList<KBookmarkOwner::FutureBookmark> _ret = vkbookmarkowner->currentBookmarkList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size() + 1)));
+        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new KBookmarkOwner::FutureBookmark(_ret[i]);
         }
@@ -280,7 +280,7 @@ libqt_list /* of KBookmarkOwner__FutureBookmark* */ KBookmarkOwner_QBaseCurrentB
     } else {
         QList<KBookmarkOwner::FutureBookmark> _ret = self->KBookmarkOwner::currentBookmarkList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size() + 1)));
+        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new KBookmarkOwner::FutureBookmark(_ret[i]);
         }

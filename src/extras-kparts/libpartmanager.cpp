@@ -138,7 +138,7 @@ QWidget* KParts__PartManager_ActiveWidget(const KParts__PartManager* self) {
 libqt_list /* of KParts__Part* */ KParts__PartManager_Parts(const KParts__PartManager* self) {
     const QList<KParts::Part*> _ret = self->parts();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KParts__Part** _arr = static_cast<KParts__Part**>(malloc(sizeof(KParts__Part*) * (_ret.size() + 1)));
+    KParts__Part** _arr = static_cast<KParts__Part**>(malloc(sizeof(KParts__Part*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

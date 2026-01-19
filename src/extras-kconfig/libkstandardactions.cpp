@@ -28,7 +28,7 @@ libqt_string KStandardActions_Name(int param1) {
 libqt_list /* of int */ KStandardActions_ActionIds() {
     QList<KStandardActions::StandardAction> _ret = KStandardActions::actionIds();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }

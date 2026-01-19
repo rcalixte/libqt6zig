@@ -30,6 +30,18 @@ typedef struct QWidget QWidget;
 typedef struct QWindow QWindow;
 #endif
 
+struct pair_qaccessibleinterface_int;
+
+typedef struct pair_qaccessibleinterface_int pair_qaccessibleinterface_int;
+
+#ifndef PAIR_QACCESSIBLEINTERFACE_INT
+#define PAIR_QACCESSIBLEINTERFACE_INT
+struct pair_qaccessibleinterface_int {
+    QAccessibleInterface* first;
+    int second;
+};
+#endif
+
 QAccessibleWidget* QAccessibleWidget_new(QWidget* o);
 QAccessibleWidget* QAccessibleWidget_new2(QWidget* o, int r);
 QAccessibleWidget* QAccessibleWidget_new3(QWidget* o, int r, const libqt_string name);
@@ -37,7 +49,7 @@ bool QAccessibleWidget_IsValid(const QAccessibleWidget* self);
 QWindow* QAccessibleWidget_Window(const QAccessibleWidget* self);
 int QAccessibleWidget_ChildCount(const QAccessibleWidget* self);
 int QAccessibleWidget_IndexOfChild(const QAccessibleWidget* self, const QAccessibleInterface* child);
-libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleWidget_Relations(const QAccessibleWidget* self, int match);
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleWidget_Relations(const QAccessibleWidget* self, int match);
 QAccessibleInterface* QAccessibleWidget_FocusChild(const QAccessibleWidget* self);
 QRect* QAccessibleWidget_Rect(const QAccessibleWidget* self);
 QAccessibleInterface* QAccessibleWidget_Parent(const QAccessibleWidget* self);
@@ -60,7 +72,7 @@ int QAccessibleWidget_QBaseChildCount(const QAccessibleWidget* self);
 void QAccessibleWidget_OnIndexOfChild(const QAccessibleWidget* self, intptr_t slot);
 int QAccessibleWidget_QBaseIndexOfChild(const QAccessibleWidget* self, const QAccessibleInterface* child);
 void QAccessibleWidget_OnRelations(const QAccessibleWidget* self, intptr_t slot);
-libqt_list /* of libqt_pair tuple of QAccessibleInterface* and int */ QAccessibleWidget_QBaseRelations(const QAccessibleWidget* self, int match);
+libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleWidget_QBaseRelations(const QAccessibleWidget* self, int match);
 void QAccessibleWidget_OnFocusChild(const QAccessibleWidget* self, intptr_t slot);
 QAccessibleInterface* QAccessibleWidget_QBaseFocusChild(const QAccessibleWidget* self);
 void QAccessibleWidget_OnRect(const QAccessibleWidget* self, intptr_t slot);

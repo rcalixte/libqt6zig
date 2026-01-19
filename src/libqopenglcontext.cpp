@@ -36,7 +36,7 @@ int QOpenGLContextGroup_Metacall(QOpenGLContextGroup* self, int param1, int para
 libqt_list /* of QOpenGLContext* */ QOpenGLContextGroup_Shares(const QOpenGLContextGroup* self) {
     QList<QOpenGLContext*> _ret = self->shares();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QOpenGLContext** _arr = static_cast<QOpenGLContext**>(malloc(sizeof(QOpenGLContext*) * (_ret.size() + 1)));
+    QOpenGLContext** _arr = static_cast<QOpenGLContext**>(malloc(sizeof(QOpenGLContext*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

@@ -130,7 +130,7 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
         } else if (kurifiltersearchprovider_setkeys_callback != nullptr) {
             const QList<QString>& keys_ret = keys;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* keys_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (keys_ret.size() + 1)));
+            libqt_string* keys_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (keys_ret.size())));
             for (qsizetype i = 0; i < keys_ret.size(); ++i) {
                 QString keys_lv_ret = keys_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

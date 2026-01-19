@@ -120,7 +120,7 @@ libqt_list /* of libqt_string */ KConfigGroup_GroupList(const KConfigGroup* self
     if (vkconfiggroup && vkconfiggroup->isVirtualKConfigGroup) {
         QList<QString> _ret = self->groupList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -139,7 +139,7 @@ libqt_list /* of libqt_string */ KConfigGroup_GroupList(const KConfigGroup* self
     } else {
         QList<QString> _ret = ((VirtualKConfigGroup*)self)->groupList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -161,7 +161,7 @@ libqt_list /* of libqt_string */ KConfigGroup_GroupList(const KConfigGroup* self
 libqt_list /* of libqt_string */ KConfigGroup_KeyList(const KConfigGroup* self) {
     QList<QString> _ret = self->keyList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -254,7 +254,7 @@ libqt_list /* of QVariant* */ KConfigGroup_ReadEntry7(const KConfigGroup* self, 
     }
     QList<QVariant> _ret = self->readEntry(key_QString, aDefault_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
+    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QVariant(_ret[i]);
     }
@@ -273,7 +273,7 @@ libqt_list /* of QVariant* */ KConfigGroup_ReadEntry8(const KConfigGroup* self, 
     }
     QList<QVariant> _ret = self->readEntry(key, aDefault_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
+    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QVariant(_ret[i]);
     }
@@ -294,7 +294,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadEntry9(const KConfigGroup* sel
     }
     QList<QString> _ret = self->readEntry(key_QString, aDefault_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -322,7 +322,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadEntry10(const KConfigGroup* se
     }
     QList<QString> _ret = self->readEntry(key, aDefault_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -344,7 +344,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry(const KConfigGrou
     QString pKey_QString = QString::fromUtf8(pKey.data, pKey.len);
     QList<QString> _ret = self->readXdgListEntry(pKey_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -365,7 +365,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry(const KConfigGrou
 libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry2(const KConfigGroup* self, const char* key) {
     QList<QString> _ret = self->readXdgListEntry(key);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -421,7 +421,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadPathEntry3(const KConfigGroup*
     }
     QList<QString> _ret = self->readPathEntry(pKey_QString, aDefault_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -449,7 +449,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadPathEntry4(const KConfigGroup*
     }
     QList<QString> _ret = self->readPathEntry(key, aDefault_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -827,7 +827,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry22(const KConfigGr
     }
     QList<QString> _ret = self->readXdgListEntry(pKey_QString, aDefault_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -855,7 +855,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry23(const KConfigGr
     }
     QList<QString> _ret = self->readXdgListEntry(key, aDefault_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1123,7 +1123,7 @@ libqt_list /* of libqt_string */ KConfigGroup_QBaseGroupList(const KConfigGroup*
         vkconfiggroup->setKConfigGroup_GroupList_IsBase(true);
         QList<QString> _ret = vkconfiggroup->groupList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1142,7 +1142,7 @@ libqt_list /* of libqt_string */ KConfigGroup_QBaseGroupList(const KConfigGroup*
     } else {
         QList<QString> _ret = self->KConfigGroup::groupList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -69,7 +69,7 @@ QGeoShape* QGeoCodeReply_Viewport(const QGeoCodeReply* self) {
 libqt_list /* of QGeoLocation* */ QGeoCodeReply_Locations(const QGeoCodeReply* self) {
     QList<QGeoLocation> _ret = self->locations();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoLocation** _arr = static_cast<QGeoLocation**>(malloc(sizeof(QGeoLocation*) * (_ret.size() + 1)));
+    QGeoLocation** _arr = static_cast<QGeoLocation**>(malloc(sizeof(QGeoLocation*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoLocation(_ret[i]);
     }

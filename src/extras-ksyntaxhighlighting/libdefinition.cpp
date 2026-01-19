@@ -61,7 +61,7 @@ libqt_string KSyntaxHighlighting__Definition_Name(const KSyntaxHighlighting__Def
 libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_AlternativeNames(const KSyntaxHighlighting__Definition* self) {
     QList<QString> _ret = self->alternativeNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -118,7 +118,7 @@ libqt_string KSyntaxHighlighting__Definition_TranslatedSection(const KSyntaxHigh
 libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_MimeTypes(const KSyntaxHighlighting__Definition* self) {
     QList<QString> _ret = self->mimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -139,7 +139,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_MimeTypes(const
 libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_Extensions(const KSyntaxHighlighting__Definition* self) {
     QList<QString> _ret = self->extensions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -236,7 +236,7 @@ bool KSyntaxHighlighting__Definition_IndentationBasedFoldingEnabled(const KSynta
 libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_FoldingIgnoreList(const KSyntaxHighlighting__Definition* self) {
     QList<QString> _ret = self->foldingIgnoreList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -257,7 +257,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_FoldingIgnoreLi
 libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_KeywordLists(const KSyntaxHighlighting__Definition* self) {
     QList<QString> _ret = self->keywordLists();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -279,7 +279,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_KeywordList(con
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QList<QString> _ret = self->keywordList(name_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -312,7 +312,7 @@ bool KSyntaxHighlighting__Definition_SetKeywordList(KSyntaxHighlighting__Definit
 libqt_list /* of KSyntaxHighlighting__Format* */ KSyntaxHighlighting__Definition_Formats(const KSyntaxHighlighting__Definition* self) {
     QList<KSyntaxHighlighting::Format> _ret = self->formats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KSyntaxHighlighting__Format** _arr = static_cast<KSyntaxHighlighting__Format**>(malloc(sizeof(KSyntaxHighlighting__Format*) * (_ret.size() + 1)));
+    KSyntaxHighlighting__Format** _arr = static_cast<KSyntaxHighlighting__Format**>(malloc(sizeof(KSyntaxHighlighting__Format*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KSyntaxHighlighting::Format(_ret[i]);
     }
@@ -325,7 +325,7 @@ libqt_list /* of KSyntaxHighlighting__Format* */ KSyntaxHighlighting__Definition
 libqt_list /* of KSyntaxHighlighting__Definition* */ KSyntaxHighlighting__Definition_IncludedDefinitions(const KSyntaxHighlighting__Definition* self) {
     QList<KSyntaxHighlighting::Definition> _ret = self->includedDefinitions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KSyntaxHighlighting__Definition** _arr = static_cast<KSyntaxHighlighting__Definition**>(malloc(sizeof(KSyntaxHighlighting__Definition*) * (_ret.size() + 1)));
+    KSyntaxHighlighting__Definition** _arr = static_cast<KSyntaxHighlighting__Definition**>(malloc(sizeof(KSyntaxHighlighting__Definition*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KSyntaxHighlighting::Definition(_ret[i]);
     }
@@ -383,7 +383,7 @@ libqt_pair /* tuple of libqt_string and libqt_string */ KSyntaxHighlighting__Def
 libqt_list /* of libqt_pair tuple of QChar* and libqt_string */ KSyntaxHighlighting__Definition_CharacterEncodings(const KSyntaxHighlighting__Definition* self) {
     QList<QPair<QChar, QString>> _ret = self->characterEncodings();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of QChar* and libqt_string */* _arr = static_cast<libqt_pair /* tuple of QChar* and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of QChar* and libqt_string */) * (_ret.size() + 1)));
+    libqt_pair /* tuple of QChar* and libqt_string */* _arr = static_cast<libqt_pair /* tuple of QChar* and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of QChar* and libqt_string */) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<QChar, QString> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory

@@ -581,7 +581,7 @@ libqt_list /* of KJob* */ KCompositeJob_Subjobs(const KCompositeJob* self) {
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         const QList<KJob*>& _ret = vkcompositejob->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -592,7 +592,7 @@ libqt_list /* of KJob* */ KCompositeJob_Subjobs(const KCompositeJob* self) {
     } else {
         const QList<KJob*>& _ret = ((VirtualKCompositeJob*)self)->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -610,7 +610,7 @@ libqt_list /* of KJob* */ KCompositeJob_QBaseSubjobs(const KCompositeJob* self) 
         vkcompositejob->setKCompositeJob_Subjobs_IsBase(true);
         const QList<KJob*>& _ret = vkcompositejob->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -621,7 +621,7 @@ libqt_list /* of KJob* */ KCompositeJob_QBaseSubjobs(const KCompositeJob* self) 
     } else {
         const QList<KJob*>& _ret = ((VirtualKCompositeJob*)self)->subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size() + 1)));
+        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

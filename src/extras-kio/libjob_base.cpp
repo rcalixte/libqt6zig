@@ -55,7 +55,7 @@ libqt_string KIO__Job_ErrorString(const KIO__Job* self) {
 libqt_list /* of libqt_string */ KIO__Job_DetailedErrorStrings(const KIO__Job* self) {
     QList<QString> _ret = self->detailedErrorStrings();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -151,7 +151,7 @@ void KIO__Job_Connect_Connected(KIO__Job* self, intptr_t slot) {
 libqt_list /* of libqt_string */ KIO__Job_DetailedErrorStrings1(const KIO__Job* self, const QUrl* reqUrl) {
     QList<QString> _ret = self->detailedErrorStrings(reqUrl);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -172,7 +172,7 @@ libqt_list /* of libqt_string */ KIO__Job_DetailedErrorStrings1(const KIO__Job* 
 libqt_list /* of libqt_string */ KIO__Job_DetailedErrorStrings2(const KIO__Job* self, const QUrl* reqUrl, int method) {
     QList<QString> _ret = self->detailedErrorStrings(reqUrl, static_cast<int>(method));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

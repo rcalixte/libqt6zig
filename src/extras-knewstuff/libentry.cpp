@@ -295,7 +295,7 @@ void KNSCore__Entry_SetInstalledFiles(KNSCore__Entry* self, const libqt_list /* 
 libqt_list /* of libqt_string */ KNSCore__Entry_InstalledFiles(const KNSCore__Entry* self) {
     QList<QString> _ret = self->installedFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -316,7 +316,7 @@ libqt_list /* of libqt_string */ KNSCore__Entry_InstalledFiles(const KNSCore__En
 libqt_list /* of libqt_string */ KNSCore__Entry_UninstalledFiles(const KNSCore__Entry* self) {
     QList<QString> _ret = self->uninstalledFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -398,7 +398,7 @@ int KNSCore__Entry_DownloadLinkCount(const KNSCore__Entry* self) {
 libqt_list /* of KNSCore__Entry__DownloadLinkInformation* */ KNSCore__Entry_DownloadLinkInformationList(const KNSCore__Entry* self) {
     QList<KNSCore::Entry::DownloadLinkInformation> _ret = self->downloadLinkInformationList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KNSCore__Entry__DownloadLinkInformation** _arr = static_cast<KNSCore__Entry__DownloadLinkInformation**>(malloc(sizeof(KNSCore__Entry__DownloadLinkInformation*) * (_ret.size() + 1)));
+    KNSCore__Entry__DownloadLinkInformation** _arr = static_cast<KNSCore__Entry__DownloadLinkInformation**>(malloc(sizeof(KNSCore__Entry__DownloadLinkInformation*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KNSCore::Entry::DownloadLinkInformation(_ret[i]);
     }
@@ -436,7 +436,7 @@ void KNSCore__Entry_SetDonationLink(KNSCore__Entry* self, const libqt_string lin
 libqt_list /* of libqt_string */ KNSCore__Entry_Tags(const KNSCore__Entry* self) {
     QList<QString> _ret = self->tags();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -642,7 +642,7 @@ void KNSCore__Entry__DownloadLinkInformation_SetSize(KNSCore__Entry__DownloadLin
 libqt_list /* of libqt_string */ KNSCore__Entry__DownloadLinkInformation_Tags(const KNSCore__Entry__DownloadLinkInformation* self) {
     QList<QString> tags_ret = self->tags;
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* tags_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tags_ret.size() + 1)));
+    libqt_string* tags_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tags_ret.size())));
     for (qsizetype i = 0; i < tags_ret.size(); ++i) {
         QString tags_lv_ret = tags_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

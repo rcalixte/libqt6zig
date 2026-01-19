@@ -62,7 +62,7 @@ void KViewStateSerializer_SetSelectionModel(KViewStateSerializer* self, QItemSel
 libqt_list /* of libqt_string */ KViewStateSerializer_SelectionKeys(const KViewStateSerializer* self) {
     QList<QString> _ret = self->selectionKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -83,7 +83,7 @@ libqt_list /* of libqt_string */ KViewStateSerializer_SelectionKeys(const KViewS
 libqt_list /* of libqt_string */ KViewStateSerializer_ExpansionKeys(const KViewStateSerializer* self) {
     QList<QString> _ret = self->expansionKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -113,16 +113,12 @@ libqt_string KViewStateSerializer_CurrentIndexKey(const KViewStateSerializer* se
     return _str;
 }
 
-libqt_pair /* tuple of int and int */ KViewStateSerializer_ScrollState(const KViewStateSerializer* self) {
+pair_int_int /* tuple of int and int */ KViewStateSerializer_ScrollState(const KViewStateSerializer* self) {
     QPair<int, int> _ret = self->scrollState();
     // Convert QPair<> from C++ memory to manually-managed C memory
-    int* _first = static_cast<int*>(malloc(sizeof(int)));
-    int* _second = static_cast<int*>(malloc(sizeof(int)));
-    *_first = _ret.first;
-    *_second = _ret.second;
-    libqt_pair _out;
-    _out.first = static_cast<void*>(_first);
-    _out.second = static_cast<void*>(_second);
+    pair_int_int /* tuple of int and int */ _out;
+    _out.first = _ret.first;
+    _out.second = _ret.second;
     return _out;
 }
 

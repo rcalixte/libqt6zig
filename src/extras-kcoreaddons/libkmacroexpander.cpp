@@ -506,9 +506,9 @@ libqt_string KMacroExpander_ExpandMacros3(const libqt_string param1, const libqt
         QList<QString> param2_varr_i_QList;
         param2_varr_i_QList.reserve(param2_varr[i].len);
         libqt_string* param2_varr_i_arr = static_cast<libqt_string*>(param2_varr[i].data);
-        for (size_t i = 0; i < param2_varr[i].len; ++i) {
-            QString param2_varr_i_arr_i_QString = QString::fromUtf8(param2_varr_i_arr[i].data, param2_varr_i_arr[i].len);
-            param2_varr_i_QList.push_back(param2_varr_i_arr_i_QString);
+        for (size_t j = 0; j < param2_varr[i].len; ++j) {
+            QString param2_varr_i_arr_j_QString = QString::fromUtf8(param2_varr_i_arr[j].data, param2_varr_i_arr[j].len);
+            param2_varr_i_QList.push_back(param2_varr_i_arr_j_QString);
         }
         param2_QHash[*(param2_karr[i])] = param2_varr_i_QList;
     }
@@ -534,9 +534,9 @@ libqt_string KMacroExpander_ExpandMacros4(const libqt_string param1, const libqt
         QList<QString> param2_varr_i_QList;
         param2_varr_i_QList.reserve(param2_varr[i].len);
         libqt_string* param2_varr_i_arr = static_cast<libqt_string*>(param2_varr[i].data);
-        for (size_t i = 0; i < param2_varr[i].len; ++i) {
-            QString param2_varr_i_arr_i_QString = QString::fromUtf8(param2_varr_i_arr[i].data, param2_varr_i_arr[i].len);
-            param2_varr_i_QList.push_back(param2_varr_i_arr_i_QString);
+        for (size_t j = 0; j < param2_varr[i].len; ++j) {
+            QString param2_varr_i_arr_j_QString = QString::fromUtf8(param2_varr_i_arr[j].data, param2_varr_i_arr[j].len);
+            param2_varr_i_QList.push_back(param2_varr_i_arr_j_QString);
         }
         param2_QHash[param2_karr_i_QString] = param2_varr_i_QList;
     }
@@ -561,9 +561,9 @@ libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string param1, c
         QList<QString> param2_varr_i_QList;
         param2_varr_i_QList.reserve(param2_varr[i].len);
         libqt_string* param2_varr_i_arr = static_cast<libqt_string*>(param2_varr[i].data);
-        for (size_t i = 0; i < param2_varr[i].len; ++i) {
-            QString param2_varr_i_arr_i_QString = QString::fromUtf8(param2_varr_i_arr[i].data, param2_varr_i_arr[i].len);
-            param2_varr_i_QList.push_back(param2_varr_i_arr_i_QString);
+        for (size_t j = 0; j < param2_varr[i].len; ++j) {
+            QString param2_varr_i_arr_j_QString = QString::fromUtf8(param2_varr_i_arr[j].data, param2_varr_i_arr[j].len);
+            param2_varr_i_QList.push_back(param2_varr_i_arr_j_QString);
         }
         param2_QHash[*(param2_karr[i])] = param2_varr_i_QList;
     }
@@ -589,9 +589,9 @@ libqt_string KMacroExpander_ExpandMacrosShellQuote4(const libqt_string param1, c
         QList<QString> param2_varr_i_QList;
         param2_varr_i_QList.reserve(param2_varr[i].len);
         libqt_string* param2_varr_i_arr = static_cast<libqt_string*>(param2_varr[i].data);
-        for (size_t i = 0; i < param2_varr[i].len; ++i) {
-            QString param2_varr_i_arr_i_QString = QString::fromUtf8(param2_varr_i_arr[i].data, param2_varr_i_arr[i].len);
-            param2_varr_i_QList.push_back(param2_varr_i_arr_i_QString);
+        for (size_t j = 0; j < param2_varr[i].len; ++j) {
+            QString param2_varr_i_arr_j_QString = QString::fromUtf8(param2_varr_i_arr[j].data, param2_varr_i_arr[j].len);
+            param2_varr_i_QList.push_back(param2_varr_i_arr_j_QString);
         }
         param2_QHash[param2_karr_i_QString] = param2_varr_i_QList;
     }

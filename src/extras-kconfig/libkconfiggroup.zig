@@ -274,10 +274,17 @@ pub const kconfiggroup = struct {
     ///
     /// ` other: QtC.KConfigGroup `
     ///
-    pub fn MoveValuesTo(self: ?*anyopaque, keys: [][:0]const u8, other: ?*anyopaque) void {
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn MoveValuesTo(self: ?*anyopaque, keys: [][:0]const u8, other: ?*anyopaque, allocator: std.mem.Allocator) void {
+        var keys_cStr = allocator.alloc([*c]const u8, keys.len) catch @panic("kconfiggroup.MoveValuesTo: Memory allocation failed");
+        defer allocator.free(keys_cStr);
+        for (keys, 0..keys.len) |keys_item, i| {
+            keys_cStr[i] = @ptrCast(keys_item.ptr);
+        }
         const keys_list = qtc.libqt_list{
             .len = keys.len,
-            .data = keys.ptr,
+            .data = @ptrCast(keys_cStr.ptr),
         };
         qtc.KConfigGroup_MoveValuesTo(@ptrCast(self), keys_list, @ptrCast(other));
     }
@@ -1850,10 +1857,17 @@ pub const kconfiggroup = struct {
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn MoveValuesTo3(self: ?*anyopaque, keys: [][:0]const u8, other: ?*anyopaque, pFlags: i32) void {
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn MoveValuesTo3(self: ?*anyopaque, keys: [][:0]const u8, other: ?*anyopaque, pFlags: i32, allocator: std.mem.Allocator) void {
+        var keys_cStr = allocator.alloc([*c]const u8, keys.len) catch @panic("kconfiggroup.MoveValuesTo3: Memory allocation failed");
+        defer allocator.free(keys_cStr);
+        for (keys, 0..keys.len) |keys_item, i| {
+            keys_cStr[i] = @ptrCast(keys_item.ptr);
+        }
         const keys_list = qtc.libqt_list{
             .len = keys.len,
-            .data = keys.ptr,
+            .data = @ptrCast(keys_cStr.ptr),
         };
         qtc.KConfigGroup_MoveValuesTo3(@ptrCast(self), keys_list, @ptrCast(other), @intCast(pFlags));
     }

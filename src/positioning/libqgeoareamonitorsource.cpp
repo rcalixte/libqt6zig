@@ -51,7 +51,7 @@ QGeoAreaMonitorSource* QGeoAreaMonitorSource_CreateSource(const libqt_string sou
 libqt_list /* of libqt_string */ QGeoAreaMonitorSource_AvailableSources() {
     QList<QString> _ret = QGeoAreaMonitorSource::availableSources();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -149,7 +149,7 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_ActiveMonitors(co
     if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
         QList<QGeoAreaMonitorInfo> _ret = vqgeoareamonitorsource->activeMonitors();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size() + 1)));
+        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
         }
@@ -160,7 +160,7 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_ActiveMonitors(co
     } else {
         QList<QGeoAreaMonitorInfo> _ret = ((VirtualQGeoAreaMonitorSource*)self)->activeMonitors();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size() + 1)));
+        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
         }
@@ -176,7 +176,7 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_ActiveMonitors2(c
     if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
         QList<QGeoAreaMonitorInfo> _ret = vqgeoareamonitorsource->activeMonitors(*lookupArea);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size() + 1)));
+        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
         }
@@ -187,7 +187,7 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_ActiveMonitors2(c
     } else {
         QList<QGeoAreaMonitorInfo> _ret = ((VirtualQGeoAreaMonitorSource*)self)->activeMonitors(*lookupArea);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size() + 1)));
+        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
         }
@@ -437,7 +437,7 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_QBaseActiveMonito
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_ActiveMonitors_IsBase(true);
         QList<QGeoAreaMonitorInfo> _ret = vqgeoareamonitorsource->activeMonitors();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size() + 1)));
+        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
         }
@@ -448,7 +448,7 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_QBaseActiveMonito
     } else {
         QList<QGeoAreaMonitorInfo> _ret = ((VirtualQGeoAreaMonitorSource*)self)->activeMonitors();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size() + 1)));
+        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
         }
@@ -474,7 +474,7 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_QBaseActiveMonito
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_ActiveMonitors2_IsBase(true);
         QList<QGeoAreaMonitorInfo> _ret = vqgeoareamonitorsource->activeMonitors(*lookupArea);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size() + 1)));
+        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
         }
@@ -485,7 +485,7 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_QBaseActiveMonito
     } else {
         QList<QGeoAreaMonitorInfo> _ret = ((VirtualQGeoAreaMonitorSource*)self)->activeMonitors(*lookupArea);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size() + 1)));
+        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
         }

@@ -336,11 +336,8 @@ pub const qsurfaceformat = struct {
     /// ` self: QtC.QSurfaceFormat `
     ///
     pub fn Version(self: ?*anyopaque) struct_i32_i32 {
-        const _pair: qtc.libqt_pair = qtc.QSurfaceFormat_Version(@ptrCast(self));
-        return struct_i32_i32{
-            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
-            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QSurfaceFormat_Version(@ptrCast(self));
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setVersion)

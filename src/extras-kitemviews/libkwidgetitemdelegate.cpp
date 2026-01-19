@@ -65,7 +65,7 @@ libqt_list /* of QWidget* */ KWidgetItemDelegate_CreateItemWidgets(const KWidget
     if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
         QList<QWidget*> _ret = vkwidgetitemdelegate->createItemWidgets(*index);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -116,7 +116,7 @@ libqt_list /* of QWidget* */ KWidgetItemDelegate_QBaseCreateItemWidgets(const KW
         vkwidgetitemdelegate->setKWidgetItemDelegate_CreateItemWidgets_IsBase(true);
         QList<QWidget*> _ret = vkwidgetitemdelegate->createItemWidgets(*index);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -127,7 +127,7 @@ libqt_list /* of QWidget* */ KWidgetItemDelegate_QBaseCreateItemWidgets(const KW
     } else {
         QList<QWidget*> _ret = ((VirtualKWidgetItemDelegate*)self)->createItemWidgets(*index);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -438,7 +438,7 @@ libqt_list /* of int */ KWidgetItemDelegate_PaintingRoles(const KWidgetItemDeleg
     if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
         QList<int> _ret = vkwidgetitemdelegate->paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -449,7 +449,7 @@ libqt_list /* of int */ KWidgetItemDelegate_PaintingRoles(const KWidgetItemDeleg
     } else {
         QList<int> _ret = self->KWidgetItemDelegate::paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -467,7 +467,7 @@ libqt_list /* of int */ KWidgetItemDelegate_QBasePaintingRoles(const KWidgetItem
         vkwidgetitemdelegate->setKWidgetItemDelegate_PaintingRoles_IsBase(true);
         QList<int> _ret = vkwidgetitemdelegate->paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -478,7 +478,7 @@ libqt_list /* of int */ KWidgetItemDelegate_QBasePaintingRoles(const KWidgetItem
     } else {
         QList<int> _ret = self->KWidgetItemDelegate::paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -747,7 +747,7 @@ libqt_list /* of int */ KWidgetItemDelegate_BlockedEventTypes(const KWidgetItemD
     if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
         QList<QEvent::Type> _ret = vkwidgetitemdelegate->blockedEventTypes(widget);
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = static_cast<int>(_ret[i]);
         }
@@ -758,7 +758,7 @@ libqt_list /* of int */ KWidgetItemDelegate_BlockedEventTypes(const KWidgetItemD
     } else {
         QList<QEvent::Type> _ret = ((VirtualKWidgetItemDelegate*)self)->blockedEventTypes(widget);
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = static_cast<int>(_ret[i]);
         }
@@ -776,7 +776,7 @@ libqt_list /* of int */ KWidgetItemDelegate_QBaseBlockedEventTypes(const KWidget
         vkwidgetitemdelegate->setKWidgetItemDelegate_BlockedEventTypes_IsBase(true);
         QList<QEvent::Type> _ret = vkwidgetitemdelegate->blockedEventTypes(widget);
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = static_cast<int>(_ret[i]);
         }
@@ -787,7 +787,7 @@ libqt_list /* of int */ KWidgetItemDelegate_QBaseBlockedEventTypes(const KWidget
     } else {
         QList<QEvent::Type> _ret = ((VirtualKWidgetItemDelegate*)self)->blockedEventTypes(widget);
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = static_cast<int>(_ret[i]);
         }

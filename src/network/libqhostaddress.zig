@@ -500,11 +500,8 @@ pub const qhostaddress = struct {
             .len = subnet.len,
             .data = subnet.ptr,
         };
-        const _pair: qtc.libqt_pair = qtc.QHostAddress_ParseSubnet(subnet_str);
-        return struct_qtcqhostaddress_i32{
-            .first = @ptrCast(_pair.first),
-            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
-        };
+        const _pair = qtc.QHostAddress_ParseSubnet(subnet_str);
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#toIPv4Address)

@@ -27,6 +27,18 @@ typedef struct QVariant QVariant;
 typedef struct QVariantAnimation QVariantAnimation;
 #endif
 
+struct pair_double_qvariant;
+
+typedef struct pair_double_qvariant pair_double_qvariant;
+
+#ifndef PAIR_DOUBLE_QVARIANT
+#define PAIR_DOUBLE_QVARIANT
+struct pair_double_qvariant {
+    double first;
+    QVariant* second;
+};
+#endif
+
 QVariantAnimation* QVariantAnimation_new();
 QVariantAnimation* QVariantAnimation_new2(QObject* parent);
 QMetaObject* QVariantAnimation_MetaObject(const QVariantAnimation* self);
@@ -38,8 +50,8 @@ QVariant* QVariantAnimation_EndValue(const QVariantAnimation* self);
 void QVariantAnimation_SetEndValue(QVariantAnimation* self, const QVariant* value);
 QVariant* QVariantAnimation_KeyValueAt(const QVariantAnimation* self, double step);
 void QVariantAnimation_SetKeyValueAt(QVariantAnimation* self, double step, const QVariant* value);
-libqt_list /* of libqt_pair tuple of double and QVariant* */ QVariantAnimation_KeyValues(const QVariantAnimation* self);
-void QVariantAnimation_SetKeyValues(QVariantAnimation* self, const libqt_list /* of libqt_pair tuple of double and QVariant* */ values);
+libqt_list /* of pair_double_qvariant tuple of double and QVariant* */ QVariantAnimation_KeyValues(const QVariantAnimation* self);
+void QVariantAnimation_SetKeyValues(QVariantAnimation* self, const libqt_list /* of pair_double_qvariant tuple of double and QVariant* */ values);
 QVariant* QVariantAnimation_CurrentValue(const QVariantAnimation* self);
 int QVariantAnimation_Duration(const QVariantAnimation* self);
 void QVariantAnimation_SetDuration(QVariantAnimation* self, int msecs);

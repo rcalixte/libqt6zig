@@ -60,7 +60,7 @@ libqt_list /* of QWidget* */ QDesignerMetaDataBaseItemInterface_TabOrder(const Q
     if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
         QList<QWidget*> _ret = vqdesignermetadatabaseiteminterface->tabOrder();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -71,7 +71,7 @@ libqt_list /* of QWidget* */ QDesignerMetaDataBaseItemInterface_TabOrder(const Q
     } else {
         QList<QWidget*> _ret = ((VirtualQDesignerMetaDataBaseItemInterface*)self)->tabOrder();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -177,7 +177,7 @@ libqt_list /* of QWidget* */ QDesignerMetaDataBaseItemInterface_QBaseTabOrder(co
         vqdesignermetadatabaseiteminterface->setQDesignerMetaDataBaseItemInterface_TabOrder_IsBase(true);
         QList<QWidget*> _ret = vqdesignermetadatabaseiteminterface->tabOrder();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -188,7 +188,7 @@ libqt_list /* of QWidget* */ QDesignerMetaDataBaseItemInterface_QBaseTabOrder(co
     } else {
         QList<QWidget*> _ret = ((VirtualQDesignerMetaDataBaseItemInterface*)self)->tabOrder();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -331,7 +331,7 @@ libqt_list /* of QObject* */ QDesignerMetaDataBaseInterface_Objects(const QDesig
     if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
         QList<QObject*> _ret = vqdesignermetadatabaseinterface->objects();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size() + 1)));
+        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -342,7 +342,7 @@ libqt_list /* of QObject* */ QDesignerMetaDataBaseInterface_Objects(const QDesig
     } else {
         QList<QObject*> _ret = ((VirtualQDesignerMetaDataBaseInterface*)self)->objects();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size() + 1)));
+        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -456,7 +456,7 @@ libqt_list /* of QObject* */ QDesignerMetaDataBaseInterface_QBaseObjects(const Q
         vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Objects_IsBase(true);
         QList<QObject*> _ret = vqdesignermetadatabaseinterface->objects();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size() + 1)));
+        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -467,7 +467,7 @@ libqt_list /* of QObject* */ QDesignerMetaDataBaseInterface_QBaseObjects(const Q
     } else {
         QList<QObject*> _ret = ((VirtualQDesignerMetaDataBaseInterface*)self)->objects();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size() + 1)));
+        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

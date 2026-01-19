@@ -1089,7 +1089,7 @@ KConfig* KCoreConfigSkeleton_Config2(const KCoreConfigSkeleton* self) {
 libqt_list /* of KConfigSkeletonItem* */ KCoreConfigSkeleton_Items(const KCoreConfigSkeleton* self) {
     QList<KConfigSkeletonItem*> _ret = self->items();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KConfigSkeletonItem** _arr = static_cast<KConfigSkeletonItem**>(malloc(sizeof(KConfigSkeletonItem*) * (_ret.size() + 1)));
+    KConfigSkeletonItem** _arr = static_cast<KConfigSkeletonItem**>(malloc(sizeof(KConfigSkeletonItem*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -3317,7 +3317,7 @@ KCoreConfigSkeleton__ItemEnum* KCoreConfigSkeleton__ItemEnum_new2(const libqt_st
 libqt_list /* of KCoreConfigSkeleton__ItemEnum__Choice* */ KCoreConfigSkeleton__ItemEnum_Choices(const KCoreConfigSkeleton__ItemEnum* self) {
     QList<KCoreConfigSkeleton::ItemEnum::Choice> _ret = self->choices();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KCoreConfigSkeleton__ItemEnum__Choice** _arr = static_cast<KCoreConfigSkeleton__ItemEnum__Choice**>(malloc(sizeof(KCoreConfigSkeleton__ItemEnum__Choice*) * (_ret.size() + 1)));
+    KCoreConfigSkeleton__ItemEnum__Choice** _arr = static_cast<KCoreConfigSkeleton__ItemEnum__Choice**>(malloc(sizeof(KCoreConfigSkeleton__ItemEnum__Choice*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KCoreConfigSkeleton::ItemEnum::Choice(_ret[i]);
     }

@@ -193,11 +193,8 @@ pub const kstandardguiitem = struct {
     /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#backAndForward)
     ///
     pub fn BackAndForward() struct_qtckguiitem_qtckguiitem {
-        const _pair: qtc.libqt_pair = qtc.KStandardGuiItem_BackAndForward();
-        return struct_qtckguiitem_qtckguiitem{
-            .first = @ptrCast(_pair.first),
-            .second = @ptrCast(_pair.second),
-        };
+        const _pair = qtc.KStandardGuiItem_BackAndForward();
+        return @bitCast(_pair);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#quit)

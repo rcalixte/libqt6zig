@@ -48,7 +48,7 @@ int QMediaPlayer_Metacall(QMediaPlayer* self, int param1, int param2, void** par
 libqt_list /* of QMediaMetaData* */ QMediaPlayer_AudioTracks(const QMediaPlayer* self) {
     QList<QMediaMetaData> _ret = self->audioTracks();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * (_ret.size() + 1)));
+    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMediaMetaData(_ret[i]);
     }
@@ -61,7 +61,7 @@ libqt_list /* of QMediaMetaData* */ QMediaPlayer_AudioTracks(const QMediaPlayer*
 libqt_list /* of QMediaMetaData* */ QMediaPlayer_VideoTracks(const QMediaPlayer* self) {
     QList<QMediaMetaData> _ret = self->videoTracks();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * (_ret.size() + 1)));
+    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMediaMetaData(_ret[i]);
     }
@@ -74,7 +74,7 @@ libqt_list /* of QMediaMetaData* */ QMediaPlayer_VideoTracks(const QMediaPlayer*
 libqt_list /* of QMediaMetaData* */ QMediaPlayer_SubtitleTracks(const QMediaPlayer* self) {
     QList<QMediaMetaData> _ret = self->subtitleTracks();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * (_ret.size() + 1)));
+    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMediaMetaData(_ret[i]);
     }

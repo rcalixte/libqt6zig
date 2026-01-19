@@ -60,7 +60,7 @@ libqt_list /* of libqt_string */ Sonnet__Speller_Suggest(const Sonnet__Speller* 
     QString word_QString = QString::fromUtf8(word.data, word.len);
     QList<QString> _ret = self->suggest(word_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -117,7 +117,7 @@ void Sonnet__Speller_Restore(Sonnet__Speller* self) {
 libqt_list /* of libqt_string */ Sonnet__Speller_AvailableBackends(const Sonnet__Speller* self) {
     QList<QString> _ret = self->availableBackends();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -138,7 +138,7 @@ libqt_list /* of libqt_string */ Sonnet__Speller_AvailableBackends(const Sonnet_
 libqt_list /* of libqt_string */ Sonnet__Speller_AvailableLanguages(const Sonnet__Speller* self) {
     QList<QString> _ret = self->availableLanguages();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -159,7 +159,7 @@ libqt_list /* of libqt_string */ Sonnet__Speller_AvailableLanguages(const Sonnet
 libqt_list /* of libqt_string */ Sonnet__Speller_AvailableLanguageNames(const Sonnet__Speller* self) {
     QList<QString> _ret = self->availableLanguageNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

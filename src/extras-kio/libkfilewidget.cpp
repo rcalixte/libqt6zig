@@ -80,7 +80,7 @@ QUrl* KFileWidget_SelectedUrl(const KFileWidget* self) {
 libqt_list /* of QUrl* */ KFileWidget_SelectedUrls(const KFileWidget* self) {
     QList<QUrl> _ret = self->selectedUrls();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }
@@ -109,7 +109,7 @@ libqt_string KFileWidget_SelectedFile(const KFileWidget* self) {
 libqt_list /* of libqt_string */ KFileWidget_SelectedFiles(const KFileWidget* self) {
     QList<QString> _ret = self->selectedFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -275,7 +275,7 @@ void KFileWidget_SetSupportedSchemes(KFileWidget* self, const libqt_list /* of l
 libqt_list /* of libqt_string */ KFileWidget_SupportedSchemes(const KFileWidget* self) {
     QList<QString> _ret = self->supportedSchemes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

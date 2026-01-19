@@ -490,7 +490,7 @@ void QOpenGLShaderProgram_RemoveShader(QOpenGLShaderProgram* self, QOpenGLShader
 libqt_list /* of QOpenGLShader* */ QOpenGLShaderProgram_Shaders(const QOpenGLShaderProgram* self) {
     QList<QOpenGLShader*> _ret = self->shaders();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QOpenGLShader** _arr = static_cast<QOpenGLShader**>(malloc(sizeof(QOpenGLShader*) * (_ret.size() + 1)));
+    QOpenGLShader** _arr = static_cast<QOpenGLShader**>(malloc(sizeof(QOpenGLShader*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -608,7 +608,7 @@ void QOpenGLShaderProgram_SetDefaultOuterTessellationLevels(QOpenGLShaderProgram
 libqt_list /* of float */ QOpenGLShaderProgram_DefaultOuterTessellationLevels(const QOpenGLShaderProgram* self) {
     QList<float> _ret = self->defaultOuterTessellationLevels();
     // Convert QList<> from C++ memory to manually-managed C memory
-    float* _arr = static_cast<float*>(malloc(sizeof(float) * (_ret.size() + 1)));
+    float* _arr = static_cast<float*>(malloc(sizeof(float) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -631,7 +631,7 @@ void QOpenGLShaderProgram_SetDefaultInnerTessellationLevels(QOpenGLShaderProgram
 libqt_list /* of float */ QOpenGLShaderProgram_DefaultInnerTessellationLevels(const QOpenGLShaderProgram* self) {
     QList<float> _ret = self->defaultInnerTessellationLevels();
     // Convert QList<> from C++ memory to manually-managed C memory
-    float* _arr = static_cast<float*>(malloc(sizeof(float) * (_ret.size() + 1)));
+    float* _arr = static_cast<float*>(malloc(sizeof(float) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

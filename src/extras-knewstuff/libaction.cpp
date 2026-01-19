@@ -53,7 +53,7 @@ void KNSWidgets__Action_Connect_DialogFinished(KNSWidgets__Action* self, intptr_
     KNSWidgets::Action::connect(self, &KNSWidgets::Action::dialogFinished, [self, slotFunc](const QList<KNSCore::Entry>& changedEntries) {
         const QList<KNSCore::Entry>& changedEntries_ret = changedEntries;
         // Convert QList<> from C++ memory to manually-managed C memory
-        KNSCore__Entry** changedEntries_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (changedEntries_ret.size() + 1)));
+        KNSCore__Entry** changedEntries_arr = static_cast<KNSCore__Entry**>(malloc(sizeof(KNSCore__Entry*) * (changedEntries_ret.size())));
         for (qsizetype i = 0; i < changedEntries_ret.size(); ++i) {
             changedEntries_arr[i] = new KNSCore::Entry(changedEntries_ret[i]);
         }

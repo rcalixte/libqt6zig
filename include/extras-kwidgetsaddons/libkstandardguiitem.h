@@ -20,6 +20,18 @@ typedef struct KStandardGuiItem KStandardGuiItem;
 typedef struct QPushButton QPushButton;
 #endif
 
+struct pair_kguiitem_kguiitem;
+
+typedef struct pair_kguiitem_kguiitem pair_kguiitem_kguiitem;
+
+#ifndef PAIR_KGUIITEM_KGUIITEM
+#define PAIR_KGUIITEM_KGUIITEM
+struct pair_kguiitem_kguiitem {
+    KGuiItem* first;
+    KGuiItem* second;
+};
+#endif
+
 KGuiItem* KStandardGuiItem_GuiItem(int param1);
 libqt_string KStandardGuiItem_StandardItem(int param1);
 KGuiItem* KStandardGuiItem_Ok();
@@ -47,7 +59,7 @@ KGuiItem* KStandardGuiItem_Open();
 KGuiItem* KStandardGuiItem_Back(int param1);
 KGuiItem* KStandardGuiItem_Forward(int param1);
 KGuiItem* KStandardGuiItem_Configure();
-libqt_pair /* tuple of KGuiItem* and KGuiItem* */ KStandardGuiItem_BackAndForward();
+pair_kguiitem_kguiitem /* tuple of KGuiItem* and KGuiItem* */ KStandardGuiItem_BackAndForward();
 KGuiItem* KStandardGuiItem_Quit();
 KGuiItem* KStandardGuiItem_Find();
 KGuiItem* KStandardGuiItem_Stop();

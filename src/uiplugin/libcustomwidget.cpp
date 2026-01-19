@@ -126,7 +126,7 @@ void QDesignerCustomWidgetInterface_Delete(QDesignerCustomWidgetInterface* self)
 libqt_list /* of QDesignerCustomWidgetInterface* */ QDesignerCustomWidgetCollectionInterface_CustomWidgets(const QDesignerCustomWidgetCollectionInterface* self) {
     QList<QDesignerCustomWidgetInterface*> _ret = self->customWidgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDesignerCustomWidgetInterface** _arr = static_cast<QDesignerCustomWidgetInterface**>(malloc(sizeof(QDesignerCustomWidgetInterface*) * (_ret.size() + 1)));
+    QDesignerCustomWidgetInterface** _arr = static_cast<QDesignerCustomWidgetInterface**>(malloc(sizeof(QDesignerCustomWidgetInterface*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

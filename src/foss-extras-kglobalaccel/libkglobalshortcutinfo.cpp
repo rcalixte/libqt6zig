@@ -94,7 +94,7 @@ libqt_string KGlobalShortcutInfo_ComponentUniqueName(const KGlobalShortcutInfo* 
 libqt_list /* of QKeySequence* */ KGlobalShortcutInfo_DefaultKeys(const KGlobalShortcutInfo* self) {
     QList<QKeySequence> _ret = self->defaultKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -119,7 +119,7 @@ libqt_string KGlobalShortcutInfo_FriendlyName(const KGlobalShortcutInfo* self) {
 libqt_list /* of QKeySequence* */ KGlobalShortcutInfo_Keys(const KGlobalShortcutInfo* self) {
     QList<QKeySequence> _ret = self->keys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }

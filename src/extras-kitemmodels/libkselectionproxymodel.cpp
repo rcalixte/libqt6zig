@@ -173,7 +173,7 @@ libqt_list /* of libqt_string */ KSelectionProxyModel_MimeTypes(const KSelection
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         QList<QString> _ret = self->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -192,7 +192,7 @@ libqt_list /* of libqt_string */ KSelectionProxyModel_MimeTypes(const KSelection
     } else {
         QList<QString> _ret = ((VirtualKSelectionProxyModel*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -270,7 +270,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_Match(const KSelectionProx
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -281,7 +281,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_Match(const KSelectionProx
     } else {
         QList<QModelIndex> _ret = ((VirtualKSelectionProxyModel*)self)->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -514,7 +514,7 @@ libqt_list /* of libqt_string */ KSelectionProxyModel_QBaseMimeTypes(const KSele
         vkselectionproxymodel->setKSelectionProxyModel_MimeTypes_IsBase(true);
         QList<QString> _ret = vkselectionproxymodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -533,7 +533,7 @@ libqt_list /* of libqt_string */ KSelectionProxyModel_QBaseMimeTypes(const KSele
     } else {
         QList<QString> _ret = self->KSelectionProxyModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -681,7 +681,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_QBaseMatch(const KSelectio
         vkselectionproxymodel->setKSelectionProxyModel_Match_IsBase(true);
         QList<QModelIndex> _ret = vkselectionproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -692,7 +692,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_QBaseMatch(const KSelectio
     } else {
         QList<QModelIndex> _ret = self->KSelectionProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1764,7 +1764,7 @@ libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_SourceRootIndexe
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         QList<QPersistentModelIndex> _ret = vkselectionproxymodel->sourceRootIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QPersistentModelIndex** _arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (_ret.size() + 1)));
+        QPersistentModelIndex** _arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QPersistentModelIndex(_ret[i]);
         }
@@ -1775,7 +1775,7 @@ libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_SourceRootIndexe
     } else {
         QList<QPersistentModelIndex> _ret = ((VirtualKSelectionProxyModel*)self)->sourceRootIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QPersistentModelIndex** _arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (_ret.size() + 1)));
+        QPersistentModelIndex** _arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QPersistentModelIndex(_ret[i]);
         }
@@ -1793,7 +1793,7 @@ libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_QBaseSourceRootI
         vkselectionproxymodel->setKSelectionProxyModel_SourceRootIndexes_IsBase(true);
         QList<QPersistentModelIndex> _ret = vkselectionproxymodel->sourceRootIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QPersistentModelIndex** _arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (_ret.size() + 1)));
+        QPersistentModelIndex** _arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QPersistentModelIndex(_ret[i]);
         }
@@ -1804,7 +1804,7 @@ libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_QBaseSourceRootI
     } else {
         QList<QPersistentModelIndex> _ret = ((VirtualKSelectionProxyModel*)self)->sourceRootIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QPersistentModelIndex** _arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (_ret.size() + 1)));
+        QPersistentModelIndex** _arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QPersistentModelIndex(_ret[i]);
         }
@@ -2441,7 +2441,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_PersistentIndexList(const 
     if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
         QList<QModelIndex> _ret = vkselectionproxymodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2452,7 +2452,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_PersistentIndexList(const 
     } else {
         QList<QModelIndex> _ret = ((VirtualKSelectionProxyModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2470,7 +2470,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_QBasePersistentIndexList(c
         vkselectionproxymodel->setKSelectionProxyModel_PersistentIndexList_IsBase(true);
         QList<QModelIndex> _ret = vkselectionproxymodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2481,7 +2481,7 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_QBasePersistentIndexList(c
     } else {
         QList<QModelIndex> _ret = ((VirtualKSelectionProxyModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

@@ -67,7 +67,7 @@ bool KIO__UDSEntry_Contains(const KIO__UDSEntry* self, unsigned int field) {
 libqt_list /* of unsigned int */ KIO__UDSEntry_Fields(const KIO__UDSEntry* self) {
     QList<unsigned int> _ret = self->fields();
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

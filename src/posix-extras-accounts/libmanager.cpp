@@ -69,7 +69,7 @@ Accounts__Account* Accounts__Manager_Account(const Accounts__Manager* self, cons
 libqt_list /* of unsigned int */ Accounts__Manager_AccountList(const Accounts__Manager* self) {
     QList<unsigned int> _ret = self->accountList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -82,7 +82,7 @@ libqt_list /* of unsigned int */ Accounts__Manager_AccountList(const Accounts__M
 libqt_list /* of unsigned int */ Accounts__Manager_AccountListEnabled(const Accounts__Manager* self) {
     QList<unsigned int> _ret = self->accountListEnabled();
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -105,7 +105,7 @@ Accounts__Service* Accounts__Manager_Service(const Accounts__Manager* self, cons
 libqt_list /* of Accounts__Service* */ Accounts__Manager_ServiceList(const Accounts__Manager* self) {
     QList<Accounts::Service> _ret = self->serviceList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size() + 1)));
+    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Accounts::Service(_ret[i]);
     }
@@ -118,7 +118,7 @@ libqt_list /* of Accounts__Service* */ Accounts__Manager_ServiceList(const Accou
 libqt_list /* of Accounts__Service* */ Accounts__Manager_ServiceList2(const Accounts__Manager* self, const Accounts__Application* application) {
     QList<Accounts::Service> _ret = self->serviceList(*application);
     // Convert QList<> from C++ memory to manually-managed C memory
-    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size() + 1)));
+    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Accounts::Service(_ret[i]);
     }
@@ -136,7 +136,7 @@ Accounts__Provider* Accounts__Manager_Provider(const Accounts__Manager* self, co
 libqt_list /* of Accounts__Provider* */ Accounts__Manager_ProviderList(const Accounts__Manager* self) {
     QList<Accounts::Provider> _ret = self->providerList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    Accounts__Provider** _arr = static_cast<Accounts__Provider**>(malloc(sizeof(Accounts__Provider*) * (_ret.size() + 1)));
+    Accounts__Provider** _arr = static_cast<Accounts__Provider**>(malloc(sizeof(Accounts__Provider*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Accounts::Provider(_ret[i]);
     }
@@ -159,7 +159,7 @@ Accounts__Application* Accounts__Manager_Application(const Accounts__Manager* se
 libqt_list /* of Accounts__Application* */ Accounts__Manager_ApplicationList(const Accounts__Manager* self, const Accounts__Service* service) {
     QList<Accounts::Application> _ret = self->applicationList(*service);
     // Convert QList<> from C++ memory to manually-managed C memory
-    Accounts__Application** _arr = static_cast<Accounts__Application**>(malloc(sizeof(Accounts__Application*) * (_ret.size() + 1)));
+    Accounts__Application** _arr = static_cast<Accounts__Application**>(malloc(sizeof(Accounts__Application*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Accounts::Application(_ret[i]);
     }
@@ -257,7 +257,7 @@ libqt_list /* of unsigned int */ Accounts__Manager_AccountList1(const Accounts__
     QString serviceType_QString = QString::fromUtf8(serviceType.data, serviceType.len);
     QList<unsigned int> _ret = self->accountList(serviceType_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -271,7 +271,7 @@ libqt_list /* of unsigned int */ Accounts__Manager_AccountListEnabled1(const Acc
     QString serviceType_QString = QString::fromUtf8(serviceType.data, serviceType.len);
     QList<unsigned int> _ret = self->accountListEnabled(serviceType_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -285,7 +285,7 @@ libqt_list /* of Accounts__Service* */ Accounts__Manager_ServiceList1(const Acco
     QString serviceType_QString = QString::fromUtf8(serviceType.data, serviceType.len);
     QList<Accounts::Service> _ret = self->serviceList(serviceType_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size() + 1)));
+    Accounts__Service** _arr = static_cast<Accounts__Service**>(malloc(sizeof(Accounts__Service*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new Accounts::Service(_ret[i]);
     }

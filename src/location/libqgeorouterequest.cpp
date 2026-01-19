@@ -50,7 +50,7 @@ void QGeoRouteRequest_SetWaypoints(QGeoRouteRequest* self, const libqt_list /* o
 libqt_list /* of QGeoCoordinate* */ QGeoRouteRequest_Waypoints(const QGeoRouteRequest* self) {
     QList<QGeoCoordinate> _ret = self->waypoints();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size() + 1)));
+    QGeoCoordinate** _arr = static_cast<QGeoCoordinate**>(malloc(sizeof(QGeoCoordinate*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoCoordinate(_ret[i]);
     }
@@ -73,7 +73,7 @@ void QGeoRouteRequest_SetExcludeAreas(QGeoRouteRequest* self, const libqt_list /
 libqt_list /* of QGeoRectangle* */ QGeoRouteRequest_ExcludeAreas(const QGeoRouteRequest* self) {
     QList<QGeoRectangle> _ret = self->excludeAreas();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGeoRectangle** _arr = static_cast<QGeoRectangle**>(malloc(sizeof(QGeoRectangle*) * (_ret.size() + 1)));
+    QGeoRectangle** _arr = static_cast<QGeoRectangle**>(malloc(sizeof(QGeoRectangle*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGeoRectangle(_ret[i]);
     }
@@ -110,7 +110,7 @@ int QGeoRouteRequest_FeatureWeight(const QGeoRouteRequest* self, int featureType
 libqt_list /* of int */ QGeoRouteRequest_FeatureTypes(const QGeoRouteRequest* self) {
     QList<QGeoRouteRequest::FeatureType> _ret = self->featureTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }

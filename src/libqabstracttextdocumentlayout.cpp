@@ -928,7 +928,7 @@ void QAbstractTextDocumentLayout__PaintContext_SetClip(QAbstractTextDocumentLayo
 libqt_list /* of QAbstractTextDocumentLayout__Selection* */ QAbstractTextDocumentLayout__PaintContext_Selections(const QAbstractTextDocumentLayout__PaintContext* self) {
     QList<QAbstractTextDocumentLayout::Selection> selections_ret = self->selections;
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractTextDocumentLayout__Selection** selections_arr = static_cast<QAbstractTextDocumentLayout__Selection**>(malloc(sizeof(QAbstractTextDocumentLayout__Selection*) * (selections_ret.size() + 1)));
+    QAbstractTextDocumentLayout__Selection** selections_arr = static_cast<QAbstractTextDocumentLayout__Selection**>(malloc(sizeof(QAbstractTextDocumentLayout__Selection*) * (selections_ret.size())));
     for (qsizetype i = 0; i < selections_ret.size(); ++i) {
         selections_arr[i] = new QAbstractTextDocumentLayout::Selection(selections_ret[i]);
     }

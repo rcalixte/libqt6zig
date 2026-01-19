@@ -205,7 +205,7 @@ KTextEditor__Cursor* KTextEditor__View_CursorPosition(const KTextEditor__View* s
 libqt_list /* of KTextEditor__Cursor* */ KTextEditor__View_CursorPositions(const KTextEditor__View* self) {
     QList<KTextEditor::Cursor> _ret = self->cursorPositions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__Cursor** _arr = static_cast<KTextEditor__Cursor**>(malloc(sizeof(KTextEditor__Cursor*) * (_ret.size() + 1)));
+    KTextEditor__Cursor** _arr = static_cast<KTextEditor__Cursor**>(malloc(sizeof(KTextEditor__Cursor*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KTextEditor::Cursor(_ret[i]);
     }
@@ -315,7 +315,7 @@ KTextEditor__Range* KTextEditor__View_SelectionRange(const KTextEditor__View* se
 libqt_list /* of KTextEditor__Range* */ KTextEditor__View_SelectionRanges(const KTextEditor__View* self) {
     QList<KTextEditor::Range> _ret = self->selectionRanges();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__Range** _arr = static_cast<KTextEditor__Range**>(malloc(sizeof(KTextEditor__Range*) * (_ret.size() + 1)));
+    KTextEditor__Range** _arr = static_cast<KTextEditor__Range**>(malloc(sizeof(KTextEditor__Range*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KTextEditor::Range(_ret[i]);
     }
@@ -473,7 +473,7 @@ void KTextEditor__View_WriteSessionConfig(KTextEditor__View* self, KConfigGroup*
 libqt_list /* of KTextEditor__AttributeBlock* */ KTextEditor__View_LineAttributes(KTextEditor__View* self, int line) {
     QList<KTextEditor::AttributeBlock> _ret = self->lineAttributes(static_cast<int>(line));
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__AttributeBlock** _arr = static_cast<KTextEditor__AttributeBlock**>(malloc(sizeof(KTextEditor__AttributeBlock*) * (_ret.size() + 1)));
+    KTextEditor__AttributeBlock** _arr = static_cast<KTextEditor__AttributeBlock**>(malloc(sizeof(KTextEditor__AttributeBlock*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KTextEditor::AttributeBlock(_ret[i]);
     }
@@ -498,7 +498,7 @@ void KTextEditor__View_Connect_ConfigChanged(KTextEditor__View* self, intptr_t s
 libqt_list /* of libqt_string */ KTextEditor__View_ConfigKeys(const KTextEditor__View* self) {
     QList<QString> _ret = self->configKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -667,7 +667,7 @@ void KTextEditor__View_StartCompletion2(KTextEditor__View* self, const KTextEdit
 libqt_list /* of KTextEditor__CodeCompletionModel* */ KTextEditor__View_CodeCompletionModels(const KTextEditor__View* self) {
     QList<KTextEditor::CodeCompletionModel*> _ret = self->codeCompletionModels();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KTextEditor__CodeCompletionModel** _arr = static_cast<KTextEditor__CodeCompletionModel**>(malloc(sizeof(KTextEditor__CodeCompletionModel*) * (_ret.size() + 1)));
+    KTextEditor__CodeCompletionModel** _arr = static_cast<KTextEditor__CodeCompletionModel**>(malloc(sizeof(KTextEditor__CodeCompletionModel*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

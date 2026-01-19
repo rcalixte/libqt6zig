@@ -80,7 +80,7 @@ bool KAutoSaveFile_Open(KAutoSaveFile* self, int openmode) {
 libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_StaleFiles(const QUrl* url) {
     QList<KAutoSaveFile*> _ret = KAutoSaveFile::staleFiles(*url);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAutoSaveFile** _arr = static_cast<KAutoSaveFile**>(malloc(sizeof(KAutoSaveFile*) * (_ret.size() + 1)));
+    KAutoSaveFile** _arr = static_cast<KAutoSaveFile**>(malloc(sizeof(KAutoSaveFile*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -93,7 +93,7 @@ libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_StaleFiles(const QUrl* url) {
 libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_AllStaleFiles() {
     QList<KAutoSaveFile*> _ret = KAutoSaveFile::allStaleFiles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAutoSaveFile** _arr = static_cast<KAutoSaveFile**>(malloc(sizeof(KAutoSaveFile*) * (_ret.size() + 1)));
+    KAutoSaveFile** _arr = static_cast<KAutoSaveFile**>(malloc(sizeof(KAutoSaveFile*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -107,7 +107,7 @@ libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_StaleFiles2(const QUrl* url, co
     QString applicationName_QString = QString::fromUtf8(applicationName.data, applicationName.len);
     QList<KAutoSaveFile*> _ret = KAutoSaveFile::staleFiles(*url, applicationName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAutoSaveFile** _arr = static_cast<KAutoSaveFile**>(malloc(sizeof(KAutoSaveFile*) * (_ret.size() + 1)));
+    KAutoSaveFile** _arr = static_cast<KAutoSaveFile**>(malloc(sizeof(KAutoSaveFile*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -121,7 +121,7 @@ libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_AllStaleFiles1(const libqt_stri
     QString applicationName_QString = QString::fromUtf8(applicationName.data, applicationName.len);
     QList<KAutoSaveFile*> _ret = KAutoSaveFile::allStaleFiles(applicationName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    KAutoSaveFile** _arr = static_cast<KAutoSaveFile**>(malloc(sizeof(KAutoSaveFile*) * (_ret.size() + 1)));
+    KAutoSaveFile** _arr = static_cast<KAutoSaveFile**>(malloc(sizeof(KAutoSaveFile*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

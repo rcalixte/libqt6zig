@@ -120,7 +120,7 @@ int KTimeComboBox_TimeListInterval(const KTimeComboBox* self) {
 libqt_list /* of QTime* */ KTimeComboBox_TimeList(const KTimeComboBox* self) {
     QList<QTime> _ret = self->timeList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTime** _arr = static_cast<QTime**>(malloc(sizeof(QTime*) * (_ret.size() + 1)));
+    QTime** _arr = static_cast<QTime**>(malloc(sizeof(QTime*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTime(_ret[i]);
     }

@@ -82,7 +82,7 @@ void KShortcutWidget_SetClearButtonsShown(KShortcutWidget* self, bool show) {
 libqt_list /* of QKeySequence* */ KShortcutWidget_Shortcut(const KShortcutWidget* self) {
     QList<QKeySequence> _ret = self->shortcut();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
@@ -117,7 +117,7 @@ void KShortcutWidget_Connect_ShortcutChanged(KShortcutWidget* self, intptr_t slo
     KShortcutWidget::connect(self, &KShortcutWidget::shortcutChanged, [self, slotFunc](const QList<QKeySequence>& cut) {
         const QList<QKeySequence>& cut_ret = cut;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QKeySequence** cut_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (cut_ret.size() + 1)));
+        QKeySequence** cut_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (cut_ret.size())));
         for (qsizetype i = 0; i < cut_ret.size(); ++i) {
             cut_arr[i] = new QKeySequence(cut_ret[i]);
         }

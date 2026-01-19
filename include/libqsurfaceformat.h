@@ -19,6 +19,18 @@ typedef struct QColorSpace QColorSpace;
 typedef struct QSurfaceFormat QSurfaceFormat;
 #endif
 
+struct pair_int_int;
+
+typedef struct pair_int_int pair_int_int;
+
+#ifndef PAIR_INT_INT
+#define PAIR_INT_INT
+struct pair_int_int {
+    int first;
+    int second;
+};
+#endif
+
 QSurfaceFormat* QSurfaceFormat_new();
 QSurfaceFormat* QSurfaceFormat_new2(int options);
 QSurfaceFormat* QSurfaceFormat_new3(const QSurfaceFormat* other);
@@ -48,7 +60,7 @@ void QSurfaceFormat_SetMajorVersion(QSurfaceFormat* self, int majorVersion);
 int QSurfaceFormat_MajorVersion(const QSurfaceFormat* self);
 void QSurfaceFormat_SetMinorVersion(QSurfaceFormat* self, int minorVersion);
 int QSurfaceFormat_MinorVersion(const QSurfaceFormat* self);
-libqt_pair /* tuple of int and int */ QSurfaceFormat_Version(const QSurfaceFormat* self);
+pair_int_int /* tuple of int and int */ QSurfaceFormat_Version(const QSurfaceFormat* self);
 void QSurfaceFormat_SetVersion(QSurfaceFormat* self, int major, int minor);
 bool QSurfaceFormat_Stereo(const QSurfaceFormat* self);
 void QSurfaceFormat_SetStereo(QSurfaceFormat* self, bool enable);

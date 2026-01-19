@@ -45,7 +45,7 @@ void KUrlMimeData_SetMetaData(const libqt_map /* of libqt_string to libqt_string
 libqt_list /* of libqt_string */ KUrlMimeData_MimeDataTypes() {
     QList<QString> _ret = KUrlMimeData::mimeDataTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -74,7 +74,7 @@ libqt_list /* of QUrl* */ KUrlMimeData_UrlsFromMimeData(const QMimeData* param1,
     }
     QList<QUrl> _ret = KUrlMimeData::urlsFromMimeData(param1, static_cast<KUrlMimeData::DecodeOptions>(param2), param3_QMap);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }

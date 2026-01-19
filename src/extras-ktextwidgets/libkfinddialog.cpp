@@ -117,7 +117,7 @@ void KFindDialog_SetFindHistory(KFindDialog* self, const libqt_list /* of libqt_
 libqt_list /* of libqt_string */ KFindDialog_FindHistory(const KFindDialog* self) {
     QList<QString> _ret = self->findHistory();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

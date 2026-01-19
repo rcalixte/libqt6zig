@@ -191,7 +191,7 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterTypes(co
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         QList<QByteArray> _ret = vqdesignermembersheetextension->parameterTypes(static_cast<int>(index));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
@@ -208,7 +208,7 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterTypes(co
     } else {
         QList<QByteArray> _ret = ((VirtualQDesignerMemberSheetExtension*)self)->parameterTypes(static_cast<int>(index));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
@@ -230,7 +230,7 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterNames(co
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         QList<QByteArray> _ret = vqdesignermembersheetextension->parameterNames(static_cast<int>(index));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
@@ -247,7 +247,7 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterNames(co
     } else {
         QList<QByteArray> _ret = ((VirtualQDesignerMemberSheetExtension*)self)->parameterNames(static_cast<int>(index));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
@@ -565,7 +565,7 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterTyp
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_ParameterTypes_IsBase(true);
         QList<QByteArray> _ret = vqdesignermembersheetextension->parameterTypes(static_cast<int>(index));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
@@ -582,7 +582,7 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterTyp
     } else {
         QList<QByteArray> _ret = ((VirtualQDesignerMemberSheetExtension*)self)->parameterTypes(static_cast<int>(index));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
@@ -614,7 +614,7 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterNam
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_ParameterNames_IsBase(true);
         QList<QByteArray> _ret = vqdesignermembersheetextension->parameterNames(static_cast<int>(index));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
@@ -631,7 +631,7 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterNam
     } else {
         QList<QByteArray> _ret = ((VirtualQDesignerMemberSheetExtension*)self)->parameterNames(static_cast<int>(index));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;

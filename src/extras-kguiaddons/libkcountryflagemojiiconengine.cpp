@@ -376,7 +376,7 @@ libqt_list /* of QSize* */ KCountryFlagEmojiIconEngine_AvailableSizes(KCountryFl
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
         QList<QSize> _ret = vkcountryflagemojiiconengine->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size() + 1)));
+        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
@@ -387,7 +387,7 @@ libqt_list /* of QSize* */ KCountryFlagEmojiIconEngine_AvailableSizes(KCountryFl
     } else {
         QList<QSize> _ret = self->KCountryFlagEmojiIconEngine::availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size() + 1)));
+        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
@@ -405,7 +405,7 @@ libqt_list /* of QSize* */ KCountryFlagEmojiIconEngine_QBaseAvailableSizes(KCoun
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_AvailableSizes_IsBase(true);
         QList<QSize> _ret = vkcountryflagemojiiconengine->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size() + 1)));
+        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
@@ -416,7 +416,7 @@ libqt_list /* of QSize* */ KCountryFlagEmojiIconEngine_QBaseAvailableSizes(KCoun
     } else {
         QList<QSize> _ret = self->KCountryFlagEmojiIconEngine::availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size() + 1)));
+        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }

@@ -84,7 +84,7 @@ void KPlotAxis_SetTickMarks(KPlotAxis* self, double x0, double length) {
 libqt_list /* of double */ KPlotAxis_MajorTickMarks(const KPlotAxis* self) {
     QList<double> _ret = self->majorTickMarks();
     // Convert QList<> from C++ memory to manually-managed C memory
-    double* _arr = static_cast<double*>(malloc(sizeof(double) * (_ret.size() + 1)));
+    double* _arr = static_cast<double*>(malloc(sizeof(double) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -97,7 +97,7 @@ libqt_list /* of double */ KPlotAxis_MajorTickMarks(const KPlotAxis* self) {
 libqt_list /* of double */ KPlotAxis_MinorTickMarks(const KPlotAxis* self) {
     QList<double> _ret = self->minorTickMarks();
     // Convert QList<> from C++ memory to manually-managed C memory
-    double* _arr = static_cast<double*>(malloc(sizeof(double) * (_ret.size() + 1)));
+    double* _arr = static_cast<double*>(malloc(sizeof(double) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

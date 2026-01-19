@@ -65,7 +65,7 @@ int QAbstractBarSeries_Count(const QAbstractBarSeries* self) {
 libqt_list /* of QBarSet* */ QAbstractBarSeries_BarSets(const QAbstractBarSeries* self) {
     QList<QBarSet*> _ret = self->barSets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QBarSet** _arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (_ret.size() + 1)));
+    QBarSet** _arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -287,7 +287,7 @@ void QAbstractBarSeries_Connect_BarsetsAdded(QAbstractBarSeries* self, intptr_t 
     QAbstractBarSeries::connect(self, &QAbstractBarSeries::barsetsAdded, [self, slotFunc](const QList<QBarSet*>& sets) {
         const QList<QBarSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size() + 1)));
+        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size())));
         for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
@@ -314,7 +314,7 @@ void QAbstractBarSeries_Connect_BarsetsRemoved(QAbstractBarSeries* self, intptr_
     QAbstractBarSeries::connect(self, &QAbstractBarSeries::barsetsRemoved, [self, slotFunc](const QList<QBarSet*>& sets) {
         const QList<QBarSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size() + 1)));
+        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size())));
         for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }

@@ -468,7 +468,7 @@ libqt_list /* of QWidget* */ KFontSizeAction_CreatedWidgets(const KFontSizeActio
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         QList<QWidget*> _ret = vkfontsizeaction->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -479,7 +479,7 @@ libqt_list /* of QWidget* */ KFontSizeAction_CreatedWidgets(const KFontSizeActio
     } else {
         QList<QWidget*> _ret = ((VirtualKFontSizeAction*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -497,7 +497,7 @@ libqt_list /* of QWidget* */ KFontSizeAction_QBaseCreatedWidgets(const KFontSize
         vkfontsizeaction->setKFontSizeAction_CreatedWidgets_IsBase(true);
         QList<QWidget*> _ret = vkfontsizeaction->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
@@ -508,7 +508,7 @@ libqt_list /* of QWidget* */ KFontSizeAction_QBaseCreatedWidgets(const KFontSize
     } else {
         QList<QWidget*> _ret = ((VirtualKFontSizeAction*)self)->createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
+        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }

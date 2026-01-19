@@ -106,7 +106,7 @@ libqt_string QPlaceManager_ParentCategoryId(const QPlaceManager* self, const lib
 libqt_list /* of libqt_string */ QPlaceManager_ChildCategoryIds(const QPlaceManager* self) {
     QList<QString> _ret = self->childCategoryIds();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -132,7 +132,7 @@ QPlaceCategory* QPlaceManager_Category(const QPlaceManager* self, const libqt_st
 libqt_list /* of QPlaceCategory* */ QPlaceManager_ChildCategories(const QPlaceManager* self) {
     QList<QPlaceCategory> _ret = self->childCategories();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size() + 1)));
+    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPlaceCategory(_ret[i]);
     }
@@ -145,7 +145,7 @@ libqt_list /* of QPlaceCategory* */ QPlaceManager_ChildCategories(const QPlaceMa
 libqt_list /* of QLocale* */ QPlaceManager_Locales(const QPlaceManager* self) {
     QList<QLocale> _ret = self->locales();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size() + 1)));
+    QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QLocale(_ret[i]);
     }
@@ -357,7 +357,7 @@ libqt_list /* of libqt_string */ QPlaceManager_ChildCategoryIds1(const QPlaceMan
     QString parentId_QString = QString::fromUtf8(parentId.data, parentId.len);
     QList<QString> _ret = self->childCategoryIds(parentId_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -379,7 +379,7 @@ libqt_list /* of QPlaceCategory* */ QPlaceManager_ChildCategories1(const QPlaceM
     QString parentId_QString = QString::fromUtf8(parentId.data, parentId.len);
     QList<QPlaceCategory> _ret = self->childCategories(parentId_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size() + 1)));
+    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPlaceCategory(_ret[i]);
     }

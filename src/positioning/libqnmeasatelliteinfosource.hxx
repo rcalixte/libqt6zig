@@ -339,7 +339,7 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             int cbval2 = size;
             QList<int>& pnrsInUse_ret = pnrsInUse;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* pnrsInUse_arr = static_cast<int*>(malloc(sizeof(int) * (pnrsInUse_ret.size() + 1)));
+            int* pnrsInUse_arr = static_cast<int*>(malloc(sizeof(int) * (pnrsInUse_ret.size())));
             for (qsizetype i = 0; i < pnrsInUse_ret.size(); ++i) {
                 pnrsInUse_arr[i] = pnrsInUse_ret[i];
             }
@@ -365,7 +365,7 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             int cbval2 = size;
             QList<QGeoSatelliteInfo>& infos_ret = infos;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QGeoSatelliteInfo** infos_arr = static_cast<QGeoSatelliteInfo**>(malloc(sizeof(QGeoSatelliteInfo*) * (infos_ret.size() + 1)));
+            QGeoSatelliteInfo** infos_arr = static_cast<QGeoSatelliteInfo**>(malloc(sizeof(QGeoSatelliteInfo*) * (infos_ret.size())));
             for (qsizetype i = 0; i < infos_ret.size(); ++i) {
                 infos_arr[i] = new QGeoSatelliteInfo(infos_ret[i]);
             }
@@ -503,7 +503,7 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             libqt_string cbval1 = data_str;
             QList<int>& pnrsInUse_ret = pnrsInUse;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* pnrsInUse_arr = static_cast<int*>(malloc(sizeof(int) * (pnrsInUse_ret.size() + 1)));
+            int* pnrsInUse_arr = static_cast<int*>(malloc(sizeof(int) * (pnrsInUse_ret.size())));
             for (qsizetype i = 0; i < pnrsInUse_ret.size(); ++i) {
                 pnrsInUse_arr[i] = pnrsInUse_ret[i];
             }
@@ -534,7 +534,7 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             libqt_string cbval1 = data_str;
             QList<QGeoSatelliteInfo>& infos_ret = infos;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QGeoSatelliteInfo** infos_arr = static_cast<QGeoSatelliteInfo**>(malloc(sizeof(QGeoSatelliteInfo*) * (infos_ret.size() + 1)));
+            QGeoSatelliteInfo** infos_arr = static_cast<QGeoSatelliteInfo**>(malloc(sizeof(QGeoSatelliteInfo*) * (infos_ret.size())));
             for (qsizetype i = 0; i < infos_ret.size(); ++i) {
                 infos_arr[i] = new QGeoSatelliteInfo(infos_ret[i]);
             }
