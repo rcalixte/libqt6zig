@@ -204,6 +204,7 @@ func AllowClass(className string) bool {
 		"QTextFrameLayoutData",           // internal Qt classes that should not be projected
 		"QThreadStorageData",             // internal Qt classes that should not be projected
 		"QWidgetData",                    // internal Qt classes that should not be projected
+		"QDBusPendingReplyBase",          // internal Qt classes that should not be projected
 		"QTextStreamManipulator",         // Only seems to contain garbage methods
 		"QException",                     // Extends std::exception, too hard
 		"QGenericRunnable",               // Qt 6, Unavailable class header in Qt 6.8
@@ -369,12 +370,6 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
-	// Qt 6 Attica
-	if className == "Attica::Metadata" && mm.MethodName == "setHeaders" {
-		// Qt 6 metadata.h: undefined symbol error during compilation
-		return ErrTooComplex
-	}
-
 	// Qt 6 KConfig
 	if className == "KCoreConfigSkeleton::ItemInt" && (mm.MethodName == "setMinValue" || mm.MethodName == "setMaxValue") {
 		// Qt 6 kcoreconfigskeleton.h: inherited method of a blocked class
@@ -394,12 +389,6 @@ func AllowMethod(className string, mm CppMethod) error {
 	}
 	if className == "Konsole::FilterChain" && mm.MethodName == "hotSpotsAtLine" {
 		// Skip these methods due to broken typedefs
-		return ErrTooComplex
-	}
-
-	// Qt 6 KTextWidgets
-	if className == "KRichTextWidget" && mm.MethodName == "setRichTextSupport" {
-		// Skip this method due to it being poorly implemented (a chance to engage with upstream)
 		return ErrTooComplex
 	}
 
