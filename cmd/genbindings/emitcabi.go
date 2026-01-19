@@ -63,7 +63,23 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 		return "libqt_map" + ifv(p.Pointer, "*", "") + cppComment("of "+strings.TrimSpace(inner1.RenderTypeCabi(false))+" to "+maybeQMulti+strings.TrimSpace(inner2.RenderTypeCabi(false)))
 
 	} else if inner1, inner2, ok := p.QPairOf(); ok {
-		return "libqt_pair" + cppComment("tuple of "+strings.TrimSpace(inner1.RenderTypeCabi(false))+" and "+strings.TrimSpace(inner2.RenderTypeCabi(false)))
+		returnType := "libqt_pair"
+
+		if (inner1.IntType() || IsKnownClass(inner1.ParameterType)) && (inner2.IntType() || IsKnownClass(inner2.ParameterType)) {
+			kParam := inner1.ParameterType
+			vParam := inner2.ParameterType
+
+			if e, ok := KnownEnums[inner1.ParameterType]; ok {
+				kParam = e.EnumTypeCABI
+			}
+			if e, ok := KnownEnums[inner2.ParameterType]; ok {
+				vParam = e.EnumTypeCABI
+			}
+
+			returnType = "pair_" + strings.ToLower(kParam) + "_" + strings.ToLower(vParam)
+		}
+
+		return returnType + cppComment("tuple of "+strings.TrimSpace(inner1.RenderTypeCabi(false))+" and "+strings.TrimSpace(inner2.RenderTypeCabi(false)))
 
 	} else if (p.Pointer || p.ByRef) && p.QtClassType() {
 		maybeSecondPointer := ifv(p.ByRef && p.Pointer, "*", "")
@@ -367,9 +383,14 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 				preamble += indent + "}\n"
 			} else {
 				preamble += indent + lType + "* " + nameprefix + "_arr = static_cast<" + lType + "*>(" + p.ParameterName + dataField + ");\n"
-				preamble += indent + "for(size_t i = 0; i < " + p.ParameterName + iterField + "; ++i) {\n"
 
-				listType.ParameterName = nameprefix + "_arr[i]"
+				iterator := "i"
+				if p.ParameterName[len(p.ParameterName)-1] == ']' {
+					iterator = "j"
+				}
+				preamble += indent + "for(size_t " + iterator + " = 0; " + iterator + " < " + p.ParameterName + iterField + "; ++" + iterator + ") {\n"
+
+				listType.ParameterName = nameprefix + "_arr[" + iterator + "]"
 				addPre, addFwd := emitCABI2CppForwarding(listType, indent+"\t", currentClass, isSlot)
 				preamble += addPre
 				preamble += indent + "\t" + nameprefix + "_" + containerType + refType + "push_back(" + addFwd + ");\n"
@@ -451,23 +472,46 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 		return preamble, nameprefix + "_" + containerType
 
 	} else if kType, vType, ok := p.QPairOf(); ok {
+		// QPair<F,S>
 		preamble += indent + p.GetQtCppType().ParameterType + " " + nameprefix + "_QPair;\n"
 
-		preamble += indent + kType.RenderTypeCabi(false) + "* " + nameprefix + "_first = static_cast<" + kType.RenderTypeCabi(false) + "*>(" + p.ParameterName + ".first);\n"
-		preamble += indent + vType.RenderTypeCabi(false) + "* " + nameprefix + "_second = static_cast<" + vType.RenderTypeCabi(false) + "*>(" + p.ParameterName + ".second);\n"
+		if (kType.IntType() || IsKnownClass(kType.ParameterType)) && (vType.IntType() || IsKnownClass(vType.ParameterType)) {
+			var firstDeref, firstClose, secondDeref, secondClose string
+			if p.ParameterName[len(p.ParameterName)-1] == ']' || kType.ParameterType == "QCborValue" {
+				if IsKnownClass(kType.ParameterType) && kType.ParameterType != "QAccessibleInterface" {
+					firstDeref = "*("
+					firstClose = ")"
+				}
+				if IsKnownClass(vType.ParameterType) {
+					secondDeref = "*("
+					secondClose = ")"
+				} else if _, ok := vType.QFlagsOf(); ok {
+					secondDeref = "static_cast<" + vType.ParameterType + ">("
+					secondClose = ")"
+				}
+			}
+			preamble += indent + nameprefix + "_QPair.first = " + firstDeref + p.ParameterName + ".first" + firstClose + ";\n"
+			preamble += indent + nameprefix + "_QPair.second = " + secondDeref + p.ParameterName + ".second" + secondClose + ";\n"
 
-		kType.ParameterName = nameprefix + "_first[0]"
-		addPreK, addFwdK := emitCABI2CppForwarding(kType, indent+"\t", currentClass, false)
-		preamble += addPreK
+			return preamble, nameprefix + "_QPair"
 
-		vType.ParameterName = nameprefix + "_second[0]"
-		addPreV, addFwdV := emitCABI2CppForwarding(vType, indent+"\t", currentClass, false)
-		preamble += addPreV
+		} else {
+			preamble += indent + kType.RenderTypeCabi(false) + "* " + nameprefix + "_first = static_cast<" + kType.RenderTypeCabi(false) + "*>(" + p.ParameterName + ".first);\n"
+			preamble += indent + vType.RenderTypeCabi(false) + "* " + nameprefix + "_second = static_cast<" + vType.RenderTypeCabi(false) + "*>(" + p.ParameterName + ".second);\n"
 
-		preamble += indent + nameprefix + "_QPair.first = " + addFwdK + ";\n"
-		preamble += indent + nameprefix + "_QPair.second = " + addFwdV + ";\n"
+			kType.ParameterName = nameprefix + "_first[0]"
+			addPreK, addFwdK := emitCABI2CppForwarding(kType, indent+"\t", currentClass, false)
+			preamble += addPreK
 
-		return preamble, nameprefix + "_QPair"
+			vType.ParameterName = nameprefix + "_second[0]"
+			addPreV, addFwdV := emitCABI2CppForwarding(vType, indent+"\t", currentClass, false)
+			preamble += addPreV
+
+			preamble += indent + nameprefix + "_QPair.first = " + addFwdK + ";\n"
+			preamble += indent + nameprefix + "_QPair.second = " + addFwdV + ";\n"
+
+			return preamble, nameprefix + "_QPair"
+		}
 
 	} else if p.IsFlagType() || p.IntType() || p.IsKnownEnum() {
 		castSrc := p.ParameterName
@@ -670,8 +714,15 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 			memberRef = "->"
 		}
 
-		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
-
+		iterator := "i"
+		maybeConst := ""
+		maybeRef := " "
+		if namePrefix == "_lv" {
+			iterator = "j"
+			maybeConst = "const "
+			maybeRef = "& "
+		}
+		shouldReturn = maybeConst + p.RenderTypeQtCpp() + maybeRef + namePrefix + "_ret = "
 		if isSignal && cType == "libqt_string" {
 			maybeMethod := ifv(strings.HasPrefix(t.ParameterType, "QByteArray"), "", ".toUtf8()")
 
@@ -694,10 +745,10 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		} else {
 			afterCall += indent + "// Convert " + containerType + "<> from C++ memory to manually-managed C memory\n"
-			afterCall += indent + cType + "* " + namePrefix + "_arr = static_cast<" + cType + "*>(malloc(sizeof(" + cType + ") * (" + namePrefix + "_ret" + memberRef + "size() + 1)));\n"
-			afterCall += indent + "for (qsizetype i = 0; i < " + namePrefix + "_ret" + memberRef + "size(); ++i) {\n"
+			afterCall += indent + cType + "* " + namePrefix + "_arr = static_cast<" + cType + "*>(malloc(sizeof(" + cType + ") * (" + namePrefix + "_ret" + memberRef + "size())));\n"
+			afterCall += indent + "for (qsizetype " + iterator + " = 0; " + iterator + " < " + namePrefix + "_ret" + memberRef + "size(); ++" + iterator + ") {\n"
 
-			retExpr, cleanupType = emitAssignCppToCabi(indent+"\t"+namePrefix+"_arr[i] = ", t, maybeDerefOpen+namePrefix+"_ret"+maybeDerefClose+"[i]")
+			retExpr, cleanupType = emitAssignCppToCabi(indent+"\t"+namePrefix+"_arr["+iterator+"] = ", t, maybeDerefOpen+namePrefix+"_ret"+maybeDerefClose+"["+iterator+"]")
 			afterCall += retExpr
 			afterCall += indent + "}\n"
 		}
@@ -769,7 +820,6 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		var cleanupType, valueCleanupType CleanupType
 		memberRef := ifv(p.Pointer, "->", ".")
-		maybePointer := ifv(p.Pointer, "*", "")
 		isQMulti := ifv(containerType == "QMultiHash" || containerType == "QMultiMap", true, false)
 		mallocSize := namePrefix + "_ret" + memberRef + "size()"
 
@@ -841,7 +891,11 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		afterCall += indent + "}\n"
 
-		afterCall += indent + "libqt_map" + maybePointer + " " + namePrefix + "_out;\n"
+		if p.Pointer {
+			afterCall += indent + "libqt_map* " + namePrefix + "_out = static_cast<libqt_map*>(malloc(sizeof(libqt_map)));\n"
+		} else {
+			afterCall += indent + "libqt_map " + namePrefix + "_out;\n"
+		}
 		afterCall += indent + namePrefix + "_out" + memberRef + "len = " + mallocSize + ";\n"
 		afterCall += indent + namePrefix + "_out" + memberRef + "keys = static_cast<void*>(" + namePrefix + "_karr);\n"
 		afterCall += indent + namePrefix + "_out" + memberRef + "values = static_cast<void*>(" + namePrefix + "_varr);\n"
@@ -866,26 +920,46 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
 
 		afterCall += indent + "// Convert QPair<> from C++ memory to manually-managed C memory\n"
-		afterCall += indent + kTypeC + "* " + namePrefix + "_first = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ")));\n"
-		afterCall += indent + vTypeC + "* " + namePrefix + "_second = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ")));\n"
 
-		retExpr, cleanupType = emitAssignCppToCabi(indent+"*"+namePrefix+"_first = ", kType, namePrefix+"_ret.first")
-		afterCall += retExpr
+		if (kType.IntType() || IsKnownClass(kType.ParameterType)) && (vType.IntType() || IsKnownClass(vType.ParameterType)) {
+			afterCall += indent + p.RenderTypeCabi(false) + " " + namePrefix + "_out;"
 
-		valueCleanupType := NoFree
-		retExpr, valueCleanupType = emitAssignCppToCabi(indent+"*"+namePrefix+"_second = ", vType, namePrefix+"_ret.second")
-		afterCall += retExpr
-
-		afterCall += indent + "libqt_pair " + namePrefix + "_out;\n"
-		afterCall += indent + namePrefix + "_out.first = static_cast<void*>(" + namePrefix + "_first);\n"
-		afterCall += indent + namePrefix + "_out.second = static_cast<void*>(" + namePrefix + "_second);\n"
-		afterCall += indent + assignExpression + namePrefix + "_out;\n"
-
-		if valueCleanupType != NoFree {
-			if cleanupType != NoFree && cleanupType != valueCleanupType {
-				panic("QPair cleanup type mismatch")
+			var maybeNewF, fClose, maybeNewS, sClose string
+			if IsKnownClass(kType.ParameterType) && kType.ParameterType != "QAccessibleInterface" {
+				maybeNewF = "new " + kType.ParameterType + "("
+				fClose = ")"
 			}
-			cleanupType = valueCleanupType
+			if IsKnownClass(vType.ParameterType) && vType.ParameterType != "QAccessibleInterface" {
+				maybeNewS = "new " + vType.ParameterType + "("
+				sClose = ")"
+			}
+
+			afterCall += indent + namePrefix + "_out.first = " + maybeNewF + namePrefix + "_ret.first" + fClose + ";\n"
+			afterCall += indent + namePrefix + "_out.second = " + maybeNewS + namePrefix + "_ret.second" + sClose + ";\n"
+			afterCall += indent + assignExpression + namePrefix + "_out;\n"
+
+		} else {
+			afterCall += indent + kTypeC + "* " + namePrefix + "_first = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ")));\n"
+			afterCall += indent + vTypeC + "* " + namePrefix + "_second = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ")));\n"
+
+			retExpr, cleanupType = emitAssignCppToCabi(indent+"*"+namePrefix+"_first = ", kType, namePrefix+"_ret.first")
+			afterCall += retExpr
+
+			valueCleanupType := NoFree
+			retExpr, valueCleanupType = emitAssignCppToCabi(indent+"*"+namePrefix+"_second = ", vType, namePrefix+"_ret.second")
+			afterCall += retExpr
+
+			afterCall += indent + "libqt_pair " + namePrefix + "_out;\n"
+			afterCall += indent + namePrefix + "_out.first = static_cast<void*>(" + namePrefix + "_first);\n"
+			afterCall += indent + namePrefix + "_out.second = static_cast<void*>(" + namePrefix + "_second);\n"
+			afterCall += indent + assignExpression + namePrefix + "_out;\n"
+
+			if valueCleanupType != NoFree {
+				if cleanupType != NoFree && cleanupType != valueCleanupType {
+					panic("QPair cleanup type mismatch")
+				}
+				cleanupType = valueCleanupType
+			}
 		}
 
 		return indent + shouldReturn + rvalue + ";\n" + afterCall, cleanupType
@@ -960,7 +1034,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 }
 
 // getReferencedTypes finds all referenced Qt types in this file.
-func getReferencedTypes(src *CppParsedHeader) []string {
+func getReferencedTypes(src *CppParsedHeader, qtextradefs map[string]struct{}) []string {
 	foundTypes := map[string]struct{}{}
 
 	var maybeAddType func(p CppParameter)
@@ -981,6 +1055,19 @@ func getReferencedTypes(src *CppParsedHeader) []string {
 			foundTypes["QPair"] = struct{}{}
 			maybeAddType(kType)
 			maybeAddType(vType)
+
+			if (kType.IntType() || IsKnownClass(kType.ParameterType)) && (vType.IntType() || IsKnownClass(vType.ParameterType)) {
+				kParam := kType.ParameterType
+				vParam := vType.ParameterType
+
+				if e, ok := KnownEnums[kType.ParameterType]; ok {
+					kParam = e.EnumTypeCABI
+				}
+				if e, ok := KnownEnums[vType.ParameterType]; ok {
+					vParam = e.EnumTypeCABI
+				}
+				qtextradefs[kParam+":"+vParam] = struct{}{}
+			}
 		}
 		if t, ok := p.QSetOf(); ok {
 			foundTypes["QSet"] = struct{}{}
@@ -1170,10 +1257,10 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 
 	srcFilename := filepath.Base(src.Filename)
 	includeGuard := strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(packageName, "/", "_"), "-", "_")) + "C_LIBVIRTUAL" + strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(srcFilename, ".", "_"), "-", "_"))
-	bindingInclude := "qtlibc.h"
+	maybeDots := ""
 
 	if strings.Contains(packageName, "/") {
-		bindingInclude = "../" + bindingInclude
+		maybeDots = "../"
 	}
 
 	ret.WriteString(`#pragma once
@@ -1185,7 +1272,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#include "` + bindingInclude + `"` + "\n\n\n")
+#include "` + maybeDots + `qtlibc.h"` + "\n\n\n")
 
 	for _, c := range src.Classes {
 		cppClassName := c.ClassName
@@ -1442,13 +1529,14 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 func emitBindingHeader(src *CppParsedHeader, packageName string) (string, map[string]struct{}, error) {
 	ret := strings.Builder{}
 	qtstructdefs := make(map[string]struct{})
+	qtextradefs := make(map[string]struct{})
 
 	srcFilename := filepath.Base(src.Filename)
 	includeGuard := strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(packageName, "/", "_"), "-", "_")) + "C_LIB" + strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(srcFilename, ".", "_"), "-", "_"))
-	bindingInclude := "qtlibc.h"
+	maybeDots := ""
 
 	if strings.Contains(packageName, "/") {
-		bindingInclude = "../" + bindingInclude
+		maybeDots = "../"
 	}
 
 	ret.WriteString(`#pragma once
@@ -1460,7 +1548,7 @@ func emitBindingHeader(src *CppParsedHeader, packageName string) (string, map[st
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#include "` + bindingInclude + `"` + "\n\n" + `
+#include "` + maybeDots + `qtlibc.h"` + "\n" + "\n\n" + `
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -1477,7 +1565,7 @@ extern "C" {
 			"#endif\n\n")
 	}
 
-	foundTypesList := getReferencedTypes(src)
+	foundTypesList := getReferencedTypes(src, qtextradefs)
 
 	ret.WriteString("#ifdef __cplusplus\n")
 
@@ -1505,7 +1593,7 @@ extern "C" {
 	ret.WriteString("#else\n")
 
 	foundTypes := make([]string, 0, len(foundTypesList))
-	seenTypes := map[string]struct{}{}
+	seenTypes := make([]string, 0, len(foundTypesList))
 
 	if srcFilename == "qopenglextrafunctions.h" || strings.HasPrefix(srcFilename, "qopenglfunctions") {
 		foundTypes = append(foundTypes, "typedef char GLchar;")
@@ -1525,11 +1613,11 @@ extern "C" {
 			continue
 		}
 
-		if _, ok := seenTypes[fType]; ok {
+		if slices.Contains(seenTypes, fType) {
 			continue
 		}
 
-		seenTypes[fType] = struct{}{}
+		seenTypes = append(seenTypes, fType)
 		typedef := "typedef struct " + fType + " " + fType + ";"
 		foundTypes = append(foundTypes, typedef)
 		qtstructdefs[fType] = struct{}{}
@@ -1538,6 +1626,38 @@ extern "C" {
 	sort.Strings(foundTypes)
 	ret.WriteString(strings.Join(foundTypes, "\n"))
 	ret.WriteString("\n#endif\n\n")
+
+	sortedExtras := make([]string, 0, len(qtextradefs))
+	for k := range qtextradefs {
+		sortedExtras = append(sortedExtras, k)
+	}
+	sort.Strings(sortedExtras)
+	for _, k := range sortedExtras {
+		pairs := strings.Split(k, ":")
+		f := strings.ToLower(pairs[0])
+		s := strings.ToLower(pairs[1])
+		ret.WriteString("struct pair_" + f + "_" + s + ";\n")
+	}
+	ret.WriteString("\n")
+	for _, k := range sortedExtras {
+		pairs := strings.Split(k, ":")
+		f := strings.ToLower(pairs[0])
+		s := strings.ToLower(pairs[1])
+		ret.WriteString("typedef struct pair_" + f + "_" + s + " pair_" + f + "_" + s + ";\n")
+	}
+	ret.WriteString("\n")
+	for _, k := range sortedExtras {
+		pairs := strings.Split(k, ":")
+		f := strings.ToLower(pairs[0])
+		s := strings.ToLower(pairs[1])
+		ret.WriteString("#ifndef PAIR_" + strings.ToUpper(f+"_"+s) + "\n" +
+			"#define PAIR_" + strings.ToUpper(f+"_"+s) + "\n" +
+			"struct pair_" + f + "_" + s + " {\n" +
+			pairs[0] + ifv(IsKnownClass(pairs[0]), "*", "") + " first;\n" +
+			pairs[1] + ifv(IsKnownClass(pairs[1]), "*", "") + " second;\n" +
+			"};\n" +
+			"#endif\n\n")
+	}
 
 	for _, c := range src.Classes {
 		methodPrefixName := cabiClassName(c.ClassName)
@@ -1721,7 +1841,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		ret.WriteString("#include <PackageKit/Transaction>\n")
 	}
 
-	referencedTypes := getReferencedTypes(src)
+	referencedTypes := getReferencedTypes(src, map[string]struct{}{})
 	seenRefs := make([]string, 0, len(referencedTypes))
 
 	for _, ref := range referencedTypes {
