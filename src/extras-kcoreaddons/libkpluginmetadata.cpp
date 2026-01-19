@@ -56,6 +56,20 @@ KPluginMetaData* KPluginMetaData_FindPluginById(const libqt_string directory, co
     return new KPluginMetaData(KPluginMetaData::findPluginById(directory_QString, pluginId_QString));
 }
 
+libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins(const libqt_string directory) {
+    QString directory_QString = QString::fromUtf8(directory.data, directory.len);
+    QList<KPluginMetaData> _ret = KPluginMetaData::findPlugins(directory_QString);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size() + 1)));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new KPluginMetaData(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
 bool KPluginMetaData_IsValid(const KPluginMetaData* self) {
     return self->isValid();
 }

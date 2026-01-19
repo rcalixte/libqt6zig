@@ -110,6 +110,10 @@ libqt_list /* of QAction* */ KRichTextWidget_CreateActions(KRichTextWidget* self
     }
 }
 
+void KRichTextWidget_SetRichTextSupport(KRichTextWidget* self, const int* support) {
+    self->setRichTextSupport((const KRichTextWidget::RichTextSupport&)(*support));
+}
+
 int KRichTextWidget_RichTextSupport(const KRichTextWidget* self) {
     return static_cast<int>(self->richTextSupport());
 }

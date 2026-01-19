@@ -192,6 +192,18 @@ pub const krichtextwidget = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://api.kde.org/krichtextwidget.html#setRichTextSupport)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KRichTextWidget `
+    ///
+    /// ` support: *const flag of krichtextwidget_enums.RichTextSupportValues `
+    ///
+    pub fn SetRichTextSupport(self: ?*anyopaque, support: *const i32) void {
+        qtc.KRichTextWidget_SetRichTextSupport(@ptrCast(self), @ptrCast(support));
+    }
+
     /// ### [Upstream resources](https://api.kde.org/krichtextwidget.html#richTextSupport)
     ///
     /// ## Parameter(s):

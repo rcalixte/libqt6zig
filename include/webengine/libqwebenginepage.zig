@@ -284,6 +284,22 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#findText)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` subString: []const u8 `
+    ///
+    pub fn FindText(self: ?*anyopaque, subString: []const u8) void {
+        const subString_str = qtc.libqt_string{
+            .len = subString.len,
+            .data = subString.ptr,
+        };
+        qtc.QWebEnginePage_FindText(@ptrCast(self), subString_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#isLoading)
     ///
     /// ## Parameter(s):
@@ -470,6 +486,22 @@ pub const qwebenginepage = struct {
     ///
     pub fn ContentsSize(self: ?*anyopaque) QtC.QSizeF {
         return qtc.QWebEnginePage_ContentsSize(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#runJavaScript)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` scriptSource: []const u8 `
+    ///
+    pub fn RunJavaScript2(self: ?*anyopaque, scriptSource: []const u8) void {
+        const scriptSource_str = qtc.libqt_string{
+            .len = scriptSource.len,
+            .data = scriptSource.ptr,
+        };
+        qtc.QWebEnginePage_RunJavaScript2(@ptrCast(self), scriptSource_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#scripts)
@@ -2228,6 +2260,24 @@ pub const qwebenginepage = struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#findText)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` subString: []const u8 `
+    ///
+    /// ` options: flag of qwebenginepage_enums.FindFlag `
+    ///
+    pub fn FindText2(self: ?*anyopaque, subString: []const u8, options: i32) void {
+        const subString_str = qtc.libqt_string{
+            .len = subString.len,
+            .data = subString.ptr,
+        };
+        qtc.QWebEnginePage_FindText2(@ptrCast(self), subString_str, @intCast(options));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#download)
     ///
     /// ## Parameter(s):
@@ -2310,6 +2360,24 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_SetContent3(@ptrCast(self), data_str, mimeType_str, @ptrCast(baseUrl));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#runJavaScript)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEnginePage `
+    ///
+    /// ` scriptSource: []const u8 `
+    ///
+    /// ` worldId: u32 `
+    ///
+    pub fn RunJavaScript22(self: ?*anyopaque, scriptSource: []const u8, worldId: u32) void {
+        const scriptSource_str = qtc.libqt_string{
+            .len = scriptSource.len,
+            .data = scriptSource.ptr,
+        };
+        qtc.QWebEnginePage_RunJavaScript22(@ptrCast(self), scriptSource_str, @intCast(worldId));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#setWebChannel)
     ///
     /// ## Parameter(s):
@@ -2352,12 +2420,12 @@ pub const qwebenginepage = struct {
     ///
     /// ` layout: QtC.QPageLayout `
     ///
-    pub fn PrintToPdf2(self: ?*anyopaque, filePath: []const u8, layout: ?*anyopaque) void {
+    pub fn PrintToPdf22(self: ?*anyopaque, filePath: []const u8, layout: ?*anyopaque) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWebEnginePage_PrintToPdf2(@ptrCast(self), filePath_str, @ptrCast(layout));
+        qtc.QWebEnginePage_PrintToPdf22(@ptrCast(self), filePath_str, @ptrCast(layout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#printToPdf)

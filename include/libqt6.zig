@@ -1309,7 +1309,6 @@ pub const qdbusmetatype = @import("posix-extras-dbus/libqdbusmetatype.zig").qdbu
 pub const qdbusobjectpath = @import("posix-extras-dbus/libqdbusextratypes.zig").qdbusobjectpath;
 pub const qdbuspendingcall = @import("posix-extras-dbus/libqdbuspendingcall.zig").qdbuspendingcall;
 pub const qdbuspendingcallwatcher = @import("posix-extras-dbus/libqdbuspendingcall.zig").qdbuspendingcallwatcher;
-pub const qdbuspendingreplybase = @import("posix-extras-dbus/libqdbuspendingreply.zig").qdbuspendingreplybase;
 pub const qdbusserver = @import("posix-extras-dbus/libqdbusserver.zig").qdbusserver;
 pub const qdbusservicewatcher = @import("posix-extras-dbus/libqdbusservicewatcher.zig").qdbusservicewatcher;
 pub const qdbusservicewatcher_enums = @import("posix-extras-dbus/libqdbusservicewatcher.zig").enums;

@@ -934,7 +934,6 @@ pub const QDBusMetaType = ?*C.QDBusMetaType;
 pub const QDBusObjectPath = ?*C.QDBusObjectPath;
 pub const QDBusPendingCall = ?*C.QDBusPendingCall;
 pub const QDBusPendingCallWatcher = ?*C.QDBusPendingCallWatcher;
-pub const QDBusPendingReplyBase = ?*C.QDBusPendingReplyBase;
 pub const QDBusServer = ?*C.QDBusServer;
 pub const QDBusServiceWatcher = ?*C.QDBusServiceWatcher;
 pub const QDBusSignature = ?*C.QDBusSignature;

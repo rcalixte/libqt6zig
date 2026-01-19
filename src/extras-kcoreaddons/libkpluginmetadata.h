@@ -31,6 +31,7 @@ KPluginMetaData* KPluginMetaData_new7(const libqt_string pluginFile, int options
 void KPluginMetaData_OperatorAssign(KPluginMetaData* self, const KPluginMetaData* param1);
 KPluginMetaData* KPluginMetaData_FromJsonFile(const libqt_string jsonFile);
 KPluginMetaData* KPluginMetaData_FindPluginById(const libqt_string directory, const libqt_string pluginId);
+libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins(const libqt_string directory);
 bool KPluginMetaData_IsValid(const KPluginMetaData* self);
 bool KPluginMetaData_IsHidden(const KPluginMetaData* self);
 libqt_string KPluginMetaData_FileName(const KPluginMetaData* self);

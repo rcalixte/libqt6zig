@@ -92,6 +92,7 @@ QAction* QWebEngineView_PageAction(const QWebEngineView* self, int action);
 void QWebEngineView_TriggerPageAction(QWebEngineView* self, int action);
 double QWebEngineView_ZoomFactor(const QWebEngineView* self);
 void QWebEngineView_SetZoomFactor(QWebEngineView* self, double factor);
+void QWebEngineView_FindText(QWebEngineView* self, const libqt_string subString);
 QSize* QWebEngineView_SizeHint(const QWebEngineView* self);
 QWebEngineSettings* QWebEngineView_Settings(const QWebEngineView* self);
 QMenu* QWebEngineView_CreateStandardContextMenu(QWebEngineView* self);
@@ -142,7 +143,8 @@ void QWebEngineView_SetHtml2(QWebEngineView* self, const libqt_string html, cons
 void QWebEngineView_SetContent2(QWebEngineView* self, const libqt_string data, const libqt_string mimeType);
 void QWebEngineView_SetContent3(QWebEngineView* self, const libqt_string data, const libqt_string mimeType, const QUrl* baseUrl);
 void QWebEngineView_TriggerPageAction2(QWebEngineView* self, int action, bool checked);
-void QWebEngineView_PrintToPdf2(QWebEngineView* self, const libqt_string filePath, const QPageLayout* layout);
+void QWebEngineView_FindText2(QWebEngineView* self, const libqt_string subString, int options);
+void QWebEngineView_PrintToPdf22(QWebEngineView* self, const libqt_string filePath, const QPageLayout* layout);
 void QWebEngineView_PrintToPdf3(QWebEngineView* self, const libqt_string filePath, const QPageLayout* layout, const QPageRanges* ranges);
 void QWebEngineView_OnMetacall(QWebEngineView* self, intptr_t slot);
 int QWebEngineView_QBaseMetacall(QWebEngineView* self, int param1, int param2, void** param3);

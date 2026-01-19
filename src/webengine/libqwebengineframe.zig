@@ -111,12 +111,12 @@ pub const qwebengineframe = struct {
     ///
     /// ` script: []const u8 `
     ///
-    pub fn RunJavaScript(self: ?*anyopaque, script: []const u8) void {
+    pub fn RunJavaScript3(self: ?*anyopaque, script: []const u8) void {
         const script_str = qtc.libqt_string{
             .len = script.len,
             .data = script.ptr,
         };
-        qtc.QWebEngineFrame_RunJavaScript(@ptrCast(self), script_str);
+        qtc.QWebEngineFrame_RunJavaScript3(@ptrCast(self), script_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#printToPdf)

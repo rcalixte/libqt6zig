@@ -1094,7 +1094,6 @@
 #include "posix-extras-dbus/libqdbusmessage.h"
 #include "posix-extras-dbus/libqdbusmetatype.h"
 #include "posix-extras-dbus/libqdbuspendingcall.h"
-#include "posix-extras-dbus/libqdbuspendingreply.h"
 #include "posix-extras-dbus/libqdbusserver.h"
 #include "posix-extras-dbus/libqdbusservicewatcher.h"
 #include "posix-extras-dbus/libqdbusunixfiledescriptor.h"

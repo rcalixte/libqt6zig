@@ -879,71 +879,71 @@ void QOpenGLShaderProgram_SetUniformValue23(QOpenGLShaderProgram* self, int loca
     self->setUniformValue(static_cast<int>(location), *value);
 }
 
-void QOpenGLShaderProgram_SetUniformValue24(QOpenGLShaderProgram* self, int location, const QTransform* value) {
+void QOpenGLShaderProgram_SetUniformValue27(QOpenGLShaderProgram* self, int location, const QTransform* value) {
     self->setUniformValue(static_cast<int>(location), *value);
 }
 
-void QOpenGLShaderProgram_SetUniformValue25(QOpenGLShaderProgram* self, const char* name, float value) {
+void QOpenGLShaderProgram_SetUniformValue28(QOpenGLShaderProgram* self, const char* name, float value) {
     self->setUniformValue(name, static_cast<GLfloat>(value));
 }
 
-void QOpenGLShaderProgram_SetUniformValue26(QOpenGLShaderProgram* self, const char* name, int32_t value) {
+void QOpenGLShaderProgram_SetUniformValue29(QOpenGLShaderProgram* self, const char* name, int32_t value) {
     self->setUniformValue(name, static_cast<GLint>(value));
 }
 
-void QOpenGLShaderProgram_SetUniformValue27(QOpenGLShaderProgram* self, const char* name, uint32_t value) {
+void QOpenGLShaderProgram_SetUniformValue30(QOpenGLShaderProgram* self, const char* name, uint32_t value) {
     self->setUniformValue(name, static_cast<GLuint>(value));
 }
 
-void QOpenGLShaderProgram_SetUniformValue28(QOpenGLShaderProgram* self, const char* name, float x, float y) {
+void QOpenGLShaderProgram_SetUniformValue31(QOpenGLShaderProgram* self, const char* name, float x, float y) {
     self->setUniformValue(name, static_cast<GLfloat>(x), static_cast<GLfloat>(y));
 }
 
-void QOpenGLShaderProgram_SetUniformValue29(QOpenGLShaderProgram* self, const char* name, float x, float y, float z) {
+void QOpenGLShaderProgram_SetUniformValue32(QOpenGLShaderProgram* self, const char* name, float x, float y, float z) {
     self->setUniformValue(name, static_cast<GLfloat>(x), static_cast<GLfloat>(y), static_cast<GLfloat>(z));
 }
 
-void QOpenGLShaderProgram_SetUniformValue30(QOpenGLShaderProgram* self, const char* name, float x, float y, float z, float w) {
+void QOpenGLShaderProgram_SetUniformValue33(QOpenGLShaderProgram* self, const char* name, float x, float y, float z, float w) {
     self->setUniformValue(name, static_cast<GLfloat>(x), static_cast<GLfloat>(y), static_cast<GLfloat>(z), static_cast<GLfloat>(w));
 }
 
-void QOpenGLShaderProgram_SetUniformValue31(QOpenGLShaderProgram* self, const char* name, const QVector2D* value) {
+void QOpenGLShaderProgram_SetUniformValue34(QOpenGLShaderProgram* self, const char* name, const QVector2D* value) {
     self->setUniformValue(name, *value);
 }
 
-void QOpenGLShaderProgram_SetUniformValue32(QOpenGLShaderProgram* self, const char* name, const QVector3D* value) {
+void QOpenGLShaderProgram_SetUniformValue35(QOpenGLShaderProgram* self, const char* name, const QVector3D* value) {
     self->setUniformValue(name, *value);
 }
 
-void QOpenGLShaderProgram_SetUniformValue33(QOpenGLShaderProgram* self, const char* name, const QVector4D* value) {
+void QOpenGLShaderProgram_SetUniformValue36(QOpenGLShaderProgram* self, const char* name, const QVector4D* value) {
     self->setUniformValue(name, *value);
 }
 
-void QOpenGLShaderProgram_SetUniformValue34(QOpenGLShaderProgram* self, const char* name, const QColor* color) {
+void QOpenGLShaderProgram_SetUniformValue37(QOpenGLShaderProgram* self, const char* name, const QColor* color) {
     self->setUniformValue(name, *color);
 }
 
-void QOpenGLShaderProgram_SetUniformValue35(QOpenGLShaderProgram* self, const char* name, const QPoint* point) {
+void QOpenGLShaderProgram_SetUniformValue38(QOpenGLShaderProgram* self, const char* name, const QPoint* point) {
     self->setUniformValue(name, *point);
 }
 
-void QOpenGLShaderProgram_SetUniformValue36(QOpenGLShaderProgram* self, const char* name, const QPointF* point) {
+void QOpenGLShaderProgram_SetUniformValue39(QOpenGLShaderProgram* self, const char* name, const QPointF* point) {
     self->setUniformValue(name, *point);
 }
 
-void QOpenGLShaderProgram_SetUniformValue37(QOpenGLShaderProgram* self, const char* name, const QSize* size) {
+void QOpenGLShaderProgram_SetUniformValue40(QOpenGLShaderProgram* self, const char* name, const QSize* size) {
     self->setUniformValue(name, *size);
 }
 
-void QOpenGLShaderProgram_SetUniformValue38(QOpenGLShaderProgram* self, const char* name, const QSizeF* size) {
+void QOpenGLShaderProgram_SetUniformValue41(QOpenGLShaderProgram* self, const char* name, const QSizeF* size) {
     self->setUniformValue(name, *size);
 }
 
-void QOpenGLShaderProgram_SetUniformValue47(QOpenGLShaderProgram* self, const char* name, const QMatrix4x4* value) {
+void QOpenGLShaderProgram_SetUniformValue50(QOpenGLShaderProgram* self, const char* name, const QMatrix4x4* value) {
     self->setUniformValue(name, *value);
 }
 
-void QOpenGLShaderProgram_SetUniformValue48(QOpenGLShaderProgram* self, const char* name, const QTransform* value) {
+void QOpenGLShaderProgram_SetUniformValue54(QOpenGLShaderProgram* self, const char* name, const QTransform* value) {
     self->setUniformValue(name, *value);
 }
 
