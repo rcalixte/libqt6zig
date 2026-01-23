@@ -109,7 +109,7 @@ pub const ktexteditor__cursor = struct {
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__Cursor_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::cursor.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__cursor.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

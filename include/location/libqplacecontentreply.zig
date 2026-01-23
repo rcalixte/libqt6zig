@@ -225,19 +225,20 @@ pub const qplacecontentreply = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetContent(self: ?*anyopaque, content: map_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
-        const content_keys = allocator.alloc(i32, content.count()) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        const content_count = content.count();
+        const content_keys = allocator.alloc(i32, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
         defer allocator.free(content_keys);
-        const content_values = allocator.alloc(QtC.QPlaceContent, content.count()) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
         defer allocator.free(content_values);
         var i: usize = 0;
         var content_it = content.iterator();
-        while (content_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            content_keys[i] = @intCast(key);
-            content_values[i] = @ptrCast(entry.value_ptr.*);
+        while (content_it.next()) |it_entry| : (i += 1) {
+            const content_key = it_entry.key_ptr.*;
+            content_keys[i] = @intCast(content_key);
+            content_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const content_map = qtc.libqt_map{
-            .len = content.count(),
+            .len = content_count,
             .keys = @ptrCast(content_keys.ptr),
             .values = @ptrCast(content_values.ptr),
         };
@@ -271,19 +272,20 @@ pub const qplacecontentreply = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetContent(self: ?*anyopaque, content: map_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
-        const content_keys = allocator.alloc(i32, content.count()) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        const content_count = content.count();
+        const content_keys = allocator.alloc(i32, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
         defer allocator.free(content_keys);
-        const content_values = allocator.alloc(QtC.QPlaceContent, content.count()) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
         defer allocator.free(content_values);
         var i: usize = 0;
         var content_it = content.iterator();
-        while (content_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            content_keys[i] = @intCast(key);
-            content_values[i] = @ptrCast(entry.value_ptr.*);
+        while (content_it.next()) |it_entry| : (i += 1) {
+            const content_key = it_entry.key_ptr.*;
+            content_keys[i] = @intCast(content_key);
+            content_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const content_map = qtc.libqt_map{
-            .len = content.count(),
+            .len = content_count,
             .keys = @ptrCast(content_keys.ptr),
             .values = @ptrCast(content_values.ptr),
         };
@@ -818,6 +820,20 @@ pub const qplacecontentreply = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPlaceContentReply `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -1177,6 +1193,22 @@ pub const qplacecontentreply = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPlaceContentReply `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

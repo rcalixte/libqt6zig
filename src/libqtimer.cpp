@@ -89,6 +89,24 @@ void QTimer_Stop(QTimer* self) {
     self->stop();
 }
 
+void QTimer_SetInterval2(QTimer* self, int64_t value) {
+    self->setInterval(static_cast<std::chrono::milliseconds>(value));
+}
+
+int64_t QTimer_IntervalAsDuration(const QTimer* self) {
+    std::chrono::milliseconds _ret = self->intervalAsDuration();
+    return _ret.count();
+}
+
+int64_t QTimer_RemainingTimeAsDuration(const QTimer* self) {
+    std::chrono::milliseconds _ret = self->remainingTimeAsDuration();
+    return _ret.count();
+}
+
+void QTimer_Start3(QTimer* self, int64_t value) {
+    self->start(static_cast<std::chrono::milliseconds>(value));
+}
+
 void QTimer_TimerEvent(QTimer* self, QTimerEvent* param1) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {

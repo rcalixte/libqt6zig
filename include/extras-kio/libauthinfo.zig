@@ -88,7 +88,7 @@ pub const kio__authinfo = struct {
     pub fn Username(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var username_str = qtc.KIO__AuthInfo_Username(@ptrCast(self));
         defer qtc.libqt_string_free(&username_str);
-        const username_ret = allocator.alloc(u8, username_str.len) catch @panic("kio::authinfo.Username: Memory allocation failed");
+        const username_ret = allocator.alloc(u8, username_str.len) catch @panic("kio__authinfo.Username: Memory allocation failed");
         @memcpy(username_ret, username_str.data[0..username_str.len]);
         return username_ret;
     }
@@ -120,7 +120,7 @@ pub const kio__authinfo = struct {
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var password_str = qtc.KIO__AuthInfo_Password(@ptrCast(self));
         defer qtc.libqt_string_free(&password_str);
-        const password_ret = allocator.alloc(u8, password_str.len) catch @panic("kio::authinfo.Password: Memory allocation failed");
+        const password_ret = allocator.alloc(u8, password_str.len) catch @panic("kio__authinfo.Password: Memory allocation failed");
         @memcpy(password_ret, password_str.data[0..password_str.len]);
         return password_ret;
     }
@@ -152,7 +152,7 @@ pub const kio__authinfo = struct {
     pub fn Prompt(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var prompt_str = qtc.KIO__AuthInfo_Prompt(@ptrCast(self));
         defer qtc.libqt_string_free(&prompt_str);
-        const prompt_ret = allocator.alloc(u8, prompt_str.len) catch @panic("kio::authinfo.Prompt: Memory allocation failed");
+        const prompt_ret = allocator.alloc(u8, prompt_str.len) catch @panic("kio__authinfo.Prompt: Memory allocation failed");
         @memcpy(prompt_ret, prompt_str.data[0..prompt_str.len]);
         return prompt_ret;
     }
@@ -184,7 +184,7 @@ pub const kio__authinfo = struct {
     pub fn Caption(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var caption_str = qtc.KIO__AuthInfo_Caption(@ptrCast(self));
         defer qtc.libqt_string_free(&caption_str);
-        const caption_ret = allocator.alloc(u8, caption_str.len) catch @panic("kio::authinfo.Caption: Memory allocation failed");
+        const caption_ret = allocator.alloc(u8, caption_str.len) catch @panic("kio__authinfo.Caption: Memory allocation failed");
         @memcpy(caption_ret, caption_str.data[0..caption_str.len]);
         return caption_ret;
     }
@@ -216,7 +216,7 @@ pub const kio__authinfo = struct {
     pub fn Comment(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var comment_str = qtc.KIO__AuthInfo_Comment(@ptrCast(self));
         defer qtc.libqt_string_free(&comment_str);
-        const comment_ret = allocator.alloc(u8, comment_str.len) catch @panic("kio::authinfo.Comment: Memory allocation failed");
+        const comment_ret = allocator.alloc(u8, comment_str.len) catch @panic("kio__authinfo.Comment: Memory allocation failed");
         @memcpy(comment_ret, comment_str.data[0..comment_str.len]);
         return comment_ret;
     }
@@ -248,7 +248,7 @@ pub const kio__authinfo = struct {
     pub fn CommentLabel(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var commentLabel_str = qtc.KIO__AuthInfo_CommentLabel(@ptrCast(self));
         defer qtc.libqt_string_free(&commentLabel_str);
-        const commentLabel_ret = allocator.alloc(u8, commentLabel_str.len) catch @panic("kio::authinfo.CommentLabel: Memory allocation failed");
+        const commentLabel_ret = allocator.alloc(u8, commentLabel_str.len) catch @panic("kio__authinfo.CommentLabel: Memory allocation failed");
         @memcpy(commentLabel_ret, commentLabel_str.data[0..commentLabel_str.len]);
         return commentLabel_ret;
     }
@@ -280,7 +280,7 @@ pub const kio__authinfo = struct {
     pub fn RealmValue(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var realmValue_str = qtc.KIO__AuthInfo_RealmValue(@ptrCast(self));
         defer qtc.libqt_string_free(&realmValue_str);
-        const realmValue_ret = allocator.alloc(u8, realmValue_str.len) catch @panic("kio::authinfo.RealmValue: Memory allocation failed");
+        const realmValue_ret = allocator.alloc(u8, realmValue_str.len) catch @panic("kio__authinfo.RealmValue: Memory allocation failed");
         @memcpy(realmValue_ret, realmValue_str.data[0..realmValue_str.len]);
         return realmValue_ret;
     }
@@ -312,7 +312,7 @@ pub const kio__authinfo = struct {
     pub fn DigestInfo(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var digestInfo_str = qtc.KIO__AuthInfo_DigestInfo(@ptrCast(self));
         defer qtc.libqt_string_free(&digestInfo_str);
-        const digestInfo_ret = allocator.alloc(u8, digestInfo_str.len) catch @panic("kio::authinfo.DigestInfo: Memory allocation failed");
+        const digestInfo_ret = allocator.alloc(u8, digestInfo_str.len) catch @panic("kio__authinfo.DigestInfo: Memory allocation failed");
         @memcpy(digestInfo_ret, digestInfo_str.data[0..digestInfo_str.len]);
         return digestInfo_ret;
     }

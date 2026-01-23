@@ -67,26 +67,27 @@ pub const qwebenginehttprequest = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PostRequest(url: ?*anyopaque, postData: map_constu8_constu8, allocator: std.mem.Allocator) QtC.QWebEngineHttpRequest {
-        const postData_keys = allocator.alloc(qtc.libqt_string, postData.count()) catch @panic("qwebenginehttprequest.PostRequest: Memory allocation failed");
+        const postData_count = postData.count();
+        const postData_keys = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("qwebenginehttprequest.PostRequest: Memory allocation failed");
         defer allocator.free(postData_keys);
-        const postData_values = allocator.alloc(qtc.libqt_string, postData.count()) catch @panic("qwebenginehttprequest.PostRequest: Memory allocation failed");
+        const postData_values = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("qwebenginehttprequest.PostRequest: Memory allocation failed");
         defer allocator.free(postData_values);
         var i: usize = 0;
         var postData_it = postData.iterator();
-        while (postData_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (postData_it.next()) |it_entry| : (i += 1) {
+            const postData_key = it_entry.key_ptr.*;
             postData_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = postData_key.len,
+                .data = postData_key.ptr,
             };
-            const value = entry.value_ptr.*;
+            const value = it_entry.value_ptr.*;
             postData_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const postData_map = qtc.libqt_map{
-            .len = postData.count(),
+            .len = postData_count,
             .keys = @ptrCast(postData_keys.ptr),
             .values = @ptrCast(postData_values.ptr),
         };

@@ -110,7 +110,7 @@ pub const kparts__openurlarguments = struct {
     pub fn MimeType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__OpenUrlArguments_MimeType(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts::openurlarguments.MimeType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__openurlarguments.MimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -179,12 +179,12 @@ pub const kparts__openurlarguments = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts::openurlarguments.MetaData: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts__openurlarguments.MetaData: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts::openurlarguments.MetaData: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts__openurlarguments.MetaData: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("kparts::openurlarguments.MetaData: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("kparts__openurlarguments.MetaData: Memory allocation failed");
         }
         return _ret;
     }
@@ -215,12 +215,12 @@ pub const kparts__openurlarguments = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts::openurlarguments.MetaData2: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts__openurlarguments.MetaData2: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts::openurlarguments.MetaData2: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts__openurlarguments.MetaData2: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("kparts::openurlarguments.MetaData2: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("kparts__openurlarguments.MetaData2: Memory allocation failed");
         }
         return _ret;
     }

@@ -198,12 +198,21 @@ void QNetworkRequest_SetTransferTimeout(QNetworkRequest* self, int timeout) {
     self->setTransferTimeout(static_cast<int>(timeout));
 }
 
+int64_t QNetworkRequest_TransferTimeoutAsDuration(const QNetworkRequest* self) {
+    std::chrono::milliseconds _ret = self->transferTimeoutAsDuration();
+    return _ret.count();
+}
+
 void QNetworkRequest_SetTransferTimeout2(QNetworkRequest* self) {
     self->setTransferTimeout();
 }
 
 QVariant* QNetworkRequest_Attribute2(const QNetworkRequest* self, int code, const QVariant* defaultValue) {
     return new QVariant(self->attribute(static_cast<QNetworkRequest::Attribute>(code), *defaultValue));
+}
+
+void QNetworkRequest_SetTransferTimeout1(QNetworkRequest* self, int64_t duration) {
+    self->setTransferTimeout(static_cast<std::chrono::milliseconds>(duration));
 }
 
 void QNetworkRequest_Delete(QNetworkRequest* self) {

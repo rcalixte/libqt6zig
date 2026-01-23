@@ -60,7 +60,9 @@ class VirtualQChronoTimer final : public QChronoTimer {
     mutable bool qchronotimer_issignalconnected_isbase = false;
 
   public:
+    VirtualQChronoTimer(std::chrono::nanoseconds nsec) : QChronoTimer(nsec) {};
     VirtualQChronoTimer() : QChronoTimer() {};
+    VirtualQChronoTimer(std::chrono::nanoseconds nsec, QObject* parent) : QChronoTimer(nsec, parent) {};
     VirtualQChronoTimer(QObject* parent) : QChronoTimer(parent) {};
 
     ~VirtualQChronoTimer() {

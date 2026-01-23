@@ -32,6 +32,14 @@ void QBasicTimer_Start2(QBasicTimer* self, int msec, int timerType, QObject* obj
     self->start(static_cast<int>(msec), static_cast<Qt::TimerType>(timerType), obj);
 }
 
+void QBasicTimer_Start3(QBasicTimer* self, int64_t duration, QObject* obj) {
+    self->start(static_cast<std::chrono::milliseconds>(duration), obj);
+}
+
+void QBasicTimer_Start4(QBasicTimer* self, int64_t duration, int timerType, QObject* obj) {
+    self->start(static_cast<std::chrono::milliseconds>(duration), static_cast<Qt::TimerType>(timerType), obj);
+}
+
 void QBasicTimer_Stop(QBasicTimer* self) {
     self->stop();
 }

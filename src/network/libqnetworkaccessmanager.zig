@@ -711,6 +711,20 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_SetTransferTimeout(@ptrCast(self), @intCast(timeout));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#transferTimeoutAsDuration)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkAccessManager `
+    ///
+    /// ## Returns:
+    ///
+    /// ` i64 of milliseconds `
+    ///
+    pub fn TransferTimeoutAsDuration(self: ?*anyopaque) i64 {
+        return qtc.QNetworkAccessManager_TransferTimeoutAsDuration(@ptrCast(self));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setTransferTimeout)
     ///
     /// ## Parameter(s):
@@ -1133,6 +1147,18 @@ pub const qnetworkaccessmanager = struct {
         qtc.QNetworkAccessManager_ConnectToHost2(@ptrCast(self), hostName_str, @intCast(port));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#setTransferTimeout)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkAccessManager `
+    ///
+    /// ` duration: i64 of milliseconds `
+    ///
+    pub fn SetTransferTimeout1(self: ?*anyopaque, duration: i64) void {
+        qtc.QNetworkAccessManager_SetTransferTimeout1(@ptrCast(self), @intCast(duration));
+    }
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
@@ -1269,6 +1295,20 @@ pub const qnetworkaccessmanager = struct {
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkAccessManager `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
     }
 
     /// Inherited from QObject
@@ -1632,6 +1672,22 @@ pub const qnetworkaccessmanager = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkAccessManager `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

@@ -67,6 +67,10 @@ bool QTimeZone_IsValid(const QTimeZone* self) {
     return self->isValid();
 }
 
+QTimeZone* QTimeZone_FromDurationAheadOfUtc(int64_t offset) {
+    return new QTimeZone(QTimeZone::fromDurationAheadOfUtc(static_cast<std::chrono::seconds>(offset)));
+}
+
 QTimeZone* QTimeZone_FromSecondsAheadOfUtc(int offset) {
     return new QTimeZone(QTimeZone::fromSecondsAheadOfUtc(static_cast<int>(offset)));
 }

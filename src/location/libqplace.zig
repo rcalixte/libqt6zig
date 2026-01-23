@@ -253,19 +253,20 @@ pub const qplace = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetContent(self: ?*anyopaque, typeVal: i32, content: map_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
-        const content_keys = allocator.alloc(i32, content.count()) catch @panic("qplace.SetContent: Memory allocation failed");
+        const content_count = content.count();
+        const content_keys = allocator.alloc(i32, content_count) catch @panic("qplace.SetContent: Memory allocation failed");
         defer allocator.free(content_keys);
-        const content_values = allocator.alloc(QtC.QPlaceContent, content.count()) catch @panic("qplace.SetContent: Memory allocation failed");
+        const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("qplace.SetContent: Memory allocation failed");
         defer allocator.free(content_values);
         var i: usize = 0;
         var content_it = content.iterator();
-        while (content_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            content_keys[i] = @intCast(key);
-            content_values[i] = @ptrCast(entry.value_ptr.*);
+        while (content_it.next()) |it_entry| : (i += 1) {
+            const content_key = it_entry.key_ptr.*;
+            content_keys[i] = @intCast(content_key);
+            content_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const content_map = qtc.libqt_map{
-            .len = content.count(),
+            .len = content_count,
             .keys = @ptrCast(content_keys.ptr),
             .values = @ptrCast(content_values.ptr),
         };
@@ -285,19 +286,20 @@ pub const qplace = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InsertContent(self: ?*anyopaque, typeVal: i32, content: map_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
-        const content_keys = allocator.alloc(i32, content.count()) catch @panic("qplace.InsertContent: Memory allocation failed");
+        const content_count = content.count();
+        const content_keys = allocator.alloc(i32, content_count) catch @panic("qplace.InsertContent: Memory allocation failed");
         defer allocator.free(content_keys);
-        const content_values = allocator.alloc(QtC.QPlaceContent, content.count()) catch @panic("qplace.InsertContent: Memory allocation failed");
+        const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("qplace.InsertContent: Memory allocation failed");
         defer allocator.free(content_values);
         var i: usize = 0;
         var content_it = content.iterator();
-        while (content_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            content_keys[i] = @intCast(key);
-            content_values[i] = @ptrCast(entry.value_ptr.*);
+        while (content_it.next()) |it_entry| : (i += 1) {
+            const content_key = it_entry.key_ptr.*;
+            content_keys[i] = @intCast(content_key);
+            content_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const content_map = qtc.libqt_map{
-            .len = content.count(),
+            .len = content_count,
             .keys = @ptrCast(content_keys.ptr),
             .values = @ptrCast(content_values.ptr),
         };

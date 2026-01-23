@@ -59,7 +59,7 @@ pub const attica__buildservicejob = struct {
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservicejob.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservicejob.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -91,7 +91,7 @@ pub const attica__buildservicejob = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservicejob.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservicejob.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -123,7 +123,7 @@ pub const attica__buildservicejob = struct {
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Url(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservicejob.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservicejob.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -155,7 +155,7 @@ pub const attica__buildservicejob = struct {
     pub fn ProjectId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_ProjectId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservicejob.ProjectId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservicejob.ProjectId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -187,7 +187,7 @@ pub const attica__buildservicejob = struct {
     pub fn BuildServiceId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_BuildServiceId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservicejob.BuildServiceId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservicejob.BuildServiceId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -219,7 +219,7 @@ pub const attica__buildservicejob = struct {
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Message(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservicejob.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservicejob.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -251,7 +251,7 @@ pub const attica__buildservicejob = struct {
     pub fn Target(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildServiceJob_Target(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservicejob.Target: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservicejob.Target: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

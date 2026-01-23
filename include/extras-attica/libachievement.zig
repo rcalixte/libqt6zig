@@ -50,7 +50,7 @@ pub const attica__achievement = struct {
     pub fn AchievementTypeToString(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_AchievementTypeToString(@intCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::achievement.AchievementTypeToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__achievement.AchievementTypeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -84,7 +84,7 @@ pub const attica__achievement = struct {
     pub fn AchievementVisibilityToString(visibility: i32, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_AchievementVisibilityToString(@intCast(visibility));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::achievement.AchievementVisibilityToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__achievement.AchievementVisibilityToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -128,7 +128,7 @@ pub const attica__achievement = struct {
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::achievement.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__achievement.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -160,7 +160,7 @@ pub const attica__achievement = struct {
     pub fn ContentId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_ContentId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::achievement.ContentId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__achievement.ContentId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -192,7 +192,7 @@ pub const attica__achievement = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::achievement.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__achievement.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -224,7 +224,7 @@ pub const attica__achievement = struct {
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::achievement.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__achievement.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -256,7 +256,7 @@ pub const attica__achievement = struct {
     pub fn Explanation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Achievement_Explanation(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::achievement.Explanation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__achievement.Explanation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -316,7 +316,7 @@ pub const attica__achievement = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetDependencies(self: ?*anyopaque, dependencies: [][]const u8, allocator: std.mem.Allocator) void {
-        var dependencies_arr = allocator.alloc(qtc.libqt_string, dependencies.len) catch @panic("attica::achievement.SetDependencies: Memory allocation failed");
+        var dependencies_arr = allocator.alloc(qtc.libqt_string, dependencies.len) catch @panic("attica__achievement.SetDependencies: Memory allocation failed");
         defer allocator.free(dependencies_arr);
         for (dependencies, 0..dependencies.len) |item, i| {
             dependencies_arr[i] = .{
@@ -380,10 +380,10 @@ pub const attica__achievement = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("attica::achievement.Dependencies: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("attica__achievement.Dependencies: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("attica::achievement.Dependencies: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("attica__achievement.Dependencies: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -453,7 +453,7 @@ pub const attica__achievement = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetOptions(self: ?*anyopaque, options: [][]const u8, allocator: std.mem.Allocator) void {
-        var options_arr = allocator.alloc(qtc.libqt_string, options.len) catch @panic("attica::achievement.SetOptions: Memory allocation failed");
+        var options_arr = allocator.alloc(qtc.libqt_string, options.len) catch @panic("attica__achievement.SetOptions: Memory allocation failed");
         defer allocator.free(options_arr);
         for (options, 0..options.len) |item, i| {
             options_arr[i] = .{
@@ -517,10 +517,10 @@ pub const attica__achievement = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("attica::achievement.Options: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("attica__achievement.Options: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("attica::achievement.Options: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("attica__achievement.Options: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

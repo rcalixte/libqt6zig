@@ -313,6 +313,32 @@ pub const qnetworkrequestfactory = struct {
         qtc.QNetworkRequestFactory_ClearPassword(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#setTransferTimeout)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequestFactory `
+    ///
+    /// ` timeout: i64 of milliseconds `
+    ///
+    pub fn SetTransferTimeout(self: ?*anyopaque, timeout: i64) void {
+        qtc.QNetworkRequestFactory_SetTransferTimeout(@ptrCast(self), @intCast(timeout));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#transferTimeout)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequestFactory `
+    ///
+    /// ## Returns:
+    ///
+    /// ` i64 of milliseconds `
+    ///
+    pub fn TransferTimeout(self: ?*anyopaque) i64 {
+        return qtc.QNetworkRequestFactory_TransferTimeout(@ptrCast(self));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#queryParameters)
     ///
     /// ## Parameter(s):

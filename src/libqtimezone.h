@@ -36,6 +36,7 @@ QTimeZone* QTimeZone_new8(const libqt_string zoneId, int offsetSeconds, const li
 void QTimeZone_OperatorAssign(QTimeZone* self, const QTimeZone* other);
 void QTimeZone_Swap(QTimeZone* self, QTimeZone* other);
 bool QTimeZone_IsValid(const QTimeZone* self);
+QTimeZone* QTimeZone_FromDurationAheadOfUtc(int64_t offset);
 QTimeZone* QTimeZone_FromSecondsAheadOfUtc(int offset);
 int QTimeZone_TimeSpec(const QTimeZone* self);
 int QTimeZone_FixedSecondsAheadOfUtc(const QTimeZone* self);

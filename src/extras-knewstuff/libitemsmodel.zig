@@ -107,7 +107,7 @@ pub const knscore__itemsmodel = struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::itemsmodel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__itemsmodel.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -365,7 +365,7 @@ pub const knscore__itemsmodel = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::itemsmodel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__itemsmodel.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -387,7 +387,7 @@ pub const knscore__itemsmodel = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::itemsmodel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__itemsmodel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1049,7 +1049,7 @@ pub const knscore__itemsmodel = struct {
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::itemsmodel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__itemsmodel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1176,6 +1176,20 @@ pub const knscore__itemsmodel = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__ItemsModel `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -1215,7 +1229,7 @@ pub const knscore__itemsmodel = struct {
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("knscore::itemsmodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("knscore__itemsmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1406,10 +1420,10 @@ pub const knscore__itemsmodel = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("knscore::itemsmodel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("knscore__itemsmodel.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore::itemsmodel.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore__itemsmodel.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1523,6 +1537,22 @@ pub const knscore__itemsmodel = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNSCore__ItemsModel `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2026,7 +2056,7 @@ pub const knscore__itemsmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("knscore::itemsmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("knscore__itemsmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2058,7 +2088,7 @@ pub const knscore__itemsmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("knscore::itemsmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("knscore__itemsmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2100,19 +2130,20 @@ pub const knscore__itemsmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
-        const roles_keys = allocator.alloc(i32, roles.count()) catch @panic("knscore::itemsmodel.SetItemData: Memory allocation failed");
+        const roles_count = roles.count();
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("knscore__itemsmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("knscore::itemsmodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("knscore__itemsmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
-        while (roles_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            roles_keys[i] = @intCast(key);
-            roles_values[i] = @ptrCast(entry.value_ptr.*);
+        while (roles_it.next()) |it_entry| : (i += 1) {
+            const roles_key = it_entry.key_ptr.*;
+            roles_keys[i] = @intCast(roles_key);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
-            .len = roles.count(),
+            .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
@@ -2136,19 +2167,20 @@ pub const knscore__itemsmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
-        const roles_keys = allocator.alloc(i32, roles.count()) catch @panic("knscore::itemsmodel.SetItemData: Memory allocation failed");
+        const roles_count = roles.count();
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("knscore__itemsmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("knscore::itemsmodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("knscore__itemsmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
-        while (roles_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            roles_keys[i] = @intCast(key);
-            roles_values[i] = @ptrCast(entry.value_ptr.*);
+        while (roles_it.next()) |it_entry| : (i += 1) {
+            const roles_key = it_entry.key_ptr.*;
+            roles_keys[i] = @intCast(roles_key);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
-            .len = roles.count(),
+            .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
@@ -2240,10 +2272,10 @@ pub const knscore__itemsmodel = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore::itemsmodel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore__itemsmodel.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore::itemsmodel.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore__itemsmodel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2271,10 +2303,10 @@ pub const knscore__itemsmodel = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore::itemsmodel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore__itemsmodel.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore::itemsmodel.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore__itemsmodel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3096,7 +3128,7 @@ pub const knscore__itemsmodel = struct {
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.KNSCore__ItemsModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore::itemsmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore__itemsmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -3127,7 +3159,7 @@ pub const knscore__itemsmodel = struct {
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.KNSCore__ItemsModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore::itemsmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore__itemsmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -3228,9 +3260,9 @@ pub const knscore__itemsmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("knscore::itemsmodel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("knscore__itemsmodel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _key, _value_slice) catch @panic("knscore::itemsmodel.RoleNames: Memory allocation failed");
+            _ret.put(allocator, _key, _value_slice) catch @panic("knscore__itemsmodel.RoleNames: Memory allocation failed");
         }
         return _ret;
     }
@@ -3264,9 +3296,9 @@ pub const knscore__itemsmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("knscore::itemsmodel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("knscore__itemsmodel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _key, _value_slice) catch @panic("knscore::itemsmodel.RoleNames: Memory allocation failed");
+            _ret.put(allocator, _key, _value_slice) catch @panic("knscore__itemsmodel.RoleNames: Memory allocation failed");
         }
         return _ret;
     }
@@ -4826,7 +4858,7 @@ pub const knscore__itemsmodel = struct {
     pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.KNSCore__ItemsModel_PersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore::itemsmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore__itemsmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -4847,7 +4879,7 @@ pub const knscore__itemsmodel = struct {
     pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
         const _arr: qtc.libqt_list = qtc.KNSCore__ItemsModel_QBasePersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore::itemsmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("knscore__itemsmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;

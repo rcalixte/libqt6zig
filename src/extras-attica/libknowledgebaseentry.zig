@@ -60,7 +60,7 @@ pub const attica__knowledgebaseentry = struct {
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__KnowledgeBaseEntry_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::knowledgebaseentry.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__knowledgebaseentry.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -114,7 +114,7 @@ pub const attica__knowledgebaseentry = struct {
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__KnowledgeBaseEntry_User(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::knowledgebaseentry.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__knowledgebaseentry.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -146,7 +146,7 @@ pub const attica__knowledgebaseentry = struct {
     pub fn Status(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__KnowledgeBaseEntry_Status(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::knowledgebaseentry.Status: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__knowledgebaseentry.Status: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -200,7 +200,7 @@ pub const attica__knowledgebaseentry = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__KnowledgeBaseEntry_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::knowledgebaseentry.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__knowledgebaseentry.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -232,7 +232,7 @@ pub const attica__knowledgebaseentry = struct {
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__KnowledgeBaseEntry_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::knowledgebaseentry.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__knowledgebaseentry.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -264,7 +264,7 @@ pub const attica__knowledgebaseentry = struct {
     pub fn Answer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__KnowledgeBaseEntry_Answer(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::knowledgebaseentry.Answer: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__knowledgebaseentry.Answer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -352,7 +352,7 @@ pub const attica__knowledgebaseentry = struct {
         };
         var _str = qtc.Attica__KnowledgeBaseEntry_ExtendedAttribute(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::knowledgebaseentry.ExtendedAttribute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__knowledgebaseentry.ExtendedAttribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -383,12 +383,12 @@ pub const attica__knowledgebaseentry = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("attica::knowledgebaseentry.ExtendedAttributes: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("attica__knowledgebaseentry.ExtendedAttributes: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica::knowledgebaseentry.ExtendedAttributes: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica__knowledgebaseentry.ExtendedAttributes: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("attica::knowledgebaseentry.ExtendedAttributes: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("attica__knowledgebaseentry.ExtendedAttributes: Memory allocation failed");
         }
         return _ret;
     }

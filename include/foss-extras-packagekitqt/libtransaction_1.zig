@@ -92,7 +92,7 @@ pub const packagekit__transaction = struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -138,7 +138,7 @@ pub const packagekit__transaction = struct {
     pub fn LastPackage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Transaction_LastPackage(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.LastPackage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.LastPackage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -276,7 +276,7 @@ pub const packagekit__transaction = struct {
     pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Transaction_Data(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.Data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -302,7 +302,7 @@ pub const packagekit__transaction = struct {
     pub fn SenderName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Transaction_SenderName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.SenderName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.SenderName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -318,7 +318,7 @@ pub const packagekit__transaction = struct {
     pub fn Cmdline(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Transaction_Cmdline(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.Cmdline: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.Cmdline: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -338,7 +338,7 @@ pub const packagekit__transaction = struct {
         };
         var _str = qtc.PackageKit__Transaction_PackageName(packageID_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.PackageName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.PackageName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -358,7 +358,7 @@ pub const packagekit__transaction = struct {
         };
         var _str = qtc.PackageKit__Transaction_PackageVersion(packageID_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.PackageVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.PackageVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -378,7 +378,7 @@ pub const packagekit__transaction = struct {
         };
         var _str = qtc.PackageKit__Transaction_PackageArch(packageID_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.PackageArch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.PackageArch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -398,7 +398,7 @@ pub const packagekit__transaction = struct {
         };
         var _str = qtc.PackageKit__Transaction_PackageData(packageID_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.PackageData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.PackageData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -938,7 +938,7 @@ pub const packagekit__transaction = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        var filenames_arr = allocator.alloc(qtc.libqt_string, filenames.len) catch @panic("packagekit::transaction.Files: Memory allocation failed");
+        var filenames_arr = allocator.alloc(qtc.libqt_string, filenames.len) catch @panic("packagekit__transaction.Files: Memory allocation failed");
         defer allocator.free(filenames_arr);
         for (filenames, 0..filenames.len) |item, i| {
             filenames_arr[i] = .{
@@ -1088,7 +1088,7 @@ pub const packagekit__transaction = struct {
             .len = packageID.len,
             .data = packageID.ptr,
         };
-        var updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("packagekit::transaction.UpdateDetail: Memory allocation failed");
+        var updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(updates_arr);
         for (updates, 0..updates.len) |item, i| {
             updates_arr[i] = .{
@@ -1100,7 +1100,7 @@ pub const packagekit__transaction = struct {
             .len = updates.len,
             .data = updates_arr.ptr,
         };
-        var obsoletes_arr = allocator.alloc(qtc.libqt_string, obsoletes.len) catch @panic("packagekit::transaction.UpdateDetail: Memory allocation failed");
+        var obsoletes_arr = allocator.alloc(qtc.libqt_string, obsoletes.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(obsoletes_arr);
         for (obsoletes, 0..obsoletes.len) |item, i| {
             obsoletes_arr[i] = .{
@@ -1112,7 +1112,7 @@ pub const packagekit__transaction = struct {
             .len = obsoletes.len,
             .data = obsoletes_arr.ptr,
         };
-        var vendorUrls_arr = allocator.alloc(qtc.libqt_string, vendorUrls.len) catch @panic("packagekit::transaction.UpdateDetail: Memory allocation failed");
+        var vendorUrls_arr = allocator.alloc(qtc.libqt_string, vendorUrls.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(vendorUrls_arr);
         for (vendorUrls, 0..vendorUrls.len) |item, i| {
             vendorUrls_arr[i] = .{
@@ -1124,7 +1124,7 @@ pub const packagekit__transaction = struct {
             .len = vendorUrls.len,
             .data = vendorUrls_arr.ptr,
         };
-        var bugzillaUrls_arr = allocator.alloc(qtc.libqt_string, bugzillaUrls.len) catch @panic("packagekit::transaction.UpdateDetail: Memory allocation failed");
+        var bugzillaUrls_arr = allocator.alloc(qtc.libqt_string, bugzillaUrls.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(bugzillaUrls_arr);
         for (bugzillaUrls, 0..bugzillaUrls.len) |item, i| {
             bugzillaUrls_arr[i] = .{
@@ -1136,7 +1136,7 @@ pub const packagekit__transaction = struct {
             .len = bugzillaUrls.len,
             .data = bugzillaUrls_arr.ptr,
         };
-        var cveUrls_arr = allocator.alloc(qtc.libqt_string, cveUrls.len) catch @panic("packagekit::transaction.UpdateDetail: Memory allocation failed");
+        var cveUrls_arr = allocator.alloc(qtc.libqt_string, cveUrls.len) catch @panic("packagekit__transaction.UpdateDetail: Memory allocation failed");
         defer allocator.free(cveUrls_arr);
         for (cveUrls, 0..cveUrls.len) |item, i| {
             cveUrls_arr[i] = .{
@@ -1478,7 +1478,7 @@ pub const packagekit__transaction = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1500,7 +1500,7 @@ pub const packagekit__transaction = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1518,7 +1518,7 @@ pub const packagekit__transaction = struct {
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::transaction.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__transaction.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1645,6 +1645,20 @@ pub const packagekit__transaction = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.PackageKit__Transaction `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -1684,7 +1698,7 @@ pub const packagekit__transaction = struct {
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("packagekit::transaction.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("packagekit__transaction.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1875,10 +1889,10 @@ pub const packagekit__transaction = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("packagekit::transaction.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("packagekit__transaction.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("packagekit::transaction.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("packagekit__transaction.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2004,6 +2018,22 @@ pub const packagekit__transaction = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.PackageKit__Transaction `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

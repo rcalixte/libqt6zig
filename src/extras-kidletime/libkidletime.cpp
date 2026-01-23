@@ -56,6 +56,10 @@ int KIdleTime_AddIdleTimeout(KIdleTime* self, int msec) {
     return self->addIdleTimeout(static_cast<int>(msec));
 }
 
+int KIdleTime_AddIdleTimeout2(KIdleTime* self, int64_t msec) {
+    return self->addIdleTimeout(static_cast<std::chrono::milliseconds>(msec));
+}
+
 void KIdleTime_RemoveIdleTimeout(KIdleTime* self, int identifier) {
     self->removeIdleTimeout(static_cast<int>(identifier));
 }

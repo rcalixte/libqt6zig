@@ -114,22 +114,23 @@ pub const qwebchannel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn RegisterObjects(self: ?*anyopaque, objects: map_constu8_qtcqobject, allocator: std.mem.Allocator) void {
-        const objects_keys = allocator.alloc(qtc.libqt_string, objects.count()) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
+        const objects_count = objects.count();
+        const objects_keys = allocator.alloc(qtc.libqt_string, objects_count) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
         defer allocator.free(objects_keys);
-        const objects_values = allocator.alloc(QtC.QObject, objects.count()) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
+        const objects_values = allocator.alloc(QtC.QObject, objects_count) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
         defer allocator.free(objects_values);
         var i: usize = 0;
         var objects_it = objects.iterator();
-        while (objects_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (objects_it.next()) |it_entry| : (i += 1) {
+            const objects_key = it_entry.key_ptr.*;
             objects_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = objects_key.len,
+                .data = objects_key.ptr,
             };
-            objects_values[i] = @ptrCast(entry.value_ptr.*);
+            objects_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const objects_map = qtc.libqt_map{
-            .len = objects.count(),
+            .len = objects_count,
             .keys = @ptrCast(objects_keys.ptr),
             .values = @ptrCast(objects_values.ptr),
         };
@@ -468,6 +469,20 @@ pub const qwebchannel = struct {
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebChannel `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
     }
 
     /// Inherited from QObject
@@ -831,6 +846,22 @@ pub const qwebchannel = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebChannel `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

@@ -88,7 +88,7 @@ pub const ksyntaxhighlighting__repository = struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::repository.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__repository.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -142,7 +142,7 @@ pub const ksyntaxhighlighting__repository = struct {
         };
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Repository_DefinitionsForFileName(@ptrCast(self), fileName_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting::repository.DefinitionsForFileName: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting__repository.DefinitionsForFileName: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Definition = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -181,7 +181,7 @@ pub const ksyntaxhighlighting__repository = struct {
         };
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Repository_DefinitionsForMimeType(@ptrCast(self), mimeType_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting::repository.DefinitionsForMimeType: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting__repository.DefinitionsForMimeType: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Definition = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -198,7 +198,7 @@ pub const ksyntaxhighlighting__repository = struct {
     pub fn Definitions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KSyntaxHighlighting__Definition {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Repository_Definitions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting::repository.Definitions: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting__repository.Definitions: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Definition = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -215,7 +215,7 @@ pub const ksyntaxhighlighting__repository = struct {
     pub fn Themes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KSyntaxHighlighting__Theme {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Repository_Themes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Theme, _arr.len) catch @panic("ksyntaxhighlighting::repository.Themes: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Theme, _arr.len) catch @panic("ksyntaxhighlighting__repository.Themes: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Theme = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -302,10 +302,10 @@ pub const ksyntaxhighlighting__repository = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting::repository.CustomSearchPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting__repository.CustomSearchPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting::repository.CustomSearchPaths: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__repository.CustomSearchPaths: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -371,7 +371,7 @@ pub const ksyntaxhighlighting__repository = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::repository.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__repository.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -393,7 +393,7 @@ pub const ksyntaxhighlighting__repository = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::repository.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__repository.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -423,7 +423,7 @@ pub const ksyntaxhighlighting__repository = struct {
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::repository.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__repository.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -550,6 +550,20 @@ pub const ksyntaxhighlighting__repository = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Repository `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -589,7 +603,7 @@ pub const ksyntaxhighlighting__repository = struct {
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ksyntaxhighlighting::repository.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ksyntaxhighlighting__repository.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -780,10 +794,10 @@ pub const ksyntaxhighlighting__repository = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ksyntaxhighlighting::repository.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ksyntaxhighlighting__repository.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting::repository.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__repository.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -909,6 +923,22 @@ pub const ksyntaxhighlighting__repository = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KSyntaxHighlighting__Repository `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

@@ -31,19 +31,20 @@ pub const kiconutils = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AddOverlays(param1: ?*anyopaque, param2: map_i32_qtcqicon, allocator: std.mem.Allocator) QtC.QIcon {
-        const param2_keys = allocator.alloc(i32, param2.count()) catch @panic("kiconutils.AddOverlays: Memory allocation failed");
+        const param2_count = param2.count();
+        const param2_keys = allocator.alloc(i32, param2_count) catch @panic("kiconutils.AddOverlays: Memory allocation failed");
         defer allocator.free(param2_keys);
-        const param2_values = allocator.alloc(QtC.QIcon, param2.count()) catch @panic("kiconutils.AddOverlays: Memory allocation failed");
+        const param2_values = allocator.alloc(QtC.QIcon, param2_count) catch @panic("kiconutils.AddOverlays: Memory allocation failed");
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            param2_keys[i] = @intCast(key);
-            param2_values[i] = @ptrCast(entry.value_ptr.*);
+        while (param2_it.next()) |it_entry| : (i += 1) {
+            const param2_key = it_entry.key_ptr.*;
+            param2_keys[i] = @intCast(param2_key);
+            param2_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const param2_map = qtc.libqt_map{
-            .len = param2.count(),
+            .len = param2_count,
             .keys = @ptrCast(param2_keys.ptr),
             .values = @ptrCast(param2_values.ptr),
         };

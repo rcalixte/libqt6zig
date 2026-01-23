@@ -93,7 +93,7 @@ pub const attica__metadata = struct {
     pub fn StatusString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Metadata_StatusString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::metadata.StatusString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__metadata.StatusString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -125,7 +125,7 @@ pub const attica__metadata = struct {
     pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Metadata_Message(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::metadata.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__metadata.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -201,7 +201,7 @@ pub const attica__metadata = struct {
     pub fn ResultingId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Metadata_ResultingId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::metadata.ResultingId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__metadata.ResultingId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -240,13 +240,13 @@ pub const attica__metadata = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_u8_u8, _arr.len) catch @panic("attica::metadata.Headers: Memory allocation failed");
+        const _ret = allocator.alloc(struct_u8_u8, _arr.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
-            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("attica::metadata.Headers: Memory allocation failed");
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
             @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
-            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("attica::metadata.Headers: Memory allocation failed");
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
             _ret[i] = struct_u8_u8{
                 .first = _first_slice,
@@ -267,9 +267,9 @@ pub const attica__metadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetHeaders(self: ?*anyopaque, headers: []struct_u8_u8, allocator: std.mem.Allocator) void {
-        var headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("attica::metadata.SetHeaders: Memory allocation failed");
+        var headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
         defer allocator.free(headers_pairs);
-        var headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("attica::metadata.SetHeaders: Memory allocation failed");
+        var headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
         defer allocator.free(headers_str);
         for (headers, 0..) |headers_item, i| {
             headers_str[i * 2] = qtc.libqt_string{

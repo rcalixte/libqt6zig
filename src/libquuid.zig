@@ -473,7 +473,7 @@ pub const quuid__id128bytes = struct {
     pub fn ToQByteArrayView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QUuid__Id128Bytes_ToQByteArrayView(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid::id128bytes.ToQByteArrayView: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid__id128bytes.ToQByteArrayView: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -135,22 +135,23 @@ pub const qgeosatelliteinfosource = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CreateDefaultSource2(parameters: map_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QGeoSatelliteInfoSource {
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters.count()) catch @panic("qgeosatelliteinfosource.CreateDefaultSource2: Memory allocation failed");
+        const parameters_count = parameters.count();
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeosatelliteinfosource.CreateDefaultSource2: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters.count()) catch @panic("qgeosatelliteinfosource.CreateDefaultSource2: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("qgeosatelliteinfosource.CreateDefaultSource2: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
-        while (parameters_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (parameters_it.next()) |it_entry| : (i += 1) {
+            const parameters_key = it_entry.key_ptr.*;
             parameters_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = parameters_key.len,
+                .data = parameters_key.ptr,
             };
-            parameters_values[i] = @ptrCast(entry.value_ptr.*);
+            parameters_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const parameters_map = qtc.libqt_map{
-            .len = parameters.count(),
+            .len = parameters_count,
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
@@ -174,22 +175,23 @@ pub const qgeosatelliteinfosource = struct {
             .len = sourceName.len,
             .data = sourceName.ptr,
         };
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters.count()) catch @panic("qgeosatelliteinfosource.CreateSource2: Memory allocation failed");
+        const parameters_count = parameters.count();
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeosatelliteinfosource.CreateSource2: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters.count()) catch @panic("qgeosatelliteinfosource.CreateSource2: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("qgeosatelliteinfosource.CreateSource2: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
-        while (parameters_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (parameters_it.next()) |it_entry| : (i += 1) {
+            const parameters_key = it_entry.key_ptr.*;
             parameters_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = parameters_key.len,
+                .data = parameters_key.ptr,
             };
-            parameters_values[i] = @ptrCast(entry.value_ptr.*);
+            parameters_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const parameters_map = qtc.libqt_map{
-            .len = parameters.count(),
+            .len = parameters_count,
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
@@ -841,6 +843,20 @@ pub const qgeosatelliteinfosource = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGeoSatelliteInfoSource `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -1200,6 +1216,22 @@ pub const qgeosatelliteinfosource = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGeoSatelliteInfoSource `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

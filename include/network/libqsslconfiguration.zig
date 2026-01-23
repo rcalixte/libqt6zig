@@ -933,22 +933,23 @@ pub const qsslconfiguration = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetBackendConfiguration1(self: ?*anyopaque, backendConfiguration: map_u8_qtcqvariant, allocator: std.mem.Allocator) void {
-        const backendConfiguration_keys = allocator.alloc(qtc.libqt_string, backendConfiguration.count()) catch @panic("qsslconfiguration.SetBackendConfiguration1: Memory allocation failed");
+        const backendConfiguration_count = backendConfiguration.count();
+        const backendConfiguration_keys = allocator.alloc(qtc.libqt_string, backendConfiguration_count) catch @panic("qsslconfiguration.SetBackendConfiguration1: Memory allocation failed");
         defer allocator.free(backendConfiguration_keys);
-        const backendConfiguration_values = allocator.alloc(QtC.QVariant, backendConfiguration.count()) catch @panic("qsslconfiguration.SetBackendConfiguration1: Memory allocation failed");
+        const backendConfiguration_values = allocator.alloc(QtC.QVariant, backendConfiguration_count) catch @panic("qsslconfiguration.SetBackendConfiguration1: Memory allocation failed");
         defer allocator.free(backendConfiguration_values);
         var i: usize = 0;
         var backendConfiguration_it = backendConfiguration.iterator();
-        while (backendConfiguration_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (backendConfiguration_it.next()) |it_entry| : (i += 1) {
+            const backendConfiguration_key = it_entry.key_ptr.*;
             backendConfiguration_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = backendConfiguration_key.len,
+                .data = backendConfiguration_key.ptr,
             };
-            backendConfiguration_values[i] = @ptrCast(entry.value_ptr.*);
+            backendConfiguration_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const backendConfiguration_map = qtc.libqt_map{
-            .len = backendConfiguration.count(),
+            .len = backendConfiguration_count,
             .keys = @ptrCast(backendConfiguration_keys.ptr),
             .values = @ptrCast(backendConfiguration_values.ptr),
         };

@@ -25,7 +25,7 @@ pub const attica__target = struct {
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var id_str = qtc.Attica__Target_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&id_str);
-        const id_ret = allocator.alloc(u8, id_str.len) catch @panic("attica::target.Id: Memory allocation failed");
+        const id_ret = allocator.alloc(u8, id_str.len) catch @panic("attica__target.Id: Memory allocation failed");
         @memcpy(id_ret, id_str.data[0..id_str.len]);
         return id_ret;
     }
@@ -57,7 +57,7 @@ pub const attica__target = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var name_str = qtc.Attica__Target_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
-        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("attica::target.Name: Memory allocation failed");
+        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("attica__target.Name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
         return name_ret;
     }
@@ -158,7 +158,7 @@ pub const attica__buildservice = struct {
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildService_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservice.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservice.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -190,7 +190,7 @@ pub const attica__buildservice = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildService_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservice.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservice.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -222,7 +222,7 @@ pub const attica__buildservice = struct {
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__BuildService_Url(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::buildservice.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__buildservice.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -250,7 +250,7 @@ pub const attica__buildservice = struct {
     pub fn Targets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Attica__Target {
         const _arr: qtc.libqt_list = qtc.Attica__BuildService_Targets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Attica__Target, _arr.len) catch @panic("attica::buildservice.Targets: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.Attica__Target, _arr.len) catch @panic("attica__buildservice.Targets: Memory allocation failed");
         const _data: [*]QtC.Attica__Target = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;

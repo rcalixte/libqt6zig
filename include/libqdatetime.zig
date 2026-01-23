@@ -1660,6 +1660,18 @@ pub const qdatetime = struct {
         return qtc.QDateTime_AddMSecs(@ptrCast(self), @intCast(msecs));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#addDuration)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTime `
+    ///
+    /// ` msecs: i64 of milliseconds `
+    ///
+    pub fn AddDuration(self: ?*anyopaque, msecs: i64) QtC.QDateTime {
+        return qtc.QDateTime_AddDuration(@ptrCast(self), @intCast(msecs));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#toTimeSpec)
     ///
     /// ## Parameter(s):
@@ -1932,6 +1944,30 @@ pub const qdatetime = struct {
     ///
     pub fn CurrentSecsSinceEpoch() i64 {
         return qtc.QDateTime_CurrentSecsSinceEpoch();
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#operator-2b-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTime `
+    ///
+    /// ` duration: i64 of milliseconds `
+    ///
+    pub fn OperatorPlusAssign(self: ?*anyopaque, duration: i64) QtC.QDateTime {
+        return qtc.QDateTime_OperatorPlusAssign(@ptrCast(self), @intCast(duration));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#operator--eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDateTime `
+    ///
+    /// ` duration: i64 of milliseconds `
+    ///
+    pub fn OperatorMinusAssign(self: ?*anyopaque, duration: i64) QtC.QDateTime {
+        return qtc.QDateTime_OperatorMinusAssign(@ptrCast(self), @intCast(duration));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#setDate)

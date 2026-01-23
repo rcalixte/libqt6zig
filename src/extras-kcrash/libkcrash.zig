@@ -72,26 +72,27 @@ pub const kcrash = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetErrorTags(param1: map_constu8_constu8, allocator: std.mem.Allocator) void {
-        const param1_keys = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
+        const param1_count = param1.count();
+        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
         defer allocator.free(param1_keys);
-        const param1_values = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
+        const param1_values = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
-        while (param1_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (param1_it.next()) |it_entry| : (i += 1) {
+            const param1_key = it_entry.key_ptr.*;
             param1_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = param1_key.len,
+                .data = param1_key.ptr,
             };
-            const value = entry.value_ptr.*;
+            const value = it_entry.value_ptr.*;
             param1_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const param1_map = qtc.libqt_map{
-            .len = param1.count(),
+            .len = param1_count,
             .keys = @ptrCast(param1_keys.ptr),
             .values = @ptrCast(param1_values.ptr),
         };
@@ -107,26 +108,27 @@ pub const kcrash = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetErrorExtraData(param1: map_constu8_constu8, allocator: std.mem.Allocator) void {
-        const param1_keys = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
+        const param1_count = param1.count();
+        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
         defer allocator.free(param1_keys);
-        const param1_values = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
+        const param1_values = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
-        while (param1_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (param1_it.next()) |it_entry| : (i += 1) {
+            const param1_key = it_entry.key_ptr.*;
             param1_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = param1_key.len,
+                .data = param1_key.ptr,
             };
-            const value = entry.value_ptr.*;
+            const value = it_entry.value_ptr.*;
             param1_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const param1_map = qtc.libqt_map{
-            .len = param1.count(),
+            .len = param1_count,
             .keys = @ptrCast(param1_keys.ptr),
             .values = @ptrCast(param1_values.ptr),
         };
@@ -142,22 +144,23 @@ pub const kcrash = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetGPUData(param1: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
-        const param1_keys = allocator.alloc(qtc.libqt_string, param1.count()) catch @panic("kcrash.SetGPUData: Memory allocation failed");
+        const param1_count = param1.count();
+        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetGPUData: Memory allocation failed");
         defer allocator.free(param1_keys);
-        const param1_values = allocator.alloc(QtC.QVariant, param1.count()) catch @panic("kcrash.SetGPUData: Memory allocation failed");
+        const param1_values = allocator.alloc(QtC.QVariant, param1_count) catch @panic("kcrash.SetGPUData: Memory allocation failed");
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
-        while (param1_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (param1_it.next()) |it_entry| : (i += 1) {
+            const param1_key = it_entry.key_ptr.*;
             param1_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = param1_key.len,
+                .data = param1_key.ptr,
             };
-            param1_values[i] = @ptrCast(entry.value_ptr.*);
+            param1_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const param1_map = qtc.libqt_map{
-            .len = param1.count(),
+            .len = param1_count,
             .keys = @ptrCast(param1_keys.ptr),
             .values = @ptrCast(param1_values.ptr),
         };

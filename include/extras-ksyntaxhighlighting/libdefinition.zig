@@ -80,7 +80,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_FilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.FilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.FilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -96,7 +96,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -118,10 +118,10 @@ pub const ksyntaxhighlighting__definition = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting::definition.AlternativeNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting__definition.AlternativeNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting::definition.AlternativeNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__definition.AlternativeNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -139,7 +139,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn TranslatedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_TranslatedName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.TranslatedName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.TranslatedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -155,7 +155,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn Section(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Section(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.Section: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.Section: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -171,7 +171,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn TranslatedSection(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_TranslatedSection(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.TranslatedSection: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.TranslatedSection: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -193,10 +193,10 @@ pub const ksyntaxhighlighting__definition = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting::definition.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting__definition.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting::definition.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__definition.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -220,10 +220,10 @@ pub const ksyntaxhighlighting__definition = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting::definition.Extensions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting__definition.Extensions: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting::definition.Extensions: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__definition.Extensions: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -271,7 +271,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn Style(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Style(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.Style: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.Style: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -287,7 +287,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn Indenter(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Indenter(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.Indenter: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.Indenter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -303,7 +303,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn Author(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Author(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -319,7 +319,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_License(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.License: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.License: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -385,10 +385,10 @@ pub const ksyntaxhighlighting__definition = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting::definition.FoldingIgnoreList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting__definition.FoldingIgnoreList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting::definition.FoldingIgnoreList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__definition.FoldingIgnoreList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -412,10 +412,10 @@ pub const ksyntaxhighlighting__definition = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting::definition.KeywordLists: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting__definition.KeywordLists: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting::definition.KeywordLists: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__definition.KeywordLists: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -445,10 +445,10 @@ pub const ksyntaxhighlighting__definition = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting::definition.KeywordList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting__definition.KeywordList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting::definition.KeywordList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__definition.KeywordList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -472,7 +472,7 @@ pub const ksyntaxhighlighting__definition = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        var content_arr = allocator.alloc(qtc.libqt_string, content.len) catch @panic("ksyntaxhighlighting::definition.SetKeywordList: Memory allocation failed");
+        var content_arr = allocator.alloc(qtc.libqt_string, content.len) catch @panic("ksyntaxhighlighting__definition.SetKeywordList: Memory allocation failed");
         defer allocator.free(content_arr);
         for (content, 0..content.len) |item, i| {
             content_arr[i] = .{
@@ -498,7 +498,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn Formats(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KSyntaxHighlighting__Format {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_Formats(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Format, _arr.len) catch @panic("ksyntaxhighlighting::definition.Formats: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Format, _arr.len) catch @panic("ksyntaxhighlighting__definition.Formats: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Format = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -515,7 +515,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn IncludedDefinitions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KSyntaxHighlighting__Definition {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_IncludedDefinitions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting::definition.IncludedDefinitions: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting__definition.IncludedDefinitions: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Definition = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -532,7 +532,7 @@ pub const ksyntaxhighlighting__definition = struct {
     pub fn SingleLineCommentMarker(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_SingleLineCommentMarker(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting::definition.SingleLineCommentMarker: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__definition.SingleLineCommentMarker: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -582,10 +582,10 @@ pub const ksyntaxhighlighting__definition = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_qtcqchar_constu8, _arr.len) catch @panic("ksyntaxhighlighting::definition.CharacterEncodings: Memory allocation failed");
+        const _ret = allocator.alloc(struct_qtcqchar_constu8, _arr.len) catch @panic("ksyntaxhighlighting__definition.CharacterEncodings: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
-            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("ksyntaxhighlighting::definition.CharacterEncodings: Memory allocation failed");
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("ksyntaxhighlighting__definition.CharacterEncodings: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
             _ret[i] = struct_qtcqchar_constu8{
                 .first = @ptrCast(_data[i].first),

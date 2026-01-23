@@ -1010,23 +1010,24 @@ pub const kmacroexpander = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_keys = allocator.alloc(?*anyopaque, param2.count()) catch @panic("kmacroexpander.ExpandMacros: Memory allocation failed");
+        const param2_count = param2.count();
+        const param2_keys = allocator.alloc(?*anyopaque, param2_count) catch @panic("kmacroexpander.ExpandMacros: Memory allocation failed");
         defer allocator.free(param2_keys);
-        const param2_values = allocator.alloc(qtc.libqt_string, param2.count()) catch @panic("kmacroexpander.ExpandMacros: Memory allocation failed");
+        const param2_values = allocator.alloc(qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacros: Memory allocation failed");
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            param2_keys[i] = @ptrCast(key);
-            const value = entry.value_ptr.*;
+        while (param2_it.next()) |it_entry| : (i += 1) {
+            const param2_key = it_entry.key_ptr.*;
+            param2_keys[i] = @ptrCast(param2_key);
+            const value = it_entry.value_ptr.*;
             param2_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const param2_map = qtc.libqt_map{
-            .len = param2.count(),
+            .len = param2_count,
             .keys = @ptrCast(param2_keys.ptr),
             .values = @ptrCast(param2_values.ptr),
         };
@@ -1054,23 +1055,24 @@ pub const kmacroexpander = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_keys = allocator.alloc(?*anyopaque, param2.count()) catch @panic("kmacroexpander.ExpandMacrosShellQuote: Memory allocation failed");
+        const param2_count = param2.count();
+        const param2_keys = allocator.alloc(?*anyopaque, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote: Memory allocation failed");
         defer allocator.free(param2_keys);
-        const param2_values = allocator.alloc(qtc.libqt_string, param2.count()) catch @panic("kmacroexpander.ExpandMacrosShellQuote: Memory allocation failed");
+        const param2_values = allocator.alloc(qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote: Memory allocation failed");
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            param2_keys[i] = @ptrCast(key);
-            const value = entry.value_ptr.*;
+        while (param2_it.next()) |it_entry| : (i += 1) {
+            const param2_key = it_entry.key_ptr.*;
+            param2_keys[i] = @ptrCast(param2_key);
+            const value = it_entry.value_ptr.*;
             param2_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const param2_map = qtc.libqt_map{
-            .len = param2.count(),
+            .len = param2_count,
             .keys = @ptrCast(param2_keys.ptr),
             .values = @ptrCast(param2_values.ptr),
         };
@@ -1098,26 +1100,27 @@ pub const kmacroexpander = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_keys = allocator.alloc(qtc.libqt_string, param2.count()) catch @panic("kmacroexpander.ExpandMacros2: Memory allocation failed");
+        const param2_count = param2.count();
+        const param2_keys = allocator.alloc(qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacros2: Memory allocation failed");
         defer allocator.free(param2_keys);
-        const param2_values = allocator.alloc(qtc.libqt_string, param2.count()) catch @panic("kmacroexpander.ExpandMacros2: Memory allocation failed");
+        const param2_values = allocator.alloc(qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacros2: Memory allocation failed");
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (param2_it.next()) |it_entry| : (i += 1) {
+            const param2_key = it_entry.key_ptr.*;
             param2_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = param2_key.len,
+                .data = param2_key.ptr,
             };
-            const value = entry.value_ptr.*;
+            const value = it_entry.value_ptr.*;
             param2_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const param2_map = qtc.libqt_map{
-            .len = param2.count(),
+            .len = param2_count,
             .keys = @ptrCast(param2_keys.ptr),
             .values = @ptrCast(param2_values.ptr),
         };
@@ -1145,26 +1148,27 @@ pub const kmacroexpander = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_keys = allocator.alloc(qtc.libqt_string, param2.count()) catch @panic("kmacroexpander.ExpandMacrosShellQuote2: Memory allocation failed");
+        const param2_count = param2.count();
+        const param2_keys = allocator.alloc(qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote2: Memory allocation failed");
         defer allocator.free(param2_keys);
-        const param2_values = allocator.alloc(qtc.libqt_string, param2.count()) catch @panic("kmacroexpander.ExpandMacrosShellQuote2: Memory allocation failed");
+        const param2_values = allocator.alloc(qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote2: Memory allocation failed");
         defer allocator.free(param2_values);
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (param2_it.next()) |it_entry| : (i += 1) {
+            const param2_key = it_entry.key_ptr.*;
             param2_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = param2_key.len,
+                .data = param2_key.ptr,
             };
-            const value = entry.value_ptr.*;
+            const value = it_entry.value_ptr.*;
             param2_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const param2_map = qtc.libqt_map{
-            .len = param2.count(),
+            .len = param2_count,
             .keys = @ptrCast(param2_keys.ptr),
             .values = @ptrCast(param2_values.ptr),
         };
@@ -1192,19 +1196,27 @@ pub const kmacroexpander = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_keys = allocator.alloc(?*anyopaque, param2.count()) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
+        const param2_count = param2.count();
+        const param2_keys = allocator.alloc(?*anyopaque, param2_count) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
         defer allocator.free(param2_keys);
-        const param2_values = allocator.alloc(qtc.libqt_list, param2.count()) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
+        const param2_values = allocator.alloc(qtc.libqt_list, param2_count) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
         defer allocator.free(param2_values);
+        const param2_inners = allocator.alloc([]qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
+        defer {
+            for (param2_inners) |param2_inner| {
+                allocator.free(param2_inner);
+            }
+            allocator.free(param2_inners);
+        }
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            param2_keys[i] = @ptrCast(key);
-            param2_values[i].len = entry.value_ptr.*.len;
-            const param2_val = allocator.alloc(qtc.libqt_string, entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
-            defer allocator.free(param2_val);
-            for (entry.value_ptr.*, 0..) |value, j| {
+        while (param2_it.next()) |it_entry| : (i += 1) {
+            const param2_key = it_entry.key_ptr.*;
+            param2_keys[i] = @ptrCast(param2_key);
+            param2_values[i].len = it_entry.value_ptr.*.len;
+            const param2_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
+            param2_inners[i] = param2_val;
+            for (it_entry.value_ptr.*, 0..) |value, j| {
                 param2_val[j] = qtc.libqt_string{
                     .len = value.len,
                     .data = value.ptr,
@@ -1213,7 +1225,7 @@ pub const kmacroexpander = struct {
             param2_values[i].data = @ptrCast(param2_val.ptr);
         }
         const param2_map = qtc.libqt_map{
-            .len = param2.count(),
+            .len = param2_count,
             .keys = @ptrCast(param2_keys.ptr),
             .values = @ptrCast(param2_values.ptr),
         };
@@ -1241,22 +1253,30 @@ pub const kmacroexpander = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_keys = allocator.alloc(qtc.libqt_string, param2.count()) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
+        const param2_count = param2.count();
+        const param2_keys = allocator.alloc(qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
         defer allocator.free(param2_keys);
-        const param2_values = allocator.alloc(qtc.libqt_list, param2.count()) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
+        const param2_values = allocator.alloc(qtc.libqt_list, param2_count) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
         defer allocator.free(param2_values);
+        const param2_inners = allocator.alloc([]qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
+        defer {
+            for (param2_inners) |param2_inner| {
+                allocator.free(param2_inner);
+            }
+            allocator.free(param2_inners);
+        }
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (param2_it.next()) |it_entry| : (i += 1) {
+            const param2_key = it_entry.key_ptr.*;
             param2_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = param2_key.len,
+                .data = param2_key.ptr,
             };
-            param2_values[i].len = entry.value_ptr.*.len;
-            const param2_val = allocator.alloc(qtc.libqt_string, entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
-            defer allocator.free(param2_val);
-            for (entry.value_ptr.*, 0..) |value, j| {
+            param2_values[i].len = it_entry.value_ptr.*.len;
+            const param2_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
+            param2_inners[i] = param2_val;
+            for (it_entry.value_ptr.*, 0..) |value, j| {
                 param2_val[j] = qtc.libqt_string{
                     .len = value.len,
                     .data = value.ptr,
@@ -1265,7 +1285,7 @@ pub const kmacroexpander = struct {
             param2_values[i].data = @ptrCast(param2_val.ptr);
         }
         const param2_map = qtc.libqt_map{
-            .len = param2.count(),
+            .len = param2_count,
             .keys = @ptrCast(param2_keys.ptr),
             .values = @ptrCast(param2_values.ptr),
         };
@@ -1293,19 +1313,27 @@ pub const kmacroexpander = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_keys = allocator.alloc(?*anyopaque, param2.count()) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
+        const param2_count = param2.count();
+        const param2_keys = allocator.alloc(?*anyopaque, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
         defer allocator.free(param2_keys);
-        const param2_values = allocator.alloc(qtc.libqt_list, param2.count()) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
+        const param2_values = allocator.alloc(qtc.libqt_list, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
         defer allocator.free(param2_values);
+        const param2_inners = allocator.alloc([]qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
+        defer {
+            for (param2_inners) |param2_inner| {
+                allocator.free(param2_inner);
+            }
+            allocator.free(param2_inners);
+        }
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            param2_keys[i] = @ptrCast(key);
-            param2_values[i].len = entry.value_ptr.*.len;
-            const param2_val = allocator.alloc(qtc.libqt_string, entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
-            defer allocator.free(param2_val);
-            for (entry.value_ptr.*, 0..) |value, j| {
+        while (param2_it.next()) |it_entry| : (i += 1) {
+            const param2_key = it_entry.key_ptr.*;
+            param2_keys[i] = @ptrCast(param2_key);
+            param2_values[i].len = it_entry.value_ptr.*.len;
+            const param2_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
+            param2_inners[i] = param2_val;
+            for (it_entry.value_ptr.*, 0..) |value, j| {
                 param2_val[j] = qtc.libqt_string{
                     .len = value.len,
                     .data = value.ptr,
@@ -1314,7 +1342,7 @@ pub const kmacroexpander = struct {
             param2_values[i].data = @ptrCast(param2_val.ptr);
         }
         const param2_map = qtc.libqt_map{
-            .len = param2.count(),
+            .len = param2_count,
             .keys = @ptrCast(param2_keys.ptr),
             .values = @ptrCast(param2_values.ptr),
         };
@@ -1342,22 +1370,30 @@ pub const kmacroexpander = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_keys = allocator.alloc(qtc.libqt_string, param2.count()) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
+        const param2_count = param2.count();
+        const param2_keys = allocator.alloc(qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
         defer allocator.free(param2_keys);
-        const param2_values = allocator.alloc(qtc.libqt_list, param2.count()) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
+        const param2_values = allocator.alloc(qtc.libqt_list, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
         defer allocator.free(param2_values);
+        const param2_inners = allocator.alloc([]qtc.libqt_string, param2_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
+        defer {
+            for (param2_inners) |param2_inner| {
+                allocator.free(param2_inner);
+            }
+            allocator.free(param2_inners);
+        }
         var i: usize = 0;
         var param2_it = param2.iterator();
-        while (param2_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (param2_it.next()) |it_entry| : (i += 1) {
+            const param2_key = it_entry.key_ptr.*;
             param2_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = param2_key.len,
+                .data = param2_key.ptr,
             };
-            param2_values[i].len = entry.value_ptr.*.len;
-            const param2_val = allocator.alloc(qtc.libqt_string, entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
-            defer allocator.free(param2_val);
-            for (entry.value_ptr.*, 0..) |value, j| {
+            param2_values[i].len = it_entry.value_ptr.*.len;
+            const param2_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
+            param2_inners[i] = param2_val;
+            for (it_entry.value_ptr.*, 0..) |value, j| {
                 param2_val[j] = qtc.libqt_string{
                     .len = value.len,
                     .data = value.ptr,
@@ -1366,7 +1402,7 @@ pub const kmacroexpander = struct {
             param2_values[i].data = @ptrCast(param2_val.ptr);
         }
         const param2_map = qtc.libqt_map{
-            .len = param2.count(),
+            .len = param2_count,
             .keys = @ptrCast(param2_keys.ptr),
             .values = @ptrCast(param2_values.ptr),
         };

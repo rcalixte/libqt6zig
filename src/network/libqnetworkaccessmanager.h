@@ -82,6 +82,7 @@ bool QNetworkAccessManager_AutoDeleteReplies(const QNetworkAccessManager* self);
 void QNetworkAccessManager_SetAutoDeleteReplies(QNetworkAccessManager* self, bool autoDelete);
 int QNetworkAccessManager_TransferTimeout(const QNetworkAccessManager* self);
 void QNetworkAccessManager_SetTransferTimeout(QNetworkAccessManager* self, int timeout);
+int64_t QNetworkAccessManager_TransferTimeoutAsDuration(const QNetworkAccessManager* self);
 void QNetworkAccessManager_SetTransferTimeout2(QNetworkAccessManager* self);
 void QNetworkAccessManager_ProxyAuthenticationRequired(QNetworkAccessManager* self, const QNetworkProxy* proxy, QAuthenticator* authenticator);
 void QNetworkAccessManager_Connect_ProxyAuthenticationRequired(QNetworkAccessManager* self, intptr_t slot);
@@ -101,6 +102,7 @@ QNetworkReply* QNetworkAccessManager_SendCustomRequest32(QNetworkAccessManager* 
 void QNetworkAccessManager_ConnectToHostEncrypted22(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port);
 void QNetworkAccessManager_ConnectToHostEncrypted3(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port, const QSslConfiguration* sslConfiguration);
 void QNetworkAccessManager_ConnectToHost2(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port);
+void QNetworkAccessManager_SetTransferTimeout1(QNetworkAccessManager* self, int64_t duration);
 void QNetworkAccessManager_OnMetacall(QNetworkAccessManager* self, intptr_t slot);
 int QNetworkAccessManager_QBaseMetacall(QNetworkAccessManager* self, int param1, int param2, void** param3);
 void QNetworkAccessManager_OnSupportedSchemes(const QNetworkAccessManager* self, intptr_t slot);

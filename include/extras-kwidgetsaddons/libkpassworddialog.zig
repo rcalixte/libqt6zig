@@ -376,26 +376,27 @@ pub const kpassworddialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetKnownLogins(self: ?*anyopaque, knownLogins: map_constu8_constu8, allocator: std.mem.Allocator) void {
-        const knownLogins_keys = allocator.alloc(qtc.libqt_string, knownLogins.count()) catch @panic("kpassworddialog.SetKnownLogins: Memory allocation failed");
+        const knownLogins_count = knownLogins.count();
+        const knownLogins_keys = allocator.alloc(qtc.libqt_string, knownLogins_count) catch @panic("kpassworddialog.SetKnownLogins: Memory allocation failed");
         defer allocator.free(knownLogins_keys);
-        const knownLogins_values = allocator.alloc(qtc.libqt_string, knownLogins.count()) catch @panic("kpassworddialog.SetKnownLogins: Memory allocation failed");
+        const knownLogins_values = allocator.alloc(qtc.libqt_string, knownLogins_count) catch @panic("kpassworddialog.SetKnownLogins: Memory allocation failed");
         defer allocator.free(knownLogins_values);
         var i: usize = 0;
         var knownLogins_it = knownLogins.iterator();
-        while (knownLogins_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (knownLogins_it.next()) |it_entry| : (i += 1) {
+            const knownLogins_key = it_entry.key_ptr.*;
             knownLogins_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = knownLogins_key.len,
+                .data = knownLogins_key.ptr,
             };
-            const value = entry.value_ptr.*;
+            const value = it_entry.value_ptr.*;
             knownLogins_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const knownLogins_map = qtc.libqt_map{
-            .len = knownLogins.count(),
+            .len = knownLogins_count,
             .keys = @ptrCast(knownLogins_keys.ptr),
             .values = @ptrCast(knownLogins_values.ptr),
         };
@@ -4805,6 +4806,20 @@ pub const kpassworddialog = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPasswordDialog `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -5150,6 +5165,22 @@ pub const kpassworddialog = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KPasswordDialog `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

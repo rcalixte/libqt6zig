@@ -509,23 +509,24 @@ pub const kcompletionbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap.count()) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_count = keyBindingMap.count();
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap.count()) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
         var keyBindingMap_it = keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(key);
-            const value = entry.value_ptr.*;
+        while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
+            const keyBindingMap_key = it_entry.key_ptr.*;
+            keyBindingMap_keys[i] = @intCast(keyBindingMap_key);
+            const value = it_entry.value_ptr.*;
             keyBindingMap_values[i] = qtc.libqt_list{
                 .len = value.len,
                 .data = @ptrCast(value.ptr),
             };
         }
         const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap.count(),
+            .len = keyBindingMap_count,
             .keys = @ptrCast(keyBindingMap_keys.ptr),
             .values = @ptrCast(keyBindingMap_values.ptr),
         };
@@ -559,23 +560,24 @@ pub const kcompletionbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap.count()) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_count = keyBindingMap.count();
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap.count()) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
         var keyBindingMap_it = keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(key);
-            const value = entry.value_ptr.*;
+        while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
+            const keyBindingMap_key = it_entry.key_ptr.*;
+            keyBindingMap_keys[i] = @intCast(keyBindingMap_key);
+            const value = it_entry.value_ptr.*;
             keyBindingMap_values[i] = qtc.libqt_list{
                 .len = value.len,
                 .data = @ptrCast(value.ptr),
             };
         }
         const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap.count(),
+            .len = keyBindingMap_count,
             .keys = @ptrCast(keyBindingMap_keys.ptr),
             .values = @ptrCast(keyBindingMap_values.ptr),
         };

@@ -60,7 +60,7 @@ pub const ktexteditor__view = struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -100,7 +100,7 @@ pub const ktexteditor__view = struct {
     pub fn ViewModeHuman(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__View_ViewModeHuman(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.ViewModeHuman: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ViewModeHuman: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -142,7 +142,7 @@ pub const ktexteditor__view = struct {
     pub fn ViewInputModeHuman(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__View_ViewInputModeHuman(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.ViewInputModeHuman: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ViewInputModeHuman: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -398,7 +398,7 @@ pub const ktexteditor__view = struct {
     pub fn CursorPositions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KTextEditor__Cursor {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_CursorPositions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KTextEditor__Cursor, _arr.len) catch @panic("ktexteditor::view.CursorPositions: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KTextEditor__Cursor, _arr.len) catch @panic("ktexteditor__view.CursorPositions: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__Cursor = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -631,7 +631,7 @@ pub const ktexteditor__view = struct {
     pub fn SelectionRanges(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KTextEditor__Range {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_SelectionRanges(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KTextEditor__Range, _arr.len) catch @panic("ktexteditor::view.SelectionRanges: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KTextEditor__Range, _arr.len) catch @panic("ktexteditor__view.SelectionRanges: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__Range = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -648,7 +648,7 @@ pub const ktexteditor__view = struct {
     pub fn SelectionText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__View_SelectionText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.SelectionText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.SelectionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -942,7 +942,8 @@ pub const ktexteditor__view = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ReadSessionConfig(self: ?*anyopaque, config: ?*anyopaque, flags: set_constu8, allocator: std.mem.Allocator) void {
-        var flags_arr = allocator.alloc(qtc.libqt_string, flags.count()) catch @panic("ktexteditor::view.ReadSessionConfig: Memory allocation failed");
+        const flags_count = flags.count();
+        var flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("ktexteditor__view.ReadSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
         var flags_it = flags.keyIterator();
         var flags_i: usize = 0;
@@ -953,7 +954,7 @@ pub const ktexteditor__view = struct {
             };
         }
         const flags_set = qtc.libqt_list{
-            .len = flags.count(),
+            .len = flags_count,
             .data = flags_arr.ptr,
         };
         qtc.KTextEditor__View_ReadSessionConfig(@ptrCast(self), @ptrCast(config), flags_set);
@@ -972,7 +973,8 @@ pub const ktexteditor__view = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn WriteSessionConfig(self: ?*anyopaque, config: ?*anyopaque, flags: set_constu8, allocator: std.mem.Allocator) void {
-        var flags_arr = allocator.alloc(qtc.libqt_string, flags.count()) catch @panic("ktexteditor::view.WriteSessionConfig: Memory allocation failed");
+        const flags_count = flags.count();
+        var flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("ktexteditor__view.WriteSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
         var flags_it = flags.keyIterator();
         var flags_i: usize = 0;
@@ -983,7 +985,7 @@ pub const ktexteditor__view = struct {
             };
         }
         const flags_set = qtc.libqt_list{
-            .len = flags.count(),
+            .len = flags_count,
             .data = flags_arr.ptr,
         };
         qtc.KTextEditor__View_WriteSessionConfig(@ptrCast(self), @ptrCast(config), flags_set);
@@ -1002,7 +1004,7 @@ pub const ktexteditor__view = struct {
     pub fn LineAttributes(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []QtC.KTextEditor__AttributeBlock {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_LineAttributes(@ptrCast(self), @intCast(line));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KTextEditor__AttributeBlock, _arr.len) catch @panic("ktexteditor::view.LineAttributes: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KTextEditor__AttributeBlock, _arr.len) catch @panic("ktexteditor__view.LineAttributes: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__AttributeBlock = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1049,10 +1051,10 @@ pub const ktexteditor__view = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ktexteditor::view.ConfigKeys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ktexteditor__view.ConfigKeys: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktexteditor::view.ConfigKeys: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktexteditor__view.ConfigKeys: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1452,7 +1454,7 @@ pub const ktexteditor__view = struct {
     pub fn CodeCompletionModels(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KTextEditor__CodeCompletionModel {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_CodeCompletionModels(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KTextEditor__CodeCompletionModel, _arr.len) catch @panic("ktexteditor::view.CodeCompletionModels: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KTextEditor__CodeCompletionModel, _arr.len) catch @panic("ktexteditor__view.CodeCompletionModels: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__CodeCompletionModel = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1483,7 +1485,7 @@ pub const ktexteditor__view = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1505,7 +1507,7 @@ pub const ktexteditor__view = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2909,7 +2911,7 @@ pub const ktexteditor__view = struct {
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2927,7 +2929,7 @@ pub const ktexteditor__view = struct {
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2989,7 +2991,7 @@ pub const ktexteditor__view = struct {
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3025,7 +3027,7 @@ pub const ktexteditor__view = struct {
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3061,7 +3063,7 @@ pub const ktexteditor__view = struct {
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3135,7 +3137,7 @@ pub const ktexteditor__view = struct {
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3197,7 +3199,7 @@ pub const ktexteditor__view = struct {
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3233,7 +3235,7 @@ pub const ktexteditor__view = struct {
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3251,7 +3253,7 @@ pub const ktexteditor__view = struct {
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3287,7 +3289,7 @@ pub const ktexteditor__view = struct {
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4137,7 +4139,7 @@ pub const ktexteditor__view = struct {
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("ktexteditor::view.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("ktexteditor__view.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4711,7 +4713,7 @@ pub const ktexteditor__view = struct {
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("ktexteditor::view.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("ktexteditor__view.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -5534,7 +5536,7 @@ pub const ktexteditor__view = struct {
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5661,6 +5663,20 @@ pub const ktexteditor__view = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -5700,7 +5716,7 @@ pub const ktexteditor__view = struct {
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ktexteditor::view.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ktexteditor__view.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -5877,10 +5893,10 @@ pub const ktexteditor__view = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktexteditor::view.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktexteditor__view.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktexteditor::view.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktexteditor__view.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -6006,6 +6022,22 @@ pub const ktexteditor__view = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__View `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6289,7 +6321,7 @@ pub const ktexteditor__view = struct {
     pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXMLGUIClient_ComponentName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6319,7 +6351,7 @@ pub const ktexteditor__view = struct {
     pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXMLGUIClient_XmlFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.XmlFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6337,7 +6369,7 @@ pub const ktexteditor__view = struct {
     pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXMLGUIClient_LocalXMLFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.LocalXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6447,7 +6479,7 @@ pub const ktexteditor__view = struct {
     pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KXMLGUIClient, _arr.len) catch @panic("ktexteditor::view.ChildClients: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KXMLGUIClient, _arr.len) catch @panic("ktexteditor__view.ChildClients: Memory allocation failed");
         const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -6546,7 +6578,7 @@ pub const ktexteditor__view = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
-        var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("ktexteditor::view.FindMostRecentXMLFile: Memory allocation failed");
+        var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("ktexteditor__view.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
             files_arr[i] = .{
@@ -6564,7 +6596,7 @@ pub const ktexteditor__view = struct {
         };
         var _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.FindMostRecentXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.FindMostRecentXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6716,7 +6748,7 @@ pub const ktexteditor__view = struct {
         };
         var _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::view.FindVersionNumber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.FindVersionNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

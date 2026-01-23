@@ -474,6 +474,20 @@ pub const qnetworkrequest = struct {
         qtc.QNetworkRequest_SetTransferTimeout(@ptrCast(self), @intCast(timeout));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#transferTimeoutAsDuration)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ## Returns:
+    ///
+    /// ` i64 of milliseconds `
+    ///
+    pub fn TransferTimeoutAsDuration(self: ?*anyopaque) i64 {
+        return qtc.QNetworkRequest_TransferTimeoutAsDuration(@ptrCast(self));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setTransferTimeout)
     ///
     /// ## Parameter(s):
@@ -496,6 +510,18 @@ pub const qnetworkrequest = struct {
     ///
     pub fn Attribute2(self: ?*anyopaque, code: i32, defaultValue: ?*anyopaque) QtC.QVariant {
         return qtc.QNetworkRequest_Attribute2(@ptrCast(self), @intCast(code), @ptrCast(defaultValue));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#setTransferTimeout)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QNetworkRequest `
+    ///
+    /// ` duration: i64 of milliseconds `
+    ///
+    pub fn SetTransferTimeout1(self: ?*anyopaque, duration: i64) void {
+        qtc.QNetworkRequest_SetTransferTimeout1(@ptrCast(self), @intCast(duration));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkrequest.html#dtor.QNetworkRequest)

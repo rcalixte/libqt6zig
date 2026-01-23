@@ -49,6 +49,8 @@ void QNetworkRequestFactory_ClearUserName(QNetworkRequestFactory* self);
 libqt_string QNetworkRequestFactory_Password(const QNetworkRequestFactory* self);
 void QNetworkRequestFactory_SetPassword(QNetworkRequestFactory* self, const libqt_string password);
 void QNetworkRequestFactory_ClearPassword(QNetworkRequestFactory* self);
+void QNetworkRequestFactory_SetTransferTimeout(QNetworkRequestFactory* self, int64_t timeout);
+int64_t QNetworkRequestFactory_TransferTimeout(const QNetworkRequestFactory* self);
 QUrlQuery* QNetworkRequestFactory_QueryParameters(const QNetworkRequestFactory* self);
 void QNetworkRequestFactory_SetQueryParameters(QNetworkRequestFactory* self, const QUrlQuery* query);
 void QNetworkRequestFactory_ClearQueryParameters(QNetworkRequestFactory* self);

@@ -4116,6 +4116,20 @@ pub const kcoreconfigskeleton = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCoreConfigSkeleton `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -4475,6 +4489,22 @@ pub const kcoreconfigskeleton = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCoreConfigSkeleton `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7346,7 +7376,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var name_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
-        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.Name: Memory allocation failed");
+        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("kcoreconfigskeleton__itemenum__choice.Name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
         return name_ret;
     }
@@ -7378,7 +7408,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var label_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_Label(@ptrCast(self));
         defer qtc.libqt_string_free(&label_str);
-        const label_ret = allocator.alloc(u8, label_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.Label: Memory allocation failed");
+        const label_ret = allocator.alloc(u8, label_str.len) catch @panic("kcoreconfigskeleton__itemenum__choice.Label: Memory allocation failed");
         @memcpy(label_ret, label_str.data[0..label_str.len]);
         return label_ret;
     }
@@ -7410,7 +7440,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var toolTip_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_ToolTip(@ptrCast(self));
         defer qtc.libqt_string_free(&toolTip_str);
-        const toolTip_ret = allocator.alloc(u8, toolTip_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.ToolTip: Memory allocation failed");
+        const toolTip_ret = allocator.alloc(u8, toolTip_str.len) catch @panic("kcoreconfigskeleton__itemenum__choice.ToolTip: Memory allocation failed");
         @memcpy(toolTip_ret, toolTip_str.data[0..toolTip_str.len]);
         return toolTip_ret;
     }
@@ -7442,7 +7472,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var whatsThis_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_WhatsThis(@ptrCast(self));
         defer qtc.libqt_string_free(&whatsThis_str);
-        const whatsThis_ret = allocator.alloc(u8, whatsThis_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.WhatsThis: Memory allocation failed");
+        const whatsThis_ret = allocator.alloc(u8, whatsThis_str.len) catch @panic("kcoreconfigskeleton__itemenum__choice.WhatsThis: Memory allocation failed");
         @memcpy(whatsThis_ret, whatsThis_str.data[0..whatsThis_str.len]);
         return whatsThis_ret;
     }
@@ -7474,7 +7504,7 @@ pub const kcoreconfigskeleton__itemenum__choice = struct {
     pub fn Value(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var value_str = qtc.KCoreConfigSkeleton__ItemEnum__Choice_Value(@ptrCast(self));
         defer qtc.libqt_string_free(&value_str);
-        const value_ret = allocator.alloc(u8, value_str.len) catch @panic("kcoreconfigskeleton::itemenum::choice.Value: Memory allocation failed");
+        const value_ret = allocator.alloc(u8, value_str.len) catch @panic("kcoreconfigskeleton__itemenum__choice.Value: Memory allocation failed");
         @memcpy(value_ret, value_str.data[0..value_str.len]);
         return value_ret;
     }
@@ -7591,7 +7621,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
     pub fn Choices(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KCoreConfigSkeleton__ItemEnum__Choice {
         const _arr: qtc.libqt_list = qtc.KCoreConfigSkeleton__ItemEnum_Choices(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KCoreConfigSkeleton__ItemEnum__Choice, _arr.len) catch @panic("kcoreconfigskeleton::itemenum.Choices: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KCoreConfigSkeleton__ItemEnum__Choice, _arr.len) catch @panic("kcoreconfigskeleton__itemenum.Choices: Memory allocation failed");
         const _data: [*]QtC.KCoreConfigSkeleton__ItemEnum__Choice = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -7694,7 +7724,7 @@ pub const kcoreconfigskeleton__itemenum = struct {
         };
         var _str = qtc.KCoreConfigSkeleton__ItemEnum_ValueForChoice(@ptrCast(self), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoreconfigskeleton::itemenum.ValueForChoice: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcoreconfigskeleton__itemenum.ValueForChoice: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10441,7 +10471,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itemstringlist.New: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton__itemstringlist.New: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -10480,7 +10510,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itemstringlist.New2: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton__itemstringlist.New2: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -10492,7 +10522,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton::itemstringlist.New2: Memory allocation failed");
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton__itemstringlist.New2: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i| {
             defaultValue_arr[i] = .{
@@ -10698,7 +10728,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.New: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton__itempathlist.New: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -10737,7 +10767,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.New2: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton__itempathlist.New2: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -10749,7 +10779,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton::itempathlist.New2: Memory allocation failed");
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton__itempathlist.New2: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i| {
             defaultValue_arr[i] = .{

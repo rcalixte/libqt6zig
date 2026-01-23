@@ -235,7 +235,7 @@ pub const solid__predicate = struct {
         var _ret: set_i32 = .empty;
         const _data: [*]i32 = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i| {
-            _ret.put(allocator, _data[i], {}) catch @panic("solid::predicate.UsedTypes: Set insertion failed");
+            _ret.put(allocator, _data[i], {}) catch @panic("solid__predicate.UsedTypes: Set insertion failed");
         }
         return _ret;
     }
@@ -251,7 +251,7 @@ pub const solid__predicate = struct {
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Predicate_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid::predicate.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__predicate.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -309,7 +309,7 @@ pub const solid__predicate = struct {
     pub fn PropertyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Predicate_PropertyName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid::predicate.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__predicate.PropertyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

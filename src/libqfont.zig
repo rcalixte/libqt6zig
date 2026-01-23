@@ -1436,7 +1436,7 @@ pub const qfont__tag = struct {
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QFont__Tag_ToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfont::tag.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfont__tag.ToString: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

@@ -1060,6 +1060,20 @@ pub const qabstracttextdocumentlayout = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -1419,6 +1433,22 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractTextDocumentLayout `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2289,7 +2319,7 @@ pub const qabstracttextdocumentlayout__paintcontext = struct {
     pub fn Selections(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractTextDocumentLayout__Selection {
         const selections_arr: qtc.libqt_list = qtc.QAbstractTextDocumentLayout__PaintContext_Selections(@ptrCast(self));
         defer qtc.libqt_free(selections_arr.data);
-        const selections_ret = allocator.alloc(QtC.QAbstractTextDocumentLayout__Selection, selections_arr.len) catch @panic("qabstracttextdocumentlayout::paintcontext.Selections: Memory allocation failed");
+        const selections_ret = allocator.alloc(QtC.QAbstractTextDocumentLayout__Selection, selections_arr.len) catch @panic("qabstracttextdocumentlayout__paintcontext.Selections: Memory allocation failed");
         const selections_data: [*]QtC.QAbstractTextDocumentLayout__Selection = @ptrCast(@alignCast(selections_arr.data));
         @memcpy(selections_ret, selections_data[0..selections_arr.len]);
         return selections_ret;

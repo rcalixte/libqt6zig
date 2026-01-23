@@ -60,7 +60,7 @@ pub const attica__event = struct {
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Event_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::event.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__event.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -92,7 +92,7 @@ pub const attica__event = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Event_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::event.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__event.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -124,7 +124,7 @@ pub const attica__event = struct {
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Event_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::event.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__event.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -156,7 +156,7 @@ pub const attica__event = struct {
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Event_User(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::event.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__event.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -298,7 +298,7 @@ pub const attica__event = struct {
     pub fn Country(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Event_Country(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::event.Country: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__event.Country: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -330,7 +330,7 @@ pub const attica__event = struct {
     pub fn City(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Event_City(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::event.City: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__event.City: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -374,7 +374,7 @@ pub const attica__event = struct {
         };
         var _str = qtc.Attica__Event_ExtendedAttribute(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::event.ExtendedAttribute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__event.ExtendedAttribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -405,12 +405,12 @@ pub const attica__event = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("attica::event.ExtendedAttributes: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("attica__event.ExtendedAttributes: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica::event.ExtendedAttributes: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica__event.ExtendedAttributes: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("attica::event.ExtendedAttributes: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("attica__event.ExtendedAttributes: Memory allocation failed");
         }
         return _ret;
     }

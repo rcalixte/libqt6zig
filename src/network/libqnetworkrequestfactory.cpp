@@ -140,6 +140,15 @@ void QNetworkRequestFactory_ClearPassword(QNetworkRequestFactory* self) {
     self->clearPassword();
 }
 
+void QNetworkRequestFactory_SetTransferTimeout(QNetworkRequestFactory* self, int64_t timeout) {
+    self->setTransferTimeout(static_cast<std::chrono::milliseconds>(timeout));
+}
+
+int64_t QNetworkRequestFactory_TransferTimeout(const QNetworkRequestFactory* self) {
+    std::chrono::milliseconds _ret = self->transferTimeout();
+    return _ret.count();
+}
+
 QUrlQuery* QNetworkRequestFactory_QueryParameters(const QNetworkRequestFactory* self) {
     return new QUrlQuery(self->queryParameters());
 }

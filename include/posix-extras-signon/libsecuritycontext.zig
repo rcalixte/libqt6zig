@@ -68,7 +68,7 @@ pub const signon__securitycontext = struct {
     pub fn SystemContext(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.SignOn__SecurityContext_SystemContext(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::securitycontext.SystemContext: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__securitycontext.SystemContext: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -100,7 +100,7 @@ pub const signon__securitycontext = struct {
     pub fn ApplicationContext(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.SignOn__SecurityContext_ApplicationContext(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon::securitycontext.ApplicationContext: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__securitycontext.ApplicationContext: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

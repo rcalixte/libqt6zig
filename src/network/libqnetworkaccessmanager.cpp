@@ -277,6 +277,11 @@ void QNetworkAccessManager_SetTransferTimeout(QNetworkAccessManager* self, int t
     self->setTransferTimeout(static_cast<int>(timeout));
 }
 
+int64_t QNetworkAccessManager_TransferTimeoutAsDuration(const QNetworkAccessManager* self) {
+    std::chrono::milliseconds _ret = self->transferTimeoutAsDuration();
+    return _ret.count();
+}
+
 void QNetworkAccessManager_SetTransferTimeout2(QNetworkAccessManager* self) {
     self->setTransferTimeout();
 }
@@ -405,6 +410,10 @@ void QNetworkAccessManager_ConnectToHostEncrypted3(QNetworkAccessManager* self, 
 void QNetworkAccessManager_ConnectToHost2(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port) {
     QString hostName_QString = QString::fromUtf8(hostName.data, hostName.len);
     self->connectToHost(hostName_QString, static_cast<quint16>(port));
+}
+
+void QNetworkAccessManager_SetTransferTimeout1(QNetworkAccessManager* self, int64_t duration) {
+    self->setTransferTimeout(static_cast<std::chrono::milliseconds>(duration));
 }
 
 // Base class handler implementation
