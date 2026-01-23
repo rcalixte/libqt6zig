@@ -129,7 +129,7 @@ pub const knscore__entry = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -161,7 +161,7 @@ pub const knscore__entry = struct {
     pub fn UniqueId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_UniqueId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.UniqueId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.UniqueId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -193,7 +193,7 @@ pub const knscore__entry = struct {
     pub fn Category(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_Category(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.Category: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.Category: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -269,7 +269,7 @@ pub const knscore__entry = struct {
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_License(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.License: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.License: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -301,7 +301,7 @@ pub const knscore__entry = struct {
     pub fn ShortSummary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_ShortSummary(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.ShortSummary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.ShortSummary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -333,7 +333,7 @@ pub const knscore__entry = struct {
     pub fn Summary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_Summary(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.Summary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.Summary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -365,7 +365,7 @@ pub const knscore__entry = struct {
     pub fn Changelog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_Changelog(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.Changelog: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.Changelog: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -397,7 +397,7 @@ pub const knscore__entry = struct {
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -451,7 +451,7 @@ pub const knscore__entry = struct {
     pub fn UpdateVersion(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_UpdateVersion(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.UpdateVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.UpdateVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -505,7 +505,7 @@ pub const knscore__entry = struct {
     pub fn Payload(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_Payload(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.Payload: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.Payload: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -537,7 +537,7 @@ pub const knscore__entry = struct {
     pub fn PreviewUrl(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_PreviewUrl(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.PreviewUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.PreviewUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -575,7 +575,7 @@ pub const knscore__entry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetInstalledFiles(self: ?*anyopaque, files: [][]const u8, allocator: std.mem.Allocator) void {
-        var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("knscore::entry.SetInstalledFiles: Memory allocation failed");
+        var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("knscore__entry.SetInstalledFiles: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
             files_arr[i] = .{
@@ -607,10 +607,10 @@ pub const knscore__entry = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore::entry.InstalledFiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore__entry.InstalledFiles: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore::entry.InstalledFiles: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore__entry.InstalledFiles: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -634,10 +634,10 @@ pub const knscore__entry = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore::entry.UninstalledFiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore__entry.UninstalledFiles: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore::entry.UninstalledFiles: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore__entry.UninstalledFiles: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -765,7 +765,7 @@ pub const knscore__entry = struct {
     pub fn KnowledgebaseLink(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_KnowledgebaseLink(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.KnowledgebaseLink: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.KnowledgebaseLink: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -807,7 +807,7 @@ pub const knscore__entry = struct {
     pub fn DownloadLinkInformationList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KNSCore__Entry__DownloadLinkInformation {
         const _arr: qtc.libqt_list = qtc.KNSCore__Entry_DownloadLinkInformationList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KNSCore__Entry__DownloadLinkInformation, _arr.len) catch @panic("knscore::entry.DownloadLinkInformationList: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KNSCore__Entry__DownloadLinkInformation, _arr.len) catch @panic("knscore__entry.DownloadLinkInformationList: Memory allocation failed");
         const _data: [*]QtC.KNSCore__Entry__DownloadLinkInformation = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -846,7 +846,7 @@ pub const knscore__entry = struct {
     pub fn DonationLink(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_DonationLink(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.DonationLink: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.DonationLink: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -884,10 +884,10 @@ pub const knscore__entry = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore::entry.Tags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knscore__entry.Tags: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore::entry.Tags: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore__entry.Tags: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -905,7 +905,7 @@ pub const knscore__entry = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetTags(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) void {
-        var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("knscore::entry.SetTags: Memory allocation failed");
+        var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("knscore__entry.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i| {
             tags_arr[i] = .{
@@ -931,7 +931,7 @@ pub const knscore__entry = struct {
     pub fn ProviderId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_ProviderId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.ProviderId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.ProviderId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1083,7 +1083,7 @@ pub const knscore__entry = struct {
     pub fn PreviewUrl1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Entry_PreviewUrl1(@ptrCast(self), @intCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::entry.PreviewUrl1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__entry.PreviewUrl1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1148,7 +1148,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var name_str = qtc.KNSCore__Entry__DownloadLinkInformation_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
-        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("knscore::entry::downloadlinkinformation.Name: Memory allocation failed");
+        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("knscore__entry__downloadlinkinformation.Name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
         return name_ret;
     }
@@ -1180,7 +1180,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
     pub fn PriceAmount(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var priceAmount_str = qtc.KNSCore__Entry__DownloadLinkInformation_PriceAmount(@ptrCast(self));
         defer qtc.libqt_string_free(&priceAmount_str);
-        const priceAmount_ret = allocator.alloc(u8, priceAmount_str.len) catch @panic("knscore::entry::downloadlinkinformation.PriceAmount: Memory allocation failed");
+        const priceAmount_ret = allocator.alloc(u8, priceAmount_str.len) catch @panic("knscore__entry__downloadlinkinformation.PriceAmount: Memory allocation failed");
         @memcpy(priceAmount_ret, priceAmount_str.data[0..priceAmount_str.len]);
         return priceAmount_ret;
     }
@@ -1212,7 +1212,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
     pub fn DistributionType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var distributionType_str = qtc.KNSCore__Entry__DownloadLinkInformation_DistributionType(@ptrCast(self));
         defer qtc.libqt_string_free(&distributionType_str);
-        const distributionType_ret = allocator.alloc(u8, distributionType_str.len) catch @panic("knscore::entry::downloadlinkinformation.DistributionType: Memory allocation failed");
+        const distributionType_ret = allocator.alloc(u8, distributionType_str.len) catch @panic("knscore__entry__downloadlinkinformation.DistributionType: Memory allocation failed");
         @memcpy(distributionType_ret, distributionType_str.data[0..distributionType_str.len]);
         return distributionType_ret;
     }
@@ -1244,7 +1244,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
     pub fn DescriptionLink(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var descriptionLink_str = qtc.KNSCore__Entry__DownloadLinkInformation_DescriptionLink(@ptrCast(self));
         defer qtc.libqt_string_free(&descriptionLink_str);
-        const descriptionLink_ret = allocator.alloc(u8, descriptionLink_str.len) catch @panic("knscore::entry::downloadlinkinformation.DescriptionLink: Memory allocation failed");
+        const descriptionLink_ret = allocator.alloc(u8, descriptionLink_str.len) catch @panic("knscore__entry__downloadlinkinformation.DescriptionLink: Memory allocation failed");
         @memcpy(descriptionLink_ret, descriptionLink_str.data[0..descriptionLink_str.len]);
         return descriptionLink_ret;
     }
@@ -1348,10 +1348,10 @@ pub const knscore__entry__downloadlinkinformation = struct {
             }
             qtc.libqt_free(tags_arr.data);
         }
-        const tags_ret = allocator.alloc([]const u8, tags_arr.len) catch @panic("knscore::entry::downloadlinkinformation.Tags: Memory allocation failed");
+        const tags_ret = allocator.alloc([]const u8, tags_arr.len) catch @panic("knscore__entry__downloadlinkinformation.Tags: Memory allocation failed");
         for (0..tags_arr.len) |i| {
             const tags_data = tags_str[i];
-            const tags_buf = allocator.alloc(u8, tags_data.len) catch @panic("knscore::entry::downloadlinkinformation.Tags: Memory allocation failed");
+            const tags_buf = allocator.alloc(u8, tags_data.len) catch @panic("knscore__entry__downloadlinkinformation.Tags: Memory allocation failed");
             @memcpy(tags_buf, tags_data.data[0..tags_data.len]);
             tags_ret[i] = tags_buf;
         }
@@ -1369,7 +1369,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetTags(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) void {
-        var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("knscore::entry::downloadlinkinformation.SetTags: Memory allocation failed");
+        var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("knscore__entry__downloadlinkinformation.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i| {
             tags_arr[i] = .{

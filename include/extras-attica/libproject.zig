@@ -60,7 +60,7 @@ pub const attica__project = struct {
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -92,7 +92,7 @@ pub const attica__project = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -124,7 +124,7 @@ pub const attica__project = struct {
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -156,7 +156,7 @@ pub const attica__project = struct {
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Url(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -188,7 +188,7 @@ pub const attica__project = struct {
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_License(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.License: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.License: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -220,7 +220,7 @@ pub const attica__project = struct {
     pub fn Summary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Summary(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.Summary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.Summary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -252,7 +252,7 @@ pub const attica__project = struct {
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -268,7 +268,7 @@ pub const attica__project = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetDevelopers(self: ?*anyopaque, developers: [][]const u8, allocator: std.mem.Allocator) void {
-        var developers_arr = allocator.alloc(qtc.libqt_string, developers.len) catch @panic("attica::project.SetDevelopers: Memory allocation failed");
+        var developers_arr = allocator.alloc(qtc.libqt_string, developers.len) catch @panic("attica__project.SetDevelopers: Memory allocation failed");
         defer allocator.free(developers_arr);
         for (developers, 0..developers.len) |item, i| {
             developers_arr[i] = .{
@@ -300,10 +300,10 @@ pub const attica__project = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("attica::project.Developers: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("attica__project.Developers: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("attica::project.Developers: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("attica__project.Developers: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -337,7 +337,7 @@ pub const attica__project = struct {
     pub fn Requirements(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_Requirements(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.Requirements: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.Requirements: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -369,7 +369,7 @@ pub const attica__project = struct {
     pub fn SpecFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Project_SpecFile(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.SpecFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.SpecFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -413,7 +413,7 @@ pub const attica__project = struct {
         };
         var _str = qtc.Attica__Project_ExtendedAttribute(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::project.ExtendedAttribute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__project.ExtendedAttribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -444,12 +444,12 @@ pub const attica__project = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("attica::project.ExtendedAttributes: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("attica__project.ExtendedAttributes: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica::project.ExtendedAttributes: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica__project.ExtendedAttributes: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("attica::project.ExtendedAttributes: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("attica__project.ExtendedAttributes: Memory allocation failed");
         }
         return _ret;
     }

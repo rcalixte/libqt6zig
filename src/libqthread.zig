@@ -395,6 +395,16 @@ pub const qthread = struct {
         qtc.QThread_Usleep(@intCast(param1));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#sleep)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` nsec: i64 of nanoseconds `
+    ///
+    pub fn Sleep2(nsec: i64) void {
+        qtc.QThread_Sleep2(@intCast(nsec));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#run)
     ///
     /// ## Parameter(s):
@@ -681,6 +691,20 @@ pub const qthread = struct {
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QThread `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
     }
 
     /// Inherited from QObject
@@ -1044,6 +1068,22 @@ pub const qthread = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QThread `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

@@ -4712,6 +4712,20 @@ pub const qdesignerwidgetboxinterface = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerWidgetBoxInterface `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -5057,6 +5071,22 @@ pub const qdesignerwidgetboxinterface = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDesignerWidgetBoxInterface `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -8155,7 +8185,7 @@ pub const qdesignerwidgetboxinterface__widget = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface__Widget_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetboxinterface::widget.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetboxinterface__widget.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8187,7 +8217,7 @@ pub const qdesignerwidgetboxinterface__widget = struct {
     pub fn DomXml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface__Widget_DomXml(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetboxinterface::widget.DomXml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetboxinterface__widget.DomXml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8219,7 +8249,7 @@ pub const qdesignerwidgetboxinterface__widget = struct {
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface__Widget_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetboxinterface::widget.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetboxinterface__widget.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8348,7 +8378,7 @@ pub const qdesignerwidgetboxinterface__category = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface__Category_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetboxinterface::category.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetboxinterface__category.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

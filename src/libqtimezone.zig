@@ -189,6 +189,16 @@ pub const qtimezone = struct {
         return qtc.QTimeZone_IsValid(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#fromDurationAheadOfUtc)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` offset: i64 of seconds `
+    ///
+    pub fn FromDurationAheadOfUtc(offset: i64) QtC.QTimeZone {
+        return qtc.QTimeZone_FromDurationAheadOfUtc(@intCast(offset));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#fromSecondsAheadOfUtc)
     ///
     /// ## Parameter(s):
@@ -879,7 +889,7 @@ pub const qtimezone__offsetdata = struct {
     pub fn Abbreviation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var abbreviation_str = qtc.QTimeZone__OffsetData_Abbreviation(@ptrCast(self));
         defer qtc.libqt_string_free(&abbreviation_str);
-        const abbreviation_ret = allocator.alloc(u8, abbreviation_str.len) catch @panic("qtimezone::offsetdata.Abbreviation: Memory allocation failed");
+        const abbreviation_ret = allocator.alloc(u8, abbreviation_str.len) catch @panic("qtimezone__offsetdata.Abbreviation: Memory allocation failed");
         @memcpy(abbreviation_ret, abbreviation_str.data[0..abbreviation_str.len]);
         return abbreviation_ret;
     }

@@ -58,6 +58,7 @@ bool QThread_Wait2(QThread* self, unsigned long time);
 void QThread_Sleep(unsigned long param1);
 void QThread_Msleep(unsigned long param1);
 void QThread_Usleep(unsigned long param1);
+void QThread_Sleep2(int64_t nsec);
 void QThread_Run(QThread* self);
 void QThread_Start1(QThread* self, int param1);
 void QThread_Exit1(QThread* self, int retcode);

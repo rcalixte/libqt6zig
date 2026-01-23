@@ -304,19 +304,20 @@ pub const qnetworkcachemetadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetAttributes(self: ?*anyopaque, attributes: map_i32_qtcqvariant, allocator: std.mem.Allocator) void {
-        const attributes_keys = allocator.alloc(i32, attributes.count()) catch @panic("qnetworkcachemetadata.SetAttributes: Memory allocation failed");
+        const attributes_count = attributes.count();
+        const attributes_keys = allocator.alloc(i32, attributes_count) catch @panic("qnetworkcachemetadata.SetAttributes: Memory allocation failed");
         defer allocator.free(attributes_keys);
-        const attributes_values = allocator.alloc(QtC.QVariant, attributes.count()) catch @panic("qnetworkcachemetadata.SetAttributes: Memory allocation failed");
+        const attributes_values = allocator.alloc(QtC.QVariant, attributes_count) catch @panic("qnetworkcachemetadata.SetAttributes: Memory allocation failed");
         defer allocator.free(attributes_values);
         var i: usize = 0;
         var attributes_it = attributes.iterator();
-        while (attributes_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            attributes_keys[i] = @intCast(key);
-            attributes_values[i] = @ptrCast(entry.value_ptr.*);
+        while (attributes_it.next()) |it_entry| : (i += 1) {
+            const attributes_key = it_entry.key_ptr.*;
+            attributes_keys[i] = @intCast(attributes_key);
+            attributes_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const attributes_map = qtc.libqt_map{
-            .len = attributes.count(),
+            .len = attributes_count,
             .keys = @ptrCast(attributes_keys.ptr),
             .values = @ptrCast(attributes_values.ptr),
         };
@@ -694,6 +695,20 @@ pub const qabstractnetworkcache = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractNetworkCache `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -1053,6 +1068,22 @@ pub const qabstractnetworkcache = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractNetworkCache `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

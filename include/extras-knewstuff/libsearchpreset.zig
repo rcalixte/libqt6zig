@@ -36,7 +36,7 @@ pub const knscore__searchpreset = struct {
     pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__SearchPreset_DisplayName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::searchpreset.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__searchpreset.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -52,7 +52,7 @@ pub const knscore__searchpreset = struct {
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__SearchPreset_IconName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::searchpreset.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__searchpreset.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -82,7 +82,7 @@ pub const knscore__searchpreset = struct {
     pub fn ProviderId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__SearchPreset_ProviderId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore::searchpreset.ProviderId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__searchpreset.ProviderId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

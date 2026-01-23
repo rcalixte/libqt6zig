@@ -21,22 +21,23 @@ pub const packagekit__details = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn New2(other: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.PackageKit__Details {
-        const other_keys = allocator.alloc(qtc.libqt_string, other.count()) catch @panic("packagekit::details.New2: Memory allocation failed");
+        const other_count = other.count();
+        const other_keys = allocator.alloc(qtc.libqt_string, other_count) catch @panic("packagekit__details.New2: Memory allocation failed");
         defer allocator.free(other_keys);
-        const other_values = allocator.alloc(QtC.QVariant, other.count()) catch @panic("packagekit::details.New2: Memory allocation failed");
+        const other_values = allocator.alloc(QtC.QVariant, other_count) catch @panic("packagekit__details.New2: Memory allocation failed");
         defer allocator.free(other_values);
         var i: usize = 0;
         var other_it = other.iterator();
-        while (other_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (other_it.next()) |it_entry| : (i += 1) {
+            const other_key = it_entry.key_ptr.*;
             other_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = other_key.len,
+                .data = other_key.ptr,
             };
-            other_values[i] = @ptrCast(entry.value_ptr.*);
+            other_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const other_map = qtc.libqt_map{
-            .len = other.count(),
+            .len = other_count,
             .keys = @ptrCast(other_keys.ptr),
             .values = @ptrCast(other_values.ptr),
         };
@@ -55,7 +56,7 @@ pub const packagekit__details = struct {
     pub fn PackageId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_PackageId(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::details.PackageId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.PackageId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -71,7 +72,7 @@ pub const packagekit__details = struct {
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::details.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -101,7 +102,7 @@ pub const packagekit__details = struct {
     pub fn Summary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_Summary(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::details.Summary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.Summary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -117,7 +118,7 @@ pub const packagekit__details = struct {
     pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_Url(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::details.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -133,7 +134,7 @@ pub const packagekit__details = struct {
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_License(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit::details.License: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.License: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

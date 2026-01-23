@@ -42,7 +42,7 @@ pub const konsole__keyboardtranslator = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__KeyboardTranslator_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::keyboardtranslator.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__keyboardtranslator.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -74,7 +74,7 @@ pub const konsole__keyboardtranslator = struct {
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__KeyboardTranslator_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::keyboardtranslator.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__keyboardtranslator.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -158,7 +158,7 @@ pub const konsole__keyboardtranslator = struct {
     pub fn Entries(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Konsole__KeyboardTranslator__Entry {
         const _arr: qtc.libqt_list = qtc.Konsole__KeyboardTranslator_Entries(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Konsole__KeyboardTranslator__Entry, _arr.len) catch @panic("konsole::keyboardtranslator.Entries: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.Konsole__KeyboardTranslator__Entry, _arr.len) catch @panic("konsole__keyboardtranslator.Entries: Memory allocation failed");
         const _data: [*]QtC.Konsole__KeyboardTranslator__Entry = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -214,7 +214,7 @@ pub const konsole__keyboardtranslatorreader = struct {
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__KeyboardTranslatorReader_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::keyboardtranslatorreader.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__keyboardtranslatorreader.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -410,10 +410,10 @@ pub const konsole__keyboardtranslatormanager = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("konsole::keyboardtranslatormanager.AllTranslators: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("konsole__keyboardtranslatormanager.AllTranslators: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("konsole::keyboardtranslatormanager.AllTranslators: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("konsole__keyboardtranslatormanager.AllTranslators: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -515,7 +515,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_Text(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole::keyboardtranslator::entry.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole__keyboardtranslator__entry.Text: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -547,7 +547,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn EscapedText(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_EscapedText(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole::keyboardtranslator::entry.EscapedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole__keyboardtranslator__entry.EscapedText: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -689,7 +689,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn ConditionToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__KeyboardTranslator__Entry_ConditionToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::keyboardtranslator::entry.ConditionToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__keyboardtranslator__entry.ConditionToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -705,7 +705,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn ResultToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__KeyboardTranslator__Entry_ResultToString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::keyboardtranslator::entry.ResultToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__keyboardtranslator__entry.ResultToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -751,7 +751,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn Text1(self: ?*anyopaque, expandWildCards: bool, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_Text1(@ptrCast(self), expandWildCards);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole::keyboardtranslator::entry.Text1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole__keyboardtranslator__entry.Text1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -771,7 +771,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn Text2(self: ?*anyopaque, expandWildCards: bool, modifiers: i32, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_Text2(@ptrCast(self), expandWildCards, @intCast(modifiers));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole::keyboardtranslator::entry.Text2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole__keyboardtranslator__entry.Text2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -789,7 +789,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn EscapedText1(self: ?*anyopaque, expandWildCards: bool, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_EscapedText1(@ptrCast(self), expandWildCards);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole::keyboardtranslator::entry.EscapedText1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole__keyboardtranslator__entry.EscapedText1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -809,7 +809,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn EscapedText2(self: ?*anyopaque, expandWildCards: bool, modifiers: i32, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Konsole__KeyboardTranslator__Entry_EscapedText2(@ptrCast(self), expandWildCards, @intCast(modifiers));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole::keyboardtranslator::entry.EscapedText2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("konsole__keyboardtranslator__entry.EscapedText2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -827,7 +827,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn ResultToString1(self: ?*anyopaque, expandWildCards: bool, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__KeyboardTranslator__Entry_ResultToString1(@ptrCast(self), expandWildCards);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::keyboardtranslator::entry.ResultToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__keyboardtranslator__entry.ResultToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -847,7 +847,7 @@ pub const konsole__keyboardtranslator__entry = struct {
     pub fn ResultToString2(self: ?*anyopaque, expandWildCards: bool, modifiers: i32, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__KeyboardTranslator__Entry_ResultToString2(@ptrCast(self), expandWildCards, @intCast(modifiers));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::keyboardtranslator::entry.ResultToString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__keyboardtranslator__entry.ResultToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

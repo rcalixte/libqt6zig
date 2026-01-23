@@ -24,6 +24,7 @@ type CppParameter struct {
 type QFlagsInfo struct {
 	UnderlyingEnum CppParameter
 	CABIType       string
+	ZigType        string
 }
 
 func (p *CppParameter) ApplyTypedef(matchedUnderlyingType CppParameter) {
@@ -81,12 +82,14 @@ func (p CppParameter) QFlagsOf() (QFlagsInfo, bool) {
 			return QFlagsInfo{
 				UnderlyingEnum: e.Enum.UnderlyingType,
 				CABIType:       e.EnumTypeCABI,
+				ZigType:        e.EnumTypeZig,
 			}, true
 		}
 
 		return QFlagsInfo{
 			UnderlyingEnum: ret,
-			CABIType:       "uint32_t",
+			CABIType:       "int32_t",
+			ZigType:        "i32",
 		}, true
 	}
 
@@ -99,12 +102,14 @@ func (p CppParameter) QFlagsOf() (QFlagsInfo, bool) {
 				return QFlagsInfo{
 					UnderlyingEnum: e.Enum.UnderlyingType,
 					CABIType:       e.EnumTypeCABI,
+					ZigType:        e.EnumTypeZig,
 				}, true
 			}
 
 			return QFlagsInfo{
 				UnderlyingEnum: ret,
-				CABIType:       "uint32_t",
+				CABIType:       "int32_t",
+				ZigType:        "i32",
 			}, true
 		}
 	}
@@ -240,7 +245,7 @@ func (p CppParameter) QSetOf() (CppParameter, bool) {
 
 func (p CppParameter) IntType() bool {
 
-	if p.IsKnownEnum() {
+	if p.IsKnownEnum() || p.GlIntType() || p.IsChronoSeconds() {
 		return true
 	}
 
@@ -253,9 +258,6 @@ func (p CppParameter) IntType() bool {
 		"longlong", "ulonglong", "qlonglong", "qulonglong", "qint64", "quint64", "int64_t", "uint64_t", "long long", "unsigned long long",
 		"qintptr", "quintptr", "uintptr_t", "intptr_t",
 		"qsizetype", "size_t",
-		"GLbitfield", "GLboolean", "GLbyte", "GLchar", "GLdouble", "GLenum", "GLfloat",
-		"GLint", "GLint64", "GLintptr", "GLshort", "GLsizei", "GLsizeiptr", "GLubyte",
-		"GLuint", "GLuint64", "GLushort",
 		"QIntegerForSizeof<void *>::Unsigned",
 		"QIntegerForSizeof<void *>::Signed",
 		"QIntegerForSizeof<std::size_t>::Signed",
@@ -284,6 +286,10 @@ func (p CppParameter) GlIntType() bool {
 	default:
 		return false
 	}
+}
+
+func (p CppParameter) IsChronoSeconds() bool {
+	return strings.HasPrefix(p.ParameterType, "std::chrono::") && strings.HasSuffix(p.ParameterType, "seconds")
 }
 
 func (p CppParameter) Void() bool {

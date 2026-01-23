@@ -124,6 +124,10 @@ int QObject_StartTimer(QObject* self, int interval) {
     return self->startTimer(static_cast<int>(interval));
 }
 
+int QObject_StartTimer2(QObject* self, int64_t time) {
+    return self->startTimer(static_cast<std::chrono::nanoseconds>(time));
+}
+
 void QObject_KillTimer(QObject* self, int id) {
     self->killTimer(static_cast<int>(id));
 }
@@ -304,6 +308,10 @@ bool QObject_MoveToThread2(QObject* self, QThread* thread, Disambiguated_t* para
 
 int QObject_StartTimer22(QObject* self, int interval, int timerType) {
     return self->startTimer(static_cast<int>(interval), static_cast<Qt::TimerType>(timerType));
+}
+
+int QObject_StartTimer23(QObject* self, int64_t time, int timerType) {
+    return self->startTimer(static_cast<std::chrono::nanoseconds>(time), static_cast<Qt::TimerType>(timerType));
 }
 
 QMetaObject__Connection* QObject_Connect5(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method, int typeVal) {

@@ -326,22 +326,23 @@ pub const qwebengineclienthints = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetFullVersionList(self: ?*anyopaque, fullVersionList: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
-        const fullVersionList_keys = allocator.alloc(qtc.libqt_string, fullVersionList.count()) catch @panic("qwebengineclienthints.SetFullVersionList: Memory allocation failed");
+        const fullVersionList_count = fullVersionList.count();
+        const fullVersionList_keys = allocator.alloc(qtc.libqt_string, fullVersionList_count) catch @panic("qwebengineclienthints.SetFullVersionList: Memory allocation failed");
         defer allocator.free(fullVersionList_keys);
-        const fullVersionList_values = allocator.alloc(QtC.QVariant, fullVersionList.count()) catch @panic("qwebengineclienthints.SetFullVersionList: Memory allocation failed");
+        const fullVersionList_values = allocator.alloc(QtC.QVariant, fullVersionList_count) catch @panic("qwebengineclienthints.SetFullVersionList: Memory allocation failed");
         defer allocator.free(fullVersionList_values);
         var i: usize = 0;
         var fullVersionList_it = fullVersionList.iterator();
-        while (fullVersionList_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (fullVersionList_it.next()) |it_entry| : (i += 1) {
+            const fullVersionList_key = it_entry.key_ptr.*;
             fullVersionList_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = fullVersionList_key.len,
+                .data = fullVersionList_key.ptr,
             };
-            fullVersionList_values[i] = @ptrCast(entry.value_ptr.*);
+            fullVersionList_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const fullVersionList_map = qtc.libqt_map{
-            .len = fullVersionList.count(),
+            .len = fullVersionList_count,
             .keys = @ptrCast(fullVersionList_keys.ptr),
             .values = @ptrCast(fullVersionList_values.ptr),
         };
@@ -600,6 +601,20 @@ pub const qwebengineclienthints = struct {
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineClientHints `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
     }
 
     /// Inherited from QObject
@@ -963,6 +978,22 @@ pub const qwebengineclienthints = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineClientHints `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

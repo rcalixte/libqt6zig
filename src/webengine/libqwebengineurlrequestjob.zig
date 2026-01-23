@@ -196,22 +196,30 @@ pub const qwebengineurlrequestjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetAdditionalResponseHeaders(self: ?*anyopaque, additionalResponseHeaders: map_u8_sliceu8, allocator: std.mem.Allocator) void {
-        const additionalResponseHeaders_keys = allocator.alloc(qtc.libqt_string, additionalResponseHeaders.count()) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
+        const additionalResponseHeaders_count = additionalResponseHeaders.count();
+        const additionalResponseHeaders_keys = allocator.alloc(qtc.libqt_string, additionalResponseHeaders_count) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
         defer allocator.free(additionalResponseHeaders_keys);
-        const additionalResponseHeaders_values = allocator.alloc(qtc.libqt_list, additionalResponseHeaders.count()) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
+        const additionalResponseHeaders_values = allocator.alloc(qtc.libqt_list, additionalResponseHeaders_count) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
         defer allocator.free(additionalResponseHeaders_values);
+        const additionalResponseHeaders_inners = allocator.alloc([]qtc.libqt_string, additionalResponseHeaders_count) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
+        defer {
+            for (additionalResponseHeaders_inners) |additionalResponseHeaders_inner| {
+                allocator.free(additionalResponseHeaders_inner);
+            }
+            allocator.free(additionalResponseHeaders_inners);
+        }
         var i: usize = 0;
         var additionalResponseHeaders_it = additionalResponseHeaders.iterator();
-        while (additionalResponseHeaders_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (additionalResponseHeaders_it.next()) |it_entry| : (i += 1) {
+            const additionalResponseHeaders_key = it_entry.key_ptr.*;
             additionalResponseHeaders_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = additionalResponseHeaders_key.len,
+                .data = additionalResponseHeaders_key.ptr,
             };
-            additionalResponseHeaders_values[i].len = entry.value_ptr.*.len;
-            const additionalResponseHeaders_val = allocator.alloc(qtc.libqt_string, entry.value_ptr.len) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
-            defer allocator.free(additionalResponseHeaders_val);
-            for (entry.value_ptr.*, 0..) |value, j| {
+            additionalResponseHeaders_values[i].len = it_entry.value_ptr.*.len;
+            const additionalResponseHeaders_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
+            additionalResponseHeaders_inners[i] = additionalResponseHeaders_val;
+            for (it_entry.value_ptr.*, 0..) |value, j| {
                 additionalResponseHeaders_val[j] = qtc.libqt_string{
                     .len = value.len,
                     .data = value.ptr,
@@ -220,7 +228,7 @@ pub const qwebengineurlrequestjob = struct {
             additionalResponseHeaders_values[i].data = @ptrCast(additionalResponseHeaders_val.ptr);
         }
         const additionalResponseHeaders_map = qtc.libqt_map{
-            .len = additionalResponseHeaders.count(),
+            .len = additionalResponseHeaders_count,
             .keys = @ptrCast(additionalResponseHeaders_keys.ptr),
             .values = @ptrCast(additionalResponseHeaders_values.ptr),
         };
@@ -435,6 +443,20 @@ pub const qwebengineurlrequestjob = struct {
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlRequestJob `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
     }
 
     /// Inherited from QObject
@@ -798,6 +820,22 @@ pub const qwebengineurlrequestjob = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QWebEngineUrlRequestJob `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

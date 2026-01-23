@@ -56,7 +56,7 @@ pub const kio__davjob = struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::davjob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__davjob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -72,7 +72,7 @@ pub const kio__davjob = struct {
     pub fn ResponseData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KIO__DavJob_ResponseData(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kio::davjob.ResponseData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kio__davjob.ResponseData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -92,7 +92,7 @@ pub const kio__davjob = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::davjob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__davjob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -114,7 +114,7 @@ pub const kio__davjob = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::davjob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__davjob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -190,7 +190,7 @@ pub const kio__davjob = struct {
     pub fn Mimetype(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIO__TransferJob_Mimetype(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::davjob.Mimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__davjob.Mimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -544,7 +544,7 @@ pub const kio__davjob = struct {
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIO__Job_ErrorString(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::davjob.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__davjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -568,10 +568,10 @@ pub const kio__davjob = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio::davjob.DetailedErrorStrings: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__davjob.DetailedErrorStrings: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio::davjob.DetailedErrorStrings: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__davjob.DetailedErrorStrings: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -655,26 +655,27 @@ pub const kio__davjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AddMetaData2(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
-        const values_keys = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::davjob.AddMetaData2: Memory allocation failed");
+        const values_count = values.count();
+        const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__davjob.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_keys);
-        const values_values = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::davjob.AddMetaData2: Memory allocation failed");
+        const values_values = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__davjob.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_values);
         var i: usize = 0;
         var values_it = values.iterator();
-        while (values_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (values_it.next()) |it_entry| : (i += 1) {
+            const values_key = it_entry.key_ptr.*;
             values_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = values_key.len,
+                .data = values_key.ptr,
             };
-            const value = entry.value_ptr.*;
+            const value = it_entry.value_ptr.*;
             values_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const values_map = qtc.libqt_map{
-            .len = values.count(),
+            .len = values_count,
             .keys = @ptrCast(values_keys.ptr),
             .values = @ptrCast(values_values.ptr),
         };
@@ -694,26 +695,27 @@ pub const kio__davjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MergeMetaData(self: ?*anyopaque, values: map_constu8_constu8, allocator: std.mem.Allocator) void {
-        const values_keys = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::davjob.MergeMetaData: Memory allocation failed");
+        const values_count = values.count();
+        const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__davjob.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_keys);
-        const values_values = allocator.alloc(qtc.libqt_string, values.count()) catch @panic("kio::davjob.MergeMetaData: Memory allocation failed");
+        const values_values = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__davjob.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_values);
         var i: usize = 0;
         var values_it = values.iterator();
-        while (values_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (values_it.next()) |it_entry| : (i += 1) {
+            const values_key = it_entry.key_ptr.*;
             values_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = values_key.len,
+                .data = values_key.ptr,
             };
-            const value = entry.value_ptr.*;
+            const value = it_entry.value_ptr.*;
             values_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const values_map = qtc.libqt_map{
-            .len = values.count(),
+            .len = values_count,
             .keys = @ptrCast(values_keys.ptr),
             .values = @ptrCast(values_values.ptr),
         };
@@ -763,7 +765,7 @@ pub const kio__davjob = struct {
         };
         var _str = qtc.KIO__Job_QueryMetaData(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::davjob.QueryMetaData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__davjob.QueryMetaData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -817,10 +819,10 @@ pub const kio__davjob = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio::davjob.DetailedErrorStrings1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__davjob.DetailedErrorStrings1: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio::davjob.DetailedErrorStrings1: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__davjob.DetailedErrorStrings1: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -850,10 +852,10 @@ pub const kio__davjob = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio::davjob.DetailedErrorStrings2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__davjob.DetailedErrorStrings2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio::davjob.DetailedErrorStrings2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__davjob.DetailedErrorStrings2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -987,7 +989,7 @@ pub const kio__davjob = struct {
     pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KJob_ErrorText(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::davjob.ErrorText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__davjob.ErrorText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1335,7 +1337,7 @@ pub const kio__davjob = struct {
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio::davjob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__davjob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1462,6 +1464,20 @@ pub const kio__davjob = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__DavJob `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -1501,7 +1517,7 @@ pub const kio__davjob = struct {
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kio::davjob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kio__davjob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1692,10 +1708,10 @@ pub const kio__davjob = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kio::davjob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kio__davjob.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio::davjob.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__davjob.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1821,6 +1837,22 @@ pub const kio__davjob = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__DavJob `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

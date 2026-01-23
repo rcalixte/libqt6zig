@@ -248,6 +248,58 @@ pub const qtimer = struct {
         qtc.QTimer_Stop(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimer.html#setInterval)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimer `
+    ///
+    /// ` value: i64 of milliseconds `
+    ///
+    pub fn SetInterval2(self: ?*anyopaque, value: i64) void {
+        qtc.QTimer_SetInterval2(@ptrCast(self), @intCast(value));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimer.html#intervalAsDuration)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimer `
+    ///
+    /// ## Returns:
+    ///
+    /// ` i64 of milliseconds `
+    ///
+    pub fn IntervalAsDuration(self: ?*anyopaque) i64 {
+        return qtc.QTimer_IntervalAsDuration(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimer.html#remainingTimeAsDuration)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimer `
+    ///
+    /// ## Returns:
+    ///
+    /// ` i64 of milliseconds `
+    ///
+    pub fn RemainingTimeAsDuration(self: ?*anyopaque) i64 {
+        return qtc.QTimer_RemainingTimeAsDuration(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimer.html#start)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimer `
+    ///
+    /// ` value: i64 of milliseconds `
+    ///
+    pub fn Start3(self: ?*anyopaque, value: i64) void {
+        qtc.QTimer_Start3(@ptrCast(self), @intCast(value));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimer.html#timerEvent)
     ///
     /// ## Parameter(s):
@@ -466,6 +518,20 @@ pub const qtimer = struct {
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimer `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
     }
 
     /// Inherited from QObject
@@ -829,6 +895,22 @@ pub const qtimer = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTimer `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

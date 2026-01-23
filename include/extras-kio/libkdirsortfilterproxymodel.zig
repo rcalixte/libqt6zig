@@ -1635,6 +1635,20 @@ pub const kdirsortfilterproxymodel = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirSortFilterProxyModel `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -1982,6 +1996,22 @@ pub const kdirsortfilterproxymodel = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDirSortFilterProxyModel `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3979,19 +4009,20 @@ pub const kdirsortfilterproxymodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
-        const roles_keys = allocator.alloc(i32, roles.count()) catch @panic("kdirsortfilterproxymodel.SetItemData: Memory allocation failed");
+        const roles_count = roles.count();
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("kdirsortfilterproxymodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("kdirsortfilterproxymodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("kdirsortfilterproxymodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
-        while (roles_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            roles_keys[i] = @intCast(key);
-            roles_values[i] = @ptrCast(entry.value_ptr.*);
+        while (roles_it.next()) |it_entry| : (i += 1) {
+            const roles_key = it_entry.key_ptr.*;
+            roles_keys[i] = @intCast(roles_key);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
-            .len = roles.count(),
+            .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
@@ -4015,19 +4046,20 @@ pub const kdirsortfilterproxymodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
-        const roles_keys = allocator.alloc(i32, roles.count()) catch @panic("kdirsortfilterproxymodel.SetItemData: Memory allocation failed");
+        const roles_count = roles.count();
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("kdirsortfilterproxymodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("kdirsortfilterproxymodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("kdirsortfilterproxymodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
-        while (roles_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            roles_keys[i] = @intCast(key);
-            roles_values[i] = @ptrCast(entry.value_ptr.*);
+        while (roles_it.next()) |it_entry| : (i += 1) {
+            const roles_key = it_entry.key_ptr.*;
+            roles_keys[i] = @intCast(roles_key);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const roles_map = qtc.libqt_map{
-            .len = roles.count(),
+            .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };

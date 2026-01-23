@@ -100,6 +100,32 @@ pub const qlockfile = struct {
         return qtc.QLockFile_TryLock2(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#setStaleLockTime)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLockFile `
+    ///
+    /// ` value: i64 of milliseconds `
+    ///
+    pub fn SetStaleLockTime2(self: ?*anyopaque, value: i64) void {
+        qtc.QLockFile_SetStaleLockTime2(@ptrCast(self), @intCast(value));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#staleLockTimeAsDuration)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLockFile `
+    ///
+    /// ## Returns:
+    ///
+    /// ` i64 of milliseconds `
+    ///
+    pub fn StaleLockTimeAsDuration(self: ?*anyopaque) i64 {
+        return qtc.QLockFile_StaleLockTimeAsDuration(@ptrCast(self));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#isLocked)
     ///
     /// ## Parameter(s):
@@ -132,6 +158,18 @@ pub const qlockfile = struct {
     ///
     pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QLockFile_Error(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#tryLock)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLockFile `
+    ///
+    /// ` timeout: i64 of milliseconds `
+    ///
+    pub fn TryLock1(self: ?*anyopaque, timeout: i64) bool {
+        return qtc.QLockFile_TryLock1(@ptrCast(self), @intCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#dtor.QLockFile)

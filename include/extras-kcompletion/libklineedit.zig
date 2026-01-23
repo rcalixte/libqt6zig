@@ -6565,6 +6565,20 @@ pub const klineedit = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLineEdit `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -6910,6 +6924,22 @@ pub const klineedit = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KLineEdit `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -9956,23 +9986,24 @@ pub const klineedit = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap.count()) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_count = keyBindingMap.count();
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap.count()) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
         var keyBindingMap_it = keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(key);
-            const value = entry.value_ptr.*;
+        while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
+            const keyBindingMap_key = it_entry.key_ptr.*;
+            keyBindingMap_keys[i] = @intCast(keyBindingMap_key);
+            const value = it_entry.value_ptr.*;
             keyBindingMap_values[i] = qtc.libqt_list{
                 .len = value.len,
                 .data = @ptrCast(value.ptr),
             };
         }
         const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap.count(),
+            .len = keyBindingMap_count,
             .keys = @ptrCast(keyBindingMap_keys.ptr),
             .values = @ptrCast(keyBindingMap_values.ptr),
         };
@@ -9994,23 +10025,24 @@ pub const klineedit = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_sliceqtcqkeysequence, allocator: std.mem.Allocator) void {
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap.count()) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_count = keyBindingMap.count();
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap.count()) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
         var keyBindingMap_it = keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(key);
-            const value = entry.value_ptr.*;
+        while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
+            const keyBindingMap_key = it_entry.key_ptr.*;
+            keyBindingMap_keys[i] = @intCast(keyBindingMap_key);
+            const value = it_entry.value_ptr.*;
             keyBindingMap_values[i] = qtc.libqt_list{
                 .len = value.len,
                 .data = @ptrCast(value.ptr),
             };
         }
         const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap.count(),
+            .len = keyBindingMap_count,
             .keys = @ptrCast(keyBindingMap_keys.ptr),
             .values = @ptrCast(keyBindingMap_values.ptr),
         };

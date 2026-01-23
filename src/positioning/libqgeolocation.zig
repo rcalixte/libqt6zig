@@ -154,22 +154,23 @@ pub const qgeolocation = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetExtendedAttributes(self: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
-        const data_keys = allocator.alloc(qtc.libqt_string, data.count()) catch @panic("qgeolocation.SetExtendedAttributes: Memory allocation failed");
+        const data_count = data.count();
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qgeolocation.SetExtendedAttributes: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data.count()) catch @panic("qgeolocation.SetExtendedAttributes: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("qgeolocation.SetExtendedAttributes: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (data_it.next()) |it_entry| : (i += 1) {
+            const data_key = it_entry.key_ptr.*;
             data_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = data_key.len,
+                .data = data_key.ptr,
             };
-            data_values[i] = @ptrCast(entry.value_ptr.*);
+            data_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const data_map = qtc.libqt_map{
-            .len = data.count(),
+            .len = data_count,
             .keys = @ptrCast(data_keys.ptr),
             .values = @ptrCast(data_values.ptr),
         };

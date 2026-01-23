@@ -213,22 +213,23 @@ pub const qgeomaneuver = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetExtendedAttributes(self: ?*anyopaque, extendedAttributes: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
-        const extendedAttributes_keys = allocator.alloc(qtc.libqt_string, extendedAttributes.count()) catch @panic("qgeomaneuver.SetExtendedAttributes: Memory allocation failed");
+        const extendedAttributes_count = extendedAttributes.count();
+        const extendedAttributes_keys = allocator.alloc(qtc.libqt_string, extendedAttributes_count) catch @panic("qgeomaneuver.SetExtendedAttributes: Memory allocation failed");
         defer allocator.free(extendedAttributes_keys);
-        const extendedAttributes_values = allocator.alloc(QtC.QVariant, extendedAttributes.count()) catch @panic("qgeomaneuver.SetExtendedAttributes: Memory allocation failed");
+        const extendedAttributes_values = allocator.alloc(QtC.QVariant, extendedAttributes_count) catch @panic("qgeomaneuver.SetExtendedAttributes: Memory allocation failed");
         defer allocator.free(extendedAttributes_values);
         var i: usize = 0;
         var extendedAttributes_it = extendedAttributes.iterator();
-        while (extendedAttributes_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (extendedAttributes_it.next()) |it_entry| : (i += 1) {
+            const extendedAttributes_key = it_entry.key_ptr.*;
             extendedAttributes_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = extendedAttributes_key.len,
+                .data = extendedAttributes_key.ptr,
             };
-            extendedAttributes_values[i] = @ptrCast(entry.value_ptr.*);
+            extendedAttributes_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const extendedAttributes_map = qtc.libqt_map{
-            .len = extendedAttributes.count(),
+            .len = extendedAttributes_count,
             .keys = @ptrCast(extendedAttributes_keys.ptr),
             .values = @ptrCast(extendedAttributes_values.ptr),
         };

@@ -86,6 +86,36 @@ pub const qbasictimer = struct {
         qtc.QBasicTimer_Start2(@ptrCast(self), @intCast(msec), @intCast(timerType), @ptrCast(obj));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBasicTimer `
+    ///
+    /// ` duration: i64 of milliseconds `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
+    pub fn Start3(self: ?*anyopaque, duration: i64, obj: ?*anyopaque) void {
+        qtc.QBasicTimer_Start3(@ptrCast(self), @intCast(duration), @ptrCast(obj));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QBasicTimer `
+    ///
+    /// ` duration: i64 of milliseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    /// ` obj: QtC.QObject `
+    ///
+    pub fn Start4(self: ?*anyopaque, duration: i64, timerType: i32, obj: ?*anyopaque) void {
+        qtc.QBasicTimer_Start4(@ptrCast(self), @intCast(duration), @intCast(timerType), @ptrCast(obj));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#stop)
     ///
     /// ## Parameter(s):

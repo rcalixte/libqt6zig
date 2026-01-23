@@ -47,6 +47,15 @@ bool QLockFile_TryLock2(QLockFile* self) {
     return self->tryLock();
 }
 
+void QLockFile_SetStaleLockTime2(QLockFile* self, int64_t value) {
+    self->setStaleLockTime(static_cast<std::chrono::milliseconds>(value));
+}
+
+int64_t QLockFile_StaleLockTimeAsDuration(const QLockFile* self) {
+    std::chrono::milliseconds _ret = self->staleLockTimeAsDuration();
+    return _ret.count();
+}
+
 bool QLockFile_IsLocked(const QLockFile* self) {
     return self->isLocked();
 }
@@ -57,6 +66,10 @@ bool QLockFile_RemoveStaleLockFile(QLockFile* self) {
 
 int QLockFile_Error(const QLockFile* self) {
     return static_cast<int>(self->error());
+}
+
+bool QLockFile_TryLock1(QLockFile* self, int64_t timeout) {
+    return self->tryLock(static_cast<std::chrono::milliseconds>(timeout));
 }
 
 void QLockFile_Delete(QLockFile* self) {

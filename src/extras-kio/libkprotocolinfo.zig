@@ -452,7 +452,7 @@ pub const kprotocolinfo__extrafield = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var name_str = qtc.KProtocolInfo__ExtraField_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
-        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("kprotocolinfo::extrafield.Name: Memory allocation failed");
+        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("kprotocolinfo__extrafield.Name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
         return name_ret;
     }

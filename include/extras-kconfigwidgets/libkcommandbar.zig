@@ -4362,6 +4362,20 @@ pub const kcommandbar = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCommandBar `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -4707,6 +4721,22 @@ pub const kcommandbar = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KCommandBar `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7745,7 +7775,7 @@ pub const kcommandbar__actiongroup = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var name_str = qtc.KCommandBar__ActionGroup_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&name_str);
-        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("kcommandbar::actiongroup.Name: Memory allocation failed");
+        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("kcommandbar__actiongroup.Name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
         return name_ret;
     }
@@ -7777,7 +7807,7 @@ pub const kcommandbar__actiongroup = struct {
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
         const actions_arr: qtc.libqt_list = qtc.KCommandBar__ActionGroup_Actions(@ptrCast(self));
         defer qtc.libqt_free(actions_arr.data);
-        const actions_ret = allocator.alloc(QtC.QAction, actions_arr.len) catch @panic("kcommandbar::actiongroup.Actions: Memory allocation failed");
+        const actions_ret = allocator.alloc(QtC.QAction, actions_arr.len) catch @panic("kcommandbar__actiongroup.Actions: Memory allocation failed");
         const actions_data: [*]QtC.QAction = @ptrCast(@alignCast(actions_arr.data));
         @memcpy(actions_ret, actions_data[0..actions_arr.len]);
         return actions_ret;

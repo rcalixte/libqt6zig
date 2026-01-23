@@ -24,13 +24,18 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-QChronoTimer* QChronoTimer_new();
-QChronoTimer* QChronoTimer_new2(QObject* parent);
+QChronoTimer* QChronoTimer_new(int64_t nsec);
+QChronoTimer* QChronoTimer_new2();
+QChronoTimer* QChronoTimer_new3(int64_t nsec, QObject* parent);
+QChronoTimer* QChronoTimer_new4(QObject* parent);
 QMetaObject* QChronoTimer_MetaObject(const QChronoTimer* self);
 void* QChronoTimer_Metacast(QChronoTimer* self, const char* param1);
 int QChronoTimer_Metacall(QChronoTimer* self, int param1, int param2, void** param3);
 bool QChronoTimer_IsActive(const QChronoTimer* self);
 int QChronoTimer_Id(const QChronoTimer* self);
+void QChronoTimer_SetInterval(QChronoTimer* self, int64_t nsec);
+int64_t QChronoTimer_Interval(const QChronoTimer* self);
+int64_t QChronoTimer_RemainingTime(const QChronoTimer* self);
 void QChronoTimer_SetTimerType(QChronoTimer* self, int atype);
 int QChronoTimer_TimerType(const QChronoTimer* self);
 void QChronoTimer_SetSingleShot(QChronoTimer* self, bool singleShot);

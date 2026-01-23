@@ -12,11 +12,19 @@
 #include "libqchronotimer.h"
 #include "libqchronotimer.hxx"
 
-QChronoTimer* QChronoTimer_new() {
+QChronoTimer* QChronoTimer_new(int64_t nsec) {
+    return new VirtualQChronoTimer(static_cast<std::chrono::nanoseconds>(nsec));
+}
+
+QChronoTimer* QChronoTimer_new2() {
     return new VirtualQChronoTimer();
 }
 
-QChronoTimer* QChronoTimer_new2(QObject* parent) {
+QChronoTimer* QChronoTimer_new3(int64_t nsec, QObject* parent) {
+    return new VirtualQChronoTimer(static_cast<std::chrono::nanoseconds>(nsec), parent);
+}
+
+QChronoTimer* QChronoTimer_new4(QObject* parent) {
     return new VirtualQChronoTimer(parent);
 }
 
@@ -43,6 +51,20 @@ bool QChronoTimer_IsActive(const QChronoTimer* self) {
 
 int QChronoTimer_Id(const QChronoTimer* self) {
     return static_cast<int>(self->id());
+}
+
+void QChronoTimer_SetInterval(QChronoTimer* self, int64_t nsec) {
+    self->setInterval(static_cast<std::chrono::nanoseconds>(nsec));
+}
+
+int64_t QChronoTimer_Interval(const QChronoTimer* self) {
+    std::chrono::nanoseconds _ret = self->interval();
+    return _ret.count();
+}
+
+int64_t QChronoTimer_RemainingTime(const QChronoTimer* self) {
+    std::chrono::nanoseconds _ret = self->remainingTime();
+    return _ret.count();
 }
 
 void QChronoTimer_SetTimerType(QChronoTimer* self, int atype) {

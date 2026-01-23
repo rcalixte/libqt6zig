@@ -8,18 +8,40 @@ const std = @import("std");
 pub const qchronotimer = struct {
     /// New constructs a new QChronoTimer object.
     ///
-    pub fn New() QtC.QChronoTimer {
-        return qtc.QChronoTimer_new();
+    /// ## Parameter(s):
+    ///
+    /// ` nsec: i64 of nanoseconds `
+    ///
+    pub fn New(nsec: i64) QtC.QChronoTimer {
+        return qtc.QChronoTimer_new(@intCast(nsec));
     }
 
     /// New2 constructs a new QChronoTimer object.
+    ///
+    pub fn New2() QtC.QChronoTimer {
+        return qtc.QChronoTimer_new2();
+    }
+
+    /// New3 constructs a new QChronoTimer object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` nsec: i64 of nanoseconds `
+    ///
+    /// ` parent: QtC.QObject `
+    ///
+    pub fn New3(nsec: i64, parent: ?*anyopaque) QtC.QChronoTimer {
+        return qtc.QChronoTimer_new3(@intCast(nsec), @ptrCast(parent));
+    }
+
+    /// New4 constructs a new QChronoTimer object.
     ///
     /// ## Parameter(s):
     ///
     /// ` parent: QtC.QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QChronoTimer {
-        return qtc.QChronoTimer_new2(@ptrCast(parent));
+    pub fn New4(parent: ?*anyopaque) QtC.QChronoTimer {
+        return qtc.QChronoTimer_new4(@ptrCast(parent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -124,6 +146,46 @@ pub const qchronotimer = struct {
     ///
     pub fn Id(self: ?*anyopaque) i32 {
         return qtc.QChronoTimer_Id(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qchronotimer.html#setInterval)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QChronoTimer `
+    ///
+    /// ` nsec: i64 of nanoseconds `
+    ///
+    pub fn SetInterval(self: ?*anyopaque, nsec: i64) void {
+        qtc.QChronoTimer_SetInterval(@ptrCast(self), @intCast(nsec));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qchronotimer.html#interval)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QChronoTimer `
+    ///
+    /// ## Returns:
+    ///
+    /// ` i64 of nanoseconds `
+    ///
+    pub fn Interval(self: ?*anyopaque) i64 {
+        return qtc.QChronoTimer_Interval(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qchronotimer.html#remainingTime)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QChronoTimer `
+    ///
+    /// ## Returns:
+    ///
+    /// ` i64 of nanoseconds `
+    ///
+    pub fn RemainingTime(self: ?*anyopaque) i64 {
+        return qtc.QChronoTimer_RemainingTime(@ptrCast(self));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchronotimer.html#setTimerType)
@@ -412,6 +474,20 @@ pub const qchronotimer = struct {
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QChronoTimer `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
     }
 
     /// Inherited from QObject
@@ -775,6 +851,22 @@ pub const qchronotimer = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QChronoTimer `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

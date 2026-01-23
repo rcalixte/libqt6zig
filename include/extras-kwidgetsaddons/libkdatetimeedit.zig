@@ -843,23 +843,24 @@ pub const kdatetimeedit = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetDateMap(self: ?*anyopaque, dateMap: map_qtcqdate_constu8, allocator: std.mem.Allocator) void {
-        const dateMap_keys = allocator.alloc(?*anyopaque, dateMap.count()) catch @panic("kdatetimeedit.SetDateMap: Memory allocation failed");
+        const dateMap_count = dateMap.count();
+        const dateMap_keys = allocator.alloc(?*anyopaque, dateMap_count) catch @panic("kdatetimeedit.SetDateMap: Memory allocation failed");
         defer allocator.free(dateMap_keys);
-        const dateMap_values = allocator.alloc(qtc.libqt_string, dateMap.count()) catch @panic("kdatetimeedit.SetDateMap: Memory allocation failed");
+        const dateMap_values = allocator.alloc(qtc.libqt_string, dateMap_count) catch @panic("kdatetimeedit.SetDateMap: Memory allocation failed");
         defer allocator.free(dateMap_values);
         var i: usize = 0;
         var dateMap_it = dateMap.iterator();
-        while (dateMap_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            dateMap_keys[i] = @ptrCast(key);
-            const value = entry.value_ptr.*;
+        while (dateMap_it.next()) |it_entry| : (i += 1) {
+            const dateMap_key = it_entry.key_ptr.*;
+            dateMap_keys[i] = @ptrCast(dateMap_key);
+            const value = it_entry.value_ptr.*;
             dateMap_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
         const dateMap_map = qtc.libqt_map{
-            .len = dateMap.count(),
+            .len = dateMap_count,
             .keys = @ptrCast(dateMap_keys.ptr),
             .values = @ptrCast(dateMap_values.ptr),
         };
@@ -5405,6 +5406,20 @@ pub const kdatetimeedit = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDateTimeEdit `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -5750,6 +5765,22 @@ pub const kdatetimeedit = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KDateTimeEdit `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

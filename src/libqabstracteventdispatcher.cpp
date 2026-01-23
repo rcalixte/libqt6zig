@@ -46,11 +46,11 @@ void QAbstractEventDispatcher_UnregisterSocketNotifier(QAbstractEventDispatcher*
     self->unregisterSocketNotifier(notifier);
 }
 
-int QAbstractEventDispatcher_RegisterTimer(QAbstractEventDispatcher* self, long long interval, int timerType, QObject* object) {
+int QAbstractEventDispatcher_RegisterTimer2(QAbstractEventDispatcher* self, long long interval, int timerType, QObject* object) {
     return self->registerTimer(static_cast<qint64>(interval), static_cast<Qt::TimerType>(timerType), object);
 }
 
-void QAbstractEventDispatcher_RegisterTimer2(QAbstractEventDispatcher* self, int timerId, long long interval, int timerType, QObject* object) {
+void QAbstractEventDispatcher_RegisterTimer3(QAbstractEventDispatcher* self, int timerId, long long interval, int timerType, QObject* object) {
     self->registerTimer(static_cast<int>(timerId), static_cast<qint64>(interval), static_cast<Qt::TimerType>(timerType), object);
 }
 

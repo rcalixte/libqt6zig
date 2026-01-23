@@ -228,22 +228,23 @@ pub const qrestaccessmanager = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Post2(self: ?*anyopaque, request: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
-        const data_keys = allocator.alloc(qtc.libqt_string, data.count()) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
+        const data_count = data.count();
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data.count()) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (data_it.next()) |it_entry| : (i += 1) {
+            const data_key = it_entry.key_ptr.*;
             data_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = data_key.len,
+                .data = data_key.ptr,
             };
-            data_values[i] = @ptrCast(entry.value_ptr.*);
+            data_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const data_map = qtc.libqt_map{
-            .len = data.count(),
+            .len = data_count,
             .keys = @ptrCast(data_keys.ptr),
             .values = @ptrCast(data_values.ptr),
         };
@@ -323,22 +324,23 @@ pub const qrestaccessmanager = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Put2(self: ?*anyopaque, request: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
-        const data_keys = allocator.alloc(qtc.libqt_string, data.count()) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
+        const data_count = data.count();
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data.count()) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (data_it.next()) |it_entry| : (i += 1) {
+            const data_key = it_entry.key_ptr.*;
             data_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = data_key.len,
+                .data = data_key.ptr,
             };
-            data_values[i] = @ptrCast(entry.value_ptr.*);
+            data_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const data_map = qtc.libqt_map{
-            .len = data.count(),
+            .len = data_count,
             .keys = @ptrCast(data_keys.ptr),
             .values = @ptrCast(data_values.ptr),
         };
@@ -418,22 +420,23 @@ pub const qrestaccessmanager = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Patch2(self: ?*anyopaque, request: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
-        const data_keys = allocator.alloc(qtc.libqt_string, data.count()) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
+        const data_count = data.count();
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data.count()) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (data_it.next()) |it_entry| : (i += 1) {
+            const data_key = it_entry.key_ptr.*;
             data_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = data_key.len,
+                .data = data_key.ptr,
             };
-            data_values[i] = @ptrCast(entry.value_ptr.*);
+            data_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const data_map = qtc.libqt_map{
-            .len = data.count(),
+            .len = data_count,
             .keys = @ptrCast(data_keys.ptr),
             .values = @ptrCast(data_values.ptr),
         };
@@ -714,6 +717,20 @@ pub const qrestaccessmanager = struct {
     ///
     pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self), @intCast(interval));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestAccessManager `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
     }
 
     /// Inherited from QObject
@@ -1077,6 +1094,22 @@ pub const qrestaccessmanager = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRestAccessManager `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

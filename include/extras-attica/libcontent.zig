@@ -60,7 +60,7 @@ pub const attica__content = struct {
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -92,7 +92,7 @@ pub const attica__content = struct {
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -218,7 +218,7 @@ pub const attica__content = struct {
     pub fn Summary(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_Summary(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.Summary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.Summary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -234,7 +234,7 @@ pub const attica__content = struct {
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_Description(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -260,7 +260,7 @@ pub const attica__content = struct {
     pub fn Changelog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_Changelog(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.Changelog: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.Changelog: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -276,7 +276,7 @@ pub const attica__content = struct {
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -292,7 +292,7 @@ pub const attica__content = struct {
     pub fn Depend(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_Depend(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.Depend: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.Depend: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -320,7 +320,7 @@ pub const attica__content = struct {
     pub fn DownloadUrlDescriptions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Attica__DownloadDescription {
         const _arr: qtc.libqt_list = qtc.Attica__Content_DownloadUrlDescriptions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Attica__DownloadDescription, _arr.len) catch @panic("attica::content.DownloadUrlDescriptions: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.Attica__DownloadDescription, _arr.len) catch @panic("attica__content.DownloadUrlDescriptions: Memory allocation failed");
         const _data: [*]QtC.Attica__DownloadDescription = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -349,7 +349,7 @@ pub const attica__content = struct {
     pub fn HomePageEntries(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Attica__HomePageEntry {
         const _arr: qtc.libqt_list = qtc.Attica__Content_HomePageEntries(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Attica__HomePageEntry, _arr.len) catch @panic("attica::content.HomePageEntries: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.Attica__HomePageEntry, _arr.len) catch @panic("attica__content.HomePageEntries: Memory allocation failed");
         const _data: [*]QtC.Attica__HomePageEntry = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -366,7 +366,7 @@ pub const attica__content = struct {
     pub fn PreviewPicture(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_PreviewPicture(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.PreviewPicture: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.PreviewPicture: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -382,7 +382,7 @@ pub const attica__content = struct {
     pub fn SmallPreviewPicture(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_SmallPreviewPicture(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.SmallPreviewPicture: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.SmallPreviewPicture: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -398,7 +398,7 @@ pub const attica__content = struct {
     pub fn License(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_License(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.License: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.License: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -414,7 +414,7 @@ pub const attica__content = struct {
     pub fn LicenseName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_LicenseName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.LicenseName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.LicenseName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -430,7 +430,7 @@ pub const attica__content = struct {
     pub fn Author(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Content_Author(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -446,7 +446,7 @@ pub const attica__content = struct {
     pub fn Icons(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Attica__Icon {
         const _arr: qtc.libqt_list = qtc.Attica__Content_Icons(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Attica__Icon, _arr.len) catch @panic("attica::content.Icons: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.Attica__Icon, _arr.len) catch @panic("attica__content.Icons: Memory allocation failed");
         const _data: [*]QtC.Attica__Icon = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -463,7 +463,7 @@ pub const attica__content = struct {
     pub fn Icons2(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Attica__Icon {
         const _arr: qtc.libqt_list = qtc.Attica__Content_Icons2(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Attica__Icon, _arr.len) catch @panic("attica::content.Icons2: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.Attica__Icon, _arr.len) catch @panic("attica__content.Icons2: Memory allocation failed");
         const _data: [*]QtC.Attica__Icon = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -496,7 +496,7 @@ pub const attica__content = struct {
     pub fn Videos(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
         const _arr: qtc.libqt_list = qtc.Attica__Content_Videos(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("attica::content.Videos: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("attica__content.Videos: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -535,10 +535,10 @@ pub const attica__content = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("attica::content.Tags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("attica__content.Tags: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("attica::content.Tags: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("attica__content.Tags: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -556,7 +556,7 @@ pub const attica__content = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetTags(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) void {
-        var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("attica::content.SetTags: Memory allocation failed");
+        var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("attica__content.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i| {
             tags_arr[i] = .{
@@ -610,7 +610,7 @@ pub const attica__content = struct {
         };
         var _str = qtc.Attica__Content_Attribute(@ptrCast(self), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.Attribute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.Attribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -641,12 +641,12 @@ pub const attica__content = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("attica::content.Attributes: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("attica__content.Attributes: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica::content.Attributes: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica__content.Attributes: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("attica::content.Attributes: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("attica__content.Attributes: Memory allocation failed");
         }
         return _ret;
     }
@@ -678,7 +678,7 @@ pub const attica__content = struct {
         };
         var _str = qtc.Attica__Content_PreviewPicture1(@ptrCast(self), number_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.PreviewPicture1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.PreviewPicture1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -700,7 +700,7 @@ pub const attica__content = struct {
         };
         var _str = qtc.Attica__Content_SmallPreviewPicture1(@ptrCast(self), number_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::content.SmallPreviewPicture1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__content.SmallPreviewPicture1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

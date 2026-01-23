@@ -17786,7 +17786,7 @@ pub const qdomdocument__parseresult = struct {
     pub fn ErrorMessage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var errorMessage_str = qtc.QDomDocument__ParseResult_ErrorMessage(@ptrCast(self));
         defer qtc.libqt_string_free(&errorMessage_str);
-        const errorMessage_ret = allocator.alloc(u8, errorMessage_str.len) catch @panic("qdomdocument::parseresult.ErrorMessage: Memory allocation failed");
+        const errorMessage_ret = allocator.alloc(u8, errorMessage_str.len) catch @panic("qdomdocument__parseresult.ErrorMessage: Memory allocation failed");
         @memcpy(errorMessage_ret, errorMessage_str.data[0..errorMessage_str.len]);
         return errorMessage_ret;
     }

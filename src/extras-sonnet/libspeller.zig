@@ -86,7 +86,7 @@ pub const sonnet__speller = struct {
     pub fn Language(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__Speller_Language(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet::speller.Language: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__speller.Language: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -146,10 +146,10 @@ pub const sonnet__speller = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet::speller.Suggest: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet__speller.Suggest: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("sonnet::speller.Suggest: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("sonnet__speller.Suggest: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -173,7 +173,7 @@ pub const sonnet__speller = struct {
             .len = word.len,
             .data = word.ptr,
         };
-        var suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("sonnet::speller.CheckAndSuggest: Memory allocation failed");
+        var suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("sonnet__speller.CheckAndSuggest: Memory allocation failed");
         defer allocator.free(suggestions_arr);
         for (suggestions, 0..suggestions.len) |item, i| {
             suggestions_arr[i] = .{
@@ -279,10 +279,10 @@ pub const sonnet__speller = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet::speller.AvailableBackends: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet__speller.AvailableBackends: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("sonnet::speller.AvailableBackends: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("sonnet__speller.AvailableBackends: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -306,10 +306,10 @@ pub const sonnet__speller = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet::speller.AvailableLanguages: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet__speller.AvailableLanguages: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("sonnet::speller.AvailableLanguages: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("sonnet__speller.AvailableLanguages: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -333,10 +333,10 @@ pub const sonnet__speller = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet::speller.AvailableLanguageNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet__speller.AvailableLanguageNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("sonnet::speller.AvailableLanguageNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("sonnet__speller.AvailableLanguageNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -369,12 +369,12 @@ pub const sonnet__speller = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("sonnet::speller.AvailableDictionaries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("sonnet__speller.AvailableDictionaries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("sonnet::speller.AvailableDictionaries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("sonnet__speller.AvailableDictionaries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("sonnet::speller.AvailableDictionaries: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("sonnet__speller.AvailableDictionaries: Memory allocation failed");
         }
         return _ret;
     }
@@ -405,12 +405,12 @@ pub const sonnet__speller = struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("sonnet::speller.PreferredDictionaries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("sonnet__speller.PreferredDictionaries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("sonnet::speller.PreferredDictionaries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("sonnet__speller.PreferredDictionaries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("sonnet::speller.PreferredDictionaries: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("sonnet__speller.PreferredDictionaries: Memory allocation failed");
         }
         return _ret;
     }
@@ -442,7 +442,7 @@ pub const sonnet__speller = struct {
     pub fn DefaultLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__Speller_DefaultLanguage(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet::speller.DefaultLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__speller.DefaultLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -474,7 +474,7 @@ pub const sonnet__speller = struct {
     pub fn DefaultClient(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__Speller_DefaultClient(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet::speller.DefaultClient: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__speller.DefaultClient: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

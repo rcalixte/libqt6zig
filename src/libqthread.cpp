@@ -152,6 +152,10 @@ void QThread_Usleep(unsigned long param1) {
     QThread::usleep(static_cast<unsigned long>(param1));
 }
 
+void QThread_Sleep2(int64_t nsec) {
+    QThread::sleep(static_cast<std::chrono::nanoseconds>(nsec));
+}
+
 void QThread_Run(QThread* self) {
     auto* vqthread = dynamic_cast<VirtualQThread*>(self);
     if (vqthread && vqthread->isVirtualQThread) {

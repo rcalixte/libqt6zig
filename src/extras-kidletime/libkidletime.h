@@ -29,6 +29,7 @@ int KIdleTime_IdleTime(const KIdleTime* self);
 libqt_map /* of int to int */ KIdleTime_IdleTimeouts(const KIdleTime* self);
 void KIdleTime_SimulateUserActivity(KIdleTime* self);
 int KIdleTime_AddIdleTimeout(KIdleTime* self, int msec);
+int KIdleTime_AddIdleTimeout2(KIdleTime* self, int64_t msec);
 void KIdleTime_RemoveIdleTimeout(KIdleTime* self, int identifier);
 void KIdleTime_RemoveAllIdleTimeouts(KIdleTime* self);
 void KIdleTime_CatchNextResumeEvent(KIdleTime* self);

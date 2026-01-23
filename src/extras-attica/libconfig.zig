@@ -43,7 +43,7 @@ pub const attica__config = struct {
     pub fn Contact(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Config_Contact(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::config.Contact: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__config.Contact: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -59,7 +59,7 @@ pub const attica__config = struct {
     pub fn Host(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Config_Host(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::config.Host: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__config.Host: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -75,7 +75,7 @@ pub const attica__config = struct {
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Config_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::config.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__config.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -101,7 +101,7 @@ pub const attica__config = struct {
     pub fn Website(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Config_Website(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica::config.Website: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__config.Website: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

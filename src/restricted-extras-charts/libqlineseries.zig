@@ -1118,19 +1118,20 @@ pub const qlineseries = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetPointConfiguration(self: ?*anyopaque, index: i32, configuration: map_i32_qtcqvariant, allocator: std.mem.Allocator) void {
-        const configuration_keys = allocator.alloc(i32, configuration.count()) catch @panic("qlineseries.SetPointConfiguration: Memory allocation failed");
+        const configuration_count = configuration.count();
+        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("qlineseries.SetPointConfiguration: Memory allocation failed");
         defer allocator.free(configuration_keys);
-        const configuration_values = allocator.alloc(QtC.QVariant, configuration.count()) catch @panic("qlineseries.SetPointConfiguration: Memory allocation failed");
+        const configuration_values = allocator.alloc(QtC.QVariant, configuration_count) catch @panic("qlineseries.SetPointConfiguration: Memory allocation failed");
         defer allocator.free(configuration_values);
         var i: usize = 0;
         var configuration_it = configuration.iterator();
-        while (configuration_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            configuration_keys[i] = @intCast(key);
-            configuration_values[i] = @ptrCast(entry.value_ptr.*);
+        while (configuration_it.next()) |it_entry| : (i += 1) {
+            const configuration_key = it_entry.key_ptr.*;
+            configuration_keys[i] = @intCast(configuration_key);
+            configuration_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const configuration_map = qtc.libqt_map{
-            .len = configuration.count(),
+            .len = configuration_count,
             .keys = @ptrCast(configuration_keys.ptr),
             .values = @ptrCast(configuration_values.ptr),
         };
@@ -1168,19 +1169,20 @@ pub const qlineseries = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetPointsConfiguration(self: ?*anyopaque, pointsConfiguration: map_i32_map_i32_qtcqvariant, allocator: std.mem.Allocator) void {
-        const pointsConfiguration_keys = allocator.alloc(i32, pointsConfiguration.count()) catch @panic("qlineseries.SetPointsConfiguration: Memory allocation failed");
+        const pointsConfiguration_count = pointsConfiguration.count();
+        const pointsConfiguration_keys = allocator.alloc(i32, pointsConfiguration_count) catch @panic("qlineseries.SetPointsConfiguration: Memory allocation failed");
         defer allocator.free(pointsConfiguration_keys);
-        const pointsConfiguration_values = allocator.alloc(map_i32_qtcqvariant, pointsConfiguration.count()) catch @panic("qlineseries.SetPointsConfiguration: Memory allocation failed");
+        const pointsConfiguration_values = allocator.alloc(map_i32_qtcqvariant, pointsConfiguration_count) catch @panic("qlineseries.SetPointsConfiguration: Memory allocation failed");
         defer allocator.free(pointsConfiguration_values);
         var i: usize = 0;
         var pointsConfiguration_it = pointsConfiguration.iterator();
-        while (pointsConfiguration_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            pointsConfiguration_keys[i] = @intCast(key);
-            pointsConfiguration_values[i] = entry.value_ptr.*;
+        while (pointsConfiguration_it.next()) |it_entry| : (i += 1) {
+            const pointsConfiguration_key = it_entry.key_ptr.*;
+            pointsConfiguration_keys[i] = @intCast(pointsConfiguration_key);
+            pointsConfiguration_values[i] = it_entry.value_ptr.*;
         }
         const pointsConfiguration_map = qtc.libqt_map{
-            .len = pointsConfiguration.count(),
+            .len = pointsConfiguration_count,
             .keys = @ptrCast(pointsConfiguration_keys.ptr),
             .values = @ptrCast(pointsConfiguration_values.ptr),
         };
@@ -1978,19 +1980,20 @@ pub const qlineseries = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PointsConfigurationChanged(self: ?*anyopaque, configuration: map_i32_map_i32_qtcqvariant, allocator: std.mem.Allocator) void {
-        const configuration_keys = allocator.alloc(i32, configuration.count()) catch @panic("qlineseries.PointsConfigurationChanged: Memory allocation failed");
+        const configuration_count = configuration.count();
+        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("qlineseries.PointsConfigurationChanged: Memory allocation failed");
         defer allocator.free(configuration_keys);
-        const configuration_values = allocator.alloc(map_i32_qtcqvariant, configuration.count()) catch @panic("qlineseries.PointsConfigurationChanged: Memory allocation failed");
+        const configuration_values = allocator.alloc(map_i32_qtcqvariant, configuration_count) catch @panic("qlineseries.PointsConfigurationChanged: Memory allocation failed");
         defer allocator.free(configuration_values);
         var i: usize = 0;
         var configuration_it = configuration.iterator();
-        while (configuration_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
-            configuration_keys[i] = @intCast(key);
-            configuration_values[i] = entry.value_ptr.*;
+        while (configuration_it.next()) |it_entry| : (i += 1) {
+            const configuration_key = it_entry.key_ptr.*;
+            configuration_keys[i] = @intCast(configuration_key);
+            configuration_values[i] = it_entry.value_ptr.*;
         }
         const configuration_map = qtc.libqt_map{
-            .len = configuration.count(),
+            .len = configuration_count,
             .keys = @ptrCast(configuration_keys.ptr),
             .values = @ptrCast(configuration_values.ptr),
         };
@@ -2580,6 +2583,20 @@ pub const qlineseries = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLineSeries `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -2939,6 +2956,22 @@ pub const qlineseries = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QLineSeries `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject

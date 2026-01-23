@@ -307,6 +307,20 @@ pub const qdeadlinetimer = struct {
         return qtc.QDeadlineTimer_OperatorMinusAssign(@ptrCast(self), @intCast(msecs));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#remainingTimeAsDuration)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDeadlineTimer `
+    ///
+    /// ## Returns:
+    ///
+    /// ` i64 of nanoseconds `
+    ///
+    pub fn RemainingTimeAsDuration(self: ?*anyopaque) i64 {
+        return qtc.QDeadlineTimer_RemainingTimeAsDuration(@ptrCast(self));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#setRemainingTime)
     ///
     /// ## Parameter(s):

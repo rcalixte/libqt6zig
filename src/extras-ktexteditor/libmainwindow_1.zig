@@ -93,7 +93,7 @@ pub const ktexteditor__mainwindow = struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::mainwindow.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__mainwindow.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -153,7 +153,7 @@ pub const ktexteditor__mainwindow = struct {
     pub fn Views(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KTextEditor__View {
         const _arr: qtc.libqt_list = qtc.KTextEditor__MainWindow_Views(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KTextEditor__View, _arr.len) catch @panic("ktexteditor::mainwindow.Views: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.KTextEditor__View, _arr.len) catch @panic("ktexteditor__mainwindow.Views: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__View = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -544,7 +544,7 @@ pub const ktexteditor__mainwindow = struct {
     pub fn Widgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
         const _arr: qtc.libqt_list = qtc.KTextEditor__MainWindow_Widgets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("ktexteditor::mainwindow.Widgets: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("ktexteditor__mainwindow.Widgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -631,22 +631,23 @@ pub const ktexteditor__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ShowMessage(self: ?*anyopaque, message: map_constu8_qtcqvariant, allocator: std.mem.Allocator) bool {
-        const message_keys = allocator.alloc(qtc.libqt_string, message.count()) catch @panic("ktexteditor::mainwindow.ShowMessage: Memory allocation failed");
+        const message_count = message.count();
+        const message_keys = allocator.alloc(qtc.libqt_string, message_count) catch @panic("ktexteditor__mainwindow.ShowMessage: Memory allocation failed");
         defer allocator.free(message_keys);
-        const message_values = allocator.alloc(QtC.QVariant, message.count()) catch @panic("ktexteditor::mainwindow.ShowMessage: Memory allocation failed");
+        const message_values = allocator.alloc(QtC.QVariant, message_count) catch @panic("ktexteditor__mainwindow.ShowMessage: Memory allocation failed");
         defer allocator.free(message_values);
         var i: usize = 0;
         var message_it = message.iterator();
-        while (message_it.next()) |entry| : (i += 1) {
-            const key = entry.key_ptr.*;
+        while (message_it.next()) |it_entry| : (i += 1) {
+            const message_key = it_entry.key_ptr.*;
             message_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
+                .len = message_key.len,
+                .data = message_key.ptr,
             };
-            message_values[i] = @ptrCast(entry.value_ptr.*);
+            message_values[i] = @ptrCast(it_entry.value_ptr.*);
         }
         const message_map = qtc.libqt_map{
-            .len = message.count(),
+            .len = message_count,
             .keys = @ptrCast(message_keys.ptr),
             .values = @ptrCast(message_values.ptr),
         };
@@ -668,7 +669,7 @@ pub const ktexteditor__mainwindow = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::mainwindow.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__mainwindow.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -690,7 +691,7 @@ pub const ktexteditor__mainwindow = struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::mainwindow.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__mainwindow.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -726,7 +727,7 @@ pub const ktexteditor__mainwindow = struct {
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor::mainwindow.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__mainwindow.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -853,6 +854,20 @@ pub const ktexteditor__mainwindow = struct {
 
     /// Inherited from QObject
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__MainWindow `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(time));
+    }
+
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ## Parameter(s):
@@ -892,7 +907,7 @@ pub const ktexteditor__mainwindow = struct {
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ktexteditor::mainwindow.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ktexteditor__mainwindow.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1083,10 +1098,10 @@ pub const ktexteditor__mainwindow = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktexteditor::mainwindow.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktexteditor__mainwindow.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktexteditor::mainwindow.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktexteditor__mainwindow.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1212,6 +1227,22 @@ pub const ktexteditor__mainwindow = struct {
     ///
     pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KTextEditor__MainWindow `
+    ///
+    /// ` time: i64 of nanoseconds `
+    ///
+    /// ` timerType: qnamespace_enums.TimerType `
+    ///
+    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self), @intCast(time), @intCast(timerType));
     }
 
     /// Inherited from QObject
