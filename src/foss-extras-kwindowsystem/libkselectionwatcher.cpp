@@ -25,11 +25,21 @@ KSelectionWatcher* KSelectionWatcher_new3(const char* selection, int screen, QOb
 }
 
 QMetaObject* KSelectionWatcher_MetaObject(const KSelectionWatcher* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkselectionwatcher = dynamic_cast<const VirtualKSelectionWatcher*>(self);
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSelectionWatcher*)self)->metaObject();
+    }
 }
 
 void* KSelectionWatcher_Metacast(KSelectionWatcher* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSelectionWatcher*)self)->qt_metacast(param1);
+    }
 }
 
 int KSelectionWatcher_Metacall(KSelectionWatcher* self, int param1, int param2, void** param3) {
@@ -54,6 +64,44 @@ void KSelectionWatcher_Connect_LostOwner(KSelectionWatcher* self, intptr_t slot)
     KSelectionWatcher::connect(self, &KSelectionWatcher::lostOwner, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KSelectionWatcher_QBaseMetaObject(const KSelectionWatcher* self) {
+    auto* vkselectionwatcher = const_cast<VirtualKSelectionWatcher*>(dynamic_cast<const VirtualKSelectionWatcher*>(self));
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+        vkselectionwatcher->setKSelectionWatcher_MetaObject_IsBase(true);
+        return (QMetaObject*)vkselectionwatcher->metaObject();
+    } else {
+        return (QMetaObject*)self->KSelectionWatcher::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectionWatcher_OnMetaObject(const KSelectionWatcher* self, intptr_t slot) {
+    auto* vkselectionwatcher = const_cast<VirtualKSelectionWatcher*>(dynamic_cast<const VirtualKSelectionWatcher*>(self));
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+        vkselectionwatcher->setKSelectionWatcher_MetaObject_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSelectionWatcher_QBaseMetacast(KSelectionWatcher* self, const char* param1) {
+    auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+        vkselectionwatcher->setKSelectionWatcher_Metacast_IsBase(true);
+        return vkselectionwatcher->qt_metacast(param1);
+    } else {
+        return self->KSelectionWatcher::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectionWatcher_OnMetacast(KSelectionWatcher* self, intptr_t slot) {
+    auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
+    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
+        vkselectionwatcher->setKSelectionWatcher_Metacast_Callback(reinterpret_cast<VirtualKSelectionWatcher::KSelectionWatcher_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

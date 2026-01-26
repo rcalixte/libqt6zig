@@ -17,6 +17,8 @@ class VirtualKNSWidgetsAction final : public KNSWidgets::Action {
     bool isVirtualKNSWidgetsAction = true;
 
     // Virtual class public types (including callbacks)
+    using KNSWidgets__Action_MetaObject_Callback = QMetaObject* (*)();
+    using KNSWidgets__Action_Metacast_Callback = void* (*)(KNSWidgets__Action*, const char*);
     using KNSWidgets__Action_Metacall_Callback = int (*)(KNSWidgets__Action*, int, int, void**);
     using KNSWidgets__Action_Event_Callback = bool (*)(KNSWidgets__Action*, QEvent*);
     using KNSWidgets__Action_EventFilter_Callback = bool (*)(KNSWidgets__Action*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKNSWidgetsAction final : public KNSWidgets::Action {
 
   protected:
     // Instance callback storage
+    KNSWidgets__Action_MetaObject_Callback knswidgets__action_metaobject_callback = nullptr;
+    KNSWidgets__Action_Metacast_Callback knswidgets__action_metacast_callback = nullptr;
     KNSWidgets__Action_Metacall_Callback knswidgets__action_metacall_callback = nullptr;
     KNSWidgets__Action_Event_Callback knswidgets__action_event_callback = nullptr;
     KNSWidgets__Action_EventFilter_Callback knswidgets__action_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKNSWidgetsAction final : public KNSWidgets::Action {
     KNSWidgets__Action_IsSignalConnected_Callback knswidgets__action_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool knswidgets__action_metaobject_isbase = false;
+    mutable bool knswidgets__action_metacast_isbase = false;
     mutable bool knswidgets__action_metacall_isbase = false;
     mutable bool knswidgets__action_event_isbase = false;
     mutable bool knswidgets__action_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualKNSWidgetsAction final : public KNSWidgets::Action {
     VirtualKNSWidgetsAction(const QString& text, const QString& configFile, QObject* parent) : KNSWidgets::Action(text, configFile, parent) {};
 
     ~VirtualKNSWidgetsAction() {
+        knswidgets__action_metaobject_callback = nullptr;
+        knswidgets__action_metacast_callback = nullptr;
         knswidgets__action_metacall_callback = nullptr;
         knswidgets__action_event_callback = nullptr;
         knswidgets__action_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualKNSWidgetsAction final : public KNSWidgets::Action {
     }
 
     // Callback setters
+    inline void setKNSWidgets__Action_MetaObject_Callback(KNSWidgets__Action_MetaObject_Callback cb) { knswidgets__action_metaobject_callback = cb; }
+    inline void setKNSWidgets__Action_Metacast_Callback(KNSWidgets__Action_Metacast_Callback cb) { knswidgets__action_metacast_callback = cb; }
     inline void setKNSWidgets__Action_Metacall_Callback(KNSWidgets__Action_Metacall_Callback cb) { knswidgets__action_metacall_callback = cb; }
     inline void setKNSWidgets__Action_Event_Callback(KNSWidgets__Action_Event_Callback cb) { knswidgets__action_event_callback = cb; }
     inline void setKNSWidgets__Action_EventFilter_Callback(KNSWidgets__Action_EventFilter_Callback cb) { knswidgets__action_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualKNSWidgetsAction final : public KNSWidgets::Action {
     inline void setKNSWidgets__Action_IsSignalConnected_Callback(KNSWidgets__Action_IsSignalConnected_Callback cb) { knswidgets__action_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKNSWidgets__Action_MetaObject_IsBase(bool value) const { knswidgets__action_metaobject_isbase = value; }
+    inline void setKNSWidgets__Action_Metacast_IsBase(bool value) const { knswidgets__action_metacast_isbase = value; }
     inline void setKNSWidgets__Action_Metacall_IsBase(bool value) const { knswidgets__action_metacall_isbase = value; }
     inline void setKNSWidgets__Action_Event_IsBase(bool value) const { knswidgets__action_event_isbase = value; }
     inline void setKNSWidgets__Action_EventFilter_IsBase(bool value) const { knswidgets__action_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualKNSWidgetsAction final : public KNSWidgets::Action {
     inline void setKNSWidgets__Action_SenderSignalIndex_IsBase(bool value) const { knswidgets__action_sendersignalindex_isbase = value; }
     inline void setKNSWidgets__Action_Receivers_IsBase(bool value) const { knswidgets__action_receivers_isbase = value; }
     inline void setKNSWidgets__Action_IsSignalConnected_IsBase(bool value) const { knswidgets__action_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knswidgets__action_metaobject_isbase) {
+            knswidgets__action_metaobject_isbase = false;
+            return KNSWidgets__Action::metaObject();
+        } else if (knswidgets__action_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knswidgets__action_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNSWidgets__Action::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knswidgets__action_metacast_isbase) {
+            knswidgets__action_metacast_isbase = false;
+            return KNSWidgets__Action::qt_metacast(param1);
+        } else if (knswidgets__action_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knswidgets__action_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNSWidgets__Action::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

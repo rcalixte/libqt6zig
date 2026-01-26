@@ -33,6 +33,32 @@ pub const qplacesearchreply = struct {
         return qtc.QPlaceSearchReply_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPlaceSearchReply `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.QPlaceSearchReply_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPlaceSearchReply `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QPlaceSearchReply_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.QPlaceSearchReply `
@@ -42,6 +68,31 @@ pub const qplacesearchreply = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPlaceSearchReply_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QPlaceSearchReply `
+    ///
+    /// ` callback: *const fn (self: QtC.QPlaceSearchReply, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QPlaceSearchReply_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPlaceSearchReply `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.QPlaceSearchReply_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):

@@ -23,11 +23,21 @@ QAbstractSocket* QAbstractSocket_new(int socketType, QObject* parent) {
 }
 
 QMetaObject* QAbstractSocket_MetaObject(const QAbstractSocket* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractsocket = dynamic_cast<const VirtualQAbstractSocket*>(self);
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractSocket*)self)->metaObject();
+    }
 }
 
 void* QAbstractSocket_Metacast(QAbstractSocket* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractSocket*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractSocket_Metacall(QAbstractSocket* self, int param1, int param2, void** param3) {
@@ -406,6 +416,44 @@ bool QAbstractSocket_Bind22(QAbstractSocket* self, uint16_t port, int mode) {
 
 void QAbstractSocket_ConnectToHost3(QAbstractSocket* self, const QHostAddress* address, uint16_t port, int mode) {
     self->connectToHost(*address, static_cast<quint16>(port), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractSocket_QBaseMetaObject(const QAbstractSocket* self) {
+    auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+        vqabstractsocket->setQAbstractSocket_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractsocket->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractSocket::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractSocket_OnMetaObject(const QAbstractSocket* self, intptr_t slot) {
+    auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+        vqabstractsocket->setQAbstractSocket_MetaObject_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractSocket_QBaseMetacast(QAbstractSocket* self, const char* param1) {
+    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+        vqabstractsocket->setQAbstractSocket_Metacast_IsBase(true);
+        return vqabstractsocket->qt_metacast(param1);
+    } else {
+        return self->QAbstractSocket::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractSocket_OnMetacast(QAbstractSocket* self, intptr_t slot) {
+    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+        vqabstractsocket->setQAbstractSocket_Metacast_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

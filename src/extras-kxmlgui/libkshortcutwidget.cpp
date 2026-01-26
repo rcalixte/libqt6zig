@@ -51,11 +51,21 @@ KShortcutWidget* KShortcutWidget_new2() {
 }
 
 QMetaObject* KShortcutWidget_MetaObject(const KShortcutWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkshortcutwidget = dynamic_cast<const VirtualKShortcutWidget*>(self);
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKShortcutWidget*)self)->metaObject();
+    }
 }
 
 void* KShortcutWidget_Metacast(KShortcutWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKShortcutWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KShortcutWidget_Metacall(KShortcutWidget* self, int param1, int param2, void** param3) {
@@ -145,6 +155,44 @@ void KShortcutWidget_ClearShortcut(KShortcutWidget* self) {
 
 void KShortcutWidget_ApplyStealShortcut(KShortcutWidget* self) {
     self->applyStealShortcut();
+}
+
+// Base class handler implementation
+QMetaObject* KShortcutWidget_QBaseMetaObject(const KShortcutWidget* self) {
+    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+        vkshortcutwidget->setKShortcutWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkshortcutwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KShortcutWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KShortcutWidget_OnMetaObject(const KShortcutWidget* self, intptr_t slot) {
+    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+        vkshortcutwidget->setKShortcutWidget_MetaObject_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KShortcutWidget_QBaseMetacast(KShortcutWidget* self, const char* param1) {
+    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+        vkshortcutwidget->setKShortcutWidget_Metacast_IsBase(true);
+        return vkshortcutwidget->qt_metacast(param1);
+    } else {
+        return self->KShortcutWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KShortcutWidget_OnMetacast(KShortcutWidget* self, intptr_t slot) {
+    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+        vkshortcutwidget->setKShortcutWidget_Metacast_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

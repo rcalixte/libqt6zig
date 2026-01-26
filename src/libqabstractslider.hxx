@@ -18,6 +18,8 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
 
     // Virtual class public types (including callbacks)
     using QAbstractSlider::SliderChange;
+    using QAbstractSlider_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractSlider_Metacast_Callback = void* (*)(QAbstractSlider*, const char*);
     using QAbstractSlider_Metacall_Callback = int (*)(QAbstractSlider*, int, int, void**);
     using QAbstractSlider_Event_Callback = bool (*)(QAbstractSlider*, QEvent*);
     using QAbstractSlider_SliderChange_Callback = void (*)(QAbstractSlider*, int);
@@ -84,6 +86,8 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
 
   protected:
     // Instance callback storage
+    QAbstractSlider_MetaObject_Callback qabstractslider_metaobject_callback = nullptr;
+    QAbstractSlider_Metacast_Callback qabstractslider_metacast_callback = nullptr;
     QAbstractSlider_Metacall_Callback qabstractslider_metacall_callback = nullptr;
     QAbstractSlider_Event_Callback qabstractslider_event_callback = nullptr;
     QAbstractSlider_SliderChange_Callback qabstractslider_sliderchange_callback = nullptr;
@@ -149,6 +153,8 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
     QAbstractSlider_GetDecodedMetricF_Callback qabstractslider_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractslider_metaobject_isbase = false;
+    mutable bool qabstractslider_metacast_isbase = false;
     mutable bool qabstractslider_metacall_isbase = false;
     mutable bool qabstractslider_event_isbase = false;
     mutable bool qabstractslider_sliderchange_isbase = false;
@@ -218,6 +224,8 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
     VirtualQAbstractSlider() : QAbstractSlider() {};
 
     ~VirtualQAbstractSlider() {
+        qabstractslider_metaobject_callback = nullptr;
+        qabstractslider_metacast_callback = nullptr;
         qabstractslider_metacall_callback = nullptr;
         qabstractslider_event_callback = nullptr;
         qabstractslider_sliderchange_callback = nullptr;
@@ -284,6 +292,8 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
     }
 
     // Callback setters
+    inline void setQAbstractSlider_MetaObject_Callback(QAbstractSlider_MetaObject_Callback cb) { qabstractslider_metaobject_callback = cb; }
+    inline void setQAbstractSlider_Metacast_Callback(QAbstractSlider_Metacast_Callback cb) { qabstractslider_metacast_callback = cb; }
     inline void setQAbstractSlider_Metacall_Callback(QAbstractSlider_Metacall_Callback cb) { qabstractslider_metacall_callback = cb; }
     inline void setQAbstractSlider_Event_Callback(QAbstractSlider_Event_Callback cb) { qabstractslider_event_callback = cb; }
     inline void setQAbstractSlider_SliderChange_Callback(QAbstractSlider_SliderChange_Callback cb) { qabstractslider_sliderchange_callback = cb; }
@@ -349,6 +359,8 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
     inline void setQAbstractSlider_GetDecodedMetricF_Callback(QAbstractSlider_GetDecodedMetricF_Callback cb) { qabstractslider_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractSlider_MetaObject_IsBase(bool value) const { qabstractslider_metaobject_isbase = value; }
+    inline void setQAbstractSlider_Metacast_IsBase(bool value) const { qabstractslider_metacast_isbase = value; }
     inline void setQAbstractSlider_Metacall_IsBase(bool value) const { qabstractslider_metacall_isbase = value; }
     inline void setQAbstractSlider_Event_IsBase(bool value) const { qabstractslider_event_isbase = value; }
     inline void setQAbstractSlider_SliderChange_IsBase(bool value) const { qabstractslider_sliderchange_isbase = value; }
@@ -412,6 +424,34 @@ class VirtualQAbstractSlider final : public QAbstractSlider {
     inline void setQAbstractSlider_Receivers_IsBase(bool value) const { qabstractslider_receivers_isbase = value; }
     inline void setQAbstractSlider_IsSignalConnected_IsBase(bool value) const { qabstractslider_issignalconnected_isbase = value; }
     inline void setQAbstractSlider_GetDecodedMetricF_IsBase(bool value) const { qabstractslider_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractslider_metaobject_isbase) {
+            qabstractslider_metaobject_isbase = false;
+            return QAbstractSlider::metaObject();
+        } else if (qabstractslider_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractslider_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractSlider::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractslider_metacast_isbase) {
+            qabstractslider_metacast_isbase = false;
+            return QAbstractSlider::qt_metacast(param1);
+        } else if (qabstractslider_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractslider_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractSlider::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

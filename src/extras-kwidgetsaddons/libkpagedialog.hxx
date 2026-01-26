@@ -17,6 +17,8 @@ class VirtualKPageDialog final : public KPageDialog {
     bool isVirtualKPageDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KPageDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KPageDialog_Metacast_Callback = void* (*)(KPageDialog*, const char*);
     using KPageDialog_Metacall_Callback = int (*)(KPageDialog*, int, int, void**);
     using KPageDialog_SetVisible_Callback = void (*)(KPageDialog*, bool);
     using KPageDialog_SizeHint_Callback = QSize* (*)();
@@ -90,6 +92,8 @@ class VirtualKPageDialog final : public KPageDialog {
 
   protected:
     // Instance callback storage
+    KPageDialog_MetaObject_Callback kpagedialog_metaobject_callback = nullptr;
+    KPageDialog_Metacast_Callback kpagedialog_metacast_callback = nullptr;
     KPageDialog_Metacall_Callback kpagedialog_metacall_callback = nullptr;
     KPageDialog_SetVisible_Callback kpagedialog_setvisible_callback = nullptr;
     KPageDialog_SizeHint_Callback kpagedialog_sizehint_callback = nullptr;
@@ -162,6 +166,8 @@ class VirtualKPageDialog final : public KPageDialog {
     KPageDialog_GetDecodedMetricF_Callback kpagedialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpagedialog_metaobject_isbase = false;
+    mutable bool kpagedialog_metacast_isbase = false;
     mutable bool kpagedialog_metacall_isbase = false;
     mutable bool kpagedialog_setvisible_isbase = false;
     mutable bool kpagedialog_sizehint_isbase = false;
@@ -239,6 +245,8 @@ class VirtualKPageDialog final : public KPageDialog {
     VirtualKPageDialog(QWidget* parent, Qt::WindowFlags flags) : KPageDialog(parent, flags) {};
 
     ~VirtualKPageDialog() {
+        kpagedialog_metaobject_callback = nullptr;
+        kpagedialog_metacast_callback = nullptr;
         kpagedialog_metacall_callback = nullptr;
         kpagedialog_setvisible_callback = nullptr;
         kpagedialog_sizehint_callback = nullptr;
@@ -312,6 +320,8 @@ class VirtualKPageDialog final : public KPageDialog {
     }
 
     // Callback setters
+    inline void setKPageDialog_MetaObject_Callback(KPageDialog_MetaObject_Callback cb) { kpagedialog_metaobject_callback = cb; }
+    inline void setKPageDialog_Metacast_Callback(KPageDialog_Metacast_Callback cb) { kpagedialog_metacast_callback = cb; }
     inline void setKPageDialog_Metacall_Callback(KPageDialog_Metacall_Callback cb) { kpagedialog_metacall_callback = cb; }
     inline void setKPageDialog_SetVisible_Callback(KPageDialog_SetVisible_Callback cb) { kpagedialog_setvisible_callback = cb; }
     inline void setKPageDialog_SizeHint_Callback(KPageDialog_SizeHint_Callback cb) { kpagedialog_sizehint_callback = cb; }
@@ -384,6 +394,8 @@ class VirtualKPageDialog final : public KPageDialog {
     inline void setKPageDialog_GetDecodedMetricF_Callback(KPageDialog_GetDecodedMetricF_Callback cb) { kpagedialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPageDialog_MetaObject_IsBase(bool value) const { kpagedialog_metaobject_isbase = value; }
+    inline void setKPageDialog_Metacast_IsBase(bool value) const { kpagedialog_metacast_isbase = value; }
     inline void setKPageDialog_Metacall_IsBase(bool value) const { kpagedialog_metacall_isbase = value; }
     inline void setKPageDialog_SetVisible_IsBase(bool value) const { kpagedialog_setvisible_isbase = value; }
     inline void setKPageDialog_SizeHint_IsBase(bool value) const { kpagedialog_sizehint_isbase = value; }
@@ -454,6 +466,34 @@ class VirtualKPageDialog final : public KPageDialog {
     inline void setKPageDialog_Receivers_IsBase(bool value) const { kpagedialog_receivers_isbase = value; }
     inline void setKPageDialog_IsSignalConnected_IsBase(bool value) const { kpagedialog_issignalconnected_isbase = value; }
     inline void setKPageDialog_GetDecodedMetricF_IsBase(bool value) const { kpagedialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpagedialog_metaobject_isbase) {
+            kpagedialog_metaobject_isbase = false;
+            return KPageDialog::metaObject();
+        } else if (kpagedialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpagedialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPageDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpagedialog_metacast_isbase) {
+            kpagedialog_metacast_isbase = false;
+            return KPageDialog::qt_metacast(param1);
+        } else if (kpagedialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpagedialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPageDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

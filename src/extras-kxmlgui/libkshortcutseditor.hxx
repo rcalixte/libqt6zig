@@ -17,6 +17,8 @@ class VirtualKShortcutsEditor final : public KShortcutsEditor {
     bool isVirtualKShortcutsEditor = true;
 
     // Virtual class public types (including callbacks)
+    using KShortcutsEditor_MetaObject_Callback = QMetaObject* (*)();
+    using KShortcutsEditor_Metacast_Callback = void* (*)(KShortcutsEditor*, const char*);
     using KShortcutsEditor_Metacall_Callback = int (*)(KShortcutsEditor*, int, int, void**);
     using KShortcutsEditor_DevType_Callback = int (*)();
     using KShortcutsEditor_SetVisible_Callback = void (*)(KShortcutsEditor*, bool);
@@ -78,6 +80,8 @@ class VirtualKShortcutsEditor final : public KShortcutsEditor {
 
   protected:
     // Instance callback storage
+    KShortcutsEditor_MetaObject_Callback kshortcutseditor_metaobject_callback = nullptr;
+    KShortcutsEditor_Metacast_Callback kshortcutseditor_metacast_callback = nullptr;
     KShortcutsEditor_Metacall_Callback kshortcutseditor_metacall_callback = nullptr;
     KShortcutsEditor_DevType_Callback kshortcutseditor_devtype_callback = nullptr;
     KShortcutsEditor_SetVisible_Callback kshortcutseditor_setvisible_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKShortcutsEditor final : public KShortcutsEditor {
     KShortcutsEditor_GetDecodedMetricF_Callback kshortcutseditor_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kshortcutseditor_metaobject_isbase = false;
+    mutable bool kshortcutseditor_metacast_isbase = false;
     mutable bool kshortcutseditor_metacall_isbase = false;
     mutable bool kshortcutseditor_devtype_isbase = false;
     mutable bool kshortcutseditor_setvisible_isbase = false;
@@ -206,6 +212,8 @@ class VirtualKShortcutsEditor final : public KShortcutsEditor {
     VirtualKShortcutsEditor(QWidget* parent, KShortcutsEditor::ActionTypes actionTypes, KShortcutsEditor::LetterShortcuts allowLetterShortcuts) : KShortcutsEditor(parent, actionTypes, allowLetterShortcuts) {};
 
     ~VirtualKShortcutsEditor() {
+        kshortcutseditor_metaobject_callback = nullptr;
+        kshortcutseditor_metacast_callback = nullptr;
         kshortcutseditor_metacall_callback = nullptr;
         kshortcutseditor_devtype_callback = nullptr;
         kshortcutseditor_setvisible_callback = nullptr;
@@ -267,6 +275,8 @@ class VirtualKShortcutsEditor final : public KShortcutsEditor {
     }
 
     // Callback setters
+    inline void setKShortcutsEditor_MetaObject_Callback(KShortcutsEditor_MetaObject_Callback cb) { kshortcutseditor_metaobject_callback = cb; }
+    inline void setKShortcutsEditor_Metacast_Callback(KShortcutsEditor_Metacast_Callback cb) { kshortcutseditor_metacast_callback = cb; }
     inline void setKShortcutsEditor_Metacall_Callback(KShortcutsEditor_Metacall_Callback cb) { kshortcutseditor_metacall_callback = cb; }
     inline void setKShortcutsEditor_DevType_Callback(KShortcutsEditor_DevType_Callback cb) { kshortcutseditor_devtype_callback = cb; }
     inline void setKShortcutsEditor_SetVisible_Callback(KShortcutsEditor_SetVisible_Callback cb) { kshortcutseditor_setvisible_callback = cb; }
@@ -327,6 +337,8 @@ class VirtualKShortcutsEditor final : public KShortcutsEditor {
     inline void setKShortcutsEditor_GetDecodedMetricF_Callback(KShortcutsEditor_GetDecodedMetricF_Callback cb) { kshortcutseditor_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKShortcutsEditor_MetaObject_IsBase(bool value) const { kshortcutseditor_metaobject_isbase = value; }
+    inline void setKShortcutsEditor_Metacast_IsBase(bool value) const { kshortcutseditor_metacast_isbase = value; }
     inline void setKShortcutsEditor_Metacall_IsBase(bool value) const { kshortcutseditor_metacall_isbase = value; }
     inline void setKShortcutsEditor_DevType_IsBase(bool value) const { kshortcutseditor_devtype_isbase = value; }
     inline void setKShortcutsEditor_SetVisible_IsBase(bool value) const { kshortcutseditor_setvisible_isbase = value; }
@@ -385,6 +397,34 @@ class VirtualKShortcutsEditor final : public KShortcutsEditor {
     inline void setKShortcutsEditor_Receivers_IsBase(bool value) const { kshortcutseditor_receivers_isbase = value; }
     inline void setKShortcutsEditor_IsSignalConnected_IsBase(bool value) const { kshortcutseditor_issignalconnected_isbase = value; }
     inline void setKShortcutsEditor_GetDecodedMetricF_IsBase(bool value) const { kshortcutseditor_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kshortcutseditor_metaobject_isbase) {
+            kshortcutseditor_metaobject_isbase = false;
+            return KShortcutsEditor::metaObject();
+        } else if (kshortcutseditor_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kshortcutseditor_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KShortcutsEditor::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kshortcutseditor_metacast_isbase) {
+            kshortcutseditor_metacast_isbase = false;
+            return KShortcutsEditor::qt_metacast(param1);
+        } else if (kshortcutseditor_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kshortcutseditor_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KShortcutsEditor::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

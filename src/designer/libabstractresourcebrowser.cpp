@@ -48,11 +48,21 @@ QDesignerResourceBrowserInterface* QDesignerResourceBrowserInterface_new2() {
 }
 
 QMetaObject* QDesignerResourceBrowserInterface_MetaObject(const QDesignerResourceBrowserInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerresourcebrowserinterface = dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self);
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerResourceBrowserInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerResourceBrowserInterface_Metacast(QDesignerResourceBrowserInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerResourceBrowserInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerResourceBrowserInterface_Metacall(QDesignerResourceBrowserInterface* self, int param1, int param2, void** param3) {
@@ -137,6 +147,44 @@ void QDesignerResourceBrowserInterface_Connect_PathActivated(QDesignerResourceBr
         slotFunc(self, sigval1);
         libqt_free(filePath_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerResourceBrowserInterface_QBaseMetaObject(const QDesignerResourceBrowserInterface* self) {
+    auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+        vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerresourcebrowserinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerResourceBrowserInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerResourceBrowserInterface_OnMetaObject(const QDesignerResourceBrowserInterface* self, intptr_t slot) {
+    auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+        vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerResourceBrowserInterface_QBaseMetacast(QDesignerResourceBrowserInterface* self, const char* param1) {
+    auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+        vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Metacast_IsBase(true);
+        return vqdesignerresourcebrowserinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerResourceBrowserInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerResourceBrowserInterface_OnMetacast(QDesignerResourceBrowserInterface* self, intptr_t slot) {
+    auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
+    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
+        vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerResourceBrowserInterface::QDesignerResourceBrowserInterface_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
     bool isVirtualKAutoSaveFile = true;
 
     // Virtual class public types (including callbacks)
+    using KAutoSaveFile_MetaObject_Callback = QMetaObject* (*)();
+    using KAutoSaveFile_Metacast_Callback = void* (*)(KAutoSaveFile*, const char*);
     using KAutoSaveFile_Metacall_Callback = int (*)(KAutoSaveFile*, int, int, void**);
     using KAutoSaveFile_ReleaseLock_Callback = void (*)();
     using KAutoSaveFile_Open_Callback = bool (*)(KAutoSaveFile*, int);
@@ -56,6 +58,8 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
 
   protected:
     // Instance callback storage
+    KAutoSaveFile_MetaObject_Callback kautosavefile_metaobject_callback = nullptr;
+    KAutoSaveFile_Metacast_Callback kautosavefile_metacast_callback = nullptr;
     KAutoSaveFile_Metacall_Callback kautosavefile_metacall_callback = nullptr;
     KAutoSaveFile_ReleaseLock_Callback kautosavefile_releaselock_callback = nullptr;
     KAutoSaveFile_Open_Callback kautosavefile_open_callback = nullptr;
@@ -94,6 +98,8 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
     KAutoSaveFile_IsSignalConnected_Callback kautosavefile_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kautosavefile_metaobject_isbase = false;
+    mutable bool kautosavefile_metacast_isbase = false;
     mutable bool kautosavefile_metacall_isbase = false;
     mutable bool kautosavefile_releaselock_isbase = false;
     mutable bool kautosavefile_open_isbase = false;
@@ -138,6 +144,8 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
     VirtualKAutoSaveFile(QObject* parent) : KAutoSaveFile(parent) {};
 
     ~VirtualKAutoSaveFile() {
+        kautosavefile_metaobject_callback = nullptr;
+        kautosavefile_metacast_callback = nullptr;
         kautosavefile_metacall_callback = nullptr;
         kautosavefile_releaselock_callback = nullptr;
         kautosavefile_open_callback = nullptr;
@@ -177,6 +185,8 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
     }
 
     // Callback setters
+    inline void setKAutoSaveFile_MetaObject_Callback(KAutoSaveFile_MetaObject_Callback cb) { kautosavefile_metaobject_callback = cb; }
+    inline void setKAutoSaveFile_Metacast_Callback(KAutoSaveFile_Metacast_Callback cb) { kautosavefile_metacast_callback = cb; }
     inline void setKAutoSaveFile_Metacall_Callback(KAutoSaveFile_Metacall_Callback cb) { kautosavefile_metacall_callback = cb; }
     inline void setKAutoSaveFile_ReleaseLock_Callback(KAutoSaveFile_ReleaseLock_Callback cb) { kautosavefile_releaselock_callback = cb; }
     inline void setKAutoSaveFile_Open_Callback(KAutoSaveFile_Open_Callback cb) { kautosavefile_open_callback = cb; }
@@ -215,6 +225,8 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
     inline void setKAutoSaveFile_IsSignalConnected_Callback(KAutoSaveFile_IsSignalConnected_Callback cb) { kautosavefile_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKAutoSaveFile_MetaObject_IsBase(bool value) const { kautosavefile_metaobject_isbase = value; }
+    inline void setKAutoSaveFile_Metacast_IsBase(bool value) const { kautosavefile_metacast_isbase = value; }
     inline void setKAutoSaveFile_Metacall_IsBase(bool value) const { kautosavefile_metacall_isbase = value; }
     inline void setKAutoSaveFile_ReleaseLock_IsBase(bool value) const { kautosavefile_releaselock_isbase = value; }
     inline void setKAutoSaveFile_Open_IsBase(bool value) const { kautosavefile_open_isbase = value; }
@@ -251,6 +263,34 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
     inline void setKAutoSaveFile_SenderSignalIndex_IsBase(bool value) const { kautosavefile_sendersignalindex_isbase = value; }
     inline void setKAutoSaveFile_Receivers_IsBase(bool value) const { kautosavefile_receivers_isbase = value; }
     inline void setKAutoSaveFile_IsSignalConnected_IsBase(bool value) const { kautosavefile_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kautosavefile_metaobject_isbase) {
+            kautosavefile_metaobject_isbase = false;
+            return KAutoSaveFile::metaObject();
+        } else if (kautosavefile_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kautosavefile_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KAutoSaveFile::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kautosavefile_metacast_isbase) {
+            kautosavefile_metacast_isbase = false;
+            return KAutoSaveFile::qt_metacast(param1);
+        } else if (kautosavefile_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kautosavefile_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KAutoSaveFile::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

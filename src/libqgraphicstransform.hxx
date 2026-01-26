@@ -17,6 +17,8 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
     bool isVirtualQGraphicsTransform = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsTransform_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsTransform_Metacast_Callback = void* (*)(QGraphicsTransform*, const char*);
     using QGraphicsTransform_Metacall_Callback = int (*)(QGraphicsTransform*, int, int, void**);
     using QGraphicsTransform_ApplyTo_Callback = void (*)(const QGraphicsTransform*, QMatrix4x4*);
     using QGraphicsTransform_Event_Callback = bool (*)(QGraphicsTransform*, QEvent*);
@@ -34,6 +36,8 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
 
   protected:
     // Instance callback storage
+    QGraphicsTransform_MetaObject_Callback qgraphicstransform_metaobject_callback = nullptr;
+    QGraphicsTransform_Metacast_Callback qgraphicstransform_metacast_callback = nullptr;
     QGraphicsTransform_Metacall_Callback qgraphicstransform_metacall_callback = nullptr;
     QGraphicsTransform_ApplyTo_Callback qgraphicstransform_applyto_callback = nullptr;
     QGraphicsTransform_Event_Callback qgraphicstransform_event_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
     QGraphicsTransform_IsSignalConnected_Callback qgraphicstransform_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicstransform_metaobject_isbase = false;
+    mutable bool qgraphicstransform_metacast_isbase = false;
     mutable bool qgraphicstransform_metacall_isbase = false;
     mutable bool qgraphicstransform_applyto_isbase = false;
     mutable bool qgraphicstransform_event_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
     VirtualQGraphicsTransform(QObject* parent) : QGraphicsTransform(parent) {};
 
     ~VirtualQGraphicsTransform() {
+        qgraphicstransform_metaobject_callback = nullptr;
+        qgraphicstransform_metacast_callback = nullptr;
         qgraphicstransform_metacall_callback = nullptr;
         qgraphicstransform_applyto_callback = nullptr;
         qgraphicstransform_event_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
     }
 
     // Callback setters
+    inline void setQGraphicsTransform_MetaObject_Callback(QGraphicsTransform_MetaObject_Callback cb) { qgraphicstransform_metaobject_callback = cb; }
+    inline void setQGraphicsTransform_Metacast_Callback(QGraphicsTransform_Metacast_Callback cb) { qgraphicstransform_metacast_callback = cb; }
     inline void setQGraphicsTransform_Metacall_Callback(QGraphicsTransform_Metacall_Callback cb) { qgraphicstransform_metacall_callback = cb; }
     inline void setQGraphicsTransform_ApplyTo_Callback(QGraphicsTransform_ApplyTo_Callback cb) { qgraphicstransform_applyto_callback = cb; }
     inline void setQGraphicsTransform_Event_Callback(QGraphicsTransform_Event_Callback cb) { qgraphicstransform_event_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
     inline void setQGraphicsTransform_IsSignalConnected_Callback(QGraphicsTransform_IsSignalConnected_Callback cb) { qgraphicstransform_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsTransform_MetaObject_IsBase(bool value) const { qgraphicstransform_metaobject_isbase = value; }
+    inline void setQGraphicsTransform_Metacast_IsBase(bool value) const { qgraphicstransform_metacast_isbase = value; }
     inline void setQGraphicsTransform_Metacall_IsBase(bool value) const { qgraphicstransform_metacall_isbase = value; }
     inline void setQGraphicsTransform_ApplyTo_IsBase(bool value) const { qgraphicstransform_applyto_isbase = value; }
     inline void setQGraphicsTransform_Event_IsBase(bool value) const { qgraphicstransform_event_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
     inline void setQGraphicsTransform_SenderSignalIndex_IsBase(bool value) const { qgraphicstransform_sendersignalindex_isbase = value; }
     inline void setQGraphicsTransform_Receivers_IsBase(bool value) const { qgraphicstransform_receivers_isbase = value; }
     inline void setQGraphicsTransform_IsSignalConnected_IsBase(bool value) const { qgraphicstransform_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicstransform_metaobject_isbase) {
+            qgraphicstransform_metaobject_isbase = false;
+            return QGraphicsTransform::metaObject();
+        } else if (qgraphicstransform_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicstransform_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsTransform::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicstransform_metacast_isbase) {
+            qgraphicstransform_metacast_isbase = false;
+            return QGraphicsTransform::qt_metacast(param1);
+        } else if (qgraphicstransform_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicstransform_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsTransform::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -350,6 +390,8 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
     bool isVirtualQGraphicsScale = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsScale_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsScale_Metacast_Callback = void* (*)(QGraphicsScale*, const char*);
     using QGraphicsScale_Metacall_Callback = int (*)(QGraphicsScale*, int, int, void**);
     using QGraphicsScale_ApplyTo_Callback = void (*)(const QGraphicsScale*, QMatrix4x4*);
     using QGraphicsScale_Event_Callback = bool (*)(QGraphicsScale*, QEvent*);
@@ -367,6 +409,8 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
 
   protected:
     // Instance callback storage
+    QGraphicsScale_MetaObject_Callback qgraphicsscale_metaobject_callback = nullptr;
+    QGraphicsScale_Metacast_Callback qgraphicsscale_metacast_callback = nullptr;
     QGraphicsScale_Metacall_Callback qgraphicsscale_metacall_callback = nullptr;
     QGraphicsScale_ApplyTo_Callback qgraphicsscale_applyto_callback = nullptr;
     QGraphicsScale_Event_Callback qgraphicsscale_event_callback = nullptr;
@@ -383,6 +427,8 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
     QGraphicsScale_IsSignalConnected_Callback qgraphicsscale_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsscale_metaobject_isbase = false;
+    mutable bool qgraphicsscale_metacast_isbase = false;
     mutable bool qgraphicsscale_metacall_isbase = false;
     mutable bool qgraphicsscale_applyto_isbase = false;
     mutable bool qgraphicsscale_event_isbase = false;
@@ -403,6 +449,8 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
     VirtualQGraphicsScale(QObject* parent) : QGraphicsScale(parent) {};
 
     ~VirtualQGraphicsScale() {
+        qgraphicsscale_metaobject_callback = nullptr;
+        qgraphicsscale_metacast_callback = nullptr;
         qgraphicsscale_metacall_callback = nullptr;
         qgraphicsscale_applyto_callback = nullptr;
         qgraphicsscale_event_callback = nullptr;
@@ -420,6 +468,8 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
     }
 
     // Callback setters
+    inline void setQGraphicsScale_MetaObject_Callback(QGraphicsScale_MetaObject_Callback cb) { qgraphicsscale_metaobject_callback = cb; }
+    inline void setQGraphicsScale_Metacast_Callback(QGraphicsScale_Metacast_Callback cb) { qgraphicsscale_metacast_callback = cb; }
     inline void setQGraphicsScale_Metacall_Callback(QGraphicsScale_Metacall_Callback cb) { qgraphicsscale_metacall_callback = cb; }
     inline void setQGraphicsScale_ApplyTo_Callback(QGraphicsScale_ApplyTo_Callback cb) { qgraphicsscale_applyto_callback = cb; }
     inline void setQGraphicsScale_Event_Callback(QGraphicsScale_Event_Callback cb) { qgraphicsscale_event_callback = cb; }
@@ -436,6 +486,8 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
     inline void setQGraphicsScale_IsSignalConnected_Callback(QGraphicsScale_IsSignalConnected_Callback cb) { qgraphicsscale_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsScale_MetaObject_IsBase(bool value) const { qgraphicsscale_metaobject_isbase = value; }
+    inline void setQGraphicsScale_Metacast_IsBase(bool value) const { qgraphicsscale_metacast_isbase = value; }
     inline void setQGraphicsScale_Metacall_IsBase(bool value) const { qgraphicsscale_metacall_isbase = value; }
     inline void setQGraphicsScale_ApplyTo_IsBase(bool value) const { qgraphicsscale_applyto_isbase = value; }
     inline void setQGraphicsScale_Event_IsBase(bool value) const { qgraphicsscale_event_isbase = value; }
@@ -450,6 +502,34 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
     inline void setQGraphicsScale_SenderSignalIndex_IsBase(bool value) const { qgraphicsscale_sendersignalindex_isbase = value; }
     inline void setQGraphicsScale_Receivers_IsBase(bool value) const { qgraphicsscale_receivers_isbase = value; }
     inline void setQGraphicsScale_IsSignalConnected_IsBase(bool value) const { qgraphicsscale_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsscale_metaobject_isbase) {
+            qgraphicsscale_metaobject_isbase = false;
+            return QGraphicsScale::metaObject();
+        } else if (qgraphicsscale_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsscale_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsScale::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsscale_metacast_isbase) {
+            qgraphicsscale_metacast_isbase = false;
+            return QGraphicsScale::qt_metacast(param1);
+        } else if (qgraphicsscale_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsscale_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsScale::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -688,6 +768,8 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
     bool isVirtualQGraphicsRotation = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsRotation_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsRotation_Metacast_Callback = void* (*)(QGraphicsRotation*, const char*);
     using QGraphicsRotation_Metacall_Callback = int (*)(QGraphicsRotation*, int, int, void**);
     using QGraphicsRotation_ApplyTo_Callback = void (*)(const QGraphicsRotation*, QMatrix4x4*);
     using QGraphicsRotation_Event_Callback = bool (*)(QGraphicsRotation*, QEvent*);
@@ -705,6 +787,8 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
 
   protected:
     // Instance callback storage
+    QGraphicsRotation_MetaObject_Callback qgraphicsrotation_metaobject_callback = nullptr;
+    QGraphicsRotation_Metacast_Callback qgraphicsrotation_metacast_callback = nullptr;
     QGraphicsRotation_Metacall_Callback qgraphicsrotation_metacall_callback = nullptr;
     QGraphicsRotation_ApplyTo_Callback qgraphicsrotation_applyto_callback = nullptr;
     QGraphicsRotation_Event_Callback qgraphicsrotation_event_callback = nullptr;
@@ -721,6 +805,8 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
     QGraphicsRotation_IsSignalConnected_Callback qgraphicsrotation_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsrotation_metaobject_isbase = false;
+    mutable bool qgraphicsrotation_metacast_isbase = false;
     mutable bool qgraphicsrotation_metacall_isbase = false;
     mutable bool qgraphicsrotation_applyto_isbase = false;
     mutable bool qgraphicsrotation_event_isbase = false;
@@ -741,6 +827,8 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
     VirtualQGraphicsRotation(QObject* parent) : QGraphicsRotation(parent) {};
 
     ~VirtualQGraphicsRotation() {
+        qgraphicsrotation_metaobject_callback = nullptr;
+        qgraphicsrotation_metacast_callback = nullptr;
         qgraphicsrotation_metacall_callback = nullptr;
         qgraphicsrotation_applyto_callback = nullptr;
         qgraphicsrotation_event_callback = nullptr;
@@ -758,6 +846,8 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
     }
 
     // Callback setters
+    inline void setQGraphicsRotation_MetaObject_Callback(QGraphicsRotation_MetaObject_Callback cb) { qgraphicsrotation_metaobject_callback = cb; }
+    inline void setQGraphicsRotation_Metacast_Callback(QGraphicsRotation_Metacast_Callback cb) { qgraphicsrotation_metacast_callback = cb; }
     inline void setQGraphicsRotation_Metacall_Callback(QGraphicsRotation_Metacall_Callback cb) { qgraphicsrotation_metacall_callback = cb; }
     inline void setQGraphicsRotation_ApplyTo_Callback(QGraphicsRotation_ApplyTo_Callback cb) { qgraphicsrotation_applyto_callback = cb; }
     inline void setQGraphicsRotation_Event_Callback(QGraphicsRotation_Event_Callback cb) { qgraphicsrotation_event_callback = cb; }
@@ -774,6 +864,8 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
     inline void setQGraphicsRotation_IsSignalConnected_Callback(QGraphicsRotation_IsSignalConnected_Callback cb) { qgraphicsrotation_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsRotation_MetaObject_IsBase(bool value) const { qgraphicsrotation_metaobject_isbase = value; }
+    inline void setQGraphicsRotation_Metacast_IsBase(bool value) const { qgraphicsrotation_metacast_isbase = value; }
     inline void setQGraphicsRotation_Metacall_IsBase(bool value) const { qgraphicsrotation_metacall_isbase = value; }
     inline void setQGraphicsRotation_ApplyTo_IsBase(bool value) const { qgraphicsrotation_applyto_isbase = value; }
     inline void setQGraphicsRotation_Event_IsBase(bool value) const { qgraphicsrotation_event_isbase = value; }
@@ -788,6 +880,34 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
     inline void setQGraphicsRotation_SenderSignalIndex_IsBase(bool value) const { qgraphicsrotation_sendersignalindex_isbase = value; }
     inline void setQGraphicsRotation_Receivers_IsBase(bool value) const { qgraphicsrotation_receivers_isbase = value; }
     inline void setQGraphicsRotation_IsSignalConnected_IsBase(bool value) const { qgraphicsrotation_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsrotation_metaobject_isbase) {
+            qgraphicsrotation_metaobject_isbase = false;
+            return QGraphicsRotation::metaObject();
+        } else if (qgraphicsrotation_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsrotation_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsRotation::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsrotation_metacast_isbase) {
+            qgraphicsrotation_metacast_isbase = false;
+            return QGraphicsRotation::qt_metacast(param1);
+        } else if (qgraphicsrotation_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsrotation_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsRotation::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

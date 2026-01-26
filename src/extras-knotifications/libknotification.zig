@@ -49,6 +49,32 @@ pub const knotificationaction = struct {
         return qtc.KNotificationAction_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNotificationAction `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.KNotificationAction_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNotificationAction `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KNotificationAction_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.KNotificationAction `
@@ -58,6 +84,31 @@ pub const knotificationaction = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KNotificationAction_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNotificationAction `
+    ///
+    /// ` callback: *const fn (self: QtC.KNotificationAction, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KNotificationAction_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNotificationAction `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.KNotificationAction_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -1462,6 +1513,32 @@ pub const knotification = struct {
         return qtc.KNotification_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNotification `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.KNotification_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNotification `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KNotification_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.KNotification `
@@ -1471,6 +1548,31 @@ pub const knotification = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KNotification_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KNotification `
+    ///
+    /// ` callback: *const fn (self: QtC.KNotification, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KNotification_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KNotification `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.KNotification_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):

@@ -17,6 +17,8 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
     bool isVirtualKRecentFilesAction = true;
 
     // Virtual class public types (including callbacks)
+    using KRecentFilesAction_MetaObject_Callback = QMetaObject* (*)();
+    using KRecentFilesAction_Metacast_Callback = void* (*)(KRecentFilesAction*, const char*);
     using KRecentFilesAction_Metacall_Callback = int (*)(KRecentFilesAction*, int, int, void**);
     using KRecentFilesAction_RemoveAction_Callback = QAction* (*)(KRecentFilesAction*, QAction*);
     using KRecentFilesAction_Clear_Callback = void (*)();
@@ -40,6 +42,8 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
 
   protected:
     // Instance callback storage
+    KRecentFilesAction_MetaObject_Callback krecentfilesaction_metaobject_callback = nullptr;
+    KRecentFilesAction_Metacast_Callback krecentfilesaction_metacast_callback = nullptr;
     KRecentFilesAction_Metacall_Callback krecentfilesaction_metacall_callback = nullptr;
     KRecentFilesAction_RemoveAction_Callback krecentfilesaction_removeaction_callback = nullptr;
     KRecentFilesAction_Clear_Callback krecentfilesaction_clear_callback = nullptr;
@@ -62,6 +66,8 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
     KRecentFilesAction_IsSignalConnected_Callback krecentfilesaction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool krecentfilesaction_metaobject_isbase = false;
+    mutable bool krecentfilesaction_metacast_isbase = false;
     mutable bool krecentfilesaction_metacall_isbase = false;
     mutable bool krecentfilesaction_removeaction_isbase = false;
     mutable bool krecentfilesaction_clear_isbase = false;
@@ -89,6 +95,8 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
     VirtualKRecentFilesAction(const QIcon& icon, const QString& text, QObject* parent) : KRecentFilesAction(icon, text, parent) {};
 
     ~VirtualKRecentFilesAction() {
+        krecentfilesaction_metaobject_callback = nullptr;
+        krecentfilesaction_metacast_callback = nullptr;
         krecentfilesaction_metacall_callback = nullptr;
         krecentfilesaction_removeaction_callback = nullptr;
         krecentfilesaction_clear_callback = nullptr;
@@ -112,6 +120,8 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
     }
 
     // Callback setters
+    inline void setKRecentFilesAction_MetaObject_Callback(KRecentFilesAction_MetaObject_Callback cb) { krecentfilesaction_metaobject_callback = cb; }
+    inline void setKRecentFilesAction_Metacast_Callback(KRecentFilesAction_Metacast_Callback cb) { krecentfilesaction_metacast_callback = cb; }
     inline void setKRecentFilesAction_Metacall_Callback(KRecentFilesAction_Metacall_Callback cb) { krecentfilesaction_metacall_callback = cb; }
     inline void setKRecentFilesAction_RemoveAction_Callback(KRecentFilesAction_RemoveAction_Callback cb) { krecentfilesaction_removeaction_callback = cb; }
     inline void setKRecentFilesAction_Clear_Callback(KRecentFilesAction_Clear_Callback cb) { krecentfilesaction_clear_callback = cb; }
@@ -134,6 +144,8 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
     inline void setKRecentFilesAction_IsSignalConnected_Callback(KRecentFilesAction_IsSignalConnected_Callback cb) { krecentfilesaction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKRecentFilesAction_MetaObject_IsBase(bool value) const { krecentfilesaction_metaobject_isbase = value; }
+    inline void setKRecentFilesAction_Metacast_IsBase(bool value) const { krecentfilesaction_metacast_isbase = value; }
     inline void setKRecentFilesAction_Metacall_IsBase(bool value) const { krecentfilesaction_metacall_isbase = value; }
     inline void setKRecentFilesAction_RemoveAction_IsBase(bool value) const { krecentfilesaction_removeaction_isbase = value; }
     inline void setKRecentFilesAction_Clear_IsBase(bool value) const { krecentfilesaction_clear_isbase = value; }
@@ -154,6 +166,34 @@ class VirtualKRecentFilesAction final : public KRecentFilesAction {
     inline void setKRecentFilesAction_SenderSignalIndex_IsBase(bool value) const { krecentfilesaction_sendersignalindex_isbase = value; }
     inline void setKRecentFilesAction_Receivers_IsBase(bool value) const { krecentfilesaction_receivers_isbase = value; }
     inline void setKRecentFilesAction_IsSignalConnected_IsBase(bool value) const { krecentfilesaction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (krecentfilesaction_metaobject_isbase) {
+            krecentfilesaction_metaobject_isbase = false;
+            return KRecentFilesAction::metaObject();
+        } else if (krecentfilesaction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = krecentfilesaction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KRecentFilesAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (krecentfilesaction_metacast_isbase) {
+            krecentfilesaction_metacast_isbase = false;
+            return KRecentFilesAction::qt_metacast(param1);
+        } else if (krecentfilesaction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = krecentfilesaction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KRecentFilesAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

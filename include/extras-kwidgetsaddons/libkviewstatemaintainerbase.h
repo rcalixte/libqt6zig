@@ -37,6 +37,10 @@ void KViewStateMaintainerBase_SetView(KViewStateMaintainerBase* self, QAbstractI
 QAbstractItemView* KViewStateMaintainerBase_View(const KViewStateMaintainerBase* self);
 void KViewStateMaintainerBase_SaveState(KViewStateMaintainerBase* self);
 void KViewStateMaintainerBase_RestoreState(KViewStateMaintainerBase* self);
+void KViewStateMaintainerBase_OnMetaObject(const KViewStateMaintainerBase* self, intptr_t slot);
+QMetaObject* KViewStateMaintainerBase_QBaseMetaObject(const KViewStateMaintainerBase* self);
+void KViewStateMaintainerBase_OnMetacast(KViewStateMaintainerBase* self, intptr_t slot);
+void* KViewStateMaintainerBase_QBaseMetacast(KViewStateMaintainerBase* self, const char* param1);
 void KViewStateMaintainerBase_OnMetacall(KViewStateMaintainerBase* self, intptr_t slot);
 int KViewStateMaintainerBase_QBaseMetacall(KViewStateMaintainerBase* self, int param1, int param2, void** param3);
 void KViewStateMaintainerBase_OnSaveState(KViewStateMaintainerBase* self, intptr_t slot);

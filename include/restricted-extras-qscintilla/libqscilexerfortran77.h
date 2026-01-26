@@ -46,6 +46,10 @@ libqt_string QsciLexerFortran77_Description(const QsciLexerFortran77* self, int 
 void QsciLexerFortran77_RefreshProperties(QsciLexerFortran77* self);
 bool QsciLexerFortran77_FoldCompact(const QsciLexerFortran77* self);
 void QsciLexerFortran77_SetFoldCompact(QsciLexerFortran77* self, bool fold);
+void QsciLexerFortran77_OnMetaObject(const QsciLexerFortran77* self, intptr_t slot);
+QMetaObject* QsciLexerFortran77_QBaseMetaObject(const QsciLexerFortran77* self);
+void QsciLexerFortran77_OnMetacast(QsciLexerFortran77* self, intptr_t slot);
+void* QsciLexerFortran77_QBaseMetacast(QsciLexerFortran77* self, const char* param1);
 void QsciLexerFortran77_OnMetacall(QsciLexerFortran77* self, intptr_t slot);
 int QsciLexerFortran77_QBaseMetacall(QsciLexerFortran77* self, int param1, int param2, void** param3);
 void QsciLexerFortran77_OnSetFoldCompact(QsciLexerFortran77* self, intptr_t slot);

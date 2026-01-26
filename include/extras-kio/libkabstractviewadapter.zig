@@ -253,31 +253,6 @@ pub const kabstractviewadapter = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KAbstractViewAdapter `
-    ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QObject_MetaObject(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KAbstractViewAdapter `
-    ///
-    /// ` param1: [:0]const u8 `
-    ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
-        const param1_Cstring = param1.ptr;
-        return qtc.QObject_Metacast(@ptrCast(self), param1_Cstring);
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -922,6 +897,100 @@ pub const kabstractviewadapter = struct {
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAbstractViewAdapter `
+    ///
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KAbstractViewAdapter_MetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAbstractViewAdapter `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KAbstractViewAdapter_QBaseMetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAbstractViewAdapter`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.KAbstractViewAdapter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAbstractViewAdapter `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.KAbstractViewAdapter_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KAbstractViewAdapter `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.KAbstractViewAdapter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KAbstractViewAdapter`
+    ///
+    /// ` callback: *const fn (self: QtC.KAbstractViewAdapter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KAbstractViewAdapter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject

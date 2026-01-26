@@ -17,6 +17,8 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
     bool isVirtualKNSWidgetsButton = true;
 
     // Virtual class public types (including callbacks)
+    using KNSWidgets__Button_MetaObject_Callback = QMetaObject* (*)();
+    using KNSWidgets__Button_Metacast_Callback = void* (*)(KNSWidgets__Button*, const char*);
     using KNSWidgets__Button_Metacall_Callback = int (*)(KNSWidgets__Button*, int, int, void**);
     using KNSWidgets__Button_SizeHint_Callback = QSize* (*)();
     using KNSWidgets__Button_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
 
   protected:
     // Instance callback storage
+    KNSWidgets__Button_MetaObject_Callback knswidgets__button_metaobject_callback = nullptr;
+    KNSWidgets__Button_Metacast_Callback knswidgets__button_metacast_callback = nullptr;
     KNSWidgets__Button_Metacall_Callback knswidgets__button_metacall_callback = nullptr;
     KNSWidgets__Button_SizeHint_Callback knswidgets__button_sizehint_callback = nullptr;
     KNSWidgets__Button_MinimumSizeHint_Callback knswidgets__button_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
     KNSWidgets__Button_GetDecodedMetricF_Callback knswidgets__button_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool knswidgets__button_metaobject_isbase = false;
+    mutable bool knswidgets__button_metacast_isbase = false;
     mutable bool knswidgets__button_metacall_isbase = false;
     mutable bool knswidgets__button_sizehint_isbase = false;
     mutable bool knswidgets__button_minimumsizehint_isbase = false;
@@ -214,6 +220,8 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
     VirtualKNSWidgetsButton(const QString& text, const QString& configFile, QWidget* parent) : KNSWidgets::Button(text, configFile, parent) {};
 
     ~VirtualKNSWidgetsButton() {
+        knswidgets__button_metaobject_callback = nullptr;
+        knswidgets__button_metacast_callback = nullptr;
         knswidgets__button_metacall_callback = nullptr;
         knswidgets__button_sizehint_callback = nullptr;
         knswidgets__button_minimumsizehint_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
     }
 
     // Callback setters
+    inline void setKNSWidgets__Button_MetaObject_Callback(KNSWidgets__Button_MetaObject_Callback cb) { knswidgets__button_metaobject_callback = cb; }
+    inline void setKNSWidgets__Button_Metacast_Callback(KNSWidgets__Button_Metacast_Callback cb) { knswidgets__button_metacast_callback = cb; }
     inline void setKNSWidgets__Button_Metacall_Callback(KNSWidgets__Button_Metacall_Callback cb) { knswidgets__button_metacall_callback = cb; }
     inline void setKNSWidgets__Button_SizeHint_Callback(KNSWidgets__Button_SizeHint_Callback cb) { knswidgets__button_sizehint_callback = cb; }
     inline void setKNSWidgets__Button_MinimumSizeHint_Callback(KNSWidgets__Button_MinimumSizeHint_Callback cb) { knswidgets__button_minimumsizehint_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
     inline void setKNSWidgets__Button_GetDecodedMetricF_Callback(KNSWidgets__Button_GetDecodedMetricF_Callback cb) { knswidgets__button_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKNSWidgets__Button_MetaObject_IsBase(bool value) const { knswidgets__button_metaobject_isbase = value; }
+    inline void setKNSWidgets__Button_Metacast_IsBase(bool value) const { knswidgets__button_metacast_isbase = value; }
     inline void setKNSWidgets__Button_Metacall_IsBase(bool value) const { knswidgets__button_metacall_isbase = value; }
     inline void setKNSWidgets__Button_SizeHint_IsBase(bool value) const { knswidgets__button_sizehint_isbase = value; }
     inline void setKNSWidgets__Button_MinimumSizeHint_IsBase(bool value) const { knswidgets__button_minimumsizehint_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualKNSWidgetsButton final : public KNSWidgets::Button {
     inline void setKNSWidgets__Button_Receivers_IsBase(bool value) const { knswidgets__button_receivers_isbase = value; }
     inline void setKNSWidgets__Button_IsSignalConnected_IsBase(bool value) const { knswidgets__button_issignalconnected_isbase = value; }
     inline void setKNSWidgets__Button_GetDecodedMetricF_IsBase(bool value) const { knswidgets__button_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knswidgets__button_metaobject_isbase) {
+            knswidgets__button_metaobject_isbase = false;
+            return KNSWidgets__Button::metaObject();
+        } else if (knswidgets__button_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knswidgets__button_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNSWidgets__Button::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knswidgets__button_metacast_isbase) {
+            knswidgets__button_metacast_isbase = false;
+            return KNSWidgets__Button::qt_metacast(param1);
+        } else if (knswidgets__button_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knswidgets__button_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNSWidgets__Button::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

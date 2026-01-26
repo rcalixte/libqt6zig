@@ -17,6 +17,8 @@ class VirtualQDockWidget final : public QDockWidget {
     bool isVirtualQDockWidget = true;
 
     // Virtual class public types (including callbacks)
+    using QDockWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QDockWidget_Metacast_Callback = void* (*)(QDockWidget*, const char*);
     using QDockWidget_Metacall_Callback = int (*)(QDockWidget*, int, int, void**);
     using QDockWidget_ChangeEvent_Callback = void (*)(QDockWidget*, QEvent*);
     using QDockWidget_CloseEvent_Callback = void (*)(QDockWidget*, QCloseEvent*);
@@ -79,6 +81,8 @@ class VirtualQDockWidget final : public QDockWidget {
 
   protected:
     // Instance callback storage
+    QDockWidget_MetaObject_Callback qdockwidget_metaobject_callback = nullptr;
+    QDockWidget_Metacast_Callback qdockwidget_metacast_callback = nullptr;
     QDockWidget_Metacall_Callback qdockwidget_metacall_callback = nullptr;
     QDockWidget_ChangeEvent_Callback qdockwidget_changeevent_callback = nullptr;
     QDockWidget_CloseEvent_Callback qdockwidget_closeevent_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualQDockWidget final : public QDockWidget {
     QDockWidget_GetDecodedMetricF_Callback qdockwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdockwidget_metaobject_isbase = false;
+    mutable bool qdockwidget_metacast_isbase = false;
     mutable bool qdockwidget_metacall_isbase = false;
     mutable bool qdockwidget_changeevent_isbase = false;
     mutable bool qdockwidget_closeevent_isbase = false;
@@ -209,6 +215,8 @@ class VirtualQDockWidget final : public QDockWidget {
     VirtualQDockWidget(QWidget* parent, Qt::WindowFlags flags) : QDockWidget(parent, flags) {};
 
     ~VirtualQDockWidget() {
+        qdockwidget_metaobject_callback = nullptr;
+        qdockwidget_metacast_callback = nullptr;
         qdockwidget_metacall_callback = nullptr;
         qdockwidget_changeevent_callback = nullptr;
         qdockwidget_closeevent_callback = nullptr;
@@ -271,6 +279,8 @@ class VirtualQDockWidget final : public QDockWidget {
     }
 
     // Callback setters
+    inline void setQDockWidget_MetaObject_Callback(QDockWidget_MetaObject_Callback cb) { qdockwidget_metaobject_callback = cb; }
+    inline void setQDockWidget_Metacast_Callback(QDockWidget_Metacast_Callback cb) { qdockwidget_metacast_callback = cb; }
     inline void setQDockWidget_Metacall_Callback(QDockWidget_Metacall_Callback cb) { qdockwidget_metacall_callback = cb; }
     inline void setQDockWidget_ChangeEvent_Callback(QDockWidget_ChangeEvent_Callback cb) { qdockwidget_changeevent_callback = cb; }
     inline void setQDockWidget_CloseEvent_Callback(QDockWidget_CloseEvent_Callback cb) { qdockwidget_closeevent_callback = cb; }
@@ -332,6 +342,8 @@ class VirtualQDockWidget final : public QDockWidget {
     inline void setQDockWidget_GetDecodedMetricF_Callback(QDockWidget_GetDecodedMetricF_Callback cb) { qdockwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDockWidget_MetaObject_IsBase(bool value) const { qdockwidget_metaobject_isbase = value; }
+    inline void setQDockWidget_Metacast_IsBase(bool value) const { qdockwidget_metacast_isbase = value; }
     inline void setQDockWidget_Metacall_IsBase(bool value) const { qdockwidget_metacall_isbase = value; }
     inline void setQDockWidget_ChangeEvent_IsBase(bool value) const { qdockwidget_changeevent_isbase = value; }
     inline void setQDockWidget_CloseEvent_IsBase(bool value) const { qdockwidget_closeevent_isbase = value; }
@@ -391,6 +403,34 @@ class VirtualQDockWidget final : public QDockWidget {
     inline void setQDockWidget_Receivers_IsBase(bool value) const { qdockwidget_receivers_isbase = value; }
     inline void setQDockWidget_IsSignalConnected_IsBase(bool value) const { qdockwidget_issignalconnected_isbase = value; }
     inline void setQDockWidget_GetDecodedMetricF_IsBase(bool value) const { qdockwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdockwidget_metaobject_isbase) {
+            qdockwidget_metaobject_isbase = false;
+            return QDockWidget::metaObject();
+        } else if (qdockwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdockwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDockWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdockwidget_metacast_isbase) {
+            qdockwidget_metacast_isbase = false;
+            return QDockWidget::qt_metacast(param1);
+        } else if (qdockwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdockwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDockWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

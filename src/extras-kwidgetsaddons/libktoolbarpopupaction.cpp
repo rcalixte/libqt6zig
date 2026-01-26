@@ -24,11 +24,21 @@ KToolBarPopupAction* KToolBarPopupAction_new(const QIcon* icon, const libqt_stri
 }
 
 QMetaObject* KToolBarPopupAction_MetaObject(const KToolBarPopupAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktoolbarpopupaction = dynamic_cast<const VirtualKToolBarPopupAction*>(self);
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKToolBarPopupAction*)self)->metaObject();
+    }
 }
 
 void* KToolBarPopupAction_Metacast(KToolBarPopupAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKToolBarPopupAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KToolBarPopupAction_Metacall(KToolBarPopupAction* self, int param1, int param2, void** param3) {
@@ -58,6 +68,44 @@ QWidget* KToolBarPopupAction_CreateWidget(KToolBarPopupAction* self, QWidget* pa
         return self->createWidget(parent);
     } else {
         return ((VirtualKToolBarPopupAction*)self)->createWidget(parent);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KToolBarPopupAction_QBaseMetaObject(const KToolBarPopupAction* self) {
+    auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+        vktoolbarpopupaction->setKToolBarPopupAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vktoolbarpopupaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KToolBarPopupAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolBarPopupAction_OnMetaObject(const KToolBarPopupAction* self, intptr_t slot) {
+    auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+        vktoolbarpopupaction->setKToolBarPopupAction_MetaObject_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KToolBarPopupAction_QBaseMetacast(KToolBarPopupAction* self, const char* param1) {
+    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+        vktoolbarpopupaction->setKToolBarPopupAction_Metacast_IsBase(true);
+        return vktoolbarpopupaction->qt_metacast(param1);
+    } else {
+        return self->KToolBarPopupAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolBarPopupAction_OnMetacast(KToolBarPopupAction* self, intptr_t slot) {
+    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+        vktoolbarpopupaction->setKToolBarPopupAction_Metacast_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_Metacast_Callback>(slot));
     }
 }
 

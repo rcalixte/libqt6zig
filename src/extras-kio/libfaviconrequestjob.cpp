@@ -29,11 +29,21 @@ KIO__FavIconRequestJob* KIO__FavIconRequestJob_new3(const QUrl* hostUrl, int rel
 }
 
 QMetaObject* KIO__FavIconRequestJob_MetaObject(const KIO__FavIconRequestJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__faviconrequestjob = dynamic_cast<const VirtualKIOFavIconRequestJob*>(self);
+    if (vkio__faviconrequestjob && vkio__faviconrequestjob->isVirtualKIOFavIconRequestJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOFavIconRequestJob*)self)->metaObject();
+    }
 }
 
 void* KIO__FavIconRequestJob_Metacast(KIO__FavIconRequestJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__faviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
+    if (vkio__faviconrequestjob && vkio__faviconrequestjob->isVirtualKIOFavIconRequestJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOFavIconRequestJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__FavIconRequestJob_Metacall(KIO__FavIconRequestJob* self, int param1, int param2, void** param3) {
@@ -71,6 +81,44 @@ void KIO__FavIconRequestJob_Start(KIO__FavIconRequestJob* self) {
         self->start();
     } else {
         ((VirtualKIOFavIconRequestJob*)self)->start();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KIO__FavIconRequestJob_QBaseMetaObject(const KIO__FavIconRequestJob* self) {
+    auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+        vkiofaviconrequestjob->setKIO__FavIconRequestJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiofaviconrequestjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::FavIconRequestJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__FavIconRequestJob_OnMetaObject(const KIO__FavIconRequestJob* self, intptr_t slot) {
+    auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+        vkiofaviconrequestjob->setKIO__FavIconRequestJob_MetaObject_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__FavIconRequestJob_QBaseMetacast(KIO__FavIconRequestJob* self, const char* param1) {
+    auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+        vkiofaviconrequestjob->setKIO__FavIconRequestJob_Metacast_IsBase(true);
+        return vkiofaviconrequestjob->qt_metacast(param1);
+    } else {
+        return self->KIO::FavIconRequestJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__FavIconRequestJob_OnMetacast(KIO__FavIconRequestJob* self, intptr_t slot) {
+    auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+        vkiofaviconrequestjob->setKIO__FavIconRequestJob_Metacast_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_Metacast_Callback>(slot));
     }
 }
 

@@ -55,11 +55,21 @@ QMdiArea* QMdiArea_new2() {
 }
 
 QMetaObject* QMdiArea_MetaObject(const QMdiArea* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmdiarea = dynamic_cast<const VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMdiArea*)self)->metaObject();
+    }
 }
 
 void* QMdiArea_Metacast(QMdiArea* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMdiArea*)self)->qt_metacast(param1);
+    }
 }
 
 int QMdiArea_Metacall(QMdiArea* self, int param1, int param2, void** param3) {
@@ -322,6 +332,44 @@ QMdiSubWindow* QMdiArea_AddSubWindow2(QMdiArea* self, QWidget* widget, int flags
 
 void QMdiArea_SetOption2(QMdiArea* self, int option, bool on) {
     self->setOption(static_cast<QMdiArea::AreaOption>(option), on);
+}
+
+// Base class handler implementation
+QMetaObject* QMdiArea_QBaseMetaObject(const QMdiArea* self) {
+    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmdiarea->metaObject();
+    } else {
+        return (QMetaObject*)self->QMdiArea::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMdiArea_OnMetaObject(const QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = const_cast<VirtualQMdiArea*>(dynamic_cast<const VirtualQMdiArea*>(self));
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_MetaObject_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMdiArea_QBaseMetacast(QMdiArea* self, const char* param1) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_Metacast_IsBase(true);
+        return vqmdiarea->qt_metacast(param1);
+    } else {
+        return self->QMdiArea::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMdiArea_OnMetacast(QMdiArea* self, intptr_t slot) {
+    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
+    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
+        vqmdiarea->setQMdiArea_Metacast_Callback(reinterpret_cast<VirtualQMdiArea::QMdiArea_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

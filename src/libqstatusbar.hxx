@@ -17,6 +17,8 @@ class VirtualQStatusBar final : public QStatusBar {
     bool isVirtualQStatusBar = true;
 
     // Virtual class public types (including callbacks)
+    using QStatusBar_MetaObject_Callback = QMetaObject* (*)();
+    using QStatusBar_Metacast_Callback = void* (*)(QStatusBar*, const char*);
     using QStatusBar_Metacall_Callback = int (*)(QStatusBar*, int, int, void**);
     using QStatusBar_ShowEvent_Callback = void (*)(QStatusBar*, QShowEvent*);
     using QStatusBar_PaintEvent_Callback = void (*)(QStatusBar*, QPaintEvent*);
@@ -80,6 +82,8 @@ class VirtualQStatusBar final : public QStatusBar {
 
   protected:
     // Instance callback storage
+    QStatusBar_MetaObject_Callback qstatusbar_metaobject_callback = nullptr;
+    QStatusBar_Metacast_Callback qstatusbar_metacast_callback = nullptr;
     QStatusBar_Metacall_Callback qstatusbar_metacall_callback = nullptr;
     QStatusBar_ShowEvent_Callback qstatusbar_showevent_callback = nullptr;
     QStatusBar_PaintEvent_Callback qstatusbar_paintevent_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualQStatusBar final : public QStatusBar {
     QStatusBar_GetDecodedMetricF_Callback qstatusbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qstatusbar_metaobject_isbase = false;
+    mutable bool qstatusbar_metacast_isbase = false;
     mutable bool qstatusbar_metacall_isbase = false;
     mutable bool qstatusbar_showevent_isbase = false;
     mutable bool qstatusbar_paintevent_isbase = false;
@@ -208,6 +214,8 @@ class VirtualQStatusBar final : public QStatusBar {
     VirtualQStatusBar() : QStatusBar() {};
 
     ~VirtualQStatusBar() {
+        qstatusbar_metaobject_callback = nullptr;
+        qstatusbar_metacast_callback = nullptr;
         qstatusbar_metacall_callback = nullptr;
         qstatusbar_showevent_callback = nullptr;
         qstatusbar_paintevent_callback = nullptr;
@@ -271,6 +279,8 @@ class VirtualQStatusBar final : public QStatusBar {
     }
 
     // Callback setters
+    inline void setQStatusBar_MetaObject_Callback(QStatusBar_MetaObject_Callback cb) { qstatusbar_metaobject_callback = cb; }
+    inline void setQStatusBar_Metacast_Callback(QStatusBar_Metacast_Callback cb) { qstatusbar_metacast_callback = cb; }
     inline void setQStatusBar_Metacall_Callback(QStatusBar_Metacall_Callback cb) { qstatusbar_metacall_callback = cb; }
     inline void setQStatusBar_ShowEvent_Callback(QStatusBar_ShowEvent_Callback cb) { qstatusbar_showevent_callback = cb; }
     inline void setQStatusBar_PaintEvent_Callback(QStatusBar_PaintEvent_Callback cb) { qstatusbar_paintevent_callback = cb; }
@@ -333,6 +343,8 @@ class VirtualQStatusBar final : public QStatusBar {
     inline void setQStatusBar_GetDecodedMetricF_Callback(QStatusBar_GetDecodedMetricF_Callback cb) { qstatusbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQStatusBar_MetaObject_IsBase(bool value) const { qstatusbar_metaobject_isbase = value; }
+    inline void setQStatusBar_Metacast_IsBase(bool value) const { qstatusbar_metacast_isbase = value; }
     inline void setQStatusBar_Metacall_IsBase(bool value) const { qstatusbar_metacall_isbase = value; }
     inline void setQStatusBar_ShowEvent_IsBase(bool value) const { qstatusbar_showevent_isbase = value; }
     inline void setQStatusBar_PaintEvent_IsBase(bool value) const { qstatusbar_paintevent_isbase = value; }
@@ -393,6 +405,34 @@ class VirtualQStatusBar final : public QStatusBar {
     inline void setQStatusBar_Receivers_IsBase(bool value) const { qstatusbar_receivers_isbase = value; }
     inline void setQStatusBar_IsSignalConnected_IsBase(bool value) const { qstatusbar_issignalconnected_isbase = value; }
     inline void setQStatusBar_GetDecodedMetricF_IsBase(bool value) const { qstatusbar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qstatusbar_metaobject_isbase) {
+            qstatusbar_metaobject_isbase = false;
+            return QStatusBar::metaObject();
+        } else if (qstatusbar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qstatusbar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QStatusBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qstatusbar_metacast_isbase) {
+            qstatusbar_metacast_isbase = false;
+            return QStatusBar::qt_metacast(param1);
+        } else if (qstatusbar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qstatusbar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QStatusBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

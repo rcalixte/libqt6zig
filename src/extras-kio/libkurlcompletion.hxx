@@ -17,6 +17,8 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     bool isVirtualKUrlCompletion = true;
 
     // Virtual class public types (including callbacks)
+    using KUrlCompletion_MetaObject_Callback = QMetaObject* (*)();
+    using KUrlCompletion_Metacast_Callback = void* (*)(KUrlCompletion*, const char*);
     using KUrlCompletion_Metacall_Callback = int (*)(KUrlCompletion*, int, int, void**);
     using KUrlCompletion_MakeCompletion_Callback = const char* (*)(KUrlCompletion*, libqt_string);
     using KUrlCompletion_SetDir_Callback = void (*)(KUrlCompletion*, QUrl*);
@@ -53,6 +55,8 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
 
   protected:
     // Instance callback storage
+    KUrlCompletion_MetaObject_Callback kurlcompletion_metaobject_callback = nullptr;
+    KUrlCompletion_Metacast_Callback kurlcompletion_metacast_callback = nullptr;
     KUrlCompletion_Metacall_Callback kurlcompletion_metacall_callback = nullptr;
     KUrlCompletion_MakeCompletion_Callback kurlcompletion_makecompletion_callback = nullptr;
     KUrlCompletion_SetDir_Callback kurlcompletion_setdir_callback = nullptr;
@@ -88,6 +92,8 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     KUrlCompletion_IsSignalConnected_Callback kurlcompletion_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kurlcompletion_metaobject_isbase = false;
+    mutable bool kurlcompletion_metacast_isbase = false;
     mutable bool kurlcompletion_metacall_isbase = false;
     mutable bool kurlcompletion_makecompletion_isbase = false;
     mutable bool kurlcompletion_setdir_isbase = false;
@@ -127,6 +133,8 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     VirtualKUrlCompletion(KUrlCompletion::Mode param1) : KUrlCompletion(param1) {};
 
     ~VirtualKUrlCompletion() {
+        kurlcompletion_metaobject_callback = nullptr;
+        kurlcompletion_metacast_callback = nullptr;
         kurlcompletion_metacall_callback = nullptr;
         kurlcompletion_makecompletion_callback = nullptr;
         kurlcompletion_setdir_callback = nullptr;
@@ -163,6 +171,8 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     }
 
     // Callback setters
+    inline void setKUrlCompletion_MetaObject_Callback(KUrlCompletion_MetaObject_Callback cb) { kurlcompletion_metaobject_callback = cb; }
+    inline void setKUrlCompletion_Metacast_Callback(KUrlCompletion_Metacast_Callback cb) { kurlcompletion_metacast_callback = cb; }
     inline void setKUrlCompletion_Metacall_Callback(KUrlCompletion_Metacall_Callback cb) { kurlcompletion_metacall_callback = cb; }
     inline void setKUrlCompletion_MakeCompletion_Callback(KUrlCompletion_MakeCompletion_Callback cb) { kurlcompletion_makecompletion_callback = cb; }
     inline void setKUrlCompletion_SetDir_Callback(KUrlCompletion_SetDir_Callback cb) { kurlcompletion_setdir_callback = cb; }
@@ -198,6 +208,8 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     inline void setKUrlCompletion_IsSignalConnected_Callback(KUrlCompletion_IsSignalConnected_Callback cb) { kurlcompletion_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKUrlCompletion_MetaObject_IsBase(bool value) const { kurlcompletion_metaobject_isbase = value; }
+    inline void setKUrlCompletion_Metacast_IsBase(bool value) const { kurlcompletion_metacast_isbase = value; }
     inline void setKUrlCompletion_Metacall_IsBase(bool value) const { kurlcompletion_metacall_isbase = value; }
     inline void setKUrlCompletion_MakeCompletion_IsBase(bool value) const { kurlcompletion_makecompletion_isbase = value; }
     inline void setKUrlCompletion_SetDir_IsBase(bool value) const { kurlcompletion_setdir_isbase = value; }
@@ -231,6 +243,34 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     inline void setKUrlCompletion_SenderSignalIndex_IsBase(bool value) const { kurlcompletion_sendersignalindex_isbase = value; }
     inline void setKUrlCompletion_Receivers_IsBase(bool value) const { kurlcompletion_receivers_isbase = value; }
     inline void setKUrlCompletion_IsSignalConnected_IsBase(bool value) const { kurlcompletion_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kurlcompletion_metaobject_isbase) {
+            kurlcompletion_metaobject_isbase = false;
+            return KUrlCompletion::metaObject();
+        } else if (kurlcompletion_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kurlcompletion_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KUrlCompletion::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kurlcompletion_metacast_isbase) {
+            kurlcompletion_metacast_isbase = false;
+            return KUrlCompletion::qt_metacast(param1);
+        } else if (kurlcompletion_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kurlcompletion_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KUrlCompletion::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

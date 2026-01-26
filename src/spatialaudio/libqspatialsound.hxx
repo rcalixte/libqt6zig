@@ -17,6 +17,8 @@ class VirtualQSpatialSound final : public QSpatialSound {
     bool isVirtualQSpatialSound = true;
 
     // Virtual class public types (including callbacks)
+    using QSpatialSound_MetaObject_Callback = QMetaObject* (*)();
+    using QSpatialSound_Metacast_Callback = void* (*)(QSpatialSound*, const char*);
     using QSpatialSound_Metacall_Callback = int (*)(QSpatialSound*, int, int, void**);
     using QSpatialSound_Event_Callback = bool (*)(QSpatialSound*, QEvent*);
     using QSpatialSound_EventFilter_Callback = bool (*)(QSpatialSound*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
   protected:
     // Instance callback storage
+    QSpatialSound_MetaObject_Callback qspatialsound_metaobject_callback = nullptr;
+    QSpatialSound_Metacast_Callback qspatialsound_metacast_callback = nullptr;
     QSpatialSound_Metacall_Callback qspatialsound_metacall_callback = nullptr;
     QSpatialSound_Event_Callback qspatialsound_event_callback = nullptr;
     QSpatialSound_EventFilter_Callback qspatialsound_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQSpatialSound final : public QSpatialSound {
     QSpatialSound_IsSignalConnected_Callback qspatialsound_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qspatialsound_metaobject_isbase = false;
+    mutable bool qspatialsound_metacast_isbase = false;
     mutable bool qspatialsound_metacall_isbase = false;
     mutable bool qspatialsound_event_isbase = false;
     mutable bool qspatialsound_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualQSpatialSound final : public QSpatialSound {
     VirtualQSpatialSound(QAudioEngine* engine) : QSpatialSound(engine) {};
 
     ~VirtualQSpatialSound() {
+        qspatialsound_metaobject_callback = nullptr;
+        qspatialsound_metacast_callback = nullptr;
         qspatialsound_metacall_callback = nullptr;
         qspatialsound_event_callback = nullptr;
         qspatialsound_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualQSpatialSound final : public QSpatialSound {
     }
 
     // Callback setters
+    inline void setQSpatialSound_MetaObject_Callback(QSpatialSound_MetaObject_Callback cb) { qspatialsound_metaobject_callback = cb; }
+    inline void setQSpatialSound_Metacast_Callback(QSpatialSound_Metacast_Callback cb) { qspatialsound_metacast_callback = cb; }
     inline void setQSpatialSound_Metacall_Callback(QSpatialSound_Metacall_Callback cb) { qspatialsound_metacall_callback = cb; }
     inline void setQSpatialSound_Event_Callback(QSpatialSound_Event_Callback cb) { qspatialsound_event_callback = cb; }
     inline void setQSpatialSound_EventFilter_Callback(QSpatialSound_EventFilter_Callback cb) { qspatialsound_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualQSpatialSound final : public QSpatialSound {
     inline void setQSpatialSound_IsSignalConnected_Callback(QSpatialSound_IsSignalConnected_Callback cb) { qspatialsound_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSpatialSound_MetaObject_IsBase(bool value) const { qspatialsound_metaobject_isbase = value; }
+    inline void setQSpatialSound_Metacast_IsBase(bool value) const { qspatialsound_metacast_isbase = value; }
     inline void setQSpatialSound_Metacall_IsBase(bool value) const { qspatialsound_metacall_isbase = value; }
     inline void setQSpatialSound_Event_IsBase(bool value) const { qspatialsound_event_isbase = value; }
     inline void setQSpatialSound_EventFilter_IsBase(bool value) const { qspatialsound_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualQSpatialSound final : public QSpatialSound {
     inline void setQSpatialSound_SenderSignalIndex_IsBase(bool value) const { qspatialsound_sendersignalindex_isbase = value; }
     inline void setQSpatialSound_Receivers_IsBase(bool value) const { qspatialsound_receivers_isbase = value; }
     inline void setQSpatialSound_IsSignalConnected_IsBase(bool value) const { qspatialsound_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qspatialsound_metaobject_isbase) {
+            qspatialsound_metaobject_isbase = false;
+            return QSpatialSound::metaObject();
+        } else if (qspatialsound_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qspatialsound_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSpatialSound::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qspatialsound_metacast_isbase) {
+            qspatialsound_metacast_isbase = false;
+            return QSpatialSound::qt_metacast(param1);
+        } else if (qspatialsound_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qspatialsound_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSpatialSound::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

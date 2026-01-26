@@ -44,6 +44,10 @@ void QMediaDevices_Connect_AudioOutputsChanged(QMediaDevices* self, intptr_t slo
 void QMediaDevices_VideoInputsChanged(QMediaDevices* self);
 void QMediaDevices_Connect_VideoInputsChanged(QMediaDevices* self, intptr_t slot);
 void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
+void QMediaDevices_OnMetaObject(const QMediaDevices* self, intptr_t slot);
+QMetaObject* QMediaDevices_QBaseMetaObject(const QMediaDevices* self);
+void QMediaDevices_OnMetacast(QMediaDevices* self, intptr_t slot);
+void* QMediaDevices_QBaseMetacast(QMediaDevices* self, const char* param1);
 void QMediaDevices_OnMetacall(QMediaDevices* self, intptr_t slot);
 int QMediaDevices_QBaseMetacall(QMediaDevices* self, int param1, int param2, void** param3);
 void QMediaDevices_OnConnectNotify(QMediaDevices* self, intptr_t slot);

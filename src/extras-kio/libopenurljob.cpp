@@ -36,11 +36,21 @@ KIO__OpenUrlJob* KIO__OpenUrlJob_new4(const QUrl* url, const libqt_string mimeTy
 }
 
 QMetaObject* KIO__OpenUrlJob_MetaObject(const KIO__OpenUrlJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__openurljob = dynamic_cast<const VirtualKIOOpenUrlJob*>(self);
+    if (vkio__openurljob && vkio__openurljob->isVirtualKIOOpenUrlJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOOpenUrlJob*)self)->metaObject();
+    }
 }
 
 void* KIO__OpenUrlJob_Metacast(KIO__OpenUrlJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__openurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
+    if (vkio__openurljob && vkio__openurljob->isVirtualKIOOpenUrlJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOOpenUrlJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__OpenUrlJob_Metacall(KIO__OpenUrlJob* self, int param1, int param2, void** param3) {
@@ -122,6 +132,44 @@ bool KIO__OpenUrlJob_DoKill(KIO__OpenUrlJob* self) {
         return vkio__openurljob->doKill();
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KIO__OpenUrlJob_QBaseMetaObject(const KIO__OpenUrlJob* self) {
+    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+        vkioopenurljob->setKIO__OpenUrlJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkioopenurljob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::OpenUrlJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__OpenUrlJob_OnMetaObject(const KIO__OpenUrlJob* self, intptr_t slot) {
+    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+        vkioopenurljob->setKIO__OpenUrlJob_MetaObject_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__OpenUrlJob_QBaseMetacast(KIO__OpenUrlJob* self, const char* param1) {
+    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+        vkioopenurljob->setKIO__OpenUrlJob_Metacast_IsBase(true);
+        return vkioopenurljob->qt_metacast(param1);
+    } else {
+        return self->KIO::OpenUrlJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__OpenUrlJob_OnMetacast(KIO__OpenUrlJob* self, intptr_t slot) {
+    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+        vkioopenurljob->setKIO__OpenUrlJob_Metacast_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

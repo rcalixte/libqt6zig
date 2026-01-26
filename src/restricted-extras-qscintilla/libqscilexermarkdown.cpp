@@ -25,11 +25,21 @@ QsciLexerMarkdown* QsciLexerMarkdown_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerMarkdown_MetaObject(const QsciLexerMarkdown* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexermarkdown = dynamic_cast<const VirtualQsciLexerMarkdown*>(self);
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerMarkdown*)self)->metaObject();
+    }
 }
 
 void* QsciLexerMarkdown_Metacast(QsciLexerMarkdown* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerMarkdown*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerMarkdown_Metacall(QsciLexerMarkdown* self, int param1, int param2, void** param3) {
@@ -71,6 +81,44 @@ libqt_string QsciLexerMarkdown_Description(const QsciLexerMarkdown* self, int st
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerMarkdown_QBaseMetaObject(const QsciLexerMarkdown* self) {
+    auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+        vqscilexermarkdown->setQsciLexerMarkdown_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexermarkdown->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerMarkdown*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerMarkdown_OnMetaObject(const QsciLexerMarkdown* self, intptr_t slot) {
+    auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+        vqscilexermarkdown->setQsciLexerMarkdown_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerMarkdown_QBaseMetacast(QsciLexerMarkdown* self, const char* param1) {
+    auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+        vqscilexermarkdown->setQsciLexerMarkdown_Metacast_IsBase(true);
+        return vqscilexermarkdown->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerMarkdown*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerMarkdown_OnMetacast(QsciLexerMarkdown* self, intptr_t slot) {
+    auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+        vqscilexermarkdown->setQsciLexerMarkdown_Metacast_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

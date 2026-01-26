@@ -33,11 +33,21 @@ KPixmapSequenceOverlayPainter* KPixmapSequenceOverlayPainter_new4(const KPixmapS
 }
 
 QMetaObject* KPixmapSequenceOverlayPainter_MetaObject(const KPixmapSequenceOverlayPainter* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self);
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPixmapSequenceOverlayPainter*)self)->metaObject();
+    }
 }
 
 void* KPixmapSequenceOverlayPainter_Metacast(KPixmapSequenceOverlayPainter* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPixmapSequenceOverlayPainter*)self)->qt_metacast(param1);
+    }
 }
 
 int KPixmapSequenceOverlayPainter_Metacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3) {
@@ -107,6 +117,44 @@ bool KPixmapSequenceOverlayPainter_EventFilter(KPixmapSequenceOverlayPainter* se
         return vkpixmapsequenceoverlaypainter->eventFilter(obj, event);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KPixmapSequenceOverlayPainter_QBaseMetaObject(const KPixmapSequenceOverlayPainter* self) {
+    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpixmapsequenceoverlaypainter->metaObject();
+    } else {
+        return (QMetaObject*)self->KPixmapSequenceOverlayPainter::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapSequenceOverlayPainter_OnMetaObject(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
+    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_MetaObject_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPixmapSequenceOverlayPainter_QBaseMetacast(KPixmapSequenceOverlayPainter* self, const char* param1) {
+    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacast_IsBase(true);
+        return vkpixmapsequenceoverlaypainter->qt_metacast(param1);
+    } else {
+        return self->KPixmapSequenceOverlayPainter::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapSequenceOverlayPainter_OnMetacast(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
+    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacast_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

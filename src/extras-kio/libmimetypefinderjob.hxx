@@ -17,6 +17,8 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
     bool isVirtualKIOMimeTypeFinderJob = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__MimeTypeFinderJob_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__MimeTypeFinderJob_Metacast_Callback = void* (*)(KIO__MimeTypeFinderJob*, const char*);
     using KIO__MimeTypeFinderJob_Metacall_Callback = int (*)(KIO__MimeTypeFinderJob*, int, int, void**);
     using KIO__MimeTypeFinderJob_Start_Callback = void (*)();
     using KIO__MimeTypeFinderJob_DoKill_Callback = bool (*)();
@@ -56,6 +58,8 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
 
   protected:
     // Instance callback storage
+    KIO__MimeTypeFinderJob_MetaObject_Callback kio__mimetypefinderjob_metaobject_callback = nullptr;
+    KIO__MimeTypeFinderJob_Metacast_Callback kio__mimetypefinderjob_metacast_callback = nullptr;
     KIO__MimeTypeFinderJob_Metacall_Callback kio__mimetypefinderjob_metacall_callback = nullptr;
     KIO__MimeTypeFinderJob_Start_Callback kio__mimetypefinderjob_start_callback = nullptr;
     KIO__MimeTypeFinderJob_DoKill_Callback kio__mimetypefinderjob_dokill_callback = nullptr;
@@ -94,6 +98,8 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
     KIO__MimeTypeFinderJob_IsSignalConnected_Callback kio__mimetypefinderjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__mimetypefinderjob_metaobject_isbase = false;
+    mutable bool kio__mimetypefinderjob_metacast_isbase = false;
     mutable bool kio__mimetypefinderjob_metacall_isbase = false;
     mutable bool kio__mimetypefinderjob_start_isbase = false;
     mutable bool kio__mimetypefinderjob_dokill_isbase = false;
@@ -136,6 +142,8 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
     VirtualKIOMimeTypeFinderJob(const QUrl& url, QObject* parent) : KIO::MimeTypeFinderJob(url, parent) {};
 
     ~VirtualKIOMimeTypeFinderJob() {
+        kio__mimetypefinderjob_metaobject_callback = nullptr;
+        kio__mimetypefinderjob_metacast_callback = nullptr;
         kio__mimetypefinderjob_metacall_callback = nullptr;
         kio__mimetypefinderjob_start_callback = nullptr;
         kio__mimetypefinderjob_dokill_callback = nullptr;
@@ -175,6 +183,8 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
     }
 
     // Callback setters
+    inline void setKIO__MimeTypeFinderJob_MetaObject_Callback(KIO__MimeTypeFinderJob_MetaObject_Callback cb) { kio__mimetypefinderjob_metaobject_callback = cb; }
+    inline void setKIO__MimeTypeFinderJob_Metacast_Callback(KIO__MimeTypeFinderJob_Metacast_Callback cb) { kio__mimetypefinderjob_metacast_callback = cb; }
     inline void setKIO__MimeTypeFinderJob_Metacall_Callback(KIO__MimeTypeFinderJob_Metacall_Callback cb) { kio__mimetypefinderjob_metacall_callback = cb; }
     inline void setKIO__MimeTypeFinderJob_Start_Callback(KIO__MimeTypeFinderJob_Start_Callback cb) { kio__mimetypefinderjob_start_callback = cb; }
     inline void setKIO__MimeTypeFinderJob_DoKill_Callback(KIO__MimeTypeFinderJob_DoKill_Callback cb) { kio__mimetypefinderjob_dokill_callback = cb; }
@@ -213,6 +223,8 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
     inline void setKIO__MimeTypeFinderJob_IsSignalConnected_Callback(KIO__MimeTypeFinderJob_IsSignalConnected_Callback cb) { kio__mimetypefinderjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__MimeTypeFinderJob_MetaObject_IsBase(bool value) const { kio__mimetypefinderjob_metaobject_isbase = value; }
+    inline void setKIO__MimeTypeFinderJob_Metacast_IsBase(bool value) const { kio__mimetypefinderjob_metacast_isbase = value; }
     inline void setKIO__MimeTypeFinderJob_Metacall_IsBase(bool value) const { kio__mimetypefinderjob_metacall_isbase = value; }
     inline void setKIO__MimeTypeFinderJob_Start_IsBase(bool value) const { kio__mimetypefinderjob_start_isbase = value; }
     inline void setKIO__MimeTypeFinderJob_DoKill_IsBase(bool value) const { kio__mimetypefinderjob_dokill_isbase = value; }
@@ -249,6 +261,34 @@ class VirtualKIOMimeTypeFinderJob final : public KIO::MimeTypeFinderJob {
     inline void setKIO__MimeTypeFinderJob_SenderSignalIndex_IsBase(bool value) const { kio__mimetypefinderjob_sendersignalindex_isbase = value; }
     inline void setKIO__MimeTypeFinderJob_Receivers_IsBase(bool value) const { kio__mimetypefinderjob_receivers_isbase = value; }
     inline void setKIO__MimeTypeFinderJob_IsSignalConnected_IsBase(bool value) const { kio__mimetypefinderjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__mimetypefinderjob_metaobject_isbase) {
+            kio__mimetypefinderjob_metaobject_isbase = false;
+            return KIO__MimeTypeFinderJob::metaObject();
+        } else if (kio__mimetypefinderjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__mimetypefinderjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__MimeTypeFinderJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__mimetypefinderjob_metacast_isbase) {
+            kio__mimetypefinderjob_metacast_isbase = false;
+            return KIO__MimeTypeFinderJob::qt_metacast(param1);
+        } else if (kio__mimetypefinderjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__mimetypefinderjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__MimeTypeFinderJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQLCDNumber final : public QLCDNumber {
     bool isVirtualQLCDNumber = true;
 
     // Virtual class public types (including callbacks)
+    using QLCDNumber_MetaObject_Callback = QMetaObject* (*)();
+    using QLCDNumber_Metacast_Callback = void* (*)(QLCDNumber*, const char*);
     using QLCDNumber_Metacall_Callback = int (*)(QLCDNumber*, int, int, void**);
     using QLCDNumber_SizeHint_Callback = QSize* (*)();
     using QLCDNumber_Event_Callback = bool (*)(QLCDNumber*, QEvent*);
@@ -80,6 +82,8 @@ class VirtualQLCDNumber final : public QLCDNumber {
 
   protected:
     // Instance callback storage
+    QLCDNumber_MetaObject_Callback qlcdnumber_metaobject_callback = nullptr;
+    QLCDNumber_Metacast_Callback qlcdnumber_metacast_callback = nullptr;
     QLCDNumber_Metacall_Callback qlcdnumber_metacall_callback = nullptr;
     QLCDNumber_SizeHint_Callback qlcdnumber_sizehint_callback = nullptr;
     QLCDNumber_Event_Callback qlcdnumber_event_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualQLCDNumber final : public QLCDNumber {
     QLCDNumber_GetDecodedMetricF_Callback qlcdnumber_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlcdnumber_metaobject_isbase = false;
+    mutable bool qlcdnumber_metacast_isbase = false;
     mutable bool qlcdnumber_metacall_isbase = false;
     mutable bool qlcdnumber_sizehint_isbase = false;
     mutable bool qlcdnumber_event_isbase = false;
@@ -210,6 +216,8 @@ class VirtualQLCDNumber final : public QLCDNumber {
     VirtualQLCDNumber(uint numDigits, QWidget* parent) : QLCDNumber(numDigits, parent) {};
 
     ~VirtualQLCDNumber() {
+        qlcdnumber_metaobject_callback = nullptr;
+        qlcdnumber_metacast_callback = nullptr;
         qlcdnumber_metacall_callback = nullptr;
         qlcdnumber_sizehint_callback = nullptr;
         qlcdnumber_event_callback = nullptr;
@@ -273,6 +281,8 @@ class VirtualQLCDNumber final : public QLCDNumber {
     }
 
     // Callback setters
+    inline void setQLCDNumber_MetaObject_Callback(QLCDNumber_MetaObject_Callback cb) { qlcdnumber_metaobject_callback = cb; }
+    inline void setQLCDNumber_Metacast_Callback(QLCDNumber_Metacast_Callback cb) { qlcdnumber_metacast_callback = cb; }
     inline void setQLCDNumber_Metacall_Callback(QLCDNumber_Metacall_Callback cb) { qlcdnumber_metacall_callback = cb; }
     inline void setQLCDNumber_SizeHint_Callback(QLCDNumber_SizeHint_Callback cb) { qlcdnumber_sizehint_callback = cb; }
     inline void setQLCDNumber_Event_Callback(QLCDNumber_Event_Callback cb) { qlcdnumber_event_callback = cb; }
@@ -335,6 +345,8 @@ class VirtualQLCDNumber final : public QLCDNumber {
     inline void setQLCDNumber_GetDecodedMetricF_Callback(QLCDNumber_GetDecodedMetricF_Callback cb) { qlcdnumber_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQLCDNumber_MetaObject_IsBase(bool value) const { qlcdnumber_metaobject_isbase = value; }
+    inline void setQLCDNumber_Metacast_IsBase(bool value) const { qlcdnumber_metacast_isbase = value; }
     inline void setQLCDNumber_Metacall_IsBase(bool value) const { qlcdnumber_metacall_isbase = value; }
     inline void setQLCDNumber_SizeHint_IsBase(bool value) const { qlcdnumber_sizehint_isbase = value; }
     inline void setQLCDNumber_Event_IsBase(bool value) const { qlcdnumber_event_isbase = value; }
@@ -395,6 +407,34 @@ class VirtualQLCDNumber final : public QLCDNumber {
     inline void setQLCDNumber_Receivers_IsBase(bool value) const { qlcdnumber_receivers_isbase = value; }
     inline void setQLCDNumber_IsSignalConnected_IsBase(bool value) const { qlcdnumber_issignalconnected_isbase = value; }
     inline void setQLCDNumber_GetDecodedMetricF_IsBase(bool value) const { qlcdnumber_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlcdnumber_metaobject_isbase) {
+            qlcdnumber_metaobject_isbase = false;
+            return QLCDNumber::metaObject();
+        } else if (qlcdnumber_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlcdnumber_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QLCDNumber::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlcdnumber_metacast_isbase) {
+            qlcdnumber_metacast_isbase = false;
+            return QLCDNumber::qt_metacast(param1);
+        } else if (qlcdnumber_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlcdnumber_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QLCDNumber::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

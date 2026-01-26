@@ -49,11 +49,21 @@ QErrorMessage* QErrorMessage_new2() {
 }
 
 QMetaObject* QErrorMessage_MetaObject(const QErrorMessage* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqerrormessage = dynamic_cast<const VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQErrorMessage*)self)->metaObject();
+    }
 }
 
 void* QErrorMessage_Metacast(QErrorMessage* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQErrorMessage*)self)->qt_metacast(param1);
+    }
 }
 
 int QErrorMessage_Metacall(QErrorMessage* self, int param1, int param2, void** param3) {
@@ -91,6 +101,44 @@ void QErrorMessage_ChangeEvent(QErrorMessage* self, QEvent* e) {
     auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
     if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
         vqerrormessage->changeEvent(e);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QErrorMessage_QBaseMetaObject(const QErrorMessage* self) {
+    auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_MetaObject_IsBase(true);
+        return (QMetaObject*)vqerrormessage->metaObject();
+    } else {
+        return (QMetaObject*)self->QErrorMessage::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QErrorMessage_OnMetaObject(const QErrorMessage* self, intptr_t slot) {
+    auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_MetaObject_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QErrorMessage_QBaseMetacast(QErrorMessage* self, const char* param1) {
+    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_Metacast_IsBase(true);
+        return vqerrormessage->qt_metacast(param1);
+    } else {
+        return self->QErrorMessage::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QErrorMessage_OnMetacast(QErrorMessage* self, intptr_t slot) {
+    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_Metacast_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_Metacast_Callback>(slot));
     }
 }
 

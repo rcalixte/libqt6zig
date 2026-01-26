@@ -17,6 +17,8 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
     bool isVirtualQOffscreenSurface = true;
 
     // Virtual class public types (including callbacks)
+    using QOffscreenSurface_MetaObject_Callback = QMetaObject* (*)();
+    using QOffscreenSurface_Metacast_Callback = void* (*)(QOffscreenSurface*, const char*);
     using QOffscreenSurface_Metacall_Callback = int (*)(QOffscreenSurface*, int, int, void**);
     using QOffscreenSurface_SurfaceType_Callback = int (*)();
     using QOffscreenSurface_Format_Callback = QSurfaceFormat* (*)();
@@ -36,6 +38,8 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
 
   protected:
     // Instance callback storage
+    QOffscreenSurface_MetaObject_Callback qoffscreensurface_metaobject_callback = nullptr;
+    QOffscreenSurface_Metacast_Callback qoffscreensurface_metacast_callback = nullptr;
     QOffscreenSurface_Metacall_Callback qoffscreensurface_metacall_callback = nullptr;
     QOffscreenSurface_SurfaceType_Callback qoffscreensurface_surfacetype_callback = nullptr;
     QOffscreenSurface_Format_Callback qoffscreensurface_format_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
     QOffscreenSurface_IsSignalConnected_Callback qoffscreensurface_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qoffscreensurface_metaobject_isbase = false;
+    mutable bool qoffscreensurface_metacast_isbase = false;
     mutable bool qoffscreensurface_metacall_isbase = false;
     mutable bool qoffscreensurface_surfacetype_isbase = false;
     mutable bool qoffscreensurface_format_isbase = false;
@@ -77,6 +83,8 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
     VirtualQOffscreenSurface(QScreen* screen, QObject* parent) : QOffscreenSurface(screen, parent) {};
 
     ~VirtualQOffscreenSurface() {
+        qoffscreensurface_metaobject_callback = nullptr;
+        qoffscreensurface_metacast_callback = nullptr;
         qoffscreensurface_metacall_callback = nullptr;
         qoffscreensurface_surfacetype_callback = nullptr;
         qoffscreensurface_format_callback = nullptr;
@@ -96,6 +104,8 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
     }
 
     // Callback setters
+    inline void setQOffscreenSurface_MetaObject_Callback(QOffscreenSurface_MetaObject_Callback cb) { qoffscreensurface_metaobject_callback = cb; }
+    inline void setQOffscreenSurface_Metacast_Callback(QOffscreenSurface_Metacast_Callback cb) { qoffscreensurface_metacast_callback = cb; }
     inline void setQOffscreenSurface_Metacall_Callback(QOffscreenSurface_Metacall_Callback cb) { qoffscreensurface_metacall_callback = cb; }
     inline void setQOffscreenSurface_SurfaceType_Callback(QOffscreenSurface_SurfaceType_Callback cb) { qoffscreensurface_surfacetype_callback = cb; }
     inline void setQOffscreenSurface_Format_Callback(QOffscreenSurface_Format_Callback cb) { qoffscreensurface_format_callback = cb; }
@@ -114,6 +124,8 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
     inline void setQOffscreenSurface_IsSignalConnected_Callback(QOffscreenSurface_IsSignalConnected_Callback cb) { qoffscreensurface_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQOffscreenSurface_MetaObject_IsBase(bool value) const { qoffscreensurface_metaobject_isbase = value; }
+    inline void setQOffscreenSurface_Metacast_IsBase(bool value) const { qoffscreensurface_metacast_isbase = value; }
     inline void setQOffscreenSurface_Metacall_IsBase(bool value) const { qoffscreensurface_metacall_isbase = value; }
     inline void setQOffscreenSurface_SurfaceType_IsBase(bool value) const { qoffscreensurface_surfacetype_isbase = value; }
     inline void setQOffscreenSurface_Format_IsBase(bool value) const { qoffscreensurface_format_isbase = value; }
@@ -130,6 +142,34 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
     inline void setQOffscreenSurface_SenderSignalIndex_IsBase(bool value) const { qoffscreensurface_sendersignalindex_isbase = value; }
     inline void setQOffscreenSurface_Receivers_IsBase(bool value) const { qoffscreensurface_receivers_isbase = value; }
     inline void setQOffscreenSurface_IsSignalConnected_IsBase(bool value) const { qoffscreensurface_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qoffscreensurface_metaobject_isbase) {
+            qoffscreensurface_metaobject_isbase = false;
+            return QOffscreenSurface::metaObject();
+        } else if (qoffscreensurface_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qoffscreensurface_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QOffscreenSurface::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qoffscreensurface_metacast_isbase) {
+            qoffscreensurface_metacast_isbase = false;
+            return QOffscreenSurface::qt_metacast(param1);
+        } else if (qoffscreensurface_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qoffscreensurface_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QOffscreenSurface::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

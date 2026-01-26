@@ -17,6 +17,8 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
     bool isVirtualQPlaceSearchSuggestionReply = true;
 
     // Virtual class public types (including callbacks)
+    using QPlaceSearchSuggestionReply_MetaObject_Callback = QMetaObject* (*)();
+    using QPlaceSearchSuggestionReply_Metacast_Callback = void* (*)(QPlaceSearchSuggestionReply*, const char*);
     using QPlaceSearchSuggestionReply_Metacall_Callback = int (*)(QPlaceSearchSuggestionReply*, int, int, void**);
     using QPlaceSearchSuggestionReply_Type_Callback = int (*)();
     using QPlaceSearchSuggestionReply_Abort_Callback = void (*)();
@@ -37,6 +39,8 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
 
   protected:
     // Instance callback storage
+    QPlaceSearchSuggestionReply_MetaObject_Callback qplacesearchsuggestionreply_metaobject_callback = nullptr;
+    QPlaceSearchSuggestionReply_Metacast_Callback qplacesearchsuggestionreply_metacast_callback = nullptr;
     QPlaceSearchSuggestionReply_Metacall_Callback qplacesearchsuggestionreply_metacall_callback = nullptr;
     QPlaceSearchSuggestionReply_Type_Callback qplacesearchsuggestionreply_type_callback = nullptr;
     QPlaceSearchSuggestionReply_Abort_Callback qplacesearchsuggestionreply_abort_callback = nullptr;
@@ -56,6 +60,8 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
     QPlaceSearchSuggestionReply_IsSignalConnected_Callback qplacesearchsuggestionreply_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qplacesearchsuggestionreply_metaobject_isbase = false;
+    mutable bool qplacesearchsuggestionreply_metacast_isbase = false;
     mutable bool qplacesearchsuggestionreply_metacall_isbase = false;
     mutable bool qplacesearchsuggestionreply_type_isbase = false;
     mutable bool qplacesearchsuggestionreply_abort_isbase = false;
@@ -79,6 +85,8 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
     VirtualQPlaceSearchSuggestionReply(QObject* parent) : QPlaceSearchSuggestionReply(parent) {};
 
     ~VirtualQPlaceSearchSuggestionReply() {
+        qplacesearchsuggestionreply_metaobject_callback = nullptr;
+        qplacesearchsuggestionreply_metacast_callback = nullptr;
         qplacesearchsuggestionreply_metacall_callback = nullptr;
         qplacesearchsuggestionreply_type_callback = nullptr;
         qplacesearchsuggestionreply_abort_callback = nullptr;
@@ -99,6 +107,8 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
     }
 
     // Callback setters
+    inline void setQPlaceSearchSuggestionReply_MetaObject_Callback(QPlaceSearchSuggestionReply_MetaObject_Callback cb) { qplacesearchsuggestionreply_metaobject_callback = cb; }
+    inline void setQPlaceSearchSuggestionReply_Metacast_Callback(QPlaceSearchSuggestionReply_Metacast_Callback cb) { qplacesearchsuggestionreply_metacast_callback = cb; }
     inline void setQPlaceSearchSuggestionReply_Metacall_Callback(QPlaceSearchSuggestionReply_Metacall_Callback cb) { qplacesearchsuggestionreply_metacall_callback = cb; }
     inline void setQPlaceSearchSuggestionReply_Type_Callback(QPlaceSearchSuggestionReply_Type_Callback cb) { qplacesearchsuggestionreply_type_callback = cb; }
     inline void setQPlaceSearchSuggestionReply_Abort_Callback(QPlaceSearchSuggestionReply_Abort_Callback cb) { qplacesearchsuggestionreply_abort_callback = cb; }
@@ -118,6 +128,8 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
     inline void setQPlaceSearchSuggestionReply_IsSignalConnected_Callback(QPlaceSearchSuggestionReply_IsSignalConnected_Callback cb) { qplacesearchsuggestionreply_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPlaceSearchSuggestionReply_MetaObject_IsBase(bool value) const { qplacesearchsuggestionreply_metaobject_isbase = value; }
+    inline void setQPlaceSearchSuggestionReply_Metacast_IsBase(bool value) const { qplacesearchsuggestionreply_metacast_isbase = value; }
     inline void setQPlaceSearchSuggestionReply_Metacall_IsBase(bool value) const { qplacesearchsuggestionreply_metacall_isbase = value; }
     inline void setQPlaceSearchSuggestionReply_Type_IsBase(bool value) const { qplacesearchsuggestionreply_type_isbase = value; }
     inline void setQPlaceSearchSuggestionReply_Abort_IsBase(bool value) const { qplacesearchsuggestionreply_abort_isbase = value; }
@@ -135,6 +147,34 @@ class VirtualQPlaceSearchSuggestionReply final : public QPlaceSearchSuggestionRe
     inline void setQPlaceSearchSuggestionReply_SenderSignalIndex_IsBase(bool value) const { qplacesearchsuggestionreply_sendersignalindex_isbase = value; }
     inline void setQPlaceSearchSuggestionReply_Receivers_IsBase(bool value) const { qplacesearchsuggestionreply_receivers_isbase = value; }
     inline void setQPlaceSearchSuggestionReply_IsSignalConnected_IsBase(bool value) const { qplacesearchsuggestionreply_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qplacesearchsuggestionreply_metaobject_isbase) {
+            qplacesearchsuggestionreply_metaobject_isbase = false;
+            return QPlaceSearchSuggestionReply::metaObject();
+        } else if (qplacesearchsuggestionreply_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qplacesearchsuggestionreply_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPlaceSearchSuggestionReply::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qplacesearchsuggestionreply_metacast_isbase) {
+            qplacesearchsuggestionreply_metacast_isbase = false;
+            return QPlaceSearchSuggestionReply::qt_metacast(param1);
+        } else if (qplacesearchsuggestionreply_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qplacesearchsuggestionreply_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPlaceSearchSuggestionReply::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

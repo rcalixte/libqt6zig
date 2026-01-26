@@ -17,6 +17,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
     bool isVirtualQSizeGrip = true;
 
     // Virtual class public types (including callbacks)
+    using QSizeGrip_MetaObject_Callback = QMetaObject* (*)();
+    using QSizeGrip_Metacast_Callback = void* (*)(QSizeGrip*, const char*);
     using QSizeGrip_Metacall_Callback = int (*)(QSizeGrip*, int, int, void**);
     using QSizeGrip_SizeHint_Callback = QSize* (*)();
     using QSizeGrip_SetVisible_Callback = void (*)(QSizeGrip*, bool);
@@ -78,6 +80,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
 
   protected:
     // Instance callback storage
+    QSizeGrip_MetaObject_Callback qsizegrip_metaobject_callback = nullptr;
+    QSizeGrip_Metacast_Callback qsizegrip_metacast_callback = nullptr;
     QSizeGrip_Metacall_Callback qsizegrip_metacall_callback = nullptr;
     QSizeGrip_SizeHint_Callback qsizegrip_sizehint_callback = nullptr;
     QSizeGrip_SetVisible_Callback qsizegrip_setvisible_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
     QSizeGrip_GetDecodedMetricF_Callback qsizegrip_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsizegrip_metaobject_isbase = false;
+    mutable bool qsizegrip_metacast_isbase = false;
     mutable bool qsizegrip_metacall_isbase = false;
     mutable bool qsizegrip_sizehint_isbase = false;
     mutable bool qsizegrip_setvisible_isbase = false;
@@ -201,6 +207,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
     VirtualQSizeGrip(QWidget* parent) : QSizeGrip(parent) {};
 
     ~VirtualQSizeGrip() {
+        qsizegrip_metaobject_callback = nullptr;
+        qsizegrip_metacast_callback = nullptr;
         qsizegrip_metacall_callback = nullptr;
         qsizegrip_sizehint_callback = nullptr;
         qsizegrip_setvisible_callback = nullptr;
@@ -262,6 +270,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
     }
 
     // Callback setters
+    inline void setQSizeGrip_MetaObject_Callback(QSizeGrip_MetaObject_Callback cb) { qsizegrip_metaobject_callback = cb; }
+    inline void setQSizeGrip_Metacast_Callback(QSizeGrip_Metacast_Callback cb) { qsizegrip_metacast_callback = cb; }
     inline void setQSizeGrip_Metacall_Callback(QSizeGrip_Metacall_Callback cb) { qsizegrip_metacall_callback = cb; }
     inline void setQSizeGrip_SizeHint_Callback(QSizeGrip_SizeHint_Callback cb) { qsizegrip_sizehint_callback = cb; }
     inline void setQSizeGrip_SetVisible_Callback(QSizeGrip_SetVisible_Callback cb) { qsizegrip_setvisible_callback = cb; }
@@ -322,6 +332,8 @@ class VirtualQSizeGrip final : public QSizeGrip {
     inline void setQSizeGrip_GetDecodedMetricF_Callback(QSizeGrip_GetDecodedMetricF_Callback cb) { qsizegrip_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQSizeGrip_MetaObject_IsBase(bool value) const { qsizegrip_metaobject_isbase = value; }
+    inline void setQSizeGrip_Metacast_IsBase(bool value) const { qsizegrip_metacast_isbase = value; }
     inline void setQSizeGrip_Metacall_IsBase(bool value) const { qsizegrip_metacall_isbase = value; }
     inline void setQSizeGrip_SizeHint_IsBase(bool value) const { qsizegrip_sizehint_isbase = value; }
     inline void setQSizeGrip_SetVisible_IsBase(bool value) const { qsizegrip_setvisible_isbase = value; }
@@ -380,6 +392,34 @@ class VirtualQSizeGrip final : public QSizeGrip {
     inline void setQSizeGrip_Receivers_IsBase(bool value) const { qsizegrip_receivers_isbase = value; }
     inline void setQSizeGrip_IsSignalConnected_IsBase(bool value) const { qsizegrip_issignalconnected_isbase = value; }
     inline void setQSizeGrip_GetDecodedMetricF_IsBase(bool value) const { qsizegrip_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsizegrip_metaobject_isbase) {
+            qsizegrip_metaobject_isbase = false;
+            return QSizeGrip::metaObject();
+        } else if (qsizegrip_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsizegrip_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSizeGrip::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsizegrip_metacast_isbase) {
+            qsizegrip_metacast_isbase = false;
+            return QSizeGrip::qt_metacast(param1);
+        } else if (qsizegrip_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsizegrip_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSizeGrip::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

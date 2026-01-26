@@ -63,6 +63,10 @@ int KAdjustingScrollArea_Metacall(KAdjustingScrollArea* self, int param1, int pa
 QSize* KAdjustingScrollArea_MinimumSizeHint(const KAdjustingScrollArea* self);
 QSize* KAdjustingScrollArea_SizeHint(const KAdjustingScrollArea* self);
 bool KAdjustingScrollArea_Event(KAdjustingScrollArea* self, QEvent* event);
+void KAdjustingScrollArea_OnMetaObject(const KAdjustingScrollArea* self, intptr_t slot);
+QMetaObject* KAdjustingScrollArea_QBaseMetaObject(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnMetacast(KAdjustingScrollArea* self, intptr_t slot);
+void* KAdjustingScrollArea_QBaseMetacast(KAdjustingScrollArea* self, const char* param1);
 void KAdjustingScrollArea_OnMetacall(KAdjustingScrollArea* self, intptr_t slot);
 int KAdjustingScrollArea_QBaseMetacall(KAdjustingScrollArea* self, int param1, int param2, void** param3);
 void KAdjustingScrollArea_OnMinimumSizeHint(const KAdjustingScrollArea* self, intptr_t slot);

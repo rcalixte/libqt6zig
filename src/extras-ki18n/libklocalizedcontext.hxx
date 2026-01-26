@@ -17,6 +17,8 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
     bool isVirtualKLocalizedContext = true;
 
     // Virtual class public types (including callbacks)
+    using KLocalizedContext_MetaObject_Callback = QMetaObject* (*)();
+    using KLocalizedContext_Metacast_Callback = void* (*)(KLocalizedContext*, const char*);
     using KLocalizedContext_Metacall_Callback = int (*)(KLocalizedContext*, int, int, void**);
     using KLocalizedContext_Event_Callback = bool (*)(KLocalizedContext*, QEvent*);
     using KLocalizedContext_EventFilter_Callback = bool (*)(KLocalizedContext*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
 
   protected:
     // Instance callback storage
+    KLocalizedContext_MetaObject_Callback klocalizedcontext_metaobject_callback = nullptr;
+    KLocalizedContext_Metacast_Callback klocalizedcontext_metacast_callback = nullptr;
     KLocalizedContext_Metacall_Callback klocalizedcontext_metacall_callback = nullptr;
     KLocalizedContext_Event_Callback klocalizedcontext_event_callback = nullptr;
     KLocalizedContext_EventFilter_Callback klocalizedcontext_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
     KLocalizedContext_IsSignalConnected_Callback klocalizedcontext_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool klocalizedcontext_metaobject_isbase = false;
+    mutable bool klocalizedcontext_metacast_isbase = false;
     mutable bool klocalizedcontext_metacall_isbase = false;
     mutable bool klocalizedcontext_event_isbase = false;
     mutable bool klocalizedcontext_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
     VirtualKLocalizedContext(QObject* parent) : KLocalizedContext(parent) {};
 
     ~VirtualKLocalizedContext() {
+        klocalizedcontext_metaobject_callback = nullptr;
+        klocalizedcontext_metacast_callback = nullptr;
         klocalizedcontext_metacall_callback = nullptr;
         klocalizedcontext_event_callback = nullptr;
         klocalizedcontext_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
     }
 
     // Callback setters
+    inline void setKLocalizedContext_MetaObject_Callback(KLocalizedContext_MetaObject_Callback cb) { klocalizedcontext_metaobject_callback = cb; }
+    inline void setKLocalizedContext_Metacast_Callback(KLocalizedContext_Metacast_Callback cb) { klocalizedcontext_metacast_callback = cb; }
     inline void setKLocalizedContext_Metacall_Callback(KLocalizedContext_Metacall_Callback cb) { klocalizedcontext_metacall_callback = cb; }
     inline void setKLocalizedContext_Event_Callback(KLocalizedContext_Event_Callback cb) { klocalizedcontext_event_callback = cb; }
     inline void setKLocalizedContext_EventFilter_Callback(KLocalizedContext_EventFilter_Callback cb) { klocalizedcontext_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
     inline void setKLocalizedContext_IsSignalConnected_Callback(KLocalizedContext_IsSignalConnected_Callback cb) { klocalizedcontext_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKLocalizedContext_MetaObject_IsBase(bool value) const { klocalizedcontext_metaobject_isbase = value; }
+    inline void setKLocalizedContext_Metacast_IsBase(bool value) const { klocalizedcontext_metacast_isbase = value; }
     inline void setKLocalizedContext_Metacall_IsBase(bool value) const { klocalizedcontext_metacall_isbase = value; }
     inline void setKLocalizedContext_Event_IsBase(bool value) const { klocalizedcontext_event_isbase = value; }
     inline void setKLocalizedContext_EventFilter_IsBase(bool value) const { klocalizedcontext_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKLocalizedContext final : public KLocalizedContext {
     inline void setKLocalizedContext_SenderSignalIndex_IsBase(bool value) const { klocalizedcontext_sendersignalindex_isbase = value; }
     inline void setKLocalizedContext_Receivers_IsBase(bool value) const { klocalizedcontext_receivers_isbase = value; }
     inline void setKLocalizedContext_IsSignalConnected_IsBase(bool value) const { klocalizedcontext_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (klocalizedcontext_metaobject_isbase) {
+            klocalizedcontext_metaobject_isbase = false;
+            return KLocalizedContext::metaObject();
+        } else if (klocalizedcontext_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = klocalizedcontext_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KLocalizedContext::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (klocalizedcontext_metacast_isbase) {
+            klocalizedcontext_metacast_isbase = false;
+            return KLocalizedContext::qt_metacast(param1);
+        } else if (klocalizedcontext_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = klocalizedcontext_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KLocalizedContext::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

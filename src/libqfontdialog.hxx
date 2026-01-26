@@ -17,6 +17,8 @@ class VirtualQFontDialog final : public QFontDialog {
     bool isVirtualQFontDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QFontDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QFontDialog_Metacast_Callback = void* (*)(QFontDialog*, const char*);
     using QFontDialog_Metacall_Callback = int (*)(QFontDialog*, int, int, void**);
     using QFontDialog_SetVisible_Callback = void (*)(QFontDialog*, bool);
     using QFontDialog_ChangeEvent_Callback = void (*)(QFontDialog*, QEvent*);
@@ -84,6 +86,8 @@ class VirtualQFontDialog final : public QFontDialog {
 
   protected:
     // Instance callback storage
+    QFontDialog_MetaObject_Callback qfontdialog_metaobject_callback = nullptr;
+    QFontDialog_Metacast_Callback qfontdialog_metacast_callback = nullptr;
     QFontDialog_Metacall_Callback qfontdialog_metacall_callback = nullptr;
     QFontDialog_SetVisible_Callback qfontdialog_setvisible_callback = nullptr;
     QFontDialog_ChangeEvent_Callback qfontdialog_changeevent_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQFontDialog final : public QFontDialog {
     QFontDialog_GetDecodedMetricF_Callback qfontdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qfontdialog_metaobject_isbase = false;
+    mutable bool qfontdialog_metacast_isbase = false;
     mutable bool qfontdialog_metacall_isbase = false;
     mutable bool qfontdialog_setvisible_isbase = false;
     mutable bool qfontdialog_changeevent_isbase = false;
@@ -222,6 +228,8 @@ class VirtualQFontDialog final : public QFontDialog {
     VirtualQFontDialog(const QFont& initial, QWidget* parent) : QFontDialog(initial, parent) {};
 
     ~VirtualQFontDialog() {
+        qfontdialog_metaobject_callback = nullptr;
+        qfontdialog_metacast_callback = nullptr;
         qfontdialog_metacall_callback = nullptr;
         qfontdialog_setvisible_callback = nullptr;
         qfontdialog_changeevent_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualQFontDialog final : public QFontDialog {
     }
 
     // Callback setters
+    inline void setQFontDialog_MetaObject_Callback(QFontDialog_MetaObject_Callback cb) { qfontdialog_metaobject_callback = cb; }
+    inline void setQFontDialog_Metacast_Callback(QFontDialog_Metacast_Callback cb) { qfontdialog_metacast_callback = cb; }
     inline void setQFontDialog_Metacall_Callback(QFontDialog_Metacall_Callback cb) { qfontdialog_metacall_callback = cb; }
     inline void setQFontDialog_SetVisible_Callback(QFontDialog_SetVisible_Callback cb) { qfontdialog_setvisible_callback = cb; }
     inline void setQFontDialog_ChangeEvent_Callback(QFontDialog_ChangeEvent_Callback cb) { qfontdialog_changeevent_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualQFontDialog final : public QFontDialog {
     inline void setQFontDialog_GetDecodedMetricF_Callback(QFontDialog_GetDecodedMetricF_Callback cb) { qfontdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQFontDialog_MetaObject_IsBase(bool value) const { qfontdialog_metaobject_isbase = value; }
+    inline void setQFontDialog_Metacast_IsBase(bool value) const { qfontdialog_metacast_isbase = value; }
     inline void setQFontDialog_Metacall_IsBase(bool value) const { qfontdialog_metacall_isbase = value; }
     inline void setQFontDialog_SetVisible_IsBase(bool value) const { qfontdialog_setvisible_isbase = value; }
     inline void setQFontDialog_ChangeEvent_IsBase(bool value) const { qfontdialog_changeevent_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualQFontDialog final : public QFontDialog {
     inline void setQFontDialog_Receivers_IsBase(bool value) const { qfontdialog_receivers_isbase = value; }
     inline void setQFontDialog_IsSignalConnected_IsBase(bool value) const { qfontdialog_issignalconnected_isbase = value; }
     inline void setQFontDialog_GetDecodedMetricF_IsBase(bool value) const { qfontdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qfontdialog_metaobject_isbase) {
+            qfontdialog_metaobject_isbase = false;
+            return QFontDialog::metaObject();
+        } else if (qfontdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qfontdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFontDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qfontdialog_metacast_isbase) {
+            qfontdialog_metacast_isbase = false;
+            return QFontDialog::qt_metacast(param1);
+        } else if (qfontdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qfontdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFontDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

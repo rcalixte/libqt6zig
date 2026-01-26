@@ -77,6 +77,10 @@ int QStyle_SliderPositionFromValue5(int min, int max, int val, int space, bool u
 int QStyle_SliderValueFromPosition5(int min, int max, int pos, int space, bool upsideDown);
 int QStyle_CombinedLayoutSpacing4(const QStyle* self, int controls1, int controls2, int orientation, QStyleOption* option);
 int QStyle_CombinedLayoutSpacing5(const QStyle* self, int controls1, int controls2, int orientation, QStyleOption* option, QWidget* widget);
+void QStyle_OnMetaObject(const QStyle* self, intptr_t slot);
+QMetaObject* QStyle_QBaseMetaObject(const QStyle* self);
+void QStyle_OnMetacast(QStyle* self, intptr_t slot);
+void* QStyle_QBaseMetacast(QStyle* self, const char* param1);
 void QStyle_OnMetacall(QStyle* self, intptr_t slot);
 int QStyle_QBaseMetacall(QStyle* self, int param1, int param2, void** param3);
 void QStyle_OnPolish(QStyle* self, intptr_t slot);

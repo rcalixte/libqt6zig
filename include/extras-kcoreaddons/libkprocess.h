@@ -59,6 +59,10 @@ int KProcess_Execute22(const libqt_string exe, const libqt_list /* of libqt_stri
 int KProcess_Execute32(const libqt_string exe, const libqt_list /* of libqt_string */ args, int msecs);
 int KProcess_Execute23(const libqt_list /* of libqt_string */ argv, int msecs);
 int KProcess_StartDetached22(const libqt_string exe, const libqt_list /* of libqt_string */ args);
+void KProcess_OnMetaObject(const KProcess* self, intptr_t slot);
+QMetaObject* KProcess_QBaseMetaObject(const KProcess* self);
+void KProcess_OnMetacast(KProcess* self, intptr_t slot);
+void* KProcess_QBaseMetacast(KProcess* self, const char* param1);
 void KProcess_OnMetacall(KProcess* self, intptr_t slot);
 int KProcess_QBaseMetacall(KProcess* self, int param1, int param2, void** param3);
 bool KProcess_Open(KProcess* self, int mode);

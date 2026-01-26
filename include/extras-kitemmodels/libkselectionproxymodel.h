@@ -63,6 +63,10 @@ QModelIndex* KSelectionProxyModel_Index(const KSelectionProxyModel* self, int pa
 QModelIndex* KSelectionProxyModel_Parent(const KSelectionProxyModel* self, const QModelIndex* param1);
 int KSelectionProxyModel_ColumnCount(const KSelectionProxyModel* self, const QModelIndex* param1);
 libqt_list /* of QModelIndex* */ KSelectionProxyModel_Match(const KSelectionProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags);
+void KSelectionProxyModel_OnMetaObject(const KSelectionProxyModel* self, intptr_t slot);
+QMetaObject* KSelectionProxyModel_QBaseMetaObject(const KSelectionProxyModel* self);
+void KSelectionProxyModel_OnMetacast(KSelectionProxyModel* self, intptr_t slot);
+void* KSelectionProxyModel_QBaseMetacast(KSelectionProxyModel* self, const char* param1);
 void KSelectionProxyModel_OnMetacall(KSelectionProxyModel* self, intptr_t slot);
 int KSelectionProxyModel_QBaseMetacall(KSelectionProxyModel* self, int param1, int param2, void** param3);
 void KSelectionProxyModel_OnSetSourceModel(KSelectionProxyModel* self, intptr_t slot);

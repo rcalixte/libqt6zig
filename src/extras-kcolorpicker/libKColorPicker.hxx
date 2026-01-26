@@ -17,6 +17,8 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
     bool isVirtualkColorPickerKColorPicker = true;
 
     // Virtual class public types (including callbacks)
+    using kColorPicker__KColorPicker_MetaObject_Callback = QMetaObject* (*)();
+    using kColorPicker__KColorPicker_Metacast_Callback = void* (*)(kColorPicker__KColorPicker*, const char*);
     using kColorPicker__KColorPicker_Metacall_Callback = int (*)(kColorPicker__KColorPicker*, int, int, void**);
     using kColorPicker__KColorPicker_SizeHint_Callback = QSize* (*)();
     using kColorPicker__KColorPicker_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
 
   protected:
     // Instance callback storage
+    kColorPicker__KColorPicker_MetaObject_Callback kcolorpicker__kcolorpicker_metaobject_callback = nullptr;
+    kColorPicker__KColorPicker_Metacast_Callback kcolorpicker__kcolorpicker_metacast_callback = nullptr;
     kColorPicker__KColorPicker_Metacall_Callback kcolorpicker__kcolorpicker_metacall_callback = nullptr;
     kColorPicker__KColorPicker_SizeHint_Callback kcolorpicker__kcolorpicker_sizehint_callback = nullptr;
     kColorPicker__KColorPicker_MinimumSizeHint_Callback kcolorpicker__kcolorpicker_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
     kColorPicker__KColorPicker_GetDecodedMetricF_Callback kcolorpicker__kcolorpicker_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcolorpicker__kcolorpicker_metaobject_isbase = false;
+    mutable bool kcolorpicker__kcolorpicker_metacast_isbase = false;
     mutable bool kcolorpicker__kcolorpicker_metacall_isbase = false;
     mutable bool kcolorpicker__kcolorpicker_sizehint_isbase = false;
     mutable bool kcolorpicker__kcolorpicker_minimumsizehint_isbase = false;
@@ -215,6 +221,8 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
     VirtualkColorPickerKColorPicker(bool showAlphaChannel, QWidget* parent) : kColorPicker::KColorPicker(showAlphaChannel, parent) {};
 
     ~VirtualkColorPickerKColorPicker() {
+        kcolorpicker__kcolorpicker_metaobject_callback = nullptr;
+        kcolorpicker__kcolorpicker_metacast_callback = nullptr;
         kcolorpicker__kcolorpicker_metacall_callback = nullptr;
         kcolorpicker__kcolorpicker_sizehint_callback = nullptr;
         kcolorpicker__kcolorpicker_minimumsizehint_callback = nullptr;
@@ -280,6 +288,8 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
     }
 
     // Callback setters
+    inline void setkColorPicker__KColorPicker_MetaObject_Callback(kColorPicker__KColorPicker_MetaObject_Callback cb) { kcolorpicker__kcolorpicker_metaobject_callback = cb; }
+    inline void setkColorPicker__KColorPicker_Metacast_Callback(kColorPicker__KColorPicker_Metacast_Callback cb) { kcolorpicker__kcolorpicker_metacast_callback = cb; }
     inline void setkColorPicker__KColorPicker_Metacall_Callback(kColorPicker__KColorPicker_Metacall_Callback cb) { kcolorpicker__kcolorpicker_metacall_callback = cb; }
     inline void setkColorPicker__KColorPicker_SizeHint_Callback(kColorPicker__KColorPicker_SizeHint_Callback cb) { kcolorpicker__kcolorpicker_sizehint_callback = cb; }
     inline void setkColorPicker__KColorPicker_MinimumSizeHint_Callback(kColorPicker__KColorPicker_MinimumSizeHint_Callback cb) { kcolorpicker__kcolorpicker_minimumsizehint_callback = cb; }
@@ -344,6 +354,8 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
     inline void setkColorPicker__KColorPicker_GetDecodedMetricF_Callback(kColorPicker__KColorPicker_GetDecodedMetricF_Callback cb) { kcolorpicker__kcolorpicker_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setkColorPicker__KColorPicker_MetaObject_IsBase(bool value) const { kcolorpicker__kcolorpicker_metaobject_isbase = value; }
+    inline void setkColorPicker__KColorPicker_Metacast_IsBase(bool value) const { kcolorpicker__kcolorpicker_metacast_isbase = value; }
     inline void setkColorPicker__KColorPicker_Metacall_IsBase(bool value) const { kcolorpicker__kcolorpicker_metacall_isbase = value; }
     inline void setkColorPicker__KColorPicker_SizeHint_IsBase(bool value) const { kcolorpicker__kcolorpicker_sizehint_isbase = value; }
     inline void setkColorPicker__KColorPicker_MinimumSizeHint_IsBase(bool value) const { kcolorpicker__kcolorpicker_minimumsizehint_isbase = value; }
@@ -406,6 +418,34 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
     inline void setkColorPicker__KColorPicker_Receivers_IsBase(bool value) const { kcolorpicker__kcolorpicker_receivers_isbase = value; }
     inline void setkColorPicker__KColorPicker_IsSignalConnected_IsBase(bool value) const { kcolorpicker__kcolorpicker_issignalconnected_isbase = value; }
     inline void setkColorPicker__KColorPicker_GetDecodedMetricF_IsBase(bool value) const { kcolorpicker__kcolorpicker_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcolorpicker__kcolorpicker_metaobject_isbase) {
+            kcolorpicker__kcolorpicker_metaobject_isbase = false;
+            return kColorPicker__KColorPicker::metaObject();
+        } else if (kcolorpicker__kcolorpicker_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcolorpicker__kcolorpicker_metaobject_callback();
+            return callback_ret;
+        } else {
+            return kColorPicker__KColorPicker::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcolorpicker__kcolorpicker_metacast_isbase) {
+            kcolorpicker__kcolorpicker_metacast_isbase = false;
+            return kColorPicker__KColorPicker::qt_metacast(param1);
+        } else if (kcolorpicker__kcolorpicker_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcolorpicker__kcolorpicker_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return kColorPicker__KColorPicker::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

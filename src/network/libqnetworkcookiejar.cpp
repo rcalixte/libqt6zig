@@ -24,11 +24,21 @@ QNetworkCookieJar* QNetworkCookieJar_new2(QObject* parent) {
 }
 
 QMetaObject* QNetworkCookieJar_MetaObject(const QNetworkCookieJar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqnetworkcookiejar = dynamic_cast<const VirtualQNetworkCookieJar*>(self);
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQNetworkCookieJar*)self)->metaObject();
+    }
 }
 
 void* QNetworkCookieJar_Metacast(QNetworkCookieJar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQNetworkCookieJar*)self)->qt_metacast(param1);
+    }
 }
 
 int QNetworkCookieJar_Metacall(QNetworkCookieJar* self, int param1, int param2, void** param3) {
@@ -115,6 +125,44 @@ bool QNetworkCookieJar_ValidateCookie(const QNetworkCookieJar* self, const QNetw
         return vqnetworkcookiejar->validateCookie(*cookie, *url);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QNetworkCookieJar_QBaseMetaObject(const QNetworkCookieJar* self) {
+    auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+        vqnetworkcookiejar->setQNetworkCookieJar_MetaObject_IsBase(true);
+        return (QMetaObject*)vqnetworkcookiejar->metaObject();
+    } else {
+        return (QMetaObject*)self->QNetworkCookieJar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QNetworkCookieJar_OnMetaObject(const QNetworkCookieJar* self, intptr_t slot) {
+    auto* vqnetworkcookiejar = const_cast<VirtualQNetworkCookieJar*>(dynamic_cast<const VirtualQNetworkCookieJar*>(self));
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+        vqnetworkcookiejar->setQNetworkCookieJar_MetaObject_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QNetworkCookieJar_QBaseMetacast(QNetworkCookieJar* self, const char* param1) {
+    auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+        vqnetworkcookiejar->setQNetworkCookieJar_Metacast_IsBase(true);
+        return vqnetworkcookiejar->qt_metacast(param1);
+    } else {
+        return self->QNetworkCookieJar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QNetworkCookieJar_OnMetacast(QNetworkCookieJar* self, intptr_t slot) {
+    auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
+    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
+        vqnetworkcookiejar->setQNetworkCookieJar_Metacast_Callback(reinterpret_cast<VirtualQNetworkCookieJar::QNetworkCookieJar_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

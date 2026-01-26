@@ -55,11 +55,21 @@ QToolBox* QToolBox_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* QToolBox_MetaObject(const QToolBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtoolbox = dynamic_cast<const VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQToolBox*)self)->metaObject();
+    }
 }
 
 void* QToolBox_Metacast(QToolBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQToolBox*)self)->qt_metacast(param1);
+    }
 }
 
 int QToolBox_Metacall(QToolBox* self, int param1, int param2, void** param3) {
@@ -218,6 +228,44 @@ void QToolBox_ChangeEvent(QToolBox* self, QEvent* param1) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
     if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
         vqtoolbox->changeEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QToolBox_QBaseMetaObject(const QToolBox* self) {
+    auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtoolbox->metaObject();
+    } else {
+        return (QMetaObject*)self->QToolBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QToolBox_OnMetaObject(const QToolBox* self, intptr_t slot) {
+    auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_MetaObject_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QToolBox_QBaseMetacast(QToolBox* self, const char* param1) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_Metacast_IsBase(true);
+        return vqtoolbox->qt_metacast(param1);
+    } else {
+        return self->QToolBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QToolBox_OnMetacast(QToolBox* self, intptr_t slot) {
+    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_Metacast_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Metacast_Callback>(slot));
     }
 }
 

@@ -60,11 +60,21 @@ QCheckBox* QCheckBox_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* QCheckBox_MetaObject(const QCheckBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcheckbox = dynamic_cast<const VirtualQCheckBox*>(self);
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCheckBox*)self)->metaObject();
+    }
 }
 
 void* QCheckBox_Metacast(QCheckBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCheckBox*)self)->qt_metacast(param1);
+    }
 }
 
 int QCheckBox_Metacall(QCheckBox* self, int param1, int param2, void** param3) {
@@ -187,6 +197,44 @@ void QCheckBox_InitStyleOption(const QCheckBox* self, QStyleOptionButton* option
 
 void QCheckBox_SetTristate1(QCheckBox* self, bool y) {
     self->setTristate(y);
+}
+
+// Base class handler implementation
+QMetaObject* QCheckBox_QBaseMetaObject(const QCheckBox* self) {
+    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+        vqcheckbox->setQCheckBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcheckbox->metaObject();
+    } else {
+        return (QMetaObject*)self->QCheckBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCheckBox_OnMetaObject(const QCheckBox* self, intptr_t slot) {
+    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+        vqcheckbox->setQCheckBox_MetaObject_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCheckBox_QBaseMetacast(QCheckBox* self, const char* param1) {
+    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+        vqcheckbox->setQCheckBox_Metacast_IsBase(true);
+        return vqcheckbox->qt_metacast(param1);
+    } else {
+        return self->QCheckBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCheckBox_OnMetacast(QCheckBox* self, intptr_t slot) {
+    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+        vqcheckbox->setQCheckBox_Metacast_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

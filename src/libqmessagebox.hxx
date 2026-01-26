@@ -17,6 +17,8 @@ class VirtualQMessageBox final : public QMessageBox {
     bool isVirtualQMessageBox = true;
 
     // Virtual class public types (including callbacks)
+    using QMessageBox_MetaObject_Callback = QMetaObject* (*)();
+    using QMessageBox_Metacast_Callback = void* (*)(QMessageBox*, const char*);
     using QMessageBox_Metacall_Callback = int (*)(QMessageBox*, int, int, void**);
     using QMessageBox_Event_Callback = bool (*)(QMessageBox*, QEvent*);
     using QMessageBox_ResizeEvent_Callback = void (*)(QMessageBox*, QResizeEvent*);
@@ -84,6 +86,8 @@ class VirtualQMessageBox final : public QMessageBox {
 
   protected:
     // Instance callback storage
+    QMessageBox_MetaObject_Callback qmessagebox_metaobject_callback = nullptr;
+    QMessageBox_Metacast_Callback qmessagebox_metacast_callback = nullptr;
     QMessageBox_Metacall_Callback qmessagebox_metacall_callback = nullptr;
     QMessageBox_Event_Callback qmessagebox_event_callback = nullptr;
     QMessageBox_ResizeEvent_Callback qmessagebox_resizeevent_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQMessageBox final : public QMessageBox {
     QMessageBox_GetDecodedMetricF_Callback qmessagebox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmessagebox_metaobject_isbase = false;
+    mutable bool qmessagebox_metacast_isbase = false;
     mutable bool qmessagebox_metacall_isbase = false;
     mutable bool qmessagebox_event_isbase = false;
     mutable bool qmessagebox_resizeevent_isbase = false;
@@ -227,6 +233,8 @@ class VirtualQMessageBox final : public QMessageBox {
     VirtualQMessageBox(const QString& title, const QString& text, QMessageBox::Icon icon, int button0, int button1, int button2, QWidget* parent, Qt::WindowFlags f) : QMessageBox(title, text, icon, button0, button1, button2, parent, f) {};
 
     ~VirtualQMessageBox() {
+        qmessagebox_metaobject_callback = nullptr;
+        qmessagebox_metacast_callback = nullptr;
         qmessagebox_metacall_callback = nullptr;
         qmessagebox_event_callback = nullptr;
         qmessagebox_resizeevent_callback = nullptr;
@@ -294,6 +302,8 @@ class VirtualQMessageBox final : public QMessageBox {
     }
 
     // Callback setters
+    inline void setQMessageBox_MetaObject_Callback(QMessageBox_MetaObject_Callback cb) { qmessagebox_metaobject_callback = cb; }
+    inline void setQMessageBox_Metacast_Callback(QMessageBox_Metacast_Callback cb) { qmessagebox_metacast_callback = cb; }
     inline void setQMessageBox_Metacall_Callback(QMessageBox_Metacall_Callback cb) { qmessagebox_metacall_callback = cb; }
     inline void setQMessageBox_Event_Callback(QMessageBox_Event_Callback cb) { qmessagebox_event_callback = cb; }
     inline void setQMessageBox_ResizeEvent_Callback(QMessageBox_ResizeEvent_Callback cb) { qmessagebox_resizeevent_callback = cb; }
@@ -360,6 +370,8 @@ class VirtualQMessageBox final : public QMessageBox {
     inline void setQMessageBox_GetDecodedMetricF_Callback(QMessageBox_GetDecodedMetricF_Callback cb) { qmessagebox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQMessageBox_MetaObject_IsBase(bool value) const { qmessagebox_metaobject_isbase = value; }
+    inline void setQMessageBox_Metacast_IsBase(bool value) const { qmessagebox_metacast_isbase = value; }
     inline void setQMessageBox_Metacall_IsBase(bool value) const { qmessagebox_metacall_isbase = value; }
     inline void setQMessageBox_Event_IsBase(bool value) const { qmessagebox_event_isbase = value; }
     inline void setQMessageBox_ResizeEvent_IsBase(bool value) const { qmessagebox_resizeevent_isbase = value; }
@@ -424,6 +436,34 @@ class VirtualQMessageBox final : public QMessageBox {
     inline void setQMessageBox_Receivers_IsBase(bool value) const { qmessagebox_receivers_isbase = value; }
     inline void setQMessageBox_IsSignalConnected_IsBase(bool value) const { qmessagebox_issignalconnected_isbase = value; }
     inline void setQMessageBox_GetDecodedMetricF_IsBase(bool value) const { qmessagebox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmessagebox_metaobject_isbase) {
+            qmessagebox_metaobject_isbase = false;
+            return QMessageBox::metaObject();
+        } else if (qmessagebox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmessagebox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMessageBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmessagebox_metacast_isbase) {
+            qmessagebox_metacast_isbase = false;
+            return QMessageBox::qt_metacast(param1);
+        } else if (qmessagebox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmessagebox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMessageBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

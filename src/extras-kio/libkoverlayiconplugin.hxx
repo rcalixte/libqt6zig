@@ -17,6 +17,8 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
     bool isVirtualKOverlayIconPlugin = true;
 
     // Virtual class public types (including callbacks)
+    using KOverlayIconPlugin_MetaObject_Callback = QMetaObject* (*)();
+    using KOverlayIconPlugin_Metacast_Callback = void* (*)(KOverlayIconPlugin*, const char*);
     using KOverlayIconPlugin_Metacall_Callback = int (*)(KOverlayIconPlugin*, int, int, void**);
     using KOverlayIconPlugin_GetOverlays_Callback = const char** (*)(KOverlayIconPlugin*, QUrl*);
     using KOverlayIconPlugin_Event_Callback = bool (*)(KOverlayIconPlugin*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
   protected:
     // Instance callback storage
+    KOverlayIconPlugin_MetaObject_Callback koverlayiconplugin_metaobject_callback = nullptr;
+    KOverlayIconPlugin_Metacast_Callback koverlayiconplugin_metacast_callback = nullptr;
     KOverlayIconPlugin_Metacall_Callback koverlayiconplugin_metacall_callback = nullptr;
     KOverlayIconPlugin_GetOverlays_Callback koverlayiconplugin_getoverlays_callback = nullptr;
     KOverlayIconPlugin_Event_Callback koverlayiconplugin_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
     KOverlayIconPlugin_IsSignalConnected_Callback koverlayiconplugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool koverlayiconplugin_metaobject_isbase = false;
+    mutable bool koverlayiconplugin_metacast_isbase = false;
     mutable bool koverlayiconplugin_metacall_isbase = false;
     mutable bool koverlayiconplugin_getoverlays_isbase = false;
     mutable bool koverlayiconplugin_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
     VirtualKOverlayIconPlugin(QObject* parent) : KOverlayIconPlugin(parent) {};
 
     ~VirtualKOverlayIconPlugin() {
+        koverlayiconplugin_metaobject_callback = nullptr;
+        koverlayiconplugin_metacast_callback = nullptr;
         koverlayiconplugin_metacall_callback = nullptr;
         koverlayiconplugin_getoverlays_callback = nullptr;
         koverlayiconplugin_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
     }
 
     // Callback setters
+    inline void setKOverlayIconPlugin_MetaObject_Callback(KOverlayIconPlugin_MetaObject_Callback cb) { koverlayiconplugin_metaobject_callback = cb; }
+    inline void setKOverlayIconPlugin_Metacast_Callback(KOverlayIconPlugin_Metacast_Callback cb) { koverlayiconplugin_metacast_callback = cb; }
     inline void setKOverlayIconPlugin_Metacall_Callback(KOverlayIconPlugin_Metacall_Callback cb) { koverlayiconplugin_metacall_callback = cb; }
     inline void setKOverlayIconPlugin_GetOverlays_Callback(KOverlayIconPlugin_GetOverlays_Callback cb) { koverlayiconplugin_getoverlays_callback = cb; }
     inline void setKOverlayIconPlugin_Event_Callback(KOverlayIconPlugin_Event_Callback cb) { koverlayiconplugin_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
     inline void setKOverlayIconPlugin_IsSignalConnected_Callback(KOverlayIconPlugin_IsSignalConnected_Callback cb) { koverlayiconplugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKOverlayIconPlugin_MetaObject_IsBase(bool value) const { koverlayiconplugin_metaobject_isbase = value; }
+    inline void setKOverlayIconPlugin_Metacast_IsBase(bool value) const { koverlayiconplugin_metacast_isbase = value; }
     inline void setKOverlayIconPlugin_Metacall_IsBase(bool value) const { koverlayiconplugin_metacall_isbase = value; }
     inline void setKOverlayIconPlugin_GetOverlays_IsBase(bool value) const { koverlayiconplugin_getoverlays_isbase = value; }
     inline void setKOverlayIconPlugin_Event_IsBase(bool value) const { koverlayiconplugin_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
     inline void setKOverlayIconPlugin_SenderSignalIndex_IsBase(bool value) const { koverlayiconplugin_sendersignalindex_isbase = value; }
     inline void setKOverlayIconPlugin_Receivers_IsBase(bool value) const { koverlayiconplugin_receivers_isbase = value; }
     inline void setKOverlayIconPlugin_IsSignalConnected_IsBase(bool value) const { koverlayiconplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (koverlayiconplugin_metaobject_isbase) {
+            koverlayiconplugin_metaobject_isbase = false;
+            return KOverlayIconPlugin::metaObject();
+        } else if (koverlayiconplugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = koverlayiconplugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KOverlayIconPlugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (koverlayiconplugin_metacast_isbase) {
+            koverlayiconplugin_metacast_isbase = false;
+            return KOverlayIconPlugin::qt_metacast(param1);
+        } else if (koverlayiconplugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = koverlayiconplugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KOverlayIconPlugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

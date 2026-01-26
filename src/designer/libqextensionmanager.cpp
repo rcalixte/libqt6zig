@@ -23,11 +23,21 @@ QExtensionManager* QExtensionManager_new2(QObject* parent) {
 }
 
 QMetaObject* QExtensionManager_MetaObject(const QExtensionManager* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqextensionmanager = dynamic_cast<const VirtualQExtensionManager*>(self);
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQExtensionManager*)self)->metaObject();
+    }
 }
 
 void* QExtensionManager_Metacast(QExtensionManager* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQExtensionManager*)self)->qt_metacast(param1);
+    }
 }
 
 int QExtensionManager_Metacall(QExtensionManager* self, int param1, int param2, void** param3) {
@@ -66,6 +76,44 @@ QObject* QExtensionManager_Extension(const QExtensionManager* self, QObject* obj
         return self->extension(object, iid_QString);
     } else {
         return ((VirtualQExtensionManager*)self)->extension(object, iid_QString);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QExtensionManager_QBaseMetaObject(const QExtensionManager* self) {
+    auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+        vqextensionmanager->setQExtensionManager_MetaObject_IsBase(true);
+        return (QMetaObject*)vqextensionmanager->metaObject();
+    } else {
+        return (QMetaObject*)self->QExtensionManager::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QExtensionManager_OnMetaObject(const QExtensionManager* self, intptr_t slot) {
+    auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+        vqextensionmanager->setQExtensionManager_MetaObject_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QExtensionManager_QBaseMetacast(QExtensionManager* self, const char* param1) {
+    auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+        vqextensionmanager->setQExtensionManager_Metacast_IsBase(true);
+        return vqextensionmanager->qt_metacast(param1);
+    } else {
+        return self->QExtensionManager::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QExtensionManager_OnMetacast(QExtensionManager* self, intptr_t slot) {
+    auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+        vqextensionmanager->setQExtensionManager_Metacast_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_Metacast_Callback>(slot));
     }
 }
 

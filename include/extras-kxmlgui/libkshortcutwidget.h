@@ -67,6 +67,10 @@ void KShortcutWidget_Connect_ShortcutChanged(KShortcutWidget* self, intptr_t slo
 void KShortcutWidget_SetShortcut(KShortcutWidget* self, const libqt_list /* of QKeySequence* */ cut);
 void KShortcutWidget_ClearShortcut(KShortcutWidget* self);
 void KShortcutWidget_ApplyStealShortcut(KShortcutWidget* self);
+void KShortcutWidget_OnMetaObject(const KShortcutWidget* self, intptr_t slot);
+QMetaObject* KShortcutWidget_QBaseMetaObject(const KShortcutWidget* self);
+void KShortcutWidget_OnMetacast(KShortcutWidget* self, intptr_t slot);
+void* KShortcutWidget_QBaseMetacast(KShortcutWidget* self, const char* param1);
 void KShortcutWidget_OnMetacall(KShortcutWidget* self, intptr_t slot);
 int KShortcutWidget_QBaseMetacall(KShortcutWidget* self, int param1, int param2, void** param3);
 int KShortcutWidget_DevType(const KShortcutWidget* self);

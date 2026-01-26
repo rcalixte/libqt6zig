@@ -33,6 +33,32 @@ pub const qvalidator = struct {
         return qtc.QValidator_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QValidator `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.QValidator_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QValidator `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QValidator_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.QValidator `
@@ -42,6 +68,31 @@ pub const qvalidator = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QValidator_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QValidator `
+    ///
+    /// ` callback: *const fn (self: QtC.QValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QValidator_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QValidator `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.QValidator_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -1507,6 +1558,32 @@ pub const qintvalidator = struct {
         return qtc.QIntValidator_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QIntValidator `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.QIntValidator_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QIntValidator `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QIntValidator_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.QIntValidator `
@@ -1516,6 +1593,31 @@ pub const qintvalidator = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QIntValidator_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QIntValidator `
+    ///
+    /// ` callback: *const fn (self: QtC.QIntValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QIntValidator_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QIntValidator `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.QIntValidator_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -3099,6 +3201,32 @@ pub const qdoublevalidator = struct {
         return qtc.QDoubleValidator_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDoubleValidator `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.QDoubleValidator_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDoubleValidator `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QDoubleValidator_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.QDoubleValidator `
@@ -3108,6 +3236,31 @@ pub const qdoublevalidator = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDoubleValidator_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QDoubleValidator `
+    ///
+    /// ` callback: *const fn (self: QtC.QDoubleValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QDoubleValidator_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QDoubleValidator `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.QDoubleValidator_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -4795,6 +4948,32 @@ pub const qregularexpressionvalidator = struct {
         return qtc.QRegularExpressionValidator_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QRegularExpressionValidator `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.QRegularExpressionValidator_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRegularExpressionValidator `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QRegularExpressionValidator_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.QRegularExpressionValidator `
@@ -4804,6 +4983,31 @@ pub const qregularexpressionvalidator = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QRegularExpressionValidator_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QRegularExpressionValidator `
+    ///
+    /// ` callback: *const fn (self: QtC.QRegularExpressionValidator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QRegularExpressionValidator_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QRegularExpressionValidator `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.QRegularExpressionValidator_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):

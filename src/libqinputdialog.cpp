@@ -54,11 +54,21 @@ QInputDialog* QInputDialog_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* QInputDialog_MetaObject(const QInputDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqinputdialog = dynamic_cast<const VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQInputDialog*)self)->metaObject();
+    }
 }
 
 void* QInputDialog_Metacast(QInputDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQInputDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int QInputDialog_Metacall(QInputDialog* self, int param1, int param2, void** param3) {
@@ -794,6 +804,44 @@ double QInputDialog_GetDouble10(QWidget* parent, const libqt_string title, const
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString label_QString = QString::fromUtf8(label.data, label.len);
     return QInputDialog::getDouble(parent, title_QString, label_QString, static_cast<double>(value), static_cast<double>(minValue), static_cast<double>(maxValue), static_cast<int>(decimals), ok, static_cast<Qt::WindowFlags>(flags), static_cast<double>(step));
+}
+
+// Base class handler implementation
+QMetaObject* QInputDialog_QBaseMetaObject(const QInputDialog* self) {
+    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vqinputdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->QInputDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDialog_OnMetaObject(const QInputDialog* self, intptr_t slot) {
+    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_MetaObject_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QInputDialog_QBaseMetacast(QInputDialog* self, const char* param1) {
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_Metacast_IsBase(true);
+        return vqinputdialog->qt_metacast(param1);
+    } else {
+        return self->QInputDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDialog_OnMetacast(QInputDialog* self, intptr_t slot) {
+    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_Metacast_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

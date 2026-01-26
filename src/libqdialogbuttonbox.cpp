@@ -75,11 +75,21 @@ QDialogButtonBox* QDialogButtonBox_new8(int buttons, int orientation, QWidget* p
 }
 
 QMetaObject* QDialogButtonBox_MetaObject(const QDialogButtonBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdialogbuttonbox = dynamic_cast<const VirtualQDialogButtonBox*>(self);
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDialogButtonBox*)self)->metaObject();
+    }
 }
 
 void* QDialogButtonBox_Metacast(QDialogButtonBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDialogButtonBox*)self)->qt_metacast(param1);
+    }
 }
 
 int QDialogButtonBox_Metacall(QDialogButtonBox* self, int param1, int param2, void** param3) {
@@ -219,6 +229,44 @@ bool QDialogButtonBox_Event(QDialogButtonBox* self, QEvent* event) {
         return vqdialogbuttonbox->event(event);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QDialogButtonBox_QBaseMetaObject(const QDialogButtonBox* self) {
+    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+        vqdialogbuttonbox->setQDialogButtonBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdialogbuttonbox->metaObject();
+    } else {
+        return (QMetaObject*)self->QDialogButtonBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDialogButtonBox_OnMetaObject(const QDialogButtonBox* self, intptr_t slot) {
+    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+        vqdialogbuttonbox->setQDialogButtonBox_MetaObject_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDialogButtonBox_QBaseMetacast(QDialogButtonBox* self, const char* param1) {
+    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+        vqdialogbuttonbox->setQDialogButtonBox_Metacast_IsBase(true);
+        return vqdialogbuttonbox->qt_metacast(param1);
+    } else {
+        return self->QDialogButtonBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDialogButtonBox_OnMetacast(QDialogButtonBox* self, intptr_t slot) {
+    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+        vqdialogbuttonbox->setQDialogButtonBox_Metacast_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

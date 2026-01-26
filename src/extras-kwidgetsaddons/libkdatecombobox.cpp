@@ -53,11 +53,21 @@ KDateComboBox* KDateComboBox_new2() {
 }
 
 QMetaObject* KDateComboBox_MetaObject(const KDateComboBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdatecombobox = dynamic_cast<const VirtualKDateComboBox*>(self);
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDateComboBox*)self)->metaObject();
+    }
 }
 
 void* KDateComboBox_Metacast(KDateComboBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDateComboBox*)self)->qt_metacast(param1);
+    }
 }
 
 int KDateComboBox_Metacall(KDateComboBox* self, int param1, int param2, void** param3) {
@@ -302,6 +312,44 @@ void KDateComboBox_SetMinimumDate2(KDateComboBox* self, const QDate* minDate, co
 void KDateComboBox_SetMaximumDate2(KDateComboBox* self, const QDate* maxDate, const libqt_string maxWarnMsg) {
     QString maxWarnMsg_QString = QString::fromUtf8(maxWarnMsg.data, maxWarnMsg.len);
     self->setMaximumDate(*maxDate, maxWarnMsg_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KDateComboBox_QBaseMetaObject(const KDateComboBox* self) {
+    auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+        vkdatecombobox->setKDateComboBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdatecombobox->metaObject();
+    } else {
+        return (QMetaObject*)self->KDateComboBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateComboBox_OnMetaObject(const KDateComboBox* self, intptr_t slot) {
+    auto* vkdatecombobox = const_cast<VirtualKDateComboBox*>(dynamic_cast<const VirtualKDateComboBox*>(self));
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+        vkdatecombobox->setKDateComboBox_MetaObject_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDateComboBox_QBaseMetacast(KDateComboBox* self, const char* param1) {
+    auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+        vkdatecombobox->setKDateComboBox_Metacast_IsBase(true);
+        return vkdatecombobox->qt_metacast(param1);
+    } else {
+        return self->KDateComboBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateComboBox_OnMetacast(KDateComboBox* self, intptr_t slot) {
+    auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
+    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
+        vkdatecombobox->setKDateComboBox_Metacast_Callback(reinterpret_cast<VirtualKDateComboBox::KDateComboBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

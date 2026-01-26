@@ -23,11 +23,21 @@ KViewStateMaintainerBase* KViewStateMaintainerBase_new2(QObject* parent) {
 }
 
 QMetaObject* KViewStateMaintainerBase_MetaObject(const KViewStateMaintainerBase* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkviewstatemaintainerbase = dynamic_cast<const VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKViewStateMaintainerBase*)self)->metaObject();
+    }
 }
 
 void* KViewStateMaintainerBase_Metacast(KViewStateMaintainerBase* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKViewStateMaintainerBase*)self)->qt_metacast(param1);
+    }
 }
 
 int KViewStateMaintainerBase_Metacall(KViewStateMaintainerBase* self, int param1, int param2, void** param3) {
@@ -70,6 +80,44 @@ void KViewStateMaintainerBase_RestoreState(KViewStateMaintainerBase* self) {
         vkviewstatemaintainerbase->restoreState();
     } else {
         ((VirtualKViewStateMaintainerBase*)self)->restoreState();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KViewStateMaintainerBase_QBaseMetaObject(const KViewStateMaintainerBase* self) {
+    auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->setKViewStateMaintainerBase_MetaObject_IsBase(true);
+        return (QMetaObject*)vkviewstatemaintainerbase->metaObject();
+    } else {
+        return (QMetaObject*)self->KViewStateMaintainerBase::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KViewStateMaintainerBase_OnMetaObject(const KViewStateMaintainerBase* self, intptr_t slot) {
+    auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->setKViewStateMaintainerBase_MetaObject_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KViewStateMaintainerBase_QBaseMetacast(KViewStateMaintainerBase* self, const char* param1) {
+    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->setKViewStateMaintainerBase_Metacast_IsBase(true);
+        return vkviewstatemaintainerbase->qt_metacast(param1);
+    } else {
+        return self->KViewStateMaintainerBase::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KViewStateMaintainerBase_OnMetacast(KViewStateMaintainerBase* self, intptr_t slot) {
+    auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+        vkviewstatemaintainerbase->setKViewStateMaintainerBase_Metacast_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_Metacast_Callback>(slot));
     }
 }
 

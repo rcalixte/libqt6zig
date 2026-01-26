@@ -54,11 +54,21 @@ QFrame* QFrame_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* QFrame_MetaObject(const QFrame* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqframe = dynamic_cast<const VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFrame*)self)->metaObject();
+    }
 }
 
 void* QFrame_Metacast(QFrame* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFrame*)self)->qt_metacast(param1);
+    }
 }
 
 int QFrame_Metacall(QFrame* self, int param1, int param2, void** param3) {
@@ -157,6 +167,44 @@ void QFrame_InitStyleOption(const QFrame* self, QStyleOptionFrame* option) {
     auto* vqframe = dynamic_cast<const VirtualQFrame*>(self);
     if (vqframe && vqframe->isVirtualQFrame) {
         vqframe->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QFrame_QBaseMetaObject(const QFrame* self) {
+    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_MetaObject_IsBase(true);
+        return (QMetaObject*)vqframe->metaObject();
+    } else {
+        return (QMetaObject*)self->QFrame::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFrame_OnMetaObject(const QFrame* self, intptr_t slot) {
+    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_MetaObject_Callback(reinterpret_cast<VirtualQFrame::QFrame_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFrame_QBaseMetacast(QFrame* self, const char* param1) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_Metacast_IsBase(true);
+        return vqframe->qt_metacast(param1);
+    } else {
+        return self->QFrame::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFrame_OnMetacast(QFrame* self, intptr_t slot) {
+    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_Metacast_Callback(reinterpret_cast<VirtualQFrame::QFrame_Metacast_Callback>(slot));
     }
 }
 

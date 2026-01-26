@@ -17,6 +17,8 @@ class VirtualQAccessiblePlugin : public QAccessiblePlugin {
     bool isVirtualQAccessiblePlugin = true;
 
     // Virtual class public types (including callbacks)
+    using QAccessiblePlugin_MetaObject_Callback = QMetaObject* (*)();
+    using QAccessiblePlugin_Metacast_Callback = void* (*)(QAccessiblePlugin*, const char*);
     using QAccessiblePlugin_Metacall_Callback = int (*)(QAccessiblePlugin*, int, int, void**);
     using QAccessiblePlugin_Create_Callback = QAccessibleInterface* (*)(QAccessiblePlugin*, libqt_string, QObject*);
     using QAccessiblePlugin_Event_Callback = bool (*)(QAccessiblePlugin*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQAccessiblePlugin : public QAccessiblePlugin {
 
   protected:
     // Instance callback storage
+    QAccessiblePlugin_MetaObject_Callback qaccessibleplugin_metaobject_callback = nullptr;
+    QAccessiblePlugin_Metacast_Callback qaccessibleplugin_metacast_callback = nullptr;
     QAccessiblePlugin_Metacall_Callback qaccessibleplugin_metacall_callback = nullptr;
     QAccessiblePlugin_Create_Callback qaccessibleplugin_create_callback = nullptr;
     QAccessiblePlugin_Event_Callback qaccessibleplugin_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQAccessiblePlugin : public QAccessiblePlugin {
     QAccessiblePlugin_IsSignalConnected_Callback qaccessibleplugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qaccessibleplugin_metaobject_isbase = false;
+    mutable bool qaccessibleplugin_metacast_isbase = false;
     mutable bool qaccessibleplugin_metacall_isbase = false;
     mutable bool qaccessibleplugin_create_isbase = false;
     mutable bool qaccessibleplugin_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQAccessiblePlugin : public QAccessiblePlugin {
     VirtualQAccessiblePlugin(QObject* parent) : QAccessiblePlugin(parent) {};
 
     ~VirtualQAccessiblePlugin() {
+        qaccessibleplugin_metaobject_callback = nullptr;
+        qaccessibleplugin_metacast_callback = nullptr;
         qaccessibleplugin_metacall_callback = nullptr;
         qaccessibleplugin_create_callback = nullptr;
         qaccessibleplugin_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQAccessiblePlugin : public QAccessiblePlugin {
     }
 
     // Callback setters
+    inline void setQAccessiblePlugin_MetaObject_Callback(QAccessiblePlugin_MetaObject_Callback cb) { qaccessibleplugin_metaobject_callback = cb; }
+    inline void setQAccessiblePlugin_Metacast_Callback(QAccessiblePlugin_Metacast_Callback cb) { qaccessibleplugin_metacast_callback = cb; }
     inline void setQAccessiblePlugin_Metacall_Callback(QAccessiblePlugin_Metacall_Callback cb) { qaccessibleplugin_metacall_callback = cb; }
     inline void setQAccessiblePlugin_Create_Callback(QAccessiblePlugin_Create_Callback cb) { qaccessibleplugin_create_callback = cb; }
     inline void setQAccessiblePlugin_Event_Callback(QAccessiblePlugin_Event_Callback cb) { qaccessibleplugin_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQAccessiblePlugin : public QAccessiblePlugin {
     inline void setQAccessiblePlugin_IsSignalConnected_Callback(QAccessiblePlugin_IsSignalConnected_Callback cb) { qaccessibleplugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAccessiblePlugin_MetaObject_IsBase(bool value) const { qaccessibleplugin_metaobject_isbase = value; }
+    inline void setQAccessiblePlugin_Metacast_IsBase(bool value) const { qaccessibleplugin_metacast_isbase = value; }
     inline void setQAccessiblePlugin_Metacall_IsBase(bool value) const { qaccessibleplugin_metacall_isbase = value; }
     inline void setQAccessiblePlugin_Create_IsBase(bool value) const { qaccessibleplugin_create_isbase = value; }
     inline void setQAccessiblePlugin_Event_IsBase(bool value) const { qaccessibleplugin_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQAccessiblePlugin : public QAccessiblePlugin {
     inline void setQAccessiblePlugin_SenderSignalIndex_IsBase(bool value) const { qaccessibleplugin_sendersignalindex_isbase = value; }
     inline void setQAccessiblePlugin_Receivers_IsBase(bool value) const { qaccessibleplugin_receivers_isbase = value; }
     inline void setQAccessiblePlugin_IsSignalConnected_IsBase(bool value) const { qaccessibleplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qaccessibleplugin_metaobject_isbase) {
+            qaccessibleplugin_metaobject_isbase = false;
+            return QAccessiblePlugin::metaObject();
+        } else if (qaccessibleplugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qaccessibleplugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAccessiblePlugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qaccessibleplugin_metacast_isbase) {
+            qaccessibleplugin_metacast_isbase = false;
+            return QAccessiblePlugin::qt_metacast(param1);
+        } else if (qaccessibleplugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qaccessibleplugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAccessiblePlugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

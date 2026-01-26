@@ -58,11 +58,21 @@ KLanguageButton* KLanguageButton_new4(const libqt_string text, QWidget* parent) 
 }
 
 QMetaObject* KLanguageButton_MetaObject(const KLanguageButton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vklanguagebutton = dynamic_cast<const VirtualKLanguageButton*>(self);
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKLanguageButton*)self)->metaObject();
+    }
 }
 
 void* KLanguageButton_Metacast(KLanguageButton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKLanguageButton*)self)->qt_metacast(param1);
+    }
 }
 
 int KLanguageButton_Metacall(KLanguageButton* self, int param1, int param2, void** param3) {
@@ -185,6 +195,44 @@ void KLanguageButton_InsertLanguage3(KLanguageButton* self, const libqt_string l
 
 void KLanguageButton_InsertSeparator1(KLanguageButton* self, int index) {
     self->insertSeparator(static_cast<int>(index));
+}
+
+// Base class handler implementation
+QMetaObject* KLanguageButton_QBaseMetaObject(const KLanguageButton* self) {
+    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+        vklanguagebutton->setKLanguageButton_MetaObject_IsBase(true);
+        return (QMetaObject*)vklanguagebutton->metaObject();
+    } else {
+        return (QMetaObject*)self->KLanguageButton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLanguageButton_OnMetaObject(const KLanguageButton* self, intptr_t slot) {
+    auto* vklanguagebutton = const_cast<VirtualKLanguageButton*>(dynamic_cast<const VirtualKLanguageButton*>(self));
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+        vklanguagebutton->setKLanguageButton_MetaObject_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KLanguageButton_QBaseMetacast(KLanguageButton* self, const char* param1) {
+    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+        vklanguagebutton->setKLanguageButton_Metacast_IsBase(true);
+        return vklanguagebutton->qt_metacast(param1);
+    } else {
+        return self->KLanguageButton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLanguageButton_OnMetacast(KLanguageButton* self, intptr_t slot) {
+    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
+    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
+        vklanguagebutton->setKLanguageButton_Metacast_Callback(reinterpret_cast<VirtualKLanguageButton::KLanguageButton_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

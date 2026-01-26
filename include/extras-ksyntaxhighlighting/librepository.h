@@ -54,6 +54,10 @@ void KSyntaxHighlighting__Repository_Connect_AboutToReload(KSyntaxHighlighting__
 void KSyntaxHighlighting__Repository_Reloaded(KSyntaxHighlighting__Repository* self);
 void KSyntaxHighlighting__Repository_Connect_Reloaded(KSyntaxHighlighting__Repository* self, intptr_t slot);
 KSyntaxHighlighting__Theme* KSyntaxHighlighting__Repository_DefaultTheme1(const KSyntaxHighlighting__Repository* self, int t);
+void KSyntaxHighlighting__Repository_OnMetaObject(const KSyntaxHighlighting__Repository* self, intptr_t slot);
+QMetaObject* KSyntaxHighlighting__Repository_QBaseMetaObject(const KSyntaxHighlighting__Repository* self);
+void KSyntaxHighlighting__Repository_OnMetacast(KSyntaxHighlighting__Repository* self, intptr_t slot);
+void* KSyntaxHighlighting__Repository_QBaseMetacast(KSyntaxHighlighting__Repository* self, const char* param1);
 void KSyntaxHighlighting__Repository_OnMetacall(KSyntaxHighlighting__Repository* self, intptr_t slot);
 int KSyntaxHighlighting__Repository_QBaseMetacall(KSyntaxHighlighting__Repository* self, int param1, int param2, void** param3);
 bool KSyntaxHighlighting__Repository_Event(KSyntaxHighlighting__Repository* self, QEvent* event);

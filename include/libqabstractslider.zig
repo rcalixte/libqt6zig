@@ -37,6 +37,32 @@ pub const qabstractslider = struct {
         return qtc.QAbstractSlider_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractSlider `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.QAbstractSlider_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractSlider `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QAbstractSlider_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.QAbstractSlider `
@@ -46,6 +72,31 @@ pub const qabstractslider = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractSlider_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QAbstractSlider `
+    ///
+    /// ` callback: *const fn (self: QtC.QAbstractSlider, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QAbstractSlider_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractSlider `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.QAbstractSlider_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):

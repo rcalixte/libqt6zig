@@ -38,6 +38,10 @@ void KWindowInsetsController_StatusBarBackgroundColorChanged(KWindowInsetsContro
 void KWindowInsetsController_Connect_StatusBarBackgroundColorChanged(KWindowInsetsController* self, intptr_t slot);
 void KWindowInsetsController_NavigationBarBackgroundColorChanged(KWindowInsetsController* self);
 void KWindowInsetsController_Connect_NavigationBarBackgroundColorChanged(KWindowInsetsController* self, intptr_t slot);
+void KWindowInsetsController_OnMetaObject(const KWindowInsetsController* self, intptr_t slot);
+QMetaObject* KWindowInsetsController_QBaseMetaObject(const KWindowInsetsController* self);
+void KWindowInsetsController_OnMetacast(KWindowInsetsController* self, intptr_t slot);
+void* KWindowInsetsController_QBaseMetacast(KWindowInsetsController* self, const char* param1);
 void KWindowInsetsController_OnMetacall(KWindowInsetsController* self, intptr_t slot);
 int KWindowInsetsController_QBaseMetacall(KWindowInsetsController* self, int param1, int param2, void** param3);
 bool KWindowInsetsController_Event(KWindowInsetsController* self, QEvent* event);

@@ -33,11 +33,21 @@ KColumnHeadersModel* KColumnHeadersModel_new2(QObject* parent) {
 }
 
 QMetaObject* KColumnHeadersModel_MetaObject(const KColumnHeadersModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcolumnheadersmodel = dynamic_cast<const VirtualKColumnHeadersModel*>(self);
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKColumnHeadersModel*)self)->metaObject();
+    }
 }
 
 void* KColumnHeadersModel_Metacast(KColumnHeadersModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKColumnHeadersModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KColumnHeadersModel_Metacall(KColumnHeadersModel* self, int param1, int param2, void** param3) {
@@ -171,6 +181,44 @@ void KColumnHeadersModel_Connect_SortOrderChanged(KColumnHeadersModel* self, int
     KColumnHeadersModel::connect(self, &KColumnHeadersModel::sortOrderChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KColumnHeadersModel_QBaseMetaObject(const KColumnHeadersModel* self) {
+    auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+        vkcolumnheadersmodel->setKColumnHeadersModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcolumnheadersmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KColumnHeadersModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColumnHeadersModel_OnMetaObject(const KColumnHeadersModel* self, intptr_t slot) {
+    auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+        vkcolumnheadersmodel->setKColumnHeadersModel_MetaObject_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KColumnHeadersModel_QBaseMetacast(KColumnHeadersModel* self, const char* param1) {
+    auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+        vkcolumnheadersmodel->setKColumnHeadersModel_Metacast_IsBase(true);
+        return vkcolumnheadersmodel->qt_metacast(param1);
+    } else {
+        return self->KColumnHeadersModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColumnHeadersModel_OnMetacast(KColumnHeadersModel* self, intptr_t slot) {
+    auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+        vkcolumnheadersmodel->setKColumnHeadersModel_Metacast_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

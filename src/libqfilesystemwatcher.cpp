@@ -44,11 +44,21 @@ QFileSystemWatcher* QFileSystemWatcher_new4(const libqt_list /* of libqt_string 
 }
 
 QMetaObject* QFileSystemWatcher_MetaObject(const QFileSystemWatcher* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqfilesystemwatcher = dynamic_cast<const VirtualQFileSystemWatcher*>(self);
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFileSystemWatcher*)self)->metaObject();
+    }
 }
 
 void* QFileSystemWatcher_Metacast(QFileSystemWatcher* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFileSystemWatcher*)self)->qt_metacast(param1);
+    }
 }
 
 int QFileSystemWatcher_Metacall(QFileSystemWatcher* self, int param1, int param2, void** param3) {
@@ -166,6 +176,44 @@ libqt_list /* of libqt_string */ QFileSystemWatcher_Directories(const QFileSyste
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+QMetaObject* QFileSystemWatcher_QBaseMetaObject(const QFileSystemWatcher* self) {
+    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+        vqfilesystemwatcher->setQFileSystemWatcher_MetaObject_IsBase(true);
+        return (QMetaObject*)vqfilesystemwatcher->metaObject();
+    } else {
+        return (QMetaObject*)self->QFileSystemWatcher::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileSystemWatcher_OnMetaObject(const QFileSystemWatcher* self, intptr_t slot) {
+    auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+        vqfilesystemwatcher->setQFileSystemWatcher_MetaObject_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFileSystemWatcher_QBaseMetacast(QFileSystemWatcher* self, const char* param1) {
+    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+        vqfilesystemwatcher->setQFileSystemWatcher_Metacast_IsBase(true);
+        return vqfilesystemwatcher->qt_metacast(param1);
+    } else {
+        return self->QFileSystemWatcher::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileSystemWatcher_OnMetacast(QFileSystemWatcher* self, intptr_t slot) {
+    auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+        vqfilesystemwatcher->setQFileSystemWatcher_Metacast_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -29,11 +29,21 @@ QMediaPlayer* QMediaPlayer_new2(QObject* parent) {
 }
 
 QMetaObject* QMediaPlayer_MetaObject(const QMediaPlayer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmediaplayer = dynamic_cast<const VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMediaPlayer*)self)->metaObject();
+    }
 }
 
 void* QMediaPlayer_Metacast(QMediaPlayer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMediaPlayer*)self)->qt_metacast(param1);
+    }
 }
 
 int QMediaPlayer_Metacall(QMediaPlayer* self, int param1, int param2, void** param3) {
@@ -497,6 +507,44 @@ void QMediaPlayer_Connect_ErrorOccurred(QMediaPlayer* self, intptr_t slot) {
 
 void QMediaPlayer_SetSourceDevice2(QMediaPlayer* self, QIODevice* device, const QUrl* sourceUrl) {
     self->setSourceDevice(device, *sourceUrl);
+}
+
+// Base class handler implementation
+QMetaObject* QMediaPlayer_QBaseMetaObject(const QMediaPlayer* self) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
+        vqmediaplayer->setQMediaPlayer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmediaplayer->metaObject();
+    } else {
+        return (QMetaObject*)self->QMediaPlayer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaPlayer_OnMetaObject(const QMediaPlayer* self, intptr_t slot) {
+    auto* vqmediaplayer = const_cast<VirtualQMediaPlayer*>(dynamic_cast<const VirtualQMediaPlayer*>(self));
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
+        vqmediaplayer->setQMediaPlayer_MetaObject_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMediaPlayer_QBaseMetacast(QMediaPlayer* self, const char* param1) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
+        vqmediaplayer->setQMediaPlayer_Metacast_IsBase(true);
+        return vqmediaplayer->qt_metacast(param1);
+    } else {
+        return self->QMediaPlayer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaPlayer_OnMetacast(QMediaPlayer* self, intptr_t slot) {
+    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
+    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
+        vqmediaplayer->setQMediaPlayer_Metacast_Callback(reinterpret_cast<VirtualQMediaPlayer::QMediaPlayer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -114,6 +114,10 @@ void QSortFilterProxyModel_RecursiveFilteringEnabledChanged(QSortFilterProxyMode
 void QSortFilterProxyModel_Connect_RecursiveFilteringEnabledChanged(QSortFilterProxyModel* self, intptr_t slot);
 void QSortFilterProxyModel_AutoAcceptChildRowsChanged(QSortFilterProxyModel* self, bool autoAcceptChildRows);
 void QSortFilterProxyModel_Connect_AutoAcceptChildRowsChanged(QSortFilterProxyModel* self, intptr_t slot);
+void QSortFilterProxyModel_OnMetaObject(const QSortFilterProxyModel* self, intptr_t slot);
+QMetaObject* QSortFilterProxyModel_QBaseMetaObject(const QSortFilterProxyModel* self);
+void QSortFilterProxyModel_OnMetacast(QSortFilterProxyModel* self, intptr_t slot);
+void* QSortFilterProxyModel_QBaseMetacast(QSortFilterProxyModel* self, const char* param1);
 void QSortFilterProxyModel_OnMetacall(QSortFilterProxyModel* self, intptr_t slot);
 int QSortFilterProxyModel_QBaseMetacall(QSortFilterProxyModel* self, int param1, int param2, void** param3);
 void QSortFilterProxyModel_OnSetSourceModel(QSortFilterProxyModel* self, intptr_t slot);

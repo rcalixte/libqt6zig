@@ -29,11 +29,21 @@ KIO__WidgetsAskUserActionHandler* KIO__WidgetsAskUserActionHandler_new2(QObject*
 }
 
 QMetaObject* KIO__WidgetsAskUserActionHandler_MetaObject(const KIO__WidgetsAskUserActionHandler* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self);
+    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOWidgetsAskUserActionHandler*)self)->metaObject();
+    }
 }
 
 void* KIO__WidgetsAskUserActionHandler_Metacast(KIO__WidgetsAskUserActionHandler* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
+    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__WidgetsAskUserActionHandler_Metacall(KIO__WidgetsAskUserActionHandler* self, int param1, int param2, void** param3) {
@@ -115,6 +125,44 @@ void KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors(KIO__WidgetsAskUserActi
 
 void KIO__WidgetsAskUserActionHandler_SetWindow(KIO__WidgetsAskUserActionHandler* self, QWidget* window) {
     self->setWindow(window);
+}
+
+// Base class handler implementation
+QMetaObject* KIO__WidgetsAskUserActionHandler_QBaseMetaObject(const KIO__WidgetsAskUserActionHandler* self) {
+    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
+    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiowidgetsaskuseractionhandler->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::WidgetsAskUserActionHandler::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__WidgetsAskUserActionHandler_OnMetaObject(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
+    auto* vkiowidgetsaskuseractionhandler = const_cast<VirtualKIOWidgetsAskUserActionHandler*>(dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self));
+    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_MetaObject_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__WidgetsAskUserActionHandler_QBaseMetacast(KIO__WidgetsAskUserActionHandler* self, const char* param1) {
+    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
+    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Metacast_IsBase(true);
+        return vkiowidgetsaskuseractionhandler->qt_metacast(param1);
+    } else {
+        return self->KIO::WidgetsAskUserActionHandler::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__WidgetsAskUserActionHandler_OnMetacast(KIO__WidgetsAskUserActionHandler* self, intptr_t slot) {
+    auto* vkiowidgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
+    if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
+        vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_Metacast_Callback(reinterpret_cast<VirtualKIOWidgetsAskUserActionHandler::KIO__WidgetsAskUserActionHandler_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

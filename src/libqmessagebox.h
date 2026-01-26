@@ -168,6 +168,10 @@ int QMessageBox_Critical52(QWidget* parent, const libqt_string title, const libq
 int QMessageBox_Critical62(QWidget* parent, const libqt_string title, const libqt_string text, const libqt_string button0Text, const libqt_string button1Text, const libqt_string button2Text);
 int QMessageBox_Critical7(QWidget* parent, const libqt_string title, const libqt_string text, const libqt_string button0Text, const libqt_string button1Text, const libqt_string button2Text, int defaultButtonNumber);
 int QMessageBox_Critical8(QWidget* parent, const libqt_string title, const libqt_string text, const libqt_string button0Text, const libqt_string button1Text, const libqt_string button2Text, int defaultButtonNumber, int escapeButtonNumber);
+void QMessageBox_OnMetaObject(const QMessageBox* self, intptr_t slot);
+QMetaObject* QMessageBox_QBaseMetaObject(const QMessageBox* self);
+void QMessageBox_OnMetacast(QMessageBox* self, intptr_t slot);
+void* QMessageBox_QBaseMetacast(QMessageBox* self, const char* param1);
 void QMessageBox_OnMetacall(QMessageBox* self, intptr_t slot);
 int QMessageBox_QBaseMetacall(QMessageBox* self, int param1, int param2, void** param3);
 void QMessageBox_OnEvent(QMessageBox* self, intptr_t slot);

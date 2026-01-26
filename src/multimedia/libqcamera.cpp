@@ -41,11 +41,21 @@ QCamera* QCamera_new6(int position, QObject* parent) {
 }
 
 QMetaObject* QCamera_MetaObject(const QCamera* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcamera = dynamic_cast<const VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCamera*)self)->metaObject();
+    }
 }
 
 void* QCamera_Metacast(QCamera* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCamera*)self)->qt_metacast(param1);
+    }
 }
 
 int QCamera_Metacall(QCamera* self, int param1, int param2, void** param3) {
@@ -612,6 +622,44 @@ void QCamera_Connect_HueChanged(QCamera* self, intptr_t slot) {
     QCamera::connect(self, &QCamera::hueChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QCamera_QBaseMetaObject(const QCamera* self) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
+        vqcamera->setQCamera_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcamera->metaObject();
+    } else {
+        return (QMetaObject*)self->QCamera::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCamera_OnMetaObject(const QCamera* self, intptr_t slot) {
+    auto* vqcamera = const_cast<VirtualQCamera*>(dynamic_cast<const VirtualQCamera*>(self));
+    if (vqcamera && vqcamera->isVirtualQCamera) {
+        vqcamera->setQCamera_MetaObject_Callback(reinterpret_cast<VirtualQCamera::QCamera_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCamera_QBaseMetacast(QCamera* self, const char* param1) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
+        vqcamera->setQCamera_Metacast_IsBase(true);
+        return vqcamera->qt_metacast(param1);
+    } else {
+        return self->QCamera::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCamera_OnMetacast(QCamera* self, intptr_t slot) {
+    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
+    if (vqcamera && vqcamera->isVirtualQCamera) {
+        vqcamera->setQCamera_Metacast_Callback(reinterpret_cast<VirtualQCamera::QCamera_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

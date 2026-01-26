@@ -57,11 +57,21 @@ KPixmapSequenceWidget* KPixmapSequenceWidget_new4(const KPixmapSequence* seq, QW
 }
 
 QMetaObject* KPixmapSequenceWidget_MetaObject(const KPixmapSequenceWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpixmapsequencewidget = dynamic_cast<const VirtualKPixmapSequenceWidget*>(self);
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPixmapSequenceWidget*)self)->metaObject();
+    }
 }
 
 void* KPixmapSequenceWidget_Metacast(KPixmapSequenceWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPixmapSequenceWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KPixmapSequenceWidget_Metacall(KPixmapSequenceWidget* self, int param1, int param2, void** param3) {
@@ -96,6 +106,44 @@ void KPixmapSequenceWidget_SetSequence(KPixmapSequenceWidget* self, const KPixma
 
 void KPixmapSequenceWidget_SetInterval(KPixmapSequenceWidget* self, int msecs) {
     self->setInterval(static_cast<int>(msecs));
+}
+
+// Base class handler implementation
+QMetaObject* KPixmapSequenceWidget_QBaseMetaObject(const KPixmapSequenceWidget* self) {
+    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+        vkpixmapsequencewidget->setKPixmapSequenceWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpixmapsequencewidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KPixmapSequenceWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapSequenceWidget_OnMetaObject(const KPixmapSequenceWidget* self, intptr_t slot) {
+    auto* vkpixmapsequencewidget = const_cast<VirtualKPixmapSequenceWidget*>(dynamic_cast<const VirtualKPixmapSequenceWidget*>(self));
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+        vkpixmapsequencewidget->setKPixmapSequenceWidget_MetaObject_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPixmapSequenceWidget_QBaseMetacast(KPixmapSequenceWidget* self, const char* param1) {
+    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+        vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacast_IsBase(true);
+        return vkpixmapsequencewidget->qt_metacast(param1);
+    } else {
+        return self->KPixmapSequenceWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapSequenceWidget_OnMetacast(KPixmapSequenceWidget* self, intptr_t slot) {
+    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
+    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
+        vkpixmapsequencewidget->setKPixmapSequenceWidget_Metacast_Callback(reinterpret_cast<VirtualKPixmapSequenceWidget::KPixmapSequenceWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

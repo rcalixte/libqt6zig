@@ -67,11 +67,21 @@ KRichTextWidget* KRichTextWidget_new3(const libqt_string text, QWidget* parent) 
 }
 
 QMetaObject* KRichTextWidget_MetaObject(const KRichTextWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkrichtextwidget = dynamic_cast<const VirtualKRichTextWidget*>(self);
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKRichTextWidget*)self)->metaObject();
+    }
 }
 
 void* KRichTextWidget_Metacast(KRichTextWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKRichTextWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KRichTextWidget_Metacall(KRichTextWidget* self, int param1, int param2, void** param3) {
@@ -130,6 +140,44 @@ void KRichTextWidget_MouseReleaseEvent(KRichTextWidget* self, QMouseEvent* event
     auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
     if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
         vkrichtextwidget->mouseReleaseEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KRichTextWidget_QBaseMetaObject(const KRichTextWidget* self) {
+    auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+        vkrichtextwidget->setKRichTextWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkrichtextwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KRichTextWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRichTextWidget_OnMetaObject(const KRichTextWidget* self, intptr_t slot) {
+    auto* vkrichtextwidget = const_cast<VirtualKRichTextWidget*>(dynamic_cast<const VirtualKRichTextWidget*>(self));
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+        vkrichtextwidget->setKRichTextWidget_MetaObject_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KRichTextWidget_QBaseMetacast(KRichTextWidget* self, const char* param1) {
+    auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+        vkrichtextwidget->setKRichTextWidget_Metacast_IsBase(true);
+        return vkrichtextwidget->qt_metacast(param1);
+    } else {
+        return self->KRichTextWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRichTextWidget_OnMetacast(KRichTextWidget* self, intptr_t slot) {
+    auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
+    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
+        vkrichtextwidget->setKRichTextWidget_Metacast_Callback(reinterpret_cast<VirtualKRichTextWidget::KRichTextWidget_Metacast_Callback>(slot));
     }
 }
 

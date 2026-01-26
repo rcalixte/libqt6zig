@@ -17,6 +17,8 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
     bool isVirtualKWindowStateSaver = true;
 
     // Virtual class public types (including callbacks)
+    using KWindowStateSaver_MetaObject_Callback = QMetaObject* (*)();
+    using KWindowStateSaver_Metacast_Callback = void* (*)(KWindowStateSaver*, const char*);
     using KWindowStateSaver_Metacall_Callback = int (*)(KWindowStateSaver*, int, int, void**);
     using KWindowStateSaver_Event_Callback = bool (*)(KWindowStateSaver*, QEvent*);
     using KWindowStateSaver_ChildEvent_Callback = void (*)(KWindowStateSaver*, QChildEvent*);
@@ -30,6 +32,8 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
 
   protected:
     // Instance callback storage
+    KWindowStateSaver_MetaObject_Callback kwindowstatesaver_metaobject_callback = nullptr;
+    KWindowStateSaver_Metacast_Callback kwindowstatesaver_metacast_callback = nullptr;
     KWindowStateSaver_Metacall_Callback kwindowstatesaver_metacall_callback = nullptr;
     KWindowStateSaver_Event_Callback kwindowstatesaver_event_callback = nullptr;
     KWindowStateSaver_ChildEvent_Callback kwindowstatesaver_childevent_callback = nullptr;
@@ -42,6 +46,8 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
     KWindowStateSaver_IsSignalConnected_Callback kwindowstatesaver_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kwindowstatesaver_metaobject_isbase = false;
+    mutable bool kwindowstatesaver_metacast_isbase = false;
     mutable bool kwindowstatesaver_metacall_isbase = false;
     mutable bool kwindowstatesaver_event_isbase = false;
     mutable bool kwindowstatesaver_childevent_isbase = false;
@@ -58,6 +64,8 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
     VirtualKWindowStateSaver(QWindow* window, const QString& configGroupName) : KWindowStateSaver(window, configGroupName) {};
 
     ~VirtualKWindowStateSaver() {
+        kwindowstatesaver_metaobject_callback = nullptr;
+        kwindowstatesaver_metacast_callback = nullptr;
         kwindowstatesaver_metacall_callback = nullptr;
         kwindowstatesaver_event_callback = nullptr;
         kwindowstatesaver_childevent_callback = nullptr;
@@ -71,6 +79,8 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
     }
 
     // Callback setters
+    inline void setKWindowStateSaver_MetaObject_Callback(KWindowStateSaver_MetaObject_Callback cb) { kwindowstatesaver_metaobject_callback = cb; }
+    inline void setKWindowStateSaver_Metacast_Callback(KWindowStateSaver_Metacast_Callback cb) { kwindowstatesaver_metacast_callback = cb; }
     inline void setKWindowStateSaver_Metacall_Callback(KWindowStateSaver_Metacall_Callback cb) { kwindowstatesaver_metacall_callback = cb; }
     inline void setKWindowStateSaver_Event_Callback(KWindowStateSaver_Event_Callback cb) { kwindowstatesaver_event_callback = cb; }
     inline void setKWindowStateSaver_ChildEvent_Callback(KWindowStateSaver_ChildEvent_Callback cb) { kwindowstatesaver_childevent_callback = cb; }
@@ -83,6 +93,8 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
     inline void setKWindowStateSaver_IsSignalConnected_Callback(KWindowStateSaver_IsSignalConnected_Callback cb) { kwindowstatesaver_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKWindowStateSaver_MetaObject_IsBase(bool value) const { kwindowstatesaver_metaobject_isbase = value; }
+    inline void setKWindowStateSaver_Metacast_IsBase(bool value) const { kwindowstatesaver_metacast_isbase = value; }
     inline void setKWindowStateSaver_Metacall_IsBase(bool value) const { kwindowstatesaver_metacall_isbase = value; }
     inline void setKWindowStateSaver_Event_IsBase(bool value) const { kwindowstatesaver_event_isbase = value; }
     inline void setKWindowStateSaver_ChildEvent_IsBase(bool value) const { kwindowstatesaver_childevent_isbase = value; }
@@ -93,6 +105,34 @@ class VirtualKWindowStateSaver final : public KWindowStateSaver {
     inline void setKWindowStateSaver_SenderSignalIndex_IsBase(bool value) const { kwindowstatesaver_sendersignalindex_isbase = value; }
     inline void setKWindowStateSaver_Receivers_IsBase(bool value) const { kwindowstatesaver_receivers_isbase = value; }
     inline void setKWindowStateSaver_IsSignalConnected_IsBase(bool value) const { kwindowstatesaver_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kwindowstatesaver_metaobject_isbase) {
+            kwindowstatesaver_metaobject_isbase = false;
+            return KWindowStateSaver::metaObject();
+        } else if (kwindowstatesaver_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kwindowstatesaver_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KWindowStateSaver::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kwindowstatesaver_metacast_isbase) {
+            kwindowstatesaver_metacast_isbase = false;
+            return KWindowStateSaver::qt_metacast(param1);
+        } else if (kwindowstatesaver_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kwindowstatesaver_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KWindowStateSaver::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

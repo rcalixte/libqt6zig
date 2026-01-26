@@ -59,11 +59,21 @@ QSvgWidget* QSvgWidget_new4(const libqt_string file, QWidget* parent) {
 }
 
 QMetaObject* QSvgWidget_MetaObject(const QSvgWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsvgwidget = dynamic_cast<const VirtualQSvgWidget*>(self);
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSvgWidget*)self)->metaObject();
+    }
 }
 
 void* QSvgWidget_Metacast(QSvgWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSvgWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QSvgWidget_Metacall(QSvgWidget* self, int param1, int param2, void** param3) {
@@ -110,6 +120,44 @@ void QSvgWidget_PaintEvent(QSvgWidget* self, QPaintEvent* event) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->paintEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QSvgWidget_QBaseMetaObject(const QSvgWidget* self) {
+    auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsvgwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QSvgWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSvgWidget_OnMetaObject(const QSvgWidget* self, intptr_t slot) {
+    auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_MetaObject_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSvgWidget_QBaseMetacast(QSvgWidget* self, const char* param1) {
+    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_Metacast_IsBase(true);
+        return vqsvgwidget->qt_metacast(param1);
+    } else {
+        return self->QSvgWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSvgWidget_OnMetacast(QSvgWidget* self, intptr_t slot) {
+    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_Metacast_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Metacast_Callback>(slot));
     }
 }
 

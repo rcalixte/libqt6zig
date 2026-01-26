@@ -38,6 +38,10 @@ int QsciLexerFortran_Metacall(QsciLexerFortran* self, int param1, int param2, vo
 const char* QsciLexerFortran_Language(const QsciLexerFortran* self);
 const char* QsciLexerFortran_Lexer(const QsciLexerFortran* self);
 const char* QsciLexerFortran_Keywords(const QsciLexerFortran* self, int set);
+void QsciLexerFortran_OnMetaObject(const QsciLexerFortran* self, intptr_t slot);
+QMetaObject* QsciLexerFortran_QBaseMetaObject(const QsciLexerFortran* self);
+void QsciLexerFortran_OnMetacast(QsciLexerFortran* self, intptr_t slot);
+void* QsciLexerFortran_QBaseMetacast(QsciLexerFortran* self, const char* param1);
 void QsciLexerFortran_OnMetacall(QsciLexerFortran* self, intptr_t slot);
 int QsciLexerFortran_QBaseMetacall(QsciLexerFortran* self, int param1, int param2, void** param3);
 void QsciLexerFortran_SetFoldCompact(QsciLexerFortran* self, bool fold);

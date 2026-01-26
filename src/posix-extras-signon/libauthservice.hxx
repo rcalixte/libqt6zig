@@ -17,6 +17,8 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
     bool isVirtualSignOnAuthService = true;
 
     // Virtual class public types (including callbacks)
+    using SignOn__AuthService_MetaObject_Callback = QMetaObject* (*)();
+    using SignOn__AuthService_Metacast_Callback = void* (*)(SignOn__AuthService*, const char*);
     using SignOn__AuthService_Metacall_Callback = int (*)(SignOn__AuthService*, int, int, void**);
     using SignOn__AuthService_Event_Callback = bool (*)(SignOn__AuthService*, QEvent*);
     using SignOn__AuthService_EventFilter_Callback = bool (*)(SignOn__AuthService*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
 
   protected:
     // Instance callback storage
+    SignOn__AuthService_MetaObject_Callback signon__authservice_metaobject_callback = nullptr;
+    SignOn__AuthService_Metacast_Callback signon__authservice_metacast_callback = nullptr;
     SignOn__AuthService_Metacall_Callback signon__authservice_metacall_callback = nullptr;
     SignOn__AuthService_Event_Callback signon__authservice_event_callback = nullptr;
     SignOn__AuthService_EventFilter_Callback signon__authservice_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
     SignOn__AuthService_IsSignalConnected_Callback signon__authservice_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool signon__authservice_metaobject_isbase = false;
+    mutable bool signon__authservice_metacast_isbase = false;
     mutable bool signon__authservice_metacall_isbase = false;
     mutable bool signon__authservice_event_isbase = false;
     mutable bool signon__authservice_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
     VirtualSignOnAuthService(QObject* parent) : SignOn::AuthService(parent) {};
 
     ~VirtualSignOnAuthService() {
+        signon__authservice_metaobject_callback = nullptr;
+        signon__authservice_metacast_callback = nullptr;
         signon__authservice_metacall_callback = nullptr;
         signon__authservice_event_callback = nullptr;
         signon__authservice_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
     }
 
     // Callback setters
+    inline void setSignOn__AuthService_MetaObject_Callback(SignOn__AuthService_MetaObject_Callback cb) { signon__authservice_metaobject_callback = cb; }
+    inline void setSignOn__AuthService_Metacast_Callback(SignOn__AuthService_Metacast_Callback cb) { signon__authservice_metacast_callback = cb; }
     inline void setSignOn__AuthService_Metacall_Callback(SignOn__AuthService_Metacall_Callback cb) { signon__authservice_metacall_callback = cb; }
     inline void setSignOn__AuthService_Event_Callback(SignOn__AuthService_Event_Callback cb) { signon__authservice_event_callback = cb; }
     inline void setSignOn__AuthService_EventFilter_Callback(SignOn__AuthService_EventFilter_Callback cb) { signon__authservice_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
     inline void setSignOn__AuthService_IsSignalConnected_Callback(SignOn__AuthService_IsSignalConnected_Callback cb) { signon__authservice_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setSignOn__AuthService_MetaObject_IsBase(bool value) const { signon__authservice_metaobject_isbase = value; }
+    inline void setSignOn__AuthService_Metacast_IsBase(bool value) const { signon__authservice_metacast_isbase = value; }
     inline void setSignOn__AuthService_Metacall_IsBase(bool value) const { signon__authservice_metacall_isbase = value; }
     inline void setSignOn__AuthService_Event_IsBase(bool value) const { signon__authservice_event_isbase = value; }
     inline void setSignOn__AuthService_EventFilter_IsBase(bool value) const { signon__authservice_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualSignOnAuthService final : public SignOn::AuthService {
     inline void setSignOn__AuthService_SenderSignalIndex_IsBase(bool value) const { signon__authservice_sendersignalindex_isbase = value; }
     inline void setSignOn__AuthService_Receivers_IsBase(bool value) const { signon__authservice_receivers_isbase = value; }
     inline void setSignOn__AuthService_IsSignalConnected_IsBase(bool value) const { signon__authservice_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (signon__authservice_metaobject_isbase) {
+            signon__authservice_metaobject_isbase = false;
+            return SignOn__AuthService::metaObject();
+        } else if (signon__authservice_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = signon__authservice_metaobject_callback();
+            return callback_ret;
+        } else {
+            return SignOn__AuthService::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (signon__authservice_metacast_isbase) {
+            signon__authservice_metacast_isbase = false;
+            return SignOn__AuthService::qt_metacast(param1);
+        } else if (signon__authservice_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = signon__authservice_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return SignOn__AuthService::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

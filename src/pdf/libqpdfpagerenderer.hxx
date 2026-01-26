@@ -17,6 +17,8 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
     bool isVirtualQPdfPageRenderer = true;
 
     // Virtual class public types (including callbacks)
+    using QPdfPageRenderer_MetaObject_Callback = QMetaObject* (*)();
+    using QPdfPageRenderer_Metacast_Callback = void* (*)(QPdfPageRenderer*, const char*);
     using QPdfPageRenderer_Metacall_Callback = int (*)(QPdfPageRenderer*, int, int, void**);
     using QPdfPageRenderer_Event_Callback = bool (*)(QPdfPageRenderer*, QEvent*);
     using QPdfPageRenderer_EventFilter_Callback = bool (*)(QPdfPageRenderer*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
 
   protected:
     // Instance callback storage
+    QPdfPageRenderer_MetaObject_Callback qpdfpagerenderer_metaobject_callback = nullptr;
+    QPdfPageRenderer_Metacast_Callback qpdfpagerenderer_metacast_callback = nullptr;
     QPdfPageRenderer_Metacall_Callback qpdfpagerenderer_metacall_callback = nullptr;
     QPdfPageRenderer_Event_Callback qpdfpagerenderer_event_callback = nullptr;
     QPdfPageRenderer_EventFilter_Callback qpdfpagerenderer_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
     QPdfPageRenderer_IsSignalConnected_Callback qpdfpagerenderer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpdfpagerenderer_metaobject_isbase = false;
+    mutable bool qpdfpagerenderer_metacast_isbase = false;
     mutable bool qpdfpagerenderer_metacall_isbase = false;
     mutable bool qpdfpagerenderer_event_isbase = false;
     mutable bool qpdfpagerenderer_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
     VirtualQPdfPageRenderer(QObject* parent) : QPdfPageRenderer(parent) {};
 
     ~VirtualQPdfPageRenderer() {
+        qpdfpagerenderer_metaobject_callback = nullptr;
+        qpdfpagerenderer_metacast_callback = nullptr;
         qpdfpagerenderer_metacall_callback = nullptr;
         qpdfpagerenderer_event_callback = nullptr;
         qpdfpagerenderer_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
     }
 
     // Callback setters
+    inline void setQPdfPageRenderer_MetaObject_Callback(QPdfPageRenderer_MetaObject_Callback cb) { qpdfpagerenderer_metaobject_callback = cb; }
+    inline void setQPdfPageRenderer_Metacast_Callback(QPdfPageRenderer_Metacast_Callback cb) { qpdfpagerenderer_metacast_callback = cb; }
     inline void setQPdfPageRenderer_Metacall_Callback(QPdfPageRenderer_Metacall_Callback cb) { qpdfpagerenderer_metacall_callback = cb; }
     inline void setQPdfPageRenderer_Event_Callback(QPdfPageRenderer_Event_Callback cb) { qpdfpagerenderer_event_callback = cb; }
     inline void setQPdfPageRenderer_EventFilter_Callback(QPdfPageRenderer_EventFilter_Callback cb) { qpdfpagerenderer_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
     inline void setQPdfPageRenderer_IsSignalConnected_Callback(QPdfPageRenderer_IsSignalConnected_Callback cb) { qpdfpagerenderer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPdfPageRenderer_MetaObject_IsBase(bool value) const { qpdfpagerenderer_metaobject_isbase = value; }
+    inline void setQPdfPageRenderer_Metacast_IsBase(bool value) const { qpdfpagerenderer_metacast_isbase = value; }
     inline void setQPdfPageRenderer_Metacall_IsBase(bool value) const { qpdfpagerenderer_metacall_isbase = value; }
     inline void setQPdfPageRenderer_Event_IsBase(bool value) const { qpdfpagerenderer_event_isbase = value; }
     inline void setQPdfPageRenderer_EventFilter_IsBase(bool value) const { qpdfpagerenderer_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
     inline void setQPdfPageRenderer_SenderSignalIndex_IsBase(bool value) const { qpdfpagerenderer_sendersignalindex_isbase = value; }
     inline void setQPdfPageRenderer_Receivers_IsBase(bool value) const { qpdfpagerenderer_receivers_isbase = value; }
     inline void setQPdfPageRenderer_IsSignalConnected_IsBase(bool value) const { qpdfpagerenderer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpdfpagerenderer_metaobject_isbase) {
+            qpdfpagerenderer_metaobject_isbase = false;
+            return QPdfPageRenderer::metaObject();
+        } else if (qpdfpagerenderer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpdfpagerenderer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPdfPageRenderer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpdfpagerenderer_metacast_isbase) {
+            qpdfpagerenderer_metacast_isbase = false;
+            return QPdfPageRenderer::qt_metacast(param1);
+        } else if (qpdfpagerenderer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpdfpagerenderer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPdfPageRenderer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

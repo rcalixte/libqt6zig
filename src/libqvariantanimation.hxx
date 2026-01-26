@@ -17,6 +17,8 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
     bool isVirtualQVariantAnimation = true;
 
     // Virtual class public types (including callbacks)
+    using QVariantAnimation_MetaObject_Callback = QMetaObject* (*)();
+    using QVariantAnimation_Metacast_Callback = void* (*)(QVariantAnimation*, const char*);
     using QVariantAnimation_Metacall_Callback = int (*)(QVariantAnimation*, int, int, void**);
     using QVariantAnimation_Duration_Callback = int (*)();
     using QVariantAnimation_Event_Callback = bool (*)(QVariantAnimation*, QEvent*);
@@ -38,6 +40,8 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
 
   protected:
     // Instance callback storage
+    QVariantAnimation_MetaObject_Callback qvariantanimation_metaobject_callback = nullptr;
+    QVariantAnimation_Metacast_Callback qvariantanimation_metacast_callback = nullptr;
     QVariantAnimation_Metacall_Callback qvariantanimation_metacall_callback = nullptr;
     QVariantAnimation_Duration_Callback qvariantanimation_duration_callback = nullptr;
     QVariantAnimation_Event_Callback qvariantanimation_event_callback = nullptr;
@@ -58,6 +62,8 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
     QVariantAnimation_IsSignalConnected_Callback qvariantanimation_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qvariantanimation_metaobject_isbase = false;
+    mutable bool qvariantanimation_metacast_isbase = false;
     mutable bool qvariantanimation_metacall_isbase = false;
     mutable bool qvariantanimation_duration_isbase = false;
     mutable bool qvariantanimation_event_isbase = false;
@@ -82,6 +88,8 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
     VirtualQVariantAnimation(QObject* parent) : QVariantAnimation(parent) {};
 
     ~VirtualQVariantAnimation() {
+        qvariantanimation_metaobject_callback = nullptr;
+        qvariantanimation_metacast_callback = nullptr;
         qvariantanimation_metacall_callback = nullptr;
         qvariantanimation_duration_callback = nullptr;
         qvariantanimation_event_callback = nullptr;
@@ -103,6 +111,8 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
     }
 
     // Callback setters
+    inline void setQVariantAnimation_MetaObject_Callback(QVariantAnimation_MetaObject_Callback cb) { qvariantanimation_metaobject_callback = cb; }
+    inline void setQVariantAnimation_Metacast_Callback(QVariantAnimation_Metacast_Callback cb) { qvariantanimation_metacast_callback = cb; }
     inline void setQVariantAnimation_Metacall_Callback(QVariantAnimation_Metacall_Callback cb) { qvariantanimation_metacall_callback = cb; }
     inline void setQVariantAnimation_Duration_Callback(QVariantAnimation_Duration_Callback cb) { qvariantanimation_duration_callback = cb; }
     inline void setQVariantAnimation_Event_Callback(QVariantAnimation_Event_Callback cb) { qvariantanimation_event_callback = cb; }
@@ -123,6 +133,8 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
     inline void setQVariantAnimation_IsSignalConnected_Callback(QVariantAnimation_IsSignalConnected_Callback cb) { qvariantanimation_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQVariantAnimation_MetaObject_IsBase(bool value) const { qvariantanimation_metaobject_isbase = value; }
+    inline void setQVariantAnimation_Metacast_IsBase(bool value) const { qvariantanimation_metacast_isbase = value; }
     inline void setQVariantAnimation_Metacall_IsBase(bool value) const { qvariantanimation_metacall_isbase = value; }
     inline void setQVariantAnimation_Duration_IsBase(bool value) const { qvariantanimation_duration_isbase = value; }
     inline void setQVariantAnimation_Event_IsBase(bool value) const { qvariantanimation_event_isbase = value; }
@@ -141,6 +153,34 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
     inline void setQVariantAnimation_SenderSignalIndex_IsBase(bool value) const { qvariantanimation_sendersignalindex_isbase = value; }
     inline void setQVariantAnimation_Receivers_IsBase(bool value) const { qvariantanimation_receivers_isbase = value; }
     inline void setQVariantAnimation_IsSignalConnected_IsBase(bool value) const { qvariantanimation_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qvariantanimation_metaobject_isbase) {
+            qvariantanimation_metaobject_isbase = false;
+            return QVariantAnimation::metaObject();
+        } else if (qvariantanimation_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qvariantanimation_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QVariantAnimation::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qvariantanimation_metacast_isbase) {
+            qvariantanimation_metacast_isbase = false;
+            return QVariantAnimation::qt_metacast(param1);
+        } else if (qvariantanimation_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qvariantanimation_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QVariantAnimation::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

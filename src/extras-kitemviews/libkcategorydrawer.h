@@ -48,6 +48,10 @@ void KCategoryDrawer_MouseButtonReleased(KCategoryDrawer* self, const QModelInde
 void KCategoryDrawer_MouseMoved(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
 void KCategoryDrawer_MouseButtonDoubleClicked(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
 void KCategoryDrawer_MouseLeft(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect);
+void KCategoryDrawer_OnMetaObject(const KCategoryDrawer* self, intptr_t slot);
+QMetaObject* KCategoryDrawer_QBaseMetaObject(const KCategoryDrawer* self);
+void KCategoryDrawer_OnMetacast(KCategoryDrawer* self, intptr_t slot);
+void* KCategoryDrawer_QBaseMetacast(KCategoryDrawer* self, const char* param1);
 void KCategoryDrawer_OnMetacall(KCategoryDrawer* self, intptr_t slot);
 int KCategoryDrawer_QBaseMetacall(KCategoryDrawer* self, int param1, int param2, void** param3);
 void KCategoryDrawer_OnDrawCategory(const KCategoryDrawer* self, intptr_t slot);

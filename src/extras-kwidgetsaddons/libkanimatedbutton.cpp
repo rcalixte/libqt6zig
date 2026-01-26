@@ -51,11 +51,21 @@ KAnimatedButton* KAnimatedButton_new2() {
 }
 
 QMetaObject* KAnimatedButton_MetaObject(const KAnimatedButton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkanimatedbutton = dynamic_cast<const VirtualKAnimatedButton*>(self);
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKAnimatedButton*)self)->metaObject();
+    }
 }
 
 void* KAnimatedButton_Metacast(KAnimatedButton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKAnimatedButton*)self)->qt_metacast(param1);
+    }
 }
 
 int KAnimatedButton_Metacall(KAnimatedButton* self, int param1, int param2, void** param3) {
@@ -90,6 +100,44 @@ void KAnimatedButton_Start(KAnimatedButton* self) {
 
 void KAnimatedButton_Stop(KAnimatedButton* self) {
     self->stop();
+}
+
+// Base class handler implementation
+QMetaObject* KAnimatedButton_QBaseMetaObject(const KAnimatedButton* self) {
+    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+        vkanimatedbutton->setKAnimatedButton_MetaObject_IsBase(true);
+        return (QMetaObject*)vkanimatedbutton->metaObject();
+    } else {
+        return (QMetaObject*)self->KAnimatedButton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAnimatedButton_OnMetaObject(const KAnimatedButton* self, intptr_t slot) {
+    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+        vkanimatedbutton->setKAnimatedButton_MetaObject_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KAnimatedButton_QBaseMetacast(KAnimatedButton* self, const char* param1) {
+    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+        vkanimatedbutton->setKAnimatedButton_Metacast_IsBase(true);
+        return vkanimatedbutton->qt_metacast(param1);
+    } else {
+        return self->KAnimatedButton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAnimatedButton_OnMetacast(KAnimatedButton* self, intptr_t slot) {
+    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
+    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+        vkanimatedbutton->setKAnimatedButton_Metacast_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

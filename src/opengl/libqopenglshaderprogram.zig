@@ -39,6 +39,32 @@ pub const qopenglshader = struct {
         return qtc.QOpenGLShader_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QOpenGLShader `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.QOpenGLShader_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLShader `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QOpenGLShader_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.QOpenGLShader `
@@ -48,6 +74,31 @@ pub const qopenglshader = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLShader_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QOpenGLShader `
+    ///
+    /// ` callback: *const fn (self: QtC.QOpenGLShader, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QOpenGLShader_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLShader `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.QOpenGLShader_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -1484,6 +1535,32 @@ pub const qopenglshaderprogram = struct {
         return qtc.QOpenGLShaderProgram_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QOpenGLShaderProgram `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.QOpenGLShaderProgram_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLShaderProgram `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QOpenGLShaderProgram_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.QOpenGLShaderProgram `
@@ -1493,6 +1570,31 @@ pub const qopenglshaderprogram = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLShaderProgram_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QOpenGLShaderProgram `
+    ///
+    /// ` callback: *const fn (self: QtC.QOpenGLShaderProgram, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QOpenGLShaderProgram_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLShaderProgram `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.QOpenGLShaderProgram_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):

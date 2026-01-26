@@ -17,6 +17,8 @@ class VirtualKPageModel : public KPageModel {
     bool isVirtualKPageModel = true;
 
     // Virtual class public types (including callbacks)
+    using KPageModel_MetaObject_Callback = QMetaObject* (*)();
+    using KPageModel_Metacast_Callback = void* (*)(KPageModel*, const char*);
     using KPageModel_Metacall_Callback = int (*)(KPageModel*, int, int, void**);
     using KPageModel_Index_Callback = QModelIndex* (*)(const KPageModel*, int, int, QModelIndex*);
     using KPageModel_Parent_Callback = QModelIndex* (*)(const KPageModel*, QModelIndex*);
@@ -89,6 +91,8 @@ class VirtualKPageModel : public KPageModel {
 
   protected:
     // Instance callback storage
+    KPageModel_MetaObject_Callback kpagemodel_metaobject_callback = nullptr;
+    KPageModel_Metacast_Callback kpagemodel_metacast_callback = nullptr;
     KPageModel_Metacall_Callback kpagemodel_metacall_callback = nullptr;
     KPageModel_Index_Callback kpagemodel_index_callback = nullptr;
     KPageModel_Parent_Callback kpagemodel_parent_callback = nullptr;
@@ -160,6 +164,8 @@ class VirtualKPageModel : public KPageModel {
     KPageModel_IsSignalConnected_Callback kpagemodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpagemodel_metaobject_isbase = false;
+    mutable bool kpagemodel_metacast_isbase = false;
     mutable bool kpagemodel_metacall_isbase = false;
     mutable bool kpagemodel_index_isbase = false;
     mutable bool kpagemodel_parent_isbase = false;
@@ -235,6 +241,8 @@ class VirtualKPageModel : public KPageModel {
     VirtualKPageModel(QObject* parent) : KPageModel(parent) {};
 
     ~VirtualKPageModel() {
+        kpagemodel_metaobject_callback = nullptr;
+        kpagemodel_metacast_callback = nullptr;
         kpagemodel_metacall_callback = nullptr;
         kpagemodel_index_callback = nullptr;
         kpagemodel_parent_callback = nullptr;
@@ -307,6 +315,8 @@ class VirtualKPageModel : public KPageModel {
     }
 
     // Callback setters
+    inline void setKPageModel_MetaObject_Callback(KPageModel_MetaObject_Callback cb) { kpagemodel_metaobject_callback = cb; }
+    inline void setKPageModel_Metacast_Callback(KPageModel_Metacast_Callback cb) { kpagemodel_metacast_callback = cb; }
     inline void setKPageModel_Metacall_Callback(KPageModel_Metacall_Callback cb) { kpagemodel_metacall_callback = cb; }
     inline void setKPageModel_Index_Callback(KPageModel_Index_Callback cb) { kpagemodel_index_callback = cb; }
     inline void setKPageModel_Parent_Callback(KPageModel_Parent_Callback cb) { kpagemodel_parent_callback = cb; }
@@ -378,6 +388,8 @@ class VirtualKPageModel : public KPageModel {
     inline void setKPageModel_IsSignalConnected_Callback(KPageModel_IsSignalConnected_Callback cb) { kpagemodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKPageModel_MetaObject_IsBase(bool value) const { kpagemodel_metaobject_isbase = value; }
+    inline void setKPageModel_Metacast_IsBase(bool value) const { kpagemodel_metacast_isbase = value; }
     inline void setKPageModel_Metacall_IsBase(bool value) const { kpagemodel_metacall_isbase = value; }
     inline void setKPageModel_Index_IsBase(bool value) const { kpagemodel_index_isbase = value; }
     inline void setKPageModel_Parent_IsBase(bool value) const { kpagemodel_parent_isbase = value; }
@@ -447,6 +459,34 @@ class VirtualKPageModel : public KPageModel {
     inline void setKPageModel_SenderSignalIndex_IsBase(bool value) const { kpagemodel_sendersignalindex_isbase = value; }
     inline void setKPageModel_Receivers_IsBase(bool value) const { kpagemodel_receivers_isbase = value; }
     inline void setKPageModel_IsSignalConnected_IsBase(bool value) const { kpagemodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpagemodel_metaobject_isbase) {
+            kpagemodel_metaobject_isbase = false;
+            return KPageModel::metaObject();
+        } else if (kpagemodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpagemodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPageModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpagemodel_metacast_isbase) {
+            kpagemodel_metacast_isbase = false;
+            return KPageModel::qt_metacast(param1);
+        } else if (kpagemodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpagemodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPageModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

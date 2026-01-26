@@ -17,6 +17,8 @@ class VirtualQImageCapture final : public QImageCapture {
     bool isVirtualQImageCapture = true;
 
     // Virtual class public types (including callbacks)
+    using QImageCapture_MetaObject_Callback = QMetaObject* (*)();
+    using QImageCapture_Metacast_Callback = void* (*)(QImageCapture*, const char*);
     using QImageCapture_Metacall_Callback = int (*)(QImageCapture*, int, int, void**);
     using QImageCapture_Event_Callback = bool (*)(QImageCapture*, QEvent*);
     using QImageCapture_EventFilter_Callback = bool (*)(QImageCapture*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQImageCapture final : public QImageCapture {
 
   protected:
     // Instance callback storage
+    QImageCapture_MetaObject_Callback qimagecapture_metaobject_callback = nullptr;
+    QImageCapture_Metacast_Callback qimagecapture_metacast_callback = nullptr;
     QImageCapture_Metacall_Callback qimagecapture_metacall_callback = nullptr;
     QImageCapture_Event_Callback qimagecapture_event_callback = nullptr;
     QImageCapture_EventFilter_Callback qimagecapture_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQImageCapture final : public QImageCapture {
     QImageCapture_IsSignalConnected_Callback qimagecapture_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qimagecapture_metaobject_isbase = false;
+    mutable bool qimagecapture_metacast_isbase = false;
     mutable bool qimagecapture_metacall_isbase = false;
     mutable bool qimagecapture_event_isbase = false;
     mutable bool qimagecapture_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQImageCapture final : public QImageCapture {
     VirtualQImageCapture(QObject* parent) : QImageCapture(parent) {};
 
     ~VirtualQImageCapture() {
+        qimagecapture_metaobject_callback = nullptr;
+        qimagecapture_metacast_callback = nullptr;
         qimagecapture_metacall_callback = nullptr;
         qimagecapture_event_callback = nullptr;
         qimagecapture_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQImageCapture final : public QImageCapture {
     }
 
     // Callback setters
+    inline void setQImageCapture_MetaObject_Callback(QImageCapture_MetaObject_Callback cb) { qimagecapture_metaobject_callback = cb; }
+    inline void setQImageCapture_Metacast_Callback(QImageCapture_Metacast_Callback cb) { qimagecapture_metacast_callback = cb; }
     inline void setQImageCapture_Metacall_Callback(QImageCapture_Metacall_Callback cb) { qimagecapture_metacall_callback = cb; }
     inline void setQImageCapture_Event_Callback(QImageCapture_Event_Callback cb) { qimagecapture_event_callback = cb; }
     inline void setQImageCapture_EventFilter_Callback(QImageCapture_EventFilter_Callback cb) { qimagecapture_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQImageCapture final : public QImageCapture {
     inline void setQImageCapture_IsSignalConnected_Callback(QImageCapture_IsSignalConnected_Callback cb) { qimagecapture_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQImageCapture_MetaObject_IsBase(bool value) const { qimagecapture_metaobject_isbase = value; }
+    inline void setQImageCapture_Metacast_IsBase(bool value) const { qimagecapture_metacast_isbase = value; }
     inline void setQImageCapture_Metacall_IsBase(bool value) const { qimagecapture_metacall_isbase = value; }
     inline void setQImageCapture_Event_IsBase(bool value) const { qimagecapture_event_isbase = value; }
     inline void setQImageCapture_EventFilter_IsBase(bool value) const { qimagecapture_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQImageCapture final : public QImageCapture {
     inline void setQImageCapture_SenderSignalIndex_IsBase(bool value) const { qimagecapture_sendersignalindex_isbase = value; }
     inline void setQImageCapture_Receivers_IsBase(bool value) const { qimagecapture_receivers_isbase = value; }
     inline void setQImageCapture_IsSignalConnected_IsBase(bool value) const { qimagecapture_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qimagecapture_metaobject_isbase) {
+            qimagecapture_metaobject_isbase = false;
+            return QImageCapture::metaObject();
+        } else if (qimagecapture_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qimagecapture_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QImageCapture::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qimagecapture_metacast_isbase) {
+            qimagecapture_metacast_isbase = false;
+            return QImageCapture::qt_metacast(param1);
+        } else if (qimagecapture_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qimagecapture_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QImageCapture::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

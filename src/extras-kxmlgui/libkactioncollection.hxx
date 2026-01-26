@@ -17,6 +17,8 @@ class VirtualKActionCollection final : public KActionCollection {
     bool isVirtualKActionCollection = true;
 
     // Virtual class public types (including callbacks)
+    using KActionCollection_MetaObject_Callback = QMetaObject* (*)();
+    using KActionCollection_Metacast_Callback = void* (*)(KActionCollection*, const char*);
     using KActionCollection_Metacall_Callback = int (*)(KActionCollection*, int, int, void**);
     using KActionCollection_ConnectNotify_Callback = void (*)(KActionCollection*, QMetaMethod*);
     using KActionCollection_SlotActionTriggered_Callback = void (*)();
@@ -33,6 +35,8 @@ class VirtualKActionCollection final : public KActionCollection {
 
   protected:
     // Instance callback storage
+    KActionCollection_MetaObject_Callback kactioncollection_metaobject_callback = nullptr;
+    KActionCollection_Metacast_Callback kactioncollection_metacast_callback = nullptr;
     KActionCollection_Metacall_Callback kactioncollection_metacall_callback = nullptr;
     KActionCollection_ConnectNotify_Callback kactioncollection_connectnotify_callback = nullptr;
     KActionCollection_SlotActionTriggered_Callback kactioncollection_slotactiontriggered_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualKActionCollection final : public KActionCollection {
     KActionCollection_IsSignalConnected_Callback kactioncollection_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kactioncollection_metaobject_isbase = false;
+    mutable bool kactioncollection_metacast_isbase = false;
     mutable bool kactioncollection_metacall_isbase = false;
     mutable bool kactioncollection_connectnotify_isbase = false;
     mutable bool kactioncollection_slotactiontriggered_isbase = false;
@@ -67,6 +73,8 @@ class VirtualKActionCollection final : public KActionCollection {
     VirtualKActionCollection(QObject* parent, const QString& cName) : KActionCollection(parent, cName) {};
 
     ~VirtualKActionCollection() {
+        kactioncollection_metaobject_callback = nullptr;
+        kactioncollection_metacast_callback = nullptr;
         kactioncollection_metacall_callback = nullptr;
         kactioncollection_connectnotify_callback = nullptr;
         kactioncollection_slotactiontriggered_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualKActionCollection final : public KActionCollection {
     }
 
     // Callback setters
+    inline void setKActionCollection_MetaObject_Callback(KActionCollection_MetaObject_Callback cb) { kactioncollection_metaobject_callback = cb; }
+    inline void setKActionCollection_Metacast_Callback(KActionCollection_Metacast_Callback cb) { kactioncollection_metacast_callback = cb; }
     inline void setKActionCollection_Metacall_Callback(KActionCollection_Metacall_Callback cb) { kactioncollection_metacall_callback = cb; }
     inline void setKActionCollection_ConnectNotify_Callback(KActionCollection_ConnectNotify_Callback cb) { kactioncollection_connectnotify_callback = cb; }
     inline void setKActionCollection_SlotActionTriggered_Callback(KActionCollection_SlotActionTriggered_Callback cb) { kactioncollection_slotactiontriggered_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualKActionCollection final : public KActionCollection {
     inline void setKActionCollection_IsSignalConnected_Callback(KActionCollection_IsSignalConnected_Callback cb) { kactioncollection_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKActionCollection_MetaObject_IsBase(bool value) const { kactioncollection_metaobject_isbase = value; }
+    inline void setKActionCollection_Metacast_IsBase(bool value) const { kactioncollection_metacast_isbase = value; }
     inline void setKActionCollection_Metacall_IsBase(bool value) const { kactioncollection_metacall_isbase = value; }
     inline void setKActionCollection_ConnectNotify_IsBase(bool value) const { kactioncollection_connectnotify_isbase = value; }
     inline void setKActionCollection_SlotActionTriggered_IsBase(bool value) const { kactioncollection_slotactiontriggered_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualKActionCollection final : public KActionCollection {
     inline void setKActionCollection_SenderSignalIndex_IsBase(bool value) const { kactioncollection_sendersignalindex_isbase = value; }
     inline void setKActionCollection_Receivers_IsBase(bool value) const { kactioncollection_receivers_isbase = value; }
     inline void setKActionCollection_IsSignalConnected_IsBase(bool value) const { kactioncollection_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kactioncollection_metaobject_isbase) {
+            kactioncollection_metaobject_isbase = false;
+            return KActionCollection::metaObject();
+        } else if (kactioncollection_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kactioncollection_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KActionCollection::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kactioncollection_metacast_isbase) {
+            kactioncollection_metacast_isbase = false;
+            return KActionCollection::qt_metacast(param1);
+        } else if (kactioncollection_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kactioncollection_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KActionCollection::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

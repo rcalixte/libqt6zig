@@ -21,11 +21,21 @@ KIO__DndPopupMenuPlugin* KIO__DndPopupMenuPlugin_new(QObject* parent) {
 }
 
 QMetaObject* KIO__DndPopupMenuPlugin_MetaObject(const KIO__DndPopupMenuPlugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__dndpopupmenuplugin = dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self);
+    if (vkio__dndpopupmenuplugin && vkio__dndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIODndPopupMenuPlugin*)self)->metaObject();
+    }
 }
 
 void* KIO__DndPopupMenuPlugin_Metacast(KIO__DndPopupMenuPlugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__dndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
+    if (vkio__dndpopupmenuplugin && vkio__dndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIODndPopupMenuPlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__DndPopupMenuPlugin_Metacall(KIO__DndPopupMenuPlugin* self, int param1, int param2, void** param3) {
@@ -61,6 +71,44 @@ libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_Setup(KIO__DndPopupMenuPlug
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KIO__DndPopupMenuPlugin_QBaseMetaObject(const KIO__DndPopupMenuPlugin* self) {
+    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
+    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiodndpopupmenuplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::DndPopupMenuPlugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__DndPopupMenuPlugin_OnMetaObject(const KIO__DndPopupMenuPlugin* self, intptr_t slot) {
+    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
+    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_MetaObject_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__DndPopupMenuPlugin_QBaseMetacast(KIO__DndPopupMenuPlugin* self, const char* param1) {
+    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
+    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Metacast_IsBase(true);
+        return vkiodndpopupmenuplugin->qt_metacast(param1);
+    } else {
+        return self->KIO::DndPopupMenuPlugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__DndPopupMenuPlugin_OnMetacast(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
+    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
+    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Metacast_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Metacast_Callback>(slot));
     }
 }
 

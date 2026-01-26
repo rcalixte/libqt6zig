@@ -37,6 +37,10 @@ libqt_list /* of QAction* */ KActionCategory_Actions(const KActionCategory* self
 KActionCollection* KActionCategory_Collection(const KActionCategory* self);
 libqt_string KActionCategory_Text(const KActionCategory* self);
 void KActionCategory_SetText(KActionCategory* self, const libqt_string text);
+void KActionCategory_OnMetaObject(const KActionCategory* self, intptr_t slot);
+QMetaObject* KActionCategory_QBaseMetaObject(const KActionCategory* self);
+void KActionCategory_OnMetacast(KActionCategory* self, intptr_t slot);
+void* KActionCategory_QBaseMetacast(KActionCategory* self, const char* param1);
 void KActionCategory_OnMetacall(KActionCategory* self, intptr_t slot);
 int KActionCategory_QBaseMetacall(KActionCategory* self, int param1, int param2, void** param3);
 bool KActionCategory_Event(KActionCategory* self, QEvent* event);

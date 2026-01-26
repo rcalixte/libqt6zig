@@ -331,6 +331,10 @@ KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton_AddItemStringList3(KCor
 KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton_AddItemStringList4(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of libqt_string */ reference, const libqt_list /* of libqt_string */ defaultValue, const libqt_string key);
 KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton_AddItemIntList3(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of int */ reference, const libqt_list /* of int */ defaultValue);
 KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton_AddItemIntList4(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of int */ reference, const libqt_list /* of int */ defaultValue, const libqt_string key);
+void KCoreConfigSkeleton_OnMetaObject(const KCoreConfigSkeleton* self, intptr_t slot);
+QMetaObject* KCoreConfigSkeleton_QBaseMetaObject(const KCoreConfigSkeleton* self);
+void KCoreConfigSkeleton_OnMetacast(KCoreConfigSkeleton* self, intptr_t slot);
+void* KCoreConfigSkeleton_QBaseMetacast(KCoreConfigSkeleton* self, const char* param1);
 void KCoreConfigSkeleton_OnMetacall(KCoreConfigSkeleton* self, intptr_t slot);
 int KCoreConfigSkeleton_QBaseMetacall(KCoreConfigSkeleton* self, int param1, int param2, void** param3);
 void KCoreConfigSkeleton_OnSetDefaults(KCoreConfigSkeleton* self, intptr_t slot);

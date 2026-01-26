@@ -75,6 +75,10 @@ void KCollapsibleGroupBox_MouseMoveEvent(KCollapsibleGroupBox* self, QMouseEvent
 void KCollapsibleGroupBox_LeaveEvent(KCollapsibleGroupBox* self, QEvent* param1);
 void KCollapsibleGroupBox_KeyPressEvent(KCollapsibleGroupBox* self, QKeyEvent* param1);
 void KCollapsibleGroupBox_ResizeEvent(KCollapsibleGroupBox* self, QResizeEvent* param1);
+void KCollapsibleGroupBox_OnMetaObject(const KCollapsibleGroupBox* self, intptr_t slot);
+QMetaObject* KCollapsibleGroupBox_QBaseMetaObject(const KCollapsibleGroupBox* self);
+void KCollapsibleGroupBox_OnMetacast(KCollapsibleGroupBox* self, intptr_t slot);
+void* KCollapsibleGroupBox_QBaseMetacast(KCollapsibleGroupBox* self, const char* param1);
 void KCollapsibleGroupBox_OnMetacall(KCollapsibleGroupBox* self, intptr_t slot);
 int KCollapsibleGroupBox_QBaseMetacall(KCollapsibleGroupBox* self, int param1, int param2, void** param3);
 void KCollapsibleGroupBox_OnSizeHint(const KCollapsibleGroupBox* self, intptr_t slot);

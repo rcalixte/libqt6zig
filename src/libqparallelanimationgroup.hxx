@@ -17,6 +17,8 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
     bool isVirtualQParallelAnimationGroup = true;
 
     // Virtual class public types (including callbacks)
+    using QParallelAnimationGroup_MetaObject_Callback = QMetaObject* (*)();
+    using QParallelAnimationGroup_Metacast_Callback = void* (*)(QParallelAnimationGroup*, const char*);
     using QParallelAnimationGroup_Metacall_Callback = int (*)(QParallelAnimationGroup*, int, int, void**);
     using QParallelAnimationGroup_Duration_Callback = int (*)();
     using QParallelAnimationGroup_Event_Callback = bool (*)(QParallelAnimationGroup*, QEvent*);
@@ -36,6 +38,8 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
 
   protected:
     // Instance callback storage
+    QParallelAnimationGroup_MetaObject_Callback qparallelanimationgroup_metaobject_callback = nullptr;
+    QParallelAnimationGroup_Metacast_Callback qparallelanimationgroup_metacast_callback = nullptr;
     QParallelAnimationGroup_Metacall_Callback qparallelanimationgroup_metacall_callback = nullptr;
     QParallelAnimationGroup_Duration_Callback qparallelanimationgroup_duration_callback = nullptr;
     QParallelAnimationGroup_Event_Callback qparallelanimationgroup_event_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
     QParallelAnimationGroup_IsSignalConnected_Callback qparallelanimationgroup_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qparallelanimationgroup_metaobject_isbase = false;
+    mutable bool qparallelanimationgroup_metacast_isbase = false;
     mutable bool qparallelanimationgroup_metacall_isbase = false;
     mutable bool qparallelanimationgroup_duration_isbase = false;
     mutable bool qparallelanimationgroup_event_isbase = false;
@@ -76,6 +82,8 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
     VirtualQParallelAnimationGroup(QObject* parent) : QParallelAnimationGroup(parent) {};
 
     ~VirtualQParallelAnimationGroup() {
+        qparallelanimationgroup_metaobject_callback = nullptr;
+        qparallelanimationgroup_metacast_callback = nullptr;
         qparallelanimationgroup_metacall_callback = nullptr;
         qparallelanimationgroup_duration_callback = nullptr;
         qparallelanimationgroup_event_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
     }
 
     // Callback setters
+    inline void setQParallelAnimationGroup_MetaObject_Callback(QParallelAnimationGroup_MetaObject_Callback cb) { qparallelanimationgroup_metaobject_callback = cb; }
+    inline void setQParallelAnimationGroup_Metacast_Callback(QParallelAnimationGroup_Metacast_Callback cb) { qparallelanimationgroup_metacast_callback = cb; }
     inline void setQParallelAnimationGroup_Metacall_Callback(QParallelAnimationGroup_Metacall_Callback cb) { qparallelanimationgroup_metacall_callback = cb; }
     inline void setQParallelAnimationGroup_Duration_Callback(QParallelAnimationGroup_Duration_Callback cb) { qparallelanimationgroup_duration_callback = cb; }
     inline void setQParallelAnimationGroup_Event_Callback(QParallelAnimationGroup_Event_Callback cb) { qparallelanimationgroup_event_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
     inline void setQParallelAnimationGroup_IsSignalConnected_Callback(QParallelAnimationGroup_IsSignalConnected_Callback cb) { qparallelanimationgroup_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQParallelAnimationGroup_MetaObject_IsBase(bool value) const { qparallelanimationgroup_metaobject_isbase = value; }
+    inline void setQParallelAnimationGroup_Metacast_IsBase(bool value) const { qparallelanimationgroup_metacast_isbase = value; }
     inline void setQParallelAnimationGroup_Metacall_IsBase(bool value) const { qparallelanimationgroup_metacall_isbase = value; }
     inline void setQParallelAnimationGroup_Duration_IsBase(bool value) const { qparallelanimationgroup_duration_isbase = value; }
     inline void setQParallelAnimationGroup_Event_IsBase(bool value) const { qparallelanimationgroup_event_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
     inline void setQParallelAnimationGroup_SenderSignalIndex_IsBase(bool value) const { qparallelanimationgroup_sendersignalindex_isbase = value; }
     inline void setQParallelAnimationGroup_Receivers_IsBase(bool value) const { qparallelanimationgroup_receivers_isbase = value; }
     inline void setQParallelAnimationGroup_IsSignalConnected_IsBase(bool value) const { qparallelanimationgroup_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qparallelanimationgroup_metaobject_isbase) {
+            qparallelanimationgroup_metaobject_isbase = false;
+            return QParallelAnimationGroup::metaObject();
+        } else if (qparallelanimationgroup_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qparallelanimationgroup_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QParallelAnimationGroup::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qparallelanimationgroup_metacast_isbase) {
+            qparallelanimationgroup_metacast_isbase = false;
+            return QParallelAnimationGroup::qt_metacast(param1);
+        } else if (qparallelanimationgroup_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qparallelanimationgroup_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QParallelAnimationGroup::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

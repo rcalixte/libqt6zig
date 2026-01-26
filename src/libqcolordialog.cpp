@@ -58,11 +58,21 @@ QColorDialog* QColorDialog_new4(const QColor* initial, QWidget* parent) {
 }
 
 QMetaObject* QColorDialog_MetaObject(const QColorDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcolordialog = dynamic_cast<const VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQColorDialog*)self)->metaObject();
+    }
 }
 
 void* QColorDialog_Metacast(QColorDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQColorDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int QColorDialog_Metacall(QColorDialog* self, int param1, int param2, void** param3) {
@@ -197,6 +207,44 @@ QColor* QColorDialog_GetColor3(const QColor* initial, QWidget* parent, const lib
 QColor* QColorDialog_GetColor4(const QColor* initial, QWidget* parent, const libqt_string title, int options) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return new QColor(QColorDialog::getColor(*initial, parent, title_QString, static_cast<QColorDialog::ColorDialogOptions>(options)));
+}
+
+// Base class handler implementation
+QMetaObject* QColorDialog_QBaseMetaObject(const QColorDialog* self) {
+    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcolordialog->metaObject();
+    } else {
+        return (QMetaObject*)self->QColorDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColorDialog_OnMetaObject(const QColorDialog* self, intptr_t slot) {
+    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_MetaObject_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QColorDialog_QBaseMetacast(QColorDialog* self, const char* param1) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_Metacast_IsBase(true);
+        return vqcolordialog->qt_metacast(param1);
+    } else {
+        return self->QColorDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColorDialog_OnMetacast(QColorDialog* self, intptr_t slot) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_Metacast_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

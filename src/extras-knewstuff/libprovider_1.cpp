@@ -25,11 +25,21 @@ KNSCore__Provider* KNSCore__Provider_new() {
 }
 
 QMetaObject* KNSCore__Provider_MetaObject(const KNSCore__Provider* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknscore__provider = dynamic_cast<const VirtualKNSCoreProvider*>(self);
+    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNSCoreProvider*)self)->metaObject();
+    }
 }
 
 void* KNSCore__Provider_Metacast(KNSCore__Provider* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
+    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNSCoreProvider*)self)->qt_metacast(param1);
+    }
 }
 
 int KNSCore__Provider_Metacall(KNSCore__Provider* self, int param1, int param2, void** param3) {
@@ -579,6 +589,44 @@ void KNSCore__Provider_Connect_DownloadTagFilterChanged(KNSCore__Provider* self,
     KNSCore::Provider::connect(self, &KNSCore::Provider::downloadTagFilterChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KNSCore__Provider_QBaseMetaObject(const KNSCore__Provider* self) {
+    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
+    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
+        vknscoreprovider->setKNSCore__Provider_MetaObject_IsBase(true);
+        return (QMetaObject*)vknscoreprovider->metaObject();
+    } else {
+        return (QMetaObject*)self->KNSCore::Provider::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__Provider_OnMetaObject(const KNSCore__Provider* self, intptr_t slot) {
+    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
+    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
+        vknscoreprovider->setKNSCore__Provider_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNSCore__Provider_QBaseMetacast(KNSCore__Provider* self, const char* param1) {
+    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
+    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
+        vknscoreprovider->setKNSCore__Provider_Metacast_IsBase(true);
+        return vknscoreprovider->qt_metacast(param1);
+    } else {
+        return self->KNSCore::Provider::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__Provider_OnMetacast(KNSCore__Provider* self, intptr_t slot) {
+    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
+    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
+        vknscoreprovider->setKNSCore__Provider_Metacast_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualKBugReport final : public KBugReport {
     bool isVirtualKBugReport = true;
 
     // Virtual class public types (including callbacks)
+    using KBugReport_MetaObject_Callback = QMetaObject* (*)();
+    using KBugReport_Metacast_Callback = void* (*)(KBugReport*, const char*);
     using KBugReport_Metacall_Callback = int (*)(KBugReport*, int, int, void**);
     using KBugReport_Accept_Callback = void (*)();
     using KBugReport_SetVisible_Callback = void (*)(KBugReport*, bool);
@@ -85,6 +87,8 @@ class VirtualKBugReport final : public KBugReport {
 
   protected:
     // Instance callback storage
+    KBugReport_MetaObject_Callback kbugreport_metaobject_callback = nullptr;
+    KBugReport_Metacast_Callback kbugreport_metacast_callback = nullptr;
     KBugReport_Metacall_Callback kbugreport_metacall_callback = nullptr;
     KBugReport_Accept_Callback kbugreport_accept_callback = nullptr;
     KBugReport_SetVisible_Callback kbugreport_setvisible_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualKBugReport final : public KBugReport {
     KBugReport_GetDecodedMetricF_Callback kbugreport_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kbugreport_metaobject_isbase = false;
+    mutable bool kbugreport_metacast_isbase = false;
     mutable bool kbugreport_metacall_isbase = false;
     mutable bool kbugreport_accept_isbase = false;
     mutable bool kbugreport_setvisible_isbase = false;
@@ -223,6 +229,8 @@ class VirtualKBugReport final : public KBugReport {
     VirtualKBugReport(const KAboutData& aboutData, QWidget* parent) : KBugReport(aboutData, parent) {};
 
     ~VirtualKBugReport() {
+        kbugreport_metaobject_callback = nullptr;
+        kbugreport_metacast_callback = nullptr;
         kbugreport_metacall_callback = nullptr;
         kbugreport_accept_callback = nullptr;
         kbugreport_setvisible_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKBugReport final : public KBugReport {
     }
 
     // Callback setters
+    inline void setKBugReport_MetaObject_Callback(KBugReport_MetaObject_Callback cb) { kbugreport_metaobject_callback = cb; }
+    inline void setKBugReport_Metacast_Callback(KBugReport_Metacast_Callback cb) { kbugreport_metacast_callback = cb; }
     inline void setKBugReport_Metacall_Callback(KBugReport_Metacall_Callback cb) { kbugreport_metacall_callback = cb; }
     inline void setKBugReport_Accept_Callback(KBugReport_Accept_Callback cb) { kbugreport_accept_callback = cb; }
     inline void setKBugReport_SetVisible_Callback(KBugReport_SetVisible_Callback cb) { kbugreport_setvisible_callback = cb; }
@@ -358,6 +368,8 @@ class VirtualKBugReport final : public KBugReport {
     inline void setKBugReport_GetDecodedMetricF_Callback(KBugReport_GetDecodedMetricF_Callback cb) { kbugreport_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKBugReport_MetaObject_IsBase(bool value) const { kbugreport_metaobject_isbase = value; }
+    inline void setKBugReport_Metacast_IsBase(bool value) const { kbugreport_metacast_isbase = value; }
     inline void setKBugReport_Metacall_IsBase(bool value) const { kbugreport_metacall_isbase = value; }
     inline void setKBugReport_Accept_IsBase(bool value) const { kbugreport_accept_isbase = value; }
     inline void setKBugReport_SetVisible_IsBase(bool value) const { kbugreport_setvisible_isbase = value; }
@@ -423,6 +435,34 @@ class VirtualKBugReport final : public KBugReport {
     inline void setKBugReport_Receivers_IsBase(bool value) const { kbugreport_receivers_isbase = value; }
     inline void setKBugReport_IsSignalConnected_IsBase(bool value) const { kbugreport_issignalconnected_isbase = value; }
     inline void setKBugReport_GetDecodedMetricF_IsBase(bool value) const { kbugreport_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kbugreport_metaobject_isbase) {
+            kbugreport_metaobject_isbase = false;
+            return KBugReport::metaObject();
+        } else if (kbugreport_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kbugreport_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KBugReport::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kbugreport_metacast_isbase) {
+            kbugreport_metacast_isbase = false;
+            return KBugReport::qt_metacast(param1);
+        } else if (kbugreport_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kbugreport_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KBugReport::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

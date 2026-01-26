@@ -25,11 +25,21 @@ QDesignerFormWindowToolInterface* QDesignerFormWindowToolInterface_new2(QObject*
 }
 
 QMetaObject* QDesignerFormWindowToolInterface_MetaObject(const QDesignerFormWindowToolInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerformwindowtoolinterface = dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self);
+    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerFormWindowToolInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerFormWindowToolInterface_Metacast(QDesignerFormWindowToolInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
+    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerFormWindowToolInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerFormWindowToolInterface_Metacall(QDesignerFormWindowToolInterface* self, int param1, int param2, void** param3) {
@@ -101,6 +111,44 @@ bool QDesignerFormWindowToolInterface_HandleEvent(QDesignerFormWindowToolInterfa
         return vqdesignerformwindowtoolinterface->handleEvent(widget, managedWidget, event);
     } else {
         return ((VirtualQDesignerFormWindowToolInterface*)self)->handleEvent(widget, managedWidget, event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerFormWindowToolInterface_QBaseMetaObject(const QDesignerFormWindowToolInterface* self) {
+    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
+    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerformwindowtoolinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerFormWindowToolInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerFormWindowToolInterface_OnMetaObject(const QDesignerFormWindowToolInterface* self, intptr_t slot) {
+    auto* vqdesignerformwindowtoolinterface = const_cast<VirtualQDesignerFormWindowToolInterface*>(dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self));
+    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerFormWindowToolInterface_QBaseMetacast(QDesignerFormWindowToolInterface* self, const char* param1) {
+    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
+    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Metacast_IsBase(true);
+        return vqdesignerformwindowtoolinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerFormWindowToolInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerFormWindowToolInterface_OnMetacast(QDesignerFormWindowToolInterface* self, intptr_t slot) {
+    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
+    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
+        vqdesignerformwindowtoolinterface->setQDesignerFormWindowToolInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerFormWindowToolInterface::QDesignerFormWindowToolInterface_Metacast_Callback>(slot));
     }
 }
 

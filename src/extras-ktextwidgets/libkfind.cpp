@@ -26,11 +26,21 @@ KFind* KFind_new2(const libqt_string pattern, long options, QWidget* parent, QWi
 }
 
 QMetaObject* KFind_MetaObject(const KFind* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfind = dynamic_cast<const VirtualKFind*>(self);
+    if (vkfind && vkfind->isVirtualKFind) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFind*)self)->metaObject();
+    }
 }
 
 void* KFind_Metacast(KFind* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
+    if (vkfind && vkfind->isVirtualKFind) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFind*)self)->qt_metacast(param1);
+    }
 }
 
 int KFind_Metacall(KFind* self, int param1, int param2, void** param3) {
@@ -230,6 +240,44 @@ void KFind_SetData3(KFind* self, int id, const libqt_string data, int startPos) 
 
 QDialog* KFind_FindNextDialog1(KFind* self, bool create) {
     return self->findNextDialog(create);
+}
+
+// Base class handler implementation
+QMetaObject* KFind_QBaseMetaObject(const KFind* self) {
+    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
+    if (vkfind && vkfind->isVirtualKFind) {
+        vkfind->setKFind_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfind->metaObject();
+    } else {
+        return (QMetaObject*)self->KFind::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFind_OnMetaObject(const KFind* self, intptr_t slot) {
+    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
+    if (vkfind && vkfind->isVirtualKFind) {
+        vkfind->setKFind_MetaObject_Callback(reinterpret_cast<VirtualKFind::KFind_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFind_QBaseMetacast(KFind* self, const char* param1) {
+    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
+    if (vkfind && vkfind->isVirtualKFind) {
+        vkfind->setKFind_Metacast_IsBase(true);
+        return vkfind->qt_metacast(param1);
+    } else {
+        return self->KFind::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFind_OnMetacast(KFind* self, intptr_t slot) {
+    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
+    if (vkfind && vkfind->isVirtualKFind) {
+        vkfind->setKFind_Metacast_Callback(reinterpret_cast<VirtualKFind::KFind_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

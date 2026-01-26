@@ -20,6 +20,8 @@ class VirtualQColumnView final : public QColumnView {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using QColumnView_MetaObject_Callback = QMetaObject* (*)();
+    using QColumnView_Metacast_Callback = void* (*)(QColumnView*, const char*);
     using QColumnView_Metacall_Callback = int (*)(QColumnView*, int, int, void**);
     using QColumnView_IndexAt_Callback = QModelIndex* (*)(const QColumnView*, QPoint*);
     using QColumnView_ScrollTo_Callback = void (*)(QColumnView*, QModelIndex*, int);
@@ -141,6 +143,8 @@ class VirtualQColumnView final : public QColumnView {
 
   protected:
     // Instance callback storage
+    QColumnView_MetaObject_Callback qcolumnview_metaobject_callback = nullptr;
+    QColumnView_Metacast_Callback qcolumnview_metacast_callback = nullptr;
     QColumnView_Metacall_Callback qcolumnview_metacall_callback = nullptr;
     QColumnView_IndexAt_Callback qcolumnview_indexat_callback = nullptr;
     QColumnView_ScrollTo_Callback qcolumnview_scrollto_callback = nullptr;
@@ -261,6 +265,8 @@ class VirtualQColumnView final : public QColumnView {
     QColumnView_GetDecodedMetricF_Callback qcolumnview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcolumnview_metaobject_isbase = false;
+    mutable bool qcolumnview_metacast_isbase = false;
     mutable bool qcolumnview_metacall_isbase = false;
     mutable bool qcolumnview_indexat_isbase = false;
     mutable bool qcolumnview_scrollto_isbase = false;
@@ -385,6 +391,8 @@ class VirtualQColumnView final : public QColumnView {
     VirtualQColumnView() : QColumnView() {};
 
     ~VirtualQColumnView() {
+        qcolumnview_metaobject_callback = nullptr;
+        qcolumnview_metacast_callback = nullptr;
         qcolumnview_metacall_callback = nullptr;
         qcolumnview_indexat_callback = nullptr;
         qcolumnview_scrollto_callback = nullptr;
@@ -506,6 +514,8 @@ class VirtualQColumnView final : public QColumnView {
     }
 
     // Callback setters
+    inline void setQColumnView_MetaObject_Callback(QColumnView_MetaObject_Callback cb) { qcolumnview_metaobject_callback = cb; }
+    inline void setQColumnView_Metacast_Callback(QColumnView_Metacast_Callback cb) { qcolumnview_metacast_callback = cb; }
     inline void setQColumnView_Metacall_Callback(QColumnView_Metacall_Callback cb) { qcolumnview_metacall_callback = cb; }
     inline void setQColumnView_IndexAt_Callback(QColumnView_IndexAt_Callback cb) { qcolumnview_indexat_callback = cb; }
     inline void setQColumnView_ScrollTo_Callback(QColumnView_ScrollTo_Callback cb) { qcolumnview_scrollto_callback = cb; }
@@ -626,6 +636,8 @@ class VirtualQColumnView final : public QColumnView {
     inline void setQColumnView_GetDecodedMetricF_Callback(QColumnView_GetDecodedMetricF_Callback cb) { qcolumnview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQColumnView_MetaObject_IsBase(bool value) const { qcolumnview_metaobject_isbase = value; }
+    inline void setQColumnView_Metacast_IsBase(bool value) const { qcolumnview_metacast_isbase = value; }
     inline void setQColumnView_Metacall_IsBase(bool value) const { qcolumnview_metacall_isbase = value; }
     inline void setQColumnView_IndexAt_IsBase(bool value) const { qcolumnview_indexat_isbase = value; }
     inline void setQColumnView_ScrollTo_IsBase(bool value) const { qcolumnview_scrollto_isbase = value; }
@@ -744,6 +756,34 @@ class VirtualQColumnView final : public QColumnView {
     inline void setQColumnView_Receivers_IsBase(bool value) const { qcolumnview_receivers_isbase = value; }
     inline void setQColumnView_IsSignalConnected_IsBase(bool value) const { qcolumnview_issignalconnected_isbase = value; }
     inline void setQColumnView_GetDecodedMetricF_IsBase(bool value) const { qcolumnview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcolumnview_metaobject_isbase) {
+            qcolumnview_metaobject_isbase = false;
+            return QColumnView::metaObject();
+        } else if (qcolumnview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcolumnview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QColumnView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcolumnview_metacast_isbase) {
+            qcolumnview_metacast_isbase = false;
+            return QColumnView::qt_metacast(param1);
+        } else if (qcolumnview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcolumnview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QColumnView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

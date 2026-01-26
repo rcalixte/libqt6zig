@@ -33,6 +33,10 @@ int QPlaceIdReply_Metacall(QPlaceIdReply* self, int param1, int param2, void** p
 int QPlaceIdReply_Type(const QPlaceIdReply* self);
 int QPlaceIdReply_OperationType(const QPlaceIdReply* self);
 libqt_string QPlaceIdReply_Id(const QPlaceIdReply* self);
+void QPlaceIdReply_OnMetaObject(const QPlaceIdReply* self, intptr_t slot);
+QMetaObject* QPlaceIdReply_QBaseMetaObject(const QPlaceIdReply* self);
+void QPlaceIdReply_OnMetacast(QPlaceIdReply* self, intptr_t slot);
+void* QPlaceIdReply_QBaseMetacast(QPlaceIdReply* self, const char* param1);
 void QPlaceIdReply_OnMetacall(QPlaceIdReply* self, intptr_t slot);
 int QPlaceIdReply_QBaseMetacall(QPlaceIdReply* self, int param1, int param2, void** param3);
 void QPlaceIdReply_OnType(const QPlaceIdReply* self, intptr_t slot);

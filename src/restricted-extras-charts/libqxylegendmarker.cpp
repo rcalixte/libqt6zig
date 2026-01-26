@@ -24,11 +24,21 @@ QXYLegendMarker* QXYLegendMarker_new2(QXYSeries* series, QLegend* legend, QObjec
 }
 
 QMetaObject* QXYLegendMarker_MetaObject(const QXYLegendMarker* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqxylegendmarker = dynamic_cast<const VirtualQXYLegendMarker*>(self);
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQXYLegendMarker*)self)->metaObject();
+    }
 }
 
 void* QXYLegendMarker_Metacast(QXYLegendMarker* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQXYLegendMarker*)self)->qt_metacast(param1);
+    }
 }
 
 int QXYLegendMarker_Metacall(QXYLegendMarker* self, int param1, int param2, void** param3) {
@@ -55,6 +65,44 @@ QXYSeries* QXYLegendMarker_Series(QXYLegendMarker* self) {
         return self->series();
     } else {
         return ((VirtualQXYLegendMarker*)self)->series();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QXYLegendMarker_QBaseMetaObject(const QXYLegendMarker* self) {
+    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+        vqxylegendmarker->setQXYLegendMarker_MetaObject_IsBase(true);
+        return (QMetaObject*)vqxylegendmarker->metaObject();
+    } else {
+        return (QMetaObject*)self->QXYLegendMarker::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QXYLegendMarker_OnMetaObject(const QXYLegendMarker* self, intptr_t slot) {
+    auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+        vqxylegendmarker->setQXYLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QXYLegendMarker_QBaseMetacast(QXYLegendMarker* self, const char* param1) {
+    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+        vqxylegendmarker->setQXYLegendMarker_Metacast_IsBase(true);
+        return vqxylegendmarker->qt_metacast(param1);
+    } else {
+        return self->QXYLegendMarker::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QXYLegendMarker_OnMetacast(QXYLegendMarker* self, intptr_t slot) {
+    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+        vqxylegendmarker->setQXYLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Metacast_Callback>(slot));
     }
 }
 

@@ -35,11 +35,21 @@ QTemporaryFile* QTemporaryFile_new4(const libqt_string templateName, QObject* pa
 }
 
 QMetaObject* QTemporaryFile_MetaObject(const QTemporaryFile* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtemporaryfile = dynamic_cast<const VirtualQTemporaryFile*>(self);
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTemporaryFile*)self)->metaObject();
+    }
 }
 
 void* QTemporaryFile_Metacast(QTemporaryFile* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTemporaryFile*)self)->qt_metacast(param1);
+    }
 }
 
 int QTemporaryFile_Metacall(QTemporaryFile* self, int param1, int param2, void** param3) {
@@ -125,6 +135,44 @@ bool QTemporaryFile_Open2(QTemporaryFile* self, int flags) {
         return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QTemporaryFile_QBaseMetaObject(const QTemporaryFile* self) {
+    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        vqtemporaryfile->setQTemporaryFile_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtemporaryfile->metaObject();
+    } else {
+        return (QMetaObject*)self->QTemporaryFile::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTemporaryFile_OnMetaObject(const QTemporaryFile* self, intptr_t slot) {
+    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        vqtemporaryfile->setQTemporaryFile_MetaObject_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTemporaryFile_QBaseMetacast(QTemporaryFile* self, const char* param1) {
+    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        vqtemporaryfile->setQTemporaryFile_Metacast_IsBase(true);
+        return vqtemporaryfile->qt_metacast(param1);
+    } else {
+        return self->QTemporaryFile::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTemporaryFile_OnMetacast(QTemporaryFile* self, intptr_t slot) {
+    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+        vqtemporaryfile->setQTemporaryFile_Metacast_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

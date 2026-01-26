@@ -171,6 +171,10 @@ void QComboBox_AddItem3(QComboBox* self, const QIcon* icon, const libqt_string t
 void QComboBox_InsertItem3(QComboBox* self, int index, const libqt_string text, const QVariant* userData);
 void QComboBox_InsertItem4(QComboBox* self, int index, const QIcon* icon, const libqt_string text, const QVariant* userData);
 void QComboBox_SetItemData3(QComboBox* self, int index, const QVariant* value, int role);
+void QComboBox_OnMetaObject(const QComboBox* self, intptr_t slot);
+QMetaObject* QComboBox_QBaseMetaObject(const QComboBox* self);
+void QComboBox_OnMetacast(QComboBox* self, intptr_t slot);
+void* QComboBox_QBaseMetacast(QComboBox* self, const char* param1);
 void QComboBox_OnMetacall(QComboBox* self, intptr_t slot);
 int QComboBox_QBaseMetacall(QComboBox* self, int param1, int param2, void** param3);
 void QComboBox_OnSetModel(QComboBox* self, intptr_t slot);

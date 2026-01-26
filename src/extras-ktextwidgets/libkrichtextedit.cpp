@@ -70,11 +70,21 @@ KRichTextEdit* KRichTextEdit_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* KRichTextEdit_MetaObject(const KRichTextEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkrichtextedit = dynamic_cast<const VirtualKRichTextEdit*>(self);
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKRichTextEdit*)self)->metaObject();
+    }
 }
 
 void* KRichTextEdit_Metacast(KRichTextEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKRichTextEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int KRichTextEdit_Metacall(KRichTextEdit* self, int param1, int param2, void** param3) {
@@ -282,6 +292,44 @@ void KRichTextEdit_KeyPressEvent(KRichTextEdit* self, QKeyEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
         vkrichtextedit->keyPressEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KRichTextEdit_QBaseMetaObject(const KRichTextEdit* self) {
+    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+        vkrichtextedit->setKRichTextEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vkrichtextedit->metaObject();
+    } else {
+        return (QMetaObject*)self->KRichTextEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRichTextEdit_OnMetaObject(const KRichTextEdit* self, intptr_t slot) {
+    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+        vkrichtextedit->setKRichTextEdit_MetaObject_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KRichTextEdit_QBaseMetacast(KRichTextEdit* self, const char* param1) {
+    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+        vkrichtextedit->setKRichTextEdit_Metacast_IsBase(true);
+        return vkrichtextedit->qt_metacast(param1);
+    } else {
+        return self->KRichTextEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRichTextEdit_OnMetacast(KRichTextEdit* self, intptr_t slot) {
+    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+        vkrichtextedit->setKRichTextEdit_Metacast_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metacast_Callback>(slot));
     }
 }
 

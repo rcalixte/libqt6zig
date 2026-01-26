@@ -501,11 +501,21 @@ QTableWidget* QTableWidget_new4(int rows, int columns, QWidget* parent) {
 }
 
 QMetaObject* QTableWidget_MetaObject(const QTableWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTableWidget*)self)->metaObject();
+    }
 }
 
 void* QTableWidget_Metacast(QTableWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTableWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QTableWidget_Metacall(QTableWidget* self, int param1, int param2, void** param3) {
@@ -1053,6 +1063,44 @@ void QTableWidget_SortItems2(QTableWidget* self, int column, int order) {
 
 void QTableWidget_ScrollToItem2(QTableWidget* self, const QTableWidgetItem* item, int hint) {
     self->scrollToItem(item, static_cast<QAbstractItemView::ScrollHint>(hint));
+}
+
+// Base class handler implementation
+QMetaObject* QTableWidget_QBaseMetaObject(const QTableWidget* self) {
+    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtablewidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QTableWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableWidget_OnMetaObject(const QTableWidget* self, intptr_t slot) {
+    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_MetaObject_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTableWidget_QBaseMetacast(QTableWidget* self, const char* param1) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_Metacast_IsBase(true);
+        return vqtablewidget->qt_metacast(param1);
+    } else {
+        return self->QTableWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableWidget_OnMetacast(QTableWidget* self, intptr_t slot) {
+    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_Metacast_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualQPieSlice final : public QPieSlice {
     bool isVirtualQPieSlice = true;
 
     // Virtual class public types (including callbacks)
+    using QPieSlice_MetaObject_Callback = QMetaObject* (*)();
+    using QPieSlice_Metacast_Callback = void* (*)(QPieSlice*, const char*);
     using QPieSlice_Metacall_Callback = int (*)(QPieSlice*, int, int, void**);
     using QPieSlice_Event_Callback = bool (*)(QPieSlice*, QEvent*);
     using QPieSlice_EventFilter_Callback = bool (*)(QPieSlice*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQPieSlice final : public QPieSlice {
 
   protected:
     // Instance callback storage
+    QPieSlice_MetaObject_Callback qpieslice_metaobject_callback = nullptr;
+    QPieSlice_Metacast_Callback qpieslice_metacast_callback = nullptr;
     QPieSlice_Metacall_Callback qpieslice_metacall_callback = nullptr;
     QPieSlice_Event_Callback qpieslice_event_callback = nullptr;
     QPieSlice_EventFilter_Callback qpieslice_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQPieSlice final : public QPieSlice {
     QPieSlice_IsSignalConnected_Callback qpieslice_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpieslice_metaobject_isbase = false;
+    mutable bool qpieslice_metacast_isbase = false;
     mutable bool qpieslice_metacall_isbase = false;
     mutable bool qpieslice_event_isbase = false;
     mutable bool qpieslice_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQPieSlice final : public QPieSlice {
     VirtualQPieSlice(QString label, qreal value, QObject* parent) : QPieSlice(label, value, parent) {};
 
     ~VirtualQPieSlice() {
+        qpieslice_metaobject_callback = nullptr;
+        qpieslice_metacast_callback = nullptr;
         qpieslice_metacall_callback = nullptr;
         qpieslice_event_callback = nullptr;
         qpieslice_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQPieSlice final : public QPieSlice {
     }
 
     // Callback setters
+    inline void setQPieSlice_MetaObject_Callback(QPieSlice_MetaObject_Callback cb) { qpieslice_metaobject_callback = cb; }
+    inline void setQPieSlice_Metacast_Callback(QPieSlice_Metacast_Callback cb) { qpieslice_metacast_callback = cb; }
     inline void setQPieSlice_Metacall_Callback(QPieSlice_Metacall_Callback cb) { qpieslice_metacall_callback = cb; }
     inline void setQPieSlice_Event_Callback(QPieSlice_Event_Callback cb) { qpieslice_event_callback = cb; }
     inline void setQPieSlice_EventFilter_Callback(QPieSlice_EventFilter_Callback cb) { qpieslice_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQPieSlice final : public QPieSlice {
     inline void setQPieSlice_IsSignalConnected_Callback(QPieSlice_IsSignalConnected_Callback cb) { qpieslice_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPieSlice_MetaObject_IsBase(bool value) const { qpieslice_metaobject_isbase = value; }
+    inline void setQPieSlice_Metacast_IsBase(bool value) const { qpieslice_metacast_isbase = value; }
     inline void setQPieSlice_Metacall_IsBase(bool value) const { qpieslice_metacall_isbase = value; }
     inline void setQPieSlice_Event_IsBase(bool value) const { qpieslice_event_isbase = value; }
     inline void setQPieSlice_EventFilter_IsBase(bool value) const { qpieslice_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQPieSlice final : public QPieSlice {
     inline void setQPieSlice_SenderSignalIndex_IsBase(bool value) const { qpieslice_sendersignalindex_isbase = value; }
     inline void setQPieSlice_Receivers_IsBase(bool value) const { qpieslice_receivers_isbase = value; }
     inline void setQPieSlice_IsSignalConnected_IsBase(bool value) const { qpieslice_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpieslice_metaobject_isbase) {
+            qpieslice_metaobject_isbase = false;
+            return QPieSlice::metaObject();
+        } else if (qpieslice_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpieslice_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPieSlice::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpieslice_metacast_isbase) {
+            qpieslice_metacast_isbase = false;
+            return QPieSlice::qt_metacast(param1);
+        } else if (qpieslice_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpieslice_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPieSlice::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

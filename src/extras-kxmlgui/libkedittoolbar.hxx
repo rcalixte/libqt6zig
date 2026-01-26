@@ -17,6 +17,8 @@ class VirtualKEditToolBar final : public KEditToolBar {
     bool isVirtualKEditToolBar = true;
 
     // Virtual class public types (including callbacks)
+    using KEditToolBar_MetaObject_Callback = QMetaObject* (*)();
+    using KEditToolBar_Metacast_Callback = void* (*)(KEditToolBar*, const char*);
     using KEditToolBar_Metacall_Callback = int (*)(KEditToolBar*, int, int, void**);
     using KEditToolBar_ShowEvent_Callback = void (*)(KEditToolBar*, QShowEvent*);
     using KEditToolBar_HideEvent_Callback = void (*)(KEditToolBar*, QHideEvent*);
@@ -84,6 +86,8 @@ class VirtualKEditToolBar final : public KEditToolBar {
 
   protected:
     // Instance callback storage
+    KEditToolBar_MetaObject_Callback kedittoolbar_metaobject_callback = nullptr;
+    KEditToolBar_Metacast_Callback kedittoolbar_metacast_callback = nullptr;
     KEditToolBar_Metacall_Callback kedittoolbar_metacall_callback = nullptr;
     KEditToolBar_ShowEvent_Callback kedittoolbar_showevent_callback = nullptr;
     KEditToolBar_HideEvent_Callback kedittoolbar_hideevent_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKEditToolBar final : public KEditToolBar {
     KEditToolBar_GetDecodedMetricF_Callback kedittoolbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kedittoolbar_metaobject_isbase = false;
+    mutable bool kedittoolbar_metacast_isbase = false;
     mutable bool kedittoolbar_metacall_isbase = false;
     mutable bool kedittoolbar_showevent_isbase = false;
     mutable bool kedittoolbar_hideevent_isbase = false;
@@ -222,6 +228,8 @@ class VirtualKEditToolBar final : public KEditToolBar {
     VirtualKEditToolBar(KXMLGUIFactory* factory, QWidget* parent) : KEditToolBar(factory, parent) {};
 
     ~VirtualKEditToolBar() {
+        kedittoolbar_metaobject_callback = nullptr;
+        kedittoolbar_metacast_callback = nullptr;
         kedittoolbar_metacall_callback = nullptr;
         kedittoolbar_showevent_callback = nullptr;
         kedittoolbar_hideevent_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualKEditToolBar final : public KEditToolBar {
     }
 
     // Callback setters
+    inline void setKEditToolBar_MetaObject_Callback(KEditToolBar_MetaObject_Callback cb) { kedittoolbar_metaobject_callback = cb; }
+    inline void setKEditToolBar_Metacast_Callback(KEditToolBar_Metacast_Callback cb) { kedittoolbar_metacast_callback = cb; }
     inline void setKEditToolBar_Metacall_Callback(KEditToolBar_Metacall_Callback cb) { kedittoolbar_metacall_callback = cb; }
     inline void setKEditToolBar_ShowEvent_Callback(KEditToolBar_ShowEvent_Callback cb) { kedittoolbar_showevent_callback = cb; }
     inline void setKEditToolBar_HideEvent_Callback(KEditToolBar_HideEvent_Callback cb) { kedittoolbar_hideevent_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualKEditToolBar final : public KEditToolBar {
     inline void setKEditToolBar_GetDecodedMetricF_Callback(KEditToolBar_GetDecodedMetricF_Callback cb) { kedittoolbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKEditToolBar_MetaObject_IsBase(bool value) const { kedittoolbar_metaobject_isbase = value; }
+    inline void setKEditToolBar_Metacast_IsBase(bool value) const { kedittoolbar_metacast_isbase = value; }
     inline void setKEditToolBar_Metacall_IsBase(bool value) const { kedittoolbar_metacall_isbase = value; }
     inline void setKEditToolBar_ShowEvent_IsBase(bool value) const { kedittoolbar_showevent_isbase = value; }
     inline void setKEditToolBar_HideEvent_IsBase(bool value) const { kedittoolbar_hideevent_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualKEditToolBar final : public KEditToolBar {
     inline void setKEditToolBar_Receivers_IsBase(bool value) const { kedittoolbar_receivers_isbase = value; }
     inline void setKEditToolBar_IsSignalConnected_IsBase(bool value) const { kedittoolbar_issignalconnected_isbase = value; }
     inline void setKEditToolBar_GetDecodedMetricF_IsBase(bool value) const { kedittoolbar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kedittoolbar_metaobject_isbase) {
+            kedittoolbar_metaobject_isbase = false;
+            return KEditToolBar::metaObject();
+        } else if (kedittoolbar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kedittoolbar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KEditToolBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kedittoolbar_metacast_isbase) {
+            kedittoolbar_metacast_isbase = false;
+            return KEditToolBar::qt_metacast(param1);
+        } else if (kedittoolbar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kedittoolbar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KEditToolBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

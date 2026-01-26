@@ -17,6 +17,8 @@ class VirtualQPieSeries final : public QPieSeries {
     bool isVirtualQPieSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QPieSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QPieSeries_Metacast_Callback = void* (*)(QPieSeries*, const char*);
     using QPieSeries_Metacall_Callback = int (*)(QPieSeries*, int, int, void**);
     using QPieSeries_Type_Callback = int (*)();
     using QPieSeries_Event_Callback = bool (*)(QPieSeries*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQPieSeries final : public QPieSeries {
 
   protected:
     // Instance callback storage
+    QPieSeries_MetaObject_Callback qpieseries_metaobject_callback = nullptr;
+    QPieSeries_Metacast_Callback qpieseries_metacast_callback = nullptr;
     QPieSeries_Metacall_Callback qpieseries_metacall_callback = nullptr;
     QPieSeries_Type_Callback qpieseries_type_callback = nullptr;
     QPieSeries_Event_Callback qpieseries_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQPieSeries final : public QPieSeries {
     QPieSeries_IsSignalConnected_Callback qpieseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpieseries_metaobject_isbase = false;
+    mutable bool qpieseries_metacast_isbase = false;
     mutable bool qpieseries_metacall_isbase = false;
     mutable bool qpieseries_type_isbase = false;
     mutable bool qpieseries_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQPieSeries final : public QPieSeries {
     VirtualQPieSeries(QObject* parent) : QPieSeries(parent) {};
 
     ~VirtualQPieSeries() {
+        qpieseries_metaobject_callback = nullptr;
+        qpieseries_metacast_callback = nullptr;
         qpieseries_metacall_callback = nullptr;
         qpieseries_type_callback = nullptr;
         qpieseries_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQPieSeries final : public QPieSeries {
     }
 
     // Callback setters
+    inline void setQPieSeries_MetaObject_Callback(QPieSeries_MetaObject_Callback cb) { qpieseries_metaobject_callback = cb; }
+    inline void setQPieSeries_Metacast_Callback(QPieSeries_Metacast_Callback cb) { qpieseries_metacast_callback = cb; }
     inline void setQPieSeries_Metacall_Callback(QPieSeries_Metacall_Callback cb) { qpieseries_metacall_callback = cb; }
     inline void setQPieSeries_Type_Callback(QPieSeries_Type_Callback cb) { qpieseries_type_callback = cb; }
     inline void setQPieSeries_Event_Callback(QPieSeries_Event_Callback cb) { qpieseries_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQPieSeries final : public QPieSeries {
     inline void setQPieSeries_IsSignalConnected_Callback(QPieSeries_IsSignalConnected_Callback cb) { qpieseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPieSeries_MetaObject_IsBase(bool value) const { qpieseries_metaobject_isbase = value; }
+    inline void setQPieSeries_Metacast_IsBase(bool value) const { qpieseries_metacast_isbase = value; }
     inline void setQPieSeries_Metacall_IsBase(bool value) const { qpieseries_metacall_isbase = value; }
     inline void setQPieSeries_Type_IsBase(bool value) const { qpieseries_type_isbase = value; }
     inline void setQPieSeries_Event_IsBase(bool value) const { qpieseries_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQPieSeries final : public QPieSeries {
     inline void setQPieSeries_SenderSignalIndex_IsBase(bool value) const { qpieseries_sendersignalindex_isbase = value; }
     inline void setQPieSeries_Receivers_IsBase(bool value) const { qpieseries_receivers_isbase = value; }
     inline void setQPieSeries_IsSignalConnected_IsBase(bool value) const { qpieseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpieseries_metaobject_isbase) {
+            qpieseries_metaobject_isbase = false;
+            return QPieSeries::metaObject();
+        } else if (qpieseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpieseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPieSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpieseries_metacast_isbase) {
+            qpieseries_metacast_isbase = false;
+            return QPieSeries::qt_metacast(param1);
+        } else if (qpieseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpieseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPieSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

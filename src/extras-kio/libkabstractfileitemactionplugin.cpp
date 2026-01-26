@@ -21,11 +21,21 @@ KAbstractFileItemActionPlugin* KAbstractFileItemActionPlugin_new(QObject* parent
 }
 
 QMetaObject* KAbstractFileItemActionPlugin_MetaObject(const KAbstractFileItemActionPlugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkabstractfileitemactionplugin = dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self);
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKAbstractFileItemActionPlugin*)self)->metaObject();
+    }
 }
 
 void* KAbstractFileItemActionPlugin_Metacast(KAbstractFileItemActionPlugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKAbstractFileItemActionPlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int KAbstractFileItemActionPlugin_Metacall(KAbstractFileItemActionPlugin* self, int param1, int param2, void** param3) {
@@ -82,6 +92,44 @@ void KAbstractFileItemActionPlugin_Connect_Error(KAbstractFileItemActionPlugin* 
         slotFunc(self, sigval1);
         libqt_free(errorMessage_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KAbstractFileItemActionPlugin_QBaseMetaObject(const KAbstractFileItemActionPlugin* self) {
+    auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+        vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vkabstractfileitemactionplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->KAbstractFileItemActionPlugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAbstractFileItemActionPlugin_OnMetaObject(const KAbstractFileItemActionPlugin* self, intptr_t slot) {
+    auto* vkabstractfileitemactionplugin = const_cast<VirtualKAbstractFileItemActionPlugin*>(dynamic_cast<const VirtualKAbstractFileItemActionPlugin*>(self));
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+        vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_MetaObject_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KAbstractFileItemActionPlugin_QBaseMetacast(KAbstractFileItemActionPlugin* self, const char* param1) {
+    auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+        vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Metacast_IsBase(true);
+        return vkabstractfileitemactionplugin->qt_metacast(param1);
+    } else {
+        return self->KAbstractFileItemActionPlugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAbstractFileItemActionPlugin_OnMetacast(KAbstractFileItemActionPlugin* self, intptr_t slot) {
+    auto* vkabstractfileitemactionplugin = dynamic_cast<VirtualKAbstractFileItemActionPlugin*>(self);
+    if (vkabstractfileitemactionplugin && vkabstractfileitemactionplugin->isVirtualKAbstractFileItemActionPlugin) {
+        vkabstractfileitemactionplugin->setKAbstractFileItemActionPlugin_Metacast_Callback(reinterpret_cast<VirtualKAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

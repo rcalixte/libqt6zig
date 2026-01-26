@@ -75,11 +75,21 @@ QTextEdit* QTextEdit_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* QTextEdit_MetaObject(const QTextEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtextedit = dynamic_cast<const VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTextEdit*)self)->metaObject();
+    }
 }
 
 void* QTextEdit_Metacast(QTextEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTextEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int QTextEdit_Metacall(QTextEdit* self, int param1, int param2, void** param3) {
@@ -851,6 +861,44 @@ void QTextEdit_ZoomIn1(QTextEdit* self, int range) {
 
 void QTextEdit_ZoomOut1(QTextEdit* self, int range) {
     self->zoomOut(static_cast<int>(range));
+}
+
+// Base class handler implementation
+QMetaObject* QTextEdit_QBaseMetaObject(const QTextEdit* self) {
+    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtextedit->metaObject();
+    } else {
+        return (QMetaObject*)self->QTextEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextEdit_OnMetaObject(const QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = const_cast<VirtualQTextEdit*>(dynamic_cast<const VirtualQTextEdit*>(self));
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_MetaObject_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTextEdit_QBaseMetacast(QTextEdit* self, const char* param1) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_Metacast_IsBase(true);
+        return vqtextedit->qt_metacast(param1);
+    } else {
+        return self->QTextEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextEdit_OnMetacast(QTextEdit* self, intptr_t slot) {
+    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
+    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
+        vqtextedit->setQTextEdit_Metacast_Callback(reinterpret_cast<VirtualQTextEdit::QTextEdit_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

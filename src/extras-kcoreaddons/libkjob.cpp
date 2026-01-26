@@ -22,11 +22,21 @@ KJob* KJob_new2(QObject* parent) {
 }
 
 QMetaObject* KJob_MetaObject(const KJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkjob = dynamic_cast<const VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKJob*)self)->metaObject();
+    }
 }
 
 void* KJob_Metacast(KJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KJob_Metacall(KJob* self, int param1, int param2, void** param3) {
@@ -267,6 +277,44 @@ bool KJob_Kill1(KJob* self, int verbosity) {
 
 void KJob_SetFinishedNotificationHidden1(KJob* self, bool hide) {
     self->setFinishedNotificationHidden(hide);
+}
+
+// Base class handler implementation
+QMetaObject* KJob_QBaseMetaObject(const KJob* self) {
+    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJob_OnMetaObject(const KJob* self, intptr_t slot) {
+    auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_MetaObject_Callback(reinterpret_cast<VirtualKJob::KJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KJob_QBaseMetacast(KJob* self, const char* param1) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_Metacast_IsBase(true);
+        return vkjob->qt_metacast(param1);
+    } else {
+        return self->KJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KJob_OnMetacast(KJob* self, intptr_t slot) {
+    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
+    if (vkjob && vkjob->isVirtualKJob) {
+        vkjob->setKJob_Metacast_Callback(reinterpret_cast<VirtualKJob::KJob_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -47,6 +47,10 @@ void KIO__WidgetsAskUserActionHandler_AskUserDelete(KIO__WidgetsAskUserActionHan
 void KIO__WidgetsAskUserActionHandler_RequestUserMessageBox(KIO__WidgetsAskUserActionHandler* self, int typeVal, const libqt_string text, const libqt_string title, const libqt_string primaryActionText, const libqt_string secondaryActionText, const libqt_string primaryActionIconName, const libqt_string secondaryActionIconName, const libqt_string dontAskAgainName, const libqt_string details, QWidget* parent);
 void KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors(KIO__WidgetsAskUserActionHandler* self, const libqt_map /* of libqt_string to QVariant* */ sslErrorData, QWidget* parent);
 void KIO__WidgetsAskUserActionHandler_SetWindow(KIO__WidgetsAskUserActionHandler* self, QWidget* window);
+void KIO__WidgetsAskUserActionHandler_OnMetaObject(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
+QMetaObject* KIO__WidgetsAskUserActionHandler_QBaseMetaObject(const KIO__WidgetsAskUserActionHandler* self);
+void KIO__WidgetsAskUserActionHandler_OnMetacast(KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
+void* KIO__WidgetsAskUserActionHandler_QBaseMetacast(KIO__WidgetsAskUserActionHandler* self, const char* param1);
 void KIO__WidgetsAskUserActionHandler_OnMetacall(KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
 int KIO__WidgetsAskUserActionHandler_QBaseMetacall(KIO__WidgetsAskUserActionHandler* self, int param1, int param2, void** param3);
 void KIO__WidgetsAskUserActionHandler_OnAskUserRename(KIO__WidgetsAskUserActionHandler* self, intptr_t slot);

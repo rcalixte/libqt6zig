@@ -17,6 +17,8 @@ class VirtualKColorButton final : public KColorButton {
     bool isVirtualKColorButton = true;
 
     // Virtual class public types (including callbacks)
+    using KColorButton_MetaObject_Callback = QMetaObject* (*)();
+    using KColorButton_Metacast_Callback = void* (*)(KColorButton*, const char*);
     using KColorButton_Metacall_Callback = int (*)(KColorButton*, int, int, void**);
     using KColorButton_SizeHint_Callback = QSize* (*)();
     using KColorButton_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualKColorButton final : public KColorButton {
 
   protected:
     // Instance callback storage
+    KColorButton_MetaObject_Callback kcolorbutton_metaobject_callback = nullptr;
+    KColorButton_Metacast_Callback kcolorbutton_metacast_callback = nullptr;
     KColorButton_Metacall_Callback kcolorbutton_metacall_callback = nullptr;
     KColorButton_SizeHint_Callback kcolorbutton_sizehint_callback = nullptr;
     KColorButton_MinimumSizeHint_Callback kcolorbutton_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualKColorButton final : public KColorButton {
     KColorButton_GetDecodedMetricF_Callback kcolorbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcolorbutton_metaobject_isbase = false;
+    mutable bool kcolorbutton_metacast_isbase = false;
     mutable bool kcolorbutton_metacall_isbase = false;
     mutable bool kcolorbutton_sizehint_isbase = false;
     mutable bool kcolorbutton_minimumsizehint_isbase = false;
@@ -218,6 +224,8 @@ class VirtualKColorButton final : public KColorButton {
     VirtualKColorButton(const QColor& c, const QColor& defaultColor, QWidget* parent) : KColorButton(c, defaultColor, parent) {};
 
     ~VirtualKColorButton() {
+        kcolorbutton_metaobject_callback = nullptr;
+        kcolorbutton_metacast_callback = nullptr;
         kcolorbutton_metacall_callback = nullptr;
         kcolorbutton_sizehint_callback = nullptr;
         kcolorbutton_minimumsizehint_callback = nullptr;
@@ -283,6 +291,8 @@ class VirtualKColorButton final : public KColorButton {
     }
 
     // Callback setters
+    inline void setKColorButton_MetaObject_Callback(KColorButton_MetaObject_Callback cb) { kcolorbutton_metaobject_callback = cb; }
+    inline void setKColorButton_Metacast_Callback(KColorButton_Metacast_Callback cb) { kcolorbutton_metacast_callback = cb; }
     inline void setKColorButton_Metacall_Callback(KColorButton_Metacall_Callback cb) { kcolorbutton_metacall_callback = cb; }
     inline void setKColorButton_SizeHint_Callback(KColorButton_SizeHint_Callback cb) { kcolorbutton_sizehint_callback = cb; }
     inline void setKColorButton_MinimumSizeHint_Callback(KColorButton_MinimumSizeHint_Callback cb) { kcolorbutton_minimumsizehint_callback = cb; }
@@ -347,6 +357,8 @@ class VirtualKColorButton final : public KColorButton {
     inline void setKColorButton_GetDecodedMetricF_Callback(KColorButton_GetDecodedMetricF_Callback cb) { kcolorbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKColorButton_MetaObject_IsBase(bool value) const { kcolorbutton_metaobject_isbase = value; }
+    inline void setKColorButton_Metacast_IsBase(bool value) const { kcolorbutton_metacast_isbase = value; }
     inline void setKColorButton_Metacall_IsBase(bool value) const { kcolorbutton_metacall_isbase = value; }
     inline void setKColorButton_SizeHint_IsBase(bool value) const { kcolorbutton_sizehint_isbase = value; }
     inline void setKColorButton_MinimumSizeHint_IsBase(bool value) const { kcolorbutton_minimumsizehint_isbase = value; }
@@ -409,6 +421,34 @@ class VirtualKColorButton final : public KColorButton {
     inline void setKColorButton_Receivers_IsBase(bool value) const { kcolorbutton_receivers_isbase = value; }
     inline void setKColorButton_IsSignalConnected_IsBase(bool value) const { kcolorbutton_issignalconnected_isbase = value; }
     inline void setKColorButton_GetDecodedMetricF_IsBase(bool value) const { kcolorbutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcolorbutton_metaobject_isbase) {
+            kcolorbutton_metaobject_isbase = false;
+            return KColorButton::metaObject();
+        } else if (kcolorbutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcolorbutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KColorButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcolorbutton_metacast_isbase) {
+            kcolorbutton_metacast_isbase = false;
+            return KColorButton::qt_metacast(param1);
+        } else if (kcolorbutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcolorbutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KColorButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

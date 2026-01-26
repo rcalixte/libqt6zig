@@ -17,6 +17,8 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
     bool isVirtualkImageAnnotatorKImageAnnotator = true;
 
     // Virtual class public types (including callbacks)
+    using kImageAnnotator__KImageAnnotator_MetaObject_Callback = QMetaObject* (*)();
+    using kImageAnnotator__KImageAnnotator_Metacast_Callback = void* (*)(kImageAnnotator__KImageAnnotator*, const char*);
     using kImageAnnotator__KImageAnnotator_Metacall_Callback = int (*)(kImageAnnotator__KImageAnnotator*, int, int, void**);
     using kImageAnnotator__KImageAnnotator_SizeHint_Callback = QSize* (*)();
     using kImageAnnotator__KImageAnnotator_DevType_Callback = int (*)();
@@ -78,6 +80,8 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
 
   protected:
     // Instance callback storage
+    kImageAnnotator__KImageAnnotator_MetaObject_Callback kimageannotator__kimageannotator_metaobject_callback = nullptr;
+    kImageAnnotator__KImageAnnotator_Metacast_Callback kimageannotator__kimageannotator_metacast_callback = nullptr;
     kImageAnnotator__KImageAnnotator_Metacall_Callback kimageannotator__kimageannotator_metacall_callback = nullptr;
     kImageAnnotator__KImageAnnotator_SizeHint_Callback kimageannotator__kimageannotator_sizehint_callback = nullptr;
     kImageAnnotator__KImageAnnotator_DevType_Callback kimageannotator__kimageannotator_devtype_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
     kImageAnnotator__KImageAnnotator_GetDecodedMetricF_Callback kimageannotator__kimageannotator_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kimageannotator__kimageannotator_metaobject_isbase = false;
+    mutable bool kimageannotator__kimageannotator_metacast_isbase = false;
     mutable bool kimageannotator__kimageannotator_metacall_isbase = false;
     mutable bool kimageannotator__kimageannotator_sizehint_isbase = false;
     mutable bool kimageannotator__kimageannotator_devtype_isbase = false;
@@ -201,6 +207,8 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
     VirtualkImageAnnotatorKImageAnnotator() : kImageAnnotator::KImageAnnotator() {};
 
     ~VirtualkImageAnnotatorKImageAnnotator() {
+        kimageannotator__kimageannotator_metaobject_callback = nullptr;
+        kimageannotator__kimageannotator_metacast_callback = nullptr;
         kimageannotator__kimageannotator_metacall_callback = nullptr;
         kimageannotator__kimageannotator_sizehint_callback = nullptr;
         kimageannotator__kimageannotator_devtype_callback = nullptr;
@@ -262,6 +270,8 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
     }
 
     // Callback setters
+    inline void setkImageAnnotator__KImageAnnotator_MetaObject_Callback(kImageAnnotator__KImageAnnotator_MetaObject_Callback cb) { kimageannotator__kimageannotator_metaobject_callback = cb; }
+    inline void setkImageAnnotator__KImageAnnotator_Metacast_Callback(kImageAnnotator__KImageAnnotator_Metacast_Callback cb) { kimageannotator__kimageannotator_metacast_callback = cb; }
     inline void setkImageAnnotator__KImageAnnotator_Metacall_Callback(kImageAnnotator__KImageAnnotator_Metacall_Callback cb) { kimageannotator__kimageannotator_metacall_callback = cb; }
     inline void setkImageAnnotator__KImageAnnotator_SizeHint_Callback(kImageAnnotator__KImageAnnotator_SizeHint_Callback cb) { kimageannotator__kimageannotator_sizehint_callback = cb; }
     inline void setkImageAnnotator__KImageAnnotator_DevType_Callback(kImageAnnotator__KImageAnnotator_DevType_Callback cb) { kimageannotator__kimageannotator_devtype_callback = cb; }
@@ -322,6 +332,8 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
     inline void setkImageAnnotator__KImageAnnotator_GetDecodedMetricF_Callback(kImageAnnotator__KImageAnnotator_GetDecodedMetricF_Callback cb) { kimageannotator__kimageannotator_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setkImageAnnotator__KImageAnnotator_MetaObject_IsBase(bool value) const { kimageannotator__kimageannotator_metaobject_isbase = value; }
+    inline void setkImageAnnotator__KImageAnnotator_Metacast_IsBase(bool value) const { kimageannotator__kimageannotator_metacast_isbase = value; }
     inline void setkImageAnnotator__KImageAnnotator_Metacall_IsBase(bool value) const { kimageannotator__kimageannotator_metacall_isbase = value; }
     inline void setkImageAnnotator__KImageAnnotator_SizeHint_IsBase(bool value) const { kimageannotator__kimageannotator_sizehint_isbase = value; }
     inline void setkImageAnnotator__KImageAnnotator_DevType_IsBase(bool value) const { kimageannotator__kimageannotator_devtype_isbase = value; }
@@ -380,6 +392,34 @@ class VirtualkImageAnnotatorKImageAnnotator final : public kImageAnnotator::KIma
     inline void setkImageAnnotator__KImageAnnotator_Receivers_IsBase(bool value) const { kimageannotator__kimageannotator_receivers_isbase = value; }
     inline void setkImageAnnotator__KImageAnnotator_IsSignalConnected_IsBase(bool value) const { kimageannotator__kimageannotator_issignalconnected_isbase = value; }
     inline void setkImageAnnotator__KImageAnnotator_GetDecodedMetricF_IsBase(bool value) const { kimageannotator__kimageannotator_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kimageannotator__kimageannotator_metaobject_isbase) {
+            kimageannotator__kimageannotator_metaobject_isbase = false;
+            return kImageAnnotator__KImageAnnotator::metaObject();
+        } else if (kimageannotator__kimageannotator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kimageannotator__kimageannotator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return kImageAnnotator__KImageAnnotator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kimageannotator__kimageannotator_metacast_isbase) {
+            kimageannotator__kimageannotator_metacast_isbase = false;
+            return kImageAnnotator__KImageAnnotator::qt_metacast(param1);
+        } else if (kimageannotator__kimageannotator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kimageannotator__kimageannotator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return kImageAnnotator__KImageAnnotator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

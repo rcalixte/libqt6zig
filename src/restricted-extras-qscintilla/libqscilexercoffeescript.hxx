@@ -17,6 +17,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     bool isVirtualQsciLexerCoffeeScript = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerCoffeeScript_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerCoffeeScript_Metacast_Callback = void* (*)(QsciLexerCoffeeScript*, const char*);
     using QsciLexerCoffeeScript_Metacall_Callback = int (*)(QsciLexerCoffeeScript*, int, int, void**);
     using QsciLexerCoffeeScript_Language_Callback = const char* (*)();
     using QsciLexerCoffeeScript_Lexer_Callback = const char* (*)();
@@ -68,6 +70,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
 
   protected:
     // Instance callback storage
+    QsciLexerCoffeeScript_MetaObject_Callback qscilexercoffeescript_metaobject_callback = nullptr;
+    QsciLexerCoffeeScript_Metacast_Callback qscilexercoffeescript_metacast_callback = nullptr;
     QsciLexerCoffeeScript_Metacall_Callback qscilexercoffeescript_metacall_callback = nullptr;
     QsciLexerCoffeeScript_Language_Callback qscilexercoffeescript_language_callback = nullptr;
     QsciLexerCoffeeScript_Lexer_Callback qscilexercoffeescript_lexer_callback = nullptr;
@@ -118,6 +122,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     QsciLexerCoffeeScript_IsSignalConnected_Callback qscilexercoffeescript_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexercoffeescript_metaobject_isbase = false;
+    mutable bool qscilexercoffeescript_metacast_isbase = false;
     mutable bool qscilexercoffeescript_metacall_isbase = false;
     mutable bool qscilexercoffeescript_language_isbase = false;
     mutable bool qscilexercoffeescript_lexer_isbase = false;
@@ -172,6 +178,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     VirtualQsciLexerCoffeeScript(QObject* parent) : QsciLexerCoffeeScript(parent) {};
 
     ~VirtualQsciLexerCoffeeScript() {
+        qscilexercoffeescript_metaobject_callback = nullptr;
+        qscilexercoffeescript_metacast_callback = nullptr;
         qscilexercoffeescript_metacall_callback = nullptr;
         qscilexercoffeescript_language_callback = nullptr;
         qscilexercoffeescript_lexer_callback = nullptr;
@@ -223,6 +231,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     }
 
     // Callback setters
+    inline void setQsciLexerCoffeeScript_MetaObject_Callback(QsciLexerCoffeeScript_MetaObject_Callback cb) { qscilexercoffeescript_metaobject_callback = cb; }
+    inline void setQsciLexerCoffeeScript_Metacast_Callback(QsciLexerCoffeeScript_Metacast_Callback cb) { qscilexercoffeescript_metacast_callback = cb; }
     inline void setQsciLexerCoffeeScript_Metacall_Callback(QsciLexerCoffeeScript_Metacall_Callback cb) { qscilexercoffeescript_metacall_callback = cb; }
     inline void setQsciLexerCoffeeScript_Language_Callback(QsciLexerCoffeeScript_Language_Callback cb) { qscilexercoffeescript_language_callback = cb; }
     inline void setQsciLexerCoffeeScript_Lexer_Callback(QsciLexerCoffeeScript_Lexer_Callback cb) { qscilexercoffeescript_lexer_callback = cb; }
@@ -273,6 +283,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     inline void setQsciLexerCoffeeScript_IsSignalConnected_Callback(QsciLexerCoffeeScript_IsSignalConnected_Callback cb) { qscilexercoffeescript_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerCoffeeScript_MetaObject_IsBase(bool value) const { qscilexercoffeescript_metaobject_isbase = value; }
+    inline void setQsciLexerCoffeeScript_Metacast_IsBase(bool value) const { qscilexercoffeescript_metacast_isbase = value; }
     inline void setQsciLexerCoffeeScript_Metacall_IsBase(bool value) const { qscilexercoffeescript_metacall_isbase = value; }
     inline void setQsciLexerCoffeeScript_Language_IsBase(bool value) const { qscilexercoffeescript_language_isbase = value; }
     inline void setQsciLexerCoffeeScript_Lexer_IsBase(bool value) const { qscilexercoffeescript_lexer_isbase = value; }
@@ -321,6 +333,34 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     inline void setQsciLexerCoffeeScript_SenderSignalIndex_IsBase(bool value) const { qscilexercoffeescript_sendersignalindex_isbase = value; }
     inline void setQsciLexerCoffeeScript_Receivers_IsBase(bool value) const { qscilexercoffeescript_receivers_isbase = value; }
     inline void setQsciLexerCoffeeScript_IsSignalConnected_IsBase(bool value) const { qscilexercoffeescript_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexercoffeescript_metaobject_isbase) {
+            qscilexercoffeescript_metaobject_isbase = false;
+            return QsciLexerCoffeeScript::metaObject();
+        } else if (qscilexercoffeescript_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexercoffeescript_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerCoffeeScript::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexercoffeescript_metacast_isbase) {
+            qscilexercoffeescript_metacast_isbase = false;
+            return QsciLexerCoffeeScript::qt_metacast(param1);
+        } else if (qscilexercoffeescript_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexercoffeescript_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerCoffeeScript::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

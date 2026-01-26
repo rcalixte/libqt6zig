@@ -17,6 +17,8 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
     bool isVirtualKPasswordLineEdit = true;
 
     // Virtual class public types (including callbacks)
+    using KPasswordLineEdit_MetaObject_Callback = QMetaObject* (*)();
+    using KPasswordLineEdit_Metacast_Callback = void* (*)(KPasswordLineEdit*, const char*);
     using KPasswordLineEdit_Metacall_Callback = int (*)(KPasswordLineEdit*, int, int, void**);
     using KPasswordLineEdit_DevType_Callback = int (*)();
     using KPasswordLineEdit_SetVisible_Callback = void (*)(KPasswordLineEdit*, bool);
@@ -78,6 +80,8 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
 
   protected:
     // Instance callback storage
+    KPasswordLineEdit_MetaObject_Callback kpasswordlineedit_metaobject_callback = nullptr;
+    KPasswordLineEdit_Metacast_Callback kpasswordlineedit_metacast_callback = nullptr;
     KPasswordLineEdit_Metacall_Callback kpasswordlineedit_metacall_callback = nullptr;
     KPasswordLineEdit_DevType_Callback kpasswordlineedit_devtype_callback = nullptr;
     KPasswordLineEdit_SetVisible_Callback kpasswordlineedit_setvisible_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
     KPasswordLineEdit_GetDecodedMetricF_Callback kpasswordlineedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpasswordlineedit_metaobject_isbase = false;
+    mutable bool kpasswordlineedit_metacast_isbase = false;
     mutable bool kpasswordlineedit_metacall_isbase = false;
     mutable bool kpasswordlineedit_devtype_isbase = false;
     mutable bool kpasswordlineedit_setvisible_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
     VirtualKPasswordLineEdit() : KPasswordLineEdit() {};
 
     ~VirtualKPasswordLineEdit() {
+        kpasswordlineedit_metaobject_callback = nullptr;
+        kpasswordlineedit_metacast_callback = nullptr;
         kpasswordlineedit_metacall_callback = nullptr;
         kpasswordlineedit_devtype_callback = nullptr;
         kpasswordlineedit_setvisible_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
     }
 
     // Callback setters
+    inline void setKPasswordLineEdit_MetaObject_Callback(KPasswordLineEdit_MetaObject_Callback cb) { kpasswordlineedit_metaobject_callback = cb; }
+    inline void setKPasswordLineEdit_Metacast_Callback(KPasswordLineEdit_Metacast_Callback cb) { kpasswordlineedit_metacast_callback = cb; }
     inline void setKPasswordLineEdit_Metacall_Callback(KPasswordLineEdit_Metacall_Callback cb) { kpasswordlineedit_metacall_callback = cb; }
     inline void setKPasswordLineEdit_DevType_Callback(KPasswordLineEdit_DevType_Callback cb) { kpasswordlineedit_devtype_callback = cb; }
     inline void setKPasswordLineEdit_SetVisible_Callback(KPasswordLineEdit_SetVisible_Callback cb) { kpasswordlineedit_setvisible_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
     inline void setKPasswordLineEdit_GetDecodedMetricF_Callback(KPasswordLineEdit_GetDecodedMetricF_Callback cb) { kpasswordlineedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPasswordLineEdit_MetaObject_IsBase(bool value) const { kpasswordlineedit_metaobject_isbase = value; }
+    inline void setKPasswordLineEdit_Metacast_IsBase(bool value) const { kpasswordlineedit_metacast_isbase = value; }
     inline void setKPasswordLineEdit_Metacall_IsBase(bool value) const { kpasswordlineedit_metacall_isbase = value; }
     inline void setKPasswordLineEdit_DevType_IsBase(bool value) const { kpasswordlineedit_devtype_isbase = value; }
     inline void setKPasswordLineEdit_SetVisible_IsBase(bool value) const { kpasswordlineedit_setvisible_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKPasswordLineEdit final : public KPasswordLineEdit {
     inline void setKPasswordLineEdit_Receivers_IsBase(bool value) const { kpasswordlineedit_receivers_isbase = value; }
     inline void setKPasswordLineEdit_IsSignalConnected_IsBase(bool value) const { kpasswordlineedit_issignalconnected_isbase = value; }
     inline void setKPasswordLineEdit_GetDecodedMetricF_IsBase(bool value) const { kpasswordlineedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpasswordlineedit_metaobject_isbase) {
+            kpasswordlineedit_metaobject_isbase = false;
+            return KPasswordLineEdit::metaObject();
+        } else if (kpasswordlineedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpasswordlineedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPasswordLineEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpasswordlineedit_metacast_isbase) {
+            kpasswordlineedit_metacast_isbase = false;
+            return KPasswordLineEdit::qt_metacast(param1);
+        } else if (kpasswordlineedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpasswordlineedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPasswordLineEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

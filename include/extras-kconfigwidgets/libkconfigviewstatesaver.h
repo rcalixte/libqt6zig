@@ -35,6 +35,10 @@ void* KConfigViewStateSaver_Metacast(KConfigViewStateSaver* self, const char* pa
 int KConfigViewStateSaver_Metacall(KConfigViewStateSaver* self, int param1, int param2, void** param3);
 void KConfigViewStateSaver_SaveState(KConfigViewStateSaver* self, KConfigGroup* configGroup);
 void KConfigViewStateSaver_RestoreState(KConfigViewStateSaver* self, const KConfigGroup* configGroup);
+void KConfigViewStateSaver_OnMetaObject(const KConfigViewStateSaver* self, intptr_t slot);
+QMetaObject* KConfigViewStateSaver_QBaseMetaObject(const KConfigViewStateSaver* self);
+void KConfigViewStateSaver_OnMetacast(KConfigViewStateSaver* self, intptr_t slot);
+void* KConfigViewStateSaver_QBaseMetacast(KConfigViewStateSaver* self, const char* param1);
 void KConfigViewStateSaver_OnMetacall(KConfigViewStateSaver* self, intptr_t slot);
 int KConfigViewStateSaver_QBaseMetacall(KConfigViewStateSaver* self, int param1, int param2, void** param3);
 QModelIndex* KConfigViewStateSaver_IndexFromConfigString(const KConfigViewStateSaver* self, const QAbstractItemModel* model, const libqt_string key);

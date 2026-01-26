@@ -27,11 +27,21 @@ KViewStateSerializer* KViewStateSerializer_new2(QObject* parent) {
 }
 
 QMetaObject* KViewStateSerializer_MetaObject(const KViewStateSerializer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkviewstateserializer = dynamic_cast<const VirtualKViewStateSerializer*>(self);
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKViewStateSerializer*)self)->metaObject();
+    }
 }
 
 void* KViewStateSerializer_Metacast(KViewStateSerializer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKViewStateSerializer*)self)->qt_metacast(param1);
+    }
 }
 
 int KViewStateSerializer_Metacall(KViewStateSerializer* self, int param1, int param2, void** param3) {
@@ -176,6 +186,44 @@ libqt_string KViewStateSerializer_IndexToConfigString(const KViewStateSerializer
         return _str;
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KViewStateSerializer_QBaseMetaObject(const KViewStateSerializer* self) {
+    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        vkviewstateserializer->setKViewStateSerializer_MetaObject_IsBase(true);
+        return (QMetaObject*)vkviewstateserializer->metaObject();
+    } else {
+        return (QMetaObject*)self->KViewStateSerializer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KViewStateSerializer_OnMetaObject(const KViewStateSerializer* self, intptr_t slot) {
+    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        vkviewstateserializer->setKViewStateSerializer_MetaObject_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KViewStateSerializer_QBaseMetacast(KViewStateSerializer* self, const char* param1) {
+    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        vkviewstateserializer->setKViewStateSerializer_Metacast_IsBase(true);
+        return vkviewstateserializer->qt_metacast(param1);
+    } else {
+        return self->KViewStateSerializer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KViewStateSerializer_OnMetacast(KViewStateSerializer* self, intptr_t slot) {
+    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
+    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+        vkviewstateserializer->setKViewStateSerializer_Metacast_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

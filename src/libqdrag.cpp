@@ -20,11 +20,21 @@ QDrag* QDrag_new(QObject* dragSource) {
 }
 
 QMetaObject* QDrag_MetaObject(const QDrag* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdrag = dynamic_cast<const VirtualQDrag*>(self);
+    if (vqdrag && vqdrag->isVirtualQDrag) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDrag*)self)->metaObject();
+    }
 }
 
 void* QDrag_Metacast(QDrag* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
+    if (vqdrag && vqdrag->isVirtualQDrag) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDrag*)self)->qt_metacast(param1);
+    }
 }
 
 int QDrag_Metacall(QDrag* self, int param1, int param2, void** param3) {
@@ -122,6 +132,44 @@ void QDrag_Connect_TargetChanged(QDrag* self, intptr_t slot) {
 
 int QDrag_Exec1(QDrag* self, int supportedActions) {
     return static_cast<int>(self->exec(static_cast<Qt::DropActions>(supportedActions)));
+}
+
+// Base class handler implementation
+QMetaObject* QDrag_QBaseMetaObject(const QDrag* self) {
+    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
+    if (vqdrag && vqdrag->isVirtualQDrag) {
+        vqdrag->setQDrag_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdrag->metaObject();
+    } else {
+        return (QMetaObject*)self->QDrag::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDrag_OnMetaObject(const QDrag* self, intptr_t slot) {
+    auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
+    if (vqdrag && vqdrag->isVirtualQDrag) {
+        vqdrag->setQDrag_MetaObject_Callback(reinterpret_cast<VirtualQDrag::QDrag_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDrag_QBaseMetacast(QDrag* self, const char* param1) {
+    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
+    if (vqdrag && vqdrag->isVirtualQDrag) {
+        vqdrag->setQDrag_Metacast_IsBase(true);
+        return vqdrag->qt_metacast(param1);
+    } else {
+        return self->QDrag::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDrag_OnMetacast(QDrag* self, intptr_t slot) {
+    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
+    if (vqdrag && vqdrag->isVirtualQDrag) {
+        vqdrag->setQDrag_Metacast_Callback(reinterpret_cast<VirtualQDrag::QDrag_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

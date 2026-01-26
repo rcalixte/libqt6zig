@@ -33,11 +33,21 @@ QAbstractProxyModel* QAbstractProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractProxyModel_MetaObject(const QAbstractProxyModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
+    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractProxyModel*)self)->metaObject();
+    }
 }
 
 void* QAbstractProxyModel_Metacast(QAbstractProxyModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
+    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractProxyModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractProxyModel_Metacall(QAbstractProxyModel* self, int param1, int param2, void** param3) {
@@ -425,6 +435,44 @@ libqt_map /* of int to libqt_string */ QAbstractProxyModel_RoleNames(const QAbst
         _out.keys = static_cast<void*>(_karr);
         _out.values = static_cast<void*>(_varr);
         return _out;
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractProxyModel_QBaseMetaObject(const QAbstractProxyModel* self) {
+    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
+    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+        vqabstractproxymodel->setQAbstractProxyModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractproxymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractProxyModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractProxyModel_OnMetaObject(const QAbstractProxyModel* self, intptr_t slot) {
+    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
+    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+        vqabstractproxymodel->setQAbstractProxyModel_MetaObject_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractProxyModel_QBaseMetacast(QAbstractProxyModel* self, const char* param1) {
+    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
+    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+        vqabstractproxymodel->setQAbstractProxyModel_Metacast_IsBase(true);
+        return vqabstractproxymodel->qt_metacast(param1);
+    } else {
+        return self->QAbstractProxyModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractProxyModel_OnMetacast(QAbstractProxyModel* self, intptr_t slot) {
+    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
+    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+        vqabstractproxymodel->setQAbstractProxyModel_Metacast_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Metacast_Callback>(slot));
     }
 }
 

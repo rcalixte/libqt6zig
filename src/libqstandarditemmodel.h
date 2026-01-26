@@ -224,6 +224,10 @@ bool QStandardItemModel_InsertColumn22(QStandardItemModel* self, int column, con
 QStandardItem* QStandardItemModel_TakeItem2(QStandardItemModel* self, int row, int column);
 libqt_list /* of QStandardItem* */ QStandardItemModel_FindItems2(const QStandardItemModel* self, const libqt_string text, int flags);
 libqt_list /* of QStandardItem* */ QStandardItemModel_FindItems3(const QStandardItemModel* self, const libqt_string text, int flags, int column);
+void QStandardItemModel_OnMetaObject(const QStandardItemModel* self, intptr_t slot);
+QMetaObject* QStandardItemModel_QBaseMetaObject(const QStandardItemModel* self);
+void QStandardItemModel_OnMetacast(QStandardItemModel* self, intptr_t slot);
+void* QStandardItemModel_QBaseMetacast(QStandardItemModel* self, const char* param1);
 void QStandardItemModel_OnMetacall(QStandardItemModel* self, intptr_t slot);
 int QStandardItemModel_QBaseMetacall(QStandardItemModel* self, int param1, int param2, void** param3);
 void QStandardItemModel_OnRoleNames(const QStandardItemModel* self, intptr_t slot);

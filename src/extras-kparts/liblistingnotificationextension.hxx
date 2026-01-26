@@ -17,6 +17,8 @@ class VirtualKPartsListingNotificationExtension final : public KParts::ListingNo
     bool isVirtualKPartsListingNotificationExtension = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__ListingNotificationExtension_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__ListingNotificationExtension_Metacast_Callback = void* (*)(KParts__ListingNotificationExtension*, const char*);
     using KParts__ListingNotificationExtension_Metacall_Callback = int (*)(KParts__ListingNotificationExtension*, int, int, void**);
     using KParts__ListingNotificationExtension_SupportedNotificationEventTypes_Callback = int (*)();
     using KParts__ListingNotificationExtension_Event_Callback = bool (*)(KParts__ListingNotificationExtension*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualKPartsListingNotificationExtension final : public KParts::ListingNo
 
   protected:
     // Instance callback storage
+    KParts__ListingNotificationExtension_MetaObject_Callback kparts__listingnotificationextension_metaobject_callback = nullptr;
+    KParts__ListingNotificationExtension_Metacast_Callback kparts__listingnotificationextension_metacast_callback = nullptr;
     KParts__ListingNotificationExtension_Metacall_Callback kparts__listingnotificationextension_metacall_callback = nullptr;
     KParts__ListingNotificationExtension_SupportedNotificationEventTypes_Callback kparts__listingnotificationextension_supportednotificationeventtypes_callback = nullptr;
     KParts__ListingNotificationExtension_Event_Callback kparts__listingnotificationextension_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualKPartsListingNotificationExtension final : public KParts::ListingNo
     KParts__ListingNotificationExtension_IsSignalConnected_Callback kparts__listingnotificationextension_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__listingnotificationextension_metaobject_isbase = false;
+    mutable bool kparts__listingnotificationextension_metacast_isbase = false;
     mutable bool kparts__listingnotificationextension_metacall_isbase = false;
     mutable bool kparts__listingnotificationextension_supportednotificationeventtypes_isbase = false;
     mutable bool kparts__listingnotificationextension_event_isbase = false;
@@ -66,6 +72,8 @@ class VirtualKPartsListingNotificationExtension final : public KParts::ListingNo
     VirtualKPartsListingNotificationExtension(KParts::ReadOnlyPart* parent) : KParts::ListingNotificationExtension(parent) {};
 
     ~VirtualKPartsListingNotificationExtension() {
+        kparts__listingnotificationextension_metaobject_callback = nullptr;
+        kparts__listingnotificationextension_metacast_callback = nullptr;
         kparts__listingnotificationextension_metacall_callback = nullptr;
         kparts__listingnotificationextension_supportednotificationeventtypes_callback = nullptr;
         kparts__listingnotificationextension_event_callback = nullptr;
@@ -82,6 +90,8 @@ class VirtualKPartsListingNotificationExtension final : public KParts::ListingNo
     }
 
     // Callback setters
+    inline void setKParts__ListingNotificationExtension_MetaObject_Callback(KParts__ListingNotificationExtension_MetaObject_Callback cb) { kparts__listingnotificationextension_metaobject_callback = cb; }
+    inline void setKParts__ListingNotificationExtension_Metacast_Callback(KParts__ListingNotificationExtension_Metacast_Callback cb) { kparts__listingnotificationextension_metacast_callback = cb; }
     inline void setKParts__ListingNotificationExtension_Metacall_Callback(KParts__ListingNotificationExtension_Metacall_Callback cb) { kparts__listingnotificationextension_metacall_callback = cb; }
     inline void setKParts__ListingNotificationExtension_SupportedNotificationEventTypes_Callback(KParts__ListingNotificationExtension_SupportedNotificationEventTypes_Callback cb) { kparts__listingnotificationextension_supportednotificationeventtypes_callback = cb; }
     inline void setKParts__ListingNotificationExtension_Event_Callback(KParts__ListingNotificationExtension_Event_Callback cb) { kparts__listingnotificationextension_event_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualKPartsListingNotificationExtension final : public KParts::ListingNo
     inline void setKParts__ListingNotificationExtension_IsSignalConnected_Callback(KParts__ListingNotificationExtension_IsSignalConnected_Callback cb) { kparts__listingnotificationextension_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__ListingNotificationExtension_MetaObject_IsBase(bool value) const { kparts__listingnotificationextension_metaobject_isbase = value; }
+    inline void setKParts__ListingNotificationExtension_Metacast_IsBase(bool value) const { kparts__listingnotificationextension_metacast_isbase = value; }
     inline void setKParts__ListingNotificationExtension_Metacall_IsBase(bool value) const { kparts__listingnotificationextension_metacall_isbase = value; }
     inline void setKParts__ListingNotificationExtension_SupportedNotificationEventTypes_IsBase(bool value) const { kparts__listingnotificationextension_supportednotificationeventtypes_isbase = value; }
     inline void setKParts__ListingNotificationExtension_Event_IsBase(bool value) const { kparts__listingnotificationextension_event_isbase = value; }
@@ -110,6 +122,34 @@ class VirtualKPartsListingNotificationExtension final : public KParts::ListingNo
     inline void setKParts__ListingNotificationExtension_SenderSignalIndex_IsBase(bool value) const { kparts__listingnotificationextension_sendersignalindex_isbase = value; }
     inline void setKParts__ListingNotificationExtension_Receivers_IsBase(bool value) const { kparts__listingnotificationextension_receivers_isbase = value; }
     inline void setKParts__ListingNotificationExtension_IsSignalConnected_IsBase(bool value) const { kparts__listingnotificationextension_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__listingnotificationextension_metaobject_isbase) {
+            kparts__listingnotificationextension_metaobject_isbase = false;
+            return KParts__ListingNotificationExtension::metaObject();
+        } else if (kparts__listingnotificationextension_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__listingnotificationextension_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__ListingNotificationExtension::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__listingnotificationextension_metacast_isbase) {
+            kparts__listingnotificationextension_metacast_isbase = false;
+            return KParts__ListingNotificationExtension::qt_metacast(param1);
+        } else if (kparts__listingnotificationextension_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__listingnotificationextension_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__ListingNotificationExtension::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

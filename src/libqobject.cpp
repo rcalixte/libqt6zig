@@ -29,11 +29,21 @@ QObject* QObject_new2(QObject* parent) {
 }
 
 QMetaObject* QObject_MetaObject(const QObject* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqobject = dynamic_cast<const VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQObject*)self)->metaObject();
+    }
 }
 
 void* QObject_Metacast(QObject* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQObject*)self)->qt_metacast(param1);
+    }
 }
 
 int QObject_Metacall(QObject* self, int param1, int param2, void** param3) {
@@ -332,6 +342,44 @@ void QObject_Connect_Destroyed1(QObject* self, intptr_t slot) {
         QObject* sigval1 = param1;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QObject_QBaseMetaObject(const QObject* self) {
+    auto* vqobject = const_cast<VirtualQObject*>(dynamic_cast<const VirtualQObject*>(self));
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_MetaObject_IsBase(true);
+        return (QMetaObject*)vqobject->metaObject();
+    } else {
+        return (QMetaObject*)self->QObject::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QObject_OnMetaObject(const QObject* self, intptr_t slot) {
+    auto* vqobject = const_cast<VirtualQObject*>(dynamic_cast<const VirtualQObject*>(self));
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_MetaObject_Callback(reinterpret_cast<VirtualQObject::QObject_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QObject_QBaseMetacast(QObject* self, const char* param1) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_Metacast_IsBase(true);
+        return vqobject->qt_metacast(param1);
+    } else {
+        return self->QObject::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QObject_OnMetacast(QObject* self, intptr_t slot) {
+    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
+    if (vqobject && vqobject->isVirtualQObject) {
+        vqobject->setQObject_Metacast_Callback(reinterpret_cast<VirtualQObject::QObject_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

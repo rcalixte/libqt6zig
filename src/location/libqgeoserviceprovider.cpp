@@ -49,11 +49,21 @@ QGeoServiceProvider* QGeoServiceProvider_new3(const libqt_string providerName, c
 }
 
 QMetaObject* QGeoServiceProvider_MetaObject(const QGeoServiceProvider* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgeoserviceprovider = dynamic_cast<const VirtualQGeoServiceProvider*>(self);
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGeoServiceProvider*)self)->metaObject();
+    }
 }
 
 void* QGeoServiceProvider_Metacast(QGeoServiceProvider* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGeoServiceProvider*)self)->qt_metacast(param1);
+    }
 }
 
 int QGeoServiceProvider_Metacall(QGeoServiceProvider* self, int param1, int param2, void** param3) {
@@ -231,6 +241,44 @@ void QGeoServiceProvider_SetLocale(QGeoServiceProvider* self, const QLocale* loc
 
 void QGeoServiceProvider_SetAllowExperimental(QGeoServiceProvider* self, bool allow) {
     self->setAllowExperimental(allow);
+}
+
+// Base class handler implementation
+QMetaObject* QGeoServiceProvider_QBaseMetaObject(const QGeoServiceProvider* self) {
+    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+        vqgeoserviceprovider->setQGeoServiceProvider_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgeoserviceprovider->metaObject();
+    } else {
+        return (QMetaObject*)self->QGeoServiceProvider::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoServiceProvider_OnMetaObject(const QGeoServiceProvider* self, intptr_t slot) {
+    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+        vqgeoserviceprovider->setQGeoServiceProvider_MetaObject_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGeoServiceProvider_QBaseMetacast(QGeoServiceProvider* self, const char* param1) {
+    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+        vqgeoserviceprovider->setQGeoServiceProvider_Metacast_IsBase(true);
+        return vqgeoserviceprovider->qt_metacast(param1);
+    } else {
+        return self->QGeoServiceProvider::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoServiceProvider_OnMetacast(QGeoServiceProvider* self, intptr_t slot) {
+    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
+    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+        vqgeoserviceprovider->setQGeoServiceProvider_Metacast_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

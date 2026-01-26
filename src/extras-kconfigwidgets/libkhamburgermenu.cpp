@@ -23,11 +23,21 @@ KHamburgerMenu* KHamburgerMenu_new(QObject* parent) {
 }
 
 QMetaObject* KHamburgerMenu_MetaObject(const KHamburgerMenu* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkhamburgermenu = dynamic_cast<const VirtualKHamburgerMenu*>(self);
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKHamburgerMenu*)self)->metaObject();
+    }
 }
 
 void* KHamburgerMenu_Metacast(KHamburgerMenu* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKHamburgerMenu*)self)->qt_metacast(param1);
+    }
 }
 
 int KHamburgerMenu_Metacall(KHamburgerMenu* self, int param1, int param2, void** param3) {
@@ -92,6 +102,44 @@ QWidget* KHamburgerMenu_CreateWidget(KHamburgerMenu* self, QWidget* parent) {
         return vkhamburgermenu->createWidget(parent);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KHamburgerMenu_QBaseMetaObject(const KHamburgerMenu* self) {
+    auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+        vkhamburgermenu->setKHamburgerMenu_MetaObject_IsBase(true);
+        return (QMetaObject*)vkhamburgermenu->metaObject();
+    } else {
+        return (QMetaObject*)self->KHamburgerMenu::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KHamburgerMenu_OnMetaObject(const KHamburgerMenu* self, intptr_t slot) {
+    auto* vkhamburgermenu = const_cast<VirtualKHamburgerMenu*>(dynamic_cast<const VirtualKHamburgerMenu*>(self));
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+        vkhamburgermenu->setKHamburgerMenu_MetaObject_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KHamburgerMenu_QBaseMetacast(KHamburgerMenu* self, const char* param1) {
+    auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+        vkhamburgermenu->setKHamburgerMenu_Metacast_IsBase(true);
+        return vkhamburgermenu->qt_metacast(param1);
+    } else {
+        return self->KHamburgerMenu::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KHamburgerMenu_OnMetacast(KHamburgerMenu* self, intptr_t slot) {
+    auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
+    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
+        vkhamburgermenu->setKHamburgerMenu_Metacast_Callback(reinterpret_cast<VirtualKHamburgerMenu::KHamburgerMenu_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -69,6 +69,10 @@ void KListWidgetSearchLine_SetListWidget(KListWidgetSearchLine* self, QListWidge
 void KListWidgetSearchLine_Clear(KListWidgetSearchLine* self);
 bool KListWidgetSearchLine_ItemMatches(const KListWidgetSearchLine* self, const QListWidgetItem* item, const libqt_string s);
 bool KListWidgetSearchLine_Event(KListWidgetSearchLine* self, QEvent* event);
+void KListWidgetSearchLine_OnMetaObject(const KListWidgetSearchLine* self, intptr_t slot);
+QMetaObject* KListWidgetSearchLine_QBaseMetaObject(const KListWidgetSearchLine* self);
+void KListWidgetSearchLine_OnMetacast(KListWidgetSearchLine* self, intptr_t slot);
+void* KListWidgetSearchLine_QBaseMetacast(KListWidgetSearchLine* self, const char* param1);
 void KListWidgetSearchLine_OnMetacall(KListWidgetSearchLine* self, intptr_t slot);
 int KListWidgetSearchLine_QBaseMetacall(KListWidgetSearchLine* self, int param1, int param2, void** param3);
 void KListWidgetSearchLine_OnUpdateSearch(KListWidgetSearchLine* self, intptr_t slot);

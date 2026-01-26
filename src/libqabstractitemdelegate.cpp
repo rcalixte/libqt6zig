@@ -30,11 +30,21 @@ QAbstractItemDelegate* QAbstractItemDelegate_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractItemDelegate_MetaObject(const QAbstractItemDelegate* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractItemDelegate*)self)->metaObject();
+    }
 }
 
 void* QAbstractItemDelegate_Metacast(QAbstractItemDelegate* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractItemDelegate*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractItemDelegate_Metacall(QAbstractItemDelegate* self, int param1, int param2, void** param3) {
@@ -203,6 +213,44 @@ void QAbstractItemDelegate_Connect_CloseEditor2(QAbstractItemDelegate* self, int
         int sigval2 = static_cast<int>(hint);
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractItemDelegate_QBaseMetaObject(const QAbstractItemDelegate* self) {
+    auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+        vqabstractitemdelegate->setQAbstractItemDelegate_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractitemdelegate->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractItemDelegate::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractItemDelegate_OnMetaObject(const QAbstractItemDelegate* self, intptr_t slot) {
+    auto* vqabstractitemdelegate = const_cast<VirtualQAbstractItemDelegate*>(dynamic_cast<const VirtualQAbstractItemDelegate*>(self));
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+        vqabstractitemdelegate->setQAbstractItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractItemDelegate_QBaseMetacast(QAbstractItemDelegate* self, const char* param1) {
+    auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+        vqabstractitemdelegate->setQAbstractItemDelegate_Metacast_IsBase(true);
+        return vqabstractitemdelegate->qt_metacast(param1);
+    } else {
+        return self->QAbstractItemDelegate::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractItemDelegate_OnMetacast(QAbstractItemDelegate* self, intptr_t slot) {
+    auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
+    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
+        vqabstractitemdelegate->setQAbstractItemDelegate_Metacast_Callback(reinterpret_cast<VirtualQAbstractItemDelegate::QAbstractItemDelegate_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

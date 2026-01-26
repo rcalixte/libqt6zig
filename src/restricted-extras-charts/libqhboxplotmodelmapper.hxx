@@ -17,6 +17,8 @@ class VirtualQHBoxPlotModelMapper final : public QHBoxPlotModelMapper {
     bool isVirtualQHBoxPlotModelMapper = true;
 
     // Virtual class public types (including callbacks)
+    using QHBoxPlotModelMapper_MetaObject_Callback = QMetaObject* (*)();
+    using QHBoxPlotModelMapper_Metacast_Callback = void* (*)(QHBoxPlotModelMapper*, const char*);
     using QHBoxPlotModelMapper_Metacall_Callback = int (*)(QHBoxPlotModelMapper*, int, int, void**);
     using QHBoxPlotModelMapper_Event_Callback = bool (*)(QHBoxPlotModelMapper*, QEvent*);
     using QHBoxPlotModelMapper_EventFilter_Callback = bool (*)(QHBoxPlotModelMapper*, QObject*, QEvent*);
@@ -42,6 +44,8 @@ class VirtualQHBoxPlotModelMapper final : public QHBoxPlotModelMapper {
 
   protected:
     // Instance callback storage
+    QHBoxPlotModelMapper_MetaObject_Callback qhboxplotmodelmapper_metaobject_callback = nullptr;
+    QHBoxPlotModelMapper_Metacast_Callback qhboxplotmodelmapper_metacast_callback = nullptr;
     QHBoxPlotModelMapper_Metacall_Callback qhboxplotmodelmapper_metacall_callback = nullptr;
     QHBoxPlotModelMapper_Event_Callback qhboxplotmodelmapper_event_callback = nullptr;
     QHBoxPlotModelMapper_EventFilter_Callback qhboxplotmodelmapper_eventfilter_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualQHBoxPlotModelMapper final : public QHBoxPlotModelMapper {
     QHBoxPlotModelMapper_IsSignalConnected_Callback qhboxplotmodelmapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qhboxplotmodelmapper_metaobject_isbase = false;
+    mutable bool qhboxplotmodelmapper_metacast_isbase = false;
     mutable bool qhboxplotmodelmapper_metacall_isbase = false;
     mutable bool qhboxplotmodelmapper_event_isbase = false;
     mutable bool qhboxplotmodelmapper_eventfilter_isbase = false;
@@ -94,6 +100,8 @@ class VirtualQHBoxPlotModelMapper final : public QHBoxPlotModelMapper {
     VirtualQHBoxPlotModelMapper(QObject* parent) : QHBoxPlotModelMapper(parent) {};
 
     ~VirtualQHBoxPlotModelMapper() {
+        qhboxplotmodelmapper_metaobject_callback = nullptr;
+        qhboxplotmodelmapper_metacast_callback = nullptr;
         qhboxplotmodelmapper_metacall_callback = nullptr;
         qhboxplotmodelmapper_event_callback = nullptr;
         qhboxplotmodelmapper_eventfilter_callback = nullptr;
@@ -119,6 +127,8 @@ class VirtualQHBoxPlotModelMapper final : public QHBoxPlotModelMapper {
     }
 
     // Callback setters
+    inline void setQHBoxPlotModelMapper_MetaObject_Callback(QHBoxPlotModelMapper_MetaObject_Callback cb) { qhboxplotmodelmapper_metaobject_callback = cb; }
+    inline void setQHBoxPlotModelMapper_Metacast_Callback(QHBoxPlotModelMapper_Metacast_Callback cb) { qhboxplotmodelmapper_metacast_callback = cb; }
     inline void setQHBoxPlotModelMapper_Metacall_Callback(QHBoxPlotModelMapper_Metacall_Callback cb) { qhboxplotmodelmapper_metacall_callback = cb; }
     inline void setQHBoxPlotModelMapper_Event_Callback(QHBoxPlotModelMapper_Event_Callback cb) { qhboxplotmodelmapper_event_callback = cb; }
     inline void setQHBoxPlotModelMapper_EventFilter_Callback(QHBoxPlotModelMapper_EventFilter_Callback cb) { qhboxplotmodelmapper_eventfilter_callback = cb; }
@@ -143,6 +153,8 @@ class VirtualQHBoxPlotModelMapper final : public QHBoxPlotModelMapper {
     inline void setQHBoxPlotModelMapper_IsSignalConnected_Callback(QHBoxPlotModelMapper_IsSignalConnected_Callback cb) { qhboxplotmodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQHBoxPlotModelMapper_MetaObject_IsBase(bool value) const { qhboxplotmodelmapper_metaobject_isbase = value; }
+    inline void setQHBoxPlotModelMapper_Metacast_IsBase(bool value) const { qhboxplotmodelmapper_metacast_isbase = value; }
     inline void setQHBoxPlotModelMapper_Metacall_IsBase(bool value) const { qhboxplotmodelmapper_metacall_isbase = value; }
     inline void setQHBoxPlotModelMapper_Event_IsBase(bool value) const { qhboxplotmodelmapper_event_isbase = value; }
     inline void setQHBoxPlotModelMapper_EventFilter_IsBase(bool value) const { qhboxplotmodelmapper_eventfilter_isbase = value; }
@@ -165,6 +177,34 @@ class VirtualQHBoxPlotModelMapper final : public QHBoxPlotModelMapper {
     inline void setQHBoxPlotModelMapper_SenderSignalIndex_IsBase(bool value) const { qhboxplotmodelmapper_sendersignalindex_isbase = value; }
     inline void setQHBoxPlotModelMapper_Receivers_IsBase(bool value) const { qhboxplotmodelmapper_receivers_isbase = value; }
     inline void setQHBoxPlotModelMapper_IsSignalConnected_IsBase(bool value) const { qhboxplotmodelmapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qhboxplotmodelmapper_metaobject_isbase) {
+            qhboxplotmodelmapper_metaobject_isbase = false;
+            return QHBoxPlotModelMapper::metaObject();
+        } else if (qhboxplotmodelmapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qhboxplotmodelmapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHBoxPlotModelMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qhboxplotmodelmapper_metacast_isbase) {
+            qhboxplotmodelmapper_metacast_isbase = false;
+            return QHBoxPlotModelMapper::qt_metacast(param1);
+        } else if (qhboxplotmodelmapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qhboxplotmodelmapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHBoxPlotModelMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

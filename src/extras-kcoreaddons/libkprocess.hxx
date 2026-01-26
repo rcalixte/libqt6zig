@@ -17,6 +17,8 @@ class VirtualKProcess final : public KProcess {
     bool isVirtualKProcess = true;
 
     // Virtual class public types (including callbacks)
+    using KProcess_MetaObject_Callback = QMetaObject* (*)();
+    using KProcess_Metacast_Callback = void* (*)(KProcess*, const char*);
     using KProcess_Metacall_Callback = int (*)(KProcess*, int, int, void**);
     using KProcess_Open_Callback = bool (*)(KProcess*, int);
     using KProcess_WaitForReadyRead_Callback = bool (*)(KProcess*, int);
@@ -52,6 +54,8 @@ class VirtualKProcess final : public KProcess {
 
   protected:
     // Instance callback storage
+    KProcess_MetaObject_Callback kprocess_metaobject_callback = nullptr;
+    KProcess_Metacast_Callback kprocess_metacast_callback = nullptr;
     KProcess_Metacall_Callback kprocess_metacall_callback = nullptr;
     KProcess_Open_Callback kprocess_open_callback = nullptr;
     KProcess_WaitForReadyRead_Callback kprocess_waitforreadyread_callback = nullptr;
@@ -86,6 +90,8 @@ class VirtualKProcess final : public KProcess {
     KProcess_IsSignalConnected_Callback kprocess_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kprocess_metaobject_isbase = false;
+    mutable bool kprocess_metacast_isbase = false;
     mutable bool kprocess_metacall_isbase = false;
     mutable bool kprocess_open_isbase = false;
     mutable bool kprocess_waitforreadyread_isbase = false;
@@ -124,6 +130,8 @@ class VirtualKProcess final : public KProcess {
     VirtualKProcess(QObject* parent) : KProcess(parent) {};
 
     ~VirtualKProcess() {
+        kprocess_metaobject_callback = nullptr;
+        kprocess_metacast_callback = nullptr;
         kprocess_metacall_callback = nullptr;
         kprocess_open_callback = nullptr;
         kprocess_waitforreadyread_callback = nullptr;
@@ -159,6 +167,8 @@ class VirtualKProcess final : public KProcess {
     }
 
     // Callback setters
+    inline void setKProcess_MetaObject_Callback(KProcess_MetaObject_Callback cb) { kprocess_metaobject_callback = cb; }
+    inline void setKProcess_Metacast_Callback(KProcess_Metacast_Callback cb) { kprocess_metacast_callback = cb; }
     inline void setKProcess_Metacall_Callback(KProcess_Metacall_Callback cb) { kprocess_metacall_callback = cb; }
     inline void setKProcess_Open_Callback(KProcess_Open_Callback cb) { kprocess_open_callback = cb; }
     inline void setKProcess_WaitForReadyRead_Callback(KProcess_WaitForReadyRead_Callback cb) { kprocess_waitforreadyread_callback = cb; }
@@ -193,6 +203,8 @@ class VirtualKProcess final : public KProcess {
     inline void setKProcess_IsSignalConnected_Callback(KProcess_IsSignalConnected_Callback cb) { kprocess_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKProcess_MetaObject_IsBase(bool value) const { kprocess_metaobject_isbase = value; }
+    inline void setKProcess_Metacast_IsBase(bool value) const { kprocess_metacast_isbase = value; }
     inline void setKProcess_Metacall_IsBase(bool value) const { kprocess_metacall_isbase = value; }
     inline void setKProcess_Open_IsBase(bool value) const { kprocess_open_isbase = value; }
     inline void setKProcess_WaitForReadyRead_IsBase(bool value) const { kprocess_waitforreadyread_isbase = value; }
@@ -225,6 +237,34 @@ class VirtualKProcess final : public KProcess {
     inline void setKProcess_SenderSignalIndex_IsBase(bool value) const { kprocess_sendersignalindex_isbase = value; }
     inline void setKProcess_Receivers_IsBase(bool value) const { kprocess_receivers_isbase = value; }
     inline void setKProcess_IsSignalConnected_IsBase(bool value) const { kprocess_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kprocess_metaobject_isbase) {
+            kprocess_metaobject_isbase = false;
+            return KProcess::metaObject();
+        } else if (kprocess_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kprocess_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KProcess::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kprocess_metacast_isbase) {
+            kprocess_metacast_isbase = false;
+            return KProcess::qt_metacast(param1);
+        } else if (kprocess_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kprocess_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KProcess::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

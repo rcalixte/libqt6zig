@@ -18,11 +18,21 @@ KNotificationReplyAction* KNotificationReplyAction_new(const libqt_string label)
 }
 
 QMetaObject* KNotificationReplyAction_MetaObject(const KNotificationReplyAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknotificationreplyaction = dynamic_cast<const VirtualKNotificationReplyAction*>(self);
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNotificationReplyAction*)self)->metaObject();
+    }
 }
 
 void* KNotificationReplyAction_Metacast(KNotificationReplyAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNotificationReplyAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KNotificationReplyAction_Metacall(KNotificationReplyAction* self, int param1, int param2, void** param3) {
@@ -194,6 +204,44 @@ void KNotificationReplyAction_Connect_FallbackBehaviorChanged(KNotificationReply
     KNotificationReplyAction::connect(self, &KNotificationReplyAction::fallbackBehaviorChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KNotificationReplyAction_QBaseMetaObject(const KNotificationReplyAction* self) {
+    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+        vknotificationreplyaction->setKNotificationReplyAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vknotificationreplyaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KNotificationReplyAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNotificationReplyAction_OnMetaObject(const KNotificationReplyAction* self, intptr_t slot) {
+    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+        vknotificationreplyaction->setKNotificationReplyAction_MetaObject_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNotificationReplyAction_QBaseMetacast(KNotificationReplyAction* self, const char* param1) {
+    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+        vknotificationreplyaction->setKNotificationReplyAction_Metacast_IsBase(true);
+        return vknotificationreplyaction->qt_metacast(param1);
+    } else {
+        return self->KNotificationReplyAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNotificationReplyAction_OnMetacast(KNotificationReplyAction* self, intptr_t slot) {
+    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+        vknotificationreplyaction->setKNotificationReplyAction_Metacast_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

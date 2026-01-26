@@ -18,6 +18,8 @@ class VirtualKSelector final : public KSelector {
 
     // Virtual class public types (including callbacks)
     using QAbstractSlider::SliderChange;
+    using KSelector_MetaObject_Callback = QMetaObject* (*)();
+    using KSelector_Metacast_Callback = void* (*)(KSelector*, const char*);
     using KSelector_Metacall_Callback = int (*)(KSelector*, int, int, void**);
     using KSelector_DrawContents_Callback = void (*)(KSelector*, QPainter*);
     using KSelector_DrawArrow_Callback = void (*)(KSelector*, QPainter*, QPoint*);
@@ -84,6 +86,8 @@ class VirtualKSelector final : public KSelector {
 
   protected:
     // Instance callback storage
+    KSelector_MetaObject_Callback kselector_metaobject_callback = nullptr;
+    KSelector_Metacast_Callback kselector_metacast_callback = nullptr;
     KSelector_Metacall_Callback kselector_metacall_callback = nullptr;
     KSelector_DrawContents_Callback kselector_drawcontents_callback = nullptr;
     KSelector_DrawArrow_Callback kselector_drawarrow_callback = nullptr;
@@ -149,6 +153,8 @@ class VirtualKSelector final : public KSelector {
     KSelector_GetDecodedMetricF_Callback kselector_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kselector_metaobject_isbase = false;
+    mutable bool kselector_metacast_isbase = false;
     mutable bool kselector_metacall_isbase = false;
     mutable bool kselector_drawcontents_isbase = false;
     mutable bool kselector_drawarrow_isbase = false;
@@ -220,6 +226,8 @@ class VirtualKSelector final : public KSelector {
     VirtualKSelector(Qt::Orientation o, QWidget* parent) : KSelector(o, parent) {};
 
     ~VirtualKSelector() {
+        kselector_metaobject_callback = nullptr;
+        kselector_metacast_callback = nullptr;
         kselector_metacall_callback = nullptr;
         kselector_drawcontents_callback = nullptr;
         kselector_drawarrow_callback = nullptr;
@@ -286,6 +294,8 @@ class VirtualKSelector final : public KSelector {
     }
 
     // Callback setters
+    inline void setKSelector_MetaObject_Callback(KSelector_MetaObject_Callback cb) { kselector_metaobject_callback = cb; }
+    inline void setKSelector_Metacast_Callback(KSelector_Metacast_Callback cb) { kselector_metacast_callback = cb; }
     inline void setKSelector_Metacall_Callback(KSelector_Metacall_Callback cb) { kselector_metacall_callback = cb; }
     inline void setKSelector_DrawContents_Callback(KSelector_DrawContents_Callback cb) { kselector_drawcontents_callback = cb; }
     inline void setKSelector_DrawArrow_Callback(KSelector_DrawArrow_Callback cb) { kselector_drawarrow_callback = cb; }
@@ -351,6 +361,8 @@ class VirtualKSelector final : public KSelector {
     inline void setKSelector_GetDecodedMetricF_Callback(KSelector_GetDecodedMetricF_Callback cb) { kselector_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKSelector_MetaObject_IsBase(bool value) const { kselector_metaobject_isbase = value; }
+    inline void setKSelector_Metacast_IsBase(bool value) const { kselector_metacast_isbase = value; }
     inline void setKSelector_Metacall_IsBase(bool value) const { kselector_metacall_isbase = value; }
     inline void setKSelector_DrawContents_IsBase(bool value) const { kselector_drawcontents_isbase = value; }
     inline void setKSelector_DrawArrow_IsBase(bool value) const { kselector_drawarrow_isbase = value; }
@@ -414,6 +426,34 @@ class VirtualKSelector final : public KSelector {
     inline void setKSelector_Receivers_IsBase(bool value) const { kselector_receivers_isbase = value; }
     inline void setKSelector_IsSignalConnected_IsBase(bool value) const { kselector_issignalconnected_isbase = value; }
     inline void setKSelector_GetDecodedMetricF_IsBase(bool value) const { kselector_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kselector_metaobject_isbase) {
+            kselector_metaobject_isbase = false;
+            return KSelector::metaObject();
+        } else if (kselector_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kselector_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSelector::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kselector_metacast_isbase) {
+            kselector_metacast_isbase = false;
+            return KSelector::qt_metacast(param1);
+        } else if (kselector_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kselector_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSelector::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1432,6 +1472,8 @@ class VirtualKGradientSelector final : public KGradientSelector {
 
     // Virtual class public types (including callbacks)
     using QAbstractSlider::SliderChange;
+    using KGradientSelector_MetaObject_Callback = QMetaObject* (*)();
+    using KGradientSelector_Metacast_Callback = void* (*)(KGradientSelector*, const char*);
     using KGradientSelector_Metacall_Callback = int (*)(KGradientSelector*, int, int, void**);
     using KGradientSelector_DrawContents_Callback = void (*)(KGradientSelector*, QPainter*);
     using KGradientSelector_MinimumSize_Callback = QSize* (*)();
@@ -1499,6 +1541,8 @@ class VirtualKGradientSelector final : public KGradientSelector {
 
   protected:
     // Instance callback storage
+    KGradientSelector_MetaObject_Callback kgradientselector_metaobject_callback = nullptr;
+    KGradientSelector_Metacast_Callback kgradientselector_metacast_callback = nullptr;
     KGradientSelector_Metacall_Callback kgradientselector_metacall_callback = nullptr;
     KGradientSelector_DrawContents_Callback kgradientselector_drawcontents_callback = nullptr;
     KGradientSelector_MinimumSize_Callback kgradientselector_minimumsize_callback = nullptr;
@@ -1565,6 +1609,8 @@ class VirtualKGradientSelector final : public KGradientSelector {
     KGradientSelector_GetDecodedMetricF_Callback kgradientselector_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kgradientselector_metaobject_isbase = false;
+    mutable bool kgradientselector_metacast_isbase = false;
     mutable bool kgradientselector_metacall_isbase = false;
     mutable bool kgradientselector_drawcontents_isbase = false;
     mutable bool kgradientselector_minimumsize_isbase = false;
@@ -1637,6 +1683,8 @@ class VirtualKGradientSelector final : public KGradientSelector {
     VirtualKGradientSelector(Qt::Orientation o, QWidget* parent) : KGradientSelector(o, parent) {};
 
     ~VirtualKGradientSelector() {
+        kgradientselector_metaobject_callback = nullptr;
+        kgradientselector_metacast_callback = nullptr;
         kgradientselector_metacall_callback = nullptr;
         kgradientselector_drawcontents_callback = nullptr;
         kgradientselector_minimumsize_callback = nullptr;
@@ -1704,6 +1752,8 @@ class VirtualKGradientSelector final : public KGradientSelector {
     }
 
     // Callback setters
+    inline void setKGradientSelector_MetaObject_Callback(KGradientSelector_MetaObject_Callback cb) { kgradientselector_metaobject_callback = cb; }
+    inline void setKGradientSelector_Metacast_Callback(KGradientSelector_Metacast_Callback cb) { kgradientselector_metacast_callback = cb; }
     inline void setKGradientSelector_Metacall_Callback(KGradientSelector_Metacall_Callback cb) { kgradientselector_metacall_callback = cb; }
     inline void setKGradientSelector_DrawContents_Callback(KGradientSelector_DrawContents_Callback cb) { kgradientselector_drawcontents_callback = cb; }
     inline void setKGradientSelector_MinimumSize_Callback(KGradientSelector_MinimumSize_Callback cb) { kgradientselector_minimumsize_callback = cb; }
@@ -1770,6 +1820,8 @@ class VirtualKGradientSelector final : public KGradientSelector {
     inline void setKGradientSelector_GetDecodedMetricF_Callback(KGradientSelector_GetDecodedMetricF_Callback cb) { kgradientselector_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKGradientSelector_MetaObject_IsBase(bool value) const { kgradientselector_metaobject_isbase = value; }
+    inline void setKGradientSelector_Metacast_IsBase(bool value) const { kgradientselector_metacast_isbase = value; }
     inline void setKGradientSelector_Metacall_IsBase(bool value) const { kgradientselector_metacall_isbase = value; }
     inline void setKGradientSelector_DrawContents_IsBase(bool value) const { kgradientselector_drawcontents_isbase = value; }
     inline void setKGradientSelector_MinimumSize_IsBase(bool value) const { kgradientselector_minimumsize_isbase = value; }
@@ -1834,6 +1886,34 @@ class VirtualKGradientSelector final : public KGradientSelector {
     inline void setKGradientSelector_Receivers_IsBase(bool value) const { kgradientselector_receivers_isbase = value; }
     inline void setKGradientSelector_IsSignalConnected_IsBase(bool value) const { kgradientselector_issignalconnected_isbase = value; }
     inline void setKGradientSelector_GetDecodedMetricF_IsBase(bool value) const { kgradientselector_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kgradientselector_metaobject_isbase) {
+            kgradientselector_metaobject_isbase = false;
+            return KGradientSelector::metaObject();
+        } else if (kgradientselector_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kgradientselector_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KGradientSelector::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kgradientselector_metacast_isbase) {
+            kgradientselector_metacast_isbase = false;
+            return KGradientSelector::qt_metacast(param1);
+        } else if (kgradientselector_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kgradientselector_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KGradientSelector::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

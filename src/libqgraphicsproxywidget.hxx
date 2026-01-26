@@ -18,6 +18,8 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
 
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
+    using QGraphicsProxyWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsProxyWidget_Metacast_Callback = void* (*)(QGraphicsProxyWidget*, const char*);
     using QGraphicsProxyWidget_Metacall_Callback = int (*)(QGraphicsProxyWidget*, int, int, void**);
     using QGraphicsProxyWidget_SetGeometry_Callback = void (*)(QGraphicsProxyWidget*, QRectF*);
     using QGraphicsProxyWidget_Paint_Callback = void (*)(QGraphicsProxyWidget*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
@@ -97,6 +99,8 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
 
   protected:
     // Instance callback storage
+    QGraphicsProxyWidget_MetaObject_Callback qgraphicsproxywidget_metaobject_callback = nullptr;
+    QGraphicsProxyWidget_Metacast_Callback qgraphicsproxywidget_metacast_callback = nullptr;
     QGraphicsProxyWidget_Metacall_Callback qgraphicsproxywidget_metacall_callback = nullptr;
     QGraphicsProxyWidget_SetGeometry_Callback qgraphicsproxywidget_setgeometry_callback = nullptr;
     QGraphicsProxyWidget_Paint_Callback qgraphicsproxywidget_paint_callback = nullptr;
@@ -175,6 +179,8 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
     QGraphicsProxyWidget_SetOwnedByLayout_Callback qgraphicsproxywidget_setownedbylayout_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsproxywidget_metaobject_isbase = false;
+    mutable bool qgraphicsproxywidget_metacast_isbase = false;
     mutable bool qgraphicsproxywidget_metacall_isbase = false;
     mutable bool qgraphicsproxywidget_setgeometry_isbase = false;
     mutable bool qgraphicsproxywidget_paint_isbase = false;
@@ -258,6 +264,8 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
     VirtualQGraphicsProxyWidget(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QGraphicsProxyWidget(parent, wFlags) {};
 
     ~VirtualQGraphicsProxyWidget() {
+        qgraphicsproxywidget_metaobject_callback = nullptr;
+        qgraphicsproxywidget_metacast_callback = nullptr;
         qgraphicsproxywidget_metacall_callback = nullptr;
         qgraphicsproxywidget_setgeometry_callback = nullptr;
         qgraphicsproxywidget_paint_callback = nullptr;
@@ -337,6 +345,8 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
     }
 
     // Callback setters
+    inline void setQGraphicsProxyWidget_MetaObject_Callback(QGraphicsProxyWidget_MetaObject_Callback cb) { qgraphicsproxywidget_metaobject_callback = cb; }
+    inline void setQGraphicsProxyWidget_Metacast_Callback(QGraphicsProxyWidget_Metacast_Callback cb) { qgraphicsproxywidget_metacast_callback = cb; }
     inline void setQGraphicsProxyWidget_Metacall_Callback(QGraphicsProxyWidget_Metacall_Callback cb) { qgraphicsproxywidget_metacall_callback = cb; }
     inline void setQGraphicsProxyWidget_SetGeometry_Callback(QGraphicsProxyWidget_SetGeometry_Callback cb) { qgraphicsproxywidget_setgeometry_callback = cb; }
     inline void setQGraphicsProxyWidget_Paint_Callback(QGraphicsProxyWidget_Paint_Callback cb) { qgraphicsproxywidget_paint_callback = cb; }
@@ -415,6 +425,8 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
     inline void setQGraphicsProxyWidget_SetOwnedByLayout_Callback(QGraphicsProxyWidget_SetOwnedByLayout_Callback cb) { qgraphicsproxywidget_setownedbylayout_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsProxyWidget_MetaObject_IsBase(bool value) const { qgraphicsproxywidget_metaobject_isbase = value; }
+    inline void setQGraphicsProxyWidget_Metacast_IsBase(bool value) const { qgraphicsproxywidget_metacast_isbase = value; }
     inline void setQGraphicsProxyWidget_Metacall_IsBase(bool value) const { qgraphicsproxywidget_metacall_isbase = value; }
     inline void setQGraphicsProxyWidget_SetGeometry_IsBase(bool value) const { qgraphicsproxywidget_setgeometry_isbase = value; }
     inline void setQGraphicsProxyWidget_Paint_IsBase(bool value) const { qgraphicsproxywidget_paint_isbase = value; }
@@ -491,6 +503,34 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
     inline void setQGraphicsProxyWidget_PrepareGeometryChange_IsBase(bool value) const { qgraphicsproxywidget_preparegeometrychange_isbase = value; }
     inline void setQGraphicsProxyWidget_SetGraphicsItem_IsBase(bool value) const { qgraphicsproxywidget_setgraphicsitem_isbase = value; }
     inline void setQGraphicsProxyWidget_SetOwnedByLayout_IsBase(bool value) const { qgraphicsproxywidget_setownedbylayout_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsproxywidget_metaobject_isbase) {
+            qgraphicsproxywidget_metaobject_isbase = false;
+            return QGraphicsProxyWidget::metaObject();
+        } else if (qgraphicsproxywidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsproxywidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsProxyWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsproxywidget_metacast_isbase) {
+            qgraphicsproxywidget_metacast_isbase = false;
+            return QGraphicsProxyWidget::qt_metacast(param1);
+        } else if (qgraphicsproxywidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsproxywidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsProxyWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

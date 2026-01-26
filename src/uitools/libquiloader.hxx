@@ -17,6 +17,8 @@ class VirtualQUiLoader final : public QUiLoader {
     bool isVirtualQUiLoader = true;
 
     // Virtual class public types (including callbacks)
+    using QUiLoader_MetaObject_Callback = QMetaObject* (*)();
+    using QUiLoader_Metacast_Callback = void* (*)(QUiLoader*, const char*);
     using QUiLoader_Metacall_Callback = int (*)(QUiLoader*, int, int, void**);
     using QUiLoader_CreateWidget_Callback = QWidget* (*)(QUiLoader*, libqt_string, QWidget*, libqt_string);
     using QUiLoader_CreateLayout_Callback = QLayout* (*)(QUiLoader*, libqt_string, QObject*, libqt_string);
@@ -36,6 +38,8 @@ class VirtualQUiLoader final : public QUiLoader {
 
   protected:
     // Instance callback storage
+    QUiLoader_MetaObject_Callback quiloader_metaobject_callback = nullptr;
+    QUiLoader_Metacast_Callback quiloader_metacast_callback = nullptr;
     QUiLoader_Metacall_Callback quiloader_metacall_callback = nullptr;
     QUiLoader_CreateWidget_Callback quiloader_createwidget_callback = nullptr;
     QUiLoader_CreateLayout_Callback quiloader_createlayout_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQUiLoader final : public QUiLoader {
     QUiLoader_IsSignalConnected_Callback quiloader_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool quiloader_metaobject_isbase = false;
+    mutable bool quiloader_metacast_isbase = false;
     mutable bool quiloader_metacall_isbase = false;
     mutable bool quiloader_createwidget_isbase = false;
     mutable bool quiloader_createlayout_isbase = false;
@@ -76,6 +82,8 @@ class VirtualQUiLoader final : public QUiLoader {
     VirtualQUiLoader(QObject* parent) : QUiLoader(parent) {};
 
     ~VirtualQUiLoader() {
+        quiloader_metaobject_callback = nullptr;
+        quiloader_metacast_callback = nullptr;
         quiloader_metacall_callback = nullptr;
         quiloader_createwidget_callback = nullptr;
         quiloader_createlayout_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualQUiLoader final : public QUiLoader {
     }
 
     // Callback setters
+    inline void setQUiLoader_MetaObject_Callback(QUiLoader_MetaObject_Callback cb) { quiloader_metaobject_callback = cb; }
+    inline void setQUiLoader_Metacast_Callback(QUiLoader_Metacast_Callback cb) { quiloader_metacast_callback = cb; }
     inline void setQUiLoader_Metacall_Callback(QUiLoader_Metacall_Callback cb) { quiloader_metacall_callback = cb; }
     inline void setQUiLoader_CreateWidget_Callback(QUiLoader_CreateWidget_Callback cb) { quiloader_createwidget_callback = cb; }
     inline void setQUiLoader_CreateLayout_Callback(QUiLoader_CreateLayout_Callback cb) { quiloader_createlayout_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualQUiLoader final : public QUiLoader {
     inline void setQUiLoader_IsSignalConnected_Callback(QUiLoader_IsSignalConnected_Callback cb) { quiloader_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQUiLoader_MetaObject_IsBase(bool value) const { quiloader_metaobject_isbase = value; }
+    inline void setQUiLoader_Metacast_IsBase(bool value) const { quiloader_metacast_isbase = value; }
     inline void setQUiLoader_Metacall_IsBase(bool value) const { quiloader_metacall_isbase = value; }
     inline void setQUiLoader_CreateWidget_IsBase(bool value) const { quiloader_createwidget_isbase = value; }
     inline void setQUiLoader_CreateLayout_IsBase(bool value) const { quiloader_createlayout_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualQUiLoader final : public QUiLoader {
     inline void setQUiLoader_SenderSignalIndex_IsBase(bool value) const { quiloader_sendersignalindex_isbase = value; }
     inline void setQUiLoader_Receivers_IsBase(bool value) const { quiloader_receivers_isbase = value; }
     inline void setQUiLoader_IsSignalConnected_IsBase(bool value) const { quiloader_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (quiloader_metaobject_isbase) {
+            quiloader_metaobject_isbase = false;
+            return QUiLoader::metaObject();
+        } else if (quiloader_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = quiloader_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QUiLoader::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (quiloader_metacast_isbase) {
+            quiloader_metacast_isbase = false;
+            return QUiLoader::qt_metacast(param1);
+        } else if (quiloader_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = quiloader_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QUiLoader::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

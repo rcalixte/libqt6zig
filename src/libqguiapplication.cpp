@@ -34,11 +34,21 @@ QGuiApplication* QGuiApplication_new2(int* argc, char** argv, int param3) {
 }
 
 QMetaObject* QGuiApplication_MetaObject(const QGuiApplication* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqguiapplication = dynamic_cast<const VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGuiApplication*)self)->metaObject();
+    }
 }
 
 void* QGuiApplication_Metacast(QGuiApplication* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGuiApplication*)self)->qt_metacast(param1);
+    }
 }
 
 int QGuiApplication_Metacall(QGuiApplication* self, int param1, int param2, void** param3) {
@@ -503,6 +513,44 @@ bool QGuiApplication_Event(QGuiApplication* self, QEvent* param1) {
         return vqguiapplication->event(param1);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QGuiApplication_QBaseMetaObject(const QGuiApplication* self) {
+    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_MetaObject_IsBase(true);
+        return (QMetaObject*)vqguiapplication->metaObject();
+    } else {
+        return (QMetaObject*)self->QGuiApplication::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGuiApplication_OnMetaObject(const QGuiApplication* self, intptr_t slot) {
+    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_MetaObject_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGuiApplication_QBaseMetacast(QGuiApplication* self, const char* param1) {
+    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_Metacast_IsBase(true);
+        return vqguiapplication->qt_metacast(param1);
+    } else {
+        return self->QGuiApplication::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGuiApplication_OnMetacast(QGuiApplication* self, intptr_t slot) {
+    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+        vqguiapplication->setQGuiApplication_Metacast_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

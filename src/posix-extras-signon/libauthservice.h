@@ -58,6 +58,10 @@ void SignOn__AuthService_Identities(SignOn__AuthService* self, const libqt_list 
 void SignOn__AuthService_Connect_Identities(SignOn__AuthService* self, intptr_t slot);
 void SignOn__AuthService_Cleared(SignOn__AuthService* self);
 void SignOn__AuthService_Connect_Cleared(SignOn__AuthService* self, intptr_t slot);
+void SignOn__AuthService_OnMetaObject(const SignOn__AuthService* self, intptr_t slot);
+QMetaObject* SignOn__AuthService_QBaseMetaObject(const SignOn__AuthService* self);
+void SignOn__AuthService_OnMetacast(SignOn__AuthService* self, intptr_t slot);
+void* SignOn__AuthService_QBaseMetacast(SignOn__AuthService* self, const char* param1);
 void SignOn__AuthService_OnMetacall(SignOn__AuthService* self, intptr_t slot);
 int SignOn__AuthService_QBaseMetacall(SignOn__AuthService* self, int param1, int param2, void** param3);
 bool SignOn__AuthService_Event(SignOn__AuthService* self, QEvent* event);

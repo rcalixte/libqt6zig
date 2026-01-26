@@ -17,6 +17,8 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     bool isVirtualQsciScintillaBase = true;
 
     // Virtual class public types (including callbacks)
+    using QsciScintillaBase_MetaObject_Callback = QMetaObject* (*)();
+    using QsciScintillaBase_Metacast_Callback = void* (*)(QsciScintillaBase*, const char*);
     using QsciScintillaBase_Metacall_Callback = int (*)(QsciScintillaBase*, int, int, void**);
     using QsciScintillaBase_CanInsertFromMimeData_Callback = bool (*)(const QsciScintillaBase*, QMimeData*);
     using QsciScintillaBase_FromMimeData_Callback = const char* (*)(const QsciScintillaBase*, QMimeData*, bool*);
@@ -91,6 +93,8 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
 
   protected:
     // Instance callback storage
+    QsciScintillaBase_MetaObject_Callback qsciscintillabase_metaobject_callback = nullptr;
+    QsciScintillaBase_Metacast_Callback qsciscintillabase_metacast_callback = nullptr;
     QsciScintillaBase_Metacall_Callback qsciscintillabase_metacall_callback = nullptr;
     QsciScintillaBase_CanInsertFromMimeData_Callback qsciscintillabase_caninsertfrommimedata_callback = nullptr;
     QsciScintillaBase_FromMimeData_Callback qsciscintillabase_frommimedata_callback = nullptr;
@@ -164,6 +168,8 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     QsciScintillaBase_GetDecodedMetricF_Callback qsciscintillabase_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsciscintillabase_metaobject_isbase = false;
+    mutable bool qsciscintillabase_metacast_isbase = false;
     mutable bool qsciscintillabase_metacall_isbase = false;
     mutable bool qsciscintillabase_caninsertfrommimedata_isbase = false;
     mutable bool qsciscintillabase_frommimedata_isbase = false;
@@ -241,6 +247,8 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     VirtualQsciScintillaBase() : QsciScintillaBase() {};
 
     ~VirtualQsciScintillaBase() {
+        qsciscintillabase_metaobject_callback = nullptr;
+        qsciscintillabase_metacast_callback = nullptr;
         qsciscintillabase_metacall_callback = nullptr;
         qsciscintillabase_caninsertfrommimedata_callback = nullptr;
         qsciscintillabase_frommimedata_callback = nullptr;
@@ -315,6 +323,8 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     }
 
     // Callback setters
+    inline void setQsciScintillaBase_MetaObject_Callback(QsciScintillaBase_MetaObject_Callback cb) { qsciscintillabase_metaobject_callback = cb; }
+    inline void setQsciScintillaBase_Metacast_Callback(QsciScintillaBase_Metacast_Callback cb) { qsciscintillabase_metacast_callback = cb; }
     inline void setQsciScintillaBase_Metacall_Callback(QsciScintillaBase_Metacall_Callback cb) { qsciscintillabase_metacall_callback = cb; }
     inline void setQsciScintillaBase_CanInsertFromMimeData_Callback(QsciScintillaBase_CanInsertFromMimeData_Callback cb) { qsciscintillabase_caninsertfrommimedata_callback = cb; }
     inline void setQsciScintillaBase_FromMimeData_Callback(QsciScintillaBase_FromMimeData_Callback cb) { qsciscintillabase_frommimedata_callback = cb; }
@@ -388,6 +398,8 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     inline void setQsciScintillaBase_GetDecodedMetricF_Callback(QsciScintillaBase_GetDecodedMetricF_Callback cb) { qsciscintillabase_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQsciScintillaBase_MetaObject_IsBase(bool value) const { qsciscintillabase_metaobject_isbase = value; }
+    inline void setQsciScintillaBase_Metacast_IsBase(bool value) const { qsciscintillabase_metacast_isbase = value; }
     inline void setQsciScintillaBase_Metacall_IsBase(bool value) const { qsciscintillabase_metacall_isbase = value; }
     inline void setQsciScintillaBase_CanInsertFromMimeData_IsBase(bool value) const { qsciscintillabase_caninsertfrommimedata_isbase = value; }
     inline void setQsciScintillaBase_FromMimeData_IsBase(bool value) const { qsciscintillabase_frommimedata_isbase = value; }
@@ -459,6 +471,34 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     inline void setQsciScintillaBase_Receivers_IsBase(bool value) const { qsciscintillabase_receivers_isbase = value; }
     inline void setQsciScintillaBase_IsSignalConnected_IsBase(bool value) const { qsciscintillabase_issignalconnected_isbase = value; }
     inline void setQsciScintillaBase_GetDecodedMetricF_IsBase(bool value) const { qsciscintillabase_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsciscintillabase_metaobject_isbase) {
+            qsciscintillabase_metaobject_isbase = false;
+            return QsciScintillaBase::metaObject();
+        } else if (qsciscintillabase_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsciscintillabase_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciScintillaBase::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsciscintillabase_metacast_isbase) {
+            qsciscintillabase_metacast_isbase = false;
+            return QsciScintillaBase::qt_metacast(param1);
+        } else if (qsciscintillabase_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsciscintillabase_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciScintillaBase::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

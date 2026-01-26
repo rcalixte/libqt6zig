@@ -17,6 +17,8 @@ class VirtualQScatterSeries final : public QScatterSeries {
     bool isVirtualQScatterSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QScatterSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QScatterSeries_Metacast_Callback = void* (*)(QScatterSeries*, const char*);
     using QScatterSeries_Metacall_Callback = int (*)(QScatterSeries*, int, int, void**);
     using QScatterSeries_Type_Callback = int (*)();
     using QScatterSeries_SetPen_Callback = void (*)(QScatterSeries*, QPen*);
@@ -37,6 +39,8 @@ class VirtualQScatterSeries final : public QScatterSeries {
 
   protected:
     // Instance callback storage
+    QScatterSeries_MetaObject_Callback qscatterseries_metaobject_callback = nullptr;
+    QScatterSeries_Metacast_Callback qscatterseries_metacast_callback = nullptr;
     QScatterSeries_Metacall_Callback qscatterseries_metacall_callback = nullptr;
     QScatterSeries_Type_Callback qscatterseries_type_callback = nullptr;
     QScatterSeries_SetPen_Callback qscatterseries_setpen_callback = nullptr;
@@ -56,6 +60,8 @@ class VirtualQScatterSeries final : public QScatterSeries {
     QScatterSeries_IsSignalConnected_Callback qscatterseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscatterseries_metaobject_isbase = false;
+    mutable bool qscatterseries_metacast_isbase = false;
     mutable bool qscatterseries_metacall_isbase = false;
     mutable bool qscatterseries_type_isbase = false;
     mutable bool qscatterseries_setpen_isbase = false;
@@ -79,6 +85,8 @@ class VirtualQScatterSeries final : public QScatterSeries {
     VirtualQScatterSeries(QObject* parent) : QScatterSeries(parent) {};
 
     ~VirtualQScatterSeries() {
+        qscatterseries_metaobject_callback = nullptr;
+        qscatterseries_metacast_callback = nullptr;
         qscatterseries_metacall_callback = nullptr;
         qscatterseries_type_callback = nullptr;
         qscatterseries_setpen_callback = nullptr;
@@ -99,6 +107,8 @@ class VirtualQScatterSeries final : public QScatterSeries {
     }
 
     // Callback setters
+    inline void setQScatterSeries_MetaObject_Callback(QScatterSeries_MetaObject_Callback cb) { qscatterseries_metaobject_callback = cb; }
+    inline void setQScatterSeries_Metacast_Callback(QScatterSeries_Metacast_Callback cb) { qscatterseries_metacast_callback = cb; }
     inline void setQScatterSeries_Metacall_Callback(QScatterSeries_Metacall_Callback cb) { qscatterseries_metacall_callback = cb; }
     inline void setQScatterSeries_Type_Callback(QScatterSeries_Type_Callback cb) { qscatterseries_type_callback = cb; }
     inline void setQScatterSeries_SetPen_Callback(QScatterSeries_SetPen_Callback cb) { qscatterseries_setpen_callback = cb; }
@@ -118,6 +128,8 @@ class VirtualQScatterSeries final : public QScatterSeries {
     inline void setQScatterSeries_IsSignalConnected_Callback(QScatterSeries_IsSignalConnected_Callback cb) { qscatterseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQScatterSeries_MetaObject_IsBase(bool value) const { qscatterseries_metaobject_isbase = value; }
+    inline void setQScatterSeries_Metacast_IsBase(bool value) const { qscatterseries_metacast_isbase = value; }
     inline void setQScatterSeries_Metacall_IsBase(bool value) const { qscatterseries_metacall_isbase = value; }
     inline void setQScatterSeries_Type_IsBase(bool value) const { qscatterseries_type_isbase = value; }
     inline void setQScatterSeries_SetPen_IsBase(bool value) const { qscatterseries_setpen_isbase = value; }
@@ -135,6 +147,34 @@ class VirtualQScatterSeries final : public QScatterSeries {
     inline void setQScatterSeries_SenderSignalIndex_IsBase(bool value) const { qscatterseries_sendersignalindex_isbase = value; }
     inline void setQScatterSeries_Receivers_IsBase(bool value) const { qscatterseries_receivers_isbase = value; }
     inline void setQScatterSeries_IsSignalConnected_IsBase(bool value) const { qscatterseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscatterseries_metaobject_isbase) {
+            qscatterseries_metaobject_isbase = false;
+            return QScatterSeries::metaObject();
+        } else if (qscatterseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscatterseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QScatterSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscatterseries_metacast_isbase) {
+            qscatterseries_metacast_isbase = false;
+            return QScatterSeries::qt_metacast(param1);
+        } else if (qscatterseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscatterseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QScatterSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

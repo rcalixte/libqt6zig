@@ -17,11 +17,21 @@ QsciAPIs* QsciAPIs_new(QsciLexer* lexer) {
 }
 
 QMetaObject* QsciAPIs_MetaObject(const QsciAPIs* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsciapis = dynamic_cast<const VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciAPIs*)self)->metaObject();
+    }
 }
 
 void* QsciAPIs_Metacast(QsciAPIs* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciAPIs*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciAPIs_Metacall(QsciAPIs* self, int param1, int param2, void** param3) {
@@ -249,6 +259,44 @@ bool QsciAPIs_LoadPrepared1(QsciAPIs* self, const libqt_string filename) {
 bool QsciAPIs_SavePrepared1(const QsciAPIs* self, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return self->savePrepared(filename_QString);
+}
+
+// Base class handler implementation
+QMetaObject* QsciAPIs_QBaseMetaObject(const QsciAPIs* self) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsciapis->metaObject();
+    } else {
+        return (QMetaObject*)self->QsciAPIs::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciAPIs_OnMetaObject(const QsciAPIs* self, intptr_t slot) {
+    auto* vqsciapis = const_cast<VirtualQsciAPIs*>(dynamic_cast<const VirtualQsciAPIs*>(self));
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_MetaObject_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciAPIs_QBaseMetacast(QsciAPIs* self, const char* param1) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_Metacast_IsBase(true);
+        return vqsciapis->qt_metacast(param1);
+    } else {
+        return self->QsciAPIs::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciAPIs_OnMetacast(QsciAPIs* self, intptr_t slot) {
+    auto* vqsciapis = dynamic_cast<VirtualQsciAPIs*>(self);
+    if (vqsciapis && vqsciapis->isVirtualQsciAPIs) {
+        vqsciapis->setQsciAPIs_Metacast_Callback(reinterpret_cast<VirtualQsciAPIs::QsciAPIs_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

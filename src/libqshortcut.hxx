@@ -17,6 +17,8 @@ class VirtualQShortcut final : public QShortcut {
     bool isVirtualQShortcut = true;
 
     // Virtual class public types (including callbacks)
+    using QShortcut_MetaObject_Callback = QMetaObject* (*)();
+    using QShortcut_Metacast_Callback = void* (*)(QShortcut*, const char*);
     using QShortcut_Metacall_Callback = int (*)(QShortcut*, int, int, void**);
     using QShortcut_Event_Callback = bool (*)(QShortcut*, QEvent*);
     using QShortcut_EventFilter_Callback = bool (*)(QShortcut*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQShortcut final : public QShortcut {
 
   protected:
     // Instance callback storage
+    QShortcut_MetaObject_Callback qshortcut_metaobject_callback = nullptr;
+    QShortcut_Metacast_Callback qshortcut_metacast_callback = nullptr;
     QShortcut_Metacall_Callback qshortcut_metacall_callback = nullptr;
     QShortcut_Event_Callback qshortcut_event_callback = nullptr;
     QShortcut_EventFilter_Callback qshortcut_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQShortcut final : public QShortcut {
     QShortcut_IsSignalConnected_Callback qshortcut_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qshortcut_metaobject_isbase = false;
+    mutable bool qshortcut_metacast_isbase = false;
     mutable bool qshortcut_metacall_isbase = false;
     mutable bool qshortcut_event_isbase = false;
     mutable bool qshortcut_eventfilter_isbase = false;
@@ -71,6 +77,8 @@ class VirtualQShortcut final : public QShortcut {
     VirtualQShortcut(QKeySequence::StandardKey key, QObject* parent, const char* member, const char* ambiguousMember, Qt::ShortcutContext context) : QShortcut(key, parent, member, ambiguousMember, context) {};
 
     ~VirtualQShortcut() {
+        qshortcut_metaobject_callback = nullptr;
+        qshortcut_metacast_callback = nullptr;
         qshortcut_metacall_callback = nullptr;
         qshortcut_event_callback = nullptr;
         qshortcut_eventfilter_callback = nullptr;
@@ -86,6 +94,8 @@ class VirtualQShortcut final : public QShortcut {
     }
 
     // Callback setters
+    inline void setQShortcut_MetaObject_Callback(QShortcut_MetaObject_Callback cb) { qshortcut_metaobject_callback = cb; }
+    inline void setQShortcut_Metacast_Callback(QShortcut_Metacast_Callback cb) { qshortcut_metacast_callback = cb; }
     inline void setQShortcut_Metacall_Callback(QShortcut_Metacall_Callback cb) { qshortcut_metacall_callback = cb; }
     inline void setQShortcut_Event_Callback(QShortcut_Event_Callback cb) { qshortcut_event_callback = cb; }
     inline void setQShortcut_EventFilter_Callback(QShortcut_EventFilter_Callback cb) { qshortcut_eventfilter_callback = cb; }
@@ -100,6 +110,8 @@ class VirtualQShortcut final : public QShortcut {
     inline void setQShortcut_IsSignalConnected_Callback(QShortcut_IsSignalConnected_Callback cb) { qshortcut_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQShortcut_MetaObject_IsBase(bool value) const { qshortcut_metaobject_isbase = value; }
+    inline void setQShortcut_Metacast_IsBase(bool value) const { qshortcut_metacast_isbase = value; }
     inline void setQShortcut_Metacall_IsBase(bool value) const { qshortcut_metacall_isbase = value; }
     inline void setQShortcut_Event_IsBase(bool value) const { qshortcut_event_isbase = value; }
     inline void setQShortcut_EventFilter_IsBase(bool value) const { qshortcut_eventfilter_isbase = value; }
@@ -112,6 +124,34 @@ class VirtualQShortcut final : public QShortcut {
     inline void setQShortcut_SenderSignalIndex_IsBase(bool value) const { qshortcut_sendersignalindex_isbase = value; }
     inline void setQShortcut_Receivers_IsBase(bool value) const { qshortcut_receivers_isbase = value; }
     inline void setQShortcut_IsSignalConnected_IsBase(bool value) const { qshortcut_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qshortcut_metaobject_isbase) {
+            qshortcut_metaobject_isbase = false;
+            return QShortcut::metaObject();
+        } else if (qshortcut_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qshortcut_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QShortcut::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qshortcut_metacast_isbase) {
+            qshortcut_metacast_isbase = false;
+            return QShortcut::qt_metacast(param1);
+        } else if (qshortcut_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qshortcut_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QShortcut::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

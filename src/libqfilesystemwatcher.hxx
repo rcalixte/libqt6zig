@@ -17,6 +17,8 @@ class VirtualQFileSystemWatcher final : public QFileSystemWatcher {
     bool isVirtualQFileSystemWatcher = true;
 
     // Virtual class public types (including callbacks)
+    using QFileSystemWatcher_MetaObject_Callback = QMetaObject* (*)();
+    using QFileSystemWatcher_Metacast_Callback = void* (*)(QFileSystemWatcher*, const char*);
     using QFileSystemWatcher_Metacall_Callback = int (*)(QFileSystemWatcher*, int, int, void**);
     using QFileSystemWatcher_Event_Callback = bool (*)(QFileSystemWatcher*, QEvent*);
     using QFileSystemWatcher_EventFilter_Callback = bool (*)(QFileSystemWatcher*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQFileSystemWatcher final : public QFileSystemWatcher {
 
   protected:
     // Instance callback storage
+    QFileSystemWatcher_MetaObject_Callback qfilesystemwatcher_metaobject_callback = nullptr;
+    QFileSystemWatcher_Metacast_Callback qfilesystemwatcher_metacast_callback = nullptr;
     QFileSystemWatcher_Metacall_Callback qfilesystemwatcher_metacall_callback = nullptr;
     QFileSystemWatcher_Event_Callback qfilesystemwatcher_event_callback = nullptr;
     QFileSystemWatcher_EventFilter_Callback qfilesystemwatcher_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQFileSystemWatcher final : public QFileSystemWatcher {
     QFileSystemWatcher_IsSignalConnected_Callback qfilesystemwatcher_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qfilesystemwatcher_metaobject_isbase = false;
+    mutable bool qfilesystemwatcher_metacast_isbase = false;
     mutable bool qfilesystemwatcher_metacall_isbase = false;
     mutable bool qfilesystemwatcher_event_isbase = false;
     mutable bool qfilesystemwatcher_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQFileSystemWatcher final : public QFileSystemWatcher {
     VirtualQFileSystemWatcher(const QList<QString>& paths, QObject* parent) : QFileSystemWatcher(paths, parent) {};
 
     ~VirtualQFileSystemWatcher() {
+        qfilesystemwatcher_metaobject_callback = nullptr;
+        qfilesystemwatcher_metacast_callback = nullptr;
         qfilesystemwatcher_metacall_callback = nullptr;
         qfilesystemwatcher_event_callback = nullptr;
         qfilesystemwatcher_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQFileSystemWatcher final : public QFileSystemWatcher {
     }
 
     // Callback setters
+    inline void setQFileSystemWatcher_MetaObject_Callback(QFileSystemWatcher_MetaObject_Callback cb) { qfilesystemwatcher_metaobject_callback = cb; }
+    inline void setQFileSystemWatcher_Metacast_Callback(QFileSystemWatcher_Metacast_Callback cb) { qfilesystemwatcher_metacast_callback = cb; }
     inline void setQFileSystemWatcher_Metacall_Callback(QFileSystemWatcher_Metacall_Callback cb) { qfilesystemwatcher_metacall_callback = cb; }
     inline void setQFileSystemWatcher_Event_Callback(QFileSystemWatcher_Event_Callback cb) { qfilesystemwatcher_event_callback = cb; }
     inline void setQFileSystemWatcher_EventFilter_Callback(QFileSystemWatcher_EventFilter_Callback cb) { qfilesystemwatcher_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQFileSystemWatcher final : public QFileSystemWatcher {
     inline void setQFileSystemWatcher_IsSignalConnected_Callback(QFileSystemWatcher_IsSignalConnected_Callback cb) { qfilesystemwatcher_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQFileSystemWatcher_MetaObject_IsBase(bool value) const { qfilesystemwatcher_metaobject_isbase = value; }
+    inline void setQFileSystemWatcher_Metacast_IsBase(bool value) const { qfilesystemwatcher_metacast_isbase = value; }
     inline void setQFileSystemWatcher_Metacall_IsBase(bool value) const { qfilesystemwatcher_metacall_isbase = value; }
     inline void setQFileSystemWatcher_Event_IsBase(bool value) const { qfilesystemwatcher_event_isbase = value; }
     inline void setQFileSystemWatcher_EventFilter_IsBase(bool value) const { qfilesystemwatcher_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQFileSystemWatcher final : public QFileSystemWatcher {
     inline void setQFileSystemWatcher_SenderSignalIndex_IsBase(bool value) const { qfilesystemwatcher_sendersignalindex_isbase = value; }
     inline void setQFileSystemWatcher_Receivers_IsBase(bool value) const { qfilesystemwatcher_receivers_isbase = value; }
     inline void setQFileSystemWatcher_IsSignalConnected_IsBase(bool value) const { qfilesystemwatcher_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qfilesystemwatcher_metaobject_isbase) {
+            qfilesystemwatcher_metaobject_isbase = false;
+            return QFileSystemWatcher::metaObject();
+        } else if (qfilesystemwatcher_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qfilesystemwatcher_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFileSystemWatcher::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qfilesystemwatcher_metacast_isbase) {
+            qfilesystemwatcher_metacast_isbase = false;
+            return QFileSystemWatcher::qt_metacast(param1);
+        } else if (qfilesystemwatcher_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qfilesystemwatcher_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFileSystemWatcher::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

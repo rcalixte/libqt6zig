@@ -34,11 +34,21 @@ QPluginLoader* QPluginLoader_new4(const libqt_string fileName, QObject* parent) 
 }
 
 QMetaObject* QPluginLoader_MetaObject(const QPluginLoader* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpluginloader = dynamic_cast<const VirtualQPluginLoader*>(self);
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPluginLoader*)self)->metaObject();
+    }
 }
 
 void* QPluginLoader_Metacast(QPluginLoader* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPluginLoader*)self)->qt_metacast(param1);
+    }
 }
 
 int QPluginLoader_Metacall(QPluginLoader* self, int param1, int param2, void** param3) {
@@ -131,6 +141,44 @@ void QPluginLoader_SetLoadHints(QPluginLoader* self, int loadHints) {
 
 int QPluginLoader_LoadHints(const QPluginLoader* self) {
     return static_cast<int>(self->loadHints());
+}
+
+// Base class handler implementation
+QMetaObject* QPluginLoader_QBaseMetaObject(const QPluginLoader* self) {
+    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+        vqpluginloader->setQPluginLoader_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpluginloader->metaObject();
+    } else {
+        return (QMetaObject*)self->QPluginLoader::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPluginLoader_OnMetaObject(const QPluginLoader* self, intptr_t slot) {
+    auto* vqpluginloader = const_cast<VirtualQPluginLoader*>(dynamic_cast<const VirtualQPluginLoader*>(self));
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+        vqpluginloader->setQPluginLoader_MetaObject_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPluginLoader_QBaseMetacast(QPluginLoader* self, const char* param1) {
+    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+        vqpluginloader->setQPluginLoader_Metacast_IsBase(true);
+        return vqpluginloader->qt_metacast(param1);
+    } else {
+        return self->QPluginLoader::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPluginLoader_OnMetacast(QPluginLoader* self, intptr_t slot) {
+    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
+    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
+        vqpluginloader->setQPluginLoader_Metacast_Callback(reinterpret_cast<VirtualQPluginLoader::QPluginLoader_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

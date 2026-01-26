@@ -17,6 +17,8 @@ class VirtualQMovie final : public QMovie {
     bool isVirtualQMovie = true;
 
     // Virtual class public types (including callbacks)
+    using QMovie_MetaObject_Callback = QMetaObject* (*)();
+    using QMovie_Metacast_Callback = void* (*)(QMovie*, const char*);
     using QMovie_Metacall_Callback = int (*)(QMovie*, int, int, void**);
     using QMovie_Event_Callback = bool (*)(QMovie*, QEvent*);
     using QMovie_EventFilter_Callback = bool (*)(QMovie*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQMovie final : public QMovie {
 
   protected:
     // Instance callback storage
+    QMovie_MetaObject_Callback qmovie_metaobject_callback = nullptr;
+    QMovie_Metacast_Callback qmovie_metacast_callback = nullptr;
     QMovie_Metacall_Callback qmovie_metacall_callback = nullptr;
     QMovie_Event_Callback qmovie_event_callback = nullptr;
     QMovie_EventFilter_Callback qmovie_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQMovie final : public QMovie {
     QMovie_IsSignalConnected_Callback qmovie_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmovie_metaobject_isbase = false;
+    mutable bool qmovie_metacast_isbase = false;
     mutable bool qmovie_metacall_isbase = false;
     mutable bool qmovie_event_isbase = false;
     mutable bool qmovie_eventfilter_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQMovie final : public QMovie {
     VirtualQMovie(const QString& fileName, const QByteArray& format, QObject* parent) : QMovie(fileName, format, parent) {};
 
     ~VirtualQMovie() {
+        qmovie_metaobject_callback = nullptr;
+        qmovie_metacast_callback = nullptr;
         qmovie_metacall_callback = nullptr;
         qmovie_event_callback = nullptr;
         qmovie_eventfilter_callback = nullptr;
@@ -85,6 +93,8 @@ class VirtualQMovie final : public QMovie {
     }
 
     // Callback setters
+    inline void setQMovie_MetaObject_Callback(QMovie_MetaObject_Callback cb) { qmovie_metaobject_callback = cb; }
+    inline void setQMovie_Metacast_Callback(QMovie_Metacast_Callback cb) { qmovie_metacast_callback = cb; }
     inline void setQMovie_Metacall_Callback(QMovie_Metacall_Callback cb) { qmovie_metacall_callback = cb; }
     inline void setQMovie_Event_Callback(QMovie_Event_Callback cb) { qmovie_event_callback = cb; }
     inline void setQMovie_EventFilter_Callback(QMovie_EventFilter_Callback cb) { qmovie_eventfilter_callback = cb; }
@@ -99,6 +109,8 @@ class VirtualQMovie final : public QMovie {
     inline void setQMovie_IsSignalConnected_Callback(QMovie_IsSignalConnected_Callback cb) { qmovie_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQMovie_MetaObject_IsBase(bool value) const { qmovie_metaobject_isbase = value; }
+    inline void setQMovie_Metacast_IsBase(bool value) const { qmovie_metacast_isbase = value; }
     inline void setQMovie_Metacall_IsBase(bool value) const { qmovie_metacall_isbase = value; }
     inline void setQMovie_Event_IsBase(bool value) const { qmovie_event_isbase = value; }
     inline void setQMovie_EventFilter_IsBase(bool value) const { qmovie_eventfilter_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQMovie final : public QMovie {
     inline void setQMovie_SenderSignalIndex_IsBase(bool value) const { qmovie_sendersignalindex_isbase = value; }
     inline void setQMovie_Receivers_IsBase(bool value) const { qmovie_receivers_isbase = value; }
     inline void setQMovie_IsSignalConnected_IsBase(bool value) const { qmovie_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmovie_metaobject_isbase) {
+            qmovie_metaobject_isbase = false;
+            return QMovie::metaObject();
+        } else if (qmovie_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmovie_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMovie::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmovie_metacast_isbase) {
+            qmovie_metacast_isbase = false;
+            return QMovie::qt_metacast(param1);
+        } else if (qmovie_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmovie_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMovie::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

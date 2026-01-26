@@ -53,11 +53,21 @@ KTimeComboBox* KTimeComboBox_new2() {
 }
 
 QMetaObject* KTimeComboBox_MetaObject(const KTimeComboBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktimecombobox = dynamic_cast<const VirtualKTimeComboBox*>(self);
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTimeComboBox*)self)->metaObject();
+    }
 }
 
 void* KTimeComboBox_Metacast(KTimeComboBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTimeComboBox*)self)->qt_metacast(param1);
+    }
 }
 
 int KTimeComboBox_Metacall(KTimeComboBox* self, int param1, int param2, void** param3) {
@@ -319,6 +329,44 @@ void KTimeComboBox_SetTimeList3(KTimeComboBox* self, libqt_list /* of QTime* */ 
     QString minWarnMsg_QString = QString::fromUtf8(minWarnMsg.data, minWarnMsg.len);
     QString maxWarnMsg_QString = QString::fromUtf8(maxWarnMsg.data, maxWarnMsg.len);
     self->setTimeList(timeList_QList, minWarnMsg_QString, maxWarnMsg_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KTimeComboBox_QBaseMetaObject(const KTimeComboBox* self) {
+    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+        vktimecombobox->setKTimeComboBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vktimecombobox->metaObject();
+    } else {
+        return (QMetaObject*)self->KTimeComboBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTimeComboBox_OnMetaObject(const KTimeComboBox* self, intptr_t slot) {
+    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+        vktimecombobox->setKTimeComboBox_MetaObject_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTimeComboBox_QBaseMetacast(KTimeComboBox* self, const char* param1) {
+    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+        vktimecombobox->setKTimeComboBox_Metacast_IsBase(true);
+        return vktimecombobox->qt_metacast(param1);
+    } else {
+        return self->KTimeComboBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTimeComboBox_OnMetacast(KTimeComboBox* self, intptr_t slot) {
+    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
+    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+        vktimecombobox->setKTimeComboBox_Metacast_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

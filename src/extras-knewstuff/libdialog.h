@@ -66,6 +66,10 @@ int KNSWidgets__Dialog_Metacall(KNSWidgets__Dialog* self, int param1, int param2
 KNSCore__EngineBase* KNSWidgets__Dialog_Engine(KNSWidgets__Dialog* self);
 libqt_list /* of KNSCore__Entry* */ KNSWidgets__Dialog_ChangedEntries(const KNSWidgets__Dialog* self);
 void KNSWidgets__Dialog_Open(KNSWidgets__Dialog* self);
+void KNSWidgets__Dialog_OnMetaObject(const KNSWidgets__Dialog* self, intptr_t slot);
+QMetaObject* KNSWidgets__Dialog_QBaseMetaObject(const KNSWidgets__Dialog* self);
+void KNSWidgets__Dialog_OnMetacast(KNSWidgets__Dialog* self, intptr_t slot);
+void* KNSWidgets__Dialog_QBaseMetacast(KNSWidgets__Dialog* self, const char* param1);
 void KNSWidgets__Dialog_OnMetacall(KNSWidgets__Dialog* self, intptr_t slot);
 int KNSWidgets__Dialog_QBaseMetacall(KNSWidgets__Dialog* self, int param1, int param2, void** param3);
 void KNSWidgets__Dialog_OnOpen(KNSWidgets__Dialog* self, intptr_t slot);

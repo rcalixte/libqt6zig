@@ -17,6 +17,8 @@ class VirtualKPluginFactory final : public KPluginFactory {
     bool isVirtualKPluginFactory = true;
 
     // Virtual class public types (including callbacks)
+    using KPluginFactory_MetaObject_Callback = QMetaObject* (*)();
+    using KPluginFactory_Metacast_Callback = void* (*)(KPluginFactory*, const char*);
     using KPluginFactory_Metacall_Callback = int (*)(KPluginFactory*, int, int, void**);
     using KPluginFactory_Create_Callback = QObject* (*)(KPluginFactory*, const char*, QWidget*, QObject*, libqt_list /* of QVariant* */);
     using KPluginFactory_Event_Callback = bool (*)(KPluginFactory*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualKPluginFactory final : public KPluginFactory {
 
   protected:
     // Instance callback storage
+    KPluginFactory_MetaObject_Callback kpluginfactory_metaobject_callback = nullptr;
+    KPluginFactory_Metacast_Callback kpluginfactory_metacast_callback = nullptr;
     KPluginFactory_Metacall_Callback kpluginfactory_metacall_callback = nullptr;
     KPluginFactory_Create_Callback kpluginfactory_create_callback = nullptr;
     KPluginFactory_Event_Callback kpluginfactory_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualKPluginFactory final : public KPluginFactory {
     KPluginFactory_IsSignalConnected_Callback kpluginfactory_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpluginfactory_metaobject_isbase = false;
+    mutable bool kpluginfactory_metacast_isbase = false;
     mutable bool kpluginfactory_metacall_isbase = false;
     mutable bool kpluginfactory_create_isbase = false;
     mutable bool kpluginfactory_event_isbase = false;
@@ -66,6 +72,8 @@ class VirtualKPluginFactory final : public KPluginFactory {
     VirtualKPluginFactory() : KPluginFactory() {};
 
     ~VirtualKPluginFactory() {
+        kpluginfactory_metaobject_callback = nullptr;
+        kpluginfactory_metacast_callback = nullptr;
         kpluginfactory_metacall_callback = nullptr;
         kpluginfactory_create_callback = nullptr;
         kpluginfactory_event_callback = nullptr;
@@ -82,6 +90,8 @@ class VirtualKPluginFactory final : public KPluginFactory {
     }
 
     // Callback setters
+    inline void setKPluginFactory_MetaObject_Callback(KPluginFactory_MetaObject_Callback cb) { kpluginfactory_metaobject_callback = cb; }
+    inline void setKPluginFactory_Metacast_Callback(KPluginFactory_Metacast_Callback cb) { kpluginfactory_metacast_callback = cb; }
     inline void setKPluginFactory_Metacall_Callback(KPluginFactory_Metacall_Callback cb) { kpluginfactory_metacall_callback = cb; }
     inline void setKPluginFactory_Create_Callback(KPluginFactory_Create_Callback cb) { kpluginfactory_create_callback = cb; }
     inline void setKPluginFactory_Event_Callback(KPluginFactory_Event_Callback cb) { kpluginfactory_event_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualKPluginFactory final : public KPluginFactory {
     inline void setKPluginFactory_IsSignalConnected_Callback(KPluginFactory_IsSignalConnected_Callback cb) { kpluginfactory_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKPluginFactory_MetaObject_IsBase(bool value) const { kpluginfactory_metaobject_isbase = value; }
+    inline void setKPluginFactory_Metacast_IsBase(bool value) const { kpluginfactory_metacast_isbase = value; }
     inline void setKPluginFactory_Metacall_IsBase(bool value) const { kpluginfactory_metacall_isbase = value; }
     inline void setKPluginFactory_Create_IsBase(bool value) const { kpluginfactory_create_isbase = value; }
     inline void setKPluginFactory_Event_IsBase(bool value) const { kpluginfactory_event_isbase = value; }
@@ -110,6 +122,34 @@ class VirtualKPluginFactory final : public KPluginFactory {
     inline void setKPluginFactory_SenderSignalIndex_IsBase(bool value) const { kpluginfactory_sendersignalindex_isbase = value; }
     inline void setKPluginFactory_Receivers_IsBase(bool value) const { kpluginfactory_receivers_isbase = value; }
     inline void setKPluginFactory_IsSignalConnected_IsBase(bool value) const { kpluginfactory_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpluginfactory_metaobject_isbase) {
+            kpluginfactory_metaobject_isbase = false;
+            return KPluginFactory::metaObject();
+        } else if (kpluginfactory_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpluginfactory_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPluginFactory::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpluginfactory_metacast_isbase) {
+            kpluginfactory_metacast_isbase = false;
+            return KPluginFactory::qt_metacast(param1);
+        } else if (kpluginfactory_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpluginfactory_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPluginFactory::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

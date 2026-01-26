@@ -283,11 +283,21 @@ QDesignerMetaDataBaseInterface* QDesignerMetaDataBaseInterface_new2(QObject* par
 }
 
 QMetaObject* QDesignerMetaDataBaseInterface_MetaObject(const QDesignerMetaDataBaseInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignermetadatabaseinterface = dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self);
+    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerMetaDataBaseInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerMetaDataBaseInterface_Metacast(QDesignerMetaDataBaseInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
+    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerMetaDataBaseInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerMetaDataBaseInterface_Metacall(QDesignerMetaDataBaseInterface* self, int param1, int param2, void** param3) {
@@ -371,6 +381,44 @@ void QDesignerMetaDataBaseInterface_Connect_Changed(QDesignerMetaDataBaseInterfa
     QDesignerMetaDataBaseInterface::connect(self, &QDesignerMetaDataBaseInterface::changed, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerMetaDataBaseInterface_QBaseMetaObject(const QDesignerMetaDataBaseInterface* self) {
+    auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
+    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
+        vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignermetadatabaseinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerMetaDataBaseInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerMetaDataBaseInterface_OnMetaObject(const QDesignerMetaDataBaseInterface* self, intptr_t slot) {
+    auto* vqdesignermetadatabaseinterface = const_cast<VirtualQDesignerMetaDataBaseInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self));
+    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
+        vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerMetaDataBaseInterface::QDesignerMetaDataBaseInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerMetaDataBaseInterface_QBaseMetacast(QDesignerMetaDataBaseInterface* self, const char* param1) {
+    auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
+    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
+        vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Metacast_IsBase(true);
+        return vqdesignermetadatabaseinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerMetaDataBaseInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerMetaDataBaseInterface_OnMetacast(QDesignerMetaDataBaseInterface* self, intptr_t slot) {
+    auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
+    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
+        vqdesignermetadatabaseinterface->setQDesignerMetaDataBaseInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerMetaDataBaseInterface::QDesignerMetaDataBaseInterface_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

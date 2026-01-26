@@ -156,11 +156,21 @@ QProcess* QProcess_new2(QObject* parent) {
 }
 
 QMetaObject* QProcess_MetaObject(const QProcess* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqprocess = dynamic_cast<const VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQProcess*)self)->metaObject();
+    }
 }
 
 void* QProcess_Metacast(QProcess* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQProcess*)self)->qt_metacast(param1);
+    }
 }
 
 int QProcess_Metacall(QProcess* self, int param1, int param2, void** param3) {
@@ -676,6 +686,44 @@ void QProcess_Connect_Finished2(QProcess* self, intptr_t slot) {
         int sigval2 = static_cast<int>(exitStatus);
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QProcess_QBaseMetaObject(const QProcess* self) {
+    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_MetaObject_IsBase(true);
+        return (QMetaObject*)vqprocess->metaObject();
+    } else {
+        return (QMetaObject*)self->QProcess::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProcess_OnMetaObject(const QProcess* self, intptr_t slot) {
+    auto* vqprocess = const_cast<VirtualQProcess*>(dynamic_cast<const VirtualQProcess*>(self));
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_MetaObject_Callback(reinterpret_cast<VirtualQProcess::QProcess_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QProcess_QBaseMetacast(QProcess* self, const char* param1) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_Metacast_IsBase(true);
+        return vqprocess->qt_metacast(param1);
+    } else {
+        return self->QProcess::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProcess_OnMetacast(QProcess* self, intptr_t slot) {
+    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
+    if (vqprocess && vqprocess->isVirtualQProcess) {
+        vqprocess->setQProcess_Metacast_Callback(reinterpret_cast<VirtualQProcess::QProcess_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

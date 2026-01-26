@@ -17,6 +17,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     bool isVirtualKMimeTypeChooser = true;
 
     // Virtual class public types (including callbacks)
+    using KMimeTypeChooser_MetaObject_Callback = QMetaObject* (*)();
+    using KMimeTypeChooser_Metacast_Callback = void* (*)(KMimeTypeChooser*, const char*);
     using KMimeTypeChooser_Metacall_Callback = int (*)(KMimeTypeChooser*, int, int, void**);
     using KMimeTypeChooser_DevType_Callback = int (*)();
     using KMimeTypeChooser_SetVisible_Callback = void (*)(KMimeTypeChooser*, bool);
@@ -78,6 +80,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
 
   protected:
     // Instance callback storage
+    KMimeTypeChooser_MetaObject_Callback kmimetypechooser_metaobject_callback = nullptr;
+    KMimeTypeChooser_Metacast_Callback kmimetypechooser_metacast_callback = nullptr;
     KMimeTypeChooser_Metacall_Callback kmimetypechooser_metacall_callback = nullptr;
     KMimeTypeChooser_DevType_Callback kmimetypechooser_devtype_callback = nullptr;
     KMimeTypeChooser_SetVisible_Callback kmimetypechooser_setvisible_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     KMimeTypeChooser_GetDecodedMetricF_Callback kmimetypechooser_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kmimetypechooser_metaobject_isbase = false;
+    mutable bool kmimetypechooser_metacast_isbase = false;
     mutable bool kmimetypechooser_metacall_isbase = false;
     mutable bool kmimetypechooser_devtype_isbase = false;
     mutable bool kmimetypechooser_setvisible_isbase = false;
@@ -207,6 +213,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     VirtualKMimeTypeChooser(const QString& text, const QList<QString>& selectedMimeTypes, const QString& defaultGroup, const QList<QString>& groupsToShow, int visuals, QWidget* parent) : KMimeTypeChooser(text, selectedMimeTypes, defaultGroup, groupsToShow, visuals, parent) {};
 
     ~VirtualKMimeTypeChooser() {
+        kmimetypechooser_metaobject_callback = nullptr;
+        kmimetypechooser_metacast_callback = nullptr;
         kmimetypechooser_metacall_callback = nullptr;
         kmimetypechooser_devtype_callback = nullptr;
         kmimetypechooser_setvisible_callback = nullptr;
@@ -268,6 +276,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     }
 
     // Callback setters
+    inline void setKMimeTypeChooser_MetaObject_Callback(KMimeTypeChooser_MetaObject_Callback cb) { kmimetypechooser_metaobject_callback = cb; }
+    inline void setKMimeTypeChooser_Metacast_Callback(KMimeTypeChooser_Metacast_Callback cb) { kmimetypechooser_metacast_callback = cb; }
     inline void setKMimeTypeChooser_Metacall_Callback(KMimeTypeChooser_Metacall_Callback cb) { kmimetypechooser_metacall_callback = cb; }
     inline void setKMimeTypeChooser_DevType_Callback(KMimeTypeChooser_DevType_Callback cb) { kmimetypechooser_devtype_callback = cb; }
     inline void setKMimeTypeChooser_SetVisible_Callback(KMimeTypeChooser_SetVisible_Callback cb) { kmimetypechooser_setvisible_callback = cb; }
@@ -328,6 +338,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     inline void setKMimeTypeChooser_GetDecodedMetricF_Callback(KMimeTypeChooser_GetDecodedMetricF_Callback cb) { kmimetypechooser_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKMimeTypeChooser_MetaObject_IsBase(bool value) const { kmimetypechooser_metaobject_isbase = value; }
+    inline void setKMimeTypeChooser_Metacast_IsBase(bool value) const { kmimetypechooser_metacast_isbase = value; }
     inline void setKMimeTypeChooser_Metacall_IsBase(bool value) const { kmimetypechooser_metacall_isbase = value; }
     inline void setKMimeTypeChooser_DevType_IsBase(bool value) const { kmimetypechooser_devtype_isbase = value; }
     inline void setKMimeTypeChooser_SetVisible_IsBase(bool value) const { kmimetypechooser_setvisible_isbase = value; }
@@ -386,6 +398,34 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
     inline void setKMimeTypeChooser_Receivers_IsBase(bool value) const { kmimetypechooser_receivers_isbase = value; }
     inline void setKMimeTypeChooser_IsSignalConnected_IsBase(bool value) const { kmimetypechooser_issignalconnected_isbase = value; }
     inline void setKMimeTypeChooser_GetDecodedMetricF_IsBase(bool value) const { kmimetypechooser_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kmimetypechooser_metaobject_isbase) {
+            kmimetypechooser_metaobject_isbase = false;
+            return KMimeTypeChooser::metaObject();
+        } else if (kmimetypechooser_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kmimetypechooser_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KMimeTypeChooser::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kmimetypechooser_metacast_isbase) {
+            kmimetypechooser_metacast_isbase = false;
+            return KMimeTypeChooser::qt_metacast(param1);
+        } else if (kmimetypechooser_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kmimetypechooser_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KMimeTypeChooser::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1321,6 +1361,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     bool isVirtualKMimeTypeChooserDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KMimeTypeChooserDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KMimeTypeChooserDialog_Metacast_Callback = void* (*)(KMimeTypeChooserDialog*, const char*);
     using KMimeTypeChooserDialog_Metacall_Callback = int (*)(KMimeTypeChooserDialog*, int, int, void**);
     using KMimeTypeChooserDialog_SizeHint_Callback = QSize* (*)();
     using KMimeTypeChooserDialog_SetVisible_Callback = void (*)(KMimeTypeChooserDialog*, bool);
@@ -1388,6 +1430,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
 
   protected:
     // Instance callback storage
+    KMimeTypeChooserDialog_MetaObject_Callback kmimetypechooserdialog_metaobject_callback = nullptr;
+    KMimeTypeChooserDialog_Metacast_Callback kmimetypechooserdialog_metacast_callback = nullptr;
     KMimeTypeChooserDialog_Metacall_Callback kmimetypechooserdialog_metacall_callback = nullptr;
     KMimeTypeChooserDialog_SizeHint_Callback kmimetypechooserdialog_sizehint_callback = nullptr;
     KMimeTypeChooserDialog_SetVisible_Callback kmimetypechooserdialog_setvisible_callback = nullptr;
@@ -1454,6 +1498,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     KMimeTypeChooserDialog_GetDecodedMetricF_Callback kmimetypechooserdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kmimetypechooserdialog_metaobject_isbase = false;
+    mutable bool kmimetypechooserdialog_metacast_isbase = false;
     mutable bool kmimetypechooserdialog_metacall_isbase = false;
     mutable bool kmimetypechooserdialog_sizehint_isbase = false;
     mutable bool kmimetypechooserdialog_setvisible_isbase = false;
@@ -1531,6 +1577,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     VirtualKMimeTypeChooserDialog(const QString& title, const QString& text, const QList<QString>& selectedMimeTypes, const QString& defaultGroup, QWidget* parent) : KMimeTypeChooserDialog(title, text, selectedMimeTypes, defaultGroup, parent) {};
 
     ~VirtualKMimeTypeChooserDialog() {
+        kmimetypechooserdialog_metaobject_callback = nullptr;
+        kmimetypechooserdialog_metacast_callback = nullptr;
         kmimetypechooserdialog_metacall_callback = nullptr;
         kmimetypechooserdialog_sizehint_callback = nullptr;
         kmimetypechooserdialog_setvisible_callback = nullptr;
@@ -1598,6 +1646,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     }
 
     // Callback setters
+    inline void setKMimeTypeChooserDialog_MetaObject_Callback(KMimeTypeChooserDialog_MetaObject_Callback cb) { kmimetypechooserdialog_metaobject_callback = cb; }
+    inline void setKMimeTypeChooserDialog_Metacast_Callback(KMimeTypeChooserDialog_Metacast_Callback cb) { kmimetypechooserdialog_metacast_callback = cb; }
     inline void setKMimeTypeChooserDialog_Metacall_Callback(KMimeTypeChooserDialog_Metacall_Callback cb) { kmimetypechooserdialog_metacall_callback = cb; }
     inline void setKMimeTypeChooserDialog_SizeHint_Callback(KMimeTypeChooserDialog_SizeHint_Callback cb) { kmimetypechooserdialog_sizehint_callback = cb; }
     inline void setKMimeTypeChooserDialog_SetVisible_Callback(KMimeTypeChooserDialog_SetVisible_Callback cb) { kmimetypechooserdialog_setvisible_callback = cb; }
@@ -1664,6 +1714,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     inline void setKMimeTypeChooserDialog_GetDecodedMetricF_Callback(KMimeTypeChooserDialog_GetDecodedMetricF_Callback cb) { kmimetypechooserdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKMimeTypeChooserDialog_MetaObject_IsBase(bool value) const { kmimetypechooserdialog_metaobject_isbase = value; }
+    inline void setKMimeTypeChooserDialog_Metacast_IsBase(bool value) const { kmimetypechooserdialog_metacast_isbase = value; }
     inline void setKMimeTypeChooserDialog_Metacall_IsBase(bool value) const { kmimetypechooserdialog_metacall_isbase = value; }
     inline void setKMimeTypeChooserDialog_SizeHint_IsBase(bool value) const { kmimetypechooserdialog_sizehint_isbase = value; }
     inline void setKMimeTypeChooserDialog_SetVisible_IsBase(bool value) const { kmimetypechooserdialog_setvisible_isbase = value; }
@@ -1728,6 +1780,34 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
     inline void setKMimeTypeChooserDialog_Receivers_IsBase(bool value) const { kmimetypechooserdialog_receivers_isbase = value; }
     inline void setKMimeTypeChooserDialog_IsSignalConnected_IsBase(bool value) const { kmimetypechooserdialog_issignalconnected_isbase = value; }
     inline void setKMimeTypeChooserDialog_GetDecodedMetricF_IsBase(bool value) const { kmimetypechooserdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kmimetypechooserdialog_metaobject_isbase) {
+            kmimetypechooserdialog_metaobject_isbase = false;
+            return KMimeTypeChooserDialog::metaObject();
+        } else if (kmimetypechooserdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kmimetypechooserdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KMimeTypeChooserDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kmimetypechooserdialog_metacast_isbase) {
+            kmimetypechooserdialog_metacast_isbase = false;
+            return KMimeTypeChooserDialog::qt_metacast(param1);
+        } else if (kmimetypechooserdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kmimetypechooserdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KMimeTypeChooserDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

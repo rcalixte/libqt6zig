@@ -17,6 +17,8 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
     bool isVirtualKCoreDirLister = true;
 
     // Virtual class public types (including callbacks)
+    using KCoreDirLister_MetaObject_Callback = QMetaObject* (*)();
+    using KCoreDirLister_Metacast_Callback = void* (*)(KCoreDirLister*, const char*);
     using KCoreDirLister_Metacall_Callback = int (*)(KCoreDirLister*, int, int, void**);
     using KCoreDirLister_JobStarted_Callback = void (*)(KCoreDirLister*, KIO__ListJob*);
     using KCoreDirLister_Event_Callback = bool (*)(KCoreDirLister*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
   protected:
     // Instance callback storage
+    KCoreDirLister_MetaObject_Callback kcoredirlister_metaobject_callback = nullptr;
+    KCoreDirLister_Metacast_Callback kcoredirlister_metacast_callback = nullptr;
     KCoreDirLister_Metacall_Callback kcoredirlister_metacall_callback = nullptr;
     KCoreDirLister_JobStarted_Callback kcoredirlister_jobstarted_callback = nullptr;
     KCoreDirLister_Event_Callback kcoredirlister_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
     KCoreDirLister_IsSignalConnected_Callback kcoredirlister_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcoredirlister_metaobject_isbase = false;
+    mutable bool kcoredirlister_metacast_isbase = false;
     mutable bool kcoredirlister_metacall_isbase = false;
     mutable bool kcoredirlister_jobstarted_isbase = false;
     mutable bool kcoredirlister_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
     VirtualKCoreDirLister(QObject* parent) : KCoreDirLister(parent) {};
 
     ~VirtualKCoreDirLister() {
+        kcoredirlister_metaobject_callback = nullptr;
+        kcoredirlister_metacast_callback = nullptr;
         kcoredirlister_metacall_callback = nullptr;
         kcoredirlister_jobstarted_callback = nullptr;
         kcoredirlister_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
     }
 
     // Callback setters
+    inline void setKCoreDirLister_MetaObject_Callback(KCoreDirLister_MetaObject_Callback cb) { kcoredirlister_metaobject_callback = cb; }
+    inline void setKCoreDirLister_Metacast_Callback(KCoreDirLister_Metacast_Callback cb) { kcoredirlister_metacast_callback = cb; }
     inline void setKCoreDirLister_Metacall_Callback(KCoreDirLister_Metacall_Callback cb) { kcoredirlister_metacall_callback = cb; }
     inline void setKCoreDirLister_JobStarted_Callback(KCoreDirLister_JobStarted_Callback cb) { kcoredirlister_jobstarted_callback = cb; }
     inline void setKCoreDirLister_Event_Callback(KCoreDirLister_Event_Callback cb) { kcoredirlister_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
     inline void setKCoreDirLister_IsSignalConnected_Callback(KCoreDirLister_IsSignalConnected_Callback cb) { kcoredirlister_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCoreDirLister_MetaObject_IsBase(bool value) const { kcoredirlister_metaobject_isbase = value; }
+    inline void setKCoreDirLister_Metacast_IsBase(bool value) const { kcoredirlister_metacast_isbase = value; }
     inline void setKCoreDirLister_Metacall_IsBase(bool value) const { kcoredirlister_metacall_isbase = value; }
     inline void setKCoreDirLister_JobStarted_IsBase(bool value) const { kcoredirlister_jobstarted_isbase = value; }
     inline void setKCoreDirLister_Event_IsBase(bool value) const { kcoredirlister_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
     inline void setKCoreDirLister_SenderSignalIndex_IsBase(bool value) const { kcoredirlister_sendersignalindex_isbase = value; }
     inline void setKCoreDirLister_Receivers_IsBase(bool value) const { kcoredirlister_receivers_isbase = value; }
     inline void setKCoreDirLister_IsSignalConnected_IsBase(bool value) const { kcoredirlister_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcoredirlister_metaobject_isbase) {
+            kcoredirlister_metaobject_isbase = false;
+            return KCoreDirLister::metaObject();
+        } else if (kcoredirlister_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcoredirlister_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCoreDirLister::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcoredirlister_metacast_isbase) {
+            kcoredirlister_metacast_isbase = false;
+            return KCoreDirLister::qt_metacast(param1);
+        } else if (kcoredirlister_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcoredirlister_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCoreDirLister::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

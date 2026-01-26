@@ -17,6 +17,8 @@ class VirtualKPopupFrame final : public KPopupFrame {
     bool isVirtualKPopupFrame = true;
 
     // Virtual class public types (including callbacks)
+    using KPopupFrame_MetaObject_Callback = QMetaObject* (*)();
+    using KPopupFrame_Metacast_Callback = void* (*)(KPopupFrame*, const char*);
     using KPopupFrame_Metacall_Callback = int (*)(KPopupFrame*, int, int, void**);
     using KPopupFrame_KeyPressEvent_Callback = void (*)(KPopupFrame*, QKeyEvent*);
     using KPopupFrame_HideEvent_Callback = void (*)(KPopupFrame*, QHideEvent*);
@@ -80,6 +82,8 @@ class VirtualKPopupFrame final : public KPopupFrame {
 
   protected:
     // Instance callback storage
+    KPopupFrame_MetaObject_Callback kpopupframe_metaobject_callback = nullptr;
+    KPopupFrame_Metacast_Callback kpopupframe_metacast_callback = nullptr;
     KPopupFrame_Metacall_Callback kpopupframe_metacall_callback = nullptr;
     KPopupFrame_KeyPressEvent_Callback kpopupframe_keypressevent_callback = nullptr;
     KPopupFrame_HideEvent_Callback kpopupframe_hideevent_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualKPopupFrame final : public KPopupFrame {
     KPopupFrame_GetDecodedMetricF_Callback kpopupframe_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpopupframe_metaobject_isbase = false;
+    mutable bool kpopupframe_metacast_isbase = false;
     mutable bool kpopupframe_metacall_isbase = false;
     mutable bool kpopupframe_keypressevent_isbase = false;
     mutable bool kpopupframe_hideevent_isbase = false;
@@ -208,6 +214,8 @@ class VirtualKPopupFrame final : public KPopupFrame {
     VirtualKPopupFrame() : KPopupFrame() {};
 
     ~VirtualKPopupFrame() {
+        kpopupframe_metaobject_callback = nullptr;
+        kpopupframe_metacast_callback = nullptr;
         kpopupframe_metacall_callback = nullptr;
         kpopupframe_keypressevent_callback = nullptr;
         kpopupframe_hideevent_callback = nullptr;
@@ -271,6 +279,8 @@ class VirtualKPopupFrame final : public KPopupFrame {
     }
 
     // Callback setters
+    inline void setKPopupFrame_MetaObject_Callback(KPopupFrame_MetaObject_Callback cb) { kpopupframe_metaobject_callback = cb; }
+    inline void setKPopupFrame_Metacast_Callback(KPopupFrame_Metacast_Callback cb) { kpopupframe_metacast_callback = cb; }
     inline void setKPopupFrame_Metacall_Callback(KPopupFrame_Metacall_Callback cb) { kpopupframe_metacall_callback = cb; }
     inline void setKPopupFrame_KeyPressEvent_Callback(KPopupFrame_KeyPressEvent_Callback cb) { kpopupframe_keypressevent_callback = cb; }
     inline void setKPopupFrame_HideEvent_Callback(KPopupFrame_HideEvent_Callback cb) { kpopupframe_hideevent_callback = cb; }
@@ -333,6 +343,8 @@ class VirtualKPopupFrame final : public KPopupFrame {
     inline void setKPopupFrame_GetDecodedMetricF_Callback(KPopupFrame_GetDecodedMetricF_Callback cb) { kpopupframe_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPopupFrame_MetaObject_IsBase(bool value) const { kpopupframe_metaobject_isbase = value; }
+    inline void setKPopupFrame_Metacast_IsBase(bool value) const { kpopupframe_metacast_isbase = value; }
     inline void setKPopupFrame_Metacall_IsBase(bool value) const { kpopupframe_metacall_isbase = value; }
     inline void setKPopupFrame_KeyPressEvent_IsBase(bool value) const { kpopupframe_keypressevent_isbase = value; }
     inline void setKPopupFrame_HideEvent_IsBase(bool value) const { kpopupframe_hideevent_isbase = value; }
@@ -393,6 +405,34 @@ class VirtualKPopupFrame final : public KPopupFrame {
     inline void setKPopupFrame_Receivers_IsBase(bool value) const { kpopupframe_receivers_isbase = value; }
     inline void setKPopupFrame_IsSignalConnected_IsBase(bool value) const { kpopupframe_issignalconnected_isbase = value; }
     inline void setKPopupFrame_GetDecodedMetricF_IsBase(bool value) const { kpopupframe_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpopupframe_metaobject_isbase) {
+            kpopupframe_metaobject_isbase = false;
+            return KPopupFrame::metaObject();
+        } else if (kpopupframe_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpopupframe_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPopupFrame::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpopupframe_metacast_isbase) {
+            kpopupframe_metacast_isbase = false;
+            return KPopupFrame::qt_metacast(param1);
+        } else if (kpopupframe_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpopupframe_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPopupFrame::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

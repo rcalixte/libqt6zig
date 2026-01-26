@@ -39,6 +39,10 @@ QItemSelection* KModelIndexProxyMapper_MapSelectionRightToLeft(const KModelIndex
 bool KModelIndexProxyMapper_IsConnected(const KModelIndexProxyMapper* self);
 void KModelIndexProxyMapper_IsConnectedChanged(KModelIndexProxyMapper* self);
 void KModelIndexProxyMapper_Connect_IsConnectedChanged(KModelIndexProxyMapper* self, intptr_t slot);
+void KModelIndexProxyMapper_OnMetaObject(const KModelIndexProxyMapper* self, intptr_t slot);
+QMetaObject* KModelIndexProxyMapper_QBaseMetaObject(const KModelIndexProxyMapper* self);
+void KModelIndexProxyMapper_OnMetacast(KModelIndexProxyMapper* self, intptr_t slot);
+void* KModelIndexProxyMapper_QBaseMetacast(KModelIndexProxyMapper* self, const char* param1);
 void KModelIndexProxyMapper_OnMetacall(KModelIndexProxyMapper* self, intptr_t slot);
 int KModelIndexProxyMapper_QBaseMetacall(KModelIndexProxyMapper* self, int param1, int param2, void** param3);
 bool KModelIndexProxyMapper_Event(KModelIndexProxyMapper* self, QEvent* event);

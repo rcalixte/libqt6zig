@@ -35,11 +35,21 @@ KAutoSaveFile* KAutoSaveFile_new4(QObject* parent) {
 }
 
 QMetaObject* KAutoSaveFile_MetaObject(const KAutoSaveFile* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkautosavefile = dynamic_cast<const VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKAutoSaveFile*)self)->metaObject();
+    }
 }
 
 void* KAutoSaveFile_Metacast(KAutoSaveFile* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKAutoSaveFile*)self)->qt_metacast(param1);
+    }
 }
 
 int KAutoSaveFile_Metacall(KAutoSaveFile* self, int param1, int param2, void** param3) {
@@ -129,6 +139,44 @@ libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_AllStaleFiles1(const libqt_stri
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+QMetaObject* KAutoSaveFile_QBaseMetaObject(const KAutoSaveFile* self) {
+    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        vkautosavefile->setKAutoSaveFile_MetaObject_IsBase(true);
+        return (QMetaObject*)vkautosavefile->metaObject();
+    } else {
+        return (QMetaObject*)self->KAutoSaveFile::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAutoSaveFile_OnMetaObject(const KAutoSaveFile* self, intptr_t slot) {
+    auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        vkautosavefile->setKAutoSaveFile_MetaObject_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KAutoSaveFile_QBaseMetacast(KAutoSaveFile* self, const char* param1) {
+    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        vkautosavefile->setKAutoSaveFile_Metacast_IsBase(true);
+        return vkautosavefile->qt_metacast(param1);
+    } else {
+        return self->KAutoSaveFile::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAutoSaveFile_OnMetacast(KAutoSaveFile* self, intptr_t slot) {
+    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+        vkautosavefile->setKAutoSaveFile_Metacast_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,11 +17,21 @@ KPropertiesDialogPlugin* KPropertiesDialogPlugin_new(QObject* parent) {
 }
 
 QMetaObject* KPropertiesDialogPlugin_MetaObject(const KPropertiesDialogPlugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpropertiesdialogplugin = dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self);
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPropertiesDialogPlugin*)self)->metaObject();
+    }
 }
 
 void* KPropertiesDialogPlugin_Metacast(KPropertiesDialogPlugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPropertiesDialogPlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int KPropertiesDialogPlugin_Metacall(KPropertiesDialogPlugin* self, int param1, int param2, void** param3) {
@@ -63,6 +73,44 @@ void KPropertiesDialogPlugin_Connect_Changed(KPropertiesDialogPlugin* self, intp
 
 void KPropertiesDialogPlugin_SetDirty1(KPropertiesDialogPlugin* self, bool b) {
     self->setDirty(b);
+}
+
+// Base class handler implementation
+QMetaObject* KPropertiesDialogPlugin_QBaseMetaObject(const KPropertiesDialogPlugin* self) {
+    auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+        vkpropertiesdialogplugin->setKPropertiesDialogPlugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpropertiesdialogplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->KPropertiesDialogPlugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPropertiesDialogPlugin_OnMetaObject(const KPropertiesDialogPlugin* self, intptr_t slot) {
+    auto* vkpropertiesdialogplugin = const_cast<VirtualKPropertiesDialogPlugin*>(dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self));
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+        vkpropertiesdialogplugin->setKPropertiesDialogPlugin_MetaObject_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPropertiesDialogPlugin_QBaseMetacast(KPropertiesDialogPlugin* self, const char* param1) {
+    auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+        vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Metacast_IsBase(true);
+        return vkpropertiesdialogplugin->qt_metacast(param1);
+    } else {
+        return self->KPropertiesDialogPlugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPropertiesDialogPlugin_OnMetacast(KPropertiesDialogPlugin* self, intptr_t slot) {
+    auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
+    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
+        vkpropertiesdialogplugin->setKPropertiesDialogPlugin_Metacast_Callback(reinterpret_cast<VirtualKPropertiesDialogPlugin::KPropertiesDialogPlugin_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

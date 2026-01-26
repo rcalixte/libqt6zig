@@ -22,11 +22,21 @@ KLocalizedTranslator* KLocalizedTranslator_new2(QObject* parent) {
 }
 
 QMetaObject* KLocalizedTranslator_MetaObject(const KLocalizedTranslator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vklocalizedtranslator = dynamic_cast<const VirtualKLocalizedTranslator*>(self);
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKLocalizedTranslator*)self)->metaObject();
+    }
 }
 
 void* KLocalizedTranslator_Metacast(KLocalizedTranslator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKLocalizedTranslator*)self)->qt_metacast(param1);
+    }
 }
 
 int KLocalizedTranslator_Metacall(KLocalizedTranslator* self, int param1, int param2, void** param3) {
@@ -76,6 +86,44 @@ void KLocalizedTranslator_AddContextToMonitor(KLocalizedTranslator* self, const 
 void KLocalizedTranslator_RemoveContextToMonitor(KLocalizedTranslator* self, const libqt_string context) {
     QString context_QString = QString::fromUtf8(context.data, context.len);
     self->removeContextToMonitor(context_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KLocalizedTranslator_QBaseMetaObject(const KLocalizedTranslator* self) {
+    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+        vklocalizedtranslator->setKLocalizedTranslator_MetaObject_IsBase(true);
+        return (QMetaObject*)vklocalizedtranslator->metaObject();
+    } else {
+        return (QMetaObject*)self->KLocalizedTranslator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLocalizedTranslator_OnMetaObject(const KLocalizedTranslator* self, intptr_t slot) {
+    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+        vklocalizedtranslator->setKLocalizedTranslator_MetaObject_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KLocalizedTranslator_QBaseMetacast(KLocalizedTranslator* self, const char* param1) {
+    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+        vklocalizedtranslator->setKLocalizedTranslator_Metacast_IsBase(true);
+        return vklocalizedtranslator->qt_metacast(param1);
+    } else {
+        return self->KLocalizedTranslator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLocalizedTranslator_OnMetacast(KLocalizedTranslator* self, intptr_t slot) {
+    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+        vklocalizedtranslator->setKLocalizedTranslator_Metacast_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

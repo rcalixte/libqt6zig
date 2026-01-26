@@ -105,11 +105,21 @@ QTextTable* QTextTable_new(QTextDocument* doc) {
 }
 
 QMetaObject* QTextTable_MetaObject(const QTextTable* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtexttable = dynamic_cast<const VirtualQTextTable*>(self);
+    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTextTable*)self)->metaObject();
+    }
 }
 
 void* QTextTable_Metacast(QTextTable* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
+    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTextTable*)self)->qt_metacast(param1);
+    }
 }
 
 int QTextTable_Metacall(QTextTable* self, int param1, int param2, void** param3) {
@@ -195,6 +205,44 @@ void QTextTable_SetFormat(QTextTable* self, const QTextTableFormat* format) {
 
 QTextTableFormat* QTextTable_Format(const QTextTable* self) {
     return new QTextTableFormat(self->format());
+}
+
+// Base class handler implementation
+QMetaObject* QTextTable_QBaseMetaObject(const QTextTable* self) {
+    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
+    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+        vqtexttable->setQTextTable_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtexttable->metaObject();
+    } else {
+        return (QMetaObject*)self->QTextTable::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextTable_OnMetaObject(const QTextTable* self, intptr_t slot) {
+    auto* vqtexttable = const_cast<VirtualQTextTable*>(dynamic_cast<const VirtualQTextTable*>(self));
+    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+        vqtexttable->setQTextTable_MetaObject_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTextTable_QBaseMetacast(QTextTable* self, const char* param1) {
+    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
+    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+        vqtexttable->setQTextTable_Metacast_IsBase(true);
+        return vqtexttable->qt_metacast(param1);
+    } else {
+        return self->QTextTable::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextTable_OnMetacast(QTextTable* self, intptr_t slot) {
+    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
+    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
+        vqtexttable->setQTextTable_Metacast_Callback(reinterpret_cast<VirtualQTextTable::QTextTable_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

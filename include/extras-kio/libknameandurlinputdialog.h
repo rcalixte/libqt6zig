@@ -61,6 +61,10 @@ void KNameAndUrlInputDialog_SetSuggestedUrl(KNameAndUrlInputDialog* self, const 
 libqt_string KNameAndUrlInputDialog_Name(const KNameAndUrlInputDialog* self);
 QUrl* KNameAndUrlInputDialog_Url(const KNameAndUrlInputDialog* self);
 libqt_string KNameAndUrlInputDialog_UrlText(const KNameAndUrlInputDialog* self);
+void KNameAndUrlInputDialog_OnMetaObject(const KNameAndUrlInputDialog* self, intptr_t slot);
+QMetaObject* KNameAndUrlInputDialog_QBaseMetaObject(const KNameAndUrlInputDialog* self);
+void KNameAndUrlInputDialog_OnMetacast(KNameAndUrlInputDialog* self, intptr_t slot);
+void* KNameAndUrlInputDialog_QBaseMetacast(KNameAndUrlInputDialog* self, const char* param1);
 void KNameAndUrlInputDialog_OnMetacall(KNameAndUrlInputDialog* self, intptr_t slot);
 int KNameAndUrlInputDialog_QBaseMetacall(KNameAndUrlInputDialog* self, int param1, int param2, void** param3);
 void KNameAndUrlInputDialog_SetVisible(KNameAndUrlInputDialog* self, bool visible);

@@ -54,11 +54,21 @@ KBookmarkDialog* KBookmarkDialog_new2(KBookmarkManager* manager, QWidget* parent
 }
 
 QMetaObject* KBookmarkDialog_MetaObject(const KBookmarkDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkbookmarkdialog = dynamic_cast<const VirtualKBookmarkDialog*>(self);
+    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKBookmarkDialog*)self)->metaObject();
+    }
 }
 
 void* KBookmarkDialog_Metacast(KBookmarkDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
+    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKBookmarkDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KBookmarkDialog_Metacall(KBookmarkDialog* self, int param1, int param2, void** param3) {
@@ -141,6 +151,44 @@ KBookmarkGroup* KBookmarkDialog_CreateNewFolder2(KBookmarkDialog* self, const li
 
 KBookmarkGroup* KBookmarkDialog_SelectFolder1(KBookmarkDialog* self, KBookmark* start) {
     return new KBookmarkGroup(self->selectFolder(*start));
+}
+
+// Base class handler implementation
+QMetaObject* KBookmarkDialog_QBaseMetaObject(const KBookmarkDialog* self) {
+    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
+    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+        vkbookmarkdialog->setKBookmarkDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkbookmarkdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KBookmarkDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBookmarkDialog_OnMetaObject(const KBookmarkDialog* self, intptr_t slot) {
+    auto* vkbookmarkdialog = const_cast<VirtualKBookmarkDialog*>(dynamic_cast<const VirtualKBookmarkDialog*>(self));
+    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+        vkbookmarkdialog->setKBookmarkDialog_MetaObject_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KBookmarkDialog_QBaseMetacast(KBookmarkDialog* self, const char* param1) {
+    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
+    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+        vkbookmarkdialog->setKBookmarkDialog_Metacast_IsBase(true);
+        return vkbookmarkdialog->qt_metacast(param1);
+    } else {
+        return self->KBookmarkDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBookmarkDialog_OnMetacast(KBookmarkDialog* self, intptr_t slot) {
+    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
+    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
+        vkbookmarkdialog->setKBookmarkDialog_Metacast_Callback(reinterpret_cast<VirtualKBookmarkDialog::KBookmarkDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -22,11 +22,21 @@ QIconEnginePlugin* QIconEnginePlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QIconEnginePlugin_MetaObject(const QIconEnginePlugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqiconengineplugin = dynamic_cast<const VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQIconEnginePlugin*)self)->metaObject();
+    }
 }
 
 void* QIconEnginePlugin_Metacast(QIconEnginePlugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQIconEnginePlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int QIconEnginePlugin_Metacall(QIconEnginePlugin* self, int param1, int param2, void** param3) {
@@ -45,6 +55,44 @@ QIconEngine* QIconEnginePlugin_Create(QIconEnginePlugin* self, const libqt_strin
         return vqiconengineplugin->create(filename_QString);
     } else {
         return ((VirtualQIconEnginePlugin*)self)->create(filename_QString);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QIconEnginePlugin_QBaseMetaObject(const QIconEnginePlugin* self) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        vqiconengineplugin->setQIconEnginePlugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vqiconengineplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->QIconEnginePlugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIconEnginePlugin_OnMetaObject(const QIconEnginePlugin* self, intptr_t slot) {
+    auto* vqiconengineplugin = const_cast<VirtualQIconEnginePlugin*>(dynamic_cast<const VirtualQIconEnginePlugin*>(self));
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        vqiconengineplugin->setQIconEnginePlugin_MetaObject_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QIconEnginePlugin_QBaseMetacast(QIconEnginePlugin* self, const char* param1) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        vqiconengineplugin->setQIconEnginePlugin_Metacast_IsBase(true);
+        return vqiconengineplugin->qt_metacast(param1);
+    } else {
+        return self->QIconEnginePlugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIconEnginePlugin_OnMetacast(QIconEnginePlugin* self, intptr_t slot) {
+    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
+    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
+        vqiconengineplugin->setQIconEnginePlugin_Metacast_Callback(reinterpret_cast<VirtualQIconEnginePlugin::QIconEnginePlugin_Metacast_Callback>(slot));
     }
 }
 

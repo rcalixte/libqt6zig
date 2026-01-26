@@ -70,6 +70,10 @@ libqt_string QSqlRelationalTableModel_SelectStatement(const QSqlRelationalTableM
 bool QSqlRelationalTableModel_UpdateRowInTable(QSqlRelationalTableModel* self, int row, const QSqlRecord* values);
 bool QSqlRelationalTableModel_InsertRowIntoTable(QSqlRelationalTableModel* self, const QSqlRecord* values);
 libqt_string QSqlRelationalTableModel_OrderByClause(const QSqlRelationalTableModel* self);
+void QSqlRelationalTableModel_OnMetaObject(const QSqlRelationalTableModel* self, intptr_t slot);
+QMetaObject* QSqlRelationalTableModel_QBaseMetaObject(const QSqlRelationalTableModel* self);
+void QSqlRelationalTableModel_OnMetacast(QSqlRelationalTableModel* self, intptr_t slot);
+void* QSqlRelationalTableModel_QBaseMetacast(QSqlRelationalTableModel* self, const char* param1);
 void QSqlRelationalTableModel_OnMetacall(QSqlRelationalTableModel* self, intptr_t slot);
 int QSqlRelationalTableModel_QBaseMetacall(QSqlRelationalTableModel* self, int param1, int param2, void** param3);
 void QSqlRelationalTableModel_OnData(const QSqlRelationalTableModel* self, intptr_t slot);

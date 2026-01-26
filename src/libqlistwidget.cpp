@@ -454,11 +454,21 @@ QListWidget* QListWidget_new2() {
 }
 
 QMetaObject* QListWidget_MetaObject(const QListWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqlistwidget = dynamic_cast<const VirtualQListWidget*>(self);
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQListWidget*)self)->metaObject();
+    }
 }
 
 void* QListWidget_Metacast(QListWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQListWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QListWidget_Metacall(QListWidget* self, int param1, int param2, void** param3) {
@@ -871,6 +881,44 @@ void QListWidget_SortItems1(QListWidget* self, int order) {
 
 void QListWidget_ScrollToItem2(QListWidget* self, const QListWidgetItem* item, int hint) {
     self->scrollToItem(item, static_cast<QAbstractItemView::ScrollHint>(hint));
+}
+
+// Base class handler implementation
+QMetaObject* QListWidget_QBaseMetaObject(const QListWidget* self) {
+    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+        vqlistwidget->setQListWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqlistwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QListWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QListWidget_OnMetaObject(const QListWidget* self, intptr_t slot) {
+    auto* vqlistwidget = const_cast<VirtualQListWidget*>(dynamic_cast<const VirtualQListWidget*>(self));
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+        vqlistwidget->setQListWidget_MetaObject_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QListWidget_QBaseMetacast(QListWidget* self, const char* param1) {
+    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+        vqlistwidget->setQListWidget_Metacast_IsBase(true);
+        return vqlistwidget->qt_metacast(param1);
+    } else {
+        return self->QListWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QListWidget_OnMetacast(QListWidget* self, intptr_t slot) {
+    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
+    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
+        vqlistwidget->setQListWidget_Metacast_Callback(reinterpret_cast<VirtualQListWidget::QListWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

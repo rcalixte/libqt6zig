@@ -32,6 +32,10 @@ QMetaObject* QHorizontalStackedBarSeries_MetaObject(const QHorizontalStackedBarS
 void* QHorizontalStackedBarSeries_Metacast(QHorizontalStackedBarSeries* self, const char* param1);
 int QHorizontalStackedBarSeries_Metacall(QHorizontalStackedBarSeries* self, int param1, int param2, void** param3);
 int QHorizontalStackedBarSeries_Type(const QHorizontalStackedBarSeries* self);
+void QHorizontalStackedBarSeries_OnMetaObject(const QHorizontalStackedBarSeries* self, intptr_t slot);
+QMetaObject* QHorizontalStackedBarSeries_QBaseMetaObject(const QHorizontalStackedBarSeries* self);
+void QHorizontalStackedBarSeries_OnMetacast(QHorizontalStackedBarSeries* self, intptr_t slot);
+void* QHorizontalStackedBarSeries_QBaseMetacast(QHorizontalStackedBarSeries* self, const char* param1);
 void QHorizontalStackedBarSeries_OnMetacall(QHorizontalStackedBarSeries* self, intptr_t slot);
 int QHorizontalStackedBarSeries_QBaseMetacall(QHorizontalStackedBarSeries* self, int param1, int param2, void** param3);
 void QHorizontalStackedBarSeries_OnType(const QHorizontalStackedBarSeries* self, intptr_t slot);

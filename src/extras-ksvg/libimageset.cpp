@@ -40,11 +40,21 @@ KSvg__ImageSet* KSvg__ImageSet_new5(const libqt_string imageSetName, const libqt
 }
 
 QMetaObject* KSvg__ImageSet_MetaObject(const KSvg__ImageSet* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vksvg__imageset = dynamic_cast<const VirtualKSvgImageSet*>(self);
+    if (vksvg__imageset && vksvg__imageset->isVirtualKSvgImageSet) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSvgImageSet*)self)->metaObject();
+    }
 }
 
 void* KSvg__ImageSet_Metacast(KSvg__ImageSet* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vksvg__imageset = dynamic_cast<VirtualKSvgImageSet*>(self);
+    if (vksvg__imageset && vksvg__imageset->isVirtualKSvgImageSet) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSvgImageSet*)self)->qt_metacast(param1);
+    }
 }
 
 int KSvg__ImageSet_Metacall(KSvg__ImageSet* self, int param1, int param2, void** param3) {
@@ -207,6 +217,44 @@ void KSvg__ImageSet_Connect_BasePathChanged(KSvg__ImageSet* self, intptr_t slot)
         slotFunc(self, sigval1);
         libqt_free(basePath_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KSvg__ImageSet_QBaseMetaObject(const KSvg__ImageSet* self) {
+    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+        vksvgimageset->setKSvg__ImageSet_MetaObject_IsBase(true);
+        return (QMetaObject*)vksvgimageset->metaObject();
+    } else {
+        return (QMetaObject*)self->KSvg::ImageSet::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSvg__ImageSet_OnMetaObject(const KSvg__ImageSet* self, intptr_t slot) {
+    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+        vksvgimageset->setKSvg__ImageSet_MetaObject_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSvg__ImageSet_QBaseMetacast(KSvg__ImageSet* self, const char* param1) {
+    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+        vksvgimageset->setKSvg__ImageSet_Metacast_IsBase(true);
+        return vksvgimageset->qt_metacast(param1);
+    } else {
+        return self->KSvg::ImageSet::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSvg__ImageSet_OnMetacast(KSvg__ImageSet* self, intptr_t slot) {
+    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+        vksvgimageset->setKSvg__ImageSet_Metacast_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

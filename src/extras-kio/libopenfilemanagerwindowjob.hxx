@@ -17,6 +17,8 @@ class VirtualKIOOpenFileManagerWindowJob final : public KIO::OpenFileManagerWind
     bool isVirtualKIOOpenFileManagerWindowJob = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__OpenFileManagerWindowJob_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__OpenFileManagerWindowJob_Metacast_Callback = void* (*)(KIO__OpenFileManagerWindowJob*, const char*);
     using KIO__OpenFileManagerWindowJob_Metacall_Callback = int (*)(KIO__OpenFileManagerWindowJob*, int, int, void**);
     using KIO__OpenFileManagerWindowJob_Start_Callback = void (*)();
     using KIO__OpenFileManagerWindowJob_DoKill_Callback = bool (*)();
@@ -49,6 +51,8 @@ class VirtualKIOOpenFileManagerWindowJob final : public KIO::OpenFileManagerWind
 
   protected:
     // Instance callback storage
+    KIO__OpenFileManagerWindowJob_MetaObject_Callback kio__openfilemanagerwindowjob_metaobject_callback = nullptr;
+    KIO__OpenFileManagerWindowJob_Metacast_Callback kio__openfilemanagerwindowjob_metacast_callback = nullptr;
     KIO__OpenFileManagerWindowJob_Metacall_Callback kio__openfilemanagerwindowjob_metacall_callback = nullptr;
     KIO__OpenFileManagerWindowJob_Start_Callback kio__openfilemanagerwindowjob_start_callback = nullptr;
     KIO__OpenFileManagerWindowJob_DoKill_Callback kio__openfilemanagerwindowjob_dokill_callback = nullptr;
@@ -80,6 +84,8 @@ class VirtualKIOOpenFileManagerWindowJob final : public KIO::OpenFileManagerWind
     KIO__OpenFileManagerWindowJob_IsSignalConnected_Callback kio__openfilemanagerwindowjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__openfilemanagerwindowjob_metaobject_isbase = false;
+    mutable bool kio__openfilemanagerwindowjob_metacast_isbase = false;
     mutable bool kio__openfilemanagerwindowjob_metacall_isbase = false;
     mutable bool kio__openfilemanagerwindowjob_start_isbase = false;
     mutable bool kio__openfilemanagerwindowjob_dokill_isbase = false;
@@ -115,6 +121,8 @@ class VirtualKIOOpenFileManagerWindowJob final : public KIO::OpenFileManagerWind
     VirtualKIOOpenFileManagerWindowJob(QObject* parent) : KIO::OpenFileManagerWindowJob(parent) {};
 
     ~VirtualKIOOpenFileManagerWindowJob() {
+        kio__openfilemanagerwindowjob_metaobject_callback = nullptr;
+        kio__openfilemanagerwindowjob_metacast_callback = nullptr;
         kio__openfilemanagerwindowjob_metacall_callback = nullptr;
         kio__openfilemanagerwindowjob_start_callback = nullptr;
         kio__openfilemanagerwindowjob_dokill_callback = nullptr;
@@ -147,6 +155,8 @@ class VirtualKIOOpenFileManagerWindowJob final : public KIO::OpenFileManagerWind
     }
 
     // Callback setters
+    inline void setKIO__OpenFileManagerWindowJob_MetaObject_Callback(KIO__OpenFileManagerWindowJob_MetaObject_Callback cb) { kio__openfilemanagerwindowjob_metaobject_callback = cb; }
+    inline void setKIO__OpenFileManagerWindowJob_Metacast_Callback(KIO__OpenFileManagerWindowJob_Metacast_Callback cb) { kio__openfilemanagerwindowjob_metacast_callback = cb; }
     inline void setKIO__OpenFileManagerWindowJob_Metacall_Callback(KIO__OpenFileManagerWindowJob_Metacall_Callback cb) { kio__openfilemanagerwindowjob_metacall_callback = cb; }
     inline void setKIO__OpenFileManagerWindowJob_Start_Callback(KIO__OpenFileManagerWindowJob_Start_Callback cb) { kio__openfilemanagerwindowjob_start_callback = cb; }
     inline void setKIO__OpenFileManagerWindowJob_DoKill_Callback(KIO__OpenFileManagerWindowJob_DoKill_Callback cb) { kio__openfilemanagerwindowjob_dokill_callback = cb; }
@@ -178,6 +188,8 @@ class VirtualKIOOpenFileManagerWindowJob final : public KIO::OpenFileManagerWind
     inline void setKIO__OpenFileManagerWindowJob_IsSignalConnected_Callback(KIO__OpenFileManagerWindowJob_IsSignalConnected_Callback cb) { kio__openfilemanagerwindowjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__OpenFileManagerWindowJob_MetaObject_IsBase(bool value) const { kio__openfilemanagerwindowjob_metaobject_isbase = value; }
+    inline void setKIO__OpenFileManagerWindowJob_Metacast_IsBase(bool value) const { kio__openfilemanagerwindowjob_metacast_isbase = value; }
     inline void setKIO__OpenFileManagerWindowJob_Metacall_IsBase(bool value) const { kio__openfilemanagerwindowjob_metacall_isbase = value; }
     inline void setKIO__OpenFileManagerWindowJob_Start_IsBase(bool value) const { kio__openfilemanagerwindowjob_start_isbase = value; }
     inline void setKIO__OpenFileManagerWindowJob_DoKill_IsBase(bool value) const { kio__openfilemanagerwindowjob_dokill_isbase = value; }
@@ -207,6 +219,34 @@ class VirtualKIOOpenFileManagerWindowJob final : public KIO::OpenFileManagerWind
     inline void setKIO__OpenFileManagerWindowJob_SenderSignalIndex_IsBase(bool value) const { kio__openfilemanagerwindowjob_sendersignalindex_isbase = value; }
     inline void setKIO__OpenFileManagerWindowJob_Receivers_IsBase(bool value) const { kio__openfilemanagerwindowjob_receivers_isbase = value; }
     inline void setKIO__OpenFileManagerWindowJob_IsSignalConnected_IsBase(bool value) const { kio__openfilemanagerwindowjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__openfilemanagerwindowjob_metaobject_isbase) {
+            kio__openfilemanagerwindowjob_metaobject_isbase = false;
+            return KIO__OpenFileManagerWindowJob::metaObject();
+        } else if (kio__openfilemanagerwindowjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__openfilemanagerwindowjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__OpenFileManagerWindowJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__openfilemanagerwindowjob_metacast_isbase) {
+            kio__openfilemanagerwindowjob_metacast_isbase = false;
+            return KIO__OpenFileManagerWindowJob::qt_metacast(param1);
+        } else if (kio__openfilemanagerwindowjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__openfilemanagerwindowjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__OpenFileManagerWindowJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

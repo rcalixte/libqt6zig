@@ -17,6 +17,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     bool isVirtualQsciLexerJava = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerJava_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerJava_Metacast_Callback = void* (*)(QsciLexerJava*, const char*);
     using QsciLexerJava_Metacall_Callback = int (*)(QsciLexerJava*, int, int, void**);
     using QsciLexerJava_SetFoldAtElse_Callback = void (*)(QsciLexerJava*, bool);
     using QsciLexerJava_SetFoldComments_Callback = void (*)(QsciLexerJava*, bool);
@@ -73,6 +75,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
 
   protected:
     // Instance callback storage
+    QsciLexerJava_MetaObject_Callback qscilexerjava_metaobject_callback = nullptr;
+    QsciLexerJava_Metacast_Callback qscilexerjava_metacast_callback = nullptr;
     QsciLexerJava_Metacall_Callback qscilexerjava_metacall_callback = nullptr;
     QsciLexerJava_SetFoldAtElse_Callback qscilexerjava_setfoldatelse_callback = nullptr;
     QsciLexerJava_SetFoldComments_Callback qscilexerjava_setfoldcomments_callback = nullptr;
@@ -128,6 +132,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     QsciLexerJava_IsSignalConnected_Callback qscilexerjava_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexerjava_metaobject_isbase = false;
+    mutable bool qscilexerjava_metacast_isbase = false;
     mutable bool qscilexerjava_metacall_isbase = false;
     mutable bool qscilexerjava_setfoldatelse_isbase = false;
     mutable bool qscilexerjava_setfoldcomments_isbase = false;
@@ -187,6 +193,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     VirtualQsciLexerJava(QObject* parent) : QsciLexerJava(parent) {};
 
     ~VirtualQsciLexerJava() {
+        qscilexerjava_metaobject_callback = nullptr;
+        qscilexerjava_metacast_callback = nullptr;
         qscilexerjava_metacall_callback = nullptr;
         qscilexerjava_setfoldatelse_callback = nullptr;
         qscilexerjava_setfoldcomments_callback = nullptr;
@@ -243,6 +251,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     }
 
     // Callback setters
+    inline void setQsciLexerJava_MetaObject_Callback(QsciLexerJava_MetaObject_Callback cb) { qscilexerjava_metaobject_callback = cb; }
+    inline void setQsciLexerJava_Metacast_Callback(QsciLexerJava_Metacast_Callback cb) { qscilexerjava_metacast_callback = cb; }
     inline void setQsciLexerJava_Metacall_Callback(QsciLexerJava_Metacall_Callback cb) { qscilexerjava_metacall_callback = cb; }
     inline void setQsciLexerJava_SetFoldAtElse_Callback(QsciLexerJava_SetFoldAtElse_Callback cb) { qscilexerjava_setfoldatelse_callback = cb; }
     inline void setQsciLexerJava_SetFoldComments_Callback(QsciLexerJava_SetFoldComments_Callback cb) { qscilexerjava_setfoldcomments_callback = cb; }
@@ -298,6 +308,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     inline void setQsciLexerJava_IsSignalConnected_Callback(QsciLexerJava_IsSignalConnected_Callback cb) { qscilexerjava_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerJava_MetaObject_IsBase(bool value) const { qscilexerjava_metaobject_isbase = value; }
+    inline void setQsciLexerJava_Metacast_IsBase(bool value) const { qscilexerjava_metacast_isbase = value; }
     inline void setQsciLexerJava_Metacall_IsBase(bool value) const { qscilexerjava_metacall_isbase = value; }
     inline void setQsciLexerJava_SetFoldAtElse_IsBase(bool value) const { qscilexerjava_setfoldatelse_isbase = value; }
     inline void setQsciLexerJava_SetFoldComments_IsBase(bool value) const { qscilexerjava_setfoldcomments_isbase = value; }
@@ -351,6 +363,34 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     inline void setQsciLexerJava_SenderSignalIndex_IsBase(bool value) const { qscilexerjava_sendersignalindex_isbase = value; }
     inline void setQsciLexerJava_Receivers_IsBase(bool value) const { qscilexerjava_receivers_isbase = value; }
     inline void setQsciLexerJava_IsSignalConnected_IsBase(bool value) const { qscilexerjava_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexerjava_metaobject_isbase) {
+            qscilexerjava_metaobject_isbase = false;
+            return QsciLexerJava::metaObject();
+        } else if (qscilexerjava_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexerjava_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerJava::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexerjava_metacast_isbase) {
+            qscilexerjava_metacast_isbase = false;
+            return QsciLexerJava::qt_metacast(param1);
+        } else if (qscilexerjava_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexerjava_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerJava::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

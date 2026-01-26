@@ -7,6 +7,7 @@
 #include <QIODevice>
 #include <QList>
 #include <QMetaMethod>
+#include <QMetaObject>
 #include <QObject>
 #include <QString>
 #include <QByteArray>
@@ -101,6 +102,64 @@ void KConfigLoader_OnUsrSave(KConfigLoader* self, intptr_t slot) {
     auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
     if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
         vkconfigloader->setKConfigLoader_UsrSave_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_UsrSave_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+QMetaObject* KConfigLoader_MetaObject(const KConfigLoader* self) {
+    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+        return (QMetaObject*)vkconfigloader->metaObject();
+    } else {
+        return (QMetaObject*)self->KConfigLoader::metaObject();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KConfigLoader_QBaseMetaObject(const KConfigLoader* self) {
+    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+        vkconfigloader->setKConfigLoader_MetaObject_IsBase(true);
+        return (QMetaObject*)vkconfigloader->metaObject();
+    } else {
+        return (QMetaObject*)self->KConfigLoader::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigLoader_OnMetaObject(const KConfigLoader* self, intptr_t slot) {
+    auto* vkconfigloader = const_cast<VirtualKConfigLoader*>(dynamic_cast<const VirtualKConfigLoader*>(self));
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+        vkconfigloader->setKConfigLoader_MetaObject_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_MetaObject_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void* KConfigLoader_Metacast(KConfigLoader* self, const char* param1) {
+    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+        return vkconfigloader->qt_metacast(param1);
+    } else {
+        return self->KConfigLoader::qt_metacast(param1);
+    }
+}
+
+// Base class handler implementation
+void* KConfigLoader_QBaseMetacast(KConfigLoader* self, const char* param1) {
+    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+        vkconfigloader->setKConfigLoader_Metacast_IsBase(true);
+        return vkconfigloader->qt_metacast(param1);
+    } else {
+        return self->KConfigLoader::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigLoader_OnMetacast(KConfigLoader* self, intptr_t slot) {
+    auto* vkconfigloader = dynamic_cast<VirtualKConfigLoader*>(self);
+    if (vkconfigloader && vkconfigloader->isVirtualKConfigLoader) {
+        vkconfigloader->setKConfigLoader_Metacast_Callback(reinterpret_cast<VirtualKConfigLoader::KConfigLoader_Metacast_Callback>(slot));
     }
 }
 

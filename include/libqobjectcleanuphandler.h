@@ -32,6 +32,10 @@ QObject* QObjectCleanupHandler_Add(QObjectCleanupHandler* self, QObject* object)
 void QObjectCleanupHandler_Remove(QObjectCleanupHandler* self, QObject* object);
 bool QObjectCleanupHandler_IsEmpty(const QObjectCleanupHandler* self);
 void QObjectCleanupHandler_Clear(QObjectCleanupHandler* self);
+void QObjectCleanupHandler_OnMetaObject(const QObjectCleanupHandler* self, intptr_t slot);
+QMetaObject* QObjectCleanupHandler_QBaseMetaObject(const QObjectCleanupHandler* self);
+void QObjectCleanupHandler_OnMetacast(QObjectCleanupHandler* self, intptr_t slot);
+void* QObjectCleanupHandler_QBaseMetacast(QObjectCleanupHandler* self, const char* param1);
 void QObjectCleanupHandler_OnMetacall(QObjectCleanupHandler* self, intptr_t slot);
 int QObjectCleanupHandler_QBaseMetacall(QObjectCleanupHandler* self, int param1, int param2, void** param3);
 bool QObjectCleanupHandler_Event(QObjectCleanupHandler* self, QEvent* event);

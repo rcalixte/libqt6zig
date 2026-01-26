@@ -17,6 +17,8 @@ class VirtualQBarCategoryAxis final : public QBarCategoryAxis {
     bool isVirtualQBarCategoryAxis = true;
 
     // Virtual class public types (including callbacks)
+    using QBarCategoryAxis_MetaObject_Callback = QMetaObject* (*)();
+    using QBarCategoryAxis_Metacast_Callback = void* (*)(QBarCategoryAxis*, const char*);
     using QBarCategoryAxis_Metacall_Callback = int (*)(QBarCategoryAxis*, int, int, void**);
     using QBarCategoryAxis_Type_Callback = int (*)();
     using QBarCategoryAxis_Event_Callback = bool (*)(QBarCategoryAxis*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQBarCategoryAxis final : public QBarCategoryAxis {
 
   protected:
     // Instance callback storage
+    QBarCategoryAxis_MetaObject_Callback qbarcategoryaxis_metaobject_callback = nullptr;
+    QBarCategoryAxis_Metacast_Callback qbarcategoryaxis_metacast_callback = nullptr;
     QBarCategoryAxis_Metacall_Callback qbarcategoryaxis_metacall_callback = nullptr;
     QBarCategoryAxis_Type_Callback qbarcategoryaxis_type_callback = nullptr;
     QBarCategoryAxis_Event_Callback qbarcategoryaxis_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQBarCategoryAxis final : public QBarCategoryAxis {
     QBarCategoryAxis_IsSignalConnected_Callback qbarcategoryaxis_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qbarcategoryaxis_metaobject_isbase = false;
+    mutable bool qbarcategoryaxis_metacast_isbase = false;
     mutable bool qbarcategoryaxis_metacall_isbase = false;
     mutable bool qbarcategoryaxis_type_isbase = false;
     mutable bool qbarcategoryaxis_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQBarCategoryAxis final : public QBarCategoryAxis {
     VirtualQBarCategoryAxis(QObject* parent) : QBarCategoryAxis(parent) {};
 
     ~VirtualQBarCategoryAxis() {
+        qbarcategoryaxis_metaobject_callback = nullptr;
+        qbarcategoryaxis_metacast_callback = nullptr;
         qbarcategoryaxis_metacall_callback = nullptr;
         qbarcategoryaxis_type_callback = nullptr;
         qbarcategoryaxis_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQBarCategoryAxis final : public QBarCategoryAxis {
     }
 
     // Callback setters
+    inline void setQBarCategoryAxis_MetaObject_Callback(QBarCategoryAxis_MetaObject_Callback cb) { qbarcategoryaxis_metaobject_callback = cb; }
+    inline void setQBarCategoryAxis_Metacast_Callback(QBarCategoryAxis_Metacast_Callback cb) { qbarcategoryaxis_metacast_callback = cb; }
     inline void setQBarCategoryAxis_Metacall_Callback(QBarCategoryAxis_Metacall_Callback cb) { qbarcategoryaxis_metacall_callback = cb; }
     inline void setQBarCategoryAxis_Type_Callback(QBarCategoryAxis_Type_Callback cb) { qbarcategoryaxis_type_callback = cb; }
     inline void setQBarCategoryAxis_Event_Callback(QBarCategoryAxis_Event_Callback cb) { qbarcategoryaxis_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQBarCategoryAxis final : public QBarCategoryAxis {
     inline void setQBarCategoryAxis_IsSignalConnected_Callback(QBarCategoryAxis_IsSignalConnected_Callback cb) { qbarcategoryaxis_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQBarCategoryAxis_MetaObject_IsBase(bool value) const { qbarcategoryaxis_metaobject_isbase = value; }
+    inline void setQBarCategoryAxis_Metacast_IsBase(bool value) const { qbarcategoryaxis_metacast_isbase = value; }
     inline void setQBarCategoryAxis_Metacall_IsBase(bool value) const { qbarcategoryaxis_metacall_isbase = value; }
     inline void setQBarCategoryAxis_Type_IsBase(bool value) const { qbarcategoryaxis_type_isbase = value; }
     inline void setQBarCategoryAxis_Event_IsBase(bool value) const { qbarcategoryaxis_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQBarCategoryAxis final : public QBarCategoryAxis {
     inline void setQBarCategoryAxis_SenderSignalIndex_IsBase(bool value) const { qbarcategoryaxis_sendersignalindex_isbase = value; }
     inline void setQBarCategoryAxis_Receivers_IsBase(bool value) const { qbarcategoryaxis_receivers_isbase = value; }
     inline void setQBarCategoryAxis_IsSignalConnected_IsBase(bool value) const { qbarcategoryaxis_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qbarcategoryaxis_metaobject_isbase) {
+            qbarcategoryaxis_metaobject_isbase = false;
+            return QBarCategoryAxis::metaObject();
+        } else if (qbarcategoryaxis_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qbarcategoryaxis_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QBarCategoryAxis::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qbarcategoryaxis_metacast_isbase) {
+            qbarcategoryaxis_metacast_isbase = false;
+            return QBarCategoryAxis::qt_metacast(param1);
+        } else if (qbarcategoryaxis_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qbarcategoryaxis_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QBarCategoryAxis::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

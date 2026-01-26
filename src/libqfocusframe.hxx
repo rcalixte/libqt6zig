@@ -17,6 +17,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
     bool isVirtualQFocusFrame = true;
 
     // Virtual class public types (including callbacks)
+    using QFocusFrame_MetaObject_Callback = QMetaObject* (*)();
+    using QFocusFrame_Metacast_Callback = void* (*)(QFocusFrame*, const char*);
     using QFocusFrame_Metacall_Callback = int (*)(QFocusFrame*, int, int, void**);
     using QFocusFrame_Event_Callback = bool (*)(QFocusFrame*, QEvent*);
     using QFocusFrame_EventFilter_Callback = bool (*)(QFocusFrame*, QObject*, QEvent*);
@@ -79,6 +81,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
 
   protected:
     // Instance callback storage
+    QFocusFrame_MetaObject_Callback qfocusframe_metaobject_callback = nullptr;
+    QFocusFrame_Metacast_Callback qfocusframe_metacast_callback = nullptr;
     QFocusFrame_Metacall_Callback qfocusframe_metacall_callback = nullptr;
     QFocusFrame_Event_Callback qfocusframe_event_callback = nullptr;
     QFocusFrame_EventFilter_Callback qfocusframe_eventfilter_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
     QFocusFrame_GetDecodedMetricF_Callback qfocusframe_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qfocusframe_metaobject_isbase = false;
+    mutable bool qfocusframe_metacast_isbase = false;
     mutable bool qfocusframe_metacall_isbase = false;
     mutable bool qfocusframe_event_isbase = false;
     mutable bool qfocusframe_eventfilter_isbase = false;
@@ -205,6 +211,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
     VirtualQFocusFrame() : QFocusFrame() {};
 
     ~VirtualQFocusFrame() {
+        qfocusframe_metaobject_callback = nullptr;
+        qfocusframe_metacast_callback = nullptr;
         qfocusframe_metacall_callback = nullptr;
         qfocusframe_event_callback = nullptr;
         qfocusframe_eventfilter_callback = nullptr;
@@ -267,6 +275,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
     }
 
     // Callback setters
+    inline void setQFocusFrame_MetaObject_Callback(QFocusFrame_MetaObject_Callback cb) { qfocusframe_metaobject_callback = cb; }
+    inline void setQFocusFrame_Metacast_Callback(QFocusFrame_Metacast_Callback cb) { qfocusframe_metacast_callback = cb; }
     inline void setQFocusFrame_Metacall_Callback(QFocusFrame_Metacall_Callback cb) { qfocusframe_metacall_callback = cb; }
     inline void setQFocusFrame_Event_Callback(QFocusFrame_Event_Callback cb) { qfocusframe_event_callback = cb; }
     inline void setQFocusFrame_EventFilter_Callback(QFocusFrame_EventFilter_Callback cb) { qfocusframe_eventfilter_callback = cb; }
@@ -328,6 +338,8 @@ class VirtualQFocusFrame final : public QFocusFrame {
     inline void setQFocusFrame_GetDecodedMetricF_Callback(QFocusFrame_GetDecodedMetricF_Callback cb) { qfocusframe_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQFocusFrame_MetaObject_IsBase(bool value) const { qfocusframe_metaobject_isbase = value; }
+    inline void setQFocusFrame_Metacast_IsBase(bool value) const { qfocusframe_metacast_isbase = value; }
     inline void setQFocusFrame_Metacall_IsBase(bool value) const { qfocusframe_metacall_isbase = value; }
     inline void setQFocusFrame_Event_IsBase(bool value) const { qfocusframe_event_isbase = value; }
     inline void setQFocusFrame_EventFilter_IsBase(bool value) const { qfocusframe_eventfilter_isbase = value; }
@@ -387,6 +399,34 @@ class VirtualQFocusFrame final : public QFocusFrame {
     inline void setQFocusFrame_Receivers_IsBase(bool value) const { qfocusframe_receivers_isbase = value; }
     inline void setQFocusFrame_IsSignalConnected_IsBase(bool value) const { qfocusframe_issignalconnected_isbase = value; }
     inline void setQFocusFrame_GetDecodedMetricF_IsBase(bool value) const { qfocusframe_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qfocusframe_metaobject_isbase) {
+            qfocusframe_metaobject_isbase = false;
+            return QFocusFrame::metaObject();
+        } else if (qfocusframe_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qfocusframe_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFocusFrame::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qfocusframe_metacast_isbase) {
+            qfocusframe_metacast_isbase = false;
+            return QFocusFrame::qt_metacast(param1);
+        } else if (qfocusframe_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qfocusframe_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFocusFrame::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

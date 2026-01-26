@@ -23,11 +23,21 @@ QHorizontalStackedBarSeries* QHorizontalStackedBarSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QHorizontalStackedBarSeries_MetaObject(const QHorizontalStackedBarSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqhorizontalstackedbarseries = dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self);
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQHorizontalStackedBarSeries*)self)->metaObject();
+    }
 }
 
 void* QHorizontalStackedBarSeries_Metacast(QHorizontalStackedBarSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQHorizontalStackedBarSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QHorizontalStackedBarSeries_Metacall(QHorizontalStackedBarSeries* self, int param1, int param2, void** param3) {
@@ -45,6 +55,44 @@ int QHorizontalStackedBarSeries_Type(const QHorizontalStackedBarSeries* self) {
         return static_cast<int>(self->type());
     } else {
         return static_cast<int>(((VirtualQHorizontalStackedBarSeries*)self)->type());
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QHorizontalStackedBarSeries_QBaseMetaObject(const QHorizontalStackedBarSeries* self) {
+    auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+        vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqhorizontalstackedbarseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QHorizontalStackedBarSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHorizontalStackedBarSeries_OnMetaObject(const QHorizontalStackedBarSeries* self, intptr_t slot) {
+    auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+        vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_MetaObject_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QHorizontalStackedBarSeries_QBaseMetacast(QHorizontalStackedBarSeries* self, const char* param1) {
+    auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+        vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Metacast_IsBase(true);
+        return vqhorizontalstackedbarseries->qt_metacast(param1);
+    } else {
+        return self->QHorizontalStackedBarSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHorizontalStackedBarSeries_OnMetacast(QHorizontalStackedBarSeries* self, intptr_t slot) {
+    auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+        vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Metacast_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_Metacast_Callback>(slot));
     }
 }
 

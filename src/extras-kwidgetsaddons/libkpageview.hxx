@@ -17,6 +17,8 @@ class VirtualKPageView final : public KPageView {
     bool isVirtualKPageView = true;
 
     // Virtual class public types (including callbacks)
+    using KPageView_MetaObject_Callback = QMetaObject* (*)();
+    using KPageView_Metacast_Callback = void* (*)(KPageView*, const char*);
     using KPageView_Metacall_Callback = int (*)(KPageView*, int, int, void**);
     using KPageView_CreateView_Callback = QAbstractItemView* (*)();
     using KPageView_ShowPageHeader_Callback = bool (*)();
@@ -81,6 +83,8 @@ class VirtualKPageView final : public KPageView {
 
   protected:
     // Instance callback storage
+    KPageView_MetaObject_Callback kpageview_metaobject_callback = nullptr;
+    KPageView_Metacast_Callback kpageview_metacast_callback = nullptr;
     KPageView_Metacall_Callback kpageview_metacall_callback = nullptr;
     KPageView_CreateView_Callback kpageview_createview_callback = nullptr;
     KPageView_ShowPageHeader_Callback kpageview_showpageheader_callback = nullptr;
@@ -144,6 +148,8 @@ class VirtualKPageView final : public KPageView {
     KPageView_GetDecodedMetricF_Callback kpageview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpageview_metaobject_isbase = false;
+    mutable bool kpageview_metacast_isbase = false;
     mutable bool kpageview_metacall_isbase = false;
     mutable bool kpageview_createview_isbase = false;
     mutable bool kpageview_showpageheader_isbase = false;
@@ -211,6 +217,8 @@ class VirtualKPageView final : public KPageView {
     VirtualKPageView() : KPageView() {};
 
     ~VirtualKPageView() {
+        kpageview_metaobject_callback = nullptr;
+        kpageview_metacast_callback = nullptr;
         kpageview_metacall_callback = nullptr;
         kpageview_createview_callback = nullptr;
         kpageview_showpageheader_callback = nullptr;
@@ -275,6 +283,8 @@ class VirtualKPageView final : public KPageView {
     }
 
     // Callback setters
+    inline void setKPageView_MetaObject_Callback(KPageView_MetaObject_Callback cb) { kpageview_metaobject_callback = cb; }
+    inline void setKPageView_Metacast_Callback(KPageView_Metacast_Callback cb) { kpageview_metacast_callback = cb; }
     inline void setKPageView_Metacall_Callback(KPageView_Metacall_Callback cb) { kpageview_metacall_callback = cb; }
     inline void setKPageView_CreateView_Callback(KPageView_CreateView_Callback cb) { kpageview_createview_callback = cb; }
     inline void setKPageView_ShowPageHeader_Callback(KPageView_ShowPageHeader_Callback cb) { kpageview_showpageheader_callback = cb; }
@@ -338,6 +348,8 @@ class VirtualKPageView final : public KPageView {
     inline void setKPageView_GetDecodedMetricF_Callback(KPageView_GetDecodedMetricF_Callback cb) { kpageview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPageView_MetaObject_IsBase(bool value) const { kpageview_metaobject_isbase = value; }
+    inline void setKPageView_Metacast_IsBase(bool value) const { kpageview_metacast_isbase = value; }
     inline void setKPageView_Metacall_IsBase(bool value) const { kpageview_metacall_isbase = value; }
     inline void setKPageView_CreateView_IsBase(bool value) const { kpageview_createview_isbase = value; }
     inline void setKPageView_ShowPageHeader_IsBase(bool value) const { kpageview_showpageheader_isbase = value; }
@@ -399,6 +411,34 @@ class VirtualKPageView final : public KPageView {
     inline void setKPageView_Receivers_IsBase(bool value) const { kpageview_receivers_isbase = value; }
     inline void setKPageView_IsSignalConnected_IsBase(bool value) const { kpageview_issignalconnected_isbase = value; }
     inline void setKPageView_GetDecodedMetricF_IsBase(bool value) const { kpageview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpageview_metaobject_isbase) {
+            kpageview_metaobject_isbase = false;
+            return KPageView::metaObject();
+        } else if (kpageview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpageview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPageView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpageview_metacast_isbase) {
+            kpageview_metacast_isbase = false;
+            return KPageView::qt_metacast(param1);
+        } else if (kpageview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpageview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPageView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

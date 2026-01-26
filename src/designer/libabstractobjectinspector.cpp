@@ -50,11 +50,21 @@ QDesignerObjectInspectorInterface* QDesignerObjectInspectorInterface_new2(QWidge
 }
 
 QMetaObject* QDesignerObjectInspectorInterface_MetaObject(const QDesignerObjectInspectorInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerobjectinspectorinterface = dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self);
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerObjectInspectorInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerObjectInspectorInterface_Metacast(QDesignerObjectInspectorInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerObjectInspectorInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerObjectInspectorInterface_Metacall(QDesignerObjectInspectorInterface* self, int param1, int param2, void** param3) {
@@ -81,6 +91,44 @@ void QDesignerObjectInspectorInterface_SetFormWindow(QDesignerObjectInspectorInt
         vqdesignerobjectinspectorinterface->setFormWindow(formWindow);
     } else {
         ((VirtualQDesignerObjectInspectorInterface*)self)->setFormWindow(formWindow);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerObjectInspectorInterface_QBaseMetaObject(const QDesignerObjectInspectorInterface* self) {
+    auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+        vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerobjectinspectorinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerObjectInspectorInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerObjectInspectorInterface_OnMetaObject(const QDesignerObjectInspectorInterface* self, intptr_t slot) {
+    auto* vqdesignerobjectinspectorinterface = const_cast<VirtualQDesignerObjectInspectorInterface*>(dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self));
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+        vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerObjectInspectorInterface_QBaseMetacast(QDesignerObjectInspectorInterface* self, const char* param1) {
+    auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+        vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Metacast_IsBase(true);
+        return vqdesignerobjectinspectorinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerObjectInspectorInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerObjectInspectorInterface_OnMetacast(QDesignerObjectInspectorInterface* self, intptr_t slot) {
+    auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
+    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
+        vqdesignerobjectinspectorinterface->setQDesignerObjectInspectorInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerObjectInspectorInterface::QDesignerObjectInspectorInterface_Metacast_Callback>(slot));
     }
 }
 

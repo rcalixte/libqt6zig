@@ -75,11 +75,21 @@ QTextFrame* QTextFrame_new(QTextDocument* doc) {
 }
 
 QMetaObject* QTextFrame_MetaObject(const QTextFrame* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtextframe = dynamic_cast<const VirtualQTextFrame*>(self);
+    if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTextFrame*)self)->metaObject();
+    }
 }
 
 void* QTextFrame_Metacast(QTextFrame* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
+    if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTextFrame*)self)->qt_metacast(param1);
+    }
 }
 
 int QTextFrame_Metacall(QTextFrame* self, int param1, int param2, void** param3) {
@@ -138,6 +148,44 @@ QTextFrame__iterator* QTextFrame_Begin(const QTextFrame* self) {
 
 QTextFrame__iterator* QTextFrame_End(const QTextFrame* self) {
     return new QTextFrame::iterator(self->end());
+}
+
+// Base class handler implementation
+QMetaObject* QTextFrame_QBaseMetaObject(const QTextFrame* self) {
+    auto* vqtextframe = const_cast<VirtualQTextFrame*>(dynamic_cast<const VirtualQTextFrame*>(self));
+    if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
+        vqtextframe->setQTextFrame_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtextframe->metaObject();
+    } else {
+        return (QMetaObject*)self->QTextFrame::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextFrame_OnMetaObject(const QTextFrame* self, intptr_t slot) {
+    auto* vqtextframe = const_cast<VirtualQTextFrame*>(dynamic_cast<const VirtualQTextFrame*>(self));
+    if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
+        vqtextframe->setQTextFrame_MetaObject_Callback(reinterpret_cast<VirtualQTextFrame::QTextFrame_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTextFrame_QBaseMetacast(QTextFrame* self, const char* param1) {
+    auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
+    if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
+        vqtextframe->setQTextFrame_Metacast_IsBase(true);
+        return vqtextframe->qt_metacast(param1);
+    } else {
+        return self->QTextFrame::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextFrame_OnMetacast(QTextFrame* self, intptr_t slot) {
+    auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
+    if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
+        vqtextframe->setQTextFrame_Metacast_Callback(reinterpret_cast<VirtualQTextFrame::QTextFrame_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

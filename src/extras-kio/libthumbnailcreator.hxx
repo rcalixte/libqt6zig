@@ -17,6 +17,8 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
     bool isVirtualKIOThumbnailCreator = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__ThumbnailCreator_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__ThumbnailCreator_Metacast_Callback = void* (*)(KIO__ThumbnailCreator*, const char*);
     using KIO__ThumbnailCreator_Metacall_Callback = int (*)(KIO__ThumbnailCreator*, int, int, void**);
     using KIO__ThumbnailCreator_Create_Callback = KIO__ThumbnailResult* (*)(KIO__ThumbnailCreator*, KIO__ThumbnailRequest*);
     using KIO__ThumbnailCreator_Event_Callback = bool (*)(KIO__ThumbnailCreator*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
 
   protected:
     // Instance callback storage
+    KIO__ThumbnailCreator_MetaObject_Callback kio__thumbnailcreator_metaobject_callback = nullptr;
+    KIO__ThumbnailCreator_Metacast_Callback kio__thumbnailcreator_metacast_callback = nullptr;
     KIO__ThumbnailCreator_Metacall_Callback kio__thumbnailcreator_metacall_callback = nullptr;
     KIO__ThumbnailCreator_Create_Callback kio__thumbnailcreator_create_callback = nullptr;
     KIO__ThumbnailCreator_Event_Callback kio__thumbnailcreator_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
     KIO__ThumbnailCreator_IsSignalConnected_Callback kio__thumbnailcreator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__thumbnailcreator_metaobject_isbase = false;
+    mutable bool kio__thumbnailcreator_metacast_isbase = false;
     mutable bool kio__thumbnailcreator_metacall_isbase = false;
     mutable bool kio__thumbnailcreator_create_isbase = false;
     mutable bool kio__thumbnailcreator_event_isbase = false;
@@ -66,6 +72,8 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
     VirtualKIOThumbnailCreator(QObject* parent, const QList<QVariant>& args) : KIO::ThumbnailCreator(parent, args) {};
 
     ~VirtualKIOThumbnailCreator() {
+        kio__thumbnailcreator_metaobject_callback = nullptr;
+        kio__thumbnailcreator_metacast_callback = nullptr;
         kio__thumbnailcreator_metacall_callback = nullptr;
         kio__thumbnailcreator_create_callback = nullptr;
         kio__thumbnailcreator_event_callback = nullptr;
@@ -82,6 +90,8 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
     }
 
     // Callback setters
+    inline void setKIO__ThumbnailCreator_MetaObject_Callback(KIO__ThumbnailCreator_MetaObject_Callback cb) { kio__thumbnailcreator_metaobject_callback = cb; }
+    inline void setKIO__ThumbnailCreator_Metacast_Callback(KIO__ThumbnailCreator_Metacast_Callback cb) { kio__thumbnailcreator_metacast_callback = cb; }
     inline void setKIO__ThumbnailCreator_Metacall_Callback(KIO__ThumbnailCreator_Metacall_Callback cb) { kio__thumbnailcreator_metacall_callback = cb; }
     inline void setKIO__ThumbnailCreator_Create_Callback(KIO__ThumbnailCreator_Create_Callback cb) { kio__thumbnailcreator_create_callback = cb; }
     inline void setKIO__ThumbnailCreator_Event_Callback(KIO__ThumbnailCreator_Event_Callback cb) { kio__thumbnailcreator_event_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
     inline void setKIO__ThumbnailCreator_IsSignalConnected_Callback(KIO__ThumbnailCreator_IsSignalConnected_Callback cb) { kio__thumbnailcreator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__ThumbnailCreator_MetaObject_IsBase(bool value) const { kio__thumbnailcreator_metaobject_isbase = value; }
+    inline void setKIO__ThumbnailCreator_Metacast_IsBase(bool value) const { kio__thumbnailcreator_metacast_isbase = value; }
     inline void setKIO__ThumbnailCreator_Metacall_IsBase(bool value) const { kio__thumbnailcreator_metacall_isbase = value; }
     inline void setKIO__ThumbnailCreator_Create_IsBase(bool value) const { kio__thumbnailcreator_create_isbase = value; }
     inline void setKIO__ThumbnailCreator_Event_IsBase(bool value) const { kio__thumbnailcreator_event_isbase = value; }
@@ -110,6 +122,34 @@ class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
     inline void setKIO__ThumbnailCreator_SenderSignalIndex_IsBase(bool value) const { kio__thumbnailcreator_sendersignalindex_isbase = value; }
     inline void setKIO__ThumbnailCreator_Receivers_IsBase(bool value) const { kio__thumbnailcreator_receivers_isbase = value; }
     inline void setKIO__ThumbnailCreator_IsSignalConnected_IsBase(bool value) const { kio__thumbnailcreator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__thumbnailcreator_metaobject_isbase) {
+            kio__thumbnailcreator_metaobject_isbase = false;
+            return KIO__ThumbnailCreator::metaObject();
+        } else if (kio__thumbnailcreator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__thumbnailcreator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__ThumbnailCreator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__thumbnailcreator_metacast_isbase) {
+            kio__thumbnailcreator_metacast_isbase = false;
+            return KIO__ThumbnailCreator::qt_metacast(param1);
+        } else if (kio__thumbnailcreator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__thumbnailcreator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__ThumbnailCreator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

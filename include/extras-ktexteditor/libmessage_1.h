@@ -67,6 +67,10 @@ void KTextEditor__Message_IconChanged(KTextEditor__Message* self, const QIcon* i
 void KTextEditor__Message_Connect_IconChanged(KTextEditor__Message* self, intptr_t slot);
 void KTextEditor__Message_AddAction2(KTextEditor__Message* self, QAction* action, bool closeOnTrigger);
 void KTextEditor__Message_SetAutoHide1(KTextEditor__Message* self, int delay);
+void KTextEditor__Message_OnMetaObject(const KTextEditor__Message* self, intptr_t slot);
+QMetaObject* KTextEditor__Message_QBaseMetaObject(const KTextEditor__Message* self);
+void KTextEditor__Message_OnMetacast(KTextEditor__Message* self, intptr_t slot);
+void* KTextEditor__Message_QBaseMetacast(KTextEditor__Message* self, const char* param1);
 void KTextEditor__Message_OnMetacall(KTextEditor__Message* self, intptr_t slot);
 int KTextEditor__Message_QBaseMetacall(KTextEditor__Message* self, int param1, int param2, void** param3);
 bool KTextEditor__Message_Event(KTextEditor__Message* self, QEvent* event);

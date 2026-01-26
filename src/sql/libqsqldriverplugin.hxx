@@ -17,6 +17,8 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
     bool isVirtualQSqlDriverPlugin = true;
 
     // Virtual class public types (including callbacks)
+    using QSqlDriverPlugin_MetaObject_Callback = QMetaObject* (*)();
+    using QSqlDriverPlugin_Metacast_Callback = void* (*)(QSqlDriverPlugin*, const char*);
     using QSqlDriverPlugin_Metacall_Callback = int (*)(QSqlDriverPlugin*, int, int, void**);
     using QSqlDriverPlugin_Create_Callback = QSqlDriver* (*)(QSqlDriverPlugin*, libqt_string);
     using QSqlDriverPlugin_Event_Callback = bool (*)(QSqlDriverPlugin*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
 
   protected:
     // Instance callback storage
+    QSqlDriverPlugin_MetaObject_Callback qsqldriverplugin_metaobject_callback = nullptr;
+    QSqlDriverPlugin_Metacast_Callback qsqldriverplugin_metacast_callback = nullptr;
     QSqlDriverPlugin_Metacall_Callback qsqldriverplugin_metacall_callback = nullptr;
     QSqlDriverPlugin_Create_Callback qsqldriverplugin_create_callback = nullptr;
     QSqlDriverPlugin_Event_Callback qsqldriverplugin_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
     QSqlDriverPlugin_IsSignalConnected_Callback qsqldriverplugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsqldriverplugin_metaobject_isbase = false;
+    mutable bool qsqldriverplugin_metacast_isbase = false;
     mutable bool qsqldriverplugin_metacall_isbase = false;
     mutable bool qsqldriverplugin_create_isbase = false;
     mutable bool qsqldriverplugin_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
     VirtualQSqlDriverPlugin(QObject* parent) : QSqlDriverPlugin(parent) {};
 
     ~VirtualQSqlDriverPlugin() {
+        qsqldriverplugin_metaobject_callback = nullptr;
+        qsqldriverplugin_metacast_callback = nullptr;
         qsqldriverplugin_metacall_callback = nullptr;
         qsqldriverplugin_create_callback = nullptr;
         qsqldriverplugin_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
     }
 
     // Callback setters
+    inline void setQSqlDriverPlugin_MetaObject_Callback(QSqlDriverPlugin_MetaObject_Callback cb) { qsqldriverplugin_metaobject_callback = cb; }
+    inline void setQSqlDriverPlugin_Metacast_Callback(QSqlDriverPlugin_Metacast_Callback cb) { qsqldriverplugin_metacast_callback = cb; }
     inline void setQSqlDriverPlugin_Metacall_Callback(QSqlDriverPlugin_Metacall_Callback cb) { qsqldriverplugin_metacall_callback = cb; }
     inline void setQSqlDriverPlugin_Create_Callback(QSqlDriverPlugin_Create_Callback cb) { qsqldriverplugin_create_callback = cb; }
     inline void setQSqlDriverPlugin_Event_Callback(QSqlDriverPlugin_Event_Callback cb) { qsqldriverplugin_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
     inline void setQSqlDriverPlugin_IsSignalConnected_Callback(QSqlDriverPlugin_IsSignalConnected_Callback cb) { qsqldriverplugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSqlDriverPlugin_MetaObject_IsBase(bool value) const { qsqldriverplugin_metaobject_isbase = value; }
+    inline void setQSqlDriverPlugin_Metacast_IsBase(bool value) const { qsqldriverplugin_metacast_isbase = value; }
     inline void setQSqlDriverPlugin_Metacall_IsBase(bool value) const { qsqldriverplugin_metacall_isbase = value; }
     inline void setQSqlDriverPlugin_Create_IsBase(bool value) const { qsqldriverplugin_create_isbase = value; }
     inline void setQSqlDriverPlugin_Event_IsBase(bool value) const { qsqldriverplugin_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQSqlDriverPlugin : public QSqlDriverPlugin {
     inline void setQSqlDriverPlugin_SenderSignalIndex_IsBase(bool value) const { qsqldriverplugin_sendersignalindex_isbase = value; }
     inline void setQSqlDriverPlugin_Receivers_IsBase(bool value) const { qsqldriverplugin_receivers_isbase = value; }
     inline void setQSqlDriverPlugin_IsSignalConnected_IsBase(bool value) const { qsqldriverplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsqldriverplugin_metaobject_isbase) {
+            qsqldriverplugin_metaobject_isbase = false;
+            return QSqlDriverPlugin::metaObject();
+        } else if (qsqldriverplugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsqldriverplugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSqlDriverPlugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsqldriverplugin_metacast_isbase) {
+            qsqldriverplugin_metacast_isbase = false;
+            return QSqlDriverPlugin::qt_metacast(param1);
+        } else if (qsqldriverplugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsqldriverplugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSqlDriverPlugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

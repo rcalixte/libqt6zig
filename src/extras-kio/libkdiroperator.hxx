@@ -17,6 +17,8 @@ class VirtualKDirOperator final : public KDirOperator {
     bool isVirtualKDirOperator = true;
 
     // Virtual class public types (including callbacks)
+    using KDirOperator_MetaObject_Callback = QMetaObject* (*)();
+    using KDirOperator_Metacast_Callback = void* (*)(KDirOperator*, const char*);
     using KDirOperator_Metacall_Callback = int (*)(KDirOperator*, int, int, void**);
     using KDirOperator_SetShowHiddenFiles_Callback = void (*)(KDirOperator*, bool);
     using KDirOperator_SetUrl_Callback = void (*)(KDirOperator*, QUrl*, bool);
@@ -120,6 +122,8 @@ class VirtualKDirOperator final : public KDirOperator {
 
   protected:
     // Instance callback storage
+    KDirOperator_MetaObject_Callback kdiroperator_metaobject_callback = nullptr;
+    KDirOperator_Metacast_Callback kdiroperator_metacast_callback = nullptr;
     KDirOperator_Metacall_Callback kdiroperator_metacall_callback = nullptr;
     KDirOperator_SetShowHiddenFiles_Callback kdiroperator_setshowhiddenfiles_callback = nullptr;
     KDirOperator_SetUrl_Callback kdiroperator_seturl_callback = nullptr;
@@ -222,6 +226,8 @@ class VirtualKDirOperator final : public KDirOperator {
     KDirOperator_GetDecodedMetricF_Callback kdiroperator_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdiroperator_metaobject_isbase = false;
+    mutable bool kdiroperator_metacast_isbase = false;
     mutable bool kdiroperator_metacall_isbase = false;
     mutable bool kdiroperator_setshowhiddenfiles_isbase = false;
     mutable bool kdiroperator_seturl_isbase = false;
@@ -329,6 +335,8 @@ class VirtualKDirOperator final : public KDirOperator {
     VirtualKDirOperator(const QUrl& urlName, QWidget* parent) : KDirOperator(urlName, parent) {};
 
     ~VirtualKDirOperator() {
+        kdiroperator_metaobject_callback = nullptr;
+        kdiroperator_metacast_callback = nullptr;
         kdiroperator_metacall_callback = nullptr;
         kdiroperator_setshowhiddenfiles_callback = nullptr;
         kdiroperator_seturl_callback = nullptr;
@@ -432,6 +440,8 @@ class VirtualKDirOperator final : public KDirOperator {
     }
 
     // Callback setters
+    inline void setKDirOperator_MetaObject_Callback(KDirOperator_MetaObject_Callback cb) { kdiroperator_metaobject_callback = cb; }
+    inline void setKDirOperator_Metacast_Callback(KDirOperator_Metacast_Callback cb) { kdiroperator_metacast_callback = cb; }
     inline void setKDirOperator_Metacall_Callback(KDirOperator_Metacall_Callback cb) { kdiroperator_metacall_callback = cb; }
     inline void setKDirOperator_SetShowHiddenFiles_Callback(KDirOperator_SetShowHiddenFiles_Callback cb) { kdiroperator_setshowhiddenfiles_callback = cb; }
     inline void setKDirOperator_SetUrl_Callback(KDirOperator_SetUrl_Callback cb) { kdiroperator_seturl_callback = cb; }
@@ -534,6 +544,8 @@ class VirtualKDirOperator final : public KDirOperator {
     inline void setKDirOperator_GetDecodedMetricF_Callback(KDirOperator_GetDecodedMetricF_Callback cb) { kdiroperator_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKDirOperator_MetaObject_IsBase(bool value) const { kdiroperator_metaobject_isbase = value; }
+    inline void setKDirOperator_Metacast_IsBase(bool value) const { kdiroperator_metacast_isbase = value; }
     inline void setKDirOperator_Metacall_IsBase(bool value) const { kdiroperator_metacall_isbase = value; }
     inline void setKDirOperator_SetShowHiddenFiles_IsBase(bool value) const { kdiroperator_setshowhiddenfiles_isbase = value; }
     inline void setKDirOperator_SetUrl_IsBase(bool value) const { kdiroperator_seturl_isbase = value; }
@@ -634,6 +646,34 @@ class VirtualKDirOperator final : public KDirOperator {
     inline void setKDirOperator_Receivers_IsBase(bool value) const { kdiroperator_receivers_isbase = value; }
     inline void setKDirOperator_IsSignalConnected_IsBase(bool value) const { kdiroperator_issignalconnected_isbase = value; }
     inline void setKDirOperator_GetDecodedMetricF_IsBase(bool value) const { kdiroperator_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdiroperator_metaobject_isbase) {
+            kdiroperator_metaobject_isbase = false;
+            return KDirOperator::metaObject();
+        } else if (kdiroperator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdiroperator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDirOperator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdiroperator_metacast_isbase) {
+            kdiroperator_metacast_isbase = false;
+            return KDirOperator::qt_metacast(param1);
+        } else if (kdiroperator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdiroperator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDirOperator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

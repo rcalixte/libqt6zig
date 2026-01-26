@@ -17,6 +17,8 @@ class VirtualKTitleWidget final : public KTitleWidget {
     bool isVirtualKTitleWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KTitleWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KTitleWidget_Metacast_Callback = void* (*)(KTitleWidget*, const char*);
     using KTitleWidget_Metacall_Callback = int (*)(KTitleWidget*, int, int, void**);
     using KTitleWidget_ChangeEvent_Callback = void (*)(KTitleWidget*, QEvent*);
     using KTitleWidget_ShowEvent_Callback = void (*)(KTitleWidget*, QShowEvent*);
@@ -78,6 +80,8 @@ class VirtualKTitleWidget final : public KTitleWidget {
 
   protected:
     // Instance callback storage
+    KTitleWidget_MetaObject_Callback ktitlewidget_metaobject_callback = nullptr;
+    KTitleWidget_Metacast_Callback ktitlewidget_metacast_callback = nullptr;
     KTitleWidget_Metacall_Callback ktitlewidget_metacall_callback = nullptr;
     KTitleWidget_ChangeEvent_Callback ktitlewidget_changeevent_callback = nullptr;
     KTitleWidget_ShowEvent_Callback ktitlewidget_showevent_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKTitleWidget final : public KTitleWidget {
     KTitleWidget_GetDecodedMetricF_Callback ktitlewidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktitlewidget_metaobject_isbase = false;
+    mutable bool ktitlewidget_metacast_isbase = false;
     mutable bool ktitlewidget_metacall_isbase = false;
     mutable bool ktitlewidget_changeevent_isbase = false;
     mutable bool ktitlewidget_showevent_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKTitleWidget final : public KTitleWidget {
     VirtualKTitleWidget() : KTitleWidget() {};
 
     ~VirtualKTitleWidget() {
+        ktitlewidget_metaobject_callback = nullptr;
+        ktitlewidget_metacast_callback = nullptr;
         ktitlewidget_metacall_callback = nullptr;
         ktitlewidget_changeevent_callback = nullptr;
         ktitlewidget_showevent_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKTitleWidget final : public KTitleWidget {
     }
 
     // Callback setters
+    inline void setKTitleWidget_MetaObject_Callback(KTitleWidget_MetaObject_Callback cb) { ktitlewidget_metaobject_callback = cb; }
+    inline void setKTitleWidget_Metacast_Callback(KTitleWidget_Metacast_Callback cb) { ktitlewidget_metacast_callback = cb; }
     inline void setKTitleWidget_Metacall_Callback(KTitleWidget_Metacall_Callback cb) { ktitlewidget_metacall_callback = cb; }
     inline void setKTitleWidget_ChangeEvent_Callback(KTitleWidget_ChangeEvent_Callback cb) { ktitlewidget_changeevent_callback = cb; }
     inline void setKTitleWidget_ShowEvent_Callback(KTitleWidget_ShowEvent_Callback cb) { ktitlewidget_showevent_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKTitleWidget final : public KTitleWidget {
     inline void setKTitleWidget_GetDecodedMetricF_Callback(KTitleWidget_GetDecodedMetricF_Callback cb) { ktitlewidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKTitleWidget_MetaObject_IsBase(bool value) const { ktitlewidget_metaobject_isbase = value; }
+    inline void setKTitleWidget_Metacast_IsBase(bool value) const { ktitlewidget_metacast_isbase = value; }
     inline void setKTitleWidget_Metacall_IsBase(bool value) const { ktitlewidget_metacall_isbase = value; }
     inline void setKTitleWidget_ChangeEvent_IsBase(bool value) const { ktitlewidget_changeevent_isbase = value; }
     inline void setKTitleWidget_ShowEvent_IsBase(bool value) const { ktitlewidget_showevent_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKTitleWidget final : public KTitleWidget {
     inline void setKTitleWidget_Receivers_IsBase(bool value) const { ktitlewidget_receivers_isbase = value; }
     inline void setKTitleWidget_IsSignalConnected_IsBase(bool value) const { ktitlewidget_issignalconnected_isbase = value; }
     inline void setKTitleWidget_GetDecodedMetricF_IsBase(bool value) const { ktitlewidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktitlewidget_metaobject_isbase) {
+            ktitlewidget_metaobject_isbase = false;
+            return KTitleWidget::metaObject();
+        } else if (ktitlewidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktitlewidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTitleWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktitlewidget_metacast_isbase) {
+            ktitlewidget_metacast_isbase = false;
+            return KTitleWidget::qt_metacast(param1);
+        } else if (ktitlewidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktitlewidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTitleWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

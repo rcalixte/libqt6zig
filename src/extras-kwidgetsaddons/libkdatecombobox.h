@@ -97,6 +97,10 @@ void KDateComboBox_SetDateRange3(KDateComboBox* self, const QDate* minDate, cons
 void KDateComboBox_SetDateRange4(KDateComboBox* self, const QDate* minDate, const QDate* maxDate, const libqt_string minWarnMsg, const libqt_string maxWarnMsg);
 void KDateComboBox_SetMinimumDate2(KDateComboBox* self, const QDate* minDate, const libqt_string minWarnMsg);
 void KDateComboBox_SetMaximumDate2(KDateComboBox* self, const QDate* maxDate, const libqt_string maxWarnMsg);
+void KDateComboBox_OnMetaObject(const KDateComboBox* self, intptr_t slot);
+QMetaObject* KDateComboBox_QBaseMetaObject(const KDateComboBox* self);
+void KDateComboBox_OnMetacast(KDateComboBox* self, intptr_t slot);
+void* KDateComboBox_QBaseMetacast(KDateComboBox* self, const char* param1);
 void KDateComboBox_OnMetacall(KDateComboBox* self, intptr_t slot);
 int KDateComboBox_QBaseMetacall(KDateComboBox* self, int param1, int param2, void** param3);
 void KDateComboBox_OnEventFilter(KDateComboBox* self, intptr_t slot);

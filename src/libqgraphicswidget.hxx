@@ -18,6 +18,8 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
 
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
+    using QGraphicsWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsWidget_Metacast_Callback = void* (*)(QGraphicsWidget*, const char*);
     using QGraphicsWidget_Metacall_Callback = int (*)(QGraphicsWidget*, int, int, void**);
     using QGraphicsWidget_SetGeometry_Callback = void (*)(QGraphicsWidget*, QRectF*);
     using QGraphicsWidget_GetContentsMargins_Callback = void (*)(const QGraphicsWidget*, double*, double*, double*, double*);
@@ -96,6 +98,8 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
 
   protected:
     // Instance callback storage
+    QGraphicsWidget_MetaObject_Callback qgraphicswidget_metaobject_callback = nullptr;
+    QGraphicsWidget_Metacast_Callback qgraphicswidget_metacast_callback = nullptr;
     QGraphicsWidget_Metacall_Callback qgraphicswidget_metacall_callback = nullptr;
     QGraphicsWidget_SetGeometry_Callback qgraphicswidget_setgeometry_callback = nullptr;
     QGraphicsWidget_GetContentsMargins_Callback qgraphicswidget_getcontentsmargins_callback = nullptr;
@@ -173,6 +177,8 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
     QGraphicsWidget_SetOwnedByLayout_Callback qgraphicswidget_setownedbylayout_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicswidget_metaobject_isbase = false;
+    mutable bool qgraphicswidget_metacast_isbase = false;
     mutable bool qgraphicswidget_metacall_isbase = false;
     mutable bool qgraphicswidget_setgeometry_isbase = false;
     mutable bool qgraphicswidget_getcontentsmargins_isbase = false;
@@ -255,6 +261,8 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
     VirtualQGraphicsWidget(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QGraphicsWidget(parent, wFlags) {};
 
     ~VirtualQGraphicsWidget() {
+        qgraphicswidget_metaobject_callback = nullptr;
+        qgraphicswidget_metacast_callback = nullptr;
         qgraphicswidget_metacall_callback = nullptr;
         qgraphicswidget_setgeometry_callback = nullptr;
         qgraphicswidget_getcontentsmargins_callback = nullptr;
@@ -333,6 +341,8 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
     }
 
     // Callback setters
+    inline void setQGraphicsWidget_MetaObject_Callback(QGraphicsWidget_MetaObject_Callback cb) { qgraphicswidget_metaobject_callback = cb; }
+    inline void setQGraphicsWidget_Metacast_Callback(QGraphicsWidget_Metacast_Callback cb) { qgraphicswidget_metacast_callback = cb; }
     inline void setQGraphicsWidget_Metacall_Callback(QGraphicsWidget_Metacall_Callback cb) { qgraphicswidget_metacall_callback = cb; }
     inline void setQGraphicsWidget_SetGeometry_Callback(QGraphicsWidget_SetGeometry_Callback cb) { qgraphicswidget_setgeometry_callback = cb; }
     inline void setQGraphicsWidget_GetContentsMargins_Callback(QGraphicsWidget_GetContentsMargins_Callback cb) { qgraphicswidget_getcontentsmargins_callback = cb; }
@@ -410,6 +420,8 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
     inline void setQGraphicsWidget_SetOwnedByLayout_Callback(QGraphicsWidget_SetOwnedByLayout_Callback cb) { qgraphicswidget_setownedbylayout_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsWidget_MetaObject_IsBase(bool value) const { qgraphicswidget_metaobject_isbase = value; }
+    inline void setQGraphicsWidget_Metacast_IsBase(bool value) const { qgraphicswidget_metacast_isbase = value; }
     inline void setQGraphicsWidget_Metacall_IsBase(bool value) const { qgraphicswidget_metacall_isbase = value; }
     inline void setQGraphicsWidget_SetGeometry_IsBase(bool value) const { qgraphicswidget_setgeometry_isbase = value; }
     inline void setQGraphicsWidget_GetContentsMargins_IsBase(bool value) const { qgraphicswidget_getcontentsmargins_isbase = value; }
@@ -485,6 +497,34 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
     inline void setQGraphicsWidget_PrepareGeometryChange_IsBase(bool value) const { qgraphicswidget_preparegeometrychange_isbase = value; }
     inline void setQGraphicsWidget_SetGraphicsItem_IsBase(bool value) const { qgraphicswidget_setgraphicsitem_isbase = value; }
     inline void setQGraphicsWidget_SetOwnedByLayout_IsBase(bool value) const { qgraphicswidget_setownedbylayout_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicswidget_metaobject_isbase) {
+            qgraphicswidget_metaobject_isbase = false;
+            return QGraphicsWidget::metaObject();
+        } else if (qgraphicswidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicswidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicswidget_metacast_isbase) {
+            qgraphicswidget_metacast_isbase = false;
+            return QGraphicsWidget::qt_metacast(param1);
+        } else if (qgraphicswidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicswidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

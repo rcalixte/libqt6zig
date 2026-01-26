@@ -82,11 +82,21 @@ QUndoView* QUndoView_new6(QUndoGroup* group, QWidget* parent) {
 }
 
 QMetaObject* QUndoView_MetaObject(const QUndoView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqundoview = dynamic_cast<const VirtualQUndoView*>(self);
+    if (vqundoview && vqundoview->isVirtualQUndoView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQUndoView*)self)->metaObject();
+    }
 }
 
 void* QUndoView_Metacast(QUndoView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
+    if (vqundoview && vqundoview->isVirtualQUndoView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQUndoView*)self)->qt_metacast(param1);
+    }
 }
 
 int QUndoView_Metacall(QUndoView* self, int param1, int param2, void** param3) {
@@ -137,6 +147,44 @@ void QUndoView_SetStack(QUndoView* self, QUndoStack* stack) {
 
 void QUndoView_SetGroup(QUndoView* self, QUndoGroup* group) {
     self->setGroup(group);
+}
+
+// Base class handler implementation
+QMetaObject* QUndoView_QBaseMetaObject(const QUndoView* self) {
+    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
+    if (vqundoview && vqundoview->isVirtualQUndoView) {
+        vqundoview->setQUndoView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqundoview->metaObject();
+    } else {
+        return (QMetaObject*)self->QUndoView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QUndoView_OnMetaObject(const QUndoView* self, intptr_t slot) {
+    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
+    if (vqundoview && vqundoview->isVirtualQUndoView) {
+        vqundoview->setQUndoView_MetaObject_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QUndoView_QBaseMetacast(QUndoView* self, const char* param1) {
+    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
+    if (vqundoview && vqundoview->isVirtualQUndoView) {
+        vqundoview->setQUndoView_Metacast_IsBase(true);
+        return vqundoview->qt_metacast(param1);
+    } else {
+        return self->QUndoView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QUndoView_OnMetacast(QUndoView* self, intptr_t slot) {
+    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
+    if (vqundoview && vqundoview->isVirtualQUndoView) {
+        vqundoview->setQUndoView_Metacast_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

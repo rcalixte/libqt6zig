@@ -21,11 +21,21 @@ KToggleToolBarAction* KToggleToolBarAction_new(KToolBar* toolBar, const libqt_st
 }
 
 QMetaObject* KToggleToolBarAction_MetaObject(const KToggleToolBarAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktoggletoolbaraction = dynamic_cast<const VirtualKToggleToolBarAction*>(self);
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKToggleToolBarAction*)self)->metaObject();
+    }
 }
 
 void* KToggleToolBarAction_Metacast(KToggleToolBarAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKToggleToolBarAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KToggleToolBarAction_Metacall(KToggleToolBarAction* self, int param1, int param2, void** param3) {
@@ -47,6 +57,44 @@ bool KToggleToolBarAction_EventFilter(KToggleToolBarAction* self, QObject* watch
         return self->eventFilter(watched, event);
     } else {
         return ((VirtualKToggleToolBarAction*)self)->eventFilter(watched, event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KToggleToolBarAction_QBaseMetaObject(const KToggleToolBarAction* self) {
+    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+        vktoggletoolbaraction->setKToggleToolBarAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vktoggletoolbaraction->metaObject();
+    } else {
+        return (QMetaObject*)self->KToggleToolBarAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToggleToolBarAction_OnMetaObject(const KToggleToolBarAction* self, intptr_t slot) {
+    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+        vktoggletoolbaraction->setKToggleToolBarAction_MetaObject_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KToggleToolBarAction_QBaseMetacast(KToggleToolBarAction* self, const char* param1) {
+    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+        vktoggletoolbaraction->setKToggleToolBarAction_Metacast_IsBase(true);
+        return vktoggletoolbaraction->qt_metacast(param1);
+    } else {
+        return self->KToggleToolBarAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToggleToolBarAction_OnMetacast(KToggleToolBarAction* self, intptr_t slot) {
+    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+        vktoggletoolbaraction->setKToggleToolBarAction_Metacast_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Metacast_Callback>(slot));
     }
 }
 

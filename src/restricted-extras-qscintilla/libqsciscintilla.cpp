@@ -59,11 +59,21 @@ QsciScintilla* QsciScintilla_new2() {
 }
 
 QMetaObject* QsciScintilla_MetaObject(const QsciScintilla* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsciscintilla = dynamic_cast<const VirtualQsciScintilla*>(self);
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciScintilla*)self)->metaObject();
+    }
 }
 
 void* QsciScintilla_Metacast(QsciScintilla* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciScintilla*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciScintilla_Metacall(QsciScintilla* self, int param1, int param2, void** param3) {
@@ -1921,6 +1931,44 @@ void QsciScintilla_SetWrapVisualFlags2(QsciScintilla* self, int endFlag, int sta
 
 void QsciScintilla_SetWrapVisualFlags3(QsciScintilla* self, int endFlag, int startFlag, int indent) {
     self->setWrapVisualFlags(static_cast<QsciScintilla::WrapVisualFlag>(endFlag), static_cast<QsciScintilla::WrapVisualFlag>(startFlag), static_cast<int>(indent));
+}
+
+// Base class handler implementation
+QMetaObject* QsciScintilla_QBaseMetaObject(const QsciScintilla* self) {
+    auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+        vqsciscintilla->setQsciScintilla_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsciscintilla->metaObject();
+    } else {
+        return (QMetaObject*)self->QsciScintilla::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciScintilla_OnMetaObject(const QsciScintilla* self, intptr_t slot) {
+    auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+        vqsciscintilla->setQsciScintilla_MetaObject_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciScintilla_QBaseMetacast(QsciScintilla* self, const char* param1) {
+    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+        vqsciscintilla->setQsciScintilla_Metacast_IsBase(true);
+        return vqsciscintilla->qt_metacast(param1);
+    } else {
+        return self->QsciScintilla::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciScintilla_OnMetacast(QsciScintilla* self, intptr_t slot) {
+    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+        vqsciscintilla->setQsciScintilla_Metacast_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

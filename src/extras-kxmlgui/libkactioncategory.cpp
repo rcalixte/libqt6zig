@@ -26,11 +26,21 @@ KActionCategory* KActionCategory_new2(const libqt_string text, KActionCollection
 }
 
 QMetaObject* KActionCategory_MetaObject(const KActionCategory* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkactioncategory = dynamic_cast<const VirtualKActionCategory*>(self);
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKActionCategory*)self)->metaObject();
+    }
 }
 
 void* KActionCategory_Metacast(KActionCategory* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKActionCategory*)self)->qt_metacast(param1);
+    }
 }
 
 int KActionCategory_Metacall(KActionCategory* self, int param1, int param2, void** param3) {
@@ -83,6 +93,44 @@ libqt_string KActionCategory_Text(const KActionCategory* self) {
 void KActionCategory_SetText(KActionCategory* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->setText(text_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KActionCategory_QBaseMetaObject(const KActionCategory* self) {
+    auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+        vkactioncategory->setKActionCategory_MetaObject_IsBase(true);
+        return (QMetaObject*)vkactioncategory->metaObject();
+    } else {
+        return (QMetaObject*)self->KActionCategory::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionCategory_OnMetaObject(const KActionCategory* self, intptr_t slot) {
+    auto* vkactioncategory = const_cast<VirtualKActionCategory*>(dynamic_cast<const VirtualKActionCategory*>(self));
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+        vkactioncategory->setKActionCategory_MetaObject_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KActionCategory_QBaseMetacast(KActionCategory* self, const char* param1) {
+    auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+        vkactioncategory->setKActionCategory_Metacast_IsBase(true);
+        return vkactioncategory->qt_metacast(param1);
+    } else {
+        return self->KActionCategory::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionCategory_OnMetacast(KActionCategory* self, intptr_t slot) {
+    auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
+    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
+        vkactioncategory->setKActionCategory_Metacast_Callback(reinterpret_cast<VirtualKActionCategory::KActionCategory_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

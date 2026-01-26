@@ -57,6 +57,10 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_Copy(KIO__ForwardingWorkerBase* sel
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Del(KIO__ForwardingWorkerBase* self, const QUrl* url, bool isfile);
 bool KIO__ForwardingWorkerBase_RewriteUrl(KIO__ForwardingWorkerBase* self, const QUrl* url, QUrl* newURL);
 void KIO__ForwardingWorkerBase_AdjustUDSEntry(const KIO__ForwardingWorkerBase* self, KIO__UDSEntry* entry, int creationMode);
+void KIO__ForwardingWorkerBase_OnMetaObject(const KIO__ForwardingWorkerBase* self, intptr_t slot);
+QMetaObject* KIO__ForwardingWorkerBase_QBaseMetaObject(const KIO__ForwardingWorkerBase* self);
+void KIO__ForwardingWorkerBase_OnMetacast(KIO__ForwardingWorkerBase* self, intptr_t slot);
+void* KIO__ForwardingWorkerBase_QBaseMetacast(KIO__ForwardingWorkerBase* self, const char* param1);
 void KIO__ForwardingWorkerBase_OnMetacall(KIO__ForwardingWorkerBase* self, intptr_t slot);
 int KIO__ForwardingWorkerBase_QBaseMetacall(KIO__ForwardingWorkerBase* self, int param1, int param2, void** param3);
 void KIO__ForwardingWorkerBase_OnGet(KIO__ForwardingWorkerBase* self, intptr_t slot);

@@ -17,6 +17,8 @@ class VirtualKDateComboBox final : public KDateComboBox {
     bool isVirtualKDateComboBox = true;
 
     // Virtual class public types (including callbacks)
+    using KDateComboBox_MetaObject_Callback = QMetaObject* (*)();
+    using KDateComboBox_Metacast_Callback = void* (*)(KDateComboBox*, const char*);
     using KDateComboBox_Metacall_Callback = int (*)(KDateComboBox*, int, int, void**);
     using KDateComboBox_EventFilter_Callback = bool (*)(KDateComboBox*, QObject*, QEvent*);
     using KDateComboBox_ShowPopup_Callback = void (*)();
@@ -83,6 +85,8 @@ class VirtualKDateComboBox final : public KDateComboBox {
 
   protected:
     // Instance callback storage
+    KDateComboBox_MetaObject_Callback kdatecombobox_metaobject_callback = nullptr;
+    KDateComboBox_Metacast_Callback kdatecombobox_metacast_callback = nullptr;
     KDateComboBox_Metacall_Callback kdatecombobox_metacall_callback = nullptr;
     KDateComboBox_EventFilter_Callback kdatecombobox_eventfilter_callback = nullptr;
     KDateComboBox_ShowPopup_Callback kdatecombobox_showpopup_callback = nullptr;
@@ -148,6 +152,8 @@ class VirtualKDateComboBox final : public KDateComboBox {
     KDateComboBox_GetDecodedMetricF_Callback kdatecombobox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdatecombobox_metaobject_isbase = false;
+    mutable bool kdatecombobox_metacast_isbase = false;
     mutable bool kdatecombobox_metacall_isbase = false;
     mutable bool kdatecombobox_eventfilter_isbase = false;
     mutable bool kdatecombobox_showpopup_isbase = false;
@@ -217,6 +223,8 @@ class VirtualKDateComboBox final : public KDateComboBox {
     VirtualKDateComboBox() : KDateComboBox() {};
 
     ~VirtualKDateComboBox() {
+        kdatecombobox_metaobject_callback = nullptr;
+        kdatecombobox_metacast_callback = nullptr;
         kdatecombobox_metacall_callback = nullptr;
         kdatecombobox_eventfilter_callback = nullptr;
         kdatecombobox_showpopup_callback = nullptr;
@@ -283,6 +291,8 @@ class VirtualKDateComboBox final : public KDateComboBox {
     }
 
     // Callback setters
+    inline void setKDateComboBox_MetaObject_Callback(KDateComboBox_MetaObject_Callback cb) { kdatecombobox_metaobject_callback = cb; }
+    inline void setKDateComboBox_Metacast_Callback(KDateComboBox_Metacast_Callback cb) { kdatecombobox_metacast_callback = cb; }
     inline void setKDateComboBox_Metacall_Callback(KDateComboBox_Metacall_Callback cb) { kdatecombobox_metacall_callback = cb; }
     inline void setKDateComboBox_EventFilter_Callback(KDateComboBox_EventFilter_Callback cb) { kdatecombobox_eventfilter_callback = cb; }
     inline void setKDateComboBox_ShowPopup_Callback(KDateComboBox_ShowPopup_Callback cb) { kdatecombobox_showpopup_callback = cb; }
@@ -348,6 +358,8 @@ class VirtualKDateComboBox final : public KDateComboBox {
     inline void setKDateComboBox_GetDecodedMetricF_Callback(KDateComboBox_GetDecodedMetricF_Callback cb) { kdatecombobox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKDateComboBox_MetaObject_IsBase(bool value) const { kdatecombobox_metaobject_isbase = value; }
+    inline void setKDateComboBox_Metacast_IsBase(bool value) const { kdatecombobox_metacast_isbase = value; }
     inline void setKDateComboBox_Metacall_IsBase(bool value) const { kdatecombobox_metacall_isbase = value; }
     inline void setKDateComboBox_EventFilter_IsBase(bool value) const { kdatecombobox_eventfilter_isbase = value; }
     inline void setKDateComboBox_ShowPopup_IsBase(bool value) const { kdatecombobox_showpopup_isbase = value; }
@@ -411,6 +423,34 @@ class VirtualKDateComboBox final : public KDateComboBox {
     inline void setKDateComboBox_Receivers_IsBase(bool value) const { kdatecombobox_receivers_isbase = value; }
     inline void setKDateComboBox_IsSignalConnected_IsBase(bool value) const { kdatecombobox_issignalconnected_isbase = value; }
     inline void setKDateComboBox_GetDecodedMetricF_IsBase(bool value) const { kdatecombobox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdatecombobox_metaobject_isbase) {
+            kdatecombobox_metaobject_isbase = false;
+            return KDateComboBox::metaObject();
+        } else if (kdatecombobox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdatecombobox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDateComboBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdatecombobox_metacast_isbase) {
+            kdatecombobox_metacast_isbase = false;
+            return KDateComboBox::qt_metacast(param1);
+        } else if (kdatecombobox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdatecombobox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDateComboBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

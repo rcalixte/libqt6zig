@@ -17,6 +17,8 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
     bool isVirtualKDescendantsProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using KDescendantsProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using KDescendantsProxyModel_Metacast_Callback = void* (*)(KDescendantsProxyModel*, const char*);
     using KDescendantsProxyModel_Metacall_Callback = int (*)(KDescendantsProxyModel*, int, int, void**);
     using KDescendantsProxyModel_SetSourceModel_Callback = void (*)(KDescendantsProxyModel*, QAbstractItemModel*);
     using KDescendantsProxyModel_MapFromSource_Callback = QModelIndex* (*)(const KDescendantsProxyModel*, QModelIndex*);
@@ -95,6 +97,8 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
 
   protected:
     // Instance callback storage
+    KDescendantsProxyModel_MetaObject_Callback kdescendantsproxymodel_metaobject_callback = nullptr;
+    KDescendantsProxyModel_Metacast_Callback kdescendantsproxymodel_metacast_callback = nullptr;
     KDescendantsProxyModel_Metacall_Callback kdescendantsproxymodel_metacall_callback = nullptr;
     KDescendantsProxyModel_SetSourceModel_Callback kdescendantsproxymodel_setsourcemodel_callback = nullptr;
     KDescendantsProxyModel_MapFromSource_Callback kdescendantsproxymodel_mapfromsource_callback = nullptr;
@@ -172,6 +176,8 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
     KDescendantsProxyModel_IsSignalConnected_Callback kdescendantsproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdescendantsproxymodel_metaobject_isbase = false;
+    mutable bool kdescendantsproxymodel_metacast_isbase = false;
     mutable bool kdescendantsproxymodel_metacall_isbase = false;
     mutable bool kdescendantsproxymodel_setsourcemodel_isbase = false;
     mutable bool kdescendantsproxymodel_mapfromsource_isbase = false;
@@ -253,6 +259,8 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
     VirtualKDescendantsProxyModel(QObject* parent) : KDescendantsProxyModel(parent) {};
 
     ~VirtualKDescendantsProxyModel() {
+        kdescendantsproxymodel_metaobject_callback = nullptr;
+        kdescendantsproxymodel_metacast_callback = nullptr;
         kdescendantsproxymodel_metacall_callback = nullptr;
         kdescendantsproxymodel_setsourcemodel_callback = nullptr;
         kdescendantsproxymodel_mapfromsource_callback = nullptr;
@@ -331,6 +339,8 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
     }
 
     // Callback setters
+    inline void setKDescendantsProxyModel_MetaObject_Callback(KDescendantsProxyModel_MetaObject_Callback cb) { kdescendantsproxymodel_metaobject_callback = cb; }
+    inline void setKDescendantsProxyModel_Metacast_Callback(KDescendantsProxyModel_Metacast_Callback cb) { kdescendantsproxymodel_metacast_callback = cb; }
     inline void setKDescendantsProxyModel_Metacall_Callback(KDescendantsProxyModel_Metacall_Callback cb) { kdescendantsproxymodel_metacall_callback = cb; }
     inline void setKDescendantsProxyModel_SetSourceModel_Callback(KDescendantsProxyModel_SetSourceModel_Callback cb) { kdescendantsproxymodel_setsourcemodel_callback = cb; }
     inline void setKDescendantsProxyModel_MapFromSource_Callback(KDescendantsProxyModel_MapFromSource_Callback cb) { kdescendantsproxymodel_mapfromsource_callback = cb; }
@@ -408,6 +418,8 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
     inline void setKDescendantsProxyModel_IsSignalConnected_Callback(KDescendantsProxyModel_IsSignalConnected_Callback cb) { kdescendantsproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKDescendantsProxyModel_MetaObject_IsBase(bool value) const { kdescendantsproxymodel_metaobject_isbase = value; }
+    inline void setKDescendantsProxyModel_Metacast_IsBase(bool value) const { kdescendantsproxymodel_metacast_isbase = value; }
     inline void setKDescendantsProxyModel_Metacall_IsBase(bool value) const { kdescendantsproxymodel_metacall_isbase = value; }
     inline void setKDescendantsProxyModel_SetSourceModel_IsBase(bool value) const { kdescendantsproxymodel_setsourcemodel_isbase = value; }
     inline void setKDescendantsProxyModel_MapFromSource_IsBase(bool value) const { kdescendantsproxymodel_mapfromsource_isbase = value; }
@@ -483,6 +495,34 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
     inline void setKDescendantsProxyModel_SenderSignalIndex_IsBase(bool value) const { kdescendantsproxymodel_sendersignalindex_isbase = value; }
     inline void setKDescendantsProxyModel_Receivers_IsBase(bool value) const { kdescendantsproxymodel_receivers_isbase = value; }
     inline void setKDescendantsProxyModel_IsSignalConnected_IsBase(bool value) const { kdescendantsproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdescendantsproxymodel_metaobject_isbase) {
+            kdescendantsproxymodel_metaobject_isbase = false;
+            return KDescendantsProxyModel::metaObject();
+        } else if (kdescendantsproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdescendantsproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDescendantsProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdescendantsproxymodel_metacast_isbase) {
+            kdescendantsproxymodel_metacast_isbase = false;
+            return KDescendantsProxyModel::qt_metacast(param1);
+        } else if (kdescendantsproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdescendantsproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDescendantsProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -21,11 +21,21 @@ KSyntaxHighlighting__Repository* KSyntaxHighlighting__Repository_new() {
 }
 
 QMetaObject* KSyntaxHighlighting__Repository_MetaObject(const KSyntaxHighlighting__Repository* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vksyntaxhighlighting__repository = dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self);
+    if (vksyntaxhighlighting__repository && vksyntaxhighlighting__repository->isVirtualKSyntaxHighlightingRepository) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSyntaxHighlightingRepository*)self)->metaObject();
+    }
 }
 
 void* KSyntaxHighlighting__Repository_Metacast(KSyntaxHighlighting__Repository* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vksyntaxhighlighting__repository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
+    if (vksyntaxhighlighting__repository && vksyntaxhighlighting__repository->isVirtualKSyntaxHighlightingRepository) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSyntaxHighlightingRepository*)self)->qt_metacast(param1);
+    }
 }
 
 int KSyntaxHighlighting__Repository_Metacall(KSyntaxHighlighting__Repository* self, int param1, int param2, void** param3) {
@@ -173,6 +183,44 @@ void KSyntaxHighlighting__Repository_Connect_Reloaded(KSyntaxHighlighting__Repos
 
 KSyntaxHighlighting__Theme* KSyntaxHighlighting__Repository_DefaultTheme1(const KSyntaxHighlighting__Repository* self, int t) {
     return new KSyntaxHighlighting::Theme(self->defaultTheme(static_cast<KSyntaxHighlighting::Repository::DefaultTheme>(t)));
+}
+
+// Base class handler implementation
+QMetaObject* KSyntaxHighlighting__Repository_QBaseMetaObject(const KSyntaxHighlighting__Repository* self) {
+    auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+        vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_MetaObject_IsBase(true);
+        return (QMetaObject*)vksyntaxhighlightingrepository->metaObject();
+    } else {
+        return (QMetaObject*)self->KSyntaxHighlighting::Repository::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSyntaxHighlighting__Repository_OnMetaObject(const KSyntaxHighlighting__Repository* self, intptr_t slot) {
+    auto* vksyntaxhighlightingrepository = const_cast<VirtualKSyntaxHighlightingRepository*>(dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self));
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+        vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_MetaObject_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSyntaxHighlighting__Repository_QBaseMetacast(KSyntaxHighlighting__Repository* self, const char* param1) {
+    auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+        vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Metacast_IsBase(true);
+        return vksyntaxhighlightingrepository->qt_metacast(param1);
+    } else {
+        return self->KSyntaxHighlighting::Repository::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSyntaxHighlighting__Repository_OnMetacast(KSyntaxHighlighting__Repository* self, intptr_t slot) {
+    auto* vksyntaxhighlightingrepository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
+    if (vksyntaxhighlightingrepository && vksyntaxhighlightingrepository->isVirtualKSyntaxHighlightingRepository) {
+        vksyntaxhighlightingrepository->setKSyntaxHighlighting__Repository_Metacast_Callback(reinterpret_cast<VirtualKSyntaxHighlightingRepository::KSyntaxHighlighting__Repository_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

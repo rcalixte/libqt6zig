@@ -65,11 +65,21 @@ KCompletionBox* KCompletionBox_new2() {
 }
 
 QMetaObject* KCompletionBox_MetaObject(const KCompletionBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcompletionbox = dynamic_cast<const VirtualKCompletionBox*>(self);
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCompletionBox*)self)->metaObject();
+    }
 }
 
 void* KCompletionBox_Metacast(KCompletionBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCompletionBox*)self)->qt_metacast(param1);
+    }
 }
 
 int KCompletionBox_Metacall(KCompletionBox* self, int param1, int param2, void** param3) {
@@ -280,6 +290,44 @@ void KCompletionBox_InsertItems2(KCompletionBox* self, const libqt_list /* of li
         items_QList.push_back(items_arr_i_QString);
     }
     self->insertItems(items_QList, static_cast<int>(index));
+}
+
+// Base class handler implementation
+QMetaObject* KCompletionBox_QBaseMetaObject(const KCompletionBox* self) {
+    auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+        vkcompletionbox->setKCompletionBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcompletionbox->metaObject();
+    } else {
+        return (QMetaObject*)self->KCompletionBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCompletionBox_OnMetaObject(const KCompletionBox* self, intptr_t slot) {
+    auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+        vkcompletionbox->setKCompletionBox_MetaObject_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCompletionBox_QBaseMetacast(KCompletionBox* self, const char* param1) {
+    auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+        vkcompletionbox->setKCompletionBox_Metacast_IsBase(true);
+        return vkcompletionbox->qt_metacast(param1);
+    } else {
+        return self->KCompletionBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCompletionBox_OnMetacast(KCompletionBox* self, intptr_t slot) {
+    auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+        vkcompletionbox->setKCompletionBox_Metacast_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

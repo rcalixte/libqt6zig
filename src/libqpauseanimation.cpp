@@ -30,11 +30,21 @@ QPauseAnimation* QPauseAnimation_new4(int msecs, QObject* parent) {
 }
 
 QMetaObject* QPauseAnimation_MetaObject(const QPauseAnimation* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpauseanimation = dynamic_cast<const VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPauseAnimation*)self)->metaObject();
+    }
 }
 
 void* QPauseAnimation_Metacast(QPauseAnimation* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPauseAnimation*)self)->qt_metacast(param1);
+    }
 }
 
 int QPauseAnimation_Metacall(QPauseAnimation* self, int param1, int param2, void** param3) {
@@ -71,6 +81,44 @@ void QPauseAnimation_UpdateCurrentTime(QPauseAnimation* self, int param1) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
     if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
         vqpauseanimation->updateCurrentTime(static_cast<int>(param1));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QPauseAnimation_QBaseMetaObject(const QPauseAnimation* self) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+        vqpauseanimation->setQPauseAnimation_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpauseanimation->metaObject();
+    } else {
+        return (QMetaObject*)self->QPauseAnimation::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPauseAnimation_OnMetaObject(const QPauseAnimation* self, intptr_t slot) {
+    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+        vqpauseanimation->setQPauseAnimation_MetaObject_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPauseAnimation_QBaseMetacast(QPauseAnimation* self, const char* param1) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+        vqpauseanimation->setQPauseAnimation_Metacast_IsBase(true);
+        return vqpauseanimation->qt_metacast(param1);
+    } else {
+        return self->QPauseAnimation::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPauseAnimation_OnMetacast(QPauseAnimation* self, intptr_t slot) {
+    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
+    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+        vqpauseanimation->setQPauseAnimation_Metacast_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Metacast_Callback>(slot));
     }
 }
 

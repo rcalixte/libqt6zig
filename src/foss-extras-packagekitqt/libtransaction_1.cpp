@@ -21,11 +21,21 @@ PackageKit__Transaction* PackageKit__Transaction_new(const QDBusObjectPath* tid)
 }
 
 QMetaObject* PackageKit__Transaction_MetaObject(const PackageKit__Transaction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vpackagekit__transaction = dynamic_cast<const VirtualPackageKitTransaction*>(self);
+    if (vpackagekit__transaction && vpackagekit__transaction->isVirtualPackageKitTransaction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualPackageKitTransaction*)self)->metaObject();
+    }
 }
 
 void* PackageKit__Transaction_Metacast(PackageKit__Transaction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vpackagekit__transaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
+    if (vpackagekit__transaction && vpackagekit__transaction->isVirtualPackageKitTransaction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualPackageKitTransaction*)self)->qt_metacast(param1);
+    }
 }
 
 int PackageKit__Transaction_Metacall(PackageKit__Transaction* self, int param1, int param2, void** param3) {
@@ -944,6 +954,44 @@ void PackageKit__Transaction_DisconnectNotify(PackageKit__Transaction* self, con
     auto* vpackagekit__transaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
     if (vpackagekit__transaction && vpackagekit__transaction->isVirtualPackageKitTransaction) {
         vpackagekit__transaction->disconnectNotify(*signal);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* PackageKit__Transaction_QBaseMetaObject(const PackageKit__Transaction* self) {
+    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+        vpackagekittransaction->setPackageKit__Transaction_MetaObject_IsBase(true);
+        return (QMetaObject*)vpackagekittransaction->metaObject();
+    } else {
+        return (QMetaObject*)self->PackageKit::Transaction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void PackageKit__Transaction_OnMetaObject(const PackageKit__Transaction* self, intptr_t slot) {
+    auto* vpackagekittransaction = const_cast<VirtualPackageKitTransaction*>(dynamic_cast<const VirtualPackageKitTransaction*>(self));
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+        vpackagekittransaction->setPackageKit__Transaction_MetaObject_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* PackageKit__Transaction_QBaseMetacast(PackageKit__Transaction* self, const char* param1) {
+    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+        vpackagekittransaction->setPackageKit__Transaction_Metacast_IsBase(true);
+        return vpackagekittransaction->qt_metacast(param1);
+    } else {
+        return self->PackageKit::Transaction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void PackageKit__Transaction_OnMetacast(PackageKit__Transaction* self, intptr_t slot) {
+    auto* vpackagekittransaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
+    if (vpackagekittransaction && vpackagekittransaction->isVirtualPackageKitTransaction) {
+        vpackagekittransaction->setPackageKit__Transaction_Metacast_Callback(reinterpret_cast<VirtualPackageKitTransaction::PackageKit__Transaction_Metacast_Callback>(slot));
     }
 }
 

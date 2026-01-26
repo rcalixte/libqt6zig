@@ -17,6 +17,8 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
     bool isVirtualQPieLegendMarker = true;
 
     // Virtual class public types (including callbacks)
+    using QPieLegendMarker_MetaObject_Callback = QMetaObject* (*)();
+    using QPieLegendMarker_Metacast_Callback = void* (*)(QPieLegendMarker*, const char*);
     using QPieLegendMarker_Metacall_Callback = int (*)(QPieLegendMarker*, int, int, void**);
     using QPieLegendMarker_Type_Callback = int (*)();
     using QPieLegendMarker_Series_Callback = QPieSeries* (*)();
@@ -34,6 +36,8 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
   protected:
     // Instance callback storage
+    QPieLegendMarker_MetaObject_Callback qpielegendmarker_metaobject_callback = nullptr;
+    QPieLegendMarker_Metacast_Callback qpielegendmarker_metacast_callback = nullptr;
     QPieLegendMarker_Metacall_Callback qpielegendmarker_metacall_callback = nullptr;
     QPieLegendMarker_Type_Callback qpielegendmarker_type_callback = nullptr;
     QPieLegendMarker_Series_Callback qpielegendmarker_series_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
     QPieLegendMarker_IsSignalConnected_Callback qpielegendmarker_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpielegendmarker_metaobject_isbase = false;
+    mutable bool qpielegendmarker_metacast_isbase = false;
     mutable bool qpielegendmarker_metacall_isbase = false;
     mutable bool qpielegendmarker_type_isbase = false;
     mutable bool qpielegendmarker_series_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
     VirtualQPieLegendMarker(QPieSeries* series, QPieSlice* slice, QLegend* legend, QObject* parent) : QPieLegendMarker(series, slice, legend, parent) {};
 
     ~VirtualQPieLegendMarker() {
+        qpielegendmarker_metaobject_callback = nullptr;
+        qpielegendmarker_metacast_callback = nullptr;
         qpielegendmarker_metacall_callback = nullptr;
         qpielegendmarker_type_callback = nullptr;
         qpielegendmarker_series_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
     }
 
     // Callback setters
+    inline void setQPieLegendMarker_MetaObject_Callback(QPieLegendMarker_MetaObject_Callback cb) { qpielegendmarker_metaobject_callback = cb; }
+    inline void setQPieLegendMarker_Metacast_Callback(QPieLegendMarker_Metacast_Callback cb) { qpielegendmarker_metacast_callback = cb; }
     inline void setQPieLegendMarker_Metacall_Callback(QPieLegendMarker_Metacall_Callback cb) { qpielegendmarker_metacall_callback = cb; }
     inline void setQPieLegendMarker_Type_Callback(QPieLegendMarker_Type_Callback cb) { qpielegendmarker_type_callback = cb; }
     inline void setQPieLegendMarker_Series_Callback(QPieLegendMarker_Series_Callback cb) { qpielegendmarker_series_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
     inline void setQPieLegendMarker_IsSignalConnected_Callback(QPieLegendMarker_IsSignalConnected_Callback cb) { qpielegendmarker_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPieLegendMarker_MetaObject_IsBase(bool value) const { qpielegendmarker_metaobject_isbase = value; }
+    inline void setQPieLegendMarker_Metacast_IsBase(bool value) const { qpielegendmarker_metacast_isbase = value; }
     inline void setQPieLegendMarker_Metacall_IsBase(bool value) const { qpielegendmarker_metacall_isbase = value; }
     inline void setQPieLegendMarker_Type_IsBase(bool value) const { qpielegendmarker_type_isbase = value; }
     inline void setQPieLegendMarker_Series_IsBase(bool value) const { qpielegendmarker_series_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
     inline void setQPieLegendMarker_SenderSignalIndex_IsBase(bool value) const { qpielegendmarker_sendersignalindex_isbase = value; }
     inline void setQPieLegendMarker_Receivers_IsBase(bool value) const { qpielegendmarker_receivers_isbase = value; }
     inline void setQPieLegendMarker_IsSignalConnected_IsBase(bool value) const { qpielegendmarker_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpielegendmarker_metaobject_isbase) {
+            qpielegendmarker_metaobject_isbase = false;
+            return QPieLegendMarker::metaObject();
+        } else if (qpielegendmarker_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpielegendmarker_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPieLegendMarker::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpielegendmarker_metacast_isbase) {
+            qpielegendmarker_metacast_isbase = false;
+            return QPieLegendMarker::qt_metacast(param1);
+        } else if (qpielegendmarker_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpielegendmarker_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPieLegendMarker::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

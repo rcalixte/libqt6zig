@@ -25,11 +25,21 @@ KConfigViewStateSaver* KConfigViewStateSaver_new2(QObject* parent) {
 }
 
 QMetaObject* KConfigViewStateSaver_MetaObject(const KConfigViewStateSaver* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkconfigviewstatesaver = dynamic_cast<const VirtualKConfigViewStateSaver*>(self);
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKConfigViewStateSaver*)self)->metaObject();
+    }
 }
 
 void* KConfigViewStateSaver_Metacast(KConfigViewStateSaver* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKConfigViewStateSaver*)self)->qt_metacast(param1);
+    }
 }
 
 int KConfigViewStateSaver_Metacall(KConfigViewStateSaver* self, int param1, int param2, void** param3) {
@@ -47,6 +57,44 @@ void KConfigViewStateSaver_SaveState(KConfigViewStateSaver* self, KConfigGroup* 
 
 void KConfigViewStateSaver_RestoreState(KConfigViewStateSaver* self, const KConfigGroup* configGroup) {
     self->restoreState(*configGroup);
+}
+
+// Base class handler implementation
+QMetaObject* KConfigViewStateSaver_QBaseMetaObject(const KConfigViewStateSaver* self) {
+    auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+        vkconfigviewstatesaver->setKConfigViewStateSaver_MetaObject_IsBase(true);
+        return (QMetaObject*)vkconfigviewstatesaver->metaObject();
+    } else {
+        return (QMetaObject*)self->KConfigViewStateSaver::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigViewStateSaver_OnMetaObject(const KConfigViewStateSaver* self, intptr_t slot) {
+    auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+        vkconfigviewstatesaver->setKConfigViewStateSaver_MetaObject_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KConfigViewStateSaver_QBaseMetacast(KConfigViewStateSaver* self, const char* param1) {
+    auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+        vkconfigviewstatesaver->setKConfigViewStateSaver_Metacast_IsBase(true);
+        return vkconfigviewstatesaver->qt_metacast(param1);
+    } else {
+        return self->KConfigViewStateSaver::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigViewStateSaver_OnMetacast(KConfigViewStateSaver* self, intptr_t slot) {
+    auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+        vkconfigviewstatesaver->setKConfigViewStateSaver_Metacast_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

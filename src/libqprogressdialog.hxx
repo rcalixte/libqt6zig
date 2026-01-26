@@ -17,6 +17,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
     bool isVirtualQProgressDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QProgressDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QProgressDialog_Metacast_Callback = void* (*)(QProgressDialog*, const char*);
     using QProgressDialog_Metacall_Callback = int (*)(QProgressDialog*, int, int, void**);
     using QProgressDialog_SizeHint_Callback = QSize* (*)();
     using QProgressDialog_ResizeEvent_Callback = void (*)(QProgressDialog*, QResizeEvent*);
@@ -85,6 +87,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
   protected:
     // Instance callback storage
+    QProgressDialog_MetaObject_Callback qprogressdialog_metaobject_callback = nullptr;
+    QProgressDialog_Metacast_Callback qprogressdialog_metacast_callback = nullptr;
     QProgressDialog_Metacall_Callback qprogressdialog_metacall_callback = nullptr;
     QProgressDialog_SizeHint_Callback qprogressdialog_sizehint_callback = nullptr;
     QProgressDialog_ResizeEvent_Callback qprogressdialog_resizeevent_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
     QProgressDialog_GetDecodedMetricF_Callback qprogressdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qprogressdialog_metaobject_isbase = false;
+    mutable bool qprogressdialog_metacast_isbase = false;
     mutable bool qprogressdialog_metacall_isbase = false;
     mutable bool qprogressdialog_sizehint_isbase = false;
     mutable bool qprogressdialog_resizeevent_isbase = false;
@@ -227,6 +233,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
     VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum, QWidget* parent, Qt::WindowFlags flags) : QProgressDialog(labelText, cancelButtonText, minimum, maximum, parent, flags) {};
 
     ~VirtualQProgressDialog() {
+        qprogressdialog_metaobject_callback = nullptr;
+        qprogressdialog_metacast_callback = nullptr;
         qprogressdialog_metacall_callback = nullptr;
         qprogressdialog_sizehint_callback = nullptr;
         qprogressdialog_resizeevent_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
     }
 
     // Callback setters
+    inline void setQProgressDialog_MetaObject_Callback(QProgressDialog_MetaObject_Callback cb) { qprogressdialog_metaobject_callback = cb; }
+    inline void setQProgressDialog_Metacast_Callback(QProgressDialog_Metacast_Callback cb) { qprogressdialog_metacast_callback = cb; }
     inline void setQProgressDialog_Metacall_Callback(QProgressDialog_Metacall_Callback cb) { qprogressdialog_metacall_callback = cb; }
     inline void setQProgressDialog_SizeHint_Callback(QProgressDialog_SizeHint_Callback cb) { qprogressdialog_sizehint_callback = cb; }
     inline void setQProgressDialog_ResizeEvent_Callback(QProgressDialog_ResizeEvent_Callback cb) { qprogressdialog_resizeevent_callback = cb; }
@@ -362,6 +372,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
     inline void setQProgressDialog_GetDecodedMetricF_Callback(QProgressDialog_GetDecodedMetricF_Callback cb) { qprogressdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQProgressDialog_MetaObject_IsBase(bool value) const { qprogressdialog_metaobject_isbase = value; }
+    inline void setQProgressDialog_Metacast_IsBase(bool value) const { qprogressdialog_metacast_isbase = value; }
     inline void setQProgressDialog_Metacall_IsBase(bool value) const { qprogressdialog_metacall_isbase = value; }
     inline void setQProgressDialog_SizeHint_IsBase(bool value) const { qprogressdialog_sizehint_isbase = value; }
     inline void setQProgressDialog_ResizeEvent_IsBase(bool value) const { qprogressdialog_resizeevent_isbase = value; }
@@ -427,6 +439,34 @@ class VirtualQProgressDialog final : public QProgressDialog {
     inline void setQProgressDialog_Receivers_IsBase(bool value) const { qprogressdialog_receivers_isbase = value; }
     inline void setQProgressDialog_IsSignalConnected_IsBase(bool value) const { qprogressdialog_issignalconnected_isbase = value; }
     inline void setQProgressDialog_GetDecodedMetricF_IsBase(bool value) const { qprogressdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qprogressdialog_metaobject_isbase) {
+            qprogressdialog_metaobject_isbase = false;
+            return QProgressDialog::metaObject();
+        } else if (qprogressdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qprogressdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QProgressDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qprogressdialog_metacast_isbase) {
+            qprogressdialog_metacast_isbase = false;
+            return QProgressDialog::qt_metacast(param1);
+        } else if (qprogressdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qprogressdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QProgressDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

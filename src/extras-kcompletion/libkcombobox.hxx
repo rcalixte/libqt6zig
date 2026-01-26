@@ -17,6 +17,8 @@ class VirtualKComboBox final : public KComboBox {
     bool isVirtualKComboBox = true;
 
     // Virtual class public types (including callbacks)
+    using KComboBox_MetaObject_Callback = QMetaObject* (*)();
+    using KComboBox_Metacast_Callback = void* (*)(KComboBox*, const char*);
     using KComboBox_Metacall_Callback = int (*)(KComboBox*, int, int, void**);
     using KComboBox_SetAutoCompletion_Callback = void (*)(KComboBox*, bool);
     using KComboBox_SetLineEdit_Callback = void (*)(KComboBox*, QLineEdit*);
@@ -96,6 +98,8 @@ class VirtualKComboBox final : public KComboBox {
 
   protected:
     // Instance callback storage
+    KComboBox_MetaObject_Callback kcombobox_metaobject_callback = nullptr;
+    KComboBox_Metacast_Callback kcombobox_metacast_callback = nullptr;
     KComboBox_Metacall_Callback kcombobox_metacall_callback = nullptr;
     KComboBox_SetAutoCompletion_Callback kcombobox_setautocompletion_callback = nullptr;
     KComboBox_SetLineEdit_Callback kcombobox_setlineedit_callback = nullptr;
@@ -174,6 +178,8 @@ class VirtualKComboBox final : public KComboBox {
     KComboBox_Delegate_Callback kcombobox_delegate_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcombobox_metaobject_isbase = false;
+    mutable bool kcombobox_metacast_isbase = false;
     mutable bool kcombobox_metacall_isbase = false;
     mutable bool kcombobox_setautocompletion_isbase = false;
     mutable bool kcombobox_setlineedit_isbase = false;
@@ -258,6 +264,8 @@ class VirtualKComboBox final : public KComboBox {
     VirtualKComboBox(bool rw, QWidget* parent) : KComboBox(rw, parent) {};
 
     ~VirtualKComboBox() {
+        kcombobox_metaobject_callback = nullptr;
+        kcombobox_metacast_callback = nullptr;
         kcombobox_metacall_callback = nullptr;
         kcombobox_setautocompletion_callback = nullptr;
         kcombobox_setlineedit_callback = nullptr;
@@ -337,6 +345,8 @@ class VirtualKComboBox final : public KComboBox {
     }
 
     // Callback setters
+    inline void setKComboBox_MetaObject_Callback(KComboBox_MetaObject_Callback cb) { kcombobox_metaobject_callback = cb; }
+    inline void setKComboBox_Metacast_Callback(KComboBox_Metacast_Callback cb) { kcombobox_metacast_callback = cb; }
     inline void setKComboBox_Metacall_Callback(KComboBox_Metacall_Callback cb) { kcombobox_metacall_callback = cb; }
     inline void setKComboBox_SetAutoCompletion_Callback(KComboBox_SetAutoCompletion_Callback cb) { kcombobox_setautocompletion_callback = cb; }
     inline void setKComboBox_SetLineEdit_Callback(KComboBox_SetLineEdit_Callback cb) { kcombobox_setlineedit_callback = cb; }
@@ -415,6 +425,8 @@ class VirtualKComboBox final : public KComboBox {
     inline void setKComboBox_Delegate_Callback(KComboBox_Delegate_Callback cb) { kcombobox_delegate_callback = cb; }
 
     // Base flag setters
+    inline void setKComboBox_MetaObject_IsBase(bool value) const { kcombobox_metaobject_isbase = value; }
+    inline void setKComboBox_Metacast_IsBase(bool value) const { kcombobox_metacast_isbase = value; }
     inline void setKComboBox_Metacall_IsBase(bool value) const { kcombobox_metacall_isbase = value; }
     inline void setKComboBox_SetAutoCompletion_IsBase(bool value) const { kcombobox_setautocompletion_isbase = value; }
     inline void setKComboBox_SetLineEdit_IsBase(bool value) const { kcombobox_setlineedit_isbase = value; }
@@ -491,6 +503,34 @@ class VirtualKComboBox final : public KComboBox {
     inline void setKComboBox_SetKeyBindingMap_IsBase(bool value) const { kcombobox_setkeybindingmap_isbase = value; }
     inline void setKComboBox_SetDelegate_IsBase(bool value) const { kcombobox_setdelegate_isbase = value; }
     inline void setKComboBox_Delegate_IsBase(bool value) const { kcombobox_delegate_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcombobox_metaobject_isbase) {
+            kcombobox_metaobject_isbase = false;
+            return KComboBox::metaObject();
+        } else if (kcombobox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcombobox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KComboBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcombobox_metacast_isbase) {
+            kcombobox_metacast_isbase = false;
+            return KComboBox::qt_metacast(param1);
+        } else if (kcombobox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcombobox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KComboBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

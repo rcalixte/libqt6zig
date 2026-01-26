@@ -55,11 +55,21 @@ QPolarChart* QPolarChart_new3(QGraphicsItem* parent, int wFlags) {
 }
 
 QMetaObject* QPolarChart_MetaObject(const QPolarChart* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpolarchart = dynamic_cast<const VirtualQPolarChart*>(self);
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPolarChart*)self)->metaObject();
+    }
 }
 
 void* QPolarChart_Metacast(QPolarChart* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPolarChart*)self)->qt_metacast(param1);
+    }
 }
 
 int QPolarChart_Metacall(QPolarChart* self, int param1, int param2, void** param3) {
@@ -116,6 +126,44 @@ libqt_list /* of QAbstractAxis* */ QPolarChart_Axes2(const QPolarChart* self, in
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+QMetaObject* QPolarChart_QBaseMetaObject(const QPolarChart* self) {
+    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+        vqpolarchart->setQPolarChart_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpolarchart->metaObject();
+    } else {
+        return (QMetaObject*)self->QPolarChart::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPolarChart_OnMetaObject(const QPolarChart* self, intptr_t slot) {
+    auto* vqpolarchart = const_cast<VirtualQPolarChart*>(dynamic_cast<const VirtualQPolarChart*>(self));
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+        vqpolarchart->setQPolarChart_MetaObject_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPolarChart_QBaseMetacast(QPolarChart* self, const char* param1) {
+    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+        vqpolarchart->setQPolarChart_Metacast_IsBase(true);
+        return vqpolarchart->qt_metacast(param1);
+    } else {
+        return self->QPolarChart::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPolarChart_OnMetacast(QPolarChart* self, intptr_t slot) {
+    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
+    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
+        vqpolarchart->setQPolarChart_Metacast_Callback(reinterpret_cast<VirtualQPolarChart::QPolarChart_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

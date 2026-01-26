@@ -17,6 +17,8 @@ class VirtualKModelIndexProxyMapper final : public KModelIndexProxyMapper {
     bool isVirtualKModelIndexProxyMapper = true;
 
     // Virtual class public types (including callbacks)
+    using KModelIndexProxyMapper_MetaObject_Callback = QMetaObject* (*)();
+    using KModelIndexProxyMapper_Metacast_Callback = void* (*)(KModelIndexProxyMapper*, const char*);
     using KModelIndexProxyMapper_Metacall_Callback = int (*)(KModelIndexProxyMapper*, int, int, void**);
     using KModelIndexProxyMapper_Event_Callback = bool (*)(KModelIndexProxyMapper*, QEvent*);
     using KModelIndexProxyMapper_EventFilter_Callback = bool (*)(KModelIndexProxyMapper*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKModelIndexProxyMapper final : public KModelIndexProxyMapper {
 
   protected:
     // Instance callback storage
+    KModelIndexProxyMapper_MetaObject_Callback kmodelindexproxymapper_metaobject_callback = nullptr;
+    KModelIndexProxyMapper_Metacast_Callback kmodelindexproxymapper_metacast_callback = nullptr;
     KModelIndexProxyMapper_Metacall_Callback kmodelindexproxymapper_metacall_callback = nullptr;
     KModelIndexProxyMapper_Event_Callback kmodelindexproxymapper_event_callback = nullptr;
     KModelIndexProxyMapper_EventFilter_Callback kmodelindexproxymapper_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKModelIndexProxyMapper final : public KModelIndexProxyMapper {
     KModelIndexProxyMapper_IsSignalConnected_Callback kmodelindexproxymapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kmodelindexproxymapper_metaobject_isbase = false;
+    mutable bool kmodelindexproxymapper_metacast_isbase = false;
     mutable bool kmodelindexproxymapper_metacall_isbase = false;
     mutable bool kmodelindexproxymapper_event_isbase = false;
     mutable bool kmodelindexproxymapper_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKModelIndexProxyMapper final : public KModelIndexProxyMapper {
     VirtualKModelIndexProxyMapper(const QAbstractItemModel* leftModel, const QAbstractItemModel* rightModel, QObject* parent) : KModelIndexProxyMapper(leftModel, rightModel, parent) {};
 
     ~VirtualKModelIndexProxyMapper() {
+        kmodelindexproxymapper_metaobject_callback = nullptr;
+        kmodelindexproxymapper_metacast_callback = nullptr;
         kmodelindexproxymapper_metacall_callback = nullptr;
         kmodelindexproxymapper_event_callback = nullptr;
         kmodelindexproxymapper_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKModelIndexProxyMapper final : public KModelIndexProxyMapper {
     }
 
     // Callback setters
+    inline void setKModelIndexProxyMapper_MetaObject_Callback(KModelIndexProxyMapper_MetaObject_Callback cb) { kmodelindexproxymapper_metaobject_callback = cb; }
+    inline void setKModelIndexProxyMapper_Metacast_Callback(KModelIndexProxyMapper_Metacast_Callback cb) { kmodelindexproxymapper_metacast_callback = cb; }
     inline void setKModelIndexProxyMapper_Metacall_Callback(KModelIndexProxyMapper_Metacall_Callback cb) { kmodelindexproxymapper_metacall_callback = cb; }
     inline void setKModelIndexProxyMapper_Event_Callback(KModelIndexProxyMapper_Event_Callback cb) { kmodelindexproxymapper_event_callback = cb; }
     inline void setKModelIndexProxyMapper_EventFilter_Callback(KModelIndexProxyMapper_EventFilter_Callback cb) { kmodelindexproxymapper_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKModelIndexProxyMapper final : public KModelIndexProxyMapper {
     inline void setKModelIndexProxyMapper_IsSignalConnected_Callback(KModelIndexProxyMapper_IsSignalConnected_Callback cb) { kmodelindexproxymapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKModelIndexProxyMapper_MetaObject_IsBase(bool value) const { kmodelindexproxymapper_metaobject_isbase = value; }
+    inline void setKModelIndexProxyMapper_Metacast_IsBase(bool value) const { kmodelindexproxymapper_metacast_isbase = value; }
     inline void setKModelIndexProxyMapper_Metacall_IsBase(bool value) const { kmodelindexproxymapper_metacall_isbase = value; }
     inline void setKModelIndexProxyMapper_Event_IsBase(bool value) const { kmodelindexproxymapper_event_isbase = value; }
     inline void setKModelIndexProxyMapper_EventFilter_IsBase(bool value) const { kmodelindexproxymapper_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKModelIndexProxyMapper final : public KModelIndexProxyMapper {
     inline void setKModelIndexProxyMapper_SenderSignalIndex_IsBase(bool value) const { kmodelindexproxymapper_sendersignalindex_isbase = value; }
     inline void setKModelIndexProxyMapper_Receivers_IsBase(bool value) const { kmodelindexproxymapper_receivers_isbase = value; }
     inline void setKModelIndexProxyMapper_IsSignalConnected_IsBase(bool value) const { kmodelindexproxymapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kmodelindexproxymapper_metaobject_isbase) {
+            kmodelindexproxymapper_metaobject_isbase = false;
+            return KModelIndexProxyMapper::metaObject();
+        } else if (kmodelindexproxymapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kmodelindexproxymapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KModelIndexProxyMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kmodelindexproxymapper_metacast_isbase) {
+            kmodelindexproxymapper_metacast_isbase = false;
+            return KModelIndexProxyMapper::qt_metacast(param1);
+        } else if (kmodelindexproxymapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kmodelindexproxymapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KModelIndexProxyMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

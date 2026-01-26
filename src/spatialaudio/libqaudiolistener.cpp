@@ -3,6 +3,7 @@
 #include <QChildEvent>
 #include <QEvent>
 #include <QMetaMethod>
+#include <QMetaObject>
 #include <QObject>
 #include <QQuaternion>
 #include <QTimerEvent>
@@ -33,6 +34,64 @@ QQuaternion* QAudioListener_Rotation(const QAudioListener* self) {
 
 QAudioEngine* QAudioListener_Engine(const QAudioListener* self) {
     return self->engine();
+}
+
+// Derived class handler implementation
+QMetaObject* QAudioListener_MetaObject(const QAudioListener* self) {
+    auto* vqaudiolistener = const_cast<VirtualQAudioListener*>(dynamic_cast<const VirtualQAudioListener*>(self));
+    if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
+        return (QMetaObject*)vqaudiolistener->metaObject();
+    } else {
+        return (QMetaObject*)self->QAudioListener::metaObject();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QAudioListener_QBaseMetaObject(const QAudioListener* self) {
+    auto* vqaudiolistener = const_cast<VirtualQAudioListener*>(dynamic_cast<const VirtualQAudioListener*>(self));
+    if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
+        vqaudiolistener->setQAudioListener_MetaObject_IsBase(true);
+        return (QMetaObject*)vqaudiolistener->metaObject();
+    } else {
+        return (QMetaObject*)self->QAudioListener::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioListener_OnMetaObject(const QAudioListener* self, intptr_t slot) {
+    auto* vqaudiolistener = const_cast<VirtualQAudioListener*>(dynamic_cast<const VirtualQAudioListener*>(self));
+    if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
+        vqaudiolistener->setQAudioListener_MetaObject_Callback(reinterpret_cast<VirtualQAudioListener::QAudioListener_MetaObject_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void* QAudioListener_Metacast(QAudioListener* self, const char* param1) {
+    auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
+    if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
+        return vqaudiolistener->qt_metacast(param1);
+    } else {
+        return self->QAudioListener::qt_metacast(param1);
+    }
+}
+
+// Base class handler implementation
+void* QAudioListener_QBaseMetacast(QAudioListener* self, const char* param1) {
+    auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
+    if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
+        vqaudiolistener->setQAudioListener_Metacast_IsBase(true);
+        return vqaudiolistener->qt_metacast(param1);
+    } else {
+        return self->QAudioListener::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioListener_OnMetacast(QAudioListener* self, intptr_t slot) {
+    auto* vqaudiolistener = dynamic_cast<VirtualQAudioListener*>(self);
+    if (vqaudiolistener && vqaudiolistener->isVirtualQAudioListener) {
+        vqaudiolistener->setQAudioListener_Metacast_Callback(reinterpret_cast<VirtualQAudioListener::QAudioListener_Metacast_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation

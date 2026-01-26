@@ -17,6 +17,8 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
     bool isVirtualKHamburgerMenu = true;
 
     // Virtual class public types (including callbacks)
+    using KHamburgerMenu_MetaObject_Callback = QMetaObject* (*)();
+    using KHamburgerMenu_Metacast_Callback = void* (*)(KHamburgerMenu*, const char*);
     using KHamburgerMenu_Metacall_Callback = int (*)(KHamburgerMenu*, int, int, void**);
     using KHamburgerMenu_CreateWidget_Callback = QWidget* (*)(KHamburgerMenu*, QWidget*);
     using KHamburgerMenu_Event_Callback = bool (*)(KHamburgerMenu*, QEvent*);
@@ -35,6 +37,8 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
 
   protected:
     // Instance callback storage
+    KHamburgerMenu_MetaObject_Callback khamburgermenu_metaobject_callback = nullptr;
+    KHamburgerMenu_Metacast_Callback khamburgermenu_metacast_callback = nullptr;
     KHamburgerMenu_Metacall_Callback khamburgermenu_metacall_callback = nullptr;
     KHamburgerMenu_CreateWidget_Callback khamburgermenu_createwidget_callback = nullptr;
     KHamburgerMenu_Event_Callback khamburgermenu_event_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
     KHamburgerMenu_IsSignalConnected_Callback khamburgermenu_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool khamburgermenu_metaobject_isbase = false;
+    mutable bool khamburgermenu_metacast_isbase = false;
     mutable bool khamburgermenu_metacall_isbase = false;
     mutable bool khamburgermenu_createwidget_isbase = false;
     mutable bool khamburgermenu_event_isbase = false;
@@ -72,6 +78,8 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
     VirtualKHamburgerMenu(QObject* parent) : KHamburgerMenu(parent) {};
 
     ~VirtualKHamburgerMenu() {
+        khamburgermenu_metaobject_callback = nullptr;
+        khamburgermenu_metacast_callback = nullptr;
         khamburgermenu_metacall_callback = nullptr;
         khamburgermenu_createwidget_callback = nullptr;
         khamburgermenu_event_callback = nullptr;
@@ -90,6 +98,8 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
     }
 
     // Callback setters
+    inline void setKHamburgerMenu_MetaObject_Callback(KHamburgerMenu_MetaObject_Callback cb) { khamburgermenu_metaobject_callback = cb; }
+    inline void setKHamburgerMenu_Metacast_Callback(KHamburgerMenu_Metacast_Callback cb) { khamburgermenu_metacast_callback = cb; }
     inline void setKHamburgerMenu_Metacall_Callback(KHamburgerMenu_Metacall_Callback cb) { khamburgermenu_metacall_callback = cb; }
     inline void setKHamburgerMenu_CreateWidget_Callback(KHamburgerMenu_CreateWidget_Callback cb) { khamburgermenu_createwidget_callback = cb; }
     inline void setKHamburgerMenu_Event_Callback(KHamburgerMenu_Event_Callback cb) { khamburgermenu_event_callback = cb; }
@@ -107,6 +117,8 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
     inline void setKHamburgerMenu_IsSignalConnected_Callback(KHamburgerMenu_IsSignalConnected_Callback cb) { khamburgermenu_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKHamburgerMenu_MetaObject_IsBase(bool value) const { khamburgermenu_metaobject_isbase = value; }
+    inline void setKHamburgerMenu_Metacast_IsBase(bool value) const { khamburgermenu_metacast_isbase = value; }
     inline void setKHamburgerMenu_Metacall_IsBase(bool value) const { khamburgermenu_metacall_isbase = value; }
     inline void setKHamburgerMenu_CreateWidget_IsBase(bool value) const { khamburgermenu_createwidget_isbase = value; }
     inline void setKHamburgerMenu_Event_IsBase(bool value) const { khamburgermenu_event_isbase = value; }
@@ -122,6 +134,34 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
     inline void setKHamburgerMenu_SenderSignalIndex_IsBase(bool value) const { khamburgermenu_sendersignalindex_isbase = value; }
     inline void setKHamburgerMenu_Receivers_IsBase(bool value) const { khamburgermenu_receivers_isbase = value; }
     inline void setKHamburgerMenu_IsSignalConnected_IsBase(bool value) const { khamburgermenu_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (khamburgermenu_metaobject_isbase) {
+            khamburgermenu_metaobject_isbase = false;
+            return KHamburgerMenu::metaObject();
+        } else if (khamburgermenu_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = khamburgermenu_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KHamburgerMenu::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (khamburgermenu_metacast_isbase) {
+            khamburgermenu_metacast_isbase = false;
+            return KHamburgerMenu::qt_metacast(param1);
+        } else if (khamburgermenu_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = khamburgermenu_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KHamburgerMenu::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

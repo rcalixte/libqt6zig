@@ -17,6 +17,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
     bool isVirtualKCapacityBar = true;
 
     // Virtual class public types (including callbacks)
+    using KCapacityBar_MetaObject_Callback = QMetaObject* (*)();
+    using KCapacityBar_Metacast_Callback = void* (*)(KCapacityBar*, const char*);
     using KCapacityBar_Metacall_Callback = int (*)(KCapacityBar*, int, int, void**);
     using KCapacityBar_MinimumSizeHint_Callback = QSize* (*)();
     using KCapacityBar_PaintEvent_Callback = void (*)(KCapacityBar*, QPaintEvent*);
@@ -78,6 +80,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
 
   protected:
     // Instance callback storage
+    KCapacityBar_MetaObject_Callback kcapacitybar_metaobject_callback = nullptr;
+    KCapacityBar_Metacast_Callback kcapacitybar_metacast_callback = nullptr;
     KCapacityBar_Metacall_Callback kcapacitybar_metacall_callback = nullptr;
     KCapacityBar_MinimumSizeHint_Callback kcapacitybar_minimumsizehint_callback = nullptr;
     KCapacityBar_PaintEvent_Callback kcapacitybar_paintevent_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
     KCapacityBar_GetDecodedMetricF_Callback kcapacitybar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcapacitybar_metaobject_isbase = false;
+    mutable bool kcapacitybar_metacast_isbase = false;
     mutable bool kcapacitybar_metacall_isbase = false;
     mutable bool kcapacitybar_minimumsizehint_isbase = false;
     mutable bool kcapacitybar_paintevent_isbase = false;
@@ -204,6 +210,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
     VirtualKCapacityBar(KCapacityBar::DrawTextMode drawTextMode, QWidget* parent) : KCapacityBar(drawTextMode, parent) {};
 
     ~VirtualKCapacityBar() {
+        kcapacitybar_metaobject_callback = nullptr;
+        kcapacitybar_metacast_callback = nullptr;
         kcapacitybar_metacall_callback = nullptr;
         kcapacitybar_minimumsizehint_callback = nullptr;
         kcapacitybar_paintevent_callback = nullptr;
@@ -265,6 +273,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
     }
 
     // Callback setters
+    inline void setKCapacityBar_MetaObject_Callback(KCapacityBar_MetaObject_Callback cb) { kcapacitybar_metaobject_callback = cb; }
+    inline void setKCapacityBar_Metacast_Callback(KCapacityBar_Metacast_Callback cb) { kcapacitybar_metacast_callback = cb; }
     inline void setKCapacityBar_Metacall_Callback(KCapacityBar_Metacall_Callback cb) { kcapacitybar_metacall_callback = cb; }
     inline void setKCapacityBar_MinimumSizeHint_Callback(KCapacityBar_MinimumSizeHint_Callback cb) { kcapacitybar_minimumsizehint_callback = cb; }
     inline void setKCapacityBar_PaintEvent_Callback(KCapacityBar_PaintEvent_Callback cb) { kcapacitybar_paintevent_callback = cb; }
@@ -325,6 +335,8 @@ class VirtualKCapacityBar final : public KCapacityBar {
     inline void setKCapacityBar_GetDecodedMetricF_Callback(KCapacityBar_GetDecodedMetricF_Callback cb) { kcapacitybar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKCapacityBar_MetaObject_IsBase(bool value) const { kcapacitybar_metaobject_isbase = value; }
+    inline void setKCapacityBar_Metacast_IsBase(bool value) const { kcapacitybar_metacast_isbase = value; }
     inline void setKCapacityBar_Metacall_IsBase(bool value) const { kcapacitybar_metacall_isbase = value; }
     inline void setKCapacityBar_MinimumSizeHint_IsBase(bool value) const { kcapacitybar_minimumsizehint_isbase = value; }
     inline void setKCapacityBar_PaintEvent_IsBase(bool value) const { kcapacitybar_paintevent_isbase = value; }
@@ -383,6 +395,34 @@ class VirtualKCapacityBar final : public KCapacityBar {
     inline void setKCapacityBar_Receivers_IsBase(bool value) const { kcapacitybar_receivers_isbase = value; }
     inline void setKCapacityBar_IsSignalConnected_IsBase(bool value) const { kcapacitybar_issignalconnected_isbase = value; }
     inline void setKCapacityBar_GetDecodedMetricF_IsBase(bool value) const { kcapacitybar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcapacitybar_metaobject_isbase) {
+            kcapacitybar_metaobject_isbase = false;
+            return KCapacityBar::metaObject();
+        } else if (kcapacitybar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcapacitybar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCapacityBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcapacitybar_metacast_isbase) {
+            kcapacitybar_metacast_isbase = false;
+            return KCapacityBar::qt_metacast(param1);
+        } else if (kcapacitybar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcapacitybar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCapacityBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

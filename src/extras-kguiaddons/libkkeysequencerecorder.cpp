@@ -23,11 +23,21 @@ KKeySequenceRecorder* KKeySequenceRecorder_new2(QWindow* window, QObject* parent
 }
 
 QMetaObject* KKeySequenceRecorder_MetaObject(const KKeySequenceRecorder* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkkeysequencerecorder = dynamic_cast<const VirtualKKeySequenceRecorder*>(self);
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKKeySequenceRecorder*)self)->metaObject();
+    }
 }
 
 void* KKeySequenceRecorder_Metacast(KKeySequenceRecorder* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKKeySequenceRecorder*)self)->qt_metacast(param1);
+    }
 }
 
 int KKeySequenceRecorder_Metacall(KKeySequenceRecorder* self, int param1, int param2, void** param3) {
@@ -188,6 +198,44 @@ void KKeySequenceRecorder_Connect_PatternsChanged(KKeySequenceRecorder* self, in
     KKeySequenceRecorder::connect(self, &KKeySequenceRecorder::patternsChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KKeySequenceRecorder_QBaseMetaObject(const KKeySequenceRecorder* self) {
+    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+        vkkeysequencerecorder->setKKeySequenceRecorder_MetaObject_IsBase(true);
+        return (QMetaObject*)vkkeysequencerecorder->metaObject();
+    } else {
+        return (QMetaObject*)self->KKeySequenceRecorder::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KKeySequenceRecorder_OnMetaObject(const KKeySequenceRecorder* self, intptr_t slot) {
+    auto* vkkeysequencerecorder = const_cast<VirtualKKeySequenceRecorder*>(dynamic_cast<const VirtualKKeySequenceRecorder*>(self));
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+        vkkeysequencerecorder->setKKeySequenceRecorder_MetaObject_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KKeySequenceRecorder_QBaseMetacast(KKeySequenceRecorder* self, const char* param1) {
+    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+        vkkeysequencerecorder->setKKeySequenceRecorder_Metacast_IsBase(true);
+        return vkkeysequencerecorder->qt_metacast(param1);
+    } else {
+        return self->KKeySequenceRecorder::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KKeySequenceRecorder_OnMetacast(KKeySequenceRecorder* self, intptr_t slot) {
+    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
+    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
+        vkkeysequencerecorder->setKKeySequenceRecorder_Metacast_Callback(reinterpret_cast<VirtualKKeySequenceRecorder::KKeySequenceRecorder_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

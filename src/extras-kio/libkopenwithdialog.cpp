@@ -133,11 +133,21 @@ KOpenWithDialog* KOpenWithDialog_new10(const libqt_list /* of QUrl* */ urls, con
 }
 
 QMetaObject* KOpenWithDialog_MetaObject(const KOpenWithDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkopenwithdialog = dynamic_cast<const VirtualKOpenWithDialog*>(self);
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKOpenWithDialog*)self)->metaObject();
+    }
 }
 
 void* KOpenWithDialog_Metacast(KOpenWithDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKOpenWithDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KOpenWithDialog_Metacall(KOpenWithDialog* self, int param1, int param2, void** param3) {
@@ -197,6 +207,44 @@ void KOpenWithDialog_Accept(KOpenWithDialog* self) {
     auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
     if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
         vkopenwithdialog->accept();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KOpenWithDialog_QBaseMetaObject(const KOpenWithDialog* self) {
+    auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+        vkopenwithdialog->setKOpenWithDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkopenwithdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KOpenWithDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KOpenWithDialog_OnMetaObject(const KOpenWithDialog* self, intptr_t slot) {
+    auto* vkopenwithdialog = const_cast<VirtualKOpenWithDialog*>(dynamic_cast<const VirtualKOpenWithDialog*>(self));
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+        vkopenwithdialog->setKOpenWithDialog_MetaObject_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KOpenWithDialog_QBaseMetacast(KOpenWithDialog* self, const char* param1) {
+    auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+        vkopenwithdialog->setKOpenWithDialog_Metacast_IsBase(true);
+        return vkopenwithdialog->qt_metacast(param1);
+    } else {
+        return self->KOpenWithDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KOpenWithDialog_OnMetacast(KOpenWithDialog* self, intptr_t slot) {
+    auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
+    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
+        vkopenwithdialog->setKOpenWithDialog_Metacast_Callback(reinterpret_cast<VirtualKOpenWithDialog::KOpenWithDialog_Metacast_Callback>(slot));
     }
 }
 

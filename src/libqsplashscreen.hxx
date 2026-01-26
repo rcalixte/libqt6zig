@@ -17,6 +17,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
     bool isVirtualQSplashScreen = true;
 
     // Virtual class public types (including callbacks)
+    using QSplashScreen_MetaObject_Callback = QMetaObject* (*)();
+    using QSplashScreen_Metacast_Callback = void* (*)(QSplashScreen*, const char*);
     using QSplashScreen_Metacall_Callback = int (*)(QSplashScreen*, int, int, void**);
     using QSplashScreen_Event_Callback = bool (*)(QSplashScreen*, QEvent*);
     using QSplashScreen_DrawContents_Callback = void (*)(QSplashScreen*, QPainter*);
@@ -79,6 +81,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
 
   protected:
     // Instance callback storage
+    QSplashScreen_MetaObject_Callback qsplashscreen_metaobject_callback = nullptr;
+    QSplashScreen_Metacast_Callback qsplashscreen_metacast_callback = nullptr;
     QSplashScreen_Metacall_Callback qsplashscreen_metacall_callback = nullptr;
     QSplashScreen_Event_Callback qsplashscreen_event_callback = nullptr;
     QSplashScreen_DrawContents_Callback qsplashscreen_drawcontents_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
     QSplashScreen_GetDecodedMetricF_Callback qsplashscreen_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsplashscreen_metaobject_isbase = false;
+    mutable bool qsplashscreen_metacast_isbase = false;
     mutable bool qsplashscreen_metacall_isbase = false;
     mutable bool qsplashscreen_event_isbase = false;
     mutable bool qsplashscreen_drawcontents_isbase = false;
@@ -209,6 +215,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
     VirtualQSplashScreen(QScreen* screen, const QPixmap& pixmap, Qt::WindowFlags f) : QSplashScreen(screen, pixmap, f) {};
 
     ~VirtualQSplashScreen() {
+        qsplashscreen_metaobject_callback = nullptr;
+        qsplashscreen_metacast_callback = nullptr;
         qsplashscreen_metacall_callback = nullptr;
         qsplashscreen_event_callback = nullptr;
         qsplashscreen_drawcontents_callback = nullptr;
@@ -271,6 +279,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
     }
 
     // Callback setters
+    inline void setQSplashScreen_MetaObject_Callback(QSplashScreen_MetaObject_Callback cb) { qsplashscreen_metaobject_callback = cb; }
+    inline void setQSplashScreen_Metacast_Callback(QSplashScreen_Metacast_Callback cb) { qsplashscreen_metacast_callback = cb; }
     inline void setQSplashScreen_Metacall_Callback(QSplashScreen_Metacall_Callback cb) { qsplashscreen_metacall_callback = cb; }
     inline void setQSplashScreen_Event_Callback(QSplashScreen_Event_Callback cb) { qsplashscreen_event_callback = cb; }
     inline void setQSplashScreen_DrawContents_Callback(QSplashScreen_DrawContents_Callback cb) { qsplashscreen_drawcontents_callback = cb; }
@@ -332,6 +342,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
     inline void setQSplashScreen_GetDecodedMetricF_Callback(QSplashScreen_GetDecodedMetricF_Callback cb) { qsplashscreen_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQSplashScreen_MetaObject_IsBase(bool value) const { qsplashscreen_metaobject_isbase = value; }
+    inline void setQSplashScreen_Metacast_IsBase(bool value) const { qsplashscreen_metacast_isbase = value; }
     inline void setQSplashScreen_Metacall_IsBase(bool value) const { qsplashscreen_metacall_isbase = value; }
     inline void setQSplashScreen_Event_IsBase(bool value) const { qsplashscreen_event_isbase = value; }
     inline void setQSplashScreen_DrawContents_IsBase(bool value) const { qsplashscreen_drawcontents_isbase = value; }
@@ -391,6 +403,34 @@ class VirtualQSplashScreen final : public QSplashScreen {
     inline void setQSplashScreen_Receivers_IsBase(bool value) const { qsplashscreen_receivers_isbase = value; }
     inline void setQSplashScreen_IsSignalConnected_IsBase(bool value) const { qsplashscreen_issignalconnected_isbase = value; }
     inline void setQSplashScreen_GetDecodedMetricF_IsBase(bool value) const { qsplashscreen_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsplashscreen_metaobject_isbase) {
+            qsplashscreen_metaobject_isbase = false;
+            return QSplashScreen::metaObject();
+        } else if (qsplashscreen_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsplashscreen_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSplashScreen::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsplashscreen_metacast_isbase) {
+            qsplashscreen_metacast_isbase = false;
+            return QSplashScreen::qt_metacast(param1);
+        } else if (qsplashscreen_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsplashscreen_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSplashScreen::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

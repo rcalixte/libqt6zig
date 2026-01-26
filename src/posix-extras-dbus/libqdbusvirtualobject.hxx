@@ -17,6 +17,8 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     bool isVirtualQDBusVirtualObject = true;
 
     // Virtual class public types (including callbacks)
+    using QDBusVirtualObject_MetaObject_Callback = QMetaObject* (*)();
+    using QDBusVirtualObject_Metacast_Callback = void* (*)(QDBusVirtualObject*, const char*);
     using QDBusVirtualObject_Metacall_Callback = int (*)(QDBusVirtualObject*, int, int, void**);
     using QDBusVirtualObject_Introspect_Callback = const char* (*)(const QDBusVirtualObject*, libqt_string);
     using QDBusVirtualObject_HandleMessage_Callback = bool (*)(QDBusVirtualObject*, QDBusMessage*, QDBusConnection*);
@@ -34,6 +36,8 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
 
   protected:
     // Instance callback storage
+    QDBusVirtualObject_MetaObject_Callback qdbusvirtualobject_metaobject_callback = nullptr;
+    QDBusVirtualObject_Metacast_Callback qdbusvirtualobject_metacast_callback = nullptr;
     QDBusVirtualObject_Metacall_Callback qdbusvirtualobject_metacall_callback = nullptr;
     QDBusVirtualObject_Introspect_Callback qdbusvirtualobject_introspect_callback = nullptr;
     QDBusVirtualObject_HandleMessage_Callback qdbusvirtualobject_handlemessage_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     QDBusVirtualObject_IsSignalConnected_Callback qdbusvirtualobject_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdbusvirtualobject_metaobject_isbase = false;
+    mutable bool qdbusvirtualobject_metacast_isbase = false;
     mutable bool qdbusvirtualobject_metacall_isbase = false;
     mutable bool qdbusvirtualobject_introspect_isbase = false;
     mutable bool qdbusvirtualobject_handlemessage_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     VirtualQDBusVirtualObject(QObject* parent) : QDBusVirtualObject(parent) {};
 
     ~VirtualQDBusVirtualObject() {
+        qdbusvirtualobject_metaobject_callback = nullptr;
+        qdbusvirtualobject_metacast_callback = nullptr;
         qdbusvirtualobject_metacall_callback = nullptr;
         qdbusvirtualobject_introspect_callback = nullptr;
         qdbusvirtualobject_handlemessage_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     }
 
     // Callback setters
+    inline void setQDBusVirtualObject_MetaObject_Callback(QDBusVirtualObject_MetaObject_Callback cb) { qdbusvirtualobject_metaobject_callback = cb; }
+    inline void setQDBusVirtualObject_Metacast_Callback(QDBusVirtualObject_Metacast_Callback cb) { qdbusvirtualobject_metacast_callback = cb; }
     inline void setQDBusVirtualObject_Metacall_Callback(QDBusVirtualObject_Metacall_Callback cb) { qdbusvirtualobject_metacall_callback = cb; }
     inline void setQDBusVirtualObject_Introspect_Callback(QDBusVirtualObject_Introspect_Callback cb) { qdbusvirtualobject_introspect_callback = cb; }
     inline void setQDBusVirtualObject_HandleMessage_Callback(QDBusVirtualObject_HandleMessage_Callback cb) { qdbusvirtualobject_handlemessage_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     inline void setQDBusVirtualObject_IsSignalConnected_Callback(QDBusVirtualObject_IsSignalConnected_Callback cb) { qdbusvirtualobject_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDBusVirtualObject_MetaObject_IsBase(bool value) const { qdbusvirtualobject_metaobject_isbase = value; }
+    inline void setQDBusVirtualObject_Metacast_IsBase(bool value) const { qdbusvirtualobject_metacast_isbase = value; }
     inline void setQDBusVirtualObject_Metacall_IsBase(bool value) const { qdbusvirtualobject_metacall_isbase = value; }
     inline void setQDBusVirtualObject_Introspect_IsBase(bool value) const { qdbusvirtualobject_introspect_isbase = value; }
     inline void setQDBusVirtualObject_HandleMessage_IsBase(bool value) const { qdbusvirtualobject_handlemessage_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     inline void setQDBusVirtualObject_SenderSignalIndex_IsBase(bool value) const { qdbusvirtualobject_sendersignalindex_isbase = value; }
     inline void setQDBusVirtualObject_Receivers_IsBase(bool value) const { qdbusvirtualobject_receivers_isbase = value; }
     inline void setQDBusVirtualObject_IsSignalConnected_IsBase(bool value) const { qdbusvirtualobject_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdbusvirtualobject_metaobject_isbase) {
+            qdbusvirtualobject_metaobject_isbase = false;
+            return QDBusVirtualObject::metaObject();
+        } else if (qdbusvirtualobject_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdbusvirtualobject_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDBusVirtualObject::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdbusvirtualobject_metacast_isbase) {
+            qdbusvirtualobject_metacast_isbase = false;
+            return QDBusVirtualObject::qt_metacast(param1);
+        } else if (qdbusvirtualobject_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdbusvirtualobject_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDBusVirtualObject::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

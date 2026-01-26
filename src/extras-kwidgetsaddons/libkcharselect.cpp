@@ -59,11 +59,21 @@ KCharSelect* KCharSelect_new4(QWidget* parent, QObject* actionParent, const int 
 }
 
 QMetaObject* KCharSelect_MetaObject(const KCharSelect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcharselect = dynamic_cast<const VirtualKCharSelect*>(self);
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCharSelect*)self)->metaObject();
+    }
 }
 
 void* KCharSelect_Metacast(KCharSelect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCharSelect*)self)->qt_metacast(param1);
+    }
 }
 
 int KCharSelect_Metacall(KCharSelect* self, int param1, int param2, void** param3) {
@@ -217,6 +227,44 @@ void KCharSelect_Connect_CodePointSelected(KCharSelect* self, intptr_t slot) {
         unsigned int sigval1 = static_cast<unsigned int>(codePoint);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KCharSelect_QBaseMetaObject(const KCharSelect* self) {
+    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+        vkcharselect->setKCharSelect_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcharselect->metaObject();
+    } else {
+        return (QMetaObject*)self->KCharSelect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCharSelect_OnMetaObject(const KCharSelect* self, intptr_t slot) {
+    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+        vkcharselect->setKCharSelect_MetaObject_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCharSelect_QBaseMetacast(KCharSelect* self, const char* param1) {
+    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+        vkcharselect->setKCharSelect_Metacast_IsBase(true);
+        return vkcharselect->qt_metacast(param1);
+    } else {
+        return self->KCharSelect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCharSelect_OnMetacast(KCharSelect* self, intptr_t slot) {
+    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+        vkcharselect->setKCharSelect_Metacast_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

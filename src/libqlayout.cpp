@@ -27,11 +27,21 @@ QLayout* QLayout_new2() {
 }
 
 QMetaObject* QLayout_MetaObject(const QLayout* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
+    if (vqlayout && vqlayout->isVirtualQLayout) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQLayout*)self)->metaObject();
+    }
 }
 
 void* QLayout_Metacast(QLayout* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
+    if (vqlayout && vqlayout->isVirtualQLayout) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQLayout*)self)->qt_metacast(param1);
+    }
 }
 
 int QLayout_Metacall(QLayout* self, int param1, int param2, void** param3) {
@@ -313,6 +323,44 @@ void QLayout_ChildEvent(QLayout* self, QChildEvent* e) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
     if (vqlayout && vqlayout->isVirtualQLayout) {
         vqlayout->childEvent(e);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QLayout_QBaseMetaObject(const QLayout* self) {
+    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
+    if (vqlayout && vqlayout->isVirtualQLayout) {
+        vqlayout->setQLayout_MetaObject_IsBase(true);
+        return (QMetaObject*)vqlayout->metaObject();
+    } else {
+        return (QMetaObject*)self->QLayout::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLayout_OnMetaObject(const QLayout* self, intptr_t slot) {
+    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
+    if (vqlayout && vqlayout->isVirtualQLayout) {
+        vqlayout->setQLayout_MetaObject_Callback(reinterpret_cast<VirtualQLayout::QLayout_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QLayout_QBaseMetacast(QLayout* self, const char* param1) {
+    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
+    if (vqlayout && vqlayout->isVirtualQLayout) {
+        vqlayout->setQLayout_Metacast_IsBase(true);
+        return vqlayout->qt_metacast(param1);
+    } else {
+        return self->QLayout::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLayout_OnMetacast(QLayout* self, intptr_t slot) {
+    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
+    if (vqlayout && vqlayout->isVirtualQLayout) {
+        vqlayout->setQLayout_Metacast_Callback(reinterpret_cast<VirtualQLayout::QLayout_Metacast_Callback>(slot));
     }
 }
 

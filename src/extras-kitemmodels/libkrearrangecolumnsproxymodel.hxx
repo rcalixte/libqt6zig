@@ -17,6 +17,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
     bool isVirtualKRearrangeColumnsProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using KRearrangeColumnsProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using KRearrangeColumnsProxyModel_Metacast_Callback = void* (*)(KRearrangeColumnsProxyModel*, const char*);
     using KRearrangeColumnsProxyModel_Metacall_Callback = int (*)(KRearrangeColumnsProxyModel*, int, int, void**);
     using KRearrangeColumnsProxyModel_ColumnCount_Callback = int (*)(const KRearrangeColumnsProxyModel*, QModelIndex*);
     using KRearrangeColumnsProxyModel_RowCount_Callback = int (*)(const KRearrangeColumnsProxyModel*, QModelIndex*);
@@ -97,6 +99,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
 
   protected:
     // Instance callback storage
+    KRearrangeColumnsProxyModel_MetaObject_Callback krearrangecolumnsproxymodel_metaobject_callback = nullptr;
+    KRearrangeColumnsProxyModel_Metacast_Callback krearrangecolumnsproxymodel_metacast_callback = nullptr;
     KRearrangeColumnsProxyModel_Metacall_Callback krearrangecolumnsproxymodel_metacall_callback = nullptr;
     KRearrangeColumnsProxyModel_ColumnCount_Callback krearrangecolumnsproxymodel_columncount_callback = nullptr;
     KRearrangeColumnsProxyModel_RowCount_Callback krearrangecolumnsproxymodel_rowcount_callback = nullptr;
@@ -176,6 +180,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
     KRearrangeColumnsProxyModel_IsSignalConnected_Callback krearrangecolumnsproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool krearrangecolumnsproxymodel_metaobject_isbase = false;
+    mutable bool krearrangecolumnsproxymodel_metacast_isbase = false;
     mutable bool krearrangecolumnsproxymodel_metacall_isbase = false;
     mutable bool krearrangecolumnsproxymodel_columncount_isbase = false;
     mutable bool krearrangecolumnsproxymodel_rowcount_isbase = false;
@@ -259,6 +265,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
     VirtualKRearrangeColumnsProxyModel(QObject* parent) : KRearrangeColumnsProxyModel(parent) {};
 
     ~VirtualKRearrangeColumnsProxyModel() {
+        krearrangecolumnsproxymodel_metaobject_callback = nullptr;
+        krearrangecolumnsproxymodel_metacast_callback = nullptr;
         krearrangecolumnsproxymodel_metacall_callback = nullptr;
         krearrangecolumnsproxymodel_columncount_callback = nullptr;
         krearrangecolumnsproxymodel_rowcount_callback = nullptr;
@@ -339,6 +347,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
     }
 
     // Callback setters
+    inline void setKRearrangeColumnsProxyModel_MetaObject_Callback(KRearrangeColumnsProxyModel_MetaObject_Callback cb) { krearrangecolumnsproxymodel_metaobject_callback = cb; }
+    inline void setKRearrangeColumnsProxyModel_Metacast_Callback(KRearrangeColumnsProxyModel_Metacast_Callback cb) { krearrangecolumnsproxymodel_metacast_callback = cb; }
     inline void setKRearrangeColumnsProxyModel_Metacall_Callback(KRearrangeColumnsProxyModel_Metacall_Callback cb) { krearrangecolumnsproxymodel_metacall_callback = cb; }
     inline void setKRearrangeColumnsProxyModel_ColumnCount_Callback(KRearrangeColumnsProxyModel_ColumnCount_Callback cb) { krearrangecolumnsproxymodel_columncount_callback = cb; }
     inline void setKRearrangeColumnsProxyModel_RowCount_Callback(KRearrangeColumnsProxyModel_RowCount_Callback cb) { krearrangecolumnsproxymodel_rowcount_callback = cb; }
@@ -418,6 +428,8 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
     inline void setKRearrangeColumnsProxyModel_IsSignalConnected_Callback(KRearrangeColumnsProxyModel_IsSignalConnected_Callback cb) { krearrangecolumnsproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKRearrangeColumnsProxyModel_MetaObject_IsBase(bool value) const { krearrangecolumnsproxymodel_metaobject_isbase = value; }
+    inline void setKRearrangeColumnsProxyModel_Metacast_IsBase(bool value) const { krearrangecolumnsproxymodel_metacast_isbase = value; }
     inline void setKRearrangeColumnsProxyModel_Metacall_IsBase(bool value) const { krearrangecolumnsproxymodel_metacall_isbase = value; }
     inline void setKRearrangeColumnsProxyModel_ColumnCount_IsBase(bool value) const { krearrangecolumnsproxymodel_columncount_isbase = value; }
     inline void setKRearrangeColumnsProxyModel_RowCount_IsBase(bool value) const { krearrangecolumnsproxymodel_rowcount_isbase = value; }
@@ -495,6 +507,34 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
     inline void setKRearrangeColumnsProxyModel_SenderSignalIndex_IsBase(bool value) const { krearrangecolumnsproxymodel_sendersignalindex_isbase = value; }
     inline void setKRearrangeColumnsProxyModel_Receivers_IsBase(bool value) const { krearrangecolumnsproxymodel_receivers_isbase = value; }
     inline void setKRearrangeColumnsProxyModel_IsSignalConnected_IsBase(bool value) const { krearrangecolumnsproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (krearrangecolumnsproxymodel_metaobject_isbase) {
+            krearrangecolumnsproxymodel_metaobject_isbase = false;
+            return KRearrangeColumnsProxyModel::metaObject();
+        } else if (krearrangecolumnsproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = krearrangecolumnsproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KRearrangeColumnsProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (krearrangecolumnsproxymodel_metacast_isbase) {
+            krearrangecolumnsproxymodel_metacast_isbase = false;
+            return KRearrangeColumnsProxyModel::qt_metacast(param1);
+        } else if (krearrangecolumnsproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = krearrangecolumnsproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KRearrangeColumnsProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

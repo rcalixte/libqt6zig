@@ -24,11 +24,21 @@ QCategoryAxis* QCategoryAxis_new2(QObject* parent) {
 }
 
 QMetaObject* QCategoryAxis_MetaObject(const QCategoryAxis* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcategoryaxis = dynamic_cast<const VirtualQCategoryAxis*>(self);
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCategoryAxis*)self)->metaObject();
+    }
 }
 
 void* QCategoryAxis_Metacast(QCategoryAxis* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCategoryAxis*)self)->qt_metacast(param1);
+    }
 }
 
 int QCategoryAxis_Metacall(QCategoryAxis* self, int param1, int param2, void** param3) {
@@ -137,6 +147,44 @@ void QCategoryAxis_Connect_LabelsPositionChanged(QCategoryAxis* self, intptr_t s
 double QCategoryAxis_StartValue1(const QCategoryAxis* self, const libqt_string categoryLabel) {
     QString categoryLabel_QString = QString::fromUtf8(categoryLabel.data, categoryLabel.len);
     return static_cast<double>(self->startValue(categoryLabel_QString));
+}
+
+// Base class handler implementation
+QMetaObject* QCategoryAxis_QBaseMetaObject(const QCategoryAxis* self) {
+    auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+        vqcategoryaxis->setQCategoryAxis_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcategoryaxis->metaObject();
+    } else {
+        return (QMetaObject*)self->QCategoryAxis::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCategoryAxis_OnMetaObject(const QCategoryAxis* self, intptr_t slot) {
+    auto* vqcategoryaxis = const_cast<VirtualQCategoryAxis*>(dynamic_cast<const VirtualQCategoryAxis*>(self));
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+        vqcategoryaxis->setQCategoryAxis_MetaObject_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCategoryAxis_QBaseMetacast(QCategoryAxis* self, const char* param1) {
+    auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+        vqcategoryaxis->setQCategoryAxis_Metacast_IsBase(true);
+        return vqcategoryaxis->qt_metacast(param1);
+    } else {
+        return self->QCategoryAxis::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCategoryAxis_OnMetacast(QCategoryAxis* self, intptr_t slot) {
+    auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
+    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
+        vqcategoryaxis->setQCategoryAxis_Metacast_Callback(reinterpret_cast<VirtualQCategoryAxis::QCategoryAxis_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

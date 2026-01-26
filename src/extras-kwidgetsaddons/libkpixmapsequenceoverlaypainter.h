@@ -49,6 +49,10 @@ void KPixmapSequenceOverlayPainter_SetOffset(KPixmapSequenceOverlayPainter* self
 void KPixmapSequenceOverlayPainter_Start(KPixmapSequenceOverlayPainter* self);
 void KPixmapSequenceOverlayPainter_Stop(KPixmapSequenceOverlayPainter* self);
 bool KPixmapSequenceOverlayPainter_EventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event);
+void KPixmapSequenceOverlayPainter_OnMetaObject(const KPixmapSequenceOverlayPainter* self, intptr_t slot);
+QMetaObject* KPixmapSequenceOverlayPainter_QBaseMetaObject(const KPixmapSequenceOverlayPainter* self);
+void KPixmapSequenceOverlayPainter_OnMetacast(KPixmapSequenceOverlayPainter* self, intptr_t slot);
+void* KPixmapSequenceOverlayPainter_QBaseMetacast(KPixmapSequenceOverlayPainter* self, const char* param1);
 void KPixmapSequenceOverlayPainter_OnMetacall(KPixmapSequenceOverlayPainter* self, intptr_t slot);
 int KPixmapSequenceOverlayPainter_QBaseMetacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3);
 void KPixmapSequenceOverlayPainter_OnEventFilter(KPixmapSequenceOverlayPainter* self, intptr_t slot);

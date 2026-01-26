@@ -67,6 +67,10 @@ void QAbstractPrintDialog_SetFromTo(QAbstractPrintDialog* self, int fromPage, in
 int QAbstractPrintDialog_FromPage(const QAbstractPrintDialog* self);
 int QAbstractPrintDialog_ToPage(const QAbstractPrintDialog* self);
 QPrinter* QAbstractPrintDialog_Printer(const QAbstractPrintDialog* self);
+void QAbstractPrintDialog_OnMetaObject(const QAbstractPrintDialog* self, intptr_t slot);
+QMetaObject* QAbstractPrintDialog_QBaseMetaObject(const QAbstractPrintDialog* self);
+void QAbstractPrintDialog_OnMetacast(QAbstractPrintDialog* self, intptr_t slot);
+void* QAbstractPrintDialog_QBaseMetacast(QAbstractPrintDialog* self, const char* param1);
 void QAbstractPrintDialog_OnMetacall(QAbstractPrintDialog* self, intptr_t slot);
 int QAbstractPrintDialog_QBaseMetacall(QAbstractPrintDialog* self, int param1, int param2, void** param3);
 void QAbstractPrintDialog_SetVisible(QAbstractPrintDialog* self, bool visible);

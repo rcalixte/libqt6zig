@@ -20,6 +20,8 @@ class VirtualQTableView final : public QTableView {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using QTableView_MetaObject_Callback = QMetaObject* (*)();
+    using QTableView_Metacast_Callback = void* (*)(QTableView*, const char*);
     using QTableView_Metacall_Callback = int (*)(QTableView*, int, int, void**);
     using QTableView_SetModel_Callback = void (*)(QTableView*, QAbstractItemModel*);
     using QTableView_SetRootIndex_Callback = void (*)(QTableView*, QModelIndex*);
@@ -145,6 +147,8 @@ class VirtualQTableView final : public QTableView {
 
   protected:
     // Instance callback storage
+    QTableView_MetaObject_Callback qtableview_metaobject_callback = nullptr;
+    QTableView_Metacast_Callback qtableview_metacast_callback = nullptr;
     QTableView_Metacall_Callback qtableview_metacall_callback = nullptr;
     QTableView_SetModel_Callback qtableview_setmodel_callback = nullptr;
     QTableView_SetRootIndex_Callback qtableview_setrootindex_callback = nullptr;
@@ -269,6 +273,8 @@ class VirtualQTableView final : public QTableView {
     QTableView_GetDecodedMetricF_Callback qtableview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtableview_metaobject_isbase = false;
+    mutable bool qtableview_metacast_isbase = false;
     mutable bool qtableview_metacall_isbase = false;
     mutable bool qtableview_setmodel_isbase = false;
     mutable bool qtableview_setrootindex_isbase = false;
@@ -397,6 +403,8 @@ class VirtualQTableView final : public QTableView {
     VirtualQTableView() : QTableView() {};
 
     ~VirtualQTableView() {
+        qtableview_metaobject_callback = nullptr;
+        qtableview_metacast_callback = nullptr;
         qtableview_metacall_callback = nullptr;
         qtableview_setmodel_callback = nullptr;
         qtableview_setrootindex_callback = nullptr;
@@ -522,6 +530,8 @@ class VirtualQTableView final : public QTableView {
     }
 
     // Callback setters
+    inline void setQTableView_MetaObject_Callback(QTableView_MetaObject_Callback cb) { qtableview_metaobject_callback = cb; }
+    inline void setQTableView_Metacast_Callback(QTableView_Metacast_Callback cb) { qtableview_metacast_callback = cb; }
     inline void setQTableView_Metacall_Callback(QTableView_Metacall_Callback cb) { qtableview_metacall_callback = cb; }
     inline void setQTableView_SetModel_Callback(QTableView_SetModel_Callback cb) { qtableview_setmodel_callback = cb; }
     inline void setQTableView_SetRootIndex_Callback(QTableView_SetRootIndex_Callback cb) { qtableview_setrootindex_callback = cb; }
@@ -646,6 +656,8 @@ class VirtualQTableView final : public QTableView {
     inline void setQTableView_GetDecodedMetricF_Callback(QTableView_GetDecodedMetricF_Callback cb) { qtableview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQTableView_MetaObject_IsBase(bool value) const { qtableview_metaobject_isbase = value; }
+    inline void setQTableView_Metacast_IsBase(bool value) const { qtableview_metacast_isbase = value; }
     inline void setQTableView_Metacall_IsBase(bool value) const { qtableview_metacall_isbase = value; }
     inline void setQTableView_SetModel_IsBase(bool value) const { qtableview_setmodel_isbase = value; }
     inline void setQTableView_SetRootIndex_IsBase(bool value) const { qtableview_setrootindex_isbase = value; }
@@ -768,6 +780,34 @@ class VirtualQTableView final : public QTableView {
     inline void setQTableView_Receivers_IsBase(bool value) const { qtableview_receivers_isbase = value; }
     inline void setQTableView_IsSignalConnected_IsBase(bool value) const { qtableview_issignalconnected_isbase = value; }
     inline void setQTableView_GetDecodedMetricF_IsBase(bool value) const { qtableview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtableview_metaobject_isbase) {
+            qtableview_metaobject_isbase = false;
+            return QTableView::metaObject();
+        } else if (qtableview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtableview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTableView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtableview_metacast_isbase) {
+            qtableview_metacast_isbase = false;
+            return QTableView::qt_metacast(param1);
+        } else if (qtableview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtableview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTableView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

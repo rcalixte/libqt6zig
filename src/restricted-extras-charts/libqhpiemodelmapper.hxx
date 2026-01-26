@@ -17,6 +17,8 @@ class VirtualQHPieModelMapper final : public QHPieModelMapper {
     bool isVirtualQHPieModelMapper = true;
 
     // Virtual class public types (including callbacks)
+    using QHPieModelMapper_MetaObject_Callback = QMetaObject* (*)();
+    using QHPieModelMapper_Metacast_Callback = void* (*)(QHPieModelMapper*, const char*);
     using QHPieModelMapper_Metacall_Callback = int (*)(QHPieModelMapper*, int, int, void**);
     using QHPieModelMapper_Event_Callback = bool (*)(QHPieModelMapper*, QEvent*);
     using QHPieModelMapper_EventFilter_Callback = bool (*)(QHPieModelMapper*, QObject*, QEvent*);
@@ -42,6 +44,8 @@ class VirtualQHPieModelMapper final : public QHPieModelMapper {
 
   protected:
     // Instance callback storage
+    QHPieModelMapper_MetaObject_Callback qhpiemodelmapper_metaobject_callback = nullptr;
+    QHPieModelMapper_Metacast_Callback qhpiemodelmapper_metacast_callback = nullptr;
     QHPieModelMapper_Metacall_Callback qhpiemodelmapper_metacall_callback = nullptr;
     QHPieModelMapper_Event_Callback qhpiemodelmapper_event_callback = nullptr;
     QHPieModelMapper_EventFilter_Callback qhpiemodelmapper_eventfilter_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualQHPieModelMapper final : public QHPieModelMapper {
     QHPieModelMapper_IsSignalConnected_Callback qhpiemodelmapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qhpiemodelmapper_metaobject_isbase = false;
+    mutable bool qhpiemodelmapper_metacast_isbase = false;
     mutable bool qhpiemodelmapper_metacall_isbase = false;
     mutable bool qhpiemodelmapper_event_isbase = false;
     mutable bool qhpiemodelmapper_eventfilter_isbase = false;
@@ -94,6 +100,8 @@ class VirtualQHPieModelMapper final : public QHPieModelMapper {
     VirtualQHPieModelMapper(QObject* parent) : QHPieModelMapper(parent) {};
 
     ~VirtualQHPieModelMapper() {
+        qhpiemodelmapper_metaobject_callback = nullptr;
+        qhpiemodelmapper_metacast_callback = nullptr;
         qhpiemodelmapper_metacall_callback = nullptr;
         qhpiemodelmapper_event_callback = nullptr;
         qhpiemodelmapper_eventfilter_callback = nullptr;
@@ -119,6 +127,8 @@ class VirtualQHPieModelMapper final : public QHPieModelMapper {
     }
 
     // Callback setters
+    inline void setQHPieModelMapper_MetaObject_Callback(QHPieModelMapper_MetaObject_Callback cb) { qhpiemodelmapper_metaobject_callback = cb; }
+    inline void setQHPieModelMapper_Metacast_Callback(QHPieModelMapper_Metacast_Callback cb) { qhpiemodelmapper_metacast_callback = cb; }
     inline void setQHPieModelMapper_Metacall_Callback(QHPieModelMapper_Metacall_Callback cb) { qhpiemodelmapper_metacall_callback = cb; }
     inline void setQHPieModelMapper_Event_Callback(QHPieModelMapper_Event_Callback cb) { qhpiemodelmapper_event_callback = cb; }
     inline void setQHPieModelMapper_EventFilter_Callback(QHPieModelMapper_EventFilter_Callback cb) { qhpiemodelmapper_eventfilter_callback = cb; }
@@ -143,6 +153,8 @@ class VirtualQHPieModelMapper final : public QHPieModelMapper {
     inline void setQHPieModelMapper_IsSignalConnected_Callback(QHPieModelMapper_IsSignalConnected_Callback cb) { qhpiemodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQHPieModelMapper_MetaObject_IsBase(bool value) const { qhpiemodelmapper_metaobject_isbase = value; }
+    inline void setQHPieModelMapper_Metacast_IsBase(bool value) const { qhpiemodelmapper_metacast_isbase = value; }
     inline void setQHPieModelMapper_Metacall_IsBase(bool value) const { qhpiemodelmapper_metacall_isbase = value; }
     inline void setQHPieModelMapper_Event_IsBase(bool value) const { qhpiemodelmapper_event_isbase = value; }
     inline void setQHPieModelMapper_EventFilter_IsBase(bool value) const { qhpiemodelmapper_eventfilter_isbase = value; }
@@ -165,6 +177,34 @@ class VirtualQHPieModelMapper final : public QHPieModelMapper {
     inline void setQHPieModelMapper_SenderSignalIndex_IsBase(bool value) const { qhpiemodelmapper_sendersignalindex_isbase = value; }
     inline void setQHPieModelMapper_Receivers_IsBase(bool value) const { qhpiemodelmapper_receivers_isbase = value; }
     inline void setQHPieModelMapper_IsSignalConnected_IsBase(bool value) const { qhpiemodelmapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qhpiemodelmapper_metaobject_isbase) {
+            qhpiemodelmapper_metaobject_isbase = false;
+            return QHPieModelMapper::metaObject();
+        } else if (qhpiemodelmapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qhpiemodelmapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHPieModelMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qhpiemodelmapper_metacast_isbase) {
+            qhpiemodelmapper_metacast_isbase = false;
+            return QHPieModelMapper::qt_metacast(param1);
+        } else if (qhpiemodelmapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qhpiemodelmapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHPieModelMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

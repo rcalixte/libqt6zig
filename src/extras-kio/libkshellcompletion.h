@@ -35,6 +35,10 @@ int KShellCompletion_Metacall(KShellCompletion* self, int param1, int param2, vo
 libqt_string KShellCompletion_MakeCompletion(KShellCompletion* self, const libqt_string text);
 void KShellCompletion_PostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches);
 void KShellCompletion_PostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches);
+void KShellCompletion_OnMetaObject(const KShellCompletion* self, intptr_t slot);
+QMetaObject* KShellCompletion_QBaseMetaObject(const KShellCompletion* self);
+void KShellCompletion_OnMetacast(KShellCompletion* self, intptr_t slot);
+void* KShellCompletion_QBaseMetacast(KShellCompletion* self, const char* param1);
 void KShellCompletion_OnMetacall(KShellCompletion* self, intptr_t slot);
 int KShellCompletion_QBaseMetacall(KShellCompletion* self, int param1, int param2, void** param3);
 void KShellCompletion_OnMakeCompletion(KShellCompletion* self, intptr_t slot);

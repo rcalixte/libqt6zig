@@ -62,11 +62,21 @@ KDatePickerPopup* KDatePickerPopup_new4(int modes, QDate* date, QWidget* parent)
 }
 
 QMetaObject* KDatePickerPopup_MetaObject(const KDatePickerPopup* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdatepickerpopup = dynamic_cast<const VirtualKDatePickerPopup*>(self);
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDatePickerPopup*)self)->metaObject();
+    }
 }
 
 void* KDatePickerPopup_Metacast(KDatePickerPopup* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDatePickerPopup*)self)->qt_metacast(param1);
+    }
 }
 
 int KDatePickerPopup_Metacall(KDatePickerPopup* self, int param1, int param2, void** param3) {
@@ -147,6 +157,44 @@ void KDatePickerPopup_Connect_DateChanged(KDatePickerPopup* self, intptr_t slot)
         QDate* sigval1 = const_cast<QDate*>(&date_ret);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KDatePickerPopup_QBaseMetaObject(const KDatePickerPopup* self) {
+    auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+        vkdatepickerpopup->setKDatePickerPopup_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdatepickerpopup->metaObject();
+    } else {
+        return (QMetaObject*)self->KDatePickerPopup::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDatePickerPopup_OnMetaObject(const KDatePickerPopup* self, intptr_t slot) {
+    auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+        vkdatepickerpopup->setKDatePickerPopup_MetaObject_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDatePickerPopup_QBaseMetacast(KDatePickerPopup* self, const char* param1) {
+    auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+        vkdatepickerpopup->setKDatePickerPopup_Metacast_IsBase(true);
+        return vkdatepickerpopup->qt_metacast(param1);
+    } else {
+        return self->KDatePickerPopup::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDatePickerPopup_OnMetacast(KDatePickerPopup* self, intptr_t slot) {
+    auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+        vkdatepickerpopup->setKDatePickerPopup_Metacast_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

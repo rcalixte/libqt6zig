@@ -17,6 +17,8 @@ class VirtualKTextEditorApplication final : public KTextEditor::Application {
     bool isVirtualKTextEditorApplication = true;
 
     // Virtual class public types (including callbacks)
+    using KTextEditor__Application_MetaObject_Callback = QMetaObject* (*)();
+    using KTextEditor__Application_Metacast_Callback = void* (*)(KTextEditor__Application*, const char*);
     using KTextEditor__Application_Metacall_Callback = int (*)(KTextEditor__Application*, int, int, void**);
     using KTextEditor__Application_Event_Callback = bool (*)(KTextEditor__Application*, QEvent*);
     using KTextEditor__Application_EventFilter_Callback = bool (*)(KTextEditor__Application*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKTextEditorApplication final : public KTextEditor::Application {
 
   protected:
     // Instance callback storage
+    KTextEditor__Application_MetaObject_Callback ktexteditor__application_metaobject_callback = nullptr;
+    KTextEditor__Application_Metacast_Callback ktexteditor__application_metacast_callback = nullptr;
     KTextEditor__Application_Metacall_Callback ktexteditor__application_metacall_callback = nullptr;
     KTextEditor__Application_Event_Callback ktexteditor__application_event_callback = nullptr;
     KTextEditor__Application_EventFilter_Callback ktexteditor__application_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKTextEditorApplication final : public KTextEditor::Application {
     KTextEditor__Application_IsSignalConnected_Callback ktexteditor__application_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktexteditor__application_metaobject_isbase = false;
+    mutable bool ktexteditor__application_metacast_isbase = false;
     mutable bool ktexteditor__application_metacall_isbase = false;
     mutable bool ktexteditor__application_event_isbase = false;
     mutable bool ktexteditor__application_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualKTextEditorApplication final : public KTextEditor::Application {
     VirtualKTextEditorApplication(QObject* parent) : KTextEditor::Application(parent) {};
 
     ~VirtualKTextEditorApplication() {
+        ktexteditor__application_metaobject_callback = nullptr;
+        ktexteditor__application_metacast_callback = nullptr;
         ktexteditor__application_metacall_callback = nullptr;
         ktexteditor__application_event_callback = nullptr;
         ktexteditor__application_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualKTextEditorApplication final : public KTextEditor::Application {
     }
 
     // Callback setters
+    inline void setKTextEditor__Application_MetaObject_Callback(KTextEditor__Application_MetaObject_Callback cb) { ktexteditor__application_metaobject_callback = cb; }
+    inline void setKTextEditor__Application_Metacast_Callback(KTextEditor__Application_Metacast_Callback cb) { ktexteditor__application_metacast_callback = cb; }
     inline void setKTextEditor__Application_Metacall_Callback(KTextEditor__Application_Metacall_Callback cb) { ktexteditor__application_metacall_callback = cb; }
     inline void setKTextEditor__Application_Event_Callback(KTextEditor__Application_Event_Callback cb) { ktexteditor__application_event_callback = cb; }
     inline void setKTextEditor__Application_EventFilter_Callback(KTextEditor__Application_EventFilter_Callback cb) { ktexteditor__application_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualKTextEditorApplication final : public KTextEditor::Application {
     inline void setKTextEditor__Application_IsSignalConnected_Callback(KTextEditor__Application_IsSignalConnected_Callback cb) { ktexteditor__application_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKTextEditor__Application_MetaObject_IsBase(bool value) const { ktexteditor__application_metaobject_isbase = value; }
+    inline void setKTextEditor__Application_Metacast_IsBase(bool value) const { ktexteditor__application_metacast_isbase = value; }
     inline void setKTextEditor__Application_Metacall_IsBase(bool value) const { ktexteditor__application_metacall_isbase = value; }
     inline void setKTextEditor__Application_Event_IsBase(bool value) const { ktexteditor__application_event_isbase = value; }
     inline void setKTextEditor__Application_EventFilter_IsBase(bool value) const { ktexteditor__application_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualKTextEditorApplication final : public KTextEditor::Application {
     inline void setKTextEditor__Application_SenderSignalIndex_IsBase(bool value) const { ktexteditor__application_sendersignalindex_isbase = value; }
     inline void setKTextEditor__Application_Receivers_IsBase(bool value) const { ktexteditor__application_receivers_isbase = value; }
     inline void setKTextEditor__Application_IsSignalConnected_IsBase(bool value) const { ktexteditor__application_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktexteditor__application_metaobject_isbase) {
+            ktexteditor__application_metaobject_isbase = false;
+            return KTextEditor__Application::metaObject();
+        } else if (ktexteditor__application_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktexteditor__application_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTextEditor__Application::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktexteditor__application_metacast_isbase) {
+            ktexteditor__application_metacast_isbase = false;
+            return KTextEditor__Application::qt_metacast(param1);
+        } else if (ktexteditor__application_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktexteditor__application_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTextEditor__Application::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

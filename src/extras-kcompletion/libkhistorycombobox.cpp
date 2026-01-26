@@ -66,11 +66,21 @@ KHistoryComboBox* KHistoryComboBox_new4(bool useCompletion, QWidget* parent) {
 }
 
 QMetaObject* KHistoryComboBox_MetaObject(const KHistoryComboBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkhistorycombobox = dynamic_cast<const VirtualKHistoryComboBox*>(self);
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKHistoryComboBox*)self)->metaObject();
+    }
 }
 
 void* KHistoryComboBox_Metacast(KHistoryComboBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKHistoryComboBox*)self)->qt_metacast(param1);
+    }
 }
 
 int KHistoryComboBox_Metacall(KHistoryComboBox* self, int param1, int param2, void** param3) {
@@ -165,6 +175,44 @@ void KHistoryComboBox_WheelEvent(KHistoryComboBox* self, QWheelEvent* ev) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->wheelEvent(ev);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KHistoryComboBox_QBaseMetaObject(const KHistoryComboBox* self) {
+    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+        vkhistorycombobox->setKHistoryComboBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vkhistorycombobox->metaObject();
+    } else {
+        return (QMetaObject*)self->KHistoryComboBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KHistoryComboBox_OnMetaObject(const KHistoryComboBox* self, intptr_t slot) {
+    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+        vkhistorycombobox->setKHistoryComboBox_MetaObject_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KHistoryComboBox_QBaseMetacast(KHistoryComboBox* self, const char* param1) {
+    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+        vkhistorycombobox->setKHistoryComboBox_Metacast_IsBase(true);
+        return vkhistorycombobox->qt_metacast(param1);
+    } else {
+        return self->KHistoryComboBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KHistoryComboBox_OnMetacast(KHistoryComboBox* self, intptr_t slot) {
+    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+        vkhistorycombobox->setKHistoryComboBox_Metacast_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metacast_Callback>(slot));
     }
 }
 

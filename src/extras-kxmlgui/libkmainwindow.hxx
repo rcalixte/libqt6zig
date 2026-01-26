@@ -17,6 +17,8 @@ class VirtualKMainWindow final : public KMainWindow {
     bool isVirtualKMainWindow = true;
 
     // Virtual class public types (including callbacks)
+    using KMainWindow_MetaObject_Callback = QMetaObject* (*)();
+    using KMainWindow_Metacast_Callback = void* (*)(KMainWindow*, const char*);
     using KMainWindow_Metacall_Callback = int (*)(KMainWindow*, int, int, void**);
     using KMainWindow_ApplyMainWindowSettings_Callback = void (*)(KMainWindow*, KConfigGroup*);
     using KMainWindow_SetCaption_Callback = void (*)(KMainWindow*, libqt_string);
@@ -92,6 +94,8 @@ class VirtualKMainWindow final : public KMainWindow {
 
   protected:
     // Instance callback storage
+    KMainWindow_MetaObject_Callback kmainwindow_metaobject_callback = nullptr;
+    KMainWindow_Metacast_Callback kmainwindow_metacast_callback = nullptr;
     KMainWindow_Metacall_Callback kmainwindow_metacall_callback = nullptr;
     KMainWindow_ApplyMainWindowSettings_Callback kmainwindow_applymainwindowsettings_callback = nullptr;
     KMainWindow_SetCaption_Callback kmainwindow_setcaption_callback = nullptr;
@@ -166,6 +170,8 @@ class VirtualKMainWindow final : public KMainWindow {
     KMainWindow_GetDecodedMetricF_Callback kmainwindow_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kmainwindow_metaobject_isbase = false;
+    mutable bool kmainwindow_metacast_isbase = false;
     mutable bool kmainwindow_metacall_isbase = false;
     mutable bool kmainwindow_applymainwindowsettings_isbase = false;
     mutable bool kmainwindow_setcaption_isbase = false;
@@ -245,6 +251,8 @@ class VirtualKMainWindow final : public KMainWindow {
     VirtualKMainWindow(QWidget* parent, Qt::WindowFlags flags) : KMainWindow(parent, flags) {};
 
     ~VirtualKMainWindow() {
+        kmainwindow_metaobject_callback = nullptr;
+        kmainwindow_metacast_callback = nullptr;
         kmainwindow_metacall_callback = nullptr;
         kmainwindow_applymainwindowsettings_callback = nullptr;
         kmainwindow_setcaption_callback = nullptr;
@@ -320,6 +328,8 @@ class VirtualKMainWindow final : public KMainWindow {
     }
 
     // Callback setters
+    inline void setKMainWindow_MetaObject_Callback(KMainWindow_MetaObject_Callback cb) { kmainwindow_metaobject_callback = cb; }
+    inline void setKMainWindow_Metacast_Callback(KMainWindow_Metacast_Callback cb) { kmainwindow_metacast_callback = cb; }
     inline void setKMainWindow_Metacall_Callback(KMainWindow_Metacall_Callback cb) { kmainwindow_metacall_callback = cb; }
     inline void setKMainWindow_ApplyMainWindowSettings_Callback(KMainWindow_ApplyMainWindowSettings_Callback cb) { kmainwindow_applymainwindowsettings_callback = cb; }
     inline void setKMainWindow_SetCaption_Callback(KMainWindow_SetCaption_Callback cb) { kmainwindow_setcaption_callback = cb; }
@@ -394,6 +404,8 @@ class VirtualKMainWindow final : public KMainWindow {
     inline void setKMainWindow_GetDecodedMetricF_Callback(KMainWindow_GetDecodedMetricF_Callback cb) { kmainwindow_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKMainWindow_MetaObject_IsBase(bool value) const { kmainwindow_metaobject_isbase = value; }
+    inline void setKMainWindow_Metacast_IsBase(bool value) const { kmainwindow_metacast_isbase = value; }
     inline void setKMainWindow_Metacall_IsBase(bool value) const { kmainwindow_metacall_isbase = value; }
     inline void setKMainWindow_ApplyMainWindowSettings_IsBase(bool value) const { kmainwindow_applymainwindowsettings_isbase = value; }
     inline void setKMainWindow_SetCaption_IsBase(bool value) const { kmainwindow_setcaption_isbase = value; }
@@ -466,6 +478,34 @@ class VirtualKMainWindow final : public KMainWindow {
     inline void setKMainWindow_Receivers_IsBase(bool value) const { kmainwindow_receivers_isbase = value; }
     inline void setKMainWindow_IsSignalConnected_IsBase(bool value) const { kmainwindow_issignalconnected_isbase = value; }
     inline void setKMainWindow_GetDecodedMetricF_IsBase(bool value) const { kmainwindow_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kmainwindow_metaobject_isbase) {
+            kmainwindow_metaobject_isbase = false;
+            return KMainWindow::metaObject();
+        } else if (kmainwindow_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kmainwindow_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KMainWindow::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kmainwindow_metacast_isbase) {
+            kmainwindow_metacast_isbase = false;
+            return KMainWindow::qt_metacast(param1);
+        } else if (kmainwindow_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kmainwindow_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KMainWindow::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

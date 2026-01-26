@@ -17,6 +17,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     bool isVirtualQsciLexerVerilog = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerVerilog_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerVerilog_Metacast_Callback = void* (*)(QsciLexerVerilog*, const char*);
     using QsciLexerVerilog_Metacall_Callback = int (*)(QsciLexerVerilog*, int, int, void**);
     using QsciLexerVerilog_Language_Callback = const char* (*)();
     using QsciLexerVerilog_Lexer_Callback = const char* (*)();
@@ -68,6 +70,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
 
   protected:
     // Instance callback storage
+    QsciLexerVerilog_MetaObject_Callback qscilexerverilog_metaobject_callback = nullptr;
+    QsciLexerVerilog_Metacast_Callback qscilexerverilog_metacast_callback = nullptr;
     QsciLexerVerilog_Metacall_Callback qscilexerverilog_metacall_callback = nullptr;
     QsciLexerVerilog_Language_Callback qscilexerverilog_language_callback = nullptr;
     QsciLexerVerilog_Lexer_Callback qscilexerverilog_lexer_callback = nullptr;
@@ -118,6 +122,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     QsciLexerVerilog_IsSignalConnected_Callback qscilexerverilog_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexerverilog_metaobject_isbase = false;
+    mutable bool qscilexerverilog_metacast_isbase = false;
     mutable bool qscilexerverilog_metacall_isbase = false;
     mutable bool qscilexerverilog_language_isbase = false;
     mutable bool qscilexerverilog_lexer_isbase = false;
@@ -172,6 +178,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     VirtualQsciLexerVerilog(QObject* parent) : QsciLexerVerilog(parent) {};
 
     ~VirtualQsciLexerVerilog() {
+        qscilexerverilog_metaobject_callback = nullptr;
+        qscilexerverilog_metacast_callback = nullptr;
         qscilexerverilog_metacall_callback = nullptr;
         qscilexerverilog_language_callback = nullptr;
         qscilexerverilog_lexer_callback = nullptr;
@@ -223,6 +231,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     }
 
     // Callback setters
+    inline void setQsciLexerVerilog_MetaObject_Callback(QsciLexerVerilog_MetaObject_Callback cb) { qscilexerverilog_metaobject_callback = cb; }
+    inline void setQsciLexerVerilog_Metacast_Callback(QsciLexerVerilog_Metacast_Callback cb) { qscilexerverilog_metacast_callback = cb; }
     inline void setQsciLexerVerilog_Metacall_Callback(QsciLexerVerilog_Metacall_Callback cb) { qscilexerverilog_metacall_callback = cb; }
     inline void setQsciLexerVerilog_Language_Callback(QsciLexerVerilog_Language_Callback cb) { qscilexerverilog_language_callback = cb; }
     inline void setQsciLexerVerilog_Lexer_Callback(QsciLexerVerilog_Lexer_Callback cb) { qscilexerverilog_lexer_callback = cb; }
@@ -273,6 +283,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     inline void setQsciLexerVerilog_IsSignalConnected_Callback(QsciLexerVerilog_IsSignalConnected_Callback cb) { qscilexerverilog_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerVerilog_MetaObject_IsBase(bool value) const { qscilexerverilog_metaobject_isbase = value; }
+    inline void setQsciLexerVerilog_Metacast_IsBase(bool value) const { qscilexerverilog_metacast_isbase = value; }
     inline void setQsciLexerVerilog_Metacall_IsBase(bool value) const { qscilexerverilog_metacall_isbase = value; }
     inline void setQsciLexerVerilog_Language_IsBase(bool value) const { qscilexerverilog_language_isbase = value; }
     inline void setQsciLexerVerilog_Lexer_IsBase(bool value) const { qscilexerverilog_lexer_isbase = value; }
@@ -321,6 +333,34 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     inline void setQsciLexerVerilog_SenderSignalIndex_IsBase(bool value) const { qscilexerverilog_sendersignalindex_isbase = value; }
     inline void setQsciLexerVerilog_Receivers_IsBase(bool value) const { qscilexerverilog_receivers_isbase = value; }
     inline void setQsciLexerVerilog_IsSignalConnected_IsBase(bool value) const { qscilexerverilog_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexerverilog_metaobject_isbase) {
+            qscilexerverilog_metaobject_isbase = false;
+            return QsciLexerVerilog::metaObject();
+        } else if (qscilexerverilog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexerverilog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerVerilog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexerverilog_metacast_isbase) {
+            qscilexerverilog_metacast_isbase = false;
+            return QsciLexerVerilog::qt_metacast(param1);
+        } else if (qscilexerverilog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexerverilog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerVerilog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

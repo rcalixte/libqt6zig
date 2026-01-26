@@ -23,11 +23,21 @@ QBarSeries* QBarSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QBarSeries_MetaObject(const QBarSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqbarseries = dynamic_cast<const VirtualQBarSeries*>(self);
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQBarSeries*)self)->metaObject();
+    }
 }
 
 void* QBarSeries_Metacast(QBarSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQBarSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QBarSeries_Metacall(QBarSeries* self, int param1, int param2, void** param3) {
@@ -45,6 +55,44 @@ int QBarSeries_Type(const QBarSeries* self) {
         return static_cast<int>(self->type());
     } else {
         return static_cast<int>(((VirtualQBarSeries*)self)->type());
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QBarSeries_QBaseMetaObject(const QBarSeries* self) {
+    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+        vqbarseries->setQBarSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqbarseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QBarSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBarSeries_OnMetaObject(const QBarSeries* self, intptr_t slot) {
+    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+        vqbarseries->setQBarSeries_MetaObject_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QBarSeries_QBaseMetacast(QBarSeries* self, const char* param1) {
+    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+        vqbarseries->setQBarSeries_Metacast_IsBase(true);
+        return vqbarseries->qt_metacast(param1);
+    } else {
+        return self->QBarSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBarSeries_OnMetacast(QBarSeries* self, intptr_t slot) {
+    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+        vqbarseries->setQBarSeries_Metacast_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Metacast_Callback>(slot));
     }
 }
 

@@ -27,11 +27,21 @@ QSyntaxHighlighter* QSyntaxHighlighter_new2(QTextDocument* parent) {
 }
 
 QMetaObject* QSyntaxHighlighter_MetaObject(const QSyntaxHighlighter* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsyntaxhighlighter = dynamic_cast<const VirtualQSyntaxHighlighter*>(self);
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSyntaxHighlighter*)self)->metaObject();
+    }
 }
 
 void* QSyntaxHighlighter_Metacast(QSyntaxHighlighter* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSyntaxHighlighter*)self)->qt_metacast(param1);
+    }
 }
 
 int QSyntaxHighlighter_Metacall(QSyntaxHighlighter* self, int param1, int param2, void** param3) {
@@ -64,6 +74,44 @@ void QSyntaxHighlighter_HighlightBlock(QSyntaxHighlighter* self, const libqt_str
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
     if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
         vqsyntaxhighlighter->highlightBlock(text_QString);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QSyntaxHighlighter_QBaseMetaObject(const QSyntaxHighlighter* self) {
+    auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+        vqsyntaxhighlighter->setQSyntaxHighlighter_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsyntaxhighlighter->metaObject();
+    } else {
+        return (QMetaObject*)self->QSyntaxHighlighter::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSyntaxHighlighter_OnMetaObject(const QSyntaxHighlighter* self, intptr_t slot) {
+    auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+        vqsyntaxhighlighter->setQSyntaxHighlighter_MetaObject_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSyntaxHighlighter_QBaseMetacast(QSyntaxHighlighter* self, const char* param1) {
+    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+        vqsyntaxhighlighter->setQSyntaxHighlighter_Metacast_IsBase(true);
+        return vqsyntaxhighlighter->qt_metacast(param1);
+    } else {
+        return self->QSyntaxHighlighter::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSyntaxHighlighter_OnMetacast(QSyntaxHighlighter* self, intptr_t slot) {
+    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+        vqsyntaxhighlighter->setQSyntaxHighlighter_Metacast_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_Metacast_Callback>(slot));
     }
 }
 

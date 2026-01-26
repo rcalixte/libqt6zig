@@ -59,6 +59,10 @@ libqt_string QGeoServiceProvider_NavigationErrorString(const QGeoServiceProvider
 void QGeoServiceProvider_SetParameters(QGeoServiceProvider* self, const libqt_map /* of libqt_string to QVariant* */ parameters);
 void QGeoServiceProvider_SetLocale(QGeoServiceProvider* self, const QLocale* locale);
 void QGeoServiceProvider_SetAllowExperimental(QGeoServiceProvider* self, bool allow);
+void QGeoServiceProvider_OnMetaObject(const QGeoServiceProvider* self, intptr_t slot);
+QMetaObject* QGeoServiceProvider_QBaseMetaObject(const QGeoServiceProvider* self);
+void QGeoServiceProvider_OnMetacast(QGeoServiceProvider* self, intptr_t slot);
+void* QGeoServiceProvider_QBaseMetacast(QGeoServiceProvider* self, const char* param1);
 void QGeoServiceProvider_OnMetacall(QGeoServiceProvider* self, intptr_t slot);
 int QGeoServiceProvider_QBaseMetacall(QGeoServiceProvider* self, int param1, int param2, void** param3);
 bool QGeoServiceProvider_Event(QGeoServiceProvider* self, QEvent* event);

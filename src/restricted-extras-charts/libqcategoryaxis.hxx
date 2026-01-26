@@ -17,6 +17,8 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
     bool isVirtualQCategoryAxis = true;
 
     // Virtual class public types (including callbacks)
+    using QCategoryAxis_MetaObject_Callback = QMetaObject* (*)();
+    using QCategoryAxis_Metacast_Callback = void* (*)(QCategoryAxis*, const char*);
     using QCategoryAxis_Metacall_Callback = int (*)(QCategoryAxis*, int, int, void**);
     using QCategoryAxis_Type_Callback = int (*)();
     using QCategoryAxis_Event_Callback = bool (*)(QCategoryAxis*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
 
   protected:
     // Instance callback storage
+    QCategoryAxis_MetaObject_Callback qcategoryaxis_metaobject_callback = nullptr;
+    QCategoryAxis_Metacast_Callback qcategoryaxis_metacast_callback = nullptr;
     QCategoryAxis_Metacall_Callback qcategoryaxis_metacall_callback = nullptr;
     QCategoryAxis_Type_Callback qcategoryaxis_type_callback = nullptr;
     QCategoryAxis_Event_Callback qcategoryaxis_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
     QCategoryAxis_IsSignalConnected_Callback qcategoryaxis_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcategoryaxis_metaobject_isbase = false;
+    mutable bool qcategoryaxis_metacast_isbase = false;
     mutable bool qcategoryaxis_metacall_isbase = false;
     mutable bool qcategoryaxis_type_isbase = false;
     mutable bool qcategoryaxis_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
     VirtualQCategoryAxis(QObject* parent) : QCategoryAxis(parent) {};
 
     ~VirtualQCategoryAxis() {
+        qcategoryaxis_metaobject_callback = nullptr;
+        qcategoryaxis_metacast_callback = nullptr;
         qcategoryaxis_metacall_callback = nullptr;
         qcategoryaxis_type_callback = nullptr;
         qcategoryaxis_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
     }
 
     // Callback setters
+    inline void setQCategoryAxis_MetaObject_Callback(QCategoryAxis_MetaObject_Callback cb) { qcategoryaxis_metaobject_callback = cb; }
+    inline void setQCategoryAxis_Metacast_Callback(QCategoryAxis_Metacast_Callback cb) { qcategoryaxis_metacast_callback = cb; }
     inline void setQCategoryAxis_Metacall_Callback(QCategoryAxis_Metacall_Callback cb) { qcategoryaxis_metacall_callback = cb; }
     inline void setQCategoryAxis_Type_Callback(QCategoryAxis_Type_Callback cb) { qcategoryaxis_type_callback = cb; }
     inline void setQCategoryAxis_Event_Callback(QCategoryAxis_Event_Callback cb) { qcategoryaxis_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
     inline void setQCategoryAxis_IsSignalConnected_Callback(QCategoryAxis_IsSignalConnected_Callback cb) { qcategoryaxis_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCategoryAxis_MetaObject_IsBase(bool value) const { qcategoryaxis_metaobject_isbase = value; }
+    inline void setQCategoryAxis_Metacast_IsBase(bool value) const { qcategoryaxis_metacast_isbase = value; }
     inline void setQCategoryAxis_Metacall_IsBase(bool value) const { qcategoryaxis_metacall_isbase = value; }
     inline void setQCategoryAxis_Type_IsBase(bool value) const { qcategoryaxis_type_isbase = value; }
     inline void setQCategoryAxis_Event_IsBase(bool value) const { qcategoryaxis_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQCategoryAxis final : public QCategoryAxis {
     inline void setQCategoryAxis_SenderSignalIndex_IsBase(bool value) const { qcategoryaxis_sendersignalindex_isbase = value; }
     inline void setQCategoryAxis_Receivers_IsBase(bool value) const { qcategoryaxis_receivers_isbase = value; }
     inline void setQCategoryAxis_IsSignalConnected_IsBase(bool value) const { qcategoryaxis_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcategoryaxis_metaobject_isbase) {
+            qcategoryaxis_metaobject_isbase = false;
+            return QCategoryAxis::metaObject();
+        } else if (qcategoryaxis_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcategoryaxis_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCategoryAxis::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcategoryaxis_metacast_isbase) {
+            qcategoryaxis_metacast_isbase = false;
+            return QCategoryAxis::qt_metacast(param1);
+        } else if (qcategoryaxis_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcategoryaxis_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCategoryAxis::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

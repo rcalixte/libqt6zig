@@ -20,6 +20,8 @@ class VirtualQHeaderView final : public QHeaderView {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using QHeaderView_MetaObject_Callback = QMetaObject* (*)();
+    using QHeaderView_Metacast_Callback = void* (*)(QHeaderView*, const char*);
     using QHeaderView_Metacall_Callback = int (*)(QHeaderView*, int, int, void**);
     using QHeaderView_SetModel_Callback = void (*)(QHeaderView*, QAbstractItemModel*);
     using QHeaderView_SizeHint_Callback = QSize* (*)();
@@ -149,6 +151,8 @@ class VirtualQHeaderView final : public QHeaderView {
 
   protected:
     // Instance callback storage
+    QHeaderView_MetaObject_Callback qheaderview_metaobject_callback = nullptr;
+    QHeaderView_Metacast_Callback qheaderview_metacast_callback = nullptr;
     QHeaderView_Metacall_Callback qheaderview_metacall_callback = nullptr;
     QHeaderView_SetModel_Callback qheaderview_setmodel_callback = nullptr;
     QHeaderView_SizeHint_Callback qheaderview_sizehint_callback = nullptr;
@@ -277,6 +281,8 @@ class VirtualQHeaderView final : public QHeaderView {
     QHeaderView_GetDecodedMetricF_Callback qheaderview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qheaderview_metaobject_isbase = false;
+    mutable bool qheaderview_metacast_isbase = false;
     mutable bool qheaderview_metacall_isbase = false;
     mutable bool qheaderview_setmodel_isbase = false;
     mutable bool qheaderview_sizehint_isbase = false;
@@ -409,6 +415,8 @@ class VirtualQHeaderView final : public QHeaderView {
     VirtualQHeaderView(Qt::Orientation orientation, QWidget* parent) : QHeaderView(orientation, parent) {};
 
     ~VirtualQHeaderView() {
+        qheaderview_metaobject_callback = nullptr;
+        qheaderview_metacast_callback = nullptr;
         qheaderview_metacall_callback = nullptr;
         qheaderview_setmodel_callback = nullptr;
         qheaderview_sizehint_callback = nullptr;
@@ -538,6 +546,8 @@ class VirtualQHeaderView final : public QHeaderView {
     }
 
     // Callback setters
+    inline void setQHeaderView_MetaObject_Callback(QHeaderView_MetaObject_Callback cb) { qheaderview_metaobject_callback = cb; }
+    inline void setQHeaderView_Metacast_Callback(QHeaderView_Metacast_Callback cb) { qheaderview_metacast_callback = cb; }
     inline void setQHeaderView_Metacall_Callback(QHeaderView_Metacall_Callback cb) { qheaderview_metacall_callback = cb; }
     inline void setQHeaderView_SetModel_Callback(QHeaderView_SetModel_Callback cb) { qheaderview_setmodel_callback = cb; }
     inline void setQHeaderView_SizeHint_Callback(QHeaderView_SizeHint_Callback cb) { qheaderview_sizehint_callback = cb; }
@@ -666,6 +676,8 @@ class VirtualQHeaderView final : public QHeaderView {
     inline void setQHeaderView_GetDecodedMetricF_Callback(QHeaderView_GetDecodedMetricF_Callback cb) { qheaderview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQHeaderView_MetaObject_IsBase(bool value) const { qheaderview_metaobject_isbase = value; }
+    inline void setQHeaderView_Metacast_IsBase(bool value) const { qheaderview_metacast_isbase = value; }
     inline void setQHeaderView_Metacall_IsBase(bool value) const { qheaderview_metacall_isbase = value; }
     inline void setQHeaderView_SetModel_IsBase(bool value) const { qheaderview_setmodel_isbase = value; }
     inline void setQHeaderView_SizeHint_IsBase(bool value) const { qheaderview_sizehint_isbase = value; }
@@ -792,6 +804,34 @@ class VirtualQHeaderView final : public QHeaderView {
     inline void setQHeaderView_Receivers_IsBase(bool value) const { qheaderview_receivers_isbase = value; }
     inline void setQHeaderView_IsSignalConnected_IsBase(bool value) const { qheaderview_issignalconnected_isbase = value; }
     inline void setQHeaderView_GetDecodedMetricF_IsBase(bool value) const { qheaderview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qheaderview_metaobject_isbase) {
+            qheaderview_metaobject_isbase = false;
+            return QHeaderView::metaObject();
+        } else if (qheaderview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qheaderview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHeaderView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qheaderview_metacast_isbase) {
+            qheaderview_metacast_isbase = false;
+            return QHeaderView::qt_metacast(param1);
+        } else if (qheaderview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qheaderview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHeaderView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

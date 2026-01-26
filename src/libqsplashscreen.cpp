@@ -67,11 +67,21 @@ QSplashScreen* QSplashScreen_new6(QScreen* screen, const QPixmap* pixmap, int f)
 }
 
 QMetaObject* QSplashScreen_MetaObject(const QSplashScreen* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsplashscreen = dynamic_cast<const VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSplashScreen*)self)->metaObject();
+    }
 }
 
 void* QSplashScreen_Metacast(QSplashScreen* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSplashScreen*)self)->qt_metacast(param1);
+    }
 }
 
 int QSplashScreen_Metacall(QSplashScreen* self, int param1, int param2, void** param3) {
@@ -170,6 +180,44 @@ void QSplashScreen_ShowMessage2(QSplashScreen* self, const libqt_string message,
 void QSplashScreen_ShowMessage3(QSplashScreen* self, const libqt_string message, int alignment, const QColor* color) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     self->showMessage(message_QString, static_cast<int>(alignment), *color);
+}
+
+// Base class handler implementation
+QMetaObject* QSplashScreen_QBaseMetaObject(const QSplashScreen* self) {
+    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsplashscreen->metaObject();
+    } else {
+        return (QMetaObject*)self->QSplashScreen::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplashScreen_OnMetaObject(const QSplashScreen* self, intptr_t slot) {
+    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_MetaObject_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSplashScreen_QBaseMetacast(QSplashScreen* self, const char* param1) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_Metacast_IsBase(true);
+        return vqsplashscreen->qt_metacast(param1);
+    } else {
+        return self->QSplashScreen::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplashScreen_OnMetacast(QSplashScreen* self, intptr_t slot) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_Metacast_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

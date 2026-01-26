@@ -59,6 +59,10 @@ void QHCandlestickModelMapper_FirstSetRowChanged(QHCandlestickModelMapper* self)
 void QHCandlestickModelMapper_Connect_FirstSetRowChanged(QHCandlestickModelMapper* self, intptr_t slot);
 void QHCandlestickModelMapper_LastSetRowChanged(QHCandlestickModelMapper* self);
 void QHCandlestickModelMapper_Connect_LastSetRowChanged(QHCandlestickModelMapper* self, intptr_t slot);
+void QHCandlestickModelMapper_OnMetaObject(const QHCandlestickModelMapper* self, intptr_t slot);
+QMetaObject* QHCandlestickModelMapper_QBaseMetaObject(const QHCandlestickModelMapper* self);
+void QHCandlestickModelMapper_OnMetacast(QHCandlestickModelMapper* self, intptr_t slot);
+void* QHCandlestickModelMapper_QBaseMetacast(QHCandlestickModelMapper* self, const char* param1);
 void QHCandlestickModelMapper_OnMetacall(QHCandlestickModelMapper* self, intptr_t slot);
 int QHCandlestickModelMapper_QBaseMetacall(QHCandlestickModelMapper* self, int param1, int param2, void** param3);
 void QHCandlestickModelMapper_OnOrientation(const QHCandlestickModelMapper* self, intptr_t slot);

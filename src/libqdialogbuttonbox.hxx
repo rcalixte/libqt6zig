@@ -17,6 +17,8 @@ class VirtualQDialogButtonBox final : public QDialogButtonBox {
     bool isVirtualQDialogButtonBox = true;
 
     // Virtual class public types (including callbacks)
+    using QDialogButtonBox_MetaObject_Callback = QMetaObject* (*)();
+    using QDialogButtonBox_Metacast_Callback = void* (*)(QDialogButtonBox*, const char*);
     using QDialogButtonBox_Metacall_Callback = int (*)(QDialogButtonBox*, int, int, void**);
     using QDialogButtonBox_ChangeEvent_Callback = void (*)(QDialogButtonBox*, QEvent*);
     using QDialogButtonBox_Event_Callback = bool (*)(QDialogButtonBox*, QEvent*);
@@ -78,6 +80,8 @@ class VirtualQDialogButtonBox final : public QDialogButtonBox {
 
   protected:
     // Instance callback storage
+    QDialogButtonBox_MetaObject_Callback qdialogbuttonbox_metaobject_callback = nullptr;
+    QDialogButtonBox_Metacast_Callback qdialogbuttonbox_metacast_callback = nullptr;
     QDialogButtonBox_Metacall_Callback qdialogbuttonbox_metacall_callback = nullptr;
     QDialogButtonBox_ChangeEvent_Callback qdialogbuttonbox_changeevent_callback = nullptr;
     QDialogButtonBox_Event_Callback qdialogbuttonbox_event_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualQDialogButtonBox final : public QDialogButtonBox {
     QDialogButtonBox_GetDecodedMetricF_Callback qdialogbuttonbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdialogbuttonbox_metaobject_isbase = false;
+    mutable bool qdialogbuttonbox_metacast_isbase = false;
     mutable bool qdialogbuttonbox_metacall_isbase = false;
     mutable bool qdialogbuttonbox_changeevent_isbase = false;
     mutable bool qdialogbuttonbox_event_isbase = false;
@@ -208,6 +214,8 @@ class VirtualQDialogButtonBox final : public QDialogButtonBox {
     VirtualQDialogButtonBox(QDialogButtonBox::StandardButtons buttons, Qt::Orientation orientation, QWidget* parent) : QDialogButtonBox(buttons, orientation, parent) {};
 
     ~VirtualQDialogButtonBox() {
+        qdialogbuttonbox_metaobject_callback = nullptr;
+        qdialogbuttonbox_metacast_callback = nullptr;
         qdialogbuttonbox_metacall_callback = nullptr;
         qdialogbuttonbox_changeevent_callback = nullptr;
         qdialogbuttonbox_event_callback = nullptr;
@@ -269,6 +277,8 @@ class VirtualQDialogButtonBox final : public QDialogButtonBox {
     }
 
     // Callback setters
+    inline void setQDialogButtonBox_MetaObject_Callback(QDialogButtonBox_MetaObject_Callback cb) { qdialogbuttonbox_metaobject_callback = cb; }
+    inline void setQDialogButtonBox_Metacast_Callback(QDialogButtonBox_Metacast_Callback cb) { qdialogbuttonbox_metacast_callback = cb; }
     inline void setQDialogButtonBox_Metacall_Callback(QDialogButtonBox_Metacall_Callback cb) { qdialogbuttonbox_metacall_callback = cb; }
     inline void setQDialogButtonBox_ChangeEvent_Callback(QDialogButtonBox_ChangeEvent_Callback cb) { qdialogbuttonbox_changeevent_callback = cb; }
     inline void setQDialogButtonBox_Event_Callback(QDialogButtonBox_Event_Callback cb) { qdialogbuttonbox_event_callback = cb; }
@@ -329,6 +339,8 @@ class VirtualQDialogButtonBox final : public QDialogButtonBox {
     inline void setQDialogButtonBox_GetDecodedMetricF_Callback(QDialogButtonBox_GetDecodedMetricF_Callback cb) { qdialogbuttonbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDialogButtonBox_MetaObject_IsBase(bool value) const { qdialogbuttonbox_metaobject_isbase = value; }
+    inline void setQDialogButtonBox_Metacast_IsBase(bool value) const { qdialogbuttonbox_metacast_isbase = value; }
     inline void setQDialogButtonBox_Metacall_IsBase(bool value) const { qdialogbuttonbox_metacall_isbase = value; }
     inline void setQDialogButtonBox_ChangeEvent_IsBase(bool value) const { qdialogbuttonbox_changeevent_isbase = value; }
     inline void setQDialogButtonBox_Event_IsBase(bool value) const { qdialogbuttonbox_event_isbase = value; }
@@ -387,6 +399,34 @@ class VirtualQDialogButtonBox final : public QDialogButtonBox {
     inline void setQDialogButtonBox_Receivers_IsBase(bool value) const { qdialogbuttonbox_receivers_isbase = value; }
     inline void setQDialogButtonBox_IsSignalConnected_IsBase(bool value) const { qdialogbuttonbox_issignalconnected_isbase = value; }
     inline void setQDialogButtonBox_GetDecodedMetricF_IsBase(bool value) const { qdialogbuttonbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdialogbuttonbox_metaobject_isbase) {
+            qdialogbuttonbox_metaobject_isbase = false;
+            return QDialogButtonBox::metaObject();
+        } else if (qdialogbuttonbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdialogbuttonbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDialogButtonBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdialogbuttonbox_metacast_isbase) {
+            qdialogbuttonbox_metacast_isbase = false;
+            return QDialogButtonBox::qt_metacast(param1);
+        } else if (qdialogbuttonbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdialogbuttonbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDialogButtonBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

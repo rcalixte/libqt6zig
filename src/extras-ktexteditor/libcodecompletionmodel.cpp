@@ -30,11 +30,21 @@ KTextEditor__CodeCompletionModel* KTextEditor__CodeCompletionModel_new(QObject* 
 }
 
 QMetaObject* KTextEditor__CodeCompletionModel_MetaObject(const KTextEditor__CodeCompletionModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktexteditor__codecompletionmodel = dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self);
+    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTextEditorCodeCompletionModel*)self)->metaObject();
+    }
 }
 
 void* KTextEditor__CodeCompletionModel_Metacast(KTextEditor__CodeCompletionModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktexteditor__codecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
+    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTextEditorCodeCompletionModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KTextEditor__CodeCompletionModel_Metacall(KTextEditor__CodeCompletionModel* self, int param1, int param2, void** param3) {
@@ -167,6 +177,44 @@ void KTextEditor__CodeCompletionModel_Connect_HasGroupsChanged(KTextEditor__Code
         bool sigval2 = hasGroups;
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KTextEditor__CodeCompletionModel_QBaseMetaObject(const KTextEditor__CodeCompletionModel* self) {
+    auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+        vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vktexteditorcodecompletionmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KTextEditor::CodeCompletionModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__CodeCompletionModel_OnMetaObject(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
+    auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+        vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTextEditor__CodeCompletionModel_QBaseMetacast(KTextEditor__CodeCompletionModel* self, const char* param1) {
+    auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+        vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Metacast_IsBase(true);
+        return vktexteditorcodecompletionmodel->qt_metacast(param1);
+    } else {
+        return self->KTextEditor::CodeCompletionModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__CodeCompletionModel_OnMetacast(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
+    auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+        vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Metacast_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

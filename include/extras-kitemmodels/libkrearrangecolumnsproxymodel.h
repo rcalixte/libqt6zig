@@ -51,6 +51,10 @@ bool KRearrangeColumnsProxyModel_HasChildren(const KRearrangeColumnsProxyModel* 
 QModelIndex* KRearrangeColumnsProxyModel_Sibling(const KRearrangeColumnsProxyModel* self, int row, int column, const QModelIndex* idx);
 int KRearrangeColumnsProxyModel_ProxyColumnForSourceColumn(const KRearrangeColumnsProxyModel* self, int sourceColumn);
 int KRearrangeColumnsProxyModel_SourceColumnForProxyColumn(const KRearrangeColumnsProxyModel* self, int proxyColumn);
+void KRearrangeColumnsProxyModel_OnMetaObject(const KRearrangeColumnsProxyModel* self, intptr_t slot);
+QMetaObject* KRearrangeColumnsProxyModel_QBaseMetaObject(const KRearrangeColumnsProxyModel* self);
+void KRearrangeColumnsProxyModel_OnMetacast(KRearrangeColumnsProxyModel* self, intptr_t slot);
+void* KRearrangeColumnsProxyModel_QBaseMetacast(KRearrangeColumnsProxyModel* self, const char* param1);
 void KRearrangeColumnsProxyModel_OnMetacall(KRearrangeColumnsProxyModel* self, intptr_t slot);
 int KRearrangeColumnsProxyModel_QBaseMetacall(KRearrangeColumnsProxyModel* self, int param1, int param2, void** param3);
 void KRearrangeColumnsProxyModel_OnColumnCount(const KRearrangeColumnsProxyModel* self, intptr_t slot);

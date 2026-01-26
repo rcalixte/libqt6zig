@@ -37,6 +37,10 @@ int QTcpSocket_Metacall(QTcpSocket* self, int param1, int param2, void** param3)
 bool QTcpSocket_Bind(QTcpSocket* self, int addr);
 bool QTcpSocket_Bind2(QTcpSocket* self, int addr, uint16_t port);
 bool QTcpSocket_Bind3(QTcpSocket* self, int addr, uint16_t port, int mode);
+void QTcpSocket_OnMetaObject(const QTcpSocket* self, intptr_t slot);
+QMetaObject* QTcpSocket_QBaseMetaObject(const QTcpSocket* self);
+void QTcpSocket_OnMetacast(QTcpSocket* self, intptr_t slot);
+void* QTcpSocket_QBaseMetacast(QTcpSocket* self, const char* param1);
 void QTcpSocket_OnMetacall(QTcpSocket* self, intptr_t slot);
 int QTcpSocket_QBaseMetacall(QTcpSocket* self, int param1, int param2, void** param3);
 void QTcpSocket_Resume(QTcpSocket* self);

@@ -18,6 +18,8 @@ class VirtualQPolarChart final : public QPolarChart {
 
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
+    using QPolarChart_MetaObject_Callback = QMetaObject* (*)();
+    using QPolarChart_Metacast_Callback = void* (*)(QPolarChart*, const char*);
     using QPolarChart_Metacall_Callback = int (*)(QPolarChart*, int, int, void**);
     using QPolarChart_SetGeometry_Callback = void (*)(QPolarChart*, QRectF*);
     using QPolarChart_GetContentsMargins_Callback = void (*)(const QPolarChart*, double*, double*, double*, double*);
@@ -96,6 +98,8 @@ class VirtualQPolarChart final : public QPolarChart {
 
   protected:
     // Instance callback storage
+    QPolarChart_MetaObject_Callback qpolarchart_metaobject_callback = nullptr;
+    QPolarChart_Metacast_Callback qpolarchart_metacast_callback = nullptr;
     QPolarChart_Metacall_Callback qpolarchart_metacall_callback = nullptr;
     QPolarChart_SetGeometry_Callback qpolarchart_setgeometry_callback = nullptr;
     QPolarChart_GetContentsMargins_Callback qpolarchart_getcontentsmargins_callback = nullptr;
@@ -173,6 +177,8 @@ class VirtualQPolarChart final : public QPolarChart {
     QPolarChart_SetOwnedByLayout_Callback qpolarchart_setownedbylayout_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpolarchart_metaobject_isbase = false;
+    mutable bool qpolarchart_metacast_isbase = false;
     mutable bool qpolarchart_metacall_isbase = false;
     mutable bool qpolarchart_setgeometry_isbase = false;
     mutable bool qpolarchart_getcontentsmargins_isbase = false;
@@ -255,6 +261,8 @@ class VirtualQPolarChart final : public QPolarChart {
     VirtualQPolarChart(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QPolarChart(parent, wFlags) {};
 
     ~VirtualQPolarChart() {
+        qpolarchart_metaobject_callback = nullptr;
+        qpolarchart_metacast_callback = nullptr;
         qpolarchart_metacall_callback = nullptr;
         qpolarchart_setgeometry_callback = nullptr;
         qpolarchart_getcontentsmargins_callback = nullptr;
@@ -333,6 +341,8 @@ class VirtualQPolarChart final : public QPolarChart {
     }
 
     // Callback setters
+    inline void setQPolarChart_MetaObject_Callback(QPolarChart_MetaObject_Callback cb) { qpolarchart_metaobject_callback = cb; }
+    inline void setQPolarChart_Metacast_Callback(QPolarChart_Metacast_Callback cb) { qpolarchart_metacast_callback = cb; }
     inline void setQPolarChart_Metacall_Callback(QPolarChart_Metacall_Callback cb) { qpolarchart_metacall_callback = cb; }
     inline void setQPolarChart_SetGeometry_Callback(QPolarChart_SetGeometry_Callback cb) { qpolarchart_setgeometry_callback = cb; }
     inline void setQPolarChart_GetContentsMargins_Callback(QPolarChart_GetContentsMargins_Callback cb) { qpolarchart_getcontentsmargins_callback = cb; }
@@ -410,6 +420,8 @@ class VirtualQPolarChart final : public QPolarChart {
     inline void setQPolarChart_SetOwnedByLayout_Callback(QPolarChart_SetOwnedByLayout_Callback cb) { qpolarchart_setownedbylayout_callback = cb; }
 
     // Base flag setters
+    inline void setQPolarChart_MetaObject_IsBase(bool value) const { qpolarchart_metaobject_isbase = value; }
+    inline void setQPolarChart_Metacast_IsBase(bool value) const { qpolarchart_metacast_isbase = value; }
     inline void setQPolarChart_Metacall_IsBase(bool value) const { qpolarchart_metacall_isbase = value; }
     inline void setQPolarChart_SetGeometry_IsBase(bool value) const { qpolarchart_setgeometry_isbase = value; }
     inline void setQPolarChart_GetContentsMargins_IsBase(bool value) const { qpolarchart_getcontentsmargins_isbase = value; }
@@ -485,6 +497,34 @@ class VirtualQPolarChart final : public QPolarChart {
     inline void setQPolarChart_PrepareGeometryChange_IsBase(bool value) const { qpolarchart_preparegeometrychange_isbase = value; }
     inline void setQPolarChart_SetGraphicsItem_IsBase(bool value) const { qpolarchart_setgraphicsitem_isbase = value; }
     inline void setQPolarChart_SetOwnedByLayout_IsBase(bool value) const { qpolarchart_setownedbylayout_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpolarchart_metaobject_isbase) {
+            qpolarchart_metaobject_isbase = false;
+            return QPolarChart::metaObject();
+        } else if (qpolarchart_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpolarchart_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPolarChart::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpolarchart_metacast_isbase) {
+            qpolarchart_metacast_isbase = false;
+            return QPolarChart::qt_metacast(param1);
+        } else if (qpolarchart_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpolarchart_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPolarChart::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

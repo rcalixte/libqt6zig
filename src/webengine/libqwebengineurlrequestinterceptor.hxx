@@ -17,6 +17,8 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
     bool isVirtualQWebEngineUrlRequestInterceptor = true;
 
     // Virtual class public types (including callbacks)
+    using QWebEngineUrlRequestInterceptor_MetaObject_Callback = QMetaObject* (*)();
+    using QWebEngineUrlRequestInterceptor_Metacast_Callback = void* (*)(QWebEngineUrlRequestInterceptor*, const char*);
     using QWebEngineUrlRequestInterceptor_Metacall_Callback = int (*)(QWebEngineUrlRequestInterceptor*, int, int, void**);
     using QWebEngineUrlRequestInterceptor_InterceptRequest_Callback = void (*)(QWebEngineUrlRequestInterceptor*, QWebEngineUrlRequestInfo*);
     using QWebEngineUrlRequestInterceptor_Event_Callback = bool (*)(QWebEngineUrlRequestInterceptor*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
 
   protected:
     // Instance callback storage
+    QWebEngineUrlRequestInterceptor_MetaObject_Callback qwebengineurlrequestinterceptor_metaobject_callback = nullptr;
+    QWebEngineUrlRequestInterceptor_Metacast_Callback qwebengineurlrequestinterceptor_metacast_callback = nullptr;
     QWebEngineUrlRequestInterceptor_Metacall_Callback qwebengineurlrequestinterceptor_metacall_callback = nullptr;
     QWebEngineUrlRequestInterceptor_InterceptRequest_Callback qwebengineurlrequestinterceptor_interceptrequest_callback = nullptr;
     QWebEngineUrlRequestInterceptor_Event_Callback qwebengineurlrequestinterceptor_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
     QWebEngineUrlRequestInterceptor_IsSignalConnected_Callback qwebengineurlrequestinterceptor_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwebengineurlrequestinterceptor_metaobject_isbase = false;
+    mutable bool qwebengineurlrequestinterceptor_metacast_isbase = false;
     mutable bool qwebengineurlrequestinterceptor_metacall_isbase = false;
     mutable bool qwebengineurlrequestinterceptor_interceptrequest_isbase = false;
     mutable bool qwebengineurlrequestinterceptor_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
     VirtualQWebEngineUrlRequestInterceptor(QObject* p) : QWebEngineUrlRequestInterceptor(p) {};
 
     ~VirtualQWebEngineUrlRequestInterceptor() {
+        qwebengineurlrequestinterceptor_metaobject_callback = nullptr;
+        qwebengineurlrequestinterceptor_metacast_callback = nullptr;
         qwebengineurlrequestinterceptor_metacall_callback = nullptr;
         qwebengineurlrequestinterceptor_interceptrequest_callback = nullptr;
         qwebengineurlrequestinterceptor_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
     }
 
     // Callback setters
+    inline void setQWebEngineUrlRequestInterceptor_MetaObject_Callback(QWebEngineUrlRequestInterceptor_MetaObject_Callback cb) { qwebengineurlrequestinterceptor_metaobject_callback = cb; }
+    inline void setQWebEngineUrlRequestInterceptor_Metacast_Callback(QWebEngineUrlRequestInterceptor_Metacast_Callback cb) { qwebengineurlrequestinterceptor_metacast_callback = cb; }
     inline void setQWebEngineUrlRequestInterceptor_Metacall_Callback(QWebEngineUrlRequestInterceptor_Metacall_Callback cb) { qwebengineurlrequestinterceptor_metacall_callback = cb; }
     inline void setQWebEngineUrlRequestInterceptor_InterceptRequest_Callback(QWebEngineUrlRequestInterceptor_InterceptRequest_Callback cb) { qwebengineurlrequestinterceptor_interceptrequest_callback = cb; }
     inline void setQWebEngineUrlRequestInterceptor_Event_Callback(QWebEngineUrlRequestInterceptor_Event_Callback cb) { qwebengineurlrequestinterceptor_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
     inline void setQWebEngineUrlRequestInterceptor_IsSignalConnected_Callback(QWebEngineUrlRequestInterceptor_IsSignalConnected_Callback cb) { qwebengineurlrequestinterceptor_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQWebEngineUrlRequestInterceptor_MetaObject_IsBase(bool value) const { qwebengineurlrequestinterceptor_metaobject_isbase = value; }
+    inline void setQWebEngineUrlRequestInterceptor_Metacast_IsBase(bool value) const { qwebengineurlrequestinterceptor_metacast_isbase = value; }
     inline void setQWebEngineUrlRequestInterceptor_Metacall_IsBase(bool value) const { qwebengineurlrequestinterceptor_metacall_isbase = value; }
     inline void setQWebEngineUrlRequestInterceptor_InterceptRequest_IsBase(bool value) const { qwebengineurlrequestinterceptor_interceptrequest_isbase = value; }
     inline void setQWebEngineUrlRequestInterceptor_Event_IsBase(bool value) const { qwebengineurlrequestinterceptor_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterc
     inline void setQWebEngineUrlRequestInterceptor_SenderSignalIndex_IsBase(bool value) const { qwebengineurlrequestinterceptor_sendersignalindex_isbase = value; }
     inline void setQWebEngineUrlRequestInterceptor_Receivers_IsBase(bool value) const { qwebengineurlrequestinterceptor_receivers_isbase = value; }
     inline void setQWebEngineUrlRequestInterceptor_IsSignalConnected_IsBase(bool value) const { qwebengineurlrequestinterceptor_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwebengineurlrequestinterceptor_metaobject_isbase) {
+            qwebengineurlrequestinterceptor_metaobject_isbase = false;
+            return QWebEngineUrlRequestInterceptor::metaObject();
+        } else if (qwebengineurlrequestinterceptor_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwebengineurlrequestinterceptor_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWebEngineUrlRequestInterceptor::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwebengineurlrequestinterceptor_metacast_isbase) {
+            qwebengineurlrequestinterceptor_metacast_isbase = false;
+            return QWebEngineUrlRequestInterceptor::qt_metacast(param1);
+        } else if (qwebengineurlrequestinterceptor_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwebengineurlrequestinterceptor_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWebEngineUrlRequestInterceptor::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

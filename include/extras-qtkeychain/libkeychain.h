@@ -69,6 +69,10 @@ void* QKeychain__ReadPasswordJob_Metacast(QKeychain__ReadPasswordJob* self, cons
 int QKeychain__ReadPasswordJob_Metacall(QKeychain__ReadPasswordJob* self, int param1, int param2, void** param3);
 libqt_string QKeychain__ReadPasswordJob_BinaryData(const QKeychain__ReadPasswordJob* self);
 libqt_string QKeychain__ReadPasswordJob_TextData(const QKeychain__ReadPasswordJob* self);
+void QKeychain__ReadPasswordJob_OnMetaObject(const QKeychain__ReadPasswordJob* self, intptr_t slot);
+QMetaObject* QKeychain__ReadPasswordJob_QBaseMetaObject(const QKeychain__ReadPasswordJob* self);
+void QKeychain__ReadPasswordJob_OnMetacast(QKeychain__ReadPasswordJob* self, intptr_t slot);
+void* QKeychain__ReadPasswordJob_QBaseMetacast(QKeychain__ReadPasswordJob* self, const char* param1);
 void QKeychain__ReadPasswordJob_OnMetacall(QKeychain__ReadPasswordJob* self, intptr_t slot);
 int QKeychain__ReadPasswordJob_QBaseMetacall(QKeychain__ReadPasswordJob* self, int param1, int param2, void** param3);
 bool QKeychain__ReadPasswordJob_Event(QKeychain__ReadPasswordJob* self, QEvent* event);
@@ -116,6 +120,10 @@ void* QKeychain__WritePasswordJob_Metacast(QKeychain__WritePasswordJob* self, co
 int QKeychain__WritePasswordJob_Metacall(QKeychain__WritePasswordJob* self, int param1, int param2, void** param3);
 void QKeychain__WritePasswordJob_SetBinaryData(QKeychain__WritePasswordJob* self, const libqt_string data);
 void QKeychain__WritePasswordJob_SetTextData(QKeychain__WritePasswordJob* self, const libqt_string data);
+void QKeychain__WritePasswordJob_OnMetaObject(const QKeychain__WritePasswordJob* self, intptr_t slot);
+QMetaObject* QKeychain__WritePasswordJob_QBaseMetaObject(const QKeychain__WritePasswordJob* self);
+void QKeychain__WritePasswordJob_OnMetacast(QKeychain__WritePasswordJob* self, intptr_t slot);
+void* QKeychain__WritePasswordJob_QBaseMetacast(QKeychain__WritePasswordJob* self, const char* param1);
 void QKeychain__WritePasswordJob_OnMetacall(QKeychain__WritePasswordJob* self, intptr_t slot);
 int QKeychain__WritePasswordJob_QBaseMetacall(QKeychain__WritePasswordJob* self, int param1, int param2, void** param3);
 bool QKeychain__WritePasswordJob_Event(QKeychain__WritePasswordJob* self, QEvent* event);
@@ -161,6 +169,10 @@ QKeychain__DeletePasswordJob* QKeychain__DeletePasswordJob_new2(const libqt_stri
 QMetaObject* QKeychain__DeletePasswordJob_MetaObject(const QKeychain__DeletePasswordJob* self);
 void* QKeychain__DeletePasswordJob_Metacast(QKeychain__DeletePasswordJob* self, const char* param1);
 int QKeychain__DeletePasswordJob_Metacall(QKeychain__DeletePasswordJob* self, int param1, int param2, void** param3);
+void QKeychain__DeletePasswordJob_OnMetaObject(const QKeychain__DeletePasswordJob* self, intptr_t slot);
+QMetaObject* QKeychain__DeletePasswordJob_QBaseMetaObject(const QKeychain__DeletePasswordJob* self);
+void QKeychain__DeletePasswordJob_OnMetacast(QKeychain__DeletePasswordJob* self, intptr_t slot);
+void* QKeychain__DeletePasswordJob_QBaseMetacast(QKeychain__DeletePasswordJob* self, const char* param1);
 void QKeychain__DeletePasswordJob_OnMetacall(QKeychain__DeletePasswordJob* self, intptr_t slot);
 int QKeychain__DeletePasswordJob_QBaseMetacall(QKeychain__DeletePasswordJob* self, int param1, int param2, void** param3);
 bool QKeychain__DeletePasswordJob_Event(QKeychain__DeletePasswordJob* self, QEvent* event);

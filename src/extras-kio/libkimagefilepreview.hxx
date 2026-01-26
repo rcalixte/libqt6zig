@@ -17,6 +17,8 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
     bool isVirtualKImageFilePreview = true;
 
     // Virtual class public types (including callbacks)
+    using KImageFilePreview_MetaObject_Callback = QMetaObject* (*)();
+    using KImageFilePreview_Metacast_Callback = void* (*)(KImageFilePreview*, const char*);
     using KImageFilePreview_Metacall_Callback = int (*)(KImageFilePreview*, int, int, void**);
     using KImageFilePreview_SizeHint_Callback = QSize* (*)();
     using KImageFilePreview_ShowPreview_Callback = void (*)(KImageFilePreview*, QUrl*);
@@ -85,6 +87,8 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
 
   protected:
     // Instance callback storage
+    KImageFilePreview_MetaObject_Callback kimagefilepreview_metaobject_callback = nullptr;
+    KImageFilePreview_Metacast_Callback kimagefilepreview_metacast_callback = nullptr;
     KImageFilePreview_Metacall_Callback kimagefilepreview_metacall_callback = nullptr;
     KImageFilePreview_SizeHint_Callback kimagefilepreview_sizehint_callback = nullptr;
     KImageFilePreview_ShowPreview_Callback kimagefilepreview_showpreview_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
     KImageFilePreview_GetDecodedMetricF_Callback kimagefilepreview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kimagefilepreview_metaobject_isbase = false;
+    mutable bool kimagefilepreview_metacast_isbase = false;
     mutable bool kimagefilepreview_metacall_isbase = false;
     mutable bool kimagefilepreview_sizehint_isbase = false;
     mutable bool kimagefilepreview_showpreview_isbase = false;
@@ -223,6 +229,8 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
     VirtualKImageFilePreview() : KImageFilePreview() {};
 
     ~VirtualKImageFilePreview() {
+        kimagefilepreview_metaobject_callback = nullptr;
+        kimagefilepreview_metacast_callback = nullptr;
         kimagefilepreview_metacall_callback = nullptr;
         kimagefilepreview_sizehint_callback = nullptr;
         kimagefilepreview_showpreview_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
     }
 
     // Callback setters
+    inline void setKImageFilePreview_MetaObject_Callback(KImageFilePreview_MetaObject_Callback cb) { kimagefilepreview_metaobject_callback = cb; }
+    inline void setKImageFilePreview_Metacast_Callback(KImageFilePreview_Metacast_Callback cb) { kimagefilepreview_metacast_callback = cb; }
     inline void setKImageFilePreview_Metacall_Callback(KImageFilePreview_Metacall_Callback cb) { kimagefilepreview_metacall_callback = cb; }
     inline void setKImageFilePreview_SizeHint_Callback(KImageFilePreview_SizeHint_Callback cb) { kimagefilepreview_sizehint_callback = cb; }
     inline void setKImageFilePreview_ShowPreview_Callback(KImageFilePreview_ShowPreview_Callback cb) { kimagefilepreview_showpreview_callback = cb; }
@@ -358,6 +368,8 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
     inline void setKImageFilePreview_GetDecodedMetricF_Callback(KImageFilePreview_GetDecodedMetricF_Callback cb) { kimagefilepreview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKImageFilePreview_MetaObject_IsBase(bool value) const { kimagefilepreview_metaobject_isbase = value; }
+    inline void setKImageFilePreview_Metacast_IsBase(bool value) const { kimagefilepreview_metacast_isbase = value; }
     inline void setKImageFilePreview_Metacall_IsBase(bool value) const { kimagefilepreview_metacall_isbase = value; }
     inline void setKImageFilePreview_SizeHint_IsBase(bool value) const { kimagefilepreview_sizehint_isbase = value; }
     inline void setKImageFilePreview_ShowPreview_IsBase(bool value) const { kimagefilepreview_showpreview_isbase = value; }
@@ -423,6 +435,34 @@ class VirtualKImageFilePreview final : public KImageFilePreview {
     inline void setKImageFilePreview_Receivers_IsBase(bool value) const { kimagefilepreview_receivers_isbase = value; }
     inline void setKImageFilePreview_IsSignalConnected_IsBase(bool value) const { kimagefilepreview_issignalconnected_isbase = value; }
     inline void setKImageFilePreview_GetDecodedMetricF_IsBase(bool value) const { kimagefilepreview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kimagefilepreview_metaobject_isbase) {
+            kimagefilepreview_metaobject_isbase = false;
+            return KImageFilePreview::metaObject();
+        } else if (kimagefilepreview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kimagefilepreview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KImageFilePreview::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kimagefilepreview_metacast_isbase) {
+            kimagefilepreview_metacast_isbase = false;
+            return KImageFilePreview::qt_metacast(param1);
+        } else if (kimagefilepreview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kimagefilepreview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KImageFilePreview::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

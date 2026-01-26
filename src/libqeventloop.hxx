@@ -17,6 +17,8 @@ class VirtualQEventLoop final : public QEventLoop {
     bool isVirtualQEventLoop = true;
 
     // Virtual class public types (including callbacks)
+    using QEventLoop_MetaObject_Callback = QMetaObject* (*)();
+    using QEventLoop_Metacast_Callback = void* (*)(QEventLoop*, const char*);
     using QEventLoop_Metacall_Callback = int (*)(QEventLoop*, int, int, void**);
     using QEventLoop_Event_Callback = bool (*)(QEventLoop*, QEvent*);
     using QEventLoop_EventFilter_Callback = bool (*)(QEventLoop*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQEventLoop final : public QEventLoop {
 
   protected:
     // Instance callback storage
+    QEventLoop_MetaObject_Callback qeventloop_metaobject_callback = nullptr;
+    QEventLoop_Metacast_Callback qeventloop_metacast_callback = nullptr;
     QEventLoop_Metacall_Callback qeventloop_metacall_callback = nullptr;
     QEventLoop_Event_Callback qeventloop_event_callback = nullptr;
     QEventLoop_EventFilter_Callback qeventloop_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQEventLoop final : public QEventLoop {
     QEventLoop_IsSignalConnected_Callback qeventloop_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qeventloop_metaobject_isbase = false;
+    mutable bool qeventloop_metacast_isbase = false;
     mutable bool qeventloop_metacall_isbase = false;
     mutable bool qeventloop_event_isbase = false;
     mutable bool qeventloop_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQEventLoop final : public QEventLoop {
     VirtualQEventLoop(QObject* parent) : QEventLoop(parent) {};
 
     ~VirtualQEventLoop() {
+        qeventloop_metaobject_callback = nullptr;
+        qeventloop_metacast_callback = nullptr;
         qeventloop_metacall_callback = nullptr;
         qeventloop_event_callback = nullptr;
         qeventloop_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQEventLoop final : public QEventLoop {
     }
 
     // Callback setters
+    inline void setQEventLoop_MetaObject_Callback(QEventLoop_MetaObject_Callback cb) { qeventloop_metaobject_callback = cb; }
+    inline void setQEventLoop_Metacast_Callback(QEventLoop_Metacast_Callback cb) { qeventloop_metacast_callback = cb; }
     inline void setQEventLoop_Metacall_Callback(QEventLoop_Metacall_Callback cb) { qeventloop_metacall_callback = cb; }
     inline void setQEventLoop_Event_Callback(QEventLoop_Event_Callback cb) { qeventloop_event_callback = cb; }
     inline void setQEventLoop_EventFilter_Callback(QEventLoop_EventFilter_Callback cb) { qeventloop_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQEventLoop final : public QEventLoop {
     inline void setQEventLoop_IsSignalConnected_Callback(QEventLoop_IsSignalConnected_Callback cb) { qeventloop_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQEventLoop_MetaObject_IsBase(bool value) const { qeventloop_metaobject_isbase = value; }
+    inline void setQEventLoop_Metacast_IsBase(bool value) const { qeventloop_metacast_isbase = value; }
     inline void setQEventLoop_Metacall_IsBase(bool value) const { qeventloop_metacall_isbase = value; }
     inline void setQEventLoop_Event_IsBase(bool value) const { qeventloop_event_isbase = value; }
     inline void setQEventLoop_EventFilter_IsBase(bool value) const { qeventloop_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQEventLoop final : public QEventLoop {
     inline void setQEventLoop_SenderSignalIndex_IsBase(bool value) const { qeventloop_sendersignalindex_isbase = value; }
     inline void setQEventLoop_Receivers_IsBase(bool value) const { qeventloop_receivers_isbase = value; }
     inline void setQEventLoop_IsSignalConnected_IsBase(bool value) const { qeventloop_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qeventloop_metaobject_isbase) {
+            qeventloop_metaobject_isbase = false;
+            return QEventLoop::metaObject();
+        } else if (qeventloop_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qeventloop_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QEventLoop::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qeventloop_metacast_isbase) {
+            qeventloop_metacast_isbase = false;
+            return QEventLoop::qt_metacast(param1);
+        } else if (qeventloop_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qeventloop_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QEventLoop::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

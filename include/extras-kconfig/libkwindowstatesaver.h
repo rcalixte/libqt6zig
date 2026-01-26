@@ -30,6 +30,10 @@ KWindowStateSaver* KWindowStateSaver_new2(QWindow* window, const libqt_string co
 QMetaObject* KWindowStateSaver_MetaObject(const KWindowStateSaver* self);
 void* KWindowStateSaver_Metacast(KWindowStateSaver* self, const char* param1);
 int KWindowStateSaver_Metacall(KWindowStateSaver* self, int param1, int param2, void** param3);
+void KWindowStateSaver_OnMetaObject(const KWindowStateSaver* self, intptr_t slot);
+QMetaObject* KWindowStateSaver_QBaseMetaObject(const KWindowStateSaver* self);
+void KWindowStateSaver_OnMetacast(KWindowStateSaver* self, intptr_t slot);
+void* KWindowStateSaver_QBaseMetacast(KWindowStateSaver* self, const char* param1);
 void KWindowStateSaver_OnMetacall(KWindowStateSaver* self, intptr_t slot);
 int KWindowStateSaver_QBaseMetacall(KWindowStateSaver* self, int param1, int param2, void** param3);
 bool KWindowStateSaver_Event(KWindowStateSaver* self, QEvent* event);

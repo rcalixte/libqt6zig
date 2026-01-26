@@ -25,11 +25,21 @@ QsciLexerRuby* QsciLexerRuby_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerRuby_MetaObject(const QsciLexerRuby* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerruby = dynamic_cast<const VirtualQsciLexerRuby*>(self);
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerRuby*)self)->metaObject();
+    }
 }
 
 void* QsciLexerRuby_Metacast(QsciLexerRuby* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerRuby*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerRuby_Metacall(QsciLexerRuby* self, int param1, int param2, void** param3) {
@@ -127,6 +137,44 @@ const char* QsciLexerRuby_BlockStart1(const QsciLexerRuby* self, int* style) {
 
 const char* QsciLexerRuby_BlockStartKeyword1(const QsciLexerRuby* self, int* style) {
     return (const char*)self->blockStartKeyword(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerRuby_QBaseMetaObject(const QsciLexerRuby* self) {
+    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+        vqscilexerruby->setQsciLexerRuby_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerruby->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerRuby*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerRuby_OnMetaObject(const QsciLexerRuby* self, intptr_t slot) {
+    auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+        vqscilexerruby->setQsciLexerRuby_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerRuby_QBaseMetacast(QsciLexerRuby* self, const char* param1) {
+    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+        vqscilexerruby->setQsciLexerRuby_Metacast_IsBase(true);
+        return vqscilexerruby->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerRuby*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerRuby_OnMetacast(QsciLexerRuby* self, intptr_t slot) {
+    auto* vqscilexerruby = dynamic_cast<VirtualQsciLexerRuby*>(self);
+    if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
+        vqscilexerruby->setQsciLexerRuby_Metacast_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

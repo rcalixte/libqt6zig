@@ -26,11 +26,21 @@ KFileItemActions* KFileItemActions_new2(QObject* parent) {
 }
 
 QMetaObject* KFileItemActions_MetaObject(const KFileItemActions* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfileitemactions = dynamic_cast<const VirtualKFileItemActions*>(self);
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFileItemActions*)self)->metaObject();
+    }
 }
 
 void* KFileItemActions_Metacast(KFileItemActions* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFileItemActions*)self)->qt_metacast(param1);
+    }
 }
 
 int KFileItemActions_Metacall(KFileItemActions* self, int param1, int param2, void** param3) {
@@ -129,6 +139,44 @@ void KFileItemActions_AddActionsTo4(KFileItemActions* self, QMenu* menu, int sou
         excludeList_QList.push_back(excludeList_arr_i_QString);
     }
     self->addActionsTo(menu, static_cast<KFileItemActions::MenuActionSources>(sources), additionalActions_QList, excludeList_QList);
+}
+
+// Base class handler implementation
+QMetaObject* KFileItemActions_QBaseMetaObject(const KFileItemActions* self) {
+    auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+        vkfileitemactions->setKFileItemActions_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfileitemactions->metaObject();
+    } else {
+        return (QMetaObject*)self->KFileItemActions::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileItemActions_OnMetaObject(const KFileItemActions* self, intptr_t slot) {
+    auto* vkfileitemactions = const_cast<VirtualKFileItemActions*>(dynamic_cast<const VirtualKFileItemActions*>(self));
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+        vkfileitemactions->setKFileItemActions_MetaObject_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFileItemActions_QBaseMetacast(KFileItemActions* self, const char* param1) {
+    auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+        vkfileitemactions->setKFileItemActions_Metacast_IsBase(true);
+        return vkfileitemactions->qt_metacast(param1);
+    } else {
+        return self->KFileItemActions::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileItemActions_OnMetacast(KFileItemActions* self, intptr_t slot) {
+    auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
+    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
+        vkfileitemactions->setKFileItemActions_Metacast_Callback(reinterpret_cast<VirtualKFileItemActions::KFileItemActions_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

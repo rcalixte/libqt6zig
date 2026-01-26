@@ -22,11 +22,21 @@ QValueAxis* QValueAxis_new2(QObject* parent) {
 }
 
 QMetaObject* QValueAxis_MetaObject(const QValueAxis* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqvalueaxis = dynamic_cast<const VirtualQValueAxis*>(self);
+    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQValueAxis*)self)->metaObject();
+    }
 }
 
 void* QValueAxis_Metacast(QValueAxis* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
+    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQValueAxis*)self)->qt_metacast(param1);
+    }
 }
 
 int QValueAxis_Metacall(QValueAxis* self, int param1, int param2, void** param3) {
@@ -243,6 +253,44 @@ void QValueAxis_Connect_TickTypeChanged(QValueAxis* self, intptr_t slot) {
         int sigval1 = static_cast<int>(typeVal);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QValueAxis_QBaseMetaObject(const QValueAxis* self) {
+    auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
+    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
+        vqvalueaxis->setQValueAxis_MetaObject_IsBase(true);
+        return (QMetaObject*)vqvalueaxis->metaObject();
+    } else {
+        return (QMetaObject*)self->QValueAxis::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QValueAxis_OnMetaObject(const QValueAxis* self, intptr_t slot) {
+    auto* vqvalueaxis = const_cast<VirtualQValueAxis*>(dynamic_cast<const VirtualQValueAxis*>(self));
+    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
+        vqvalueaxis->setQValueAxis_MetaObject_Callback(reinterpret_cast<VirtualQValueAxis::QValueAxis_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QValueAxis_QBaseMetacast(QValueAxis* self, const char* param1) {
+    auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
+    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
+        vqvalueaxis->setQValueAxis_Metacast_IsBase(true);
+        return vqvalueaxis->qt_metacast(param1);
+    } else {
+        return self->QValueAxis::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QValueAxis_OnMetacast(QValueAxis* self, intptr_t slot) {
+    auto* vqvalueaxis = dynamic_cast<VirtualQValueAxis*>(self);
+    if (vqvalueaxis && vqvalueaxis->isVirtualQValueAxis) {
+        vqvalueaxis->setQValueAxis_Metacast_Callback(reinterpret_cast<VirtualQValueAxis::QValueAxis_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -59,11 +59,21 @@ KFileFilterCombo* KFileFilterCombo_new2() {
 }
 
 QMetaObject* KFileFilterCombo_MetaObject(const KFileFilterCombo* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfilefiltercombo = dynamic_cast<const VirtualKFileFilterCombo*>(self);
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFileFilterCombo*)self)->metaObject();
+    }
 }
 
 void* KFileFilterCombo_Metacast(KFileFilterCombo* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFileFilterCombo*)self)->qt_metacast(param1);
+    }
 }
 
 int KFileFilterCombo_Metacall(KFileFilterCombo* self, int param1, int param2, void** param3) {
@@ -145,6 +155,44 @@ void KFileFilterCombo_SetFilters2(KFileFilterCombo* self, const libqt_list /* of
         filters_QList.push_back(*(filters_arr[i]));
     }
     self->setFilters(filters_QList, *defaultFilter);
+}
+
+// Base class handler implementation
+QMetaObject* KFileFilterCombo_QBaseMetaObject(const KFileFilterCombo* self) {
+    auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+        vkfilefiltercombo->setKFileFilterCombo_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfilefiltercombo->metaObject();
+    } else {
+        return (QMetaObject*)self->KFileFilterCombo::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileFilterCombo_OnMetaObject(const KFileFilterCombo* self, intptr_t slot) {
+    auto* vkfilefiltercombo = const_cast<VirtualKFileFilterCombo*>(dynamic_cast<const VirtualKFileFilterCombo*>(self));
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+        vkfilefiltercombo->setKFileFilterCombo_MetaObject_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFileFilterCombo_QBaseMetacast(KFileFilterCombo* self, const char* param1) {
+    auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+        vkfilefiltercombo->setKFileFilterCombo_Metacast_IsBase(true);
+        return vkfilefiltercombo->qt_metacast(param1);
+    } else {
+        return self->KFileFilterCombo::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileFilterCombo_OnMetacast(KFileFilterCombo* self, intptr_t slot) {
+    auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
+    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
+        vkfilefiltercombo->setKFileFilterCombo_Metacast_Callback(reinterpret_cast<VirtualKFileFilterCombo::KFileFilterCombo_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -205,6 +205,10 @@ bool QPlainTextEdit_Find23(QPlainTextEdit* self, const QRegularExpression* exp, 
 void QPlainTextEdit_MoveCursor2(QPlainTextEdit* self, int operation, int mode);
 void QPlainTextEdit_ZoomIn1(QPlainTextEdit* self, int range);
 void QPlainTextEdit_ZoomOut1(QPlainTextEdit* self, int range);
+void QPlainTextEdit_OnMetaObject(const QPlainTextEdit* self, intptr_t slot);
+QMetaObject* QPlainTextEdit_QBaseMetaObject(const QPlainTextEdit* self);
+void QPlainTextEdit_OnMetacast(QPlainTextEdit* self, intptr_t slot);
+void* QPlainTextEdit_QBaseMetacast(QPlainTextEdit* self, const char* param1);
 void QPlainTextEdit_OnMetacall(QPlainTextEdit* self, intptr_t slot);
 int QPlainTextEdit_QBaseMetacall(QPlainTextEdit* self, int param1, int param2, void** param3);
 void QPlainTextEdit_OnLoadResource(QPlainTextEdit* self, intptr_t slot);
@@ -423,6 +427,10 @@ void QPlainTextDocumentLayout_SetCursorWidth(QPlainTextDocumentLayout* self, int
 int QPlainTextDocumentLayout_CursorWidth(const QPlainTextDocumentLayout* self);
 void QPlainTextDocumentLayout_RequestUpdate(QPlainTextDocumentLayout* self);
 void QPlainTextDocumentLayout_DocumentChanged(QPlainTextDocumentLayout* self, int from, int param2, int charsAdded);
+void QPlainTextDocumentLayout_OnMetaObject(const QPlainTextDocumentLayout* self, intptr_t slot);
+QMetaObject* QPlainTextDocumentLayout_QBaseMetaObject(const QPlainTextDocumentLayout* self);
+void QPlainTextDocumentLayout_OnMetacast(QPlainTextDocumentLayout* self, intptr_t slot);
+void* QPlainTextDocumentLayout_QBaseMetacast(QPlainTextDocumentLayout* self, const char* param1);
 void QPlainTextDocumentLayout_OnMetacall(QPlainTextDocumentLayout* self, intptr_t slot);
 int QPlainTextDocumentLayout_QBaseMetacall(QPlainTextDocumentLayout* self, int param1, int param2, void** param3);
 void QPlainTextDocumentLayout_OnDraw(QPlainTextDocumentLayout* self, intptr_t slot);

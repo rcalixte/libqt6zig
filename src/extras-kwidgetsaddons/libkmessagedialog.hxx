@@ -17,6 +17,8 @@ class VirtualKMessageDialog final : public KMessageDialog {
     bool isVirtualKMessageDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KMessageDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KMessageDialog_Metacast_Callback = void* (*)(KMessageDialog*, const char*);
     using KMessageDialog_Metacall_Callback = int (*)(KMessageDialog*, int, int, void**);
     using KMessageDialog_ShowEvent_Callback = void (*)(KMessageDialog*, QShowEvent*);
     using KMessageDialog_SetVisible_Callback = void (*)(KMessageDialog*, bool);
@@ -84,6 +86,8 @@ class VirtualKMessageDialog final : public KMessageDialog {
 
   protected:
     // Instance callback storage
+    KMessageDialog_MetaObject_Callback kmessagedialog_metaobject_callback = nullptr;
+    KMessageDialog_Metacast_Callback kmessagedialog_metacast_callback = nullptr;
     KMessageDialog_Metacall_Callback kmessagedialog_metacall_callback = nullptr;
     KMessageDialog_ShowEvent_Callback kmessagedialog_showevent_callback = nullptr;
     KMessageDialog_SetVisible_Callback kmessagedialog_setvisible_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKMessageDialog final : public KMessageDialog {
     KMessageDialog_GetDecodedMetricF_Callback kmessagedialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kmessagedialog_metaobject_isbase = false;
+    mutable bool kmessagedialog_metacast_isbase = false;
     mutable bool kmessagedialog_metacall_isbase = false;
     mutable bool kmessagedialog_showevent_isbase = false;
     mutable bool kmessagedialog_setvisible_isbase = false;
@@ -221,6 +227,8 @@ class VirtualKMessageDialog final : public KMessageDialog {
     VirtualKMessageDialog(KMessageDialog::Type typeVal, const QString& text, QWidget* parent) : KMessageDialog(typeVal, text, parent) {};
 
     ~VirtualKMessageDialog() {
+        kmessagedialog_metaobject_callback = nullptr;
+        kmessagedialog_metacast_callback = nullptr;
         kmessagedialog_metacall_callback = nullptr;
         kmessagedialog_showevent_callback = nullptr;
         kmessagedialog_setvisible_callback = nullptr;
@@ -288,6 +296,8 @@ class VirtualKMessageDialog final : public KMessageDialog {
     }
 
     // Callback setters
+    inline void setKMessageDialog_MetaObject_Callback(KMessageDialog_MetaObject_Callback cb) { kmessagedialog_metaobject_callback = cb; }
+    inline void setKMessageDialog_Metacast_Callback(KMessageDialog_Metacast_Callback cb) { kmessagedialog_metacast_callback = cb; }
     inline void setKMessageDialog_Metacall_Callback(KMessageDialog_Metacall_Callback cb) { kmessagedialog_metacall_callback = cb; }
     inline void setKMessageDialog_ShowEvent_Callback(KMessageDialog_ShowEvent_Callback cb) { kmessagedialog_showevent_callback = cb; }
     inline void setKMessageDialog_SetVisible_Callback(KMessageDialog_SetVisible_Callback cb) { kmessagedialog_setvisible_callback = cb; }
@@ -354,6 +364,8 @@ class VirtualKMessageDialog final : public KMessageDialog {
     inline void setKMessageDialog_GetDecodedMetricF_Callback(KMessageDialog_GetDecodedMetricF_Callback cb) { kmessagedialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKMessageDialog_MetaObject_IsBase(bool value) const { kmessagedialog_metaobject_isbase = value; }
+    inline void setKMessageDialog_Metacast_IsBase(bool value) const { kmessagedialog_metacast_isbase = value; }
     inline void setKMessageDialog_Metacall_IsBase(bool value) const { kmessagedialog_metacall_isbase = value; }
     inline void setKMessageDialog_ShowEvent_IsBase(bool value) const { kmessagedialog_showevent_isbase = value; }
     inline void setKMessageDialog_SetVisible_IsBase(bool value) const { kmessagedialog_setvisible_isbase = value; }
@@ -418,6 +430,34 @@ class VirtualKMessageDialog final : public KMessageDialog {
     inline void setKMessageDialog_Receivers_IsBase(bool value) const { kmessagedialog_receivers_isbase = value; }
     inline void setKMessageDialog_IsSignalConnected_IsBase(bool value) const { kmessagedialog_issignalconnected_isbase = value; }
     inline void setKMessageDialog_GetDecodedMetricF_IsBase(bool value) const { kmessagedialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kmessagedialog_metaobject_isbase) {
+            kmessagedialog_metaobject_isbase = false;
+            return KMessageDialog::metaObject();
+        } else if (kmessagedialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kmessagedialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KMessageDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kmessagedialog_metacast_isbase) {
+            kmessagedialog_metacast_isbase = false;
+            return KMessageDialog::qt_metacast(param1);
+        } else if (kmessagedialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kmessagedialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KMessageDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

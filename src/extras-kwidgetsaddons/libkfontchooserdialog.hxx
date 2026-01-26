@@ -17,6 +17,8 @@ class VirtualKFontChooserDialog final : public KFontChooserDialog {
     bool isVirtualKFontChooserDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KFontChooserDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KFontChooserDialog_Metacast_Callback = void* (*)(KFontChooserDialog*, const char*);
     using KFontChooserDialog_Metacall_Callback = int (*)(KFontChooserDialog*, int, int, void**);
     using KFontChooserDialog_SetVisible_Callback = void (*)(KFontChooserDialog*, bool);
     using KFontChooserDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKFontChooserDialog final : public KFontChooserDialog {
 
   protected:
     // Instance callback storage
+    KFontChooserDialog_MetaObject_Callback kfontchooserdialog_metaobject_callback = nullptr;
+    KFontChooserDialog_Metacast_Callback kfontchooserdialog_metacast_callback = nullptr;
     KFontChooserDialog_Metacall_Callback kfontchooserdialog_metacall_callback = nullptr;
     KFontChooserDialog_SetVisible_Callback kfontchooserdialog_setvisible_callback = nullptr;
     KFontChooserDialog_SizeHint_Callback kfontchooserdialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKFontChooserDialog final : public KFontChooserDialog {
     KFontChooserDialog_GetDecodedMetricF_Callback kfontchooserdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfontchooserdialog_metaobject_isbase = false;
+    mutable bool kfontchooserdialog_metacast_isbase = false;
     mutable bool kfontchooserdialog_metacall_isbase = false;
     mutable bool kfontchooserdialog_setvisible_isbase = false;
     mutable bool kfontchooserdialog_sizehint_isbase = false;
@@ -221,6 +227,8 @@ class VirtualKFontChooserDialog final : public KFontChooserDialog {
     VirtualKFontChooserDialog(const KFontChooser::DisplayFlags& flags, QWidget* parent) : KFontChooserDialog(flags, parent) {};
 
     ~VirtualKFontChooserDialog() {
+        kfontchooserdialog_metaobject_callback = nullptr;
+        kfontchooserdialog_metacast_callback = nullptr;
         kfontchooserdialog_metacall_callback = nullptr;
         kfontchooserdialog_setvisible_callback = nullptr;
         kfontchooserdialog_sizehint_callback = nullptr;
@@ -288,6 +296,8 @@ class VirtualKFontChooserDialog final : public KFontChooserDialog {
     }
 
     // Callback setters
+    inline void setKFontChooserDialog_MetaObject_Callback(KFontChooserDialog_MetaObject_Callback cb) { kfontchooserdialog_metaobject_callback = cb; }
+    inline void setKFontChooserDialog_Metacast_Callback(KFontChooserDialog_Metacast_Callback cb) { kfontchooserdialog_metacast_callback = cb; }
     inline void setKFontChooserDialog_Metacall_Callback(KFontChooserDialog_Metacall_Callback cb) { kfontchooserdialog_metacall_callback = cb; }
     inline void setKFontChooserDialog_SetVisible_Callback(KFontChooserDialog_SetVisible_Callback cb) { kfontchooserdialog_setvisible_callback = cb; }
     inline void setKFontChooserDialog_SizeHint_Callback(KFontChooserDialog_SizeHint_Callback cb) { kfontchooserdialog_sizehint_callback = cb; }
@@ -354,6 +364,8 @@ class VirtualKFontChooserDialog final : public KFontChooserDialog {
     inline void setKFontChooserDialog_GetDecodedMetricF_Callback(KFontChooserDialog_GetDecodedMetricF_Callback cb) { kfontchooserdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKFontChooserDialog_MetaObject_IsBase(bool value) const { kfontchooserdialog_metaobject_isbase = value; }
+    inline void setKFontChooserDialog_Metacast_IsBase(bool value) const { kfontchooserdialog_metacast_isbase = value; }
     inline void setKFontChooserDialog_Metacall_IsBase(bool value) const { kfontchooserdialog_metacall_isbase = value; }
     inline void setKFontChooserDialog_SetVisible_IsBase(bool value) const { kfontchooserdialog_setvisible_isbase = value; }
     inline void setKFontChooserDialog_SizeHint_IsBase(bool value) const { kfontchooserdialog_sizehint_isbase = value; }
@@ -418,6 +430,34 @@ class VirtualKFontChooserDialog final : public KFontChooserDialog {
     inline void setKFontChooserDialog_Receivers_IsBase(bool value) const { kfontchooserdialog_receivers_isbase = value; }
     inline void setKFontChooserDialog_IsSignalConnected_IsBase(bool value) const { kfontchooserdialog_issignalconnected_isbase = value; }
     inline void setKFontChooserDialog_GetDecodedMetricF_IsBase(bool value) const { kfontchooserdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfontchooserdialog_metaobject_isbase) {
+            kfontchooserdialog_metaobject_isbase = false;
+            return KFontChooserDialog::metaObject();
+        } else if (kfontchooserdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfontchooserdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFontChooserDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfontchooserdialog_metacast_isbase) {
+            kfontchooserdialog_metacast_isbase = false;
+            return KFontChooserDialog::qt_metacast(param1);
+        } else if (kfontchooserdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfontchooserdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFontChooserDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

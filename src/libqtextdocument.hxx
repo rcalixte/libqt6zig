@@ -17,6 +17,8 @@ class VirtualQTextDocument final : public QTextDocument {
     bool isVirtualQTextDocument = true;
 
     // Virtual class public types (including callbacks)
+    using QTextDocument_MetaObject_Callback = QMetaObject* (*)();
+    using QTextDocument_Metacast_Callback = void* (*)(QTextDocument*, const char*);
     using QTextDocument_Metacall_Callback = int (*)(QTextDocument*, int, int, void**);
     using QTextDocument_Clear_Callback = void (*)();
     using QTextDocument_CreateObject_Callback = QTextObject* (*)(QTextDocument*, QTextFormat*);
@@ -35,6 +37,8 @@ class VirtualQTextDocument final : public QTextDocument {
 
   protected:
     // Instance callback storage
+    QTextDocument_MetaObject_Callback qtextdocument_metaobject_callback = nullptr;
+    QTextDocument_Metacast_Callback qtextdocument_metacast_callback = nullptr;
     QTextDocument_Metacall_Callback qtextdocument_metacall_callback = nullptr;
     QTextDocument_Clear_Callback qtextdocument_clear_callback = nullptr;
     QTextDocument_CreateObject_Callback qtextdocument_createobject_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualQTextDocument final : public QTextDocument {
     QTextDocument_IsSignalConnected_Callback qtextdocument_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtextdocument_metaobject_isbase = false;
+    mutable bool qtextdocument_metacast_isbase = false;
     mutable bool qtextdocument_metacall_isbase = false;
     mutable bool qtextdocument_clear_isbase = false;
     mutable bool qtextdocument_createobject_isbase = false;
@@ -75,6 +81,8 @@ class VirtualQTextDocument final : public QTextDocument {
     VirtualQTextDocument(const QString& text, QObject* parent) : QTextDocument(text, parent) {};
 
     ~VirtualQTextDocument() {
+        qtextdocument_metaobject_callback = nullptr;
+        qtextdocument_metacast_callback = nullptr;
         qtextdocument_metacall_callback = nullptr;
         qtextdocument_clear_callback = nullptr;
         qtextdocument_createobject_callback = nullptr;
@@ -93,6 +101,8 @@ class VirtualQTextDocument final : public QTextDocument {
     }
 
     // Callback setters
+    inline void setQTextDocument_MetaObject_Callback(QTextDocument_MetaObject_Callback cb) { qtextdocument_metaobject_callback = cb; }
+    inline void setQTextDocument_Metacast_Callback(QTextDocument_Metacast_Callback cb) { qtextdocument_metacast_callback = cb; }
     inline void setQTextDocument_Metacall_Callback(QTextDocument_Metacall_Callback cb) { qtextdocument_metacall_callback = cb; }
     inline void setQTextDocument_Clear_Callback(QTextDocument_Clear_Callback cb) { qtextdocument_clear_callback = cb; }
     inline void setQTextDocument_CreateObject_Callback(QTextDocument_CreateObject_Callback cb) { qtextdocument_createobject_callback = cb; }
@@ -110,6 +120,8 @@ class VirtualQTextDocument final : public QTextDocument {
     inline void setQTextDocument_IsSignalConnected_Callback(QTextDocument_IsSignalConnected_Callback cb) { qtextdocument_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTextDocument_MetaObject_IsBase(bool value) const { qtextdocument_metaobject_isbase = value; }
+    inline void setQTextDocument_Metacast_IsBase(bool value) const { qtextdocument_metacast_isbase = value; }
     inline void setQTextDocument_Metacall_IsBase(bool value) const { qtextdocument_metacall_isbase = value; }
     inline void setQTextDocument_Clear_IsBase(bool value) const { qtextdocument_clear_isbase = value; }
     inline void setQTextDocument_CreateObject_IsBase(bool value) const { qtextdocument_createobject_isbase = value; }
@@ -125,6 +137,34 @@ class VirtualQTextDocument final : public QTextDocument {
     inline void setQTextDocument_SenderSignalIndex_IsBase(bool value) const { qtextdocument_sendersignalindex_isbase = value; }
     inline void setQTextDocument_Receivers_IsBase(bool value) const { qtextdocument_receivers_isbase = value; }
     inline void setQTextDocument_IsSignalConnected_IsBase(bool value) const { qtextdocument_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtextdocument_metaobject_isbase) {
+            qtextdocument_metaobject_isbase = false;
+            return QTextDocument::metaObject();
+        } else if (qtextdocument_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtextdocument_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTextDocument::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtextdocument_metacast_isbase) {
+            qtextdocument_metacast_isbase = false;
+            return QTextDocument::qt_metacast(param1);
+        } else if (qtextdocument_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtextdocument_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTextDocument::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

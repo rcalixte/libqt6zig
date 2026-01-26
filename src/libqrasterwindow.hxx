@@ -17,6 +17,8 @@ class VirtualQRasterWindow final : public QRasterWindow {
     bool isVirtualQRasterWindow = true;
 
     // Virtual class public types (including callbacks)
+    using QRasterWindow_MetaObject_Callback = QMetaObject* (*)();
+    using QRasterWindow_Metacast_Callback = void* (*)(QRasterWindow*, const char*);
     using QRasterWindow_Metacall_Callback = int (*)(QRasterWindow*, int, int, void**);
     using QRasterWindow_Metric_Callback = int (*)(const QRasterWindow*, int);
     using QRasterWindow_Redirected_Callback = QPaintDevice* (*)(const QRasterWindow*, QPoint*);
@@ -63,6 +65,8 @@ class VirtualQRasterWindow final : public QRasterWindow {
 
   protected:
     // Instance callback storage
+    QRasterWindow_MetaObject_Callback qrasterwindow_metaobject_callback = nullptr;
+    QRasterWindow_Metacast_Callback qrasterwindow_metacast_callback = nullptr;
     QRasterWindow_Metacall_Callback qrasterwindow_metacall_callback = nullptr;
     QRasterWindow_Metric_Callback qrasterwindow_metric_callback = nullptr;
     QRasterWindow_Redirected_Callback qrasterwindow_redirected_callback = nullptr;
@@ -108,6 +112,8 @@ class VirtualQRasterWindow final : public QRasterWindow {
     QRasterWindow_GetDecodedMetricF_Callback qrasterwindow_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qrasterwindow_metaobject_isbase = false;
+    mutable bool qrasterwindow_metacast_isbase = false;
     mutable bool qrasterwindow_metacall_isbase = false;
     mutable bool qrasterwindow_metric_isbase = false;
     mutable bool qrasterwindow_redirected_isbase = false;
@@ -157,6 +163,8 @@ class VirtualQRasterWindow final : public QRasterWindow {
     VirtualQRasterWindow(QWindow* parent) : QRasterWindow(parent) {};
 
     ~VirtualQRasterWindow() {
+        qrasterwindow_metaobject_callback = nullptr;
+        qrasterwindow_metacast_callback = nullptr;
         qrasterwindow_metacall_callback = nullptr;
         qrasterwindow_metric_callback = nullptr;
         qrasterwindow_redirected_callback = nullptr;
@@ -203,6 +211,8 @@ class VirtualQRasterWindow final : public QRasterWindow {
     }
 
     // Callback setters
+    inline void setQRasterWindow_MetaObject_Callback(QRasterWindow_MetaObject_Callback cb) { qrasterwindow_metaobject_callback = cb; }
+    inline void setQRasterWindow_Metacast_Callback(QRasterWindow_Metacast_Callback cb) { qrasterwindow_metacast_callback = cb; }
     inline void setQRasterWindow_Metacall_Callback(QRasterWindow_Metacall_Callback cb) { qrasterwindow_metacall_callback = cb; }
     inline void setQRasterWindow_Metric_Callback(QRasterWindow_Metric_Callback cb) { qrasterwindow_metric_callback = cb; }
     inline void setQRasterWindow_Redirected_Callback(QRasterWindow_Redirected_Callback cb) { qrasterwindow_redirected_callback = cb; }
@@ -248,6 +258,8 @@ class VirtualQRasterWindow final : public QRasterWindow {
     inline void setQRasterWindow_GetDecodedMetricF_Callback(QRasterWindow_GetDecodedMetricF_Callback cb) { qrasterwindow_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQRasterWindow_MetaObject_IsBase(bool value) const { qrasterwindow_metaobject_isbase = value; }
+    inline void setQRasterWindow_Metacast_IsBase(bool value) const { qrasterwindow_metacast_isbase = value; }
     inline void setQRasterWindow_Metacall_IsBase(bool value) const { qrasterwindow_metacall_isbase = value; }
     inline void setQRasterWindow_Metric_IsBase(bool value) const { qrasterwindow_metric_isbase = value; }
     inline void setQRasterWindow_Redirected_IsBase(bool value) const { qrasterwindow_redirected_isbase = value; }
@@ -291,6 +303,34 @@ class VirtualQRasterWindow final : public QRasterWindow {
     inline void setQRasterWindow_Receivers_IsBase(bool value) const { qrasterwindow_receivers_isbase = value; }
     inline void setQRasterWindow_IsSignalConnected_IsBase(bool value) const { qrasterwindow_issignalconnected_isbase = value; }
     inline void setQRasterWindow_GetDecodedMetricF_IsBase(bool value) const { qrasterwindow_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qrasterwindow_metaobject_isbase) {
+            qrasterwindow_metaobject_isbase = false;
+            return QRasterWindow::metaObject();
+        } else if (qrasterwindow_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qrasterwindow_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QRasterWindow::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qrasterwindow_metacast_isbase) {
+            qrasterwindow_metacast_isbase = false;
+            return QRasterWindow::qt_metacast(param1);
+        } else if (qrasterwindow_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qrasterwindow_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QRasterWindow::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQTextBrowser final : public QTextBrowser {
     bool isVirtualQTextBrowser = true;
 
     // Virtual class public types (including callbacks)
+    using QTextBrowser_MetaObject_Callback = QMetaObject* (*)();
+    using QTextBrowser_Metacast_Callback = void* (*)(QTextBrowser*, const char*);
     using QTextBrowser_Metacall_Callback = int (*)(QTextBrowser*, int, int, void**);
     using QTextBrowser_LoadResource_Callback = QVariant* (*)(QTextBrowser*, int, QUrl*);
     using QTextBrowser_Backward_Callback = void (*)();
@@ -97,6 +99,8 @@ class VirtualQTextBrowser final : public QTextBrowser {
 
   protected:
     // Instance callback storage
+    QTextBrowser_MetaObject_Callback qtextbrowser_metaobject_callback = nullptr;
+    QTextBrowser_Metacast_Callback qtextbrowser_metacast_callback = nullptr;
     QTextBrowser_Metacall_Callback qtextbrowser_metacall_callback = nullptr;
     QTextBrowser_LoadResource_Callback qtextbrowser_loadresource_callback = nullptr;
     QTextBrowser_Backward_Callback qtextbrowser_backward_callback = nullptr;
@@ -176,6 +180,8 @@ class VirtualQTextBrowser final : public QTextBrowser {
     QTextBrowser_GetDecodedMetricF_Callback qtextbrowser_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtextbrowser_metaobject_isbase = false;
+    mutable bool qtextbrowser_metacast_isbase = false;
     mutable bool qtextbrowser_metacall_isbase = false;
     mutable bool qtextbrowser_loadresource_isbase = false;
     mutable bool qtextbrowser_backward_isbase = false;
@@ -259,6 +265,8 @@ class VirtualQTextBrowser final : public QTextBrowser {
     VirtualQTextBrowser() : QTextBrowser() {};
 
     ~VirtualQTextBrowser() {
+        qtextbrowser_metaobject_callback = nullptr;
+        qtextbrowser_metacast_callback = nullptr;
         qtextbrowser_metacall_callback = nullptr;
         qtextbrowser_loadresource_callback = nullptr;
         qtextbrowser_backward_callback = nullptr;
@@ -339,6 +347,8 @@ class VirtualQTextBrowser final : public QTextBrowser {
     }
 
     // Callback setters
+    inline void setQTextBrowser_MetaObject_Callback(QTextBrowser_MetaObject_Callback cb) { qtextbrowser_metaobject_callback = cb; }
+    inline void setQTextBrowser_Metacast_Callback(QTextBrowser_Metacast_Callback cb) { qtextbrowser_metacast_callback = cb; }
     inline void setQTextBrowser_Metacall_Callback(QTextBrowser_Metacall_Callback cb) { qtextbrowser_metacall_callback = cb; }
     inline void setQTextBrowser_LoadResource_Callback(QTextBrowser_LoadResource_Callback cb) { qtextbrowser_loadresource_callback = cb; }
     inline void setQTextBrowser_Backward_Callback(QTextBrowser_Backward_Callback cb) { qtextbrowser_backward_callback = cb; }
@@ -418,6 +428,8 @@ class VirtualQTextBrowser final : public QTextBrowser {
     inline void setQTextBrowser_GetDecodedMetricF_Callback(QTextBrowser_GetDecodedMetricF_Callback cb) { qtextbrowser_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQTextBrowser_MetaObject_IsBase(bool value) const { qtextbrowser_metaobject_isbase = value; }
+    inline void setQTextBrowser_Metacast_IsBase(bool value) const { qtextbrowser_metacast_isbase = value; }
     inline void setQTextBrowser_Metacall_IsBase(bool value) const { qtextbrowser_metacall_isbase = value; }
     inline void setQTextBrowser_LoadResource_IsBase(bool value) const { qtextbrowser_loadresource_isbase = value; }
     inline void setQTextBrowser_Backward_IsBase(bool value) const { qtextbrowser_backward_isbase = value; }
@@ -495,6 +507,34 @@ class VirtualQTextBrowser final : public QTextBrowser {
     inline void setQTextBrowser_Receivers_IsBase(bool value) const { qtextbrowser_receivers_isbase = value; }
     inline void setQTextBrowser_IsSignalConnected_IsBase(bool value) const { qtextbrowser_issignalconnected_isbase = value; }
     inline void setQTextBrowser_GetDecodedMetricF_IsBase(bool value) const { qtextbrowser_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtextbrowser_metaobject_isbase) {
+            qtextbrowser_metaobject_isbase = false;
+            return QTextBrowser::metaObject();
+        } else if (qtextbrowser_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtextbrowser_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTextBrowser::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtextbrowser_metacast_isbase) {
+            qtextbrowser_metacast_isbase = false;
+            return QTextBrowser::qt_metacast(param1);
+        } else if (qtextbrowser_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtextbrowser_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTextBrowser::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

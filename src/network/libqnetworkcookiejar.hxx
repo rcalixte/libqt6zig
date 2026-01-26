@@ -17,6 +17,8 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
     bool isVirtualQNetworkCookieJar = true;
 
     // Virtual class public types (including callbacks)
+    using QNetworkCookieJar_MetaObject_Callback = QMetaObject* (*)();
+    using QNetworkCookieJar_Metacast_Callback = void* (*)(QNetworkCookieJar*, const char*);
     using QNetworkCookieJar_Metacall_Callback = int (*)(QNetworkCookieJar*, int, int, void**);
     using QNetworkCookieJar_CookiesForUrl_Callback = QNetworkCookie** (*)(const QNetworkCookieJar*, QUrl*);
     using QNetworkCookieJar_SetCookiesFromUrl_Callback = bool (*)(QNetworkCookieJar*, libqt_list /* of QNetworkCookie* */, QUrl*);
@@ -40,6 +42,8 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
 
   protected:
     // Instance callback storage
+    QNetworkCookieJar_MetaObject_Callback qnetworkcookiejar_metaobject_callback = nullptr;
+    QNetworkCookieJar_Metacast_Callback qnetworkcookiejar_metacast_callback = nullptr;
     QNetworkCookieJar_Metacall_Callback qnetworkcookiejar_metacall_callback = nullptr;
     QNetworkCookieJar_CookiesForUrl_Callback qnetworkcookiejar_cookiesforurl_callback = nullptr;
     QNetworkCookieJar_SetCookiesFromUrl_Callback qnetworkcookiejar_setcookiesfromurl_callback = nullptr;
@@ -62,6 +66,8 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
     QNetworkCookieJar_IsSignalConnected_Callback qnetworkcookiejar_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qnetworkcookiejar_metaobject_isbase = false;
+    mutable bool qnetworkcookiejar_metacast_isbase = false;
     mutable bool qnetworkcookiejar_metacall_isbase = false;
     mutable bool qnetworkcookiejar_cookiesforurl_isbase = false;
     mutable bool qnetworkcookiejar_setcookiesfromurl_isbase = false;
@@ -88,6 +94,8 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
     VirtualQNetworkCookieJar(QObject* parent) : QNetworkCookieJar(parent) {};
 
     ~VirtualQNetworkCookieJar() {
+        qnetworkcookiejar_metaobject_callback = nullptr;
+        qnetworkcookiejar_metacast_callback = nullptr;
         qnetworkcookiejar_metacall_callback = nullptr;
         qnetworkcookiejar_cookiesforurl_callback = nullptr;
         qnetworkcookiejar_setcookiesfromurl_callback = nullptr;
@@ -111,6 +119,8 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
     }
 
     // Callback setters
+    inline void setQNetworkCookieJar_MetaObject_Callback(QNetworkCookieJar_MetaObject_Callback cb) { qnetworkcookiejar_metaobject_callback = cb; }
+    inline void setQNetworkCookieJar_Metacast_Callback(QNetworkCookieJar_Metacast_Callback cb) { qnetworkcookiejar_metacast_callback = cb; }
     inline void setQNetworkCookieJar_Metacall_Callback(QNetworkCookieJar_Metacall_Callback cb) { qnetworkcookiejar_metacall_callback = cb; }
     inline void setQNetworkCookieJar_CookiesForUrl_Callback(QNetworkCookieJar_CookiesForUrl_Callback cb) { qnetworkcookiejar_cookiesforurl_callback = cb; }
     inline void setQNetworkCookieJar_SetCookiesFromUrl_Callback(QNetworkCookieJar_SetCookiesFromUrl_Callback cb) { qnetworkcookiejar_setcookiesfromurl_callback = cb; }
@@ -133,6 +143,8 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
     inline void setQNetworkCookieJar_IsSignalConnected_Callback(QNetworkCookieJar_IsSignalConnected_Callback cb) { qnetworkcookiejar_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQNetworkCookieJar_MetaObject_IsBase(bool value) const { qnetworkcookiejar_metaobject_isbase = value; }
+    inline void setQNetworkCookieJar_Metacast_IsBase(bool value) const { qnetworkcookiejar_metacast_isbase = value; }
     inline void setQNetworkCookieJar_Metacall_IsBase(bool value) const { qnetworkcookiejar_metacall_isbase = value; }
     inline void setQNetworkCookieJar_CookiesForUrl_IsBase(bool value) const { qnetworkcookiejar_cookiesforurl_isbase = value; }
     inline void setQNetworkCookieJar_SetCookiesFromUrl_IsBase(bool value) const { qnetworkcookiejar_setcookiesfromurl_isbase = value; }
@@ -153,6 +165,34 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
     inline void setQNetworkCookieJar_SenderSignalIndex_IsBase(bool value) const { qnetworkcookiejar_sendersignalindex_isbase = value; }
     inline void setQNetworkCookieJar_Receivers_IsBase(bool value) const { qnetworkcookiejar_receivers_isbase = value; }
     inline void setQNetworkCookieJar_IsSignalConnected_IsBase(bool value) const { qnetworkcookiejar_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qnetworkcookiejar_metaobject_isbase) {
+            qnetworkcookiejar_metaobject_isbase = false;
+            return QNetworkCookieJar::metaObject();
+        } else if (qnetworkcookiejar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qnetworkcookiejar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QNetworkCookieJar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qnetworkcookiejar_metacast_isbase) {
+            qnetworkcookiejar_metacast_isbase = false;
+            return QNetworkCookieJar::qt_metacast(param1);
+        } else if (qnetworkcookiejar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qnetworkcookiejar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QNetworkCookieJar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

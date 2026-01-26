@@ -17,6 +17,8 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
     bool isVirtualKXmlGuiWindow = true;
 
     // Virtual class public types (including callbacks)
+    using KXmlGuiWindow_MetaObject_Callback = QMetaObject* (*)();
+    using KXmlGuiWindow_Metacast_Callback = void* (*)(KXmlGuiWindow*, const char*);
     using KXmlGuiWindow_Metacall_Callback = int (*)(KXmlGuiWindow*, int, int, void**);
     using KXmlGuiWindow_GuiFactory_Callback = KXMLGUIFactory* (*)();
     using KXmlGuiWindow_ApplyMainWindowSettings_Callback = void (*)(KXmlGuiWindow*, KConfigGroup*);
@@ -116,6 +118,8 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
 
   protected:
     // Instance callback storage
+    KXmlGuiWindow_MetaObject_Callback kxmlguiwindow_metaobject_callback = nullptr;
+    KXmlGuiWindow_Metacast_Callback kxmlguiwindow_metacast_callback = nullptr;
     KXmlGuiWindow_Metacall_Callback kxmlguiwindow_metacall_callback = nullptr;
     KXmlGuiWindow_GuiFactory_Callback kxmlguiwindow_guifactory_callback = nullptr;
     KXmlGuiWindow_ApplyMainWindowSettings_Callback kxmlguiwindow_applymainwindowsettings_callback = nullptr;
@@ -214,6 +218,8 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
     KXmlGuiWindow_LoadStandardsXmlFile_Callback kxmlguiwindow_loadstandardsxmlfile_callback = nullptr;
 
     // Instance base flags
+    mutable bool kxmlguiwindow_metaobject_isbase = false;
+    mutable bool kxmlguiwindow_metacast_isbase = false;
     mutable bool kxmlguiwindow_metacall_isbase = false;
     mutable bool kxmlguiwindow_guifactory_isbase = false;
     mutable bool kxmlguiwindow_applymainwindowsettings_isbase = false;
@@ -317,6 +323,8 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
     VirtualKXmlGuiWindow(QWidget* parent, Qt::WindowFlags flags) : KXmlGuiWindow(parent, flags) {};
 
     ~VirtualKXmlGuiWindow() {
+        kxmlguiwindow_metaobject_callback = nullptr;
+        kxmlguiwindow_metacast_callback = nullptr;
         kxmlguiwindow_metacall_callback = nullptr;
         kxmlguiwindow_guifactory_callback = nullptr;
         kxmlguiwindow_applymainwindowsettings_callback = nullptr;
@@ -416,6 +424,8 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
     }
 
     // Callback setters
+    inline void setKXmlGuiWindow_MetaObject_Callback(KXmlGuiWindow_MetaObject_Callback cb) { kxmlguiwindow_metaobject_callback = cb; }
+    inline void setKXmlGuiWindow_Metacast_Callback(KXmlGuiWindow_Metacast_Callback cb) { kxmlguiwindow_metacast_callback = cb; }
     inline void setKXmlGuiWindow_Metacall_Callback(KXmlGuiWindow_Metacall_Callback cb) { kxmlguiwindow_metacall_callback = cb; }
     inline void setKXmlGuiWindow_GuiFactory_Callback(KXmlGuiWindow_GuiFactory_Callback cb) { kxmlguiwindow_guifactory_callback = cb; }
     inline void setKXmlGuiWindow_ApplyMainWindowSettings_Callback(KXmlGuiWindow_ApplyMainWindowSettings_Callback cb) { kxmlguiwindow_applymainwindowsettings_callback = cb; }
@@ -514,6 +524,8 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
     inline void setKXmlGuiWindow_LoadStandardsXmlFile_Callback(KXmlGuiWindow_LoadStandardsXmlFile_Callback cb) { kxmlguiwindow_loadstandardsxmlfile_callback = cb; }
 
     // Base flag setters
+    inline void setKXmlGuiWindow_MetaObject_IsBase(bool value) const { kxmlguiwindow_metaobject_isbase = value; }
+    inline void setKXmlGuiWindow_Metacast_IsBase(bool value) const { kxmlguiwindow_metacast_isbase = value; }
     inline void setKXmlGuiWindow_Metacall_IsBase(bool value) const { kxmlguiwindow_metacall_isbase = value; }
     inline void setKXmlGuiWindow_GuiFactory_IsBase(bool value) const { kxmlguiwindow_guifactory_isbase = value; }
     inline void setKXmlGuiWindow_ApplyMainWindowSettings_IsBase(bool value) const { kxmlguiwindow_applymainwindowsettings_isbase = value; }
@@ -610,6 +622,34 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
     inline void setKXmlGuiWindow_GetDecodedMetricF_IsBase(bool value) const { kxmlguiwindow_getdecodedmetricf_isbase = value; }
     inline void setKXmlGuiWindow_StandardsXmlFileLocation_IsBase(bool value) const { kxmlguiwindow_standardsxmlfilelocation_isbase = value; }
     inline void setKXmlGuiWindow_LoadStandardsXmlFile_IsBase(bool value) const { kxmlguiwindow_loadstandardsxmlfile_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kxmlguiwindow_metaobject_isbase) {
+            kxmlguiwindow_metaobject_isbase = false;
+            return KXmlGuiWindow::metaObject();
+        } else if (kxmlguiwindow_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kxmlguiwindow_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KXmlGuiWindow::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kxmlguiwindow_metacast_isbase) {
+            kxmlguiwindow_metacast_isbase = false;
+            return KXmlGuiWindow::qt_metacast(param1);
+        } else if (kxmlguiwindow_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kxmlguiwindow_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KXmlGuiWindow::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

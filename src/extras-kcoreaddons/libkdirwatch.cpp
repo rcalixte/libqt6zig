@@ -22,11 +22,21 @@ KDirWatch* KDirWatch_new2(QObject* parent) {
 }
 
 QMetaObject* KDirWatch_MetaObject(const KDirWatch* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdirwatch = dynamic_cast<const VirtualKDirWatch*>(self);
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDirWatch*)self)->metaObject();
+    }
 }
 
 void* KDirWatch_Metacast(KDirWatch* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDirWatch*)self)->qt_metacast(param1);
+    }
 }
 
 int KDirWatch_Metacall(KDirWatch* self, int param1, int param2, void** param3) {
@@ -197,6 +207,44 @@ void KDirWatch_StartScan1(KDirWatch* self, bool notify) {
 
 void KDirWatch_StartScan2(KDirWatch* self, bool notify, bool skippedToo) {
     self->startScan(notify, skippedToo);
+}
+
+// Base class handler implementation
+QMetaObject* KDirWatch_QBaseMetaObject(const KDirWatch* self) {
+    auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+        vkdirwatch->setKDirWatch_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdirwatch->metaObject();
+    } else {
+        return (QMetaObject*)self->KDirWatch::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirWatch_OnMetaObject(const KDirWatch* self, intptr_t slot) {
+    auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+        vkdirwatch->setKDirWatch_MetaObject_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDirWatch_QBaseMetacast(KDirWatch* self, const char* param1) {
+    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+        vkdirwatch->setKDirWatch_Metacast_IsBase(true);
+        return vkdirwatch->qt_metacast(param1);
+    } else {
+        return self->KDirWatch::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirWatch_OnMetacast(KDirWatch* self, intptr_t slot) {
+    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+        vkdirwatch->setKDirWatch_Metacast_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

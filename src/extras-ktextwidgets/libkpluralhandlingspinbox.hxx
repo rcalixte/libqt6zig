@@ -17,6 +17,8 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
     bool isVirtualKPluralHandlingSpinBox = true;
 
     // Virtual class public types (including callbacks)
+    using KPluralHandlingSpinBox_MetaObject_Callback = QMetaObject* (*)();
+    using KPluralHandlingSpinBox_Metacast_Callback = void* (*)(KPluralHandlingSpinBox*, const char*);
     using KPluralHandlingSpinBox_Metacall_Callback = int (*)(KPluralHandlingSpinBox*, int, int, void**);
     using KPluralHandlingSpinBox_Event_Callback = bool (*)(KPluralHandlingSpinBox*, QEvent*);
     using KPluralHandlingSpinBox_Validate_Callback = int (*)(const KPluralHandlingSpinBox*, libqt_string, int*);
@@ -88,6 +90,8 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
 
   protected:
     // Instance callback storage
+    KPluralHandlingSpinBox_MetaObject_Callback kpluralhandlingspinbox_metaobject_callback = nullptr;
+    KPluralHandlingSpinBox_Metacast_Callback kpluralhandlingspinbox_metacast_callback = nullptr;
     KPluralHandlingSpinBox_Metacall_Callback kpluralhandlingspinbox_metacall_callback = nullptr;
     KPluralHandlingSpinBox_Event_Callback kpluralhandlingspinbox_event_callback = nullptr;
     KPluralHandlingSpinBox_Validate_Callback kpluralhandlingspinbox_validate_callback = nullptr;
@@ -158,6 +162,8 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
     KPluralHandlingSpinBox_GetDecodedMetricF_Callback kpluralhandlingspinbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpluralhandlingspinbox_metaobject_isbase = false;
+    mutable bool kpluralhandlingspinbox_metacast_isbase = false;
     mutable bool kpluralhandlingspinbox_metacall_isbase = false;
     mutable bool kpluralhandlingspinbox_event_isbase = false;
     mutable bool kpluralhandlingspinbox_validate_isbase = false;
@@ -232,6 +238,8 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
     VirtualKPluralHandlingSpinBox() : KPluralHandlingSpinBox() {};
 
     ~VirtualKPluralHandlingSpinBox() {
+        kpluralhandlingspinbox_metaobject_callback = nullptr;
+        kpluralhandlingspinbox_metacast_callback = nullptr;
         kpluralhandlingspinbox_metacall_callback = nullptr;
         kpluralhandlingspinbox_event_callback = nullptr;
         kpluralhandlingspinbox_validate_callback = nullptr;
@@ -303,6 +311,8 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
     }
 
     // Callback setters
+    inline void setKPluralHandlingSpinBox_MetaObject_Callback(KPluralHandlingSpinBox_MetaObject_Callback cb) { kpluralhandlingspinbox_metaobject_callback = cb; }
+    inline void setKPluralHandlingSpinBox_Metacast_Callback(KPluralHandlingSpinBox_Metacast_Callback cb) { kpluralhandlingspinbox_metacast_callback = cb; }
     inline void setKPluralHandlingSpinBox_Metacall_Callback(KPluralHandlingSpinBox_Metacall_Callback cb) { kpluralhandlingspinbox_metacall_callback = cb; }
     inline void setKPluralHandlingSpinBox_Event_Callback(KPluralHandlingSpinBox_Event_Callback cb) { kpluralhandlingspinbox_event_callback = cb; }
     inline void setKPluralHandlingSpinBox_Validate_Callback(KPluralHandlingSpinBox_Validate_Callback cb) { kpluralhandlingspinbox_validate_callback = cb; }
@@ -373,6 +383,8 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
     inline void setKPluralHandlingSpinBox_GetDecodedMetricF_Callback(KPluralHandlingSpinBox_GetDecodedMetricF_Callback cb) { kpluralhandlingspinbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPluralHandlingSpinBox_MetaObject_IsBase(bool value) const { kpluralhandlingspinbox_metaobject_isbase = value; }
+    inline void setKPluralHandlingSpinBox_Metacast_IsBase(bool value) const { kpluralhandlingspinbox_metacast_isbase = value; }
     inline void setKPluralHandlingSpinBox_Metacall_IsBase(bool value) const { kpluralhandlingspinbox_metacall_isbase = value; }
     inline void setKPluralHandlingSpinBox_Event_IsBase(bool value) const { kpluralhandlingspinbox_event_isbase = value; }
     inline void setKPluralHandlingSpinBox_Validate_IsBase(bool value) const { kpluralhandlingspinbox_validate_isbase = value; }
@@ -441,6 +453,34 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
     inline void setKPluralHandlingSpinBox_Receivers_IsBase(bool value) const { kpluralhandlingspinbox_receivers_isbase = value; }
     inline void setKPluralHandlingSpinBox_IsSignalConnected_IsBase(bool value) const { kpluralhandlingspinbox_issignalconnected_isbase = value; }
     inline void setKPluralHandlingSpinBox_GetDecodedMetricF_IsBase(bool value) const { kpluralhandlingspinbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpluralhandlingspinbox_metaobject_isbase) {
+            kpluralhandlingspinbox_metaobject_isbase = false;
+            return KPluralHandlingSpinBox::metaObject();
+        } else if (kpluralhandlingspinbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpluralhandlingspinbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPluralHandlingSpinBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpluralhandlingspinbox_metacast_isbase) {
+            kpluralhandlingspinbox_metacast_isbase = false;
+            return KPluralHandlingSpinBox::qt_metacast(param1);
+        } else if (kpluralhandlingspinbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpluralhandlingspinbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPluralHandlingSpinBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

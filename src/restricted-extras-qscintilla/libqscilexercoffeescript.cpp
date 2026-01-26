@@ -25,11 +25,21 @@ QsciLexerCoffeeScript* QsciLexerCoffeeScript_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerCoffeeScript_MetaObject(const QsciLexerCoffeeScript* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexercoffeescript = dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self);
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerCoffeeScript*)self)->metaObject();
+    }
 }
 
 void* QsciLexerCoffeeScript_Metacast(QsciLexerCoffeeScript* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerCoffeeScript*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerCoffeeScript_Metacall(QsciLexerCoffeeScript* self, int param1, int param2, void** param3) {
@@ -168,6 +178,44 @@ const char* QsciLexerCoffeeScript_BlockStart1(const QsciLexerCoffeeScript* self,
 
 const char* QsciLexerCoffeeScript_BlockStartKeyword1(const QsciLexerCoffeeScript* self, int* style) {
     return (const char*)self->blockStartKeyword(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerCoffeeScript_QBaseMetaObject(const QsciLexerCoffeeScript* self) {
+    auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexercoffeescript->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerCoffeeScript*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerCoffeeScript_OnMetaObject(const QsciLexerCoffeeScript* self, intptr_t slot) {
+    auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerCoffeeScript_QBaseMetacast(QsciLexerCoffeeScript* self, const char* param1) {
+    auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_Metacast_IsBase(true);
+        return vqscilexercoffeescript->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerCoffeeScript*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerCoffeeScript_OnMetacast(QsciLexerCoffeeScript* self, intptr_t slot) {
+    auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_Metacast_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

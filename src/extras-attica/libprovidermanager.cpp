@@ -24,11 +24,21 @@ Attica__ProviderManager* Attica__ProviderManager_new2(const int* flags) {
 }
 
 QMetaObject* Attica__ProviderManager_MetaObject(const Attica__ProviderManager* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vattica__providermanager = dynamic_cast<const VirtualAtticaProviderManager*>(self);
+    if (vattica__providermanager && vattica__providermanager->isVirtualAtticaProviderManager) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualAtticaProviderManager*)self)->metaObject();
+    }
 }
 
 void* Attica__ProviderManager_Metacast(Attica__ProviderManager* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vattica__providermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
+    if (vattica__providermanager && vattica__providermanager->isVirtualAtticaProviderManager) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualAtticaProviderManager*)self)->qt_metacast(param1);
+    }
 }
 
 int Attica__ProviderManager_Metacall(Attica__ProviderManager* self, int param1, int param2, void** param3) {
@@ -172,6 +182,44 @@ void Attica__ProviderManager_Connect_FailedToLoad(Attica__ProviderManager* self,
         int sigval2 = static_cast<int>(errorVal);
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* Attica__ProviderManager_QBaseMetaObject(const Attica__ProviderManager* self) {
+    auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+        vatticaprovidermanager->setAttica__ProviderManager_MetaObject_IsBase(true);
+        return (QMetaObject*)vatticaprovidermanager->metaObject();
+    } else {
+        return (QMetaObject*)self->Attica::ProviderManager::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Attica__ProviderManager_OnMetaObject(const Attica__ProviderManager* self, intptr_t slot) {
+    auto* vatticaprovidermanager = const_cast<VirtualAtticaProviderManager*>(dynamic_cast<const VirtualAtticaProviderManager*>(self));
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+        vatticaprovidermanager->setAttica__ProviderManager_MetaObject_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Attica__ProviderManager_QBaseMetacast(Attica__ProviderManager* self, const char* param1) {
+    auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+        vatticaprovidermanager->setAttica__ProviderManager_Metacast_IsBase(true);
+        return vatticaprovidermanager->qt_metacast(param1);
+    } else {
+        return self->Attica::ProviderManager::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Attica__ProviderManager_OnMetacast(Attica__ProviderManager* self, intptr_t slot) {
+    auto* vatticaprovidermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
+    if (vatticaprovidermanager && vatticaprovidermanager->isVirtualAtticaProviderManager) {
+        vatticaprovidermanager->setAttica__ProviderManager_Metacast_Callback(reinterpret_cast<VirtualAtticaProviderManager::Attica__ProviderManager_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

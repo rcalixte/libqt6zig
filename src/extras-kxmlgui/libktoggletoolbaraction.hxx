@@ -17,6 +17,8 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
     bool isVirtualKToggleToolBarAction = true;
 
     // Virtual class public types (including callbacks)
+    using KToggleToolBarAction_MetaObject_Callback = QMetaObject* (*)();
+    using KToggleToolBarAction_Metacast_Callback = void* (*)(KToggleToolBarAction*, const char*);
     using KToggleToolBarAction_Metacall_Callback = int (*)(KToggleToolBarAction*, int, int, void**);
     using KToggleToolBarAction_EventFilter_Callback = bool (*)(KToggleToolBarAction*, QObject*, QEvent*);
     using KToggleToolBarAction_Event_Callback = bool (*)(KToggleToolBarAction*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
 
   protected:
     // Instance callback storage
+    KToggleToolBarAction_MetaObject_Callback ktoggletoolbaraction_metaobject_callback = nullptr;
+    KToggleToolBarAction_Metacast_Callback ktoggletoolbaraction_metacast_callback = nullptr;
     KToggleToolBarAction_Metacall_Callback ktoggletoolbaraction_metacall_callback = nullptr;
     KToggleToolBarAction_EventFilter_Callback ktoggletoolbaraction_eventfilter_callback = nullptr;
     KToggleToolBarAction_Event_Callback ktoggletoolbaraction_event_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
     KToggleToolBarAction_IsSignalConnected_Callback ktoggletoolbaraction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktoggletoolbaraction_metaobject_isbase = false;
+    mutable bool ktoggletoolbaraction_metacast_isbase = false;
     mutable bool ktoggletoolbaraction_metacall_isbase = false;
     mutable bool ktoggletoolbaraction_eventfilter_isbase = false;
     mutable bool ktoggletoolbaraction_event_isbase = false;
@@ -63,6 +69,8 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
     VirtualKToggleToolBarAction(KToolBar* toolBar, const QString& text, QObject* parent) : KToggleToolBarAction(toolBar, text, parent) {};
 
     ~VirtualKToggleToolBarAction() {
+        ktoggletoolbaraction_metaobject_callback = nullptr;
+        ktoggletoolbaraction_metacast_callback = nullptr;
         ktoggletoolbaraction_metacall_callback = nullptr;
         ktoggletoolbaraction_eventfilter_callback = nullptr;
         ktoggletoolbaraction_event_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
     }
 
     // Callback setters
+    inline void setKToggleToolBarAction_MetaObject_Callback(KToggleToolBarAction_MetaObject_Callback cb) { ktoggletoolbaraction_metaobject_callback = cb; }
+    inline void setKToggleToolBarAction_Metacast_Callback(KToggleToolBarAction_Metacast_Callback cb) { ktoggletoolbaraction_metacast_callback = cb; }
     inline void setKToggleToolBarAction_Metacall_Callback(KToggleToolBarAction_Metacall_Callback cb) { ktoggletoolbaraction_metacall_callback = cb; }
     inline void setKToggleToolBarAction_EventFilter_Callback(KToggleToolBarAction_EventFilter_Callback cb) { ktoggletoolbaraction_eventfilter_callback = cb; }
     inline void setKToggleToolBarAction_Event_Callback(KToggleToolBarAction_Event_Callback cb) { ktoggletoolbaraction_event_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
     inline void setKToggleToolBarAction_IsSignalConnected_Callback(KToggleToolBarAction_IsSignalConnected_Callback cb) { ktoggletoolbaraction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKToggleToolBarAction_MetaObject_IsBase(bool value) const { ktoggletoolbaraction_metaobject_isbase = value; }
+    inline void setKToggleToolBarAction_Metacast_IsBase(bool value) const { ktoggletoolbaraction_metacast_isbase = value; }
     inline void setKToggleToolBarAction_Metacall_IsBase(bool value) const { ktoggletoolbaraction_metacall_isbase = value; }
     inline void setKToggleToolBarAction_EventFilter_IsBase(bool value) const { ktoggletoolbaraction_eventfilter_isbase = value; }
     inline void setKToggleToolBarAction_Event_IsBase(bool value) const { ktoggletoolbaraction_event_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualKToggleToolBarAction final : public KToggleToolBarAction {
     inline void setKToggleToolBarAction_SenderSignalIndex_IsBase(bool value) const { ktoggletoolbaraction_sendersignalindex_isbase = value; }
     inline void setKToggleToolBarAction_Receivers_IsBase(bool value) const { ktoggletoolbaraction_receivers_isbase = value; }
     inline void setKToggleToolBarAction_IsSignalConnected_IsBase(bool value) const { ktoggletoolbaraction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktoggletoolbaraction_metaobject_isbase) {
+            ktoggletoolbaraction_metaobject_isbase = false;
+            return KToggleToolBarAction::metaObject();
+        } else if (ktoggletoolbaraction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktoggletoolbaraction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KToggleToolBarAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktoggletoolbaraction_metacast_isbase) {
+            ktoggletoolbaraction_metacast_isbase = false;
+            return KToggleToolBarAction::qt_metacast(param1);
+        } else if (ktoggletoolbaraction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktoggletoolbaraction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KToggleToolBarAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

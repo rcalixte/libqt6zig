@@ -53,6 +53,10 @@ void KSvg__ImageSet_ImageSetChanged(KSvg__ImageSet* self, const libqt_string bas
 void KSvg__ImageSet_Connect_ImageSetChanged(KSvg__ImageSet* self, intptr_t slot);
 void KSvg__ImageSet_BasePathChanged(KSvg__ImageSet* self, const libqt_string basePath);
 void KSvg__ImageSet_Connect_BasePathChanged(KSvg__ImageSet* self, intptr_t slot);
+void KSvg__ImageSet_OnMetaObject(const KSvg__ImageSet* self, intptr_t slot);
+QMetaObject* KSvg__ImageSet_QBaseMetaObject(const KSvg__ImageSet* self);
+void KSvg__ImageSet_OnMetacast(KSvg__ImageSet* self, intptr_t slot);
+void* KSvg__ImageSet_QBaseMetacast(KSvg__ImageSet* self, const char* param1);
 void KSvg__ImageSet_OnMetacall(KSvg__ImageSet* self, intptr_t slot);
 int KSvg__ImageSet_QBaseMetacall(KSvg__ImageSet* self, int param1, int param2, void** param3);
 bool KSvg__ImageSet_Event(KSvg__ImageSet* self, QEvent* event);

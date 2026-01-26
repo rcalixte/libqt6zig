@@ -49,11 +49,21 @@ QVideoWidget* QVideoWidget_new2() {
 }
 
 QMetaObject* QVideoWidget_MetaObject(const QVideoWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqvideowidget = dynamic_cast<const VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQVideoWidget*)self)->metaObject();
+    }
 }
 
 void* QVideoWidget_Metacast(QVideoWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQVideoWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QVideoWidget_Metacall(QVideoWidget* self, int param1, int param2, void** param3) {
@@ -147,6 +157,44 @@ void QVideoWidget_MoveEvent(QVideoWidget* self, QMoveEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
         vqvideowidget->moveEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QVideoWidget_QBaseMetaObject(const QVideoWidget* self) {
+    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqvideowidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QVideoWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnMetaObject(const QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_MetaObject_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QVideoWidget_QBaseMetacast(QVideoWidget* self, const char* param1) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_Metacast_IsBase(true);
+        return vqvideowidget->qt_metacast(param1);
+    } else {
+        return self->QVideoWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnMetacast(QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_Metacast_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metacast_Callback>(slot));
     }
 }
 

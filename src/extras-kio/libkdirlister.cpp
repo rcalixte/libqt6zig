@@ -24,11 +24,21 @@ KDirLister* KDirLister_new2(QObject* parent) {
 }
 
 QMetaObject* KDirLister_MetaObject(const KDirLister* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdirlister = dynamic_cast<const VirtualKDirLister*>(self);
+    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDirLister*)self)->metaObject();
+    }
 }
 
 void* KDirLister_Metacast(KDirLister* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
+    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDirLister*)self)->qt_metacast(param1);
+    }
 }
 
 int KDirLister_Metacall(KDirLister* self, int param1, int param2, void** param3) {
@@ -56,6 +66,44 @@ void KDirLister_JobStarted(KDirLister* self, KIO__ListJob* param1) {
     auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
     if (vkdirlister && vkdirlister->isVirtualKDirLister) {
         vkdirlister->jobStarted(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KDirLister_QBaseMetaObject(const KDirLister* self) {
+    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
+    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+        vkdirlister->setKDirLister_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdirlister->metaObject();
+    } else {
+        return (QMetaObject*)self->KDirLister::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirLister_OnMetaObject(const KDirLister* self, intptr_t slot) {
+    auto* vkdirlister = const_cast<VirtualKDirLister*>(dynamic_cast<const VirtualKDirLister*>(self));
+    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+        vkdirlister->setKDirLister_MetaObject_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDirLister_QBaseMetacast(KDirLister* self, const char* param1) {
+    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
+    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+        vkdirlister->setKDirLister_Metacast_IsBase(true);
+        return vkdirlister->qt_metacast(param1);
+    } else {
+        return self->KDirLister::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirLister_OnMetacast(KDirLister* self, intptr_t slot) {
+    auto* vkdirlister = dynamic_cast<VirtualKDirLister*>(self);
+    if (vkdirlister && vkdirlister->isVirtualKDirLister) {
+        vkdirlister->setKDirLister_Metacast_Callback(reinterpret_cast<VirtualKDirLister::KDirLister_Metacast_Callback>(slot));
     }
 }
 

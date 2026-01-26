@@ -17,6 +17,8 @@ class VirtualKPlotWidget final : public KPlotWidget {
     bool isVirtualKPlotWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KPlotWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KPlotWidget_Metacast_Callback = void* (*)(KPlotWidget*, const char*);
     using KPlotWidget_Metacall_Callback = int (*)(KPlotWidget*, int, int, void**);
     using KPlotWidget_MinimumSizeHint_Callback = QSize* (*)();
     using KPlotWidget_SizeHint_Callback = QSize* (*)();
@@ -83,6 +85,8 @@ class VirtualKPlotWidget final : public KPlotWidget {
 
   protected:
     // Instance callback storage
+    KPlotWidget_MetaObject_Callback kplotwidget_metaobject_callback = nullptr;
+    KPlotWidget_Metacast_Callback kplotwidget_metacast_callback = nullptr;
     KPlotWidget_Metacall_Callback kplotwidget_metacall_callback = nullptr;
     KPlotWidget_MinimumSizeHint_Callback kplotwidget_minimumsizehint_callback = nullptr;
     KPlotWidget_SizeHint_Callback kplotwidget_sizehint_callback = nullptr;
@@ -148,6 +152,8 @@ class VirtualKPlotWidget final : public KPlotWidget {
     KPlotWidget_GetDecodedMetricF_Callback kplotwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kplotwidget_metaobject_isbase = false;
+    mutable bool kplotwidget_metacast_isbase = false;
     mutable bool kplotwidget_metacall_isbase = false;
     mutable bool kplotwidget_minimumsizehint_isbase = false;
     mutable bool kplotwidget_sizehint_isbase = false;
@@ -217,6 +223,8 @@ class VirtualKPlotWidget final : public KPlotWidget {
     VirtualKPlotWidget() : KPlotWidget() {};
 
     ~VirtualKPlotWidget() {
+        kplotwidget_metaobject_callback = nullptr;
+        kplotwidget_metacast_callback = nullptr;
         kplotwidget_metacall_callback = nullptr;
         kplotwidget_minimumsizehint_callback = nullptr;
         kplotwidget_sizehint_callback = nullptr;
@@ -283,6 +291,8 @@ class VirtualKPlotWidget final : public KPlotWidget {
     }
 
     // Callback setters
+    inline void setKPlotWidget_MetaObject_Callback(KPlotWidget_MetaObject_Callback cb) { kplotwidget_metaobject_callback = cb; }
+    inline void setKPlotWidget_Metacast_Callback(KPlotWidget_Metacast_Callback cb) { kplotwidget_metacast_callback = cb; }
     inline void setKPlotWidget_Metacall_Callback(KPlotWidget_Metacall_Callback cb) { kplotwidget_metacall_callback = cb; }
     inline void setKPlotWidget_MinimumSizeHint_Callback(KPlotWidget_MinimumSizeHint_Callback cb) { kplotwidget_minimumsizehint_callback = cb; }
     inline void setKPlotWidget_SizeHint_Callback(KPlotWidget_SizeHint_Callback cb) { kplotwidget_sizehint_callback = cb; }
@@ -348,6 +358,8 @@ class VirtualKPlotWidget final : public KPlotWidget {
     inline void setKPlotWidget_GetDecodedMetricF_Callback(KPlotWidget_GetDecodedMetricF_Callback cb) { kplotwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPlotWidget_MetaObject_IsBase(bool value) const { kplotwidget_metaobject_isbase = value; }
+    inline void setKPlotWidget_Metacast_IsBase(bool value) const { kplotwidget_metacast_isbase = value; }
     inline void setKPlotWidget_Metacall_IsBase(bool value) const { kplotwidget_metacall_isbase = value; }
     inline void setKPlotWidget_MinimumSizeHint_IsBase(bool value) const { kplotwidget_minimumsizehint_isbase = value; }
     inline void setKPlotWidget_SizeHint_IsBase(bool value) const { kplotwidget_sizehint_isbase = value; }
@@ -411,6 +423,34 @@ class VirtualKPlotWidget final : public KPlotWidget {
     inline void setKPlotWidget_Receivers_IsBase(bool value) const { kplotwidget_receivers_isbase = value; }
     inline void setKPlotWidget_IsSignalConnected_IsBase(bool value) const { kplotwidget_issignalconnected_isbase = value; }
     inline void setKPlotWidget_GetDecodedMetricF_IsBase(bool value) const { kplotwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kplotwidget_metaobject_isbase) {
+            kplotwidget_metaobject_isbase = false;
+            return KPlotWidget::metaObject();
+        } else if (kplotwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kplotwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPlotWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kplotwidget_metacast_isbase) {
+            kplotwidget_metacast_isbase = false;
+            return KPlotWidget::qt_metacast(param1);
+        } else if (kplotwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kplotwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPlotWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

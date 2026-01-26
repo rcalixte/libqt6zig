@@ -98,6 +98,10 @@ QMetaObject__Connection* QObject_Connect5(const QObject* sender, const QMetaMeth
 QMetaObject__Connection* QObject_Connect4(const QObject* self, const QObject* sender, const char* signal, const char* member, int typeVal);
 void QObject_Destroyed1(QObject* self, QObject* param1);
 void QObject_Connect_Destroyed1(QObject* self, intptr_t slot);
+void QObject_OnMetaObject(const QObject* self, intptr_t slot);
+QMetaObject* QObject_QBaseMetaObject(const QObject* self);
+void QObject_OnMetacast(QObject* self, intptr_t slot);
+void* QObject_QBaseMetacast(QObject* self, const char* param1);
 void QObject_OnMetacall(QObject* self, intptr_t slot);
 int QObject_QBaseMetacall(QObject* self, int param1, int param2, void** param3);
 void QObject_OnEvent(QObject* self, intptr_t slot);

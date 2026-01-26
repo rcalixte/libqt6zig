@@ -17,6 +17,8 @@ class VirtualKNumberModel final : public KNumberModel {
     bool isVirtualKNumberModel = true;
 
     // Virtual class public types (including callbacks)
+    using KNumberModel_MetaObject_Callback = QMetaObject* (*)();
+    using KNumberModel_Metacast_Callback = void* (*)(KNumberModel*, const char*);
     using KNumberModel_Metacall_Callback = int (*)(KNumberModel*, int, int, void**);
     using KNumberModel_RowCount_Callback = int (*)(const KNumberModel*, QModelIndex*);
     using KNumberModel_Data_Callback = QVariant* (*)(const KNumberModel*, QModelIndex*, int);
@@ -86,6 +88,8 @@ class VirtualKNumberModel final : public KNumberModel {
 
   protected:
     // Instance callback storage
+    KNumberModel_MetaObject_Callback knumbermodel_metaobject_callback = nullptr;
+    KNumberModel_Metacast_Callback knumbermodel_metacast_callback = nullptr;
     KNumberModel_Metacall_Callback knumbermodel_metacall_callback = nullptr;
     KNumberModel_RowCount_Callback knumbermodel_rowcount_callback = nullptr;
     KNumberModel_Data_Callback knumbermodel_data_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualKNumberModel final : public KNumberModel {
     KNumberModel_IsSignalConnected_Callback knumbermodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool knumbermodel_metaobject_isbase = false;
+    mutable bool knumbermodel_metacast_isbase = false;
     mutable bool knumbermodel_metacall_isbase = false;
     mutable bool knumbermodel_rowcount_isbase = false;
     mutable bool knumbermodel_data_isbase = false;
@@ -226,6 +232,8 @@ class VirtualKNumberModel final : public KNumberModel {
     VirtualKNumberModel(QObject* parent) : KNumberModel(parent) {};
 
     ~VirtualKNumberModel() {
+        knumbermodel_metaobject_callback = nullptr;
+        knumbermodel_metacast_callback = nullptr;
         knumbermodel_metacall_callback = nullptr;
         knumbermodel_rowcount_callback = nullptr;
         knumbermodel_data_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualKNumberModel final : public KNumberModel {
     }
 
     // Callback setters
+    inline void setKNumberModel_MetaObject_Callback(KNumberModel_MetaObject_Callback cb) { knumbermodel_metaobject_callback = cb; }
+    inline void setKNumberModel_Metacast_Callback(KNumberModel_Metacast_Callback cb) { knumbermodel_metacast_callback = cb; }
     inline void setKNumberModel_Metacall_Callback(KNumberModel_Metacall_Callback cb) { knumbermodel_metacall_callback = cb; }
     inline void setKNumberModel_RowCount_Callback(KNumberModel_RowCount_Callback cb) { knumbermodel_rowcount_callback = cb; }
     inline void setKNumberModel_Data_Callback(KNumberModel_Data_Callback cb) { knumbermodel_data_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualKNumberModel final : public KNumberModel {
     inline void setKNumberModel_IsSignalConnected_Callback(KNumberModel_IsSignalConnected_Callback cb) { knumbermodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKNumberModel_MetaObject_IsBase(bool value) const { knumbermodel_metaobject_isbase = value; }
+    inline void setKNumberModel_Metacast_IsBase(bool value) const { knumbermodel_metacast_isbase = value; }
     inline void setKNumberModel_Metacall_IsBase(bool value) const { knumbermodel_metacall_isbase = value; }
     inline void setKNumberModel_RowCount_IsBase(bool value) const { knumbermodel_rowcount_isbase = value; }
     inline void setKNumberModel_Data_IsBase(bool value) const { knumbermodel_data_isbase = value; }
@@ -429,6 +441,34 @@ class VirtualKNumberModel final : public KNumberModel {
     inline void setKNumberModel_SenderSignalIndex_IsBase(bool value) const { knumbermodel_sendersignalindex_isbase = value; }
     inline void setKNumberModel_Receivers_IsBase(bool value) const { knumbermodel_receivers_isbase = value; }
     inline void setKNumberModel_IsSignalConnected_IsBase(bool value) const { knumbermodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knumbermodel_metaobject_isbase) {
+            knumbermodel_metaobject_isbase = false;
+            return KNumberModel::metaObject();
+        } else if (knumbermodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knumbermodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNumberModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knumbermodel_metacast_isbase) {
+            knumbermodel_metacast_isbase = false;
+            return KNumberModel::qt_metacast(param1);
+        } else if (knumbermodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knumbermodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNumberModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

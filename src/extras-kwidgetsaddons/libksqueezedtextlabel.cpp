@@ -62,11 +62,21 @@ KSqueezedTextLabel* KSqueezedTextLabel_new4(const libqt_string text, QWidget* pa
 }
 
 QMetaObject* KSqueezedTextLabel_MetaObject(const KSqueezedTextLabel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vksqueezedtextlabel = dynamic_cast<const VirtualKSqueezedTextLabel*>(self);
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSqueezedTextLabel*)self)->metaObject();
+    }
 }
 
 void* KSqueezedTextLabel_Metacast(KSqueezedTextLabel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSqueezedTextLabel*)self)->qt_metacast(param1);
+    }
 }
 
 int KSqueezedTextLabel_Metacall(KSqueezedTextLabel* self, int param1, int param2, void** param3) {
@@ -168,6 +178,44 @@ void KSqueezedTextLabel_ContextMenuEvent(KSqueezedTextLabel* self, QContextMenuE
     auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
     if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
         vksqueezedtextlabel->contextMenuEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KSqueezedTextLabel_QBaseMetaObject(const KSqueezedTextLabel* self) {
+    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+        vksqueezedtextlabel->setKSqueezedTextLabel_MetaObject_IsBase(true);
+        return (QMetaObject*)vksqueezedtextlabel->metaObject();
+    } else {
+        return (QMetaObject*)self->KSqueezedTextLabel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSqueezedTextLabel_OnMetaObject(const KSqueezedTextLabel* self, intptr_t slot) {
+    auto* vksqueezedtextlabel = const_cast<VirtualKSqueezedTextLabel*>(dynamic_cast<const VirtualKSqueezedTextLabel*>(self));
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+        vksqueezedtextlabel->setKSqueezedTextLabel_MetaObject_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSqueezedTextLabel_QBaseMetacast(KSqueezedTextLabel* self, const char* param1) {
+    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+        vksqueezedtextlabel->setKSqueezedTextLabel_Metacast_IsBase(true);
+        return vksqueezedtextlabel->qt_metacast(param1);
+    } else {
+        return self->KSqueezedTextLabel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSqueezedTextLabel_OnMetacast(KSqueezedTextLabel* self, intptr_t slot) {
+    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
+    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
+        vksqueezedtextlabel->setKSqueezedTextLabel_Metacast_Callback(reinterpret_cast<VirtualKSqueezedTextLabel::KSqueezedTextLabel_Metacast_Callback>(slot));
     }
 }
 

@@ -23,11 +23,21 @@ QIODevice* QIODevice_new2(QObject* parent) {
 }
 
 QMetaObject* QIODevice_MetaObject(const QIODevice* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqiodevice = dynamic_cast<const VirtualQIODevice*>(self);
+    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQIODevice*)self)->metaObject();
+    }
 }
 
 void* QIODevice_Metacast(QIODevice* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
+    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQIODevice*)self)->qt_metacast(param1);
+    }
 }
 
 int QIODevice_Metacall(QIODevice* self, int param1, int param2, void** param3) {
@@ -423,6 +433,44 @@ libqt_string QIODevice_ReadLine1(QIODevice* self, long long maxlen) {
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* QIODevice_QBaseMetaObject(const QIODevice* self) {
+    auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
+    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+        vqiodevice->setQIODevice_MetaObject_IsBase(true);
+        return (QMetaObject*)vqiodevice->metaObject();
+    } else {
+        return (QMetaObject*)self->QIODevice::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIODevice_OnMetaObject(const QIODevice* self, intptr_t slot) {
+    auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
+    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+        vqiodevice->setQIODevice_MetaObject_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QIODevice_QBaseMetacast(QIODevice* self, const char* param1) {
+    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
+    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+        vqiodevice->setQIODevice_Metacast_IsBase(true);
+        return vqiodevice->qt_metacast(param1);
+    } else {
+        return self->QIODevice::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIODevice_OnMetacast(QIODevice* self, intptr_t slot) {
+    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
+    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+        vqiodevice->setQIODevice_Metacast_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

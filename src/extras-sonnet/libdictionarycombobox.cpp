@@ -51,11 +51,21 @@ Sonnet__DictionaryComboBox* Sonnet__DictionaryComboBox_new2() {
 }
 
 QMetaObject* Sonnet__DictionaryComboBox_MetaObject(const Sonnet__DictionaryComboBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vsonnet__dictionarycombobox = dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self);
+    if (vsonnet__dictionarycombobox && vsonnet__dictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualSonnetDictionaryComboBox*)self)->metaObject();
+    }
 }
 
 void* Sonnet__DictionaryComboBox_Metacast(Sonnet__DictionaryComboBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vsonnet__dictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
+    if (vsonnet__dictionarycombobox && vsonnet__dictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualSonnetDictionaryComboBox*)self)->qt_metacast(param1);
+    }
 }
 
 int Sonnet__DictionaryComboBox_Metacall(Sonnet__DictionaryComboBox* self, int param1, int param2, void** param3) {
@@ -153,6 +163,44 @@ void Sonnet__DictionaryComboBox_Connect_DictionaryNameChanged(Sonnet__Dictionary
         slotFunc(self, sigval1);
         libqt_free(dictionaryName_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* Sonnet__DictionaryComboBox_QBaseMetaObject(const Sonnet__DictionaryComboBox* self) {
+    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vsonnetdictionarycombobox->metaObject();
+    } else {
+        return (QMetaObject*)self->Sonnet::DictionaryComboBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__DictionaryComboBox_OnMetaObject(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MetaObject_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Sonnet__DictionaryComboBox_QBaseMetacast(Sonnet__DictionaryComboBox* self, const char* param1) {
+    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacast_IsBase(true);
+        return vsonnetdictionarycombobox->qt_metacast(param1);
+    } else {
+        return self->Sonnet::DictionaryComboBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__DictionaryComboBox_OnMetacast(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacast_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
     bool isVirtualQCommandLinkButton = true;
 
     // Virtual class public types (including callbacks)
+    using QCommandLinkButton_MetaObject_Callback = QMetaObject* (*)();
+    using QCommandLinkButton_Metacast_Callback = void* (*)(QCommandLinkButton*, const char*);
     using QCommandLinkButton_Metacall_Callback = int (*)(QCommandLinkButton*, int, int, void**);
     using QCommandLinkButton_SizeHint_Callback = QSize* (*)();
     using QCommandLinkButton_HeightForWidth_Callback = int (*)(const QCommandLinkButton*, int);
@@ -82,6 +84,8 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
 
   protected:
     // Instance callback storage
+    QCommandLinkButton_MetaObject_Callback qcommandlinkbutton_metaobject_callback = nullptr;
+    QCommandLinkButton_Metacast_Callback qcommandlinkbutton_metacast_callback = nullptr;
     QCommandLinkButton_Metacall_Callback qcommandlinkbutton_metacall_callback = nullptr;
     QCommandLinkButton_SizeHint_Callback qcommandlinkbutton_sizehint_callback = nullptr;
     QCommandLinkButton_HeightForWidth_Callback qcommandlinkbutton_heightforwidth_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
     QCommandLinkButton_GetDecodedMetricF_Callback qcommandlinkbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcommandlinkbutton_metaobject_isbase = false;
+    mutable bool qcommandlinkbutton_metacast_isbase = false;
     mutable bool qcommandlinkbutton_metacall_isbase = false;
     mutable bool qcommandlinkbutton_sizehint_isbase = false;
     mutable bool qcommandlinkbutton_heightforwidth_isbase = false;
@@ -218,6 +224,8 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
     VirtualQCommandLinkButton(const QString& text, const QString& description, QWidget* parent) : QCommandLinkButton(text, description, parent) {};
 
     ~VirtualQCommandLinkButton() {
+        qcommandlinkbutton_metaobject_callback = nullptr;
+        qcommandlinkbutton_metacast_callback = nullptr;
         qcommandlinkbutton_metacall_callback = nullptr;
         qcommandlinkbutton_sizehint_callback = nullptr;
         qcommandlinkbutton_heightforwidth_callback = nullptr;
@@ -283,6 +291,8 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
     }
 
     // Callback setters
+    inline void setQCommandLinkButton_MetaObject_Callback(QCommandLinkButton_MetaObject_Callback cb) { qcommandlinkbutton_metaobject_callback = cb; }
+    inline void setQCommandLinkButton_Metacast_Callback(QCommandLinkButton_Metacast_Callback cb) { qcommandlinkbutton_metacast_callback = cb; }
     inline void setQCommandLinkButton_Metacall_Callback(QCommandLinkButton_Metacall_Callback cb) { qcommandlinkbutton_metacall_callback = cb; }
     inline void setQCommandLinkButton_SizeHint_Callback(QCommandLinkButton_SizeHint_Callback cb) { qcommandlinkbutton_sizehint_callback = cb; }
     inline void setQCommandLinkButton_HeightForWidth_Callback(QCommandLinkButton_HeightForWidth_Callback cb) { qcommandlinkbutton_heightforwidth_callback = cb; }
@@ -347,6 +357,8 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
     inline void setQCommandLinkButton_GetDecodedMetricF_Callback(QCommandLinkButton_GetDecodedMetricF_Callback cb) { qcommandlinkbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQCommandLinkButton_MetaObject_IsBase(bool value) const { qcommandlinkbutton_metaobject_isbase = value; }
+    inline void setQCommandLinkButton_Metacast_IsBase(bool value) const { qcommandlinkbutton_metacast_isbase = value; }
     inline void setQCommandLinkButton_Metacall_IsBase(bool value) const { qcommandlinkbutton_metacall_isbase = value; }
     inline void setQCommandLinkButton_SizeHint_IsBase(bool value) const { qcommandlinkbutton_sizehint_isbase = value; }
     inline void setQCommandLinkButton_HeightForWidth_IsBase(bool value) const { qcommandlinkbutton_heightforwidth_isbase = value; }
@@ -409,6 +421,34 @@ class VirtualQCommandLinkButton final : public QCommandLinkButton {
     inline void setQCommandLinkButton_Receivers_IsBase(bool value) const { qcommandlinkbutton_receivers_isbase = value; }
     inline void setQCommandLinkButton_IsSignalConnected_IsBase(bool value) const { qcommandlinkbutton_issignalconnected_isbase = value; }
     inline void setQCommandLinkButton_GetDecodedMetricF_IsBase(bool value) const { qcommandlinkbutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcommandlinkbutton_metaobject_isbase) {
+            qcommandlinkbutton_metaobject_isbase = false;
+            return QCommandLinkButton::metaObject();
+        } else if (qcommandlinkbutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcommandlinkbutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCommandLinkButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcommandlinkbutton_metacast_isbase) {
+            qcommandlinkbutton_metacast_isbase = false;
+            return QCommandLinkButton::qt_metacast(param1);
+        } else if (qcommandlinkbutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcommandlinkbutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCommandLinkButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

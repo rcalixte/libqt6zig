@@ -17,6 +17,8 @@ class VirtualQPdfDocument final : public QPdfDocument {
     bool isVirtualQPdfDocument = true;
 
     // Virtual class public types (including callbacks)
+    using QPdfDocument_MetaObject_Callback = QMetaObject* (*)();
+    using QPdfDocument_Metacast_Callback = void* (*)(QPdfDocument*, const char*);
     using QPdfDocument_Metacall_Callback = int (*)(QPdfDocument*, int, int, void**);
     using QPdfDocument_Event_Callback = bool (*)(QPdfDocument*, QEvent*);
     using QPdfDocument_EventFilter_Callback = bool (*)(QPdfDocument*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQPdfDocument final : public QPdfDocument {
 
   protected:
     // Instance callback storage
+    QPdfDocument_MetaObject_Callback qpdfdocument_metaobject_callback = nullptr;
+    QPdfDocument_Metacast_Callback qpdfdocument_metacast_callback = nullptr;
     QPdfDocument_Metacall_Callback qpdfdocument_metacall_callback = nullptr;
     QPdfDocument_Event_Callback qpdfdocument_event_callback = nullptr;
     QPdfDocument_EventFilter_Callback qpdfdocument_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQPdfDocument final : public QPdfDocument {
     QPdfDocument_IsSignalConnected_Callback qpdfdocument_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpdfdocument_metaobject_isbase = false;
+    mutable bool qpdfdocument_metacast_isbase = false;
     mutable bool qpdfdocument_metacall_isbase = false;
     mutable bool qpdfdocument_event_isbase = false;
     mutable bool qpdfdocument_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQPdfDocument final : public QPdfDocument {
     VirtualQPdfDocument(QObject* parent) : QPdfDocument(parent) {};
 
     ~VirtualQPdfDocument() {
+        qpdfdocument_metaobject_callback = nullptr;
+        qpdfdocument_metacast_callback = nullptr;
         qpdfdocument_metacall_callback = nullptr;
         qpdfdocument_event_callback = nullptr;
         qpdfdocument_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQPdfDocument final : public QPdfDocument {
     }
 
     // Callback setters
+    inline void setQPdfDocument_MetaObject_Callback(QPdfDocument_MetaObject_Callback cb) { qpdfdocument_metaobject_callback = cb; }
+    inline void setQPdfDocument_Metacast_Callback(QPdfDocument_Metacast_Callback cb) { qpdfdocument_metacast_callback = cb; }
     inline void setQPdfDocument_Metacall_Callback(QPdfDocument_Metacall_Callback cb) { qpdfdocument_metacall_callback = cb; }
     inline void setQPdfDocument_Event_Callback(QPdfDocument_Event_Callback cb) { qpdfdocument_event_callback = cb; }
     inline void setQPdfDocument_EventFilter_Callback(QPdfDocument_EventFilter_Callback cb) { qpdfdocument_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQPdfDocument final : public QPdfDocument {
     inline void setQPdfDocument_IsSignalConnected_Callback(QPdfDocument_IsSignalConnected_Callback cb) { qpdfdocument_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPdfDocument_MetaObject_IsBase(bool value) const { qpdfdocument_metaobject_isbase = value; }
+    inline void setQPdfDocument_Metacast_IsBase(bool value) const { qpdfdocument_metacast_isbase = value; }
     inline void setQPdfDocument_Metacall_IsBase(bool value) const { qpdfdocument_metacall_isbase = value; }
     inline void setQPdfDocument_Event_IsBase(bool value) const { qpdfdocument_event_isbase = value; }
     inline void setQPdfDocument_EventFilter_IsBase(bool value) const { qpdfdocument_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQPdfDocument final : public QPdfDocument {
     inline void setQPdfDocument_SenderSignalIndex_IsBase(bool value) const { qpdfdocument_sendersignalindex_isbase = value; }
     inline void setQPdfDocument_Receivers_IsBase(bool value) const { qpdfdocument_receivers_isbase = value; }
     inline void setQPdfDocument_IsSignalConnected_IsBase(bool value) const { qpdfdocument_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpdfdocument_metaobject_isbase) {
+            qpdfdocument_metaobject_isbase = false;
+            return QPdfDocument::metaObject();
+        } else if (qpdfdocument_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpdfdocument_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPdfDocument::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpdfdocument_metacast_isbase) {
+            qpdfdocument_metacast_isbase = false;
+            return QPdfDocument::qt_metacast(param1);
+        } else if (qpdfdocument_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpdfdocument_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPdfDocument::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

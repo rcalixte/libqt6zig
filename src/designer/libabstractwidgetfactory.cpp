@@ -24,11 +24,21 @@ QDesignerWidgetFactoryInterface* QDesignerWidgetFactoryInterface_new2(QObject* p
 }
 
 QMetaObject* QDesignerWidgetFactoryInterface_MetaObject(const QDesignerWidgetFactoryInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self);
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerWidgetFactoryInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerWidgetFactoryInterface_Metacast(QDesignerWidgetFactoryInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerWidgetFactoryInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerWidgetFactoryInterface_Metacall(QDesignerWidgetFactoryInterface* self, int param1, int param2, void** param3) {
@@ -101,6 +111,44 @@ void QDesignerWidgetFactoryInterface_Initialize(const QDesignerWidgetFactoryInte
         vqdesignerwidgetfactoryinterface->initialize(object);
     } else {
         ((VirtualQDesignerWidgetFactoryInterface*)self)->initialize(object);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerWidgetFactoryInterface_QBaseMetaObject(const QDesignerWidgetFactoryInterface* self) {
+    auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+        vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerwidgetfactoryinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerWidgetFactoryInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerWidgetFactoryInterface_OnMetaObject(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
+    auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+        vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerWidgetFactoryInterface_QBaseMetacast(QDesignerWidgetFactoryInterface* self, const char* param1) {
+    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+        vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Metacast_IsBase(true);
+        return vqdesignerwidgetfactoryinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerWidgetFactoryInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerWidgetFactoryInterface_OnMetacast(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
+    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+        vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_Metacast_Callback>(slot));
     }
 }
 

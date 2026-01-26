@@ -17,6 +17,8 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
     bool isVirtualQPropertyAnimation = true;
 
     // Virtual class public types (including callbacks)
+    using QPropertyAnimation_MetaObject_Callback = QMetaObject* (*)();
+    using QPropertyAnimation_Metacast_Callback = void* (*)(QPropertyAnimation*, const char*);
     using QPropertyAnimation_Metacall_Callback = int (*)(QPropertyAnimation*, int, int, void**);
     using QPropertyAnimation_Event_Callback = bool (*)(QPropertyAnimation*, QEvent*);
     using QPropertyAnimation_UpdateCurrentValue_Callback = void (*)(QPropertyAnimation*, QVariant*);
@@ -38,6 +40,8 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
 
   protected:
     // Instance callback storage
+    QPropertyAnimation_MetaObject_Callback qpropertyanimation_metaobject_callback = nullptr;
+    QPropertyAnimation_Metacast_Callback qpropertyanimation_metacast_callback = nullptr;
     QPropertyAnimation_Metacall_Callback qpropertyanimation_metacall_callback = nullptr;
     QPropertyAnimation_Event_Callback qpropertyanimation_event_callback = nullptr;
     QPropertyAnimation_UpdateCurrentValue_Callback qpropertyanimation_updatecurrentvalue_callback = nullptr;
@@ -58,6 +62,8 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
     QPropertyAnimation_IsSignalConnected_Callback qpropertyanimation_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpropertyanimation_metaobject_isbase = false;
+    mutable bool qpropertyanimation_metacast_isbase = false;
     mutable bool qpropertyanimation_metacall_isbase = false;
     mutable bool qpropertyanimation_event_isbase = false;
     mutable bool qpropertyanimation_updatecurrentvalue_isbase = false;
@@ -84,6 +90,8 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
     VirtualQPropertyAnimation(QObject* target, const QByteArray& propertyName, QObject* parent) : QPropertyAnimation(target, propertyName, parent) {};
 
     ~VirtualQPropertyAnimation() {
+        qpropertyanimation_metaobject_callback = nullptr;
+        qpropertyanimation_metacast_callback = nullptr;
         qpropertyanimation_metacall_callback = nullptr;
         qpropertyanimation_event_callback = nullptr;
         qpropertyanimation_updatecurrentvalue_callback = nullptr;
@@ -105,6 +113,8 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
     }
 
     // Callback setters
+    inline void setQPropertyAnimation_MetaObject_Callback(QPropertyAnimation_MetaObject_Callback cb) { qpropertyanimation_metaobject_callback = cb; }
+    inline void setQPropertyAnimation_Metacast_Callback(QPropertyAnimation_Metacast_Callback cb) { qpropertyanimation_metacast_callback = cb; }
     inline void setQPropertyAnimation_Metacall_Callback(QPropertyAnimation_Metacall_Callback cb) { qpropertyanimation_metacall_callback = cb; }
     inline void setQPropertyAnimation_Event_Callback(QPropertyAnimation_Event_Callback cb) { qpropertyanimation_event_callback = cb; }
     inline void setQPropertyAnimation_UpdateCurrentValue_Callback(QPropertyAnimation_UpdateCurrentValue_Callback cb) { qpropertyanimation_updatecurrentvalue_callback = cb; }
@@ -125,6 +135,8 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
     inline void setQPropertyAnimation_IsSignalConnected_Callback(QPropertyAnimation_IsSignalConnected_Callback cb) { qpropertyanimation_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPropertyAnimation_MetaObject_IsBase(bool value) const { qpropertyanimation_metaobject_isbase = value; }
+    inline void setQPropertyAnimation_Metacast_IsBase(bool value) const { qpropertyanimation_metacast_isbase = value; }
     inline void setQPropertyAnimation_Metacall_IsBase(bool value) const { qpropertyanimation_metacall_isbase = value; }
     inline void setQPropertyAnimation_Event_IsBase(bool value) const { qpropertyanimation_event_isbase = value; }
     inline void setQPropertyAnimation_UpdateCurrentValue_IsBase(bool value) const { qpropertyanimation_updatecurrentvalue_isbase = value; }
@@ -143,6 +155,34 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
     inline void setQPropertyAnimation_SenderSignalIndex_IsBase(bool value) const { qpropertyanimation_sendersignalindex_isbase = value; }
     inline void setQPropertyAnimation_Receivers_IsBase(bool value) const { qpropertyanimation_receivers_isbase = value; }
     inline void setQPropertyAnimation_IsSignalConnected_IsBase(bool value) const { qpropertyanimation_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpropertyanimation_metaobject_isbase) {
+            qpropertyanimation_metaobject_isbase = false;
+            return QPropertyAnimation::metaObject();
+        } else if (qpropertyanimation_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpropertyanimation_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPropertyAnimation::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpropertyanimation_metacast_isbase) {
+            qpropertyanimation_metacast_isbase = false;
+            return QPropertyAnimation::qt_metacast(param1);
+        } else if (qpropertyanimation_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpropertyanimation_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPropertyAnimation::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

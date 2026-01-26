@@ -50,6 +50,10 @@ libqt_list /* of libqt_string */ KUrlCompletion_MimeTypeFilters(const KUrlComple
 void KUrlCompletion_PostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches);
 void KUrlCompletion_PostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches);
 libqt_string KUrlCompletion_ReplacedPath3(const libqt_string text, bool replaceHome, bool replaceEnv);
+void KUrlCompletion_OnMetaObject(const KUrlCompletion* self, intptr_t slot);
+QMetaObject* KUrlCompletion_QBaseMetaObject(const KUrlCompletion* self);
+void KUrlCompletion_OnMetacast(KUrlCompletion* self, intptr_t slot);
+void* KUrlCompletion_QBaseMetacast(KUrlCompletion* self, const char* param1);
 void KUrlCompletion_OnMetacall(KUrlCompletion* self, intptr_t slot);
 int KUrlCompletion_QBaseMetacall(KUrlCompletion* self, int param1, int param2, void** param3);
 void KUrlCompletion_OnMakeCompletion(KUrlCompletion* self, intptr_t slot);

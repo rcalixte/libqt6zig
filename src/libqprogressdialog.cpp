@@ -74,11 +74,21 @@ QProgressDialog* QProgressDialog_new6(const libqt_string labelText, const libqt_
 }
 
 QMetaObject* QProgressDialog_MetaObject(const QProgressDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqprogressdialog = dynamic_cast<const VirtualQProgressDialog*>(self);
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQProgressDialog*)self)->metaObject();
+    }
 }
 
 void* QProgressDialog_Metacast(QProgressDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQProgressDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int QProgressDialog_Metacall(QProgressDialog* self, int param1, int param2, void** param3) {
@@ -233,6 +243,44 @@ void QProgressDialog_ShowEvent(QProgressDialog* self, QShowEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
         vqprogressdialog->showEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QProgressDialog_QBaseMetaObject(const QProgressDialog* self) {
+    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+        vqprogressdialog->setQProgressDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vqprogressdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->QProgressDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressDialog_OnMetaObject(const QProgressDialog* self, intptr_t slot) {
+    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+        vqprogressdialog->setQProgressDialog_MetaObject_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QProgressDialog_QBaseMetacast(QProgressDialog* self, const char* param1) {
+    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+        vqprogressdialog->setQProgressDialog_Metacast_IsBase(true);
+        return vqprogressdialog->qt_metacast(param1);
+    } else {
+        return self->QProgressDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressDialog_OnMetacast(QProgressDialog* self, intptr_t slot) {
+    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+        vqprogressdialog->setQProgressDialog_Metacast_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metacast_Callback>(slot));
     }
 }
 

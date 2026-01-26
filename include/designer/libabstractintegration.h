@@ -66,6 +66,10 @@ void QDesignerIntegrationInterface_UpdateActiveFormWindow(QDesignerIntegrationIn
 void QDesignerIntegrationInterface_SetupFormWindow(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow);
 void QDesignerIntegrationInterface_UpdateSelection(QDesignerIntegrationInterface* self);
 void QDesignerIntegrationInterface_UpdateCustomWidgetPlugins(QDesignerIntegrationInterface* self);
+void QDesignerIntegrationInterface_OnMetaObject(const QDesignerIntegrationInterface* self, intptr_t slot);
+QMetaObject* QDesignerIntegrationInterface_QBaseMetaObject(const QDesignerIntegrationInterface* self);
+void QDesignerIntegrationInterface_OnMetacast(QDesignerIntegrationInterface* self, intptr_t slot);
+void* QDesignerIntegrationInterface_QBaseMetacast(QDesignerIntegrationInterface* self, const char* param1);
 void QDesignerIntegrationInterface_OnMetacall(QDesignerIntegrationInterface* self, intptr_t slot);
 int QDesignerIntegrationInterface_QBaseMetacall(QDesignerIntegrationInterface* self, int param1, int param2, void** param3);
 void QDesignerIntegrationInterface_OnContainerWindow(const QDesignerIntegrationInterface* self, intptr_t slot);
@@ -169,6 +173,10 @@ void QDesignerIntegration_UpdateActiveFormWindow(QDesignerIntegration* self, QDe
 void QDesignerIntegration_SetupFormWindow(QDesignerIntegration* self, QDesignerFormWindowInterface* formWindow);
 void QDesignerIntegration_UpdateSelection(QDesignerIntegration* self);
 void QDesignerIntegration_UpdateCustomWidgetPlugins(QDesignerIntegration* self);
+void QDesignerIntegration_OnMetaObject(const QDesignerIntegration* self, intptr_t slot);
+QMetaObject* QDesignerIntegration_QBaseMetaObject(const QDesignerIntegration* self);
+void QDesignerIntegration_OnMetacast(QDesignerIntegration* self, intptr_t slot);
+void* QDesignerIntegration_QBaseMetacast(QDesignerIntegration* self, const char* param1);
 void QDesignerIntegration_OnMetacall(QDesignerIntegration* self, intptr_t slot);
 int QDesignerIntegration_QBaseMetacall(QDesignerIntegration* self, int param1, int param2, void** param3);
 void QDesignerIntegration_OnHeaderSuffix(const QDesignerIntegration* self, intptr_t slot);

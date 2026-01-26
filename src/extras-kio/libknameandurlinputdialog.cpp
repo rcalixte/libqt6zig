@@ -48,11 +48,21 @@ KNameAndUrlInputDialog* KNameAndUrlInputDialog_new(const libqt_string nameLabel,
 }
 
 QMetaObject* KNameAndUrlInputDialog_MetaObject(const KNameAndUrlInputDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknameandurlinputdialog = dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self);
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNameAndUrlInputDialog*)self)->metaObject();
+    }
 }
 
 void* KNameAndUrlInputDialog_Metacast(KNameAndUrlInputDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNameAndUrlInputDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KNameAndUrlInputDialog_Metacall(KNameAndUrlInputDialog* self, int param1, int param2, void** param3) {
@@ -99,6 +109,44 @@ libqt_string KNameAndUrlInputDialog_UrlText(const KNameAndUrlInputDialog* self) 
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* KNameAndUrlInputDialog_QBaseMetaObject(const KNameAndUrlInputDialog* self) {
+    auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+        vknameandurlinputdialog->setKNameAndUrlInputDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vknameandurlinputdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KNameAndUrlInputDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNameAndUrlInputDialog_OnMetaObject(const KNameAndUrlInputDialog* self, intptr_t slot) {
+    auto* vknameandurlinputdialog = const_cast<VirtualKNameAndUrlInputDialog*>(dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self));
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+        vknameandurlinputdialog->setKNameAndUrlInputDialog_MetaObject_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNameAndUrlInputDialog_QBaseMetacast(KNameAndUrlInputDialog* self, const char* param1) {
+    auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+        vknameandurlinputdialog->setKNameAndUrlInputDialog_Metacast_IsBase(true);
+        return vknameandurlinputdialog->qt_metacast(param1);
+    } else {
+        return self->KNameAndUrlInputDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNameAndUrlInputDialog_OnMetacast(KNameAndUrlInputDialog* self, intptr_t slot) {
+    auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
+    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
+        vknameandurlinputdialog->setKNameAndUrlInputDialog_Metacast_Callback(reinterpret_cast<VirtualKNameAndUrlInputDialog::KNameAndUrlInputDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

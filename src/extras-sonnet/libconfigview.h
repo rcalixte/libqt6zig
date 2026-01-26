@@ -70,6 +70,10 @@ void Sonnet__ConfigView_SetLanguage(Sonnet__ConfigView* self, const libqt_string
 void Sonnet__ConfigView_SetIgnoreList(Sonnet__ConfigView* self, const libqt_list /* of libqt_string */ ignoreList);
 void Sonnet__ConfigView_ConfigChanged(Sonnet__ConfigView* self);
 void Sonnet__ConfigView_Connect_ConfigChanged(Sonnet__ConfigView* self, intptr_t slot);
+void Sonnet__ConfigView_OnMetaObject(const Sonnet__ConfigView* self, intptr_t slot);
+QMetaObject* Sonnet__ConfigView_QBaseMetaObject(const Sonnet__ConfigView* self);
+void Sonnet__ConfigView_OnMetacast(Sonnet__ConfigView* self, intptr_t slot);
+void* Sonnet__ConfigView_QBaseMetacast(Sonnet__ConfigView* self, const char* param1);
 void Sonnet__ConfigView_OnMetacall(Sonnet__ConfigView* self, intptr_t slot);
 int Sonnet__ConfigView_QBaseMetacall(Sonnet__ConfigView* self, int param1, int param2, void** param3);
 int Sonnet__ConfigView_DevType(const Sonnet__ConfigView* self);

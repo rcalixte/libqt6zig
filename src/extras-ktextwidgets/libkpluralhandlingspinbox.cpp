@@ -53,11 +53,21 @@ KPluralHandlingSpinBox* KPluralHandlingSpinBox_new2() {
 }
 
 QMetaObject* KPluralHandlingSpinBox_MetaObject(const KPluralHandlingSpinBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpluralhandlingspinbox = dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self);
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPluralHandlingSpinBox*)self)->metaObject();
+    }
 }
 
 void* KPluralHandlingSpinBox_Metacast(KPluralHandlingSpinBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPluralHandlingSpinBox*)self)->qt_metacast(param1);
+    }
 }
 
 int KPluralHandlingSpinBox_Metacall(KPluralHandlingSpinBox* self, int param1, int param2, void** param3) {
@@ -71,6 +81,44 @@ int KPluralHandlingSpinBox_Metacall(KPluralHandlingSpinBox* self, int param1, in
 
 void KPluralHandlingSpinBox_SetSuffix(KPluralHandlingSpinBox* self, const KLocalizedString* suffix) {
     self->setSuffix(*suffix);
+}
+
+// Base class handler implementation
+QMetaObject* KPluralHandlingSpinBox_QBaseMetaObject(const KPluralHandlingSpinBox* self) {
+    auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+        vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpluralhandlingspinbox->metaObject();
+    } else {
+        return (QMetaObject*)self->KPluralHandlingSpinBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPluralHandlingSpinBox_OnMetaObject(const KPluralHandlingSpinBox* self, intptr_t slot) {
+    auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+        vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MetaObject_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPluralHandlingSpinBox_QBaseMetacast(KPluralHandlingSpinBox* self, const char* param1) {
+    auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+        vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Metacast_IsBase(true);
+        return vkpluralhandlingspinbox->qt_metacast(param1);
+    } else {
+        return self->KPluralHandlingSpinBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPluralHandlingSpinBox_OnMetacast(KPluralHandlingSpinBox* self, intptr_t slot) {
+    auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+        vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Metacast_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

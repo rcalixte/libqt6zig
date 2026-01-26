@@ -17,6 +17,8 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     bool isVirtualKSelectionWatcher = true;
 
     // Virtual class public types (including callbacks)
+    using KSelectionWatcher_MetaObject_Callback = QMetaObject* (*)();
+    using KSelectionWatcher_Metacast_Callback = void* (*)(KSelectionWatcher*, const char*);
     using KSelectionWatcher_Metacall_Callback = int (*)(KSelectionWatcher*, int, int, void**);
     using KSelectionWatcher_Event_Callback = bool (*)(KSelectionWatcher*, QEvent*);
     using KSelectionWatcher_EventFilter_Callback = bool (*)(KSelectionWatcher*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
   protected:
     // Instance callback storage
+    KSelectionWatcher_MetaObject_Callback kselectionwatcher_metaobject_callback = nullptr;
+    KSelectionWatcher_Metacast_Callback kselectionwatcher_metacast_callback = nullptr;
     KSelectionWatcher_Metacall_Callback kselectionwatcher_metacall_callback = nullptr;
     KSelectionWatcher_Event_Callback kselectionwatcher_event_callback = nullptr;
     KSelectionWatcher_EventFilter_Callback kselectionwatcher_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     KSelectionWatcher_IsSignalConnected_Callback kselectionwatcher_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kselectionwatcher_metaobject_isbase = false;
+    mutable bool kselectionwatcher_metacast_isbase = false;
     mutable bool kselectionwatcher_metacall_isbase = false;
     mutable bool kselectionwatcher_event_isbase = false;
     mutable bool kselectionwatcher_eventfilter_isbase = false;
@@ -65,6 +71,8 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     VirtualKSelectionWatcher(const char* selection, int screen, QObject* parent) : KSelectionWatcher(selection, screen, parent) {};
 
     ~VirtualKSelectionWatcher() {
+        kselectionwatcher_metaobject_callback = nullptr;
+        kselectionwatcher_metacast_callback = nullptr;
         kselectionwatcher_metacall_callback = nullptr;
         kselectionwatcher_event_callback = nullptr;
         kselectionwatcher_eventfilter_callback = nullptr;
@@ -80,6 +88,8 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     }
 
     // Callback setters
+    inline void setKSelectionWatcher_MetaObject_Callback(KSelectionWatcher_MetaObject_Callback cb) { kselectionwatcher_metaobject_callback = cb; }
+    inline void setKSelectionWatcher_Metacast_Callback(KSelectionWatcher_Metacast_Callback cb) { kselectionwatcher_metacast_callback = cb; }
     inline void setKSelectionWatcher_Metacall_Callback(KSelectionWatcher_Metacall_Callback cb) { kselectionwatcher_metacall_callback = cb; }
     inline void setKSelectionWatcher_Event_Callback(KSelectionWatcher_Event_Callback cb) { kselectionwatcher_event_callback = cb; }
     inline void setKSelectionWatcher_EventFilter_Callback(KSelectionWatcher_EventFilter_Callback cb) { kselectionwatcher_eventfilter_callback = cb; }
@@ -94,6 +104,8 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     inline void setKSelectionWatcher_IsSignalConnected_Callback(KSelectionWatcher_IsSignalConnected_Callback cb) { kselectionwatcher_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKSelectionWatcher_MetaObject_IsBase(bool value) const { kselectionwatcher_metaobject_isbase = value; }
+    inline void setKSelectionWatcher_Metacast_IsBase(bool value) const { kselectionwatcher_metacast_isbase = value; }
     inline void setKSelectionWatcher_Metacall_IsBase(bool value) const { kselectionwatcher_metacall_isbase = value; }
     inline void setKSelectionWatcher_Event_IsBase(bool value) const { kselectionwatcher_event_isbase = value; }
     inline void setKSelectionWatcher_EventFilter_IsBase(bool value) const { kselectionwatcher_eventfilter_isbase = value; }
@@ -106,6 +118,34 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     inline void setKSelectionWatcher_SenderSignalIndex_IsBase(bool value) const { kselectionwatcher_sendersignalindex_isbase = value; }
     inline void setKSelectionWatcher_Receivers_IsBase(bool value) const { kselectionwatcher_receivers_isbase = value; }
     inline void setKSelectionWatcher_IsSignalConnected_IsBase(bool value) const { kselectionwatcher_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kselectionwatcher_metaobject_isbase) {
+            kselectionwatcher_metaobject_isbase = false;
+            return KSelectionWatcher::metaObject();
+        } else if (kselectionwatcher_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kselectionwatcher_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSelectionWatcher::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kselectionwatcher_metacast_isbase) {
+            kselectionwatcher_metacast_isbase = false;
+            return KSelectionWatcher::qt_metacast(param1);
+        } else if (kselectionwatcher_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kselectionwatcher_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSelectionWatcher::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

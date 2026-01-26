@@ -17,6 +17,8 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
     bool isVirtualKLocalizedTranslator = true;
 
     // Virtual class public types (including callbacks)
+    using KLocalizedTranslator_MetaObject_Callback = QMetaObject* (*)();
+    using KLocalizedTranslator_Metacast_Callback = void* (*)(KLocalizedTranslator*, const char*);
     using KLocalizedTranslator_Metacall_Callback = int (*)(KLocalizedTranslator*, int, int, void**);
     using KLocalizedTranslator_Translate_Callback = const char* (*)(const KLocalizedTranslator*, const char*, const char*, const char*, int);
     using KLocalizedTranslator_IsEmpty_Callback = bool (*)();
@@ -34,6 +36,8 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
   protected:
     // Instance callback storage
+    KLocalizedTranslator_MetaObject_Callback klocalizedtranslator_metaobject_callback = nullptr;
+    KLocalizedTranslator_Metacast_Callback klocalizedtranslator_metacast_callback = nullptr;
     KLocalizedTranslator_Metacall_Callback klocalizedtranslator_metacall_callback = nullptr;
     KLocalizedTranslator_Translate_Callback klocalizedtranslator_translate_callback = nullptr;
     KLocalizedTranslator_IsEmpty_Callback klocalizedtranslator_isempty_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
     KLocalizedTranslator_IsSignalConnected_Callback klocalizedtranslator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool klocalizedtranslator_metaobject_isbase = false;
+    mutable bool klocalizedtranslator_metacast_isbase = false;
     mutable bool klocalizedtranslator_metacall_isbase = false;
     mutable bool klocalizedtranslator_translate_isbase = false;
     mutable bool klocalizedtranslator_isempty_isbase = false;
@@ -70,6 +76,8 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
     VirtualKLocalizedTranslator(QObject* parent) : KLocalizedTranslator(parent) {};
 
     ~VirtualKLocalizedTranslator() {
+        klocalizedtranslator_metaobject_callback = nullptr;
+        klocalizedtranslator_metacast_callback = nullptr;
         klocalizedtranslator_metacall_callback = nullptr;
         klocalizedtranslator_translate_callback = nullptr;
         klocalizedtranslator_isempty_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
     }
 
     // Callback setters
+    inline void setKLocalizedTranslator_MetaObject_Callback(KLocalizedTranslator_MetaObject_Callback cb) { klocalizedtranslator_metaobject_callback = cb; }
+    inline void setKLocalizedTranslator_Metacast_Callback(KLocalizedTranslator_Metacast_Callback cb) { klocalizedtranslator_metacast_callback = cb; }
     inline void setKLocalizedTranslator_Metacall_Callback(KLocalizedTranslator_Metacall_Callback cb) { klocalizedtranslator_metacall_callback = cb; }
     inline void setKLocalizedTranslator_Translate_Callback(KLocalizedTranslator_Translate_Callback cb) { klocalizedtranslator_translate_callback = cb; }
     inline void setKLocalizedTranslator_IsEmpty_Callback(KLocalizedTranslator_IsEmpty_Callback cb) { klocalizedtranslator_isempty_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
     inline void setKLocalizedTranslator_IsSignalConnected_Callback(KLocalizedTranslator_IsSignalConnected_Callback cb) { klocalizedtranslator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKLocalizedTranslator_MetaObject_IsBase(bool value) const { klocalizedtranslator_metaobject_isbase = value; }
+    inline void setKLocalizedTranslator_Metacast_IsBase(bool value) const { klocalizedtranslator_metacast_isbase = value; }
     inline void setKLocalizedTranslator_Metacall_IsBase(bool value) const { klocalizedtranslator_metacall_isbase = value; }
     inline void setKLocalizedTranslator_Translate_IsBase(bool value) const { klocalizedtranslator_translate_isbase = value; }
     inline void setKLocalizedTranslator_IsEmpty_IsBase(bool value) const { klocalizedtranslator_isempty_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
     inline void setKLocalizedTranslator_SenderSignalIndex_IsBase(bool value) const { klocalizedtranslator_sendersignalindex_isbase = value; }
     inline void setKLocalizedTranslator_Receivers_IsBase(bool value) const { klocalizedtranslator_receivers_isbase = value; }
     inline void setKLocalizedTranslator_IsSignalConnected_IsBase(bool value) const { klocalizedtranslator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (klocalizedtranslator_metaobject_isbase) {
+            klocalizedtranslator_metaobject_isbase = false;
+            return KLocalizedTranslator::metaObject();
+        } else if (klocalizedtranslator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = klocalizedtranslator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KLocalizedTranslator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (klocalizedtranslator_metacast_isbase) {
+            klocalizedtranslator_metacast_isbase = false;
+            return KLocalizedTranslator::qt_metacast(param1);
+        } else if (klocalizedtranslator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = klocalizedtranslator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KLocalizedTranslator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

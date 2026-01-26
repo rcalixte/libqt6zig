@@ -37,6 +37,10 @@ bool QFileSystemWatcher_RemovePath(QFileSystemWatcher* self, const libqt_string 
 libqt_list /* of libqt_string */ QFileSystemWatcher_RemovePaths(QFileSystemWatcher* self, const libqt_list /* of libqt_string */ files);
 libqt_list /* of libqt_string */ QFileSystemWatcher_Files(const QFileSystemWatcher* self);
 libqt_list /* of libqt_string */ QFileSystemWatcher_Directories(const QFileSystemWatcher* self);
+void QFileSystemWatcher_OnMetaObject(const QFileSystemWatcher* self, intptr_t slot);
+QMetaObject* QFileSystemWatcher_QBaseMetaObject(const QFileSystemWatcher* self);
+void QFileSystemWatcher_OnMetacast(QFileSystemWatcher* self, intptr_t slot);
+void* QFileSystemWatcher_QBaseMetacast(QFileSystemWatcher* self, const char* param1);
 void QFileSystemWatcher_OnMetacall(QFileSystemWatcher* self, intptr_t slot);
 int QFileSystemWatcher_QBaseMetacall(QFileSystemWatcher* self, int param1, int param2, void** param3);
 bool QFileSystemWatcher_Event(QFileSystemWatcher* self, QEvent* event);

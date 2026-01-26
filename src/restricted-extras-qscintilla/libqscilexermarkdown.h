@@ -40,6 +40,10 @@ QColor* QsciLexerMarkdown_DefaultColor(const QsciLexerMarkdown* self, int style)
 QFont* QsciLexerMarkdown_DefaultFont(const QsciLexerMarkdown* self, int style);
 QColor* QsciLexerMarkdown_DefaultPaper(const QsciLexerMarkdown* self, int style);
 libqt_string QsciLexerMarkdown_Description(const QsciLexerMarkdown* self, int style);
+void QsciLexerMarkdown_OnMetaObject(const QsciLexerMarkdown* self, intptr_t slot);
+QMetaObject* QsciLexerMarkdown_QBaseMetaObject(const QsciLexerMarkdown* self);
+void QsciLexerMarkdown_OnMetacast(QsciLexerMarkdown* self, intptr_t slot);
+void* QsciLexerMarkdown_QBaseMetacast(QsciLexerMarkdown* self, const char* param1);
 void QsciLexerMarkdown_OnMetacall(QsciLexerMarkdown* self, intptr_t slot);
 int QsciLexerMarkdown_QBaseMetacall(QsciLexerMarkdown* self, int param1, int param2, void** param3);
 int QsciLexerMarkdown_LexerId(const QsciLexerMarkdown* self);

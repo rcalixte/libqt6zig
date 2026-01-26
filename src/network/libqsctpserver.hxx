@@ -17,6 +17,8 @@ class VirtualQSctpServer final : public QSctpServer {
     bool isVirtualQSctpServer = true;
 
     // Virtual class public types (including callbacks)
+    using QSctpServer_MetaObject_Callback = QMetaObject* (*)();
+    using QSctpServer_Metacast_Callback = void* (*)(QSctpServer*, const char*);
     using QSctpServer_Metacall_Callback = int (*)(QSctpServer*, int, int, void**);
     using QSctpServer_IncomingConnection_Callback = void (*)(QSctpServer*, intptr_t);
     using QSctpServer_HasPendingConnections_Callback = bool (*)();
@@ -36,6 +38,8 @@ class VirtualQSctpServer final : public QSctpServer {
 
   protected:
     // Instance callback storage
+    QSctpServer_MetaObject_Callback qsctpserver_metaobject_callback = nullptr;
+    QSctpServer_Metacast_Callback qsctpserver_metacast_callback = nullptr;
     QSctpServer_Metacall_Callback qsctpserver_metacall_callback = nullptr;
     QSctpServer_IncomingConnection_Callback qsctpserver_incomingconnection_callback = nullptr;
     QSctpServer_HasPendingConnections_Callback qsctpserver_haspendingconnections_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQSctpServer final : public QSctpServer {
     QSctpServer_IsSignalConnected_Callback qsctpserver_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsctpserver_metaobject_isbase = false;
+    mutable bool qsctpserver_metacast_isbase = false;
     mutable bool qsctpserver_metacall_isbase = false;
     mutable bool qsctpserver_incomingconnection_isbase = false;
     mutable bool qsctpserver_haspendingconnections_isbase = false;
@@ -76,6 +82,8 @@ class VirtualQSctpServer final : public QSctpServer {
     VirtualQSctpServer(QObject* parent) : QSctpServer(parent) {};
 
     ~VirtualQSctpServer() {
+        qsctpserver_metaobject_callback = nullptr;
+        qsctpserver_metacast_callback = nullptr;
         qsctpserver_metacall_callback = nullptr;
         qsctpserver_incomingconnection_callback = nullptr;
         qsctpserver_haspendingconnections_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualQSctpServer final : public QSctpServer {
     }
 
     // Callback setters
+    inline void setQSctpServer_MetaObject_Callback(QSctpServer_MetaObject_Callback cb) { qsctpserver_metaobject_callback = cb; }
+    inline void setQSctpServer_Metacast_Callback(QSctpServer_Metacast_Callback cb) { qsctpserver_metacast_callback = cb; }
     inline void setQSctpServer_Metacall_Callback(QSctpServer_Metacall_Callback cb) { qsctpserver_metacall_callback = cb; }
     inline void setQSctpServer_IncomingConnection_Callback(QSctpServer_IncomingConnection_Callback cb) { qsctpserver_incomingconnection_callback = cb; }
     inline void setQSctpServer_HasPendingConnections_Callback(QSctpServer_HasPendingConnections_Callback cb) { qsctpserver_haspendingconnections_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualQSctpServer final : public QSctpServer {
     inline void setQSctpServer_IsSignalConnected_Callback(QSctpServer_IsSignalConnected_Callback cb) { qsctpserver_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSctpServer_MetaObject_IsBase(bool value) const { qsctpserver_metaobject_isbase = value; }
+    inline void setQSctpServer_Metacast_IsBase(bool value) const { qsctpserver_metacast_isbase = value; }
     inline void setQSctpServer_Metacall_IsBase(bool value) const { qsctpserver_metacall_isbase = value; }
     inline void setQSctpServer_IncomingConnection_IsBase(bool value) const { qsctpserver_incomingconnection_isbase = value; }
     inline void setQSctpServer_HasPendingConnections_IsBase(bool value) const { qsctpserver_haspendingconnections_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualQSctpServer final : public QSctpServer {
     inline void setQSctpServer_SenderSignalIndex_IsBase(bool value) const { qsctpserver_sendersignalindex_isbase = value; }
     inline void setQSctpServer_Receivers_IsBase(bool value) const { qsctpserver_receivers_isbase = value; }
     inline void setQSctpServer_IsSignalConnected_IsBase(bool value) const { qsctpserver_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsctpserver_metaobject_isbase) {
+            qsctpserver_metaobject_isbase = false;
+            return QSctpServer::metaObject();
+        } else if (qsctpserver_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsctpserver_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSctpServer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsctpserver_metacast_isbase) {
+            qsctpserver_metacast_isbase = false;
+            return QSctpServer::qt_metacast(param1);
+        } else if (qsctpserver_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsctpserver_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSctpServer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

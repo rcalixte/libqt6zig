@@ -17,6 +17,8 @@ class VirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
     bool isVirtualQCandlestickLegendMarker = true;
 
     // Virtual class public types (including callbacks)
+    using QCandlestickLegendMarker_MetaObject_Callback = QMetaObject* (*)();
+    using QCandlestickLegendMarker_Metacast_Callback = void* (*)(QCandlestickLegendMarker*, const char*);
     using QCandlestickLegendMarker_Metacall_Callback = int (*)(QCandlestickLegendMarker*, int, int, void**);
     using QCandlestickLegendMarker_Type_Callback = int (*)();
     using QCandlestickLegendMarker_Series_Callback = QCandlestickSeries* (*)();
@@ -34,6 +36,8 @@ class VirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
 
   protected:
     // Instance callback storage
+    QCandlestickLegendMarker_MetaObject_Callback qcandlesticklegendmarker_metaobject_callback = nullptr;
+    QCandlestickLegendMarker_Metacast_Callback qcandlesticklegendmarker_metacast_callback = nullptr;
     QCandlestickLegendMarker_Metacall_Callback qcandlesticklegendmarker_metacall_callback = nullptr;
     QCandlestickLegendMarker_Type_Callback qcandlesticklegendmarker_type_callback = nullptr;
     QCandlestickLegendMarker_Series_Callback qcandlesticklegendmarker_series_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
     QCandlestickLegendMarker_IsSignalConnected_Callback qcandlesticklegendmarker_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcandlesticklegendmarker_metaobject_isbase = false;
+    mutable bool qcandlesticklegendmarker_metacast_isbase = false;
     mutable bool qcandlesticklegendmarker_metacall_isbase = false;
     mutable bool qcandlesticklegendmarker_type_isbase = false;
     mutable bool qcandlesticklegendmarker_series_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
     VirtualQCandlestickLegendMarker(QCandlestickSeries* series, QLegend* legend, QObject* parent) : QCandlestickLegendMarker(series, legend, parent) {};
 
     ~VirtualQCandlestickLegendMarker() {
+        qcandlesticklegendmarker_metaobject_callback = nullptr;
+        qcandlesticklegendmarker_metacast_callback = nullptr;
         qcandlesticklegendmarker_metacall_callback = nullptr;
         qcandlesticklegendmarker_type_callback = nullptr;
         qcandlesticklegendmarker_series_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
     }
 
     // Callback setters
+    inline void setQCandlestickLegendMarker_MetaObject_Callback(QCandlestickLegendMarker_MetaObject_Callback cb) { qcandlesticklegendmarker_metaobject_callback = cb; }
+    inline void setQCandlestickLegendMarker_Metacast_Callback(QCandlestickLegendMarker_Metacast_Callback cb) { qcandlesticklegendmarker_metacast_callback = cb; }
     inline void setQCandlestickLegendMarker_Metacall_Callback(QCandlestickLegendMarker_Metacall_Callback cb) { qcandlesticklegendmarker_metacall_callback = cb; }
     inline void setQCandlestickLegendMarker_Type_Callback(QCandlestickLegendMarker_Type_Callback cb) { qcandlesticklegendmarker_type_callback = cb; }
     inline void setQCandlestickLegendMarker_Series_Callback(QCandlestickLegendMarker_Series_Callback cb) { qcandlesticklegendmarker_series_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
     inline void setQCandlestickLegendMarker_IsSignalConnected_Callback(QCandlestickLegendMarker_IsSignalConnected_Callback cb) { qcandlesticklegendmarker_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCandlestickLegendMarker_MetaObject_IsBase(bool value) const { qcandlesticklegendmarker_metaobject_isbase = value; }
+    inline void setQCandlestickLegendMarker_Metacast_IsBase(bool value) const { qcandlesticklegendmarker_metacast_isbase = value; }
     inline void setQCandlestickLegendMarker_Metacall_IsBase(bool value) const { qcandlesticklegendmarker_metacall_isbase = value; }
     inline void setQCandlestickLegendMarker_Type_IsBase(bool value) const { qcandlesticklegendmarker_type_isbase = value; }
     inline void setQCandlestickLegendMarker_Series_IsBase(bool value) const { qcandlesticklegendmarker_series_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
     inline void setQCandlestickLegendMarker_SenderSignalIndex_IsBase(bool value) const { qcandlesticklegendmarker_sendersignalindex_isbase = value; }
     inline void setQCandlestickLegendMarker_Receivers_IsBase(bool value) const { qcandlesticklegendmarker_receivers_isbase = value; }
     inline void setQCandlestickLegendMarker_IsSignalConnected_IsBase(bool value) const { qcandlesticklegendmarker_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcandlesticklegendmarker_metaobject_isbase) {
+            qcandlesticklegendmarker_metaobject_isbase = false;
+            return QCandlestickLegendMarker::metaObject();
+        } else if (qcandlesticklegendmarker_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcandlesticklegendmarker_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCandlestickLegendMarker::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcandlesticklegendmarker_metacast_isbase) {
+            qcandlesticklegendmarker_metacast_isbase = false;
+            return QCandlestickLegendMarker::qt_metacast(param1);
+        } else if (qcandlesticklegendmarker_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcandlesticklegendmarker_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCandlestickLegendMarker::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

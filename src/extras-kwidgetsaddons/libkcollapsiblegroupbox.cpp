@@ -48,11 +48,21 @@ KCollapsibleGroupBox* KCollapsibleGroupBox_new2() {
 }
 
 QMetaObject* KCollapsibleGroupBox_MetaObject(const KCollapsibleGroupBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcollapsiblegroupbox = dynamic_cast<const VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCollapsibleGroupBox*)self)->metaObject();
+    }
 }
 
 void* KCollapsibleGroupBox_Metacast(KCollapsibleGroupBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCollapsibleGroupBox*)self)->qt_metacast(param1);
+    }
 }
 
 int KCollapsibleGroupBox_Metacall(KCollapsibleGroupBox* self, int param1, int param2, void** param3) {
@@ -188,6 +198,44 @@ void KCollapsibleGroupBox_ResizeEvent(KCollapsibleGroupBox* self, QResizeEvent* 
     auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
     if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
         vkcollapsiblegroupbox->resizeEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KCollapsibleGroupBox_QBaseMetaObject(const KCollapsibleGroupBox* self) {
+    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcollapsiblegroupbox->metaObject();
+    } else {
+        return (QMetaObject*)self->KCollapsibleGroupBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCollapsibleGroupBox_OnMetaObject(const KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = const_cast<VirtualKCollapsibleGroupBox*>(dynamic_cast<const VirtualKCollapsibleGroupBox*>(self));
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_MetaObject_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCollapsibleGroupBox_QBaseMetacast(KCollapsibleGroupBox* self, const char* param1) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_Metacast_IsBase(true);
+        return vkcollapsiblegroupbox->qt_metacast(param1);
+    } else {
+        return self->KCollapsibleGroupBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCollapsibleGroupBox_OnMetacast(KCollapsibleGroupBox* self, intptr_t slot) {
+    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
+    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
+        vkcollapsiblegroupbox->setKCollapsibleGroupBox_Metacast_Callback(reinterpret_cast<VirtualKCollapsibleGroupBox::KCollapsibleGroupBox_Metacast_Callback>(slot));
     }
 }
 

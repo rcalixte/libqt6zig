@@ -17,6 +17,8 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
     bool isVirtualKFileCopyToMenu = true;
 
     // Virtual class public types (including callbacks)
+    using KFileCopyToMenu_MetaObject_Callback = QMetaObject* (*)();
+    using KFileCopyToMenu_Metacast_Callback = void* (*)(KFileCopyToMenu*, const char*);
     using KFileCopyToMenu_Metacall_Callback = int (*)(KFileCopyToMenu*, int, int, void**);
     using KFileCopyToMenu_Event_Callback = bool (*)(KFileCopyToMenu*, QEvent*);
     using KFileCopyToMenu_EventFilter_Callback = bool (*)(KFileCopyToMenu*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
 
   protected:
     // Instance callback storage
+    KFileCopyToMenu_MetaObject_Callback kfilecopytomenu_metaobject_callback = nullptr;
+    KFileCopyToMenu_Metacast_Callback kfilecopytomenu_metacast_callback = nullptr;
     KFileCopyToMenu_Metacall_Callback kfilecopytomenu_metacall_callback = nullptr;
     KFileCopyToMenu_Event_Callback kfilecopytomenu_event_callback = nullptr;
     KFileCopyToMenu_EventFilter_Callback kfilecopytomenu_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
     KFileCopyToMenu_IsSignalConnected_Callback kfilecopytomenu_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfilecopytomenu_metaobject_isbase = false;
+    mutable bool kfilecopytomenu_metacast_isbase = false;
     mutable bool kfilecopytomenu_metacall_isbase = false;
     mutable bool kfilecopytomenu_event_isbase = false;
     mutable bool kfilecopytomenu_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
     VirtualKFileCopyToMenu(QWidget* parentWidget) : KFileCopyToMenu(parentWidget) {};
 
     ~VirtualKFileCopyToMenu() {
+        kfilecopytomenu_metaobject_callback = nullptr;
+        kfilecopytomenu_metacast_callback = nullptr;
         kfilecopytomenu_metacall_callback = nullptr;
         kfilecopytomenu_event_callback = nullptr;
         kfilecopytomenu_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
     }
 
     // Callback setters
+    inline void setKFileCopyToMenu_MetaObject_Callback(KFileCopyToMenu_MetaObject_Callback cb) { kfilecopytomenu_metaobject_callback = cb; }
+    inline void setKFileCopyToMenu_Metacast_Callback(KFileCopyToMenu_Metacast_Callback cb) { kfilecopytomenu_metacast_callback = cb; }
     inline void setKFileCopyToMenu_Metacall_Callback(KFileCopyToMenu_Metacall_Callback cb) { kfilecopytomenu_metacall_callback = cb; }
     inline void setKFileCopyToMenu_Event_Callback(KFileCopyToMenu_Event_Callback cb) { kfilecopytomenu_event_callback = cb; }
     inline void setKFileCopyToMenu_EventFilter_Callback(KFileCopyToMenu_EventFilter_Callback cb) { kfilecopytomenu_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
     inline void setKFileCopyToMenu_IsSignalConnected_Callback(KFileCopyToMenu_IsSignalConnected_Callback cb) { kfilecopytomenu_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKFileCopyToMenu_MetaObject_IsBase(bool value) const { kfilecopytomenu_metaobject_isbase = value; }
+    inline void setKFileCopyToMenu_Metacast_IsBase(bool value) const { kfilecopytomenu_metacast_isbase = value; }
     inline void setKFileCopyToMenu_Metacall_IsBase(bool value) const { kfilecopytomenu_metacall_isbase = value; }
     inline void setKFileCopyToMenu_Event_IsBase(bool value) const { kfilecopytomenu_event_isbase = value; }
     inline void setKFileCopyToMenu_EventFilter_IsBase(bool value) const { kfilecopytomenu_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualKFileCopyToMenu final : public KFileCopyToMenu {
     inline void setKFileCopyToMenu_SenderSignalIndex_IsBase(bool value) const { kfilecopytomenu_sendersignalindex_isbase = value; }
     inline void setKFileCopyToMenu_Receivers_IsBase(bool value) const { kfilecopytomenu_receivers_isbase = value; }
     inline void setKFileCopyToMenu_IsSignalConnected_IsBase(bool value) const { kfilecopytomenu_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfilecopytomenu_metaobject_isbase) {
+            kfilecopytomenu_metaobject_isbase = false;
+            return KFileCopyToMenu::metaObject();
+        } else if (kfilecopytomenu_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfilecopytomenu_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFileCopyToMenu::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfilecopytomenu_metacast_isbase) {
+            kfilecopytomenu_metacast_isbase = false;
+            return KFileCopyToMenu::qt_metacast(param1);
+        } else if (kfilecopytomenu_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfilecopytomenu_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFileCopyToMenu::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

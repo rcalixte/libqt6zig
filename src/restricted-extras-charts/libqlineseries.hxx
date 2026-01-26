@@ -17,6 +17,8 @@ class VirtualQLineSeries final : public QLineSeries {
     bool isVirtualQLineSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QLineSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QLineSeries_Metacast_Callback = void* (*)(QLineSeries*, const char*);
     using QLineSeries_Metacall_Callback = int (*)(QLineSeries*, int, int, void**);
     using QLineSeries_Type_Callback = int (*)();
     using QLineSeries_SetPen_Callback = void (*)(QLineSeries*, QPen*);
@@ -37,6 +39,8 @@ class VirtualQLineSeries final : public QLineSeries {
 
   protected:
     // Instance callback storage
+    QLineSeries_MetaObject_Callback qlineseries_metaobject_callback = nullptr;
+    QLineSeries_Metacast_Callback qlineseries_metacast_callback = nullptr;
     QLineSeries_Metacall_Callback qlineseries_metacall_callback = nullptr;
     QLineSeries_Type_Callback qlineseries_type_callback = nullptr;
     QLineSeries_SetPen_Callback qlineseries_setpen_callback = nullptr;
@@ -56,6 +60,8 @@ class VirtualQLineSeries final : public QLineSeries {
     QLineSeries_IsSignalConnected_Callback qlineseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlineseries_metaobject_isbase = false;
+    mutable bool qlineseries_metacast_isbase = false;
     mutable bool qlineseries_metacall_isbase = false;
     mutable bool qlineseries_type_isbase = false;
     mutable bool qlineseries_setpen_isbase = false;
@@ -79,6 +85,8 @@ class VirtualQLineSeries final : public QLineSeries {
     VirtualQLineSeries(QObject* parent) : QLineSeries(parent) {};
 
     ~VirtualQLineSeries() {
+        qlineseries_metaobject_callback = nullptr;
+        qlineseries_metacast_callback = nullptr;
         qlineseries_metacall_callback = nullptr;
         qlineseries_type_callback = nullptr;
         qlineseries_setpen_callback = nullptr;
@@ -99,6 +107,8 @@ class VirtualQLineSeries final : public QLineSeries {
     }
 
     // Callback setters
+    inline void setQLineSeries_MetaObject_Callback(QLineSeries_MetaObject_Callback cb) { qlineseries_metaobject_callback = cb; }
+    inline void setQLineSeries_Metacast_Callback(QLineSeries_Metacast_Callback cb) { qlineseries_metacast_callback = cb; }
     inline void setQLineSeries_Metacall_Callback(QLineSeries_Metacall_Callback cb) { qlineseries_metacall_callback = cb; }
     inline void setQLineSeries_Type_Callback(QLineSeries_Type_Callback cb) { qlineseries_type_callback = cb; }
     inline void setQLineSeries_SetPen_Callback(QLineSeries_SetPen_Callback cb) { qlineseries_setpen_callback = cb; }
@@ -118,6 +128,8 @@ class VirtualQLineSeries final : public QLineSeries {
     inline void setQLineSeries_IsSignalConnected_Callback(QLineSeries_IsSignalConnected_Callback cb) { qlineseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQLineSeries_MetaObject_IsBase(bool value) const { qlineseries_metaobject_isbase = value; }
+    inline void setQLineSeries_Metacast_IsBase(bool value) const { qlineseries_metacast_isbase = value; }
     inline void setQLineSeries_Metacall_IsBase(bool value) const { qlineseries_metacall_isbase = value; }
     inline void setQLineSeries_Type_IsBase(bool value) const { qlineseries_type_isbase = value; }
     inline void setQLineSeries_SetPen_IsBase(bool value) const { qlineseries_setpen_isbase = value; }
@@ -135,6 +147,34 @@ class VirtualQLineSeries final : public QLineSeries {
     inline void setQLineSeries_SenderSignalIndex_IsBase(bool value) const { qlineseries_sendersignalindex_isbase = value; }
     inline void setQLineSeries_Receivers_IsBase(bool value) const { qlineseries_receivers_isbase = value; }
     inline void setQLineSeries_IsSignalConnected_IsBase(bool value) const { qlineseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlineseries_metaobject_isbase) {
+            qlineseries_metaobject_isbase = false;
+            return QLineSeries::metaObject();
+        } else if (qlineseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlineseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QLineSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlineseries_metacast_isbase) {
+            qlineseries_metacast_isbase = false;
+            return QLineSeries::qt_metacast(param1);
+        } else if (qlineseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlineseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QLineSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

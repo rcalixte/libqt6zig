@@ -32,11 +32,21 @@ QWaveDecoder* QWaveDecoder_new4(QIODevice* device, const QAudioFormat* format, Q
 }
 
 QMetaObject* QWaveDecoder_MetaObject(const QWaveDecoder* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWaveDecoder*)self)->metaObject();
+    }
 }
 
 void* QWaveDecoder_Metacast(QWaveDecoder* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWaveDecoder*)self)->qt_metacast(param1);
+    }
 }
 
 int QWaveDecoder_Metacall(QWaveDecoder* self, int param1, int param2, void** param3) {
@@ -151,6 +161,44 @@ void QWaveDecoder_Connect_ParsingError(QWaveDecoder* self, intptr_t slot) {
     QWaveDecoder::connect(self, &QWaveDecoder::parsingError, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QWaveDecoder_QBaseMetaObject(const QWaveDecoder* self) {
+    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwavedecoder->metaObject();
+    } else {
+        return (QMetaObject*)self->QWaveDecoder::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWaveDecoder_OnMetaObject(const QWaveDecoder* self, intptr_t slot) {
+    auto* vqwavedecoder = const_cast<VirtualQWaveDecoder*>(dynamic_cast<const VirtualQWaveDecoder*>(self));
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_MetaObject_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWaveDecoder_QBaseMetacast(QWaveDecoder* self, const char* param1) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Metacast_IsBase(true);
+        return vqwavedecoder->qt_metacast(param1);
+    } else {
+        return self->QWaveDecoder::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWaveDecoder_OnMetacast(QWaveDecoder* self, intptr_t slot) {
+    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
+    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
+        vqwavedecoder->setQWaveDecoder_Metacast_Callback(reinterpret_cast<VirtualQWaveDecoder::QWaveDecoder_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

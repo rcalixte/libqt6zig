@@ -19,11 +19,21 @@ KParts__ListingFilterExtension* KParts__ListingFilterExtension_new(KParts__ReadO
 }
 
 QMetaObject* KParts__ListingFilterExtension_MetaObject(const KParts__ListingFilterExtension* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkparts__listingfilterextension = dynamic_cast<const VirtualKPartsListingFilterExtension*>(self);
+    if (vkparts__listingfilterextension && vkparts__listingfilterextension->isVirtualKPartsListingFilterExtension) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPartsListingFilterExtension*)self)->metaObject();
+    }
 }
 
 void* KParts__ListingFilterExtension_Metacast(KParts__ListingFilterExtension* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkparts__listingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
+    if (vkparts__listingfilterextension && vkparts__listingfilterextension->isVirtualKPartsListingFilterExtension) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPartsListingFilterExtension*)self)->qt_metacast(param1);
+    }
 }
 
 int KParts__ListingFilterExtension_Metacall(KParts__ListingFilterExtension* self, int param1, int param2, void** param3) {
@@ -72,6 +82,44 @@ void KParts__ListingFilterExtension_SetFilter(KParts__ListingFilterExtension* se
         vkparts__listingfilterextension->setFilter(static_cast<KParts::ListingFilterExtension::FilterMode>(mode), *filter);
     } else {
         ((VirtualKPartsListingFilterExtension*)self)->setFilter(static_cast<KParts::ListingFilterExtension::FilterMode>(mode), *filter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KParts__ListingFilterExtension_QBaseMetaObject(const KParts__ListingFilterExtension* self) {
+    auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+        vkpartslistingfilterextension->setKParts__ListingFilterExtension_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpartslistingfilterextension->metaObject();
+    } else {
+        return (QMetaObject*)self->KParts::ListingFilterExtension::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__ListingFilterExtension_OnMetaObject(const KParts__ListingFilterExtension* self, intptr_t slot) {
+    auto* vkpartslistingfilterextension = const_cast<VirtualKPartsListingFilterExtension*>(dynamic_cast<const VirtualKPartsListingFilterExtension*>(self));
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+        vkpartslistingfilterextension->setKParts__ListingFilterExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KParts__ListingFilterExtension_QBaseMetacast(KParts__ListingFilterExtension* self, const char* param1) {
+    auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+        vkpartslistingfilterextension->setKParts__ListingFilterExtension_Metacast_IsBase(true);
+        return vkpartslistingfilterextension->qt_metacast(param1);
+    } else {
+        return self->KParts::ListingFilterExtension::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__ListingFilterExtension_OnMetacast(KParts__ListingFilterExtension* self, intptr_t slot) {
+    auto* vkpartslistingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
+    if (vkpartslistingfilterextension && vkpartslistingfilterextension->isVirtualKPartsListingFilterExtension) {
+        vkpartslistingfilterextension->setKParts__ListingFilterExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsListingFilterExtension::KParts__ListingFilterExtension_Metacast_Callback>(slot));
     }
 }
 

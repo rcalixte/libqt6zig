@@ -17,6 +17,8 @@ class VirtualQWebChannel final : public QWebChannel {
     bool isVirtualQWebChannel = true;
 
     // Virtual class public types (including callbacks)
+    using QWebChannel_MetaObject_Callback = QMetaObject* (*)();
+    using QWebChannel_Metacast_Callback = void* (*)(QWebChannel*, const char*);
     using QWebChannel_Metacall_Callback = int (*)(QWebChannel*, int, int, void**);
     using QWebChannel_Event_Callback = bool (*)(QWebChannel*, QEvent*);
     using QWebChannel_EventFilter_Callback = bool (*)(QWebChannel*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQWebChannel final : public QWebChannel {
 
   protected:
     // Instance callback storage
+    QWebChannel_MetaObject_Callback qwebchannel_metaobject_callback = nullptr;
+    QWebChannel_Metacast_Callback qwebchannel_metacast_callback = nullptr;
     QWebChannel_Metacall_Callback qwebchannel_metacall_callback = nullptr;
     QWebChannel_Event_Callback qwebchannel_event_callback = nullptr;
     QWebChannel_EventFilter_Callback qwebchannel_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQWebChannel final : public QWebChannel {
     QWebChannel_IsSignalConnected_Callback qwebchannel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwebchannel_metaobject_isbase = false;
+    mutable bool qwebchannel_metacast_isbase = false;
     mutable bool qwebchannel_metacall_isbase = false;
     mutable bool qwebchannel_event_isbase = false;
     mutable bool qwebchannel_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQWebChannel final : public QWebChannel {
     VirtualQWebChannel(QObject* parent) : QWebChannel(parent) {};
 
     ~VirtualQWebChannel() {
+        qwebchannel_metaobject_callback = nullptr;
+        qwebchannel_metacast_callback = nullptr;
         qwebchannel_metacall_callback = nullptr;
         qwebchannel_event_callback = nullptr;
         qwebchannel_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQWebChannel final : public QWebChannel {
     }
 
     // Callback setters
+    inline void setQWebChannel_MetaObject_Callback(QWebChannel_MetaObject_Callback cb) { qwebchannel_metaobject_callback = cb; }
+    inline void setQWebChannel_Metacast_Callback(QWebChannel_Metacast_Callback cb) { qwebchannel_metacast_callback = cb; }
     inline void setQWebChannel_Metacall_Callback(QWebChannel_Metacall_Callback cb) { qwebchannel_metacall_callback = cb; }
     inline void setQWebChannel_Event_Callback(QWebChannel_Event_Callback cb) { qwebchannel_event_callback = cb; }
     inline void setQWebChannel_EventFilter_Callback(QWebChannel_EventFilter_Callback cb) { qwebchannel_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQWebChannel final : public QWebChannel {
     inline void setQWebChannel_IsSignalConnected_Callback(QWebChannel_IsSignalConnected_Callback cb) { qwebchannel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQWebChannel_MetaObject_IsBase(bool value) const { qwebchannel_metaobject_isbase = value; }
+    inline void setQWebChannel_Metacast_IsBase(bool value) const { qwebchannel_metacast_isbase = value; }
     inline void setQWebChannel_Metacall_IsBase(bool value) const { qwebchannel_metacall_isbase = value; }
     inline void setQWebChannel_Event_IsBase(bool value) const { qwebchannel_event_isbase = value; }
     inline void setQWebChannel_EventFilter_IsBase(bool value) const { qwebchannel_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQWebChannel final : public QWebChannel {
     inline void setQWebChannel_SenderSignalIndex_IsBase(bool value) const { qwebchannel_sendersignalindex_isbase = value; }
     inline void setQWebChannel_Receivers_IsBase(bool value) const { qwebchannel_receivers_isbase = value; }
     inline void setQWebChannel_IsSignalConnected_IsBase(bool value) const { qwebchannel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwebchannel_metaobject_isbase) {
+            qwebchannel_metaobject_isbase = false;
+            return QWebChannel::metaObject();
+        } else if (qwebchannel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwebchannel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWebChannel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwebchannel_metacast_isbase) {
+            qwebchannel_metacast_isbase = false;
+            return QWebChannel::qt_metacast(param1);
+        } else if (qwebchannel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwebchannel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWebChannel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

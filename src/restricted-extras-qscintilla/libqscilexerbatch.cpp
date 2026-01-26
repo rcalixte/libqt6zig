@@ -25,11 +25,21 @@ QsciLexerBatch* QsciLexerBatch_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerBatch_MetaObject(const QsciLexerBatch* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerbatch = dynamic_cast<const VirtualQsciLexerBatch*>(self);
+    if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerBatch*)self)->metaObject();
+    }
 }
 
 void* QsciLexerBatch_Metacast(QsciLexerBatch* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerbatch = dynamic_cast<VirtualQsciLexerBatch*>(self);
+    if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerBatch*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerBatch_Metacall(QsciLexerBatch* self, int param1, int param2, void** param3) {
@@ -87,6 +97,44 @@ libqt_string QsciLexerBatch_Description(const QsciLexerBatch* self, int style) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerBatch_QBaseMetaObject(const QsciLexerBatch* self) {
+    auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
+    if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
+        vqscilexerbatch->setQsciLexerBatch_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerbatch->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerBatch*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerBatch_OnMetaObject(const QsciLexerBatch* self, intptr_t slot) {
+    auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
+    if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
+        vqscilexerbatch->setQsciLexerBatch_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerBatch::QsciLexerBatch_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerBatch_QBaseMetacast(QsciLexerBatch* self, const char* param1) {
+    auto* vqscilexerbatch = dynamic_cast<VirtualQsciLexerBatch*>(self);
+    if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
+        vqscilexerbatch->setQsciLexerBatch_Metacast_IsBase(true);
+        return vqscilexerbatch->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerBatch*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerBatch_OnMetacast(QsciLexerBatch* self, intptr_t slot) {
+    auto* vqscilexerbatch = dynamic_cast<VirtualQsciLexerBatch*>(self);
+    if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
+        vqscilexerbatch->setQsciLexerBatch_Metacast_Callback(reinterpret_cast<VirtualQsciLexerBatch::QsciLexerBatch_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

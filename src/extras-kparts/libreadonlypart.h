@@ -93,6 +93,10 @@ void KParts__ReadOnlyPart_UrlChanged(KParts__ReadOnlyPart* self, const QUrl* url
 void KParts__ReadOnlyPart_Connect_UrlChanged(KParts__ReadOnlyPart* self, intptr_t slot);
 bool KParts__ReadOnlyPart_OpenFile(KParts__ReadOnlyPart* self);
 void KParts__ReadOnlyPart_GuiActivateEvent(KParts__ReadOnlyPart* self, KParts__GUIActivateEvent* event);
+void KParts__ReadOnlyPart_OnMetaObject(const KParts__ReadOnlyPart* self, intptr_t slot);
+QMetaObject* KParts__ReadOnlyPart_QBaseMetaObject(const KParts__ReadOnlyPart* self);
+void KParts__ReadOnlyPart_OnMetacast(KParts__ReadOnlyPart* self, intptr_t slot);
+void* KParts__ReadOnlyPart_QBaseMetacast(KParts__ReadOnlyPart* self, const char* param1);
 void KParts__ReadOnlyPart_OnMetacall(KParts__ReadOnlyPart* self, intptr_t slot);
 int KParts__ReadOnlyPart_QBaseMetacall(KParts__ReadOnlyPart* self, int param1, int param2, void** param3);
 void KParts__ReadOnlyPart_OnOpenUrl(KParts__ReadOnlyPart* self, intptr_t slot);

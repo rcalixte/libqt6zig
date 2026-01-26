@@ -17,6 +17,8 @@ class VirtualKSycoca final : public KSycoca {
     bool isVirtualKSycoca = true;
 
     // Virtual class public types (including callbacks)
+    using KSycoca_MetaObject_Callback = QMetaObject* (*)();
+    using KSycoca_Metacast_Callback = void* (*)(KSycoca*, const char*);
     using KSycoca_Metacall_Callback = int (*)(KSycoca*, int, int, void**);
     using KSycoca_IsBuilding_Callback = bool (*)();
     using KSycoca_ConnectNotify_Callback = void (*)(KSycoca*, QMetaMethod*);
@@ -33,6 +35,8 @@ class VirtualKSycoca final : public KSycoca {
 
   protected:
     // Instance callback storage
+    KSycoca_MetaObject_Callback ksycoca_metaobject_callback = nullptr;
+    KSycoca_Metacast_Callback ksycoca_metacast_callback = nullptr;
     KSycoca_Metacall_Callback ksycoca_metacall_callback = nullptr;
     KSycoca_IsBuilding_Callback ksycoca_isbuilding_callback = nullptr;
     KSycoca_ConnectNotify_Callback ksycoca_connectnotify_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualKSycoca final : public KSycoca {
     KSycoca_IsSignalConnected_Callback ksycoca_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ksycoca_metaobject_isbase = false;
+    mutable bool ksycoca_metacast_isbase = false;
     mutable bool ksycoca_metacall_isbase = false;
     mutable bool ksycoca_isbuilding_isbase = false;
     mutable bool ksycoca_connectnotify_isbase = false;
@@ -66,6 +72,8 @@ class VirtualKSycoca final : public KSycoca {
     VirtualKSycoca() : KSycoca() {};
 
     ~VirtualKSycoca() {
+        ksycoca_metaobject_callback = nullptr;
+        ksycoca_metacast_callback = nullptr;
         ksycoca_metacall_callback = nullptr;
         ksycoca_isbuilding_callback = nullptr;
         ksycoca_connectnotify_callback = nullptr;
@@ -82,6 +90,8 @@ class VirtualKSycoca final : public KSycoca {
     }
 
     // Callback setters
+    inline void setKSycoca_MetaObject_Callback(KSycoca_MetaObject_Callback cb) { ksycoca_metaobject_callback = cb; }
+    inline void setKSycoca_Metacast_Callback(KSycoca_Metacast_Callback cb) { ksycoca_metacast_callback = cb; }
     inline void setKSycoca_Metacall_Callback(KSycoca_Metacall_Callback cb) { ksycoca_metacall_callback = cb; }
     inline void setKSycoca_IsBuilding_Callback(KSycoca_IsBuilding_Callback cb) { ksycoca_isbuilding_callback = cb; }
     inline void setKSycoca_ConnectNotify_Callback(KSycoca_ConnectNotify_Callback cb) { ksycoca_connectnotify_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualKSycoca final : public KSycoca {
     inline void setKSycoca_IsSignalConnected_Callback(KSycoca_IsSignalConnected_Callback cb) { ksycoca_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKSycoca_MetaObject_IsBase(bool value) const { ksycoca_metaobject_isbase = value; }
+    inline void setKSycoca_Metacast_IsBase(bool value) const { ksycoca_metacast_isbase = value; }
     inline void setKSycoca_Metacall_IsBase(bool value) const { ksycoca_metacall_isbase = value; }
     inline void setKSycoca_IsBuilding_IsBase(bool value) const { ksycoca_isbuilding_isbase = value; }
     inline void setKSycoca_ConnectNotify_IsBase(bool value) const { ksycoca_connectnotify_isbase = value; }
@@ -110,6 +122,34 @@ class VirtualKSycoca final : public KSycoca {
     inline void setKSycoca_SenderSignalIndex_IsBase(bool value) const { ksycoca_sendersignalindex_isbase = value; }
     inline void setKSycoca_Receivers_IsBase(bool value) const { ksycoca_receivers_isbase = value; }
     inline void setKSycoca_IsSignalConnected_IsBase(bool value) const { ksycoca_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ksycoca_metaobject_isbase) {
+            ksycoca_metaobject_isbase = false;
+            return KSycoca::metaObject();
+        } else if (ksycoca_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ksycoca_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSycoca::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ksycoca_metacast_isbase) {
+            ksycoca_metacast_isbase = false;
+            return KSycoca::qt_metacast(param1);
+        } else if (ksycoca_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ksycoca_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSycoca::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

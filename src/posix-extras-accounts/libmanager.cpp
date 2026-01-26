@@ -46,11 +46,21 @@ Accounts__Manager* Accounts__Manager_new6(int options, QObject* parent) {
 }
 
 QMetaObject* Accounts__Manager_MetaObject(const Accounts__Manager* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vaccounts__manager = dynamic_cast<const VirtualAccountsManager*>(self);
+    if (vaccounts__manager && vaccounts__manager->isVirtualAccountsManager) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualAccountsManager*)self)->metaObject();
+    }
 }
 
 void* Accounts__Manager_Metacast(Accounts__Manager* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vaccounts__manager = dynamic_cast<VirtualAccountsManager*>(self);
+    if (vaccounts__manager && vaccounts__manager->isVirtualAccountsManager) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualAccountsManager*)self)->qt_metacast(param1);
+    }
 }
 
 int Accounts__Manager_Metacall(Accounts__Manager* self, int param1, int param2, void** param3) {
@@ -293,6 +303,44 @@ libqt_list /* of Accounts__Service* */ Accounts__Manager_ServiceList1(const Acco
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+QMetaObject* Accounts__Manager_QBaseMetaObject(const Accounts__Manager* self) {
+    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
+    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
+        vaccountsmanager->setAccounts__Manager_MetaObject_IsBase(true);
+        return (QMetaObject*)vaccountsmanager->metaObject();
+    } else {
+        return (QMetaObject*)self->Accounts::Manager::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Accounts__Manager_OnMetaObject(const Accounts__Manager* self, intptr_t slot) {
+    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
+    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
+        vaccountsmanager->setAccounts__Manager_MetaObject_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Accounts__Manager_QBaseMetacast(Accounts__Manager* self, const char* param1) {
+    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
+    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
+        vaccountsmanager->setAccounts__Manager_Metacast_IsBase(true);
+        return vaccountsmanager->qt_metacast(param1);
+    } else {
+        return self->Accounts::Manager::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Accounts__Manager_OnMetacast(Accounts__Manager* self, intptr_t slot) {
+    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
+    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
+        vaccountsmanager->setAccounts__Manager_Metacast_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

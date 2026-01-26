@@ -179,6 +179,10 @@ void QAbstractItemModel_LayoutAboutToBeChanged1(QAbstractItemModel* self, const 
 void QAbstractItemModel_Connect_LayoutAboutToBeChanged1(QAbstractItemModel* self, intptr_t slot);
 void QAbstractItemModel_LayoutAboutToBeChanged2(QAbstractItemModel* self, const libqt_list /* of QPersistentModelIndex* */ parents, int hint);
 void QAbstractItemModel_Connect_LayoutAboutToBeChanged2(QAbstractItemModel* self, intptr_t slot);
+void QAbstractItemModel_OnMetaObject(const QAbstractItemModel* self, intptr_t slot);
+QMetaObject* QAbstractItemModel_QBaseMetaObject(const QAbstractItemModel* self);
+void QAbstractItemModel_OnMetacast(QAbstractItemModel* self, intptr_t slot);
+void* QAbstractItemModel_QBaseMetacast(QAbstractItemModel* self, const char* param1);
 void QAbstractItemModel_OnMetacall(QAbstractItemModel* self, intptr_t slot);
 int QAbstractItemModel_QBaseMetacall(QAbstractItemModel* self, int param1, int param2, void** param3);
 void QAbstractItemModel_OnIndex(const QAbstractItemModel* self, intptr_t slot);
@@ -379,6 +383,10 @@ QModelIndex* QAbstractTableModel_Index(const QAbstractTableModel* self, int row,
 QModelIndex* QAbstractTableModel_Sibling(const QAbstractTableModel* self, int row, int column, const QModelIndex* idx);
 bool QAbstractTableModel_DropMimeData(QAbstractTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
 int QAbstractTableModel_Flags(const QAbstractTableModel* self, const QModelIndex* index);
+void QAbstractTableModel_OnMetaObject(const QAbstractTableModel* self, intptr_t slot);
+QMetaObject* QAbstractTableModel_QBaseMetaObject(const QAbstractTableModel* self);
+void QAbstractTableModel_OnMetacast(QAbstractTableModel* self, intptr_t slot);
+void* QAbstractTableModel_QBaseMetacast(QAbstractTableModel* self, const char* param1);
 void QAbstractTableModel_OnMetacall(QAbstractTableModel* self, intptr_t slot);
 int QAbstractTableModel_QBaseMetacall(QAbstractTableModel* self, int param1, int param2, void** param3);
 void QAbstractTableModel_OnIndex(const QAbstractTableModel* self, intptr_t slot);
@@ -586,6 +594,10 @@ QModelIndex* QAbstractListModel_Index(const QAbstractListModel* self, int row, i
 QModelIndex* QAbstractListModel_Sibling(const QAbstractListModel* self, int row, int column, const QModelIndex* idx);
 bool QAbstractListModel_DropMimeData(QAbstractListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
 int QAbstractListModel_Flags(const QAbstractListModel* self, const QModelIndex* index);
+void QAbstractListModel_OnMetaObject(const QAbstractListModel* self, intptr_t slot);
+QMetaObject* QAbstractListModel_QBaseMetaObject(const QAbstractListModel* self);
+void QAbstractListModel_OnMetacast(QAbstractListModel* self, intptr_t slot);
+void* QAbstractListModel_QBaseMetacast(QAbstractListModel* self, const char* param1);
 void QAbstractListModel_OnMetacall(QAbstractListModel* self, intptr_t slot);
 int QAbstractListModel_QBaseMetacall(QAbstractListModel* self, int param1, int param2, void** param3);
 void QAbstractListModel_OnIndex(const QAbstractListModel* self, intptr_t slot);

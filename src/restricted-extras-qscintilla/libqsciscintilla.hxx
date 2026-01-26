@@ -17,6 +17,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     bool isVirtualQsciScintilla = true;
 
     // Virtual class public types (including callbacks)
+    using QsciScintilla_MetaObject_Callback = QMetaObject* (*)();
+    using QsciScintilla_Metacast_Callback = void* (*)(QsciScintilla*, const char*);
     using QsciScintilla_Metacall_Callback = int (*)(QsciScintilla*, int, int, void**);
     using QsciScintilla_ApiContext_Callback = const char** (*)(QsciScintilla*, int, int*, int*);
     using QsciScintilla_FindFirst_Callback = bool (*)(QsciScintilla*, libqt_string, bool, bool, bool, bool, bool, int, int, bool, bool, bool);
@@ -174,6 +176,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
 
   protected:
     // Instance callback storage
+    QsciScintilla_MetaObject_Callback qsciscintilla_metaobject_callback = nullptr;
+    QsciScintilla_Metacast_Callback qsciscintilla_metacast_callback = nullptr;
     QsciScintilla_Metacall_Callback qsciscintilla_metacall_callback = nullptr;
     QsciScintilla_ApiContext_Callback qsciscintilla_apicontext_callback = nullptr;
     QsciScintilla_FindFirst_Callback qsciscintilla_findfirst_callback = nullptr;
@@ -330,6 +334,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     QsciScintilla_GetDecodedMetricF_Callback qsciscintilla_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsciscintilla_metaobject_isbase = false;
+    mutable bool qsciscintilla_metacast_isbase = false;
     mutable bool qsciscintilla_metacall_isbase = false;
     mutable bool qsciscintilla_apicontext_isbase = false;
     mutable bool qsciscintilla_findfirst_isbase = false;
@@ -490,6 +496,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     VirtualQsciScintilla() : QsciScintilla() {};
 
     ~VirtualQsciScintilla() {
+        qsciscintilla_metaobject_callback = nullptr;
+        qsciscintilla_metacast_callback = nullptr;
         qsciscintilla_metacall_callback = nullptr;
         qsciscintilla_apicontext_callback = nullptr;
         qsciscintilla_findfirst_callback = nullptr;
@@ -647,6 +655,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     }
 
     // Callback setters
+    inline void setQsciScintilla_MetaObject_Callback(QsciScintilla_MetaObject_Callback cb) { qsciscintilla_metaobject_callback = cb; }
+    inline void setQsciScintilla_Metacast_Callback(QsciScintilla_Metacast_Callback cb) { qsciscintilla_metacast_callback = cb; }
     inline void setQsciScintilla_Metacall_Callback(QsciScintilla_Metacall_Callback cb) { qsciscintilla_metacall_callback = cb; }
     inline void setQsciScintilla_ApiContext_Callback(QsciScintilla_ApiContext_Callback cb) { qsciscintilla_apicontext_callback = cb; }
     inline void setQsciScintilla_FindFirst_Callback(QsciScintilla_FindFirst_Callback cb) { qsciscintilla_findfirst_callback = cb; }
@@ -803,6 +813,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     inline void setQsciScintilla_GetDecodedMetricF_Callback(QsciScintilla_GetDecodedMetricF_Callback cb) { qsciscintilla_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQsciScintilla_MetaObject_IsBase(bool value) const { qsciscintilla_metaobject_isbase = value; }
+    inline void setQsciScintilla_Metacast_IsBase(bool value) const { qsciscintilla_metacast_isbase = value; }
     inline void setQsciScintilla_Metacall_IsBase(bool value) const { qsciscintilla_metacall_isbase = value; }
     inline void setQsciScintilla_ApiContext_IsBase(bool value) const { qsciscintilla_apicontext_isbase = value; }
     inline void setQsciScintilla_FindFirst_IsBase(bool value) const { qsciscintilla_findfirst_isbase = value; }
@@ -957,6 +969,34 @@ class VirtualQsciScintilla final : public QsciScintilla {
     inline void setQsciScintilla_Receivers_IsBase(bool value) const { qsciscintilla_receivers_isbase = value; }
     inline void setQsciScintilla_IsSignalConnected_IsBase(bool value) const { qsciscintilla_issignalconnected_isbase = value; }
     inline void setQsciScintilla_GetDecodedMetricF_IsBase(bool value) const { qsciscintilla_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsciscintilla_metaobject_isbase) {
+            qsciscintilla_metaobject_isbase = false;
+            return QsciScintilla::metaObject();
+        } else if (qsciscintilla_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsciscintilla_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciScintilla::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsciscintilla_metacast_isbase) {
+            qsciscintilla_metacast_isbase = false;
+            return QsciScintilla::qt_metacast(param1);
+        } else if (qsciscintilla_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsciscintilla_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciScintilla::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

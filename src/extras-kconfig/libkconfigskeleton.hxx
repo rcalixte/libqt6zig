@@ -17,6 +17,8 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
     bool isVirtualKConfigSkeleton = true;
 
     // Virtual class public types (including callbacks)
+    using KConfigSkeleton_MetaObject_Callback = QMetaObject* (*)();
+    using KConfigSkeleton_Metacast_Callback = void* (*)(KConfigSkeleton*, const char*);
     using KConfigSkeleton_Metacall_Callback = int (*)(KConfigSkeleton*, int, int, void**);
     using KConfigSkeleton_SetDefaults_Callback = void (*)();
     using KConfigSkeleton_UseDefaults_Callback = bool (*)(KConfigSkeleton*, bool);
@@ -38,6 +40,8 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
 
   protected:
     // Instance callback storage
+    KConfigSkeleton_MetaObject_Callback kconfigskeleton_metaobject_callback = nullptr;
+    KConfigSkeleton_Metacast_Callback kconfigskeleton_metacast_callback = nullptr;
     KConfigSkeleton_Metacall_Callback kconfigskeleton_metacall_callback = nullptr;
     KConfigSkeleton_SetDefaults_Callback kconfigskeleton_setdefaults_callback = nullptr;
     KConfigSkeleton_UseDefaults_Callback kconfigskeleton_usedefaults_callback = nullptr;
@@ -58,6 +62,8 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
     KConfigSkeleton_IsSignalConnected_Callback kconfigskeleton_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kconfigskeleton_metaobject_isbase = false;
+    mutable bool kconfigskeleton_metacast_isbase = false;
     mutable bool kconfigskeleton_metacall_isbase = false;
     mutable bool kconfigskeleton_setdefaults_isbase = false;
     mutable bool kconfigskeleton_usedefaults_isbase = false;
@@ -83,6 +89,8 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
     VirtualKConfigSkeleton(const QString& configname, QObject* parent) : KConfigSkeleton(configname, parent) {};
 
     ~VirtualKConfigSkeleton() {
+        kconfigskeleton_metaobject_callback = nullptr;
+        kconfigskeleton_metacast_callback = nullptr;
         kconfigskeleton_metacall_callback = nullptr;
         kconfigskeleton_setdefaults_callback = nullptr;
         kconfigskeleton_usedefaults_callback = nullptr;
@@ -104,6 +112,8 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
     }
 
     // Callback setters
+    inline void setKConfigSkeleton_MetaObject_Callback(KConfigSkeleton_MetaObject_Callback cb) { kconfigskeleton_metaobject_callback = cb; }
+    inline void setKConfigSkeleton_Metacast_Callback(KConfigSkeleton_Metacast_Callback cb) { kconfigskeleton_metacast_callback = cb; }
     inline void setKConfigSkeleton_Metacall_Callback(KConfigSkeleton_Metacall_Callback cb) { kconfigskeleton_metacall_callback = cb; }
     inline void setKConfigSkeleton_SetDefaults_Callback(KConfigSkeleton_SetDefaults_Callback cb) { kconfigskeleton_setdefaults_callback = cb; }
     inline void setKConfigSkeleton_UseDefaults_Callback(KConfigSkeleton_UseDefaults_Callback cb) { kconfigskeleton_usedefaults_callback = cb; }
@@ -124,6 +134,8 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
     inline void setKConfigSkeleton_IsSignalConnected_Callback(KConfigSkeleton_IsSignalConnected_Callback cb) { kconfigskeleton_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKConfigSkeleton_MetaObject_IsBase(bool value) const { kconfigskeleton_metaobject_isbase = value; }
+    inline void setKConfigSkeleton_Metacast_IsBase(bool value) const { kconfigskeleton_metacast_isbase = value; }
     inline void setKConfigSkeleton_Metacall_IsBase(bool value) const { kconfigskeleton_metacall_isbase = value; }
     inline void setKConfigSkeleton_SetDefaults_IsBase(bool value) const { kconfigskeleton_setdefaults_isbase = value; }
     inline void setKConfigSkeleton_UseDefaults_IsBase(bool value) const { kconfigskeleton_usedefaults_isbase = value; }
@@ -142,6 +154,34 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
     inline void setKConfigSkeleton_SenderSignalIndex_IsBase(bool value) const { kconfigskeleton_sendersignalindex_isbase = value; }
     inline void setKConfigSkeleton_Receivers_IsBase(bool value) const { kconfigskeleton_receivers_isbase = value; }
     inline void setKConfigSkeleton_IsSignalConnected_IsBase(bool value) const { kconfigskeleton_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kconfigskeleton_metaobject_isbase) {
+            kconfigskeleton_metaobject_isbase = false;
+            return KConfigSkeleton::metaObject();
+        } else if (kconfigskeleton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kconfigskeleton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KConfigSkeleton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kconfigskeleton_metacast_isbase) {
+            kconfigskeleton_metacast_isbase = false;
+            return KConfigSkeleton::qt_metacast(param1);
+        } else if (kconfigskeleton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kconfigskeleton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KConfigSkeleton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

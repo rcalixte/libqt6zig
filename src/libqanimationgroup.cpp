@@ -22,11 +22,21 @@ QAnimationGroup* QAnimationGroup_new2(QObject* parent) {
 }
 
 QMetaObject* QAnimationGroup_MetaObject(const QAnimationGroup* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqanimationgroup = dynamic_cast<const VirtualQAnimationGroup*>(self);
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAnimationGroup*)self)->metaObject();
+    }
 }
 
 void* QAnimationGroup_Metacast(QAnimationGroup* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAnimationGroup*)self)->qt_metacast(param1);
+    }
 }
 
 int QAnimationGroup_Metacall(QAnimationGroup* self, int param1, int param2, void** param3) {
@@ -76,6 +86,44 @@ bool QAnimationGroup_Event(QAnimationGroup* self, QEvent* event) {
         return vqanimationgroup->event(event);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QAnimationGroup_QBaseMetaObject(const QAnimationGroup* self) {
+    auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+        vqanimationgroup->setQAnimationGroup_MetaObject_IsBase(true);
+        return (QMetaObject*)vqanimationgroup->metaObject();
+    } else {
+        return (QMetaObject*)self->QAnimationGroup::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAnimationGroup_OnMetaObject(const QAnimationGroup* self, intptr_t slot) {
+    auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+        vqanimationgroup->setQAnimationGroup_MetaObject_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAnimationGroup_QBaseMetacast(QAnimationGroup* self, const char* param1) {
+    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+        vqanimationgroup->setQAnimationGroup_Metacast_IsBase(true);
+        return vqanimationgroup->qt_metacast(param1);
+    } else {
+        return self->QAnimationGroup::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAnimationGroup_OnMetacast(QAnimationGroup* self, intptr_t slot) {
+    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+        vqanimationgroup->setQAnimationGroup_Metacast_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -22,11 +22,21 @@ KIO__KUriFilterSearchProviderActions* KIO__KUriFilterSearchProviderActions_new2(
 }
 
 QMetaObject* KIO__KUriFilterSearchProviderActions_MetaObject(const KIO__KUriFilterSearchProviderActions* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__kurifiltersearchprovideractions = dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self);
+    if (vkio__kurifiltersearchprovideractions && vkio__kurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOKUriFilterSearchProviderActions*)self)->metaObject();
+    }
 }
 
 void* KIO__KUriFilterSearchProviderActions_Metacast(KIO__KUriFilterSearchProviderActions* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__kurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
+    if (vkio__kurifiltersearchprovideractions && vkio__kurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__KUriFilterSearchProviderActions_Metacall(KIO__KUriFilterSearchProviderActions* self, int param1, int param2, void** param3) {
@@ -57,6 +67,44 @@ void KIO__KUriFilterSearchProviderActions_SetSelectedText(KIO__KUriFilterSearchP
 
 void KIO__KUriFilterSearchProviderActions_AddWebShortcutsToMenu(KIO__KUriFilterSearchProviderActions* self, QMenu* menu) {
     self->addWebShortcutsToMenu(menu);
+}
+
+// Base class handler implementation
+QMetaObject* KIO__KUriFilterSearchProviderActions_QBaseMetaObject(const KIO__KUriFilterSearchProviderActions* self) {
+    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiokurifiltersearchprovideractions->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::KUriFilterSearchProviderActions::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__KUriFilterSearchProviderActions_OnMetaObject(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
+    auto* vkiokurifiltersearchprovideractions = const_cast<VirtualKIOKUriFilterSearchProviderActions*>(dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self));
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_MetaObject_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__KUriFilterSearchProviderActions_QBaseMetacast(KIO__KUriFilterSearchProviderActions* self, const char* param1) {
+    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacast_IsBase(true);
+        return vkiokurifiltersearchprovideractions->qt_metacast(param1);
+    } else {
+        return self->KIO::KUriFilterSearchProviderActions::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__KUriFilterSearchProviderActions_OnMetacast(KIO__KUriFilterSearchProviderActions* self, intptr_t slot) {
+    auto* vkiokurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
+    if (vkiokurifiltersearchprovideractions && vkiokurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
+        vkiokurifiltersearchprovideractions->setKIO__KUriFilterSearchProviderActions_Metacast_Callback(reinterpret_cast<VirtualKIOKUriFilterSearchProviderActions::KIO__KUriFilterSearchProviderActions_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

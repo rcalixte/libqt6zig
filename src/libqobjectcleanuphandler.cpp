@@ -17,11 +17,21 @@ QObjectCleanupHandler* QObjectCleanupHandler_new() {
 }
 
 QMetaObject* QObjectCleanupHandler_MetaObject(const QObjectCleanupHandler* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqobjectcleanuphandler = dynamic_cast<const VirtualQObjectCleanupHandler*>(self);
+    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQObjectCleanupHandler*)self)->metaObject();
+    }
 }
 
 void* QObjectCleanupHandler_Metacast(QObjectCleanupHandler* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
+    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQObjectCleanupHandler*)self)->qt_metacast(param1);
+    }
 }
 
 int QObjectCleanupHandler_Metacall(QObjectCleanupHandler* self, int param1, int param2, void** param3) {
@@ -47,6 +57,44 @@ bool QObjectCleanupHandler_IsEmpty(const QObjectCleanupHandler* self) {
 
 void QObjectCleanupHandler_Clear(QObjectCleanupHandler* self) {
     self->clear();
+}
+
+// Base class handler implementation
+QMetaObject* QObjectCleanupHandler_QBaseMetaObject(const QObjectCleanupHandler* self) {
+    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
+    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+        vqobjectcleanuphandler->setQObjectCleanupHandler_MetaObject_IsBase(true);
+        return (QMetaObject*)vqobjectcleanuphandler->metaObject();
+    } else {
+        return (QMetaObject*)self->QObjectCleanupHandler::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QObjectCleanupHandler_OnMetaObject(const QObjectCleanupHandler* self, intptr_t slot) {
+    auto* vqobjectcleanuphandler = const_cast<VirtualQObjectCleanupHandler*>(dynamic_cast<const VirtualQObjectCleanupHandler*>(self));
+    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+        vqobjectcleanuphandler->setQObjectCleanupHandler_MetaObject_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QObjectCleanupHandler_QBaseMetacast(QObjectCleanupHandler* self, const char* param1) {
+    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
+    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+        vqobjectcleanuphandler->setQObjectCleanupHandler_Metacast_IsBase(true);
+        return vqobjectcleanuphandler->qt_metacast(param1);
+    } else {
+        return self->QObjectCleanupHandler::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QObjectCleanupHandler_OnMetacast(QObjectCleanupHandler* self, intptr_t slot) {
+    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
+    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
+        vqobjectcleanuphandler->setQObjectCleanupHandler_Metacast_Callback(reinterpret_cast<VirtualQObjectCleanupHandler::QObjectCleanupHandler_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

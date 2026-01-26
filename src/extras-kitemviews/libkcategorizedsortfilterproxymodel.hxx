@@ -17,6 +17,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
     bool isVirtualKCategorizedSortFilterProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using KCategorizedSortFilterProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using KCategorizedSortFilterProxyModel_Metacast_Callback = void* (*)(KCategorizedSortFilterProxyModel*, const char*);
     using KCategorizedSortFilterProxyModel_Metacall_Callback = int (*)(KCategorizedSortFilterProxyModel*, int, int, void**);
     using KCategorizedSortFilterProxyModel_Sort_Callback = void (*)(KCategorizedSortFilterProxyModel*, int, int);
     using KCategorizedSortFilterProxyModel_LessThan_Callback = bool (*)(const KCategorizedSortFilterProxyModel*, QModelIndex*, QModelIndex*);
@@ -103,6 +105,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
 
   protected:
     // Instance callback storage
+    KCategorizedSortFilterProxyModel_MetaObject_Callback kcategorizedsortfilterproxymodel_metaobject_callback = nullptr;
+    KCategorizedSortFilterProxyModel_Metacast_Callback kcategorizedsortfilterproxymodel_metacast_callback = nullptr;
     KCategorizedSortFilterProxyModel_Metacall_Callback kcategorizedsortfilterproxymodel_metacall_callback = nullptr;
     KCategorizedSortFilterProxyModel_Sort_Callback kcategorizedsortfilterproxymodel_sort_callback = nullptr;
     KCategorizedSortFilterProxyModel_LessThan_Callback kcategorizedsortfilterproxymodel_lessthan_callback = nullptr;
@@ -188,6 +192,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
     KCategorizedSortFilterProxyModel_IsSignalConnected_Callback kcategorizedsortfilterproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcategorizedsortfilterproxymodel_metaobject_isbase = false;
+    mutable bool kcategorizedsortfilterproxymodel_metacast_isbase = false;
     mutable bool kcategorizedsortfilterproxymodel_metacall_isbase = false;
     mutable bool kcategorizedsortfilterproxymodel_sort_isbase = false;
     mutable bool kcategorizedsortfilterproxymodel_lessthan_isbase = false;
@@ -277,6 +283,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
     VirtualKCategorizedSortFilterProxyModel(QObject* parent) : KCategorizedSortFilterProxyModel(parent) {};
 
     ~VirtualKCategorizedSortFilterProxyModel() {
+        kcategorizedsortfilterproxymodel_metaobject_callback = nullptr;
+        kcategorizedsortfilterproxymodel_metacast_callback = nullptr;
         kcategorizedsortfilterproxymodel_metacall_callback = nullptr;
         kcategorizedsortfilterproxymodel_sort_callback = nullptr;
         kcategorizedsortfilterproxymodel_lessthan_callback = nullptr;
@@ -363,6 +371,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
     }
 
     // Callback setters
+    inline void setKCategorizedSortFilterProxyModel_MetaObject_Callback(KCategorizedSortFilterProxyModel_MetaObject_Callback cb) { kcategorizedsortfilterproxymodel_metaobject_callback = cb; }
+    inline void setKCategorizedSortFilterProxyModel_Metacast_Callback(KCategorizedSortFilterProxyModel_Metacast_Callback cb) { kcategorizedsortfilterproxymodel_metacast_callback = cb; }
     inline void setKCategorizedSortFilterProxyModel_Metacall_Callback(KCategorizedSortFilterProxyModel_Metacall_Callback cb) { kcategorizedsortfilterproxymodel_metacall_callback = cb; }
     inline void setKCategorizedSortFilterProxyModel_Sort_Callback(KCategorizedSortFilterProxyModel_Sort_Callback cb) { kcategorizedsortfilterproxymodel_sort_callback = cb; }
     inline void setKCategorizedSortFilterProxyModel_LessThan_Callback(KCategorizedSortFilterProxyModel_LessThan_Callback cb) { kcategorizedsortfilterproxymodel_lessthan_callback = cb; }
@@ -448,6 +458,8 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
     inline void setKCategorizedSortFilterProxyModel_IsSignalConnected_Callback(KCategorizedSortFilterProxyModel_IsSignalConnected_Callback cb) { kcategorizedsortfilterproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCategorizedSortFilterProxyModel_MetaObject_IsBase(bool value) const { kcategorizedsortfilterproxymodel_metaobject_isbase = value; }
+    inline void setKCategorizedSortFilterProxyModel_Metacast_IsBase(bool value) const { kcategorizedsortfilterproxymodel_metacast_isbase = value; }
     inline void setKCategorizedSortFilterProxyModel_Metacall_IsBase(bool value) const { kcategorizedsortfilterproxymodel_metacall_isbase = value; }
     inline void setKCategorizedSortFilterProxyModel_Sort_IsBase(bool value) const { kcategorizedsortfilterproxymodel_sort_isbase = value; }
     inline void setKCategorizedSortFilterProxyModel_LessThan_IsBase(bool value) const { kcategorizedsortfilterproxymodel_lessthan_isbase = value; }
@@ -531,6 +543,34 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
     inline void setKCategorizedSortFilterProxyModel_SenderSignalIndex_IsBase(bool value) const { kcategorizedsortfilterproxymodel_sendersignalindex_isbase = value; }
     inline void setKCategorizedSortFilterProxyModel_Receivers_IsBase(bool value) const { kcategorizedsortfilterproxymodel_receivers_isbase = value; }
     inline void setKCategorizedSortFilterProxyModel_IsSignalConnected_IsBase(bool value) const { kcategorizedsortfilterproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcategorizedsortfilterproxymodel_metaobject_isbase) {
+            kcategorizedsortfilterproxymodel_metaobject_isbase = false;
+            return KCategorizedSortFilterProxyModel::metaObject();
+        } else if (kcategorizedsortfilterproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcategorizedsortfilterproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCategorizedSortFilterProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcategorizedsortfilterproxymodel_metacast_isbase) {
+            kcategorizedsortfilterproxymodel_metacast_isbase = false;
+            return KCategorizedSortFilterProxyModel::qt_metacast(param1);
+        } else if (kcategorizedsortfilterproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcategorizedsortfilterproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCategorizedSortFilterProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

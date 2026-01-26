@@ -17,6 +17,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
     bool isVirtualKBusyIndicatorWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KBusyIndicatorWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KBusyIndicatorWidget_Metacast_Callback = void* (*)(KBusyIndicatorWidget*, const char*);
     using KBusyIndicatorWidget_Metacall_Callback = int (*)(KBusyIndicatorWidget*, int, int, void**);
     using KBusyIndicatorWidget_MinimumSizeHint_Callback = QSize* (*)();
     using KBusyIndicatorWidget_ShowEvent_Callback = void (*)(KBusyIndicatorWidget*, QShowEvent*);
@@ -78,6 +80,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
 
   protected:
     // Instance callback storage
+    KBusyIndicatorWidget_MetaObject_Callback kbusyindicatorwidget_metaobject_callback = nullptr;
+    KBusyIndicatorWidget_Metacast_Callback kbusyindicatorwidget_metacast_callback = nullptr;
     KBusyIndicatorWidget_Metacall_Callback kbusyindicatorwidget_metacall_callback = nullptr;
     KBusyIndicatorWidget_MinimumSizeHint_Callback kbusyindicatorwidget_minimumsizehint_callback = nullptr;
     KBusyIndicatorWidget_ShowEvent_Callback kbusyindicatorwidget_showevent_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
     KBusyIndicatorWidget_GetDecodedMetricF_Callback kbusyindicatorwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kbusyindicatorwidget_metaobject_isbase = false;
+    mutable bool kbusyindicatorwidget_metacast_isbase = false;
     mutable bool kbusyindicatorwidget_metacall_isbase = false;
     mutable bool kbusyindicatorwidget_minimumsizehint_isbase = false;
     mutable bool kbusyindicatorwidget_showevent_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
     VirtualKBusyIndicatorWidget() : KBusyIndicatorWidget() {};
 
     ~VirtualKBusyIndicatorWidget() {
+        kbusyindicatorwidget_metaobject_callback = nullptr;
+        kbusyindicatorwidget_metacast_callback = nullptr;
         kbusyindicatorwidget_metacall_callback = nullptr;
         kbusyindicatorwidget_minimumsizehint_callback = nullptr;
         kbusyindicatorwidget_showevent_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
     }
 
     // Callback setters
+    inline void setKBusyIndicatorWidget_MetaObject_Callback(KBusyIndicatorWidget_MetaObject_Callback cb) { kbusyindicatorwidget_metaobject_callback = cb; }
+    inline void setKBusyIndicatorWidget_Metacast_Callback(KBusyIndicatorWidget_Metacast_Callback cb) { kbusyindicatorwidget_metacast_callback = cb; }
     inline void setKBusyIndicatorWidget_Metacall_Callback(KBusyIndicatorWidget_Metacall_Callback cb) { kbusyindicatorwidget_metacall_callback = cb; }
     inline void setKBusyIndicatorWidget_MinimumSizeHint_Callback(KBusyIndicatorWidget_MinimumSizeHint_Callback cb) { kbusyindicatorwidget_minimumsizehint_callback = cb; }
     inline void setKBusyIndicatorWidget_ShowEvent_Callback(KBusyIndicatorWidget_ShowEvent_Callback cb) { kbusyindicatorwidget_showevent_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
     inline void setKBusyIndicatorWidget_GetDecodedMetricF_Callback(KBusyIndicatorWidget_GetDecodedMetricF_Callback cb) { kbusyindicatorwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKBusyIndicatorWidget_MetaObject_IsBase(bool value) const { kbusyindicatorwidget_metaobject_isbase = value; }
+    inline void setKBusyIndicatorWidget_Metacast_IsBase(bool value) const { kbusyindicatorwidget_metacast_isbase = value; }
     inline void setKBusyIndicatorWidget_Metacall_IsBase(bool value) const { kbusyindicatorwidget_metacall_isbase = value; }
     inline void setKBusyIndicatorWidget_MinimumSizeHint_IsBase(bool value) const { kbusyindicatorwidget_minimumsizehint_isbase = value; }
     inline void setKBusyIndicatorWidget_ShowEvent_IsBase(bool value) const { kbusyindicatorwidget_showevent_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKBusyIndicatorWidget final : public KBusyIndicatorWidget {
     inline void setKBusyIndicatorWidget_Receivers_IsBase(bool value) const { kbusyindicatorwidget_receivers_isbase = value; }
     inline void setKBusyIndicatorWidget_IsSignalConnected_IsBase(bool value) const { kbusyindicatorwidget_issignalconnected_isbase = value; }
     inline void setKBusyIndicatorWidget_GetDecodedMetricF_IsBase(bool value) const { kbusyindicatorwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kbusyindicatorwidget_metaobject_isbase) {
+            kbusyindicatorwidget_metaobject_isbase = false;
+            return KBusyIndicatorWidget::metaObject();
+        } else if (kbusyindicatorwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kbusyindicatorwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KBusyIndicatorWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kbusyindicatorwidget_metacast_isbase) {
+            kbusyindicatorwidget_metacast_isbase = false;
+            return KBusyIndicatorWidget::qt_metacast(param1);
+        } else if (kbusyindicatorwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kbusyindicatorwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KBusyIndicatorWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

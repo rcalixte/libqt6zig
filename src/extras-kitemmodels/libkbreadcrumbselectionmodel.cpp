@@ -32,11 +32,21 @@ KBreadcrumbSelectionModel* KBreadcrumbSelectionModel_new4(QItemSelectionModel* s
 }
 
 QMetaObject* KBreadcrumbSelectionModel_MetaObject(const KBreadcrumbSelectionModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkbreadcrumbselectionmodel = dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self);
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKBreadcrumbSelectionModel*)self)->metaObject();
+    }
 }
 
 void* KBreadcrumbSelectionModel_Metacast(KBreadcrumbSelectionModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKBreadcrumbSelectionModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KBreadcrumbSelectionModel_Metacall(KBreadcrumbSelectionModel* self, int param1, int param2, void** param3) {
@@ -79,6 +89,44 @@ void KBreadcrumbSelectionModel_Select2(KBreadcrumbSelectionModel* self, const QI
         self->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
     } else {
         ((VirtualKBreadcrumbSelectionModel*)self)->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KBreadcrumbSelectionModel_QBaseMetaObject(const KBreadcrumbSelectionModel* self) {
+    auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+        vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkbreadcrumbselectionmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KBreadcrumbSelectionModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBreadcrumbSelectionModel_OnMetaObject(const KBreadcrumbSelectionModel* self, intptr_t slot) {
+    auto* vkbreadcrumbselectionmodel = const_cast<VirtualKBreadcrumbSelectionModel*>(dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self));
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+        vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_MetaObject_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KBreadcrumbSelectionModel_QBaseMetacast(KBreadcrumbSelectionModel* self, const char* param1) {
+    auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+        vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Metacast_IsBase(true);
+        return vkbreadcrumbselectionmodel->qt_metacast(param1);
+    } else {
+        return self->KBreadcrumbSelectionModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBreadcrumbSelectionModel_OnMetacast(KBreadcrumbSelectionModel* self, intptr_t slot) {
+    auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
+    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
+        vkbreadcrumbselectionmodel->setKBreadcrumbSelectionModel_Metacast_Callback(reinterpret_cast<VirtualKBreadcrumbSelectionModel::KBreadcrumbSelectionModel_Metacast_Callback>(slot));
     }
 }
 

@@ -39,6 +39,10 @@ libqt_list /* of QKeySequence* */ KGlobalShortcutInfo_DefaultKeys(const KGlobalS
 libqt_string KGlobalShortcutInfo_FriendlyName(const KGlobalShortcutInfo* self);
 libqt_list /* of QKeySequence* */ KGlobalShortcutInfo_Keys(const KGlobalShortcutInfo* self);
 libqt_string KGlobalShortcutInfo_UniqueName(const KGlobalShortcutInfo* self);
+void KGlobalShortcutInfo_OnMetaObject(const KGlobalShortcutInfo* self, intptr_t slot);
+QMetaObject* KGlobalShortcutInfo_QBaseMetaObject(const KGlobalShortcutInfo* self);
+void KGlobalShortcutInfo_OnMetacast(KGlobalShortcutInfo* self, intptr_t slot);
+void* KGlobalShortcutInfo_QBaseMetacast(KGlobalShortcutInfo* self, const char* param1);
 void KGlobalShortcutInfo_OnMetacall(KGlobalShortcutInfo* self, intptr_t slot);
 int KGlobalShortcutInfo_QBaseMetacall(KGlobalShortcutInfo* self, int param1, int param2, void** param3);
 bool KGlobalShortcutInfo_Event(KGlobalShortcutInfo* self, QEvent* event);

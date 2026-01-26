@@ -57,11 +57,21 @@ QWizard* QWizard_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* QWizard_MetaObject(const QWizard* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwizard = dynamic_cast<const VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWizard*)self)->metaObject();
+    }
 }
 
 void* QWizard_Metacast(QWizard* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWizard*)self)->qt_metacast(param1);
+    }
 }
 
 int QWizard_Metacall(QWizard* self, int param1, int param2, void** param3) {
@@ -396,6 +406,44 @@ void QWizard_CleanupPage(QWizard* self, int id) {
 
 void QWizard_SetOption2(QWizard* self, int option, bool on) {
     self->setOption(static_cast<QWizard::WizardOption>(option), on);
+}
+
+// Base class handler implementation
+QMetaObject* QWizard_QBaseMetaObject(const QWizard* self) {
+    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwizard->metaObject();
+    } else {
+        return (QMetaObject*)self->QWizard::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWizard_OnMetaObject(const QWizard* self, intptr_t slot) {
+    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_MetaObject_Callback(reinterpret_cast<VirtualQWizard::QWizard_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWizard_QBaseMetacast(QWizard* self, const char* param1) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_Metacast_IsBase(true);
+        return vqwizard->qt_metacast(param1);
+    } else {
+        return self->QWizard::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWizard_OnMetacast(QWizard* self, intptr_t slot) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard && vqwizard->isVirtualQWizard) {
+        vqwizard->setQWizard_Metacast_Callback(reinterpret_cast<VirtualQWizard::QWizard_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -2275,11 +2323,21 @@ QWizardPage* QWizardPage_new2() {
 }
 
 QMetaObject* QWizardPage_MetaObject(const QWizardPage* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwizardpage = dynamic_cast<const VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWizardPage*)self)->metaObject();
+    }
 }
 
 void* QWizardPage_Metacast(QWizardPage* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWizardPage*)self)->qt_metacast(param1);
+    }
 }
 
 int QWizardPage_Metacall(QWizardPage* self, int param1, int param2, void** param3) {
@@ -2420,6 +2478,44 @@ void QWizardPage_Connect_CompleteChanged(QWizardPage* self, intptr_t slot) {
     QWizardPage::connect(self, &QWizardPage::completeChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QWizardPage_QBaseMetaObject(const QWizardPage* self) {
+    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwizardpage->metaObject();
+    } else {
+        return (QMetaObject*)self->QWizardPage::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWizardPage_OnMetaObject(const QWizardPage* self, intptr_t slot) {
+    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_MetaObject_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWizardPage_QBaseMetacast(QWizardPage* self, const char* param1) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_Metacast_IsBase(true);
+        return vqwizardpage->qt_metacast(param1);
+    } else {
+        return self->QWizardPage::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWizardPage_OnMetacast(QWizardPage* self, intptr_t slot) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+        vqwizardpage->setQWizardPage_Metacast_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

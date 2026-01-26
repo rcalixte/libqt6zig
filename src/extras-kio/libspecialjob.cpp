@@ -31,11 +31,21 @@ KIO__SpecialJob* KIO__SpecialJob_new2(const QUrl* url, const libqt_string data) 
 }
 
 QMetaObject* KIO__SpecialJob_MetaObject(const KIO__SpecialJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__specialjob = dynamic_cast<const VirtualKIOSpecialJob*>(self);
+    if (vkio__specialjob && vkio__specialjob->isVirtualKIOSpecialJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOSpecialJob*)self)->metaObject();
+    }
 }
 
 void* KIO__SpecialJob_Metacast(KIO__SpecialJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__specialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
+    if (vkio__specialjob && vkio__specialjob->isVirtualKIOSpecialJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOSpecialJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__SpecialJob_Metacall(KIO__SpecialJob* self, int param1, int param2, void** param3) {
@@ -60,6 +70,44 @@ libqt_string KIO__SpecialJob_Arguments(const KIO__SpecialJob* self) {
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* KIO__SpecialJob_QBaseMetaObject(const KIO__SpecialJob* self) {
+    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+        vkiospecialjob->setKIO__SpecialJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiospecialjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::SpecialJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__SpecialJob_OnMetaObject(const KIO__SpecialJob* self, intptr_t slot) {
+    auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+        vkiospecialjob->setKIO__SpecialJob_MetaObject_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__SpecialJob_QBaseMetacast(KIO__SpecialJob* self, const char* param1) {
+    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+        vkiospecialjob->setKIO__SpecialJob_Metacast_IsBase(true);
+        return vkiospecialjob->qt_metacast(param1);
+    } else {
+        return self->KIO::SpecialJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__SpecialJob_OnMetacast(KIO__SpecialJob* self, intptr_t slot) {
+    auto* vkiospecialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
+    if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
+        vkiospecialjob->setKIO__SpecialJob_Metacast_Callback(reinterpret_cast<VirtualKIOSpecialJob::KIO__SpecialJob_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

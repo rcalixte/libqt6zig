@@ -34,11 +34,21 @@ QAbstractTextDocumentLayout* QAbstractTextDocumentLayout_new(QTextDocument* doc)
 }
 
 QMetaObject* QAbstractTextDocumentLayout_MetaObject(const QAbstractTextDocumentLayout* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractTextDocumentLayout*)self)->metaObject();
+    }
 }
 
 void* QAbstractTextDocumentLayout_Metacast(QAbstractTextDocumentLayout* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractTextDocumentLayout*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractTextDocumentLayout_Metacall(QAbstractTextDocumentLayout* self, int param1, int param2, void** param3) {
@@ -255,6 +265,44 @@ void QAbstractTextDocumentLayout_Connect_Update1(QAbstractTextDocumentLayout* se
         QRectF* sigval1 = const_cast<QRectF*>(&param1_ret);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractTextDocumentLayout_QBaseMetaObject(const QAbstractTextDocumentLayout* self) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstracttextdocumentlayout->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractTextDocumentLayout::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnMetaObject(const QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = const_cast<VirtualQAbstractTextDocumentLayout*>(dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self));
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_MetaObject_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractTextDocumentLayout_QBaseMetacast(QAbstractTextDocumentLayout* self, const char* param1) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Metacast_IsBase(true);
+        return vqabstracttextdocumentlayout->qt_metacast(param1);
+    } else {
+        return self->QAbstractTextDocumentLayout::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTextDocumentLayout_OnMetacast(QAbstractTextDocumentLayout* self, intptr_t slot) {
+    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
+    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
+        vqabstracttextdocumentlayout->setQAbstractTextDocumentLayout_Metacast_Callback(reinterpret_cast<VirtualQAbstractTextDocumentLayout::QAbstractTextDocumentLayout_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

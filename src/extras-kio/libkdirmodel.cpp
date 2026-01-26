@@ -35,11 +35,21 @@ KDirModel* KDirModel_new2(QObject* parent) {
 }
 
 QMetaObject* KDirModel_MetaObject(const KDirModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
+    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDirModel*)self)->metaObject();
+    }
 }
 
 void* KDirModel_Metacast(KDirModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
+    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDirModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KDirModel_Metacall(KDirModel* self, int param1, int param2, void** param3) {
@@ -395,6 +405,44 @@ void KDirModel_Connect_NeedSequenceIcon(KDirModel* self, intptr_t slot) {
 
 void KDirModel_OpenUrl2(KDirModel* self, const QUrl* url, int flags) {
     self->openUrl(*url, static_cast<KDirModel::OpenUrlFlags>(flags));
+}
+
+// Base class handler implementation
+QMetaObject* KDirModel_QBaseMetaObject(const KDirModel* self) {
+    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
+    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+        vkdirmodel->setKDirModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdirmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KDirModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirModel_OnMetaObject(const KDirModel* self, intptr_t slot) {
+    auto* vkdirmodel = const_cast<VirtualKDirModel*>(dynamic_cast<const VirtualKDirModel*>(self));
+    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+        vkdirmodel->setKDirModel_MetaObject_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDirModel_QBaseMetacast(KDirModel* self, const char* param1) {
+    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
+    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+        vkdirmodel->setKDirModel_Metacast_IsBase(true);
+        return vkdirmodel->qt_metacast(param1);
+    } else {
+        return self->KDirModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirModel_OnMetacast(KDirModel* self, intptr_t slot) {
+    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
+    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
+        vkdirmodel->setKDirModel_Metacast_Callback(reinterpret_cast<VirtualKDirModel::KDirModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

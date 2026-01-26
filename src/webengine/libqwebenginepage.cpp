@@ -62,11 +62,21 @@ QWebEnginePage* QWebEnginePage_new4(QWebEngineProfile* profile, QObject* parent)
 }
 
 QMetaObject* QWebEnginePage_MetaObject(const QWebEnginePage* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwebenginepage = dynamic_cast<const VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWebEnginePage*)self)->metaObject();
+    }
 }
 
 void* QWebEnginePage_Metacast(QWebEnginePage* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWebEnginePage*)self)->qt_metacast(param1);
+    }
 }
 
 int QWebEnginePage_Metacall(QWebEnginePage* self, int param1, int param2, void** param3) {
@@ -1025,6 +1035,44 @@ void QWebEnginePage_PrintToPdf22(QWebEnginePage* self, const libqt_string filePa
 void QWebEnginePage_PrintToPdf3(QWebEnginePage* self, const libqt_string filePath, const QPageLayout* layout, const QPageRanges* ranges) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString, *layout, *ranges);
+}
+
+// Base class handler implementation
+QMetaObject* QWebEnginePage_QBaseMetaObject(const QWebEnginePage* self) {
+    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwebenginepage->metaObject();
+    } else {
+        return (QMetaObject*)self->QWebEnginePage::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnMetaObject(const QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_MetaObject_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWebEnginePage_QBaseMetacast(QWebEnginePage* self, const char* param1) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_Metacast_IsBase(true);
+        return vqwebenginepage->qt_metacast(param1);
+    } else {
+        return self->QWebEnginePage::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEnginePage_OnMetacast(QWebEnginePage* self, intptr_t slot) {
+    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
+    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+        vqwebenginepage->setQWebEnginePage_Metacast_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

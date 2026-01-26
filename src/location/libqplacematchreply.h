@@ -35,6 +35,10 @@ int QPlaceMatchReply_Metacall(QPlaceMatchReply* self, int param1, int param2, vo
 int QPlaceMatchReply_Type(const QPlaceMatchReply* self);
 libqt_list /* of QPlace* */ QPlaceMatchReply_Places(const QPlaceMatchReply* self);
 QPlaceMatchRequest* QPlaceMatchReply_Request(const QPlaceMatchReply* self);
+void QPlaceMatchReply_OnMetaObject(const QPlaceMatchReply* self, intptr_t slot);
+QMetaObject* QPlaceMatchReply_QBaseMetaObject(const QPlaceMatchReply* self);
+void QPlaceMatchReply_OnMetacast(QPlaceMatchReply* self, intptr_t slot);
+void* QPlaceMatchReply_QBaseMetacast(QPlaceMatchReply* self, const char* param1);
 void QPlaceMatchReply_OnMetacall(QPlaceMatchReply* self, intptr_t slot);
 int QPlaceMatchReply_QBaseMetacall(QPlaceMatchReply* self, int param1, int param2, void** param3);
 void QPlaceMatchReply_OnType(const QPlaceMatchReply* self, intptr_t slot);

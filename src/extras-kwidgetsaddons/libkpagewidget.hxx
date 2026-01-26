@@ -17,6 +17,8 @@ class VirtualKPageWidget final : public KPageWidget {
     bool isVirtualKPageWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KPageWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KPageWidget_Metacast_Callback = void* (*)(KPageWidget*, const char*);
     using KPageWidget_Metacall_Callback = int (*)(KPageWidget*, int, int, void**);
     using KPageWidget_CreateView_Callback = QAbstractItemView* (*)();
     using KPageWidget_ShowPageHeader_Callback = bool (*)();
@@ -81,6 +83,8 @@ class VirtualKPageWidget final : public KPageWidget {
 
   protected:
     // Instance callback storage
+    KPageWidget_MetaObject_Callback kpagewidget_metaobject_callback = nullptr;
+    KPageWidget_Metacast_Callback kpagewidget_metacast_callback = nullptr;
     KPageWidget_Metacall_Callback kpagewidget_metacall_callback = nullptr;
     KPageWidget_CreateView_Callback kpagewidget_createview_callback = nullptr;
     KPageWidget_ShowPageHeader_Callback kpagewidget_showpageheader_callback = nullptr;
@@ -144,6 +148,8 @@ class VirtualKPageWidget final : public KPageWidget {
     KPageWidget_GetDecodedMetricF_Callback kpagewidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpagewidget_metaobject_isbase = false;
+    mutable bool kpagewidget_metacast_isbase = false;
     mutable bool kpagewidget_metacall_isbase = false;
     mutable bool kpagewidget_createview_isbase = false;
     mutable bool kpagewidget_showpageheader_isbase = false;
@@ -211,6 +217,8 @@ class VirtualKPageWidget final : public KPageWidget {
     VirtualKPageWidget() : KPageWidget() {};
 
     ~VirtualKPageWidget() {
+        kpagewidget_metaobject_callback = nullptr;
+        kpagewidget_metacast_callback = nullptr;
         kpagewidget_metacall_callback = nullptr;
         kpagewidget_createview_callback = nullptr;
         kpagewidget_showpageheader_callback = nullptr;
@@ -275,6 +283,8 @@ class VirtualKPageWidget final : public KPageWidget {
     }
 
     // Callback setters
+    inline void setKPageWidget_MetaObject_Callback(KPageWidget_MetaObject_Callback cb) { kpagewidget_metaobject_callback = cb; }
+    inline void setKPageWidget_Metacast_Callback(KPageWidget_Metacast_Callback cb) { kpagewidget_metacast_callback = cb; }
     inline void setKPageWidget_Metacall_Callback(KPageWidget_Metacall_Callback cb) { kpagewidget_metacall_callback = cb; }
     inline void setKPageWidget_CreateView_Callback(KPageWidget_CreateView_Callback cb) { kpagewidget_createview_callback = cb; }
     inline void setKPageWidget_ShowPageHeader_Callback(KPageWidget_ShowPageHeader_Callback cb) { kpagewidget_showpageheader_callback = cb; }
@@ -338,6 +348,8 @@ class VirtualKPageWidget final : public KPageWidget {
     inline void setKPageWidget_GetDecodedMetricF_Callback(KPageWidget_GetDecodedMetricF_Callback cb) { kpagewidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPageWidget_MetaObject_IsBase(bool value) const { kpagewidget_metaobject_isbase = value; }
+    inline void setKPageWidget_Metacast_IsBase(bool value) const { kpagewidget_metacast_isbase = value; }
     inline void setKPageWidget_Metacall_IsBase(bool value) const { kpagewidget_metacall_isbase = value; }
     inline void setKPageWidget_CreateView_IsBase(bool value) const { kpagewidget_createview_isbase = value; }
     inline void setKPageWidget_ShowPageHeader_IsBase(bool value) const { kpagewidget_showpageheader_isbase = value; }
@@ -399,6 +411,34 @@ class VirtualKPageWidget final : public KPageWidget {
     inline void setKPageWidget_Receivers_IsBase(bool value) const { kpagewidget_receivers_isbase = value; }
     inline void setKPageWidget_IsSignalConnected_IsBase(bool value) const { kpagewidget_issignalconnected_isbase = value; }
     inline void setKPageWidget_GetDecodedMetricF_IsBase(bool value) const { kpagewidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpagewidget_metaobject_isbase) {
+            kpagewidget_metaobject_isbase = false;
+            return KPageWidget::metaObject();
+        } else if (kpagewidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpagewidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPageWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpagewidget_metacast_isbase) {
+            kpagewidget_metacast_isbase = false;
+            return KPageWidget::qt_metacast(param1);
+        } else if (kpagewidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpagewidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPageWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

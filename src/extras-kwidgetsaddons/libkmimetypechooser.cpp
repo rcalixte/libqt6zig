@@ -137,11 +137,21 @@ KMimeTypeChooser* KMimeTypeChooser_new7(const libqt_string text, const libqt_lis
 }
 
 QMetaObject* KMimeTypeChooser_MetaObject(const KMimeTypeChooser* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkmimetypechooser = dynamic_cast<const VirtualKMimeTypeChooser*>(self);
+    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKMimeTypeChooser*)self)->metaObject();
+    }
 }
 
 void* KMimeTypeChooser_Metacast(KMimeTypeChooser* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
+    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKMimeTypeChooser*)self)->qt_metacast(param1);
+    }
 }
 
 int KMimeTypeChooser_Metacall(KMimeTypeChooser* self, int param1, int param2, void** param3) {
@@ -193,6 +203,44 @@ libqt_list /* of libqt_string */ KMimeTypeChooser_Patterns(const KMimeTypeChoose
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+QMetaObject* KMimeTypeChooser_QBaseMetaObject(const KMimeTypeChooser* self) {
+    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
+    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+        vkmimetypechooser->setKMimeTypeChooser_MetaObject_IsBase(true);
+        return (QMetaObject*)vkmimetypechooser->metaObject();
+    } else {
+        return (QMetaObject*)self->KMimeTypeChooser::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMimeTypeChooser_OnMetaObject(const KMimeTypeChooser* self, intptr_t slot) {
+    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
+    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+        vkmimetypechooser->setKMimeTypeChooser_MetaObject_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KMimeTypeChooser_QBaseMetacast(KMimeTypeChooser* self, const char* param1) {
+    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
+    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+        vkmimetypechooser->setKMimeTypeChooser_Metacast_IsBase(true);
+        return vkmimetypechooser->qt_metacast(param1);
+    } else {
+        return self->KMimeTypeChooser::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMimeTypeChooser_OnMetacast(KMimeTypeChooser* self, intptr_t slot) {
+    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
+    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+        vkmimetypechooser->setKMimeTypeChooser_Metacast_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -2007,11 +2055,21 @@ KMimeTypeChooserDialog* KMimeTypeChooserDialog_new10(const libqt_string title, c
 }
 
 QMetaObject* KMimeTypeChooserDialog_MetaObject(const KMimeTypeChooserDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkmimetypechooserdialog = dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self);
+    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKMimeTypeChooserDialog*)self)->metaObject();
+    }
 }
 
 void* KMimeTypeChooserDialog_Metacast(KMimeTypeChooserDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
+    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKMimeTypeChooserDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KMimeTypeChooserDialog_Metacall(KMimeTypeChooserDialog* self, int param1, int param2, void** param3) {
@@ -2033,6 +2091,44 @@ QSize* KMimeTypeChooserDialog_SizeHint(const KMimeTypeChooserDialog* self) {
         return new QSize(self->sizeHint());
     } else {
         return new QSize(((VirtualKMimeTypeChooserDialog*)self)->sizeHint());
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KMimeTypeChooserDialog_QBaseMetaObject(const KMimeTypeChooserDialog* self) {
+    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
+    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkmimetypechooserdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KMimeTypeChooserDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMimeTypeChooserDialog_OnMetaObject(const KMimeTypeChooserDialog* self, intptr_t slot) {
+    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
+    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MetaObject_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KMimeTypeChooserDialog_QBaseMetacast(KMimeTypeChooserDialog* self, const char* param1) {
+    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
+    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metacast_IsBase(true);
+        return vkmimetypechooserdialog->qt_metacast(param1);
+    } else {
+        return self->KMimeTypeChooserDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMimeTypeChooserDialog_OnMetacast(KMimeTypeChooserDialog* self, intptr_t slot) {
+    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
+    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metacast_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Metacast_Callback>(slot));
     }
 }
 

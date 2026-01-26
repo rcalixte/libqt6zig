@@ -17,6 +17,8 @@ class VirtualKFontAction final : public KFontAction {
     bool isVirtualKFontAction = true;
 
     // Virtual class public types (including callbacks)
+    using KFontAction_MetaObject_Callback = QMetaObject* (*)();
+    using KFontAction_Metacast_Callback = void* (*)(KFontAction*, const char*);
     using KFontAction_Metacall_Callback = int (*)(KFontAction*, int, int, void**);
     using KFontAction_CreateWidget_Callback = QWidget* (*)(KFontAction*, QWidget*);
     using KFontAction_RemoveAction_Callback = QAction* (*)(KFontAction*, QAction*);
@@ -39,6 +41,8 @@ class VirtualKFontAction final : public KFontAction {
 
   protected:
     // Instance callback storage
+    KFontAction_MetaObject_Callback kfontaction_metaobject_callback = nullptr;
+    KFontAction_Metacast_Callback kfontaction_metacast_callback = nullptr;
     KFontAction_Metacall_Callback kfontaction_metacall_callback = nullptr;
     KFontAction_CreateWidget_Callback kfontaction_createwidget_callback = nullptr;
     KFontAction_RemoveAction_Callback kfontaction_removeaction_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualKFontAction final : public KFontAction {
     KFontAction_IsSignalConnected_Callback kfontaction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfontaction_metaobject_isbase = false;
+    mutable bool kfontaction_metacast_isbase = false;
     mutable bool kfontaction_metacall_isbase = false;
     mutable bool kfontaction_createwidget_isbase = false;
     mutable bool kfontaction_removeaction_isbase = false;
@@ -87,6 +93,8 @@ class VirtualKFontAction final : public KFontAction {
     VirtualKFontAction(const QIcon& icon, const QString& text, QObject* parent) : KFontAction(icon, text, parent) {};
 
     ~VirtualKFontAction() {
+        kfontaction_metaobject_callback = nullptr;
+        kfontaction_metacast_callback = nullptr;
         kfontaction_metacall_callback = nullptr;
         kfontaction_createwidget_callback = nullptr;
         kfontaction_removeaction_callback = nullptr;
@@ -109,6 +117,8 @@ class VirtualKFontAction final : public KFontAction {
     }
 
     // Callback setters
+    inline void setKFontAction_MetaObject_Callback(KFontAction_MetaObject_Callback cb) { kfontaction_metaobject_callback = cb; }
+    inline void setKFontAction_Metacast_Callback(KFontAction_Metacast_Callback cb) { kfontaction_metacast_callback = cb; }
     inline void setKFontAction_Metacall_Callback(KFontAction_Metacall_Callback cb) { kfontaction_metacall_callback = cb; }
     inline void setKFontAction_CreateWidget_Callback(KFontAction_CreateWidget_Callback cb) { kfontaction_createwidget_callback = cb; }
     inline void setKFontAction_RemoveAction_Callback(KFontAction_RemoveAction_Callback cb) { kfontaction_removeaction_callback = cb; }
@@ -130,6 +140,8 @@ class VirtualKFontAction final : public KFontAction {
     inline void setKFontAction_IsSignalConnected_Callback(KFontAction_IsSignalConnected_Callback cb) { kfontaction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKFontAction_MetaObject_IsBase(bool value) const { kfontaction_metaobject_isbase = value; }
+    inline void setKFontAction_Metacast_IsBase(bool value) const { kfontaction_metacast_isbase = value; }
     inline void setKFontAction_Metacall_IsBase(bool value) const { kfontaction_metacall_isbase = value; }
     inline void setKFontAction_CreateWidget_IsBase(bool value) const { kfontaction_createwidget_isbase = value; }
     inline void setKFontAction_RemoveAction_IsBase(bool value) const { kfontaction_removeaction_isbase = value; }
@@ -149,6 +161,34 @@ class VirtualKFontAction final : public KFontAction {
     inline void setKFontAction_SenderSignalIndex_IsBase(bool value) const { kfontaction_sendersignalindex_isbase = value; }
     inline void setKFontAction_Receivers_IsBase(bool value) const { kfontaction_receivers_isbase = value; }
     inline void setKFontAction_IsSignalConnected_IsBase(bool value) const { kfontaction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfontaction_metaobject_isbase) {
+            kfontaction_metaobject_isbase = false;
+            return KFontAction::metaObject();
+        } else if (kfontaction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfontaction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFontAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfontaction_metacast_isbase) {
+            kfontaction_metacast_isbase = false;
+            return KFontAction::qt_metacast(param1);
+        } else if (kfontaction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfontaction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFontAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

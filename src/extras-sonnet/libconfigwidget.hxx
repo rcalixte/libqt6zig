@@ -17,6 +17,8 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
     bool isVirtualSonnetConfigWidget = true;
 
     // Virtual class public types (including callbacks)
+    using Sonnet__ConfigWidget_MetaObject_Callback = QMetaObject* (*)();
+    using Sonnet__ConfigWidget_Metacast_Callback = void* (*)(Sonnet__ConfigWidget*, const char*);
     using Sonnet__ConfigWidget_Metacall_Callback = int (*)(Sonnet__ConfigWidget*, int, int, void**);
     using Sonnet__ConfigWidget_DevType_Callback = int (*)();
     using Sonnet__ConfigWidget_SetVisible_Callback = void (*)(Sonnet__ConfigWidget*, bool);
@@ -80,6 +82,8 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
 
   protected:
     // Instance callback storage
+    Sonnet__ConfigWidget_MetaObject_Callback sonnet__configwidget_metaobject_callback = nullptr;
+    Sonnet__ConfigWidget_Metacast_Callback sonnet__configwidget_metacast_callback = nullptr;
     Sonnet__ConfigWidget_Metacall_Callback sonnet__configwidget_metacall_callback = nullptr;
     Sonnet__ConfigWidget_DevType_Callback sonnet__configwidget_devtype_callback = nullptr;
     Sonnet__ConfigWidget_SetVisible_Callback sonnet__configwidget_setvisible_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
     Sonnet__ConfigWidget_GetDecodedMetricF_Callback sonnet__configwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool sonnet__configwidget_metaobject_isbase = false;
+    mutable bool sonnet__configwidget_metacast_isbase = false;
     mutable bool sonnet__configwidget_metacall_isbase = false;
     mutable bool sonnet__configwidget_devtype_isbase = false;
     mutable bool sonnet__configwidget_setvisible_isbase = false;
@@ -207,6 +213,8 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
     VirtualSonnetConfigWidget(QWidget* parent) : Sonnet::ConfigWidget(parent) {};
 
     ~VirtualSonnetConfigWidget() {
+        sonnet__configwidget_metaobject_callback = nullptr;
+        sonnet__configwidget_metacast_callback = nullptr;
         sonnet__configwidget_metacall_callback = nullptr;
         sonnet__configwidget_devtype_callback = nullptr;
         sonnet__configwidget_setvisible_callback = nullptr;
@@ -270,6 +278,8 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
     }
 
     // Callback setters
+    inline void setSonnet__ConfigWidget_MetaObject_Callback(Sonnet__ConfigWidget_MetaObject_Callback cb) { sonnet__configwidget_metaobject_callback = cb; }
+    inline void setSonnet__ConfigWidget_Metacast_Callback(Sonnet__ConfigWidget_Metacast_Callback cb) { sonnet__configwidget_metacast_callback = cb; }
     inline void setSonnet__ConfigWidget_Metacall_Callback(Sonnet__ConfigWidget_Metacall_Callback cb) { sonnet__configwidget_metacall_callback = cb; }
     inline void setSonnet__ConfigWidget_DevType_Callback(Sonnet__ConfigWidget_DevType_Callback cb) { sonnet__configwidget_devtype_callback = cb; }
     inline void setSonnet__ConfigWidget_SetVisible_Callback(Sonnet__ConfigWidget_SetVisible_Callback cb) { sonnet__configwidget_setvisible_callback = cb; }
@@ -332,6 +342,8 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
     inline void setSonnet__ConfigWidget_GetDecodedMetricF_Callback(Sonnet__ConfigWidget_GetDecodedMetricF_Callback cb) { sonnet__configwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setSonnet__ConfigWidget_MetaObject_IsBase(bool value) const { sonnet__configwidget_metaobject_isbase = value; }
+    inline void setSonnet__ConfigWidget_Metacast_IsBase(bool value) const { sonnet__configwidget_metacast_isbase = value; }
     inline void setSonnet__ConfigWidget_Metacall_IsBase(bool value) const { sonnet__configwidget_metacall_isbase = value; }
     inline void setSonnet__ConfigWidget_DevType_IsBase(bool value) const { sonnet__configwidget_devtype_isbase = value; }
     inline void setSonnet__ConfigWidget_SetVisible_IsBase(bool value) const { sonnet__configwidget_setvisible_isbase = value; }
@@ -392,6 +404,34 @@ class VirtualSonnetConfigWidget final : public Sonnet::ConfigWidget {
     inline void setSonnet__ConfigWidget_Receivers_IsBase(bool value) const { sonnet__configwidget_receivers_isbase = value; }
     inline void setSonnet__ConfigWidget_IsSignalConnected_IsBase(bool value) const { sonnet__configwidget_issignalconnected_isbase = value; }
     inline void setSonnet__ConfigWidget_GetDecodedMetricF_IsBase(bool value) const { sonnet__configwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (sonnet__configwidget_metaobject_isbase) {
+            sonnet__configwidget_metaobject_isbase = false;
+            return Sonnet__ConfigWidget::metaObject();
+        } else if (sonnet__configwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = sonnet__configwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Sonnet__ConfigWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (sonnet__configwidget_metacast_isbase) {
+            sonnet__configwidget_metacast_isbase = false;
+            return Sonnet__ConfigWidget::qt_metacast(param1);
+        } else if (sonnet__configwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = sonnet__configwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Sonnet__ConfigWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

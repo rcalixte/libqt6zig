@@ -17,6 +17,8 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
     bool isVirtualKUrlComboBox = true;
 
     // Virtual class public types (including callbacks)
+    using KUrlComboBox_MetaObject_Callback = QMetaObject* (*)();
+    using KUrlComboBox_Metacast_Callback = void* (*)(KUrlComboBox*, const char*);
     using KUrlComboBox_Metacall_Callback = int (*)(KUrlComboBox*, int, int, void**);
     using KUrlComboBox_SetCompletionObject_Callback = void (*)(KUrlComboBox*, KCompletion*, bool);
     using KUrlComboBox_MousePressEvent_Callback = void (*)(KUrlComboBox*, QMouseEvent*);
@@ -95,6 +97,8 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
 
   protected:
     // Instance callback storage
+    KUrlComboBox_MetaObject_Callback kurlcombobox_metaobject_callback = nullptr;
+    KUrlComboBox_Metacast_Callback kurlcombobox_metacast_callback = nullptr;
     KUrlComboBox_Metacall_Callback kurlcombobox_metacall_callback = nullptr;
     KUrlComboBox_SetCompletionObject_Callback kurlcombobox_setcompletionobject_callback = nullptr;
     KUrlComboBox_MousePressEvent_Callback kurlcombobox_mousepressevent_callback = nullptr;
@@ -172,6 +176,8 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
     KUrlComboBox_Delegate_Callback kurlcombobox_delegate_callback = nullptr;
 
     // Instance base flags
+    mutable bool kurlcombobox_metaobject_isbase = false;
+    mutable bool kurlcombobox_metacast_isbase = false;
     mutable bool kurlcombobox_metacall_isbase = false;
     mutable bool kurlcombobox_setcompletionobject_isbase = false;
     mutable bool kurlcombobox_mousepressevent_isbase = false;
@@ -255,6 +261,8 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
     VirtualKUrlComboBox(KUrlComboBox::Mode mode, bool rw, QWidget* parent) : KUrlComboBox(mode, rw, parent) {};
 
     ~VirtualKUrlComboBox() {
+        kurlcombobox_metaobject_callback = nullptr;
+        kurlcombobox_metacast_callback = nullptr;
         kurlcombobox_metacall_callback = nullptr;
         kurlcombobox_setcompletionobject_callback = nullptr;
         kurlcombobox_mousepressevent_callback = nullptr;
@@ -333,6 +341,8 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
     }
 
     // Callback setters
+    inline void setKUrlComboBox_MetaObject_Callback(KUrlComboBox_MetaObject_Callback cb) { kurlcombobox_metaobject_callback = cb; }
+    inline void setKUrlComboBox_Metacast_Callback(KUrlComboBox_Metacast_Callback cb) { kurlcombobox_metacast_callback = cb; }
     inline void setKUrlComboBox_Metacall_Callback(KUrlComboBox_Metacall_Callback cb) { kurlcombobox_metacall_callback = cb; }
     inline void setKUrlComboBox_SetCompletionObject_Callback(KUrlComboBox_SetCompletionObject_Callback cb) { kurlcombobox_setcompletionobject_callback = cb; }
     inline void setKUrlComboBox_MousePressEvent_Callback(KUrlComboBox_MousePressEvent_Callback cb) { kurlcombobox_mousepressevent_callback = cb; }
@@ -410,6 +420,8 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
     inline void setKUrlComboBox_Delegate_Callback(KUrlComboBox_Delegate_Callback cb) { kurlcombobox_delegate_callback = cb; }
 
     // Base flag setters
+    inline void setKUrlComboBox_MetaObject_IsBase(bool value) const { kurlcombobox_metaobject_isbase = value; }
+    inline void setKUrlComboBox_Metacast_IsBase(bool value) const { kurlcombobox_metacast_isbase = value; }
     inline void setKUrlComboBox_Metacall_IsBase(bool value) const { kurlcombobox_metacall_isbase = value; }
     inline void setKUrlComboBox_SetCompletionObject_IsBase(bool value) const { kurlcombobox_setcompletionobject_isbase = value; }
     inline void setKUrlComboBox_MousePressEvent_IsBase(bool value) const { kurlcombobox_mousepressevent_isbase = value; }
@@ -485,6 +497,34 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
     inline void setKUrlComboBox_SetKeyBindingMap_IsBase(bool value) const { kurlcombobox_setkeybindingmap_isbase = value; }
     inline void setKUrlComboBox_SetDelegate_IsBase(bool value) const { kurlcombobox_setdelegate_isbase = value; }
     inline void setKUrlComboBox_Delegate_IsBase(bool value) const { kurlcombobox_delegate_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kurlcombobox_metaobject_isbase) {
+            kurlcombobox_metaobject_isbase = false;
+            return KUrlComboBox::metaObject();
+        } else if (kurlcombobox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kurlcombobox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KUrlComboBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kurlcombobox_metacast_isbase) {
+            kurlcombobox_metacast_isbase = false;
+            return KUrlComboBox::qt_metacast(param1);
+        } else if (kurlcombobox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kurlcombobox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KUrlComboBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

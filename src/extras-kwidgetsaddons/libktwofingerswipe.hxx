@@ -17,6 +17,8 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
     bool isVirtualKTwoFingerSwipe = true;
 
     // Virtual class public types (including callbacks)
+    using KTwoFingerSwipe_MetaObject_Callback = QMetaObject* (*)();
+    using KTwoFingerSwipe_Metacast_Callback = void* (*)(KTwoFingerSwipe*, const char*);
     using KTwoFingerSwipe_Metacall_Callback = int (*)(KTwoFingerSwipe*, int, int, void**);
     using KTwoFingerSwipe_Event_Callback = bool (*)(KTwoFingerSwipe*, QEvent*);
     using KTwoFingerSwipe_EventFilter_Callback = bool (*)(KTwoFingerSwipe*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
 
   protected:
     // Instance callback storage
+    KTwoFingerSwipe_MetaObject_Callback ktwofingerswipe_metaobject_callback = nullptr;
+    KTwoFingerSwipe_Metacast_Callback ktwofingerswipe_metacast_callback = nullptr;
     KTwoFingerSwipe_Metacall_Callback ktwofingerswipe_metacall_callback = nullptr;
     KTwoFingerSwipe_Event_Callback ktwofingerswipe_event_callback = nullptr;
     KTwoFingerSwipe_EventFilter_Callback ktwofingerswipe_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
     KTwoFingerSwipe_IsSignalConnected_Callback ktwofingerswipe_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktwofingerswipe_metaobject_isbase = false;
+    mutable bool ktwofingerswipe_metacast_isbase = false;
     mutable bool ktwofingerswipe_metacall_isbase = false;
     mutable bool ktwofingerswipe_event_isbase = false;
     mutable bool ktwofingerswipe_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
     VirtualKTwoFingerSwipe(QObject* parent) : KTwoFingerSwipe(parent) {};
 
     ~VirtualKTwoFingerSwipe() {
+        ktwofingerswipe_metaobject_callback = nullptr;
+        ktwofingerswipe_metacast_callback = nullptr;
         ktwofingerswipe_metacall_callback = nullptr;
         ktwofingerswipe_event_callback = nullptr;
         ktwofingerswipe_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
     }
 
     // Callback setters
+    inline void setKTwoFingerSwipe_MetaObject_Callback(KTwoFingerSwipe_MetaObject_Callback cb) { ktwofingerswipe_metaobject_callback = cb; }
+    inline void setKTwoFingerSwipe_Metacast_Callback(KTwoFingerSwipe_Metacast_Callback cb) { ktwofingerswipe_metacast_callback = cb; }
     inline void setKTwoFingerSwipe_Metacall_Callback(KTwoFingerSwipe_Metacall_Callback cb) { ktwofingerswipe_metacall_callback = cb; }
     inline void setKTwoFingerSwipe_Event_Callback(KTwoFingerSwipe_Event_Callback cb) { ktwofingerswipe_event_callback = cb; }
     inline void setKTwoFingerSwipe_EventFilter_Callback(KTwoFingerSwipe_EventFilter_Callback cb) { ktwofingerswipe_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
     inline void setKTwoFingerSwipe_IsSignalConnected_Callback(KTwoFingerSwipe_IsSignalConnected_Callback cb) { ktwofingerswipe_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKTwoFingerSwipe_MetaObject_IsBase(bool value) const { ktwofingerswipe_metaobject_isbase = value; }
+    inline void setKTwoFingerSwipe_Metacast_IsBase(bool value) const { ktwofingerswipe_metacast_isbase = value; }
     inline void setKTwoFingerSwipe_Metacall_IsBase(bool value) const { ktwofingerswipe_metacall_isbase = value; }
     inline void setKTwoFingerSwipe_Event_IsBase(bool value) const { ktwofingerswipe_event_isbase = value; }
     inline void setKTwoFingerSwipe_EventFilter_IsBase(bool value) const { ktwofingerswipe_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKTwoFingerSwipe final : public KTwoFingerSwipe {
     inline void setKTwoFingerSwipe_SenderSignalIndex_IsBase(bool value) const { ktwofingerswipe_sendersignalindex_isbase = value; }
     inline void setKTwoFingerSwipe_Receivers_IsBase(bool value) const { ktwofingerswipe_receivers_isbase = value; }
     inline void setKTwoFingerSwipe_IsSignalConnected_IsBase(bool value) const { ktwofingerswipe_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktwofingerswipe_metaobject_isbase) {
+            ktwofingerswipe_metaobject_isbase = false;
+            return KTwoFingerSwipe::metaObject();
+        } else if (ktwofingerswipe_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktwofingerswipe_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTwoFingerSwipe::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktwofingerswipe_metacast_isbase) {
+            ktwofingerswipe_metacast_isbase = false;
+            return KTwoFingerSwipe::qt_metacast(param1);
+        } else if (ktwofingerswipe_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktwofingerswipe_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTwoFingerSwipe::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

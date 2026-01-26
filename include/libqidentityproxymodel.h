@@ -59,6 +59,10 @@ bool QIdentityProxyModel_MoveRows(QIdentityProxyModel* self, const QModelIndex* 
 bool QIdentityProxyModel_MoveColumns(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
 bool QIdentityProxyModel_HandleSourceLayoutChanges(const QIdentityProxyModel* self);
 bool QIdentityProxyModel_HandleSourceDataChanges(const QIdentityProxyModel* self);
+void QIdentityProxyModel_OnMetaObject(const QIdentityProxyModel* self, intptr_t slot);
+QMetaObject* QIdentityProxyModel_QBaseMetaObject(const QIdentityProxyModel* self);
+void QIdentityProxyModel_OnMetacast(QIdentityProxyModel* self, intptr_t slot);
+void* QIdentityProxyModel_QBaseMetacast(QIdentityProxyModel* self, const char* param1);
 void QIdentityProxyModel_OnMetacall(QIdentityProxyModel* self, intptr_t slot);
 int QIdentityProxyModel_QBaseMetacall(QIdentityProxyModel* self, int param1, int param2, void** param3);
 void QIdentityProxyModel_OnColumnCount(const QIdentityProxyModel* self, intptr_t slot);

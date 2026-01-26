@@ -17,6 +17,8 @@ class VirtualQSettings final : public QSettings {
     bool isVirtualQSettings = true;
 
     // Virtual class public types (including callbacks)
+    using QSettings_MetaObject_Callback = QMetaObject* (*)();
+    using QSettings_Metacast_Callback = void* (*)(QSettings*, const char*);
     using QSettings_Metacall_Callback = int (*)(QSettings*, int, int, void**);
     using QSettings_Event_Callback = bool (*)(QSettings*, QEvent*);
     using QSettings_EventFilter_Callback = bool (*)(QSettings*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQSettings final : public QSettings {
 
   protected:
     // Instance callback storage
+    QSettings_MetaObject_Callback qsettings_metaobject_callback = nullptr;
+    QSettings_Metacast_Callback qsettings_metacast_callback = nullptr;
     QSettings_Metacall_Callback qsettings_metacall_callback = nullptr;
     QSettings_Event_Callback qsettings_event_callback = nullptr;
     QSettings_EventFilter_Callback qsettings_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQSettings final : public QSettings {
     QSettings_IsSignalConnected_Callback qsettings_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsettings_metaobject_isbase = false;
+    mutable bool qsettings_metacast_isbase = false;
     mutable bool qsettings_metacall_isbase = false;
     mutable bool qsettings_event_isbase = false;
     mutable bool qsettings_eventfilter_isbase = false;
@@ -77,6 +83,8 @@ class VirtualQSettings final : public QSettings {
     VirtualQSettings(QSettings::Scope scope, QObject* parent) : QSettings(scope, parent) {};
 
     ~VirtualQSettings() {
+        qsettings_metaobject_callback = nullptr;
+        qsettings_metacast_callback = nullptr;
         qsettings_metacall_callback = nullptr;
         qsettings_event_callback = nullptr;
         qsettings_eventfilter_callback = nullptr;
@@ -92,6 +100,8 @@ class VirtualQSettings final : public QSettings {
     }
 
     // Callback setters
+    inline void setQSettings_MetaObject_Callback(QSettings_MetaObject_Callback cb) { qsettings_metaobject_callback = cb; }
+    inline void setQSettings_Metacast_Callback(QSettings_Metacast_Callback cb) { qsettings_metacast_callback = cb; }
     inline void setQSettings_Metacall_Callback(QSettings_Metacall_Callback cb) { qsettings_metacall_callback = cb; }
     inline void setQSettings_Event_Callback(QSettings_Event_Callback cb) { qsettings_event_callback = cb; }
     inline void setQSettings_EventFilter_Callback(QSettings_EventFilter_Callback cb) { qsettings_eventfilter_callback = cb; }
@@ -106,6 +116,8 @@ class VirtualQSettings final : public QSettings {
     inline void setQSettings_IsSignalConnected_Callback(QSettings_IsSignalConnected_Callback cb) { qsettings_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSettings_MetaObject_IsBase(bool value) const { qsettings_metaobject_isbase = value; }
+    inline void setQSettings_Metacast_IsBase(bool value) const { qsettings_metacast_isbase = value; }
     inline void setQSettings_Metacall_IsBase(bool value) const { qsettings_metacall_isbase = value; }
     inline void setQSettings_Event_IsBase(bool value) const { qsettings_event_isbase = value; }
     inline void setQSettings_EventFilter_IsBase(bool value) const { qsettings_eventfilter_isbase = value; }
@@ -118,6 +130,34 @@ class VirtualQSettings final : public QSettings {
     inline void setQSettings_SenderSignalIndex_IsBase(bool value) const { qsettings_sendersignalindex_isbase = value; }
     inline void setQSettings_Receivers_IsBase(bool value) const { qsettings_receivers_isbase = value; }
     inline void setQSettings_IsSignalConnected_IsBase(bool value) const { qsettings_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsettings_metaobject_isbase) {
+            qsettings_metaobject_isbase = false;
+            return QSettings::metaObject();
+        } else if (qsettings_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsettings_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSettings::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsettings_metacast_isbase) {
+            qsettings_metacast_isbase = false;
+            return QSettings::qt_metacast(param1);
+        } else if (qsettings_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsettings_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSettings::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     bool isVirtualKTreeWidgetSearchLine = true;
 
     // Virtual class public types (including callbacks)
+    using KTreeWidgetSearchLine_MetaObject_Callback = QMetaObject* (*)();
+    using KTreeWidgetSearchLine_Metacast_Callback = void* (*)(KTreeWidgetSearchLine*, const char*);
     using KTreeWidgetSearchLine_Metacall_Callback = int (*)(KTreeWidgetSearchLine*, int, int, void**);
     using KTreeWidgetSearchLine_UpdateSearch_Callback = void (*)(KTreeWidgetSearchLine*, libqt_string);
     using KTreeWidgetSearchLine_ItemMatches_Callback = bool (*)(const KTreeWidgetSearchLine*, QTreeWidgetItem*, libqt_string);
@@ -86,6 +88,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
   protected:
     // Instance callback storage
+    KTreeWidgetSearchLine_MetaObject_Callback ktreewidgetsearchline_metaobject_callback = nullptr;
+    KTreeWidgetSearchLine_Metacast_Callback ktreewidgetsearchline_metacast_callback = nullptr;
     KTreeWidgetSearchLine_Metacall_Callback ktreewidgetsearchline_metacall_callback = nullptr;
     KTreeWidgetSearchLine_UpdateSearch_Callback ktreewidgetsearchline_updatesearch_callback = nullptr;
     KTreeWidgetSearchLine_ItemMatches_Callback ktreewidgetsearchline_itemmatches_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     KTreeWidgetSearchLine_GetDecodedMetricF_Callback ktreewidgetsearchline_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktreewidgetsearchline_metaobject_isbase = false;
+    mutable bool ktreewidgetsearchline_metacast_isbase = false;
     mutable bool ktreewidgetsearchline_metacall_isbase = false;
     mutable bool ktreewidgetsearchline_updatesearch_isbase = false;
     mutable bool ktreewidgetsearchline_itemmatches_isbase = false;
@@ -228,6 +234,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     VirtualKTreeWidgetSearchLine(QWidget* parent, QTreeWidget* treeWidget) : KTreeWidgetSearchLine(parent, treeWidget) {};
 
     ~VirtualKTreeWidgetSearchLine() {
+        ktreewidgetsearchline_metaobject_callback = nullptr;
+        ktreewidgetsearchline_metacast_callback = nullptr;
         ktreewidgetsearchline_metacall_callback = nullptr;
         ktreewidgetsearchline_updatesearch_callback = nullptr;
         ktreewidgetsearchline_itemmatches_callback = nullptr;
@@ -297,6 +305,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     }
 
     // Callback setters
+    inline void setKTreeWidgetSearchLine_MetaObject_Callback(KTreeWidgetSearchLine_MetaObject_Callback cb) { ktreewidgetsearchline_metaobject_callback = cb; }
+    inline void setKTreeWidgetSearchLine_Metacast_Callback(KTreeWidgetSearchLine_Metacast_Callback cb) { ktreewidgetsearchline_metacast_callback = cb; }
     inline void setKTreeWidgetSearchLine_Metacall_Callback(KTreeWidgetSearchLine_Metacall_Callback cb) { ktreewidgetsearchline_metacall_callback = cb; }
     inline void setKTreeWidgetSearchLine_UpdateSearch_Callback(KTreeWidgetSearchLine_UpdateSearch_Callback cb) { ktreewidgetsearchline_updatesearch_callback = cb; }
     inline void setKTreeWidgetSearchLine_ItemMatches_Callback(KTreeWidgetSearchLine_ItemMatches_Callback cb) { ktreewidgetsearchline_itemmatches_callback = cb; }
@@ -365,6 +375,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     inline void setKTreeWidgetSearchLine_GetDecodedMetricF_Callback(KTreeWidgetSearchLine_GetDecodedMetricF_Callback cb) { ktreewidgetsearchline_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKTreeWidgetSearchLine_MetaObject_IsBase(bool value) const { ktreewidgetsearchline_metaobject_isbase = value; }
+    inline void setKTreeWidgetSearchLine_Metacast_IsBase(bool value) const { ktreewidgetsearchline_metacast_isbase = value; }
     inline void setKTreeWidgetSearchLine_Metacall_IsBase(bool value) const { ktreewidgetsearchline_metacall_isbase = value; }
     inline void setKTreeWidgetSearchLine_UpdateSearch_IsBase(bool value) const { ktreewidgetsearchline_updatesearch_isbase = value; }
     inline void setKTreeWidgetSearchLine_ItemMatches_IsBase(bool value) const { ktreewidgetsearchline_itemmatches_isbase = value; }
@@ -431,6 +443,34 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     inline void setKTreeWidgetSearchLine_Receivers_IsBase(bool value) const { ktreewidgetsearchline_receivers_isbase = value; }
     inline void setKTreeWidgetSearchLine_IsSignalConnected_IsBase(bool value) const { ktreewidgetsearchline_issignalconnected_isbase = value; }
     inline void setKTreeWidgetSearchLine_GetDecodedMetricF_IsBase(bool value) const { ktreewidgetsearchline_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktreewidgetsearchline_metaobject_isbase) {
+            ktreewidgetsearchline_metaobject_isbase = false;
+            return KTreeWidgetSearchLine::metaObject();
+        } else if (ktreewidgetsearchline_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktreewidgetsearchline_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTreeWidgetSearchLine::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktreewidgetsearchline_metacast_isbase) {
+            ktreewidgetsearchline_metacast_isbase = false;
+            return KTreeWidgetSearchLine::qt_metacast(param1);
+        } else if (ktreewidgetsearchline_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktreewidgetsearchline_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTreeWidgetSearchLine::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

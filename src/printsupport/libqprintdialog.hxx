@@ -17,6 +17,8 @@ class VirtualQPrintDialog final : public QPrintDialog {
     bool isVirtualQPrintDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QPrintDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QPrintDialog_Metacast_Callback = void* (*)(QPrintDialog*, const char*);
     using QPrintDialog_Metacall_Callback = int (*)(QPrintDialog*, int, int, void**);
     using QPrintDialog_Exec_Callback = int (*)();
     using QPrintDialog_Accept_Callback = void (*)();
@@ -84,6 +86,8 @@ class VirtualQPrintDialog final : public QPrintDialog {
 
   protected:
     // Instance callback storage
+    QPrintDialog_MetaObject_Callback qprintdialog_metaobject_callback = nullptr;
+    QPrintDialog_Metacast_Callback qprintdialog_metacast_callback = nullptr;
     QPrintDialog_Metacall_Callback qprintdialog_metacall_callback = nullptr;
     QPrintDialog_Exec_Callback qprintdialog_exec_callback = nullptr;
     QPrintDialog_Accept_Callback qprintdialog_accept_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQPrintDialog final : public QPrintDialog {
     QPrintDialog_GetDecodedMetricF_Callback qprintdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qprintdialog_metaobject_isbase = false;
+    mutable bool qprintdialog_metacast_isbase = false;
     mutable bool qprintdialog_metacall_isbase = false;
     mutable bool qprintdialog_exec_isbase = false;
     mutable bool qprintdialog_accept_isbase = false;
@@ -222,6 +228,8 @@ class VirtualQPrintDialog final : public QPrintDialog {
     VirtualQPrintDialog(QPrinter* printer, QWidget* parent) : QPrintDialog(printer, parent) {};
 
     ~VirtualQPrintDialog() {
+        qprintdialog_metaobject_callback = nullptr;
+        qprintdialog_metacast_callback = nullptr;
         qprintdialog_metacall_callback = nullptr;
         qprintdialog_exec_callback = nullptr;
         qprintdialog_accept_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualQPrintDialog final : public QPrintDialog {
     }
 
     // Callback setters
+    inline void setQPrintDialog_MetaObject_Callback(QPrintDialog_MetaObject_Callback cb) { qprintdialog_metaobject_callback = cb; }
+    inline void setQPrintDialog_Metacast_Callback(QPrintDialog_Metacast_Callback cb) { qprintdialog_metacast_callback = cb; }
     inline void setQPrintDialog_Metacall_Callback(QPrintDialog_Metacall_Callback cb) { qprintdialog_metacall_callback = cb; }
     inline void setQPrintDialog_Exec_Callback(QPrintDialog_Exec_Callback cb) { qprintdialog_exec_callback = cb; }
     inline void setQPrintDialog_Accept_Callback(QPrintDialog_Accept_Callback cb) { qprintdialog_accept_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualQPrintDialog final : public QPrintDialog {
     inline void setQPrintDialog_GetDecodedMetricF_Callback(QPrintDialog_GetDecodedMetricF_Callback cb) { qprintdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQPrintDialog_MetaObject_IsBase(bool value) const { qprintdialog_metaobject_isbase = value; }
+    inline void setQPrintDialog_Metacast_IsBase(bool value) const { qprintdialog_metacast_isbase = value; }
     inline void setQPrintDialog_Metacall_IsBase(bool value) const { qprintdialog_metacall_isbase = value; }
     inline void setQPrintDialog_Exec_IsBase(bool value) const { qprintdialog_exec_isbase = value; }
     inline void setQPrintDialog_Accept_IsBase(bool value) const { qprintdialog_accept_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualQPrintDialog final : public QPrintDialog {
     inline void setQPrintDialog_Receivers_IsBase(bool value) const { qprintdialog_receivers_isbase = value; }
     inline void setQPrintDialog_IsSignalConnected_IsBase(bool value) const { qprintdialog_issignalconnected_isbase = value; }
     inline void setQPrintDialog_GetDecodedMetricF_IsBase(bool value) const { qprintdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qprintdialog_metaobject_isbase) {
+            qprintdialog_metaobject_isbase = false;
+            return QPrintDialog::metaObject();
+        } else if (qprintdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qprintdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPrintDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qprintdialog_metacast_isbase) {
+            qprintdialog_metacast_isbase = false;
+            return QPrintDialog::qt_metacast(param1);
+        } else if (qprintdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qprintdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPrintDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

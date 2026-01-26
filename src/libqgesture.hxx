@@ -17,6 +17,8 @@ class VirtualQGesture final : public QGesture {
     bool isVirtualQGesture = true;
 
     // Virtual class public types (including callbacks)
+    using QGesture_MetaObject_Callback = QMetaObject* (*)();
+    using QGesture_Metacast_Callback = void* (*)(QGesture*, const char*);
     using QGesture_Metacall_Callback = int (*)(QGesture*, int, int, void**);
     using QGesture_Event_Callback = bool (*)(QGesture*, QEvent*);
     using QGesture_EventFilter_Callback = bool (*)(QGesture*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQGesture final : public QGesture {
 
   protected:
     // Instance callback storage
+    QGesture_MetaObject_Callback qgesture_metaobject_callback = nullptr;
+    QGesture_Metacast_Callback qgesture_metacast_callback = nullptr;
     QGesture_Metacall_Callback qgesture_metacall_callback = nullptr;
     QGesture_Event_Callback qgesture_event_callback = nullptr;
     QGesture_EventFilter_Callback qgesture_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQGesture final : public QGesture {
     QGesture_IsSignalConnected_Callback qgesture_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgesture_metaobject_isbase = false;
+    mutable bool qgesture_metacast_isbase = false;
     mutable bool qgesture_metacall_isbase = false;
     mutable bool qgesture_event_isbase = false;
     mutable bool qgesture_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQGesture final : public QGesture {
     VirtualQGesture(QObject* parent) : QGesture(parent) {};
 
     ~VirtualQGesture() {
+        qgesture_metaobject_callback = nullptr;
+        qgesture_metacast_callback = nullptr;
         qgesture_metacall_callback = nullptr;
         qgesture_event_callback = nullptr;
         qgesture_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQGesture final : public QGesture {
     }
 
     // Callback setters
+    inline void setQGesture_MetaObject_Callback(QGesture_MetaObject_Callback cb) { qgesture_metaobject_callback = cb; }
+    inline void setQGesture_Metacast_Callback(QGesture_Metacast_Callback cb) { qgesture_metacast_callback = cb; }
     inline void setQGesture_Metacall_Callback(QGesture_Metacall_Callback cb) { qgesture_metacall_callback = cb; }
     inline void setQGesture_Event_Callback(QGesture_Event_Callback cb) { qgesture_event_callback = cb; }
     inline void setQGesture_EventFilter_Callback(QGesture_EventFilter_Callback cb) { qgesture_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQGesture final : public QGesture {
     inline void setQGesture_IsSignalConnected_Callback(QGesture_IsSignalConnected_Callback cb) { qgesture_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGesture_MetaObject_IsBase(bool value) const { qgesture_metaobject_isbase = value; }
+    inline void setQGesture_Metacast_IsBase(bool value) const { qgesture_metacast_isbase = value; }
     inline void setQGesture_Metacall_IsBase(bool value) const { qgesture_metacall_isbase = value; }
     inline void setQGesture_Event_IsBase(bool value) const { qgesture_event_isbase = value; }
     inline void setQGesture_EventFilter_IsBase(bool value) const { qgesture_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQGesture final : public QGesture {
     inline void setQGesture_SenderSignalIndex_IsBase(bool value) const { qgesture_sendersignalindex_isbase = value; }
     inline void setQGesture_Receivers_IsBase(bool value) const { qgesture_receivers_isbase = value; }
     inline void setQGesture_IsSignalConnected_IsBase(bool value) const { qgesture_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgesture_metaobject_isbase) {
+            qgesture_metaobject_isbase = false;
+            return QGesture::metaObject();
+        } else if (qgesture_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgesture_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGesture::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgesture_metacast_isbase) {
+            qgesture_metacast_isbase = false;
+            return QGesture::qt_metacast(param1);
+        } else if (qgesture_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgesture_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGesture::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -315,6 +355,8 @@ class VirtualQPanGesture final : public QPanGesture {
     bool isVirtualQPanGesture = true;
 
     // Virtual class public types (including callbacks)
+    using QPanGesture_MetaObject_Callback = QMetaObject* (*)();
+    using QPanGesture_Metacast_Callback = void* (*)(QPanGesture*, const char*);
     using QPanGesture_Metacall_Callback = int (*)(QPanGesture*, int, int, void**);
     using QPanGesture_Event_Callback = bool (*)(QPanGesture*, QEvent*);
     using QPanGesture_EventFilter_Callback = bool (*)(QPanGesture*, QObject*, QEvent*);
@@ -330,6 +372,8 @@ class VirtualQPanGesture final : public QPanGesture {
 
   protected:
     // Instance callback storage
+    QPanGesture_MetaObject_Callback qpangesture_metaobject_callback = nullptr;
+    QPanGesture_Metacast_Callback qpangesture_metacast_callback = nullptr;
     QPanGesture_Metacall_Callback qpangesture_metacall_callback = nullptr;
     QPanGesture_Event_Callback qpangesture_event_callback = nullptr;
     QPanGesture_EventFilter_Callback qpangesture_eventfilter_callback = nullptr;
@@ -344,6 +388,8 @@ class VirtualQPanGesture final : public QPanGesture {
     QPanGesture_IsSignalConnected_Callback qpangesture_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpangesture_metaobject_isbase = false;
+    mutable bool qpangesture_metacast_isbase = false;
     mutable bool qpangesture_metacall_isbase = false;
     mutable bool qpangesture_event_isbase = false;
     mutable bool qpangesture_eventfilter_isbase = false;
@@ -362,6 +408,8 @@ class VirtualQPanGesture final : public QPanGesture {
     VirtualQPanGesture(QObject* parent) : QPanGesture(parent) {};
 
     ~VirtualQPanGesture() {
+        qpangesture_metaobject_callback = nullptr;
+        qpangesture_metacast_callback = nullptr;
         qpangesture_metacall_callback = nullptr;
         qpangesture_event_callback = nullptr;
         qpangesture_eventfilter_callback = nullptr;
@@ -377,6 +425,8 @@ class VirtualQPanGesture final : public QPanGesture {
     }
 
     // Callback setters
+    inline void setQPanGesture_MetaObject_Callback(QPanGesture_MetaObject_Callback cb) { qpangesture_metaobject_callback = cb; }
+    inline void setQPanGesture_Metacast_Callback(QPanGesture_Metacast_Callback cb) { qpangesture_metacast_callback = cb; }
     inline void setQPanGesture_Metacall_Callback(QPanGesture_Metacall_Callback cb) { qpangesture_metacall_callback = cb; }
     inline void setQPanGesture_Event_Callback(QPanGesture_Event_Callback cb) { qpangesture_event_callback = cb; }
     inline void setQPanGesture_EventFilter_Callback(QPanGesture_EventFilter_Callback cb) { qpangesture_eventfilter_callback = cb; }
@@ -391,6 +441,8 @@ class VirtualQPanGesture final : public QPanGesture {
     inline void setQPanGesture_IsSignalConnected_Callback(QPanGesture_IsSignalConnected_Callback cb) { qpangesture_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPanGesture_MetaObject_IsBase(bool value) const { qpangesture_metaobject_isbase = value; }
+    inline void setQPanGesture_Metacast_IsBase(bool value) const { qpangesture_metacast_isbase = value; }
     inline void setQPanGesture_Metacall_IsBase(bool value) const { qpangesture_metacall_isbase = value; }
     inline void setQPanGesture_Event_IsBase(bool value) const { qpangesture_event_isbase = value; }
     inline void setQPanGesture_EventFilter_IsBase(bool value) const { qpangesture_eventfilter_isbase = value; }
@@ -403,6 +455,34 @@ class VirtualQPanGesture final : public QPanGesture {
     inline void setQPanGesture_SenderSignalIndex_IsBase(bool value) const { qpangesture_sendersignalindex_isbase = value; }
     inline void setQPanGesture_Receivers_IsBase(bool value) const { qpangesture_receivers_isbase = value; }
     inline void setQPanGesture_IsSignalConnected_IsBase(bool value) const { qpangesture_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpangesture_metaobject_isbase) {
+            qpangesture_metaobject_isbase = false;
+            return QPanGesture::metaObject();
+        } else if (qpangesture_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpangesture_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPanGesture::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpangesture_metacast_isbase) {
+            qpangesture_metacast_isbase = false;
+            return QPanGesture::qt_metacast(param1);
+        } else if (qpangesture_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpangesture_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPanGesture::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -613,6 +693,8 @@ class VirtualQPinchGesture final : public QPinchGesture {
     bool isVirtualQPinchGesture = true;
 
     // Virtual class public types (including callbacks)
+    using QPinchGesture_MetaObject_Callback = QMetaObject* (*)();
+    using QPinchGesture_Metacast_Callback = void* (*)(QPinchGesture*, const char*);
     using QPinchGesture_Metacall_Callback = int (*)(QPinchGesture*, int, int, void**);
     using QPinchGesture_Event_Callback = bool (*)(QPinchGesture*, QEvent*);
     using QPinchGesture_EventFilter_Callback = bool (*)(QPinchGesture*, QObject*, QEvent*);
@@ -628,6 +710,8 @@ class VirtualQPinchGesture final : public QPinchGesture {
 
   protected:
     // Instance callback storage
+    QPinchGesture_MetaObject_Callback qpinchgesture_metaobject_callback = nullptr;
+    QPinchGesture_Metacast_Callback qpinchgesture_metacast_callback = nullptr;
     QPinchGesture_Metacall_Callback qpinchgesture_metacall_callback = nullptr;
     QPinchGesture_Event_Callback qpinchgesture_event_callback = nullptr;
     QPinchGesture_EventFilter_Callback qpinchgesture_eventfilter_callback = nullptr;
@@ -642,6 +726,8 @@ class VirtualQPinchGesture final : public QPinchGesture {
     QPinchGesture_IsSignalConnected_Callback qpinchgesture_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpinchgesture_metaobject_isbase = false;
+    mutable bool qpinchgesture_metacast_isbase = false;
     mutable bool qpinchgesture_metacall_isbase = false;
     mutable bool qpinchgesture_event_isbase = false;
     mutable bool qpinchgesture_eventfilter_isbase = false;
@@ -660,6 +746,8 @@ class VirtualQPinchGesture final : public QPinchGesture {
     VirtualQPinchGesture(QObject* parent) : QPinchGesture(parent) {};
 
     ~VirtualQPinchGesture() {
+        qpinchgesture_metaobject_callback = nullptr;
+        qpinchgesture_metacast_callback = nullptr;
         qpinchgesture_metacall_callback = nullptr;
         qpinchgesture_event_callback = nullptr;
         qpinchgesture_eventfilter_callback = nullptr;
@@ -675,6 +763,8 @@ class VirtualQPinchGesture final : public QPinchGesture {
     }
 
     // Callback setters
+    inline void setQPinchGesture_MetaObject_Callback(QPinchGesture_MetaObject_Callback cb) { qpinchgesture_metaobject_callback = cb; }
+    inline void setQPinchGesture_Metacast_Callback(QPinchGesture_Metacast_Callback cb) { qpinchgesture_metacast_callback = cb; }
     inline void setQPinchGesture_Metacall_Callback(QPinchGesture_Metacall_Callback cb) { qpinchgesture_metacall_callback = cb; }
     inline void setQPinchGesture_Event_Callback(QPinchGesture_Event_Callback cb) { qpinchgesture_event_callback = cb; }
     inline void setQPinchGesture_EventFilter_Callback(QPinchGesture_EventFilter_Callback cb) { qpinchgesture_eventfilter_callback = cb; }
@@ -689,6 +779,8 @@ class VirtualQPinchGesture final : public QPinchGesture {
     inline void setQPinchGesture_IsSignalConnected_Callback(QPinchGesture_IsSignalConnected_Callback cb) { qpinchgesture_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPinchGesture_MetaObject_IsBase(bool value) const { qpinchgesture_metaobject_isbase = value; }
+    inline void setQPinchGesture_Metacast_IsBase(bool value) const { qpinchgesture_metacast_isbase = value; }
     inline void setQPinchGesture_Metacall_IsBase(bool value) const { qpinchgesture_metacall_isbase = value; }
     inline void setQPinchGesture_Event_IsBase(bool value) const { qpinchgesture_event_isbase = value; }
     inline void setQPinchGesture_EventFilter_IsBase(bool value) const { qpinchgesture_eventfilter_isbase = value; }
@@ -701,6 +793,34 @@ class VirtualQPinchGesture final : public QPinchGesture {
     inline void setQPinchGesture_SenderSignalIndex_IsBase(bool value) const { qpinchgesture_sendersignalindex_isbase = value; }
     inline void setQPinchGesture_Receivers_IsBase(bool value) const { qpinchgesture_receivers_isbase = value; }
     inline void setQPinchGesture_IsSignalConnected_IsBase(bool value) const { qpinchgesture_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpinchgesture_metaobject_isbase) {
+            qpinchgesture_metaobject_isbase = false;
+            return QPinchGesture::metaObject();
+        } else if (qpinchgesture_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpinchgesture_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPinchGesture::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpinchgesture_metacast_isbase) {
+            qpinchgesture_metacast_isbase = false;
+            return QPinchGesture::qt_metacast(param1);
+        } else if (qpinchgesture_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpinchgesture_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPinchGesture::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -911,6 +1031,8 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
     bool isVirtualQSwipeGesture = true;
 
     // Virtual class public types (including callbacks)
+    using QSwipeGesture_MetaObject_Callback = QMetaObject* (*)();
+    using QSwipeGesture_Metacast_Callback = void* (*)(QSwipeGesture*, const char*);
     using QSwipeGesture_Metacall_Callback = int (*)(QSwipeGesture*, int, int, void**);
     using QSwipeGesture_Event_Callback = bool (*)(QSwipeGesture*, QEvent*);
     using QSwipeGesture_EventFilter_Callback = bool (*)(QSwipeGesture*, QObject*, QEvent*);
@@ -926,6 +1048,8 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
 
   protected:
     // Instance callback storage
+    QSwipeGesture_MetaObject_Callback qswipegesture_metaobject_callback = nullptr;
+    QSwipeGesture_Metacast_Callback qswipegesture_metacast_callback = nullptr;
     QSwipeGesture_Metacall_Callback qswipegesture_metacall_callback = nullptr;
     QSwipeGesture_Event_Callback qswipegesture_event_callback = nullptr;
     QSwipeGesture_EventFilter_Callback qswipegesture_eventfilter_callback = nullptr;
@@ -940,6 +1064,8 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
     QSwipeGesture_IsSignalConnected_Callback qswipegesture_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qswipegesture_metaobject_isbase = false;
+    mutable bool qswipegesture_metacast_isbase = false;
     mutable bool qswipegesture_metacall_isbase = false;
     mutable bool qswipegesture_event_isbase = false;
     mutable bool qswipegesture_eventfilter_isbase = false;
@@ -958,6 +1084,8 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
     VirtualQSwipeGesture(QObject* parent) : QSwipeGesture(parent) {};
 
     ~VirtualQSwipeGesture() {
+        qswipegesture_metaobject_callback = nullptr;
+        qswipegesture_metacast_callback = nullptr;
         qswipegesture_metacall_callback = nullptr;
         qswipegesture_event_callback = nullptr;
         qswipegesture_eventfilter_callback = nullptr;
@@ -973,6 +1101,8 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
     }
 
     // Callback setters
+    inline void setQSwipeGesture_MetaObject_Callback(QSwipeGesture_MetaObject_Callback cb) { qswipegesture_metaobject_callback = cb; }
+    inline void setQSwipeGesture_Metacast_Callback(QSwipeGesture_Metacast_Callback cb) { qswipegesture_metacast_callback = cb; }
     inline void setQSwipeGesture_Metacall_Callback(QSwipeGesture_Metacall_Callback cb) { qswipegesture_metacall_callback = cb; }
     inline void setQSwipeGesture_Event_Callback(QSwipeGesture_Event_Callback cb) { qswipegesture_event_callback = cb; }
     inline void setQSwipeGesture_EventFilter_Callback(QSwipeGesture_EventFilter_Callback cb) { qswipegesture_eventfilter_callback = cb; }
@@ -987,6 +1117,8 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
     inline void setQSwipeGesture_IsSignalConnected_Callback(QSwipeGesture_IsSignalConnected_Callback cb) { qswipegesture_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSwipeGesture_MetaObject_IsBase(bool value) const { qswipegesture_metaobject_isbase = value; }
+    inline void setQSwipeGesture_Metacast_IsBase(bool value) const { qswipegesture_metacast_isbase = value; }
     inline void setQSwipeGesture_Metacall_IsBase(bool value) const { qswipegesture_metacall_isbase = value; }
     inline void setQSwipeGesture_Event_IsBase(bool value) const { qswipegesture_event_isbase = value; }
     inline void setQSwipeGesture_EventFilter_IsBase(bool value) const { qswipegesture_eventfilter_isbase = value; }
@@ -999,6 +1131,34 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
     inline void setQSwipeGesture_SenderSignalIndex_IsBase(bool value) const { qswipegesture_sendersignalindex_isbase = value; }
     inline void setQSwipeGesture_Receivers_IsBase(bool value) const { qswipegesture_receivers_isbase = value; }
     inline void setQSwipeGesture_IsSignalConnected_IsBase(bool value) const { qswipegesture_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qswipegesture_metaobject_isbase) {
+            qswipegesture_metaobject_isbase = false;
+            return QSwipeGesture::metaObject();
+        } else if (qswipegesture_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qswipegesture_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSwipeGesture::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qswipegesture_metacast_isbase) {
+            qswipegesture_metacast_isbase = false;
+            return QSwipeGesture::qt_metacast(param1);
+        } else if (qswipegesture_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qswipegesture_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSwipeGesture::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1209,6 +1369,8 @@ class VirtualQTapGesture final : public QTapGesture {
     bool isVirtualQTapGesture = true;
 
     // Virtual class public types (including callbacks)
+    using QTapGesture_MetaObject_Callback = QMetaObject* (*)();
+    using QTapGesture_Metacast_Callback = void* (*)(QTapGesture*, const char*);
     using QTapGesture_Metacall_Callback = int (*)(QTapGesture*, int, int, void**);
     using QTapGesture_Event_Callback = bool (*)(QTapGesture*, QEvent*);
     using QTapGesture_EventFilter_Callback = bool (*)(QTapGesture*, QObject*, QEvent*);
@@ -1224,6 +1386,8 @@ class VirtualQTapGesture final : public QTapGesture {
 
   protected:
     // Instance callback storage
+    QTapGesture_MetaObject_Callback qtapgesture_metaobject_callback = nullptr;
+    QTapGesture_Metacast_Callback qtapgesture_metacast_callback = nullptr;
     QTapGesture_Metacall_Callback qtapgesture_metacall_callback = nullptr;
     QTapGesture_Event_Callback qtapgesture_event_callback = nullptr;
     QTapGesture_EventFilter_Callback qtapgesture_eventfilter_callback = nullptr;
@@ -1238,6 +1402,8 @@ class VirtualQTapGesture final : public QTapGesture {
     QTapGesture_IsSignalConnected_Callback qtapgesture_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtapgesture_metaobject_isbase = false;
+    mutable bool qtapgesture_metacast_isbase = false;
     mutable bool qtapgesture_metacall_isbase = false;
     mutable bool qtapgesture_event_isbase = false;
     mutable bool qtapgesture_eventfilter_isbase = false;
@@ -1256,6 +1422,8 @@ class VirtualQTapGesture final : public QTapGesture {
     VirtualQTapGesture(QObject* parent) : QTapGesture(parent) {};
 
     ~VirtualQTapGesture() {
+        qtapgesture_metaobject_callback = nullptr;
+        qtapgesture_metacast_callback = nullptr;
         qtapgesture_metacall_callback = nullptr;
         qtapgesture_event_callback = nullptr;
         qtapgesture_eventfilter_callback = nullptr;
@@ -1271,6 +1439,8 @@ class VirtualQTapGesture final : public QTapGesture {
     }
 
     // Callback setters
+    inline void setQTapGesture_MetaObject_Callback(QTapGesture_MetaObject_Callback cb) { qtapgesture_metaobject_callback = cb; }
+    inline void setQTapGesture_Metacast_Callback(QTapGesture_Metacast_Callback cb) { qtapgesture_metacast_callback = cb; }
     inline void setQTapGesture_Metacall_Callback(QTapGesture_Metacall_Callback cb) { qtapgesture_metacall_callback = cb; }
     inline void setQTapGesture_Event_Callback(QTapGesture_Event_Callback cb) { qtapgesture_event_callback = cb; }
     inline void setQTapGesture_EventFilter_Callback(QTapGesture_EventFilter_Callback cb) { qtapgesture_eventfilter_callback = cb; }
@@ -1285,6 +1455,8 @@ class VirtualQTapGesture final : public QTapGesture {
     inline void setQTapGesture_IsSignalConnected_Callback(QTapGesture_IsSignalConnected_Callback cb) { qtapgesture_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTapGesture_MetaObject_IsBase(bool value) const { qtapgesture_metaobject_isbase = value; }
+    inline void setQTapGesture_Metacast_IsBase(bool value) const { qtapgesture_metacast_isbase = value; }
     inline void setQTapGesture_Metacall_IsBase(bool value) const { qtapgesture_metacall_isbase = value; }
     inline void setQTapGesture_Event_IsBase(bool value) const { qtapgesture_event_isbase = value; }
     inline void setQTapGesture_EventFilter_IsBase(bool value) const { qtapgesture_eventfilter_isbase = value; }
@@ -1297,6 +1469,34 @@ class VirtualQTapGesture final : public QTapGesture {
     inline void setQTapGesture_SenderSignalIndex_IsBase(bool value) const { qtapgesture_sendersignalindex_isbase = value; }
     inline void setQTapGesture_Receivers_IsBase(bool value) const { qtapgesture_receivers_isbase = value; }
     inline void setQTapGesture_IsSignalConnected_IsBase(bool value) const { qtapgesture_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtapgesture_metaobject_isbase) {
+            qtapgesture_metaobject_isbase = false;
+            return QTapGesture::metaObject();
+        } else if (qtapgesture_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtapgesture_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTapGesture::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtapgesture_metacast_isbase) {
+            qtapgesture_metacast_isbase = false;
+            return QTapGesture::qt_metacast(param1);
+        } else if (qtapgesture_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtapgesture_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTapGesture::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1507,6 +1707,8 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
     bool isVirtualQTapAndHoldGesture = true;
 
     // Virtual class public types (including callbacks)
+    using QTapAndHoldGesture_MetaObject_Callback = QMetaObject* (*)();
+    using QTapAndHoldGesture_Metacast_Callback = void* (*)(QTapAndHoldGesture*, const char*);
     using QTapAndHoldGesture_Metacall_Callback = int (*)(QTapAndHoldGesture*, int, int, void**);
     using QTapAndHoldGesture_Event_Callback = bool (*)(QTapAndHoldGesture*, QEvent*);
     using QTapAndHoldGesture_EventFilter_Callback = bool (*)(QTapAndHoldGesture*, QObject*, QEvent*);
@@ -1522,6 +1724,8 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
 
   protected:
     // Instance callback storage
+    QTapAndHoldGesture_MetaObject_Callback qtapandholdgesture_metaobject_callback = nullptr;
+    QTapAndHoldGesture_Metacast_Callback qtapandholdgesture_metacast_callback = nullptr;
     QTapAndHoldGesture_Metacall_Callback qtapandholdgesture_metacall_callback = nullptr;
     QTapAndHoldGesture_Event_Callback qtapandholdgesture_event_callback = nullptr;
     QTapAndHoldGesture_EventFilter_Callback qtapandholdgesture_eventfilter_callback = nullptr;
@@ -1536,6 +1740,8 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
     QTapAndHoldGesture_IsSignalConnected_Callback qtapandholdgesture_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtapandholdgesture_metaobject_isbase = false;
+    mutable bool qtapandholdgesture_metacast_isbase = false;
     mutable bool qtapandholdgesture_metacall_isbase = false;
     mutable bool qtapandholdgesture_event_isbase = false;
     mutable bool qtapandholdgesture_eventfilter_isbase = false;
@@ -1554,6 +1760,8 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
     VirtualQTapAndHoldGesture(QObject* parent) : QTapAndHoldGesture(parent) {};
 
     ~VirtualQTapAndHoldGesture() {
+        qtapandholdgesture_metaobject_callback = nullptr;
+        qtapandholdgesture_metacast_callback = nullptr;
         qtapandholdgesture_metacall_callback = nullptr;
         qtapandholdgesture_event_callback = nullptr;
         qtapandholdgesture_eventfilter_callback = nullptr;
@@ -1569,6 +1777,8 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
     }
 
     // Callback setters
+    inline void setQTapAndHoldGesture_MetaObject_Callback(QTapAndHoldGesture_MetaObject_Callback cb) { qtapandholdgesture_metaobject_callback = cb; }
+    inline void setQTapAndHoldGesture_Metacast_Callback(QTapAndHoldGesture_Metacast_Callback cb) { qtapandholdgesture_metacast_callback = cb; }
     inline void setQTapAndHoldGesture_Metacall_Callback(QTapAndHoldGesture_Metacall_Callback cb) { qtapandholdgesture_metacall_callback = cb; }
     inline void setQTapAndHoldGesture_Event_Callback(QTapAndHoldGesture_Event_Callback cb) { qtapandholdgesture_event_callback = cb; }
     inline void setQTapAndHoldGesture_EventFilter_Callback(QTapAndHoldGesture_EventFilter_Callback cb) { qtapandholdgesture_eventfilter_callback = cb; }
@@ -1583,6 +1793,8 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
     inline void setQTapAndHoldGesture_IsSignalConnected_Callback(QTapAndHoldGesture_IsSignalConnected_Callback cb) { qtapandholdgesture_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTapAndHoldGesture_MetaObject_IsBase(bool value) const { qtapandholdgesture_metaobject_isbase = value; }
+    inline void setQTapAndHoldGesture_Metacast_IsBase(bool value) const { qtapandholdgesture_metacast_isbase = value; }
     inline void setQTapAndHoldGesture_Metacall_IsBase(bool value) const { qtapandholdgesture_metacall_isbase = value; }
     inline void setQTapAndHoldGesture_Event_IsBase(bool value) const { qtapandholdgesture_event_isbase = value; }
     inline void setQTapAndHoldGesture_EventFilter_IsBase(bool value) const { qtapandholdgesture_eventfilter_isbase = value; }
@@ -1595,6 +1807,34 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
     inline void setQTapAndHoldGesture_SenderSignalIndex_IsBase(bool value) const { qtapandholdgesture_sendersignalindex_isbase = value; }
     inline void setQTapAndHoldGesture_Receivers_IsBase(bool value) const { qtapandholdgesture_receivers_isbase = value; }
     inline void setQTapAndHoldGesture_IsSignalConnected_IsBase(bool value) const { qtapandholdgesture_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtapandholdgesture_metaobject_isbase) {
+            qtapandholdgesture_metaobject_isbase = false;
+            return QTapAndHoldGesture::metaObject();
+        } else if (qtapandholdgesture_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtapandholdgesture_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTapAndHoldGesture::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtapandholdgesture_metacast_isbase) {
+            qtapandholdgesture_metacast_isbase = false;
+            return QTapAndHoldGesture::qt_metacast(param1);
+        } else if (qtapandholdgesture_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtapandholdgesture_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTapAndHoldGesture::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

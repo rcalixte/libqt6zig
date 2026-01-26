@@ -65,6 +65,10 @@ void QDesignerPropertyEditorInterface_Connect_PropertyChanged(QDesignerPropertyE
 void QDesignerPropertyEditorInterface_SetObject(QDesignerPropertyEditorInterface* self, QObject* object);
 void QDesignerPropertyEditorInterface_SetPropertyValue(QDesignerPropertyEditorInterface* self, const libqt_string name, const QVariant* value, bool changed);
 void QDesignerPropertyEditorInterface_SetReadOnly(QDesignerPropertyEditorInterface* self, bool readOnly);
+void QDesignerPropertyEditorInterface_OnMetaObject(const QDesignerPropertyEditorInterface* self, intptr_t slot);
+QMetaObject* QDesignerPropertyEditorInterface_QBaseMetaObject(const QDesignerPropertyEditorInterface* self);
+void QDesignerPropertyEditorInterface_OnMetacast(QDesignerPropertyEditorInterface* self, intptr_t slot);
+void* QDesignerPropertyEditorInterface_QBaseMetacast(QDesignerPropertyEditorInterface* self, const char* param1);
 void QDesignerPropertyEditorInterface_OnMetacall(QDesignerPropertyEditorInterface* self, intptr_t slot);
 int QDesignerPropertyEditorInterface_QBaseMetacall(QDesignerPropertyEditorInterface* self, int param1, int param2, void** param3);
 void QDesignerPropertyEditorInterface_OnCore(const QDesignerPropertyEditorInterface* self, intptr_t slot);

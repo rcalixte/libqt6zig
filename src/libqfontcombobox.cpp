@@ -52,11 +52,21 @@ QFontComboBox* QFontComboBox_new2() {
 }
 
 QMetaObject* QFontComboBox_MetaObject(const QFontComboBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqfontcombobox = dynamic_cast<const VirtualQFontComboBox*>(self);
+    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFontComboBox*)self)->metaObject();
+    }
 }
 
 void* QFontComboBox_Metacast(QFontComboBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
+    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFontComboBox*)self)->qt_metacast(param1);
+    }
 }
 
 int QFontComboBox_Metacall(QFontComboBox* self, int param1, int param2, void** param3) {
@@ -162,6 +172,44 @@ bool QFontComboBox_Event(QFontComboBox* self, QEvent* e) {
         return vqfontcombobox->event(e);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QFontComboBox_QBaseMetaObject(const QFontComboBox* self) {
+    auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
+    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
+        vqfontcombobox->setQFontComboBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vqfontcombobox->metaObject();
+    } else {
+        return (QMetaObject*)self->QFontComboBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFontComboBox_OnMetaObject(const QFontComboBox* self, intptr_t slot) {
+    auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
+    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
+        vqfontcombobox->setQFontComboBox_MetaObject_Callback(reinterpret_cast<VirtualQFontComboBox::QFontComboBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFontComboBox_QBaseMetacast(QFontComboBox* self, const char* param1) {
+    auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
+    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
+        vqfontcombobox->setQFontComboBox_Metacast_IsBase(true);
+        return vqfontcombobox->qt_metacast(param1);
+    } else {
+        return self->QFontComboBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFontComboBox_OnMetacast(QFontComboBox* self, intptr_t slot) {
+    auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
+    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
+        vqfontcombobox->setQFontComboBox_Metacast_Callback(reinterpret_cast<VirtualQFontComboBox::QFontComboBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -73,6 +73,10 @@ void KPageWidget_PageToggled(KPageWidget* self, KPageWidgetItem* page, bool chec
 void KPageWidget_Connect_PageToggled(KPageWidget* self, intptr_t slot);
 void KPageWidget_PageRemoved(KPageWidget* self, KPageWidgetItem* page);
 void KPageWidget_Connect_PageRemoved(KPageWidget* self, intptr_t slot);
+void KPageWidget_OnMetaObject(const KPageWidget* self, intptr_t slot);
+QMetaObject* KPageWidget_QBaseMetaObject(const KPageWidget* self);
+void KPageWidget_OnMetacast(KPageWidget* self, intptr_t slot);
+void* KPageWidget_QBaseMetacast(KPageWidget* self, const char* param1);
 void KPageWidget_OnMetacall(KPageWidget* self, intptr_t slot);
 int KPageWidget_QBaseMetacall(KPageWidget* self, int param1, int param2, void** param3);
 QAbstractItemView* KPageWidget_CreateView(KPageWidget* self);

@@ -146,6 +146,10 @@ void QWebEngineView_TriggerPageAction2(QWebEngineView* self, int action, bool ch
 void QWebEngineView_FindText2(QWebEngineView* self, const libqt_string subString, int options);
 void QWebEngineView_PrintToPdf22(QWebEngineView* self, const libqt_string filePath, const QPageLayout* layout);
 void QWebEngineView_PrintToPdf3(QWebEngineView* self, const libqt_string filePath, const QPageLayout* layout, const QPageRanges* ranges);
+void QWebEngineView_OnMetaObject(const QWebEngineView* self, intptr_t slot);
+QMetaObject* QWebEngineView_QBaseMetaObject(const QWebEngineView* self);
+void QWebEngineView_OnMetacast(QWebEngineView* self, intptr_t slot);
+void* QWebEngineView_QBaseMetacast(QWebEngineView* self, const char* param1);
 void QWebEngineView_OnMetacall(QWebEngineView* self, intptr_t slot);
 int QWebEngineView_QBaseMetacall(QWebEngineView* self, int param1, int param2, void** param3);
 void QWebEngineView_OnSizeHint(const QWebEngineView* self, intptr_t slot);

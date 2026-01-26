@@ -22,11 +22,21 @@ KShellCompletion* KShellCompletion_new() {
 }
 
 QMetaObject* KShellCompletion_MetaObject(const KShellCompletion* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkshellcompletion = dynamic_cast<const VirtualKShellCompletion*>(self);
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKShellCompletion*)self)->metaObject();
+    }
 }
 
 void* KShellCompletion_Metacast(KShellCompletion* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKShellCompletion*)self)->qt_metacast(param1);
+    }
 }
 
 int KShellCompletion_Metacall(KShellCompletion* self, int param1, int param2, void** param3) {
@@ -82,6 +92,44 @@ void KShellCompletion_PostProcessMatches2(const KShellCompletion* self, KComplet
     auto* vkshellcompletion = dynamic_cast<const VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->postProcessMatches(matches);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KShellCompletion_QBaseMetaObject(const KShellCompletion* self) {
+    auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+        vkshellcompletion->setKShellCompletion_MetaObject_IsBase(true);
+        return (QMetaObject*)vkshellcompletion->metaObject();
+    } else {
+        return (QMetaObject*)self->KShellCompletion::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KShellCompletion_OnMetaObject(const KShellCompletion* self, intptr_t slot) {
+    auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+        vkshellcompletion->setKShellCompletion_MetaObject_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KShellCompletion_QBaseMetacast(KShellCompletion* self, const char* param1) {
+    auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+        vkshellcompletion->setKShellCompletion_Metacast_IsBase(true);
+        return vkshellcompletion->qt_metacast(param1);
+    } else {
+        return self->KShellCompletion::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KShellCompletion_OnMetacast(KShellCompletion* self, intptr_t slot) {
+    auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+        vkshellcompletion->setKShellCompletion_Metacast_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_Metacast_Callback>(slot));
     }
 }
 

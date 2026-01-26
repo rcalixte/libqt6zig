@@ -17,6 +17,8 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     bool isVirtualQSqlTableModel = true;
 
     // Virtual class public types (including callbacks)
+    using QSqlTableModel_MetaObject_Callback = QMetaObject* (*)();
+    using QSqlTableModel_Metacast_Callback = void* (*)(QSqlTableModel*, const char*);
     using QSqlTableModel_Metacall_Callback = int (*)(QSqlTableModel*, int, int, void**);
     using QSqlTableModel_SetTable_Callback = void (*)(QSqlTableModel*, libqt_string);
     using QSqlTableModel_Flags_Callback = int (*)(const QSqlTableModel*, QModelIndex*);
@@ -105,6 +107,8 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
 
   protected:
     // Instance callback storage
+    QSqlTableModel_MetaObject_Callback qsqltablemodel_metaobject_callback = nullptr;
+    QSqlTableModel_Metacast_Callback qsqltablemodel_metacast_callback = nullptr;
     QSqlTableModel_Metacall_Callback qsqltablemodel_metacall_callback = nullptr;
     QSqlTableModel_SetTable_Callback qsqltablemodel_settable_callback = nullptr;
     QSqlTableModel_Flags_Callback qsqltablemodel_flags_callback = nullptr;
@@ -192,6 +196,8 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     QSqlTableModel_IsSignalConnected_Callback qsqltablemodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsqltablemodel_metaobject_isbase = false;
+    mutable bool qsqltablemodel_metacast_isbase = false;
     mutable bool qsqltablemodel_metacall_isbase = false;
     mutable bool qsqltablemodel_settable_isbase = false;
     mutable bool qsqltablemodel_flags_isbase = false;
@@ -284,6 +290,8 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     VirtualQSqlTableModel(QObject* parent, const QSqlDatabase& db) : QSqlTableModel(parent, db) {};
 
     ~VirtualQSqlTableModel() {
+        qsqltablemodel_metaobject_callback = nullptr;
+        qsqltablemodel_metacast_callback = nullptr;
         qsqltablemodel_metacall_callback = nullptr;
         qsqltablemodel_settable_callback = nullptr;
         qsqltablemodel_flags_callback = nullptr;
@@ -372,6 +380,8 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     }
 
     // Callback setters
+    inline void setQSqlTableModel_MetaObject_Callback(QSqlTableModel_MetaObject_Callback cb) { qsqltablemodel_metaobject_callback = cb; }
+    inline void setQSqlTableModel_Metacast_Callback(QSqlTableModel_Metacast_Callback cb) { qsqltablemodel_metacast_callback = cb; }
     inline void setQSqlTableModel_Metacall_Callback(QSqlTableModel_Metacall_Callback cb) { qsqltablemodel_metacall_callback = cb; }
     inline void setQSqlTableModel_SetTable_Callback(QSqlTableModel_SetTable_Callback cb) { qsqltablemodel_settable_callback = cb; }
     inline void setQSqlTableModel_Flags_Callback(QSqlTableModel_Flags_Callback cb) { qsqltablemodel_flags_callback = cb; }
@@ -459,6 +469,8 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     inline void setQSqlTableModel_IsSignalConnected_Callback(QSqlTableModel_IsSignalConnected_Callback cb) { qsqltablemodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSqlTableModel_MetaObject_IsBase(bool value) const { qsqltablemodel_metaobject_isbase = value; }
+    inline void setQSqlTableModel_Metacast_IsBase(bool value) const { qsqltablemodel_metacast_isbase = value; }
     inline void setQSqlTableModel_Metacall_IsBase(bool value) const { qsqltablemodel_metacall_isbase = value; }
     inline void setQSqlTableModel_SetTable_IsBase(bool value) const { qsqltablemodel_settable_isbase = value; }
     inline void setQSqlTableModel_Flags_IsBase(bool value) const { qsqltablemodel_flags_isbase = value; }
@@ -544,6 +556,34 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     inline void setQSqlTableModel_SenderSignalIndex_IsBase(bool value) const { qsqltablemodel_sendersignalindex_isbase = value; }
     inline void setQSqlTableModel_Receivers_IsBase(bool value) const { qsqltablemodel_receivers_isbase = value; }
     inline void setQSqlTableModel_IsSignalConnected_IsBase(bool value) const { qsqltablemodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsqltablemodel_metaobject_isbase) {
+            qsqltablemodel_metaobject_isbase = false;
+            return QSqlTableModel::metaObject();
+        } else if (qsqltablemodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsqltablemodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSqlTableModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsqltablemodel_metacast_isbase) {
+            qsqltablemodel_metacast_isbase = false;
+            return QSqlTableModel::qt_metacast(param1);
+        } else if (qsqltablemodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsqltablemodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSqlTableModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

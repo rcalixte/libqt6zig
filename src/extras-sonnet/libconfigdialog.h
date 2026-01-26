@@ -66,6 +66,10 @@ void Sonnet__ConfigDialog_LanguageChanged(Sonnet__ConfigDialog* self, const libq
 void Sonnet__ConfigDialog_Connect_LanguageChanged(Sonnet__ConfigDialog* self, intptr_t slot);
 void Sonnet__ConfigDialog_ConfigChanged(Sonnet__ConfigDialog* self);
 void Sonnet__ConfigDialog_Connect_ConfigChanged(Sonnet__ConfigDialog* self, intptr_t slot);
+void Sonnet__ConfigDialog_OnMetaObject(const Sonnet__ConfigDialog* self, intptr_t slot);
+QMetaObject* Sonnet__ConfigDialog_QBaseMetaObject(const Sonnet__ConfigDialog* self);
+void Sonnet__ConfigDialog_OnMetacast(Sonnet__ConfigDialog* self, intptr_t slot);
+void* Sonnet__ConfigDialog_QBaseMetacast(Sonnet__ConfigDialog* self, const char* param1);
 void Sonnet__ConfigDialog_OnMetacall(Sonnet__ConfigDialog* self, intptr_t slot);
 int Sonnet__ConfigDialog_QBaseMetacall(Sonnet__ConfigDialog* self, int param1, int param2, void** param3);
 void Sonnet__ConfigDialog_OnSlotOk(Sonnet__ConfigDialog* self, intptr_t slot);

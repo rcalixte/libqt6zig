@@ -58,11 +58,21 @@ KPlotWidget* KPlotWidget_new2() {
 }
 
 QMetaObject* KPlotWidget_MetaObject(const KPlotWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkplotwidget = dynamic_cast<const VirtualKPlotWidget*>(self);
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPlotWidget*)self)->metaObject();
+    }
 }
 
 void* KPlotWidget_Metacast(KPlotWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPlotWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KPlotWidget_Metacall(KPlotWidget* self, int param1, int param2, void** param3) {
@@ -306,6 +316,44 @@ void KPlotWidget_MaskRect2(KPlotWidget* self, const QRectF* r, float value) {
 
 void KPlotWidget_MaskAlongLine3(KPlotWidget* self, const QPointF* p1, const QPointF* p2, float value) {
     self->maskAlongLine(*p1, *p2, static_cast<float>(value));
+}
+
+// Base class handler implementation
+QMetaObject* KPlotWidget_QBaseMetaObject(const KPlotWidget* self) {
+    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+        vkplotwidget->setKPlotWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkplotwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KPlotWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPlotWidget_OnMetaObject(const KPlotWidget* self, intptr_t slot) {
+    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+        vkplotwidget->setKPlotWidget_MetaObject_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPlotWidget_QBaseMetacast(KPlotWidget* self, const char* param1) {
+    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+        vkplotwidget->setKPlotWidget_Metacast_IsBase(true);
+        return vkplotwidget->qt_metacast(param1);
+    } else {
+        return self->KPlotWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPlotWidget_OnMetacast(KPlotWidget* self, intptr_t slot) {
+    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+        vkplotwidget->setKPlotWidget_Metacast_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

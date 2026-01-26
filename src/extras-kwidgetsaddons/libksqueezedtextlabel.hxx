@@ -17,6 +17,8 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
     bool isVirtualKSqueezedTextLabel = true;
 
     // Virtual class public types (including callbacks)
+    using KSqueezedTextLabel_MetaObject_Callback = QMetaObject* (*)();
+    using KSqueezedTextLabel_Metacast_Callback = void* (*)(KSqueezedTextLabel*, const char*);
     using KSqueezedTextLabel_Metacall_Callback = int (*)(KSqueezedTextLabel*, int, int, void**);
     using KSqueezedTextLabel_MinimumSizeHint_Callback = QSize* (*)();
     using KSqueezedTextLabel_SizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
 
   protected:
     // Instance callback storage
+    KSqueezedTextLabel_MetaObject_Callback ksqueezedtextlabel_metaobject_callback = nullptr;
+    KSqueezedTextLabel_Metacast_Callback ksqueezedtextlabel_metacast_callback = nullptr;
     KSqueezedTextLabel_Metacall_Callback ksqueezedtextlabel_metacall_callback = nullptr;
     KSqueezedTextLabel_MinimumSizeHint_Callback ksqueezedtextlabel_minimumsizehint_callback = nullptr;
     KSqueezedTextLabel_SizeHint_Callback ksqueezedtextlabel_sizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
     KSqueezedTextLabel_GetDecodedMetricF_Callback ksqueezedtextlabel_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ksqueezedtextlabel_metaobject_isbase = false;
+    mutable bool ksqueezedtextlabel_metacast_isbase = false;
     mutable bool ksqueezedtextlabel_metacall_isbase = false;
     mutable bool ksqueezedtextlabel_minimumsizehint_isbase = false;
     mutable bool ksqueezedtextlabel_sizehint_isbase = false;
@@ -216,6 +222,8 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
     VirtualKSqueezedTextLabel(const QString& text, QWidget* parent) : KSqueezedTextLabel(text, parent) {};
 
     ~VirtualKSqueezedTextLabel() {
+        ksqueezedtextlabel_metaobject_callback = nullptr;
+        ksqueezedtextlabel_metacast_callback = nullptr;
         ksqueezedtextlabel_metacall_callback = nullptr;
         ksqueezedtextlabel_minimumsizehint_callback = nullptr;
         ksqueezedtextlabel_sizehint_callback = nullptr;
@@ -281,6 +289,8 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
     }
 
     // Callback setters
+    inline void setKSqueezedTextLabel_MetaObject_Callback(KSqueezedTextLabel_MetaObject_Callback cb) { ksqueezedtextlabel_metaobject_callback = cb; }
+    inline void setKSqueezedTextLabel_Metacast_Callback(KSqueezedTextLabel_Metacast_Callback cb) { ksqueezedtextlabel_metacast_callback = cb; }
     inline void setKSqueezedTextLabel_Metacall_Callback(KSqueezedTextLabel_Metacall_Callback cb) { ksqueezedtextlabel_metacall_callback = cb; }
     inline void setKSqueezedTextLabel_MinimumSizeHint_Callback(KSqueezedTextLabel_MinimumSizeHint_Callback cb) { ksqueezedtextlabel_minimumsizehint_callback = cb; }
     inline void setKSqueezedTextLabel_SizeHint_Callback(KSqueezedTextLabel_SizeHint_Callback cb) { ksqueezedtextlabel_sizehint_callback = cb; }
@@ -345,6 +355,8 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
     inline void setKSqueezedTextLabel_GetDecodedMetricF_Callback(KSqueezedTextLabel_GetDecodedMetricF_Callback cb) { ksqueezedtextlabel_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKSqueezedTextLabel_MetaObject_IsBase(bool value) const { ksqueezedtextlabel_metaobject_isbase = value; }
+    inline void setKSqueezedTextLabel_Metacast_IsBase(bool value) const { ksqueezedtextlabel_metacast_isbase = value; }
     inline void setKSqueezedTextLabel_Metacall_IsBase(bool value) const { ksqueezedtextlabel_metacall_isbase = value; }
     inline void setKSqueezedTextLabel_MinimumSizeHint_IsBase(bool value) const { ksqueezedtextlabel_minimumsizehint_isbase = value; }
     inline void setKSqueezedTextLabel_SizeHint_IsBase(bool value) const { ksqueezedtextlabel_sizehint_isbase = value; }
@@ -407,6 +419,34 @@ class VirtualKSqueezedTextLabel final : public KSqueezedTextLabel {
     inline void setKSqueezedTextLabel_Receivers_IsBase(bool value) const { ksqueezedtextlabel_receivers_isbase = value; }
     inline void setKSqueezedTextLabel_IsSignalConnected_IsBase(bool value) const { ksqueezedtextlabel_issignalconnected_isbase = value; }
     inline void setKSqueezedTextLabel_GetDecodedMetricF_IsBase(bool value) const { ksqueezedtextlabel_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ksqueezedtextlabel_metaobject_isbase) {
+            ksqueezedtextlabel_metaobject_isbase = false;
+            return KSqueezedTextLabel::metaObject();
+        } else if (ksqueezedtextlabel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ksqueezedtextlabel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSqueezedTextLabel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ksqueezedtextlabel_metacast_isbase) {
+            ksqueezedtextlabel_metacast_isbase = false;
+            return KSqueezedTextLabel::qt_metacast(param1);
+        } else if (ksqueezedtextlabel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ksqueezedtextlabel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSqueezedTextLabel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

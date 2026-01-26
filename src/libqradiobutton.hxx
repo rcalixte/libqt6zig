@@ -17,6 +17,8 @@ class VirtualQRadioButton final : public QRadioButton {
     bool isVirtualQRadioButton = true;
 
     // Virtual class public types (including callbacks)
+    using QRadioButton_MetaObject_Callback = QMetaObject* (*)();
+    using QRadioButton_Metacast_Callback = void* (*)(QRadioButton*, const char*);
     using QRadioButton_Metacall_Callback = int (*)(QRadioButton*, int, int, void**);
     using QRadioButton_SizeHint_Callback = QSize* (*)();
     using QRadioButton_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualQRadioButton final : public QRadioButton {
 
   protected:
     // Instance callback storage
+    QRadioButton_MetaObject_Callback qradiobutton_metaobject_callback = nullptr;
+    QRadioButton_Metacast_Callback qradiobutton_metacast_callback = nullptr;
     QRadioButton_Metacall_Callback qradiobutton_metacall_callback = nullptr;
     QRadioButton_SizeHint_Callback qradiobutton_sizehint_callback = nullptr;
     QRadioButton_MinimumSizeHint_Callback qradiobutton_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQRadioButton final : public QRadioButton {
     QRadioButton_GetDecodedMetricF_Callback qradiobutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qradiobutton_metaobject_isbase = false;
+    mutable bool qradiobutton_metacast_isbase = false;
     mutable bool qradiobutton_metacall_isbase = false;
     mutable bool qradiobutton_sizehint_isbase = false;
     mutable bool qradiobutton_minimumsizehint_isbase = false;
@@ -216,6 +222,8 @@ class VirtualQRadioButton final : public QRadioButton {
     VirtualQRadioButton(const QString& text, QWidget* parent) : QRadioButton(text, parent) {};
 
     ~VirtualQRadioButton() {
+        qradiobutton_metaobject_callback = nullptr;
+        qradiobutton_metacast_callback = nullptr;
         qradiobutton_metacall_callback = nullptr;
         qradiobutton_sizehint_callback = nullptr;
         qradiobutton_minimumsizehint_callback = nullptr;
@@ -281,6 +289,8 @@ class VirtualQRadioButton final : public QRadioButton {
     }
 
     // Callback setters
+    inline void setQRadioButton_MetaObject_Callback(QRadioButton_MetaObject_Callback cb) { qradiobutton_metaobject_callback = cb; }
+    inline void setQRadioButton_Metacast_Callback(QRadioButton_Metacast_Callback cb) { qradiobutton_metacast_callback = cb; }
     inline void setQRadioButton_Metacall_Callback(QRadioButton_Metacall_Callback cb) { qradiobutton_metacall_callback = cb; }
     inline void setQRadioButton_SizeHint_Callback(QRadioButton_SizeHint_Callback cb) { qradiobutton_sizehint_callback = cb; }
     inline void setQRadioButton_MinimumSizeHint_Callback(QRadioButton_MinimumSizeHint_Callback cb) { qradiobutton_minimumsizehint_callback = cb; }
@@ -345,6 +355,8 @@ class VirtualQRadioButton final : public QRadioButton {
     inline void setQRadioButton_GetDecodedMetricF_Callback(QRadioButton_GetDecodedMetricF_Callback cb) { qradiobutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQRadioButton_MetaObject_IsBase(bool value) const { qradiobutton_metaobject_isbase = value; }
+    inline void setQRadioButton_Metacast_IsBase(bool value) const { qradiobutton_metacast_isbase = value; }
     inline void setQRadioButton_Metacall_IsBase(bool value) const { qradiobutton_metacall_isbase = value; }
     inline void setQRadioButton_SizeHint_IsBase(bool value) const { qradiobutton_sizehint_isbase = value; }
     inline void setQRadioButton_MinimumSizeHint_IsBase(bool value) const { qradiobutton_minimumsizehint_isbase = value; }
@@ -407,6 +419,34 @@ class VirtualQRadioButton final : public QRadioButton {
     inline void setQRadioButton_Receivers_IsBase(bool value) const { qradiobutton_receivers_isbase = value; }
     inline void setQRadioButton_IsSignalConnected_IsBase(bool value) const { qradiobutton_issignalconnected_isbase = value; }
     inline void setQRadioButton_GetDecodedMetricF_IsBase(bool value) const { qradiobutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qradiobutton_metaobject_isbase) {
+            qradiobutton_metaobject_isbase = false;
+            return QRadioButton::metaObject();
+        } else if (qradiobutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qradiobutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QRadioButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qradiobutton_metacast_isbase) {
+            qradiobutton_metacast_isbase = false;
+            return QRadioButton::qt_metacast(param1);
+        } else if (qradiobutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qradiobutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QRadioButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

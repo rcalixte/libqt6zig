@@ -33,11 +33,21 @@ KSelectAction* KSelectAction_new3(const QIcon* icon, const libqt_string text, QO
 }
 
 QMetaObject* KSelectAction_MetaObject(const KSelectAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkselectaction = dynamic_cast<const VirtualKSelectAction*>(self);
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSelectAction*)self)->metaObject();
+    }
 }
 
 void* KSelectAction_Metacast(KSelectAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSelectAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KSelectAction_Metacall(KSelectAction* self, int param1, int param2, void** param3) {
@@ -319,6 +329,44 @@ QAction* KSelectAction_Action22(const KSelectAction* self, const libqt_string te
 bool KSelectAction_SetCurrentAction22(KSelectAction* self, const libqt_string text, int cs) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->setCurrentAction(text_QString, static_cast<Qt::CaseSensitivity>(cs));
+}
+
+// Base class handler implementation
+QMetaObject* KSelectAction_QBaseMetaObject(const KSelectAction* self) {
+    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+        vkselectaction->setKSelectAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vkselectaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KSelectAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectAction_OnMetaObject(const KSelectAction* self, intptr_t slot) {
+    auto* vkselectaction = const_cast<VirtualKSelectAction*>(dynamic_cast<const VirtualKSelectAction*>(self));
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+        vkselectaction->setKSelectAction_MetaObject_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSelectAction_QBaseMetacast(KSelectAction* self, const char* param1) {
+    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+        vkselectaction->setKSelectAction_Metacast_IsBase(true);
+        return vkselectaction->qt_metacast(param1);
+    } else {
+        return self->KSelectAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectAction_OnMetacast(KSelectAction* self, intptr_t slot) {
+    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
+    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
+        vkselectaction->setKSelectAction_Metacast_Callback(reinterpret_cast<VirtualKSelectAction::KSelectAction_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

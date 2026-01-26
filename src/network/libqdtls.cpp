@@ -31,11 +31,21 @@ QDtlsClientVerifier* QDtlsClientVerifier_new2(QObject* parent) {
 }
 
 QMetaObject* QDtlsClientVerifier_MetaObject(const QDtlsClientVerifier* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdtlsclientverifier = dynamic_cast<const VirtualQDtlsClientVerifier*>(self);
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDtlsClientVerifier*)self)->metaObject();
+    }
 }
 
 void* QDtlsClientVerifier_Metacast(QDtlsClientVerifier* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDtlsClientVerifier*)self)->qt_metacast(param1);
+    }
 }
 
 int QDtlsClientVerifier_Metacall(QDtlsClientVerifier* self, int param1, int param2, void** param3) {
@@ -84,6 +94,44 @@ libqt_string QDtlsClientVerifier_DtlsErrorString(const QDtlsClientVerifier* self
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* QDtlsClientVerifier_QBaseMetaObject(const QDtlsClientVerifier* self) {
+    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+        vqdtlsclientverifier->setQDtlsClientVerifier_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdtlsclientverifier->metaObject();
+    } else {
+        return (QMetaObject*)self->QDtlsClientVerifier::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDtlsClientVerifier_OnMetaObject(const QDtlsClientVerifier* self, intptr_t slot) {
+    auto* vqdtlsclientverifier = const_cast<VirtualQDtlsClientVerifier*>(dynamic_cast<const VirtualQDtlsClientVerifier*>(self));
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+        vqdtlsclientverifier->setQDtlsClientVerifier_MetaObject_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDtlsClientVerifier_QBaseMetacast(QDtlsClientVerifier* self, const char* param1) {
+    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+        vqdtlsclientverifier->setQDtlsClientVerifier_Metacast_IsBase(true);
+        return vqdtlsclientverifier->qt_metacast(param1);
+    } else {
+        return self->QDtlsClientVerifier::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDtlsClientVerifier_OnMetacast(QDtlsClientVerifier* self, intptr_t slot) {
+    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
+    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
+        vqdtlsclientverifier->setQDtlsClientVerifier_Metacast_Callback(reinterpret_cast<VirtualQDtlsClientVerifier::QDtlsClientVerifier_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -437,11 +485,21 @@ QDtls* QDtls_new2(int mode, QObject* parent) {
 }
 
 QMetaObject* QDtls_MetaObject(const QDtls* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdtls = dynamic_cast<const VirtualQDtls*>(self);
+    if (vqdtls && vqdtls->isVirtualQDtls) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDtls*)self)->metaObject();
+    }
 }
 
 void* QDtls_Metacast(QDtls* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
+    if (vqdtls && vqdtls->isVirtualQDtls) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDtls*)self)->qt_metacast(param1);
+    }
 }
 
 int QDtls_Metacall(QDtls* self, int param1, int param2, void** param3) {
@@ -632,6 +690,44 @@ bool QDtls_SetPeer3(QDtls* self, const QHostAddress* address, uint16_t port, con
 bool QDtls_DoHandshake2(QDtls* self, QUdpSocket* socket, const libqt_string dgram) {
     QByteArray dgram_QByteArray(dgram.data, dgram.len);
     return self->doHandshake(socket, dgram_QByteArray);
+}
+
+// Base class handler implementation
+QMetaObject* QDtls_QBaseMetaObject(const QDtls* self) {
+    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
+    if (vqdtls && vqdtls->isVirtualQDtls) {
+        vqdtls->setQDtls_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdtls->metaObject();
+    } else {
+        return (QMetaObject*)self->QDtls::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDtls_OnMetaObject(const QDtls* self, intptr_t slot) {
+    auto* vqdtls = const_cast<VirtualQDtls*>(dynamic_cast<const VirtualQDtls*>(self));
+    if (vqdtls && vqdtls->isVirtualQDtls) {
+        vqdtls->setQDtls_MetaObject_Callback(reinterpret_cast<VirtualQDtls::QDtls_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDtls_QBaseMetacast(QDtls* self, const char* param1) {
+    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
+    if (vqdtls && vqdtls->isVirtualQDtls) {
+        vqdtls->setQDtls_Metacast_IsBase(true);
+        return vqdtls->qt_metacast(param1);
+    } else {
+        return self->QDtls::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDtls_OnMetacast(QDtls* self, intptr_t slot) {
+    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
+    if (vqdtls && vqdtls->isVirtualQDtls) {
+        vqdtls->setQDtls_Metacast_Callback(reinterpret_cast<VirtualQDtls::QDtls_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

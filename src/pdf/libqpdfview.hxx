@@ -17,6 +17,8 @@ class VirtualQPdfView final : public QPdfView {
     bool isVirtualQPdfView = true;
 
     // Virtual class public types (including callbacks)
+    using QPdfView_MetaObject_Callback = QMetaObject* (*)();
+    using QPdfView_Metacast_Callback = void* (*)(QPdfView*, const char*);
     using QPdfView_Metacall_Callback = int (*)(QPdfView*, int, int, void**);
     using QPdfView_PaintEvent_Callback = void (*)(QPdfView*, QPaintEvent*);
     using QPdfView_ResizeEvent_Callback = void (*)(QPdfView*, QResizeEvent*);
@@ -86,6 +88,8 @@ class VirtualQPdfView final : public QPdfView {
 
   protected:
     // Instance callback storage
+    QPdfView_MetaObject_Callback qpdfview_metaobject_callback = nullptr;
+    QPdfView_Metacast_Callback qpdfview_metacast_callback = nullptr;
     QPdfView_Metacall_Callback qpdfview_metacall_callback = nullptr;
     QPdfView_PaintEvent_Callback qpdfview_paintevent_callback = nullptr;
     QPdfView_ResizeEvent_Callback qpdfview_resizeevent_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualQPdfView final : public QPdfView {
     QPdfView_GetDecodedMetricF_Callback qpdfview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpdfview_metaobject_isbase = false;
+    mutable bool qpdfview_metacast_isbase = false;
     mutable bool qpdfview_metacall_isbase = false;
     mutable bool qpdfview_paintevent_isbase = false;
     mutable bool qpdfview_resizeevent_isbase = false;
@@ -226,6 +232,8 @@ class VirtualQPdfView final : public QPdfView {
     VirtualQPdfView() : QPdfView() {};
 
     ~VirtualQPdfView() {
+        qpdfview_metaobject_callback = nullptr;
+        qpdfview_metacast_callback = nullptr;
         qpdfview_metacall_callback = nullptr;
         qpdfview_paintevent_callback = nullptr;
         qpdfview_resizeevent_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualQPdfView final : public QPdfView {
     }
 
     // Callback setters
+    inline void setQPdfView_MetaObject_Callback(QPdfView_MetaObject_Callback cb) { qpdfview_metaobject_callback = cb; }
+    inline void setQPdfView_Metacast_Callback(QPdfView_Metacast_Callback cb) { qpdfview_metacast_callback = cb; }
     inline void setQPdfView_Metacall_Callback(QPdfView_Metacall_Callback cb) { qpdfview_metacall_callback = cb; }
     inline void setQPdfView_PaintEvent_Callback(QPdfView_PaintEvent_Callback cb) { qpdfview_paintevent_callback = cb; }
     inline void setQPdfView_ResizeEvent_Callback(QPdfView_ResizeEvent_Callback cb) { qpdfview_resizeevent_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualQPdfView final : public QPdfView {
     inline void setQPdfView_GetDecodedMetricF_Callback(QPdfView_GetDecodedMetricF_Callback cb) { qpdfview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQPdfView_MetaObject_IsBase(bool value) const { qpdfview_metaobject_isbase = value; }
+    inline void setQPdfView_Metacast_IsBase(bool value) const { qpdfview_metacast_isbase = value; }
     inline void setQPdfView_Metacall_IsBase(bool value) const { qpdfview_metacall_isbase = value; }
     inline void setQPdfView_PaintEvent_IsBase(bool value) const { qpdfview_paintevent_isbase = value; }
     inline void setQPdfView_ResizeEvent_IsBase(bool value) const { qpdfview_resizeevent_isbase = value; }
@@ -429,6 +441,34 @@ class VirtualQPdfView final : public QPdfView {
     inline void setQPdfView_Receivers_IsBase(bool value) const { qpdfview_receivers_isbase = value; }
     inline void setQPdfView_IsSignalConnected_IsBase(bool value) const { qpdfview_issignalconnected_isbase = value; }
     inline void setQPdfView_GetDecodedMetricF_IsBase(bool value) const { qpdfview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpdfview_metaobject_isbase) {
+            qpdfview_metaobject_isbase = false;
+            return QPdfView::metaObject();
+        } else if (qpdfview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpdfview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPdfView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpdfview_metacast_isbase) {
+            qpdfview_metacast_isbase = false;
+            return QPdfView::qt_metacast(param1);
+        } else if (qpdfview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpdfview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPdfView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

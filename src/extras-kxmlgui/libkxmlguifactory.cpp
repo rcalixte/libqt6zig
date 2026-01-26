@@ -28,11 +28,21 @@ KXMLGUIFactory* KXMLGUIFactory_new2(KXMLGUIBuilder* builder, QObject* parent) {
 }
 
 QMetaObject* KXMLGUIFactory_MetaObject(const KXMLGUIFactory* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkxmlguifactory = dynamic_cast<const VirtualKXMLGUIFactory*>(self);
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKXMLGUIFactory*)self)->metaObject();
+    }
 }
 
 void* KXMLGUIFactory_Metacast(KXMLGUIFactory* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKXMLGUIFactory*)self)->qt_metacast(param1);
+    }
 }
 
 int KXMLGUIFactory_Metacall(KXMLGUIFactory* self, int param1, int param2, void** param3) {
@@ -224,6 +234,44 @@ QWidget* KXMLGUIFactory_Container3(KXMLGUIFactory* self, const libqt_string cont
 void KXMLGUIFactory_ResetContainer2(KXMLGUIFactory* self, const libqt_string containerName, bool useTagName) {
     QString containerName_QString = QString::fromUtf8(containerName.data, containerName.len);
     self->resetContainer(containerName_QString, useTagName);
+}
+
+// Base class handler implementation
+QMetaObject* KXMLGUIFactory_QBaseMetaObject(const KXMLGUIFactory* self) {
+    auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+        vkxmlguifactory->setKXMLGUIFactory_MetaObject_IsBase(true);
+        return (QMetaObject*)vkxmlguifactory->metaObject();
+    } else {
+        return (QMetaObject*)self->KXMLGUIFactory::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXMLGUIFactory_OnMetaObject(const KXMLGUIFactory* self, intptr_t slot) {
+    auto* vkxmlguifactory = const_cast<VirtualKXMLGUIFactory*>(dynamic_cast<const VirtualKXMLGUIFactory*>(self));
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+        vkxmlguifactory->setKXMLGUIFactory_MetaObject_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KXMLGUIFactory_QBaseMetacast(KXMLGUIFactory* self, const char* param1) {
+    auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+        vkxmlguifactory->setKXMLGUIFactory_Metacast_IsBase(true);
+        return vkxmlguifactory->qt_metacast(param1);
+    } else {
+        return self->KXMLGUIFactory::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXMLGUIFactory_OnMetacast(KXMLGUIFactory* self, intptr_t slot) {
+    auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
+    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
+        vkxmlguifactory->setKXMLGUIFactory_Metacast_Callback(reinterpret_cast<VirtualKXMLGUIFactory::KXMLGUIFactory_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

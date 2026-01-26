@@ -24,11 +24,21 @@ QThreadPool* QThreadPool_new2(QObject* parent) {
 }
 
 QMetaObject* QThreadPool_MetaObject(const QThreadPool* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqthreadpool = dynamic_cast<const VirtualQThreadPool*>(self);
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQThreadPool*)self)->metaObject();
+    }
 }
 
 void* QThreadPool_Metacast(QThreadPool* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQThreadPool*)self)->qt_metacast(param1);
+    }
 }
 
 int QThreadPool_Metacall(QThreadPool* self, int param1, int param2, void** param3) {
@@ -126,6 +136,44 @@ void QThreadPool_Start2(QThreadPool* self, QRunnable* runnable, int priority) {
 
 bool QThreadPool_WaitForDone1(QThreadPool* self, QDeadlineTimer* deadline) {
     return self->waitForDone(*deadline);
+}
+
+// Base class handler implementation
+QMetaObject* QThreadPool_QBaseMetaObject(const QThreadPool* self) {
+    auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+        vqthreadpool->setQThreadPool_MetaObject_IsBase(true);
+        return (QMetaObject*)vqthreadpool->metaObject();
+    } else {
+        return (QMetaObject*)self->QThreadPool::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QThreadPool_OnMetaObject(const QThreadPool* self, intptr_t slot) {
+    auto* vqthreadpool = const_cast<VirtualQThreadPool*>(dynamic_cast<const VirtualQThreadPool*>(self));
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+        vqthreadpool->setQThreadPool_MetaObject_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QThreadPool_QBaseMetacast(QThreadPool* self, const char* param1) {
+    auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+        vqthreadpool->setQThreadPool_Metacast_IsBase(true);
+        return vqthreadpool->qt_metacast(param1);
+    } else {
+        return self->QThreadPool::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QThreadPool_OnMetacast(QThreadPool* self, intptr_t slot) {
+    auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
+    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
+        vqthreadpool->setQThreadPool_Metacast_Callback(reinterpret_cast<VirtualQThreadPool::QThreadPool_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

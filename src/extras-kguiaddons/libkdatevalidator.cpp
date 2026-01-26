@@ -23,11 +23,21 @@ KDateValidator* KDateValidator_new2(QObject* parent) {
 }
 
 QMetaObject* KDateValidator_MetaObject(const KDateValidator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdatevalidator = dynamic_cast<const VirtualKDateValidator*>(self);
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDateValidator*)self)->metaObject();
+    }
 }
 
 void* KDateValidator_Metacast(KDateValidator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDateValidator*)self)->qt_metacast(param1);
+    }
 }
 
 int KDateValidator_Metacall(KDateValidator* self, int param1, int param2, void** param3) {
@@ -62,6 +72,44 @@ void KDateValidator_Fixup(const KDateValidator* self, libqt_string input) {
 int KDateValidator_Date(const KDateValidator* self, const libqt_string text, QDate* date) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return static_cast<int>(self->date(text_QString, *date));
+}
+
+// Base class handler implementation
+QMetaObject* KDateValidator_QBaseMetaObject(const KDateValidator* self) {
+    auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdatevalidator->metaObject();
+    } else {
+        return (QMetaObject*)self->KDateValidator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateValidator_OnMetaObject(const KDateValidator* self, intptr_t slot) {
+    auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_MetaObject_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDateValidator_QBaseMetacast(KDateValidator* self, const char* param1) {
+    auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_Metacast_IsBase(true);
+        return vkdatevalidator->qt_metacast(param1);
+    } else {
+        return self->KDateValidator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateValidator_OnMetacast(KDateValidator* self, intptr_t slot) {
+    auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+        vkdatevalidator->setKDateValidator_Metacast_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

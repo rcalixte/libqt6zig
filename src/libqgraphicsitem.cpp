@@ -1836,11 +1836,21 @@ QGraphicsObject* QGraphicsObject_new2(QGraphicsItem* parent) {
 }
 
 QMetaObject* QGraphicsObject_MetaObject(const QGraphicsObject* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsobject = dynamic_cast<const VirtualQGraphicsObject*>(self);
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsObject*)self)->metaObject();
+    }
 }
 
 void* QGraphicsObject_Metacast(QGraphicsObject* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsObject*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsObject_Metacall(QGraphicsObject* self, int param1, int param2, void** param3) {
@@ -2002,6 +2012,44 @@ bool QGraphicsObject_Event(QGraphicsObject* self, QEvent* ev) {
 
 void QGraphicsObject_GrabGesture2(QGraphicsObject* self, int typeVal, int flags) {
     self->grabGesture(static_cast<Qt::GestureType>(typeVal), static_cast<Qt::GestureFlags>(flags));
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsObject_QBaseMetaObject(const QGraphicsObject* self) {
+    auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        vqgraphicsobject->setQGraphicsObject_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsobject->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsObject::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsObject_OnMetaObject(const QGraphicsObject* self, intptr_t slot) {
+    auto* vqgraphicsobject = const_cast<VirtualQGraphicsObject*>(dynamic_cast<const VirtualQGraphicsObject*>(self));
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        vqgraphicsobject->setQGraphicsObject_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsObject::QGraphicsObject_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsObject_QBaseMetacast(QGraphicsObject* self, const char* param1) {
+    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        vqgraphicsobject->setQGraphicsObject_Metacast_IsBase(true);
+        return vqgraphicsobject->qt_metacast(param1);
+    } else {
+        return self->QGraphicsObject::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsObject_OnMetacast(QGraphicsObject* self, intptr_t slot) {
+    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
+    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
+        vqgraphicsobject->setQGraphicsObject_Metacast_Callback(reinterpret_cast<VirtualQGraphicsObject::QGraphicsObject_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -11551,11 +11599,21 @@ QGraphicsTextItem* QGraphicsTextItem_new4(const libqt_string text, QGraphicsItem
 }
 
 QMetaObject* QGraphicsTextItem_MetaObject(const QGraphicsTextItem* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsTextItem*)self)->metaObject();
+    }
 }
 
 void* QGraphicsTextItem_Metacast(QGraphicsTextItem* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsTextItem*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsTextItem_Metacall(QGraphicsTextItem* self, int param1, int param2, void** param3) {
@@ -11928,6 +11986,44 @@ QVariant* QGraphicsTextItem_Extension(const QGraphicsTextItem* self, const QVari
         return new QVariant(vqgraphicstextitem->extension(*variant));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsTextItem_QBaseMetaObject(const QGraphicsTextItem* self) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicstextitem->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsTextItem::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnMetaObject(const QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = const_cast<VirtualQGraphicsTextItem*>(dynamic_cast<const VirtualQGraphicsTextItem*>(self));
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsTextItem_QBaseMetacast(QGraphicsTextItem* self, const char* param1) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Metacast_IsBase(true);
+        return vqgraphicstextitem->qt_metacast(param1);
+    } else {
+        return self->QGraphicsTextItem::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTextItem_OnMetacast(QGraphicsTextItem* self, intptr_t slot) {
+    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
+    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
+        vqgraphicstextitem->setQGraphicsTextItem_Metacast_Callback(reinterpret_cast<VirtualQGraphicsTextItem::QGraphicsTextItem_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualKSelectAction final : public KSelectAction {
     bool isVirtualKSelectAction = true;
 
     // Virtual class public types (including callbacks)
+    using KSelectAction_MetaObject_Callback = QMetaObject* (*)();
+    using KSelectAction_Metacast_Callback = void* (*)(KSelectAction*, const char*);
     using KSelectAction_Metacall_Callback = int (*)(KSelectAction*, int, int, void**);
     using KSelectAction_RemoveAction_Callback = QAction* (*)(KSelectAction*, QAction*);
     using KSelectAction_InsertAction_Callback = void (*)(KSelectAction*, QAction*, QAction*);
@@ -39,6 +41,8 @@ class VirtualKSelectAction final : public KSelectAction {
 
   protected:
     // Instance callback storage
+    KSelectAction_MetaObject_Callback kselectaction_metaobject_callback = nullptr;
+    KSelectAction_Metacast_Callback kselectaction_metacast_callback = nullptr;
     KSelectAction_Metacall_Callback kselectaction_metacall_callback = nullptr;
     KSelectAction_RemoveAction_Callback kselectaction_removeaction_callback = nullptr;
     KSelectAction_InsertAction_Callback kselectaction_insertaction_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualKSelectAction final : public KSelectAction {
     KSelectAction_IsSignalConnected_Callback kselectaction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kselectaction_metaobject_isbase = false;
+    mutable bool kselectaction_metacast_isbase = false;
     mutable bool kselectaction_metacall_isbase = false;
     mutable bool kselectaction_removeaction_isbase = false;
     mutable bool kselectaction_insertaction_isbase = false;
@@ -86,6 +92,8 @@ class VirtualKSelectAction final : public KSelectAction {
     VirtualKSelectAction(const QIcon& icon, const QString& text, QObject* parent) : KSelectAction(icon, text, parent) {};
 
     ~VirtualKSelectAction() {
+        kselectaction_metaobject_callback = nullptr;
+        kselectaction_metacast_callback = nullptr;
         kselectaction_metacall_callback = nullptr;
         kselectaction_removeaction_callback = nullptr;
         kselectaction_insertaction_callback = nullptr;
@@ -108,6 +116,8 @@ class VirtualKSelectAction final : public KSelectAction {
     }
 
     // Callback setters
+    inline void setKSelectAction_MetaObject_Callback(KSelectAction_MetaObject_Callback cb) { kselectaction_metaobject_callback = cb; }
+    inline void setKSelectAction_Metacast_Callback(KSelectAction_Metacast_Callback cb) { kselectaction_metacast_callback = cb; }
     inline void setKSelectAction_Metacall_Callback(KSelectAction_Metacall_Callback cb) { kselectaction_metacall_callback = cb; }
     inline void setKSelectAction_RemoveAction_Callback(KSelectAction_RemoveAction_Callback cb) { kselectaction_removeaction_callback = cb; }
     inline void setKSelectAction_InsertAction_Callback(KSelectAction_InsertAction_Callback cb) { kselectaction_insertaction_callback = cb; }
@@ -129,6 +139,8 @@ class VirtualKSelectAction final : public KSelectAction {
     inline void setKSelectAction_IsSignalConnected_Callback(KSelectAction_IsSignalConnected_Callback cb) { kselectaction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKSelectAction_MetaObject_IsBase(bool value) const { kselectaction_metaobject_isbase = value; }
+    inline void setKSelectAction_Metacast_IsBase(bool value) const { kselectaction_metacast_isbase = value; }
     inline void setKSelectAction_Metacall_IsBase(bool value) const { kselectaction_metacall_isbase = value; }
     inline void setKSelectAction_RemoveAction_IsBase(bool value) const { kselectaction_removeaction_isbase = value; }
     inline void setKSelectAction_InsertAction_IsBase(bool value) const { kselectaction_insertaction_isbase = value; }
@@ -148,6 +160,34 @@ class VirtualKSelectAction final : public KSelectAction {
     inline void setKSelectAction_SenderSignalIndex_IsBase(bool value) const { kselectaction_sendersignalindex_isbase = value; }
     inline void setKSelectAction_Receivers_IsBase(bool value) const { kselectaction_receivers_isbase = value; }
     inline void setKSelectAction_IsSignalConnected_IsBase(bool value) const { kselectaction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kselectaction_metaobject_isbase) {
+            kselectaction_metaobject_isbase = false;
+            return KSelectAction::metaObject();
+        } else if (kselectaction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kselectaction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSelectAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kselectaction_metacast_isbase) {
+            kselectaction_metacast_isbase = false;
+            return KSelectAction::qt_metacast(param1);
+        } else if (kselectaction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kselectaction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSelectAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

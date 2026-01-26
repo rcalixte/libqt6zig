@@ -17,6 +17,8 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
     bool isVirtualQGraphicsEffect = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsEffect_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsEffect_Metacast_Callback = void* (*)(QGraphicsEffect*, const char*);
     using QGraphicsEffect_Metacall_Callback = int (*)(QGraphicsEffect*, int, int, void**);
     using QGraphicsEffect_BoundingRectFor_Callback = QRectF* (*)(const QGraphicsEffect*, QRectF*);
     using QGraphicsEffect_Draw_Callback = void (*)(QGraphicsEffect*, QPainter*);
@@ -44,6 +46,8 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
 
   protected:
     // Instance callback storage
+    QGraphicsEffect_MetaObject_Callback qgraphicseffect_metaobject_callback = nullptr;
+    QGraphicsEffect_Metacast_Callback qgraphicseffect_metacast_callback = nullptr;
     QGraphicsEffect_Metacall_Callback qgraphicseffect_metacall_callback = nullptr;
     QGraphicsEffect_BoundingRectFor_Callback qgraphicseffect_boundingrectfor_callback = nullptr;
     QGraphicsEffect_Draw_Callback qgraphicseffect_draw_callback = nullptr;
@@ -70,6 +74,8 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
     QGraphicsEffect_IsSignalConnected_Callback qgraphicseffect_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicseffect_metaobject_isbase = false;
+    mutable bool qgraphicseffect_metacast_isbase = false;
     mutable bool qgraphicseffect_metacall_isbase = false;
     mutable bool qgraphicseffect_boundingrectfor_isbase = false;
     mutable bool qgraphicseffect_draw_isbase = false;
@@ -100,6 +106,8 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
     VirtualQGraphicsEffect(QObject* parent) : QGraphicsEffect(parent) {};
 
     ~VirtualQGraphicsEffect() {
+        qgraphicseffect_metaobject_callback = nullptr;
+        qgraphicseffect_metacast_callback = nullptr;
         qgraphicseffect_metacall_callback = nullptr;
         qgraphicseffect_boundingrectfor_callback = nullptr;
         qgraphicseffect_draw_callback = nullptr;
@@ -127,6 +135,8 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
     }
 
     // Callback setters
+    inline void setQGraphicsEffect_MetaObject_Callback(QGraphicsEffect_MetaObject_Callback cb) { qgraphicseffect_metaobject_callback = cb; }
+    inline void setQGraphicsEffect_Metacast_Callback(QGraphicsEffect_Metacast_Callback cb) { qgraphicseffect_metacast_callback = cb; }
     inline void setQGraphicsEffect_Metacall_Callback(QGraphicsEffect_Metacall_Callback cb) { qgraphicseffect_metacall_callback = cb; }
     inline void setQGraphicsEffect_BoundingRectFor_Callback(QGraphicsEffect_BoundingRectFor_Callback cb) { qgraphicseffect_boundingrectfor_callback = cb; }
     inline void setQGraphicsEffect_Draw_Callback(QGraphicsEffect_Draw_Callback cb) { qgraphicseffect_draw_callback = cb; }
@@ -153,6 +163,8 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
     inline void setQGraphicsEffect_IsSignalConnected_Callback(QGraphicsEffect_IsSignalConnected_Callback cb) { qgraphicseffect_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsEffect_MetaObject_IsBase(bool value) const { qgraphicseffect_metaobject_isbase = value; }
+    inline void setQGraphicsEffect_Metacast_IsBase(bool value) const { qgraphicseffect_metacast_isbase = value; }
     inline void setQGraphicsEffect_Metacall_IsBase(bool value) const { qgraphicseffect_metacall_isbase = value; }
     inline void setQGraphicsEffect_BoundingRectFor_IsBase(bool value) const { qgraphicseffect_boundingrectfor_isbase = value; }
     inline void setQGraphicsEffect_Draw_IsBase(bool value) const { qgraphicseffect_draw_isbase = value; }
@@ -177,6 +189,34 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
     inline void setQGraphicsEffect_SenderSignalIndex_IsBase(bool value) const { qgraphicseffect_sendersignalindex_isbase = value; }
     inline void setQGraphicsEffect_Receivers_IsBase(bool value) const { qgraphicseffect_receivers_isbase = value; }
     inline void setQGraphicsEffect_IsSignalConnected_IsBase(bool value) const { qgraphicseffect_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicseffect_metaobject_isbase) {
+            qgraphicseffect_metaobject_isbase = false;
+            return QGraphicsEffect::metaObject();
+        } else if (qgraphicseffect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicseffect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsEffect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicseffect_metacast_isbase) {
+            qgraphicseffect_metacast_isbase = false;
+            return QGraphicsEffect::qt_metacast(param1);
+        } else if (qgraphicseffect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicseffect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsEffect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -577,6 +617,8 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
     bool isVirtualQGraphicsColorizeEffect = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsColorizeEffect_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsColorizeEffect_Metacast_Callback = void* (*)(QGraphicsColorizeEffect*, const char*);
     using QGraphicsColorizeEffect_Metacall_Callback = int (*)(QGraphicsColorizeEffect*, int, int, void**);
     using QGraphicsColorizeEffect_Draw_Callback = void (*)(QGraphicsColorizeEffect*, QPainter*);
     using QGraphicsColorizeEffect_BoundingRectFor_Callback = QRectF* (*)(const QGraphicsColorizeEffect*, QRectF*);
@@ -600,6 +642,8 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
 
   protected:
     // Instance callback storage
+    QGraphicsColorizeEffect_MetaObject_Callback qgraphicscolorizeeffect_metaobject_callback = nullptr;
+    QGraphicsColorizeEffect_Metacast_Callback qgraphicscolorizeeffect_metacast_callback = nullptr;
     QGraphicsColorizeEffect_Metacall_Callback qgraphicscolorizeeffect_metacall_callback = nullptr;
     QGraphicsColorizeEffect_Draw_Callback qgraphicscolorizeeffect_draw_callback = nullptr;
     QGraphicsColorizeEffect_BoundingRectFor_Callback qgraphicscolorizeeffect_boundingrectfor_callback = nullptr;
@@ -622,6 +666,8 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
     QGraphicsColorizeEffect_IsSignalConnected_Callback qgraphicscolorizeeffect_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicscolorizeeffect_metaobject_isbase = false;
+    mutable bool qgraphicscolorizeeffect_metacast_isbase = false;
     mutable bool qgraphicscolorizeeffect_metacall_isbase = false;
     mutable bool qgraphicscolorizeeffect_draw_isbase = false;
     mutable bool qgraphicscolorizeeffect_boundingrectfor_isbase = false;
@@ -648,6 +694,8 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
     VirtualQGraphicsColorizeEffect(QObject* parent) : QGraphicsColorizeEffect(parent) {};
 
     ~VirtualQGraphicsColorizeEffect() {
+        qgraphicscolorizeeffect_metaobject_callback = nullptr;
+        qgraphicscolorizeeffect_metacast_callback = nullptr;
         qgraphicscolorizeeffect_metacall_callback = nullptr;
         qgraphicscolorizeeffect_draw_callback = nullptr;
         qgraphicscolorizeeffect_boundingrectfor_callback = nullptr;
@@ -671,6 +719,8 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
     }
 
     // Callback setters
+    inline void setQGraphicsColorizeEffect_MetaObject_Callback(QGraphicsColorizeEffect_MetaObject_Callback cb) { qgraphicscolorizeeffect_metaobject_callback = cb; }
+    inline void setQGraphicsColorizeEffect_Metacast_Callback(QGraphicsColorizeEffect_Metacast_Callback cb) { qgraphicscolorizeeffect_metacast_callback = cb; }
     inline void setQGraphicsColorizeEffect_Metacall_Callback(QGraphicsColorizeEffect_Metacall_Callback cb) { qgraphicscolorizeeffect_metacall_callback = cb; }
     inline void setQGraphicsColorizeEffect_Draw_Callback(QGraphicsColorizeEffect_Draw_Callback cb) { qgraphicscolorizeeffect_draw_callback = cb; }
     inline void setQGraphicsColorizeEffect_BoundingRectFor_Callback(QGraphicsColorizeEffect_BoundingRectFor_Callback cb) { qgraphicscolorizeeffect_boundingrectfor_callback = cb; }
@@ -693,6 +743,8 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
     inline void setQGraphicsColorizeEffect_IsSignalConnected_Callback(QGraphicsColorizeEffect_IsSignalConnected_Callback cb) { qgraphicscolorizeeffect_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsColorizeEffect_MetaObject_IsBase(bool value) const { qgraphicscolorizeeffect_metaobject_isbase = value; }
+    inline void setQGraphicsColorizeEffect_Metacast_IsBase(bool value) const { qgraphicscolorizeeffect_metacast_isbase = value; }
     inline void setQGraphicsColorizeEffect_Metacall_IsBase(bool value) const { qgraphicscolorizeeffect_metacall_isbase = value; }
     inline void setQGraphicsColorizeEffect_Draw_IsBase(bool value) const { qgraphicscolorizeeffect_draw_isbase = value; }
     inline void setQGraphicsColorizeEffect_BoundingRectFor_IsBase(bool value) const { qgraphicscolorizeeffect_boundingrectfor_isbase = value; }
@@ -713,6 +765,34 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
     inline void setQGraphicsColorizeEffect_SenderSignalIndex_IsBase(bool value) const { qgraphicscolorizeeffect_sendersignalindex_isbase = value; }
     inline void setQGraphicsColorizeEffect_Receivers_IsBase(bool value) const { qgraphicscolorizeeffect_receivers_isbase = value; }
     inline void setQGraphicsColorizeEffect_IsSignalConnected_IsBase(bool value) const { qgraphicscolorizeeffect_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicscolorizeeffect_metaobject_isbase) {
+            qgraphicscolorizeeffect_metaobject_isbase = false;
+            return QGraphicsColorizeEffect::metaObject();
+        } else if (qgraphicscolorizeeffect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicscolorizeeffect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsColorizeEffect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicscolorizeeffect_metacast_isbase) {
+            qgraphicscolorizeeffect_metacast_isbase = false;
+            return QGraphicsColorizeEffect::qt_metacast(param1);
+        } else if (qgraphicscolorizeeffect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicscolorizeeffect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsColorizeEffect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1047,6 +1127,8 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
     bool isVirtualQGraphicsBlurEffect = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsBlurEffect_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsBlurEffect_Metacast_Callback = void* (*)(QGraphicsBlurEffect*, const char*);
     using QGraphicsBlurEffect_Metacall_Callback = int (*)(QGraphicsBlurEffect*, int, int, void**);
     using QGraphicsBlurEffect_BoundingRectFor_Callback = QRectF* (*)(const QGraphicsBlurEffect*, QRectF*);
     using QGraphicsBlurEffect_Draw_Callback = void (*)(QGraphicsBlurEffect*, QPainter*);
@@ -1070,6 +1152,8 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
 
   protected:
     // Instance callback storage
+    QGraphicsBlurEffect_MetaObject_Callback qgraphicsblureffect_metaobject_callback = nullptr;
+    QGraphicsBlurEffect_Metacast_Callback qgraphicsblureffect_metacast_callback = nullptr;
     QGraphicsBlurEffect_Metacall_Callback qgraphicsblureffect_metacall_callback = nullptr;
     QGraphicsBlurEffect_BoundingRectFor_Callback qgraphicsblureffect_boundingrectfor_callback = nullptr;
     QGraphicsBlurEffect_Draw_Callback qgraphicsblureffect_draw_callback = nullptr;
@@ -1092,6 +1176,8 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
     QGraphicsBlurEffect_IsSignalConnected_Callback qgraphicsblureffect_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsblureffect_metaobject_isbase = false;
+    mutable bool qgraphicsblureffect_metacast_isbase = false;
     mutable bool qgraphicsblureffect_metacall_isbase = false;
     mutable bool qgraphicsblureffect_boundingrectfor_isbase = false;
     mutable bool qgraphicsblureffect_draw_isbase = false;
@@ -1118,6 +1204,8 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
     VirtualQGraphicsBlurEffect(QObject* parent) : QGraphicsBlurEffect(parent) {};
 
     ~VirtualQGraphicsBlurEffect() {
+        qgraphicsblureffect_metaobject_callback = nullptr;
+        qgraphicsblureffect_metacast_callback = nullptr;
         qgraphicsblureffect_metacall_callback = nullptr;
         qgraphicsblureffect_boundingrectfor_callback = nullptr;
         qgraphicsblureffect_draw_callback = nullptr;
@@ -1141,6 +1229,8 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
     }
 
     // Callback setters
+    inline void setQGraphicsBlurEffect_MetaObject_Callback(QGraphicsBlurEffect_MetaObject_Callback cb) { qgraphicsblureffect_metaobject_callback = cb; }
+    inline void setQGraphicsBlurEffect_Metacast_Callback(QGraphicsBlurEffect_Metacast_Callback cb) { qgraphicsblureffect_metacast_callback = cb; }
     inline void setQGraphicsBlurEffect_Metacall_Callback(QGraphicsBlurEffect_Metacall_Callback cb) { qgraphicsblureffect_metacall_callback = cb; }
     inline void setQGraphicsBlurEffect_BoundingRectFor_Callback(QGraphicsBlurEffect_BoundingRectFor_Callback cb) { qgraphicsblureffect_boundingrectfor_callback = cb; }
     inline void setQGraphicsBlurEffect_Draw_Callback(QGraphicsBlurEffect_Draw_Callback cb) { qgraphicsblureffect_draw_callback = cb; }
@@ -1163,6 +1253,8 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
     inline void setQGraphicsBlurEffect_IsSignalConnected_Callback(QGraphicsBlurEffect_IsSignalConnected_Callback cb) { qgraphicsblureffect_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsBlurEffect_MetaObject_IsBase(bool value) const { qgraphicsblureffect_metaobject_isbase = value; }
+    inline void setQGraphicsBlurEffect_Metacast_IsBase(bool value) const { qgraphicsblureffect_metacast_isbase = value; }
     inline void setQGraphicsBlurEffect_Metacall_IsBase(bool value) const { qgraphicsblureffect_metacall_isbase = value; }
     inline void setQGraphicsBlurEffect_BoundingRectFor_IsBase(bool value) const { qgraphicsblureffect_boundingrectfor_isbase = value; }
     inline void setQGraphicsBlurEffect_Draw_IsBase(bool value) const { qgraphicsblureffect_draw_isbase = value; }
@@ -1183,6 +1275,34 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
     inline void setQGraphicsBlurEffect_SenderSignalIndex_IsBase(bool value) const { qgraphicsblureffect_sendersignalindex_isbase = value; }
     inline void setQGraphicsBlurEffect_Receivers_IsBase(bool value) const { qgraphicsblureffect_receivers_isbase = value; }
     inline void setQGraphicsBlurEffect_IsSignalConnected_IsBase(bool value) const { qgraphicsblureffect_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsblureffect_metaobject_isbase) {
+            qgraphicsblureffect_metaobject_isbase = false;
+            return QGraphicsBlurEffect::metaObject();
+        } else if (qgraphicsblureffect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsblureffect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsBlurEffect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsblureffect_metacast_isbase) {
+            qgraphicsblureffect_metacast_isbase = false;
+            return QGraphicsBlurEffect::qt_metacast(param1);
+        } else if (qgraphicsblureffect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsblureffect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsBlurEffect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1517,6 +1637,8 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
     bool isVirtualQGraphicsDropShadowEffect = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsDropShadowEffect_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsDropShadowEffect_Metacast_Callback = void* (*)(QGraphicsDropShadowEffect*, const char*);
     using QGraphicsDropShadowEffect_Metacall_Callback = int (*)(QGraphicsDropShadowEffect*, int, int, void**);
     using QGraphicsDropShadowEffect_BoundingRectFor_Callback = QRectF* (*)(const QGraphicsDropShadowEffect*, QRectF*);
     using QGraphicsDropShadowEffect_Draw_Callback = void (*)(QGraphicsDropShadowEffect*, QPainter*);
@@ -1540,6 +1662,8 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
 
   protected:
     // Instance callback storage
+    QGraphicsDropShadowEffect_MetaObject_Callback qgraphicsdropshadoweffect_metaobject_callback = nullptr;
+    QGraphicsDropShadowEffect_Metacast_Callback qgraphicsdropshadoweffect_metacast_callback = nullptr;
     QGraphicsDropShadowEffect_Metacall_Callback qgraphicsdropshadoweffect_metacall_callback = nullptr;
     QGraphicsDropShadowEffect_BoundingRectFor_Callback qgraphicsdropshadoweffect_boundingrectfor_callback = nullptr;
     QGraphicsDropShadowEffect_Draw_Callback qgraphicsdropshadoweffect_draw_callback = nullptr;
@@ -1562,6 +1686,8 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
     QGraphicsDropShadowEffect_IsSignalConnected_Callback qgraphicsdropshadoweffect_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsdropshadoweffect_metaobject_isbase = false;
+    mutable bool qgraphicsdropshadoweffect_metacast_isbase = false;
     mutable bool qgraphicsdropshadoweffect_metacall_isbase = false;
     mutable bool qgraphicsdropshadoweffect_boundingrectfor_isbase = false;
     mutable bool qgraphicsdropshadoweffect_draw_isbase = false;
@@ -1588,6 +1714,8 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
     VirtualQGraphicsDropShadowEffect(QObject* parent) : QGraphicsDropShadowEffect(parent) {};
 
     ~VirtualQGraphicsDropShadowEffect() {
+        qgraphicsdropshadoweffect_metaobject_callback = nullptr;
+        qgraphicsdropshadoweffect_metacast_callback = nullptr;
         qgraphicsdropshadoweffect_metacall_callback = nullptr;
         qgraphicsdropshadoweffect_boundingrectfor_callback = nullptr;
         qgraphicsdropshadoweffect_draw_callback = nullptr;
@@ -1611,6 +1739,8 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
     }
 
     // Callback setters
+    inline void setQGraphicsDropShadowEffect_MetaObject_Callback(QGraphicsDropShadowEffect_MetaObject_Callback cb) { qgraphicsdropshadoweffect_metaobject_callback = cb; }
+    inline void setQGraphicsDropShadowEffect_Metacast_Callback(QGraphicsDropShadowEffect_Metacast_Callback cb) { qgraphicsdropshadoweffect_metacast_callback = cb; }
     inline void setQGraphicsDropShadowEffect_Metacall_Callback(QGraphicsDropShadowEffect_Metacall_Callback cb) { qgraphicsdropshadoweffect_metacall_callback = cb; }
     inline void setQGraphicsDropShadowEffect_BoundingRectFor_Callback(QGraphicsDropShadowEffect_BoundingRectFor_Callback cb) { qgraphicsdropshadoweffect_boundingrectfor_callback = cb; }
     inline void setQGraphicsDropShadowEffect_Draw_Callback(QGraphicsDropShadowEffect_Draw_Callback cb) { qgraphicsdropshadoweffect_draw_callback = cb; }
@@ -1633,6 +1763,8 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
     inline void setQGraphicsDropShadowEffect_IsSignalConnected_Callback(QGraphicsDropShadowEffect_IsSignalConnected_Callback cb) { qgraphicsdropshadoweffect_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsDropShadowEffect_MetaObject_IsBase(bool value) const { qgraphicsdropshadoweffect_metaobject_isbase = value; }
+    inline void setQGraphicsDropShadowEffect_Metacast_IsBase(bool value) const { qgraphicsdropshadoweffect_metacast_isbase = value; }
     inline void setQGraphicsDropShadowEffect_Metacall_IsBase(bool value) const { qgraphicsdropshadoweffect_metacall_isbase = value; }
     inline void setQGraphicsDropShadowEffect_BoundingRectFor_IsBase(bool value) const { qgraphicsdropshadoweffect_boundingrectfor_isbase = value; }
     inline void setQGraphicsDropShadowEffect_Draw_IsBase(bool value) const { qgraphicsdropshadoweffect_draw_isbase = value; }
@@ -1653,6 +1785,34 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
     inline void setQGraphicsDropShadowEffect_SenderSignalIndex_IsBase(bool value) const { qgraphicsdropshadoweffect_sendersignalindex_isbase = value; }
     inline void setQGraphicsDropShadowEffect_Receivers_IsBase(bool value) const { qgraphicsdropshadoweffect_receivers_isbase = value; }
     inline void setQGraphicsDropShadowEffect_IsSignalConnected_IsBase(bool value) const { qgraphicsdropshadoweffect_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsdropshadoweffect_metaobject_isbase) {
+            qgraphicsdropshadoweffect_metaobject_isbase = false;
+            return QGraphicsDropShadowEffect::metaObject();
+        } else if (qgraphicsdropshadoweffect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsdropshadoweffect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsDropShadowEffect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsdropshadoweffect_metacast_isbase) {
+            qgraphicsdropshadoweffect_metacast_isbase = false;
+            return QGraphicsDropShadowEffect::qt_metacast(param1);
+        } else if (qgraphicsdropshadoweffect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsdropshadoweffect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsDropShadowEffect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1987,6 +2147,8 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
     bool isVirtualQGraphicsOpacityEffect = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsOpacityEffect_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsOpacityEffect_Metacast_Callback = void* (*)(QGraphicsOpacityEffect*, const char*);
     using QGraphicsOpacityEffect_Metacall_Callback = int (*)(QGraphicsOpacityEffect*, int, int, void**);
     using QGraphicsOpacityEffect_Draw_Callback = void (*)(QGraphicsOpacityEffect*, QPainter*);
     using QGraphicsOpacityEffect_BoundingRectFor_Callback = QRectF* (*)(const QGraphicsOpacityEffect*, QRectF*);
@@ -2010,6 +2172,8 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
 
   protected:
     // Instance callback storage
+    QGraphicsOpacityEffect_MetaObject_Callback qgraphicsopacityeffect_metaobject_callback = nullptr;
+    QGraphicsOpacityEffect_Metacast_Callback qgraphicsopacityeffect_metacast_callback = nullptr;
     QGraphicsOpacityEffect_Metacall_Callback qgraphicsopacityeffect_metacall_callback = nullptr;
     QGraphicsOpacityEffect_Draw_Callback qgraphicsopacityeffect_draw_callback = nullptr;
     QGraphicsOpacityEffect_BoundingRectFor_Callback qgraphicsopacityeffect_boundingrectfor_callback = nullptr;
@@ -2032,6 +2196,8 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
     QGraphicsOpacityEffect_IsSignalConnected_Callback qgraphicsopacityeffect_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsopacityeffect_metaobject_isbase = false;
+    mutable bool qgraphicsopacityeffect_metacast_isbase = false;
     mutable bool qgraphicsopacityeffect_metacall_isbase = false;
     mutable bool qgraphicsopacityeffect_draw_isbase = false;
     mutable bool qgraphicsopacityeffect_boundingrectfor_isbase = false;
@@ -2058,6 +2224,8 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
     VirtualQGraphicsOpacityEffect(QObject* parent) : QGraphicsOpacityEffect(parent) {};
 
     ~VirtualQGraphicsOpacityEffect() {
+        qgraphicsopacityeffect_metaobject_callback = nullptr;
+        qgraphicsopacityeffect_metacast_callback = nullptr;
         qgraphicsopacityeffect_metacall_callback = nullptr;
         qgraphicsopacityeffect_draw_callback = nullptr;
         qgraphicsopacityeffect_boundingrectfor_callback = nullptr;
@@ -2081,6 +2249,8 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
     }
 
     // Callback setters
+    inline void setQGraphicsOpacityEffect_MetaObject_Callback(QGraphicsOpacityEffect_MetaObject_Callback cb) { qgraphicsopacityeffect_metaobject_callback = cb; }
+    inline void setQGraphicsOpacityEffect_Metacast_Callback(QGraphicsOpacityEffect_Metacast_Callback cb) { qgraphicsopacityeffect_metacast_callback = cb; }
     inline void setQGraphicsOpacityEffect_Metacall_Callback(QGraphicsOpacityEffect_Metacall_Callback cb) { qgraphicsopacityeffect_metacall_callback = cb; }
     inline void setQGraphicsOpacityEffect_Draw_Callback(QGraphicsOpacityEffect_Draw_Callback cb) { qgraphicsopacityeffect_draw_callback = cb; }
     inline void setQGraphicsOpacityEffect_BoundingRectFor_Callback(QGraphicsOpacityEffect_BoundingRectFor_Callback cb) { qgraphicsopacityeffect_boundingrectfor_callback = cb; }
@@ -2103,6 +2273,8 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
     inline void setQGraphicsOpacityEffect_IsSignalConnected_Callback(QGraphicsOpacityEffect_IsSignalConnected_Callback cb) { qgraphicsopacityeffect_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsOpacityEffect_MetaObject_IsBase(bool value) const { qgraphicsopacityeffect_metaobject_isbase = value; }
+    inline void setQGraphicsOpacityEffect_Metacast_IsBase(bool value) const { qgraphicsopacityeffect_metacast_isbase = value; }
     inline void setQGraphicsOpacityEffect_Metacall_IsBase(bool value) const { qgraphicsopacityeffect_metacall_isbase = value; }
     inline void setQGraphicsOpacityEffect_Draw_IsBase(bool value) const { qgraphicsopacityeffect_draw_isbase = value; }
     inline void setQGraphicsOpacityEffect_BoundingRectFor_IsBase(bool value) const { qgraphicsopacityeffect_boundingrectfor_isbase = value; }
@@ -2123,6 +2295,34 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
     inline void setQGraphicsOpacityEffect_SenderSignalIndex_IsBase(bool value) const { qgraphicsopacityeffect_sendersignalindex_isbase = value; }
     inline void setQGraphicsOpacityEffect_Receivers_IsBase(bool value) const { qgraphicsopacityeffect_receivers_isbase = value; }
     inline void setQGraphicsOpacityEffect_IsSignalConnected_IsBase(bool value) const { qgraphicsopacityeffect_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsopacityeffect_metaobject_isbase) {
+            qgraphicsopacityeffect_metaobject_isbase = false;
+            return QGraphicsOpacityEffect::metaObject();
+        } else if (qgraphicsopacityeffect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsopacityeffect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsOpacityEffect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsopacityeffect_metacast_isbase) {
+            qgraphicsopacityeffect_metacast_isbase = false;
+            return QGraphicsOpacityEffect::qt_metacast(param1);
+        } else if (qgraphicsopacityeffect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsopacityeffect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsOpacityEffect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

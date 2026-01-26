@@ -53,11 +53,21 @@ KColorCombo* KColorCombo_new2() {
 }
 
 QMetaObject* KColorCombo_MetaObject(const KColorCombo* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcolorcombo = dynamic_cast<const VirtualKColorCombo*>(self);
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKColorCombo*)self)->metaObject();
+    }
 }
 
 void* KColorCombo_Metacast(KColorCombo* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKColorCombo*)self)->qt_metacast(param1);
+    }
 }
 
 int KColorCombo_Metacall(KColorCombo* self, int param1, int param2, void** param3) {
@@ -140,6 +150,44 @@ void KColorCombo_PaintEvent(KColorCombo* self, QPaintEvent* event) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
     if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
         vkcolorcombo->paintEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KColorCombo_QBaseMetaObject(const KColorCombo* self) {
+    auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+        vkcolorcombo->setKColorCombo_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcolorcombo->metaObject();
+    } else {
+        return (QMetaObject*)self->KColorCombo::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorCombo_OnMetaObject(const KColorCombo* self, intptr_t slot) {
+    auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+        vkcolorcombo->setKColorCombo_MetaObject_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KColorCombo_QBaseMetacast(KColorCombo* self, const char* param1) {
+    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+        vkcolorcombo->setKColorCombo_Metacast_IsBase(true);
+        return vkcolorcombo->qt_metacast(param1);
+    } else {
+        return self->KColorCombo::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorCombo_OnMetacast(KColorCombo* self, intptr_t slot) {
+    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+        vkcolorcombo->setKColorCombo_Metacast_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Metacast_Callback>(slot));
     }
 }
 

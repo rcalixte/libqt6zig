@@ -37,11 +37,21 @@ KFontAction* KFontAction_new4(const QIcon* icon, const libqt_string text, QObjec
 }
 
 QMetaObject* KFontAction_MetaObject(const KFontAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfontaction = dynamic_cast<const VirtualKFontAction*>(self);
+    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFontAction*)self)->metaObject();
+    }
 }
 
 void* KFontAction_Metacast(KFontAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
+    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFontAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KFontAction_Metacall(KFontAction* self, int param1, int param2, void** param3) {
@@ -76,6 +86,44 @@ QWidget* KFontAction_CreateWidget(KFontAction* self, QWidget* parent) {
         return self->createWidget(parent);
     } else {
         return ((VirtualKFontAction*)self)->createWidget(parent);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KFontAction_QBaseMetaObject(const KFontAction* self) {
+    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
+    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+        vkfontaction->setKFontAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfontaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KFontAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontAction_OnMetaObject(const KFontAction* self, intptr_t slot) {
+    auto* vkfontaction = const_cast<VirtualKFontAction*>(dynamic_cast<const VirtualKFontAction*>(self));
+    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+        vkfontaction->setKFontAction_MetaObject_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFontAction_QBaseMetacast(KFontAction* self, const char* param1) {
+    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
+    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+        vkfontaction->setKFontAction_Metacast_IsBase(true);
+        return vkfontaction->qt_metacast(param1);
+    } else {
+        return self->KFontAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontAction_OnMetacast(KFontAction* self, intptr_t slot) {
+    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
+    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
+        vkfontaction->setKFontAction_Metacast_Callback(reinterpret_cast<VirtualKFontAction::KFontAction_Metacast_Callback>(slot));
     }
 }
 

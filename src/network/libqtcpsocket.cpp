@@ -26,11 +26,21 @@ QTcpSocket* QTcpSocket_new2(QObject* parent) {
 }
 
 QMetaObject* QTcpSocket_MetaObject(const QTcpSocket* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtcpsocket = dynamic_cast<const VirtualQTcpSocket*>(self);
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTcpSocket*)self)->metaObject();
+    }
 }
 
 void* QTcpSocket_Metacast(QTcpSocket* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTcpSocket*)self)->qt_metacast(param1);
+    }
 }
 
 int QTcpSocket_Metacall(QTcpSocket* self, int param1, int param2, void** param3) {
@@ -52,6 +62,44 @@ bool QTcpSocket_Bind2(QTcpSocket* self, int addr, uint16_t port) {
 
 bool QTcpSocket_Bind3(QTcpSocket* self, int addr, uint16_t port, int mode) {
     return self->bind(static_cast<QHostAddress::SpecialAddress>(addr), static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
+}
+
+// Base class handler implementation
+QMetaObject* QTcpSocket_QBaseMetaObject(const QTcpSocket* self) {
+    auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+        vqtcpsocket->setQTcpSocket_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtcpsocket->metaObject();
+    } else {
+        return (QMetaObject*)self->QTcpSocket::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTcpSocket_OnMetaObject(const QTcpSocket* self, intptr_t slot) {
+    auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+        vqtcpsocket->setQTcpSocket_MetaObject_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTcpSocket_QBaseMetacast(QTcpSocket* self, const char* param1) {
+    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+        vqtcpsocket->setQTcpSocket_Metacast_IsBase(true);
+        return vqtcpsocket->qt_metacast(param1);
+    } else {
+        return self->QTcpSocket::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTcpSocket_OnMetacast(QTcpSocket* self, intptr_t slot) {
+    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+        vqtcpsocket->setQTcpSocket_Metacast_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

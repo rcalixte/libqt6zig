@@ -32,11 +32,21 @@ KExtendableItemDelegate* KExtendableItemDelegate_new(QAbstractItemView* parent) 
 }
 
 QMetaObject* KExtendableItemDelegate_MetaObject(const KExtendableItemDelegate* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKExtendableItemDelegate*)self)->metaObject();
+    }
 }
 
 void* KExtendableItemDelegate_Metacast(KExtendableItemDelegate* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKExtendableItemDelegate*)self)->qt_metacast(param1);
+    }
 }
 
 int KExtendableItemDelegate_Metacall(KExtendableItemDelegate* self, int param1, int param2, void** param3) {
@@ -119,6 +129,44 @@ void KExtendableItemDelegate_Connect_ExtenderDestroyed(KExtendableItemDelegate* 
         QModelIndex* sigval2 = const_cast<QModelIndex*>(&index_ret);
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KExtendableItemDelegate_QBaseMetaObject(const KExtendableItemDelegate* self) {
+    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_MetaObject_IsBase(true);
+        return (QMetaObject*)vkextendableitemdelegate->metaObject();
+    } else {
+        return (QMetaObject*)self->KExtendableItemDelegate::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KExtendableItemDelegate_OnMetaObject(const KExtendableItemDelegate* self, intptr_t slot) {
+    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KExtendableItemDelegate_QBaseMetacast(KExtendableItemDelegate* self, const char* param1) {
+    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_Metacast_IsBase(true);
+        return vkextendableitemdelegate->qt_metacast(param1);
+    } else {
+        return self->KExtendableItemDelegate::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KExtendableItemDelegate_OnMetacast(KExtendableItemDelegate* self, intptr_t slot) {
+    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+        vkextendableitemdelegate->setKExtendableItemDelegate_Metacast_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

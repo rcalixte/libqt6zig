@@ -17,6 +17,8 @@ class VirtualKToolBar final : public KToolBar {
     bool isVirtualKToolBar = true;
 
     // Virtual class public types (including callbacks)
+    using KToolBar_MetaObject_Callback = QMetaObject* (*)();
+    using KToolBar_Metacast_Callback = void* (*)(KToolBar*, const char*);
     using KToolBar_Metacall_Callback = int (*)(KToolBar*, int, int, void**);
     using KToolBar_EventFilter_Callback = bool (*)(KToolBar*, QObject*, QEvent*);
     using KToolBar_SlotMovableChanged_Callback = void (*)(KToolBar*, bool);
@@ -80,6 +82,8 @@ class VirtualKToolBar final : public KToolBar {
 
   protected:
     // Instance callback storage
+    KToolBar_MetaObject_Callback ktoolbar_metaobject_callback = nullptr;
+    KToolBar_Metacast_Callback ktoolbar_metacast_callback = nullptr;
     KToolBar_Metacall_Callback ktoolbar_metacall_callback = nullptr;
     KToolBar_EventFilter_Callback ktoolbar_eventfilter_callback = nullptr;
     KToolBar_SlotMovableChanged_Callback ktoolbar_slotmovablechanged_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualKToolBar final : public KToolBar {
     KToolBar_GetDecodedMetricF_Callback ktoolbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktoolbar_metaobject_isbase = false;
+    mutable bool ktoolbar_metacast_isbase = false;
     mutable bool ktoolbar_metacall_isbase = false;
     mutable bool ktoolbar_eventfilter_isbase = false;
     mutable bool ktoolbar_slotmovablechanged_isbase = false;
@@ -215,6 +221,8 @@ class VirtualKToolBar final : public KToolBar {
     VirtualKToolBar(const QString& objectName, QMainWindow* parentWindow, Qt::ToolBarArea area, bool newLine, bool isMainToolBar, bool readConfig) : KToolBar(objectName, parentWindow, area, newLine, isMainToolBar, readConfig) {};
 
     ~VirtualKToolBar() {
+        ktoolbar_metaobject_callback = nullptr;
+        ktoolbar_metacast_callback = nullptr;
         ktoolbar_metacall_callback = nullptr;
         ktoolbar_eventfilter_callback = nullptr;
         ktoolbar_slotmovablechanged_callback = nullptr;
@@ -278,6 +286,8 @@ class VirtualKToolBar final : public KToolBar {
     }
 
     // Callback setters
+    inline void setKToolBar_MetaObject_Callback(KToolBar_MetaObject_Callback cb) { ktoolbar_metaobject_callback = cb; }
+    inline void setKToolBar_Metacast_Callback(KToolBar_Metacast_Callback cb) { ktoolbar_metacast_callback = cb; }
     inline void setKToolBar_Metacall_Callback(KToolBar_Metacall_Callback cb) { ktoolbar_metacall_callback = cb; }
     inline void setKToolBar_EventFilter_Callback(KToolBar_EventFilter_Callback cb) { ktoolbar_eventfilter_callback = cb; }
     inline void setKToolBar_SlotMovableChanged_Callback(KToolBar_SlotMovableChanged_Callback cb) { ktoolbar_slotmovablechanged_callback = cb; }
@@ -340,6 +350,8 @@ class VirtualKToolBar final : public KToolBar {
     inline void setKToolBar_GetDecodedMetricF_Callback(KToolBar_GetDecodedMetricF_Callback cb) { ktoolbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKToolBar_MetaObject_IsBase(bool value) const { ktoolbar_metaobject_isbase = value; }
+    inline void setKToolBar_Metacast_IsBase(bool value) const { ktoolbar_metacast_isbase = value; }
     inline void setKToolBar_Metacall_IsBase(bool value) const { ktoolbar_metacall_isbase = value; }
     inline void setKToolBar_EventFilter_IsBase(bool value) const { ktoolbar_eventfilter_isbase = value; }
     inline void setKToolBar_SlotMovableChanged_IsBase(bool value) const { ktoolbar_slotmovablechanged_isbase = value; }
@@ -400,6 +412,34 @@ class VirtualKToolBar final : public KToolBar {
     inline void setKToolBar_Receivers_IsBase(bool value) const { ktoolbar_receivers_isbase = value; }
     inline void setKToolBar_IsSignalConnected_IsBase(bool value) const { ktoolbar_issignalconnected_isbase = value; }
     inline void setKToolBar_GetDecodedMetricF_IsBase(bool value) const { ktoolbar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktoolbar_metaobject_isbase) {
+            ktoolbar_metaobject_isbase = false;
+            return KToolBar::metaObject();
+        } else if (ktoolbar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktoolbar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KToolBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktoolbar_metacast_isbase) {
+            ktoolbar_metacast_isbase = false;
+            return KToolBar::qt_metacast(param1);
+        } else if (ktoolbar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktoolbar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KToolBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

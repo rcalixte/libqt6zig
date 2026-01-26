@@ -17,6 +17,8 @@ class VirtualKToggleAction final : public KToggleAction {
     bool isVirtualKToggleAction = true;
 
     // Virtual class public types (including callbacks)
+    using KToggleAction_MetaObject_Callback = QMetaObject* (*)();
+    using KToggleAction_Metacast_Callback = void* (*)(KToggleAction*, const char*);
     using KToggleAction_Metacall_Callback = int (*)(KToggleAction*, int, int, void**);
     using KToggleAction_SlotToggled_Callback = void (*)(KToggleAction*, bool);
     using KToggleAction_Event_Callback = bool (*)(KToggleAction*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualKToggleAction final : public KToggleAction {
 
   protected:
     // Instance callback storage
+    KToggleAction_MetaObject_Callback ktoggleaction_metaobject_callback = nullptr;
+    KToggleAction_Metacast_Callback ktoggleaction_metacast_callback = nullptr;
     KToggleAction_Metacall_Callback ktoggleaction_metacall_callback = nullptr;
     KToggleAction_SlotToggled_Callback ktoggleaction_slottoggled_callback = nullptr;
     KToggleAction_Event_Callback ktoggleaction_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualKToggleAction final : public KToggleAction {
     KToggleAction_IsSignalConnected_Callback ktoggleaction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktoggleaction_metaobject_isbase = false;
+    mutable bool ktoggleaction_metacast_isbase = false;
     mutable bool ktoggleaction_metacall_isbase = false;
     mutable bool ktoggleaction_slottoggled_isbase = false;
     mutable bool ktoggleaction_event_isbase = false;
@@ -68,6 +74,8 @@ class VirtualKToggleAction final : public KToggleAction {
     VirtualKToggleAction(const QIcon& icon, const QString& text, QObject* parent) : KToggleAction(icon, text, parent) {};
 
     ~VirtualKToggleAction() {
+        ktoggleaction_metaobject_callback = nullptr;
+        ktoggleaction_metacast_callback = nullptr;
         ktoggleaction_metacall_callback = nullptr;
         ktoggleaction_slottoggled_callback = nullptr;
         ktoggleaction_event_callback = nullptr;
@@ -84,6 +92,8 @@ class VirtualKToggleAction final : public KToggleAction {
     }
 
     // Callback setters
+    inline void setKToggleAction_MetaObject_Callback(KToggleAction_MetaObject_Callback cb) { ktoggleaction_metaobject_callback = cb; }
+    inline void setKToggleAction_Metacast_Callback(KToggleAction_Metacast_Callback cb) { ktoggleaction_metacast_callback = cb; }
     inline void setKToggleAction_Metacall_Callback(KToggleAction_Metacall_Callback cb) { ktoggleaction_metacall_callback = cb; }
     inline void setKToggleAction_SlotToggled_Callback(KToggleAction_SlotToggled_Callback cb) { ktoggleaction_slottoggled_callback = cb; }
     inline void setKToggleAction_Event_Callback(KToggleAction_Event_Callback cb) { ktoggleaction_event_callback = cb; }
@@ -99,6 +109,8 @@ class VirtualKToggleAction final : public KToggleAction {
     inline void setKToggleAction_IsSignalConnected_Callback(KToggleAction_IsSignalConnected_Callback cb) { ktoggleaction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKToggleAction_MetaObject_IsBase(bool value) const { ktoggleaction_metaobject_isbase = value; }
+    inline void setKToggleAction_Metacast_IsBase(bool value) const { ktoggleaction_metacast_isbase = value; }
     inline void setKToggleAction_Metacall_IsBase(bool value) const { ktoggleaction_metacall_isbase = value; }
     inline void setKToggleAction_SlotToggled_IsBase(bool value) const { ktoggleaction_slottoggled_isbase = value; }
     inline void setKToggleAction_Event_IsBase(bool value) const { ktoggleaction_event_isbase = value; }
@@ -112,6 +124,34 @@ class VirtualKToggleAction final : public KToggleAction {
     inline void setKToggleAction_SenderSignalIndex_IsBase(bool value) const { ktoggleaction_sendersignalindex_isbase = value; }
     inline void setKToggleAction_Receivers_IsBase(bool value) const { ktoggleaction_receivers_isbase = value; }
     inline void setKToggleAction_IsSignalConnected_IsBase(bool value) const { ktoggleaction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktoggleaction_metaobject_isbase) {
+            ktoggleaction_metaobject_isbase = false;
+            return KToggleAction::metaObject();
+        } else if (ktoggleaction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktoggleaction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KToggleAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktoggleaction_metacast_isbase) {
+            ktoggleaction_metacast_isbase = false;
+            return KToggleAction::qt_metacast(param1);
+        } else if (ktoggleaction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktoggleaction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KToggleAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

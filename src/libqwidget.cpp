@@ -75,11 +75,21 @@ QWidget* QWidget_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* QWidget_MetaObject(const QWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWidget*)self)->metaObject();
+    }
 }
 
 void* QWidget_Metacast(QWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QWidget_Metacall(QWidget* self, int param1, int param2, void** param3) {
@@ -1651,6 +1661,44 @@ QWidget* QWidget_CreateWindowContainer2(QWindow* window, QWidget* parent) {
 
 QWidget* QWidget_CreateWindowContainer3(QWindow* window, QWidget* parent, int flags) {
     return QWidget::createWindowContainer(window, parent, static_cast<Qt::WindowFlags>(flags));
+}
+
+// Base class handler implementation
+QMetaObject* QWidget_QBaseMetaObject(const QWidget* self) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMetaObject(const QWidget* self, intptr_t slot) {
+    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_MetaObject_Callback(reinterpret_cast<VirtualQWidget::QWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWidget_QBaseMetacast(QWidget* self, const char* param1) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Metacast_IsBase(true);
+        return vqwidget->qt_metacast(param1);
+    } else {
+        return self->QWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidget_OnMetacast(QWidget* self, intptr_t slot) {
+    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
+    if (vqwidget && vqwidget->isVirtualQWidget) {
+        vqwidget->setQWidget_Metacast_Callback(reinterpret_cast<VirtualQWidget::QWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

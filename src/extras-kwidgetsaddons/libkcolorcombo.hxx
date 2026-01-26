@@ -17,6 +17,8 @@ class VirtualKColorCombo final : public KColorCombo {
     bool isVirtualKColorCombo = true;
 
     // Virtual class public types (including callbacks)
+    using KColorCombo_MetaObject_Callback = QMetaObject* (*)();
+    using KColorCombo_Metacast_Callback = void* (*)(KColorCombo*, const char*);
     using KColorCombo_Metacall_Callback = int (*)(KColorCombo*, int, int, void**);
     using KColorCombo_PaintEvent_Callback = void (*)(KColorCombo*, QPaintEvent*);
     using KColorCombo_SetModel_Callback = void (*)(KColorCombo*, QAbstractItemModel*);
@@ -82,6 +84,8 @@ class VirtualKColorCombo final : public KColorCombo {
 
   protected:
     // Instance callback storage
+    KColorCombo_MetaObject_Callback kcolorcombo_metaobject_callback = nullptr;
+    KColorCombo_Metacast_Callback kcolorcombo_metacast_callback = nullptr;
     KColorCombo_Metacall_Callback kcolorcombo_metacall_callback = nullptr;
     KColorCombo_PaintEvent_Callback kcolorcombo_paintevent_callback = nullptr;
     KColorCombo_SetModel_Callback kcolorcombo_setmodel_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualKColorCombo final : public KColorCombo {
     KColorCombo_GetDecodedMetricF_Callback kcolorcombo_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcolorcombo_metaobject_isbase = false;
+    mutable bool kcolorcombo_metacast_isbase = false;
     mutable bool kcolorcombo_metacall_isbase = false;
     mutable bool kcolorcombo_paintevent_isbase = false;
     mutable bool kcolorcombo_setmodel_isbase = false;
@@ -214,6 +220,8 @@ class VirtualKColorCombo final : public KColorCombo {
     VirtualKColorCombo() : KColorCombo() {};
 
     ~VirtualKColorCombo() {
+        kcolorcombo_metaobject_callback = nullptr;
+        kcolorcombo_metacast_callback = nullptr;
         kcolorcombo_metacall_callback = nullptr;
         kcolorcombo_paintevent_callback = nullptr;
         kcolorcombo_setmodel_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualKColorCombo final : public KColorCombo {
     }
 
     // Callback setters
+    inline void setKColorCombo_MetaObject_Callback(KColorCombo_MetaObject_Callback cb) { kcolorcombo_metaobject_callback = cb; }
+    inline void setKColorCombo_Metacast_Callback(KColorCombo_Metacast_Callback cb) { kcolorcombo_metacast_callback = cb; }
     inline void setKColorCombo_Metacall_Callback(KColorCombo_Metacall_Callback cb) { kcolorcombo_metacall_callback = cb; }
     inline void setKColorCombo_PaintEvent_Callback(KColorCombo_PaintEvent_Callback cb) { kcolorcombo_paintevent_callback = cb; }
     inline void setKColorCombo_SetModel_Callback(KColorCombo_SetModel_Callback cb) { kcolorcombo_setmodel_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualKColorCombo final : public KColorCombo {
     inline void setKColorCombo_GetDecodedMetricF_Callback(KColorCombo_GetDecodedMetricF_Callback cb) { kcolorcombo_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKColorCombo_MetaObject_IsBase(bool value) const { kcolorcombo_metaobject_isbase = value; }
+    inline void setKColorCombo_Metacast_IsBase(bool value) const { kcolorcombo_metacast_isbase = value; }
     inline void setKColorCombo_Metacall_IsBase(bool value) const { kcolorcombo_metacall_isbase = value; }
     inline void setKColorCombo_PaintEvent_IsBase(bool value) const { kcolorcombo_paintevent_isbase = value; }
     inline void setKColorCombo_SetModel_IsBase(bool value) const { kcolorcombo_setmodel_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualKColorCombo final : public KColorCombo {
     inline void setKColorCombo_Receivers_IsBase(bool value) const { kcolorcombo_receivers_isbase = value; }
     inline void setKColorCombo_IsSignalConnected_IsBase(bool value) const { kcolorcombo_issignalconnected_isbase = value; }
     inline void setKColorCombo_GetDecodedMetricF_IsBase(bool value) const { kcolorcombo_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcolorcombo_metaobject_isbase) {
+            kcolorcombo_metaobject_isbase = false;
+            return KColorCombo::metaObject();
+        } else if (kcolorcombo_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcolorcombo_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KColorCombo::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcolorcombo_metacast_isbase) {
+            kcolorcombo_metacast_isbase = false;
+            return KColorCombo::qt_metacast(param1);
+        } else if (kcolorcombo_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcolorcombo_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KColorCombo::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

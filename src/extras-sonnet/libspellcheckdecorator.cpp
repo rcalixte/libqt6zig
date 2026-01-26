@@ -24,11 +24,21 @@ Sonnet__SpellCheckDecorator* Sonnet__SpellCheckDecorator_new2(QPlainTextEdit* te
 }
 
 QMetaObject* Sonnet__SpellCheckDecorator_MetaObject(const Sonnet__SpellCheckDecorator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vsonnet__spellcheckdecorator = dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self);
+    if (vsonnet__spellcheckdecorator && vsonnet__spellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualSonnetSpellCheckDecorator*)self)->metaObject();
+    }
 }
 
 void* Sonnet__SpellCheckDecorator_Metacast(Sonnet__SpellCheckDecorator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vsonnet__spellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
+    if (vsonnet__spellcheckdecorator && vsonnet__spellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualSonnetSpellCheckDecorator*)self)->qt_metacast(param1);
+    }
 }
 
 int Sonnet__SpellCheckDecorator_Metacall(Sonnet__SpellCheckDecorator* self, int param1, int param2, void** param3) {
@@ -63,6 +73,44 @@ bool Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock(const Sonnet__Sp
         return vsonnet__spellcheckdecorator->isSpellCheckingEnabledForBlock(textBlock_QString);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* Sonnet__SpellCheckDecorator_QBaseMetaObject(const Sonnet__SpellCheckDecorator* self) {
+    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_MetaObject_IsBase(true);
+        return (QMetaObject*)vsonnetspellcheckdecorator->metaObject();
+    } else {
+        return (QMetaObject*)self->Sonnet::SpellCheckDecorator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__SpellCheckDecorator_OnMetaObject(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
+    auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_MetaObject_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Sonnet__SpellCheckDecorator_QBaseMetacast(Sonnet__SpellCheckDecorator* self, const char* param1) {
+    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacast_IsBase(true);
+        return vsonnetspellcheckdecorator->qt_metacast(param1);
+    } else {
+        return self->Sonnet::SpellCheckDecorator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__SpellCheckDecorator_OnMetacast(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
+    auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+        vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacast_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -202,6 +202,10 @@ bool QListWidget_DropMimeData(QListWidget* self, int index, const QMimeData* dat
 int QListWidget_SupportedDropActions(const QListWidget* self);
 void QListWidget_SortItems1(QListWidget* self, int order);
 void QListWidget_ScrollToItem2(QListWidget* self, const QListWidgetItem* item, int hint);
+void QListWidget_OnMetaObject(const QListWidget* self, intptr_t slot);
+QMetaObject* QListWidget_QBaseMetaObject(const QListWidget* self);
+void QListWidget_OnMetacast(QListWidget* self, intptr_t slot);
+void* QListWidget_QBaseMetacast(QListWidget* self, const char* param1);
 void QListWidget_OnMetacall(QListWidget* self, intptr_t slot);
 int QListWidget_QBaseMetacall(QListWidget* self, int param1, int param2, void** param3);
 void QListWidget_OnSetSelectionModel(QListWidget* self, intptr_t slot);

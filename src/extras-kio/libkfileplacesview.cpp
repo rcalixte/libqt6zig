@@ -65,11 +65,21 @@ KFilePlacesView* KFilePlacesView_new2() {
 }
 
 QMetaObject* KFilePlacesView_MetaObject(const KFilePlacesView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfileplacesview = dynamic_cast<const VirtualKFilePlacesView*>(self);
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFilePlacesView*)self)->metaObject();
+    }
 }
 
 void* KFilePlacesView_Metacast(KFilePlacesView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFilePlacesView*)self)->qt_metacast(param1);
+    }
 }
 
 int KFilePlacesView_Metacall(KFilePlacesView* self, int param1, int param2, void** param3) {
@@ -350,6 +360,44 @@ void KFilePlacesView_Connect_UrlsDropped(KFilePlacesView* self, intptr_t slot) {
         QWidget* sigval3 = parent;
         slotFunc(self, sigval1, sigval2, sigval3);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KFilePlacesView_QBaseMetaObject(const KFilePlacesView* self) {
+    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+        vkfileplacesview->setKFilePlacesView_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfileplacesview->metaObject();
+    } else {
+        return (QMetaObject*)self->KFilePlacesView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFilePlacesView_OnMetaObject(const KFilePlacesView* self, intptr_t slot) {
+    auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+        vkfileplacesview->setKFilePlacesView_MetaObject_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFilePlacesView_QBaseMetacast(KFilePlacesView* self, const char* param1) {
+    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+        vkfileplacesview->setKFilePlacesView_Metacast_IsBase(true);
+        return vkfileplacesview->qt_metacast(param1);
+    } else {
+        return self->KFilePlacesView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFilePlacesView_OnMetacast(KFilePlacesView* self, intptr_t slot) {
+    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+        vkfileplacesview->setKFilePlacesView_Metacast_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

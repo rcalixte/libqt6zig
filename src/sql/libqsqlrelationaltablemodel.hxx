@@ -17,6 +17,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     bool isVirtualQSqlRelationalTableModel = true;
 
     // Virtual class public types (including callbacks)
+    using QSqlRelationalTableModel_MetaObject_Callback = QMetaObject* (*)();
+    using QSqlRelationalTableModel_Metacast_Callback = void* (*)(QSqlRelationalTableModel*, const char*);
     using QSqlRelationalTableModel_Metacall_Callback = int (*)(QSqlRelationalTableModel*, int, int, void**);
     using QSqlRelationalTableModel_Data_Callback = QVariant* (*)(const QSqlRelationalTableModel*, QModelIndex*, int);
     using QSqlRelationalTableModel_SetData_Callback = bool (*)(QSqlRelationalTableModel*, QModelIndex*, QVariant*, int);
@@ -107,6 +109,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
 
   protected:
     // Instance callback storage
+    QSqlRelationalTableModel_MetaObject_Callback qsqlrelationaltablemodel_metaobject_callback = nullptr;
+    QSqlRelationalTableModel_Metacast_Callback qsqlrelationaltablemodel_metacast_callback = nullptr;
     QSqlRelationalTableModel_Metacall_Callback qsqlrelationaltablemodel_metacall_callback = nullptr;
     QSqlRelationalTableModel_Data_Callback qsqlrelationaltablemodel_data_callback = nullptr;
     QSqlRelationalTableModel_SetData_Callback qsqlrelationaltablemodel_setdata_callback = nullptr;
@@ -196,6 +200,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     QSqlRelationalTableModel_IsSignalConnected_Callback qsqlrelationaltablemodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsqlrelationaltablemodel_metaobject_isbase = false;
+    mutable bool qsqlrelationaltablemodel_metacast_isbase = false;
     mutable bool qsqlrelationaltablemodel_metacall_isbase = false;
     mutable bool qsqlrelationaltablemodel_data_isbase = false;
     mutable bool qsqlrelationaltablemodel_setdata_isbase = false;
@@ -290,6 +296,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     VirtualQSqlRelationalTableModel(QObject* parent, const QSqlDatabase& db) : QSqlRelationalTableModel(parent, db) {};
 
     ~VirtualQSqlRelationalTableModel() {
+        qsqlrelationaltablemodel_metaobject_callback = nullptr;
+        qsqlrelationaltablemodel_metacast_callback = nullptr;
         qsqlrelationaltablemodel_metacall_callback = nullptr;
         qsqlrelationaltablemodel_data_callback = nullptr;
         qsqlrelationaltablemodel_setdata_callback = nullptr;
@@ -380,6 +388,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     }
 
     // Callback setters
+    inline void setQSqlRelationalTableModel_MetaObject_Callback(QSqlRelationalTableModel_MetaObject_Callback cb) { qsqlrelationaltablemodel_metaobject_callback = cb; }
+    inline void setQSqlRelationalTableModel_Metacast_Callback(QSqlRelationalTableModel_Metacast_Callback cb) { qsqlrelationaltablemodel_metacast_callback = cb; }
     inline void setQSqlRelationalTableModel_Metacall_Callback(QSqlRelationalTableModel_Metacall_Callback cb) { qsqlrelationaltablemodel_metacall_callback = cb; }
     inline void setQSqlRelationalTableModel_Data_Callback(QSqlRelationalTableModel_Data_Callback cb) { qsqlrelationaltablemodel_data_callback = cb; }
     inline void setQSqlRelationalTableModel_SetData_Callback(QSqlRelationalTableModel_SetData_Callback cb) { qsqlrelationaltablemodel_setdata_callback = cb; }
@@ -469,6 +479,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     inline void setQSqlRelationalTableModel_IsSignalConnected_Callback(QSqlRelationalTableModel_IsSignalConnected_Callback cb) { qsqlrelationaltablemodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSqlRelationalTableModel_MetaObject_IsBase(bool value) const { qsqlrelationaltablemodel_metaobject_isbase = value; }
+    inline void setQSqlRelationalTableModel_Metacast_IsBase(bool value) const { qsqlrelationaltablemodel_metacast_isbase = value; }
     inline void setQSqlRelationalTableModel_Metacall_IsBase(bool value) const { qsqlrelationaltablemodel_metacall_isbase = value; }
     inline void setQSqlRelationalTableModel_Data_IsBase(bool value) const { qsqlrelationaltablemodel_data_isbase = value; }
     inline void setQSqlRelationalTableModel_SetData_IsBase(bool value) const { qsqlrelationaltablemodel_setdata_isbase = value; }
@@ -556,6 +568,34 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     inline void setQSqlRelationalTableModel_SenderSignalIndex_IsBase(bool value) const { qsqlrelationaltablemodel_sendersignalindex_isbase = value; }
     inline void setQSqlRelationalTableModel_Receivers_IsBase(bool value) const { qsqlrelationaltablemodel_receivers_isbase = value; }
     inline void setQSqlRelationalTableModel_IsSignalConnected_IsBase(bool value) const { qsqlrelationaltablemodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsqlrelationaltablemodel_metaobject_isbase) {
+            qsqlrelationaltablemodel_metaobject_isbase = false;
+            return QSqlRelationalTableModel::metaObject();
+        } else if (qsqlrelationaltablemodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsqlrelationaltablemodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSqlRelationalTableModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsqlrelationaltablemodel_metacast_isbase) {
+            qsqlrelationaltablemodel_metacast_isbase = false;
+            return QSqlRelationalTableModel::qt_metacast(param1);
+        } else if (qsqlrelationaltablemodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsqlrelationaltablemodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSqlRelationalTableModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

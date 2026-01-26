@@ -17,6 +17,8 @@ class VirtualKUrlNavigator final : public KUrlNavigator {
     bool isVirtualKUrlNavigator = true;
 
     // Virtual class public types (including callbacks)
+    using KUrlNavigator_MetaObject_Callback = QMetaObject* (*)();
+    using KUrlNavigator_Metacast_Callback = void* (*)(KUrlNavigator*, const char*);
     using KUrlNavigator_Metacall_Callback = int (*)(KUrlNavigator*, int, int, void**);
     using KUrlNavigator_KeyPressEvent_Callback = void (*)(KUrlNavigator*, QKeyEvent*);
     using KUrlNavigator_KeyReleaseEvent_Callback = void (*)(KUrlNavigator*, QKeyEvent*);
@@ -78,6 +80,8 @@ class VirtualKUrlNavigator final : public KUrlNavigator {
 
   protected:
     // Instance callback storage
+    KUrlNavigator_MetaObject_Callback kurlnavigator_metaobject_callback = nullptr;
+    KUrlNavigator_Metacast_Callback kurlnavigator_metacast_callback = nullptr;
     KUrlNavigator_Metacall_Callback kurlnavigator_metacall_callback = nullptr;
     KUrlNavigator_KeyPressEvent_Callback kurlnavigator_keypressevent_callback = nullptr;
     KUrlNavigator_KeyReleaseEvent_Callback kurlnavigator_keyreleaseevent_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKUrlNavigator final : public KUrlNavigator {
     KUrlNavigator_GetDecodedMetricF_Callback kurlnavigator_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kurlnavigator_metaobject_isbase = false;
+    mutable bool kurlnavigator_metacast_isbase = false;
     mutable bool kurlnavigator_metacall_isbase = false;
     mutable bool kurlnavigator_keypressevent_isbase = false;
     mutable bool kurlnavigator_keyreleaseevent_isbase = false;
@@ -203,6 +209,8 @@ class VirtualKUrlNavigator final : public KUrlNavigator {
     VirtualKUrlNavigator(KFilePlacesModel* placesModel, const QUrl& url, QWidget* parent) : KUrlNavigator(placesModel, url, parent) {};
 
     ~VirtualKUrlNavigator() {
+        kurlnavigator_metaobject_callback = nullptr;
+        kurlnavigator_metacast_callback = nullptr;
         kurlnavigator_metacall_callback = nullptr;
         kurlnavigator_keypressevent_callback = nullptr;
         kurlnavigator_keyreleaseevent_callback = nullptr;
@@ -264,6 +272,8 @@ class VirtualKUrlNavigator final : public KUrlNavigator {
     }
 
     // Callback setters
+    inline void setKUrlNavigator_MetaObject_Callback(KUrlNavigator_MetaObject_Callback cb) { kurlnavigator_metaobject_callback = cb; }
+    inline void setKUrlNavigator_Metacast_Callback(KUrlNavigator_Metacast_Callback cb) { kurlnavigator_metacast_callback = cb; }
     inline void setKUrlNavigator_Metacall_Callback(KUrlNavigator_Metacall_Callback cb) { kurlnavigator_metacall_callback = cb; }
     inline void setKUrlNavigator_KeyPressEvent_Callback(KUrlNavigator_KeyPressEvent_Callback cb) { kurlnavigator_keypressevent_callback = cb; }
     inline void setKUrlNavigator_KeyReleaseEvent_Callback(KUrlNavigator_KeyReleaseEvent_Callback cb) { kurlnavigator_keyreleaseevent_callback = cb; }
@@ -324,6 +334,8 @@ class VirtualKUrlNavigator final : public KUrlNavigator {
     inline void setKUrlNavigator_GetDecodedMetricF_Callback(KUrlNavigator_GetDecodedMetricF_Callback cb) { kurlnavigator_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKUrlNavigator_MetaObject_IsBase(bool value) const { kurlnavigator_metaobject_isbase = value; }
+    inline void setKUrlNavigator_Metacast_IsBase(bool value) const { kurlnavigator_metacast_isbase = value; }
     inline void setKUrlNavigator_Metacall_IsBase(bool value) const { kurlnavigator_metacall_isbase = value; }
     inline void setKUrlNavigator_KeyPressEvent_IsBase(bool value) const { kurlnavigator_keypressevent_isbase = value; }
     inline void setKUrlNavigator_KeyReleaseEvent_IsBase(bool value) const { kurlnavigator_keyreleaseevent_isbase = value; }
@@ -382,6 +394,34 @@ class VirtualKUrlNavigator final : public KUrlNavigator {
     inline void setKUrlNavigator_Receivers_IsBase(bool value) const { kurlnavigator_receivers_isbase = value; }
     inline void setKUrlNavigator_IsSignalConnected_IsBase(bool value) const { kurlnavigator_issignalconnected_isbase = value; }
     inline void setKUrlNavigator_GetDecodedMetricF_IsBase(bool value) const { kurlnavigator_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kurlnavigator_metaobject_isbase) {
+            kurlnavigator_metaobject_isbase = false;
+            return KUrlNavigator::metaObject();
+        } else if (kurlnavigator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kurlnavigator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KUrlNavigator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kurlnavigator_metacast_isbase) {
+            kurlnavigator_metacast_isbase = false;
+            return KUrlNavigator::qt_metacast(param1);
+        } else if (kurlnavigator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kurlnavigator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KUrlNavigator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

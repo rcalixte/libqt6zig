@@ -175,6 +175,10 @@ QTextCursor* QTextDocument_Find35(const QTextDocument* self, const QRegularExpre
 void QTextDocument_DrawContents2(QTextDocument* self, QPainter* painter, const QRectF* rect);
 void QTextDocument_ClearUndoRedoStacks1(QTextDocument* self, int historyToClear);
 void QTextDocument_SetModified1(QTextDocument* self, bool m);
+void QTextDocument_OnMetaObject(const QTextDocument* self, intptr_t slot);
+QMetaObject* QTextDocument_QBaseMetaObject(const QTextDocument* self);
+void QTextDocument_OnMetacast(QTextDocument* self, intptr_t slot);
+void* QTextDocument_QBaseMetacast(QTextDocument* self, const char* param1);
 void QTextDocument_OnMetacall(QTextDocument* self, intptr_t slot);
 int QTextDocument_QBaseMetacall(QTextDocument* self, int param1, int param2, void** param3);
 void QTextDocument_OnClear(QTextDocument* self, intptr_t slot);

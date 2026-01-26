@@ -17,6 +17,8 @@ class VirtualKTextEdit final : public KTextEdit {
     bool isVirtualKTextEdit = true;
 
     // Virtual class public types (including callbacks)
+    using KTextEdit_MetaObject_Callback = QMetaObject* (*)();
+    using KTextEdit_Metacast_Callback = void* (*)(KTextEdit*, const char*);
     using KTextEdit_Metacall_Callback = int (*)(KTextEdit*, int, int, void**);
     using KTextEdit_SetReadOnly_Callback = void (*)(KTextEdit*, bool);
     using KTextEdit_SetCheckSpellingEnabled_Callback = void (*)(KTextEdit*, bool);
@@ -108,6 +110,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
   protected:
     // Instance callback storage
+    KTextEdit_MetaObject_Callback ktextedit_metaobject_callback = nullptr;
+    KTextEdit_Metacast_Callback ktextedit_metacast_callback = nullptr;
     KTextEdit_Metacall_Callback ktextedit_metacall_callback = nullptr;
     KTextEdit_SetReadOnly_Callback ktextedit_setreadonly_callback = nullptr;
     KTextEdit_SetCheckSpellingEnabled_Callback ktextedit_setcheckspellingenabled_callback = nullptr;
@@ -198,6 +202,8 @@ class VirtualKTextEdit final : public KTextEdit {
     KTextEdit_GetDecodedMetricF_Callback ktextedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktextedit_metaobject_isbase = false;
+    mutable bool ktextedit_metacast_isbase = false;
     mutable bool ktextedit_metacall_isbase = false;
     mutable bool ktextedit_setreadonly_isbase = false;
     mutable bool ktextedit_setcheckspellingenabled_isbase = false;
@@ -294,6 +300,8 @@ class VirtualKTextEdit final : public KTextEdit {
     VirtualKTextEdit(const QString& text, QWidget* parent) : KTextEdit(text, parent) {};
 
     ~VirtualKTextEdit() {
+        ktextedit_metaobject_callback = nullptr;
+        ktextedit_metacast_callback = nullptr;
         ktextedit_metacall_callback = nullptr;
         ktextedit_setreadonly_callback = nullptr;
         ktextedit_setcheckspellingenabled_callback = nullptr;
@@ -385,6 +393,8 @@ class VirtualKTextEdit final : public KTextEdit {
     }
 
     // Callback setters
+    inline void setKTextEdit_MetaObject_Callback(KTextEdit_MetaObject_Callback cb) { ktextedit_metaobject_callback = cb; }
+    inline void setKTextEdit_Metacast_Callback(KTextEdit_Metacast_Callback cb) { ktextedit_metacast_callback = cb; }
     inline void setKTextEdit_Metacall_Callback(KTextEdit_Metacall_Callback cb) { ktextedit_metacall_callback = cb; }
     inline void setKTextEdit_SetReadOnly_Callback(KTextEdit_SetReadOnly_Callback cb) { ktextedit_setreadonly_callback = cb; }
     inline void setKTextEdit_SetCheckSpellingEnabled_Callback(KTextEdit_SetCheckSpellingEnabled_Callback cb) { ktextedit_setcheckspellingenabled_callback = cb; }
@@ -475,6 +485,8 @@ class VirtualKTextEdit final : public KTextEdit {
     inline void setKTextEdit_GetDecodedMetricF_Callback(KTextEdit_GetDecodedMetricF_Callback cb) { ktextedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKTextEdit_MetaObject_IsBase(bool value) const { ktextedit_metaobject_isbase = value; }
+    inline void setKTextEdit_Metacast_IsBase(bool value) const { ktextedit_metacast_isbase = value; }
     inline void setKTextEdit_Metacall_IsBase(bool value) const { ktextedit_metacall_isbase = value; }
     inline void setKTextEdit_SetReadOnly_IsBase(bool value) const { ktextedit_setreadonly_isbase = value; }
     inline void setKTextEdit_SetCheckSpellingEnabled_IsBase(bool value) const { ktextedit_setcheckspellingenabled_isbase = value; }
@@ -563,6 +575,34 @@ class VirtualKTextEdit final : public KTextEdit {
     inline void setKTextEdit_Receivers_IsBase(bool value) const { ktextedit_receivers_isbase = value; }
     inline void setKTextEdit_IsSignalConnected_IsBase(bool value) const { ktextedit_issignalconnected_isbase = value; }
     inline void setKTextEdit_GetDecodedMetricF_IsBase(bool value) const { ktextedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktextedit_metaobject_isbase) {
+            ktextedit_metaobject_isbase = false;
+            return KTextEdit::metaObject();
+        } else if (ktextedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktextedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTextEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktextedit_metacast_isbase) {
+            ktextedit_metacast_isbase = false;
+            return KTextEdit::qt_metacast(param1);
+        } else if (ktextedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktextedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTextEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

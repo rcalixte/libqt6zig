@@ -17,6 +17,8 @@ class VirtualKPartsReadOnlyPart final : public KParts::ReadOnlyPart {
     bool isVirtualKPartsReadOnlyPart = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__ReadOnlyPart_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__ReadOnlyPart_Metacast_Callback = void* (*)(KParts__ReadOnlyPart*, const char*);
     using KParts__ReadOnlyPart_Metacall_Callback = int (*)(KParts__ReadOnlyPart*, int, int, void**);
     using KParts__ReadOnlyPart_OpenUrl_Callback = bool (*)(KParts__ReadOnlyPart*, QUrl*);
     using KParts__ReadOnlyPart_CloseUrl_Callback = bool (*)();
@@ -61,6 +63,8 @@ class VirtualKPartsReadOnlyPart final : public KParts::ReadOnlyPart {
 
   protected:
     // Instance callback storage
+    KParts__ReadOnlyPart_MetaObject_Callback kparts__readonlypart_metaobject_callback = nullptr;
+    KParts__ReadOnlyPart_Metacast_Callback kparts__readonlypart_metacast_callback = nullptr;
     KParts__ReadOnlyPart_Metacall_Callback kparts__readonlypart_metacall_callback = nullptr;
     KParts__ReadOnlyPart_OpenUrl_Callback kparts__readonlypart_openurl_callback = nullptr;
     KParts__ReadOnlyPart_CloseUrl_Callback kparts__readonlypart_closeurl_callback = nullptr;
@@ -104,6 +108,8 @@ class VirtualKPartsReadOnlyPart final : public KParts::ReadOnlyPart {
     KParts__ReadOnlyPart_LoadStandardsXmlFile_Callback kparts__readonlypart_loadstandardsxmlfile_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__readonlypart_metaobject_isbase = false;
+    mutable bool kparts__readonlypart_metacast_isbase = false;
     mutable bool kparts__readonlypart_metacall_isbase = false;
     mutable bool kparts__readonlypart_openurl_isbase = false;
     mutable bool kparts__readonlypart_closeurl_isbase = false;
@@ -152,6 +158,8 @@ class VirtualKPartsReadOnlyPart final : public KParts::ReadOnlyPart {
     VirtualKPartsReadOnlyPart(QObject* parent, const KPluginMetaData& data) : KParts::ReadOnlyPart(parent, data) {};
 
     ~VirtualKPartsReadOnlyPart() {
+        kparts__readonlypart_metaobject_callback = nullptr;
+        kparts__readonlypart_metacast_callback = nullptr;
         kparts__readonlypart_metacall_callback = nullptr;
         kparts__readonlypart_openurl_callback = nullptr;
         kparts__readonlypart_closeurl_callback = nullptr;
@@ -196,6 +204,8 @@ class VirtualKPartsReadOnlyPart final : public KParts::ReadOnlyPart {
     }
 
     // Callback setters
+    inline void setKParts__ReadOnlyPart_MetaObject_Callback(KParts__ReadOnlyPart_MetaObject_Callback cb) { kparts__readonlypart_metaobject_callback = cb; }
+    inline void setKParts__ReadOnlyPart_Metacast_Callback(KParts__ReadOnlyPart_Metacast_Callback cb) { kparts__readonlypart_metacast_callback = cb; }
     inline void setKParts__ReadOnlyPart_Metacall_Callback(KParts__ReadOnlyPart_Metacall_Callback cb) { kparts__readonlypart_metacall_callback = cb; }
     inline void setKParts__ReadOnlyPart_OpenUrl_Callback(KParts__ReadOnlyPart_OpenUrl_Callback cb) { kparts__readonlypart_openurl_callback = cb; }
     inline void setKParts__ReadOnlyPart_CloseUrl_Callback(KParts__ReadOnlyPart_CloseUrl_Callback cb) { kparts__readonlypart_closeurl_callback = cb; }
@@ -239,6 +249,8 @@ class VirtualKPartsReadOnlyPart final : public KParts::ReadOnlyPart {
     inline void setKParts__ReadOnlyPart_LoadStandardsXmlFile_Callback(KParts__ReadOnlyPart_LoadStandardsXmlFile_Callback cb) { kparts__readonlypart_loadstandardsxmlfile_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__ReadOnlyPart_MetaObject_IsBase(bool value) const { kparts__readonlypart_metaobject_isbase = value; }
+    inline void setKParts__ReadOnlyPart_Metacast_IsBase(bool value) const { kparts__readonlypart_metacast_isbase = value; }
     inline void setKParts__ReadOnlyPart_Metacall_IsBase(bool value) const { kparts__readonlypart_metacall_isbase = value; }
     inline void setKParts__ReadOnlyPart_OpenUrl_IsBase(bool value) const { kparts__readonlypart_openurl_isbase = value; }
     inline void setKParts__ReadOnlyPart_CloseUrl_IsBase(bool value) const { kparts__readonlypart_closeurl_isbase = value; }
@@ -280,6 +292,34 @@ class VirtualKPartsReadOnlyPart final : public KParts::ReadOnlyPart {
     inline void setKParts__ReadOnlyPart_IsSignalConnected_IsBase(bool value) const { kparts__readonlypart_issignalconnected_isbase = value; }
     inline void setKParts__ReadOnlyPart_StandardsXmlFileLocation_IsBase(bool value) const { kparts__readonlypart_standardsxmlfilelocation_isbase = value; }
     inline void setKParts__ReadOnlyPart_LoadStandardsXmlFile_IsBase(bool value) const { kparts__readonlypart_loadstandardsxmlfile_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__readonlypart_metaobject_isbase) {
+            kparts__readonlypart_metaobject_isbase = false;
+            return KParts__ReadOnlyPart::metaObject();
+        } else if (kparts__readonlypart_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__readonlypart_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__ReadOnlyPart::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__readonlypart_metacast_isbase) {
+            kparts__readonlypart_metacast_isbase = false;
+            return KParts__ReadOnlyPart::qt_metacast(param1);
+        } else if (kparts__readonlypart_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__readonlypart_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__ReadOnlyPart::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

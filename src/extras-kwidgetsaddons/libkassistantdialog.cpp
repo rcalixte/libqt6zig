@@ -58,11 +58,21 @@ KAssistantDialog* KAssistantDialog_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* KAssistantDialog_MetaObject(const KAssistantDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkassistantdialog = dynamic_cast<const VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKAssistantDialog*)self)->metaObject();
+    }
 }
 
 void* KAssistantDialog_Metacast(KAssistantDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKAssistantDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KAssistantDialog_Metacall(KAssistantDialog* self, int param1, int param2, void** param3) {
@@ -124,6 +134,44 @@ void KAssistantDialog_ShowEvent(KAssistantDialog* self, QShowEvent* event) {
     auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
     if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
         vkassistantdialog->showEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KAssistantDialog_QBaseMetaObject(const KAssistantDialog* self) {
+    auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkassistantdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KAssistantDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAssistantDialog_OnMetaObject(const KAssistantDialog* self, intptr_t slot) {
+    auto* vkassistantdialog = const_cast<VirtualKAssistantDialog*>(dynamic_cast<const VirtualKAssistantDialog*>(self));
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_MetaObject_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KAssistantDialog_QBaseMetacast(KAssistantDialog* self, const char* param1) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_Metacast_IsBase(true);
+        return vkassistantdialog->qt_metacast(param1);
+    } else {
+        return self->KAssistantDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAssistantDialog_OnMetacast(KAssistantDialog* self, intptr_t slot) {
+    auto* vkassistantdialog = dynamic_cast<VirtualKAssistantDialog*>(self);
+    if (vkassistantdialog && vkassistantdialog->isVirtualKAssistantDialog) {
+        vkassistantdialog->setKAssistantDialog_Metacast_Callback(reinterpret_cast<VirtualKAssistantDialog::KAssistantDialog_Metacast_Callback>(slot));
     }
 }
 

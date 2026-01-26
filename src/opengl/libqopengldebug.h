@@ -80,6 +80,10 @@ void QOpenGLDebugLogger_DisableMessages3(QOpenGLDebugLogger* self, int sources, 
 void QOpenGLDebugLogger_DisableMessages23(QOpenGLDebugLogger* self, const libqt_list /* of uint32_t */ ids, int sources);
 void QOpenGLDebugLogger_DisableMessages32(QOpenGLDebugLogger* self, const libqt_list /* of uint32_t */ ids, int sources, int types);
 void QOpenGLDebugLogger_StartLogging1(QOpenGLDebugLogger* self, int loggingMode);
+void QOpenGLDebugLogger_OnMetaObject(const QOpenGLDebugLogger* self, intptr_t slot);
+QMetaObject* QOpenGLDebugLogger_QBaseMetaObject(const QOpenGLDebugLogger* self);
+void QOpenGLDebugLogger_OnMetacast(QOpenGLDebugLogger* self, intptr_t slot);
+void* QOpenGLDebugLogger_QBaseMetacast(QOpenGLDebugLogger* self, const char* param1);
 void QOpenGLDebugLogger_OnMetacall(QOpenGLDebugLogger* self, intptr_t slot);
 int QOpenGLDebugLogger_QBaseMetacall(QOpenGLDebugLogger* self, int param1, int param2, void** param3);
 bool QOpenGLDebugLogger_Event(QOpenGLDebugLogger* self, QEvent* event);

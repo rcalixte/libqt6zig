@@ -17,6 +17,8 @@ class VirtualAccountsWatch final : public Accounts::Watch {
     bool isVirtualAccountsWatch = true;
 
     // Virtual class public types (including callbacks)
+    using Accounts__Watch_MetaObject_Callback = QMetaObject* (*)();
+    using Accounts__Watch_Metacast_Callback = void* (*)(Accounts__Watch*, const char*);
     using Accounts__Watch_Metacall_Callback = int (*)(Accounts__Watch*, int, int, void**);
     using Accounts__Watch_Event_Callback = bool (*)(Accounts__Watch*, QEvent*);
     using Accounts__Watch_EventFilter_Callback = bool (*)(Accounts__Watch*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualAccountsWatch final : public Accounts::Watch {
 
   protected:
     // Instance callback storage
+    Accounts__Watch_MetaObject_Callback accounts__watch_metaobject_callback = nullptr;
+    Accounts__Watch_Metacast_Callback accounts__watch_metacast_callback = nullptr;
     Accounts__Watch_Metacall_Callback accounts__watch_metacall_callback = nullptr;
     Accounts__Watch_Event_Callback accounts__watch_event_callback = nullptr;
     Accounts__Watch_EventFilter_Callback accounts__watch_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualAccountsWatch final : public Accounts::Watch {
     Accounts__Watch_IsSignalConnected_Callback accounts__watch_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool accounts__watch_metaobject_isbase = false;
+    mutable bool accounts__watch_metacast_isbase = false;
     mutable bool accounts__watch_metacall_isbase = false;
     mutable bool accounts__watch_event_isbase = false;
     mutable bool accounts__watch_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualAccountsWatch final : public Accounts::Watch {
     VirtualAccountsWatch(QObject* parent) : Accounts::Watch(parent) {};
 
     ~VirtualAccountsWatch() {
+        accounts__watch_metaobject_callback = nullptr;
+        accounts__watch_metacast_callback = nullptr;
         accounts__watch_metacall_callback = nullptr;
         accounts__watch_event_callback = nullptr;
         accounts__watch_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualAccountsWatch final : public Accounts::Watch {
     }
 
     // Callback setters
+    inline void setAccounts__Watch_MetaObject_Callback(Accounts__Watch_MetaObject_Callback cb) { accounts__watch_metaobject_callback = cb; }
+    inline void setAccounts__Watch_Metacast_Callback(Accounts__Watch_Metacast_Callback cb) { accounts__watch_metacast_callback = cb; }
     inline void setAccounts__Watch_Metacall_Callback(Accounts__Watch_Metacall_Callback cb) { accounts__watch_metacall_callback = cb; }
     inline void setAccounts__Watch_Event_Callback(Accounts__Watch_Event_Callback cb) { accounts__watch_event_callback = cb; }
     inline void setAccounts__Watch_EventFilter_Callback(Accounts__Watch_EventFilter_Callback cb) { accounts__watch_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualAccountsWatch final : public Accounts::Watch {
     inline void setAccounts__Watch_IsSignalConnected_Callback(Accounts__Watch_IsSignalConnected_Callback cb) { accounts__watch_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setAccounts__Watch_MetaObject_IsBase(bool value) const { accounts__watch_metaobject_isbase = value; }
+    inline void setAccounts__Watch_Metacast_IsBase(bool value) const { accounts__watch_metacast_isbase = value; }
     inline void setAccounts__Watch_Metacall_IsBase(bool value) const { accounts__watch_metacall_isbase = value; }
     inline void setAccounts__Watch_Event_IsBase(bool value) const { accounts__watch_event_isbase = value; }
     inline void setAccounts__Watch_EventFilter_IsBase(bool value) const { accounts__watch_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualAccountsWatch final : public Accounts::Watch {
     inline void setAccounts__Watch_SenderSignalIndex_IsBase(bool value) const { accounts__watch_sendersignalindex_isbase = value; }
     inline void setAccounts__Watch_Receivers_IsBase(bool value) const { accounts__watch_receivers_isbase = value; }
     inline void setAccounts__Watch_IsSignalConnected_IsBase(bool value) const { accounts__watch_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (accounts__watch_metaobject_isbase) {
+            accounts__watch_metaobject_isbase = false;
+            return Accounts__Watch::metaObject();
+        } else if (accounts__watch_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = accounts__watch_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Accounts__Watch::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (accounts__watch_metacast_isbase) {
+            accounts__watch_metacast_isbase = false;
+            return Accounts__Watch::qt_metacast(param1);
+        } else if (accounts__watch_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = accounts__watch_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Accounts__Watch::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -315,6 +355,8 @@ class VirtualAccountsAccount final : public Accounts::Account {
     bool isVirtualAccountsAccount = true;
 
     // Virtual class public types (including callbacks)
+    using Accounts__Account_MetaObject_Callback = QMetaObject* (*)();
+    using Accounts__Account_Metacast_Callback = void* (*)(Accounts__Account*, const char*);
     using Accounts__Account_Metacall_Callback = int (*)(Accounts__Account*, int, int, void**);
     using Accounts__Account_Event_Callback = bool (*)(Accounts__Account*, QEvent*);
     using Accounts__Account_EventFilter_Callback = bool (*)(Accounts__Account*, QObject*, QEvent*);
@@ -330,6 +372,8 @@ class VirtualAccountsAccount final : public Accounts::Account {
 
   protected:
     // Instance callback storage
+    Accounts__Account_MetaObject_Callback accounts__account_metaobject_callback = nullptr;
+    Accounts__Account_Metacast_Callback accounts__account_metacast_callback = nullptr;
     Accounts__Account_Metacall_Callback accounts__account_metacall_callback = nullptr;
     Accounts__Account_Event_Callback accounts__account_event_callback = nullptr;
     Accounts__Account_EventFilter_Callback accounts__account_eventfilter_callback = nullptr;
@@ -344,6 +388,8 @@ class VirtualAccountsAccount final : public Accounts::Account {
     Accounts__Account_IsSignalConnected_Callback accounts__account_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool accounts__account_metaobject_isbase = false;
+    mutable bool accounts__account_metacast_isbase = false;
     mutable bool accounts__account_metacall_isbase = false;
     mutable bool accounts__account_event_isbase = false;
     mutable bool accounts__account_eventfilter_isbase = false;
@@ -362,6 +408,8 @@ class VirtualAccountsAccount final : public Accounts::Account {
     VirtualAccountsAccount(Accounts::Manager* manager, const QString& provider, QObject* parent) : Accounts::Account(manager, provider, parent) {};
 
     ~VirtualAccountsAccount() {
+        accounts__account_metaobject_callback = nullptr;
+        accounts__account_metacast_callback = nullptr;
         accounts__account_metacall_callback = nullptr;
         accounts__account_event_callback = nullptr;
         accounts__account_eventfilter_callback = nullptr;
@@ -377,6 +425,8 @@ class VirtualAccountsAccount final : public Accounts::Account {
     }
 
     // Callback setters
+    inline void setAccounts__Account_MetaObject_Callback(Accounts__Account_MetaObject_Callback cb) { accounts__account_metaobject_callback = cb; }
+    inline void setAccounts__Account_Metacast_Callback(Accounts__Account_Metacast_Callback cb) { accounts__account_metacast_callback = cb; }
     inline void setAccounts__Account_Metacall_Callback(Accounts__Account_Metacall_Callback cb) { accounts__account_metacall_callback = cb; }
     inline void setAccounts__Account_Event_Callback(Accounts__Account_Event_Callback cb) { accounts__account_event_callback = cb; }
     inline void setAccounts__Account_EventFilter_Callback(Accounts__Account_EventFilter_Callback cb) { accounts__account_eventfilter_callback = cb; }
@@ -391,6 +441,8 @@ class VirtualAccountsAccount final : public Accounts::Account {
     inline void setAccounts__Account_IsSignalConnected_Callback(Accounts__Account_IsSignalConnected_Callback cb) { accounts__account_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setAccounts__Account_MetaObject_IsBase(bool value) const { accounts__account_metaobject_isbase = value; }
+    inline void setAccounts__Account_Metacast_IsBase(bool value) const { accounts__account_metacast_isbase = value; }
     inline void setAccounts__Account_Metacall_IsBase(bool value) const { accounts__account_metacall_isbase = value; }
     inline void setAccounts__Account_Event_IsBase(bool value) const { accounts__account_event_isbase = value; }
     inline void setAccounts__Account_EventFilter_IsBase(bool value) const { accounts__account_eventfilter_isbase = value; }
@@ -403,6 +455,34 @@ class VirtualAccountsAccount final : public Accounts::Account {
     inline void setAccounts__Account_SenderSignalIndex_IsBase(bool value) const { accounts__account_sendersignalindex_isbase = value; }
     inline void setAccounts__Account_Receivers_IsBase(bool value) const { accounts__account_receivers_isbase = value; }
     inline void setAccounts__Account_IsSignalConnected_IsBase(bool value) const { accounts__account_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (accounts__account_metaobject_isbase) {
+            accounts__account_metaobject_isbase = false;
+            return Accounts__Account::metaObject();
+        } else if (accounts__account_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = accounts__account_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Accounts__Account::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (accounts__account_metacast_isbase) {
+            accounts__account_metacast_isbase = false;
+            return Accounts__Account::qt_metacast(param1);
+        } else if (accounts__account_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = accounts__account_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Accounts__Account::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -32,11 +32,21 @@ QAudioBufferInput* QAudioBufferInput_new4(const QAudioFormat* format, QObject* p
 }
 
 QMetaObject* QAudioBufferInput_MetaObject(const QAudioBufferInput* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqaudiobufferinput = dynamic_cast<const VirtualQAudioBufferInput*>(self);
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAudioBufferInput*)self)->metaObject();
+    }
 }
 
 void* QAudioBufferInput_Metacast(QAudioBufferInput* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAudioBufferInput*)self)->qt_metacast(param1);
+    }
 }
 
 int QAudioBufferInput_Metacall(QAudioBufferInput* self, int param1, int param2, void** param3) {
@@ -69,6 +79,44 @@ void QAudioBufferInput_Connect_ReadyToSendAudioBuffer(QAudioBufferInput* self, i
     QAudioBufferInput::connect(self, &QAudioBufferInput::readyToSendAudioBuffer, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QAudioBufferInput_QBaseMetaObject(const QAudioBufferInput* self) {
+    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+        vqaudiobufferinput->setQAudioBufferInput_MetaObject_IsBase(true);
+        return (QMetaObject*)vqaudiobufferinput->metaObject();
+    } else {
+        return (QMetaObject*)self->QAudioBufferInput::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioBufferInput_OnMetaObject(const QAudioBufferInput* self, intptr_t slot) {
+    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+        vqaudiobufferinput->setQAudioBufferInput_MetaObject_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAudioBufferInput_QBaseMetacast(QAudioBufferInput* self, const char* param1) {
+    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+        vqaudiobufferinput->setQAudioBufferInput_Metacast_IsBase(true);
+        return vqaudiobufferinput->qt_metacast(param1);
+    } else {
+        return self->QAudioBufferInput::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioBufferInput_OnMetacast(QAudioBufferInput* self, intptr_t slot) {
+    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+        vqaudiobufferinput->setQAudioBufferInput_Metacast_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

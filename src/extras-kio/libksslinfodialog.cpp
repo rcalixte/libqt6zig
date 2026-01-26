@@ -49,11 +49,21 @@ KSslInfoDialog* KSslInfoDialog_new2() {
 }
 
 QMetaObject* KSslInfoDialog_MetaObject(const KSslInfoDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vksslinfodialog = dynamic_cast<const VirtualKSslInfoDialog*>(self);
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSslInfoDialog*)self)->metaObject();
+    }
 }
 
 void* KSslInfoDialog_Metacast(KSslInfoDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSslInfoDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KSslInfoDialog_Metacall(KSslInfoDialog* self, int param1, int param2, void** param3) {
@@ -71,6 +81,44 @@ void KSslInfoDialog_SetMainPartEncrypted(KSslInfoDialog* self, bool mainPartEncr
 
 void KSslInfoDialog_SetAuxiliaryPartsEncrypted(KSslInfoDialog* self, bool auxiliaryPartsEncrypted) {
     self->setAuxiliaryPartsEncrypted(auxiliaryPartsEncrypted);
+}
+
+// Base class handler implementation
+QMetaObject* KSslInfoDialog_QBaseMetaObject(const KSslInfoDialog* self) {
+    auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+        vksslinfodialog->setKSslInfoDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vksslinfodialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KSslInfoDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSslInfoDialog_OnMetaObject(const KSslInfoDialog* self, intptr_t slot) {
+    auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+        vksslinfodialog->setKSslInfoDialog_MetaObject_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSslInfoDialog_QBaseMetacast(KSslInfoDialog* self, const char* param1) {
+    auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+        vksslinfodialog->setKSslInfoDialog_Metacast_IsBase(true);
+        return vksslinfodialog->qt_metacast(param1);
+    } else {
+        return self->KSslInfoDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSslInfoDialog_OnMetacast(KSslInfoDialog* self, intptr_t slot) {
+    auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+        vksslinfodialog->setKSslInfoDialog_Metacast_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

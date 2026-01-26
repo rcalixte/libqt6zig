@@ -17,6 +17,8 @@ class VirtualQColorDialog final : public QColorDialog {
     bool isVirtualQColorDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QColorDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QColorDialog_Metacast_Callback = void* (*)(QColorDialog*, const char*);
     using QColorDialog_Metacall_Callback = int (*)(QColorDialog*, int, int, void**);
     using QColorDialog_SetVisible_Callback = void (*)(QColorDialog*, bool);
     using QColorDialog_ChangeEvent_Callback = void (*)(QColorDialog*, QEvent*);
@@ -84,6 +86,8 @@ class VirtualQColorDialog final : public QColorDialog {
 
   protected:
     // Instance callback storage
+    QColorDialog_MetaObject_Callback qcolordialog_metaobject_callback = nullptr;
+    QColorDialog_Metacast_Callback qcolordialog_metacast_callback = nullptr;
     QColorDialog_Metacall_Callback qcolordialog_metacall_callback = nullptr;
     QColorDialog_SetVisible_Callback qcolordialog_setvisible_callback = nullptr;
     QColorDialog_ChangeEvent_Callback qcolordialog_changeevent_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQColorDialog final : public QColorDialog {
     QColorDialog_GetDecodedMetricF_Callback qcolordialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcolordialog_metaobject_isbase = false;
+    mutable bool qcolordialog_metacast_isbase = false;
     mutable bool qcolordialog_metacall_isbase = false;
     mutable bool qcolordialog_setvisible_isbase = false;
     mutable bool qcolordialog_changeevent_isbase = false;
@@ -222,6 +228,8 @@ class VirtualQColorDialog final : public QColorDialog {
     VirtualQColorDialog(const QColor& initial, QWidget* parent) : QColorDialog(initial, parent) {};
 
     ~VirtualQColorDialog() {
+        qcolordialog_metaobject_callback = nullptr;
+        qcolordialog_metacast_callback = nullptr;
         qcolordialog_metacall_callback = nullptr;
         qcolordialog_setvisible_callback = nullptr;
         qcolordialog_changeevent_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualQColorDialog final : public QColorDialog {
     }
 
     // Callback setters
+    inline void setQColorDialog_MetaObject_Callback(QColorDialog_MetaObject_Callback cb) { qcolordialog_metaobject_callback = cb; }
+    inline void setQColorDialog_Metacast_Callback(QColorDialog_Metacast_Callback cb) { qcolordialog_metacast_callback = cb; }
     inline void setQColorDialog_Metacall_Callback(QColorDialog_Metacall_Callback cb) { qcolordialog_metacall_callback = cb; }
     inline void setQColorDialog_SetVisible_Callback(QColorDialog_SetVisible_Callback cb) { qcolordialog_setvisible_callback = cb; }
     inline void setQColorDialog_ChangeEvent_Callback(QColorDialog_ChangeEvent_Callback cb) { qcolordialog_changeevent_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualQColorDialog final : public QColorDialog {
     inline void setQColorDialog_GetDecodedMetricF_Callback(QColorDialog_GetDecodedMetricF_Callback cb) { qcolordialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQColorDialog_MetaObject_IsBase(bool value) const { qcolordialog_metaobject_isbase = value; }
+    inline void setQColorDialog_Metacast_IsBase(bool value) const { qcolordialog_metacast_isbase = value; }
     inline void setQColorDialog_Metacall_IsBase(bool value) const { qcolordialog_metacall_isbase = value; }
     inline void setQColorDialog_SetVisible_IsBase(bool value) const { qcolordialog_setvisible_isbase = value; }
     inline void setQColorDialog_ChangeEvent_IsBase(bool value) const { qcolordialog_changeevent_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualQColorDialog final : public QColorDialog {
     inline void setQColorDialog_Receivers_IsBase(bool value) const { qcolordialog_receivers_isbase = value; }
     inline void setQColorDialog_IsSignalConnected_IsBase(bool value) const { qcolordialog_issignalconnected_isbase = value; }
     inline void setQColorDialog_GetDecodedMetricF_IsBase(bool value) const { qcolordialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcolordialog_metaobject_isbase) {
+            qcolordialog_metaobject_isbase = false;
+            return QColorDialog::metaObject();
+        } else if (qcolordialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcolordialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QColorDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcolordialog_metacast_isbase) {
+            qcolordialog_metacast_isbase = false;
+            return QColorDialog::qt_metacast(param1);
+        } else if (qcolordialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcolordialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QColorDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

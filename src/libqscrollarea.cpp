@@ -52,11 +52,21 @@ QScrollArea* QScrollArea_new2() {
 }
 
 QMetaObject* QScrollArea_MetaObject(const QScrollArea* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscrollarea = dynamic_cast<const VirtualQScrollArea*>(self);
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQScrollArea*)self)->metaObject();
+    }
 }
 
 void* QScrollArea_Metacast(QScrollArea* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQScrollArea*)self)->qt_metacast(param1);
+    }
 }
 
 int QScrollArea_Metacall(QScrollArea* self, int param1, int param2, void** param3) {
@@ -174,6 +184,44 @@ void QScrollArea_EnsureWidgetVisible2(QScrollArea* self, QWidget* childWidget, i
 
 void QScrollArea_EnsureWidgetVisible3(QScrollArea* self, QWidget* childWidget, int xmargin, int ymargin) {
     self->ensureWidgetVisible(childWidget, static_cast<int>(xmargin), static_cast<int>(ymargin));
+}
+
+// Base class handler implementation
+QMetaObject* QScrollArea_QBaseMetaObject(const QScrollArea* self) {
+    auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+        vqscrollarea->setQScrollArea_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscrollarea->metaObject();
+    } else {
+        return (QMetaObject*)self->QScrollArea::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScrollArea_OnMetaObject(const QScrollArea* self, intptr_t slot) {
+    auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+        vqscrollarea->setQScrollArea_MetaObject_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QScrollArea_QBaseMetacast(QScrollArea* self, const char* param1) {
+    auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+        vqscrollarea->setQScrollArea_Metacast_IsBase(true);
+        return vqscrollarea->qt_metacast(param1);
+    } else {
+        return self->QScrollArea::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScrollArea_OnMetacast(QScrollArea* self, intptr_t slot) {
+    auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+        vqscrollarea->setQScrollArea_Metacast_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

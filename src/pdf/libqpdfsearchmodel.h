@@ -56,6 +56,10 @@ void QPdfSearchModel_Connect_SearchStringChanged(QPdfSearchModel* self, intptr_t
 void QPdfSearchModel_CountChanged(QPdfSearchModel* self);
 void QPdfSearchModel_Connect_CountChanged(QPdfSearchModel* self, intptr_t slot);
 void QPdfSearchModel_TimerEvent(QPdfSearchModel* self, QTimerEvent* event);
+void QPdfSearchModel_OnMetaObject(const QPdfSearchModel* self, intptr_t slot);
+QMetaObject* QPdfSearchModel_QBaseMetaObject(const QPdfSearchModel* self);
+void QPdfSearchModel_OnMetacast(QPdfSearchModel* self, intptr_t slot);
+void* QPdfSearchModel_QBaseMetacast(QPdfSearchModel* self, const char* param1);
 void QPdfSearchModel_OnMetacall(QPdfSearchModel* self, intptr_t slot);
 int QPdfSearchModel_QBaseMetacall(QPdfSearchModel* self, int param1, int param2, void** param3);
 void QPdfSearchModel_OnRoleNames(const QPdfSearchModel* self, intptr_t slot);

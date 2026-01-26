@@ -17,6 +17,8 @@ class VirtualQIODevice : public QIODevice {
     bool isVirtualQIODevice = true;
 
     // Virtual class public types (including callbacks)
+    using QIODevice_MetaObject_Callback = QMetaObject* (*)();
+    using QIODevice_Metacast_Callback = void* (*)(QIODevice*, const char*);
     using QIODevice_Metacall_Callback = int (*)(QIODevice*, int, int, void**);
     using QIODevice_IsSequential_Callback = bool (*)();
     using QIODevice_Open_Callback = bool (*)(QIODevice*, int);
@@ -51,6 +53,8 @@ class VirtualQIODevice : public QIODevice {
 
   protected:
     // Instance callback storage
+    QIODevice_MetaObject_Callback qiodevice_metaobject_callback = nullptr;
+    QIODevice_Metacast_Callback qiodevice_metacast_callback = nullptr;
     QIODevice_Metacall_Callback qiodevice_metacall_callback = nullptr;
     QIODevice_IsSequential_Callback qiodevice_issequential_callback = nullptr;
     QIODevice_Open_Callback qiodevice_open_callback = nullptr;
@@ -84,6 +88,8 @@ class VirtualQIODevice : public QIODevice {
     QIODevice_IsSignalConnected_Callback qiodevice_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qiodevice_metaobject_isbase = false;
+    mutable bool qiodevice_metacast_isbase = false;
     mutable bool qiodevice_metacall_isbase = false;
     mutable bool qiodevice_issequential_isbase = false;
     mutable bool qiodevice_open_isbase = false;
@@ -121,6 +127,8 @@ class VirtualQIODevice : public QIODevice {
     VirtualQIODevice(QObject* parent) : QIODevice(parent) {};
 
     ~VirtualQIODevice() {
+        qiodevice_metaobject_callback = nullptr;
+        qiodevice_metacast_callback = nullptr;
         qiodevice_metacall_callback = nullptr;
         qiodevice_issequential_callback = nullptr;
         qiodevice_open_callback = nullptr;
@@ -155,6 +163,8 @@ class VirtualQIODevice : public QIODevice {
     }
 
     // Callback setters
+    inline void setQIODevice_MetaObject_Callback(QIODevice_MetaObject_Callback cb) { qiodevice_metaobject_callback = cb; }
+    inline void setQIODevice_Metacast_Callback(QIODevice_Metacast_Callback cb) { qiodevice_metacast_callback = cb; }
     inline void setQIODevice_Metacall_Callback(QIODevice_Metacall_Callback cb) { qiodevice_metacall_callback = cb; }
     inline void setQIODevice_IsSequential_Callback(QIODevice_IsSequential_Callback cb) { qiodevice_issequential_callback = cb; }
     inline void setQIODevice_Open_Callback(QIODevice_Open_Callback cb) { qiodevice_open_callback = cb; }
@@ -188,6 +198,8 @@ class VirtualQIODevice : public QIODevice {
     inline void setQIODevice_IsSignalConnected_Callback(QIODevice_IsSignalConnected_Callback cb) { qiodevice_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQIODevice_MetaObject_IsBase(bool value) const { qiodevice_metaobject_isbase = value; }
+    inline void setQIODevice_Metacast_IsBase(bool value) const { qiodevice_metacast_isbase = value; }
     inline void setQIODevice_Metacall_IsBase(bool value) const { qiodevice_metacall_isbase = value; }
     inline void setQIODevice_IsSequential_IsBase(bool value) const { qiodevice_issequential_isbase = value; }
     inline void setQIODevice_Open_IsBase(bool value) const { qiodevice_open_isbase = value; }
@@ -219,6 +231,34 @@ class VirtualQIODevice : public QIODevice {
     inline void setQIODevice_SenderSignalIndex_IsBase(bool value) const { qiodevice_sendersignalindex_isbase = value; }
     inline void setQIODevice_Receivers_IsBase(bool value) const { qiodevice_receivers_isbase = value; }
     inline void setQIODevice_IsSignalConnected_IsBase(bool value) const { qiodevice_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qiodevice_metaobject_isbase) {
+            qiodevice_metaobject_isbase = false;
+            return QIODevice::metaObject();
+        } else if (qiodevice_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qiodevice_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QIODevice::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qiodevice_metacast_isbase) {
+            qiodevice_metacast_isbase = false;
+            return QIODevice::qt_metacast(param1);
+        } else if (qiodevice_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qiodevice_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QIODevice::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQDialog final : public QDialog {
     bool isVirtualQDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QDialog_Metacast_Callback = void* (*)(QDialog*, const char*);
     using QDialog_Metacall_Callback = int (*)(QDialog*, int, int, void**);
     using QDialog_SetVisible_Callback = void (*)(QDialog*, bool);
     using QDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualQDialog final : public QDialog {
 
   protected:
     // Instance callback storage
+    QDialog_MetaObject_Callback qdialog_metaobject_callback = nullptr;
+    QDialog_Metacast_Callback qdialog_metacast_callback = nullptr;
     QDialog_Metacall_Callback qdialog_metacall_callback = nullptr;
     QDialog_SetVisible_Callback qdialog_setvisible_callback = nullptr;
     QDialog_SizeHint_Callback qdialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQDialog final : public QDialog {
     QDialog_GetDecodedMetricF_Callback qdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdialog_metaobject_isbase = false;
+    mutable bool qdialog_metacast_isbase = false;
     mutable bool qdialog_metacall_isbase = false;
     mutable bool qdialog_setvisible_isbase = false;
     mutable bool qdialog_sizehint_isbase = false;
@@ -221,6 +227,8 @@ class VirtualQDialog final : public QDialog {
     VirtualQDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f) {};
 
     ~VirtualQDialog() {
+        qdialog_metaobject_callback = nullptr;
+        qdialog_metacast_callback = nullptr;
         qdialog_metacall_callback = nullptr;
         qdialog_setvisible_callback = nullptr;
         qdialog_sizehint_callback = nullptr;
@@ -288,6 +296,8 @@ class VirtualQDialog final : public QDialog {
     }
 
     // Callback setters
+    inline void setQDialog_MetaObject_Callback(QDialog_MetaObject_Callback cb) { qdialog_metaobject_callback = cb; }
+    inline void setQDialog_Metacast_Callback(QDialog_Metacast_Callback cb) { qdialog_metacast_callback = cb; }
     inline void setQDialog_Metacall_Callback(QDialog_Metacall_Callback cb) { qdialog_metacall_callback = cb; }
     inline void setQDialog_SetVisible_Callback(QDialog_SetVisible_Callback cb) { qdialog_setvisible_callback = cb; }
     inline void setQDialog_SizeHint_Callback(QDialog_SizeHint_Callback cb) { qdialog_sizehint_callback = cb; }
@@ -354,6 +364,8 @@ class VirtualQDialog final : public QDialog {
     inline void setQDialog_GetDecodedMetricF_Callback(QDialog_GetDecodedMetricF_Callback cb) { qdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDialog_MetaObject_IsBase(bool value) const { qdialog_metaobject_isbase = value; }
+    inline void setQDialog_Metacast_IsBase(bool value) const { qdialog_metacast_isbase = value; }
     inline void setQDialog_Metacall_IsBase(bool value) const { qdialog_metacall_isbase = value; }
     inline void setQDialog_SetVisible_IsBase(bool value) const { qdialog_setvisible_isbase = value; }
     inline void setQDialog_SizeHint_IsBase(bool value) const { qdialog_sizehint_isbase = value; }
@@ -418,6 +430,34 @@ class VirtualQDialog final : public QDialog {
     inline void setQDialog_Receivers_IsBase(bool value) const { qdialog_receivers_isbase = value; }
     inline void setQDialog_IsSignalConnected_IsBase(bool value) const { qdialog_issignalconnected_isbase = value; }
     inline void setQDialog_GetDecodedMetricF_IsBase(bool value) const { qdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdialog_metaobject_isbase) {
+            qdialog_metaobject_isbase = false;
+            return QDialog::metaObject();
+        } else if (qdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdialog_metacast_isbase) {
+            qdialog_metacast_isbase = false;
+            return QDialog::qt_metacast(param1);
+        } else if (qdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

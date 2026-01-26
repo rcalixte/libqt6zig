@@ -17,6 +17,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
     bool isVirtualQCalendarWidget = true;
 
     // Virtual class public types (including callbacks)
+    using QCalendarWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QCalendarWidget_Metacast_Callback = void* (*)(QCalendarWidget*, const char*);
     using QCalendarWidget_Metacall_Callback = int (*)(QCalendarWidget*, int, int, void**);
     using QCalendarWidget_SizeHint_Callback = QSize* (*)();
     using QCalendarWidget_MinimumSizeHint_Callback = QSize* (*)();
@@ -81,6 +83,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
   protected:
     // Instance callback storage
+    QCalendarWidget_MetaObject_Callback qcalendarwidget_metaobject_callback = nullptr;
+    QCalendarWidget_Metacast_Callback qcalendarwidget_metacast_callback = nullptr;
     QCalendarWidget_Metacall_Callback qcalendarwidget_metacall_callback = nullptr;
     QCalendarWidget_SizeHint_Callback qcalendarwidget_sizehint_callback = nullptr;
     QCalendarWidget_MinimumSizeHint_Callback qcalendarwidget_minimumsizehint_callback = nullptr;
@@ -144,6 +148,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
     QCalendarWidget_GetDecodedMetricF_Callback qcalendarwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcalendarwidget_metaobject_isbase = false;
+    mutable bool qcalendarwidget_metacast_isbase = false;
     mutable bool qcalendarwidget_metacall_isbase = false;
     mutable bool qcalendarwidget_sizehint_isbase = false;
     mutable bool qcalendarwidget_minimumsizehint_isbase = false;
@@ -211,6 +217,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
     VirtualQCalendarWidget() : QCalendarWidget() {};
 
     ~VirtualQCalendarWidget() {
+        qcalendarwidget_metaobject_callback = nullptr;
+        qcalendarwidget_metacast_callback = nullptr;
         qcalendarwidget_metacall_callback = nullptr;
         qcalendarwidget_sizehint_callback = nullptr;
         qcalendarwidget_minimumsizehint_callback = nullptr;
@@ -275,6 +283,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
     }
 
     // Callback setters
+    inline void setQCalendarWidget_MetaObject_Callback(QCalendarWidget_MetaObject_Callback cb) { qcalendarwidget_metaobject_callback = cb; }
+    inline void setQCalendarWidget_Metacast_Callback(QCalendarWidget_Metacast_Callback cb) { qcalendarwidget_metacast_callback = cb; }
     inline void setQCalendarWidget_Metacall_Callback(QCalendarWidget_Metacall_Callback cb) { qcalendarwidget_metacall_callback = cb; }
     inline void setQCalendarWidget_SizeHint_Callback(QCalendarWidget_SizeHint_Callback cb) { qcalendarwidget_sizehint_callback = cb; }
     inline void setQCalendarWidget_MinimumSizeHint_Callback(QCalendarWidget_MinimumSizeHint_Callback cb) { qcalendarwidget_minimumsizehint_callback = cb; }
@@ -338,6 +348,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
     inline void setQCalendarWidget_GetDecodedMetricF_Callback(QCalendarWidget_GetDecodedMetricF_Callback cb) { qcalendarwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQCalendarWidget_MetaObject_IsBase(bool value) const { qcalendarwidget_metaobject_isbase = value; }
+    inline void setQCalendarWidget_Metacast_IsBase(bool value) const { qcalendarwidget_metacast_isbase = value; }
     inline void setQCalendarWidget_Metacall_IsBase(bool value) const { qcalendarwidget_metacall_isbase = value; }
     inline void setQCalendarWidget_SizeHint_IsBase(bool value) const { qcalendarwidget_sizehint_isbase = value; }
     inline void setQCalendarWidget_MinimumSizeHint_IsBase(bool value) const { qcalendarwidget_minimumsizehint_isbase = value; }
@@ -399,6 +411,34 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
     inline void setQCalendarWidget_Receivers_IsBase(bool value) const { qcalendarwidget_receivers_isbase = value; }
     inline void setQCalendarWidget_IsSignalConnected_IsBase(bool value) const { qcalendarwidget_issignalconnected_isbase = value; }
     inline void setQCalendarWidget_GetDecodedMetricF_IsBase(bool value) const { qcalendarwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcalendarwidget_metaobject_isbase) {
+            qcalendarwidget_metaobject_isbase = false;
+            return QCalendarWidget::metaObject();
+        } else if (qcalendarwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcalendarwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCalendarWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcalendarwidget_metacast_isbase) {
+            qcalendarwidget_metacast_isbase = false;
+            return QCalendarWidget::qt_metacast(param1);
+        } else if (qcalendarwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcalendarwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCalendarWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

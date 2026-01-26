@@ -17,6 +17,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     bool isVirtualKRichTextWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KRichTextWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KRichTextWidget_Metacast_Callback = void* (*)(KRichTextWidget*, const char*);
     using KRichTextWidget_Metacall_Callback = int (*)(KRichTextWidget*, int, int, void**);
     using KRichTextWidget_CreateActions_Callback = QAction** (*)();
     using KRichTextWidget_MouseReleaseEvent_Callback = void (*)(KRichTextWidget*, QMouseEvent*);
@@ -109,6 +111,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
   protected:
     // Instance callback storage
+    KRichTextWidget_MetaObject_Callback krichtextwidget_metaobject_callback = nullptr;
+    KRichTextWidget_Metacast_Callback krichtextwidget_metacast_callback = nullptr;
     KRichTextWidget_Metacall_Callback krichtextwidget_metacall_callback = nullptr;
     KRichTextWidget_CreateActions_Callback krichtextwidget_createactions_callback = nullptr;
     KRichTextWidget_MouseReleaseEvent_Callback krichtextwidget_mousereleaseevent_callback = nullptr;
@@ -200,6 +204,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     KRichTextWidget_GetDecodedMetricF_Callback krichtextwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool krichtextwidget_metaobject_isbase = false;
+    mutable bool krichtextwidget_metacast_isbase = false;
     mutable bool krichtextwidget_metacall_isbase = false;
     mutable bool krichtextwidget_createactions_isbase = false;
     mutable bool krichtextwidget_mousereleaseevent_isbase = false;
@@ -296,6 +302,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     VirtualKRichTextWidget(const QString& text, QWidget* parent) : KRichTextWidget(text, parent) {};
 
     ~VirtualKRichTextWidget() {
+        krichtextwidget_metaobject_callback = nullptr;
+        krichtextwidget_metacast_callback = nullptr;
         krichtextwidget_metacall_callback = nullptr;
         krichtextwidget_createactions_callback = nullptr;
         krichtextwidget_mousereleaseevent_callback = nullptr;
@@ -388,6 +396,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     }
 
     // Callback setters
+    inline void setKRichTextWidget_MetaObject_Callback(KRichTextWidget_MetaObject_Callback cb) { krichtextwidget_metaobject_callback = cb; }
+    inline void setKRichTextWidget_Metacast_Callback(KRichTextWidget_Metacast_Callback cb) { krichtextwidget_metacast_callback = cb; }
     inline void setKRichTextWidget_Metacall_Callback(KRichTextWidget_Metacall_Callback cb) { krichtextwidget_metacall_callback = cb; }
     inline void setKRichTextWidget_CreateActions_Callback(KRichTextWidget_CreateActions_Callback cb) { krichtextwidget_createactions_callback = cb; }
     inline void setKRichTextWidget_MouseReleaseEvent_Callback(KRichTextWidget_MouseReleaseEvent_Callback cb) { krichtextwidget_mousereleaseevent_callback = cb; }
@@ -479,6 +489,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     inline void setKRichTextWidget_GetDecodedMetricF_Callback(KRichTextWidget_GetDecodedMetricF_Callback cb) { krichtextwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKRichTextWidget_MetaObject_IsBase(bool value) const { krichtextwidget_metaobject_isbase = value; }
+    inline void setKRichTextWidget_Metacast_IsBase(bool value) const { krichtextwidget_metacast_isbase = value; }
     inline void setKRichTextWidget_Metacall_IsBase(bool value) const { krichtextwidget_metacall_isbase = value; }
     inline void setKRichTextWidget_CreateActions_IsBase(bool value) const { krichtextwidget_createactions_isbase = value; }
     inline void setKRichTextWidget_MouseReleaseEvent_IsBase(bool value) const { krichtextwidget_mousereleaseevent_isbase = value; }
@@ -568,6 +580,34 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     inline void setKRichTextWidget_Receivers_IsBase(bool value) const { krichtextwidget_receivers_isbase = value; }
     inline void setKRichTextWidget_IsSignalConnected_IsBase(bool value) const { krichtextwidget_issignalconnected_isbase = value; }
     inline void setKRichTextWidget_GetDecodedMetricF_IsBase(bool value) const { krichtextwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (krichtextwidget_metaobject_isbase) {
+            krichtextwidget_metaobject_isbase = false;
+            return KRichTextWidget::metaObject();
+        } else if (krichtextwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = krichtextwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KRichTextWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (krichtextwidget_metacast_isbase) {
+            krichtextwidget_metacast_isbase = false;
+            return KRichTextWidget::qt_metacast(param1);
+        } else if (krichtextwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = krichtextwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KRichTextWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

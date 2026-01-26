@@ -24,11 +24,21 @@ QHPieModelMapper* QHPieModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QHPieModelMapper_MetaObject(const QHPieModelMapper* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqhpiemodelmapper = dynamic_cast<const VirtualQHPieModelMapper*>(self);
+    if (vqhpiemodelmapper && vqhpiemodelmapper->isVirtualQHPieModelMapper) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQHPieModelMapper*)self)->metaObject();
+    }
 }
 
 void* QHPieModelMapper_Metacast(QHPieModelMapper* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqhpiemodelmapper = dynamic_cast<VirtualQHPieModelMapper*>(self);
+    if (vqhpiemodelmapper && vqhpiemodelmapper->isVirtualQHPieModelMapper) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQHPieModelMapper*)self)->qt_metacast(param1);
+    }
 }
 
 int QHPieModelMapper_Metacall(QHPieModelMapper* self, int param1, int param2, void** param3) {
@@ -152,6 +162,44 @@ void QHPieModelMapper_Connect_ColumnCountChanged(QHPieModelMapper* self, intptr_
     QHPieModelMapper::connect(self, &QHPieModelMapper::columnCountChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QHPieModelMapper_QBaseMetaObject(const QHPieModelMapper* self) {
+    auto* vqhpiemodelmapper = const_cast<VirtualQHPieModelMapper*>(dynamic_cast<const VirtualQHPieModelMapper*>(self));
+    if (vqhpiemodelmapper && vqhpiemodelmapper->isVirtualQHPieModelMapper) {
+        vqhpiemodelmapper->setQHPieModelMapper_MetaObject_IsBase(true);
+        return (QMetaObject*)vqhpiemodelmapper->metaObject();
+    } else {
+        return (QMetaObject*)self->QHPieModelMapper::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHPieModelMapper_OnMetaObject(const QHPieModelMapper* self, intptr_t slot) {
+    auto* vqhpiemodelmapper = const_cast<VirtualQHPieModelMapper*>(dynamic_cast<const VirtualQHPieModelMapper*>(self));
+    if (vqhpiemodelmapper && vqhpiemodelmapper->isVirtualQHPieModelMapper) {
+        vqhpiemodelmapper->setQHPieModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQHPieModelMapper::QHPieModelMapper_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QHPieModelMapper_QBaseMetacast(QHPieModelMapper* self, const char* param1) {
+    auto* vqhpiemodelmapper = dynamic_cast<VirtualQHPieModelMapper*>(self);
+    if (vqhpiemodelmapper && vqhpiemodelmapper->isVirtualQHPieModelMapper) {
+        vqhpiemodelmapper->setQHPieModelMapper_Metacast_IsBase(true);
+        return vqhpiemodelmapper->qt_metacast(param1);
+    } else {
+        return self->QHPieModelMapper::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHPieModelMapper_OnMetacast(QHPieModelMapper* self, intptr_t slot) {
+    auto* vqhpiemodelmapper = dynamic_cast<VirtualQHPieModelMapper*>(self);
+    if (vqhpiemodelmapper && vqhpiemodelmapper->isVirtualQHPieModelMapper) {
+        vqhpiemodelmapper->setQHPieModelMapper_Metacast_Callback(reinterpret_cast<VirtualQHPieModelMapper::QHPieModelMapper_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

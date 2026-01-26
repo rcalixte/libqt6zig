@@ -17,6 +17,8 @@ class VirtualKUrlRequesterDialog final : public KUrlRequesterDialog {
     bool isVirtualKUrlRequesterDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KUrlRequesterDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KUrlRequesterDialog_Metacast_Callback = void* (*)(KUrlRequesterDialog*, const char*);
     using KUrlRequesterDialog_Metacall_Callback = int (*)(KUrlRequesterDialog*, int, int, void**);
     using KUrlRequesterDialog_SetVisible_Callback = void (*)(KUrlRequesterDialog*, bool);
     using KUrlRequesterDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKUrlRequesterDialog final : public KUrlRequesterDialog {
 
   protected:
     // Instance callback storage
+    KUrlRequesterDialog_MetaObject_Callback kurlrequesterdialog_metaobject_callback = nullptr;
+    KUrlRequesterDialog_Metacast_Callback kurlrequesterdialog_metacast_callback = nullptr;
     KUrlRequesterDialog_Metacall_Callback kurlrequesterdialog_metacall_callback = nullptr;
     KUrlRequesterDialog_SetVisible_Callback kurlrequesterdialog_setvisible_callback = nullptr;
     KUrlRequesterDialog_SizeHint_Callback kurlrequesterdialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKUrlRequesterDialog final : public KUrlRequesterDialog {
     KUrlRequesterDialog_GetDecodedMetricF_Callback kurlrequesterdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kurlrequesterdialog_metaobject_isbase = false;
+    mutable bool kurlrequesterdialog_metacast_isbase = false;
     mutable bool kurlrequesterdialog_metacall_isbase = false;
     mutable bool kurlrequesterdialog_setvisible_isbase = false;
     mutable bool kurlrequesterdialog_sizehint_isbase = false;
@@ -221,6 +227,8 @@ class VirtualKUrlRequesterDialog final : public KUrlRequesterDialog {
     VirtualKUrlRequesterDialog(const QUrl& url, QWidget* parent) : KUrlRequesterDialog(url, parent) {};
 
     ~VirtualKUrlRequesterDialog() {
+        kurlrequesterdialog_metaobject_callback = nullptr;
+        kurlrequesterdialog_metacast_callback = nullptr;
         kurlrequesterdialog_metacall_callback = nullptr;
         kurlrequesterdialog_setvisible_callback = nullptr;
         kurlrequesterdialog_sizehint_callback = nullptr;
@@ -288,6 +296,8 @@ class VirtualKUrlRequesterDialog final : public KUrlRequesterDialog {
     }
 
     // Callback setters
+    inline void setKUrlRequesterDialog_MetaObject_Callback(KUrlRequesterDialog_MetaObject_Callback cb) { kurlrequesterdialog_metaobject_callback = cb; }
+    inline void setKUrlRequesterDialog_Metacast_Callback(KUrlRequesterDialog_Metacast_Callback cb) { kurlrequesterdialog_metacast_callback = cb; }
     inline void setKUrlRequesterDialog_Metacall_Callback(KUrlRequesterDialog_Metacall_Callback cb) { kurlrequesterdialog_metacall_callback = cb; }
     inline void setKUrlRequesterDialog_SetVisible_Callback(KUrlRequesterDialog_SetVisible_Callback cb) { kurlrequesterdialog_setvisible_callback = cb; }
     inline void setKUrlRequesterDialog_SizeHint_Callback(KUrlRequesterDialog_SizeHint_Callback cb) { kurlrequesterdialog_sizehint_callback = cb; }
@@ -354,6 +364,8 @@ class VirtualKUrlRequesterDialog final : public KUrlRequesterDialog {
     inline void setKUrlRequesterDialog_GetDecodedMetricF_Callback(KUrlRequesterDialog_GetDecodedMetricF_Callback cb) { kurlrequesterdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKUrlRequesterDialog_MetaObject_IsBase(bool value) const { kurlrequesterdialog_metaobject_isbase = value; }
+    inline void setKUrlRequesterDialog_Metacast_IsBase(bool value) const { kurlrequesterdialog_metacast_isbase = value; }
     inline void setKUrlRequesterDialog_Metacall_IsBase(bool value) const { kurlrequesterdialog_metacall_isbase = value; }
     inline void setKUrlRequesterDialog_SetVisible_IsBase(bool value) const { kurlrequesterdialog_setvisible_isbase = value; }
     inline void setKUrlRequesterDialog_SizeHint_IsBase(bool value) const { kurlrequesterdialog_sizehint_isbase = value; }
@@ -418,6 +430,34 @@ class VirtualKUrlRequesterDialog final : public KUrlRequesterDialog {
     inline void setKUrlRequesterDialog_Receivers_IsBase(bool value) const { kurlrequesterdialog_receivers_isbase = value; }
     inline void setKUrlRequesterDialog_IsSignalConnected_IsBase(bool value) const { kurlrequesterdialog_issignalconnected_isbase = value; }
     inline void setKUrlRequesterDialog_GetDecodedMetricF_IsBase(bool value) const { kurlrequesterdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kurlrequesterdialog_metaobject_isbase) {
+            kurlrequesterdialog_metaobject_isbase = false;
+            return KUrlRequesterDialog::metaObject();
+        } else if (kurlrequesterdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kurlrequesterdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KUrlRequesterDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kurlrequesterdialog_metacast_isbase) {
+            kurlrequesterdialog_metacast_isbase = false;
+            return KUrlRequesterDialog::qt_metacast(param1);
+        } else if (kurlrequesterdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kurlrequesterdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KUrlRequesterDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKCommandBar final : public KCommandBar {
     bool isVirtualKCommandBar = true;
 
     // Virtual class public types (including callbacks)
+    using KCommandBar_MetaObject_Callback = QMetaObject* (*)();
+    using KCommandBar_Metacast_Callback = void* (*)(KCommandBar*, const char*);
     using KCommandBar_Metacall_Callback = int (*)(KCommandBar*, int, int, void**);
     using KCommandBar_EventFilter_Callback = bool (*)(KCommandBar*, QObject*, QEvent*);
     using KCommandBar_SizeHint_Callback = QSize* (*)();
@@ -80,6 +82,8 @@ class VirtualKCommandBar final : public KCommandBar {
 
   protected:
     // Instance callback storage
+    KCommandBar_MetaObject_Callback kcommandbar_metaobject_callback = nullptr;
+    KCommandBar_Metacast_Callback kcommandbar_metacast_callback = nullptr;
     KCommandBar_Metacall_Callback kcommandbar_metacall_callback = nullptr;
     KCommandBar_EventFilter_Callback kcommandbar_eventfilter_callback = nullptr;
     KCommandBar_SizeHint_Callback kcommandbar_sizehint_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualKCommandBar final : public KCommandBar {
     KCommandBar_GetDecodedMetricF_Callback kcommandbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcommandbar_metaobject_isbase = false;
+    mutable bool kcommandbar_metacast_isbase = false;
     mutable bool kcommandbar_metacall_isbase = false;
     mutable bool kcommandbar_eventfilter_isbase = false;
     mutable bool kcommandbar_sizehint_isbase = false;
@@ -207,6 +213,8 @@ class VirtualKCommandBar final : public KCommandBar {
     VirtualKCommandBar(QWidget* parent) : KCommandBar(parent) {};
 
     ~VirtualKCommandBar() {
+        kcommandbar_metaobject_callback = nullptr;
+        kcommandbar_metacast_callback = nullptr;
         kcommandbar_metacall_callback = nullptr;
         kcommandbar_eventfilter_callback = nullptr;
         kcommandbar_sizehint_callback = nullptr;
@@ -270,6 +278,8 @@ class VirtualKCommandBar final : public KCommandBar {
     }
 
     // Callback setters
+    inline void setKCommandBar_MetaObject_Callback(KCommandBar_MetaObject_Callback cb) { kcommandbar_metaobject_callback = cb; }
+    inline void setKCommandBar_Metacast_Callback(KCommandBar_Metacast_Callback cb) { kcommandbar_metacast_callback = cb; }
     inline void setKCommandBar_Metacall_Callback(KCommandBar_Metacall_Callback cb) { kcommandbar_metacall_callback = cb; }
     inline void setKCommandBar_EventFilter_Callback(KCommandBar_EventFilter_Callback cb) { kcommandbar_eventfilter_callback = cb; }
     inline void setKCommandBar_SizeHint_Callback(KCommandBar_SizeHint_Callback cb) { kcommandbar_sizehint_callback = cb; }
@@ -332,6 +342,8 @@ class VirtualKCommandBar final : public KCommandBar {
     inline void setKCommandBar_GetDecodedMetricF_Callback(KCommandBar_GetDecodedMetricF_Callback cb) { kcommandbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKCommandBar_MetaObject_IsBase(bool value) const { kcommandbar_metaobject_isbase = value; }
+    inline void setKCommandBar_Metacast_IsBase(bool value) const { kcommandbar_metacast_isbase = value; }
     inline void setKCommandBar_Metacall_IsBase(bool value) const { kcommandbar_metacall_isbase = value; }
     inline void setKCommandBar_EventFilter_IsBase(bool value) const { kcommandbar_eventfilter_isbase = value; }
     inline void setKCommandBar_SizeHint_IsBase(bool value) const { kcommandbar_sizehint_isbase = value; }
@@ -392,6 +404,34 @@ class VirtualKCommandBar final : public KCommandBar {
     inline void setKCommandBar_Receivers_IsBase(bool value) const { kcommandbar_receivers_isbase = value; }
     inline void setKCommandBar_IsSignalConnected_IsBase(bool value) const { kcommandbar_issignalconnected_isbase = value; }
     inline void setKCommandBar_GetDecodedMetricF_IsBase(bool value) const { kcommandbar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcommandbar_metaobject_isbase) {
+            kcommandbar_metaobject_isbase = false;
+            return KCommandBar::metaObject();
+        } else if (kcommandbar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcommandbar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCommandBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcommandbar_metacast_isbase) {
+            kcommandbar_metacast_isbase = false;
+            return KCommandBar::qt_metacast(param1);
+        } else if (kcommandbar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcommandbar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCommandBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

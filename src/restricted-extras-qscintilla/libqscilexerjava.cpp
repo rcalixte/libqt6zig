@@ -25,11 +25,21 @@ QsciLexerJava* QsciLexerJava_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerJava_MetaObject(const QsciLexerJava* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerjava = dynamic_cast<const VirtualQsciLexerJava*>(self);
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerJava*)self)->metaObject();
+    }
 }
 
 void* QsciLexerJava_Metacast(QsciLexerJava* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerJava*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerJava_Metacall(QsciLexerJava* self, int param1, int param2, void** param3) {
@@ -47,6 +57,44 @@ const char* QsciLexerJava_Language(const QsciLexerJava* self) {
 
 const char* QsciLexerJava_Keywords(const QsciLexerJava* self, int set) {
     return (const char*)self->keywords(static_cast<int>(set));
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerJava_QBaseMetaObject(const QsciLexerJava* self) {
+    auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+        vqscilexerjava->setQsciLexerJava_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerjava->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerJava*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerJava_OnMetaObject(const QsciLexerJava* self, intptr_t slot) {
+    auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+        vqscilexerjava->setQsciLexerJava_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerJava_QBaseMetacast(QsciLexerJava* self, const char* param1) {
+    auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+        vqscilexerjava->setQsciLexerJava_Metacast_IsBase(true);
+        return vqscilexerjava->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerJava*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerJava_OnMetacast(QsciLexerJava* self, intptr_t slot) {
+    auto* vqscilexerjava = dynamic_cast<VirtualQsciLexerJava*>(self);
+    if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
+        vqscilexerjava->setQsciLexerJava_Metacast_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

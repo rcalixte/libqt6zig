@@ -17,6 +17,8 @@ class VirtualKDateValidator final : public KDateValidator {
     bool isVirtualKDateValidator = true;
 
     // Virtual class public types (including callbacks)
+    using KDateValidator_MetaObject_Callback = QMetaObject* (*)();
+    using KDateValidator_Metacast_Callback = void* (*)(KDateValidator*, const char*);
     using KDateValidator_Metacall_Callback = int (*)(KDateValidator*, int, int, void**);
     using KDateValidator_Validate_Callback = int (*)(const KDateValidator*, libqt_string, int*);
     using KDateValidator_Fixup_Callback = void (*)(const KDateValidator*, libqt_string);
@@ -34,6 +36,8 @@ class VirtualKDateValidator final : public KDateValidator {
 
   protected:
     // Instance callback storage
+    KDateValidator_MetaObject_Callback kdatevalidator_metaobject_callback = nullptr;
+    KDateValidator_Metacast_Callback kdatevalidator_metacast_callback = nullptr;
     KDateValidator_Metacall_Callback kdatevalidator_metacall_callback = nullptr;
     KDateValidator_Validate_Callback kdatevalidator_validate_callback = nullptr;
     KDateValidator_Fixup_Callback kdatevalidator_fixup_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualKDateValidator final : public KDateValidator {
     KDateValidator_IsSignalConnected_Callback kdatevalidator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdatevalidator_metaobject_isbase = false;
+    mutable bool kdatevalidator_metacast_isbase = false;
     mutable bool kdatevalidator_metacall_isbase = false;
     mutable bool kdatevalidator_validate_isbase = false;
     mutable bool kdatevalidator_fixup_isbase = false;
@@ -70,6 +76,8 @@ class VirtualKDateValidator final : public KDateValidator {
     VirtualKDateValidator(QObject* parent) : KDateValidator(parent) {};
 
     ~VirtualKDateValidator() {
+        kdatevalidator_metaobject_callback = nullptr;
+        kdatevalidator_metacast_callback = nullptr;
         kdatevalidator_metacall_callback = nullptr;
         kdatevalidator_validate_callback = nullptr;
         kdatevalidator_fixup_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualKDateValidator final : public KDateValidator {
     }
 
     // Callback setters
+    inline void setKDateValidator_MetaObject_Callback(KDateValidator_MetaObject_Callback cb) { kdatevalidator_metaobject_callback = cb; }
+    inline void setKDateValidator_Metacast_Callback(KDateValidator_Metacast_Callback cb) { kdatevalidator_metacast_callback = cb; }
     inline void setKDateValidator_Metacall_Callback(KDateValidator_Metacall_Callback cb) { kdatevalidator_metacall_callback = cb; }
     inline void setKDateValidator_Validate_Callback(KDateValidator_Validate_Callback cb) { kdatevalidator_validate_callback = cb; }
     inline void setKDateValidator_Fixup_Callback(KDateValidator_Fixup_Callback cb) { kdatevalidator_fixup_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualKDateValidator final : public KDateValidator {
     inline void setKDateValidator_IsSignalConnected_Callback(KDateValidator_IsSignalConnected_Callback cb) { kdatevalidator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKDateValidator_MetaObject_IsBase(bool value) const { kdatevalidator_metaobject_isbase = value; }
+    inline void setKDateValidator_Metacast_IsBase(bool value) const { kdatevalidator_metacast_isbase = value; }
     inline void setKDateValidator_Metacall_IsBase(bool value) const { kdatevalidator_metacall_isbase = value; }
     inline void setKDateValidator_Validate_IsBase(bool value) const { kdatevalidator_validate_isbase = value; }
     inline void setKDateValidator_Fixup_IsBase(bool value) const { kdatevalidator_fixup_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualKDateValidator final : public KDateValidator {
     inline void setKDateValidator_SenderSignalIndex_IsBase(bool value) const { kdatevalidator_sendersignalindex_isbase = value; }
     inline void setKDateValidator_Receivers_IsBase(bool value) const { kdatevalidator_receivers_isbase = value; }
     inline void setKDateValidator_IsSignalConnected_IsBase(bool value) const { kdatevalidator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdatevalidator_metaobject_isbase) {
+            kdatevalidator_metaobject_isbase = false;
+            return KDateValidator::metaObject();
+        } else if (kdatevalidator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdatevalidator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDateValidator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdatevalidator_metacast_isbase) {
+            kdatevalidator_metacast_isbase = false;
+            return KDateValidator::qt_metacast(param1);
+        } else if (kdatevalidator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdatevalidator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDateValidator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

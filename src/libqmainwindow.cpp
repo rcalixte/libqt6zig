@@ -58,11 +58,21 @@ QMainWindow* QMainWindow_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* QMainWindow_MetaObject(const QMainWindow* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmainwindow = dynamic_cast<const VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMainWindow*)self)->metaObject();
+    }
 }
 
 void* QMainWindow_Metacast(QMainWindow* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMainWindow*)self)->qt_metacast(param1);
+    }
 }
 
 int QMainWindow_Metacall(QMainWindow* self, int param1, int param2, void** param3) {
@@ -386,6 +396,44 @@ libqt_string QMainWindow_SaveState1(const QMainWindow* self, int version) {
 bool QMainWindow_RestoreState2(QMainWindow* self, const libqt_string state, int version) {
     QByteArray state_QByteArray(state.data, state.len);
     return self->restoreState(state_QByteArray, static_cast<int>(version));
+}
+
+// Base class handler implementation
+QMetaObject* QMainWindow_QBaseMetaObject(const QMainWindow* self) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmainwindow->metaObject();
+    } else {
+        return (QMetaObject*)self->QMainWindow::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMainWindow_OnMetaObject(const QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_MetaObject_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMainWindow_QBaseMetacast(QMainWindow* self, const char* param1) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_Metacast_IsBase(true);
+        return vqmainwindow->qt_metacast(param1);
+    } else {
+        return self->QMainWindow::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMainWindow_OnMetacast(QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_Metacast_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

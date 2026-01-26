@@ -17,6 +17,8 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
     bool isVirtualQPlaceIdReply = true;
 
     // Virtual class public types (including callbacks)
+    using QPlaceIdReply_MetaObject_Callback = QMetaObject* (*)();
+    using QPlaceIdReply_Metacast_Callback = void* (*)(QPlaceIdReply*, const char*);
     using QPlaceIdReply_Metacall_Callback = int (*)(QPlaceIdReply*, int, int, void**);
     using QPlaceIdReply_Type_Callback = int (*)();
     using QPlaceIdReply_Abort_Callback = void (*)();
@@ -37,6 +39,8 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
 
   protected:
     // Instance callback storage
+    QPlaceIdReply_MetaObject_Callback qplaceidreply_metaobject_callback = nullptr;
+    QPlaceIdReply_Metacast_Callback qplaceidreply_metacast_callback = nullptr;
     QPlaceIdReply_Metacall_Callback qplaceidreply_metacall_callback = nullptr;
     QPlaceIdReply_Type_Callback qplaceidreply_type_callback = nullptr;
     QPlaceIdReply_Abort_Callback qplaceidreply_abort_callback = nullptr;
@@ -56,6 +60,8 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
     QPlaceIdReply_IsSignalConnected_Callback qplaceidreply_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qplaceidreply_metaobject_isbase = false;
+    mutable bool qplaceidreply_metacast_isbase = false;
     mutable bool qplaceidreply_metacall_isbase = false;
     mutable bool qplaceidreply_type_isbase = false;
     mutable bool qplaceidreply_abort_isbase = false;
@@ -79,6 +85,8 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
     VirtualQPlaceIdReply(QPlaceIdReply::OperationType operationType, QObject* parent) : QPlaceIdReply(operationType, parent) {};
 
     ~VirtualQPlaceIdReply() {
+        qplaceidreply_metaobject_callback = nullptr;
+        qplaceidreply_metacast_callback = nullptr;
         qplaceidreply_metacall_callback = nullptr;
         qplaceidreply_type_callback = nullptr;
         qplaceidreply_abort_callback = nullptr;
@@ -99,6 +107,8 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
     }
 
     // Callback setters
+    inline void setQPlaceIdReply_MetaObject_Callback(QPlaceIdReply_MetaObject_Callback cb) { qplaceidreply_metaobject_callback = cb; }
+    inline void setQPlaceIdReply_Metacast_Callback(QPlaceIdReply_Metacast_Callback cb) { qplaceidreply_metacast_callback = cb; }
     inline void setQPlaceIdReply_Metacall_Callback(QPlaceIdReply_Metacall_Callback cb) { qplaceidreply_metacall_callback = cb; }
     inline void setQPlaceIdReply_Type_Callback(QPlaceIdReply_Type_Callback cb) { qplaceidreply_type_callback = cb; }
     inline void setQPlaceIdReply_Abort_Callback(QPlaceIdReply_Abort_Callback cb) { qplaceidreply_abort_callback = cb; }
@@ -118,6 +128,8 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
     inline void setQPlaceIdReply_IsSignalConnected_Callback(QPlaceIdReply_IsSignalConnected_Callback cb) { qplaceidreply_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPlaceIdReply_MetaObject_IsBase(bool value) const { qplaceidreply_metaobject_isbase = value; }
+    inline void setQPlaceIdReply_Metacast_IsBase(bool value) const { qplaceidreply_metacast_isbase = value; }
     inline void setQPlaceIdReply_Metacall_IsBase(bool value) const { qplaceidreply_metacall_isbase = value; }
     inline void setQPlaceIdReply_Type_IsBase(bool value) const { qplaceidreply_type_isbase = value; }
     inline void setQPlaceIdReply_Abort_IsBase(bool value) const { qplaceidreply_abort_isbase = value; }
@@ -135,6 +147,34 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
     inline void setQPlaceIdReply_SenderSignalIndex_IsBase(bool value) const { qplaceidreply_sendersignalindex_isbase = value; }
     inline void setQPlaceIdReply_Receivers_IsBase(bool value) const { qplaceidreply_receivers_isbase = value; }
     inline void setQPlaceIdReply_IsSignalConnected_IsBase(bool value) const { qplaceidreply_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qplaceidreply_metaobject_isbase) {
+            qplaceidreply_metaobject_isbase = false;
+            return QPlaceIdReply::metaObject();
+        } else if (qplaceidreply_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qplaceidreply_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPlaceIdReply::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qplaceidreply_metacast_isbase) {
+            qplaceidreply_metacast_isbase = false;
+            return QPlaceIdReply::qt_metacast(param1);
+        } else if (qplaceidreply_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qplaceidreply_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPlaceIdReply::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQDBusServer final : public QDBusServer {
     bool isVirtualQDBusServer = true;
 
     // Virtual class public types (including callbacks)
+    using QDBusServer_MetaObject_Callback = QMetaObject* (*)();
+    using QDBusServer_Metacast_Callback = void* (*)(QDBusServer*, const char*);
     using QDBusServer_Metacall_Callback = int (*)(QDBusServer*, int, int, void**);
     using QDBusServer_Event_Callback = bool (*)(QDBusServer*, QEvent*);
     using QDBusServer_EventFilter_Callback = bool (*)(QDBusServer*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQDBusServer final : public QDBusServer {
 
   protected:
     // Instance callback storage
+    QDBusServer_MetaObject_Callback qdbusserver_metaobject_callback = nullptr;
+    QDBusServer_Metacast_Callback qdbusserver_metacast_callback = nullptr;
     QDBusServer_Metacall_Callback qdbusserver_metacall_callback = nullptr;
     QDBusServer_Event_Callback qdbusserver_event_callback = nullptr;
     QDBusServer_EventFilter_Callback qdbusserver_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQDBusServer final : public QDBusServer {
     QDBusServer_IsSignalConnected_Callback qdbusserver_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdbusserver_metaobject_isbase = false;
+    mutable bool qdbusserver_metacast_isbase = false;
     mutable bool qdbusserver_metacall_isbase = false;
     mutable bool qdbusserver_event_isbase = false;
     mutable bool qdbusserver_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQDBusServer final : public QDBusServer {
     VirtualQDBusServer(QObject* parent) : QDBusServer(parent) {};
 
     ~VirtualQDBusServer() {
+        qdbusserver_metaobject_callback = nullptr;
+        qdbusserver_metacast_callback = nullptr;
         qdbusserver_metacall_callback = nullptr;
         qdbusserver_event_callback = nullptr;
         qdbusserver_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQDBusServer final : public QDBusServer {
     }
 
     // Callback setters
+    inline void setQDBusServer_MetaObject_Callback(QDBusServer_MetaObject_Callback cb) { qdbusserver_metaobject_callback = cb; }
+    inline void setQDBusServer_Metacast_Callback(QDBusServer_Metacast_Callback cb) { qdbusserver_metacast_callback = cb; }
     inline void setQDBusServer_Metacall_Callback(QDBusServer_Metacall_Callback cb) { qdbusserver_metacall_callback = cb; }
     inline void setQDBusServer_Event_Callback(QDBusServer_Event_Callback cb) { qdbusserver_event_callback = cb; }
     inline void setQDBusServer_EventFilter_Callback(QDBusServer_EventFilter_Callback cb) { qdbusserver_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQDBusServer final : public QDBusServer {
     inline void setQDBusServer_IsSignalConnected_Callback(QDBusServer_IsSignalConnected_Callback cb) { qdbusserver_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDBusServer_MetaObject_IsBase(bool value) const { qdbusserver_metaobject_isbase = value; }
+    inline void setQDBusServer_Metacast_IsBase(bool value) const { qdbusserver_metacast_isbase = value; }
     inline void setQDBusServer_Metacall_IsBase(bool value) const { qdbusserver_metacall_isbase = value; }
     inline void setQDBusServer_Event_IsBase(bool value) const { qdbusserver_event_isbase = value; }
     inline void setQDBusServer_EventFilter_IsBase(bool value) const { qdbusserver_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQDBusServer final : public QDBusServer {
     inline void setQDBusServer_SenderSignalIndex_IsBase(bool value) const { qdbusserver_sendersignalindex_isbase = value; }
     inline void setQDBusServer_Receivers_IsBase(bool value) const { qdbusserver_receivers_isbase = value; }
     inline void setQDBusServer_IsSignalConnected_IsBase(bool value) const { qdbusserver_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdbusserver_metaobject_isbase) {
+            qdbusserver_metaobject_isbase = false;
+            return QDBusServer::metaObject();
+        } else if (qdbusserver_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdbusserver_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDBusServer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdbusserver_metacast_isbase) {
+            qdbusserver_metacast_isbase = false;
+            return QDBusServer::qt_metacast(param1);
+        } else if (qdbusserver_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdbusserver_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDBusServer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

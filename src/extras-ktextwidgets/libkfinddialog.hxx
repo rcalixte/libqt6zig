@@ -17,6 +17,8 @@ class VirtualKFindDialog final : public KFindDialog {
     bool isVirtualKFindDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KFindDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KFindDialog_Metacast_Callback = void* (*)(KFindDialog*, const char*);
     using KFindDialog_Metacall_Callback = int (*)(KFindDialog*, int, int, void**);
     using KFindDialog_ShowEvent_Callback = void (*)(KFindDialog*, QShowEvent*);
     using KFindDialog_SetVisible_Callback = void (*)(KFindDialog*, bool);
@@ -84,6 +86,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
   protected:
     // Instance callback storage
+    KFindDialog_MetaObject_Callback kfinddialog_metaobject_callback = nullptr;
+    KFindDialog_Metacast_Callback kfinddialog_metacast_callback = nullptr;
     KFindDialog_Metacall_Callback kfinddialog_metacall_callback = nullptr;
     KFindDialog_ShowEvent_Callback kfinddialog_showevent_callback = nullptr;
     KFindDialog_SetVisible_Callback kfinddialog_setvisible_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKFindDialog final : public KFindDialog {
     KFindDialog_GetDecodedMetricF_Callback kfinddialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfinddialog_metaobject_isbase = false;
+    mutable bool kfinddialog_metacast_isbase = false;
     mutable bool kfinddialog_metacall_isbase = false;
     mutable bool kfinddialog_showevent_isbase = false;
     mutable bool kfinddialog_setvisible_isbase = false;
@@ -224,6 +230,8 @@ class VirtualKFindDialog final : public KFindDialog {
     VirtualKFindDialog(QWidget* parent, long options, const QList<QString>& findStrings, bool hasSelection, bool replaceDialog) : KFindDialog(parent, options, findStrings, hasSelection, replaceDialog) {};
 
     ~VirtualKFindDialog() {
+        kfinddialog_metaobject_callback = nullptr;
+        kfinddialog_metacast_callback = nullptr;
         kfinddialog_metacall_callback = nullptr;
         kfinddialog_showevent_callback = nullptr;
         kfinddialog_setvisible_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKFindDialog final : public KFindDialog {
     }
 
     // Callback setters
+    inline void setKFindDialog_MetaObject_Callback(KFindDialog_MetaObject_Callback cb) { kfinddialog_metaobject_callback = cb; }
+    inline void setKFindDialog_Metacast_Callback(KFindDialog_Metacast_Callback cb) { kfinddialog_metacast_callback = cb; }
     inline void setKFindDialog_Metacall_Callback(KFindDialog_Metacall_Callback cb) { kfinddialog_metacall_callback = cb; }
     inline void setKFindDialog_ShowEvent_Callback(KFindDialog_ShowEvent_Callback cb) { kfinddialog_showevent_callback = cb; }
     inline void setKFindDialog_SetVisible_Callback(KFindDialog_SetVisible_Callback cb) { kfinddialog_setvisible_callback = cb; }
@@ -357,6 +367,8 @@ class VirtualKFindDialog final : public KFindDialog {
     inline void setKFindDialog_GetDecodedMetricF_Callback(KFindDialog_GetDecodedMetricF_Callback cb) { kfinddialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKFindDialog_MetaObject_IsBase(bool value) const { kfinddialog_metaobject_isbase = value; }
+    inline void setKFindDialog_Metacast_IsBase(bool value) const { kfinddialog_metacast_isbase = value; }
     inline void setKFindDialog_Metacall_IsBase(bool value) const { kfinddialog_metacall_isbase = value; }
     inline void setKFindDialog_ShowEvent_IsBase(bool value) const { kfinddialog_showevent_isbase = value; }
     inline void setKFindDialog_SetVisible_IsBase(bool value) const { kfinddialog_setvisible_isbase = value; }
@@ -421,6 +433,34 @@ class VirtualKFindDialog final : public KFindDialog {
     inline void setKFindDialog_Receivers_IsBase(bool value) const { kfinddialog_receivers_isbase = value; }
     inline void setKFindDialog_IsSignalConnected_IsBase(bool value) const { kfinddialog_issignalconnected_isbase = value; }
     inline void setKFindDialog_GetDecodedMetricF_IsBase(bool value) const { kfinddialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfinddialog_metaobject_isbase) {
+            kfinddialog_metaobject_isbase = false;
+            return KFindDialog::metaObject();
+        } else if (kfinddialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfinddialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFindDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfinddialog_metacast_isbase) {
+            kfinddialog_metacast_isbase = false;
+            return KFindDialog::qt_metacast(param1);
+        } else if (kfinddialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfinddialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFindDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -53,6 +53,10 @@ void KExtendableItemDelegate_ExtenderCreated(KExtendableItemDelegate* self, QWid
 void KExtendableItemDelegate_Connect_ExtenderCreated(KExtendableItemDelegate* self, intptr_t slot);
 void KExtendableItemDelegate_ExtenderDestroyed(KExtendableItemDelegate* self, QWidget* extender, const QModelIndex* index);
 void KExtendableItemDelegate_Connect_ExtenderDestroyed(KExtendableItemDelegate* self, intptr_t slot);
+void KExtendableItemDelegate_OnMetaObject(const KExtendableItemDelegate* self, intptr_t slot);
+QMetaObject* KExtendableItemDelegate_QBaseMetaObject(const KExtendableItemDelegate* self);
+void KExtendableItemDelegate_OnMetacast(KExtendableItemDelegate* self, intptr_t slot);
+void* KExtendableItemDelegate_QBaseMetacast(KExtendableItemDelegate* self, const char* param1);
 void KExtendableItemDelegate_OnMetacall(KExtendableItemDelegate* self, intptr_t slot);
 int KExtendableItemDelegate_QBaseMetacall(KExtendableItemDelegate* self, int param1, int param2, void** param3);
 void KExtendableItemDelegate_OnSizeHint(const KExtendableItemDelegate* self, intptr_t slot);

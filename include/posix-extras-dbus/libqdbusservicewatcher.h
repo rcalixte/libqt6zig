@@ -47,6 +47,10 @@ void QDBusServiceWatcher_ServiceUnregistered(QDBusServiceWatcher* self, const li
 void QDBusServiceWatcher_Connect_ServiceUnregistered(QDBusServiceWatcher* self, intptr_t slot);
 void QDBusServiceWatcher_ServiceOwnerChanged(QDBusServiceWatcher* self, const libqt_string service, const libqt_string oldOwner, const libqt_string newOwner);
 void QDBusServiceWatcher_Connect_ServiceOwnerChanged(QDBusServiceWatcher* self, intptr_t slot);
+void QDBusServiceWatcher_OnMetaObject(const QDBusServiceWatcher* self, intptr_t slot);
+QMetaObject* QDBusServiceWatcher_QBaseMetaObject(const QDBusServiceWatcher* self);
+void QDBusServiceWatcher_OnMetacast(QDBusServiceWatcher* self, intptr_t slot);
+void* QDBusServiceWatcher_QBaseMetacast(QDBusServiceWatcher* self, const char* param1);
 void QDBusServiceWatcher_OnMetacall(QDBusServiceWatcher* self, intptr_t slot);
 int QDBusServiceWatcher_QBaseMetacall(QDBusServiceWatcher* self, int param1, int param2, void** param3);
 bool QDBusServiceWatcher_Event(QDBusServiceWatcher* self, QEvent* event);

@@ -33,11 +33,21 @@ KNSCore__EngineBase* KNSCore__EngineBase_new2(QObject* parent) {
 }
 
 QMetaObject* KNSCore__EngineBase_MetaObject(const KNSCore__EngineBase* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknscore__enginebase = dynamic_cast<const VirtualKNSCoreEngineBase*>(self);
+    if (vknscore__enginebase && vknscore__enginebase->isVirtualKNSCoreEngineBase) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNSCoreEngineBase*)self)->metaObject();
+    }
 }
 
 void* KNSCore__EngineBase_Metacast(KNSCore__EngineBase* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknscore__enginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
+    if (vknscore__enginebase && vknscore__enginebase->isVirtualKNSCoreEngineBase) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNSCoreEngineBase*)self)->qt_metacast(param1);
+    }
 }
 
 int KNSCore__EngineBase_Metacall(KNSCore__EngineBase* self, int param1, int param2, void** param3) {
@@ -403,6 +413,44 @@ void KNSCore__EngineBase_UpdateStatus(KNSCore__EngineBase* self) {
     auto* vknscore__enginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
     if (vknscore__enginebase && vknscore__enginebase->isVirtualKNSCoreEngineBase) {
         vknscore__enginebase->updateStatus();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KNSCore__EngineBase_QBaseMetaObject(const KNSCore__EngineBase* self) {
+    auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+        vknscoreenginebase->setKNSCore__EngineBase_MetaObject_IsBase(true);
+        return (QMetaObject*)vknscoreenginebase->metaObject();
+    } else {
+        return (QMetaObject*)self->KNSCore::EngineBase::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__EngineBase_OnMetaObject(const KNSCore__EngineBase* self, intptr_t slot) {
+    auto* vknscoreenginebase = const_cast<VirtualKNSCoreEngineBase*>(dynamic_cast<const VirtualKNSCoreEngineBase*>(self));
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+        vknscoreenginebase->setKNSCore__EngineBase_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNSCore__EngineBase_QBaseMetacast(KNSCore__EngineBase* self, const char* param1) {
+    auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+        vknscoreenginebase->setKNSCore__EngineBase_Metacast_IsBase(true);
+        return vknscoreenginebase->qt_metacast(param1);
+    } else {
+        return self->KNSCore::EngineBase::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__EngineBase_OnMetacast(KNSCore__EngineBase* self, intptr_t slot) {
+    auto* vknscoreenginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
+    if (vknscoreenginebase && vknscoreenginebase->isVirtualKNSCoreEngineBase) {
+        vknscoreenginebase->setKNSCore__EngineBase_Metacast_Callback(reinterpret_cast<VirtualKNSCoreEngineBase::KNSCore__EngineBase_Metacast_Callback>(slot));
     }
 }
 

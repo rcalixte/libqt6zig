@@ -83,11 +83,21 @@ QDateTimeEdit* QDateTimeEdit_new8(QTime* t, QWidget* parent) {
 }
 
 QMetaObject* QDateTimeEdit_MetaObject(const QDateTimeEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDateTimeEdit*)self)->metaObject();
+    }
 }
 
 void* QDateTimeEdit_Metacast(QDateTimeEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDateTimeEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int QDateTimeEdit_Metacall(QDateTimeEdit* self, int param1, int param2, void** param3) {
@@ -479,6 +489,44 @@ void QDateTimeEdit_InitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBo
     auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDateTimeEdit_QBaseMetaObject(const QDateTimeEdit* self) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdatetimeedit->metaObject();
+    } else {
+        return (QMetaObject*)self->QDateTimeEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDateTimeEdit_OnMetaObject(const QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_MetaObject_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDateTimeEdit_QBaseMetacast(QDateTimeEdit* self, const char* param1) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Metacast_IsBase(true);
+        return vqdatetimeedit->qt_metacast(param1);
+    } else {
+        return self->QDateTimeEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDateTimeEdit_OnMetacast(QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_Metacast_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metacast_Callback>(slot));
     }
 }
 
@@ -2325,11 +2373,21 @@ QTimeEdit* QTimeEdit_new4(QTime* time, QWidget* parent) {
 }
 
 QMetaObject* QTimeEdit_MetaObject(const QTimeEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtimeedit = dynamic_cast<const VirtualQTimeEdit*>(self);
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTimeEdit*)self)->metaObject();
+    }
 }
 
 void* QTimeEdit_Metacast(QTimeEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTimeEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int QTimeEdit_Metacall(QTimeEdit* self, int param1, int param2, void** param3) {
@@ -2351,6 +2409,44 @@ void QTimeEdit_Connect_UserTimeChanged(QTimeEdit* self, intptr_t slot) {
         QTime* sigval1 = new QTime(time);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QTimeEdit_QBaseMetaObject(const QTimeEdit* self) {
+    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+        vqtimeedit->setQTimeEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtimeedit->metaObject();
+    } else {
+        return (QMetaObject*)self->QTimeEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTimeEdit_OnMetaObject(const QTimeEdit* self, intptr_t slot) {
+    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+        vqtimeedit->setQTimeEdit_MetaObject_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTimeEdit_QBaseMetacast(QTimeEdit* self, const char* param1) {
+    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+        vqtimeedit->setQTimeEdit_Metacast_IsBase(true);
+        return vqtimeedit->qt_metacast(param1);
+    } else {
+        return self->QTimeEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTimeEdit_OnMetacast(QTimeEdit* self, intptr_t slot) {
+    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+        vqtimeedit->setQTimeEdit_Metacast_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -4374,11 +4470,21 @@ QDateEdit* QDateEdit_new4(QDate* date, QWidget* parent) {
 }
 
 QMetaObject* QDateEdit_MetaObject(const QDateEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdateedit = dynamic_cast<const VirtualQDateEdit*>(self);
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDateEdit*)self)->metaObject();
+    }
 }
 
 void* QDateEdit_Metacast(QDateEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDateEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int QDateEdit_Metacall(QDateEdit* self, int param1, int param2, void** param3) {
@@ -4400,6 +4506,44 @@ void QDateEdit_Connect_UserDateChanged(QDateEdit* self, intptr_t slot) {
         QDate* sigval1 = new QDate(date);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QDateEdit_QBaseMetaObject(const QDateEdit* self) {
+    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+        vqdateedit->setQDateEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdateedit->metaObject();
+    } else {
+        return (QMetaObject*)self->QDateEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDateEdit_OnMetaObject(const QDateEdit* self, intptr_t slot) {
+    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+        vqdateedit->setQDateEdit_MetaObject_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDateEdit_QBaseMetacast(QDateEdit* self, const char* param1) {
+    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+        vqdateedit->setQDateEdit_Metacast_IsBase(true);
+        return vqdateedit->qt_metacast(param1);
+    } else {
+        return self->QDateEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDateEdit_OnMetacast(QDateEdit* self, intptr_t slot) {
+    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+        vqdateedit->setQDateEdit_Metacast_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

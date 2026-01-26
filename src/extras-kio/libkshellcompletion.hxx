@@ -17,6 +17,8 @@ class VirtualKShellCompletion final : public KShellCompletion {
     bool isVirtualKShellCompletion = true;
 
     // Virtual class public types (including callbacks)
+    using KShellCompletion_MetaObject_Callback = QMetaObject* (*)();
+    using KShellCompletion_Metacast_Callback = void* (*)(KShellCompletion*, const char*);
     using KShellCompletion_Metacall_Callback = int (*)(KShellCompletion*, int, int, void**);
     using KShellCompletion_MakeCompletion_Callback = const char* (*)(KShellCompletion*, libqt_string);
     using KShellCompletion_PostProcessMatches_Callback = void (*)(const KShellCompletion*, libqt_list /* of libqt_string */);
@@ -53,6 +55,8 @@ class VirtualKShellCompletion final : public KShellCompletion {
 
   protected:
     // Instance callback storage
+    KShellCompletion_MetaObject_Callback kshellcompletion_metaobject_callback = nullptr;
+    KShellCompletion_Metacast_Callback kshellcompletion_metacast_callback = nullptr;
     KShellCompletion_Metacall_Callback kshellcompletion_metacall_callback = nullptr;
     KShellCompletion_MakeCompletion_Callback kshellcompletion_makecompletion_callback = nullptr;
     KShellCompletion_PostProcessMatches_Callback kshellcompletion_postprocessmatches_callback = nullptr;
@@ -88,6 +92,8 @@ class VirtualKShellCompletion final : public KShellCompletion {
     KShellCompletion_IsSignalConnected_Callback kshellcompletion_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kshellcompletion_metaobject_isbase = false;
+    mutable bool kshellcompletion_metacast_isbase = false;
     mutable bool kshellcompletion_metacall_isbase = false;
     mutable bool kshellcompletion_makecompletion_isbase = false;
     mutable bool kshellcompletion_postprocessmatches_isbase = false;
@@ -126,6 +132,8 @@ class VirtualKShellCompletion final : public KShellCompletion {
     VirtualKShellCompletion() : KShellCompletion() {};
 
     ~VirtualKShellCompletion() {
+        kshellcompletion_metaobject_callback = nullptr;
+        kshellcompletion_metacast_callback = nullptr;
         kshellcompletion_metacall_callback = nullptr;
         kshellcompletion_makecompletion_callback = nullptr;
         kshellcompletion_postprocessmatches_callback = nullptr;
@@ -162,6 +170,8 @@ class VirtualKShellCompletion final : public KShellCompletion {
     }
 
     // Callback setters
+    inline void setKShellCompletion_MetaObject_Callback(KShellCompletion_MetaObject_Callback cb) { kshellcompletion_metaobject_callback = cb; }
+    inline void setKShellCompletion_Metacast_Callback(KShellCompletion_Metacast_Callback cb) { kshellcompletion_metacast_callback = cb; }
     inline void setKShellCompletion_Metacall_Callback(KShellCompletion_Metacall_Callback cb) { kshellcompletion_metacall_callback = cb; }
     inline void setKShellCompletion_MakeCompletion_Callback(KShellCompletion_MakeCompletion_Callback cb) { kshellcompletion_makecompletion_callback = cb; }
     inline void setKShellCompletion_PostProcessMatches_Callback(KShellCompletion_PostProcessMatches_Callback cb) { kshellcompletion_postprocessmatches_callback = cb; }
@@ -197,6 +207,8 @@ class VirtualKShellCompletion final : public KShellCompletion {
     inline void setKShellCompletion_IsSignalConnected_Callback(KShellCompletion_IsSignalConnected_Callback cb) { kshellcompletion_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKShellCompletion_MetaObject_IsBase(bool value) const { kshellcompletion_metaobject_isbase = value; }
+    inline void setKShellCompletion_Metacast_IsBase(bool value) const { kshellcompletion_metacast_isbase = value; }
     inline void setKShellCompletion_Metacall_IsBase(bool value) const { kshellcompletion_metacall_isbase = value; }
     inline void setKShellCompletion_MakeCompletion_IsBase(bool value) const { kshellcompletion_makecompletion_isbase = value; }
     inline void setKShellCompletion_PostProcessMatches_IsBase(bool value) const { kshellcompletion_postprocessmatches_isbase = value; }
@@ -230,6 +242,34 @@ class VirtualKShellCompletion final : public KShellCompletion {
     inline void setKShellCompletion_SenderSignalIndex_IsBase(bool value) const { kshellcompletion_sendersignalindex_isbase = value; }
     inline void setKShellCompletion_Receivers_IsBase(bool value) const { kshellcompletion_receivers_isbase = value; }
     inline void setKShellCompletion_IsSignalConnected_IsBase(bool value) const { kshellcompletion_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kshellcompletion_metaobject_isbase) {
+            kshellcompletion_metaobject_isbase = false;
+            return KShellCompletion::metaObject();
+        } else if (kshellcompletion_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kshellcompletion_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KShellCompletion::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kshellcompletion_metacast_isbase) {
+            kshellcompletion_metacast_isbase = false;
+            return KShellCompletion::qt_metacast(param1);
+        } else if (kshellcompletion_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kshellcompletion_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KShellCompletion::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

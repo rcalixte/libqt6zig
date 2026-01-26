@@ -17,6 +17,8 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
     bool isVirtualKExtendableItemDelegate = true;
 
     // Virtual class public types (including callbacks)
+    using KExtendableItemDelegate_MetaObject_Callback = QMetaObject* (*)();
+    using KExtendableItemDelegate_Metacast_Callback = void* (*)(KExtendableItemDelegate*, const char*);
     using KExtendableItemDelegate_Metacall_Callback = int (*)(KExtendableItemDelegate*, int, int, void**);
     using KExtendableItemDelegate_SizeHint_Callback = QSize* (*)(const KExtendableItemDelegate*, QStyleOptionViewItem*, QModelIndex*);
     using KExtendableItemDelegate_Paint_Callback = void (*)(const KExtendableItemDelegate*, QPainter*, QStyleOptionViewItem*, QModelIndex*);
@@ -50,6 +52,8 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
 
   protected:
     // Instance callback storage
+    KExtendableItemDelegate_MetaObject_Callback kextendableitemdelegate_metaobject_callback = nullptr;
+    KExtendableItemDelegate_Metacast_Callback kextendableitemdelegate_metacast_callback = nullptr;
     KExtendableItemDelegate_Metacall_Callback kextendableitemdelegate_metacall_callback = nullptr;
     KExtendableItemDelegate_SizeHint_Callback kextendableitemdelegate_sizehint_callback = nullptr;
     KExtendableItemDelegate_Paint_Callback kextendableitemdelegate_paint_callback = nullptr;
@@ -82,6 +86,8 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
     KExtendableItemDelegate_IsSignalConnected_Callback kextendableitemdelegate_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kextendableitemdelegate_metaobject_isbase = false;
+    mutable bool kextendableitemdelegate_metacast_isbase = false;
     mutable bool kextendableitemdelegate_metacall_isbase = false;
     mutable bool kextendableitemdelegate_sizehint_isbase = false;
     mutable bool kextendableitemdelegate_paint_isbase = false;
@@ -117,6 +123,8 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
     VirtualKExtendableItemDelegate(QAbstractItemView* parent) : KExtendableItemDelegate(parent) {};
 
     ~VirtualKExtendableItemDelegate() {
+        kextendableitemdelegate_metaobject_callback = nullptr;
+        kextendableitemdelegate_metacast_callback = nullptr;
         kextendableitemdelegate_metacall_callback = nullptr;
         kextendableitemdelegate_sizehint_callback = nullptr;
         kextendableitemdelegate_paint_callback = nullptr;
@@ -150,6 +158,8 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
     }
 
     // Callback setters
+    inline void setKExtendableItemDelegate_MetaObject_Callback(KExtendableItemDelegate_MetaObject_Callback cb) { kextendableitemdelegate_metaobject_callback = cb; }
+    inline void setKExtendableItemDelegate_Metacast_Callback(KExtendableItemDelegate_Metacast_Callback cb) { kextendableitemdelegate_metacast_callback = cb; }
     inline void setKExtendableItemDelegate_Metacall_Callback(KExtendableItemDelegate_Metacall_Callback cb) { kextendableitemdelegate_metacall_callback = cb; }
     inline void setKExtendableItemDelegate_SizeHint_Callback(KExtendableItemDelegate_SizeHint_Callback cb) { kextendableitemdelegate_sizehint_callback = cb; }
     inline void setKExtendableItemDelegate_Paint_Callback(KExtendableItemDelegate_Paint_Callback cb) { kextendableitemdelegate_paint_callback = cb; }
@@ -182,6 +192,8 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
     inline void setKExtendableItemDelegate_IsSignalConnected_Callback(KExtendableItemDelegate_IsSignalConnected_Callback cb) { kextendableitemdelegate_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKExtendableItemDelegate_MetaObject_IsBase(bool value) const { kextendableitemdelegate_metaobject_isbase = value; }
+    inline void setKExtendableItemDelegate_Metacast_IsBase(bool value) const { kextendableitemdelegate_metacast_isbase = value; }
     inline void setKExtendableItemDelegate_Metacall_IsBase(bool value) const { kextendableitemdelegate_metacall_isbase = value; }
     inline void setKExtendableItemDelegate_SizeHint_IsBase(bool value) const { kextendableitemdelegate_sizehint_isbase = value; }
     inline void setKExtendableItemDelegate_Paint_IsBase(bool value) const { kextendableitemdelegate_paint_isbase = value; }
@@ -212,6 +224,34 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
     inline void setKExtendableItemDelegate_SenderSignalIndex_IsBase(bool value) const { kextendableitemdelegate_sendersignalindex_isbase = value; }
     inline void setKExtendableItemDelegate_Receivers_IsBase(bool value) const { kextendableitemdelegate_receivers_isbase = value; }
     inline void setKExtendableItemDelegate_IsSignalConnected_IsBase(bool value) const { kextendableitemdelegate_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kextendableitemdelegate_metaobject_isbase) {
+            kextendableitemdelegate_metaobject_isbase = false;
+            return KExtendableItemDelegate::metaObject();
+        } else if (kextendableitemdelegate_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kextendableitemdelegate_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KExtendableItemDelegate::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kextendableitemdelegate_metacast_isbase) {
+            kextendableitemdelegate_metacast_isbase = false;
+            return KExtendableItemDelegate::qt_metacast(param1);
+        } else if (kextendableitemdelegate_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kextendableitemdelegate_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KExtendableItemDelegate::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
     bool isVirtualKIORenameDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__RenameDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__RenameDialog_Metacast_Callback = void* (*)(KIO__RenameDialog*, const char*);
     using KIO__RenameDialog_Metacall_Callback = int (*)(KIO__RenameDialog*, int, int, void**);
     using KIO__RenameDialog_SetVisible_Callback = void (*)(KIO__RenameDialog*, bool);
     using KIO__RenameDialog_SizeHint_Callback = QSize* (*)();
@@ -85,6 +87,8 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
 
   protected:
     // Instance callback storage
+    KIO__RenameDialog_MetaObject_Callback kio__renamedialog_metaobject_callback = nullptr;
+    KIO__RenameDialog_Metacast_Callback kio__renamedialog_metacast_callback = nullptr;
     KIO__RenameDialog_Metacall_Callback kio__renamedialog_metacall_callback = nullptr;
     KIO__RenameDialog_SetVisible_Callback kio__renamedialog_setvisible_callback = nullptr;
     KIO__RenameDialog_SizeHint_Callback kio__renamedialog_sizehint_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
     KIO__RenameDialog_GetDecodedMetricF_Callback kio__renamedialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__renamedialog_metaobject_isbase = false;
+    mutable bool kio__renamedialog_metacast_isbase = false;
     mutable bool kio__renamedialog_metacall_isbase = false;
     mutable bool kio__renamedialog_setvisible_isbase = false;
     mutable bool kio__renamedialog_sizehint_isbase = false;
@@ -228,6 +234,8 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
     VirtualKIORenameDialog(QWidget* parent, const QString& title, const QUrl& src, const QUrl& dest, KIO::RenameDialog_Options options, KIO::filesize_t sizeSrc, KIO::filesize_t sizeDest, const QDateTime& ctimeSrc, const QDateTime& ctimeDest, const QDateTime& mtimeSrc, const QDateTime& mtimeDest) : KIO::RenameDialog(parent, title, src, dest, options, sizeSrc, sizeDest, ctimeSrc, ctimeDest, mtimeSrc, mtimeDest) {};
 
     ~VirtualKIORenameDialog() {
+        kio__renamedialog_metaobject_callback = nullptr;
+        kio__renamedialog_metacast_callback = nullptr;
         kio__renamedialog_metacall_callback = nullptr;
         kio__renamedialog_setvisible_callback = nullptr;
         kio__renamedialog_sizehint_callback = nullptr;
@@ -296,6 +304,8 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
     }
 
     // Callback setters
+    inline void setKIO__RenameDialog_MetaObject_Callback(KIO__RenameDialog_MetaObject_Callback cb) { kio__renamedialog_metaobject_callback = cb; }
+    inline void setKIO__RenameDialog_Metacast_Callback(KIO__RenameDialog_Metacast_Callback cb) { kio__renamedialog_metacast_callback = cb; }
     inline void setKIO__RenameDialog_Metacall_Callback(KIO__RenameDialog_Metacall_Callback cb) { kio__renamedialog_metacall_callback = cb; }
     inline void setKIO__RenameDialog_SetVisible_Callback(KIO__RenameDialog_SetVisible_Callback cb) { kio__renamedialog_setvisible_callback = cb; }
     inline void setKIO__RenameDialog_SizeHint_Callback(KIO__RenameDialog_SizeHint_Callback cb) { kio__renamedialog_sizehint_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
     inline void setKIO__RenameDialog_GetDecodedMetricF_Callback(KIO__RenameDialog_GetDecodedMetricF_Callback cb) { kio__renamedialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__RenameDialog_MetaObject_IsBase(bool value) const { kio__renamedialog_metaobject_isbase = value; }
+    inline void setKIO__RenameDialog_Metacast_IsBase(bool value) const { kio__renamedialog_metacast_isbase = value; }
     inline void setKIO__RenameDialog_Metacall_IsBase(bool value) const { kio__renamedialog_metacall_isbase = value; }
     inline void setKIO__RenameDialog_SetVisible_IsBase(bool value) const { kio__renamedialog_setvisible_isbase = value; }
     inline void setKIO__RenameDialog_SizeHint_IsBase(bool value) const { kio__renamedialog_sizehint_isbase = value; }
@@ -428,6 +440,34 @@ class VirtualKIORenameDialog final : public KIO::RenameDialog {
     inline void setKIO__RenameDialog_Receivers_IsBase(bool value) const { kio__renamedialog_receivers_isbase = value; }
     inline void setKIO__RenameDialog_IsSignalConnected_IsBase(bool value) const { kio__renamedialog_issignalconnected_isbase = value; }
     inline void setKIO__RenameDialog_GetDecodedMetricF_IsBase(bool value) const { kio__renamedialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__renamedialog_metaobject_isbase) {
+            kio__renamedialog_metaobject_isbase = false;
+            return KIO__RenameDialog::metaObject();
+        } else if (kio__renamedialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__renamedialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__RenameDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__renamedialog_metacast_isbase) {
+            kio__renamedialog_metacast_isbase = false;
+            return KIO__RenameDialog::qt_metacast(param1);
+        } else if (kio__renamedialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__renamedialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__RenameDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

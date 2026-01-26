@@ -58,11 +58,21 @@ QFontDialog* QFontDialog_new4(const QFont* initial, QWidget* parent) {
 }
 
 QMetaObject* QFontDialog_MetaObject(const QFontDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqfontdialog = dynamic_cast<const VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFontDialog*)self)->metaObject();
+    }
 }
 
 void* QFontDialog_Metacast(QFontDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFontDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int QFontDialog_Metacall(QFontDialog* self, int param1, int param2, void** param3) {
@@ -189,6 +199,44 @@ QFont* QFontDialog_GetFont4(bool* ok, const QFont* initial, QWidget* parent, con
 QFont* QFontDialog_GetFont5(bool* ok, const QFont* initial, QWidget* parent, const libqt_string title, int options) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return new QFont(QFontDialog::getFont(ok, *initial, parent, title_QString, static_cast<QFontDialog::FontDialogOptions>(options)));
+}
+
+// Base class handler implementation
+QMetaObject* QFontDialog_QBaseMetaObject(const QFontDialog* self) {
+    auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vqfontdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->QFontDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFontDialog_OnMetaObject(const QFontDialog* self, intptr_t slot) {
+    auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_MetaObject_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFontDialog_QBaseMetacast(QFontDialog* self, const char* param1) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_Metacast_IsBase(true);
+        return vqfontdialog->qt_metacast(param1);
+    } else {
+        return self->QFontDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFontDialog_OnMetacast(QFontDialog* self, intptr_t slot) {
+    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_Metacast_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

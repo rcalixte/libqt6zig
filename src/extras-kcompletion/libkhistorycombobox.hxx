@@ -17,6 +17,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     bool isVirtualKHistoryComboBox = true;
 
     // Virtual class public types (including callbacks)
+    using KHistoryComboBox_MetaObject_Callback = QMetaObject* (*)();
+    using KHistoryComboBox_Metacast_Callback = void* (*)(KHistoryComboBox*, const char*);
     using KHistoryComboBox_Metacall_Callback = int (*)(KHistoryComboBox*, int, int, void**);
     using KHistoryComboBox_KeyPressEvent_Callback = void (*)(KHistoryComboBox*, QKeyEvent*);
     using KHistoryComboBox_WheelEvent_Callback = void (*)(KHistoryComboBox*, QWheelEvent*);
@@ -97,6 +99,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
   protected:
     // Instance callback storage
+    KHistoryComboBox_MetaObject_Callback khistorycombobox_metaobject_callback = nullptr;
+    KHistoryComboBox_Metacast_Callback khistorycombobox_metacast_callback = nullptr;
     KHistoryComboBox_Metacall_Callback khistorycombobox_metacall_callback = nullptr;
     KHistoryComboBox_KeyPressEvent_Callback khistorycombobox_keypressevent_callback = nullptr;
     KHistoryComboBox_WheelEvent_Callback khistorycombobox_wheelevent_callback = nullptr;
@@ -176,6 +180,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     KHistoryComboBox_Delegate_Callback khistorycombobox_delegate_callback = nullptr;
 
     // Instance base flags
+    mutable bool khistorycombobox_metaobject_isbase = false;
+    mutable bool khistorycombobox_metacast_isbase = false;
     mutable bool khistorycombobox_metacall_isbase = false;
     mutable bool khistorycombobox_keypressevent_isbase = false;
     mutable bool khistorycombobox_wheelevent_isbase = false;
@@ -261,6 +267,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     VirtualKHistoryComboBox(bool useCompletion, QWidget* parent) : KHistoryComboBox(useCompletion, parent) {};
 
     ~VirtualKHistoryComboBox() {
+        khistorycombobox_metaobject_callback = nullptr;
+        khistorycombobox_metacast_callback = nullptr;
         khistorycombobox_metacall_callback = nullptr;
         khistorycombobox_keypressevent_callback = nullptr;
         khistorycombobox_wheelevent_callback = nullptr;
@@ -341,6 +349,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     }
 
     // Callback setters
+    inline void setKHistoryComboBox_MetaObject_Callback(KHistoryComboBox_MetaObject_Callback cb) { khistorycombobox_metaobject_callback = cb; }
+    inline void setKHistoryComboBox_Metacast_Callback(KHistoryComboBox_Metacast_Callback cb) { khistorycombobox_metacast_callback = cb; }
     inline void setKHistoryComboBox_Metacall_Callback(KHistoryComboBox_Metacall_Callback cb) { khistorycombobox_metacall_callback = cb; }
     inline void setKHistoryComboBox_KeyPressEvent_Callback(KHistoryComboBox_KeyPressEvent_Callback cb) { khistorycombobox_keypressevent_callback = cb; }
     inline void setKHistoryComboBox_WheelEvent_Callback(KHistoryComboBox_WheelEvent_Callback cb) { khistorycombobox_wheelevent_callback = cb; }
@@ -420,6 +430,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     inline void setKHistoryComboBox_Delegate_Callback(KHistoryComboBox_Delegate_Callback cb) { khistorycombobox_delegate_callback = cb; }
 
     // Base flag setters
+    inline void setKHistoryComboBox_MetaObject_IsBase(bool value) const { khistorycombobox_metaobject_isbase = value; }
+    inline void setKHistoryComboBox_Metacast_IsBase(bool value) const { khistorycombobox_metacast_isbase = value; }
     inline void setKHistoryComboBox_Metacall_IsBase(bool value) const { khistorycombobox_metacall_isbase = value; }
     inline void setKHistoryComboBox_KeyPressEvent_IsBase(bool value) const { khistorycombobox_keypressevent_isbase = value; }
     inline void setKHistoryComboBox_WheelEvent_IsBase(bool value) const { khistorycombobox_wheelevent_isbase = value; }
@@ -497,6 +509,34 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     inline void setKHistoryComboBox_SetKeyBindingMap_IsBase(bool value) const { khistorycombobox_setkeybindingmap_isbase = value; }
     inline void setKHistoryComboBox_SetDelegate_IsBase(bool value) const { khistorycombobox_setdelegate_isbase = value; }
     inline void setKHistoryComboBox_Delegate_IsBase(bool value) const { khistorycombobox_delegate_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (khistorycombobox_metaobject_isbase) {
+            khistorycombobox_metaobject_isbase = false;
+            return KHistoryComboBox::metaObject();
+        } else if (khistorycombobox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = khistorycombobox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KHistoryComboBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (khistorycombobox_metacast_isbase) {
+            khistorycombobox_metacast_isbase = false;
+            return KHistoryComboBox::qt_metacast(param1);
+        } else if (khistorycombobox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = khistorycombobox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KHistoryComboBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

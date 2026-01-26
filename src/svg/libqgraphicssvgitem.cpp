@@ -50,11 +50,21 @@ QGraphicsSvgItem* QGraphicsSvgItem_new4(const libqt_string fileName, QGraphicsIt
 }
 
 QMetaObject* QGraphicsSvgItem_MetaObject(const QGraphicsSvgItem* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicssvgitem = dynamic_cast<const VirtualQGraphicsSvgItem*>(self);
+    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsSvgItem*)self)->metaObject();
+    }
 }
 
 void* QGraphicsSvgItem_Metacast(QGraphicsSvgItem* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicssvgitem = dynamic_cast<VirtualQGraphicsSvgItem*>(self);
+    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsSvgItem*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsSvgItem_Metacall(QGraphicsSvgItem* self, int param1, int param2, void** param3) {
@@ -131,6 +141,44 @@ int QGraphicsSvgItem_Type(const QGraphicsSvgItem* self) {
         return self->type();
     } else {
         return ((VirtualQGraphicsSvgItem*)self)->type();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsSvgItem_QBaseMetaObject(const QGraphicsSvgItem* self) {
+    auto* vqgraphicssvgitem = const_cast<VirtualQGraphicsSvgItem*>(dynamic_cast<const VirtualQGraphicsSvgItem*>(self));
+    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
+        vqgraphicssvgitem->setQGraphicsSvgItem_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicssvgitem->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsSvgItem::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSvgItem_OnMetaObject(const QGraphicsSvgItem* self, intptr_t slot) {
+    auto* vqgraphicssvgitem = const_cast<VirtualQGraphicsSvgItem*>(dynamic_cast<const VirtualQGraphicsSvgItem*>(self));
+    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
+        vqgraphicssvgitem->setQGraphicsSvgItem_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsSvgItem::QGraphicsSvgItem_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsSvgItem_QBaseMetacast(QGraphicsSvgItem* self, const char* param1) {
+    auto* vqgraphicssvgitem = dynamic_cast<VirtualQGraphicsSvgItem*>(self);
+    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
+        vqgraphicssvgitem->setQGraphicsSvgItem_Metacast_IsBase(true);
+        return vqgraphicssvgitem->qt_metacast(param1);
+    } else {
+        return self->QGraphicsSvgItem::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsSvgItem_OnMetacast(QGraphicsSvgItem* self, intptr_t slot) {
+    auto* vqgraphicssvgitem = dynamic_cast<VirtualQGraphicsSvgItem*>(self);
+    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
+        vqgraphicssvgitem->setQGraphicsSvgItem_Metacast_Callback(reinterpret_cast<VirtualQGraphicsSvgItem::QGraphicsSvgItem_Metacast_Callback>(slot));
     }
 }
 

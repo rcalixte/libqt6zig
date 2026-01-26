@@ -22,11 +22,21 @@ QWebEngineUrlSchemeHandler* QWebEngineUrlSchemeHandler_new2(QObject* parent) {
 }
 
 QMetaObject* QWebEngineUrlSchemeHandler_MetaObject(const QWebEngineUrlSchemeHandler* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwebengineurlschemehandler = dynamic_cast<const VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWebEngineUrlSchemeHandler*)self)->metaObject();
+    }
 }
 
 void* QWebEngineUrlSchemeHandler_Metacast(QWebEngineUrlSchemeHandler* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWebEngineUrlSchemeHandler*)self)->qt_metacast(param1);
+    }
 }
 
 int QWebEngineUrlSchemeHandler_Metacall(QWebEngineUrlSchemeHandler* self, int param1, int param2, void** param3) {
@@ -44,6 +54,44 @@ void QWebEngineUrlSchemeHandler_RequestStarted(QWebEngineUrlSchemeHandler* self,
         vqwebengineurlschemehandler->requestStarted(param1);
     } else {
         ((VirtualQWebEngineUrlSchemeHandler*)self)->requestStarted(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QWebEngineUrlSchemeHandler_QBaseMetaObject(const QWebEngineUrlSchemeHandler* self) {
+    auto* vqwebengineurlschemehandler = const_cast<VirtualQWebEngineUrlSchemeHandler*>(dynamic_cast<const VirtualQWebEngineUrlSchemeHandler*>(self));
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwebengineurlschemehandler->metaObject();
+    } else {
+        return (QMetaObject*)self->QWebEngineUrlSchemeHandler::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEngineUrlSchemeHandler_OnMetaObject(const QWebEngineUrlSchemeHandler* self, intptr_t slot) {
+    auto* vqwebengineurlschemehandler = const_cast<VirtualQWebEngineUrlSchemeHandler*>(dynamic_cast<const VirtualQWebEngineUrlSchemeHandler*>(self));
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_MetaObject_Callback(reinterpret_cast<VirtualQWebEngineUrlSchemeHandler::QWebEngineUrlSchemeHandler_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWebEngineUrlSchemeHandler_QBaseMetacast(QWebEngineUrlSchemeHandler* self, const char* param1) {
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Metacast_IsBase(true);
+        return vqwebengineurlschemehandler->qt_metacast(param1);
+    } else {
+        return self->QWebEngineUrlSchemeHandler::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEngineUrlSchemeHandler_OnMetacast(QWebEngineUrlSchemeHandler* self, intptr_t slot) {
+    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
+    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
+        vqwebengineurlschemehandler->setQWebEngineUrlSchemeHandler_Metacast_Callback(reinterpret_cast<VirtualQWebEngineUrlSchemeHandler::QWebEngineUrlSchemeHandler_Metacast_Callback>(slot));
     }
 }
 

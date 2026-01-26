@@ -59,11 +59,21 @@ KFileCustomDialog* KFileCustomDialog_new4(const QUrl* startDir, QWidget* parent)
 }
 
 QMetaObject* KFileCustomDialog_MetaObject(const KFileCustomDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfilecustomdialog = dynamic_cast<const VirtualKFileCustomDialog*>(self);
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFileCustomDialog*)self)->metaObject();
+    }
 }
 
 void* KFileCustomDialog_Metacast(KFileCustomDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFileCustomDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KFileCustomDialog_Metacall(KFileCustomDialog* self, int param1, int param2, void** param3) {
@@ -97,6 +107,44 @@ void KFileCustomDialog_Accept(KFileCustomDialog* self) {
         self->accept();
     } else {
         ((VirtualKFileCustomDialog*)self)->accept();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KFileCustomDialog_QBaseMetaObject(const KFileCustomDialog* self) {
+    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+        vkfilecustomdialog->setKFileCustomDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfilecustomdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KFileCustomDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileCustomDialog_OnMetaObject(const KFileCustomDialog* self, intptr_t slot) {
+    auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+        vkfilecustomdialog->setKFileCustomDialog_MetaObject_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFileCustomDialog_QBaseMetacast(KFileCustomDialog* self, const char* param1) {
+    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+        vkfilecustomdialog->setKFileCustomDialog_Metacast_IsBase(true);
+        return vkfilecustomdialog->qt_metacast(param1);
+    } else {
+        return self->KFileCustomDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileCustomDialog_OnMetacast(KFileCustomDialog* self, intptr_t slot) {
+    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+        vkfilecustomdialog->setKFileCustomDialog_Metacast_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metacast_Callback>(slot));
     }
 }
 

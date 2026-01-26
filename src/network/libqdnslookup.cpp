@@ -389,11 +389,21 @@ QDnsLookup* QDnsLookup_new11(int typeVal, const libqt_string name, uint8_t proto
 }
 
 QMetaObject* QDnsLookup_MetaObject(const QDnsLookup* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdnslookup = dynamic_cast<const VirtualQDnsLookup*>(self);
+    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDnsLookup*)self)->metaObject();
+    }
 }
 
 void* QDnsLookup_Metacast(QDnsLookup* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
+    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDnsLookup*)self)->qt_metacast(param1);
+    }
 }
 
 int QDnsLookup_Metacall(QDnsLookup* self, int param1, int param2, void** param3) {
@@ -697,6 +707,44 @@ void QDnsLookup_Connect_NameserverProtocolChanged(QDnsLookup* self, intptr_t slo
 
 void QDnsLookup_SetNameserver32(QDnsLookup* self, uint8_t protocol, const QHostAddress* nameserver, uint16_t port) {
     self->setNameserver(static_cast<QDnsLookup::Protocol>(protocol), *nameserver, static_cast<quint16>(port));
+}
+
+// Base class handler implementation
+QMetaObject* QDnsLookup_QBaseMetaObject(const QDnsLookup* self) {
+    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
+    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+        vqdnslookup->setQDnsLookup_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdnslookup->metaObject();
+    } else {
+        return (QMetaObject*)self->QDnsLookup::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDnsLookup_OnMetaObject(const QDnsLookup* self, intptr_t slot) {
+    auto* vqdnslookup = const_cast<VirtualQDnsLookup*>(dynamic_cast<const VirtualQDnsLookup*>(self));
+    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+        vqdnslookup->setQDnsLookup_MetaObject_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDnsLookup_QBaseMetacast(QDnsLookup* self, const char* param1) {
+    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
+    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+        vqdnslookup->setQDnsLookup_Metacast_IsBase(true);
+        return vqdnslookup->qt_metacast(param1);
+    } else {
+        return self->QDnsLookup::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDnsLookup_OnMetacast(QDnsLookup* self, intptr_t slot) {
+    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
+    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
+        vqdnslookup->setQDnsLookup_Metacast_Callback(reinterpret_cast<VirtualQDnsLookup::QDnsLookup_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

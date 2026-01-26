@@ -25,11 +25,21 @@ KIO__OpenFileManagerWindowJob* KIO__OpenFileManagerWindowJob_new2(QObject* paren
 }
 
 QMetaObject* KIO__OpenFileManagerWindowJob_MetaObject(const KIO__OpenFileManagerWindowJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__openfilemanagerwindowjob = dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self);
+    if (vkio__openfilemanagerwindowjob && vkio__openfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOOpenFileManagerWindowJob*)self)->metaObject();
+    }
 }
 
 void* KIO__OpenFileManagerWindowJob_Metacast(KIO__OpenFileManagerWindowJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__openfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
+    if (vkio__openfilemanagerwindowjob && vkio__openfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOOpenFileManagerWindowJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__OpenFileManagerWindowJob_Metacall(KIO__OpenFileManagerWindowJob* self, int param1, int param2, void** param3) {
@@ -85,6 +95,44 @@ void KIO__OpenFileManagerWindowJob_Start(KIO__OpenFileManagerWindowJob* self) {
         self->start();
     } else {
         ((VirtualKIOOpenFileManagerWindowJob*)self)->start();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KIO__OpenFileManagerWindowJob_QBaseMetaObject(const KIO__OpenFileManagerWindowJob* self) {
+    auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+        vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkioopenfilemanagerwindowjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::OpenFileManagerWindowJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__OpenFileManagerWindowJob_OnMetaObject(const KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
+    auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+        vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_MetaObject_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__OpenFileManagerWindowJob_QBaseMetacast(KIO__OpenFileManagerWindowJob* self, const char* param1) {
+    auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+        vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Metacast_IsBase(true);
+        return vkioopenfilemanagerwindowjob->qt_metacast(param1);
+    } else {
+        return self->KIO::OpenFileManagerWindowJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__OpenFileManagerWindowJob_OnMetacast(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
+    auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+        vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Metacast_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_Metacast_Callback>(slot));
     }
 }
 

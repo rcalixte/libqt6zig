@@ -17,6 +17,8 @@ class VirtualQAnimationGroup : public QAnimationGroup {
     bool isVirtualQAnimationGroup = true;
 
     // Virtual class public types (including callbacks)
+    using QAnimationGroup_MetaObject_Callback = QMetaObject* (*)();
+    using QAnimationGroup_Metacast_Callback = void* (*)(QAnimationGroup*, const char*);
     using QAnimationGroup_Metacall_Callback = int (*)(QAnimationGroup*, int, int, void**);
     using QAnimationGroup_Event_Callback = bool (*)(QAnimationGroup*, QEvent*);
     using QAnimationGroup_Duration_Callback = int (*)();
@@ -36,6 +38,8 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
   protected:
     // Instance callback storage
+    QAnimationGroup_MetaObject_Callback qanimationgroup_metaobject_callback = nullptr;
+    QAnimationGroup_Metacast_Callback qanimationgroup_metacast_callback = nullptr;
     QAnimationGroup_Metacall_Callback qanimationgroup_metacall_callback = nullptr;
     QAnimationGroup_Event_Callback qanimationgroup_event_callback = nullptr;
     QAnimationGroup_Duration_Callback qanimationgroup_duration_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQAnimationGroup : public QAnimationGroup {
     QAnimationGroup_IsSignalConnected_Callback qanimationgroup_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qanimationgroup_metaobject_isbase = false;
+    mutable bool qanimationgroup_metacast_isbase = false;
     mutable bool qanimationgroup_metacall_isbase = false;
     mutable bool qanimationgroup_event_isbase = false;
     mutable bool qanimationgroup_duration_isbase = false;
@@ -76,6 +82,8 @@ class VirtualQAnimationGroup : public QAnimationGroup {
     VirtualQAnimationGroup(QObject* parent) : QAnimationGroup(parent) {};
 
     ~VirtualQAnimationGroup() {
+        qanimationgroup_metaobject_callback = nullptr;
+        qanimationgroup_metacast_callback = nullptr;
         qanimationgroup_metacall_callback = nullptr;
         qanimationgroup_event_callback = nullptr;
         qanimationgroup_duration_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualQAnimationGroup : public QAnimationGroup {
     }
 
     // Callback setters
+    inline void setQAnimationGroup_MetaObject_Callback(QAnimationGroup_MetaObject_Callback cb) { qanimationgroup_metaobject_callback = cb; }
+    inline void setQAnimationGroup_Metacast_Callback(QAnimationGroup_Metacast_Callback cb) { qanimationgroup_metacast_callback = cb; }
     inline void setQAnimationGroup_Metacall_Callback(QAnimationGroup_Metacall_Callback cb) { qanimationgroup_metacall_callback = cb; }
     inline void setQAnimationGroup_Event_Callback(QAnimationGroup_Event_Callback cb) { qanimationgroup_event_callback = cb; }
     inline void setQAnimationGroup_Duration_Callback(QAnimationGroup_Duration_Callback cb) { qanimationgroup_duration_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualQAnimationGroup : public QAnimationGroup {
     inline void setQAnimationGroup_IsSignalConnected_Callback(QAnimationGroup_IsSignalConnected_Callback cb) { qanimationgroup_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAnimationGroup_MetaObject_IsBase(bool value) const { qanimationgroup_metaobject_isbase = value; }
+    inline void setQAnimationGroup_Metacast_IsBase(bool value) const { qanimationgroup_metacast_isbase = value; }
     inline void setQAnimationGroup_Metacall_IsBase(bool value) const { qanimationgroup_metacall_isbase = value; }
     inline void setQAnimationGroup_Event_IsBase(bool value) const { qanimationgroup_event_isbase = value; }
     inline void setQAnimationGroup_Duration_IsBase(bool value) const { qanimationgroup_duration_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualQAnimationGroup : public QAnimationGroup {
     inline void setQAnimationGroup_SenderSignalIndex_IsBase(bool value) const { qanimationgroup_sendersignalindex_isbase = value; }
     inline void setQAnimationGroup_Receivers_IsBase(bool value) const { qanimationgroup_receivers_isbase = value; }
     inline void setQAnimationGroup_IsSignalConnected_IsBase(bool value) const { qanimationgroup_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qanimationgroup_metaobject_isbase) {
+            qanimationgroup_metaobject_isbase = false;
+            return QAnimationGroup::metaObject();
+        } else if (qanimationgroup_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qanimationgroup_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAnimationGroup::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qanimationgroup_metacast_isbase) {
+            qanimationgroup_metacast_isbase = false;
+            return QAnimationGroup::qt_metacast(param1);
+        } else if (qanimationgroup_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qanimationgroup_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAnimationGroup::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -36,6 +36,10 @@ bool QParallelAnimationGroup_Event(QParallelAnimationGroup* self, QEvent* event)
 void QParallelAnimationGroup_UpdateCurrentTime(QParallelAnimationGroup* self, int currentTime);
 void QParallelAnimationGroup_UpdateState(QParallelAnimationGroup* self, int newState, int oldState);
 void QParallelAnimationGroup_UpdateDirection(QParallelAnimationGroup* self, int direction);
+void QParallelAnimationGroup_OnMetaObject(const QParallelAnimationGroup* self, intptr_t slot);
+QMetaObject* QParallelAnimationGroup_QBaseMetaObject(const QParallelAnimationGroup* self);
+void QParallelAnimationGroup_OnMetacast(QParallelAnimationGroup* self, intptr_t slot);
+void* QParallelAnimationGroup_QBaseMetacast(QParallelAnimationGroup* self, const char* param1);
 void QParallelAnimationGroup_OnMetacall(QParallelAnimationGroup* self, intptr_t slot);
 int QParallelAnimationGroup_QBaseMetacall(QParallelAnimationGroup* self, int param1, int param2, void** param3);
 void QParallelAnimationGroup_OnDuration(const QParallelAnimationGroup* self, intptr_t slot);

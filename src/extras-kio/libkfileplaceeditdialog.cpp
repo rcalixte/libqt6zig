@@ -66,11 +66,21 @@ KFilePlaceEditDialog* KFilePlaceEditDialog_new4(bool allowGlobal, const QUrl* ur
 }
 
 QMetaObject* KFilePlaceEditDialog_MetaObject(const KFilePlaceEditDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfileplaceeditdialog = dynamic_cast<const VirtualKFilePlaceEditDialog*>(self);
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFilePlaceEditDialog*)self)->metaObject();
+    }
 }
 
 void* KFilePlaceEditDialog_Metacast(KFilePlaceEditDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFilePlaceEditDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KFilePlaceEditDialog_Metacall(KFilePlaceEditDialog* self, int param1, int param2, void** param3) {
@@ -129,6 +139,44 @@ bool KFilePlaceEditDialog_GetInformation8(bool allowGlobal, QUrl* url, libqt_str
     QString label_QString = QString::fromUtf8(label.data, label.len);
     QString icon_QString = QString::fromUtf8(icon.data, icon.len);
     return KFilePlaceEditDialog::getInformation(allowGlobal, *url, label_QString, icon_QString, isAddingNewPlace, *appLocal, static_cast<int>(iconSize), parent);
+}
+
+// Base class handler implementation
+QMetaObject* KFilePlaceEditDialog_QBaseMetaObject(const KFilePlaceEditDialog* self) {
+    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+        vkfileplaceeditdialog->setKFilePlaceEditDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfileplaceeditdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KFilePlaceEditDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFilePlaceEditDialog_OnMetaObject(const KFilePlaceEditDialog* self, intptr_t slot) {
+    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+        vkfileplaceeditdialog->setKFilePlaceEditDialog_MetaObject_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFilePlaceEditDialog_QBaseMetacast(KFilePlaceEditDialog* self, const char* param1) {
+    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+        vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacast_IsBase(true);
+        return vkfileplaceeditdialog->qt_metacast(param1);
+    } else {
+        return self->KFilePlaceEditDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFilePlaceEditDialog_OnMetacast(KFilePlaceEditDialog* self, intptr_t slot) {
+    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
+    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+        vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacast_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

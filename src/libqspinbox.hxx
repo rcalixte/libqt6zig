@@ -17,6 +17,8 @@ class VirtualQSpinBox final : public QSpinBox {
     bool isVirtualQSpinBox = true;
 
     // Virtual class public types (including callbacks)
+    using QSpinBox_MetaObject_Callback = QMetaObject* (*)();
+    using QSpinBox_Metacast_Callback = void* (*)(QSpinBox*, const char*);
     using QSpinBox_Metacall_Callback = int (*)(QSpinBox*, int, int, void**);
     using QSpinBox_Event_Callback = bool (*)(QSpinBox*, QEvent*);
     using QSpinBox_Validate_Callback = int (*)(const QSpinBox*, libqt_string, int*);
@@ -88,6 +90,8 @@ class VirtualQSpinBox final : public QSpinBox {
 
   protected:
     // Instance callback storage
+    QSpinBox_MetaObject_Callback qspinbox_metaobject_callback = nullptr;
+    QSpinBox_Metacast_Callback qspinbox_metacast_callback = nullptr;
     QSpinBox_Metacall_Callback qspinbox_metacall_callback = nullptr;
     QSpinBox_Event_Callback qspinbox_event_callback = nullptr;
     QSpinBox_Validate_Callback qspinbox_validate_callback = nullptr;
@@ -158,6 +162,8 @@ class VirtualQSpinBox final : public QSpinBox {
     QSpinBox_GetDecodedMetricF_Callback qspinbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qspinbox_metaobject_isbase = false;
+    mutable bool qspinbox_metacast_isbase = false;
     mutable bool qspinbox_metacall_isbase = false;
     mutable bool qspinbox_event_isbase = false;
     mutable bool qspinbox_validate_isbase = false;
@@ -232,6 +238,8 @@ class VirtualQSpinBox final : public QSpinBox {
     VirtualQSpinBox() : QSpinBox() {};
 
     ~VirtualQSpinBox() {
+        qspinbox_metaobject_callback = nullptr;
+        qspinbox_metacast_callback = nullptr;
         qspinbox_metacall_callback = nullptr;
         qspinbox_event_callback = nullptr;
         qspinbox_validate_callback = nullptr;
@@ -303,6 +311,8 @@ class VirtualQSpinBox final : public QSpinBox {
     }
 
     // Callback setters
+    inline void setQSpinBox_MetaObject_Callback(QSpinBox_MetaObject_Callback cb) { qspinbox_metaobject_callback = cb; }
+    inline void setQSpinBox_Metacast_Callback(QSpinBox_Metacast_Callback cb) { qspinbox_metacast_callback = cb; }
     inline void setQSpinBox_Metacall_Callback(QSpinBox_Metacall_Callback cb) { qspinbox_metacall_callback = cb; }
     inline void setQSpinBox_Event_Callback(QSpinBox_Event_Callback cb) { qspinbox_event_callback = cb; }
     inline void setQSpinBox_Validate_Callback(QSpinBox_Validate_Callback cb) { qspinbox_validate_callback = cb; }
@@ -373,6 +383,8 @@ class VirtualQSpinBox final : public QSpinBox {
     inline void setQSpinBox_GetDecodedMetricF_Callback(QSpinBox_GetDecodedMetricF_Callback cb) { qspinbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQSpinBox_MetaObject_IsBase(bool value) const { qspinbox_metaobject_isbase = value; }
+    inline void setQSpinBox_Metacast_IsBase(bool value) const { qspinbox_metacast_isbase = value; }
     inline void setQSpinBox_Metacall_IsBase(bool value) const { qspinbox_metacall_isbase = value; }
     inline void setQSpinBox_Event_IsBase(bool value) const { qspinbox_event_isbase = value; }
     inline void setQSpinBox_Validate_IsBase(bool value) const { qspinbox_validate_isbase = value; }
@@ -441,6 +453,34 @@ class VirtualQSpinBox final : public QSpinBox {
     inline void setQSpinBox_Receivers_IsBase(bool value) const { qspinbox_receivers_isbase = value; }
     inline void setQSpinBox_IsSignalConnected_IsBase(bool value) const { qspinbox_issignalconnected_isbase = value; }
     inline void setQSpinBox_GetDecodedMetricF_IsBase(bool value) const { qspinbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qspinbox_metaobject_isbase) {
+            qspinbox_metaobject_isbase = false;
+            return QSpinBox::metaObject();
+        } else if (qspinbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qspinbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSpinBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qspinbox_metacast_isbase) {
+            qspinbox_metacast_isbase = false;
+            return QSpinBox::qt_metacast(param1);
+        } else if (qspinbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qspinbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSpinBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1557,6 +1597,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     bool isVirtualQDoubleSpinBox = true;
 
     // Virtual class public types (including callbacks)
+    using QDoubleSpinBox_MetaObject_Callback = QMetaObject* (*)();
+    using QDoubleSpinBox_Metacast_Callback = void* (*)(QDoubleSpinBox*, const char*);
     using QDoubleSpinBox_Metacall_Callback = int (*)(QDoubleSpinBox*, int, int, void**);
     using QDoubleSpinBox_Validate_Callback = int (*)(const QDoubleSpinBox*, libqt_string, int*);
     using QDoubleSpinBox_ValueFromText_Callback = double (*)(const QDoubleSpinBox*, libqt_string);
@@ -1628,6 +1670,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
   protected:
     // Instance callback storage
+    QDoubleSpinBox_MetaObject_Callback qdoublespinbox_metaobject_callback = nullptr;
+    QDoubleSpinBox_Metacast_Callback qdoublespinbox_metacast_callback = nullptr;
     QDoubleSpinBox_Metacall_Callback qdoublespinbox_metacall_callback = nullptr;
     QDoubleSpinBox_Validate_Callback qdoublespinbox_validate_callback = nullptr;
     QDoubleSpinBox_ValueFromText_Callback qdoublespinbox_valuefromtext_callback = nullptr;
@@ -1698,6 +1742,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     QDoubleSpinBox_GetDecodedMetricF_Callback qdoublespinbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdoublespinbox_metaobject_isbase = false;
+    mutable bool qdoublespinbox_metacast_isbase = false;
     mutable bool qdoublespinbox_metacall_isbase = false;
     mutable bool qdoublespinbox_validate_isbase = false;
     mutable bool qdoublespinbox_valuefromtext_isbase = false;
@@ -1772,6 +1818,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     VirtualQDoubleSpinBox() : QDoubleSpinBox() {};
 
     ~VirtualQDoubleSpinBox() {
+        qdoublespinbox_metaobject_callback = nullptr;
+        qdoublespinbox_metacast_callback = nullptr;
         qdoublespinbox_metacall_callback = nullptr;
         qdoublespinbox_validate_callback = nullptr;
         qdoublespinbox_valuefromtext_callback = nullptr;
@@ -1843,6 +1891,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     }
 
     // Callback setters
+    inline void setQDoubleSpinBox_MetaObject_Callback(QDoubleSpinBox_MetaObject_Callback cb) { qdoublespinbox_metaobject_callback = cb; }
+    inline void setQDoubleSpinBox_Metacast_Callback(QDoubleSpinBox_Metacast_Callback cb) { qdoublespinbox_metacast_callback = cb; }
     inline void setQDoubleSpinBox_Metacall_Callback(QDoubleSpinBox_Metacall_Callback cb) { qdoublespinbox_metacall_callback = cb; }
     inline void setQDoubleSpinBox_Validate_Callback(QDoubleSpinBox_Validate_Callback cb) { qdoublespinbox_validate_callback = cb; }
     inline void setQDoubleSpinBox_ValueFromText_Callback(QDoubleSpinBox_ValueFromText_Callback cb) { qdoublespinbox_valuefromtext_callback = cb; }
@@ -1913,6 +1963,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     inline void setQDoubleSpinBox_GetDecodedMetricF_Callback(QDoubleSpinBox_GetDecodedMetricF_Callback cb) { qdoublespinbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDoubleSpinBox_MetaObject_IsBase(bool value) const { qdoublespinbox_metaobject_isbase = value; }
+    inline void setQDoubleSpinBox_Metacast_IsBase(bool value) const { qdoublespinbox_metacast_isbase = value; }
     inline void setQDoubleSpinBox_Metacall_IsBase(bool value) const { qdoublespinbox_metacall_isbase = value; }
     inline void setQDoubleSpinBox_Validate_IsBase(bool value) const { qdoublespinbox_validate_isbase = value; }
     inline void setQDoubleSpinBox_ValueFromText_IsBase(bool value) const { qdoublespinbox_valuefromtext_isbase = value; }
@@ -1981,6 +2033,34 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     inline void setQDoubleSpinBox_Receivers_IsBase(bool value) const { qdoublespinbox_receivers_isbase = value; }
     inline void setQDoubleSpinBox_IsSignalConnected_IsBase(bool value) const { qdoublespinbox_issignalconnected_isbase = value; }
     inline void setQDoubleSpinBox_GetDecodedMetricF_IsBase(bool value) const { qdoublespinbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdoublespinbox_metaobject_isbase) {
+            qdoublespinbox_metaobject_isbase = false;
+            return QDoubleSpinBox::metaObject();
+        } else if (qdoublespinbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdoublespinbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDoubleSpinBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdoublespinbox_metacast_isbase) {
+            qdoublespinbox_metacast_isbase = false;
+            return QDoubleSpinBox::qt_metacast(param1);
+        } else if (qdoublespinbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdoublespinbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDoubleSpinBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

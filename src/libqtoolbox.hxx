@@ -17,6 +17,8 @@ class VirtualQToolBox final : public QToolBox {
     bool isVirtualQToolBox = true;
 
     // Virtual class public types (including callbacks)
+    using QToolBox_MetaObject_Callback = QMetaObject* (*)();
+    using QToolBox_Metacast_Callback = void* (*)(QToolBox*, const char*);
     using QToolBox_Metacall_Callback = int (*)(QToolBox*, int, int, void**);
     using QToolBox_Event_Callback = bool (*)(QToolBox*, QEvent*);
     using QToolBox_ItemInserted_Callback = void (*)(QToolBox*, int);
@@ -82,6 +84,8 @@ class VirtualQToolBox final : public QToolBox {
 
   protected:
     // Instance callback storage
+    QToolBox_MetaObject_Callback qtoolbox_metaobject_callback = nullptr;
+    QToolBox_Metacast_Callback qtoolbox_metacast_callback = nullptr;
     QToolBox_Metacall_Callback qtoolbox_metacall_callback = nullptr;
     QToolBox_Event_Callback qtoolbox_event_callback = nullptr;
     QToolBox_ItemInserted_Callback qtoolbox_iteminserted_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQToolBox final : public QToolBox {
     QToolBox_GetDecodedMetricF_Callback qtoolbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtoolbox_metaobject_isbase = false;
+    mutable bool qtoolbox_metacast_isbase = false;
     mutable bool qtoolbox_metacall_isbase = false;
     mutable bool qtoolbox_event_isbase = false;
     mutable bool qtoolbox_iteminserted_isbase = false;
@@ -215,6 +221,8 @@ class VirtualQToolBox final : public QToolBox {
     VirtualQToolBox(QWidget* parent, Qt::WindowFlags f) : QToolBox(parent, f) {};
 
     ~VirtualQToolBox() {
+        qtoolbox_metaobject_callback = nullptr;
+        qtoolbox_metacast_callback = nullptr;
         qtoolbox_metacall_callback = nullptr;
         qtoolbox_event_callback = nullptr;
         qtoolbox_iteminserted_callback = nullptr;
@@ -280,6 +288,8 @@ class VirtualQToolBox final : public QToolBox {
     }
 
     // Callback setters
+    inline void setQToolBox_MetaObject_Callback(QToolBox_MetaObject_Callback cb) { qtoolbox_metaobject_callback = cb; }
+    inline void setQToolBox_Metacast_Callback(QToolBox_Metacast_Callback cb) { qtoolbox_metacast_callback = cb; }
     inline void setQToolBox_Metacall_Callback(QToolBox_Metacall_Callback cb) { qtoolbox_metacall_callback = cb; }
     inline void setQToolBox_Event_Callback(QToolBox_Event_Callback cb) { qtoolbox_event_callback = cb; }
     inline void setQToolBox_ItemInserted_Callback(QToolBox_ItemInserted_Callback cb) { qtoolbox_iteminserted_callback = cb; }
@@ -344,6 +354,8 @@ class VirtualQToolBox final : public QToolBox {
     inline void setQToolBox_GetDecodedMetricF_Callback(QToolBox_GetDecodedMetricF_Callback cb) { qtoolbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQToolBox_MetaObject_IsBase(bool value) const { qtoolbox_metaobject_isbase = value; }
+    inline void setQToolBox_Metacast_IsBase(bool value) const { qtoolbox_metacast_isbase = value; }
     inline void setQToolBox_Metacall_IsBase(bool value) const { qtoolbox_metacall_isbase = value; }
     inline void setQToolBox_Event_IsBase(bool value) const { qtoolbox_event_isbase = value; }
     inline void setQToolBox_ItemInserted_IsBase(bool value) const { qtoolbox_iteminserted_isbase = value; }
@@ -406,6 +418,34 @@ class VirtualQToolBox final : public QToolBox {
     inline void setQToolBox_Receivers_IsBase(bool value) const { qtoolbox_receivers_isbase = value; }
     inline void setQToolBox_IsSignalConnected_IsBase(bool value) const { qtoolbox_issignalconnected_isbase = value; }
     inline void setQToolBox_GetDecodedMetricF_IsBase(bool value) const { qtoolbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtoolbox_metaobject_isbase) {
+            qtoolbox_metaobject_isbase = false;
+            return QToolBox::metaObject();
+        } else if (qtoolbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtoolbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QToolBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtoolbox_metacast_isbase) {
+            qtoolbox_metacast_isbase = false;
+            return QToolBox::qt_metacast(param1);
+        } else if (qtoolbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtoolbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QToolBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

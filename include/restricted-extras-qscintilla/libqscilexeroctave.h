@@ -38,6 +38,10 @@ int QsciLexerOctave_Metacall(QsciLexerOctave* self, int param1, int param2, void
 const char* QsciLexerOctave_Language(const QsciLexerOctave* self);
 const char* QsciLexerOctave_Lexer(const QsciLexerOctave* self);
 const char* QsciLexerOctave_Keywords(const QsciLexerOctave* self, int set);
+void QsciLexerOctave_OnMetaObject(const QsciLexerOctave* self, intptr_t slot);
+QMetaObject* QsciLexerOctave_QBaseMetaObject(const QsciLexerOctave* self);
+void QsciLexerOctave_OnMetacast(QsciLexerOctave* self, intptr_t slot);
+void* QsciLexerOctave_QBaseMetacast(QsciLexerOctave* self, const char* param1);
 void QsciLexerOctave_OnMetacall(QsciLexerOctave* self, intptr_t slot);
 int QsciLexerOctave_QBaseMetacall(QsciLexerOctave* self, int param1, int param2, void** param3);
 int QsciLexerOctave_LexerId(const QsciLexerOctave* self);

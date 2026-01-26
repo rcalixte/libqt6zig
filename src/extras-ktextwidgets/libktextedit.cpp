@@ -69,11 +69,21 @@ KTextEdit* KTextEdit_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* KTextEdit_MetaObject(const KTextEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktextedit = dynamic_cast<const VirtualKTextEdit*>(self);
+    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTextEdit*)self)->metaObject();
+    }
 }
 
 void* KTextEdit_Metacast(KTextEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
+    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTextEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int KTextEdit_Metacall(KTextEdit* self, int param1, int param2, void** param3) {
@@ -366,6 +376,44 @@ void KTextEdit_ContextMenuEvent(KTextEdit* self, QContextMenuEvent* param1) {
 void KTextEdit_ShowSpellConfigDialog1(KTextEdit* self, const libqt_string windowIcon) {
     QString windowIcon_QString = QString::fromUtf8(windowIcon.data, windowIcon.len);
     self->showSpellConfigDialog(windowIcon_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KTextEdit_QBaseMetaObject(const KTextEdit* self) {
+    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
+    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+        vktextedit->setKTextEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vktextedit->metaObject();
+    } else {
+        return (QMetaObject*)self->KTextEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEdit_OnMetaObject(const KTextEdit* self, intptr_t slot) {
+    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
+    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+        vktextedit->setKTextEdit_MetaObject_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTextEdit_QBaseMetacast(KTextEdit* self, const char* param1) {
+    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
+    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+        vktextedit->setKTextEdit_Metacast_IsBase(true);
+        return vktextedit->qt_metacast(param1);
+    } else {
+        return self->KTextEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEdit_OnMetacast(KTextEdit* self, intptr_t slot) {
+    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
+    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+        vktextedit->setKTextEdit_Metacast_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -57,11 +57,21 @@ KFileWidget* KFileWidget_new2(const QUrl* startDir, QWidget* parent) {
 }
 
 QMetaObject* KFileWidget_MetaObject(const KFileWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfilewidget = dynamic_cast<const VirtualKFileWidget*>(self);
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFileWidget*)self)->metaObject();
+    }
 }
 
 void* KFileWidget_Metacast(KFileWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFileWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KFileWidget_Metacall(KFileWidget* self, int param1, int param2, void** param3) {
@@ -411,6 +421,44 @@ void KFileWidget_SetFilters2(KFileWidget* self, const libqt_list /* of KFileFilt
         filters_QList.push_back(*(filters_arr[i]));
     }
     self->setFilters(filters_QList, *activeFilter);
+}
+
+// Base class handler implementation
+QMetaObject* KFileWidget_QBaseMetaObject(const KFileWidget* self) {
+    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+        vkfilewidget->setKFileWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfilewidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KFileWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileWidget_OnMetaObject(const KFileWidget* self, intptr_t slot) {
+    auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+        vkfilewidget->setKFileWidget_MetaObject_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFileWidget_QBaseMetacast(KFileWidget* self, const char* param1) {
+    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+        vkfilewidget->setKFileWidget_Metacast_IsBase(true);
+        return vkfilewidget->qt_metacast(param1);
+    } else {
+        return self->KFileWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileWidget_OnMetacast(KFileWidget* self, intptr_t slot) {
+    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+        vkfilewidget->setKFileWidget_Metacast_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -30,11 +30,21 @@ QAudioEngine* QAudioEngine_new4(int sampleRate, QObject* parent) {
 }
 
 QMetaObject* QAudioEngine_MetaObject(const QAudioEngine* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqaudioengine = dynamic_cast<const VirtualQAudioEngine*>(self);
+    if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAudioEngine*)self)->metaObject();
+    }
 }
 
 void* QAudioEngine_Metacast(QAudioEngine* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
+    if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAudioEngine*)self)->qt_metacast(param1);
+    }
 }
 
 int QAudioEngine_Metacall(QAudioEngine* self, int param1, int param2, void** param3) {
@@ -167,6 +177,44 @@ void QAudioEngine_Pause(QAudioEngine* self) {
 
 void QAudioEngine_Resume(QAudioEngine* self) {
     self->resume();
+}
+
+// Base class handler implementation
+QMetaObject* QAudioEngine_QBaseMetaObject(const QAudioEngine* self) {
+    auto* vqaudioengine = const_cast<VirtualQAudioEngine*>(dynamic_cast<const VirtualQAudioEngine*>(self));
+    if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
+        vqaudioengine->setQAudioEngine_MetaObject_IsBase(true);
+        return (QMetaObject*)vqaudioengine->metaObject();
+    } else {
+        return (QMetaObject*)self->QAudioEngine::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioEngine_OnMetaObject(const QAudioEngine* self, intptr_t slot) {
+    auto* vqaudioengine = const_cast<VirtualQAudioEngine*>(dynamic_cast<const VirtualQAudioEngine*>(self));
+    if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
+        vqaudioengine->setQAudioEngine_MetaObject_Callback(reinterpret_cast<VirtualQAudioEngine::QAudioEngine_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAudioEngine_QBaseMetacast(QAudioEngine* self, const char* param1) {
+    auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
+    if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
+        vqaudioengine->setQAudioEngine_Metacast_IsBase(true);
+        return vqaudioengine->qt_metacast(param1);
+    } else {
+        return self->QAudioEngine::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioEngine_OnMetacast(QAudioEngine* self, intptr_t slot) {
+    auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
+    if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
+        vqaudioengine->setQAudioEngine_Metacast_Callback(reinterpret_cast<VirtualQAudioEngine::QAudioEngine_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

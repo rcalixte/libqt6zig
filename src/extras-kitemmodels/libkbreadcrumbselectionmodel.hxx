@@ -17,6 +17,8 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
     bool isVirtualKBreadcrumbSelectionModel = true;
 
     // Virtual class public types (including callbacks)
+    using KBreadcrumbSelectionModel_MetaObject_Callback = QMetaObject* (*)();
+    using KBreadcrumbSelectionModel_Metacast_Callback = void* (*)(KBreadcrumbSelectionModel*, const char*);
     using KBreadcrumbSelectionModel_Metacall_Callback = int (*)(KBreadcrumbSelectionModel*, int, int, void**);
     using KBreadcrumbSelectionModel_Select_Callback = void (*)(KBreadcrumbSelectionModel*, QModelIndex*, int);
     using KBreadcrumbSelectionModel_Select2_Callback = void (*)(KBreadcrumbSelectionModel*, QItemSelection*, int);
@@ -39,6 +41,8 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
 
   protected:
     // Instance callback storage
+    KBreadcrumbSelectionModel_MetaObject_Callback kbreadcrumbselectionmodel_metaobject_callback = nullptr;
+    KBreadcrumbSelectionModel_Metacast_Callback kbreadcrumbselectionmodel_metacast_callback = nullptr;
     KBreadcrumbSelectionModel_Metacall_Callback kbreadcrumbselectionmodel_metacall_callback = nullptr;
     KBreadcrumbSelectionModel_Select_Callback kbreadcrumbselectionmodel_select_callback = nullptr;
     KBreadcrumbSelectionModel_Select2_Callback kbreadcrumbselectionmodel_select2_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
     KBreadcrumbSelectionModel_IsSignalConnected_Callback kbreadcrumbselectionmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kbreadcrumbselectionmodel_metaobject_isbase = false;
+    mutable bool kbreadcrumbselectionmodel_metacast_isbase = false;
     mutable bool kbreadcrumbselectionmodel_metacall_isbase = false;
     mutable bool kbreadcrumbselectionmodel_select_isbase = false;
     mutable bool kbreadcrumbselectionmodel_select2_isbase = false;
@@ -87,6 +93,8 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
     VirtualKBreadcrumbSelectionModel(QItemSelectionModel* selectionModel, KBreadcrumbSelectionModel::BreadcrumbTarget target, QObject* parent) : KBreadcrumbSelectionModel(selectionModel, target, parent) {};
 
     ~VirtualKBreadcrumbSelectionModel() {
+        kbreadcrumbselectionmodel_metaobject_callback = nullptr;
+        kbreadcrumbselectionmodel_metacast_callback = nullptr;
         kbreadcrumbselectionmodel_metacall_callback = nullptr;
         kbreadcrumbselectionmodel_select_callback = nullptr;
         kbreadcrumbselectionmodel_select2_callback = nullptr;
@@ -109,6 +117,8 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
     }
 
     // Callback setters
+    inline void setKBreadcrumbSelectionModel_MetaObject_Callback(KBreadcrumbSelectionModel_MetaObject_Callback cb) { kbreadcrumbselectionmodel_metaobject_callback = cb; }
+    inline void setKBreadcrumbSelectionModel_Metacast_Callback(KBreadcrumbSelectionModel_Metacast_Callback cb) { kbreadcrumbselectionmodel_metacast_callback = cb; }
     inline void setKBreadcrumbSelectionModel_Metacall_Callback(KBreadcrumbSelectionModel_Metacall_Callback cb) { kbreadcrumbselectionmodel_metacall_callback = cb; }
     inline void setKBreadcrumbSelectionModel_Select_Callback(KBreadcrumbSelectionModel_Select_Callback cb) { kbreadcrumbselectionmodel_select_callback = cb; }
     inline void setKBreadcrumbSelectionModel_Select2_Callback(KBreadcrumbSelectionModel_Select2_Callback cb) { kbreadcrumbselectionmodel_select2_callback = cb; }
@@ -130,6 +140,8 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
     inline void setKBreadcrumbSelectionModel_IsSignalConnected_Callback(KBreadcrumbSelectionModel_IsSignalConnected_Callback cb) { kbreadcrumbselectionmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKBreadcrumbSelectionModel_MetaObject_IsBase(bool value) const { kbreadcrumbselectionmodel_metaobject_isbase = value; }
+    inline void setKBreadcrumbSelectionModel_Metacast_IsBase(bool value) const { kbreadcrumbselectionmodel_metacast_isbase = value; }
     inline void setKBreadcrumbSelectionModel_Metacall_IsBase(bool value) const { kbreadcrumbselectionmodel_metacall_isbase = value; }
     inline void setKBreadcrumbSelectionModel_Select_IsBase(bool value) const { kbreadcrumbselectionmodel_select_isbase = value; }
     inline void setKBreadcrumbSelectionModel_Select2_IsBase(bool value) const { kbreadcrumbselectionmodel_select2_isbase = value; }
@@ -149,6 +161,34 @@ class VirtualKBreadcrumbSelectionModel final : public KBreadcrumbSelectionModel 
     inline void setKBreadcrumbSelectionModel_SenderSignalIndex_IsBase(bool value) const { kbreadcrumbselectionmodel_sendersignalindex_isbase = value; }
     inline void setKBreadcrumbSelectionModel_Receivers_IsBase(bool value) const { kbreadcrumbselectionmodel_receivers_isbase = value; }
     inline void setKBreadcrumbSelectionModel_IsSignalConnected_IsBase(bool value) const { kbreadcrumbselectionmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kbreadcrumbselectionmodel_metaobject_isbase) {
+            kbreadcrumbselectionmodel_metaobject_isbase = false;
+            return KBreadcrumbSelectionModel::metaObject();
+        } else if (kbreadcrumbselectionmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kbreadcrumbselectionmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KBreadcrumbSelectionModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kbreadcrumbselectionmodel_metacast_isbase) {
+            kbreadcrumbselectionmodel_metacast_isbase = false;
+            return KBreadcrumbSelectionModel::qt_metacast(param1);
+        } else if (kbreadcrumbselectionmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kbreadcrumbselectionmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KBreadcrumbSelectionModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

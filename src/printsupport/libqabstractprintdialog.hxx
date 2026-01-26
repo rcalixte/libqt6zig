@@ -17,6 +17,8 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     bool isVirtualQAbstractPrintDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractPrintDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractPrintDialog_Metacast_Callback = void* (*)(QAbstractPrintDialog*, const char*);
     using QAbstractPrintDialog_Metacall_Callback = int (*)(QAbstractPrintDialog*, int, int, void**);
     using QAbstractPrintDialog_SetVisible_Callback = void (*)(QAbstractPrintDialog*, bool);
     using QAbstractPrintDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
 
   protected:
     // Instance callback storage
+    QAbstractPrintDialog_MetaObject_Callback qabstractprintdialog_metaobject_callback = nullptr;
+    QAbstractPrintDialog_Metacast_Callback qabstractprintdialog_metacast_callback = nullptr;
     QAbstractPrintDialog_Metacall_Callback qabstractprintdialog_metacall_callback = nullptr;
     QAbstractPrintDialog_SetVisible_Callback qabstractprintdialog_setvisible_callback = nullptr;
     QAbstractPrintDialog_SizeHint_Callback qabstractprintdialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     QAbstractPrintDialog_GetDecodedMetricF_Callback qabstractprintdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractprintdialog_metaobject_isbase = false;
+    mutable bool qabstractprintdialog_metacast_isbase = false;
     mutable bool qabstractprintdialog_metacall_isbase = false;
     mutable bool qabstractprintdialog_setvisible_isbase = false;
     mutable bool qabstractprintdialog_sizehint_isbase = false;
@@ -220,6 +226,8 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     VirtualQAbstractPrintDialog(QPrinter* printer, QWidget* parent) : QAbstractPrintDialog(printer, parent) {};
 
     ~VirtualQAbstractPrintDialog() {
+        qabstractprintdialog_metaobject_callback = nullptr;
+        qabstractprintdialog_metacast_callback = nullptr;
         qabstractprintdialog_metacall_callback = nullptr;
         qabstractprintdialog_setvisible_callback = nullptr;
         qabstractprintdialog_sizehint_callback = nullptr;
@@ -287,6 +295,8 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     }
 
     // Callback setters
+    inline void setQAbstractPrintDialog_MetaObject_Callback(QAbstractPrintDialog_MetaObject_Callback cb) { qabstractprintdialog_metaobject_callback = cb; }
+    inline void setQAbstractPrintDialog_Metacast_Callback(QAbstractPrintDialog_Metacast_Callback cb) { qabstractprintdialog_metacast_callback = cb; }
     inline void setQAbstractPrintDialog_Metacall_Callback(QAbstractPrintDialog_Metacall_Callback cb) { qabstractprintdialog_metacall_callback = cb; }
     inline void setQAbstractPrintDialog_SetVisible_Callback(QAbstractPrintDialog_SetVisible_Callback cb) { qabstractprintdialog_setvisible_callback = cb; }
     inline void setQAbstractPrintDialog_SizeHint_Callback(QAbstractPrintDialog_SizeHint_Callback cb) { qabstractprintdialog_sizehint_callback = cb; }
@@ -353,6 +363,8 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     inline void setQAbstractPrintDialog_GetDecodedMetricF_Callback(QAbstractPrintDialog_GetDecodedMetricF_Callback cb) { qabstractprintdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractPrintDialog_MetaObject_IsBase(bool value) const { qabstractprintdialog_metaobject_isbase = value; }
+    inline void setQAbstractPrintDialog_Metacast_IsBase(bool value) const { qabstractprintdialog_metacast_isbase = value; }
     inline void setQAbstractPrintDialog_Metacall_IsBase(bool value) const { qabstractprintdialog_metacall_isbase = value; }
     inline void setQAbstractPrintDialog_SetVisible_IsBase(bool value) const { qabstractprintdialog_setvisible_isbase = value; }
     inline void setQAbstractPrintDialog_SizeHint_IsBase(bool value) const { qabstractprintdialog_sizehint_isbase = value; }
@@ -417,6 +429,34 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     inline void setQAbstractPrintDialog_Receivers_IsBase(bool value) const { qabstractprintdialog_receivers_isbase = value; }
     inline void setQAbstractPrintDialog_IsSignalConnected_IsBase(bool value) const { qabstractprintdialog_issignalconnected_isbase = value; }
     inline void setQAbstractPrintDialog_GetDecodedMetricF_IsBase(bool value) const { qabstractprintdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractprintdialog_metaobject_isbase) {
+            qabstractprintdialog_metaobject_isbase = false;
+            return QAbstractPrintDialog::metaObject();
+        } else if (qabstractprintdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractprintdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractPrintDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractprintdialog_metacast_isbase) {
+            qabstractprintdialog_metacast_isbase = false;
+            return QAbstractPrintDialog::qt_metacast(param1);
+        } else if (qabstractprintdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractprintdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractPrintDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

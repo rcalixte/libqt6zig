@@ -23,11 +23,21 @@ QPdfPageNavigator* QPdfPageNavigator_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfPageNavigator_MetaObject(const QPdfPageNavigator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpdfpagenavigator = dynamic_cast<const VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPdfPageNavigator*)self)->metaObject();
+    }
 }
 
 void* QPdfPageNavigator_Metacast(QPdfPageNavigator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPdfPageNavigator*)self)->qt_metacast(param1);
+    }
 }
 
 int QPdfPageNavigator_Metacall(QPdfPageNavigator* self, int param1, int param2, void** param3) {
@@ -157,6 +167,44 @@ void QPdfPageNavigator_Connect_Jumped(QPdfPageNavigator* self, intptr_t slot) {
 
 void QPdfPageNavigator_Jump3(QPdfPageNavigator* self, int page, const QPointF* location, double zoom) {
     self->jump(static_cast<int>(page), *location, static_cast<qreal>(zoom));
+}
+
+// Base class handler implementation
+QMetaObject* QPdfPageNavigator_QBaseMetaObject(const QPdfPageNavigator* self) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
+        vqpdfpagenavigator->setQPdfPageNavigator_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpdfpagenavigator->metaObject();
+    } else {
+        return (QMetaObject*)self->QPdfPageNavigator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfPageNavigator_OnMetaObject(const QPdfPageNavigator* self, intptr_t slot) {
+    auto* vqpdfpagenavigator = const_cast<VirtualQPdfPageNavigator*>(dynamic_cast<const VirtualQPdfPageNavigator*>(self));
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
+        vqpdfpagenavigator->setQPdfPageNavigator_MetaObject_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPdfPageNavigator_QBaseMetacast(QPdfPageNavigator* self, const char* param1) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
+        vqpdfpagenavigator->setQPdfPageNavigator_Metacast_IsBase(true);
+        return vqpdfpagenavigator->qt_metacast(param1);
+    } else {
+        return self->QPdfPageNavigator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfPageNavigator_OnMetacast(QPdfPageNavigator* self, intptr_t slot) {
+    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
+    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
+        vqpdfpagenavigator->setQPdfPageNavigator_Metacast_Callback(reinterpret_cast<VirtualQPdfPageNavigator::QPdfPageNavigator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

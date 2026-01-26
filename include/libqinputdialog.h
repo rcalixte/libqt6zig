@@ -146,6 +146,10 @@ double QInputDialog_GetDouble7(QWidget* parent, const libqt_string title, const 
 double QInputDialog_GetDouble8(QWidget* parent, const libqt_string title, const libqt_string label, double value, double minValue, double maxValue, int decimals, bool* ok);
 double QInputDialog_GetDouble9(QWidget* parent, const libqt_string title, const libqt_string label, double value, double minValue, double maxValue, int decimals, bool* ok, int flags);
 double QInputDialog_GetDouble10(QWidget* parent, const libqt_string title, const libqt_string label, double value, double minValue, double maxValue, int decimals, bool* ok, int flags, double step);
+void QInputDialog_OnMetaObject(const QInputDialog* self, intptr_t slot);
+QMetaObject* QInputDialog_QBaseMetaObject(const QInputDialog* self);
+void QInputDialog_OnMetacast(QInputDialog* self, intptr_t slot);
+void* QInputDialog_QBaseMetacast(QInputDialog* self, const char* param1);
 void QInputDialog_OnMetacall(QInputDialog* self, intptr_t slot);
 int QInputDialog_QBaseMetacall(QInputDialog* self, int param1, int param2, void** param3);
 void QInputDialog_OnMinimumSizeHint(const QInputDialog* self, intptr_t slot);

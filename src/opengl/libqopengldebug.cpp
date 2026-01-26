@@ -119,11 +119,21 @@ QOpenGLDebugLogger* QOpenGLDebugLogger_new2(QObject* parent) {
 }
 
 QMetaObject* QOpenGLDebugLogger_MetaObject(const QOpenGLDebugLogger* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqopengldebuglogger = dynamic_cast<const VirtualQOpenGLDebugLogger*>(self);
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQOpenGLDebugLogger*)self)->metaObject();
+    }
 }
 
 void* QOpenGLDebugLogger_Metacast(QOpenGLDebugLogger* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQOpenGLDebugLogger*)self)->qt_metacast(param1);
+    }
 }
 
 int QOpenGLDebugLogger_Metacall(QOpenGLDebugLogger* self, int param1, int param2, void** param3) {
@@ -303,6 +313,44 @@ void QOpenGLDebugLogger_DisableMessages32(QOpenGLDebugLogger* self, const libqt_
 
 void QOpenGLDebugLogger_StartLogging1(QOpenGLDebugLogger* self, int loggingMode) {
     self->startLogging(static_cast<QOpenGLDebugLogger::LoggingMode>(loggingMode));
+}
+
+// Base class handler implementation
+QMetaObject* QOpenGLDebugLogger_QBaseMetaObject(const QOpenGLDebugLogger* self) {
+    auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+        vqopengldebuglogger->setQOpenGLDebugLogger_MetaObject_IsBase(true);
+        return (QMetaObject*)vqopengldebuglogger->metaObject();
+    } else {
+        return (QMetaObject*)self->QOpenGLDebugLogger::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLDebugLogger_OnMetaObject(const QOpenGLDebugLogger* self, intptr_t slot) {
+    auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+        vqopengldebuglogger->setQOpenGLDebugLogger_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QOpenGLDebugLogger_QBaseMetacast(QOpenGLDebugLogger* self, const char* param1) {
+    auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+        vqopengldebuglogger->setQOpenGLDebugLogger_Metacast_IsBase(true);
+        return vqopengldebuglogger->qt_metacast(param1);
+    } else {
+        return self->QOpenGLDebugLogger::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLDebugLogger_OnMetacast(QOpenGLDebugLogger* self, intptr_t slot) {
+    auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+        vqopengldebuglogger->setQOpenGLDebugLogger_Metacast_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

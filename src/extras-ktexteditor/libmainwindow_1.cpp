@@ -27,11 +27,21 @@ KTextEditor__MainWindow* KTextEditor__MainWindow_new(QObject* parent) {
 }
 
 QMetaObject* KTextEditor__MainWindow_MetaObject(const KTextEditor__MainWindow* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktexteditor__mainwindow = dynamic_cast<const VirtualKTextEditorMainWindow*>(self);
+    if (vktexteditor__mainwindow && vktexteditor__mainwindow->isVirtualKTextEditorMainWindow) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTextEditorMainWindow*)self)->metaObject();
+    }
 }
 
 void* KTextEditor__MainWindow_Metacast(KTextEditor__MainWindow* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktexteditor__mainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
+    if (vktexteditor__mainwindow && vktexteditor__mainwindow->isVirtualKTextEditorMainWindow) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTextEditorMainWindow*)self)->qt_metacast(param1);
+    }
 }
 
 int KTextEditor__MainWindow_Metacall(KTextEditor__MainWindow* self, int param1, int param2, void** param3) {
@@ -284,6 +294,44 @@ bool KTextEditor__MainWindow_ShowMessage(KTextEditor__MainWindow* self, const li
 KTextEditor__View* KTextEditor__MainWindow_OpenUrl2(KTextEditor__MainWindow* self, const QUrl* url, const libqt_string encoding) {
     QString encoding_QString = QString::fromUtf8(encoding.data, encoding.len);
     return self->openUrl(*url, encoding_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KTextEditor__MainWindow_QBaseMetaObject(const KTextEditor__MainWindow* self) {
+    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
+    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
+        vktexteditormainwindow->setKTextEditor__MainWindow_MetaObject_IsBase(true);
+        return (QMetaObject*)vktexteditormainwindow->metaObject();
+    } else {
+        return (QMetaObject*)self->KTextEditor::MainWindow::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__MainWindow_OnMetaObject(const KTextEditor__MainWindow* self, intptr_t slot) {
+    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
+    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
+        vktexteditormainwindow->setKTextEditor__MainWindow_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTextEditor__MainWindow_QBaseMetacast(KTextEditor__MainWindow* self, const char* param1) {
+    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
+    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
+        vktexteditormainwindow->setKTextEditor__MainWindow_Metacast_IsBase(true);
+        return vktexteditormainwindow->qt_metacast(param1);
+    } else {
+        return self->KTextEditor::MainWindow::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__MainWindow_OnMetacast(KTextEditor__MainWindow* self, intptr_t slot) {
+    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
+    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
+        vktexteditormainwindow->setKTextEditor__MainWindow_Metacast_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

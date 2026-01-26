@@ -17,6 +17,8 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
     bool isVirtualPackageKitTransaction = true;
 
     // Virtual class public types (including callbacks)
+    using PackageKit__Transaction_MetaObject_Callback = QMetaObject* (*)();
+    using PackageKit__Transaction_Metacast_Callback = void* (*)(PackageKit__Transaction*, const char*);
     using PackageKit__Transaction_Metacall_Callback = int (*)(PackageKit__Transaction*, int, int, void**);
     using PackageKit__Transaction_ConnectNotify_Callback = void (*)(PackageKit__Transaction*, QMetaMethod*);
     using PackageKit__Transaction_DisconnectNotify_Callback = void (*)(PackageKit__Transaction*, QMetaMethod*);
@@ -33,6 +35,8 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
 
   protected:
     // Instance callback storage
+    PackageKit__Transaction_MetaObject_Callback packagekit__transaction_metaobject_callback = nullptr;
+    PackageKit__Transaction_Metacast_Callback packagekit__transaction_metacast_callback = nullptr;
     PackageKit__Transaction_Metacall_Callback packagekit__transaction_metacall_callback = nullptr;
     PackageKit__Transaction_ConnectNotify_Callback packagekit__transaction_connectnotify_callback = nullptr;
     PackageKit__Transaction_DisconnectNotify_Callback packagekit__transaction_disconnectnotify_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
     PackageKit__Transaction_IsSignalConnected_Callback packagekit__transaction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool packagekit__transaction_metaobject_isbase = false;
+    mutable bool packagekit__transaction_metacast_isbase = false;
     mutable bool packagekit__transaction_metacall_isbase = false;
     mutable bool packagekit__transaction_connectnotify_isbase = false;
     mutable bool packagekit__transaction_disconnectnotify_isbase = false;
@@ -66,6 +72,8 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
     VirtualPackageKitTransaction(const QDBusObjectPath& tid) : PackageKit::Transaction(tid) {};
 
     ~VirtualPackageKitTransaction() {
+        packagekit__transaction_metaobject_callback = nullptr;
+        packagekit__transaction_metacast_callback = nullptr;
         packagekit__transaction_metacall_callback = nullptr;
         packagekit__transaction_connectnotify_callback = nullptr;
         packagekit__transaction_disconnectnotify_callback = nullptr;
@@ -82,6 +90,8 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
     }
 
     // Callback setters
+    inline void setPackageKit__Transaction_MetaObject_Callback(PackageKit__Transaction_MetaObject_Callback cb) { packagekit__transaction_metaobject_callback = cb; }
+    inline void setPackageKit__Transaction_Metacast_Callback(PackageKit__Transaction_Metacast_Callback cb) { packagekit__transaction_metacast_callback = cb; }
     inline void setPackageKit__Transaction_Metacall_Callback(PackageKit__Transaction_Metacall_Callback cb) { packagekit__transaction_metacall_callback = cb; }
     inline void setPackageKit__Transaction_ConnectNotify_Callback(PackageKit__Transaction_ConnectNotify_Callback cb) { packagekit__transaction_connectnotify_callback = cb; }
     inline void setPackageKit__Transaction_DisconnectNotify_Callback(PackageKit__Transaction_DisconnectNotify_Callback cb) { packagekit__transaction_disconnectnotify_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
     inline void setPackageKit__Transaction_IsSignalConnected_Callback(PackageKit__Transaction_IsSignalConnected_Callback cb) { packagekit__transaction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setPackageKit__Transaction_MetaObject_IsBase(bool value) const { packagekit__transaction_metaobject_isbase = value; }
+    inline void setPackageKit__Transaction_Metacast_IsBase(bool value) const { packagekit__transaction_metacast_isbase = value; }
     inline void setPackageKit__Transaction_Metacall_IsBase(bool value) const { packagekit__transaction_metacall_isbase = value; }
     inline void setPackageKit__Transaction_ConnectNotify_IsBase(bool value) const { packagekit__transaction_connectnotify_isbase = value; }
     inline void setPackageKit__Transaction_DisconnectNotify_IsBase(bool value) const { packagekit__transaction_disconnectnotify_isbase = value; }
@@ -110,6 +122,34 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
     inline void setPackageKit__Transaction_SenderSignalIndex_IsBase(bool value) const { packagekit__transaction_sendersignalindex_isbase = value; }
     inline void setPackageKit__Transaction_Receivers_IsBase(bool value) const { packagekit__transaction_receivers_isbase = value; }
     inline void setPackageKit__Transaction_IsSignalConnected_IsBase(bool value) const { packagekit__transaction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (packagekit__transaction_metaobject_isbase) {
+            packagekit__transaction_metaobject_isbase = false;
+            return PackageKit__Transaction::metaObject();
+        } else if (packagekit__transaction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = packagekit__transaction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return PackageKit__Transaction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (packagekit__transaction_metacast_isbase) {
+            packagekit__transaction_metacast_isbase = false;
+            return PackageKit__Transaction::qt_metacast(param1);
+        } else if (packagekit__transaction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = packagekit__transaction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return PackageKit__Transaction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

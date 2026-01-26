@@ -17,6 +17,8 @@ class VirtualQErrorMessage final : public QErrorMessage {
     bool isVirtualQErrorMessage = true;
 
     // Virtual class public types (including callbacks)
+    using QErrorMessage_MetaObject_Callback = QMetaObject* (*)();
+    using QErrorMessage_Metacast_Callback = void* (*)(QErrorMessage*, const char*);
     using QErrorMessage_Metacall_Callback = int (*)(QErrorMessage*, int, int, void**);
     using QErrorMessage_Done_Callback = void (*)(QErrorMessage*, int);
     using QErrorMessage_ChangeEvent_Callback = void (*)(QErrorMessage*, QEvent*);
@@ -84,6 +86,8 @@ class VirtualQErrorMessage final : public QErrorMessage {
 
   protected:
     // Instance callback storage
+    QErrorMessage_MetaObject_Callback qerrormessage_metaobject_callback = nullptr;
+    QErrorMessage_Metacast_Callback qerrormessage_metacast_callback = nullptr;
     QErrorMessage_Metacall_Callback qerrormessage_metacall_callback = nullptr;
     QErrorMessage_Done_Callback qerrormessage_done_callback = nullptr;
     QErrorMessage_ChangeEvent_Callback qerrormessage_changeevent_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQErrorMessage final : public QErrorMessage {
     QErrorMessage_GetDecodedMetricF_Callback qerrormessage_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qerrormessage_metaobject_isbase = false;
+    mutable bool qerrormessage_metacast_isbase = false;
     mutable bool qerrormessage_metacall_isbase = false;
     mutable bool qerrormessage_done_isbase = false;
     mutable bool qerrormessage_changeevent_isbase = false;
@@ -220,6 +226,8 @@ class VirtualQErrorMessage final : public QErrorMessage {
     VirtualQErrorMessage() : QErrorMessage() {};
 
     ~VirtualQErrorMessage() {
+        qerrormessage_metaobject_callback = nullptr;
+        qerrormessage_metacast_callback = nullptr;
         qerrormessage_metacall_callback = nullptr;
         qerrormessage_done_callback = nullptr;
         qerrormessage_changeevent_callback = nullptr;
@@ -287,6 +295,8 @@ class VirtualQErrorMessage final : public QErrorMessage {
     }
 
     // Callback setters
+    inline void setQErrorMessage_MetaObject_Callback(QErrorMessage_MetaObject_Callback cb) { qerrormessage_metaobject_callback = cb; }
+    inline void setQErrorMessage_Metacast_Callback(QErrorMessage_Metacast_Callback cb) { qerrormessage_metacast_callback = cb; }
     inline void setQErrorMessage_Metacall_Callback(QErrorMessage_Metacall_Callback cb) { qerrormessage_metacall_callback = cb; }
     inline void setQErrorMessage_Done_Callback(QErrorMessage_Done_Callback cb) { qerrormessage_done_callback = cb; }
     inline void setQErrorMessage_ChangeEvent_Callback(QErrorMessage_ChangeEvent_Callback cb) { qerrormessage_changeevent_callback = cb; }
@@ -353,6 +363,8 @@ class VirtualQErrorMessage final : public QErrorMessage {
     inline void setQErrorMessage_GetDecodedMetricF_Callback(QErrorMessage_GetDecodedMetricF_Callback cb) { qerrormessage_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQErrorMessage_MetaObject_IsBase(bool value) const { qerrormessage_metaobject_isbase = value; }
+    inline void setQErrorMessage_Metacast_IsBase(bool value) const { qerrormessage_metacast_isbase = value; }
     inline void setQErrorMessage_Metacall_IsBase(bool value) const { qerrormessage_metacall_isbase = value; }
     inline void setQErrorMessage_Done_IsBase(bool value) const { qerrormessage_done_isbase = value; }
     inline void setQErrorMessage_ChangeEvent_IsBase(bool value) const { qerrormessage_changeevent_isbase = value; }
@@ -417,6 +429,34 @@ class VirtualQErrorMessage final : public QErrorMessage {
     inline void setQErrorMessage_Receivers_IsBase(bool value) const { qerrormessage_receivers_isbase = value; }
     inline void setQErrorMessage_IsSignalConnected_IsBase(bool value) const { qerrormessage_issignalconnected_isbase = value; }
     inline void setQErrorMessage_GetDecodedMetricF_IsBase(bool value) const { qerrormessage_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qerrormessage_metaobject_isbase) {
+            qerrormessage_metaobject_isbase = false;
+            return QErrorMessage::metaObject();
+        } else if (qerrormessage_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qerrormessage_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QErrorMessage::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qerrormessage_metacast_isbase) {
+            qerrormessage_metacast_isbase = false;
+            return QErrorMessage::qt_metacast(param1);
+        } else if (qerrormessage_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qerrormessage_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QErrorMessage::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

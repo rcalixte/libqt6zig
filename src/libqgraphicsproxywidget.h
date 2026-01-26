@@ -92,6 +92,10 @@ QVariant* QGraphicsProxyWidget_InputMethodQuery(const QGraphicsProxyWidget* self
 void QGraphicsProxyWidget_InputMethodEvent(QGraphicsProxyWidget* self, QInputMethodEvent* event);
 QSizeF* QGraphicsProxyWidget_SizeHint(const QGraphicsProxyWidget* self, int which, const QSizeF* constraint);
 void QGraphicsProxyWidget_ResizeEvent(QGraphicsProxyWidget* self, QGraphicsSceneResizeEvent* event);
+void QGraphicsProxyWidget_OnMetaObject(const QGraphicsProxyWidget* self, intptr_t slot);
+QMetaObject* QGraphicsProxyWidget_QBaseMetaObject(const QGraphicsProxyWidget* self);
+void QGraphicsProxyWidget_OnMetacast(QGraphicsProxyWidget* self, intptr_t slot);
+void* QGraphicsProxyWidget_QBaseMetacast(QGraphicsProxyWidget* self, const char* param1);
 void QGraphicsProxyWidget_OnMetacall(QGraphicsProxyWidget* self, intptr_t slot);
 int QGraphicsProxyWidget_QBaseMetacall(QGraphicsProxyWidget* self, int param1, int param2, void** param3);
 void QGraphicsProxyWidget_OnSetGeometry(QGraphicsProxyWidget* self, intptr_t slot);

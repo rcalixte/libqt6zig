@@ -46,6 +46,10 @@ void QLibrary_SetFileNameAndVersion2(QLibrary* self, const libqt_string fileName
 libqt_string QLibrary_ErrorString(const QLibrary* self);
 void QLibrary_SetLoadHints(QLibrary* self, int hints);
 int QLibrary_LoadHints(const QLibrary* self);
+void QLibrary_OnMetaObject(const QLibrary* self, intptr_t slot);
+QMetaObject* QLibrary_QBaseMetaObject(const QLibrary* self);
+void QLibrary_OnMetacast(QLibrary* self, intptr_t slot);
+void* QLibrary_QBaseMetacast(QLibrary* self, const char* param1);
 void QLibrary_OnMetacall(QLibrary* self, intptr_t slot);
 int QLibrary_QBaseMetacall(QLibrary* self, int param1, int param2, void** param3);
 bool QLibrary_Event(QLibrary* self, QEvent* event);

@@ -35,6 +35,10 @@ void KTerminalLauncherJob_SetWorkingDirectory(KTerminalLauncherJob* self, const 
 void KTerminalLauncherJob_SetStartupId(KTerminalLauncherJob* self, const libqt_string startupId);
 void KTerminalLauncherJob_SetProcessEnvironment(KTerminalLauncherJob* self, const QProcessEnvironment* environment);
 void KTerminalLauncherJob_Start(KTerminalLauncherJob* self);
+void KTerminalLauncherJob_OnMetaObject(const KTerminalLauncherJob* self, intptr_t slot);
+QMetaObject* KTerminalLauncherJob_QBaseMetaObject(const KTerminalLauncherJob* self);
+void KTerminalLauncherJob_OnMetacast(KTerminalLauncherJob* self, intptr_t slot);
+void* KTerminalLauncherJob_QBaseMetacast(KTerminalLauncherJob* self, const char* param1);
 void KTerminalLauncherJob_OnMetacall(KTerminalLauncherJob* self, intptr_t slot);
 int KTerminalLauncherJob_QBaseMetacall(KTerminalLauncherJob* self, int param1, int param2, void** param3);
 void KTerminalLauncherJob_OnStart(KTerminalLauncherJob* self, intptr_t slot);

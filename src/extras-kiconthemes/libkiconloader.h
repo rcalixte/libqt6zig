@@ -87,6 +87,10 @@ libqt_list /* of libqt_string */ KIconLoader_QueryIcons22(const KIconLoader* sel
 libqt_list /* of libqt_string */ KIconLoader_QueryIconsByContext2(const KIconLoader* self, int group_or_size, int context);
 void KIconLoader_Reconfigure2(KIconLoader* self, const libqt_string appname, const libqt_list /* of libqt_string */ extraSearchPaths);
 void KIconLoader_DrawOverlays4(const KIconLoader* self, const libqt_list /* of libqt_string */ overlays, QPixmap* pixmap, int group, int state);
+void KIconLoader_OnMetaObject(const KIconLoader* self, intptr_t slot);
+QMetaObject* KIconLoader_QBaseMetaObject(const KIconLoader* self);
+void KIconLoader_OnMetacast(KIconLoader* self, intptr_t slot);
+void* KIconLoader_QBaseMetacast(KIconLoader* self, const char* param1);
 void KIconLoader_OnMetacall(KIconLoader* self, intptr_t slot);
 int KIconLoader_QBaseMetacall(KIconLoader* self, int param1, int param2, void** param3);
 bool KIconLoader_Event(KIconLoader* self, QEvent* event);

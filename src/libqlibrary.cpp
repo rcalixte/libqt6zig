@@ -53,11 +53,21 @@ QLibrary* QLibrary_new8(const libqt_string fileName, const libqt_string version,
 }
 
 QMetaObject* QLibrary_MetaObject(const QLibrary* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqlibrary = dynamic_cast<const VirtualQLibrary*>(self);
+    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQLibrary*)self)->metaObject();
+    }
 }
 
 void* QLibrary_Metacast(QLibrary* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
+    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQLibrary*)self)->qt_metacast(param1);
+    }
 }
 
 int QLibrary_Metacall(QLibrary* self, int param1, int param2, void** param3) {
@@ -132,6 +142,44 @@ void QLibrary_SetLoadHints(QLibrary* self, int hints) {
 
 int QLibrary_LoadHints(const QLibrary* self) {
     return static_cast<int>(self->loadHints());
+}
+
+// Base class handler implementation
+QMetaObject* QLibrary_QBaseMetaObject(const QLibrary* self) {
+    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
+    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+        vqlibrary->setQLibrary_MetaObject_IsBase(true);
+        return (QMetaObject*)vqlibrary->metaObject();
+    } else {
+        return (QMetaObject*)self->QLibrary::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLibrary_OnMetaObject(const QLibrary* self, intptr_t slot) {
+    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
+    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+        vqlibrary->setQLibrary_MetaObject_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QLibrary_QBaseMetacast(QLibrary* self, const char* param1) {
+    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
+    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+        vqlibrary->setQLibrary_Metacast_IsBase(true);
+        return vqlibrary->qt_metacast(param1);
+    } else {
+        return self->QLibrary::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLibrary_OnMetacast(QLibrary* self, intptr_t slot) {
+    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
+    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+        vqlibrary->setQLibrary_Metacast_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

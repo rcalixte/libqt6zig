@@ -52,6 +52,10 @@ void KNotificationReplyAction_SubmitButtonIconNameChanged(KNotificationReplyActi
 void KNotificationReplyAction_Connect_SubmitButtonIconNameChanged(KNotificationReplyAction* self, intptr_t slot);
 void KNotificationReplyAction_FallbackBehaviorChanged(KNotificationReplyAction* self);
 void KNotificationReplyAction_Connect_FallbackBehaviorChanged(KNotificationReplyAction* self, intptr_t slot);
+void KNotificationReplyAction_OnMetaObject(const KNotificationReplyAction* self, intptr_t slot);
+QMetaObject* KNotificationReplyAction_QBaseMetaObject(const KNotificationReplyAction* self);
+void KNotificationReplyAction_OnMetacast(KNotificationReplyAction* self, intptr_t slot);
+void* KNotificationReplyAction_QBaseMetacast(KNotificationReplyAction* self, const char* param1);
 void KNotificationReplyAction_OnMetacall(KNotificationReplyAction* self, intptr_t slot);
 int KNotificationReplyAction_QBaseMetacall(KNotificationReplyAction* self, int param1, int param2, void** param3);
 bool KNotificationReplyAction_Event(KNotificationReplyAction* self, QEvent* event);

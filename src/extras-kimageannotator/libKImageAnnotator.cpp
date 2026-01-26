@@ -55,11 +55,21 @@ kImageAnnotator__KImageAnnotator* kImageAnnotator__KImageAnnotator_new() {
 }
 
 QMetaObject* kImageAnnotator__KImageAnnotator_MetaObject(const kImageAnnotator__KImageAnnotator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkimageannotator__kimageannotator = dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self);
+    if (vkimageannotator__kimageannotator && vkimageannotator__kimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualkImageAnnotatorKImageAnnotator*)self)->metaObject();
+    }
 }
 
 void* kImageAnnotator__KImageAnnotator_Metacast(kImageAnnotator__KImageAnnotator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkimageannotator__kimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
+    if (vkimageannotator__kimageannotator && vkimageannotator__kimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualkImageAnnotatorKImageAnnotator*)self)->qt_metacast(param1);
+    }
 }
 
 int kImageAnnotator__KImageAnnotator_Metacall(kImageAnnotator__KImageAnnotator* self, int param1, int param2, void** param3) {
@@ -275,6 +285,44 @@ void kImageAnnotator__KImageAnnotator_Connect_TabContextMenuOpened(kImageAnnotat
         int sigval1 = index;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* kImageAnnotator__KImageAnnotator_QBaseMetaObject(const kImageAnnotator__KImageAnnotator* self) {
+    auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+        vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MetaObject_IsBase(true);
+        return (QMetaObject*)vkimageannotatorkimageannotator->metaObject();
+    } else {
+        return (QMetaObject*)self->kImageAnnotator::KImageAnnotator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void kImageAnnotator__KImageAnnotator_OnMetaObject(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
+    auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+        vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MetaObject_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* kImageAnnotator__KImageAnnotator_QBaseMetacast(kImageAnnotator__KImageAnnotator* self, const char* param1) {
+    auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+        vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Metacast_IsBase(true);
+        return vkimageannotatorkimageannotator->qt_metacast(param1);
+    } else {
+        return self->kImageAnnotator::KImageAnnotator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void kImageAnnotator__KImageAnnotator_OnMetacast(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
+    auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+        vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Metacast_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

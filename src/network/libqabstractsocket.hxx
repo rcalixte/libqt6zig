@@ -17,6 +17,8 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     bool isVirtualQAbstractSocket = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractSocket_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractSocket_Metacast_Callback = void* (*)(QAbstractSocket*, const char*);
     using QAbstractSocket_Metacall_Callback = int (*)(QAbstractSocket*, int, int, void**);
     using QAbstractSocket_Resume_Callback = void (*)();
     using QAbstractSocket_Bind_Callback = bool (*)(QAbstractSocket*, QHostAddress*, uint16_t, int);
@@ -69,6 +71,8 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
 
   protected:
     // Instance callback storage
+    QAbstractSocket_MetaObject_Callback qabstractsocket_metaobject_callback = nullptr;
+    QAbstractSocket_Metacast_Callback qabstractsocket_metacast_callback = nullptr;
     QAbstractSocket_Metacall_Callback qabstractsocket_metacall_callback = nullptr;
     QAbstractSocket_Resume_Callback qabstractsocket_resume_callback = nullptr;
     QAbstractSocket_Bind_Callback qabstractsocket_bind_callback = nullptr;
@@ -120,6 +124,8 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     QAbstractSocket_IsSignalConnected_Callback qabstractsocket_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractsocket_metaobject_isbase = false;
+    mutable bool qabstractsocket_metacast_isbase = false;
     mutable bool qabstractsocket_metacall_isbase = false;
     mutable bool qabstractsocket_resume_isbase = false;
     mutable bool qabstractsocket_bind_isbase = false;
@@ -174,6 +180,8 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     VirtualQAbstractSocket(QAbstractSocket::SocketType socketType, QObject* parent) : QAbstractSocket(socketType, parent) {};
 
     ~VirtualQAbstractSocket() {
+        qabstractsocket_metaobject_callback = nullptr;
+        qabstractsocket_metacast_callback = nullptr;
         qabstractsocket_metacall_callback = nullptr;
         qabstractsocket_resume_callback = nullptr;
         qabstractsocket_bind_callback = nullptr;
@@ -226,6 +234,8 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     }
 
     // Callback setters
+    inline void setQAbstractSocket_MetaObject_Callback(QAbstractSocket_MetaObject_Callback cb) { qabstractsocket_metaobject_callback = cb; }
+    inline void setQAbstractSocket_Metacast_Callback(QAbstractSocket_Metacast_Callback cb) { qabstractsocket_metacast_callback = cb; }
     inline void setQAbstractSocket_Metacall_Callback(QAbstractSocket_Metacall_Callback cb) { qabstractsocket_metacall_callback = cb; }
     inline void setQAbstractSocket_Resume_Callback(QAbstractSocket_Resume_Callback cb) { qabstractsocket_resume_callback = cb; }
     inline void setQAbstractSocket_Bind_Callback(QAbstractSocket_Bind_Callback cb) { qabstractsocket_bind_callback = cb; }
@@ -277,6 +287,8 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     inline void setQAbstractSocket_IsSignalConnected_Callback(QAbstractSocket_IsSignalConnected_Callback cb) { qabstractsocket_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractSocket_MetaObject_IsBase(bool value) const { qabstractsocket_metaobject_isbase = value; }
+    inline void setQAbstractSocket_Metacast_IsBase(bool value) const { qabstractsocket_metacast_isbase = value; }
     inline void setQAbstractSocket_Metacall_IsBase(bool value) const { qabstractsocket_metacall_isbase = value; }
     inline void setQAbstractSocket_Resume_IsBase(bool value) const { qabstractsocket_resume_isbase = value; }
     inline void setQAbstractSocket_Bind_IsBase(bool value) const { qabstractsocket_bind_isbase = value; }
@@ -326,6 +338,34 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     inline void setQAbstractSocket_SenderSignalIndex_IsBase(bool value) const { qabstractsocket_sendersignalindex_isbase = value; }
     inline void setQAbstractSocket_Receivers_IsBase(bool value) const { qabstractsocket_receivers_isbase = value; }
     inline void setQAbstractSocket_IsSignalConnected_IsBase(bool value) const { qabstractsocket_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractsocket_metaobject_isbase) {
+            qabstractsocket_metaobject_isbase = false;
+            return QAbstractSocket::metaObject();
+        } else if (qabstractsocket_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractsocket_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractSocket::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractsocket_metacast_isbase) {
+            qabstractsocket_metacast_isbase = false;
+            return QAbstractSocket::qt_metacast(param1);
+        } else if (qabstractsocket_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractsocket_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractSocket::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -62,11 +62,21 @@ QListView* QListView_new2() {
 }
 
 QMetaObject* QListView_MetaObject(const QListView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqlistview = dynamic_cast<const VirtualQListView*>(self);
+    if (vqlistview && vqlistview->isVirtualQListView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQListView*)self)->metaObject();
+    }
 }
 
 void* QListView_Metacast(QListView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
+    if (vqlistview && vqlistview->isVirtualQListView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQListView*)self)->qt_metacast(param1);
+    }
 }
 
 int QListView_Metacall(QListView* self, int param1, int param2, void** param3) {
@@ -493,6 +503,44 @@ QSize* QListView_ViewportSizeHint(const QListView* self) {
         return new QSize(vqlistview->viewportSizeHint());
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QListView_QBaseMetaObject(const QListView* self) {
+    auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
+    if (vqlistview && vqlistview->isVirtualQListView) {
+        vqlistview->setQListView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqlistview->metaObject();
+    } else {
+        return (QMetaObject*)self->QListView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QListView_OnMetaObject(const QListView* self, intptr_t slot) {
+    auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
+    if (vqlistview && vqlistview->isVirtualQListView) {
+        vqlistview->setQListView_MetaObject_Callback(reinterpret_cast<VirtualQListView::QListView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QListView_QBaseMetacast(QListView* self, const char* param1) {
+    auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
+    if (vqlistview && vqlistview->isVirtualQListView) {
+        vqlistview->setQListView_Metacast_IsBase(true);
+        return vqlistview->qt_metacast(param1);
+    } else {
+        return self->QListView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QListView_OnMetacast(QListView* self, intptr_t slot) {
+    auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
+    if (vqlistview && vqlistview->isVirtualQListView) {
+        vqlistview->setQListView_Metacast_Callback(reinterpret_cast<VirtualQListView::QListView_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

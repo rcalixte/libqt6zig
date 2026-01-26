@@ -52,11 +52,21 @@ KPixmapRegionSelectorWidget* KPixmapRegionSelectorWidget_new2() {
 }
 
 QMetaObject* KPixmapRegionSelectorWidget_MetaObject(const KPixmapRegionSelectorWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpixmapregionselectorwidget = dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self);
+    if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPixmapRegionSelectorWidget*)self)->metaObject();
+    }
 }
 
 void* KPixmapRegionSelectorWidget_Metacast(KPixmapRegionSelectorWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
+    if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPixmapRegionSelectorWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KPixmapRegionSelectorWidget_Metacall(KPixmapRegionSelectorWidget* self, int param1, int param2, void** param3) {
@@ -145,6 +155,44 @@ bool KPixmapRegionSelectorWidget_EventFilter(KPixmapRegionSelectorWidget* self, 
         return vkpixmapregionselectorwidget->eventFilter(obj, ev);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KPixmapRegionSelectorWidget_QBaseMetaObject(const KPixmapRegionSelectorWidget* self) {
+    auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
+    if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
+        vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpixmapregionselectorwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KPixmapRegionSelectorWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapRegionSelectorWidget_OnMetaObject(const KPixmapRegionSelectorWidget* self, intptr_t slot) {
+    auto* vkpixmapregionselectorwidget = const_cast<VirtualKPixmapRegionSelectorWidget*>(dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self));
+    if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
+        vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_MetaObject_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorWidget::KPixmapRegionSelectorWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPixmapRegionSelectorWidget_QBaseMetacast(KPixmapRegionSelectorWidget* self, const char* param1) {
+    auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
+    if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
+        vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Metacast_IsBase(true);
+        return vkpixmapregionselectorwidget->qt_metacast(param1);
+    } else {
+        return self->KPixmapRegionSelectorWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapRegionSelectorWidget_OnMetacast(KPixmapRegionSelectorWidget* self, intptr_t slot) {
+    auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
+    if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
+        vkpixmapregionselectorwidget->setKPixmapRegionSelectorWidget_Metacast_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorWidget::KPixmapRegionSelectorWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

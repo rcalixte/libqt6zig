@@ -62,6 +62,10 @@ void KKeySequenceRecorder_ModifierOnlyAllowedChanged(KKeySequenceRecorder* self)
 void KKeySequenceRecorder_Connect_ModifierOnlyAllowedChanged(KKeySequenceRecorder* self, intptr_t slot);
 void KKeySequenceRecorder_PatternsChanged(KKeySequenceRecorder* self);
 void KKeySequenceRecorder_Connect_PatternsChanged(KKeySequenceRecorder* self, intptr_t slot);
+void KKeySequenceRecorder_OnMetaObject(const KKeySequenceRecorder* self, intptr_t slot);
+QMetaObject* KKeySequenceRecorder_QBaseMetaObject(const KKeySequenceRecorder* self);
+void KKeySequenceRecorder_OnMetacast(KKeySequenceRecorder* self, intptr_t slot);
+void* KKeySequenceRecorder_QBaseMetacast(KKeySequenceRecorder* self, const char* param1);
 void KKeySequenceRecorder_OnMetacall(KKeySequenceRecorder* self, intptr_t slot);
 int KKeySequenceRecorder_QBaseMetacall(KKeySequenceRecorder* self, int param1, int param2, void** param3);
 bool KKeySequenceRecorder_Event(KKeySequenceRecorder* self, QEvent* event);

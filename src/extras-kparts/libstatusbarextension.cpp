@@ -25,11 +25,21 @@ KParts__StatusBarExtension* KParts__StatusBarExtension_new2(KParts__ReadOnlyPart
 }
 
 QMetaObject* KParts__StatusBarExtension_MetaObject(const KParts__StatusBarExtension* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkparts__statusbarextension = dynamic_cast<const VirtualKPartsStatusBarExtension*>(self);
+    if (vkparts__statusbarextension && vkparts__statusbarextension->isVirtualKPartsStatusBarExtension) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPartsStatusBarExtension*)self)->metaObject();
+    }
 }
 
 void* KParts__StatusBarExtension_Metacast(KParts__StatusBarExtension* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkparts__statusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
+    if (vkparts__statusbarextension && vkparts__statusbarextension->isVirtualKPartsStatusBarExtension) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPartsStatusBarExtension*)self)->qt_metacast(param1);
+    }
 }
 
 int KParts__StatusBarExtension_Metacall(KParts__StatusBarExtension* self, int param1, int param2, void** param3) {
@@ -67,6 +77,44 @@ bool KParts__StatusBarExtension_EventFilter(KParts__StatusBarExtension* self, QO
         return self->eventFilter(watched, ev);
     } else {
         return ((VirtualKPartsStatusBarExtension*)self)->eventFilter(watched, ev);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KParts__StatusBarExtension_QBaseMetaObject(const KParts__StatusBarExtension* self) {
+    auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+        vkpartsstatusbarextension->setKParts__StatusBarExtension_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpartsstatusbarextension->metaObject();
+    } else {
+        return (QMetaObject*)self->KParts::StatusBarExtension::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__StatusBarExtension_OnMetaObject(const KParts__StatusBarExtension* self, intptr_t slot) {
+    auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+        vkpartsstatusbarextension->setKParts__StatusBarExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KParts__StatusBarExtension_QBaseMetacast(KParts__StatusBarExtension* self, const char* param1) {
+    auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+        vkpartsstatusbarextension->setKParts__StatusBarExtension_Metacast_IsBase(true);
+        return vkpartsstatusbarextension->qt_metacast(param1);
+    } else {
+        return self->KParts::StatusBarExtension::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__StatusBarExtension_OnMetacast(KParts__StatusBarExtension* self, intptr_t slot) {
+    auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+        vkpartsstatusbarextension->setKParts__StatusBarExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_Metacast_Callback>(slot));
     }
 }
 

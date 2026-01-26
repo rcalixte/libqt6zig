@@ -65,6 +65,10 @@ void KFileCustomDialog_SetCustomWidget(KFileCustomDialog* self, QWidget* widget)
 KFileWidget* KFileCustomDialog_FileWidget(const KFileCustomDialog* self);
 void KFileCustomDialog_SetOperationMode(KFileCustomDialog* self, int op);
 void KFileCustomDialog_Accept(KFileCustomDialog* self);
+void KFileCustomDialog_OnMetaObject(const KFileCustomDialog* self, intptr_t slot);
+QMetaObject* KFileCustomDialog_QBaseMetaObject(const KFileCustomDialog* self);
+void KFileCustomDialog_OnMetacast(KFileCustomDialog* self, intptr_t slot);
+void* KFileCustomDialog_QBaseMetacast(KFileCustomDialog* self, const char* param1);
 void KFileCustomDialog_OnMetacall(KFileCustomDialog* self, intptr_t slot);
 int KFileCustomDialog_QBaseMetacall(KFileCustomDialog* self, int param1, int param2, void** param3);
 void KFileCustomDialog_OnAccept(KFileCustomDialog* self, intptr_t slot);

@@ -244,6 +244,10 @@ bool QTreeWidget_IsPersistentEditorOpen2(const QTreeWidget* self, QTreeWidgetIte
 libqt_list /* of QTreeWidgetItem* */ QTreeWidget_FindItems3(const QTreeWidget* self, const libqt_string text, int flags, int column);
 QModelIndex* QTreeWidget_IndexFromItem2(const QTreeWidget* self, const QTreeWidgetItem* item, int column);
 void QTreeWidget_ScrollToItem2(QTreeWidget* self, const QTreeWidgetItem* item, int hint);
+void QTreeWidget_OnMetaObject(const QTreeWidget* self, intptr_t slot);
+QMetaObject* QTreeWidget_QBaseMetaObject(const QTreeWidget* self);
+void QTreeWidget_OnMetacast(QTreeWidget* self, intptr_t slot);
+void* QTreeWidget_QBaseMetacast(QTreeWidget* self, const char* param1);
 void QTreeWidget_OnMetacall(QTreeWidget* self, intptr_t slot);
 int QTreeWidget_QBaseMetacall(QTreeWidget* self, int param1, int param2, void** param3);
 void QTreeWidget_OnSetSelectionModel(QTreeWidget* self, intptr_t slot);

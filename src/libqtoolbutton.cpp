@@ -52,11 +52,21 @@ QToolButton* QToolButton_new2() {
 }
 
 QMetaObject* QToolButton_MetaObject(const QToolButton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtoolbutton = dynamic_cast<const VirtualQToolButton*>(self);
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQToolButton*)self)->metaObject();
+    }
 }
 
 void* QToolButton_Metacast(QToolButton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQToolButton*)self)->qt_metacast(param1);
+    }
 }
 
 int QToolButton_Metacall(QToolButton* self, int param1, int param2, void** param3) {
@@ -240,6 +250,44 @@ void QToolButton_InitStyleOption(const QToolButton* self, QStyleOptionToolButton
     auto* vqtoolbutton = dynamic_cast<const VirtualQToolButton*>(self);
     if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
         vqtoolbutton->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QToolButton_QBaseMetaObject(const QToolButton* self) {
+    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+        vqtoolbutton->setQToolButton_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtoolbutton->metaObject();
+    } else {
+        return (QMetaObject*)self->QToolButton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QToolButton_OnMetaObject(const QToolButton* self, intptr_t slot) {
+    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+        vqtoolbutton->setQToolButton_MetaObject_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QToolButton_QBaseMetacast(QToolButton* self, const char* param1) {
+    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+        vqtoolbutton->setQToolButton_Metacast_IsBase(true);
+        return vqtoolbutton->qt_metacast(param1);
+    } else {
+        return self->QToolButton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QToolButton_OnMetacast(QToolButton* self, intptr_t slot) {
+    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
+    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+        vqtoolbutton->setQToolButton_Metacast_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Metacast_Callback>(slot));
     }
 }
 

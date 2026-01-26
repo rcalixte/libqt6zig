@@ -25,11 +25,21 @@ QsciLexerXML* QsciLexerXML_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerXML_MetaObject(const QsciLexerXML* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerxml = dynamic_cast<const VirtualQsciLexerXML*>(self);
+    if (vqscilexerxml && vqscilexerxml->isVirtualQsciLexerXML) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerXML*)self)->metaObject();
+    }
 }
 
 void* QsciLexerXML_Metacast(QsciLexerXML* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerxml = dynamic_cast<VirtualQsciLexerXML*>(self);
+    if (vqscilexerxml && vqscilexerxml->isVirtualQsciLexerXML) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerXML*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerXML_Metacall(QsciLexerXML* self, int param1, int param2, void** param3) {
@@ -79,6 +89,44 @@ void QsciLexerXML_SetScriptsStyled(QsciLexerXML* self, bool styled) {
 
 bool QsciLexerXML_ScriptsStyled(const QsciLexerXML* self) {
     return self->scriptsStyled();
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerXML_QBaseMetaObject(const QsciLexerXML* self) {
+    auto* vqscilexerxml = const_cast<VirtualQsciLexerXML*>(dynamic_cast<const VirtualQsciLexerXML*>(self));
+    if (vqscilexerxml && vqscilexerxml->isVirtualQsciLexerXML) {
+        vqscilexerxml->setQsciLexerXML_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerxml->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerXML*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerXML_OnMetaObject(const QsciLexerXML* self, intptr_t slot) {
+    auto* vqscilexerxml = const_cast<VirtualQsciLexerXML*>(dynamic_cast<const VirtualQsciLexerXML*>(self));
+    if (vqscilexerxml && vqscilexerxml->isVirtualQsciLexerXML) {
+        vqscilexerxml->setQsciLexerXML_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerXML::QsciLexerXML_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerXML_QBaseMetacast(QsciLexerXML* self, const char* param1) {
+    auto* vqscilexerxml = dynamic_cast<VirtualQsciLexerXML*>(self);
+    if (vqscilexerxml && vqscilexerxml->isVirtualQsciLexerXML) {
+        vqscilexerxml->setQsciLexerXML_Metacast_IsBase(true);
+        return vqscilexerxml->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerXML*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerXML_OnMetacast(QsciLexerXML* self, intptr_t slot) {
+    auto* vqscilexerxml = dynamic_cast<VirtualQsciLexerXML*>(self);
+    if (vqscilexerxml && vqscilexerxml->isVirtualQsciLexerXML) {
+        vqscilexerxml->setQsciLexerXML_Metacast_Callback(reinterpret_cast<VirtualQsciLexerXML::QsciLexerXML_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

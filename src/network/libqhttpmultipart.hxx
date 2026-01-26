@@ -17,6 +17,8 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
     bool isVirtualQHttpMultiPart = true;
 
     // Virtual class public types (including callbacks)
+    using QHttpMultiPart_MetaObject_Callback = QMetaObject* (*)();
+    using QHttpMultiPart_Metacast_Callback = void* (*)(QHttpMultiPart*, const char*);
     using QHttpMultiPart_Metacall_Callback = int (*)(QHttpMultiPart*, int, int, void**);
     using QHttpMultiPart_Event_Callback = bool (*)(QHttpMultiPart*, QEvent*);
     using QHttpMultiPart_EventFilter_Callback = bool (*)(QHttpMultiPart*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
 
   protected:
     // Instance callback storage
+    QHttpMultiPart_MetaObject_Callback qhttpmultipart_metaobject_callback = nullptr;
+    QHttpMultiPart_Metacast_Callback qhttpmultipart_metacast_callback = nullptr;
     QHttpMultiPart_Metacall_Callback qhttpmultipart_metacall_callback = nullptr;
     QHttpMultiPart_Event_Callback qhttpmultipart_event_callback = nullptr;
     QHttpMultiPart_EventFilter_Callback qhttpmultipart_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
     QHttpMultiPart_IsSignalConnected_Callback qhttpmultipart_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qhttpmultipart_metaobject_isbase = false;
+    mutable bool qhttpmultipart_metacast_isbase = false;
     mutable bool qhttpmultipart_metacall_isbase = false;
     mutable bool qhttpmultipart_event_isbase = false;
     mutable bool qhttpmultipart_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
     VirtualQHttpMultiPart(QHttpMultiPart::ContentType contentType, QObject* parent) : QHttpMultiPart(contentType, parent) {};
 
     ~VirtualQHttpMultiPart() {
+        qhttpmultipart_metaobject_callback = nullptr;
+        qhttpmultipart_metacast_callback = nullptr;
         qhttpmultipart_metacall_callback = nullptr;
         qhttpmultipart_event_callback = nullptr;
         qhttpmultipart_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
     }
 
     // Callback setters
+    inline void setQHttpMultiPart_MetaObject_Callback(QHttpMultiPart_MetaObject_Callback cb) { qhttpmultipart_metaobject_callback = cb; }
+    inline void setQHttpMultiPart_Metacast_Callback(QHttpMultiPart_Metacast_Callback cb) { qhttpmultipart_metacast_callback = cb; }
     inline void setQHttpMultiPart_Metacall_Callback(QHttpMultiPart_Metacall_Callback cb) { qhttpmultipart_metacall_callback = cb; }
     inline void setQHttpMultiPart_Event_Callback(QHttpMultiPart_Event_Callback cb) { qhttpmultipart_event_callback = cb; }
     inline void setQHttpMultiPart_EventFilter_Callback(QHttpMultiPart_EventFilter_Callback cb) { qhttpmultipart_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
     inline void setQHttpMultiPart_IsSignalConnected_Callback(QHttpMultiPart_IsSignalConnected_Callback cb) { qhttpmultipart_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQHttpMultiPart_MetaObject_IsBase(bool value) const { qhttpmultipart_metaobject_isbase = value; }
+    inline void setQHttpMultiPart_Metacast_IsBase(bool value) const { qhttpmultipart_metacast_isbase = value; }
     inline void setQHttpMultiPart_Metacall_IsBase(bool value) const { qhttpmultipart_metacall_isbase = value; }
     inline void setQHttpMultiPart_Event_IsBase(bool value) const { qhttpmultipart_event_isbase = value; }
     inline void setQHttpMultiPart_EventFilter_IsBase(bool value) const { qhttpmultipart_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
     inline void setQHttpMultiPart_SenderSignalIndex_IsBase(bool value) const { qhttpmultipart_sendersignalindex_isbase = value; }
     inline void setQHttpMultiPart_Receivers_IsBase(bool value) const { qhttpmultipart_receivers_isbase = value; }
     inline void setQHttpMultiPart_IsSignalConnected_IsBase(bool value) const { qhttpmultipart_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qhttpmultipart_metaobject_isbase) {
+            qhttpmultipart_metaobject_isbase = false;
+            return QHttpMultiPart::metaObject();
+        } else if (qhttpmultipart_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qhttpmultipart_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHttpMultiPart::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qhttpmultipart_metacast_isbase) {
+            qhttpmultipart_metacast_isbase = false;
+            return QHttpMultiPart::qt_metacast(param1);
+        } else if (qhttpmultipart_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qhttpmultipart_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHttpMultiPart::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

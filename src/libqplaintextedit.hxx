@@ -17,6 +17,8 @@ class VirtualQPlainTextEdit final : public QPlainTextEdit {
     bool isVirtualQPlainTextEdit = true;
 
     // Virtual class public types (including callbacks)
+    using QPlainTextEdit_MetaObject_Callback = QMetaObject* (*)();
+    using QPlainTextEdit_Metacast_Callback = void* (*)(QPlainTextEdit*, const char*);
     using QPlainTextEdit_Metacall_Callback = int (*)(QPlainTextEdit*, int, int, void**);
     using QPlainTextEdit_LoadResource_Callback = QVariant* (*)(QPlainTextEdit*, int, QUrl*);
     using QPlainTextEdit_InputMethodQuery_Callback = QVariant* (*)(const QPlainTextEdit*, int);
@@ -97,6 +99,8 @@ class VirtualQPlainTextEdit final : public QPlainTextEdit {
 
   protected:
     // Instance callback storage
+    QPlainTextEdit_MetaObject_Callback qplaintextedit_metaobject_callback = nullptr;
+    QPlainTextEdit_Metacast_Callback qplaintextedit_metacast_callback = nullptr;
     QPlainTextEdit_Metacall_Callback qplaintextedit_metacall_callback = nullptr;
     QPlainTextEdit_LoadResource_Callback qplaintextedit_loadresource_callback = nullptr;
     QPlainTextEdit_InputMethodQuery_Callback qplaintextedit_inputmethodquery_callback = nullptr;
@@ -176,6 +180,8 @@ class VirtualQPlainTextEdit final : public QPlainTextEdit {
     QPlainTextEdit_GetDecodedMetricF_Callback qplaintextedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qplaintextedit_metaobject_isbase = false;
+    mutable bool qplaintextedit_metacast_isbase = false;
     mutable bool qplaintextedit_metacall_isbase = false;
     mutable bool qplaintextedit_loadresource_isbase = false;
     mutable bool qplaintextedit_inputmethodquery_isbase = false;
@@ -261,6 +267,8 @@ class VirtualQPlainTextEdit final : public QPlainTextEdit {
     VirtualQPlainTextEdit(const QString& text, QWidget* parent) : QPlainTextEdit(text, parent) {};
 
     ~VirtualQPlainTextEdit() {
+        qplaintextedit_metaobject_callback = nullptr;
+        qplaintextedit_metacast_callback = nullptr;
         qplaintextedit_metacall_callback = nullptr;
         qplaintextedit_loadresource_callback = nullptr;
         qplaintextedit_inputmethodquery_callback = nullptr;
@@ -341,6 +349,8 @@ class VirtualQPlainTextEdit final : public QPlainTextEdit {
     }
 
     // Callback setters
+    inline void setQPlainTextEdit_MetaObject_Callback(QPlainTextEdit_MetaObject_Callback cb) { qplaintextedit_metaobject_callback = cb; }
+    inline void setQPlainTextEdit_Metacast_Callback(QPlainTextEdit_Metacast_Callback cb) { qplaintextedit_metacast_callback = cb; }
     inline void setQPlainTextEdit_Metacall_Callback(QPlainTextEdit_Metacall_Callback cb) { qplaintextedit_metacall_callback = cb; }
     inline void setQPlainTextEdit_LoadResource_Callback(QPlainTextEdit_LoadResource_Callback cb) { qplaintextedit_loadresource_callback = cb; }
     inline void setQPlainTextEdit_InputMethodQuery_Callback(QPlainTextEdit_InputMethodQuery_Callback cb) { qplaintextedit_inputmethodquery_callback = cb; }
@@ -420,6 +430,8 @@ class VirtualQPlainTextEdit final : public QPlainTextEdit {
     inline void setQPlainTextEdit_GetDecodedMetricF_Callback(QPlainTextEdit_GetDecodedMetricF_Callback cb) { qplaintextedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQPlainTextEdit_MetaObject_IsBase(bool value) const { qplaintextedit_metaobject_isbase = value; }
+    inline void setQPlainTextEdit_Metacast_IsBase(bool value) const { qplaintextedit_metacast_isbase = value; }
     inline void setQPlainTextEdit_Metacall_IsBase(bool value) const { qplaintextedit_metacall_isbase = value; }
     inline void setQPlainTextEdit_LoadResource_IsBase(bool value) const { qplaintextedit_loadresource_isbase = value; }
     inline void setQPlainTextEdit_InputMethodQuery_IsBase(bool value) const { qplaintextedit_inputmethodquery_isbase = value; }
@@ -497,6 +509,34 @@ class VirtualQPlainTextEdit final : public QPlainTextEdit {
     inline void setQPlainTextEdit_Receivers_IsBase(bool value) const { qplaintextedit_receivers_isbase = value; }
     inline void setQPlainTextEdit_IsSignalConnected_IsBase(bool value) const { qplaintextedit_issignalconnected_isbase = value; }
     inline void setQPlainTextEdit_GetDecodedMetricF_IsBase(bool value) const { qplaintextedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qplaintextedit_metaobject_isbase) {
+            qplaintextedit_metaobject_isbase = false;
+            return QPlainTextEdit::metaObject();
+        } else if (qplaintextedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qplaintextedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPlainTextEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qplaintextedit_metacast_isbase) {
+            qplaintextedit_metacast_isbase = false;
+            return QPlainTextEdit::qt_metacast(param1);
+        } else if (qplaintextedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qplaintextedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPlainTextEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1746,6 +1786,8 @@ class VirtualQPlainTextDocumentLayout final : public QPlainTextDocumentLayout {
     bool isVirtualQPlainTextDocumentLayout = true;
 
     // Virtual class public types (including callbacks)
+    using QPlainTextDocumentLayout_MetaObject_Callback = QMetaObject* (*)();
+    using QPlainTextDocumentLayout_Metacast_Callback = void* (*)(QPlainTextDocumentLayout*, const char*);
     using QPlainTextDocumentLayout_Metacall_Callback = int (*)(QPlainTextDocumentLayout*, int, int, void**);
     using QPlainTextDocumentLayout_Draw_Callback = void (*)(QPlainTextDocumentLayout*, QPainter*, QAbstractTextDocumentLayout__PaintContext*);
     using QPlainTextDocumentLayout_HitTest_Callback = int (*)(const QPlainTextDocumentLayout*, QPointF*, int);
@@ -1773,6 +1815,8 @@ class VirtualQPlainTextDocumentLayout final : public QPlainTextDocumentLayout {
 
   protected:
     // Instance callback storage
+    QPlainTextDocumentLayout_MetaObject_Callback qplaintextdocumentlayout_metaobject_callback = nullptr;
+    QPlainTextDocumentLayout_Metacast_Callback qplaintextdocumentlayout_metacast_callback = nullptr;
     QPlainTextDocumentLayout_Metacall_Callback qplaintextdocumentlayout_metacall_callback = nullptr;
     QPlainTextDocumentLayout_Draw_Callback qplaintextdocumentlayout_draw_callback = nullptr;
     QPlainTextDocumentLayout_HitTest_Callback qplaintextdocumentlayout_hittest_callback = nullptr;
@@ -1799,6 +1843,8 @@ class VirtualQPlainTextDocumentLayout final : public QPlainTextDocumentLayout {
     QPlainTextDocumentLayout_IsSignalConnected_Callback qplaintextdocumentlayout_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qplaintextdocumentlayout_metaobject_isbase = false;
+    mutable bool qplaintextdocumentlayout_metacast_isbase = false;
     mutable bool qplaintextdocumentlayout_metacall_isbase = false;
     mutable bool qplaintextdocumentlayout_draw_isbase = false;
     mutable bool qplaintextdocumentlayout_hittest_isbase = false;
@@ -1828,6 +1874,8 @@ class VirtualQPlainTextDocumentLayout final : public QPlainTextDocumentLayout {
     VirtualQPlainTextDocumentLayout(QTextDocument* document) : QPlainTextDocumentLayout(document) {};
 
     ~VirtualQPlainTextDocumentLayout() {
+        qplaintextdocumentlayout_metaobject_callback = nullptr;
+        qplaintextdocumentlayout_metacast_callback = nullptr;
         qplaintextdocumentlayout_metacall_callback = nullptr;
         qplaintextdocumentlayout_draw_callback = nullptr;
         qplaintextdocumentlayout_hittest_callback = nullptr;
@@ -1855,6 +1903,8 @@ class VirtualQPlainTextDocumentLayout final : public QPlainTextDocumentLayout {
     }
 
     // Callback setters
+    inline void setQPlainTextDocumentLayout_MetaObject_Callback(QPlainTextDocumentLayout_MetaObject_Callback cb) { qplaintextdocumentlayout_metaobject_callback = cb; }
+    inline void setQPlainTextDocumentLayout_Metacast_Callback(QPlainTextDocumentLayout_Metacast_Callback cb) { qplaintextdocumentlayout_metacast_callback = cb; }
     inline void setQPlainTextDocumentLayout_Metacall_Callback(QPlainTextDocumentLayout_Metacall_Callback cb) { qplaintextdocumentlayout_metacall_callback = cb; }
     inline void setQPlainTextDocumentLayout_Draw_Callback(QPlainTextDocumentLayout_Draw_Callback cb) { qplaintextdocumentlayout_draw_callback = cb; }
     inline void setQPlainTextDocumentLayout_HitTest_Callback(QPlainTextDocumentLayout_HitTest_Callback cb) { qplaintextdocumentlayout_hittest_callback = cb; }
@@ -1881,6 +1931,8 @@ class VirtualQPlainTextDocumentLayout final : public QPlainTextDocumentLayout {
     inline void setQPlainTextDocumentLayout_IsSignalConnected_Callback(QPlainTextDocumentLayout_IsSignalConnected_Callback cb) { qplaintextdocumentlayout_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPlainTextDocumentLayout_MetaObject_IsBase(bool value) const { qplaintextdocumentlayout_metaobject_isbase = value; }
+    inline void setQPlainTextDocumentLayout_Metacast_IsBase(bool value) const { qplaintextdocumentlayout_metacast_isbase = value; }
     inline void setQPlainTextDocumentLayout_Metacall_IsBase(bool value) const { qplaintextdocumentlayout_metacall_isbase = value; }
     inline void setQPlainTextDocumentLayout_Draw_IsBase(bool value) const { qplaintextdocumentlayout_draw_isbase = value; }
     inline void setQPlainTextDocumentLayout_HitTest_IsBase(bool value) const { qplaintextdocumentlayout_hittest_isbase = value; }
@@ -1905,6 +1957,34 @@ class VirtualQPlainTextDocumentLayout final : public QPlainTextDocumentLayout {
     inline void setQPlainTextDocumentLayout_SenderSignalIndex_IsBase(bool value) const { qplaintextdocumentlayout_sendersignalindex_isbase = value; }
     inline void setQPlainTextDocumentLayout_Receivers_IsBase(bool value) const { qplaintextdocumentlayout_receivers_isbase = value; }
     inline void setQPlainTextDocumentLayout_IsSignalConnected_IsBase(bool value) const { qplaintextdocumentlayout_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qplaintextdocumentlayout_metaobject_isbase) {
+            qplaintextdocumentlayout_metaobject_isbase = false;
+            return QPlainTextDocumentLayout::metaObject();
+        } else if (qplaintextdocumentlayout_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qplaintextdocumentlayout_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPlainTextDocumentLayout::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qplaintextdocumentlayout_metacast_isbase) {
+            qplaintextdocumentlayout_metacast_isbase = false;
+            return QPlainTextDocumentLayout::qt_metacast(param1);
+        } else if (qplaintextdocumentlayout_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qplaintextdocumentlayout_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPlainTextDocumentLayout::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

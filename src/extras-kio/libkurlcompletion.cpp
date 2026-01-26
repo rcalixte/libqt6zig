@@ -25,11 +25,21 @@ KUrlCompletion* KUrlCompletion_new2(int param1) {
 }
 
 QMetaObject* KUrlCompletion_MetaObject(const KUrlCompletion* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkurlcompletion = dynamic_cast<const VirtualKUrlCompletion*>(self);
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKUrlCompletion*)self)->metaObject();
+    }
 }
 
 void* KUrlCompletion_Metacast(KUrlCompletion* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKUrlCompletion*)self)->qt_metacast(param1);
+    }
 }
 
 int KUrlCompletion_Metacall(KUrlCompletion* self, int param1, int param2, void** param3) {
@@ -247,6 +257,44 @@ libqt_string KUrlCompletion_ReplacedPath3(const libqt_string text, bool replaceH
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* KUrlCompletion_QBaseMetaObject(const KUrlCompletion* self) {
+    auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+        vkurlcompletion->setKUrlCompletion_MetaObject_IsBase(true);
+        return (QMetaObject*)vkurlcompletion->metaObject();
+    } else {
+        return (QMetaObject*)self->KUrlCompletion::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlCompletion_OnMetaObject(const KUrlCompletion* self, intptr_t slot) {
+    auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+        vkurlcompletion->setKUrlCompletion_MetaObject_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KUrlCompletion_QBaseMetacast(KUrlCompletion* self, const char* param1) {
+    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+        vkurlcompletion->setKUrlCompletion_Metacast_IsBase(true);
+        return vkurlcompletion->qt_metacast(param1);
+    } else {
+        return self->KUrlCompletion::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlCompletion_OnMetacast(KUrlCompletion* self, intptr_t slot) {
+    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+        vkurlcompletion->setKUrlCompletion_Metacast_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

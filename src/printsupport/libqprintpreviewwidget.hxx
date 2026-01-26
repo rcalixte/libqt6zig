@@ -17,6 +17,8 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     bool isVirtualQPrintPreviewWidget = true;
 
     // Virtual class public types (including callbacks)
+    using QPrintPreviewWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QPrintPreviewWidget_Metacast_Callback = void* (*)(QPrintPreviewWidget*, const char*);
     using QPrintPreviewWidget_Metacall_Callback = int (*)(QPrintPreviewWidget*, int, int, void**);
     using QPrintPreviewWidget_SetVisible_Callback = void (*)(QPrintPreviewWidget*, bool);
     using QPrintPreviewWidget_DevType_Callback = int (*)();
@@ -78,6 +80,8 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
 
   protected:
     // Instance callback storage
+    QPrintPreviewWidget_MetaObject_Callback qprintpreviewwidget_metaobject_callback = nullptr;
+    QPrintPreviewWidget_Metacast_Callback qprintpreviewwidget_metacast_callback = nullptr;
     QPrintPreviewWidget_Metacall_Callback qprintpreviewwidget_metacall_callback = nullptr;
     QPrintPreviewWidget_SetVisible_Callback qprintpreviewwidget_setvisible_callback = nullptr;
     QPrintPreviewWidget_DevType_Callback qprintpreviewwidget_devtype_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     QPrintPreviewWidget_GetDecodedMetricF_Callback qprintpreviewwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qprintpreviewwidget_metaobject_isbase = false;
+    mutable bool qprintpreviewwidget_metacast_isbase = false;
     mutable bool qprintpreviewwidget_metacall_isbase = false;
     mutable bool qprintpreviewwidget_setvisible_isbase = false;
     mutable bool qprintpreviewwidget_devtype_isbase = false;
@@ -206,6 +212,8 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     VirtualQPrintPreviewWidget(QWidget* parent, Qt::WindowFlags flags) : QPrintPreviewWidget(parent, flags) {};
 
     ~VirtualQPrintPreviewWidget() {
+        qprintpreviewwidget_metaobject_callback = nullptr;
+        qprintpreviewwidget_metacast_callback = nullptr;
         qprintpreviewwidget_metacall_callback = nullptr;
         qprintpreviewwidget_setvisible_callback = nullptr;
         qprintpreviewwidget_devtype_callback = nullptr;
@@ -267,6 +275,8 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     }
 
     // Callback setters
+    inline void setQPrintPreviewWidget_MetaObject_Callback(QPrintPreviewWidget_MetaObject_Callback cb) { qprintpreviewwidget_metaobject_callback = cb; }
+    inline void setQPrintPreviewWidget_Metacast_Callback(QPrintPreviewWidget_Metacast_Callback cb) { qprintpreviewwidget_metacast_callback = cb; }
     inline void setQPrintPreviewWidget_Metacall_Callback(QPrintPreviewWidget_Metacall_Callback cb) { qprintpreviewwidget_metacall_callback = cb; }
     inline void setQPrintPreviewWidget_SetVisible_Callback(QPrintPreviewWidget_SetVisible_Callback cb) { qprintpreviewwidget_setvisible_callback = cb; }
     inline void setQPrintPreviewWidget_DevType_Callback(QPrintPreviewWidget_DevType_Callback cb) { qprintpreviewwidget_devtype_callback = cb; }
@@ -327,6 +337,8 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     inline void setQPrintPreviewWidget_GetDecodedMetricF_Callback(QPrintPreviewWidget_GetDecodedMetricF_Callback cb) { qprintpreviewwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQPrintPreviewWidget_MetaObject_IsBase(bool value) const { qprintpreviewwidget_metaobject_isbase = value; }
+    inline void setQPrintPreviewWidget_Metacast_IsBase(bool value) const { qprintpreviewwidget_metacast_isbase = value; }
     inline void setQPrintPreviewWidget_Metacall_IsBase(bool value) const { qprintpreviewwidget_metacall_isbase = value; }
     inline void setQPrintPreviewWidget_SetVisible_IsBase(bool value) const { qprintpreviewwidget_setvisible_isbase = value; }
     inline void setQPrintPreviewWidget_DevType_IsBase(bool value) const { qprintpreviewwidget_devtype_isbase = value; }
@@ -385,6 +397,34 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     inline void setQPrintPreviewWidget_Receivers_IsBase(bool value) const { qprintpreviewwidget_receivers_isbase = value; }
     inline void setQPrintPreviewWidget_IsSignalConnected_IsBase(bool value) const { qprintpreviewwidget_issignalconnected_isbase = value; }
     inline void setQPrintPreviewWidget_GetDecodedMetricF_IsBase(bool value) const { qprintpreviewwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qprintpreviewwidget_metaobject_isbase) {
+            qprintpreviewwidget_metaobject_isbase = false;
+            return QPrintPreviewWidget::metaObject();
+        } else if (qprintpreviewwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qprintpreviewwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPrintPreviewWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qprintpreviewwidget_metacast_isbase) {
+            qprintpreviewwidget_metacast_isbase = false;
+            return QPrintPreviewWidget::qt_metacast(param1);
+        } else if (qprintpreviewwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qprintpreviewwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPrintPreviewWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

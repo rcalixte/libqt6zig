@@ -34,6 +34,10 @@ void KXMessages_BroadcastMessage(KXMessages* self, const char* msg_type, const l
 void KXMessages_GotMessage(KXMessages* self, const libqt_string message);
 void KXMessages_Connect_GotMessage(KXMessages* self, intptr_t slot);
 void KXMessages_BroadcastMessage3(KXMessages* self, const char* msg_type, const libqt_string message, int screen);
+void KXMessages_OnMetaObject(const KXMessages* self, intptr_t slot);
+QMetaObject* KXMessages_QBaseMetaObject(const KXMessages* self);
+void KXMessages_OnMetacast(KXMessages* self, intptr_t slot);
+void* KXMessages_QBaseMetacast(KXMessages* self, const char* param1);
 void KXMessages_OnMetacall(KXMessages* self, intptr_t slot);
 int KXMessages_QBaseMetacall(KXMessages* self, int param1, int param2, void** param3);
 bool KXMessages_Event(KXMessages* self, QEvent* event);

@@ -46,11 +46,21 @@ KPreviewWidgetBase* KPreviewWidgetBase_new(QWidget* parent) {
 }
 
 QMetaObject* KPreviewWidgetBase_MetaObject(const KPreviewWidgetBase* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpreviewwidgetbase = dynamic_cast<const VirtualKPreviewWidgetBase*>(self);
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPreviewWidgetBase*)self)->metaObject();
+    }
 }
 
 void* KPreviewWidgetBase_Metacast(KPreviewWidgetBase* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPreviewWidgetBase*)self)->qt_metacast(param1);
+    }
 }
 
 int KPreviewWidgetBase_Metacall(KPreviewWidgetBase* self, int param1, int param2, void** param3) {
@@ -98,6 +108,44 @@ void KPreviewWidgetBase_ClearPreview(KPreviewWidgetBase* self) {
         vkpreviewwidgetbase->clearPreview();
     } else {
         ((VirtualKPreviewWidgetBase*)self)->clearPreview();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KPreviewWidgetBase_QBaseMetaObject(const KPreviewWidgetBase* self) {
+    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+        vkpreviewwidgetbase->setKPreviewWidgetBase_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpreviewwidgetbase->metaObject();
+    } else {
+        return (QMetaObject*)self->KPreviewWidgetBase::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPreviewWidgetBase_OnMetaObject(const KPreviewWidgetBase* self, intptr_t slot) {
+    auto* vkpreviewwidgetbase = const_cast<VirtualKPreviewWidgetBase*>(dynamic_cast<const VirtualKPreviewWidgetBase*>(self));
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+        vkpreviewwidgetbase->setKPreviewWidgetBase_MetaObject_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPreviewWidgetBase_QBaseMetacast(KPreviewWidgetBase* self, const char* param1) {
+    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+        vkpreviewwidgetbase->setKPreviewWidgetBase_Metacast_IsBase(true);
+        return vkpreviewwidgetbase->qt_metacast(param1);
+    } else {
+        return self->KPreviewWidgetBase::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPreviewWidgetBase_OnMetacast(KPreviewWidgetBase* self, intptr_t slot) {
+    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
+    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
+        vkpreviewwidgetbase->setKPreviewWidgetBase_Metacast_Callback(reinterpret_cast<VirtualKPreviewWidgetBase::KPreviewWidgetBase_Metacast_Callback>(slot));
     }
 }
 

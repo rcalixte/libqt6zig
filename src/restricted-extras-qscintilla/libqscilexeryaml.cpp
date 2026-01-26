@@ -25,11 +25,21 @@ QsciLexerYAML* QsciLexerYAML_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerYAML_MetaObject(const QsciLexerYAML* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexeryaml = dynamic_cast<const VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerYAML*)self)->metaObject();
+    }
 }
 
 void* QsciLexerYAML_Metacast(QsciLexerYAML* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerYAML*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerYAML_Metacall(QsciLexerYAML* self, int param1, int param2, void** param3) {
@@ -95,6 +105,44 @@ void QsciLexerYAML_SetFoldComments(QsciLexerYAML* self, bool fold) {
         self->setFoldComments(fold);
     } else {
         ((VirtualQsciLexerYAML*)self)->setFoldComments(fold);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerYAML_QBaseMetaObject(const QsciLexerYAML* self) {
+    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexeryaml->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerYAML*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerYAML_OnMetaObject(const QsciLexerYAML* self, intptr_t slot) {
+    auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerYAML_QBaseMetacast(QsciLexerYAML* self, const char* param1) {
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_Metacast_IsBase(true);
+        return vqscilexeryaml->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerYAML*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerYAML_OnMetacast(QsciLexerYAML* self, intptr_t slot) {
+    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+        vqscilexeryaml->setQsciLexerYAML_Metacast_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Metacast_Callback>(slot));
     }
 }
 

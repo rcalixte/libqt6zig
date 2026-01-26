@@ -31,11 +31,21 @@ Sonnet__BackgroundChecker* Sonnet__BackgroundChecker_new4(const Sonnet__Speller*
 }
 
 QMetaObject* Sonnet__BackgroundChecker_MetaObject(const Sonnet__BackgroundChecker* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vsonnet__backgroundchecker = dynamic_cast<const VirtualSonnetBackgroundChecker*>(self);
+    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualSonnetBackgroundChecker*)self)->metaObject();
+    }
 }
 
 void* Sonnet__BackgroundChecker_Metacast(Sonnet__BackgroundChecker* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
+    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualSonnetBackgroundChecker*)self)->qt_metacast(param1);
+    }
 }
 
 int Sonnet__BackgroundChecker_Metacall(Sonnet__BackgroundChecker* self, int param1, int param2, void** param3) {
@@ -219,6 +229,44 @@ void Sonnet__BackgroundChecker_FinishedCurrentFeed(Sonnet__BackgroundChecker* se
     auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnet__backgroundchecker->finishedCurrentFeed();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* Sonnet__BackgroundChecker_QBaseMetaObject(const Sonnet__BackgroundChecker* self) {
+    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
+    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
+        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_MetaObject_IsBase(true);
+        return (QMetaObject*)vsonnetbackgroundchecker->metaObject();
+    } else {
+        return (QMetaObject*)self->Sonnet::BackgroundChecker::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__BackgroundChecker_OnMetaObject(const Sonnet__BackgroundChecker* self, intptr_t slot) {
+    auto* vsonnetbackgroundchecker = const_cast<VirtualSonnetBackgroundChecker*>(dynamic_cast<const VirtualSonnetBackgroundChecker*>(self));
+    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
+        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_MetaObject_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Sonnet__BackgroundChecker_QBaseMetacast(Sonnet__BackgroundChecker* self, const char* param1) {
+    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
+    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
+        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Metacast_IsBase(true);
+        return vsonnetbackgroundchecker->qt_metacast(param1);
+    } else {
+        return self->Sonnet::BackgroundChecker::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__BackgroundChecker_OnMetacast(Sonnet__BackgroundChecker* self, intptr_t slot) {
+    auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
+    if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
+        vsonnetbackgroundchecker->setSonnet__BackgroundChecker_Metacast_Callback(reinterpret_cast<VirtualSonnetBackgroundChecker::Sonnet__BackgroundChecker_Metacast_Callback>(slot));
     }
 }
 

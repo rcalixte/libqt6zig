@@ -17,6 +17,8 @@ class VirtualQGuiApplication final : public QGuiApplication {
     bool isVirtualQGuiApplication = true;
 
     // Virtual class public types (including callbacks)
+    using QGuiApplication_MetaObject_Callback = QMetaObject* (*)();
+    using QGuiApplication_Metacast_Callback = void* (*)(QGuiApplication*, const char*);
     using QGuiApplication_Metacall_Callback = int (*)(QGuiApplication*, int, int, void**);
     using QGuiApplication_Notify_Callback = bool (*)(QGuiApplication*, QObject*, QEvent*);
     using QGuiApplication_Event_Callback = bool (*)(QGuiApplication*, QEvent*);
@@ -34,6 +36,8 @@ class VirtualQGuiApplication final : public QGuiApplication {
 
   protected:
     // Instance callback storage
+    QGuiApplication_MetaObject_Callback qguiapplication_metaobject_callback = nullptr;
+    QGuiApplication_Metacast_Callback qguiapplication_metacast_callback = nullptr;
     QGuiApplication_Metacall_Callback qguiapplication_metacall_callback = nullptr;
     QGuiApplication_Notify_Callback qguiapplication_notify_callback = nullptr;
     QGuiApplication_Event_Callback qguiapplication_event_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQGuiApplication final : public QGuiApplication {
     QGuiApplication_IsSignalConnected_Callback qguiapplication_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qguiapplication_metaobject_isbase = false;
+    mutable bool qguiapplication_metacast_isbase = false;
     mutable bool qguiapplication_metacall_isbase = false;
     mutable bool qguiapplication_notify_isbase = false;
     mutable bool qguiapplication_event_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQGuiApplication final : public QGuiApplication {
     VirtualQGuiApplication(int& argc, char** argv, int param3) : QGuiApplication(argc, argv, param3) {};
 
     ~VirtualQGuiApplication() {
+        qguiapplication_metaobject_callback = nullptr;
+        qguiapplication_metacast_callback = nullptr;
         qguiapplication_metacall_callback = nullptr;
         qguiapplication_notify_callback = nullptr;
         qguiapplication_event_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQGuiApplication final : public QGuiApplication {
     }
 
     // Callback setters
+    inline void setQGuiApplication_MetaObject_Callback(QGuiApplication_MetaObject_Callback cb) { qguiapplication_metaobject_callback = cb; }
+    inline void setQGuiApplication_Metacast_Callback(QGuiApplication_Metacast_Callback cb) { qguiapplication_metacast_callback = cb; }
     inline void setQGuiApplication_Metacall_Callback(QGuiApplication_Metacall_Callback cb) { qguiapplication_metacall_callback = cb; }
     inline void setQGuiApplication_Notify_Callback(QGuiApplication_Notify_Callback cb) { qguiapplication_notify_callback = cb; }
     inline void setQGuiApplication_Event_Callback(QGuiApplication_Event_Callback cb) { qguiapplication_event_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQGuiApplication final : public QGuiApplication {
     inline void setQGuiApplication_IsSignalConnected_Callback(QGuiApplication_IsSignalConnected_Callback cb) { qguiapplication_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGuiApplication_MetaObject_IsBase(bool value) const { qguiapplication_metaobject_isbase = value; }
+    inline void setQGuiApplication_Metacast_IsBase(bool value) const { qguiapplication_metacast_isbase = value; }
     inline void setQGuiApplication_Metacall_IsBase(bool value) const { qguiapplication_metacall_isbase = value; }
     inline void setQGuiApplication_Notify_IsBase(bool value) const { qguiapplication_notify_isbase = value; }
     inline void setQGuiApplication_Event_IsBase(bool value) const { qguiapplication_event_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQGuiApplication final : public QGuiApplication {
     inline void setQGuiApplication_SenderSignalIndex_IsBase(bool value) const { qguiapplication_sendersignalindex_isbase = value; }
     inline void setQGuiApplication_Receivers_IsBase(bool value) const { qguiapplication_receivers_isbase = value; }
     inline void setQGuiApplication_IsSignalConnected_IsBase(bool value) const { qguiapplication_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qguiapplication_metaobject_isbase) {
+            qguiapplication_metaobject_isbase = false;
+            return QGuiApplication::metaObject();
+        } else if (qguiapplication_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qguiapplication_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGuiApplication::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qguiapplication_metacast_isbase) {
+            qguiapplication_metacast_isbase = false;
+            return QGuiApplication::qt_metacast(param1);
+        } else if (qguiapplication_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qguiapplication_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGuiApplication::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

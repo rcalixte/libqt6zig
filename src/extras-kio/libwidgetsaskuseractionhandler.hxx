@@ -17,6 +17,8 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
     bool isVirtualKIOWidgetsAskUserActionHandler = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__WidgetsAskUserActionHandler_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__WidgetsAskUserActionHandler_Metacast_Callback = void* (*)(KIO__WidgetsAskUserActionHandler*, const char*);
     using KIO__WidgetsAskUserActionHandler_Metacall_Callback = int (*)(KIO__WidgetsAskUserActionHandler*, int, int, void**);
     using KIO__WidgetsAskUserActionHandler_AskUserRename_Callback = void (*)(KIO__WidgetsAskUserActionHandler*, KJob*, libqt_string, QUrl*, QUrl*, int, unsigned long long, unsigned long long, QDateTime*, QDateTime*, QDateTime*, QDateTime*);
     using KIO__WidgetsAskUserActionHandler_AskUserSkip_Callback = void (*)(KIO__WidgetsAskUserActionHandler*, KJob*, int, libqt_string);
@@ -37,6 +39,8 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
 
   protected:
     // Instance callback storage
+    KIO__WidgetsAskUserActionHandler_MetaObject_Callback kio__widgetsaskuseractionhandler_metaobject_callback = nullptr;
+    KIO__WidgetsAskUserActionHandler_Metacast_Callback kio__widgetsaskuseractionhandler_metacast_callback = nullptr;
     KIO__WidgetsAskUserActionHandler_Metacall_Callback kio__widgetsaskuseractionhandler_metacall_callback = nullptr;
     KIO__WidgetsAskUserActionHandler_AskUserRename_Callback kio__widgetsaskuseractionhandler_askuserrename_callback = nullptr;
     KIO__WidgetsAskUserActionHandler_AskUserSkip_Callback kio__widgetsaskuseractionhandler_askuserskip_callback = nullptr;
@@ -56,6 +60,8 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
     KIO__WidgetsAskUserActionHandler_IsSignalConnected_Callback kio__widgetsaskuseractionhandler_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__widgetsaskuseractionhandler_metaobject_isbase = false;
+    mutable bool kio__widgetsaskuseractionhandler_metacast_isbase = false;
     mutable bool kio__widgetsaskuseractionhandler_metacall_isbase = false;
     mutable bool kio__widgetsaskuseractionhandler_askuserrename_isbase = false;
     mutable bool kio__widgetsaskuseractionhandler_askuserskip_isbase = false;
@@ -79,6 +85,8 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
     VirtualKIOWidgetsAskUserActionHandler(QObject* parent) : KIO::WidgetsAskUserActionHandler(parent) {};
 
     ~VirtualKIOWidgetsAskUserActionHandler() {
+        kio__widgetsaskuseractionhandler_metaobject_callback = nullptr;
+        kio__widgetsaskuseractionhandler_metacast_callback = nullptr;
         kio__widgetsaskuseractionhandler_metacall_callback = nullptr;
         kio__widgetsaskuseractionhandler_askuserrename_callback = nullptr;
         kio__widgetsaskuseractionhandler_askuserskip_callback = nullptr;
@@ -99,6 +107,8 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
     }
 
     // Callback setters
+    inline void setKIO__WidgetsAskUserActionHandler_MetaObject_Callback(KIO__WidgetsAskUserActionHandler_MetaObject_Callback cb) { kio__widgetsaskuseractionhandler_metaobject_callback = cb; }
+    inline void setKIO__WidgetsAskUserActionHandler_Metacast_Callback(KIO__WidgetsAskUserActionHandler_Metacast_Callback cb) { kio__widgetsaskuseractionhandler_metacast_callback = cb; }
     inline void setKIO__WidgetsAskUserActionHandler_Metacall_Callback(KIO__WidgetsAskUserActionHandler_Metacall_Callback cb) { kio__widgetsaskuseractionhandler_metacall_callback = cb; }
     inline void setKIO__WidgetsAskUserActionHandler_AskUserRename_Callback(KIO__WidgetsAskUserActionHandler_AskUserRename_Callback cb) { kio__widgetsaskuseractionhandler_askuserrename_callback = cb; }
     inline void setKIO__WidgetsAskUserActionHandler_AskUserSkip_Callback(KIO__WidgetsAskUserActionHandler_AskUserSkip_Callback cb) { kio__widgetsaskuseractionhandler_askuserskip_callback = cb; }
@@ -118,6 +128,8 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
     inline void setKIO__WidgetsAskUserActionHandler_IsSignalConnected_Callback(KIO__WidgetsAskUserActionHandler_IsSignalConnected_Callback cb) { kio__widgetsaskuseractionhandler_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__WidgetsAskUserActionHandler_MetaObject_IsBase(bool value) const { kio__widgetsaskuseractionhandler_metaobject_isbase = value; }
+    inline void setKIO__WidgetsAskUserActionHandler_Metacast_IsBase(bool value) const { kio__widgetsaskuseractionhandler_metacast_isbase = value; }
     inline void setKIO__WidgetsAskUserActionHandler_Metacall_IsBase(bool value) const { kio__widgetsaskuseractionhandler_metacall_isbase = value; }
     inline void setKIO__WidgetsAskUserActionHandler_AskUserRename_IsBase(bool value) const { kio__widgetsaskuseractionhandler_askuserrename_isbase = value; }
     inline void setKIO__WidgetsAskUserActionHandler_AskUserSkip_IsBase(bool value) const { kio__widgetsaskuseractionhandler_askuserskip_isbase = value; }
@@ -135,6 +147,34 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
     inline void setKIO__WidgetsAskUserActionHandler_SenderSignalIndex_IsBase(bool value) const { kio__widgetsaskuseractionhandler_sendersignalindex_isbase = value; }
     inline void setKIO__WidgetsAskUserActionHandler_Receivers_IsBase(bool value) const { kio__widgetsaskuseractionhandler_receivers_isbase = value; }
     inline void setKIO__WidgetsAskUserActionHandler_IsSignalConnected_IsBase(bool value) const { kio__widgetsaskuseractionhandler_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__widgetsaskuseractionhandler_metaobject_isbase) {
+            kio__widgetsaskuseractionhandler_metaobject_isbase = false;
+            return KIO__WidgetsAskUserActionHandler::metaObject();
+        } else if (kio__widgetsaskuseractionhandler_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__widgetsaskuseractionhandler_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__WidgetsAskUserActionHandler::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__widgetsaskuseractionhandler_metacast_isbase) {
+            kio__widgetsaskuseractionhandler_metacast_isbase = false;
+            return KIO__WidgetsAskUserActionHandler::qt_metacast(param1);
+        } else if (kio__widgetsaskuseractionhandler_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__widgetsaskuseractionhandler_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__WidgetsAskUserActionHandler::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

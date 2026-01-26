@@ -38,11 +38,21 @@ KPageWidgetItem* KPageWidgetItem_new2(QWidget* widget, const libqt_string name) 
 }
 
 QMetaObject* KPageWidgetItem_MetaObject(const KPageWidgetItem* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpagewidgetitem = dynamic_cast<const VirtualKPageWidgetItem*>(self);
+    if (vkpagewidgetitem && vkpagewidgetitem->isVirtualKPageWidgetItem) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPageWidgetItem*)self)->metaObject();
+    }
 }
 
 void* KPageWidgetItem_Metacast(KPageWidgetItem* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpagewidgetitem = dynamic_cast<VirtualKPageWidgetItem*>(self);
+    if (vkpagewidgetitem && vkpagewidgetitem->isVirtualKPageWidgetItem) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPageWidgetItem*)self)->qt_metacast(param1);
+    }
 }
 
 int KPageWidgetItem_Metacall(KPageWidgetItem* self, int param1, int param2, void** param3) {
@@ -187,6 +197,44 @@ void KPageWidgetItem_Connect_ActionsChanged(KPageWidgetItem* self, intptr_t slot
     KPageWidgetItem::connect(self, &KPageWidgetItem::actionsChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KPageWidgetItem_QBaseMetaObject(const KPageWidgetItem* self) {
+    auto* vkpagewidgetitem = const_cast<VirtualKPageWidgetItem*>(dynamic_cast<const VirtualKPageWidgetItem*>(self));
+    if (vkpagewidgetitem && vkpagewidgetitem->isVirtualKPageWidgetItem) {
+        vkpagewidgetitem->setKPageWidgetItem_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpagewidgetitem->metaObject();
+    } else {
+        return (QMetaObject*)self->KPageWidgetItem::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageWidgetItem_OnMetaObject(const KPageWidgetItem* self, intptr_t slot) {
+    auto* vkpagewidgetitem = const_cast<VirtualKPageWidgetItem*>(dynamic_cast<const VirtualKPageWidgetItem*>(self));
+    if (vkpagewidgetitem && vkpagewidgetitem->isVirtualKPageWidgetItem) {
+        vkpagewidgetitem->setKPageWidgetItem_MetaObject_Callback(reinterpret_cast<VirtualKPageWidgetItem::KPageWidgetItem_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPageWidgetItem_QBaseMetacast(KPageWidgetItem* self, const char* param1) {
+    auto* vkpagewidgetitem = dynamic_cast<VirtualKPageWidgetItem*>(self);
+    if (vkpagewidgetitem && vkpagewidgetitem->isVirtualKPageWidgetItem) {
+        vkpagewidgetitem->setKPageWidgetItem_Metacast_IsBase(true);
+        return vkpagewidgetitem->qt_metacast(param1);
+    } else {
+        return self->KPageWidgetItem::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageWidgetItem_OnMetacast(KPageWidgetItem* self, intptr_t slot) {
+    auto* vkpagewidgetitem = dynamic_cast<VirtualKPageWidgetItem*>(self);
+    if (vkpagewidgetitem && vkpagewidgetitem->isVirtualKPageWidgetItem) {
+        vkpagewidgetitem->setKPageWidgetItem_Metacast_Callback(reinterpret_cast<VirtualKPageWidgetItem::KPageWidgetItem_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -540,11 +588,21 @@ KPageWidgetModel* KPageWidgetModel_new2(QObject* parent) {
 }
 
 QMetaObject* KPageWidgetModel_MetaObject(const KPageWidgetModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpagewidgetmodel = dynamic_cast<const VirtualKPageWidgetModel*>(self);
+    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPageWidgetModel*)self)->metaObject();
+    }
 }
 
 void* KPageWidgetModel_Metacast(KPageWidgetModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpagewidgetmodel = dynamic_cast<VirtualKPageWidgetModel*>(self);
+    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPageWidgetModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KPageWidgetModel_Metacall(KPageWidgetModel* self, int param1, int param2, void** param3) {
@@ -669,6 +727,44 @@ void KPageWidgetModel_Connect_Toggled(KPageWidgetModel* self, intptr_t slot) {
         bool sigval2 = checked;
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KPageWidgetModel_QBaseMetaObject(const KPageWidgetModel* self) {
+    auto* vkpagewidgetmodel = const_cast<VirtualKPageWidgetModel*>(dynamic_cast<const VirtualKPageWidgetModel*>(self));
+    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
+        vkpagewidgetmodel->setKPageWidgetModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpagewidgetmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KPageWidgetModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageWidgetModel_OnMetaObject(const KPageWidgetModel* self, intptr_t slot) {
+    auto* vkpagewidgetmodel = const_cast<VirtualKPageWidgetModel*>(dynamic_cast<const VirtualKPageWidgetModel*>(self));
+    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
+        vkpagewidgetmodel->setKPageWidgetModel_MetaObject_Callback(reinterpret_cast<VirtualKPageWidgetModel::KPageWidgetModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPageWidgetModel_QBaseMetacast(KPageWidgetModel* self, const char* param1) {
+    auto* vkpagewidgetmodel = dynamic_cast<VirtualKPageWidgetModel*>(self);
+    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
+        vkpagewidgetmodel->setKPageWidgetModel_Metacast_IsBase(true);
+        return vkpagewidgetmodel->qt_metacast(param1);
+    } else {
+        return self->KPageWidgetModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageWidgetModel_OnMetacast(KPageWidgetModel* self, intptr_t slot) {
+    auto* vkpagewidgetmodel = dynamic_cast<VirtualKPageWidgetModel*>(self);
+    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
+        vkpagewidgetmodel->setKPageWidgetModel_Metacast_Callback(reinterpret_cast<VirtualKPageWidgetModel::KPageWidgetModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

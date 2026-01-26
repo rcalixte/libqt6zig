@@ -17,6 +17,8 @@ class VirtualQFrame final : public QFrame {
     bool isVirtualQFrame = true;
 
     // Virtual class public types (including callbacks)
+    using QFrame_MetaObject_Callback = QMetaObject* (*)();
+    using QFrame_Metacast_Callback = void* (*)(QFrame*, const char*);
     using QFrame_Metacall_Callback = int (*)(QFrame*, int, int, void**);
     using QFrame_SizeHint_Callback = QSize* (*)();
     using QFrame_Event_Callback = bool (*)(QFrame*, QEvent*);
@@ -80,6 +82,8 @@ class VirtualQFrame final : public QFrame {
 
   protected:
     // Instance callback storage
+    QFrame_MetaObject_Callback qframe_metaobject_callback = nullptr;
+    QFrame_Metacast_Callback qframe_metacast_callback = nullptr;
     QFrame_Metacall_Callback qframe_metacall_callback = nullptr;
     QFrame_SizeHint_Callback qframe_sizehint_callback = nullptr;
     QFrame_Event_Callback qframe_event_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualQFrame final : public QFrame {
     QFrame_GetDecodedMetricF_Callback qframe_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qframe_metaobject_isbase = false;
+    mutable bool qframe_metacast_isbase = false;
     mutable bool qframe_metacall_isbase = false;
     mutable bool qframe_sizehint_isbase = false;
     mutable bool qframe_event_isbase = false;
@@ -209,6 +215,8 @@ class VirtualQFrame final : public QFrame {
     VirtualQFrame(QWidget* parent, Qt::WindowFlags f) : QFrame(parent, f) {};
 
     ~VirtualQFrame() {
+        qframe_metaobject_callback = nullptr;
+        qframe_metacast_callback = nullptr;
         qframe_metacall_callback = nullptr;
         qframe_sizehint_callback = nullptr;
         qframe_event_callback = nullptr;
@@ -272,6 +280,8 @@ class VirtualQFrame final : public QFrame {
     }
 
     // Callback setters
+    inline void setQFrame_MetaObject_Callback(QFrame_MetaObject_Callback cb) { qframe_metaobject_callback = cb; }
+    inline void setQFrame_Metacast_Callback(QFrame_Metacast_Callback cb) { qframe_metacast_callback = cb; }
     inline void setQFrame_Metacall_Callback(QFrame_Metacall_Callback cb) { qframe_metacall_callback = cb; }
     inline void setQFrame_SizeHint_Callback(QFrame_SizeHint_Callback cb) { qframe_sizehint_callback = cb; }
     inline void setQFrame_Event_Callback(QFrame_Event_Callback cb) { qframe_event_callback = cb; }
@@ -334,6 +344,8 @@ class VirtualQFrame final : public QFrame {
     inline void setQFrame_GetDecodedMetricF_Callback(QFrame_GetDecodedMetricF_Callback cb) { qframe_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQFrame_MetaObject_IsBase(bool value) const { qframe_metaobject_isbase = value; }
+    inline void setQFrame_Metacast_IsBase(bool value) const { qframe_metacast_isbase = value; }
     inline void setQFrame_Metacall_IsBase(bool value) const { qframe_metacall_isbase = value; }
     inline void setQFrame_SizeHint_IsBase(bool value) const { qframe_sizehint_isbase = value; }
     inline void setQFrame_Event_IsBase(bool value) const { qframe_event_isbase = value; }
@@ -394,6 +406,34 @@ class VirtualQFrame final : public QFrame {
     inline void setQFrame_Receivers_IsBase(bool value) const { qframe_receivers_isbase = value; }
     inline void setQFrame_IsSignalConnected_IsBase(bool value) const { qframe_issignalconnected_isbase = value; }
     inline void setQFrame_GetDecodedMetricF_IsBase(bool value) const { qframe_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qframe_metaobject_isbase) {
+            qframe_metaobject_isbase = false;
+            return QFrame::metaObject();
+        } else if (qframe_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qframe_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFrame::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qframe_metacast_isbase) {
+            qframe_metacast_isbase = false;
+            return QFrame::qt_metacast(param1);
+        } else if (qframe_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qframe_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFrame::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

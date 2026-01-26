@@ -33,11 +33,21 @@ KLinkItemSelectionModel* KLinkItemSelectionModel_new4(QObject* parent) {
 }
 
 QMetaObject* KLinkItemSelectionModel_MetaObject(const KLinkItemSelectionModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vklinkitemselectionmodel = dynamic_cast<const VirtualKLinkItemSelectionModel*>(self);
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKLinkItemSelectionModel*)self)->metaObject();
+    }
 }
 
 void* KLinkItemSelectionModel_Metacast(KLinkItemSelectionModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKLinkItemSelectionModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KLinkItemSelectionModel_Metacall(KLinkItemSelectionModel* self, int param1, int param2, void** param3) {
@@ -84,6 +94,44 @@ void KLinkItemSelectionModel_Connect_LinkedItemSelectionModelChanged(KLinkItemSe
     KLinkItemSelectionModel::connect(self, &KLinkItemSelectionModel::linkedItemSelectionModelChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KLinkItemSelectionModel_QBaseMetaObject(const KLinkItemSelectionModel* self) {
+    auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+        vklinkitemselectionmodel->setKLinkItemSelectionModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vklinkitemselectionmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KLinkItemSelectionModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLinkItemSelectionModel_OnMetaObject(const KLinkItemSelectionModel* self, intptr_t slot) {
+    auto* vklinkitemselectionmodel = const_cast<VirtualKLinkItemSelectionModel*>(dynamic_cast<const VirtualKLinkItemSelectionModel*>(self));
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+        vklinkitemselectionmodel->setKLinkItemSelectionModel_MetaObject_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KLinkItemSelectionModel_QBaseMetacast(KLinkItemSelectionModel* self, const char* param1) {
+    auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+        vklinkitemselectionmodel->setKLinkItemSelectionModel_Metacast_IsBase(true);
+        return vklinkitemselectionmodel->qt_metacast(param1);
+    } else {
+        return self->KLinkItemSelectionModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLinkItemSelectionModel_OnMetacast(KLinkItemSelectionModel* self, intptr_t slot) {
+    auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
+    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
+        vklinkitemselectionmodel->setKLinkItemSelectionModel_Metacast_Callback(reinterpret_cast<VirtualKLinkItemSelectionModel::KLinkItemSelectionModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -29,11 +29,21 @@ QOffscreenSurface* QOffscreenSurface_new3(QScreen* screen, QObject* parent) {
 }
 
 QMetaObject* QOffscreenSurface_MetaObject(const QOffscreenSurface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQOffscreenSurface*)self)->metaObject();
+    }
 }
 
 void* QOffscreenSurface_Metacast(QOffscreenSurface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQOffscreenSurface*)self)->qt_metacast(param1);
+    }
 }
 
 int QOffscreenSurface_Metacall(QOffscreenSurface* self, int param1, int param2, void** param3) {
@@ -110,6 +120,44 @@ void QOffscreenSurface_Connect_ScreenChanged(QOffscreenSurface* self, intptr_t s
         QScreen* sigval1 = screen;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QOffscreenSurface_QBaseMetaObject(const QOffscreenSurface* self) {
+    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqoffscreensurface->metaObject();
+    } else {
+        return (QMetaObject*)self->QOffscreenSurface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOffscreenSurface_OnMetaObject(const QOffscreenSurface* self, intptr_t slot) {
+    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_MetaObject_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QOffscreenSurface_QBaseMetacast(QOffscreenSurface* self, const char* param1) {
+    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_Metacast_IsBase(true);
+        return vqoffscreensurface->qt_metacast(param1);
+    } else {
+        return self->QOffscreenSurface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOffscreenSurface_OnMetacast(QOffscreenSurface* self, intptr_t slot) {
+    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
+    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+        vqoffscreensurface->setQOffscreenSurface_Metacast_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

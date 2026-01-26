@@ -17,6 +17,8 @@ class VirtualQOpenGLContext final : public QOpenGLContext {
     bool isVirtualQOpenGLContext = true;
 
     // Virtual class public types (including callbacks)
+    using QOpenGLContext_MetaObject_Callback = QMetaObject* (*)();
+    using QOpenGLContext_Metacast_Callback = void* (*)(QOpenGLContext*, const char*);
     using QOpenGLContext_Metacall_Callback = int (*)(QOpenGLContext*, int, int, void**);
     using QOpenGLContext_Event_Callback = bool (*)(QOpenGLContext*, QEvent*);
     using QOpenGLContext_EventFilter_Callback = bool (*)(QOpenGLContext*, QObject*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQOpenGLContext final : public QOpenGLContext {
 
   protected:
     // Instance callback storage
+    QOpenGLContext_MetaObject_Callback qopenglcontext_metaobject_callback = nullptr;
+    QOpenGLContext_Metacast_Callback qopenglcontext_metacast_callback = nullptr;
     QOpenGLContext_Metacall_Callback qopenglcontext_metacall_callback = nullptr;
     QOpenGLContext_Event_Callback qopenglcontext_event_callback = nullptr;
     QOpenGLContext_EventFilter_Callback qopenglcontext_eventfilter_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQOpenGLContext final : public QOpenGLContext {
     QOpenGLContext_IsSignalConnected_Callback qopenglcontext_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qopenglcontext_metaobject_isbase = false;
+    mutable bool qopenglcontext_metacast_isbase = false;
     mutable bool qopenglcontext_metacall_isbase = false;
     mutable bool qopenglcontext_event_isbase = false;
     mutable bool qopenglcontext_eventfilter_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQOpenGLContext final : public QOpenGLContext {
     VirtualQOpenGLContext(QObject* parent) : QOpenGLContext(parent) {};
 
     ~VirtualQOpenGLContext() {
+        qopenglcontext_metaobject_callback = nullptr;
+        qopenglcontext_metacast_callback = nullptr;
         qopenglcontext_metacall_callback = nullptr;
         qopenglcontext_event_callback = nullptr;
         qopenglcontext_eventfilter_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQOpenGLContext final : public QOpenGLContext {
     }
 
     // Callback setters
+    inline void setQOpenGLContext_MetaObject_Callback(QOpenGLContext_MetaObject_Callback cb) { qopenglcontext_metaobject_callback = cb; }
+    inline void setQOpenGLContext_Metacast_Callback(QOpenGLContext_Metacast_Callback cb) { qopenglcontext_metacast_callback = cb; }
     inline void setQOpenGLContext_Metacall_Callback(QOpenGLContext_Metacall_Callback cb) { qopenglcontext_metacall_callback = cb; }
     inline void setQOpenGLContext_Event_Callback(QOpenGLContext_Event_Callback cb) { qopenglcontext_event_callback = cb; }
     inline void setQOpenGLContext_EventFilter_Callback(QOpenGLContext_EventFilter_Callback cb) { qopenglcontext_eventfilter_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQOpenGLContext final : public QOpenGLContext {
     inline void setQOpenGLContext_IsSignalConnected_Callback(QOpenGLContext_IsSignalConnected_Callback cb) { qopenglcontext_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQOpenGLContext_MetaObject_IsBase(bool value) const { qopenglcontext_metaobject_isbase = value; }
+    inline void setQOpenGLContext_Metacast_IsBase(bool value) const { qopenglcontext_metacast_isbase = value; }
     inline void setQOpenGLContext_Metacall_IsBase(bool value) const { qopenglcontext_metacall_isbase = value; }
     inline void setQOpenGLContext_Event_IsBase(bool value) const { qopenglcontext_event_isbase = value; }
     inline void setQOpenGLContext_EventFilter_IsBase(bool value) const { qopenglcontext_eventfilter_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQOpenGLContext final : public QOpenGLContext {
     inline void setQOpenGLContext_SenderSignalIndex_IsBase(bool value) const { qopenglcontext_sendersignalindex_isbase = value; }
     inline void setQOpenGLContext_Receivers_IsBase(bool value) const { qopenglcontext_receivers_isbase = value; }
     inline void setQOpenGLContext_IsSignalConnected_IsBase(bool value) const { qopenglcontext_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qopenglcontext_metaobject_isbase) {
+            qopenglcontext_metaobject_isbase = false;
+            return QOpenGLContext::metaObject();
+        } else if (qopenglcontext_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qopenglcontext_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QOpenGLContext::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qopenglcontext_metacast_isbase) {
+            qopenglcontext_metacast_isbase = false;
+            return QOpenGLContext::qt_metacast(param1);
+        } else if (qopenglcontext_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qopenglcontext_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QOpenGLContext::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

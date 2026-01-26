@@ -17,6 +17,8 @@ class VirtualQInputDialog final : public QInputDialog {
     bool isVirtualQInputDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QInputDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QInputDialog_Metacast_Callback = void* (*)(QInputDialog*, const char*);
     using QInputDialog_Metacall_Callback = int (*)(QInputDialog*, int, int, void**);
     using QInputDialog_MinimumSizeHint_Callback = QSize* (*)();
     using QInputDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualQInputDialog final : public QInputDialog {
 
   protected:
     // Instance callback storage
+    QInputDialog_MetaObject_Callback qinputdialog_metaobject_callback = nullptr;
+    QInputDialog_Metacast_Callback qinputdialog_metacast_callback = nullptr;
     QInputDialog_Metacall_Callback qinputdialog_metacall_callback = nullptr;
     QInputDialog_MinimumSizeHint_Callback qinputdialog_minimumsizehint_callback = nullptr;
     QInputDialog_SizeHint_Callback qinputdialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQInputDialog final : public QInputDialog {
     QInputDialog_GetDecodedMetricF_Callback qinputdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qinputdialog_metaobject_isbase = false;
+    mutable bool qinputdialog_metacast_isbase = false;
     mutable bool qinputdialog_metacall_isbase = false;
     mutable bool qinputdialog_minimumsizehint_isbase = false;
     mutable bool qinputdialog_sizehint_isbase = false;
@@ -221,6 +227,8 @@ class VirtualQInputDialog final : public QInputDialog {
     VirtualQInputDialog(QWidget* parent, Qt::WindowFlags flags) : QInputDialog(parent, flags) {};
 
     ~VirtualQInputDialog() {
+        qinputdialog_metaobject_callback = nullptr;
+        qinputdialog_metacast_callback = nullptr;
         qinputdialog_metacall_callback = nullptr;
         qinputdialog_minimumsizehint_callback = nullptr;
         qinputdialog_sizehint_callback = nullptr;
@@ -288,6 +296,8 @@ class VirtualQInputDialog final : public QInputDialog {
     }
 
     // Callback setters
+    inline void setQInputDialog_MetaObject_Callback(QInputDialog_MetaObject_Callback cb) { qinputdialog_metaobject_callback = cb; }
+    inline void setQInputDialog_Metacast_Callback(QInputDialog_Metacast_Callback cb) { qinputdialog_metacast_callback = cb; }
     inline void setQInputDialog_Metacall_Callback(QInputDialog_Metacall_Callback cb) { qinputdialog_metacall_callback = cb; }
     inline void setQInputDialog_MinimumSizeHint_Callback(QInputDialog_MinimumSizeHint_Callback cb) { qinputdialog_minimumsizehint_callback = cb; }
     inline void setQInputDialog_SizeHint_Callback(QInputDialog_SizeHint_Callback cb) { qinputdialog_sizehint_callback = cb; }
@@ -354,6 +364,8 @@ class VirtualQInputDialog final : public QInputDialog {
     inline void setQInputDialog_GetDecodedMetricF_Callback(QInputDialog_GetDecodedMetricF_Callback cb) { qinputdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQInputDialog_MetaObject_IsBase(bool value) const { qinputdialog_metaobject_isbase = value; }
+    inline void setQInputDialog_Metacast_IsBase(bool value) const { qinputdialog_metacast_isbase = value; }
     inline void setQInputDialog_Metacall_IsBase(bool value) const { qinputdialog_metacall_isbase = value; }
     inline void setQInputDialog_MinimumSizeHint_IsBase(bool value) const { qinputdialog_minimumsizehint_isbase = value; }
     inline void setQInputDialog_SizeHint_IsBase(bool value) const { qinputdialog_sizehint_isbase = value; }
@@ -418,6 +430,34 @@ class VirtualQInputDialog final : public QInputDialog {
     inline void setQInputDialog_Receivers_IsBase(bool value) const { qinputdialog_receivers_isbase = value; }
     inline void setQInputDialog_IsSignalConnected_IsBase(bool value) const { qinputdialog_issignalconnected_isbase = value; }
     inline void setQInputDialog_GetDecodedMetricF_IsBase(bool value) const { qinputdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qinputdialog_metaobject_isbase) {
+            qinputdialog_metaobject_isbase = false;
+            return QInputDialog::metaObject();
+        } else if (qinputdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qinputdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QInputDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qinputdialog_metacast_isbase) {
+            qinputdialog_metacast_isbase = false;
+            return QInputDialog::qt_metacast(param1);
+        } else if (qinputdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qinputdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QInputDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

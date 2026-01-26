@@ -17,6 +17,8 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     bool isVirtualQWebEngineUrlSchemeHandler = true;
 
     // Virtual class public types (including callbacks)
+    using QWebEngineUrlSchemeHandler_MetaObject_Callback = QMetaObject* (*)();
+    using QWebEngineUrlSchemeHandler_Metacast_Callback = void* (*)(QWebEngineUrlSchemeHandler*, const char*);
     using QWebEngineUrlSchemeHandler_Metacall_Callback = int (*)(QWebEngineUrlSchemeHandler*, int, int, void**);
     using QWebEngineUrlSchemeHandler_RequestStarted_Callback = void (*)(QWebEngineUrlSchemeHandler*, QWebEngineUrlRequestJob*);
     using QWebEngineUrlSchemeHandler_Event_Callback = bool (*)(QWebEngineUrlSchemeHandler*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
 
   protected:
     // Instance callback storage
+    QWebEngineUrlSchemeHandler_MetaObject_Callback qwebengineurlschemehandler_metaobject_callback = nullptr;
+    QWebEngineUrlSchemeHandler_Metacast_Callback qwebengineurlschemehandler_metacast_callback = nullptr;
     QWebEngineUrlSchemeHandler_Metacall_Callback qwebengineurlschemehandler_metacall_callback = nullptr;
     QWebEngineUrlSchemeHandler_RequestStarted_Callback qwebengineurlschemehandler_requeststarted_callback = nullptr;
     QWebEngineUrlSchemeHandler_Event_Callback qwebengineurlschemehandler_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     QWebEngineUrlSchemeHandler_IsSignalConnected_Callback qwebengineurlschemehandler_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwebengineurlschemehandler_metaobject_isbase = false;
+    mutable bool qwebengineurlschemehandler_metacast_isbase = false;
     mutable bool qwebengineurlschemehandler_metacall_isbase = false;
     mutable bool qwebengineurlschemehandler_requeststarted_isbase = false;
     mutable bool qwebengineurlschemehandler_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     VirtualQWebEngineUrlSchemeHandler(QObject* parent) : QWebEngineUrlSchemeHandler(parent) {};
 
     ~VirtualQWebEngineUrlSchemeHandler() {
+        qwebengineurlschemehandler_metaobject_callback = nullptr;
+        qwebengineurlschemehandler_metacast_callback = nullptr;
         qwebengineurlschemehandler_metacall_callback = nullptr;
         qwebengineurlschemehandler_requeststarted_callback = nullptr;
         qwebengineurlschemehandler_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     }
 
     // Callback setters
+    inline void setQWebEngineUrlSchemeHandler_MetaObject_Callback(QWebEngineUrlSchemeHandler_MetaObject_Callback cb) { qwebengineurlschemehandler_metaobject_callback = cb; }
+    inline void setQWebEngineUrlSchemeHandler_Metacast_Callback(QWebEngineUrlSchemeHandler_Metacast_Callback cb) { qwebengineurlschemehandler_metacast_callback = cb; }
     inline void setQWebEngineUrlSchemeHandler_Metacall_Callback(QWebEngineUrlSchemeHandler_Metacall_Callback cb) { qwebengineurlschemehandler_metacall_callback = cb; }
     inline void setQWebEngineUrlSchemeHandler_RequestStarted_Callback(QWebEngineUrlSchemeHandler_RequestStarted_Callback cb) { qwebengineurlschemehandler_requeststarted_callback = cb; }
     inline void setQWebEngineUrlSchemeHandler_Event_Callback(QWebEngineUrlSchemeHandler_Event_Callback cb) { qwebengineurlschemehandler_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     inline void setQWebEngineUrlSchemeHandler_IsSignalConnected_Callback(QWebEngineUrlSchemeHandler_IsSignalConnected_Callback cb) { qwebengineurlschemehandler_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQWebEngineUrlSchemeHandler_MetaObject_IsBase(bool value) const { qwebengineurlschemehandler_metaobject_isbase = value; }
+    inline void setQWebEngineUrlSchemeHandler_Metacast_IsBase(bool value) const { qwebengineurlschemehandler_metacast_isbase = value; }
     inline void setQWebEngineUrlSchemeHandler_Metacall_IsBase(bool value) const { qwebengineurlschemehandler_metacall_isbase = value; }
     inline void setQWebEngineUrlSchemeHandler_RequestStarted_IsBase(bool value) const { qwebengineurlschemehandler_requeststarted_isbase = value; }
     inline void setQWebEngineUrlSchemeHandler_Event_IsBase(bool value) const { qwebengineurlschemehandler_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
     inline void setQWebEngineUrlSchemeHandler_SenderSignalIndex_IsBase(bool value) const { qwebengineurlschemehandler_sendersignalindex_isbase = value; }
     inline void setQWebEngineUrlSchemeHandler_Receivers_IsBase(bool value) const { qwebengineurlschemehandler_receivers_isbase = value; }
     inline void setQWebEngineUrlSchemeHandler_IsSignalConnected_IsBase(bool value) const { qwebengineurlschemehandler_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwebengineurlschemehandler_metaobject_isbase) {
+            qwebengineurlschemehandler_metaobject_isbase = false;
+            return QWebEngineUrlSchemeHandler::metaObject();
+        } else if (qwebengineurlschemehandler_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwebengineurlschemehandler_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWebEngineUrlSchemeHandler::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwebengineurlschemehandler_metacast_isbase) {
+            qwebengineurlschemehandler_metacast_isbase = false;
+            return QWebEngineUrlSchemeHandler::qt_metacast(param1);
+        } else if (qwebengineurlschemehandler_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwebengineurlschemehandler_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWebEngineUrlSchemeHandler::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

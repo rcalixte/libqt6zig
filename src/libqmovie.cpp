@@ -60,11 +60,21 @@ QMovie* QMovie_new8(const libqt_string fileName, const libqt_string format, QObj
 }
 
 QMetaObject* QMovie_MetaObject(const QMovie* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmovie = dynamic_cast<const VirtualQMovie*>(self);
+    if (vqmovie && vqmovie->isVirtualQMovie) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMovie*)self)->metaObject();
+    }
 }
 
 void* QMovie_Metacast(QMovie* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
+    if (vqmovie && vqmovie->isVirtualQMovie) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMovie*)self)->qt_metacast(param1);
+    }
 }
 
 int QMovie_Metacall(QMovie* self, int param1, int param2, void** param3) {
@@ -323,6 +333,44 @@ void QMovie_Stop(QMovie* self) {
 
 void QMovie_SetSpeed(QMovie* self, int percentSpeed) {
     self->setSpeed(static_cast<int>(percentSpeed));
+}
+
+// Base class handler implementation
+QMetaObject* QMovie_QBaseMetaObject(const QMovie* self) {
+    auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
+    if (vqmovie && vqmovie->isVirtualQMovie) {
+        vqmovie->setQMovie_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmovie->metaObject();
+    } else {
+        return (QMetaObject*)self->QMovie::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMovie_OnMetaObject(const QMovie* self, intptr_t slot) {
+    auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
+    if (vqmovie && vqmovie->isVirtualQMovie) {
+        vqmovie->setQMovie_MetaObject_Callback(reinterpret_cast<VirtualQMovie::QMovie_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMovie_QBaseMetacast(QMovie* self, const char* param1) {
+    auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
+    if (vqmovie && vqmovie->isVirtualQMovie) {
+        vqmovie->setQMovie_Metacast_IsBase(true);
+        return vqmovie->qt_metacast(param1);
+    } else {
+        return self->QMovie::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMovie_OnMetacast(QMovie* self, intptr_t slot) {
+    auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
+    if (vqmovie && vqmovie->isVirtualQMovie) {
+        vqmovie->setQMovie_Metacast_Callback(reinterpret_cast<VirtualQMovie::QMovie_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

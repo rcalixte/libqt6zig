@@ -72,11 +72,21 @@ KUrlLabel* KUrlLabel_new5(const libqt_string url, const libqt_string text, QWidg
 }
 
 QMetaObject* KUrlLabel_MetaObject(const KUrlLabel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkurllabel = dynamic_cast<const VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKUrlLabel*)self)->metaObject();
+    }
 }
 
 void* KUrlLabel_Metacast(KUrlLabel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKUrlLabel*)self)->qt_metacast(param1);
+    }
 }
 
 int KUrlLabel_Metacall(KUrlLabel* self, int param1, int param2, void** param3) {
@@ -295,6 +305,44 @@ void KUrlLabel_SetGlowEnabled1(KUrlLabel* self, bool glow) {
 
 void KUrlLabel_SetFloatEnabled1(KUrlLabel* self, bool do_float) {
     self->setFloatEnabled(do_float);
+}
+
+// Base class handler implementation
+QMetaObject* KUrlLabel_QBaseMetaObject(const KUrlLabel* self) {
+    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkurllabel->metaObject();
+    } else {
+        return (QMetaObject*)self->KUrlLabel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlLabel_OnMetaObject(const KUrlLabel* self, intptr_t slot) {
+    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_MetaObject_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KUrlLabel_QBaseMetacast(KUrlLabel* self, const char* param1) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_Metacast_IsBase(true);
+        return vkurllabel->qt_metacast(param1);
+    } else {
+        return self->KUrlLabel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlLabel_OnMetacast(KUrlLabel* self, intptr_t slot) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+        vkurllabel->setKUrlLabel_Metacast_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

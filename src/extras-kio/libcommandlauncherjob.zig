@@ -275,31 +275,6 @@ pub const kio__commandlauncherjob = struct {
 
     /// Inherited from KJob
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KIO__CommandLauncherJob `
-    ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KJob_MetaObject(@ptrCast(self));
-    }
-
-    /// Inherited from KJob
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KIO__CommandLauncherJob `
-    ///
-    /// ` param1: [:0]const u8 `
-    ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
-        const param1_Cstring = param1.ptr;
-        return qtc.KJob_Metacast(@ptrCast(self), param1_Cstring);
-    }
-
-    /// Inherited from KJob
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -1394,6 +1369,100 @@ pub const kio__commandlauncherjob = struct {
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from KJob
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#metaObject)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__CommandLauncherJob `
+    ///
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KIO__CommandLauncherJob_MetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from KJob
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#metaObject)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__CommandLauncherJob `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KIO__CommandLauncherJob_QBaseMetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from KJob
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#metaObject)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__CommandLauncherJob`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.KIO__CommandLauncherJob_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from KJob
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__CommandLauncherJob `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.KIO__CommandLauncherJob_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from KJob
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KIO__CommandLauncherJob `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.KIO__CommandLauncherJob_QBaseMetacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from KJob
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kjob.html#qt_metacast)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KIO__CommandLauncherJob`
+    ///
+    /// ` callback: *const fn (self: QtC.KIO__CommandLauncherJob, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KIO__CommandLauncherJob_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob

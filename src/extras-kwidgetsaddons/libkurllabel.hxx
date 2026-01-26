@@ -17,6 +17,8 @@ class VirtualKUrlLabel final : public KUrlLabel {
     bool isVirtualKUrlLabel = true;
 
     // Virtual class public types (including callbacks)
+    using KUrlLabel_MetaObject_Callback = QMetaObject* (*)();
+    using KUrlLabel_Metacast_Callback = void* (*)(KUrlLabel*, const char*);
     using KUrlLabel_Metacall_Callback = int (*)(KUrlLabel*, int, int, void**);
     using KUrlLabel_SetFont_Callback = void (*)(KUrlLabel*, QFont*);
     using KUrlLabel_MouseReleaseEvent_Callback = void (*)(KUrlLabel*, QMouseEvent*);
@@ -81,6 +83,8 @@ class VirtualKUrlLabel final : public KUrlLabel {
 
   protected:
     // Instance callback storage
+    KUrlLabel_MetaObject_Callback kurllabel_metaobject_callback = nullptr;
+    KUrlLabel_Metacast_Callback kurllabel_metacast_callback = nullptr;
     KUrlLabel_Metacall_Callback kurllabel_metacall_callback = nullptr;
     KUrlLabel_SetFont_Callback kurllabel_setfont_callback = nullptr;
     KUrlLabel_MouseReleaseEvent_Callback kurllabel_mousereleaseevent_callback = nullptr;
@@ -144,6 +148,8 @@ class VirtualKUrlLabel final : public KUrlLabel {
     KUrlLabel_GetDecodedMetricF_Callback kurllabel_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kurllabel_metaobject_isbase = false;
+    mutable bool kurllabel_metacast_isbase = false;
     mutable bool kurllabel_metacall_isbase = false;
     mutable bool kurllabel_setfont_isbase = false;
     mutable bool kurllabel_mousereleaseevent_isbase = false;
@@ -214,6 +220,8 @@ class VirtualKUrlLabel final : public KUrlLabel {
     VirtualKUrlLabel(const QString& url, const QString& text, QWidget* parent) : KUrlLabel(url, text, parent) {};
 
     ~VirtualKUrlLabel() {
+        kurllabel_metaobject_callback = nullptr;
+        kurllabel_metacast_callback = nullptr;
         kurllabel_metacall_callback = nullptr;
         kurllabel_setfont_callback = nullptr;
         kurllabel_mousereleaseevent_callback = nullptr;
@@ -278,6 +286,8 @@ class VirtualKUrlLabel final : public KUrlLabel {
     }
 
     // Callback setters
+    inline void setKUrlLabel_MetaObject_Callback(KUrlLabel_MetaObject_Callback cb) { kurllabel_metaobject_callback = cb; }
+    inline void setKUrlLabel_Metacast_Callback(KUrlLabel_Metacast_Callback cb) { kurllabel_metacast_callback = cb; }
     inline void setKUrlLabel_Metacall_Callback(KUrlLabel_Metacall_Callback cb) { kurllabel_metacall_callback = cb; }
     inline void setKUrlLabel_SetFont_Callback(KUrlLabel_SetFont_Callback cb) { kurllabel_setfont_callback = cb; }
     inline void setKUrlLabel_MouseReleaseEvent_Callback(KUrlLabel_MouseReleaseEvent_Callback cb) { kurllabel_mousereleaseevent_callback = cb; }
@@ -341,6 +351,8 @@ class VirtualKUrlLabel final : public KUrlLabel {
     inline void setKUrlLabel_GetDecodedMetricF_Callback(KUrlLabel_GetDecodedMetricF_Callback cb) { kurllabel_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKUrlLabel_MetaObject_IsBase(bool value) const { kurllabel_metaobject_isbase = value; }
+    inline void setKUrlLabel_Metacast_IsBase(bool value) const { kurllabel_metacast_isbase = value; }
     inline void setKUrlLabel_Metacall_IsBase(bool value) const { kurllabel_metacall_isbase = value; }
     inline void setKUrlLabel_SetFont_IsBase(bool value) const { kurllabel_setfont_isbase = value; }
     inline void setKUrlLabel_MouseReleaseEvent_IsBase(bool value) const { kurllabel_mousereleaseevent_isbase = value; }
@@ -402,6 +414,34 @@ class VirtualKUrlLabel final : public KUrlLabel {
     inline void setKUrlLabel_Receivers_IsBase(bool value) const { kurllabel_receivers_isbase = value; }
     inline void setKUrlLabel_IsSignalConnected_IsBase(bool value) const { kurllabel_issignalconnected_isbase = value; }
     inline void setKUrlLabel_GetDecodedMetricF_IsBase(bool value) const { kurllabel_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kurllabel_metaobject_isbase) {
+            kurllabel_metaobject_isbase = false;
+            return KUrlLabel::metaObject();
+        } else if (kurllabel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kurllabel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KUrlLabel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kurllabel_metacast_isbase) {
+            kurllabel_metacast_isbase = false;
+            return KUrlLabel::qt_metacast(param1);
+        } else if (kurllabel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kurllabel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KUrlLabel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

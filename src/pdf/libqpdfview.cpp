@@ -55,11 +55,21 @@ QPdfView* QPdfView_new2() {
 }
 
 QMetaObject* QPdfView_MetaObject(const QPdfView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpdfview = dynamic_cast<const VirtualQPdfView*>(self);
+    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPdfView*)self)->metaObject();
+    }
 }
 
 void* QPdfView_Metacast(QPdfView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
+    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPdfView*)self)->qt_metacast(param1);
+    }
 }
 
 int QPdfView_Metacall(QPdfView* self, int param1, int param2, void** param3) {
@@ -274,6 +284,44 @@ void QPdfView_MouseReleaseEvent(QPdfView* self, QMouseEvent* event) {
     auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
     if (vqpdfview && vqpdfview->isVirtualQPdfView) {
         vqpdfview->mouseReleaseEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QPdfView_QBaseMetaObject(const QPdfView* self) {
+    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
+    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+        vqpdfview->setQPdfView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpdfview->metaObject();
+    } else {
+        return (QMetaObject*)self->QPdfView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfView_OnMetaObject(const QPdfView* self, intptr_t slot) {
+    auto* vqpdfview = const_cast<VirtualQPdfView*>(dynamic_cast<const VirtualQPdfView*>(self));
+    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+        vqpdfview->setQPdfView_MetaObject_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPdfView_QBaseMetacast(QPdfView* self, const char* param1) {
+    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
+    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+        vqpdfview->setQPdfView_Metacast_IsBase(true);
+        return vqpdfview->qt_metacast(param1);
+    } else {
+        return self->QPdfView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfView_OnMetacast(QPdfView* self, intptr_t slot) {
+    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
+    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
+        vqpdfview->setQPdfView_Metacast_Callback(reinterpret_cast<VirtualQPdfView::QPdfView_Metacast_Callback>(slot));
     }
 }
 

@@ -17,6 +17,8 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
     bool isVirtualKFontSizeAction = true;
 
     // Virtual class public types (including callbacks)
+    using KFontSizeAction_MetaObject_Callback = QMetaObject* (*)();
+    using KFontSizeAction_Metacast_Callback = void* (*)(KFontSizeAction*, const char*);
     using KFontSizeAction_Metacall_Callback = int (*)(KFontSizeAction*, int, int, void**);
     using KFontSizeAction_SlotActionTriggered_Callback = void (*)(KFontSizeAction*, QAction*);
     using KFontSizeAction_RemoveAction_Callback = QAction* (*)(KFontSizeAction*, QAction*);
@@ -39,6 +41,8 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
 
   protected:
     // Instance callback storage
+    KFontSizeAction_MetaObject_Callback kfontsizeaction_metaobject_callback = nullptr;
+    KFontSizeAction_Metacast_Callback kfontsizeaction_metacast_callback = nullptr;
     KFontSizeAction_Metacall_Callback kfontsizeaction_metacall_callback = nullptr;
     KFontSizeAction_SlotActionTriggered_Callback kfontsizeaction_slotactiontriggered_callback = nullptr;
     KFontSizeAction_RemoveAction_Callback kfontsizeaction_removeaction_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
     KFontSizeAction_IsSignalConnected_Callback kfontsizeaction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfontsizeaction_metaobject_isbase = false;
+    mutable bool kfontsizeaction_metacast_isbase = false;
     mutable bool kfontsizeaction_metacall_isbase = false;
     mutable bool kfontsizeaction_slotactiontriggered_isbase = false;
     mutable bool kfontsizeaction_removeaction_isbase = false;
@@ -86,6 +92,8 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
     VirtualKFontSizeAction(const QIcon& icon, const QString& text, QObject* parent) : KFontSizeAction(icon, text, parent) {};
 
     ~VirtualKFontSizeAction() {
+        kfontsizeaction_metaobject_callback = nullptr;
+        kfontsizeaction_metacast_callback = nullptr;
         kfontsizeaction_metacall_callback = nullptr;
         kfontsizeaction_slotactiontriggered_callback = nullptr;
         kfontsizeaction_removeaction_callback = nullptr;
@@ -108,6 +116,8 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
     }
 
     // Callback setters
+    inline void setKFontSizeAction_MetaObject_Callback(KFontSizeAction_MetaObject_Callback cb) { kfontsizeaction_metaobject_callback = cb; }
+    inline void setKFontSizeAction_Metacast_Callback(KFontSizeAction_Metacast_Callback cb) { kfontsizeaction_metacast_callback = cb; }
     inline void setKFontSizeAction_Metacall_Callback(KFontSizeAction_Metacall_Callback cb) { kfontsizeaction_metacall_callback = cb; }
     inline void setKFontSizeAction_SlotActionTriggered_Callback(KFontSizeAction_SlotActionTriggered_Callback cb) { kfontsizeaction_slotactiontriggered_callback = cb; }
     inline void setKFontSizeAction_RemoveAction_Callback(KFontSizeAction_RemoveAction_Callback cb) { kfontsizeaction_removeaction_callback = cb; }
@@ -129,6 +139,8 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
     inline void setKFontSizeAction_IsSignalConnected_Callback(KFontSizeAction_IsSignalConnected_Callback cb) { kfontsizeaction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKFontSizeAction_MetaObject_IsBase(bool value) const { kfontsizeaction_metaobject_isbase = value; }
+    inline void setKFontSizeAction_Metacast_IsBase(bool value) const { kfontsizeaction_metacast_isbase = value; }
     inline void setKFontSizeAction_Metacall_IsBase(bool value) const { kfontsizeaction_metacall_isbase = value; }
     inline void setKFontSizeAction_SlotActionTriggered_IsBase(bool value) const { kfontsizeaction_slotactiontriggered_isbase = value; }
     inline void setKFontSizeAction_RemoveAction_IsBase(bool value) const { kfontsizeaction_removeaction_isbase = value; }
@@ -148,6 +160,34 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
     inline void setKFontSizeAction_SenderSignalIndex_IsBase(bool value) const { kfontsizeaction_sendersignalindex_isbase = value; }
     inline void setKFontSizeAction_Receivers_IsBase(bool value) const { kfontsizeaction_receivers_isbase = value; }
     inline void setKFontSizeAction_IsSignalConnected_IsBase(bool value) const { kfontsizeaction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfontsizeaction_metaobject_isbase) {
+            kfontsizeaction_metaobject_isbase = false;
+            return KFontSizeAction::metaObject();
+        } else if (kfontsizeaction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfontsizeaction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFontSizeAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfontsizeaction_metacast_isbase) {
+            kfontsizeaction_metacast_isbase = false;
+            return KFontSizeAction::qt_metacast(param1);
+        } else if (kfontsizeaction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfontsizeaction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFontSizeAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

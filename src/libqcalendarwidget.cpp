@@ -53,11 +53,21 @@ QCalendarWidget* QCalendarWidget_new2() {
 }
 
 QMetaObject* QCalendarWidget_MetaObject(const QCalendarWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcalendarwidget = dynamic_cast<const VirtualQCalendarWidget*>(self);
+    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCalendarWidget*)self)->metaObject();
+    }
 }
 
 void* QCalendarWidget_Metacast(QCalendarWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
+    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCalendarWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QCalendarWidget_Metacall(QCalendarWidget* self, int param1, int param2, void** param3) {
@@ -363,6 +373,44 @@ void QCalendarWidget_Connect_CurrentPageChanged(QCalendarWidget* self, intptr_t 
         int sigval2 = month;
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QCalendarWidget_QBaseMetaObject(const QCalendarWidget* self) {
+    auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
+    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
+        vqcalendarwidget->setQCalendarWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcalendarwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QCalendarWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCalendarWidget_OnMetaObject(const QCalendarWidget* self, intptr_t slot) {
+    auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
+    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
+        vqcalendarwidget->setQCalendarWidget_MetaObject_Callback(reinterpret_cast<VirtualQCalendarWidget::QCalendarWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCalendarWidget_QBaseMetacast(QCalendarWidget* self, const char* param1) {
+    auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
+    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
+        vqcalendarwidget->setQCalendarWidget_Metacast_IsBase(true);
+        return vqcalendarwidget->qt_metacast(param1);
+    } else {
+        return self->QCalendarWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCalendarWidget_OnMetacast(QCalendarWidget* self, intptr_t slot) {
+    auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
+    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
+        vqcalendarwidget->setQCalendarWidget_Metacast_Callback(reinterpret_cast<VirtualQCalendarWidget::QCalendarWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

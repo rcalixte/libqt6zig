@@ -25,11 +25,21 @@ QsciLexerDiff* QsciLexerDiff_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerDiff_MetaObject(const QsciLexerDiff* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerdiff = dynamic_cast<const VirtualQsciLexerDiff*>(self);
+    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerDiff*)self)->metaObject();
+    }
 }
 
 void* QsciLexerDiff_Metacast(QsciLexerDiff* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
+    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerDiff*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerDiff_Metacall(QsciLexerDiff* self, int param1, int param2, void** param3) {
@@ -67,6 +77,44 @@ libqt_string QsciLexerDiff_Description(const QsciLexerDiff* self, int style) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerDiff_QBaseMetaObject(const QsciLexerDiff* self) {
+    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
+    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+        vqscilexerdiff->setQsciLexerDiff_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerdiff->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerDiff*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerDiff_OnMetaObject(const QsciLexerDiff* self, intptr_t slot) {
+    auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
+    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+        vqscilexerdiff->setQsciLexerDiff_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerDiff_QBaseMetacast(QsciLexerDiff* self, const char* param1) {
+    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
+    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+        vqscilexerdiff->setQsciLexerDiff_Metacast_IsBase(true);
+        return vqscilexerdiff->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerDiff*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerDiff_OnMetacast(QsciLexerDiff* self, intptr_t slot) {
+    auto* vqscilexerdiff = dynamic_cast<VirtualQsciLexerDiff*>(self);
+    if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
+        vqscilexerdiff->setQsciLexerDiff_Metacast_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

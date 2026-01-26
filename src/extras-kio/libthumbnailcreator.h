@@ -64,6 +64,10 @@ QMetaObject* KIO__ThumbnailCreator_MetaObject(const KIO__ThumbnailCreator* self)
 void* KIO__ThumbnailCreator_Metacast(KIO__ThumbnailCreator* self, const char* param1);
 int KIO__ThumbnailCreator_Metacall(KIO__ThumbnailCreator* self, int param1, int param2, void** param3);
 KIO__ThumbnailResult* KIO__ThumbnailCreator_Create(KIO__ThumbnailCreator* self, const KIO__ThumbnailRequest* request);
+void KIO__ThumbnailCreator_OnMetaObject(const KIO__ThumbnailCreator* self, intptr_t slot);
+QMetaObject* KIO__ThumbnailCreator_QBaseMetaObject(const KIO__ThumbnailCreator* self);
+void KIO__ThumbnailCreator_OnMetacast(KIO__ThumbnailCreator* self, intptr_t slot);
+void* KIO__ThumbnailCreator_QBaseMetacast(KIO__ThumbnailCreator* self, const char* param1);
 void KIO__ThumbnailCreator_OnMetacall(KIO__ThumbnailCreator* self, intptr_t slot);
 int KIO__ThumbnailCreator_QBaseMetacall(KIO__ThumbnailCreator* self, int param1, int param2, void** param3);
 void KIO__ThumbnailCreator_OnCreate(KIO__ThumbnailCreator* self, intptr_t slot);

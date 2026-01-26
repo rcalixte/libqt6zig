@@ -79,6 +79,10 @@ void KPageDialog_CurrentPageChanged(KPageDialog* self, KPageWidgetItem* current,
 void KPageDialog_Connect_CurrentPageChanged(KPageDialog* self, intptr_t slot);
 void KPageDialog_PageRemoved(KPageDialog* self, KPageWidgetItem* page);
 void KPageDialog_Connect_PageRemoved(KPageDialog* self, intptr_t slot);
+void KPageDialog_OnMetaObject(const KPageDialog* self, intptr_t slot);
+QMetaObject* KPageDialog_QBaseMetaObject(const KPageDialog* self);
+void KPageDialog_OnMetacast(KPageDialog* self, intptr_t slot);
+void* KPageDialog_QBaseMetacast(KPageDialog* self, const char* param1);
 void KPageDialog_OnMetacall(KPageDialog* self, intptr_t slot);
 int KPageDialog_QBaseMetacall(KPageDialog* self, int param1, int param2, void** param3);
 void KPageDialog_SetVisible(KPageDialog* self, bool visible);

@@ -17,6 +17,8 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
     bool isVirtualQSystemTrayIcon = true;
 
     // Virtual class public types (including callbacks)
+    using QSystemTrayIcon_MetaObject_Callback = QMetaObject* (*)();
+    using QSystemTrayIcon_Metacast_Callback = void* (*)(QSystemTrayIcon*, const char*);
     using QSystemTrayIcon_Metacall_Callback = int (*)(QSystemTrayIcon*, int, int, void**);
     using QSystemTrayIcon_Event_Callback = bool (*)(QSystemTrayIcon*, QEvent*);
     using QSystemTrayIcon_EventFilter_Callback = bool (*)(QSystemTrayIcon*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
 
   protected:
     // Instance callback storage
+    QSystemTrayIcon_MetaObject_Callback qsystemtrayicon_metaobject_callback = nullptr;
+    QSystemTrayIcon_Metacast_Callback qsystemtrayicon_metacast_callback = nullptr;
     QSystemTrayIcon_Metacall_Callback qsystemtrayicon_metacall_callback = nullptr;
     QSystemTrayIcon_Event_Callback qsystemtrayicon_event_callback = nullptr;
     QSystemTrayIcon_EventFilter_Callback qsystemtrayicon_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
     QSystemTrayIcon_IsSignalConnected_Callback qsystemtrayicon_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsystemtrayicon_metaobject_isbase = false;
+    mutable bool qsystemtrayicon_metacast_isbase = false;
     mutable bool qsystemtrayicon_metacall_isbase = false;
     mutable bool qsystemtrayicon_event_isbase = false;
     mutable bool qsystemtrayicon_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
     VirtualQSystemTrayIcon(const QIcon& icon, QObject* parent) : QSystemTrayIcon(icon, parent) {};
 
     ~VirtualQSystemTrayIcon() {
+        qsystemtrayicon_metaobject_callback = nullptr;
+        qsystemtrayicon_metacast_callback = nullptr;
         qsystemtrayicon_metacall_callback = nullptr;
         qsystemtrayicon_event_callback = nullptr;
         qsystemtrayicon_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
     }
 
     // Callback setters
+    inline void setQSystemTrayIcon_MetaObject_Callback(QSystemTrayIcon_MetaObject_Callback cb) { qsystemtrayicon_metaobject_callback = cb; }
+    inline void setQSystemTrayIcon_Metacast_Callback(QSystemTrayIcon_Metacast_Callback cb) { qsystemtrayicon_metacast_callback = cb; }
     inline void setQSystemTrayIcon_Metacall_Callback(QSystemTrayIcon_Metacall_Callback cb) { qsystemtrayicon_metacall_callback = cb; }
     inline void setQSystemTrayIcon_Event_Callback(QSystemTrayIcon_Event_Callback cb) { qsystemtrayicon_event_callback = cb; }
     inline void setQSystemTrayIcon_EventFilter_Callback(QSystemTrayIcon_EventFilter_Callback cb) { qsystemtrayicon_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
     inline void setQSystemTrayIcon_IsSignalConnected_Callback(QSystemTrayIcon_IsSignalConnected_Callback cb) { qsystemtrayicon_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSystemTrayIcon_MetaObject_IsBase(bool value) const { qsystemtrayicon_metaobject_isbase = value; }
+    inline void setQSystemTrayIcon_Metacast_IsBase(bool value) const { qsystemtrayicon_metacast_isbase = value; }
     inline void setQSystemTrayIcon_Metacall_IsBase(bool value) const { qsystemtrayicon_metacall_isbase = value; }
     inline void setQSystemTrayIcon_Event_IsBase(bool value) const { qsystemtrayicon_event_isbase = value; }
     inline void setQSystemTrayIcon_EventFilter_IsBase(bool value) const { qsystemtrayicon_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
     inline void setQSystemTrayIcon_SenderSignalIndex_IsBase(bool value) const { qsystemtrayicon_sendersignalindex_isbase = value; }
     inline void setQSystemTrayIcon_Receivers_IsBase(bool value) const { qsystemtrayicon_receivers_isbase = value; }
     inline void setQSystemTrayIcon_IsSignalConnected_IsBase(bool value) const { qsystemtrayicon_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsystemtrayicon_metaobject_isbase) {
+            qsystemtrayicon_metaobject_isbase = false;
+            return QSystemTrayIcon::metaObject();
+        } else if (qsystemtrayicon_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsystemtrayicon_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSystemTrayIcon::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsystemtrayicon_metacast_isbase) {
+            qsystemtrayicon_metacast_isbase = false;
+            return QSystemTrayIcon::qt_metacast(param1);
+        } else if (qsystemtrayicon_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsystemtrayicon_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSystemTrayIcon::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

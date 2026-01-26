@@ -54,11 +54,21 @@ KFontChooserDialog* KFontChooserDialog_new3(const int* flags, QWidget* parent) {
 }
 
 QMetaObject* KFontChooserDialog_MetaObject(const KFontChooserDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfontchooserdialog = dynamic_cast<const VirtualKFontChooserDialog*>(self);
+    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFontChooserDialog*)self)->metaObject();
+    }
 }
 
 void* KFontChooserDialog_Metacast(KFontChooserDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
+    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFontChooserDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KFontChooserDialog_Metacall(KFontChooserDialog* self, int param1, int param2, void** param3) {
@@ -118,6 +128,44 @@ int KFontChooserDialog_GetFontDiff3(QFont* theFont, int* diffFlags, const int* f
 
 int KFontChooserDialog_GetFontDiff4(QFont* theFont, int* diffFlags, const int* flags, QWidget* parent) {
     return KFontChooserDialog::getFontDiff(*theFont, (KFontChooser::FontDiffFlags&)(*diffFlags), (const KFontChooser::DisplayFlags&)(*flags), parent);
+}
+
+// Base class handler implementation
+QMetaObject* KFontChooserDialog_QBaseMetaObject(const KFontChooserDialog* self) {
+    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
+    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+        vkfontchooserdialog->setKFontChooserDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfontchooserdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KFontChooserDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontChooserDialog_OnMetaObject(const KFontChooserDialog* self, intptr_t slot) {
+    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
+    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+        vkfontchooserdialog->setKFontChooserDialog_MetaObject_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFontChooserDialog_QBaseMetacast(KFontChooserDialog* self, const char* param1) {
+    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
+    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+        vkfontchooserdialog->setKFontChooserDialog_Metacast_IsBase(true);
+        return vkfontchooserdialog->qt_metacast(param1);
+    } else {
+        return self->KFontChooserDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontChooserDialog_OnMetacast(KFontChooserDialog* self, intptr_t slot) {
+    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
+    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+        vkfontchooserdialog->setKFontChooserDialog_Metacast_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

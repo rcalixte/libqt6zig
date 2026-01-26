@@ -17,6 +17,8 @@ class VirtualKIconButton final : public KIconButton {
     bool isVirtualKIconButton = true;
 
     // Virtual class public types (including callbacks)
+    using KIconButton_MetaObject_Callback = QMetaObject* (*)();
+    using KIconButton_Metacast_Callback = void* (*)(KIconButton*, const char*);
     using KIconButton_Metacall_Callback = int (*)(KIconButton*, int, int, void**);
     using KIconButton_SizeHint_Callback = QSize* (*)();
     using KIconButton_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualKIconButton final : public KIconButton {
 
   protected:
     // Instance callback storage
+    KIconButton_MetaObject_Callback kiconbutton_metaobject_callback = nullptr;
+    KIconButton_Metacast_Callback kiconbutton_metacast_callback = nullptr;
     KIconButton_Metacall_Callback kiconbutton_metacall_callback = nullptr;
     KIconButton_SizeHint_Callback kiconbutton_sizehint_callback = nullptr;
     KIconButton_MinimumSizeHint_Callback kiconbutton_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualKIconButton final : public KIconButton {
     KIconButton_GetDecodedMetricF_Callback kiconbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kiconbutton_metaobject_isbase = false;
+    mutable bool kiconbutton_metacast_isbase = false;
     mutable bool kiconbutton_metacall_isbase = false;
     mutable bool kiconbutton_sizehint_isbase = false;
     mutable bool kiconbutton_minimumsizehint_isbase = false;
@@ -214,6 +220,8 @@ class VirtualKIconButton final : public KIconButton {
     VirtualKIconButton() : KIconButton() {};
 
     ~VirtualKIconButton() {
+        kiconbutton_metaobject_callback = nullptr;
+        kiconbutton_metacast_callback = nullptr;
         kiconbutton_metacall_callback = nullptr;
         kiconbutton_sizehint_callback = nullptr;
         kiconbutton_minimumsizehint_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualKIconButton final : public KIconButton {
     }
 
     // Callback setters
+    inline void setKIconButton_MetaObject_Callback(KIconButton_MetaObject_Callback cb) { kiconbutton_metaobject_callback = cb; }
+    inline void setKIconButton_Metacast_Callback(KIconButton_Metacast_Callback cb) { kiconbutton_metacast_callback = cb; }
     inline void setKIconButton_Metacall_Callback(KIconButton_Metacall_Callback cb) { kiconbutton_metacall_callback = cb; }
     inline void setKIconButton_SizeHint_Callback(KIconButton_SizeHint_Callback cb) { kiconbutton_sizehint_callback = cb; }
     inline void setKIconButton_MinimumSizeHint_Callback(KIconButton_MinimumSizeHint_Callback cb) { kiconbutton_minimumsizehint_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualKIconButton final : public KIconButton {
     inline void setKIconButton_GetDecodedMetricF_Callback(KIconButton_GetDecodedMetricF_Callback cb) { kiconbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKIconButton_MetaObject_IsBase(bool value) const { kiconbutton_metaobject_isbase = value; }
+    inline void setKIconButton_Metacast_IsBase(bool value) const { kiconbutton_metacast_isbase = value; }
     inline void setKIconButton_Metacall_IsBase(bool value) const { kiconbutton_metacall_isbase = value; }
     inline void setKIconButton_SizeHint_IsBase(bool value) const { kiconbutton_sizehint_isbase = value; }
     inline void setKIconButton_MinimumSizeHint_IsBase(bool value) const { kiconbutton_minimumsizehint_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualKIconButton final : public KIconButton {
     inline void setKIconButton_Receivers_IsBase(bool value) const { kiconbutton_receivers_isbase = value; }
     inline void setKIconButton_IsSignalConnected_IsBase(bool value) const { kiconbutton_issignalconnected_isbase = value; }
     inline void setKIconButton_GetDecodedMetricF_IsBase(bool value) const { kiconbutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kiconbutton_metaobject_isbase) {
+            kiconbutton_metaobject_isbase = false;
+            return KIconButton::metaObject();
+        } else if (kiconbutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kiconbutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIconButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kiconbutton_metacast_isbase) {
+            kiconbutton_metacast_isbase = false;
+            return KIconButton::qt_metacast(param1);
+        } else if (kiconbutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kiconbutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIconButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

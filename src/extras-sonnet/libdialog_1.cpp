@@ -46,11 +46,21 @@ Sonnet__Dialog* Sonnet__Dialog_new(Sonnet__BackgroundChecker* checker, QWidget* 
 }
 
 QMetaObject* Sonnet__Dialog_MetaObject(const Sonnet__Dialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vsonnet__dialog = dynamic_cast<const VirtualSonnetDialog*>(self);
+    if (vsonnet__dialog && vsonnet__dialog->isVirtualSonnetDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualSonnetDialog*)self)->metaObject();
+    }
 }
 
 void* Sonnet__Dialog_Metacast(Sonnet__Dialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vsonnet__dialog = dynamic_cast<VirtualSonnetDialog*>(self);
+    if (vsonnet__dialog && vsonnet__dialog->isVirtualSonnetDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualSonnetDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int Sonnet__Dialog_Metacall(Sonnet__Dialog* self, int param1, int param2, void** param3) {
@@ -279,6 +289,44 @@ void Sonnet__Dialog_ShowProgressDialog1(Sonnet__Dialog* self, int timeout) {
 
 void Sonnet__Dialog_ShowSpellCheckCompletionMessage1(Sonnet__Dialog* self, bool b) {
     self->showSpellCheckCompletionMessage(b);
+}
+
+// Base class handler implementation
+QMetaObject* Sonnet__Dialog_QBaseMetaObject(const Sonnet__Dialog* self) {
+    auto* vsonnetdialog = const_cast<VirtualSonnetDialog*>(dynamic_cast<const VirtualSonnetDialog*>(self));
+    if (vsonnetdialog && vsonnetdialog->isVirtualSonnetDialog) {
+        vsonnetdialog->setSonnet__Dialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vsonnetdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->Sonnet::Dialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__Dialog_OnMetaObject(const Sonnet__Dialog* self, intptr_t slot) {
+    auto* vsonnetdialog = const_cast<VirtualSonnetDialog*>(dynamic_cast<const VirtualSonnetDialog*>(self));
+    if (vsonnetdialog && vsonnetdialog->isVirtualSonnetDialog) {
+        vsonnetdialog->setSonnet__Dialog_MetaObject_Callback(reinterpret_cast<VirtualSonnetDialog::Sonnet__Dialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Sonnet__Dialog_QBaseMetacast(Sonnet__Dialog* self, const char* param1) {
+    auto* vsonnetdialog = dynamic_cast<VirtualSonnetDialog*>(self);
+    if (vsonnetdialog && vsonnetdialog->isVirtualSonnetDialog) {
+        vsonnetdialog->setSonnet__Dialog_Metacast_IsBase(true);
+        return vsonnetdialog->qt_metacast(param1);
+    } else {
+        return self->Sonnet::Dialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__Dialog_OnMetacast(Sonnet__Dialog* self, intptr_t slot) {
+    auto* vsonnetdialog = dynamic_cast<VirtualSonnetDialog*>(self);
+    if (vsonnetdialog && vsonnetdialog->isVirtualSonnetDialog) {
+        vsonnetdialog->setSonnet__Dialog_Metacast_Callback(reinterpret_cast<VirtualSonnetDialog::Sonnet__Dialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -51,11 +51,21 @@ KConfigDialog* KConfigDialog_new(QWidget* parent, const libqt_string name, KCore
 }
 
 QMetaObject* KConfigDialog_MetaObject(const KConfigDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkconfigdialog = dynamic_cast<const VirtualKConfigDialog*>(self);
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKConfigDialog*)self)->metaObject();
+    }
 }
 
 void* KConfigDialog_Metacast(KConfigDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKConfigDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KConfigDialog_Metacall(KConfigDialog* self, int param1, int param2, void** param3) {
@@ -200,6 +210,44 @@ KPageWidgetItem* KConfigDialog_AddPage52(KConfigDialog* self, QWidget* page, KCo
     QString pixmapName_QString = QString::fromUtf8(pixmapName.data, pixmapName.len);
     QString header_QString = QString::fromUtf8(header.data, header.len);
     return self->addPage(page, config, itemName_QString, pixmapName_QString, header_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KConfigDialog_QBaseMetaObject(const KConfigDialog* self) {
+    auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+        vkconfigdialog->setKConfigDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkconfigdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KConfigDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigDialog_OnMetaObject(const KConfigDialog* self, intptr_t slot) {
+    auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+        vkconfigdialog->setKConfigDialog_MetaObject_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KConfigDialog_QBaseMetacast(KConfigDialog* self, const char* param1) {
+    auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+        vkconfigdialog->setKConfigDialog_Metacast_IsBase(true);
+        return vkconfigdialog->qt_metacast(param1);
+    } else {
+        return self->KConfigDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigDialog_OnMetacast(KConfigDialog* self, intptr_t slot) {
+    auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+        vkconfigdialog->setKConfigDialog_Metacast_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

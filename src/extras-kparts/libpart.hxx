@@ -17,6 +17,8 @@ class VirtualKPartsPart final : public KParts::Part {
     bool isVirtualKPartsPart = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__Part_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__Part_Metacast_Callback = void* (*)(KParts__Part*, const char*);
     using KParts__Part_Metacall_Callback = int (*)(KParts__Part*, int, int, void**);
     using KParts__Part_Widget_Callback = QWidget* (*)();
     using KParts__Part_SetManager_Callback = void (*)(KParts__Part*, KParts__PartManager*);
@@ -54,6 +56,8 @@ class VirtualKPartsPart final : public KParts::Part {
 
   protected:
     // Instance callback storage
+    KParts__Part_MetaObject_Callback kparts__part_metaobject_callback = nullptr;
+    KParts__Part_Metacast_Callback kparts__part_metacast_callback = nullptr;
     KParts__Part_Metacall_Callback kparts__part_metacall_callback = nullptr;
     KParts__Part_Widget_Callback kparts__part_widget_callback = nullptr;
     KParts__Part_SetManager_Callback kparts__part_setmanager_callback = nullptr;
@@ -90,6 +94,8 @@ class VirtualKPartsPart final : public KParts::Part {
     KParts__Part_LoadStandardsXmlFile_Callback kparts__part_loadstandardsxmlfile_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__part_metaobject_isbase = false;
+    mutable bool kparts__part_metacast_isbase = false;
     mutable bool kparts__part_metacall_isbase = false;
     mutable bool kparts__part_widget_isbase = false;
     mutable bool kparts__part_setmanager_isbase = false;
@@ -131,6 +137,8 @@ class VirtualKPartsPart final : public KParts::Part {
     VirtualKPartsPart(QObject* parent, const KPluginMetaData& data) : KParts::Part(parent, data) {};
 
     ~VirtualKPartsPart() {
+        kparts__part_metaobject_callback = nullptr;
+        kparts__part_metacast_callback = nullptr;
         kparts__part_metacall_callback = nullptr;
         kparts__part_widget_callback = nullptr;
         kparts__part_setmanager_callback = nullptr;
@@ -168,6 +176,8 @@ class VirtualKPartsPart final : public KParts::Part {
     }
 
     // Callback setters
+    inline void setKParts__Part_MetaObject_Callback(KParts__Part_MetaObject_Callback cb) { kparts__part_metaobject_callback = cb; }
+    inline void setKParts__Part_Metacast_Callback(KParts__Part_Metacast_Callback cb) { kparts__part_metacast_callback = cb; }
     inline void setKParts__Part_Metacall_Callback(KParts__Part_Metacall_Callback cb) { kparts__part_metacall_callback = cb; }
     inline void setKParts__Part_Widget_Callback(KParts__Part_Widget_Callback cb) { kparts__part_widget_callback = cb; }
     inline void setKParts__Part_SetManager_Callback(KParts__Part_SetManager_Callback cb) { kparts__part_setmanager_callback = cb; }
@@ -204,6 +214,8 @@ class VirtualKPartsPart final : public KParts::Part {
     inline void setKParts__Part_LoadStandardsXmlFile_Callback(KParts__Part_LoadStandardsXmlFile_Callback cb) { kparts__part_loadstandardsxmlfile_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__Part_MetaObject_IsBase(bool value) const { kparts__part_metaobject_isbase = value; }
+    inline void setKParts__Part_Metacast_IsBase(bool value) const { kparts__part_metacast_isbase = value; }
     inline void setKParts__Part_Metacall_IsBase(bool value) const { kparts__part_metacall_isbase = value; }
     inline void setKParts__Part_Widget_IsBase(bool value) const { kparts__part_widget_isbase = value; }
     inline void setKParts__Part_SetManager_IsBase(bool value) const { kparts__part_setmanager_isbase = value; }
@@ -238,6 +250,34 @@ class VirtualKPartsPart final : public KParts::Part {
     inline void setKParts__Part_IsSignalConnected_IsBase(bool value) const { kparts__part_issignalconnected_isbase = value; }
     inline void setKParts__Part_StandardsXmlFileLocation_IsBase(bool value) const { kparts__part_standardsxmlfilelocation_isbase = value; }
     inline void setKParts__Part_LoadStandardsXmlFile_IsBase(bool value) const { kparts__part_loadstandardsxmlfile_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__part_metaobject_isbase) {
+            kparts__part_metaobject_isbase = false;
+            return KParts__Part::metaObject();
+        } else if (kparts__part_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__part_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__Part::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__part_metacast_isbase) {
+            kparts__part_metacast_isbase = false;
+            return KParts__Part::qt_metacast(param1);
+        } else if (kparts__part_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__part_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__Part::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

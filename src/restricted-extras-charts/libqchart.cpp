@@ -61,11 +61,21 @@ QChart* QChart_new3(QGraphicsItem* parent, int wFlags) {
 }
 
 QMetaObject* QChart_MetaObject(const QChart* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqchart = dynamic_cast<const VirtualQChart*>(self);
+    if (vqchart && vqchart->isVirtualQChart) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQChart*)self)->metaObject();
+    }
 }
 
 void* QChart_Metacast(QChart* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqchart = dynamic_cast<VirtualQChart*>(self);
+    if (vqchart && vqchart->isVirtualQChart) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQChart*)self)->qt_metacast(param1);
+    }
 }
 
 int QChart_Metacall(QChart* self, int param1, int param2, void** param3) {
@@ -422,6 +432,44 @@ QPointF* QChart_MapToValue2(QChart* self, const QPointF* position, QAbstractSeri
 
 QPointF* QChart_MapToPosition2(QChart* self, const QPointF* value, QAbstractSeries* series) {
     return new QPointF(self->mapToPosition(*value, series));
+}
+
+// Base class handler implementation
+QMetaObject* QChart_QBaseMetaObject(const QChart* self) {
+    auto* vqchart = const_cast<VirtualQChart*>(dynamic_cast<const VirtualQChart*>(self));
+    if (vqchart && vqchart->isVirtualQChart) {
+        vqchart->setQChart_MetaObject_IsBase(true);
+        return (QMetaObject*)vqchart->metaObject();
+    } else {
+        return (QMetaObject*)self->QChart::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChart_OnMetaObject(const QChart* self, intptr_t slot) {
+    auto* vqchart = const_cast<VirtualQChart*>(dynamic_cast<const VirtualQChart*>(self));
+    if (vqchart && vqchart->isVirtualQChart) {
+        vqchart->setQChart_MetaObject_Callback(reinterpret_cast<VirtualQChart::QChart_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QChart_QBaseMetacast(QChart* self, const char* param1) {
+    auto* vqchart = dynamic_cast<VirtualQChart*>(self);
+    if (vqchart && vqchart->isVirtualQChart) {
+        vqchart->setQChart_Metacast_IsBase(true);
+        return vqchart->qt_metacast(param1);
+    } else {
+        return self->QChart::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChart_OnMetacast(QChart* self, intptr_t slot) {
+    auto* vqchart = dynamic_cast<VirtualQChart*>(self);
+    if (vqchart && vqchart->isVirtualQChart) {
+        vqchart->setQChart_Metacast_Callback(reinterpret_cast<VirtualQChart::QChart_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

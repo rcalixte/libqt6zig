@@ -128,6 +128,10 @@ bool QProcess_StartDetached3(const libqt_string program, const libqt_list /* of 
 bool QProcess_StartDetached4(const libqt_string program, const libqt_list /* of libqt_string */ arguments, const libqt_string workingDirectory, long long* pid);
 void QProcess_Finished2(QProcess* self, int exitCode, int exitStatus);
 void QProcess_Connect_Finished2(QProcess* self, intptr_t slot);
+void QProcess_OnMetaObject(const QProcess* self, intptr_t slot);
+QMetaObject* QProcess_QBaseMetaObject(const QProcess* self);
+void QProcess_OnMetacast(QProcess* self, intptr_t slot);
+void* QProcess_QBaseMetacast(QProcess* self, const char* param1);
 void QProcess_OnMetacall(QProcess* self, intptr_t slot);
 int QProcess_QBaseMetacall(QProcess* self, int param1, int param2, void** param3);
 void QProcess_OnOpen(QProcess* self, intptr_t slot);

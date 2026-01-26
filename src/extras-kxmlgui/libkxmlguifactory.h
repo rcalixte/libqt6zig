@@ -63,6 +63,10 @@ libqt_string KXMLGUIFactory_ReadConfigFile2(const libqt_string filename, const l
 bool KXMLGUIFactory_SaveConfigFile3(const QDomDocument* doc, const libqt_string filename, const libqt_string componentName);
 QWidget* KXMLGUIFactory_Container3(KXMLGUIFactory* self, const libqt_string containerName, KXMLGUIClient* client, bool useTagName);
 void KXMLGUIFactory_ResetContainer2(KXMLGUIFactory* self, const libqt_string containerName, bool useTagName);
+void KXMLGUIFactory_OnMetaObject(const KXMLGUIFactory* self, intptr_t slot);
+QMetaObject* KXMLGUIFactory_QBaseMetaObject(const KXMLGUIFactory* self);
+void KXMLGUIFactory_OnMetacast(KXMLGUIFactory* self, intptr_t slot);
+void* KXMLGUIFactory_QBaseMetacast(KXMLGUIFactory* self, const char* param1);
 void KXMLGUIFactory_OnMetacall(KXMLGUIFactory* self, intptr_t slot);
 int KXMLGUIFactory_QBaseMetacall(KXMLGUIFactory* self, int param1, int param2, void** param3);
 bool KXMLGUIFactory_Event(KXMLGUIFactory* self, QEvent* event);

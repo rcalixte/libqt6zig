@@ -17,6 +17,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     bool isVirtualQsciLexerJavaScript = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerJavaScript_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerJavaScript_Metacast_Callback = void* (*)(QsciLexerJavaScript*, const char*);
     using QsciLexerJavaScript_Metacall_Callback = int (*)(QsciLexerJavaScript*, int, int, void**);
     using QsciLexerJavaScript_SetFoldAtElse_Callback = void (*)(QsciLexerJavaScript*, bool);
     using QsciLexerJavaScript_SetFoldComments_Callback = void (*)(QsciLexerJavaScript*, bool);
@@ -73,6 +75,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
 
   protected:
     // Instance callback storage
+    QsciLexerJavaScript_MetaObject_Callback qscilexerjavascript_metaobject_callback = nullptr;
+    QsciLexerJavaScript_Metacast_Callback qscilexerjavascript_metacast_callback = nullptr;
     QsciLexerJavaScript_Metacall_Callback qscilexerjavascript_metacall_callback = nullptr;
     QsciLexerJavaScript_SetFoldAtElse_Callback qscilexerjavascript_setfoldatelse_callback = nullptr;
     QsciLexerJavaScript_SetFoldComments_Callback qscilexerjavascript_setfoldcomments_callback = nullptr;
@@ -128,6 +132,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     QsciLexerJavaScript_IsSignalConnected_Callback qscilexerjavascript_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexerjavascript_metaobject_isbase = false;
+    mutable bool qscilexerjavascript_metacast_isbase = false;
     mutable bool qscilexerjavascript_metacall_isbase = false;
     mutable bool qscilexerjavascript_setfoldatelse_isbase = false;
     mutable bool qscilexerjavascript_setfoldcomments_isbase = false;
@@ -187,6 +193,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     VirtualQsciLexerJavaScript(QObject* parent) : QsciLexerJavaScript(parent) {};
 
     ~VirtualQsciLexerJavaScript() {
+        qscilexerjavascript_metaobject_callback = nullptr;
+        qscilexerjavascript_metacast_callback = nullptr;
         qscilexerjavascript_metacall_callback = nullptr;
         qscilexerjavascript_setfoldatelse_callback = nullptr;
         qscilexerjavascript_setfoldcomments_callback = nullptr;
@@ -243,6 +251,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     }
 
     // Callback setters
+    inline void setQsciLexerJavaScript_MetaObject_Callback(QsciLexerJavaScript_MetaObject_Callback cb) { qscilexerjavascript_metaobject_callback = cb; }
+    inline void setQsciLexerJavaScript_Metacast_Callback(QsciLexerJavaScript_Metacast_Callback cb) { qscilexerjavascript_metacast_callback = cb; }
     inline void setQsciLexerJavaScript_Metacall_Callback(QsciLexerJavaScript_Metacall_Callback cb) { qscilexerjavascript_metacall_callback = cb; }
     inline void setQsciLexerJavaScript_SetFoldAtElse_Callback(QsciLexerJavaScript_SetFoldAtElse_Callback cb) { qscilexerjavascript_setfoldatelse_callback = cb; }
     inline void setQsciLexerJavaScript_SetFoldComments_Callback(QsciLexerJavaScript_SetFoldComments_Callback cb) { qscilexerjavascript_setfoldcomments_callback = cb; }
@@ -298,6 +308,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     inline void setQsciLexerJavaScript_IsSignalConnected_Callback(QsciLexerJavaScript_IsSignalConnected_Callback cb) { qscilexerjavascript_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerJavaScript_MetaObject_IsBase(bool value) const { qscilexerjavascript_metaobject_isbase = value; }
+    inline void setQsciLexerJavaScript_Metacast_IsBase(bool value) const { qscilexerjavascript_metacast_isbase = value; }
     inline void setQsciLexerJavaScript_Metacall_IsBase(bool value) const { qscilexerjavascript_metacall_isbase = value; }
     inline void setQsciLexerJavaScript_SetFoldAtElse_IsBase(bool value) const { qscilexerjavascript_setfoldatelse_isbase = value; }
     inline void setQsciLexerJavaScript_SetFoldComments_IsBase(bool value) const { qscilexerjavascript_setfoldcomments_isbase = value; }
@@ -351,6 +363,34 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     inline void setQsciLexerJavaScript_SenderSignalIndex_IsBase(bool value) const { qscilexerjavascript_sendersignalindex_isbase = value; }
     inline void setQsciLexerJavaScript_Receivers_IsBase(bool value) const { qscilexerjavascript_receivers_isbase = value; }
     inline void setQsciLexerJavaScript_IsSignalConnected_IsBase(bool value) const { qscilexerjavascript_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexerjavascript_metaobject_isbase) {
+            qscilexerjavascript_metaobject_isbase = false;
+            return QsciLexerJavaScript::metaObject();
+        } else if (qscilexerjavascript_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexerjavascript_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerJavaScript::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexerjavascript_metacast_isbase) {
+            qscilexerjavascript_metacast_isbase = false;
+            return QsciLexerJavaScript::qt_metacast(param1);
+        } else if (qscilexerjavascript_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexerjavascript_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerJavaScript::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

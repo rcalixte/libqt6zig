@@ -62,6 +62,10 @@ QDesignerFormEditorInterface* QDesignerActionEditorInterface_Core(const QDesigne
 void QDesignerActionEditorInterface_ManageAction(QDesignerActionEditorInterface* self, QAction* action);
 void QDesignerActionEditorInterface_UnmanageAction(QDesignerActionEditorInterface* self, QAction* action);
 void QDesignerActionEditorInterface_SetFormWindow(QDesignerActionEditorInterface* self, QDesignerFormWindowInterface* formWindow);
+void QDesignerActionEditorInterface_OnMetaObject(const QDesignerActionEditorInterface* self, intptr_t slot);
+QMetaObject* QDesignerActionEditorInterface_QBaseMetaObject(const QDesignerActionEditorInterface* self);
+void QDesignerActionEditorInterface_OnMetacast(QDesignerActionEditorInterface* self, intptr_t slot);
+void* QDesignerActionEditorInterface_QBaseMetacast(QDesignerActionEditorInterface* self, const char* param1);
 void QDesignerActionEditorInterface_OnMetacall(QDesignerActionEditorInterface* self, intptr_t slot);
 int QDesignerActionEditorInterface_QBaseMetacall(QDesignerActionEditorInterface* self, int param1, int param2, void** param3);
 void QDesignerActionEditorInterface_OnCore(const QDesignerActionEditorInterface* self, intptr_t slot);

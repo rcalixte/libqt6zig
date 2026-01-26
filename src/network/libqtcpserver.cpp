@@ -24,11 +24,21 @@ QTcpServer* QTcpServer_new2(QObject* parent) {
 }
 
 QMetaObject* QTcpServer_MetaObject(const QTcpServer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtcpserver = dynamic_cast<const VirtualQTcpServer*>(self);
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTcpServer*)self)->metaObject();
+    }
 }
 
 void* QTcpServer_Metacast(QTcpServer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTcpServer*)self)->qt_metacast(param1);
+    }
 }
 
 int QTcpServer_Metacall(QTcpServer* self, int param1, int param2, void** param3) {
@@ -183,6 +193,44 @@ bool QTcpServer_WaitForNewConnection1(QTcpServer* self, int msec) {
 
 bool QTcpServer_WaitForNewConnection2(QTcpServer* self, int msec, bool* timedOut) {
     return self->waitForNewConnection(static_cast<int>(msec), timedOut);
+}
+
+// Base class handler implementation
+QMetaObject* QTcpServer_QBaseMetaObject(const QTcpServer* self) {
+    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+        vqtcpserver->setQTcpServer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtcpserver->metaObject();
+    } else {
+        return (QMetaObject*)self->QTcpServer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTcpServer_OnMetaObject(const QTcpServer* self, intptr_t slot) {
+    auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+        vqtcpserver->setQTcpServer_MetaObject_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTcpServer_QBaseMetacast(QTcpServer* self, const char* param1) {
+    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+        vqtcpserver->setQTcpServer_Metacast_IsBase(true);
+        return vqtcpserver->qt_metacast(param1);
+    } else {
+        return self->QTcpServer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTcpServer_OnMetacast(QTcpServer* self, intptr_t slot) {
+    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+        vqtcpserver->setQTcpServer_Metacast_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -49,11 +49,21 @@ QProgressBar* QProgressBar_new2() {
 }
 
 QMetaObject* QProgressBar_MetaObject(const QProgressBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQProgressBar*)self)->metaObject();
+    }
 }
 
 void* QProgressBar_Metacast(QProgressBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQProgressBar*)self)->qt_metacast(param1);
+    }
 }
 
 int QProgressBar_Metacall(QProgressBar* self, int param1, int param2, void** param3) {
@@ -232,6 +242,44 @@ void QProgressBar_InitStyleOption(const QProgressBar* self, QStyleOptionProgress
     auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QProgressBar_QBaseMetaObject(const QProgressBar* self) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vqprogressbar->metaObject();
+    } else {
+        return (QMetaObject*)self->QProgressBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnMetaObject(const QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_MetaObject_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QProgressBar_QBaseMetacast(QProgressBar* self, const char* param1) {
+    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_Metacast_IsBase(true);
+        return vqprogressbar->qt_metacast(param1);
+    } else {
+        return self->QProgressBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnMetacast(QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_Metacast_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_Metacast_Callback>(slot));
     }
 }
 

@@ -17,6 +17,8 @@ class VirtualQTermWidget final : public QTermWidget {
     bool isVirtualQTermWidget = true;
 
     // Virtual class public types (including callbacks)
+    using QTermWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QTermWidget_Metacast_Callback = void* (*)(QTermWidget*, const char*);
     using QTermWidget_Metacall_Callback = int (*)(QTermWidget*, int, int, void**);
     using QTermWidget_SizeHint_Callback = QSize* (*)();
     using QTermWidget_SetTerminalSizeHint_Callback = void (*)(QTermWidget*, bool);
@@ -142,6 +144,8 @@ class VirtualQTermWidget final : public QTermWidget {
 
   protected:
     // Instance callback storage
+    QTermWidget_MetaObject_Callback qtermwidget_metaobject_callback = nullptr;
+    QTermWidget_Metacast_Callback qtermwidget_metacast_callback = nullptr;
     QTermWidget_Metacall_Callback qtermwidget_metacall_callback = nullptr;
     QTermWidget_SizeHint_Callback qtermwidget_sizehint_callback = nullptr;
     QTermWidget_SetTerminalSizeHint_Callback qtermwidget_setterminalsizehint_callback = nullptr;
@@ -266,6 +270,8 @@ class VirtualQTermWidget final : public QTermWidget {
     QTermWidget_GetDecodedMetricF_Callback qtermwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtermwidget_metaobject_isbase = false;
+    mutable bool qtermwidget_metacast_isbase = false;
     mutable bool qtermwidget_metacall_isbase = false;
     mutable bool qtermwidget_sizehint_isbase = false;
     mutable bool qtermwidget_setterminalsizehint_isbase = false;
@@ -396,6 +402,8 @@ class VirtualQTermWidget final : public QTermWidget {
     VirtualQTermWidget(int startnow, QWidget* parent) : QTermWidget(startnow, parent) {};
 
     ~VirtualQTermWidget() {
+        qtermwidget_metaobject_callback = nullptr;
+        qtermwidget_metacast_callback = nullptr;
         qtermwidget_metacall_callback = nullptr;
         qtermwidget_sizehint_callback = nullptr;
         qtermwidget_setterminalsizehint_callback = nullptr;
@@ -521,6 +529,8 @@ class VirtualQTermWidget final : public QTermWidget {
     }
 
     // Callback setters
+    inline void setQTermWidget_MetaObject_Callback(QTermWidget_MetaObject_Callback cb) { qtermwidget_metaobject_callback = cb; }
+    inline void setQTermWidget_Metacast_Callback(QTermWidget_Metacast_Callback cb) { qtermwidget_metacast_callback = cb; }
     inline void setQTermWidget_Metacall_Callback(QTermWidget_Metacall_Callback cb) { qtermwidget_metacall_callback = cb; }
     inline void setQTermWidget_SizeHint_Callback(QTermWidget_SizeHint_Callback cb) { qtermwidget_sizehint_callback = cb; }
     inline void setQTermWidget_SetTerminalSizeHint_Callback(QTermWidget_SetTerminalSizeHint_Callback cb) { qtermwidget_setterminalsizehint_callback = cb; }
@@ -645,6 +655,8 @@ class VirtualQTermWidget final : public QTermWidget {
     inline void setQTermWidget_GetDecodedMetricF_Callback(QTermWidget_GetDecodedMetricF_Callback cb) { qtermwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQTermWidget_MetaObject_IsBase(bool value) const { qtermwidget_metaobject_isbase = value; }
+    inline void setQTermWidget_Metacast_IsBase(bool value) const { qtermwidget_metacast_isbase = value; }
     inline void setQTermWidget_Metacall_IsBase(bool value) const { qtermwidget_metacall_isbase = value; }
     inline void setQTermWidget_SizeHint_IsBase(bool value) const { qtermwidget_sizehint_isbase = value; }
     inline void setQTermWidget_SetTerminalSizeHint_IsBase(bool value) const { qtermwidget_setterminalsizehint_isbase = value; }
@@ -767,6 +779,34 @@ class VirtualQTermWidget final : public QTermWidget {
     inline void setQTermWidget_Receivers_IsBase(bool value) const { qtermwidget_receivers_isbase = value; }
     inline void setQTermWidget_IsSignalConnected_IsBase(bool value) const { qtermwidget_issignalconnected_isbase = value; }
     inline void setQTermWidget_GetDecodedMetricF_IsBase(bool value) const { qtermwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtermwidget_metaobject_isbase) {
+            qtermwidget_metaobject_isbase = false;
+            return QTermWidget::metaObject();
+        } else if (qtermwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtermwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTermWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtermwidget_metacast_isbase) {
+            qtermwidget_metacast_isbase = false;
+            return QTermWidget::qt_metacast(param1);
+        } else if (qtermwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtermwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTermWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

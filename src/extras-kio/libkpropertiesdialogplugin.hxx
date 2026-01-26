@@ -17,6 +17,8 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
     bool isVirtualKPropertiesDialogPlugin = true;
 
     // Virtual class public types (including callbacks)
+    using KPropertiesDialogPlugin_MetaObject_Callback = QMetaObject* (*)();
+    using KPropertiesDialogPlugin_Metacast_Callback = void* (*)(KPropertiesDialogPlugin*, const char*);
     using KPropertiesDialogPlugin_Metacall_Callback = int (*)(KPropertiesDialogPlugin*, int, int, void**);
     using KPropertiesDialogPlugin_ApplyChanges_Callback = void (*)();
     using KPropertiesDialogPlugin_Event_Callback = bool (*)(KPropertiesDialogPlugin*, QEvent*);
@@ -34,6 +36,8 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
 
   protected:
     // Instance callback storage
+    KPropertiesDialogPlugin_MetaObject_Callback kpropertiesdialogplugin_metaobject_callback = nullptr;
+    KPropertiesDialogPlugin_Metacast_Callback kpropertiesdialogplugin_metacast_callback = nullptr;
     KPropertiesDialogPlugin_Metacall_Callback kpropertiesdialogplugin_metacall_callback = nullptr;
     KPropertiesDialogPlugin_ApplyChanges_Callback kpropertiesdialogplugin_applychanges_callback = nullptr;
     KPropertiesDialogPlugin_Event_Callback kpropertiesdialogplugin_event_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
     KPropertiesDialogPlugin_IsSignalConnected_Callback kpropertiesdialogplugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpropertiesdialogplugin_metaobject_isbase = false;
+    mutable bool kpropertiesdialogplugin_metacast_isbase = false;
     mutable bool kpropertiesdialogplugin_metacall_isbase = false;
     mutable bool kpropertiesdialogplugin_applychanges_isbase = false;
     mutable bool kpropertiesdialogplugin_event_isbase = false;
@@ -69,6 +75,8 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
     VirtualKPropertiesDialogPlugin(QObject* parent) : KPropertiesDialogPlugin(parent) {};
 
     ~VirtualKPropertiesDialogPlugin() {
+        kpropertiesdialogplugin_metaobject_callback = nullptr;
+        kpropertiesdialogplugin_metacast_callback = nullptr;
         kpropertiesdialogplugin_metacall_callback = nullptr;
         kpropertiesdialogplugin_applychanges_callback = nullptr;
         kpropertiesdialogplugin_event_callback = nullptr;
@@ -86,6 +94,8 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
     }
 
     // Callback setters
+    inline void setKPropertiesDialogPlugin_MetaObject_Callback(KPropertiesDialogPlugin_MetaObject_Callback cb) { kpropertiesdialogplugin_metaobject_callback = cb; }
+    inline void setKPropertiesDialogPlugin_Metacast_Callback(KPropertiesDialogPlugin_Metacast_Callback cb) { kpropertiesdialogplugin_metacast_callback = cb; }
     inline void setKPropertiesDialogPlugin_Metacall_Callback(KPropertiesDialogPlugin_Metacall_Callback cb) { kpropertiesdialogplugin_metacall_callback = cb; }
     inline void setKPropertiesDialogPlugin_ApplyChanges_Callback(KPropertiesDialogPlugin_ApplyChanges_Callback cb) { kpropertiesdialogplugin_applychanges_callback = cb; }
     inline void setKPropertiesDialogPlugin_Event_Callback(KPropertiesDialogPlugin_Event_Callback cb) { kpropertiesdialogplugin_event_callback = cb; }
@@ -102,6 +112,8 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
     inline void setKPropertiesDialogPlugin_IsSignalConnected_Callback(KPropertiesDialogPlugin_IsSignalConnected_Callback cb) { kpropertiesdialogplugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKPropertiesDialogPlugin_MetaObject_IsBase(bool value) const { kpropertiesdialogplugin_metaobject_isbase = value; }
+    inline void setKPropertiesDialogPlugin_Metacast_IsBase(bool value) const { kpropertiesdialogplugin_metacast_isbase = value; }
     inline void setKPropertiesDialogPlugin_Metacall_IsBase(bool value) const { kpropertiesdialogplugin_metacall_isbase = value; }
     inline void setKPropertiesDialogPlugin_ApplyChanges_IsBase(bool value) const { kpropertiesdialogplugin_applychanges_isbase = value; }
     inline void setKPropertiesDialogPlugin_Event_IsBase(bool value) const { kpropertiesdialogplugin_event_isbase = value; }
@@ -116,6 +128,34 @@ class VirtualKPropertiesDialogPlugin final : public KPropertiesDialogPlugin {
     inline void setKPropertiesDialogPlugin_SenderSignalIndex_IsBase(bool value) const { kpropertiesdialogplugin_sendersignalindex_isbase = value; }
     inline void setKPropertiesDialogPlugin_Receivers_IsBase(bool value) const { kpropertiesdialogplugin_receivers_isbase = value; }
     inline void setKPropertiesDialogPlugin_IsSignalConnected_IsBase(bool value) const { kpropertiesdialogplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpropertiesdialogplugin_metaobject_isbase) {
+            kpropertiesdialogplugin_metaobject_isbase = false;
+            return KPropertiesDialogPlugin::metaObject();
+        } else if (kpropertiesdialogplugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpropertiesdialogplugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPropertiesDialogPlugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpropertiesdialogplugin_metacast_isbase) {
+            kpropertiesdialogplugin_metacast_isbase = false;
+            return KPropertiesDialogPlugin::qt_metacast(param1);
+        } else if (kpropertiesdialogplugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpropertiesdialogplugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPropertiesDialogPlugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

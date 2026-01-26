@@ -17,6 +17,8 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
     bool isVirtualKShortcutWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KShortcutWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KShortcutWidget_Metacast_Callback = void* (*)(KShortcutWidget*, const char*);
     using KShortcutWidget_Metacall_Callback = int (*)(KShortcutWidget*, int, int, void**);
     using KShortcutWidget_DevType_Callback = int (*)();
     using KShortcutWidget_SetVisible_Callback = void (*)(KShortcutWidget*, bool);
@@ -78,6 +80,8 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
 
   protected:
     // Instance callback storage
+    KShortcutWidget_MetaObject_Callback kshortcutwidget_metaobject_callback = nullptr;
+    KShortcutWidget_Metacast_Callback kshortcutwidget_metacast_callback = nullptr;
     KShortcutWidget_Metacall_Callback kshortcutwidget_metacall_callback = nullptr;
     KShortcutWidget_DevType_Callback kshortcutwidget_devtype_callback = nullptr;
     KShortcutWidget_SetVisible_Callback kshortcutwidget_setvisible_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
     KShortcutWidget_GetDecodedMetricF_Callback kshortcutwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kshortcutwidget_metaobject_isbase = false;
+    mutable bool kshortcutwidget_metacast_isbase = false;
     mutable bool kshortcutwidget_metacall_isbase = false;
     mutable bool kshortcutwidget_devtype_isbase = false;
     mutable bool kshortcutwidget_setvisible_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
     VirtualKShortcutWidget() : KShortcutWidget() {};
 
     ~VirtualKShortcutWidget() {
+        kshortcutwidget_metaobject_callback = nullptr;
+        kshortcutwidget_metacast_callback = nullptr;
         kshortcutwidget_metacall_callback = nullptr;
         kshortcutwidget_devtype_callback = nullptr;
         kshortcutwidget_setvisible_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
     }
 
     // Callback setters
+    inline void setKShortcutWidget_MetaObject_Callback(KShortcutWidget_MetaObject_Callback cb) { kshortcutwidget_metaobject_callback = cb; }
+    inline void setKShortcutWidget_Metacast_Callback(KShortcutWidget_Metacast_Callback cb) { kshortcutwidget_metacast_callback = cb; }
     inline void setKShortcutWidget_Metacall_Callback(KShortcutWidget_Metacall_Callback cb) { kshortcutwidget_metacall_callback = cb; }
     inline void setKShortcutWidget_DevType_Callback(KShortcutWidget_DevType_Callback cb) { kshortcutwidget_devtype_callback = cb; }
     inline void setKShortcutWidget_SetVisible_Callback(KShortcutWidget_SetVisible_Callback cb) { kshortcutwidget_setvisible_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
     inline void setKShortcutWidget_GetDecodedMetricF_Callback(KShortcutWidget_GetDecodedMetricF_Callback cb) { kshortcutwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKShortcutWidget_MetaObject_IsBase(bool value) const { kshortcutwidget_metaobject_isbase = value; }
+    inline void setKShortcutWidget_Metacast_IsBase(bool value) const { kshortcutwidget_metacast_isbase = value; }
     inline void setKShortcutWidget_Metacall_IsBase(bool value) const { kshortcutwidget_metacall_isbase = value; }
     inline void setKShortcutWidget_DevType_IsBase(bool value) const { kshortcutwidget_devtype_isbase = value; }
     inline void setKShortcutWidget_SetVisible_IsBase(bool value) const { kshortcutwidget_setvisible_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKShortcutWidget final : public KShortcutWidget {
     inline void setKShortcutWidget_Receivers_IsBase(bool value) const { kshortcutwidget_receivers_isbase = value; }
     inline void setKShortcutWidget_IsSignalConnected_IsBase(bool value) const { kshortcutwidget_issignalconnected_isbase = value; }
     inline void setKShortcutWidget_GetDecodedMetricF_IsBase(bool value) const { kshortcutwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kshortcutwidget_metaobject_isbase) {
+            kshortcutwidget_metaobject_isbase = false;
+            return KShortcutWidget::metaObject();
+        } else if (kshortcutwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kshortcutwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KShortcutWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kshortcutwidget_metacast_isbase) {
+            kshortcutwidget_metacast_isbase = false;
+            return KShortcutWidget::qt_metacast(param1);
+        } else if (kshortcutwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kshortcutwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KShortcutWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

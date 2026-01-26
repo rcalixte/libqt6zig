@@ -17,6 +17,8 @@ class VirtualKLineEditUrlDropEventFilter final : public KLineEditUrlDropEventFil
     bool isVirtualKLineEditUrlDropEventFilter = true;
 
     // Virtual class public types (including callbacks)
+    using KLineEditUrlDropEventFilter_MetaObject_Callback = QMetaObject* (*)();
+    using KLineEditUrlDropEventFilter_Metacast_Callback = void* (*)(KLineEditUrlDropEventFilter*, const char*);
     using KLineEditUrlDropEventFilter_Metacall_Callback = int (*)(KLineEditUrlDropEventFilter*, int, int, void**);
     using KLineEditUrlDropEventFilter_EventFilter_Callback = bool (*)(KLineEditUrlDropEventFilter*, QObject*, QEvent*);
     using KLineEditUrlDropEventFilter_Event_Callback = bool (*)(KLineEditUrlDropEventFilter*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKLineEditUrlDropEventFilter final : public KLineEditUrlDropEventFil
 
   protected:
     // Instance callback storage
+    KLineEditUrlDropEventFilter_MetaObject_Callback klineediturldropeventfilter_metaobject_callback = nullptr;
+    KLineEditUrlDropEventFilter_Metacast_Callback klineediturldropeventfilter_metacast_callback = nullptr;
     KLineEditUrlDropEventFilter_Metacall_Callback klineediturldropeventfilter_metacall_callback = nullptr;
     KLineEditUrlDropEventFilter_EventFilter_Callback klineediturldropeventfilter_eventfilter_callback = nullptr;
     KLineEditUrlDropEventFilter_Event_Callback klineediturldropeventfilter_event_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKLineEditUrlDropEventFilter final : public KLineEditUrlDropEventFil
     KLineEditUrlDropEventFilter_IsSignalConnected_Callback klineediturldropeventfilter_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool klineediturldropeventfilter_metaobject_isbase = false;
+    mutable bool klineediturldropeventfilter_metacast_isbase = false;
     mutable bool klineediturldropeventfilter_metacall_isbase = false;
     mutable bool klineediturldropeventfilter_eventfilter_isbase = false;
     mutable bool klineediturldropeventfilter_event_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKLineEditUrlDropEventFilter final : public KLineEditUrlDropEventFil
     VirtualKLineEditUrlDropEventFilter(QObject* parent) : KLineEditUrlDropEventFilter(parent) {};
 
     ~VirtualKLineEditUrlDropEventFilter() {
+        klineediturldropeventfilter_metaobject_callback = nullptr;
+        klineediturldropeventfilter_metacast_callback = nullptr;
         klineediturldropeventfilter_metacall_callback = nullptr;
         klineediturldropeventfilter_eventfilter_callback = nullptr;
         klineediturldropeventfilter_event_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKLineEditUrlDropEventFilter final : public KLineEditUrlDropEventFil
     }
 
     // Callback setters
+    inline void setKLineEditUrlDropEventFilter_MetaObject_Callback(KLineEditUrlDropEventFilter_MetaObject_Callback cb) { klineediturldropeventfilter_metaobject_callback = cb; }
+    inline void setKLineEditUrlDropEventFilter_Metacast_Callback(KLineEditUrlDropEventFilter_Metacast_Callback cb) { klineediturldropeventfilter_metacast_callback = cb; }
     inline void setKLineEditUrlDropEventFilter_Metacall_Callback(KLineEditUrlDropEventFilter_Metacall_Callback cb) { klineediturldropeventfilter_metacall_callback = cb; }
     inline void setKLineEditUrlDropEventFilter_EventFilter_Callback(KLineEditUrlDropEventFilter_EventFilter_Callback cb) { klineediturldropeventfilter_eventfilter_callback = cb; }
     inline void setKLineEditUrlDropEventFilter_Event_Callback(KLineEditUrlDropEventFilter_Event_Callback cb) { klineediturldropeventfilter_event_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKLineEditUrlDropEventFilter final : public KLineEditUrlDropEventFil
     inline void setKLineEditUrlDropEventFilter_IsSignalConnected_Callback(KLineEditUrlDropEventFilter_IsSignalConnected_Callback cb) { klineediturldropeventfilter_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKLineEditUrlDropEventFilter_MetaObject_IsBase(bool value) const { klineediturldropeventfilter_metaobject_isbase = value; }
+    inline void setKLineEditUrlDropEventFilter_Metacast_IsBase(bool value) const { klineediturldropeventfilter_metacast_isbase = value; }
     inline void setKLineEditUrlDropEventFilter_Metacall_IsBase(bool value) const { klineediturldropeventfilter_metacall_isbase = value; }
     inline void setKLineEditUrlDropEventFilter_EventFilter_IsBase(bool value) const { klineediturldropeventfilter_eventfilter_isbase = value; }
     inline void setKLineEditUrlDropEventFilter_Event_IsBase(bool value) const { klineediturldropeventfilter_event_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKLineEditUrlDropEventFilter final : public KLineEditUrlDropEventFil
     inline void setKLineEditUrlDropEventFilter_SenderSignalIndex_IsBase(bool value) const { klineediturldropeventfilter_sendersignalindex_isbase = value; }
     inline void setKLineEditUrlDropEventFilter_Receivers_IsBase(bool value) const { klineediturldropeventfilter_receivers_isbase = value; }
     inline void setKLineEditUrlDropEventFilter_IsSignalConnected_IsBase(bool value) const { klineediturldropeventfilter_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (klineediturldropeventfilter_metaobject_isbase) {
+            klineediturldropeventfilter_metaobject_isbase = false;
+            return KLineEditUrlDropEventFilter::metaObject();
+        } else if (klineediturldropeventfilter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = klineediturldropeventfilter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KLineEditUrlDropEventFilter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (klineediturldropeventfilter_metacast_isbase) {
+            klineediturldropeventfilter_metacast_isbase = false;
+            return KLineEditUrlDropEventFilter::qt_metacast(param1);
+        } else if (klineediturldropeventfilter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = klineediturldropeventfilter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KLineEditUrlDropEventFilter::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

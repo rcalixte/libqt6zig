@@ -45,6 +45,10 @@ void QPdfPageRenderer_Connect_RenderModeChanged(QPdfPageRenderer* self, intptr_t
 void QPdfPageRenderer_PageRendered(QPdfPageRenderer* self, int pageNumber, QSize* imageSize, const QImage* image, QPdfDocumentRenderOptions* options, unsigned long long requestId);
 void QPdfPageRenderer_Connect_PageRendered(QPdfPageRenderer* self, intptr_t slot);
 unsigned long long QPdfPageRenderer_RequestPage3(QPdfPageRenderer* self, int pageNumber, QSize* imageSize, QPdfDocumentRenderOptions* options);
+void QPdfPageRenderer_OnMetaObject(const QPdfPageRenderer* self, intptr_t slot);
+QMetaObject* QPdfPageRenderer_QBaseMetaObject(const QPdfPageRenderer* self);
+void QPdfPageRenderer_OnMetacast(QPdfPageRenderer* self, intptr_t slot);
+void* QPdfPageRenderer_QBaseMetacast(QPdfPageRenderer* self, const char* param1);
 void QPdfPageRenderer_OnMetacall(QPdfPageRenderer* self, intptr_t slot);
 int QPdfPageRenderer_QBaseMetacall(QPdfPageRenderer* self, int param1, int param2, void** param3);
 bool QPdfPageRenderer_Event(QPdfPageRenderer* self, QEvent* event);

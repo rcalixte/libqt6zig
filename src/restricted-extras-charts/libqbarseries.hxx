@@ -17,6 +17,8 @@ class VirtualQBarSeries final : public QBarSeries {
     bool isVirtualQBarSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QBarSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QBarSeries_Metacast_Callback = void* (*)(QBarSeries*, const char*);
     using QBarSeries_Metacall_Callback = int (*)(QBarSeries*, int, int, void**);
     using QBarSeries_Type_Callback = int (*)();
     using QBarSeries_Event_Callback = bool (*)(QBarSeries*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQBarSeries final : public QBarSeries {
 
   protected:
     // Instance callback storage
+    QBarSeries_MetaObject_Callback qbarseries_metaobject_callback = nullptr;
+    QBarSeries_Metacast_Callback qbarseries_metacast_callback = nullptr;
     QBarSeries_Metacall_Callback qbarseries_metacall_callback = nullptr;
     QBarSeries_Type_Callback qbarseries_type_callback = nullptr;
     QBarSeries_Event_Callback qbarseries_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQBarSeries final : public QBarSeries {
     QBarSeries_IsSignalConnected_Callback qbarseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qbarseries_metaobject_isbase = false;
+    mutable bool qbarseries_metacast_isbase = false;
     mutable bool qbarseries_metacall_isbase = false;
     mutable bool qbarseries_type_isbase = false;
     mutable bool qbarseries_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQBarSeries final : public QBarSeries {
     VirtualQBarSeries(QObject* parent) : QBarSeries(parent) {};
 
     ~VirtualQBarSeries() {
+        qbarseries_metaobject_callback = nullptr;
+        qbarseries_metacast_callback = nullptr;
         qbarseries_metacall_callback = nullptr;
         qbarseries_type_callback = nullptr;
         qbarseries_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQBarSeries final : public QBarSeries {
     }
 
     // Callback setters
+    inline void setQBarSeries_MetaObject_Callback(QBarSeries_MetaObject_Callback cb) { qbarseries_metaobject_callback = cb; }
+    inline void setQBarSeries_Metacast_Callback(QBarSeries_Metacast_Callback cb) { qbarseries_metacast_callback = cb; }
     inline void setQBarSeries_Metacall_Callback(QBarSeries_Metacall_Callback cb) { qbarseries_metacall_callback = cb; }
     inline void setQBarSeries_Type_Callback(QBarSeries_Type_Callback cb) { qbarseries_type_callback = cb; }
     inline void setQBarSeries_Event_Callback(QBarSeries_Event_Callback cb) { qbarseries_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQBarSeries final : public QBarSeries {
     inline void setQBarSeries_IsSignalConnected_Callback(QBarSeries_IsSignalConnected_Callback cb) { qbarseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQBarSeries_MetaObject_IsBase(bool value) const { qbarseries_metaobject_isbase = value; }
+    inline void setQBarSeries_Metacast_IsBase(bool value) const { qbarseries_metacast_isbase = value; }
     inline void setQBarSeries_Metacall_IsBase(bool value) const { qbarseries_metacall_isbase = value; }
     inline void setQBarSeries_Type_IsBase(bool value) const { qbarseries_type_isbase = value; }
     inline void setQBarSeries_Event_IsBase(bool value) const { qbarseries_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQBarSeries final : public QBarSeries {
     inline void setQBarSeries_SenderSignalIndex_IsBase(bool value) const { qbarseries_sendersignalindex_isbase = value; }
     inline void setQBarSeries_Receivers_IsBase(bool value) const { qbarseries_receivers_isbase = value; }
     inline void setQBarSeries_IsSignalConnected_IsBase(bool value) const { qbarseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qbarseries_metaobject_isbase) {
+            qbarseries_metaobject_isbase = false;
+            return QBarSeries::metaObject();
+        } else if (qbarseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qbarseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QBarSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qbarseries_metacast_isbase) {
+            qbarseries_metacast_isbase = false;
+            return QBarSeries::qt_metacast(param1);
+        } else if (qbarseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qbarseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QBarSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

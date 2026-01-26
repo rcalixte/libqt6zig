@@ -17,6 +17,8 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
     bool isVirtualKIODeleteOrTrashJob = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__DeleteOrTrashJob_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__DeleteOrTrashJob_Metacast_Callback = void* (*)(KIO__DeleteOrTrashJob*, const char*);
     using KIO__DeleteOrTrashJob_Metacall_Callback = int (*)(KIO__DeleteOrTrashJob*, int, int, void**);
     using KIO__DeleteOrTrashJob_Start_Callback = void (*)();
     using KIO__DeleteOrTrashJob_AddSubjob_Callback = bool (*)(KIO__DeleteOrTrashJob*, KJob*);
@@ -55,6 +57,8 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
 
   protected:
     // Instance callback storage
+    KIO__DeleteOrTrashJob_MetaObject_Callback kio__deleteortrashjob_metaobject_callback = nullptr;
+    KIO__DeleteOrTrashJob_Metacast_Callback kio__deleteortrashjob_metacast_callback = nullptr;
     KIO__DeleteOrTrashJob_Metacall_Callback kio__deleteortrashjob_metacall_callback = nullptr;
     KIO__DeleteOrTrashJob_Start_Callback kio__deleteortrashjob_start_callback = nullptr;
     KIO__DeleteOrTrashJob_AddSubjob_Callback kio__deleteortrashjob_addsubjob_callback = nullptr;
@@ -92,6 +96,8 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
     KIO__DeleteOrTrashJob_IsSignalConnected_Callback kio__deleteortrashjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__deleteortrashjob_metaobject_isbase = false;
+    mutable bool kio__deleteortrashjob_metacast_isbase = false;
     mutable bool kio__deleteortrashjob_metacall_isbase = false;
     mutable bool kio__deleteortrashjob_start_isbase = false;
     mutable bool kio__deleteortrashjob_addsubjob_isbase = false;
@@ -132,6 +138,8 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
     VirtualKIODeleteOrTrashJob(const QList<QUrl>& urls, KIO::AskUserActionInterface::DeletionType deletionType, KIO::AskUserActionInterface::ConfirmationType confirm, QObject* parent) : KIO::DeleteOrTrashJob(urls, deletionType, confirm, parent) {};
 
     ~VirtualKIODeleteOrTrashJob() {
+        kio__deleteortrashjob_metaobject_callback = nullptr;
+        kio__deleteortrashjob_metacast_callback = nullptr;
         kio__deleteortrashjob_metacall_callback = nullptr;
         kio__deleteortrashjob_start_callback = nullptr;
         kio__deleteortrashjob_addsubjob_callback = nullptr;
@@ -170,6 +178,8 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
     }
 
     // Callback setters
+    inline void setKIO__DeleteOrTrashJob_MetaObject_Callback(KIO__DeleteOrTrashJob_MetaObject_Callback cb) { kio__deleteortrashjob_metaobject_callback = cb; }
+    inline void setKIO__DeleteOrTrashJob_Metacast_Callback(KIO__DeleteOrTrashJob_Metacast_Callback cb) { kio__deleteortrashjob_metacast_callback = cb; }
     inline void setKIO__DeleteOrTrashJob_Metacall_Callback(KIO__DeleteOrTrashJob_Metacall_Callback cb) { kio__deleteortrashjob_metacall_callback = cb; }
     inline void setKIO__DeleteOrTrashJob_Start_Callback(KIO__DeleteOrTrashJob_Start_Callback cb) { kio__deleteortrashjob_start_callback = cb; }
     inline void setKIO__DeleteOrTrashJob_AddSubjob_Callback(KIO__DeleteOrTrashJob_AddSubjob_Callback cb) { kio__deleteortrashjob_addsubjob_callback = cb; }
@@ -207,6 +217,8 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
     inline void setKIO__DeleteOrTrashJob_IsSignalConnected_Callback(KIO__DeleteOrTrashJob_IsSignalConnected_Callback cb) { kio__deleteortrashjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__DeleteOrTrashJob_MetaObject_IsBase(bool value) const { kio__deleteortrashjob_metaobject_isbase = value; }
+    inline void setKIO__DeleteOrTrashJob_Metacast_IsBase(bool value) const { kio__deleteortrashjob_metacast_isbase = value; }
     inline void setKIO__DeleteOrTrashJob_Metacall_IsBase(bool value) const { kio__deleteortrashjob_metacall_isbase = value; }
     inline void setKIO__DeleteOrTrashJob_Start_IsBase(bool value) const { kio__deleteortrashjob_start_isbase = value; }
     inline void setKIO__DeleteOrTrashJob_AddSubjob_IsBase(bool value) const { kio__deleteortrashjob_addsubjob_isbase = value; }
@@ -242,6 +254,34 @@ class VirtualKIODeleteOrTrashJob final : public KIO::DeleteOrTrashJob {
     inline void setKIO__DeleteOrTrashJob_SenderSignalIndex_IsBase(bool value) const { kio__deleteortrashjob_sendersignalindex_isbase = value; }
     inline void setKIO__DeleteOrTrashJob_Receivers_IsBase(bool value) const { kio__deleteortrashjob_receivers_isbase = value; }
     inline void setKIO__DeleteOrTrashJob_IsSignalConnected_IsBase(bool value) const { kio__deleteortrashjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__deleteortrashjob_metaobject_isbase) {
+            kio__deleteortrashjob_metaobject_isbase = false;
+            return KIO__DeleteOrTrashJob::metaObject();
+        } else if (kio__deleteortrashjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__deleteortrashjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__DeleteOrTrashJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__deleteortrashjob_metacast_isbase) {
+            kio__deleteortrashjob_metacast_isbase = false;
+            return KIO__DeleteOrTrashJob::qt_metacast(param1);
+        } else if (kio__deleteortrashjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__deleteortrashjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__DeleteOrTrashJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

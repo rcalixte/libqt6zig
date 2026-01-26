@@ -55,6 +55,10 @@ void QGeoRoutingManagerEngine_ErrorOccurred(QGeoRoutingManagerEngine* self, QGeo
 void QGeoRoutingManagerEngine_Connect_ErrorOccurred(QGeoRoutingManagerEngine* self, intptr_t slot);
 void QGeoRoutingManagerEngine_ErrorOccurred3(QGeoRoutingManagerEngine* self, QGeoRouteReply* reply, int errorVal, const libqt_string errorString);
 void QGeoRoutingManagerEngine_Connect_ErrorOccurred3(QGeoRoutingManagerEngine* self, intptr_t slot);
+void QGeoRoutingManagerEngine_OnMetaObject(const QGeoRoutingManagerEngine* self, intptr_t slot);
+QMetaObject* QGeoRoutingManagerEngine_QBaseMetaObject(const QGeoRoutingManagerEngine* self);
+void QGeoRoutingManagerEngine_OnMetacast(QGeoRoutingManagerEngine* self, intptr_t slot);
+void* QGeoRoutingManagerEngine_QBaseMetacast(QGeoRoutingManagerEngine* self, const char* param1);
 void QGeoRoutingManagerEngine_OnMetacall(QGeoRoutingManagerEngine* self, intptr_t slot);
 int QGeoRoutingManagerEngine_QBaseMetacall(QGeoRoutingManagerEngine* self, int param1, int param2, void** param3);
 void QGeoRoutingManagerEngine_OnCalculateRoute(QGeoRoutingManagerEngine* self, intptr_t slot);

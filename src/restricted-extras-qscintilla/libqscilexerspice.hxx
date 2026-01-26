@@ -17,6 +17,8 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
     bool isVirtualQsciLexerSpice = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerSpice_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerSpice_Metacast_Callback = void* (*)(QsciLexerSpice*, const char*);
     using QsciLexerSpice_Metacall_Callback = int (*)(QsciLexerSpice*, int, int, void**);
     using QsciLexerSpice_Language_Callback = const char* (*)();
     using QsciLexerSpice_Lexer_Callback = const char* (*)();
@@ -68,6 +70,8 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
 
   protected:
     // Instance callback storage
+    QsciLexerSpice_MetaObject_Callback qscilexerspice_metaobject_callback = nullptr;
+    QsciLexerSpice_Metacast_Callback qscilexerspice_metacast_callback = nullptr;
     QsciLexerSpice_Metacall_Callback qscilexerspice_metacall_callback = nullptr;
     QsciLexerSpice_Language_Callback qscilexerspice_language_callback = nullptr;
     QsciLexerSpice_Lexer_Callback qscilexerspice_lexer_callback = nullptr;
@@ -118,6 +122,8 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
     QsciLexerSpice_IsSignalConnected_Callback qscilexerspice_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexerspice_metaobject_isbase = false;
+    mutable bool qscilexerspice_metacast_isbase = false;
     mutable bool qscilexerspice_metacall_isbase = false;
     mutable bool qscilexerspice_language_isbase = false;
     mutable bool qscilexerspice_lexer_isbase = false;
@@ -172,6 +178,8 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
     VirtualQsciLexerSpice(QObject* parent) : QsciLexerSpice(parent) {};
 
     ~VirtualQsciLexerSpice() {
+        qscilexerspice_metaobject_callback = nullptr;
+        qscilexerspice_metacast_callback = nullptr;
         qscilexerspice_metacall_callback = nullptr;
         qscilexerspice_language_callback = nullptr;
         qscilexerspice_lexer_callback = nullptr;
@@ -223,6 +231,8 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
     }
 
     // Callback setters
+    inline void setQsciLexerSpice_MetaObject_Callback(QsciLexerSpice_MetaObject_Callback cb) { qscilexerspice_metaobject_callback = cb; }
+    inline void setQsciLexerSpice_Metacast_Callback(QsciLexerSpice_Metacast_Callback cb) { qscilexerspice_metacast_callback = cb; }
     inline void setQsciLexerSpice_Metacall_Callback(QsciLexerSpice_Metacall_Callback cb) { qscilexerspice_metacall_callback = cb; }
     inline void setQsciLexerSpice_Language_Callback(QsciLexerSpice_Language_Callback cb) { qscilexerspice_language_callback = cb; }
     inline void setQsciLexerSpice_Lexer_Callback(QsciLexerSpice_Lexer_Callback cb) { qscilexerspice_lexer_callback = cb; }
@@ -273,6 +283,8 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
     inline void setQsciLexerSpice_IsSignalConnected_Callback(QsciLexerSpice_IsSignalConnected_Callback cb) { qscilexerspice_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerSpice_MetaObject_IsBase(bool value) const { qscilexerspice_metaobject_isbase = value; }
+    inline void setQsciLexerSpice_Metacast_IsBase(bool value) const { qscilexerspice_metacast_isbase = value; }
     inline void setQsciLexerSpice_Metacall_IsBase(bool value) const { qscilexerspice_metacall_isbase = value; }
     inline void setQsciLexerSpice_Language_IsBase(bool value) const { qscilexerspice_language_isbase = value; }
     inline void setQsciLexerSpice_Lexer_IsBase(bool value) const { qscilexerspice_lexer_isbase = value; }
@@ -321,6 +333,34 @@ class VirtualQsciLexerSpice final : public QsciLexerSpice {
     inline void setQsciLexerSpice_SenderSignalIndex_IsBase(bool value) const { qscilexerspice_sendersignalindex_isbase = value; }
     inline void setQsciLexerSpice_Receivers_IsBase(bool value) const { qscilexerspice_receivers_isbase = value; }
     inline void setQsciLexerSpice_IsSignalConnected_IsBase(bool value) const { qscilexerspice_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexerspice_metaobject_isbase) {
+            qscilexerspice_metaobject_isbase = false;
+            return QsciLexerSpice::metaObject();
+        } else if (qscilexerspice_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexerspice_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerSpice::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexerspice_metacast_isbase) {
+            qscilexerspice_metacast_isbase = false;
+            return QsciLexerSpice::qt_metacast(param1);
+        } else if (qscilexerspice_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexerspice_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerSpice::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

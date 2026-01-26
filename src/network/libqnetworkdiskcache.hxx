@@ -17,6 +17,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
     bool isVirtualQNetworkDiskCache = true;
 
     // Virtual class public types (including callbacks)
+    using QNetworkDiskCache_MetaObject_Callback = QMetaObject* (*)();
+    using QNetworkDiskCache_Metacast_Callback = void* (*)(QNetworkDiskCache*, const char*);
     using QNetworkDiskCache_Metacall_Callback = int (*)(QNetworkDiskCache*, int, int, void**);
     using QNetworkDiskCache_CacheSize_Callback = long long (*)();
     using QNetworkDiskCache_MetaData_Callback = QNetworkCacheMetaData* (*)(QNetworkDiskCache*, QUrl*);
@@ -41,6 +43,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
 
   protected:
     // Instance callback storage
+    QNetworkDiskCache_MetaObject_Callback qnetworkdiskcache_metaobject_callback = nullptr;
+    QNetworkDiskCache_Metacast_Callback qnetworkdiskcache_metacast_callback = nullptr;
     QNetworkDiskCache_Metacall_Callback qnetworkdiskcache_metacall_callback = nullptr;
     QNetworkDiskCache_CacheSize_Callback qnetworkdiskcache_cachesize_callback = nullptr;
     QNetworkDiskCache_MetaData_Callback qnetworkdiskcache_metadata_callback = nullptr;
@@ -64,6 +68,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
     QNetworkDiskCache_IsSignalConnected_Callback qnetworkdiskcache_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qnetworkdiskcache_metaobject_isbase = false;
+    mutable bool qnetworkdiskcache_metacast_isbase = false;
     mutable bool qnetworkdiskcache_metacall_isbase = false;
     mutable bool qnetworkdiskcache_cachesize_isbase = false;
     mutable bool qnetworkdiskcache_metadata_isbase = false;
@@ -91,6 +97,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
     VirtualQNetworkDiskCache(QObject* parent) : QNetworkDiskCache(parent) {};
 
     ~VirtualQNetworkDiskCache() {
+        qnetworkdiskcache_metaobject_callback = nullptr;
+        qnetworkdiskcache_metacast_callback = nullptr;
         qnetworkdiskcache_metacall_callback = nullptr;
         qnetworkdiskcache_cachesize_callback = nullptr;
         qnetworkdiskcache_metadata_callback = nullptr;
@@ -115,6 +123,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
     }
 
     // Callback setters
+    inline void setQNetworkDiskCache_MetaObject_Callback(QNetworkDiskCache_MetaObject_Callback cb) { qnetworkdiskcache_metaobject_callback = cb; }
+    inline void setQNetworkDiskCache_Metacast_Callback(QNetworkDiskCache_Metacast_Callback cb) { qnetworkdiskcache_metacast_callback = cb; }
     inline void setQNetworkDiskCache_Metacall_Callback(QNetworkDiskCache_Metacall_Callback cb) { qnetworkdiskcache_metacall_callback = cb; }
     inline void setQNetworkDiskCache_CacheSize_Callback(QNetworkDiskCache_CacheSize_Callback cb) { qnetworkdiskcache_cachesize_callback = cb; }
     inline void setQNetworkDiskCache_MetaData_Callback(QNetworkDiskCache_MetaData_Callback cb) { qnetworkdiskcache_metadata_callback = cb; }
@@ -138,6 +148,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
     inline void setQNetworkDiskCache_IsSignalConnected_Callback(QNetworkDiskCache_IsSignalConnected_Callback cb) { qnetworkdiskcache_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQNetworkDiskCache_MetaObject_IsBase(bool value) const { qnetworkdiskcache_metaobject_isbase = value; }
+    inline void setQNetworkDiskCache_Metacast_IsBase(bool value) const { qnetworkdiskcache_metacast_isbase = value; }
     inline void setQNetworkDiskCache_Metacall_IsBase(bool value) const { qnetworkdiskcache_metacall_isbase = value; }
     inline void setQNetworkDiskCache_CacheSize_IsBase(bool value) const { qnetworkdiskcache_cachesize_isbase = value; }
     inline void setQNetworkDiskCache_MetaData_IsBase(bool value) const { qnetworkdiskcache_metadata_isbase = value; }
@@ -159,6 +171,34 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
     inline void setQNetworkDiskCache_SenderSignalIndex_IsBase(bool value) const { qnetworkdiskcache_sendersignalindex_isbase = value; }
     inline void setQNetworkDiskCache_Receivers_IsBase(bool value) const { qnetworkdiskcache_receivers_isbase = value; }
     inline void setQNetworkDiskCache_IsSignalConnected_IsBase(bool value) const { qnetworkdiskcache_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qnetworkdiskcache_metaobject_isbase) {
+            qnetworkdiskcache_metaobject_isbase = false;
+            return QNetworkDiskCache::metaObject();
+        } else if (qnetworkdiskcache_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qnetworkdiskcache_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QNetworkDiskCache::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qnetworkdiskcache_metacast_isbase) {
+            qnetworkdiskcache_metacast_isbase = false;
+            return QNetworkDiskCache::qt_metacast(param1);
+        } else if (qnetworkdiskcache_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qnetworkdiskcache_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QNetworkDiskCache::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

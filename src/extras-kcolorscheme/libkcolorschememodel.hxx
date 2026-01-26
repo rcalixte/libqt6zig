@@ -17,6 +17,8 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
     bool isVirtualKColorSchemeModel = true;
 
     // Virtual class public types (including callbacks)
+    using KColorSchemeModel_MetaObject_Callback = QMetaObject* (*)();
+    using KColorSchemeModel_Metacast_Callback = void* (*)(KColorSchemeModel*, const char*);
     using KColorSchemeModel_Metacall_Callback = int (*)(KColorSchemeModel*, int, int, void**);
     using KColorSchemeModel_Data_Callback = QVariant* (*)(const KColorSchemeModel*, QModelIndex*, int);
     using KColorSchemeModel_RowCount_Callback = int (*)(const KColorSchemeModel*, QModelIndex*);
@@ -86,6 +88,8 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
 
   protected:
     // Instance callback storage
+    KColorSchemeModel_MetaObject_Callback kcolorschememodel_metaobject_callback = nullptr;
+    KColorSchemeModel_Metacast_Callback kcolorschememodel_metacast_callback = nullptr;
     KColorSchemeModel_Metacall_Callback kcolorschememodel_metacall_callback = nullptr;
     KColorSchemeModel_Data_Callback kcolorschememodel_data_callback = nullptr;
     KColorSchemeModel_RowCount_Callback kcolorschememodel_rowcount_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
     KColorSchemeModel_IsSignalConnected_Callback kcolorschememodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcolorschememodel_metaobject_isbase = false;
+    mutable bool kcolorschememodel_metacast_isbase = false;
     mutable bool kcolorschememodel_metacall_isbase = false;
     mutable bool kcolorschememodel_data_isbase = false;
     mutable bool kcolorschememodel_rowcount_isbase = false;
@@ -226,6 +232,8 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
     VirtualKColorSchemeModel(QObject* parent) : KColorSchemeModel(parent) {};
 
     ~VirtualKColorSchemeModel() {
+        kcolorschememodel_metaobject_callback = nullptr;
+        kcolorschememodel_metacast_callback = nullptr;
         kcolorschememodel_metacall_callback = nullptr;
         kcolorschememodel_data_callback = nullptr;
         kcolorschememodel_rowcount_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
     }
 
     // Callback setters
+    inline void setKColorSchemeModel_MetaObject_Callback(KColorSchemeModel_MetaObject_Callback cb) { kcolorschememodel_metaobject_callback = cb; }
+    inline void setKColorSchemeModel_Metacast_Callback(KColorSchemeModel_Metacast_Callback cb) { kcolorschememodel_metacast_callback = cb; }
     inline void setKColorSchemeModel_Metacall_Callback(KColorSchemeModel_Metacall_Callback cb) { kcolorschememodel_metacall_callback = cb; }
     inline void setKColorSchemeModel_Data_Callback(KColorSchemeModel_Data_Callback cb) { kcolorschememodel_data_callback = cb; }
     inline void setKColorSchemeModel_RowCount_Callback(KColorSchemeModel_RowCount_Callback cb) { kcolorschememodel_rowcount_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
     inline void setKColorSchemeModel_IsSignalConnected_Callback(KColorSchemeModel_IsSignalConnected_Callback cb) { kcolorschememodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKColorSchemeModel_MetaObject_IsBase(bool value) const { kcolorschememodel_metaobject_isbase = value; }
+    inline void setKColorSchemeModel_Metacast_IsBase(bool value) const { kcolorschememodel_metacast_isbase = value; }
     inline void setKColorSchemeModel_Metacall_IsBase(bool value) const { kcolorschememodel_metacall_isbase = value; }
     inline void setKColorSchemeModel_Data_IsBase(bool value) const { kcolorschememodel_data_isbase = value; }
     inline void setKColorSchemeModel_RowCount_IsBase(bool value) const { kcolorschememodel_rowcount_isbase = value; }
@@ -429,6 +441,34 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
     inline void setKColorSchemeModel_SenderSignalIndex_IsBase(bool value) const { kcolorschememodel_sendersignalindex_isbase = value; }
     inline void setKColorSchemeModel_Receivers_IsBase(bool value) const { kcolorschememodel_receivers_isbase = value; }
     inline void setKColorSchemeModel_IsSignalConnected_IsBase(bool value) const { kcolorschememodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcolorschememodel_metaobject_isbase) {
+            kcolorschememodel_metaobject_isbase = false;
+            return KColorSchemeModel::metaObject();
+        } else if (kcolorschememodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcolorschememodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KColorSchemeModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcolorschememodel_metacast_isbase) {
+            kcolorschememodel_metacast_isbase = false;
+            return KColorSchemeModel::qt_metacast(param1);
+        } else if (kcolorschememodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcolorschememodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KColorSchemeModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

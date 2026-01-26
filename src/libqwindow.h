@@ -225,6 +225,10 @@ bool QWindow_NativeEvent(QWindow* self, const libqt_string eventType, void* mess
 QWindow* QWindow_Parent1(const QWindow* self, int mode);
 void QWindow_SetFlag2(QWindow* self, int param1, bool on);
 bool QWindow_IsAncestorOf2(const QWindow* self, const QWindow* child, int mode);
+void QWindow_OnMetaObject(const QWindow* self, intptr_t slot);
+QMetaObject* QWindow_QBaseMetaObject(const QWindow* self);
+void QWindow_OnMetacast(QWindow* self, intptr_t slot);
+void* QWindow_QBaseMetacast(QWindow* self, const char* param1);
 void QWindow_OnMetacall(QWindow* self, intptr_t slot);
 int QWindow_QBaseMetacall(QWindow* self, int param1, int param2, void** param3);
 void QWindow_OnSurfaceType(const QWindow* self, intptr_t slot);

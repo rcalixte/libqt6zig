@@ -36,6 +36,10 @@ int KIO__KUriFilterSearchProviderActions_Metacall(KIO__KUriFilterSearchProviderA
 libqt_string KIO__KUriFilterSearchProviderActions_SelectedText(const KIO__KUriFilterSearchProviderActions* self);
 void KIO__KUriFilterSearchProviderActions_SetSelectedText(KIO__KUriFilterSearchProviderActions* self, const libqt_string selectedText);
 void KIO__KUriFilterSearchProviderActions_AddWebShortcutsToMenu(KIO__KUriFilterSearchProviderActions* self, QMenu* menu);
+void KIO__KUriFilterSearchProviderActions_OnMetaObject(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
+QMetaObject* KIO__KUriFilterSearchProviderActions_QBaseMetaObject(const KIO__KUriFilterSearchProviderActions* self);
+void KIO__KUriFilterSearchProviderActions_OnMetacast(KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
+void* KIO__KUriFilterSearchProviderActions_QBaseMetacast(KIO__KUriFilterSearchProviderActions* self, const char* param1);
 void KIO__KUriFilterSearchProviderActions_OnMetacall(KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
 int KIO__KUriFilterSearchProviderActions_QBaseMetacall(KIO__KUriFilterSearchProviderActions* self, int param1, int param2, void** param3);
 bool KIO__KUriFilterSearchProviderActions_Event(KIO__KUriFilterSearchProviderActions* self, QEvent* event);

@@ -17,6 +17,8 @@ class VirtualKIORenameFileDialog final : public KIO::RenameFileDialog {
     bool isVirtualKIORenameFileDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__RenameFileDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__RenameFileDialog_Metacast_Callback = void* (*)(KIO__RenameFileDialog*, const char*);
     using KIO__RenameFileDialog_Metacall_Callback = int (*)(KIO__RenameFileDialog*, int, int, void**);
     using KIO__RenameFileDialog_SetVisible_Callback = void (*)(KIO__RenameFileDialog*, bool);
     using KIO__RenameFileDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKIORenameFileDialog final : public KIO::RenameFileDialog {
 
   protected:
     // Instance callback storage
+    KIO__RenameFileDialog_MetaObject_Callback kio__renamefiledialog_metaobject_callback = nullptr;
+    KIO__RenameFileDialog_Metacast_Callback kio__renamefiledialog_metacast_callback = nullptr;
     KIO__RenameFileDialog_Metacall_Callback kio__renamefiledialog_metacall_callback = nullptr;
     KIO__RenameFileDialog_SetVisible_Callback kio__renamefiledialog_setvisible_callback = nullptr;
     KIO__RenameFileDialog_SizeHint_Callback kio__renamefiledialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKIORenameFileDialog final : public KIO::RenameFileDialog {
     KIO__RenameFileDialog_GetDecodedMetricF_Callback kio__renamefiledialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__renamefiledialog_metaobject_isbase = false;
+    mutable bool kio__renamefiledialog_metacast_isbase = false;
     mutable bool kio__renamefiledialog_metacall_isbase = false;
     mutable bool kio__renamefiledialog_setvisible_isbase = false;
     mutable bool kio__renamefiledialog_sizehint_isbase = false;
@@ -219,6 +225,8 @@ class VirtualKIORenameFileDialog final : public KIO::RenameFileDialog {
     VirtualKIORenameFileDialog(const KFileItemList& items, QWidget* parent) : KIO::RenameFileDialog(items, parent) {};
 
     ~VirtualKIORenameFileDialog() {
+        kio__renamefiledialog_metaobject_callback = nullptr;
+        kio__renamefiledialog_metacast_callback = nullptr;
         kio__renamefiledialog_metacall_callback = nullptr;
         kio__renamefiledialog_setvisible_callback = nullptr;
         kio__renamefiledialog_sizehint_callback = nullptr;
@@ -286,6 +294,8 @@ class VirtualKIORenameFileDialog final : public KIO::RenameFileDialog {
     }
 
     // Callback setters
+    inline void setKIO__RenameFileDialog_MetaObject_Callback(KIO__RenameFileDialog_MetaObject_Callback cb) { kio__renamefiledialog_metaobject_callback = cb; }
+    inline void setKIO__RenameFileDialog_Metacast_Callback(KIO__RenameFileDialog_Metacast_Callback cb) { kio__renamefiledialog_metacast_callback = cb; }
     inline void setKIO__RenameFileDialog_Metacall_Callback(KIO__RenameFileDialog_Metacall_Callback cb) { kio__renamefiledialog_metacall_callback = cb; }
     inline void setKIO__RenameFileDialog_SetVisible_Callback(KIO__RenameFileDialog_SetVisible_Callback cb) { kio__renamefiledialog_setvisible_callback = cb; }
     inline void setKIO__RenameFileDialog_SizeHint_Callback(KIO__RenameFileDialog_SizeHint_Callback cb) { kio__renamefiledialog_sizehint_callback = cb; }
@@ -352,6 +362,8 @@ class VirtualKIORenameFileDialog final : public KIO::RenameFileDialog {
     inline void setKIO__RenameFileDialog_GetDecodedMetricF_Callback(KIO__RenameFileDialog_GetDecodedMetricF_Callback cb) { kio__renamefiledialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__RenameFileDialog_MetaObject_IsBase(bool value) const { kio__renamefiledialog_metaobject_isbase = value; }
+    inline void setKIO__RenameFileDialog_Metacast_IsBase(bool value) const { kio__renamefiledialog_metacast_isbase = value; }
     inline void setKIO__RenameFileDialog_Metacall_IsBase(bool value) const { kio__renamefiledialog_metacall_isbase = value; }
     inline void setKIO__RenameFileDialog_SetVisible_IsBase(bool value) const { kio__renamefiledialog_setvisible_isbase = value; }
     inline void setKIO__RenameFileDialog_SizeHint_IsBase(bool value) const { kio__renamefiledialog_sizehint_isbase = value; }
@@ -416,6 +428,34 @@ class VirtualKIORenameFileDialog final : public KIO::RenameFileDialog {
     inline void setKIO__RenameFileDialog_Receivers_IsBase(bool value) const { kio__renamefiledialog_receivers_isbase = value; }
     inline void setKIO__RenameFileDialog_IsSignalConnected_IsBase(bool value) const { kio__renamefiledialog_issignalconnected_isbase = value; }
     inline void setKIO__RenameFileDialog_GetDecodedMetricF_IsBase(bool value) const { kio__renamefiledialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__renamefiledialog_metaobject_isbase) {
+            kio__renamefiledialog_metaobject_isbase = false;
+            return KIO__RenameFileDialog::metaObject();
+        } else if (kio__renamefiledialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__renamefiledialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__RenameFileDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__renamefiledialog_metacast_isbase) {
+            kio__renamefiledialog_metacast_isbase = false;
+            return KIO__RenameFileDialog::qt_metacast(param1);
+        } else if (kio__renamefiledialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__renamefiledialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__RenameFileDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

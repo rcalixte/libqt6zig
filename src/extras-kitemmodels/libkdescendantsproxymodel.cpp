@@ -34,11 +34,21 @@ KDescendantsProxyModel* KDescendantsProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* KDescendantsProxyModel_MetaObject(const KDescendantsProxyModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDescendantsProxyModel*)self)->metaObject();
+    }
 }
 
 void* KDescendantsProxyModel_Metacast(KDescendantsProxyModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDescendantsProxyModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KDescendantsProxyModel_Metacall(KDescendantsProxyModel* self, int param1, int param2, void** param3) {
@@ -412,6 +422,44 @@ void KDescendantsProxyModel_Connect_SourceIndexCollapsed(KDescendantsProxyModel*
         QModelIndex* sigval1 = const_cast<QModelIndex*>(&sourceIndex_ret);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KDescendantsProxyModel_QBaseMetaObject(const KDescendantsProxyModel* self) {
+    auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+        vkdescendantsproxymodel->setKDescendantsProxyModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdescendantsproxymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KDescendantsProxyModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDescendantsProxyModel_OnMetaObject(const KDescendantsProxyModel* self, intptr_t slot) {
+    auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+        vkdescendantsproxymodel->setKDescendantsProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDescendantsProxyModel_QBaseMetacast(KDescendantsProxyModel* self, const char* param1) {
+    auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+        vkdescendantsproxymodel->setKDescendantsProxyModel_Metacast_IsBase(true);
+        return vkdescendantsproxymodel->qt_metacast(param1);
+    } else {
+        return self->KDescendantsProxyModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDescendantsProxyModel_OnMetacast(KDescendantsProxyModel* self, intptr_t slot) {
+    auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+        vkdescendantsproxymodel->setKDescendantsProxyModel_Metacast_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

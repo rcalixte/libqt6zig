@@ -50,11 +50,21 @@ KToolTipWidget* KToolTipWidget_new2() {
 }
 
 QMetaObject* KToolTipWidget_MetaObject(const KToolTipWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktooltipwidget = dynamic_cast<const VirtualKToolTipWidget*>(self);
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKToolTipWidget*)self)->metaObject();
+    }
 }
 
 void* KToolTipWidget_Metacast(KToolTipWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKToolTipWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KToolTipWidget_Metacall(KToolTipWidget* self, int param1, int param2, void** param3) {
@@ -122,6 +132,44 @@ void KToolTipWidget_PaintEvent(KToolTipWidget* self, QPaintEvent* event) {
     auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
     if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
         vktooltipwidget->paintEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KToolTipWidget_QBaseMetaObject(const KToolTipWidget* self) {
+    auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+        vktooltipwidget->setKToolTipWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vktooltipwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KToolTipWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolTipWidget_OnMetaObject(const KToolTipWidget* self, intptr_t slot) {
+    auto* vktooltipwidget = const_cast<VirtualKToolTipWidget*>(dynamic_cast<const VirtualKToolTipWidget*>(self));
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+        vktooltipwidget->setKToolTipWidget_MetaObject_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KToolTipWidget_QBaseMetacast(KToolTipWidget* self, const char* param1) {
+    auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+        vktooltipwidget->setKToolTipWidget_Metacast_IsBase(true);
+        return vktooltipwidget->qt_metacast(param1);
+    } else {
+        return self->KToolTipWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolTipWidget_OnMetacast(KToolTipWidget* self, intptr_t slot) {
+    auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
+    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
+        vktooltipwidget->setKToolTipWidget_Metacast_Callback(reinterpret_cast<VirtualKToolTipWidget::KToolTipWidget_Metacast_Callback>(slot));
     }
 }
 

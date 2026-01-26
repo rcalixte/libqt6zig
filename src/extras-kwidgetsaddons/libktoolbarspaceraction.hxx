@@ -17,6 +17,8 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
     bool isVirtualKToolBarSpacerAction = true;
 
     // Virtual class public types (including callbacks)
+    using KToolBarSpacerAction_MetaObject_Callback = QMetaObject* (*)();
+    using KToolBarSpacerAction_Metacast_Callback = void* (*)(KToolBarSpacerAction*, const char*);
     using KToolBarSpacerAction_Metacall_Callback = int (*)(KToolBarSpacerAction*, int, int, void**);
     using KToolBarSpacerAction_CreateWidget_Callback = QWidget* (*)(KToolBarSpacerAction*, QWidget*);
     using KToolBarSpacerAction_Event_Callback = bool (*)(KToolBarSpacerAction*, QEvent*);
@@ -35,6 +37,8 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
 
   protected:
     // Instance callback storage
+    KToolBarSpacerAction_MetaObject_Callback ktoolbarspaceraction_metaobject_callback = nullptr;
+    KToolBarSpacerAction_Metacast_Callback ktoolbarspaceraction_metacast_callback = nullptr;
     KToolBarSpacerAction_Metacall_Callback ktoolbarspaceraction_metacall_callback = nullptr;
     KToolBarSpacerAction_CreateWidget_Callback ktoolbarspaceraction_createwidget_callback = nullptr;
     KToolBarSpacerAction_Event_Callback ktoolbarspaceraction_event_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
     KToolBarSpacerAction_IsSignalConnected_Callback ktoolbarspaceraction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktoolbarspaceraction_metaobject_isbase = false;
+    mutable bool ktoolbarspaceraction_metacast_isbase = false;
     mutable bool ktoolbarspaceraction_metacall_isbase = false;
     mutable bool ktoolbarspaceraction_createwidget_isbase = false;
     mutable bool ktoolbarspaceraction_event_isbase = false;
@@ -72,6 +78,8 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
     VirtualKToolBarSpacerAction(QObject* parent) : KToolBarSpacerAction(parent) {};
 
     ~VirtualKToolBarSpacerAction() {
+        ktoolbarspaceraction_metaobject_callback = nullptr;
+        ktoolbarspaceraction_metacast_callback = nullptr;
         ktoolbarspaceraction_metacall_callback = nullptr;
         ktoolbarspaceraction_createwidget_callback = nullptr;
         ktoolbarspaceraction_event_callback = nullptr;
@@ -90,6 +98,8 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
     }
 
     // Callback setters
+    inline void setKToolBarSpacerAction_MetaObject_Callback(KToolBarSpacerAction_MetaObject_Callback cb) { ktoolbarspaceraction_metaobject_callback = cb; }
+    inline void setKToolBarSpacerAction_Metacast_Callback(KToolBarSpacerAction_Metacast_Callback cb) { ktoolbarspaceraction_metacast_callback = cb; }
     inline void setKToolBarSpacerAction_Metacall_Callback(KToolBarSpacerAction_Metacall_Callback cb) { ktoolbarspaceraction_metacall_callback = cb; }
     inline void setKToolBarSpacerAction_CreateWidget_Callback(KToolBarSpacerAction_CreateWidget_Callback cb) { ktoolbarspaceraction_createwidget_callback = cb; }
     inline void setKToolBarSpacerAction_Event_Callback(KToolBarSpacerAction_Event_Callback cb) { ktoolbarspaceraction_event_callback = cb; }
@@ -107,6 +117,8 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
     inline void setKToolBarSpacerAction_IsSignalConnected_Callback(KToolBarSpacerAction_IsSignalConnected_Callback cb) { ktoolbarspaceraction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKToolBarSpacerAction_MetaObject_IsBase(bool value) const { ktoolbarspaceraction_metaobject_isbase = value; }
+    inline void setKToolBarSpacerAction_Metacast_IsBase(bool value) const { ktoolbarspaceraction_metacast_isbase = value; }
     inline void setKToolBarSpacerAction_Metacall_IsBase(bool value) const { ktoolbarspaceraction_metacall_isbase = value; }
     inline void setKToolBarSpacerAction_CreateWidget_IsBase(bool value) const { ktoolbarspaceraction_createwidget_isbase = value; }
     inline void setKToolBarSpacerAction_Event_IsBase(bool value) const { ktoolbarspaceraction_event_isbase = value; }
@@ -122,6 +134,34 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
     inline void setKToolBarSpacerAction_SenderSignalIndex_IsBase(bool value) const { ktoolbarspaceraction_sendersignalindex_isbase = value; }
     inline void setKToolBarSpacerAction_Receivers_IsBase(bool value) const { ktoolbarspaceraction_receivers_isbase = value; }
     inline void setKToolBarSpacerAction_IsSignalConnected_IsBase(bool value) const { ktoolbarspaceraction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktoolbarspaceraction_metaobject_isbase) {
+            ktoolbarspaceraction_metaobject_isbase = false;
+            return KToolBarSpacerAction::metaObject();
+        } else if (ktoolbarspaceraction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktoolbarspaceraction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KToolBarSpacerAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktoolbarspaceraction_metacast_isbase) {
+            ktoolbarspaceraction_metacast_isbase = false;
+            return KToolBarSpacerAction::qt_metacast(param1);
+        } else if (ktoolbarspaceraction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktoolbarspaceraction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KToolBarSpacerAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

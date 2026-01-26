@@ -97,6 +97,10 @@ void QAbstractScrollArea_DropEvent(QAbstractScrollArea* self, QDropEvent* param1
 void QAbstractScrollArea_KeyPressEvent(QAbstractScrollArea* self, QKeyEvent* param1);
 void QAbstractScrollArea_ScrollContentsBy(QAbstractScrollArea* self, int dx, int dy);
 QSize* QAbstractScrollArea_ViewportSizeHint(const QAbstractScrollArea* self);
+void QAbstractScrollArea_OnMetaObject(const QAbstractScrollArea* self, intptr_t slot);
+QMetaObject* QAbstractScrollArea_QBaseMetaObject(const QAbstractScrollArea* self);
+void QAbstractScrollArea_OnMetacast(QAbstractScrollArea* self, intptr_t slot);
+void* QAbstractScrollArea_QBaseMetacast(QAbstractScrollArea* self, const char* param1);
 void QAbstractScrollArea_OnMetacall(QAbstractScrollArea* self, intptr_t slot);
 int QAbstractScrollArea_QBaseMetacall(QAbstractScrollArea* self, int param1, int param2, void** param3);
 void QAbstractScrollArea_OnMinimumSizeHint(const QAbstractScrollArea* self, intptr_t slot);

@@ -17,6 +17,8 @@ class VirtualKLineEdit final : public KLineEdit {
     bool isVirtualKLineEdit = true;
 
     // Virtual class public types (including callbacks)
+    using KLineEdit_MetaObject_Callback = QMetaObject* (*)();
+    using KLineEdit_Metacast_Callback = void* (*)(KLineEdit*, const char*);
     using KLineEdit_Metacall_Callback = int (*)(KLineEdit*, int, int, void**);
     using KLineEdit_SetCompletionMode_Callback = void (*)(KLineEdit*, int);
     using KLineEdit_CompletionBox_Callback = KCompletionBox* (*)(KLineEdit*, bool);
@@ -100,6 +102,8 @@ class VirtualKLineEdit final : public KLineEdit {
 
   protected:
     // Instance callback storage
+    KLineEdit_MetaObject_Callback klineedit_metaobject_callback = nullptr;
+    KLineEdit_Metacast_Callback klineedit_metacast_callback = nullptr;
     KLineEdit_Metacall_Callback klineedit_metacall_callback = nullptr;
     KLineEdit_SetCompletionMode_Callback klineedit_setcompletionmode_callback = nullptr;
     KLineEdit_CompletionBox_Callback klineedit_completionbox_callback = nullptr;
@@ -182,6 +186,8 @@ class VirtualKLineEdit final : public KLineEdit {
     KLineEdit_Delegate_Callback klineedit_delegate_callback = nullptr;
 
     // Instance base flags
+    mutable bool klineedit_metaobject_isbase = false;
+    mutable bool klineedit_metacast_isbase = false;
     mutable bool klineedit_metacall_isbase = false;
     mutable bool klineedit_setcompletionmode_isbase = false;
     mutable bool klineedit_completionbox_isbase = false;
@@ -270,6 +276,8 @@ class VirtualKLineEdit final : public KLineEdit {
     VirtualKLineEdit(const QString& stringVal, QWidget* parent) : KLineEdit(stringVal, parent) {};
 
     ~VirtualKLineEdit() {
+        klineedit_metaobject_callback = nullptr;
+        klineedit_metacast_callback = nullptr;
         klineedit_metacall_callback = nullptr;
         klineedit_setcompletionmode_callback = nullptr;
         klineedit_completionbox_callback = nullptr;
@@ -353,6 +361,8 @@ class VirtualKLineEdit final : public KLineEdit {
     }
 
     // Callback setters
+    inline void setKLineEdit_MetaObject_Callback(KLineEdit_MetaObject_Callback cb) { klineedit_metaobject_callback = cb; }
+    inline void setKLineEdit_Metacast_Callback(KLineEdit_Metacast_Callback cb) { klineedit_metacast_callback = cb; }
     inline void setKLineEdit_Metacall_Callback(KLineEdit_Metacall_Callback cb) { klineedit_metacall_callback = cb; }
     inline void setKLineEdit_SetCompletionMode_Callback(KLineEdit_SetCompletionMode_Callback cb) { klineedit_setcompletionmode_callback = cb; }
     inline void setKLineEdit_CompletionBox_Callback(KLineEdit_CompletionBox_Callback cb) { klineedit_completionbox_callback = cb; }
@@ -435,6 +445,8 @@ class VirtualKLineEdit final : public KLineEdit {
     inline void setKLineEdit_Delegate_Callback(KLineEdit_Delegate_Callback cb) { klineedit_delegate_callback = cb; }
 
     // Base flag setters
+    inline void setKLineEdit_MetaObject_IsBase(bool value) const { klineedit_metaobject_isbase = value; }
+    inline void setKLineEdit_Metacast_IsBase(bool value) const { klineedit_metacast_isbase = value; }
     inline void setKLineEdit_Metacall_IsBase(bool value) const { klineedit_metacall_isbase = value; }
     inline void setKLineEdit_SetCompletionMode_IsBase(bool value) const { klineedit_setcompletionmode_isbase = value; }
     inline void setKLineEdit_CompletionBox_IsBase(bool value) const { klineedit_completionbox_isbase = value; }
@@ -515,6 +527,34 @@ class VirtualKLineEdit final : public KLineEdit {
     inline void setKLineEdit_SetKeyBindingMap_IsBase(bool value) const { klineedit_setkeybindingmap_isbase = value; }
     inline void setKLineEdit_SetDelegate_IsBase(bool value) const { klineedit_setdelegate_isbase = value; }
     inline void setKLineEdit_Delegate_IsBase(bool value) const { klineedit_delegate_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (klineedit_metaobject_isbase) {
+            klineedit_metaobject_isbase = false;
+            return KLineEdit::metaObject();
+        } else if (klineedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = klineedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KLineEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (klineedit_metacast_isbase) {
+            klineedit_metacast_isbase = false;
+            return KLineEdit::qt_metacast(param1);
+        } else if (klineedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = klineedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KLineEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

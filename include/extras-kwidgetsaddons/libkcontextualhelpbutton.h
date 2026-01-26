@@ -66,6 +66,10 @@ QWidget* KContextualHelpButton_HeightHintWidget(const KContextualHelpButton* sel
 QSize* KContextualHelpButton_SizeHint(const KContextualHelpButton* self);
 void KContextualHelpButton_ContextualHelpTextChanged(KContextualHelpButton* self, const libqt_string newContextualHelpText);
 void KContextualHelpButton_Connect_ContextualHelpTextChanged(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_OnMetaObject(const KContextualHelpButton* self, intptr_t slot);
+QMetaObject* KContextualHelpButton_QBaseMetaObject(const KContextualHelpButton* self);
+void KContextualHelpButton_OnMetacast(KContextualHelpButton* self, intptr_t slot);
+void* KContextualHelpButton_QBaseMetacast(KContextualHelpButton* self, const char* param1);
 void KContextualHelpButton_OnMetacall(KContextualHelpButton* self, intptr_t slot);
 int KContextualHelpButton_QBaseMetacall(KContextualHelpButton* self, int param1, int param2, void** param3);
 void KContextualHelpButton_OnSizeHint(const KContextualHelpButton* self, intptr_t slot);

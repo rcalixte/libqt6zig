@@ -17,6 +17,8 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
     bool isVirtualKPartsNavigationExtension = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__NavigationExtension_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__NavigationExtension_Metacast_Callback = void* (*)(KParts__NavigationExtension*, const char*);
     using KParts__NavigationExtension_Metacall_Callback = int (*)(KParts__NavigationExtension*, int, int, void**);
     using KParts__NavigationExtension_XOffset_Callback = int (*)();
     using KParts__NavigationExtension_YOffset_Callback = int (*)();
@@ -36,6 +38,8 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
 
   protected:
     // Instance callback storage
+    KParts__NavigationExtension_MetaObject_Callback kparts__navigationextension_metaobject_callback = nullptr;
+    KParts__NavigationExtension_Metacast_Callback kparts__navigationextension_metacast_callback = nullptr;
     KParts__NavigationExtension_Metacall_Callback kparts__navigationextension_metacall_callback = nullptr;
     KParts__NavigationExtension_XOffset_Callback kparts__navigationextension_xoffset_callback = nullptr;
     KParts__NavigationExtension_YOffset_Callback kparts__navigationextension_yoffset_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
     KParts__NavigationExtension_IsSignalConnected_Callback kparts__navigationextension_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__navigationextension_metaobject_isbase = false;
+    mutable bool kparts__navigationextension_metacast_isbase = false;
     mutable bool kparts__navigationextension_metacall_isbase = false;
     mutable bool kparts__navigationextension_xoffset_isbase = false;
     mutable bool kparts__navigationextension_yoffset_isbase = false;
@@ -75,6 +81,8 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
     VirtualKPartsNavigationExtension(KParts::ReadOnlyPart* parent) : KParts::NavigationExtension(parent) {};
 
     ~VirtualKPartsNavigationExtension() {
+        kparts__navigationextension_metaobject_callback = nullptr;
+        kparts__navigationextension_metacast_callback = nullptr;
         kparts__navigationextension_metacall_callback = nullptr;
         kparts__navigationextension_xoffset_callback = nullptr;
         kparts__navigationextension_yoffset_callback = nullptr;
@@ -94,6 +102,8 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
     }
 
     // Callback setters
+    inline void setKParts__NavigationExtension_MetaObject_Callback(KParts__NavigationExtension_MetaObject_Callback cb) { kparts__navigationextension_metaobject_callback = cb; }
+    inline void setKParts__NavigationExtension_Metacast_Callback(KParts__NavigationExtension_Metacast_Callback cb) { kparts__navigationextension_metacast_callback = cb; }
     inline void setKParts__NavigationExtension_Metacall_Callback(KParts__NavigationExtension_Metacall_Callback cb) { kparts__navigationextension_metacall_callback = cb; }
     inline void setKParts__NavigationExtension_XOffset_Callback(KParts__NavigationExtension_XOffset_Callback cb) { kparts__navigationextension_xoffset_callback = cb; }
     inline void setKParts__NavigationExtension_YOffset_Callback(KParts__NavigationExtension_YOffset_Callback cb) { kparts__navigationextension_yoffset_callback = cb; }
@@ -112,6 +122,8 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
     inline void setKParts__NavigationExtension_IsSignalConnected_Callback(KParts__NavigationExtension_IsSignalConnected_Callback cb) { kparts__navigationextension_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__NavigationExtension_MetaObject_IsBase(bool value) const { kparts__navigationextension_metaobject_isbase = value; }
+    inline void setKParts__NavigationExtension_Metacast_IsBase(bool value) const { kparts__navigationextension_metacast_isbase = value; }
     inline void setKParts__NavigationExtension_Metacall_IsBase(bool value) const { kparts__navigationextension_metacall_isbase = value; }
     inline void setKParts__NavigationExtension_XOffset_IsBase(bool value) const { kparts__navigationextension_xoffset_isbase = value; }
     inline void setKParts__NavigationExtension_YOffset_IsBase(bool value) const { kparts__navigationextension_yoffset_isbase = value; }
@@ -128,6 +140,34 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
     inline void setKParts__NavigationExtension_SenderSignalIndex_IsBase(bool value) const { kparts__navigationextension_sendersignalindex_isbase = value; }
     inline void setKParts__NavigationExtension_Receivers_IsBase(bool value) const { kparts__navigationextension_receivers_isbase = value; }
     inline void setKParts__NavigationExtension_IsSignalConnected_IsBase(bool value) const { kparts__navigationextension_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__navigationextension_metaobject_isbase) {
+            kparts__navigationextension_metaobject_isbase = false;
+            return KParts__NavigationExtension::metaObject();
+        } else if (kparts__navigationextension_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__navigationextension_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__NavigationExtension::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__navigationextension_metacast_isbase) {
+            kparts__navigationextension_metacast_isbase = false;
+            return KParts__NavigationExtension::qt_metacast(param1);
+        } else if (kparts__navigationextension_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__navigationextension_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__NavigationExtension::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

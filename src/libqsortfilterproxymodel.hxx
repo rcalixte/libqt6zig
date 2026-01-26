@@ -17,6 +17,8 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
     bool isVirtualQSortFilterProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using QSortFilterProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using QSortFilterProxyModel_Metacast_Callback = void* (*)(QSortFilterProxyModel*, const char*);
     using QSortFilterProxyModel_Metacall_Callback = int (*)(QSortFilterProxyModel*, int, int, void**);
     using QSortFilterProxyModel_SetSourceModel_Callback = void (*)(QSortFilterProxyModel*, QAbstractItemModel*);
     using QSortFilterProxyModel_MapToSource_Callback = QModelIndex* (*)(const QSortFilterProxyModel*, QModelIndex*);
@@ -101,6 +103,8 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
 
   protected:
     // Instance callback storage
+    QSortFilterProxyModel_MetaObject_Callback qsortfilterproxymodel_metaobject_callback = nullptr;
+    QSortFilterProxyModel_Metacast_Callback qsortfilterproxymodel_metacast_callback = nullptr;
     QSortFilterProxyModel_Metacall_Callback qsortfilterproxymodel_metacall_callback = nullptr;
     QSortFilterProxyModel_SetSourceModel_Callback qsortfilterproxymodel_setsourcemodel_callback = nullptr;
     QSortFilterProxyModel_MapToSource_Callback qsortfilterproxymodel_maptosource_callback = nullptr;
@@ -184,6 +188,8 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
     QSortFilterProxyModel_IsSignalConnected_Callback qsortfilterproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsortfilterproxymodel_metaobject_isbase = false;
+    mutable bool qsortfilterproxymodel_metacast_isbase = false;
     mutable bool qsortfilterproxymodel_metacall_isbase = false;
     mutable bool qsortfilterproxymodel_setsourcemodel_isbase = false;
     mutable bool qsortfilterproxymodel_maptosource_isbase = false;
@@ -271,6 +277,8 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
     VirtualQSortFilterProxyModel(QObject* parent) : QSortFilterProxyModel(parent) {};
 
     ~VirtualQSortFilterProxyModel() {
+        qsortfilterproxymodel_metaobject_callback = nullptr;
+        qsortfilterproxymodel_metacast_callback = nullptr;
         qsortfilterproxymodel_metacall_callback = nullptr;
         qsortfilterproxymodel_setsourcemodel_callback = nullptr;
         qsortfilterproxymodel_maptosource_callback = nullptr;
@@ -355,6 +363,8 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
     }
 
     // Callback setters
+    inline void setQSortFilterProxyModel_MetaObject_Callback(QSortFilterProxyModel_MetaObject_Callback cb) { qsortfilterproxymodel_metaobject_callback = cb; }
+    inline void setQSortFilterProxyModel_Metacast_Callback(QSortFilterProxyModel_Metacast_Callback cb) { qsortfilterproxymodel_metacast_callback = cb; }
     inline void setQSortFilterProxyModel_Metacall_Callback(QSortFilterProxyModel_Metacall_Callback cb) { qsortfilterproxymodel_metacall_callback = cb; }
     inline void setQSortFilterProxyModel_SetSourceModel_Callback(QSortFilterProxyModel_SetSourceModel_Callback cb) { qsortfilterproxymodel_setsourcemodel_callback = cb; }
     inline void setQSortFilterProxyModel_MapToSource_Callback(QSortFilterProxyModel_MapToSource_Callback cb) { qsortfilterproxymodel_maptosource_callback = cb; }
@@ -438,6 +448,8 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
     inline void setQSortFilterProxyModel_IsSignalConnected_Callback(QSortFilterProxyModel_IsSignalConnected_Callback cb) { qsortfilterproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSortFilterProxyModel_MetaObject_IsBase(bool value) const { qsortfilterproxymodel_metaobject_isbase = value; }
+    inline void setQSortFilterProxyModel_Metacast_IsBase(bool value) const { qsortfilterproxymodel_metacast_isbase = value; }
     inline void setQSortFilterProxyModel_Metacall_IsBase(bool value) const { qsortfilterproxymodel_metacall_isbase = value; }
     inline void setQSortFilterProxyModel_SetSourceModel_IsBase(bool value) const { qsortfilterproxymodel_setsourcemodel_isbase = value; }
     inline void setQSortFilterProxyModel_MapToSource_IsBase(bool value) const { qsortfilterproxymodel_maptosource_isbase = value; }
@@ -519,6 +531,34 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
     inline void setQSortFilterProxyModel_SenderSignalIndex_IsBase(bool value) const { qsortfilterproxymodel_sendersignalindex_isbase = value; }
     inline void setQSortFilterProxyModel_Receivers_IsBase(bool value) const { qsortfilterproxymodel_receivers_isbase = value; }
     inline void setQSortFilterProxyModel_IsSignalConnected_IsBase(bool value) const { qsortfilterproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsortfilterproxymodel_metaobject_isbase) {
+            qsortfilterproxymodel_metaobject_isbase = false;
+            return QSortFilterProxyModel::metaObject();
+        } else if (qsortfilterproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsortfilterproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSortFilterProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsortfilterproxymodel_metacast_isbase) {
+            qsortfilterproxymodel_metacast_isbase = false;
+            return QSortFilterProxyModel::qt_metacast(param1);
+        } else if (qsortfilterproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsortfilterproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSortFilterProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

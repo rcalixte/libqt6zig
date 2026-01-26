@@ -17,6 +17,8 @@ class VirtualQToolButton final : public QToolButton {
     bool isVirtualQToolButton = true;
 
     // Virtual class public types (including callbacks)
+    using QToolButton_MetaObject_Callback = QMetaObject* (*)();
+    using QToolButton_Metacast_Callback = void* (*)(QToolButton*, const char*);
     using QToolButton_Metacall_Callback = int (*)(QToolButton*, int, int, void**);
     using QToolButton_SizeHint_Callback = QSize* (*)();
     using QToolButton_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualQToolButton final : public QToolButton {
 
   protected:
     // Instance callback storage
+    QToolButton_MetaObject_Callback qtoolbutton_metaobject_callback = nullptr;
+    QToolButton_Metacast_Callback qtoolbutton_metacast_callback = nullptr;
     QToolButton_Metacall_Callback qtoolbutton_metacall_callback = nullptr;
     QToolButton_SizeHint_Callback qtoolbutton_sizehint_callback = nullptr;
     QToolButton_MinimumSizeHint_Callback qtoolbutton_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQToolButton final : public QToolButton {
     QToolButton_GetDecodedMetricF_Callback qtoolbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtoolbutton_metaobject_isbase = false;
+    mutable bool qtoolbutton_metacast_isbase = false;
     mutable bool qtoolbutton_metacall_isbase = false;
     mutable bool qtoolbutton_sizehint_isbase = false;
     mutable bool qtoolbutton_minimumsizehint_isbase = false;
@@ -214,6 +220,8 @@ class VirtualQToolButton final : public QToolButton {
     VirtualQToolButton() : QToolButton() {};
 
     ~VirtualQToolButton() {
+        qtoolbutton_metaobject_callback = nullptr;
+        qtoolbutton_metacast_callback = nullptr;
         qtoolbutton_metacall_callback = nullptr;
         qtoolbutton_sizehint_callback = nullptr;
         qtoolbutton_minimumsizehint_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualQToolButton final : public QToolButton {
     }
 
     // Callback setters
+    inline void setQToolButton_MetaObject_Callback(QToolButton_MetaObject_Callback cb) { qtoolbutton_metaobject_callback = cb; }
+    inline void setQToolButton_Metacast_Callback(QToolButton_Metacast_Callback cb) { qtoolbutton_metacast_callback = cb; }
     inline void setQToolButton_Metacall_Callback(QToolButton_Metacall_Callback cb) { qtoolbutton_metacall_callback = cb; }
     inline void setQToolButton_SizeHint_Callback(QToolButton_SizeHint_Callback cb) { qtoolbutton_sizehint_callback = cb; }
     inline void setQToolButton_MinimumSizeHint_Callback(QToolButton_MinimumSizeHint_Callback cb) { qtoolbutton_minimumsizehint_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualQToolButton final : public QToolButton {
     inline void setQToolButton_GetDecodedMetricF_Callback(QToolButton_GetDecodedMetricF_Callback cb) { qtoolbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQToolButton_MetaObject_IsBase(bool value) const { qtoolbutton_metaobject_isbase = value; }
+    inline void setQToolButton_Metacast_IsBase(bool value) const { qtoolbutton_metacast_isbase = value; }
     inline void setQToolButton_Metacall_IsBase(bool value) const { qtoolbutton_metacall_isbase = value; }
     inline void setQToolButton_SizeHint_IsBase(bool value) const { qtoolbutton_sizehint_isbase = value; }
     inline void setQToolButton_MinimumSizeHint_IsBase(bool value) const { qtoolbutton_minimumsizehint_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualQToolButton final : public QToolButton {
     inline void setQToolButton_Receivers_IsBase(bool value) const { qtoolbutton_receivers_isbase = value; }
     inline void setQToolButton_IsSignalConnected_IsBase(bool value) const { qtoolbutton_issignalconnected_isbase = value; }
     inline void setQToolButton_GetDecodedMetricF_IsBase(bool value) const { qtoolbutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtoolbutton_metaobject_isbase) {
+            qtoolbutton_metaobject_isbase = false;
+            return QToolButton::metaObject();
+        } else if (qtoolbutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtoolbutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QToolButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtoolbutton_metacast_isbase) {
+            qtoolbutton_metacast_isbase = false;
+            return QToolButton::qt_metacast(param1);
+        } else if (qtoolbutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtoolbutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QToolButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKSyntaxHighlightingRepository final : public KSyntaxHighlighting::R
     bool isVirtualKSyntaxHighlightingRepository = true;
 
     // Virtual class public types (including callbacks)
+    using KSyntaxHighlighting__Repository_MetaObject_Callback = QMetaObject* (*)();
+    using KSyntaxHighlighting__Repository_Metacast_Callback = void* (*)(KSyntaxHighlighting__Repository*, const char*);
     using KSyntaxHighlighting__Repository_Metacall_Callback = int (*)(KSyntaxHighlighting__Repository*, int, int, void**);
     using KSyntaxHighlighting__Repository_Event_Callback = bool (*)(KSyntaxHighlighting__Repository*, QEvent*);
     using KSyntaxHighlighting__Repository_EventFilter_Callback = bool (*)(KSyntaxHighlighting__Repository*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKSyntaxHighlightingRepository final : public KSyntaxHighlighting::R
 
   protected:
     // Instance callback storage
+    KSyntaxHighlighting__Repository_MetaObject_Callback ksyntaxhighlighting__repository_metaobject_callback = nullptr;
+    KSyntaxHighlighting__Repository_Metacast_Callback ksyntaxhighlighting__repository_metacast_callback = nullptr;
     KSyntaxHighlighting__Repository_Metacall_Callback ksyntaxhighlighting__repository_metacall_callback = nullptr;
     KSyntaxHighlighting__Repository_Event_Callback ksyntaxhighlighting__repository_event_callback = nullptr;
     KSyntaxHighlighting__Repository_EventFilter_Callback ksyntaxhighlighting__repository_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKSyntaxHighlightingRepository final : public KSyntaxHighlighting::R
     KSyntaxHighlighting__Repository_IsSignalConnected_Callback ksyntaxhighlighting__repository_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ksyntaxhighlighting__repository_metaobject_isbase = false;
+    mutable bool ksyntaxhighlighting__repository_metacast_isbase = false;
     mutable bool ksyntaxhighlighting__repository_metacall_isbase = false;
     mutable bool ksyntaxhighlighting__repository_event_isbase = false;
     mutable bool ksyntaxhighlighting__repository_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualKSyntaxHighlightingRepository final : public KSyntaxHighlighting::R
     VirtualKSyntaxHighlightingRepository() : KSyntaxHighlighting::Repository() {};
 
     ~VirtualKSyntaxHighlightingRepository() {
+        ksyntaxhighlighting__repository_metaobject_callback = nullptr;
+        ksyntaxhighlighting__repository_metacast_callback = nullptr;
         ksyntaxhighlighting__repository_metacall_callback = nullptr;
         ksyntaxhighlighting__repository_event_callback = nullptr;
         ksyntaxhighlighting__repository_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualKSyntaxHighlightingRepository final : public KSyntaxHighlighting::R
     }
 
     // Callback setters
+    inline void setKSyntaxHighlighting__Repository_MetaObject_Callback(KSyntaxHighlighting__Repository_MetaObject_Callback cb) { ksyntaxhighlighting__repository_metaobject_callback = cb; }
+    inline void setKSyntaxHighlighting__Repository_Metacast_Callback(KSyntaxHighlighting__Repository_Metacast_Callback cb) { ksyntaxhighlighting__repository_metacast_callback = cb; }
     inline void setKSyntaxHighlighting__Repository_Metacall_Callback(KSyntaxHighlighting__Repository_Metacall_Callback cb) { ksyntaxhighlighting__repository_metacall_callback = cb; }
     inline void setKSyntaxHighlighting__Repository_Event_Callback(KSyntaxHighlighting__Repository_Event_Callback cb) { ksyntaxhighlighting__repository_event_callback = cb; }
     inline void setKSyntaxHighlighting__Repository_EventFilter_Callback(KSyntaxHighlighting__Repository_EventFilter_Callback cb) { ksyntaxhighlighting__repository_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualKSyntaxHighlightingRepository final : public KSyntaxHighlighting::R
     inline void setKSyntaxHighlighting__Repository_IsSignalConnected_Callback(KSyntaxHighlighting__Repository_IsSignalConnected_Callback cb) { ksyntaxhighlighting__repository_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKSyntaxHighlighting__Repository_MetaObject_IsBase(bool value) const { ksyntaxhighlighting__repository_metaobject_isbase = value; }
+    inline void setKSyntaxHighlighting__Repository_Metacast_IsBase(bool value) const { ksyntaxhighlighting__repository_metacast_isbase = value; }
     inline void setKSyntaxHighlighting__Repository_Metacall_IsBase(bool value) const { ksyntaxhighlighting__repository_metacall_isbase = value; }
     inline void setKSyntaxHighlighting__Repository_Event_IsBase(bool value) const { ksyntaxhighlighting__repository_event_isbase = value; }
     inline void setKSyntaxHighlighting__Repository_EventFilter_IsBase(bool value) const { ksyntaxhighlighting__repository_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualKSyntaxHighlightingRepository final : public KSyntaxHighlighting::R
     inline void setKSyntaxHighlighting__Repository_SenderSignalIndex_IsBase(bool value) const { ksyntaxhighlighting__repository_sendersignalindex_isbase = value; }
     inline void setKSyntaxHighlighting__Repository_Receivers_IsBase(bool value) const { ksyntaxhighlighting__repository_receivers_isbase = value; }
     inline void setKSyntaxHighlighting__Repository_IsSignalConnected_IsBase(bool value) const { ksyntaxhighlighting__repository_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ksyntaxhighlighting__repository_metaobject_isbase) {
+            ksyntaxhighlighting__repository_metaobject_isbase = false;
+            return KSyntaxHighlighting__Repository::metaObject();
+        } else if (ksyntaxhighlighting__repository_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ksyntaxhighlighting__repository_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSyntaxHighlighting__Repository::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ksyntaxhighlighting__repository_metacast_isbase) {
+            ksyntaxhighlighting__repository_metacast_isbase = false;
+            return KSyntaxHighlighting__Repository::qt_metacast(param1);
+        } else if (ksyntaxhighlighting__repository_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ksyntaxhighlighting__repository_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSyntaxHighlighting__Repository::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -27,11 +27,21 @@ QMediaRecorder* QMediaRecorder_new2(QObject* parent) {
 }
 
 QMetaObject* QMediaRecorder_MetaObject(const QMediaRecorder* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmediarecorder = dynamic_cast<const VirtualQMediaRecorder*>(self);
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMediaRecorder*)self)->metaObject();
+    }
 }
 
 void* QMediaRecorder_Metacast(QMediaRecorder* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMediaRecorder*)self)->qt_metacast(param1);
+    }
 }
 
 int QMediaRecorder_Metacall(QMediaRecorder* self, int param1, int param2, void** param3) {
@@ -403,6 +413,44 @@ void QMediaRecorder_Connect_AutoStopChanged(QMediaRecorder* self, intptr_t slot)
     QMediaRecorder::connect(self, &QMediaRecorder::autoStopChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QMediaRecorder_QBaseMetaObject(const QMediaRecorder* self) {
+    auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+        vqmediarecorder->setQMediaRecorder_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmediarecorder->metaObject();
+    } else {
+        return (QMetaObject*)self->QMediaRecorder::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaRecorder_OnMetaObject(const QMediaRecorder* self, intptr_t slot) {
+    auto* vqmediarecorder = const_cast<VirtualQMediaRecorder*>(dynamic_cast<const VirtualQMediaRecorder*>(self));
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+        vqmediarecorder->setQMediaRecorder_MetaObject_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMediaRecorder_QBaseMetacast(QMediaRecorder* self, const char* param1) {
+    auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+        vqmediarecorder->setQMediaRecorder_Metacast_IsBase(true);
+        return vqmediarecorder->qt_metacast(param1);
+    } else {
+        return self->QMediaRecorder::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaRecorder_OnMetacast(QMediaRecorder* self, intptr_t slot) {
+    auto* vqmediarecorder = dynamic_cast<VirtualQMediaRecorder*>(self);
+    if (vqmediarecorder && vqmediarecorder->isVirtualQMediaRecorder) {
+        vqmediarecorder->setQMediaRecorder_Metacast_Callback(reinterpret_cast<VirtualQMediaRecorder::QMediaRecorder_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

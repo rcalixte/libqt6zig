@@ -25,11 +25,21 @@ KXMessages* KXMessages_new3(const char* accept_broadcast, QObject* parent) {
 }
 
 QMetaObject* KXMessages_MetaObject(const KXMessages* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkxmessages = dynamic_cast<const VirtualKXMessages*>(self);
+    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKXMessages*)self)->metaObject();
+    }
 }
 
 void* KXMessages_Metacast(KXMessages* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
+    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKXMessages*)self)->qt_metacast(param1);
+    }
 }
 
 int KXMessages_Metacall(KXMessages* self, int param1, int param2, void** param3) {
@@ -69,6 +79,44 @@ void KXMessages_Connect_GotMessage(KXMessages* self, intptr_t slot) {
 void KXMessages_BroadcastMessage3(KXMessages* self, const char* msg_type, const libqt_string message, int screen) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     self->broadcastMessage(msg_type, message_QString, static_cast<int>(screen));
+}
+
+// Base class handler implementation
+QMetaObject* KXMessages_QBaseMetaObject(const KXMessages* self) {
+    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
+    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+        vkxmessages->setKXMessages_MetaObject_IsBase(true);
+        return (QMetaObject*)vkxmessages->metaObject();
+    } else {
+        return (QMetaObject*)self->KXMessages::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXMessages_OnMetaObject(const KXMessages* self, intptr_t slot) {
+    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
+    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+        vkxmessages->setKXMessages_MetaObject_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KXMessages_QBaseMetacast(KXMessages* self, const char* param1) {
+    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
+    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+        vkxmessages->setKXMessages_Metacast_IsBase(true);
+        return vkxmessages->qt_metacast(param1);
+    } else {
+        return self->KXMessages::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXMessages_OnMetacast(KXMessages* self, intptr_t slot) {
+    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
+    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+        vkxmessages->setKXMessages_Metacast_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     bool isVirtualQsciLexerMakefile = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerMakefile_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerMakefile_Metacast_Callback = void* (*)(QsciLexerMakefile*, const char*);
     using QsciLexerMakefile_Metacall_Callback = int (*)(QsciLexerMakefile*, int, int, void**);
     using QsciLexerMakefile_Language_Callback = const char* (*)();
     using QsciLexerMakefile_Lexer_Callback = const char* (*)();
@@ -68,6 +70,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
 
   protected:
     // Instance callback storage
+    QsciLexerMakefile_MetaObject_Callback qscilexermakefile_metaobject_callback = nullptr;
+    QsciLexerMakefile_Metacast_Callback qscilexermakefile_metacast_callback = nullptr;
     QsciLexerMakefile_Metacall_Callback qscilexermakefile_metacall_callback = nullptr;
     QsciLexerMakefile_Language_Callback qscilexermakefile_language_callback = nullptr;
     QsciLexerMakefile_Lexer_Callback qscilexermakefile_lexer_callback = nullptr;
@@ -118,6 +122,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     QsciLexerMakefile_IsSignalConnected_Callback qscilexermakefile_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexermakefile_metaobject_isbase = false;
+    mutable bool qscilexermakefile_metacast_isbase = false;
     mutable bool qscilexermakefile_metacall_isbase = false;
     mutable bool qscilexermakefile_language_isbase = false;
     mutable bool qscilexermakefile_lexer_isbase = false;
@@ -172,6 +178,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     VirtualQsciLexerMakefile(QObject* parent) : QsciLexerMakefile(parent) {};
 
     ~VirtualQsciLexerMakefile() {
+        qscilexermakefile_metaobject_callback = nullptr;
+        qscilexermakefile_metacast_callback = nullptr;
         qscilexermakefile_metacall_callback = nullptr;
         qscilexermakefile_language_callback = nullptr;
         qscilexermakefile_lexer_callback = nullptr;
@@ -223,6 +231,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     }
 
     // Callback setters
+    inline void setQsciLexerMakefile_MetaObject_Callback(QsciLexerMakefile_MetaObject_Callback cb) { qscilexermakefile_metaobject_callback = cb; }
+    inline void setQsciLexerMakefile_Metacast_Callback(QsciLexerMakefile_Metacast_Callback cb) { qscilexermakefile_metacast_callback = cb; }
     inline void setQsciLexerMakefile_Metacall_Callback(QsciLexerMakefile_Metacall_Callback cb) { qscilexermakefile_metacall_callback = cb; }
     inline void setQsciLexerMakefile_Language_Callback(QsciLexerMakefile_Language_Callback cb) { qscilexermakefile_language_callback = cb; }
     inline void setQsciLexerMakefile_Lexer_Callback(QsciLexerMakefile_Lexer_Callback cb) { qscilexermakefile_lexer_callback = cb; }
@@ -273,6 +283,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     inline void setQsciLexerMakefile_IsSignalConnected_Callback(QsciLexerMakefile_IsSignalConnected_Callback cb) { qscilexermakefile_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerMakefile_MetaObject_IsBase(bool value) const { qscilexermakefile_metaobject_isbase = value; }
+    inline void setQsciLexerMakefile_Metacast_IsBase(bool value) const { qscilexermakefile_metacast_isbase = value; }
     inline void setQsciLexerMakefile_Metacall_IsBase(bool value) const { qscilexermakefile_metacall_isbase = value; }
     inline void setQsciLexerMakefile_Language_IsBase(bool value) const { qscilexermakefile_language_isbase = value; }
     inline void setQsciLexerMakefile_Lexer_IsBase(bool value) const { qscilexermakefile_lexer_isbase = value; }
@@ -321,6 +333,34 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     inline void setQsciLexerMakefile_SenderSignalIndex_IsBase(bool value) const { qscilexermakefile_sendersignalindex_isbase = value; }
     inline void setQsciLexerMakefile_Receivers_IsBase(bool value) const { qscilexermakefile_receivers_isbase = value; }
     inline void setQsciLexerMakefile_IsSignalConnected_IsBase(bool value) const { qscilexermakefile_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexermakefile_metaobject_isbase) {
+            qscilexermakefile_metaobject_isbase = false;
+            return QsciLexerMakefile::metaObject();
+        } else if (qscilexermakefile_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexermakefile_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerMakefile::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexermakefile_metacast_isbase) {
+            qscilexermakefile_metacast_isbase = false;
+            return QsciLexerMakefile::qt_metacast(param1);
+        } else if (qscilexermakefile_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexermakefile_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerMakefile::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

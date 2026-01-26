@@ -58,11 +58,21 @@ QsciScintillaBase* QsciScintillaBase_new2() {
 }
 
 QMetaObject* QsciScintillaBase_MetaObject(const QsciScintillaBase* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsciscintillabase = dynamic_cast<const VirtualQsciScintillaBase*>(self);
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciScintillaBase*)self)->metaObject();
+    }
 }
 
 void* QsciScintillaBase_Metacast(QsciScintillaBase* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciScintillaBase*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciScintillaBase_Metacall(QsciScintillaBase* self, int param1, int param2, void** param3) {
@@ -462,6 +472,44 @@ long QsciScintillaBase_SendScintilla22(const QsciScintillaBase* self, unsigned i
 
 long QsciScintillaBase_SendScintilla32(const QsciScintillaBase* self, unsigned int msg, unsigned long wParam, long lParam) {
     return self->SendScintilla(static_cast<unsigned int>(msg), static_cast<unsigned long>(wParam), static_cast<long>(lParam));
+}
+
+// Base class handler implementation
+QMetaObject* QsciScintillaBase_QBaseMetaObject(const QsciScintillaBase* self) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsciscintillabase->metaObject();
+    } else {
+        return (QMetaObject*)self->QsciScintillaBase::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciScintillaBase_OnMetaObject(const QsciScintillaBase* self, intptr_t slot) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_MetaObject_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciScintillaBase_QBaseMetacast(QsciScintillaBase* self, const char* param1) {
+    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_Metacast_IsBase(true);
+        return vqsciscintillabase->qt_metacast(param1);
+    } else {
+        return self->QsciScintillaBase::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciScintillaBase_OnMetacast(QsciScintillaBase* self, intptr_t slot) {
+    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_Metacast_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

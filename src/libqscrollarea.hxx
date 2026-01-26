@@ -17,6 +17,8 @@ class VirtualQScrollArea final : public QScrollArea {
     bool isVirtualQScrollArea = true;
 
     // Virtual class public types (including callbacks)
+    using QScrollArea_MetaObject_Callback = QMetaObject* (*)();
+    using QScrollArea_Metacast_Callback = void* (*)(QScrollArea*, const char*);
     using QScrollArea_Metacall_Callback = int (*)(QScrollArea*, int, int, void**);
     using QScrollArea_SizeHint_Callback = QSize* (*)();
     using QScrollArea_FocusNextPrevChild_Callback = bool (*)(QScrollArea*, bool);
@@ -86,6 +88,8 @@ class VirtualQScrollArea final : public QScrollArea {
 
   protected:
     // Instance callback storage
+    QScrollArea_MetaObject_Callback qscrollarea_metaobject_callback = nullptr;
+    QScrollArea_Metacast_Callback qscrollarea_metacast_callback = nullptr;
     QScrollArea_Metacall_Callback qscrollarea_metacall_callback = nullptr;
     QScrollArea_SizeHint_Callback qscrollarea_sizehint_callback = nullptr;
     QScrollArea_FocusNextPrevChild_Callback qscrollarea_focusnextprevchild_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualQScrollArea final : public QScrollArea {
     QScrollArea_GetDecodedMetricF_Callback qscrollarea_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscrollarea_metaobject_isbase = false;
+    mutable bool qscrollarea_metacast_isbase = false;
     mutable bool qscrollarea_metacall_isbase = false;
     mutable bool qscrollarea_sizehint_isbase = false;
     mutable bool qscrollarea_focusnextprevchild_isbase = false;
@@ -226,6 +232,8 @@ class VirtualQScrollArea final : public QScrollArea {
     VirtualQScrollArea() : QScrollArea() {};
 
     ~VirtualQScrollArea() {
+        qscrollarea_metaobject_callback = nullptr;
+        qscrollarea_metacast_callback = nullptr;
         qscrollarea_metacall_callback = nullptr;
         qscrollarea_sizehint_callback = nullptr;
         qscrollarea_focusnextprevchild_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualQScrollArea final : public QScrollArea {
     }
 
     // Callback setters
+    inline void setQScrollArea_MetaObject_Callback(QScrollArea_MetaObject_Callback cb) { qscrollarea_metaobject_callback = cb; }
+    inline void setQScrollArea_Metacast_Callback(QScrollArea_Metacast_Callback cb) { qscrollarea_metacast_callback = cb; }
     inline void setQScrollArea_Metacall_Callback(QScrollArea_Metacall_Callback cb) { qscrollarea_metacall_callback = cb; }
     inline void setQScrollArea_SizeHint_Callback(QScrollArea_SizeHint_Callback cb) { qscrollarea_sizehint_callback = cb; }
     inline void setQScrollArea_FocusNextPrevChild_Callback(QScrollArea_FocusNextPrevChild_Callback cb) { qscrollarea_focusnextprevchild_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualQScrollArea final : public QScrollArea {
     inline void setQScrollArea_GetDecodedMetricF_Callback(QScrollArea_GetDecodedMetricF_Callback cb) { qscrollarea_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQScrollArea_MetaObject_IsBase(bool value) const { qscrollarea_metaobject_isbase = value; }
+    inline void setQScrollArea_Metacast_IsBase(bool value) const { qscrollarea_metacast_isbase = value; }
     inline void setQScrollArea_Metacall_IsBase(bool value) const { qscrollarea_metacall_isbase = value; }
     inline void setQScrollArea_SizeHint_IsBase(bool value) const { qscrollarea_sizehint_isbase = value; }
     inline void setQScrollArea_FocusNextPrevChild_IsBase(bool value) const { qscrollarea_focusnextprevchild_isbase = value; }
@@ -429,6 +441,34 @@ class VirtualQScrollArea final : public QScrollArea {
     inline void setQScrollArea_Receivers_IsBase(bool value) const { qscrollarea_receivers_isbase = value; }
     inline void setQScrollArea_IsSignalConnected_IsBase(bool value) const { qscrollarea_issignalconnected_isbase = value; }
     inline void setQScrollArea_GetDecodedMetricF_IsBase(bool value) const { qscrollarea_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscrollarea_metaobject_isbase) {
+            qscrollarea_metaobject_isbase = false;
+            return QScrollArea::metaObject();
+        } else if (qscrollarea_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscrollarea_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QScrollArea::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscrollarea_metacast_isbase) {
+            qscrollarea_metacast_isbase = false;
+            return QScrollArea::qt_metacast(param1);
+        } else if (qscrollarea_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscrollarea_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QScrollArea::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

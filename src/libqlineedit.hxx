@@ -17,6 +17,8 @@ class VirtualQLineEdit final : public QLineEdit {
     bool isVirtualQLineEdit = true;
 
     // Virtual class public types (including callbacks)
+    using QLineEdit_MetaObject_Callback = QMetaObject* (*)();
+    using QLineEdit_Metacast_Callback = void* (*)(QLineEdit*, const char*);
     using QLineEdit_Metacall_Callback = int (*)(QLineEdit*, int, int, void**);
     using QLineEdit_SizeHint_Callback = QSize* (*)();
     using QLineEdit_MinimumSizeHint_Callback = QSize* (*)();
@@ -80,6 +82,8 @@ class VirtualQLineEdit final : public QLineEdit {
 
   protected:
     // Instance callback storage
+    QLineEdit_MetaObject_Callback qlineedit_metaobject_callback = nullptr;
+    QLineEdit_Metacast_Callback qlineedit_metacast_callback = nullptr;
     QLineEdit_Metacall_Callback qlineedit_metacall_callback = nullptr;
     QLineEdit_SizeHint_Callback qlineedit_sizehint_callback = nullptr;
     QLineEdit_MinimumSizeHint_Callback qlineedit_minimumsizehint_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualQLineEdit final : public QLineEdit {
     QLineEdit_GetDecodedMetricF_Callback qlineedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlineedit_metaobject_isbase = false;
+    mutable bool qlineedit_metacast_isbase = false;
     mutable bool qlineedit_metacall_isbase = false;
     mutable bool qlineedit_sizehint_isbase = false;
     mutable bool qlineedit_minimumsizehint_isbase = false;
@@ -210,6 +216,8 @@ class VirtualQLineEdit final : public QLineEdit {
     VirtualQLineEdit(const QString& param1, QWidget* parent) : QLineEdit(param1, parent) {};
 
     ~VirtualQLineEdit() {
+        qlineedit_metaobject_callback = nullptr;
+        qlineedit_metacast_callback = nullptr;
         qlineedit_metacall_callback = nullptr;
         qlineedit_sizehint_callback = nullptr;
         qlineedit_minimumsizehint_callback = nullptr;
@@ -273,6 +281,8 @@ class VirtualQLineEdit final : public QLineEdit {
     }
 
     // Callback setters
+    inline void setQLineEdit_MetaObject_Callback(QLineEdit_MetaObject_Callback cb) { qlineedit_metaobject_callback = cb; }
+    inline void setQLineEdit_Metacast_Callback(QLineEdit_Metacast_Callback cb) { qlineedit_metacast_callback = cb; }
     inline void setQLineEdit_Metacall_Callback(QLineEdit_Metacall_Callback cb) { qlineedit_metacall_callback = cb; }
     inline void setQLineEdit_SizeHint_Callback(QLineEdit_SizeHint_Callback cb) { qlineedit_sizehint_callback = cb; }
     inline void setQLineEdit_MinimumSizeHint_Callback(QLineEdit_MinimumSizeHint_Callback cb) { qlineedit_minimumsizehint_callback = cb; }
@@ -335,6 +345,8 @@ class VirtualQLineEdit final : public QLineEdit {
     inline void setQLineEdit_GetDecodedMetricF_Callback(QLineEdit_GetDecodedMetricF_Callback cb) { qlineedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQLineEdit_MetaObject_IsBase(bool value) const { qlineedit_metaobject_isbase = value; }
+    inline void setQLineEdit_Metacast_IsBase(bool value) const { qlineedit_metacast_isbase = value; }
     inline void setQLineEdit_Metacall_IsBase(bool value) const { qlineedit_metacall_isbase = value; }
     inline void setQLineEdit_SizeHint_IsBase(bool value) const { qlineedit_sizehint_isbase = value; }
     inline void setQLineEdit_MinimumSizeHint_IsBase(bool value) const { qlineedit_minimumsizehint_isbase = value; }
@@ -395,6 +407,34 @@ class VirtualQLineEdit final : public QLineEdit {
     inline void setQLineEdit_Receivers_IsBase(bool value) const { qlineedit_receivers_isbase = value; }
     inline void setQLineEdit_IsSignalConnected_IsBase(bool value) const { qlineedit_issignalconnected_isbase = value; }
     inline void setQLineEdit_GetDecodedMetricF_IsBase(bool value) const { qlineedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlineedit_metaobject_isbase) {
+            qlineedit_metaobject_isbase = false;
+            return QLineEdit::metaObject();
+        } else if (qlineedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlineedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QLineEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlineedit_metacast_isbase) {
+            qlineedit_metacast_isbase = false;
+            return QLineEdit::qt_metacast(param1);
+        } else if (qlineedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlineedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QLineEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

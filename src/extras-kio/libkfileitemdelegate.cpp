@@ -36,11 +36,21 @@ KFileItemDelegate* KFileItemDelegate_new2(QObject* parent) {
 }
 
 QMetaObject* KFileItemDelegate_MetaObject(const KFileItemDelegate* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfileitemdelegate = dynamic_cast<const VirtualKFileItemDelegate*>(self);
+    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFileItemDelegate*)self)->metaObject();
+    }
 }
 
 void* KFileItemDelegate_Metacast(KFileItemDelegate* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
+    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFileItemDelegate*)self)->qt_metacast(param1);
+    }
 }
 
 int KFileItemDelegate_Metacall(KFileItemDelegate* self, int param1, int param2, void** param3) {
@@ -234,6 +244,44 @@ bool KFileItemDelegate_HelpEvent(KFileItemDelegate* self, QHelpEvent* event, QAb
 
 QRegion* KFileItemDelegate_Shape(KFileItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
     return new QRegion(self->shape(*option, *index));
+}
+
+// Base class handler implementation
+QMetaObject* KFileItemDelegate_QBaseMetaObject(const KFileItemDelegate* self) {
+    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
+    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+        vkfileitemdelegate->setKFileItemDelegate_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfileitemdelegate->metaObject();
+    } else {
+        return (QMetaObject*)self->KFileItemDelegate::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileItemDelegate_OnMetaObject(const KFileItemDelegate* self, intptr_t slot) {
+    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
+    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+        vkfileitemdelegate->setKFileItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFileItemDelegate_QBaseMetacast(KFileItemDelegate* self, const char* param1) {
+    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
+    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+        vkfileitemdelegate->setKFileItemDelegate_Metacast_IsBase(true);
+        return vkfileitemdelegate->qt_metacast(param1);
+    } else {
+        return self->KFileItemDelegate::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFileItemDelegate_OnMetacast(KFileItemDelegate* self, intptr_t slot) {
+    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
+    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+        vkfileitemdelegate->setKFileItemDelegate_Metacast_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

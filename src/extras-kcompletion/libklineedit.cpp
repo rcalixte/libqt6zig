@@ -69,11 +69,21 @@ KLineEdit* KLineEdit_new4(const libqt_string stringVal, QWidget* parent) {
 }
 
 QMetaObject* KLineEdit_MetaObject(const KLineEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vklineedit = dynamic_cast<const VirtualKLineEdit*>(self);
+    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKLineEdit*)self)->metaObject();
+    }
 }
 
 void* KLineEdit_Metacast(KLineEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
+    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKLineEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int KLineEdit_Metacall(KLineEdit* self, int param1, int param2, void** param3) {
@@ -442,6 +452,44 @@ void KLineEdit_PaintEvent(KLineEdit* self, QPaintEvent* ev) {
 
 void KLineEdit_SetCompletionModeDisabled2(KLineEdit* self, int mode, bool disable) {
     self->setCompletionModeDisabled(static_cast<KCompletion::CompletionMode>(mode), disable);
+}
+
+// Base class handler implementation
+QMetaObject* KLineEdit_QBaseMetaObject(const KLineEdit* self) {
+    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
+    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+        vklineedit->setKLineEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vklineedit->metaObject();
+    } else {
+        return (QMetaObject*)self->KLineEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLineEdit_OnMetaObject(const KLineEdit* self, intptr_t slot) {
+    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
+    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+        vklineedit->setKLineEdit_MetaObject_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KLineEdit_QBaseMetacast(KLineEdit* self, const char* param1) {
+    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
+    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+        vklineedit->setKLineEdit_Metacast_IsBase(true);
+        return vklineedit->qt_metacast(param1);
+    } else {
+        return self->KLineEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLineEdit_OnMetacast(KLineEdit* self, intptr_t slot) {
+    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
+    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+        vklineedit->setKLineEdit_Metacast_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

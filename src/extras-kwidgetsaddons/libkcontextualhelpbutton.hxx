@@ -17,6 +17,8 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
     bool isVirtualKContextualHelpButton = true;
 
     // Virtual class public types (including callbacks)
+    using KContextualHelpButton_MetaObject_Callback = QMetaObject* (*)();
+    using KContextualHelpButton_Metacast_Callback = void* (*)(KContextualHelpButton*, const char*);
     using KContextualHelpButton_Metacall_Callback = int (*)(KContextualHelpButton*, int, int, void**);
     using KContextualHelpButton_SizeHint_Callback = QSize* (*)();
     using KContextualHelpButton_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
 
   protected:
     // Instance callback storage
+    KContextualHelpButton_MetaObject_Callback kcontextualhelpbutton_metaobject_callback = nullptr;
+    KContextualHelpButton_Metacast_Callback kcontextualhelpbutton_metacast_callback = nullptr;
     KContextualHelpButton_Metacall_Callback kcontextualhelpbutton_metacall_callback = nullptr;
     KContextualHelpButton_SizeHint_Callback kcontextualhelpbutton_sizehint_callback = nullptr;
     KContextualHelpButton_MinimumSizeHint_Callback kcontextualhelpbutton_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
     KContextualHelpButton_GetDecodedMetricF_Callback kcontextualhelpbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcontextualhelpbutton_metaobject_isbase = false;
+    mutable bool kcontextualhelpbutton_metacast_isbase = false;
     mutable bool kcontextualhelpbutton_metacall_isbase = false;
     mutable bool kcontextualhelpbutton_sizehint_isbase = false;
     mutable bool kcontextualhelpbutton_minimumsizehint_isbase = false;
@@ -215,6 +221,8 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
     VirtualKContextualHelpButton() : KContextualHelpButton() {};
 
     ~VirtualKContextualHelpButton() {
+        kcontextualhelpbutton_metaobject_callback = nullptr;
+        kcontextualhelpbutton_metacast_callback = nullptr;
         kcontextualhelpbutton_metacall_callback = nullptr;
         kcontextualhelpbutton_sizehint_callback = nullptr;
         kcontextualhelpbutton_minimumsizehint_callback = nullptr;
@@ -280,6 +288,8 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
     }
 
     // Callback setters
+    inline void setKContextualHelpButton_MetaObject_Callback(KContextualHelpButton_MetaObject_Callback cb) { kcontextualhelpbutton_metaobject_callback = cb; }
+    inline void setKContextualHelpButton_Metacast_Callback(KContextualHelpButton_Metacast_Callback cb) { kcontextualhelpbutton_metacast_callback = cb; }
     inline void setKContextualHelpButton_Metacall_Callback(KContextualHelpButton_Metacall_Callback cb) { kcontextualhelpbutton_metacall_callback = cb; }
     inline void setKContextualHelpButton_SizeHint_Callback(KContextualHelpButton_SizeHint_Callback cb) { kcontextualhelpbutton_sizehint_callback = cb; }
     inline void setKContextualHelpButton_MinimumSizeHint_Callback(KContextualHelpButton_MinimumSizeHint_Callback cb) { kcontextualhelpbutton_minimumsizehint_callback = cb; }
@@ -344,6 +354,8 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
     inline void setKContextualHelpButton_GetDecodedMetricF_Callback(KContextualHelpButton_GetDecodedMetricF_Callback cb) { kcontextualhelpbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKContextualHelpButton_MetaObject_IsBase(bool value) const { kcontextualhelpbutton_metaobject_isbase = value; }
+    inline void setKContextualHelpButton_Metacast_IsBase(bool value) const { kcontextualhelpbutton_metacast_isbase = value; }
     inline void setKContextualHelpButton_Metacall_IsBase(bool value) const { kcontextualhelpbutton_metacall_isbase = value; }
     inline void setKContextualHelpButton_SizeHint_IsBase(bool value) const { kcontextualhelpbutton_sizehint_isbase = value; }
     inline void setKContextualHelpButton_MinimumSizeHint_IsBase(bool value) const { kcontextualhelpbutton_minimumsizehint_isbase = value; }
@@ -406,6 +418,34 @@ class VirtualKContextualHelpButton final : public KContextualHelpButton {
     inline void setKContextualHelpButton_Receivers_IsBase(bool value) const { kcontextualhelpbutton_receivers_isbase = value; }
     inline void setKContextualHelpButton_IsSignalConnected_IsBase(bool value) const { kcontextualhelpbutton_issignalconnected_isbase = value; }
     inline void setKContextualHelpButton_GetDecodedMetricF_IsBase(bool value) const { kcontextualhelpbutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcontextualhelpbutton_metaobject_isbase) {
+            kcontextualhelpbutton_metaobject_isbase = false;
+            return KContextualHelpButton::metaObject();
+        } else if (kcontextualhelpbutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcontextualhelpbutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KContextualHelpButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcontextualhelpbutton_metacast_isbase) {
+            kcontextualhelpbutton_metacast_isbase = false;
+            return KContextualHelpButton::qt_metacast(param1);
+        } else if (kcontextualhelpbutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcontextualhelpbutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KContextualHelpButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

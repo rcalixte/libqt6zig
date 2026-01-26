@@ -17,6 +17,8 @@ class VirtualSonnetDictionaryComboBox final : public Sonnet::DictionaryComboBox 
     bool isVirtualSonnetDictionaryComboBox = true;
 
     // Virtual class public types (including callbacks)
+    using Sonnet__DictionaryComboBox_MetaObject_Callback = QMetaObject* (*)();
+    using Sonnet__DictionaryComboBox_Metacast_Callback = void* (*)(Sonnet__DictionaryComboBox*, const char*);
     using Sonnet__DictionaryComboBox_Metacall_Callback = int (*)(Sonnet__DictionaryComboBox*, int, int, void**);
     using Sonnet__DictionaryComboBox_SetModel_Callback = void (*)(Sonnet__DictionaryComboBox*, QAbstractItemModel*);
     using Sonnet__DictionaryComboBox_SizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualSonnetDictionaryComboBox final : public Sonnet::DictionaryComboBox 
 
   protected:
     // Instance callback storage
+    Sonnet__DictionaryComboBox_MetaObject_Callback sonnet__dictionarycombobox_metaobject_callback = nullptr;
+    Sonnet__DictionaryComboBox_Metacast_Callback sonnet__dictionarycombobox_metacast_callback = nullptr;
     Sonnet__DictionaryComboBox_Metacall_Callback sonnet__dictionarycombobox_metacall_callback = nullptr;
     Sonnet__DictionaryComboBox_SetModel_Callback sonnet__dictionarycombobox_setmodel_callback = nullptr;
     Sonnet__DictionaryComboBox_SizeHint_Callback sonnet__dictionarycombobox_sizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualSonnetDictionaryComboBox final : public Sonnet::DictionaryComboBox 
     Sonnet__DictionaryComboBox_GetDecodedMetricF_Callback sonnet__dictionarycombobox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool sonnet__dictionarycombobox_metaobject_isbase = false;
+    mutable bool sonnet__dictionarycombobox_metacast_isbase = false;
     mutable bool sonnet__dictionarycombobox_metacall_isbase = false;
     mutable bool sonnet__dictionarycombobox_setmodel_isbase = false;
     mutable bool sonnet__dictionarycombobox_sizehint_isbase = false;
@@ -214,6 +220,8 @@ class VirtualSonnetDictionaryComboBox final : public Sonnet::DictionaryComboBox 
     VirtualSonnetDictionaryComboBox() : Sonnet::DictionaryComboBox() {};
 
     ~VirtualSonnetDictionaryComboBox() {
+        sonnet__dictionarycombobox_metaobject_callback = nullptr;
+        sonnet__dictionarycombobox_metacast_callback = nullptr;
         sonnet__dictionarycombobox_metacall_callback = nullptr;
         sonnet__dictionarycombobox_setmodel_callback = nullptr;
         sonnet__dictionarycombobox_sizehint_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualSonnetDictionaryComboBox final : public Sonnet::DictionaryComboBox 
     }
 
     // Callback setters
+    inline void setSonnet__DictionaryComboBox_MetaObject_Callback(Sonnet__DictionaryComboBox_MetaObject_Callback cb) { sonnet__dictionarycombobox_metaobject_callback = cb; }
+    inline void setSonnet__DictionaryComboBox_Metacast_Callback(Sonnet__DictionaryComboBox_Metacast_Callback cb) { sonnet__dictionarycombobox_metacast_callback = cb; }
     inline void setSonnet__DictionaryComboBox_Metacall_Callback(Sonnet__DictionaryComboBox_Metacall_Callback cb) { sonnet__dictionarycombobox_metacall_callback = cb; }
     inline void setSonnet__DictionaryComboBox_SetModel_Callback(Sonnet__DictionaryComboBox_SetModel_Callback cb) { sonnet__dictionarycombobox_setmodel_callback = cb; }
     inline void setSonnet__DictionaryComboBox_SizeHint_Callback(Sonnet__DictionaryComboBox_SizeHint_Callback cb) { sonnet__dictionarycombobox_sizehint_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualSonnetDictionaryComboBox final : public Sonnet::DictionaryComboBox 
     inline void setSonnet__DictionaryComboBox_GetDecodedMetricF_Callback(Sonnet__DictionaryComboBox_GetDecodedMetricF_Callback cb) { sonnet__dictionarycombobox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setSonnet__DictionaryComboBox_MetaObject_IsBase(bool value) const { sonnet__dictionarycombobox_metaobject_isbase = value; }
+    inline void setSonnet__DictionaryComboBox_Metacast_IsBase(bool value) const { sonnet__dictionarycombobox_metacast_isbase = value; }
     inline void setSonnet__DictionaryComboBox_Metacall_IsBase(bool value) const { sonnet__dictionarycombobox_metacall_isbase = value; }
     inline void setSonnet__DictionaryComboBox_SetModel_IsBase(bool value) const { sonnet__dictionarycombobox_setmodel_isbase = value; }
     inline void setSonnet__DictionaryComboBox_SizeHint_IsBase(bool value) const { sonnet__dictionarycombobox_sizehint_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualSonnetDictionaryComboBox final : public Sonnet::DictionaryComboBox 
     inline void setSonnet__DictionaryComboBox_Receivers_IsBase(bool value) const { sonnet__dictionarycombobox_receivers_isbase = value; }
     inline void setSonnet__DictionaryComboBox_IsSignalConnected_IsBase(bool value) const { sonnet__dictionarycombobox_issignalconnected_isbase = value; }
     inline void setSonnet__DictionaryComboBox_GetDecodedMetricF_IsBase(bool value) const { sonnet__dictionarycombobox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (sonnet__dictionarycombobox_metaobject_isbase) {
+            sonnet__dictionarycombobox_metaobject_isbase = false;
+            return Sonnet__DictionaryComboBox::metaObject();
+        } else if (sonnet__dictionarycombobox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = sonnet__dictionarycombobox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Sonnet__DictionaryComboBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (sonnet__dictionarycombobox_metacast_isbase) {
+            sonnet__dictionarycombobox_metacast_isbase = false;
+            return Sonnet__DictionaryComboBox::qt_metacast(param1);
+        } else if (sonnet__dictionarycombobox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = sonnet__dictionarycombobox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Sonnet__DictionaryComboBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

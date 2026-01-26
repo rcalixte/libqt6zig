@@ -88,6 +88,10 @@ void KActionCollection_ExportGlobalShortcuts2(const KActionCollection* self, KCo
 void KActionCollection_WriteSettings1(const KActionCollection* self, KConfigGroup* config);
 void KActionCollection_WriteSettings2(const KActionCollection* self, KConfigGroup* config, bool writeDefaults);
 void KActionCollection_WriteSettings3(const KActionCollection* self, KConfigGroup* config, bool writeDefaults, QAction* oneAction);
+void KActionCollection_OnMetaObject(const KActionCollection* self, intptr_t slot);
+QMetaObject* KActionCollection_QBaseMetaObject(const KActionCollection* self);
+void KActionCollection_OnMetacast(KActionCollection* self, intptr_t slot);
+void* KActionCollection_QBaseMetacast(KActionCollection* self, const char* param1);
 void KActionCollection_OnMetacall(KActionCollection* self, intptr_t slot);
 int KActionCollection_QBaseMetacall(KActionCollection* self, int param1, int param2, void** param3);
 void KActionCollection_OnConnectNotify(KActionCollection* self, intptr_t slot);

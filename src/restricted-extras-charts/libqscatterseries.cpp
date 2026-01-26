@@ -26,11 +26,21 @@ QScatterSeries* QScatterSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QScatterSeries_MetaObject(const QScatterSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscatterseries = dynamic_cast<const VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQScatterSeries*)self)->metaObject();
+    }
 }
 
 void* QScatterSeries_Metacast(QScatterSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQScatterSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QScatterSeries_Metacall(QScatterSeries* self, int param1, int param2, void** param3) {
@@ -161,6 +171,44 @@ void QScatterSeries_Connect_MarkerSizeChanged(QScatterSeries* self, intptr_t slo
         double sigval1 = static_cast<double>(size);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QScatterSeries_QBaseMetaObject(const QScatterSeries* self) {
+    auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscatterseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QScatterSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScatterSeries_OnMetaObject(const QScatterSeries* self, intptr_t slot) {
+    auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_MetaObject_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QScatterSeries_QBaseMetacast(QScatterSeries* self, const char* param1) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_Metacast_IsBase(true);
+        return vqscatterseries->qt_metacast(param1);
+    } else {
+        return self->QScatterSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScatterSeries_OnMetacast(QScatterSeries* self, intptr_t slot) {
+    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+        vqscatterseries->setQScatterSeries_Metacast_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

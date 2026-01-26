@@ -17,6 +17,8 @@ class VirtualQCompleter final : public QCompleter {
     bool isVirtualQCompleter = true;
 
     // Virtual class public types (including callbacks)
+    using QCompleter_MetaObject_Callback = QMetaObject* (*)();
+    using QCompleter_Metacast_Callback = void* (*)(QCompleter*, const char*);
     using QCompleter_Metacall_Callback = int (*)(QCompleter*, int, int, void**);
     using QCompleter_PathFromIndex_Callback = const char* (*)(const QCompleter*, QModelIndex*);
     using QCompleter_SplitPath_Callback = const char** (*)(const QCompleter*, libqt_string);
@@ -34,6 +36,8 @@ class VirtualQCompleter final : public QCompleter {
 
   protected:
     // Instance callback storage
+    QCompleter_MetaObject_Callback qcompleter_metaobject_callback = nullptr;
+    QCompleter_Metacast_Callback qcompleter_metacast_callback = nullptr;
     QCompleter_Metacall_Callback qcompleter_metacall_callback = nullptr;
     QCompleter_PathFromIndex_Callback qcompleter_pathfromindex_callback = nullptr;
     QCompleter_SplitPath_Callback qcompleter_splitpath_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQCompleter final : public QCompleter {
     QCompleter_IsSignalConnected_Callback qcompleter_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcompleter_metaobject_isbase = false;
+    mutable bool qcompleter_metacast_isbase = false;
     mutable bool qcompleter_metacall_isbase = false;
     mutable bool qcompleter_pathfromindex_isbase = false;
     mutable bool qcompleter_splitpath_isbase = false;
@@ -74,6 +80,8 @@ class VirtualQCompleter final : public QCompleter {
     VirtualQCompleter(const QList<QString>& completions, QObject* parent) : QCompleter(completions, parent) {};
 
     ~VirtualQCompleter() {
+        qcompleter_metaobject_callback = nullptr;
+        qcompleter_metacast_callback = nullptr;
         qcompleter_metacall_callback = nullptr;
         qcompleter_pathfromindex_callback = nullptr;
         qcompleter_splitpath_callback = nullptr;
@@ -91,6 +99,8 @@ class VirtualQCompleter final : public QCompleter {
     }
 
     // Callback setters
+    inline void setQCompleter_MetaObject_Callback(QCompleter_MetaObject_Callback cb) { qcompleter_metaobject_callback = cb; }
+    inline void setQCompleter_Metacast_Callback(QCompleter_Metacast_Callback cb) { qcompleter_metacast_callback = cb; }
     inline void setQCompleter_Metacall_Callback(QCompleter_Metacall_Callback cb) { qcompleter_metacall_callback = cb; }
     inline void setQCompleter_PathFromIndex_Callback(QCompleter_PathFromIndex_Callback cb) { qcompleter_pathfromindex_callback = cb; }
     inline void setQCompleter_SplitPath_Callback(QCompleter_SplitPath_Callback cb) { qcompleter_splitpath_callback = cb; }
@@ -107,6 +117,8 @@ class VirtualQCompleter final : public QCompleter {
     inline void setQCompleter_IsSignalConnected_Callback(QCompleter_IsSignalConnected_Callback cb) { qcompleter_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCompleter_MetaObject_IsBase(bool value) const { qcompleter_metaobject_isbase = value; }
+    inline void setQCompleter_Metacast_IsBase(bool value) const { qcompleter_metacast_isbase = value; }
     inline void setQCompleter_Metacall_IsBase(bool value) const { qcompleter_metacall_isbase = value; }
     inline void setQCompleter_PathFromIndex_IsBase(bool value) const { qcompleter_pathfromindex_isbase = value; }
     inline void setQCompleter_SplitPath_IsBase(bool value) const { qcompleter_splitpath_isbase = value; }
@@ -121,6 +133,34 @@ class VirtualQCompleter final : public QCompleter {
     inline void setQCompleter_SenderSignalIndex_IsBase(bool value) const { qcompleter_sendersignalindex_isbase = value; }
     inline void setQCompleter_Receivers_IsBase(bool value) const { qcompleter_receivers_isbase = value; }
     inline void setQCompleter_IsSignalConnected_IsBase(bool value) const { qcompleter_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcompleter_metaobject_isbase) {
+            qcompleter_metaobject_isbase = false;
+            return QCompleter::metaObject();
+        } else if (qcompleter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcompleter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCompleter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcompleter_metacast_isbase) {
+            qcompleter_metacast_isbase = false;
+            return QCompleter::qt_metacast(param1);
+        } else if (qcompleter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcompleter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCompleter::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

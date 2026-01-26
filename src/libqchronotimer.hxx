@@ -17,6 +17,8 @@ class VirtualQChronoTimer final : public QChronoTimer {
     bool isVirtualQChronoTimer = true;
 
     // Virtual class public types (including callbacks)
+    using QChronoTimer_MetaObject_Callback = QMetaObject* (*)();
+    using QChronoTimer_Metacast_Callback = void* (*)(QChronoTimer*, const char*);
     using QChronoTimer_Metacall_Callback = int (*)(QChronoTimer*, int, int, void**);
     using QChronoTimer_TimerEvent_Callback = void (*)(QChronoTimer*, QTimerEvent*);
     using QChronoTimer_Event_Callback = bool (*)(QChronoTimer*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQChronoTimer final : public QChronoTimer {
 
   protected:
     // Instance callback storage
+    QChronoTimer_MetaObject_Callback qchronotimer_metaobject_callback = nullptr;
+    QChronoTimer_Metacast_Callback qchronotimer_metacast_callback = nullptr;
     QChronoTimer_Metacall_Callback qchronotimer_metacall_callback = nullptr;
     QChronoTimer_TimerEvent_Callback qchronotimer_timerevent_callback = nullptr;
     QChronoTimer_Event_Callback qchronotimer_event_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQChronoTimer final : public QChronoTimer {
     QChronoTimer_IsSignalConnected_Callback qchronotimer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qchronotimer_metaobject_isbase = false;
+    mutable bool qchronotimer_metacast_isbase = false;
     mutable bool qchronotimer_metacall_isbase = false;
     mutable bool qchronotimer_timerevent_isbase = false;
     mutable bool qchronotimer_event_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQChronoTimer final : public QChronoTimer {
     VirtualQChronoTimer(QObject* parent) : QChronoTimer(parent) {};
 
     ~VirtualQChronoTimer() {
+        qchronotimer_metaobject_callback = nullptr;
+        qchronotimer_metacast_callback = nullptr;
         qchronotimer_metacall_callback = nullptr;
         qchronotimer_timerevent_callback = nullptr;
         qchronotimer_event_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQChronoTimer final : public QChronoTimer {
     }
 
     // Callback setters
+    inline void setQChronoTimer_MetaObject_Callback(QChronoTimer_MetaObject_Callback cb) { qchronotimer_metaobject_callback = cb; }
+    inline void setQChronoTimer_Metacast_Callback(QChronoTimer_Metacast_Callback cb) { qchronotimer_metacast_callback = cb; }
     inline void setQChronoTimer_Metacall_Callback(QChronoTimer_Metacall_Callback cb) { qchronotimer_metacall_callback = cb; }
     inline void setQChronoTimer_TimerEvent_Callback(QChronoTimer_TimerEvent_Callback cb) { qchronotimer_timerevent_callback = cb; }
     inline void setQChronoTimer_Event_Callback(QChronoTimer_Event_Callback cb) { qchronotimer_event_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQChronoTimer final : public QChronoTimer {
     inline void setQChronoTimer_IsSignalConnected_Callback(QChronoTimer_IsSignalConnected_Callback cb) { qchronotimer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQChronoTimer_MetaObject_IsBase(bool value) const { qchronotimer_metaobject_isbase = value; }
+    inline void setQChronoTimer_Metacast_IsBase(bool value) const { qchronotimer_metacast_isbase = value; }
     inline void setQChronoTimer_Metacall_IsBase(bool value) const { qchronotimer_metacall_isbase = value; }
     inline void setQChronoTimer_TimerEvent_IsBase(bool value) const { qchronotimer_timerevent_isbase = value; }
     inline void setQChronoTimer_Event_IsBase(bool value) const { qchronotimer_event_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQChronoTimer final : public QChronoTimer {
     inline void setQChronoTimer_SenderSignalIndex_IsBase(bool value) const { qchronotimer_sendersignalindex_isbase = value; }
     inline void setQChronoTimer_Receivers_IsBase(bool value) const { qchronotimer_receivers_isbase = value; }
     inline void setQChronoTimer_IsSignalConnected_IsBase(bool value) const { qchronotimer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qchronotimer_metaobject_isbase) {
+            qchronotimer_metaobject_isbase = false;
+            return QChronoTimer::metaObject();
+        } else if (qchronotimer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qchronotimer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QChronoTimer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qchronotimer_metacast_isbase) {
+            qchronotimer_metacast_isbase = false;
+            return QChronoTimer::qt_metacast(param1);
+        } else if (qchronotimer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qchronotimer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QChronoTimer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

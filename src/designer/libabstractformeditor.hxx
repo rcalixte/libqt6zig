@@ -17,6 +17,8 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
     bool isVirtualQDesignerFormEditorInterface = true;
 
     // Virtual class public types (including callbacks)
+    using QDesignerFormEditorInterface_MetaObject_Callback = QMetaObject* (*)();
+    using QDesignerFormEditorInterface_Metacast_Callback = void* (*)(QDesignerFormEditorInterface*, const char*);
     using QDesignerFormEditorInterface_Metacall_Callback = int (*)(QDesignerFormEditorInterface*, int, int, void**);
     using QDesignerFormEditorInterface_Event_Callback = bool (*)(QDesignerFormEditorInterface*, QEvent*);
     using QDesignerFormEditorInterface_EventFilter_Callback = bool (*)(QDesignerFormEditorInterface*, QObject*, QEvent*);
@@ -38,6 +40,8 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
 
   protected:
     // Instance callback storage
+    QDesignerFormEditorInterface_MetaObject_Callback qdesignerformeditorinterface_metaobject_callback = nullptr;
+    QDesignerFormEditorInterface_Metacast_Callback qdesignerformeditorinterface_metacast_callback = nullptr;
     QDesignerFormEditorInterface_Metacall_Callback qdesignerformeditorinterface_metacall_callback = nullptr;
     QDesignerFormEditorInterface_Event_Callback qdesignerformeditorinterface_event_callback = nullptr;
     QDesignerFormEditorInterface_EventFilter_Callback qdesignerformeditorinterface_eventfilter_callback = nullptr;
@@ -58,6 +62,8 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
     QDesignerFormEditorInterface_IsSignalConnected_Callback qdesignerformeditorinterface_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdesignerformeditorinterface_metaobject_isbase = false;
+    mutable bool qdesignerformeditorinterface_metacast_isbase = false;
     mutable bool qdesignerformeditorinterface_metacall_isbase = false;
     mutable bool qdesignerformeditorinterface_event_isbase = false;
     mutable bool qdesignerformeditorinterface_eventfilter_isbase = false;
@@ -82,6 +88,8 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
     VirtualQDesignerFormEditorInterface(QObject* parent) : QDesignerFormEditorInterface(parent) {};
 
     ~VirtualQDesignerFormEditorInterface() {
+        qdesignerformeditorinterface_metaobject_callback = nullptr;
+        qdesignerformeditorinterface_metacast_callback = nullptr;
         qdesignerformeditorinterface_metacall_callback = nullptr;
         qdesignerformeditorinterface_event_callback = nullptr;
         qdesignerformeditorinterface_eventfilter_callback = nullptr;
@@ -103,6 +111,8 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
     }
 
     // Callback setters
+    inline void setQDesignerFormEditorInterface_MetaObject_Callback(QDesignerFormEditorInterface_MetaObject_Callback cb) { qdesignerformeditorinterface_metaobject_callback = cb; }
+    inline void setQDesignerFormEditorInterface_Metacast_Callback(QDesignerFormEditorInterface_Metacast_Callback cb) { qdesignerformeditorinterface_metacast_callback = cb; }
     inline void setQDesignerFormEditorInterface_Metacall_Callback(QDesignerFormEditorInterface_Metacall_Callback cb) { qdesignerformeditorinterface_metacall_callback = cb; }
     inline void setQDesignerFormEditorInterface_Event_Callback(QDesignerFormEditorInterface_Event_Callback cb) { qdesignerformeditorinterface_event_callback = cb; }
     inline void setQDesignerFormEditorInterface_EventFilter_Callback(QDesignerFormEditorInterface_EventFilter_Callback cb) { qdesignerformeditorinterface_eventfilter_callback = cb; }
@@ -123,6 +133,8 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
     inline void setQDesignerFormEditorInterface_IsSignalConnected_Callback(QDesignerFormEditorInterface_IsSignalConnected_Callback cb) { qdesignerformeditorinterface_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDesignerFormEditorInterface_MetaObject_IsBase(bool value) const { qdesignerformeditorinterface_metaobject_isbase = value; }
+    inline void setQDesignerFormEditorInterface_Metacast_IsBase(bool value) const { qdesignerformeditorinterface_metacast_isbase = value; }
     inline void setQDesignerFormEditorInterface_Metacall_IsBase(bool value) const { qdesignerformeditorinterface_metacall_isbase = value; }
     inline void setQDesignerFormEditorInterface_Event_IsBase(bool value) const { qdesignerformeditorinterface_event_isbase = value; }
     inline void setQDesignerFormEditorInterface_EventFilter_IsBase(bool value) const { qdesignerformeditorinterface_eventfilter_isbase = value; }
@@ -141,6 +153,34 @@ class VirtualQDesignerFormEditorInterface final : public QDesignerFormEditorInte
     inline void setQDesignerFormEditorInterface_SenderSignalIndex_IsBase(bool value) const { qdesignerformeditorinterface_sendersignalindex_isbase = value; }
     inline void setQDesignerFormEditorInterface_Receivers_IsBase(bool value) const { qdesignerformeditorinterface_receivers_isbase = value; }
     inline void setQDesignerFormEditorInterface_IsSignalConnected_IsBase(bool value) const { qdesignerformeditorinterface_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdesignerformeditorinterface_metaobject_isbase) {
+            qdesignerformeditorinterface_metaobject_isbase = false;
+            return QDesignerFormEditorInterface::metaObject();
+        } else if (qdesignerformeditorinterface_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdesignerformeditorinterface_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDesignerFormEditorInterface::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdesignerformeditorinterface_metacast_isbase) {
+            qdesignerformeditorinterface_metacast_isbase = false;
+            return QDesignerFormEditorInterface::qt_metacast(param1);
+        } else if (qdesignerformeditorinterface_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdesignerformeditorinterface_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDesignerFormEditorInterface::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

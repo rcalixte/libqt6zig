@@ -17,6 +17,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
     bool isVirtualQPdfLinkModel = true;
 
     // Virtual class public types (including callbacks)
+    using QPdfLinkModel_MetaObject_Callback = QMetaObject* (*)();
+    using QPdfLinkModel_Metacast_Callback = void* (*)(QPdfLinkModel*, const char*);
     using QPdfLinkModel_Metacall_Callback = int (*)(QPdfLinkModel*, int, int, void**);
     using QPdfLinkModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
     using QPdfLinkModel_RowCount_Callback = int (*)(const QPdfLinkModel*, QModelIndex*);
@@ -86,6 +88,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
 
   protected:
     // Instance callback storage
+    QPdfLinkModel_MetaObject_Callback qpdflinkmodel_metaobject_callback = nullptr;
+    QPdfLinkModel_Metacast_Callback qpdflinkmodel_metacast_callback = nullptr;
     QPdfLinkModel_Metacall_Callback qpdflinkmodel_metacall_callback = nullptr;
     QPdfLinkModel_RoleNames_Callback qpdflinkmodel_rolenames_callback = nullptr;
     QPdfLinkModel_RowCount_Callback qpdflinkmodel_rowcount_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
     QPdfLinkModel_IsSignalConnected_Callback qpdflinkmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpdflinkmodel_metaobject_isbase = false;
+    mutable bool qpdflinkmodel_metacast_isbase = false;
     mutable bool qpdflinkmodel_metacall_isbase = false;
     mutable bool qpdflinkmodel_rolenames_isbase = false;
     mutable bool qpdflinkmodel_rowcount_isbase = false;
@@ -226,6 +232,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
     VirtualQPdfLinkModel(QObject* parent) : QPdfLinkModel(parent) {};
 
     ~VirtualQPdfLinkModel() {
+        qpdflinkmodel_metaobject_callback = nullptr;
+        qpdflinkmodel_metacast_callback = nullptr;
         qpdflinkmodel_metacall_callback = nullptr;
         qpdflinkmodel_rolenames_callback = nullptr;
         qpdflinkmodel_rowcount_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
     }
 
     // Callback setters
+    inline void setQPdfLinkModel_MetaObject_Callback(QPdfLinkModel_MetaObject_Callback cb) { qpdflinkmodel_metaobject_callback = cb; }
+    inline void setQPdfLinkModel_Metacast_Callback(QPdfLinkModel_Metacast_Callback cb) { qpdflinkmodel_metacast_callback = cb; }
     inline void setQPdfLinkModel_Metacall_Callback(QPdfLinkModel_Metacall_Callback cb) { qpdflinkmodel_metacall_callback = cb; }
     inline void setQPdfLinkModel_RoleNames_Callback(QPdfLinkModel_RoleNames_Callback cb) { qpdflinkmodel_rolenames_callback = cb; }
     inline void setQPdfLinkModel_RowCount_Callback(QPdfLinkModel_RowCount_Callback cb) { qpdflinkmodel_rowcount_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
     inline void setQPdfLinkModel_IsSignalConnected_Callback(QPdfLinkModel_IsSignalConnected_Callback cb) { qpdflinkmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPdfLinkModel_MetaObject_IsBase(bool value) const { qpdflinkmodel_metaobject_isbase = value; }
+    inline void setQPdfLinkModel_Metacast_IsBase(bool value) const { qpdflinkmodel_metacast_isbase = value; }
     inline void setQPdfLinkModel_Metacall_IsBase(bool value) const { qpdflinkmodel_metacall_isbase = value; }
     inline void setQPdfLinkModel_RoleNames_IsBase(bool value) const { qpdflinkmodel_rolenames_isbase = value; }
     inline void setQPdfLinkModel_RowCount_IsBase(bool value) const { qpdflinkmodel_rowcount_isbase = value; }
@@ -429,6 +441,34 @@ class VirtualQPdfLinkModel final : public QPdfLinkModel {
     inline void setQPdfLinkModel_SenderSignalIndex_IsBase(bool value) const { qpdflinkmodel_sendersignalindex_isbase = value; }
     inline void setQPdfLinkModel_Receivers_IsBase(bool value) const { qpdflinkmodel_receivers_isbase = value; }
     inline void setQPdfLinkModel_IsSignalConnected_IsBase(bool value) const { qpdflinkmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpdflinkmodel_metaobject_isbase) {
+            qpdflinkmodel_metaobject_isbase = false;
+            return QPdfLinkModel::metaObject();
+        } else if (qpdflinkmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpdflinkmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPdfLinkModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpdflinkmodel_metacast_isbase) {
+            qpdflinkmodel_metacast_isbase = false;
+            return QPdfLinkModel::qt_metacast(param1);
+        } else if (qpdflinkmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpdflinkmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPdfLinkModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

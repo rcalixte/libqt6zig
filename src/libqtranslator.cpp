@@ -22,11 +22,21 @@ QTranslator* QTranslator_new2(QObject* parent) {
 }
 
 QMetaObject* QTranslator_MetaObject(const QTranslator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtranslator = dynamic_cast<const VirtualQTranslator*>(self);
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTranslator*)self)->metaObject();
+    }
 }
 
 void* QTranslator_Metacast(QTranslator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTranslator*)self)->qt_metacast(param1);
+    }
 }
 
 int QTranslator_Metacall(QTranslator* self, int param1, int param2, void** param3) {
@@ -155,6 +165,44 @@ bool QTranslator_Load5(QTranslator* self, const QLocale* locale, const libqt_str
 bool QTranslator_Load34(QTranslator* self, const unsigned char* data, int lenVal, const libqt_string directory) {
     QString directory_QString = QString::fromUtf8(directory.data, directory.len);
     return self->load(static_cast<const uchar*>(data), static_cast<int>(lenVal), directory_QString);
+}
+
+// Base class handler implementation
+QMetaObject* QTranslator_QBaseMetaObject(const QTranslator* self) {
+    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        vqtranslator->setQTranslator_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtranslator->metaObject();
+    } else {
+        return (QMetaObject*)self->QTranslator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTranslator_OnMetaObject(const QTranslator* self, intptr_t slot) {
+    auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        vqtranslator->setQTranslator_MetaObject_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTranslator_QBaseMetacast(QTranslator* self, const char* param1) {
+    auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        vqtranslator->setQTranslator_Metacast_IsBase(true);
+        return vqtranslator->qt_metacast(param1);
+    } else {
+        return self->QTranslator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTranslator_OnMetacast(QTranslator* self, intptr_t slot) {
+    auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
+    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+        vqtranslator->setQTranslator_Metacast_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

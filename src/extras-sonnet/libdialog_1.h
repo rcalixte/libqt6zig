@@ -84,6 +84,10 @@ void Sonnet__Dialog_LanguageChanged(Sonnet__Dialog* self, const libqt_string lan
 void Sonnet__Dialog_Connect_LanguageChanged(Sonnet__Dialog* self, intptr_t slot);
 void Sonnet__Dialog_ShowProgressDialog1(Sonnet__Dialog* self, int timeout);
 void Sonnet__Dialog_ShowSpellCheckCompletionMessage1(Sonnet__Dialog* self, bool b);
+void Sonnet__Dialog_OnMetaObject(const Sonnet__Dialog* self, intptr_t slot);
+QMetaObject* Sonnet__Dialog_QBaseMetaObject(const Sonnet__Dialog* self);
+void Sonnet__Dialog_OnMetacast(Sonnet__Dialog* self, intptr_t slot);
+void* Sonnet__Dialog_QBaseMetacast(Sonnet__Dialog* self, const char* param1);
 void Sonnet__Dialog_OnMetacall(Sonnet__Dialog* self, intptr_t slot);
 int Sonnet__Dialog_QBaseMetacall(Sonnet__Dialog* self, int param1, int param2, void** param3);
 void Sonnet__Dialog_SetVisible(Sonnet__Dialog* self, bool visible);

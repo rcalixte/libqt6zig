@@ -17,6 +17,8 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
     bool isVirtualKDirSortFilterProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using KDirSortFilterProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using KDirSortFilterProxyModel_Metacast_Callback = void* (*)(KDirSortFilterProxyModel*, const char*);
     using KDirSortFilterProxyModel_Metacall_Callback = int (*)(KDirSortFilterProxyModel*, int, int, void**);
     using KDirSortFilterProxyModel_HasChildren_Callback = bool (*)(const KDirSortFilterProxyModel*, QModelIndex*);
     using KDirSortFilterProxyModel_CanFetchMore_Callback = bool (*)(const KDirSortFilterProxyModel*, QModelIndex*);
@@ -103,6 +105,8 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
 
   protected:
     // Instance callback storage
+    KDirSortFilterProxyModel_MetaObject_Callback kdirsortfilterproxymodel_metaobject_callback = nullptr;
+    KDirSortFilterProxyModel_Metacast_Callback kdirsortfilterproxymodel_metacast_callback = nullptr;
     KDirSortFilterProxyModel_Metacall_Callback kdirsortfilterproxymodel_metacall_callback = nullptr;
     KDirSortFilterProxyModel_HasChildren_Callback kdirsortfilterproxymodel_haschildren_callback = nullptr;
     KDirSortFilterProxyModel_CanFetchMore_Callback kdirsortfilterproxymodel_canfetchmore_callback = nullptr;
@@ -188,6 +192,8 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
     KDirSortFilterProxyModel_IsSignalConnected_Callback kdirsortfilterproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdirsortfilterproxymodel_metaobject_isbase = false;
+    mutable bool kdirsortfilterproxymodel_metacast_isbase = false;
     mutable bool kdirsortfilterproxymodel_metacall_isbase = false;
     mutable bool kdirsortfilterproxymodel_haschildren_isbase = false;
     mutable bool kdirsortfilterproxymodel_canfetchmore_isbase = false;
@@ -277,6 +283,8 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
     VirtualKDirSortFilterProxyModel(QObject* parent) : KDirSortFilterProxyModel(parent) {};
 
     ~VirtualKDirSortFilterProxyModel() {
+        kdirsortfilterproxymodel_metaobject_callback = nullptr;
+        kdirsortfilterproxymodel_metacast_callback = nullptr;
         kdirsortfilterproxymodel_metacall_callback = nullptr;
         kdirsortfilterproxymodel_haschildren_callback = nullptr;
         kdirsortfilterproxymodel_canfetchmore_callback = nullptr;
@@ -363,6 +371,8 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
     }
 
     // Callback setters
+    inline void setKDirSortFilterProxyModel_MetaObject_Callback(KDirSortFilterProxyModel_MetaObject_Callback cb) { kdirsortfilterproxymodel_metaobject_callback = cb; }
+    inline void setKDirSortFilterProxyModel_Metacast_Callback(KDirSortFilterProxyModel_Metacast_Callback cb) { kdirsortfilterproxymodel_metacast_callback = cb; }
     inline void setKDirSortFilterProxyModel_Metacall_Callback(KDirSortFilterProxyModel_Metacall_Callback cb) { kdirsortfilterproxymodel_metacall_callback = cb; }
     inline void setKDirSortFilterProxyModel_HasChildren_Callback(KDirSortFilterProxyModel_HasChildren_Callback cb) { kdirsortfilterproxymodel_haschildren_callback = cb; }
     inline void setKDirSortFilterProxyModel_CanFetchMore_Callback(KDirSortFilterProxyModel_CanFetchMore_Callback cb) { kdirsortfilterproxymodel_canfetchmore_callback = cb; }
@@ -448,6 +458,8 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
     inline void setKDirSortFilterProxyModel_IsSignalConnected_Callback(KDirSortFilterProxyModel_IsSignalConnected_Callback cb) { kdirsortfilterproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKDirSortFilterProxyModel_MetaObject_IsBase(bool value) const { kdirsortfilterproxymodel_metaobject_isbase = value; }
+    inline void setKDirSortFilterProxyModel_Metacast_IsBase(bool value) const { kdirsortfilterproxymodel_metacast_isbase = value; }
     inline void setKDirSortFilterProxyModel_Metacall_IsBase(bool value) const { kdirsortfilterproxymodel_metacall_isbase = value; }
     inline void setKDirSortFilterProxyModel_HasChildren_IsBase(bool value) const { kdirsortfilterproxymodel_haschildren_isbase = value; }
     inline void setKDirSortFilterProxyModel_CanFetchMore_IsBase(bool value) const { kdirsortfilterproxymodel_canfetchmore_isbase = value; }
@@ -531,6 +543,34 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
     inline void setKDirSortFilterProxyModel_SenderSignalIndex_IsBase(bool value) const { kdirsortfilterproxymodel_sendersignalindex_isbase = value; }
     inline void setKDirSortFilterProxyModel_Receivers_IsBase(bool value) const { kdirsortfilterproxymodel_receivers_isbase = value; }
     inline void setKDirSortFilterProxyModel_IsSignalConnected_IsBase(bool value) const { kdirsortfilterproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdirsortfilterproxymodel_metaobject_isbase) {
+            kdirsortfilterproxymodel_metaobject_isbase = false;
+            return KDirSortFilterProxyModel::metaObject();
+        } else if (kdirsortfilterproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdirsortfilterproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDirSortFilterProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdirsortfilterproxymodel_metacast_isbase) {
+            kdirsortfilterproxymodel_metacast_isbase = false;
+            return KDirSortFilterProxyModel::qt_metacast(param1);
+        } else if (kdirsortfilterproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdirsortfilterproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDirSortFilterProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

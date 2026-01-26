@@ -17,6 +17,8 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
     bool isVirtualQHorizontalBarSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QHorizontalBarSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QHorizontalBarSeries_Metacast_Callback = void* (*)(QHorizontalBarSeries*, const char*);
     using QHorizontalBarSeries_Metacall_Callback = int (*)(QHorizontalBarSeries*, int, int, void**);
     using QHorizontalBarSeries_Type_Callback = int (*)();
     using QHorizontalBarSeries_Event_Callback = bool (*)(QHorizontalBarSeries*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
 
   protected:
     // Instance callback storage
+    QHorizontalBarSeries_MetaObject_Callback qhorizontalbarseries_metaobject_callback = nullptr;
+    QHorizontalBarSeries_Metacast_Callback qhorizontalbarseries_metacast_callback = nullptr;
     QHorizontalBarSeries_Metacall_Callback qhorizontalbarseries_metacall_callback = nullptr;
     QHorizontalBarSeries_Type_Callback qhorizontalbarseries_type_callback = nullptr;
     QHorizontalBarSeries_Event_Callback qhorizontalbarseries_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
     QHorizontalBarSeries_IsSignalConnected_Callback qhorizontalbarseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qhorizontalbarseries_metaobject_isbase = false;
+    mutable bool qhorizontalbarseries_metacast_isbase = false;
     mutable bool qhorizontalbarseries_metacall_isbase = false;
     mutable bool qhorizontalbarseries_type_isbase = false;
     mutable bool qhorizontalbarseries_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
     VirtualQHorizontalBarSeries(QObject* parent) : QHorizontalBarSeries(parent) {};
 
     ~VirtualQHorizontalBarSeries() {
+        qhorizontalbarseries_metaobject_callback = nullptr;
+        qhorizontalbarseries_metacast_callback = nullptr;
         qhorizontalbarseries_metacall_callback = nullptr;
         qhorizontalbarseries_type_callback = nullptr;
         qhorizontalbarseries_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
     }
 
     // Callback setters
+    inline void setQHorizontalBarSeries_MetaObject_Callback(QHorizontalBarSeries_MetaObject_Callback cb) { qhorizontalbarseries_metaobject_callback = cb; }
+    inline void setQHorizontalBarSeries_Metacast_Callback(QHorizontalBarSeries_Metacast_Callback cb) { qhorizontalbarseries_metacast_callback = cb; }
     inline void setQHorizontalBarSeries_Metacall_Callback(QHorizontalBarSeries_Metacall_Callback cb) { qhorizontalbarseries_metacall_callback = cb; }
     inline void setQHorizontalBarSeries_Type_Callback(QHorizontalBarSeries_Type_Callback cb) { qhorizontalbarseries_type_callback = cb; }
     inline void setQHorizontalBarSeries_Event_Callback(QHorizontalBarSeries_Event_Callback cb) { qhorizontalbarseries_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
     inline void setQHorizontalBarSeries_IsSignalConnected_Callback(QHorizontalBarSeries_IsSignalConnected_Callback cb) { qhorizontalbarseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQHorizontalBarSeries_MetaObject_IsBase(bool value) const { qhorizontalbarseries_metaobject_isbase = value; }
+    inline void setQHorizontalBarSeries_Metacast_IsBase(bool value) const { qhorizontalbarseries_metacast_isbase = value; }
     inline void setQHorizontalBarSeries_Metacall_IsBase(bool value) const { qhorizontalbarseries_metacall_isbase = value; }
     inline void setQHorizontalBarSeries_Type_IsBase(bool value) const { qhorizontalbarseries_type_isbase = value; }
     inline void setQHorizontalBarSeries_Event_IsBase(bool value) const { qhorizontalbarseries_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
     inline void setQHorizontalBarSeries_SenderSignalIndex_IsBase(bool value) const { qhorizontalbarseries_sendersignalindex_isbase = value; }
     inline void setQHorizontalBarSeries_Receivers_IsBase(bool value) const { qhorizontalbarseries_receivers_isbase = value; }
     inline void setQHorizontalBarSeries_IsSignalConnected_IsBase(bool value) const { qhorizontalbarseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qhorizontalbarseries_metaobject_isbase) {
+            qhorizontalbarseries_metaobject_isbase = false;
+            return QHorizontalBarSeries::metaObject();
+        } else if (qhorizontalbarseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qhorizontalbarseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHorizontalBarSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qhorizontalbarseries_metacast_isbase) {
+            qhorizontalbarseries_metacast_isbase = false;
+            return QHorizontalBarSeries::qt_metacast(param1);
+        } else if (qhorizontalbarseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qhorizontalbarseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHorizontalBarSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

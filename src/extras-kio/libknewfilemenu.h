@@ -65,6 +65,10 @@ void KNewFileMenu_Connect_DirectoryCreationRejected(KNewFileMenu* self, intptr_t
 void KNewFileMenu_SelectExistingDir(KNewFileMenu* self, const QUrl* url);
 void KNewFileMenu_Connect_SelectExistingDir(KNewFileMenu* self, intptr_t slot);
 void KNewFileMenu_SlotResult(KNewFileMenu* self, KJob* job);
+void KNewFileMenu_OnMetaObject(const KNewFileMenu* self, intptr_t slot);
+QMetaObject* KNewFileMenu_QBaseMetaObject(const KNewFileMenu* self);
+void KNewFileMenu_OnMetacast(KNewFileMenu* self, intptr_t slot);
+void* KNewFileMenu_QBaseMetacast(KNewFileMenu* self, const char* param1);
 void KNewFileMenu_OnMetacall(KNewFileMenu* self, intptr_t slot);
 int KNewFileMenu_QBaseMetacall(KNewFileMenu* self, int param1, int param2, void** param3);
 void KNewFileMenu_OnSlotResult(KNewFileMenu* self, intptr_t slot);

@@ -69,6 +69,10 @@ void QDesignerFormEditorInterface_SetSettingsManager(QDesignerFormEditorInterfac
 void QDesignerFormEditorInterface_SetOptionsPages(QDesignerFormEditorInterface* self, const libqt_list /* of QDesignerOptionsPageInterface* */ optionsPages);
 libqt_list /* of QObject* */ QDesignerFormEditorInterface_PluginInstances(const QDesignerFormEditorInterface* self);
 QIcon* QDesignerFormEditorInterface_CreateIcon(const libqt_string name);
+void QDesignerFormEditorInterface_OnMetaObject(const QDesignerFormEditorInterface* self, intptr_t slot);
+QMetaObject* QDesignerFormEditorInterface_QBaseMetaObject(const QDesignerFormEditorInterface* self);
+void QDesignerFormEditorInterface_OnMetacast(QDesignerFormEditorInterface* self, intptr_t slot);
+void* QDesignerFormEditorInterface_QBaseMetacast(QDesignerFormEditorInterface* self, const char* param1);
 void QDesignerFormEditorInterface_OnMetacall(QDesignerFormEditorInterface* self, intptr_t slot);
 int QDesignerFormEditorInterface_QBaseMetacall(QDesignerFormEditorInterface* self, int param1, int param2, void** param3);
 bool QDesignerFormEditorInterface_Event(QDesignerFormEditorInterface* self, QEvent* event);

@@ -17,6 +17,8 @@ class VirtualKColumnResizer final : public KColumnResizer {
     bool isVirtualKColumnResizer = true;
 
     // Virtual class public types (including callbacks)
+    using KColumnResizer_MetaObject_Callback = QMetaObject* (*)();
+    using KColumnResizer_Metacast_Callback = void* (*)(KColumnResizer*, const char*);
     using KColumnResizer_Metacall_Callback = int (*)(KColumnResizer*, int, int, void**);
     using KColumnResizer_EventFilter_Callback = bool (*)(KColumnResizer*, QObject*, QEvent*);
     using KColumnResizer_Event_Callback = bool (*)(KColumnResizer*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKColumnResizer final : public KColumnResizer {
 
   protected:
     // Instance callback storage
+    KColumnResizer_MetaObject_Callback kcolumnresizer_metaobject_callback = nullptr;
+    KColumnResizer_Metacast_Callback kcolumnresizer_metacast_callback = nullptr;
     KColumnResizer_Metacall_Callback kcolumnresizer_metacall_callback = nullptr;
     KColumnResizer_EventFilter_Callback kcolumnresizer_eventfilter_callback = nullptr;
     KColumnResizer_Event_Callback kcolumnresizer_event_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKColumnResizer final : public KColumnResizer {
     KColumnResizer_IsSignalConnected_Callback kcolumnresizer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcolumnresizer_metaobject_isbase = false;
+    mutable bool kcolumnresizer_metacast_isbase = false;
     mutable bool kcolumnresizer_metacall_isbase = false;
     mutable bool kcolumnresizer_eventfilter_isbase = false;
     mutable bool kcolumnresizer_event_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKColumnResizer final : public KColumnResizer {
     VirtualKColumnResizer(QObject* parent) : KColumnResizer(parent) {};
 
     ~VirtualKColumnResizer() {
+        kcolumnresizer_metaobject_callback = nullptr;
+        kcolumnresizer_metacast_callback = nullptr;
         kcolumnresizer_metacall_callback = nullptr;
         kcolumnresizer_eventfilter_callback = nullptr;
         kcolumnresizer_event_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKColumnResizer final : public KColumnResizer {
     }
 
     // Callback setters
+    inline void setKColumnResizer_MetaObject_Callback(KColumnResizer_MetaObject_Callback cb) { kcolumnresizer_metaobject_callback = cb; }
+    inline void setKColumnResizer_Metacast_Callback(KColumnResizer_Metacast_Callback cb) { kcolumnresizer_metacast_callback = cb; }
     inline void setKColumnResizer_Metacall_Callback(KColumnResizer_Metacall_Callback cb) { kcolumnresizer_metacall_callback = cb; }
     inline void setKColumnResizer_EventFilter_Callback(KColumnResizer_EventFilter_Callback cb) { kcolumnresizer_eventfilter_callback = cb; }
     inline void setKColumnResizer_Event_Callback(KColumnResizer_Event_Callback cb) { kcolumnresizer_event_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKColumnResizer final : public KColumnResizer {
     inline void setKColumnResizer_IsSignalConnected_Callback(KColumnResizer_IsSignalConnected_Callback cb) { kcolumnresizer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKColumnResizer_MetaObject_IsBase(bool value) const { kcolumnresizer_metaobject_isbase = value; }
+    inline void setKColumnResizer_Metacast_IsBase(bool value) const { kcolumnresizer_metacast_isbase = value; }
     inline void setKColumnResizer_Metacall_IsBase(bool value) const { kcolumnresizer_metacall_isbase = value; }
     inline void setKColumnResizer_EventFilter_IsBase(bool value) const { kcolumnresizer_eventfilter_isbase = value; }
     inline void setKColumnResizer_Event_IsBase(bool value) const { kcolumnresizer_event_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKColumnResizer final : public KColumnResizer {
     inline void setKColumnResizer_SenderSignalIndex_IsBase(bool value) const { kcolumnresizer_sendersignalindex_isbase = value; }
     inline void setKColumnResizer_Receivers_IsBase(bool value) const { kcolumnresizer_receivers_isbase = value; }
     inline void setKColumnResizer_IsSignalConnected_IsBase(bool value) const { kcolumnresizer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcolumnresizer_metaobject_isbase) {
+            kcolumnresizer_metaobject_isbase = false;
+            return KColumnResizer::metaObject();
+        } else if (kcolumnresizer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcolumnresizer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KColumnResizer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcolumnresizer_metacast_isbase) {
+            kcolumnresizer_metacast_isbase = false;
+            return KColumnResizer::qt_metacast(param1);
+        } else if (kcolumnresizer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcolumnresizer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KColumnResizer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

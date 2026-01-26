@@ -17,6 +17,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     bool isVirtualQsciLexerRuby = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerRuby_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerRuby_Metacast_Callback = void* (*)(QsciLexerRuby*, const char*);
     using QsciLexerRuby_Metacall_Callback = int (*)(QsciLexerRuby*, int, int, void**);
     using QsciLexerRuby_Language_Callback = const char* (*)();
     using QsciLexerRuby_Lexer_Callback = const char* (*)();
@@ -68,6 +70,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
 
   protected:
     // Instance callback storage
+    QsciLexerRuby_MetaObject_Callback qscilexerruby_metaobject_callback = nullptr;
+    QsciLexerRuby_Metacast_Callback qscilexerruby_metacast_callback = nullptr;
     QsciLexerRuby_Metacall_Callback qscilexerruby_metacall_callback = nullptr;
     QsciLexerRuby_Language_Callback qscilexerruby_language_callback = nullptr;
     QsciLexerRuby_Lexer_Callback qscilexerruby_lexer_callback = nullptr;
@@ -118,6 +122,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     QsciLexerRuby_IsSignalConnected_Callback qscilexerruby_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexerruby_metaobject_isbase = false;
+    mutable bool qscilexerruby_metacast_isbase = false;
     mutable bool qscilexerruby_metacall_isbase = false;
     mutable bool qscilexerruby_language_isbase = false;
     mutable bool qscilexerruby_lexer_isbase = false;
@@ -172,6 +178,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     VirtualQsciLexerRuby(QObject* parent) : QsciLexerRuby(parent) {};
 
     ~VirtualQsciLexerRuby() {
+        qscilexerruby_metaobject_callback = nullptr;
+        qscilexerruby_metacast_callback = nullptr;
         qscilexerruby_metacall_callback = nullptr;
         qscilexerruby_language_callback = nullptr;
         qscilexerruby_lexer_callback = nullptr;
@@ -223,6 +231,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     }
 
     // Callback setters
+    inline void setQsciLexerRuby_MetaObject_Callback(QsciLexerRuby_MetaObject_Callback cb) { qscilexerruby_metaobject_callback = cb; }
+    inline void setQsciLexerRuby_Metacast_Callback(QsciLexerRuby_Metacast_Callback cb) { qscilexerruby_metacast_callback = cb; }
     inline void setQsciLexerRuby_Metacall_Callback(QsciLexerRuby_Metacall_Callback cb) { qscilexerruby_metacall_callback = cb; }
     inline void setQsciLexerRuby_Language_Callback(QsciLexerRuby_Language_Callback cb) { qscilexerruby_language_callback = cb; }
     inline void setQsciLexerRuby_Lexer_Callback(QsciLexerRuby_Lexer_Callback cb) { qscilexerruby_lexer_callback = cb; }
@@ -273,6 +283,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     inline void setQsciLexerRuby_IsSignalConnected_Callback(QsciLexerRuby_IsSignalConnected_Callback cb) { qscilexerruby_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerRuby_MetaObject_IsBase(bool value) const { qscilexerruby_metaobject_isbase = value; }
+    inline void setQsciLexerRuby_Metacast_IsBase(bool value) const { qscilexerruby_metacast_isbase = value; }
     inline void setQsciLexerRuby_Metacall_IsBase(bool value) const { qscilexerruby_metacall_isbase = value; }
     inline void setQsciLexerRuby_Language_IsBase(bool value) const { qscilexerruby_language_isbase = value; }
     inline void setQsciLexerRuby_Lexer_IsBase(bool value) const { qscilexerruby_lexer_isbase = value; }
@@ -321,6 +333,34 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     inline void setQsciLexerRuby_SenderSignalIndex_IsBase(bool value) const { qscilexerruby_sendersignalindex_isbase = value; }
     inline void setQsciLexerRuby_Receivers_IsBase(bool value) const { qscilexerruby_receivers_isbase = value; }
     inline void setQsciLexerRuby_IsSignalConnected_IsBase(bool value) const { qscilexerruby_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexerruby_metaobject_isbase) {
+            qscilexerruby_metaobject_isbase = false;
+            return QsciLexerRuby::metaObject();
+        } else if (qscilexerruby_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexerruby_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerRuby::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexerruby_metacast_isbase) {
+            qscilexerruby_metacast_isbase = false;
+            return QsciLexerRuby::qt_metacast(param1);
+        } else if (qscilexerruby_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexerruby_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerRuby::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

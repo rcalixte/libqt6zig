@@ -28,11 +28,21 @@ QBarSet* QBarSet_new2(const libqt_string label, QObject* parent) {
 }
 
 QMetaObject* QBarSet_MetaObject(const QBarSet* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqbarset = dynamic_cast<const VirtualQBarSet*>(self);
+    if (vqbarset && vqbarset->isVirtualQBarSet) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQBarSet*)self)->metaObject();
+    }
 }
 
 void* QBarSet_Metacast(QBarSet* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
+    if (vqbarset && vqbarset->isVirtualQBarSet) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQBarSet*)self)->qt_metacast(param1);
+    }
 }
 
 int QBarSet_Metacall(QBarSet* self, int param1, int param2, void** param3) {
@@ -473,6 +483,44 @@ void QBarSet_Connect_SelectedBarsChanged(QBarSet* self, intptr_t slot) {
 
 void QBarSet_Remove2(QBarSet* self, const int index, const int count) {
     self->remove(static_cast<const int>(index), static_cast<const int>(count));
+}
+
+// Base class handler implementation
+QMetaObject* QBarSet_QBaseMetaObject(const QBarSet* self) {
+    auto* vqbarset = const_cast<VirtualQBarSet*>(dynamic_cast<const VirtualQBarSet*>(self));
+    if (vqbarset && vqbarset->isVirtualQBarSet) {
+        vqbarset->setQBarSet_MetaObject_IsBase(true);
+        return (QMetaObject*)vqbarset->metaObject();
+    } else {
+        return (QMetaObject*)self->QBarSet::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBarSet_OnMetaObject(const QBarSet* self, intptr_t slot) {
+    auto* vqbarset = const_cast<VirtualQBarSet*>(dynamic_cast<const VirtualQBarSet*>(self));
+    if (vqbarset && vqbarset->isVirtualQBarSet) {
+        vqbarset->setQBarSet_MetaObject_Callback(reinterpret_cast<VirtualQBarSet::QBarSet_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QBarSet_QBaseMetacast(QBarSet* self, const char* param1) {
+    auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
+    if (vqbarset && vqbarset->isVirtualQBarSet) {
+        vqbarset->setQBarSet_Metacast_IsBase(true);
+        return vqbarset->qt_metacast(param1);
+    } else {
+        return self->QBarSet::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBarSet_OnMetacast(QBarSet* self, intptr_t slot) {
+    auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
+    if (vqbarset && vqbarset->isVirtualQBarSet) {
+        vqbarset->setQBarSet_Metacast_Callback(reinterpret_cast<VirtualQBarSet::QBarSet_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

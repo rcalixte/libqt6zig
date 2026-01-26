@@ -80,6 +80,10 @@ KPageWidgetItem* KConfigDialog_AddPage4(KConfigDialog* self, QWidget* page, cons
 KPageWidgetItem* KConfigDialog_AddPage5(KConfigDialog* self, QWidget* page, const libqt_string itemName, const libqt_string pixmapName, const libqt_string header, bool manage);
 KPageWidgetItem* KConfigDialog_AddPage42(KConfigDialog* self, QWidget* page, KCoreConfigSkeleton* config, const libqt_string itemName, const libqt_string pixmapName);
 KPageWidgetItem* KConfigDialog_AddPage52(KConfigDialog* self, QWidget* page, KCoreConfigSkeleton* config, const libqt_string itemName, const libqt_string pixmapName, const libqt_string header);
+void KConfigDialog_OnMetaObject(const KConfigDialog* self, intptr_t slot);
+QMetaObject* KConfigDialog_QBaseMetaObject(const KConfigDialog* self);
+void KConfigDialog_OnMetacast(KConfigDialog* self, intptr_t slot);
+void* KConfigDialog_QBaseMetacast(KConfigDialog* self, const char* param1);
 void KConfigDialog_OnMetacall(KConfigDialog* self, intptr_t slot);
 int KConfigDialog_QBaseMetacall(KConfigDialog* self, int param1, int param2, void** param3);
 void KConfigDialog_OnUpdateSettings(KConfigDialog* self, intptr_t slot);

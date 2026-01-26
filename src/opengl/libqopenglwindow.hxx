@@ -17,6 +17,8 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
     bool isVirtualQOpenGLWindow = true;
 
     // Virtual class public types (including callbacks)
+    using QOpenGLWindow_MetaObject_Callback = QMetaObject* (*)();
+    using QOpenGLWindow_Metacast_Callback = void* (*)(QOpenGLWindow*, const char*);
     using QOpenGLWindow_Metacall_Callback = int (*)(QOpenGLWindow*, int, int, void**);
     using QOpenGLWindow_InitializeGL_Callback = void (*)();
     using QOpenGLWindow_ResizeGL_Callback = void (*)(QOpenGLWindow*, int, int);
@@ -68,6 +70,8 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
 
   protected:
     // Instance callback storage
+    QOpenGLWindow_MetaObject_Callback qopenglwindow_metaobject_callback = nullptr;
+    QOpenGLWindow_Metacast_Callback qopenglwindow_metacast_callback = nullptr;
     QOpenGLWindow_Metacall_Callback qopenglwindow_metacall_callback = nullptr;
     QOpenGLWindow_InitializeGL_Callback qopenglwindow_initializegl_callback = nullptr;
     QOpenGLWindow_ResizeGL_Callback qopenglwindow_resizegl_callback = nullptr;
@@ -118,6 +122,8 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
     QOpenGLWindow_GetDecodedMetricF_Callback qopenglwindow_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qopenglwindow_metaobject_isbase = false;
+    mutable bool qopenglwindow_metacast_isbase = false;
     mutable bool qopenglwindow_metacall_isbase = false;
     mutable bool qopenglwindow_initializegl_isbase = false;
     mutable bool qopenglwindow_resizegl_isbase = false;
@@ -176,6 +182,8 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
     VirtualQOpenGLWindow(QOpenGLContext* shareContext, QOpenGLWindow::UpdateBehavior updateBehavior, QWindow* parent) : QOpenGLWindow(shareContext, updateBehavior, parent) {};
 
     ~VirtualQOpenGLWindow() {
+        qopenglwindow_metaobject_callback = nullptr;
+        qopenglwindow_metacast_callback = nullptr;
         qopenglwindow_metacall_callback = nullptr;
         qopenglwindow_initializegl_callback = nullptr;
         qopenglwindow_resizegl_callback = nullptr;
@@ -227,6 +235,8 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
     }
 
     // Callback setters
+    inline void setQOpenGLWindow_MetaObject_Callback(QOpenGLWindow_MetaObject_Callback cb) { qopenglwindow_metaobject_callback = cb; }
+    inline void setQOpenGLWindow_Metacast_Callback(QOpenGLWindow_Metacast_Callback cb) { qopenglwindow_metacast_callback = cb; }
     inline void setQOpenGLWindow_Metacall_Callback(QOpenGLWindow_Metacall_Callback cb) { qopenglwindow_metacall_callback = cb; }
     inline void setQOpenGLWindow_InitializeGL_Callback(QOpenGLWindow_InitializeGL_Callback cb) { qopenglwindow_initializegl_callback = cb; }
     inline void setQOpenGLWindow_ResizeGL_Callback(QOpenGLWindow_ResizeGL_Callback cb) { qopenglwindow_resizegl_callback = cb; }
@@ -277,6 +287,8 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
     inline void setQOpenGLWindow_GetDecodedMetricF_Callback(QOpenGLWindow_GetDecodedMetricF_Callback cb) { qopenglwindow_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQOpenGLWindow_MetaObject_IsBase(bool value) const { qopenglwindow_metaobject_isbase = value; }
+    inline void setQOpenGLWindow_Metacast_IsBase(bool value) const { qopenglwindow_metacast_isbase = value; }
     inline void setQOpenGLWindow_Metacall_IsBase(bool value) const { qopenglwindow_metacall_isbase = value; }
     inline void setQOpenGLWindow_InitializeGL_IsBase(bool value) const { qopenglwindow_initializegl_isbase = value; }
     inline void setQOpenGLWindow_ResizeGL_IsBase(bool value) const { qopenglwindow_resizegl_isbase = value; }
@@ -325,6 +337,34 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
     inline void setQOpenGLWindow_Receivers_IsBase(bool value) const { qopenglwindow_receivers_isbase = value; }
     inline void setQOpenGLWindow_IsSignalConnected_IsBase(bool value) const { qopenglwindow_issignalconnected_isbase = value; }
     inline void setQOpenGLWindow_GetDecodedMetricF_IsBase(bool value) const { qopenglwindow_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qopenglwindow_metaobject_isbase) {
+            qopenglwindow_metaobject_isbase = false;
+            return QOpenGLWindow::metaObject();
+        } else if (qopenglwindow_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qopenglwindow_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QOpenGLWindow::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qopenglwindow_metacast_isbase) {
+            qopenglwindow_metacast_isbase = false;
+            return QOpenGLWindow::qt_metacast(param1);
+        } else if (qopenglwindow_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qopenglwindow_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QOpenGLWindow::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

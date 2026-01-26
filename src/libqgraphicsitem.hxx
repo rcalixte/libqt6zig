@@ -892,6 +892,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
 
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
+    using QGraphicsObject_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsObject_Metacast_Callback = void* (*)(QGraphicsObject*, const char*);
     using QGraphicsObject_Metacall_Callback = int (*)(QGraphicsObject*, int, int, void**);
     using QGraphicsObject_Event_Callback = bool (*)(QGraphicsObject*, QEvent*);
     using QGraphicsObject_EventFilter_Callback = bool (*)(QGraphicsObject*, QObject*, QEvent*);
@@ -946,6 +948,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
 
   protected:
     // Instance callback storage
+    QGraphicsObject_MetaObject_Callback qgraphicsobject_metaobject_callback = nullptr;
+    QGraphicsObject_Metacast_Callback qgraphicsobject_metacast_callback = nullptr;
     QGraphicsObject_Metacall_Callback qgraphicsobject_metacall_callback = nullptr;
     QGraphicsObject_Event_Callback qgraphicsobject_event_callback = nullptr;
     QGraphicsObject_EventFilter_Callback qgraphicsobject_eventfilter_callback = nullptr;
@@ -999,6 +1003,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
     QGraphicsObject_PrepareGeometryChange_Callback qgraphicsobject_preparegeometrychange_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsobject_metaobject_isbase = false;
+    mutable bool qgraphicsobject_metacast_isbase = false;
     mutable bool qgraphicsobject_metacall_isbase = false;
     mutable bool qgraphicsobject_event_isbase = false;
     mutable bool qgraphicsobject_eventfilter_isbase = false;
@@ -1056,6 +1062,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
     VirtualQGraphicsObject(QGraphicsItem* parent) : QGraphicsObject(parent) {};
 
     ~VirtualQGraphicsObject() {
+        qgraphicsobject_metaobject_callback = nullptr;
+        qgraphicsobject_metacast_callback = nullptr;
         qgraphicsobject_metacall_callback = nullptr;
         qgraphicsobject_event_callback = nullptr;
         qgraphicsobject_eventfilter_callback = nullptr;
@@ -1110,6 +1118,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
     }
 
     // Callback setters
+    inline void setQGraphicsObject_MetaObject_Callback(QGraphicsObject_MetaObject_Callback cb) { qgraphicsobject_metaobject_callback = cb; }
+    inline void setQGraphicsObject_Metacast_Callback(QGraphicsObject_Metacast_Callback cb) { qgraphicsobject_metacast_callback = cb; }
     inline void setQGraphicsObject_Metacall_Callback(QGraphicsObject_Metacall_Callback cb) { qgraphicsobject_metacall_callback = cb; }
     inline void setQGraphicsObject_Event_Callback(QGraphicsObject_Event_Callback cb) { qgraphicsobject_event_callback = cb; }
     inline void setQGraphicsObject_EventFilter_Callback(QGraphicsObject_EventFilter_Callback cb) { qgraphicsobject_eventfilter_callback = cb; }
@@ -1163,6 +1173,8 @@ class VirtualQGraphicsObject : public QGraphicsObject {
     inline void setQGraphicsObject_PrepareGeometryChange_Callback(QGraphicsObject_PrepareGeometryChange_Callback cb) { qgraphicsobject_preparegeometrychange_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsObject_MetaObject_IsBase(bool value) const { qgraphicsobject_metaobject_isbase = value; }
+    inline void setQGraphicsObject_Metacast_IsBase(bool value) const { qgraphicsobject_metacast_isbase = value; }
     inline void setQGraphicsObject_Metacall_IsBase(bool value) const { qgraphicsobject_metacall_isbase = value; }
     inline void setQGraphicsObject_Event_IsBase(bool value) const { qgraphicsobject_event_isbase = value; }
     inline void setQGraphicsObject_EventFilter_IsBase(bool value) const { qgraphicsobject_eventfilter_isbase = value; }
@@ -1214,6 +1226,34 @@ class VirtualQGraphicsObject : public QGraphicsObject {
     inline void setQGraphicsObject_AddToIndex_IsBase(bool value) const { qgraphicsobject_addtoindex_isbase = value; }
     inline void setQGraphicsObject_RemoveFromIndex_IsBase(bool value) const { qgraphicsobject_removefromindex_isbase = value; }
     inline void setQGraphicsObject_PrepareGeometryChange_IsBase(bool value) const { qgraphicsobject_preparegeometrychange_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsobject_metaobject_isbase) {
+            qgraphicsobject_metaobject_isbase = false;
+            return QGraphicsObject::metaObject();
+        } else if (qgraphicsobject_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsobject_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsObject::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsobject_metacast_isbase) {
+            qgraphicsobject_metacast_isbase = false;
+            return QGraphicsObject::qt_metacast(param1);
+        } else if (qgraphicsobject_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsobject_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsObject::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -8220,6 +8260,8 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
 
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
+    using QGraphicsTextItem_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsTextItem_Metacast_Callback = void* (*)(QGraphicsTextItem*, const char*);
     using QGraphicsTextItem_Metacall_Callback = int (*)(QGraphicsTextItem*, int, int, void**);
     using QGraphicsTextItem_BoundingRect_Callback = QRectF* (*)();
     using QGraphicsTextItem_Shape_Callback = QPainterPath* (*)();
@@ -8274,6 +8316,8 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
 
   protected:
     // Instance callback storage
+    QGraphicsTextItem_MetaObject_Callback qgraphicstextitem_metaobject_callback = nullptr;
+    QGraphicsTextItem_Metacast_Callback qgraphicstextitem_metacast_callback = nullptr;
     QGraphicsTextItem_Metacall_Callback qgraphicstextitem_metacall_callback = nullptr;
     QGraphicsTextItem_BoundingRect_Callback qgraphicstextitem_boundingrect_callback = nullptr;
     QGraphicsTextItem_Shape_Callback qgraphicstextitem_shape_callback = nullptr;
@@ -8327,6 +8371,8 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
     QGraphicsTextItem_PrepareGeometryChange_Callback qgraphicstextitem_preparegeometrychange_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicstextitem_metaobject_isbase = false;
+    mutable bool qgraphicstextitem_metacast_isbase = false;
     mutable bool qgraphicstextitem_metacall_isbase = false;
     mutable bool qgraphicstextitem_boundingrect_isbase = false;
     mutable bool qgraphicstextitem_shape_isbase = false;
@@ -8386,6 +8432,8 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
     VirtualQGraphicsTextItem(const QString& text, QGraphicsItem* parent) : QGraphicsTextItem(text, parent) {};
 
     ~VirtualQGraphicsTextItem() {
+        qgraphicstextitem_metaobject_callback = nullptr;
+        qgraphicstextitem_metacast_callback = nullptr;
         qgraphicstextitem_metacall_callback = nullptr;
         qgraphicstextitem_boundingrect_callback = nullptr;
         qgraphicstextitem_shape_callback = nullptr;
@@ -8440,6 +8488,8 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
     }
 
     // Callback setters
+    inline void setQGraphicsTextItem_MetaObject_Callback(QGraphicsTextItem_MetaObject_Callback cb) { qgraphicstextitem_metaobject_callback = cb; }
+    inline void setQGraphicsTextItem_Metacast_Callback(QGraphicsTextItem_Metacast_Callback cb) { qgraphicstextitem_metacast_callback = cb; }
     inline void setQGraphicsTextItem_Metacall_Callback(QGraphicsTextItem_Metacall_Callback cb) { qgraphicstextitem_metacall_callback = cb; }
     inline void setQGraphicsTextItem_BoundingRect_Callback(QGraphicsTextItem_BoundingRect_Callback cb) { qgraphicstextitem_boundingrect_callback = cb; }
     inline void setQGraphicsTextItem_Shape_Callback(QGraphicsTextItem_Shape_Callback cb) { qgraphicstextitem_shape_callback = cb; }
@@ -8493,6 +8543,8 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
     inline void setQGraphicsTextItem_PrepareGeometryChange_Callback(QGraphicsTextItem_PrepareGeometryChange_Callback cb) { qgraphicstextitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsTextItem_MetaObject_IsBase(bool value) const { qgraphicstextitem_metaobject_isbase = value; }
+    inline void setQGraphicsTextItem_Metacast_IsBase(bool value) const { qgraphicstextitem_metacast_isbase = value; }
     inline void setQGraphicsTextItem_Metacall_IsBase(bool value) const { qgraphicstextitem_metacall_isbase = value; }
     inline void setQGraphicsTextItem_BoundingRect_IsBase(bool value) const { qgraphicstextitem_boundingrect_isbase = value; }
     inline void setQGraphicsTextItem_Shape_IsBase(bool value) const { qgraphicstextitem_shape_isbase = value; }
@@ -8544,6 +8596,34 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
     inline void setQGraphicsTextItem_AddToIndex_IsBase(bool value) const { qgraphicstextitem_addtoindex_isbase = value; }
     inline void setQGraphicsTextItem_RemoveFromIndex_IsBase(bool value) const { qgraphicstextitem_removefromindex_isbase = value; }
     inline void setQGraphicsTextItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicstextitem_preparegeometrychange_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicstextitem_metaobject_isbase) {
+            qgraphicstextitem_metaobject_isbase = false;
+            return QGraphicsTextItem::metaObject();
+        } else if (qgraphicstextitem_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicstextitem_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsTextItem::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicstextitem_metacast_isbase) {
+            qgraphicstextitem_metacast_isbase = false;
+            return QGraphicsTextItem::qt_metacast(param1);
+        } else if (qgraphicstextitem_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicstextitem_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsTextItem::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

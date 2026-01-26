@@ -38,11 +38,21 @@ QSqlQueryModel* QSqlQueryModel_new2(QObject* parent) {
 }
 
 QMetaObject* QSqlQueryModel_MetaObject(const QSqlQueryModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSqlQueryModel*)self)->metaObject();
+    }
 }
 
 void* QSqlQueryModel_Metacast(QSqlQueryModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSqlQueryModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QSqlQueryModel_Metacall(QSqlQueryModel* self, int param1, int param2, void** param3) {
@@ -244,6 +254,44 @@ QSqlQuery* QSqlQueryModel_Query1(const QSqlQueryModel* self, Disambiguated_t* pa
     const QSqlQuery& _ret = self->query(*param1);
     // Cast returned reference into pointer
     return const_cast<QSqlQuery*>(&_ret);
+}
+
+// Base class handler implementation
+QMetaObject* QSqlQueryModel_QBaseMetaObject(const QSqlQueryModel* self) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsqlquerymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QSqlQueryModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnMetaObject(const QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_MetaObject_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSqlQueryModel_QBaseMetacast(QSqlQueryModel* self, const char* param1) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_Metacast_IsBase(true);
+        return vqsqlquerymodel->qt_metacast(param1);
+    } else {
+        return self->QSqlQueryModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlQueryModel_OnMetacast(QSqlQueryModel* self, intptr_t slot) {
+    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+        vqsqlquerymodel->setQSqlQueryModel_Metacast_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

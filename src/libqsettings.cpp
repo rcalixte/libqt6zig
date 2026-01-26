@@ -93,11 +93,21 @@ QSettings* QSettings_new15(int scope, QObject* parent) {
 }
 
 QMetaObject* QSettings_MetaObject(const QSettings* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsettings = dynamic_cast<const VirtualQSettings*>(self);
+    if (vqsettings && vqsettings->isVirtualQSettings) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSettings*)self)->metaObject();
+    }
 }
 
 void* QSettings_Metacast(QSettings* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
+    if (vqsettings && vqsettings->isVirtualQSettings) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSettings*)self)->qt_metacast(param1);
+    }
 }
 
 int QSettings_Metacall(QSettings* self, int param1, int param2, void** param3) {
@@ -336,6 +346,44 @@ bool QSettings_Event(QSettings* self, QEvent* event) {
 void QSettings_BeginWriteArray2(QSettings* self, libqt_string prefix, int size) {
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     self->beginWriteArray(QAnyStringView(prefix_QString), static_cast<int>(size));
+}
+
+// Base class handler implementation
+QMetaObject* QSettings_QBaseMetaObject(const QSettings* self) {
+    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
+    if (vqsettings && vqsettings->isVirtualQSettings) {
+        vqsettings->setQSettings_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsettings->metaObject();
+    } else {
+        return (QMetaObject*)self->QSettings::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSettings_OnMetaObject(const QSettings* self, intptr_t slot) {
+    auto* vqsettings = const_cast<VirtualQSettings*>(dynamic_cast<const VirtualQSettings*>(self));
+    if (vqsettings && vqsettings->isVirtualQSettings) {
+        vqsettings->setQSettings_MetaObject_Callback(reinterpret_cast<VirtualQSettings::QSettings_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSettings_QBaseMetacast(QSettings* self, const char* param1) {
+    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
+    if (vqsettings && vqsettings->isVirtualQSettings) {
+        vqsettings->setQSettings_Metacast_IsBase(true);
+        return vqsettings->qt_metacast(param1);
+    } else {
+        return self->QSettings::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSettings_OnMetacast(QSettings* self, intptr_t slot) {
+    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
+    if (vqsettings && vqsettings->isVirtualQSettings) {
+        vqsettings->setQSettings_Metacast_Callback(reinterpret_cast<VirtualQSettings::QSettings_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -18,11 +18,21 @@ KParts__ListingNotificationExtension* KParts__ListingNotificationExtension_new(K
 }
 
 QMetaObject* KParts__ListingNotificationExtension_MetaObject(const KParts__ListingNotificationExtension* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkparts__listingnotificationextension = dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self);
+    if (vkparts__listingnotificationextension && vkparts__listingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPartsListingNotificationExtension*)self)->metaObject();
+    }
 }
 
 void* KParts__ListingNotificationExtension_Metacast(KParts__ListingNotificationExtension* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkparts__listingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
+    if (vkparts__listingnotificationextension && vkparts__listingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPartsListingNotificationExtension*)self)->qt_metacast(param1);
+    }
 }
 
 int KParts__ListingNotificationExtension_Metacall(KParts__ListingNotificationExtension* self, int param1, int param2, void** param3) {
@@ -60,6 +70,44 @@ void KParts__ListingNotificationExtension_Connect_ListingEvent(KParts__ListingNo
         KFileItemList* sigval2 = const_cast<KFileItemList*>(&param2_ret);
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KParts__ListingNotificationExtension_QBaseMetaObject(const KParts__ListingNotificationExtension* self) {
+    auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+        vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpartslistingnotificationextension->metaObject();
+    } else {
+        return (QMetaObject*)self->KParts::ListingNotificationExtension::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__ListingNotificationExtension_OnMetaObject(const KParts__ListingNotificationExtension* self, intptr_t slot) {
+    auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+        vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KParts__ListingNotificationExtension_QBaseMetacast(KParts__ListingNotificationExtension* self, const char* param1) {
+    auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+        vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Metacast_IsBase(true);
+        return vkpartslistingnotificationextension->qt_metacast(param1);
+    } else {
+        return self->KParts::ListingNotificationExtension::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__ListingNotificationExtension_OnMetacast(KParts__ListingNotificationExtension* self, intptr_t slot) {
+    auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+        vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

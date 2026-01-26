@@ -33,11 +33,21 @@ QDBusServer* QDBusServer_new4(QObject* parent) {
 }
 
 QMetaObject* QDBusServer_MetaObject(const QDBusServer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdbusserver = dynamic_cast<const VirtualQDBusServer*>(self);
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDBusServer*)self)->metaObject();
+    }
 }
 
 void* QDBusServer_Metacast(QDBusServer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDBusServer*)self)->qt_metacast(param1);
+    }
 }
 
 int QDBusServer_Metacall(QDBusServer* self, int param1, int param2, void** param3) {
@@ -89,6 +99,44 @@ void QDBusServer_Connect_NewConnection(QDBusServer* self, intptr_t slot) {
         QDBusConnection* sigval1 = const_cast<QDBusConnection*>(&connection_ret);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QDBusServer_QBaseMetaObject(const QDBusServer* self) {
+    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+        vqdbusserver->setQDBusServer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdbusserver->metaObject();
+    } else {
+        return (QMetaObject*)self->QDBusServer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDBusServer_OnMetaObject(const QDBusServer* self, intptr_t slot) {
+    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+        vqdbusserver->setQDBusServer_MetaObject_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDBusServer_QBaseMetacast(QDBusServer* self, const char* param1) {
+    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+        vqdbusserver->setQDBusServer_Metacast_IsBase(true);
+        return vqdbusserver->qt_metacast(param1);
+    } else {
+        return self->QDBusServer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDBusServer_OnMetacast(QDBusServer* self, intptr_t slot) {
+    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+        vqdbusserver->setQDBusServer_Metacast_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
     bool isVirtualQGeoCodingManagerEngine = true;
 
     // Virtual class public types (including callbacks)
+    using QGeoCodingManagerEngine_MetaObject_Callback = QMetaObject* (*)();
+    using QGeoCodingManagerEngine_Metacast_Callback = void* (*)(QGeoCodingManagerEngine*, const char*);
     using QGeoCodingManagerEngine_Metacall_Callback = int (*)(QGeoCodingManagerEngine*, int, int, void**);
     using QGeoCodingManagerEngine_Geocode_Callback = QGeoCodeReply* (*)(QGeoCodingManagerEngine*, QGeoAddress*, QGeoShape*);
     using QGeoCodingManagerEngine_Geocode2_Callback = QGeoCodeReply* (*)(QGeoCodingManagerEngine*, libqt_string, int, int, QGeoShape*);
@@ -35,6 +37,8 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
 
   protected:
     // Instance callback storage
+    QGeoCodingManagerEngine_MetaObject_Callback qgeocodingmanagerengine_metaobject_callback = nullptr;
+    QGeoCodingManagerEngine_Metacast_Callback qgeocodingmanagerengine_metacast_callback = nullptr;
     QGeoCodingManagerEngine_Metacall_Callback qgeocodingmanagerengine_metacall_callback = nullptr;
     QGeoCodingManagerEngine_Geocode_Callback qgeocodingmanagerengine_geocode_callback = nullptr;
     QGeoCodingManagerEngine_Geocode2_Callback qgeocodingmanagerengine_geocode2_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
     QGeoCodingManagerEngine_IsSignalConnected_Callback qgeocodingmanagerengine_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgeocodingmanagerengine_metaobject_isbase = false;
+    mutable bool qgeocodingmanagerengine_metacast_isbase = false;
     mutable bool qgeocodingmanagerengine_metacall_isbase = false;
     mutable bool qgeocodingmanagerengine_geocode_isbase = false;
     mutable bool qgeocodingmanagerengine_geocode2_isbase = false;
@@ -73,6 +79,8 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
     VirtualQGeoCodingManagerEngine(const QMap<QString, QVariant>& parameters, QObject* parent) : QGeoCodingManagerEngine(parameters, parent) {};
 
     ~VirtualQGeoCodingManagerEngine() {
+        qgeocodingmanagerengine_metaobject_callback = nullptr;
+        qgeocodingmanagerengine_metacast_callback = nullptr;
         qgeocodingmanagerengine_metacall_callback = nullptr;
         qgeocodingmanagerengine_geocode_callback = nullptr;
         qgeocodingmanagerengine_geocode2_callback = nullptr;
@@ -91,6 +99,8 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
     }
 
     // Callback setters
+    inline void setQGeoCodingManagerEngine_MetaObject_Callback(QGeoCodingManagerEngine_MetaObject_Callback cb) { qgeocodingmanagerengine_metaobject_callback = cb; }
+    inline void setQGeoCodingManagerEngine_Metacast_Callback(QGeoCodingManagerEngine_Metacast_Callback cb) { qgeocodingmanagerengine_metacast_callback = cb; }
     inline void setQGeoCodingManagerEngine_Metacall_Callback(QGeoCodingManagerEngine_Metacall_Callback cb) { qgeocodingmanagerengine_metacall_callback = cb; }
     inline void setQGeoCodingManagerEngine_Geocode_Callback(QGeoCodingManagerEngine_Geocode_Callback cb) { qgeocodingmanagerengine_geocode_callback = cb; }
     inline void setQGeoCodingManagerEngine_Geocode2_Callback(QGeoCodingManagerEngine_Geocode2_Callback cb) { qgeocodingmanagerengine_geocode2_callback = cb; }
@@ -108,6 +118,8 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
     inline void setQGeoCodingManagerEngine_IsSignalConnected_Callback(QGeoCodingManagerEngine_IsSignalConnected_Callback cb) { qgeocodingmanagerengine_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGeoCodingManagerEngine_MetaObject_IsBase(bool value) const { qgeocodingmanagerengine_metaobject_isbase = value; }
+    inline void setQGeoCodingManagerEngine_Metacast_IsBase(bool value) const { qgeocodingmanagerengine_metacast_isbase = value; }
     inline void setQGeoCodingManagerEngine_Metacall_IsBase(bool value) const { qgeocodingmanagerengine_metacall_isbase = value; }
     inline void setQGeoCodingManagerEngine_Geocode_IsBase(bool value) const { qgeocodingmanagerengine_geocode_isbase = value; }
     inline void setQGeoCodingManagerEngine_Geocode2_IsBase(bool value) const { qgeocodingmanagerengine_geocode2_isbase = value; }
@@ -123,6 +135,34 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
     inline void setQGeoCodingManagerEngine_SenderSignalIndex_IsBase(bool value) const { qgeocodingmanagerengine_sendersignalindex_isbase = value; }
     inline void setQGeoCodingManagerEngine_Receivers_IsBase(bool value) const { qgeocodingmanagerengine_receivers_isbase = value; }
     inline void setQGeoCodingManagerEngine_IsSignalConnected_IsBase(bool value) const { qgeocodingmanagerengine_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgeocodingmanagerengine_metaobject_isbase) {
+            qgeocodingmanagerengine_metaobject_isbase = false;
+            return QGeoCodingManagerEngine::metaObject();
+        } else if (qgeocodingmanagerengine_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgeocodingmanagerengine_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGeoCodingManagerEngine::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgeocodingmanagerengine_metacast_isbase) {
+            qgeocodingmanagerengine_metacast_isbase = false;
+            return QGeoCodingManagerEngine::qt_metacast(param1);
+        } else if (qgeocodingmanagerengine_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgeocodingmanagerengine_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGeoCodingManagerEngine::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

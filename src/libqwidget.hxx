@@ -17,6 +17,8 @@ class VirtualQWidget final : public QWidget {
     bool isVirtualQWidget = true;
 
     // Virtual class public types (including callbacks)
+    using QWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QWidget_Metacast_Callback = void* (*)(QWidget*, const char*);
     using QWidget_Metacall_Callback = int (*)(QWidget*, int, int, void**);
     using QWidget_DevType_Callback = int (*)();
     using QWidget_SetVisible_Callback = void (*)(QWidget*, bool);
@@ -84,6 +86,8 @@ class VirtualQWidget final : public QWidget {
 
   protected:
     // Instance callback storage
+    QWidget_MetaObject_Callback qwidget_metaobject_callback = nullptr;
+    QWidget_Metacast_Callback qwidget_metacast_callback = nullptr;
     QWidget_Metacall_Callback qwidget_metacall_callback = nullptr;
     QWidget_DevType_Callback qwidget_devtype_callback = nullptr;
     QWidget_SetVisible_Callback qwidget_setvisible_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQWidget final : public QWidget {
     QWidget_GetDecodedMetricF_Callback qwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwidget_metaobject_isbase = false;
+    mutable bool qwidget_metacast_isbase = false;
     mutable bool qwidget_metacall_isbase = false;
     mutable bool qwidget_devtype_isbase = false;
     mutable bool qwidget_setvisible_isbase = false;
@@ -221,6 +227,8 @@ class VirtualQWidget final : public QWidget {
     VirtualQWidget(QWidget* parent, Qt::WindowFlags f) : QWidget(parent, f) {};
 
     ~VirtualQWidget() {
+        qwidget_metaobject_callback = nullptr;
+        qwidget_metacast_callback = nullptr;
         qwidget_metacall_callback = nullptr;
         qwidget_devtype_callback = nullptr;
         qwidget_setvisible_callback = nullptr;
@@ -288,6 +296,8 @@ class VirtualQWidget final : public QWidget {
     }
 
     // Callback setters
+    inline void setQWidget_MetaObject_Callback(QWidget_MetaObject_Callback cb) { qwidget_metaobject_callback = cb; }
+    inline void setQWidget_Metacast_Callback(QWidget_Metacast_Callback cb) { qwidget_metacast_callback = cb; }
     inline void setQWidget_Metacall_Callback(QWidget_Metacall_Callback cb) { qwidget_metacall_callback = cb; }
     inline void setQWidget_DevType_Callback(QWidget_DevType_Callback cb) { qwidget_devtype_callback = cb; }
     inline void setQWidget_SetVisible_Callback(QWidget_SetVisible_Callback cb) { qwidget_setvisible_callback = cb; }
@@ -354,6 +364,8 @@ class VirtualQWidget final : public QWidget {
     inline void setQWidget_GetDecodedMetricF_Callback(QWidget_GetDecodedMetricF_Callback cb) { qwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQWidget_MetaObject_IsBase(bool value) const { qwidget_metaobject_isbase = value; }
+    inline void setQWidget_Metacast_IsBase(bool value) const { qwidget_metacast_isbase = value; }
     inline void setQWidget_Metacall_IsBase(bool value) const { qwidget_metacall_isbase = value; }
     inline void setQWidget_DevType_IsBase(bool value) const { qwidget_devtype_isbase = value; }
     inline void setQWidget_SetVisible_IsBase(bool value) const { qwidget_setvisible_isbase = value; }
@@ -418,6 +430,34 @@ class VirtualQWidget final : public QWidget {
     inline void setQWidget_Receivers_IsBase(bool value) const { qwidget_receivers_isbase = value; }
     inline void setQWidget_IsSignalConnected_IsBase(bool value) const { qwidget_issignalconnected_isbase = value; }
     inline void setQWidget_GetDecodedMetricF_IsBase(bool value) const { qwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwidget_metaobject_isbase) {
+            qwidget_metaobject_isbase = false;
+            return QWidget::metaObject();
+        } else if (qwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwidget_metacast_isbase) {
+            qwidget_metacast_isbase = false;
+            return QWidget::qt_metacast(param1);
+        } else if (qwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
     bool isVirtualQGeoServiceProvider = true;
 
     // Virtual class public types (including callbacks)
+    using QGeoServiceProvider_MetaObject_Callback = QMetaObject* (*)();
+    using QGeoServiceProvider_Metacast_Callback = void* (*)(QGeoServiceProvider*, const char*);
     using QGeoServiceProvider_Metacall_Callback = int (*)(QGeoServiceProvider*, int, int, void**);
     using QGeoServiceProvider_Event_Callback = bool (*)(QGeoServiceProvider*, QEvent*);
     using QGeoServiceProvider_EventFilter_Callback = bool (*)(QGeoServiceProvider*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
 
   protected:
     // Instance callback storage
+    QGeoServiceProvider_MetaObject_Callback qgeoserviceprovider_metaobject_callback = nullptr;
+    QGeoServiceProvider_Metacast_Callback qgeoserviceprovider_metacast_callback = nullptr;
     QGeoServiceProvider_Metacall_Callback qgeoserviceprovider_metacall_callback = nullptr;
     QGeoServiceProvider_Event_Callback qgeoserviceprovider_event_callback = nullptr;
     QGeoServiceProvider_EventFilter_Callback qgeoserviceprovider_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
     QGeoServiceProvider_IsSignalConnected_Callback qgeoserviceprovider_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgeoserviceprovider_metaobject_isbase = false;
+    mutable bool qgeoserviceprovider_metacast_isbase = false;
     mutable bool qgeoserviceprovider_metacall_isbase = false;
     mutable bool qgeoserviceprovider_event_isbase = false;
     mutable bool qgeoserviceprovider_eventfilter_isbase = false;
@@ -65,6 +71,8 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
     VirtualQGeoServiceProvider(const QString& providerName, const QMap<QString, QVariant>& parameters, bool allowExperimental) : QGeoServiceProvider(providerName, parameters, allowExperimental) {};
 
     ~VirtualQGeoServiceProvider() {
+        qgeoserviceprovider_metaobject_callback = nullptr;
+        qgeoserviceprovider_metacast_callback = nullptr;
         qgeoserviceprovider_metacall_callback = nullptr;
         qgeoserviceprovider_event_callback = nullptr;
         qgeoserviceprovider_eventfilter_callback = nullptr;
@@ -80,6 +88,8 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
     }
 
     // Callback setters
+    inline void setQGeoServiceProvider_MetaObject_Callback(QGeoServiceProvider_MetaObject_Callback cb) { qgeoserviceprovider_metaobject_callback = cb; }
+    inline void setQGeoServiceProvider_Metacast_Callback(QGeoServiceProvider_Metacast_Callback cb) { qgeoserviceprovider_metacast_callback = cb; }
     inline void setQGeoServiceProvider_Metacall_Callback(QGeoServiceProvider_Metacall_Callback cb) { qgeoserviceprovider_metacall_callback = cb; }
     inline void setQGeoServiceProvider_Event_Callback(QGeoServiceProvider_Event_Callback cb) { qgeoserviceprovider_event_callback = cb; }
     inline void setQGeoServiceProvider_EventFilter_Callback(QGeoServiceProvider_EventFilter_Callback cb) { qgeoserviceprovider_eventfilter_callback = cb; }
@@ -94,6 +104,8 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
     inline void setQGeoServiceProvider_IsSignalConnected_Callback(QGeoServiceProvider_IsSignalConnected_Callback cb) { qgeoserviceprovider_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGeoServiceProvider_MetaObject_IsBase(bool value) const { qgeoserviceprovider_metaobject_isbase = value; }
+    inline void setQGeoServiceProvider_Metacast_IsBase(bool value) const { qgeoserviceprovider_metacast_isbase = value; }
     inline void setQGeoServiceProvider_Metacall_IsBase(bool value) const { qgeoserviceprovider_metacall_isbase = value; }
     inline void setQGeoServiceProvider_Event_IsBase(bool value) const { qgeoserviceprovider_event_isbase = value; }
     inline void setQGeoServiceProvider_EventFilter_IsBase(bool value) const { qgeoserviceprovider_eventfilter_isbase = value; }
@@ -106,6 +118,34 @@ class VirtualQGeoServiceProvider final : public QGeoServiceProvider {
     inline void setQGeoServiceProvider_SenderSignalIndex_IsBase(bool value) const { qgeoserviceprovider_sendersignalindex_isbase = value; }
     inline void setQGeoServiceProvider_Receivers_IsBase(bool value) const { qgeoserviceprovider_receivers_isbase = value; }
     inline void setQGeoServiceProvider_IsSignalConnected_IsBase(bool value) const { qgeoserviceprovider_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgeoserviceprovider_metaobject_isbase) {
+            qgeoserviceprovider_metaobject_isbase = false;
+            return QGeoServiceProvider::metaObject();
+        } else if (qgeoserviceprovider_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgeoserviceprovider_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGeoServiceProvider::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgeoserviceprovider_metacast_isbase) {
+            qgeoserviceprovider_metacast_isbase = false;
+            return QGeoServiceProvider::qt_metacast(param1);
+        } else if (qgeoserviceprovider_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgeoserviceprovider_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGeoServiceProvider::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

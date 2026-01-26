@@ -17,6 +17,8 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
     bool isVirtualKFilePlaceEditDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KFilePlaceEditDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KFilePlaceEditDialog_Metacast_Callback = void* (*)(KFilePlaceEditDialog*, const char*);
     using KFilePlaceEditDialog_Metacall_Callback = int (*)(KFilePlaceEditDialog*, int, int, void**);
     using KFilePlaceEditDialog_SetVisible_Callback = void (*)(KFilePlaceEditDialog*, bool);
     using KFilePlaceEditDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
 
   protected:
     // Instance callback storage
+    KFilePlaceEditDialog_MetaObject_Callback kfileplaceeditdialog_metaobject_callback = nullptr;
+    KFilePlaceEditDialog_Metacast_Callback kfileplaceeditdialog_metacast_callback = nullptr;
     KFilePlaceEditDialog_Metacall_Callback kfileplaceeditdialog_metacall_callback = nullptr;
     KFilePlaceEditDialog_SetVisible_Callback kfileplaceeditdialog_setvisible_callback = nullptr;
     KFilePlaceEditDialog_SizeHint_Callback kfileplaceeditdialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
     KFilePlaceEditDialog_GetDecodedMetricF_Callback kfileplaceeditdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfileplaceeditdialog_metaobject_isbase = false;
+    mutable bool kfileplaceeditdialog_metacast_isbase = false;
     mutable bool kfileplaceeditdialog_metacall_isbase = false;
     mutable bool kfileplaceeditdialog_setvisible_isbase = false;
     mutable bool kfileplaceeditdialog_sizehint_isbase = false;
@@ -222,6 +228,8 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
     VirtualKFilePlaceEditDialog(bool allowGlobal, const QUrl& url, const QString& label, const QString& icon, bool isAddingNewPlace, bool appLocal, int iconSize, QWidget* parent) : KFilePlaceEditDialog(allowGlobal, url, label, icon, isAddingNewPlace, appLocal, iconSize, parent) {};
 
     ~VirtualKFilePlaceEditDialog() {
+        kfileplaceeditdialog_metaobject_callback = nullptr;
+        kfileplaceeditdialog_metacast_callback = nullptr;
         kfileplaceeditdialog_metacall_callback = nullptr;
         kfileplaceeditdialog_setvisible_callback = nullptr;
         kfileplaceeditdialog_sizehint_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
     }
 
     // Callback setters
+    inline void setKFilePlaceEditDialog_MetaObject_Callback(KFilePlaceEditDialog_MetaObject_Callback cb) { kfileplaceeditdialog_metaobject_callback = cb; }
+    inline void setKFilePlaceEditDialog_Metacast_Callback(KFilePlaceEditDialog_Metacast_Callback cb) { kfileplaceeditdialog_metacast_callback = cb; }
     inline void setKFilePlaceEditDialog_Metacall_Callback(KFilePlaceEditDialog_Metacall_Callback cb) { kfileplaceeditdialog_metacall_callback = cb; }
     inline void setKFilePlaceEditDialog_SetVisible_Callback(KFilePlaceEditDialog_SetVisible_Callback cb) { kfileplaceeditdialog_setvisible_callback = cb; }
     inline void setKFilePlaceEditDialog_SizeHint_Callback(KFilePlaceEditDialog_SizeHint_Callback cb) { kfileplaceeditdialog_sizehint_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
     inline void setKFilePlaceEditDialog_GetDecodedMetricF_Callback(KFilePlaceEditDialog_GetDecodedMetricF_Callback cb) { kfileplaceeditdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKFilePlaceEditDialog_MetaObject_IsBase(bool value) const { kfileplaceeditdialog_metaobject_isbase = value; }
+    inline void setKFilePlaceEditDialog_Metacast_IsBase(bool value) const { kfileplaceeditdialog_metacast_isbase = value; }
     inline void setKFilePlaceEditDialog_Metacall_IsBase(bool value) const { kfileplaceeditdialog_metacall_isbase = value; }
     inline void setKFilePlaceEditDialog_SetVisible_IsBase(bool value) const { kfileplaceeditdialog_setvisible_isbase = value; }
     inline void setKFilePlaceEditDialog_SizeHint_IsBase(bool value) const { kfileplaceeditdialog_sizehint_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualKFilePlaceEditDialog final : public KFilePlaceEditDialog {
     inline void setKFilePlaceEditDialog_Receivers_IsBase(bool value) const { kfileplaceeditdialog_receivers_isbase = value; }
     inline void setKFilePlaceEditDialog_IsSignalConnected_IsBase(bool value) const { kfileplaceeditdialog_issignalconnected_isbase = value; }
     inline void setKFilePlaceEditDialog_GetDecodedMetricF_IsBase(bool value) const { kfileplaceeditdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfileplaceeditdialog_metaobject_isbase) {
+            kfileplaceeditdialog_metaobject_isbase = false;
+            return KFilePlaceEditDialog::metaObject();
+        } else if (kfileplaceeditdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfileplaceeditdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFilePlaceEditDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfileplaceeditdialog_metacast_isbase) {
+            kfileplaceeditdialog_metacast_isbase = false;
+            return KFilePlaceEditDialog::qt_metacast(param1);
+        } else if (kfileplaceeditdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfileplaceeditdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFilePlaceEditDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
     bool isVirtualQIdentityProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using QIdentityProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using QIdentityProxyModel_Metacast_Callback = void* (*)(QIdentityProxyModel*, const char*);
     using QIdentityProxyModel_Metacall_Callback = int (*)(QIdentityProxyModel*, int, int, void**);
     using QIdentityProxyModel_ColumnCount_Callback = int (*)(const QIdentityProxyModel*, QModelIndex*);
     using QIdentityProxyModel_Index_Callback = QModelIndex* (*)(const QIdentityProxyModel*, int, int, QModelIndex*);
@@ -97,6 +99,8 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
 
   protected:
     // Instance callback storage
+    QIdentityProxyModel_MetaObject_Callback qidentityproxymodel_metaobject_callback = nullptr;
+    QIdentityProxyModel_Metacast_Callback qidentityproxymodel_metacast_callback = nullptr;
     QIdentityProxyModel_Metacall_Callback qidentityproxymodel_metacall_callback = nullptr;
     QIdentityProxyModel_ColumnCount_Callback qidentityproxymodel_columncount_callback = nullptr;
     QIdentityProxyModel_Index_Callback qidentityproxymodel_index_callback = nullptr;
@@ -176,6 +180,8 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
     QIdentityProxyModel_IsSignalConnected_Callback qidentityproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qidentityproxymodel_metaobject_isbase = false;
+    mutable bool qidentityproxymodel_metacast_isbase = false;
     mutable bool qidentityproxymodel_metacall_isbase = false;
     mutable bool qidentityproxymodel_columncount_isbase = false;
     mutable bool qidentityproxymodel_index_isbase = false;
@@ -259,6 +265,8 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
     VirtualQIdentityProxyModel(QObject* parent) : QIdentityProxyModel(parent) {};
 
     ~VirtualQIdentityProxyModel() {
+        qidentityproxymodel_metaobject_callback = nullptr;
+        qidentityproxymodel_metacast_callback = nullptr;
         qidentityproxymodel_metacall_callback = nullptr;
         qidentityproxymodel_columncount_callback = nullptr;
         qidentityproxymodel_index_callback = nullptr;
@@ -339,6 +347,8 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
     }
 
     // Callback setters
+    inline void setQIdentityProxyModel_MetaObject_Callback(QIdentityProxyModel_MetaObject_Callback cb) { qidentityproxymodel_metaobject_callback = cb; }
+    inline void setQIdentityProxyModel_Metacast_Callback(QIdentityProxyModel_Metacast_Callback cb) { qidentityproxymodel_metacast_callback = cb; }
     inline void setQIdentityProxyModel_Metacall_Callback(QIdentityProxyModel_Metacall_Callback cb) { qidentityproxymodel_metacall_callback = cb; }
     inline void setQIdentityProxyModel_ColumnCount_Callback(QIdentityProxyModel_ColumnCount_Callback cb) { qidentityproxymodel_columncount_callback = cb; }
     inline void setQIdentityProxyModel_Index_Callback(QIdentityProxyModel_Index_Callback cb) { qidentityproxymodel_index_callback = cb; }
@@ -418,6 +428,8 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
     inline void setQIdentityProxyModel_IsSignalConnected_Callback(QIdentityProxyModel_IsSignalConnected_Callback cb) { qidentityproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQIdentityProxyModel_MetaObject_IsBase(bool value) const { qidentityproxymodel_metaobject_isbase = value; }
+    inline void setQIdentityProxyModel_Metacast_IsBase(bool value) const { qidentityproxymodel_metacast_isbase = value; }
     inline void setQIdentityProxyModel_Metacall_IsBase(bool value) const { qidentityproxymodel_metacall_isbase = value; }
     inline void setQIdentityProxyModel_ColumnCount_IsBase(bool value) const { qidentityproxymodel_columncount_isbase = value; }
     inline void setQIdentityProxyModel_Index_IsBase(bool value) const { qidentityproxymodel_index_isbase = value; }
@@ -495,6 +507,34 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
     inline void setQIdentityProxyModel_SenderSignalIndex_IsBase(bool value) const { qidentityproxymodel_sendersignalindex_isbase = value; }
     inline void setQIdentityProxyModel_Receivers_IsBase(bool value) const { qidentityproxymodel_receivers_isbase = value; }
     inline void setQIdentityProxyModel_IsSignalConnected_IsBase(bool value) const { qidentityproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qidentityproxymodel_metaobject_isbase) {
+            qidentityproxymodel_metaobject_isbase = false;
+            return QIdentityProxyModel::metaObject();
+        } else if (qidentityproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qidentityproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QIdentityProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qidentityproxymodel_metacast_isbase) {
+            qidentityproxymodel_metacast_isbase = false;
+            return QIdentityProxyModel::qt_metacast(param1);
+        } else if (qidentityproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qidentityproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QIdentityProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

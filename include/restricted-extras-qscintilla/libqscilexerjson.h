@@ -49,6 +49,10 @@ void QsciLexerJSON_SetHighlightEscapeSequences(QsciLexerJSON* self, bool highlig
 bool QsciLexerJSON_HighlightEscapeSequences(const QsciLexerJSON* self);
 void QsciLexerJSON_SetFoldCompact(QsciLexerJSON* self, bool fold);
 bool QsciLexerJSON_FoldCompact(const QsciLexerJSON* self);
+void QsciLexerJSON_OnMetaObject(const QsciLexerJSON* self, intptr_t slot);
+QMetaObject* QsciLexerJSON_QBaseMetaObject(const QsciLexerJSON* self);
+void QsciLexerJSON_OnMetacast(QsciLexerJSON* self, intptr_t slot);
+void* QsciLexerJSON_QBaseMetacast(QsciLexerJSON* self, const char* param1);
 void QsciLexerJSON_OnMetacall(QsciLexerJSON* self, intptr_t slot);
 int QsciLexerJSON_QBaseMetacall(QsciLexerJSON* self, int param1, int param2, void** param3);
 int QsciLexerJSON_LexerId(const QsciLexerJSON* self);

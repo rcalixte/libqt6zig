@@ -17,6 +17,8 @@ class VirtualKSvgImageSet final : public KSvg::ImageSet {
     bool isVirtualKSvgImageSet = true;
 
     // Virtual class public types (including callbacks)
+    using KSvg__ImageSet_MetaObject_Callback = QMetaObject* (*)();
+    using KSvg__ImageSet_Metacast_Callback = void* (*)(KSvg__ImageSet*, const char*);
     using KSvg__ImageSet_Metacall_Callback = int (*)(KSvg__ImageSet*, int, int, void**);
     using KSvg__ImageSet_Event_Callback = bool (*)(KSvg__ImageSet*, QEvent*);
     using KSvg__ImageSet_EventFilter_Callback = bool (*)(KSvg__ImageSet*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKSvgImageSet final : public KSvg::ImageSet {
 
   protected:
     // Instance callback storage
+    KSvg__ImageSet_MetaObject_Callback ksvg__imageset_metaobject_callback = nullptr;
+    KSvg__ImageSet_Metacast_Callback ksvg__imageset_metacast_callback = nullptr;
     KSvg__ImageSet_Metacall_Callback ksvg__imageset_metacall_callback = nullptr;
     KSvg__ImageSet_Event_Callback ksvg__imageset_event_callback = nullptr;
     KSvg__ImageSet_EventFilter_Callback ksvg__imageset_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKSvgImageSet final : public KSvg::ImageSet {
     KSvg__ImageSet_IsSignalConnected_Callback ksvg__imageset_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ksvg__imageset_metaobject_isbase = false;
+    mutable bool ksvg__imageset_metacast_isbase = false;
     mutable bool ksvg__imageset_metacall_isbase = false;
     mutable bool ksvg__imageset_event_isbase = false;
     mutable bool ksvg__imageset_eventfilter_isbase = false;
@@ -67,6 +73,8 @@ class VirtualKSvgImageSet final : public KSvg::ImageSet {
     VirtualKSvgImageSet(const QString& imageSetName, const QString& basePath, QObject* parent) : KSvg::ImageSet(imageSetName, basePath, parent) {};
 
     ~VirtualKSvgImageSet() {
+        ksvg__imageset_metaobject_callback = nullptr;
+        ksvg__imageset_metacast_callback = nullptr;
         ksvg__imageset_metacall_callback = nullptr;
         ksvg__imageset_event_callback = nullptr;
         ksvg__imageset_eventfilter_callback = nullptr;
@@ -82,6 +90,8 @@ class VirtualKSvgImageSet final : public KSvg::ImageSet {
     }
 
     // Callback setters
+    inline void setKSvg__ImageSet_MetaObject_Callback(KSvg__ImageSet_MetaObject_Callback cb) { ksvg__imageset_metaobject_callback = cb; }
+    inline void setKSvg__ImageSet_Metacast_Callback(KSvg__ImageSet_Metacast_Callback cb) { ksvg__imageset_metacast_callback = cb; }
     inline void setKSvg__ImageSet_Metacall_Callback(KSvg__ImageSet_Metacall_Callback cb) { ksvg__imageset_metacall_callback = cb; }
     inline void setKSvg__ImageSet_Event_Callback(KSvg__ImageSet_Event_Callback cb) { ksvg__imageset_event_callback = cb; }
     inline void setKSvg__ImageSet_EventFilter_Callback(KSvg__ImageSet_EventFilter_Callback cb) { ksvg__imageset_eventfilter_callback = cb; }
@@ -96,6 +106,8 @@ class VirtualKSvgImageSet final : public KSvg::ImageSet {
     inline void setKSvg__ImageSet_IsSignalConnected_Callback(KSvg__ImageSet_IsSignalConnected_Callback cb) { ksvg__imageset_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKSvg__ImageSet_MetaObject_IsBase(bool value) const { ksvg__imageset_metaobject_isbase = value; }
+    inline void setKSvg__ImageSet_Metacast_IsBase(bool value) const { ksvg__imageset_metacast_isbase = value; }
     inline void setKSvg__ImageSet_Metacall_IsBase(bool value) const { ksvg__imageset_metacall_isbase = value; }
     inline void setKSvg__ImageSet_Event_IsBase(bool value) const { ksvg__imageset_event_isbase = value; }
     inline void setKSvg__ImageSet_EventFilter_IsBase(bool value) const { ksvg__imageset_eventfilter_isbase = value; }
@@ -108,6 +120,34 @@ class VirtualKSvgImageSet final : public KSvg::ImageSet {
     inline void setKSvg__ImageSet_SenderSignalIndex_IsBase(bool value) const { ksvg__imageset_sendersignalindex_isbase = value; }
     inline void setKSvg__ImageSet_Receivers_IsBase(bool value) const { ksvg__imageset_receivers_isbase = value; }
     inline void setKSvg__ImageSet_IsSignalConnected_IsBase(bool value) const { ksvg__imageset_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ksvg__imageset_metaobject_isbase) {
+            ksvg__imageset_metaobject_isbase = false;
+            return KSvg__ImageSet::metaObject();
+        } else if (ksvg__imageset_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ksvg__imageset_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSvg__ImageSet::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ksvg__imageset_metacast_isbase) {
+            ksvg__imageset_metacast_isbase = false;
+            return KSvg__ImageSet::qt_metacast(param1);
+        } else if (ksvg__imageset_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ksvg__imageset_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSvg__ImageSet::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

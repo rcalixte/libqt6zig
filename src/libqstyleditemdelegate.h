@@ -53,6 +53,10 @@ libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, co
 void QStyledItemDelegate_InitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index);
 bool QStyledItemDelegate_EventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event);
 bool QStyledItemDelegate_EditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index);
+void QStyledItemDelegate_OnMetaObject(const QStyledItemDelegate* self, intptr_t slot);
+QMetaObject* QStyledItemDelegate_QBaseMetaObject(const QStyledItemDelegate* self);
+void QStyledItemDelegate_OnMetacast(QStyledItemDelegate* self, intptr_t slot);
+void* QStyledItemDelegate_QBaseMetacast(QStyledItemDelegate* self, const char* param1);
 void QStyledItemDelegate_OnMetacall(QStyledItemDelegate* self, intptr_t slot);
 int QStyledItemDelegate_QBaseMetacall(QStyledItemDelegate* self, int param1, int param2, void** param3);
 void QStyledItemDelegate_OnPaint(const QStyledItemDelegate* self, intptr_t slot);

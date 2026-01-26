@@ -17,6 +17,8 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
     bool isVirtualKSyntaxHighlightingDefinitionDownloader = true;
 
     // Virtual class public types (including callbacks)
+    using KSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback = QMetaObject* (*)();
+    using KSyntaxHighlighting__DefinitionDownloader_Metacast_Callback = void* (*)(KSyntaxHighlighting__DefinitionDownloader*, const char*);
     using KSyntaxHighlighting__DefinitionDownloader_Metacall_Callback = int (*)(KSyntaxHighlighting__DefinitionDownloader*, int, int, void**);
     using KSyntaxHighlighting__DefinitionDownloader_Event_Callback = bool (*)(KSyntaxHighlighting__DefinitionDownloader*, QEvent*);
     using KSyntaxHighlighting__DefinitionDownloader_EventFilter_Callback = bool (*)(KSyntaxHighlighting__DefinitionDownloader*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
 
   protected:
     // Instance callback storage
+    KSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback ksyntaxhighlighting__definitiondownloader_metaobject_callback = nullptr;
+    KSyntaxHighlighting__DefinitionDownloader_Metacast_Callback ksyntaxhighlighting__definitiondownloader_metacast_callback = nullptr;
     KSyntaxHighlighting__DefinitionDownloader_Metacall_Callback ksyntaxhighlighting__definitiondownloader_metacall_callback = nullptr;
     KSyntaxHighlighting__DefinitionDownloader_Event_Callback ksyntaxhighlighting__definitiondownloader_event_callback = nullptr;
     KSyntaxHighlighting__DefinitionDownloader_EventFilter_Callback ksyntaxhighlighting__definitiondownloader_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
     KSyntaxHighlighting__DefinitionDownloader_IsSignalConnected_Callback ksyntaxhighlighting__definitiondownloader_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ksyntaxhighlighting__definitiondownloader_metaobject_isbase = false;
+    mutable bool ksyntaxhighlighting__definitiondownloader_metacast_isbase = false;
     mutable bool ksyntaxhighlighting__definitiondownloader_metacall_isbase = false;
     mutable bool ksyntaxhighlighting__definitiondownloader_event_isbase = false;
     mutable bool ksyntaxhighlighting__definitiondownloader_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
     VirtualKSyntaxHighlightingDefinitionDownloader(KSyntaxHighlighting::Repository* repo, QObject* parent) : KSyntaxHighlighting::DefinitionDownloader(repo, parent) {};
 
     ~VirtualKSyntaxHighlightingDefinitionDownloader() {
+        ksyntaxhighlighting__definitiondownloader_metaobject_callback = nullptr;
+        ksyntaxhighlighting__definitiondownloader_metacast_callback = nullptr;
         ksyntaxhighlighting__definitiondownloader_metacall_callback = nullptr;
         ksyntaxhighlighting__definitiondownloader_event_callback = nullptr;
         ksyntaxhighlighting__definitiondownloader_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
     }
 
     // Callback setters
+    inline void setKSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback(KSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback cb) { ksyntaxhighlighting__definitiondownloader_metaobject_callback = cb; }
+    inline void setKSyntaxHighlighting__DefinitionDownloader_Metacast_Callback(KSyntaxHighlighting__DefinitionDownloader_Metacast_Callback cb) { ksyntaxhighlighting__definitiondownloader_metacast_callback = cb; }
     inline void setKSyntaxHighlighting__DefinitionDownloader_Metacall_Callback(KSyntaxHighlighting__DefinitionDownloader_Metacall_Callback cb) { ksyntaxhighlighting__definitiondownloader_metacall_callback = cb; }
     inline void setKSyntaxHighlighting__DefinitionDownloader_Event_Callback(KSyntaxHighlighting__DefinitionDownloader_Event_Callback cb) { ksyntaxhighlighting__definitiondownloader_event_callback = cb; }
     inline void setKSyntaxHighlighting__DefinitionDownloader_EventFilter_Callback(KSyntaxHighlighting__DefinitionDownloader_EventFilter_Callback cb) { ksyntaxhighlighting__definitiondownloader_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
     inline void setKSyntaxHighlighting__DefinitionDownloader_IsSignalConnected_Callback(KSyntaxHighlighting__DefinitionDownloader_IsSignalConnected_Callback cb) { ksyntaxhighlighting__definitiondownloader_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKSyntaxHighlighting__DefinitionDownloader_MetaObject_IsBase(bool value) const { ksyntaxhighlighting__definitiondownloader_metaobject_isbase = value; }
+    inline void setKSyntaxHighlighting__DefinitionDownloader_Metacast_IsBase(bool value) const { ksyntaxhighlighting__definitiondownloader_metacast_isbase = value; }
     inline void setKSyntaxHighlighting__DefinitionDownloader_Metacall_IsBase(bool value) const { ksyntaxhighlighting__definitiondownloader_metacall_isbase = value; }
     inline void setKSyntaxHighlighting__DefinitionDownloader_Event_IsBase(bool value) const { ksyntaxhighlighting__definitiondownloader_event_isbase = value; }
     inline void setKSyntaxHighlighting__DefinitionDownloader_EventFilter_IsBase(bool value) const { ksyntaxhighlighting__definitiondownloader_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKSyntaxHighlightingDefinitionDownloader final : public KSyntaxHighl
     inline void setKSyntaxHighlighting__DefinitionDownloader_SenderSignalIndex_IsBase(bool value) const { ksyntaxhighlighting__definitiondownloader_sendersignalindex_isbase = value; }
     inline void setKSyntaxHighlighting__DefinitionDownloader_Receivers_IsBase(bool value) const { ksyntaxhighlighting__definitiondownloader_receivers_isbase = value; }
     inline void setKSyntaxHighlighting__DefinitionDownloader_IsSignalConnected_IsBase(bool value) const { ksyntaxhighlighting__definitiondownloader_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ksyntaxhighlighting__definitiondownloader_metaobject_isbase) {
+            ksyntaxhighlighting__definitiondownloader_metaobject_isbase = false;
+            return KSyntaxHighlighting__DefinitionDownloader::metaObject();
+        } else if (ksyntaxhighlighting__definitiondownloader_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ksyntaxhighlighting__definitiondownloader_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSyntaxHighlighting__DefinitionDownloader::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ksyntaxhighlighting__definitiondownloader_metacast_isbase) {
+            ksyntaxhighlighting__definitiondownloader_metacast_isbase = false;
+            return KSyntaxHighlighting__DefinitionDownloader::qt_metacast(param1);
+        } else if (ksyntaxhighlighting__definitiondownloader_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ksyntaxhighlighting__definitiondownloader_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSyntaxHighlighting__DefinitionDownloader::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

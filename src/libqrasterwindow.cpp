@@ -44,11 +44,21 @@ QRasterWindow* QRasterWindow_new2(QWindow* parent) {
 }
 
 QMetaObject* QRasterWindow_MetaObject(const QRasterWindow* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqrasterwindow = dynamic_cast<const VirtualQRasterWindow*>(self);
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQRasterWindow*)self)->metaObject();
+    }
 }
 
 void* QRasterWindow_Metacast(QRasterWindow* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQRasterWindow*)self)->qt_metacast(param1);
+    }
 }
 
 int QRasterWindow_Metacall(QRasterWindow* self, int param1, int param2, void** param3) {
@@ -80,6 +90,44 @@ void QRasterWindow_ResizeEvent(QRasterWindow* self, QResizeEvent* event) {
     auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
     if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
         vqrasterwindow->resizeEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QRasterWindow_QBaseMetaObject(const QRasterWindow* self) {
+    auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+        vqrasterwindow->setQRasterWindow_MetaObject_IsBase(true);
+        return (QMetaObject*)vqrasterwindow->metaObject();
+    } else {
+        return (QMetaObject*)self->QRasterWindow::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRasterWindow_OnMetaObject(const QRasterWindow* self, intptr_t slot) {
+    auto* vqrasterwindow = const_cast<VirtualQRasterWindow*>(dynamic_cast<const VirtualQRasterWindow*>(self));
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+        vqrasterwindow->setQRasterWindow_MetaObject_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QRasterWindow_QBaseMetacast(QRasterWindow* self, const char* param1) {
+    auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+        vqrasterwindow->setQRasterWindow_Metacast_IsBase(true);
+        return vqrasterwindow->qt_metacast(param1);
+    } else {
+        return self->QRasterWindow::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRasterWindow_OnMetacast(QRasterWindow* self, intptr_t slot) {
+    auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
+    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
+        vqrasterwindow->setQRasterWindow_Metacast_Callback(reinterpret_cast<VirtualQRasterWindow::QRasterWindow_Metacast_Callback>(slot));
     }
 }
 

@@ -34,11 +34,21 @@ QStyledItemDelegate* QStyledItemDelegate_new2(QObject* parent) {
 }
 
 QMetaObject* QStyledItemDelegate_MetaObject(const QStyledItemDelegate* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQStyledItemDelegate*)self)->metaObject();
+    }
 }
 
 void* QStyledItemDelegate_Metacast(QStyledItemDelegate* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQStyledItemDelegate*)self)->qt_metacast(param1);
+    }
 }
 
 int QStyledItemDelegate_Metacall(QStyledItemDelegate* self, int param1, int param2, void** param3) {
@@ -158,6 +168,44 @@ bool QStyledItemDelegate_EditorEvent(QStyledItemDelegate* self, QEvent* event, Q
         return vqstyleditemdelegate->editorEvent(event, model, *option, *index);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QStyledItemDelegate_QBaseMetaObject(const QStyledItemDelegate* self) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_MetaObject_IsBase(true);
+        return (QMetaObject*)vqstyleditemdelegate->metaObject();
+    } else {
+        return (QMetaObject*)self->QStyledItemDelegate::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStyledItemDelegate_OnMetaObject(const QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QStyledItemDelegate_QBaseMetacast(QStyledItemDelegate* self, const char* param1) {
+    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_Metacast_IsBase(true);
+        return vqstyleditemdelegate->qt_metacast(param1);
+    } else {
+        return self->QStyledItemDelegate::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStyledItemDelegate_OnMetacast(QStyledItemDelegate* self, intptr_t slot) {
+    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+        vqstyleditemdelegate->setQStyledItemDelegate_Metacast_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

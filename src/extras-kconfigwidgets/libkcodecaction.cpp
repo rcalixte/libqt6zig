@@ -48,11 +48,21 @@ KCodecAction* KCodecAction_new6(const QIcon* icon, const libqt_string text, QObj
 }
 
 QMetaObject* KCodecAction_MetaObject(const KCodecAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcodecaction = dynamic_cast<const VirtualKCodecAction*>(self);
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCodecAction*)self)->metaObject();
+    }
 }
 
 void* KCodecAction_Metacast(KCodecAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCodecAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KCodecAction_Metacall(KCodecAction* self, int param1, int param2, void** param3) {
@@ -115,6 +125,44 @@ void KCodecAction_SlotActionTriggered(KCodecAction* self, QAction* param1) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
     if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
         vkcodecaction->slotActionTriggered(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KCodecAction_QBaseMetaObject(const KCodecAction* self) {
+    auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+        vkcodecaction->setKCodecAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcodecaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KCodecAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCodecAction_OnMetaObject(const KCodecAction* self, intptr_t slot) {
+    auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+        vkcodecaction->setKCodecAction_MetaObject_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCodecAction_QBaseMetacast(KCodecAction* self, const char* param1) {
+    auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+        vkcodecaction->setKCodecAction_Metacast_IsBase(true);
+        return vkcodecaction->qt_metacast(param1);
+    } else {
+        return self->KCodecAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCodecAction_OnMetacast(KCodecAction* self, intptr_t slot) {
+    auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+        vkcodecaction->setKCodecAction_Metacast_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_Metacast_Callback>(slot));
     }
 }
 

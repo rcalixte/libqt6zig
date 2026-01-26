@@ -83,6 +83,10 @@ void KParts__NavigationExtension_PopupMenu32(KParts__NavigationExtension* self, 
 void KParts__NavigationExtension_PopupMenu42(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode, const KParts__OpenUrlArguments* arguments);
 void KParts__NavigationExtension_PopupMenu52(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode, const KParts__OpenUrlArguments* arguments, int flags);
 void KParts__NavigationExtension_PopupMenu6(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode, const KParts__OpenUrlArguments* arguments, int flags, const libqt_map /* of libqt_string to libqt_list of QAction* */ actionGroups);
+void KParts__NavigationExtension_OnMetaObject(const KParts__NavigationExtension* self, intptr_t slot);
+QMetaObject* KParts__NavigationExtension_QBaseMetaObject(const KParts__NavigationExtension* self);
+void KParts__NavigationExtension_OnMetacast(KParts__NavigationExtension* self, intptr_t slot);
+void* KParts__NavigationExtension_QBaseMetacast(KParts__NavigationExtension* self, const char* param1);
 void KParts__NavigationExtension_OnMetacall(KParts__NavigationExtension* self, intptr_t slot);
 int KParts__NavigationExtension_QBaseMetacall(KParts__NavigationExtension* self, int param1, int param2, void** param3);
 void KParts__NavigationExtension_OnXOffset(KParts__NavigationExtension* self, intptr_t slot);

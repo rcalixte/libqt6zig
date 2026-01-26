@@ -58,11 +58,21 @@ QSlider* QSlider_new4(int orientation, QWidget* parent) {
 }
 
 QMetaObject* QSlider_MetaObject(const QSlider* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqslider = dynamic_cast<const VirtualQSlider*>(self);
+    if (vqslider && vqslider->isVirtualQSlider) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSlider*)self)->metaObject();
+    }
 }
 
 void* QSlider_Metacast(QSlider* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
+    if (vqslider && vqslider->isVirtualQSlider) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSlider*)self)->qt_metacast(param1);
+    }
 }
 
 int QSlider_Metacall(QSlider* self, int param1, int param2, void** param3) {
@@ -149,6 +159,44 @@ void QSlider_InitStyleOption(const QSlider* self, QStyleOptionSlider* option) {
     auto* vqslider = dynamic_cast<const VirtualQSlider*>(self);
     if (vqslider && vqslider->isVirtualQSlider) {
         vqslider->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QSlider_QBaseMetaObject(const QSlider* self) {
+    auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
+    if (vqslider && vqslider->isVirtualQSlider) {
+        vqslider->setQSlider_MetaObject_IsBase(true);
+        return (QMetaObject*)vqslider->metaObject();
+    } else {
+        return (QMetaObject*)self->QSlider::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSlider_OnMetaObject(const QSlider* self, intptr_t slot) {
+    auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
+    if (vqslider && vqslider->isVirtualQSlider) {
+        vqslider->setQSlider_MetaObject_Callback(reinterpret_cast<VirtualQSlider::QSlider_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSlider_QBaseMetacast(QSlider* self, const char* param1) {
+    auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
+    if (vqslider && vqslider->isVirtualQSlider) {
+        vqslider->setQSlider_Metacast_IsBase(true);
+        return vqslider->qt_metacast(param1);
+    } else {
+        return self->QSlider::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSlider_OnMetacast(QSlider* self, intptr_t slot) {
+    auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
+    if (vqslider && vqslider->isVirtualQSlider) {
+        vqslider->setQSlider_Metacast_Callback(reinterpret_cast<VirtualQSlider::QSlider_Metacast_Callback>(slot));
     }
 }
 

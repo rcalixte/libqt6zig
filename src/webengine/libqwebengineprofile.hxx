@@ -17,6 +17,8 @@ class VirtualQWebEngineProfile final : public QWebEngineProfile {
     bool isVirtualQWebEngineProfile = true;
 
     // Virtual class public types (including callbacks)
+    using QWebEngineProfile_MetaObject_Callback = QMetaObject* (*)();
+    using QWebEngineProfile_Metacast_Callback = void* (*)(QWebEngineProfile*, const char*);
     using QWebEngineProfile_Metacall_Callback = int (*)(QWebEngineProfile*, int, int, void**);
     using QWebEngineProfile_Event_Callback = bool (*)(QWebEngineProfile*, QEvent*);
     using QWebEngineProfile_EventFilter_Callback = bool (*)(QWebEngineProfile*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQWebEngineProfile final : public QWebEngineProfile {
 
   protected:
     // Instance callback storage
+    QWebEngineProfile_MetaObject_Callback qwebengineprofile_metaobject_callback = nullptr;
+    QWebEngineProfile_Metacast_Callback qwebengineprofile_metacast_callback = nullptr;
     QWebEngineProfile_Metacall_Callback qwebengineprofile_metacall_callback = nullptr;
     QWebEngineProfile_Event_Callback qwebengineprofile_event_callback = nullptr;
     QWebEngineProfile_EventFilter_Callback qwebengineprofile_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQWebEngineProfile final : public QWebEngineProfile {
     QWebEngineProfile_IsSignalConnected_Callback qwebengineprofile_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwebengineprofile_metaobject_isbase = false;
+    mutable bool qwebengineprofile_metacast_isbase = false;
     mutable bool qwebengineprofile_metacall_isbase = false;
     mutable bool qwebengineprofile_event_isbase = false;
     mutable bool qwebengineprofile_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQWebEngineProfile final : public QWebEngineProfile {
     VirtualQWebEngineProfile(const QString& name, QObject* parent) : QWebEngineProfile(name, parent) {};
 
     ~VirtualQWebEngineProfile() {
+        qwebengineprofile_metaobject_callback = nullptr;
+        qwebengineprofile_metacast_callback = nullptr;
         qwebengineprofile_metacall_callback = nullptr;
         qwebengineprofile_event_callback = nullptr;
         qwebengineprofile_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQWebEngineProfile final : public QWebEngineProfile {
     }
 
     // Callback setters
+    inline void setQWebEngineProfile_MetaObject_Callback(QWebEngineProfile_MetaObject_Callback cb) { qwebengineprofile_metaobject_callback = cb; }
+    inline void setQWebEngineProfile_Metacast_Callback(QWebEngineProfile_Metacast_Callback cb) { qwebengineprofile_metacast_callback = cb; }
     inline void setQWebEngineProfile_Metacall_Callback(QWebEngineProfile_Metacall_Callback cb) { qwebengineprofile_metacall_callback = cb; }
     inline void setQWebEngineProfile_Event_Callback(QWebEngineProfile_Event_Callback cb) { qwebengineprofile_event_callback = cb; }
     inline void setQWebEngineProfile_EventFilter_Callback(QWebEngineProfile_EventFilter_Callback cb) { qwebengineprofile_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQWebEngineProfile final : public QWebEngineProfile {
     inline void setQWebEngineProfile_IsSignalConnected_Callback(QWebEngineProfile_IsSignalConnected_Callback cb) { qwebengineprofile_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQWebEngineProfile_MetaObject_IsBase(bool value) const { qwebengineprofile_metaobject_isbase = value; }
+    inline void setQWebEngineProfile_Metacast_IsBase(bool value) const { qwebengineprofile_metacast_isbase = value; }
     inline void setQWebEngineProfile_Metacall_IsBase(bool value) const { qwebengineprofile_metacall_isbase = value; }
     inline void setQWebEngineProfile_Event_IsBase(bool value) const { qwebengineprofile_event_isbase = value; }
     inline void setQWebEngineProfile_EventFilter_IsBase(bool value) const { qwebengineprofile_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQWebEngineProfile final : public QWebEngineProfile {
     inline void setQWebEngineProfile_SenderSignalIndex_IsBase(bool value) const { qwebengineprofile_sendersignalindex_isbase = value; }
     inline void setQWebEngineProfile_Receivers_IsBase(bool value) const { qwebengineprofile_receivers_isbase = value; }
     inline void setQWebEngineProfile_IsSignalConnected_IsBase(bool value) const { qwebengineprofile_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwebengineprofile_metaobject_isbase) {
+            qwebengineprofile_metaobject_isbase = false;
+            return QWebEngineProfile::metaObject();
+        } else if (qwebengineprofile_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwebengineprofile_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWebEngineProfile::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwebengineprofile_metacast_isbase) {
+            qwebengineprofile_metacast_isbase = false;
+            return QWebEngineProfile::qt_metacast(param1);
+        } else if (qwebengineprofile_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwebengineprofile_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWebEngineProfile::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

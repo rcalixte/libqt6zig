@@ -34,11 +34,21 @@ QSaveFile* QSaveFile_new4(QObject* parent) {
 }
 
 QMetaObject* QSaveFile_MetaObject(const QSaveFile* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsavefile = dynamic_cast<const VirtualQSaveFile*>(self);
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSaveFile*)self)->metaObject();
+    }
 }
 
 void* QSaveFile_Metacast(QSaveFile* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSaveFile*)self)->qt_metacast(param1);
+    }
 }
 
 int QSaveFile_Metacall(QSaveFile* self, int param1, int param2, void** param3) {
@@ -111,6 +121,44 @@ long long QSaveFile_WriteData(QSaveFile* self, const char* data, long long lenVa
         return static_cast<long long>(vqsavefile->writeData(data, static_cast<qint64>(lenVal)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QSaveFile_QBaseMetaObject(const QSaveFile* self) {
+    auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+        vqsavefile->setQSaveFile_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsavefile->metaObject();
+    } else {
+        return (QMetaObject*)self->QSaveFile::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSaveFile_OnMetaObject(const QSaveFile* self, intptr_t slot) {
+    auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+        vqsavefile->setQSaveFile_MetaObject_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSaveFile_QBaseMetacast(QSaveFile* self, const char* param1) {
+    auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+        vqsavefile->setQSaveFile_Metacast_IsBase(true);
+        return vqsavefile->qt_metacast(param1);
+    } else {
+        return self->QSaveFile::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSaveFile_OnMetacast(QSaveFile* self, intptr_t slot) {
+    auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
+    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
+        vqsavefile->setQSaveFile_Metacast_Callback(reinterpret_cast<VirtualQSaveFile::QSaveFile_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

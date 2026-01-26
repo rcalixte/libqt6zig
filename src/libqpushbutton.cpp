@@ -72,11 +72,21 @@ QPushButton* QPushButton_new6(const QIcon* icon, const libqt_string text, QWidge
 }
 
 QMetaObject* QPushButton_MetaObject(const QPushButton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpushbutton = dynamic_cast<const VirtualQPushButton*>(self);
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPushButton*)self)->metaObject();
+    }
 }
 
 void* QPushButton_Metacast(QPushButton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPushButton*)self)->qt_metacast(param1);
+    }
 }
 
 int QPushButton_Metacall(QPushButton* self, int param1, int param2, void** param3) {
@@ -198,6 +208,44 @@ bool QPushButton_HitButton(const QPushButton* self, const QPoint* pos) {
         return vqpushbutton->hitButton(*pos);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QPushButton_QBaseMetaObject(const QPushButton* self) {
+    auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+        vqpushbutton->setQPushButton_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpushbutton->metaObject();
+    } else {
+        return (QMetaObject*)self->QPushButton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPushButton_OnMetaObject(const QPushButton* self, intptr_t slot) {
+    auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+        vqpushbutton->setQPushButton_MetaObject_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPushButton_QBaseMetacast(QPushButton* self, const char* param1) {
+    auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+        vqpushbutton->setQPushButton_Metacast_IsBase(true);
+        return vqpushbutton->qt_metacast(param1);
+    } else {
+        return self->QPushButton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPushButton_OnMetacast(QPushButton* self, intptr_t slot) {
+    auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+        vqpushbutton->setQPushButton_Metacast_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

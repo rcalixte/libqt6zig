@@ -56,6 +56,10 @@ void KTextEditor__Application_Connect_PluginCreated(KTextEditor__Application* se
 void KTextEditor__Application_PluginDeleted(KTextEditor__Application* self, const libqt_string name, KTextEditor__Plugin* plugin);
 void KTextEditor__Application_Connect_PluginDeleted(KTextEditor__Application* self, intptr_t slot);
 KTextEditor__Document* KTextEditor__Application_OpenUrl2(KTextEditor__Application* self, const QUrl* url, const libqt_string encoding);
+void KTextEditor__Application_OnMetaObject(const KTextEditor__Application* self, intptr_t slot);
+QMetaObject* KTextEditor__Application_QBaseMetaObject(const KTextEditor__Application* self);
+void KTextEditor__Application_OnMetacast(KTextEditor__Application* self, intptr_t slot);
+void* KTextEditor__Application_QBaseMetacast(KTextEditor__Application* self, const char* param1);
 void KTextEditor__Application_OnMetacall(KTextEditor__Application* self, intptr_t slot);
 int KTextEditor__Application_QBaseMetacall(KTextEditor__Application* self, int param1, int param2, void** param3);
 bool KTextEditor__Application_Event(KTextEditor__Application* self, QEvent* event);

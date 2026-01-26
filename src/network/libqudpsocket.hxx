@@ -17,6 +17,8 @@ class VirtualQUdpSocket final : public QUdpSocket {
     bool isVirtualQUdpSocket = true;
 
     // Virtual class public types (including callbacks)
+    using QUdpSocket_MetaObject_Callback = QMetaObject* (*)();
+    using QUdpSocket_Metacast_Callback = void* (*)(QUdpSocket*, const char*);
     using QUdpSocket_Metacall_Callback = int (*)(QUdpSocket*, int, int, void**);
     using QUdpSocket_Resume_Callback = void (*)();
     using QUdpSocket_Bind_Callback = bool (*)(QUdpSocket*, QHostAddress*, uint16_t, int);
@@ -69,6 +71,8 @@ class VirtualQUdpSocket final : public QUdpSocket {
 
   protected:
     // Instance callback storage
+    QUdpSocket_MetaObject_Callback qudpsocket_metaobject_callback = nullptr;
+    QUdpSocket_Metacast_Callback qudpsocket_metacast_callback = nullptr;
     QUdpSocket_Metacall_Callback qudpsocket_metacall_callback = nullptr;
     QUdpSocket_Resume_Callback qudpsocket_resume_callback = nullptr;
     QUdpSocket_Bind_Callback qudpsocket_bind_callback = nullptr;
@@ -120,6 +124,8 @@ class VirtualQUdpSocket final : public QUdpSocket {
     QUdpSocket_IsSignalConnected_Callback qudpsocket_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qudpsocket_metaobject_isbase = false;
+    mutable bool qudpsocket_metacast_isbase = false;
     mutable bool qudpsocket_metacall_isbase = false;
     mutable bool qudpsocket_resume_isbase = false;
     mutable bool qudpsocket_bind_isbase = false;
@@ -175,6 +181,8 @@ class VirtualQUdpSocket final : public QUdpSocket {
     VirtualQUdpSocket(QObject* parent) : QUdpSocket(parent) {};
 
     ~VirtualQUdpSocket() {
+        qudpsocket_metaobject_callback = nullptr;
+        qudpsocket_metacast_callback = nullptr;
         qudpsocket_metacall_callback = nullptr;
         qudpsocket_resume_callback = nullptr;
         qudpsocket_bind_callback = nullptr;
@@ -227,6 +235,8 @@ class VirtualQUdpSocket final : public QUdpSocket {
     }
 
     // Callback setters
+    inline void setQUdpSocket_MetaObject_Callback(QUdpSocket_MetaObject_Callback cb) { qudpsocket_metaobject_callback = cb; }
+    inline void setQUdpSocket_Metacast_Callback(QUdpSocket_Metacast_Callback cb) { qudpsocket_metacast_callback = cb; }
     inline void setQUdpSocket_Metacall_Callback(QUdpSocket_Metacall_Callback cb) { qudpsocket_metacall_callback = cb; }
     inline void setQUdpSocket_Resume_Callback(QUdpSocket_Resume_Callback cb) { qudpsocket_resume_callback = cb; }
     inline void setQUdpSocket_Bind_Callback(QUdpSocket_Bind_Callback cb) { qudpsocket_bind_callback = cb; }
@@ -278,6 +288,8 @@ class VirtualQUdpSocket final : public QUdpSocket {
     inline void setQUdpSocket_IsSignalConnected_Callback(QUdpSocket_IsSignalConnected_Callback cb) { qudpsocket_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQUdpSocket_MetaObject_IsBase(bool value) const { qudpsocket_metaobject_isbase = value; }
+    inline void setQUdpSocket_Metacast_IsBase(bool value) const { qudpsocket_metacast_isbase = value; }
     inline void setQUdpSocket_Metacall_IsBase(bool value) const { qudpsocket_metacall_isbase = value; }
     inline void setQUdpSocket_Resume_IsBase(bool value) const { qudpsocket_resume_isbase = value; }
     inline void setQUdpSocket_Bind_IsBase(bool value) const { qudpsocket_bind_isbase = value; }
@@ -327,6 +339,34 @@ class VirtualQUdpSocket final : public QUdpSocket {
     inline void setQUdpSocket_SenderSignalIndex_IsBase(bool value) const { qudpsocket_sendersignalindex_isbase = value; }
     inline void setQUdpSocket_Receivers_IsBase(bool value) const { qudpsocket_receivers_isbase = value; }
     inline void setQUdpSocket_IsSignalConnected_IsBase(bool value) const { qudpsocket_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qudpsocket_metaobject_isbase) {
+            qudpsocket_metaobject_isbase = false;
+            return QUdpSocket::metaObject();
+        } else if (qudpsocket_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qudpsocket_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QUdpSocket::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qudpsocket_metacast_isbase) {
+            qudpsocket_metacast_isbase = false;
+            return QUdpSocket::qt_metacast(param1);
+        } else if (qudpsocket_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qudpsocket_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QUdpSocket::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -51,11 +51,21 @@ QAbstractButton* QAbstractButton_new2() {
 }
 
 QMetaObject* QAbstractButton_MetaObject(const QAbstractButton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractbutton = dynamic_cast<const VirtualQAbstractButton*>(self);
+    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractButton*)self)->metaObject();
+    }
 }
 
 void* QAbstractButton_Metacast(QAbstractButton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
+    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractButton*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractButton_Metacall(QAbstractButton* self, int param1, int param2, void** param3) {
@@ -335,6 +345,44 @@ void QAbstractButton_Connect_Clicked1(QAbstractButton* self, intptr_t slot) {
         bool sigval1 = checked;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractButton_QBaseMetaObject(const QAbstractButton* self) {
+    auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
+    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
+        vqabstractbutton->setQAbstractButton_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractbutton->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractButton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractButton_OnMetaObject(const QAbstractButton* self, intptr_t slot) {
+    auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
+    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
+        vqabstractbutton->setQAbstractButton_MetaObject_Callback(reinterpret_cast<VirtualQAbstractButton::QAbstractButton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractButton_QBaseMetacast(QAbstractButton* self, const char* param1) {
+    auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
+    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
+        vqabstractbutton->setQAbstractButton_Metacast_IsBase(true);
+        return vqabstractbutton->qt_metacast(param1);
+    } else {
+        return self->QAbstractButton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractButton_OnMetacast(QAbstractButton* self, intptr_t slot) {
+    auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
+    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
+        vqabstractbutton->setQAbstractButton_Metacast_Callback(reinterpret_cast<VirtualQAbstractButton::QAbstractButton_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

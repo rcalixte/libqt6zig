@@ -17,6 +17,8 @@ class VirtualQsciMacro final : public QsciMacro {
     bool isVirtualQsciMacro = true;
 
     // Virtual class public types (including callbacks)
+    using QsciMacro_MetaObject_Callback = QMetaObject* (*)();
+    using QsciMacro_Metacast_Callback = void* (*)(QsciMacro*, const char*);
     using QsciMacro_Metacall_Callback = int (*)(QsciMacro*, int, int, void**);
     using QsciMacro_Play_Callback = void (*)();
     using QsciMacro_StartRecording_Callback = void (*)();
@@ -35,6 +37,8 @@ class VirtualQsciMacro final : public QsciMacro {
 
   protected:
     // Instance callback storage
+    QsciMacro_MetaObject_Callback qscimacro_metaobject_callback = nullptr;
+    QsciMacro_Metacast_Callback qscimacro_metacast_callback = nullptr;
     QsciMacro_Metacall_Callback qscimacro_metacall_callback = nullptr;
     QsciMacro_Play_Callback qscimacro_play_callback = nullptr;
     QsciMacro_StartRecording_Callback qscimacro_startrecording_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualQsciMacro final : public QsciMacro {
     QsciMacro_IsSignalConnected_Callback qscimacro_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscimacro_metaobject_isbase = false;
+    mutable bool qscimacro_metacast_isbase = false;
     mutable bool qscimacro_metacall_isbase = false;
     mutable bool qscimacro_play_isbase = false;
     mutable bool qscimacro_startrecording_isbase = false;
@@ -73,6 +79,8 @@ class VirtualQsciMacro final : public QsciMacro {
     VirtualQsciMacro(const QString& asc, QsciScintilla* parent) : QsciMacro(asc, parent) {};
 
     ~VirtualQsciMacro() {
+        qscimacro_metaobject_callback = nullptr;
+        qscimacro_metacast_callback = nullptr;
         qscimacro_metacall_callback = nullptr;
         qscimacro_play_callback = nullptr;
         qscimacro_startrecording_callback = nullptr;
@@ -91,6 +99,8 @@ class VirtualQsciMacro final : public QsciMacro {
     }
 
     // Callback setters
+    inline void setQsciMacro_MetaObject_Callback(QsciMacro_MetaObject_Callback cb) { qscimacro_metaobject_callback = cb; }
+    inline void setQsciMacro_Metacast_Callback(QsciMacro_Metacast_Callback cb) { qscimacro_metacast_callback = cb; }
     inline void setQsciMacro_Metacall_Callback(QsciMacro_Metacall_Callback cb) { qscimacro_metacall_callback = cb; }
     inline void setQsciMacro_Play_Callback(QsciMacro_Play_Callback cb) { qscimacro_play_callback = cb; }
     inline void setQsciMacro_StartRecording_Callback(QsciMacro_StartRecording_Callback cb) { qscimacro_startrecording_callback = cb; }
@@ -108,6 +118,8 @@ class VirtualQsciMacro final : public QsciMacro {
     inline void setQsciMacro_IsSignalConnected_Callback(QsciMacro_IsSignalConnected_Callback cb) { qscimacro_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciMacro_MetaObject_IsBase(bool value) const { qscimacro_metaobject_isbase = value; }
+    inline void setQsciMacro_Metacast_IsBase(bool value) const { qscimacro_metacast_isbase = value; }
     inline void setQsciMacro_Metacall_IsBase(bool value) const { qscimacro_metacall_isbase = value; }
     inline void setQsciMacro_Play_IsBase(bool value) const { qscimacro_play_isbase = value; }
     inline void setQsciMacro_StartRecording_IsBase(bool value) const { qscimacro_startrecording_isbase = value; }
@@ -123,6 +135,34 @@ class VirtualQsciMacro final : public QsciMacro {
     inline void setQsciMacro_SenderSignalIndex_IsBase(bool value) const { qscimacro_sendersignalindex_isbase = value; }
     inline void setQsciMacro_Receivers_IsBase(bool value) const { qscimacro_receivers_isbase = value; }
     inline void setQsciMacro_IsSignalConnected_IsBase(bool value) const { qscimacro_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscimacro_metaobject_isbase) {
+            qscimacro_metaobject_isbase = false;
+            return QsciMacro::metaObject();
+        } else if (qscimacro_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscimacro_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciMacro::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscimacro_metacast_isbase) {
+            qscimacro_metacast_isbase = false;
+            return QsciMacro::qt_metacast(param1);
+        } else if (qscimacro_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscimacro_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciMacro::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

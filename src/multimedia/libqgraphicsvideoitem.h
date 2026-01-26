@@ -63,6 +63,10 @@ void QGraphicsVideoItem_NativeSizeChanged(QGraphicsVideoItem* self, const QSizeF
 void QGraphicsVideoItem_Connect_NativeSizeChanged(QGraphicsVideoItem* self, intptr_t slot);
 void QGraphicsVideoItem_TimerEvent(QGraphicsVideoItem* self, QTimerEvent* event);
 QVariant* QGraphicsVideoItem_ItemChange(QGraphicsVideoItem* self, int change, const QVariant* value);
+void QGraphicsVideoItem_OnMetaObject(const QGraphicsVideoItem* self, intptr_t slot);
+QMetaObject* QGraphicsVideoItem_QBaseMetaObject(const QGraphicsVideoItem* self);
+void QGraphicsVideoItem_OnMetacast(QGraphicsVideoItem* self, intptr_t slot);
+void* QGraphicsVideoItem_QBaseMetacast(QGraphicsVideoItem* self, const char* param1);
 void QGraphicsVideoItem_OnMetacall(QGraphicsVideoItem* self, intptr_t slot);
 int QGraphicsVideoItem_QBaseMetacall(QGraphicsVideoItem* self, int param1, int param2, void** param3);
 void QGraphicsVideoItem_OnBoundingRect(const QGraphicsVideoItem* self, intptr_t slot);

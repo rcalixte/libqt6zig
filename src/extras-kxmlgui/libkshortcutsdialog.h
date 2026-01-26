@@ -77,6 +77,10 @@ void KShortcutsDialog_AddCollection2(KShortcutsDialog* self, KActionCollection* 
 bool KShortcutsDialog_Configure1(KShortcutsDialog* self, bool saveSettings);
 void KShortcutsDialog_ShowDialog2(KActionCollection* collection, int allowLetterShortcuts);
 void KShortcutsDialog_ShowDialog3(KActionCollection* collection, int allowLetterShortcuts, QWidget* parent);
+void KShortcutsDialog_OnMetaObject(const KShortcutsDialog* self, intptr_t slot);
+QMetaObject* KShortcutsDialog_QBaseMetaObject(const KShortcutsDialog* self);
+void KShortcutsDialog_OnMetacast(KShortcutsDialog* self, intptr_t slot);
+void* KShortcutsDialog_QBaseMetacast(KShortcutsDialog* self, const char* param1);
 void KShortcutsDialog_OnMetacall(KShortcutsDialog* self, intptr_t slot);
 int KShortcutsDialog_QBaseMetacall(KShortcutsDialog* self, int param1, int param2, void** param3);
 void KShortcutsDialog_OnSizeHint(const KShortcutsDialog* self, intptr_t slot);

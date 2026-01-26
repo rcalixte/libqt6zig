@@ -20,6 +20,8 @@ class VirtualKCompletionBox final : public KCompletionBox {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using KCompletionBox_MetaObject_Callback = QMetaObject* (*)();
+    using KCompletionBox_Metacast_Callback = void* (*)(KCompletionBox*, const char*);
     using KCompletionBox_Metacall_Callback = int (*)(KCompletionBox*, int, int, void**);
     using KCompletionBox_SizeHint_Callback = QSize* (*)();
     using KCompletionBox_Popup_Callback = void (*)();
@@ -151,6 +153,8 @@ class VirtualKCompletionBox final : public KCompletionBox {
 
   protected:
     // Instance callback storage
+    KCompletionBox_MetaObject_Callback kcompletionbox_metaobject_callback = nullptr;
+    KCompletionBox_Metacast_Callback kcompletionbox_metacast_callback = nullptr;
     KCompletionBox_Metacall_Callback kcompletionbox_metacall_callback = nullptr;
     KCompletionBox_SizeHint_Callback kcompletionbox_sizehint_callback = nullptr;
     KCompletionBox_Popup_Callback kcompletionbox_popup_callback = nullptr;
@@ -281,6 +285,8 @@ class VirtualKCompletionBox final : public KCompletionBox {
     KCompletionBox_GetDecodedMetricF_Callback kcompletionbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcompletionbox_metaobject_isbase = false;
+    mutable bool kcompletionbox_metacast_isbase = false;
     mutable bool kcompletionbox_metacall_isbase = false;
     mutable bool kcompletionbox_sizehint_isbase = false;
     mutable bool kcompletionbox_popup_isbase = false;
@@ -415,6 +421,8 @@ class VirtualKCompletionBox final : public KCompletionBox {
     VirtualKCompletionBox() : KCompletionBox() {};
 
     ~VirtualKCompletionBox() {
+        kcompletionbox_metaobject_callback = nullptr;
+        kcompletionbox_metacast_callback = nullptr;
         kcompletionbox_metacall_callback = nullptr;
         kcompletionbox_sizehint_callback = nullptr;
         kcompletionbox_popup_callback = nullptr;
@@ -546,6 +554,8 @@ class VirtualKCompletionBox final : public KCompletionBox {
     }
 
     // Callback setters
+    inline void setKCompletionBox_MetaObject_Callback(KCompletionBox_MetaObject_Callback cb) { kcompletionbox_metaobject_callback = cb; }
+    inline void setKCompletionBox_Metacast_Callback(KCompletionBox_Metacast_Callback cb) { kcompletionbox_metacast_callback = cb; }
     inline void setKCompletionBox_Metacall_Callback(KCompletionBox_Metacall_Callback cb) { kcompletionbox_metacall_callback = cb; }
     inline void setKCompletionBox_SizeHint_Callback(KCompletionBox_SizeHint_Callback cb) { kcompletionbox_sizehint_callback = cb; }
     inline void setKCompletionBox_Popup_Callback(KCompletionBox_Popup_Callback cb) { kcompletionbox_popup_callback = cb; }
@@ -676,6 +686,8 @@ class VirtualKCompletionBox final : public KCompletionBox {
     inline void setKCompletionBox_GetDecodedMetricF_Callback(KCompletionBox_GetDecodedMetricF_Callback cb) { kcompletionbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKCompletionBox_MetaObject_IsBase(bool value) const { kcompletionbox_metaobject_isbase = value; }
+    inline void setKCompletionBox_Metacast_IsBase(bool value) const { kcompletionbox_metacast_isbase = value; }
     inline void setKCompletionBox_Metacall_IsBase(bool value) const { kcompletionbox_metacall_isbase = value; }
     inline void setKCompletionBox_SizeHint_IsBase(bool value) const { kcompletionbox_sizehint_isbase = value; }
     inline void setKCompletionBox_Popup_IsBase(bool value) const { kcompletionbox_popup_isbase = value; }
@@ -804,6 +816,34 @@ class VirtualKCompletionBox final : public KCompletionBox {
     inline void setKCompletionBox_Receivers_IsBase(bool value) const { kcompletionbox_receivers_isbase = value; }
     inline void setKCompletionBox_IsSignalConnected_IsBase(bool value) const { kcompletionbox_issignalconnected_isbase = value; }
     inline void setKCompletionBox_GetDecodedMetricF_IsBase(bool value) const { kcompletionbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcompletionbox_metaobject_isbase) {
+            kcompletionbox_metaobject_isbase = false;
+            return KCompletionBox::metaObject();
+        } else if (kcompletionbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcompletionbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCompletionBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcompletionbox_metacast_isbase) {
+            kcompletionbox_metacast_isbase = false;
+            return KCompletionBox::qt_metacast(param1);
+        } else if (kcompletionbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcompletionbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCompletionBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

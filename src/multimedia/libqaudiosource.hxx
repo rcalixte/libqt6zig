@@ -17,6 +17,8 @@ class VirtualQAudioSource final : public QAudioSource {
     bool isVirtualQAudioSource = true;
 
     // Virtual class public types (including callbacks)
+    using QAudioSource_MetaObject_Callback = QMetaObject* (*)();
+    using QAudioSource_Metacast_Callback = void* (*)(QAudioSource*, const char*);
     using QAudioSource_Metacall_Callback = int (*)(QAudioSource*, int, int, void**);
     using QAudioSource_Event_Callback = bool (*)(QAudioSource*, QEvent*);
     using QAudioSource_EventFilter_Callback = bool (*)(QAudioSource*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQAudioSource final : public QAudioSource {
 
   protected:
     // Instance callback storage
+    QAudioSource_MetaObject_Callback qaudiosource_metaobject_callback = nullptr;
+    QAudioSource_Metacast_Callback qaudiosource_metacast_callback = nullptr;
     QAudioSource_Metacall_Callback qaudiosource_metacall_callback = nullptr;
     QAudioSource_Event_Callback qaudiosource_event_callback = nullptr;
     QAudioSource_EventFilter_Callback qaudiosource_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQAudioSource final : public QAudioSource {
     QAudioSource_IsSignalConnected_Callback qaudiosource_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qaudiosource_metaobject_isbase = false;
+    mutable bool qaudiosource_metacast_isbase = false;
     mutable bool qaudiosource_metacall_isbase = false;
     mutable bool qaudiosource_event_isbase = false;
     mutable bool qaudiosource_eventfilter_isbase = false;
@@ -68,6 +74,8 @@ class VirtualQAudioSource final : public QAudioSource {
     VirtualQAudioSource(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format, QObject* parent) : QAudioSource(audioDeviceInfo, format, parent) {};
 
     ~VirtualQAudioSource() {
+        qaudiosource_metaobject_callback = nullptr;
+        qaudiosource_metacast_callback = nullptr;
         qaudiosource_metacall_callback = nullptr;
         qaudiosource_event_callback = nullptr;
         qaudiosource_eventfilter_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQAudioSource final : public QAudioSource {
     }
 
     // Callback setters
+    inline void setQAudioSource_MetaObject_Callback(QAudioSource_MetaObject_Callback cb) { qaudiosource_metaobject_callback = cb; }
+    inline void setQAudioSource_Metacast_Callback(QAudioSource_Metacast_Callback cb) { qaudiosource_metacast_callback = cb; }
     inline void setQAudioSource_Metacall_Callback(QAudioSource_Metacall_Callback cb) { qaudiosource_metacall_callback = cb; }
     inline void setQAudioSource_Event_Callback(QAudioSource_Event_Callback cb) { qaudiosource_event_callback = cb; }
     inline void setQAudioSource_EventFilter_Callback(QAudioSource_EventFilter_Callback cb) { qaudiosource_eventfilter_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualQAudioSource final : public QAudioSource {
     inline void setQAudioSource_IsSignalConnected_Callback(QAudioSource_IsSignalConnected_Callback cb) { qaudiosource_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAudioSource_MetaObject_IsBase(bool value) const { qaudiosource_metaobject_isbase = value; }
+    inline void setQAudioSource_Metacast_IsBase(bool value) const { qaudiosource_metacast_isbase = value; }
     inline void setQAudioSource_Metacall_IsBase(bool value) const { qaudiosource_metacall_isbase = value; }
     inline void setQAudioSource_Event_IsBase(bool value) const { qaudiosource_event_isbase = value; }
     inline void setQAudioSource_EventFilter_IsBase(bool value) const { qaudiosource_eventfilter_isbase = value; }
@@ -109,6 +121,34 @@ class VirtualQAudioSource final : public QAudioSource {
     inline void setQAudioSource_SenderSignalIndex_IsBase(bool value) const { qaudiosource_sendersignalindex_isbase = value; }
     inline void setQAudioSource_Receivers_IsBase(bool value) const { qaudiosource_receivers_isbase = value; }
     inline void setQAudioSource_IsSignalConnected_IsBase(bool value) const { qaudiosource_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qaudiosource_metaobject_isbase) {
+            qaudiosource_metaobject_isbase = false;
+            return QAudioSource::metaObject();
+        } else if (qaudiosource_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qaudiosource_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAudioSource::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qaudiosource_metacast_isbase) {
+            qaudiosource_metacast_isbase = false;
+            return QAudioSource::qt_metacast(param1);
+        } else if (qaudiosource_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qaudiosource_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAudioSource::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

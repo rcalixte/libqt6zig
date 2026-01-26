@@ -17,6 +17,8 @@ class VirtualQDrag final : public QDrag {
     bool isVirtualQDrag = true;
 
     // Virtual class public types (including callbacks)
+    using QDrag_MetaObject_Callback = QMetaObject* (*)();
+    using QDrag_Metacast_Callback = void* (*)(QDrag*, const char*);
     using QDrag_Metacall_Callback = int (*)(QDrag*, int, int, void**);
     using QDrag_Event_Callback = bool (*)(QDrag*, QEvent*);
     using QDrag_EventFilter_Callback = bool (*)(QDrag*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQDrag final : public QDrag {
 
   protected:
     // Instance callback storage
+    QDrag_MetaObject_Callback qdrag_metaobject_callback = nullptr;
+    QDrag_Metacast_Callback qdrag_metacast_callback = nullptr;
     QDrag_Metacall_Callback qdrag_metacall_callback = nullptr;
     QDrag_Event_Callback qdrag_event_callback = nullptr;
     QDrag_EventFilter_Callback qdrag_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQDrag final : public QDrag {
     QDrag_IsSignalConnected_Callback qdrag_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdrag_metaobject_isbase = false;
+    mutable bool qdrag_metacast_isbase = false;
     mutable bool qdrag_metacall_isbase = false;
     mutable bool qdrag_event_isbase = false;
     mutable bool qdrag_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualQDrag final : public QDrag {
     VirtualQDrag(QObject* dragSource) : QDrag(dragSource) {};
 
     ~VirtualQDrag() {
+        qdrag_metaobject_callback = nullptr;
+        qdrag_metacast_callback = nullptr;
         qdrag_metacall_callback = nullptr;
         qdrag_event_callback = nullptr;
         qdrag_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualQDrag final : public QDrag {
     }
 
     // Callback setters
+    inline void setQDrag_MetaObject_Callback(QDrag_MetaObject_Callback cb) { qdrag_metaobject_callback = cb; }
+    inline void setQDrag_Metacast_Callback(QDrag_Metacast_Callback cb) { qdrag_metacast_callback = cb; }
     inline void setQDrag_Metacall_Callback(QDrag_Metacall_Callback cb) { qdrag_metacall_callback = cb; }
     inline void setQDrag_Event_Callback(QDrag_Event_Callback cb) { qdrag_event_callback = cb; }
     inline void setQDrag_EventFilter_Callback(QDrag_EventFilter_Callback cb) { qdrag_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualQDrag final : public QDrag {
     inline void setQDrag_IsSignalConnected_Callback(QDrag_IsSignalConnected_Callback cb) { qdrag_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDrag_MetaObject_IsBase(bool value) const { qdrag_metaobject_isbase = value; }
+    inline void setQDrag_Metacast_IsBase(bool value) const { qdrag_metacast_isbase = value; }
     inline void setQDrag_Metacall_IsBase(bool value) const { qdrag_metacall_isbase = value; }
     inline void setQDrag_Event_IsBase(bool value) const { qdrag_event_isbase = value; }
     inline void setQDrag_EventFilter_IsBase(bool value) const { qdrag_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualQDrag final : public QDrag {
     inline void setQDrag_SenderSignalIndex_IsBase(bool value) const { qdrag_sendersignalindex_isbase = value; }
     inline void setQDrag_Receivers_IsBase(bool value) const { qdrag_receivers_isbase = value; }
     inline void setQDrag_IsSignalConnected_IsBase(bool value) const { qdrag_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdrag_metaobject_isbase) {
+            qdrag_metaobject_isbase = false;
+            return QDrag::metaObject();
+        } else if (qdrag_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdrag_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDrag::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdrag_metacast_isbase) {
+            qdrag_metacast_isbase = false;
+            return QDrag::qt_metacast(param1);
+        } else if (qdrag_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdrag_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDrag::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

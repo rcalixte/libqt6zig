@@ -42,11 +42,21 @@ QSqlTableModel* QSqlTableModel_new3(QObject* parent, const QSqlDatabase* db) {
 }
 
 QMetaObject* QSqlTableModel_MetaObject(const QSqlTableModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSqlTableModel*)self)->metaObject();
+    }
 }
 
 void* QSqlTableModel_Metacast(QSqlTableModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSqlTableModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QSqlTableModel_Metacall(QSqlTableModel* self, int param1, int param2, void** param3) {
@@ -431,6 +441,44 @@ QModelIndex* QSqlTableModel_IndexInQuery(const QSqlTableModel* self, const QMode
         return new QModelIndex(vqsqltablemodel->indexInQuery(*item));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QSqlTableModel_QBaseMetaObject(const QSqlTableModel* self) {
+    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsqltablemodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QSqlTableModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlTableModel_OnMetaObject(const QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_MetaObject_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSqlTableModel_QBaseMetacast(QSqlTableModel* self, const char* param1) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Metacast_IsBase(true);
+        return vqsqltablemodel->qt_metacast(param1);
+    } else {
+        return self->QSqlTableModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlTableModel_OnMetacast(QSqlTableModel* self, intptr_t slot) {
+    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
+    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
+        vqsqltablemodel->setQSqlTableModel_Metacast_Callback(reinterpret_cast<VirtualQSqlTableModel::QSqlTableModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

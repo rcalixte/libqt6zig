@@ -40,11 +40,21 @@ QInputDevice* QInputDevice_new5(const libqt_string name, long long systemId, int
 }
 
 QMetaObject* QInputDevice_MetaObject(const QInputDevice* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqinputdevice = dynamic_cast<const VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQInputDevice*)self)->metaObject();
+    }
 }
 
 void* QInputDevice_Metacast(QInputDevice* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQInputDevice*)self)->qt_metacast(param1);
+    }
 }
 
 int QInputDevice_Metacall(QInputDevice* self, int param1, int param2, void** param3) {
@@ -157,6 +167,44 @@ void QInputDevice_Connect_AvailableVirtualGeometryChanged(QInputDevice* self, in
 QInputDevice* QInputDevice_PrimaryKeyboard1(const libqt_string seatName) {
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
     return (QInputDevice*)QInputDevice::primaryKeyboard(seatName_QString);
+}
+
+// Base class handler implementation
+QMetaObject* QInputDevice_QBaseMetaObject(const QInputDevice* self) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+        vqinputdevice->setQInputDevice_MetaObject_IsBase(true);
+        return (QMetaObject*)vqinputdevice->metaObject();
+    } else {
+        return (QMetaObject*)self->QInputDevice::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDevice_OnMetaObject(const QInputDevice* self, intptr_t slot) {
+    auto* vqinputdevice = const_cast<VirtualQInputDevice*>(dynamic_cast<const VirtualQInputDevice*>(self));
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+        vqinputdevice->setQInputDevice_MetaObject_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QInputDevice_QBaseMetacast(QInputDevice* self, const char* param1) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+        vqinputdevice->setQInputDevice_Metacast_IsBase(true);
+        return vqinputdevice->qt_metacast(param1);
+    } else {
+        return self->QInputDevice::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDevice_OnMetacast(QInputDevice* self, intptr_t slot) {
+    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
+    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
+        vqinputdevice->setQInputDevice_Metacast_Callback(reinterpret_cast<VirtualQInputDevice::QInputDevice_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

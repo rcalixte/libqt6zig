@@ -38,6 +38,10 @@ int QsciLexerTekHex_Metacall(QsciLexerTekHex* self, int param1, int param2, void
 const char* QsciLexerTekHex_Language(const QsciLexerTekHex* self);
 const char* QsciLexerTekHex_Lexer(const QsciLexerTekHex* self);
 libqt_string QsciLexerTekHex_Description(const QsciLexerTekHex* self, int style);
+void QsciLexerTekHex_OnMetaObject(const QsciLexerTekHex* self, intptr_t slot);
+QMetaObject* QsciLexerTekHex_QBaseMetaObject(const QsciLexerTekHex* self);
+void QsciLexerTekHex_OnMetacast(QsciLexerTekHex* self, intptr_t slot);
+void* QsciLexerTekHex_QBaseMetacast(QsciLexerTekHex* self, const char* param1);
 void QsciLexerTekHex_OnMetacall(QsciLexerTekHex* self, intptr_t slot);
 int QsciLexerTekHex_QBaseMetacall(QsciLexerTekHex* self, int param1, int param2, void** param3);
 int QsciLexerTekHex_LexerId(const QsciLexerTekHex* self);

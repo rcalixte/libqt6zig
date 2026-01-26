@@ -22,11 +22,21 @@ QWebEngineUrlRequestInterceptor* QWebEngineUrlRequestInterceptor_new2(QObject* p
 }
 
 QMetaObject* QWebEngineUrlRequestInterceptor_MetaObject(const QWebEngineUrlRequestInterceptor* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwebengineurlrequestinterceptor = dynamic_cast<const VirtualQWebEngineUrlRequestInterceptor*>(self);
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWebEngineUrlRequestInterceptor*)self)->metaObject();
+    }
 }
 
 void* QWebEngineUrlRequestInterceptor_Metacast(QWebEngineUrlRequestInterceptor* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWebEngineUrlRequestInterceptor*)self)->qt_metacast(param1);
+    }
 }
 
 int QWebEngineUrlRequestInterceptor_Metacall(QWebEngineUrlRequestInterceptor* self, int param1, int param2, void** param3) {
@@ -44,6 +54,44 @@ void QWebEngineUrlRequestInterceptor_InterceptRequest(QWebEngineUrlRequestInterc
         vqwebengineurlrequestinterceptor->interceptRequest(*info);
     } else {
         ((VirtualQWebEngineUrlRequestInterceptor*)self)->interceptRequest(*info);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QWebEngineUrlRequestInterceptor_QBaseMetaObject(const QWebEngineUrlRequestInterceptor* self) {
+    auto* vqwebengineurlrequestinterceptor = const_cast<VirtualQWebEngineUrlRequestInterceptor*>(dynamic_cast<const VirtualQWebEngineUrlRequestInterceptor*>(self));
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+        vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwebengineurlrequestinterceptor->metaObject();
+    } else {
+        return (QMetaObject*)self->QWebEngineUrlRequestInterceptor::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEngineUrlRequestInterceptor_OnMetaObject(const QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
+    auto* vqwebengineurlrequestinterceptor = const_cast<VirtualQWebEngineUrlRequestInterceptor*>(dynamic_cast<const VirtualQWebEngineUrlRequestInterceptor*>(self));
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+        vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_MetaObject_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWebEngineUrlRequestInterceptor_QBaseMetacast(QWebEngineUrlRequestInterceptor* self, const char* param1) {
+    auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+        vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_Metacast_IsBase(true);
+        return vqwebengineurlrequestinterceptor->qt_metacast(param1);
+    } else {
+        return self->QWebEngineUrlRequestInterceptor::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEngineUrlRequestInterceptor_OnMetacast(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
+    auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+        vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_Metacast_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_Metacast_Callback>(slot));
     }
 }
 

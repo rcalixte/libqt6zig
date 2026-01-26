@@ -17,6 +17,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
     bool isVirtualKCheckableProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using KCheckableProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using KCheckableProxyModel_Metacast_Callback = void* (*)(KCheckableProxyModel*, const char*);
     using KCheckableProxyModel_Metacall_Callback = int (*)(KCheckableProxyModel*, int, int, void**);
     using KCheckableProxyModel_Flags_Callback = int (*)(const KCheckableProxyModel*, QModelIndex*);
     using KCheckableProxyModel_Data_Callback = QVariant* (*)(const KCheckableProxyModel*, QModelIndex*, int);
@@ -98,6 +100,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
 
   protected:
     // Instance callback storage
+    KCheckableProxyModel_MetaObject_Callback kcheckableproxymodel_metaobject_callback = nullptr;
+    KCheckableProxyModel_Metacast_Callback kcheckableproxymodel_metacast_callback = nullptr;
     KCheckableProxyModel_Metacall_Callback kcheckableproxymodel_metacall_callback = nullptr;
     KCheckableProxyModel_Flags_Callback kcheckableproxymodel_flags_callback = nullptr;
     KCheckableProxyModel_Data_Callback kcheckableproxymodel_data_callback = nullptr;
@@ -178,6 +182,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
     KCheckableProxyModel_IsSignalConnected_Callback kcheckableproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcheckableproxymodel_metaobject_isbase = false;
+    mutable bool kcheckableproxymodel_metacast_isbase = false;
     mutable bool kcheckableproxymodel_metacall_isbase = false;
     mutable bool kcheckableproxymodel_flags_isbase = false;
     mutable bool kcheckableproxymodel_data_isbase = false;
@@ -262,6 +268,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
     VirtualKCheckableProxyModel(QObject* parent) : KCheckableProxyModel(parent) {};
 
     ~VirtualKCheckableProxyModel() {
+        kcheckableproxymodel_metaobject_callback = nullptr;
+        kcheckableproxymodel_metacast_callback = nullptr;
         kcheckableproxymodel_metacall_callback = nullptr;
         kcheckableproxymodel_flags_callback = nullptr;
         kcheckableproxymodel_data_callback = nullptr;
@@ -343,6 +351,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
     }
 
     // Callback setters
+    inline void setKCheckableProxyModel_MetaObject_Callback(KCheckableProxyModel_MetaObject_Callback cb) { kcheckableproxymodel_metaobject_callback = cb; }
+    inline void setKCheckableProxyModel_Metacast_Callback(KCheckableProxyModel_Metacast_Callback cb) { kcheckableproxymodel_metacast_callback = cb; }
     inline void setKCheckableProxyModel_Metacall_Callback(KCheckableProxyModel_Metacall_Callback cb) { kcheckableproxymodel_metacall_callback = cb; }
     inline void setKCheckableProxyModel_Flags_Callback(KCheckableProxyModel_Flags_Callback cb) { kcheckableproxymodel_flags_callback = cb; }
     inline void setKCheckableProxyModel_Data_Callback(KCheckableProxyModel_Data_Callback cb) { kcheckableproxymodel_data_callback = cb; }
@@ -423,6 +433,8 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
     inline void setKCheckableProxyModel_IsSignalConnected_Callback(KCheckableProxyModel_IsSignalConnected_Callback cb) { kcheckableproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCheckableProxyModel_MetaObject_IsBase(bool value) const { kcheckableproxymodel_metaobject_isbase = value; }
+    inline void setKCheckableProxyModel_Metacast_IsBase(bool value) const { kcheckableproxymodel_metacast_isbase = value; }
     inline void setKCheckableProxyModel_Metacall_IsBase(bool value) const { kcheckableproxymodel_metacall_isbase = value; }
     inline void setKCheckableProxyModel_Flags_IsBase(bool value) const { kcheckableproxymodel_flags_isbase = value; }
     inline void setKCheckableProxyModel_Data_IsBase(bool value) const { kcheckableproxymodel_data_isbase = value; }
@@ -501,6 +513,34 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
     inline void setKCheckableProxyModel_SenderSignalIndex_IsBase(bool value) const { kcheckableproxymodel_sendersignalindex_isbase = value; }
     inline void setKCheckableProxyModel_Receivers_IsBase(bool value) const { kcheckableproxymodel_receivers_isbase = value; }
     inline void setKCheckableProxyModel_IsSignalConnected_IsBase(bool value) const { kcheckableproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcheckableproxymodel_metaobject_isbase) {
+            kcheckableproxymodel_metaobject_isbase = false;
+            return KCheckableProxyModel::metaObject();
+        } else if (kcheckableproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcheckableproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCheckableProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcheckableproxymodel_metacast_isbase) {
+            kcheckableproxymodel_metacast_isbase = false;
+            return KCheckableProxyModel::qt_metacast(param1);
+        } else if (kcheckableproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcheckableproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCheckableProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

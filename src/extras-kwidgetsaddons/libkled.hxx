@@ -17,6 +17,8 @@ class VirtualKLed final : public KLed {
     bool isVirtualKLed = true;
 
     // Virtual class public types (including callbacks)
+    using KLed_MetaObject_Callback = QMetaObject* (*)();
+    using KLed_Metacast_Callback = void* (*)(KLed*, const char*);
     using KLed_Metacall_Callback = int (*)(KLed*, int, int, void**);
     using KLed_SizeHint_Callback = QSize* (*)();
     using KLed_MinimumSizeHint_Callback = QSize* (*)();
@@ -78,6 +80,8 @@ class VirtualKLed final : public KLed {
 
   protected:
     // Instance callback storage
+    KLed_MetaObject_Callback kled_metaobject_callback = nullptr;
+    KLed_Metacast_Callback kled_metacast_callback = nullptr;
     KLed_Metacall_Callback kled_metacall_callback = nullptr;
     KLed_SizeHint_Callback kled_sizehint_callback = nullptr;
     KLed_MinimumSizeHint_Callback kled_minimumsizehint_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKLed final : public KLed {
     KLed_GetDecodedMetricF_Callback kled_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kled_metaobject_isbase = false;
+    mutable bool kled_metacast_isbase = false;
     mutable bool kled_metacall_isbase = false;
     mutable bool kled_sizehint_isbase = false;
     mutable bool kled_minimumsizehint_isbase = false;
@@ -206,6 +212,8 @@ class VirtualKLed final : public KLed {
     VirtualKLed(const QColor& color, KLed::State state, KLed::Look look, KLed::Shape shape, QWidget* parent) : KLed(color, state, look, shape, parent) {};
 
     ~VirtualKLed() {
+        kled_metaobject_callback = nullptr;
+        kled_metacast_callback = nullptr;
         kled_metacall_callback = nullptr;
         kled_sizehint_callback = nullptr;
         kled_minimumsizehint_callback = nullptr;
@@ -267,6 +275,8 @@ class VirtualKLed final : public KLed {
     }
 
     // Callback setters
+    inline void setKLed_MetaObject_Callback(KLed_MetaObject_Callback cb) { kled_metaobject_callback = cb; }
+    inline void setKLed_Metacast_Callback(KLed_Metacast_Callback cb) { kled_metacast_callback = cb; }
     inline void setKLed_Metacall_Callback(KLed_Metacall_Callback cb) { kled_metacall_callback = cb; }
     inline void setKLed_SizeHint_Callback(KLed_SizeHint_Callback cb) { kled_sizehint_callback = cb; }
     inline void setKLed_MinimumSizeHint_Callback(KLed_MinimumSizeHint_Callback cb) { kled_minimumsizehint_callback = cb; }
@@ -327,6 +337,8 @@ class VirtualKLed final : public KLed {
     inline void setKLed_GetDecodedMetricF_Callback(KLed_GetDecodedMetricF_Callback cb) { kled_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKLed_MetaObject_IsBase(bool value) const { kled_metaobject_isbase = value; }
+    inline void setKLed_Metacast_IsBase(bool value) const { kled_metacast_isbase = value; }
     inline void setKLed_Metacall_IsBase(bool value) const { kled_metacall_isbase = value; }
     inline void setKLed_SizeHint_IsBase(bool value) const { kled_sizehint_isbase = value; }
     inline void setKLed_MinimumSizeHint_IsBase(bool value) const { kled_minimumsizehint_isbase = value; }
@@ -385,6 +397,34 @@ class VirtualKLed final : public KLed {
     inline void setKLed_Receivers_IsBase(bool value) const { kled_receivers_isbase = value; }
     inline void setKLed_IsSignalConnected_IsBase(bool value) const { kled_issignalconnected_isbase = value; }
     inline void setKLed_GetDecodedMetricF_IsBase(bool value) const { kled_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kled_metaobject_isbase) {
+            kled_metaobject_isbase = false;
+            return KLed::metaObject();
+        } else if (kled_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kled_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KLed::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kled_metacast_isbase) {
+            kled_metacast_isbase = false;
+            return KLed::qt_metacast(param1);
+        } else if (kled_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kled_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KLed::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

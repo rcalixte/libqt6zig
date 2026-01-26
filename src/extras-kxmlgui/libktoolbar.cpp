@@ -89,11 +89,21 @@ KToolBar* KToolBar_new9(const libqt_string objectName, QMainWindow* parentWindow
 }
 
 QMetaObject* KToolBar_MetaObject(const KToolBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktoolbar = dynamic_cast<const VirtualKToolBar*>(self);
+    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKToolBar*)self)->metaObject();
+    }
 }
 
 void* KToolBar_Metacast(KToolBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
+    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKToolBar*)self)->qt_metacast(param1);
+    }
 }
 
 int KToolBar_Metacall(KToolBar* self, int param1, int param2, void** param3) {
@@ -237,6 +247,44 @@ void KToolBar_MouseReleaseEvent(KToolBar* self, QMouseEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     if (vktoolbar && vktoolbar->isVirtualKToolBar) {
         vktoolbar->mouseReleaseEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KToolBar_QBaseMetaObject(const KToolBar* self) {
+    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
+    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+        vktoolbar->setKToolBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vktoolbar->metaObject();
+    } else {
+        return (QMetaObject*)self->KToolBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolBar_OnMetaObject(const KToolBar* self, intptr_t slot) {
+    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
+    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+        vktoolbar->setKToolBar_MetaObject_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KToolBar_QBaseMetacast(KToolBar* self, const char* param1) {
+    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
+    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+        vktoolbar->setKToolBar_Metacast_IsBase(true);
+        return vktoolbar->qt_metacast(param1);
+    } else {
+        return self->KToolBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolBar_OnMetacast(KToolBar* self, intptr_t slot) {
+    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
+    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+        vktoolbar->setKToolBar_Metacast_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Metacast_Callback>(slot));
     }
 }
 

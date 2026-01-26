@@ -39,6 +39,10 @@ int KTextEditor__Plugin_Metacall(KTextEditor__Plugin* self, int param1, int para
 QObject* KTextEditor__Plugin_CreateView(KTextEditor__Plugin* self, KTextEditor__MainWindow* mainWindow);
 int KTextEditor__Plugin_ConfigPages(const KTextEditor__Plugin* self);
 KTextEditor__ConfigPage* KTextEditor__Plugin_ConfigPage(KTextEditor__Plugin* self, int number, QWidget* parent);
+void KTextEditor__Plugin_OnMetaObject(const KTextEditor__Plugin* self, intptr_t slot);
+QMetaObject* KTextEditor__Plugin_QBaseMetaObject(const KTextEditor__Plugin* self);
+void KTextEditor__Plugin_OnMetacast(KTextEditor__Plugin* self, intptr_t slot);
+void* KTextEditor__Plugin_QBaseMetacast(KTextEditor__Plugin* self, const char* param1);
 void KTextEditor__Plugin_OnMetacall(KTextEditor__Plugin* self, intptr_t slot);
 int KTextEditor__Plugin_QBaseMetacall(KTextEditor__Plugin* self, int param1, int param2, void** param3);
 void KTextEditor__Plugin_OnCreateView(KTextEditor__Plugin* self, intptr_t slot);

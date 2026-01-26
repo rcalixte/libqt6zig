@@ -17,6 +17,8 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     bool isVirtualQsciLexerLua = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerLua_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerLua_Metacast_Callback = void* (*)(QsciLexerLua*, const char*);
     using QsciLexerLua_Metacall_Callback = int (*)(QsciLexerLua*, int, int, void**);
     using QsciLexerLua_SetFoldCompact_Callback = void (*)(QsciLexerLua*, bool);
     using QsciLexerLua_Language_Callback = const char* (*)();
@@ -69,6 +71,8 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
 
   protected:
     // Instance callback storage
+    QsciLexerLua_MetaObject_Callback qscilexerlua_metaobject_callback = nullptr;
+    QsciLexerLua_Metacast_Callback qscilexerlua_metacast_callback = nullptr;
     QsciLexerLua_Metacall_Callback qscilexerlua_metacall_callback = nullptr;
     QsciLexerLua_SetFoldCompact_Callback qscilexerlua_setfoldcompact_callback = nullptr;
     QsciLexerLua_Language_Callback qscilexerlua_language_callback = nullptr;
@@ -120,6 +124,8 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     QsciLexerLua_IsSignalConnected_Callback qscilexerlua_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexerlua_metaobject_isbase = false;
+    mutable bool qscilexerlua_metacast_isbase = false;
     mutable bool qscilexerlua_metacall_isbase = false;
     mutable bool qscilexerlua_setfoldcompact_isbase = false;
     mutable bool qscilexerlua_language_isbase = false;
@@ -175,6 +181,8 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     VirtualQsciLexerLua(QObject* parent) : QsciLexerLua(parent) {};
 
     ~VirtualQsciLexerLua() {
+        qscilexerlua_metaobject_callback = nullptr;
+        qscilexerlua_metacast_callback = nullptr;
         qscilexerlua_metacall_callback = nullptr;
         qscilexerlua_setfoldcompact_callback = nullptr;
         qscilexerlua_language_callback = nullptr;
@@ -227,6 +235,8 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     }
 
     // Callback setters
+    inline void setQsciLexerLua_MetaObject_Callback(QsciLexerLua_MetaObject_Callback cb) { qscilexerlua_metaobject_callback = cb; }
+    inline void setQsciLexerLua_Metacast_Callback(QsciLexerLua_Metacast_Callback cb) { qscilexerlua_metacast_callback = cb; }
     inline void setQsciLexerLua_Metacall_Callback(QsciLexerLua_Metacall_Callback cb) { qscilexerlua_metacall_callback = cb; }
     inline void setQsciLexerLua_SetFoldCompact_Callback(QsciLexerLua_SetFoldCompact_Callback cb) { qscilexerlua_setfoldcompact_callback = cb; }
     inline void setQsciLexerLua_Language_Callback(QsciLexerLua_Language_Callback cb) { qscilexerlua_language_callback = cb; }
@@ -278,6 +288,8 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     inline void setQsciLexerLua_IsSignalConnected_Callback(QsciLexerLua_IsSignalConnected_Callback cb) { qscilexerlua_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerLua_MetaObject_IsBase(bool value) const { qscilexerlua_metaobject_isbase = value; }
+    inline void setQsciLexerLua_Metacast_IsBase(bool value) const { qscilexerlua_metacast_isbase = value; }
     inline void setQsciLexerLua_Metacall_IsBase(bool value) const { qscilexerlua_metacall_isbase = value; }
     inline void setQsciLexerLua_SetFoldCompact_IsBase(bool value) const { qscilexerlua_setfoldcompact_isbase = value; }
     inline void setQsciLexerLua_Language_IsBase(bool value) const { qscilexerlua_language_isbase = value; }
@@ -327,6 +339,34 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     inline void setQsciLexerLua_SenderSignalIndex_IsBase(bool value) const { qscilexerlua_sendersignalindex_isbase = value; }
     inline void setQsciLexerLua_Receivers_IsBase(bool value) const { qscilexerlua_receivers_isbase = value; }
     inline void setQsciLexerLua_IsSignalConnected_IsBase(bool value) const { qscilexerlua_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexerlua_metaobject_isbase) {
+            qscilexerlua_metaobject_isbase = false;
+            return QsciLexerLua::metaObject();
+        } else if (qscilexerlua_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexerlua_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerLua::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexerlua_metacast_isbase) {
+            qscilexerlua_metacast_isbase = false;
+            return QsciLexerLua::qt_metacast(param1);
+        } else if (qscilexerlua_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexerlua_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerLua::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

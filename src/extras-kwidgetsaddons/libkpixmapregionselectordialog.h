@@ -70,6 +70,10 @@ QRect* KPixmapRegionSelectorDialog_GetSelectedRegion22(const QPixmap* pixmap, QW
 QRect* KPixmapRegionSelectorDialog_GetSelectedRegion4(const QPixmap* pixmap, int aspectRatioWidth, int aspectRatioHeight, QWidget* parent);
 QImage* KPixmapRegionSelectorDialog_GetSelectedImage22(const QPixmap* pixmap, QWidget* parent);
 QImage* KPixmapRegionSelectorDialog_GetSelectedImage4(const QPixmap* pixmap, int aspectRatioWidth, int aspectRatioHeight, QWidget* parent);
+void KPixmapRegionSelectorDialog_OnMetaObject(const KPixmapRegionSelectorDialog* self, intptr_t slot);
+QMetaObject* KPixmapRegionSelectorDialog_QBaseMetaObject(const KPixmapRegionSelectorDialog* self);
+void KPixmapRegionSelectorDialog_OnMetacast(KPixmapRegionSelectorDialog* self, intptr_t slot);
+void* KPixmapRegionSelectorDialog_QBaseMetacast(KPixmapRegionSelectorDialog* self, const char* param1);
 void KPixmapRegionSelectorDialog_OnMetacall(KPixmapRegionSelectorDialog* self, intptr_t slot);
 int KPixmapRegionSelectorDialog_QBaseMetacall(KPixmapRegionSelectorDialog* self, int param1, int param2, void** param3);
 void KPixmapRegionSelectorDialog_SetVisible(KPixmapRegionSelectorDialog* self, bool visible);

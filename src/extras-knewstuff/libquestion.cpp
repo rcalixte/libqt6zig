@@ -27,11 +27,21 @@ KNSCore__Question* KNSCore__Question_new3(int param1, QObject* parent) {
 }
 
 QMetaObject* KNSCore__Question_MetaObject(const KNSCore__Question* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknscore__question = dynamic_cast<const VirtualKNSCoreQuestion*>(self);
+    if (vknscore__question && vknscore__question->isVirtualKNSCoreQuestion) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNSCoreQuestion*)self)->metaObject();
+    }
 }
 
 void* KNSCore__Question_Metacast(KNSCore__Question* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknscore__question = dynamic_cast<VirtualKNSCoreQuestion*>(self);
+    if (vknscore__question && vknscore__question->isVirtualKNSCoreQuestion) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNSCoreQuestion*)self)->qt_metacast(param1);
+    }
 }
 
 int KNSCore__Question_Metacall(KNSCore__Question* self, int param1, int param2, void** param3) {
@@ -152,6 +162,44 @@ libqt_string KNSCore__Question_Response(const KNSCore__Question* self) {
 
 void KNSCore__Question_SetQuestionType1(KNSCore__Question* self, int newType) {
     self->setQuestionType(static_cast<KNSCore::Question::QuestionType>(newType));
+}
+
+// Base class handler implementation
+QMetaObject* KNSCore__Question_QBaseMetaObject(const KNSCore__Question* self) {
+    auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+        vknscorequestion->setKNSCore__Question_MetaObject_IsBase(true);
+        return (QMetaObject*)vknscorequestion->metaObject();
+    } else {
+        return (QMetaObject*)self->KNSCore::Question::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__Question_OnMetaObject(const KNSCore__Question* self, intptr_t slot) {
+    auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+        vknscorequestion->setKNSCore__Question_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNSCore__Question_QBaseMetacast(KNSCore__Question* self, const char* param1) {
+    auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+        vknscorequestion->setKNSCore__Question_Metacast_IsBase(true);
+        return vknscorequestion->qt_metacast(param1);
+    } else {
+        return self->KNSCore::Question::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__Question_OnMetacast(KNSCore__Question* self, intptr_t slot) {
+    auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+        vknscorequestion->setKNSCore__Question_Metacast_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

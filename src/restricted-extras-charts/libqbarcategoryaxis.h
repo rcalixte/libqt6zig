@@ -56,6 +56,10 @@ void QBarCategoryAxis_RangeChanged(QBarCategoryAxis* self, const libqt_string mi
 void QBarCategoryAxis_Connect_RangeChanged(QBarCategoryAxis* self, intptr_t slot);
 void QBarCategoryAxis_CountChanged(QBarCategoryAxis* self);
 void QBarCategoryAxis_Connect_CountChanged(QBarCategoryAxis* self, intptr_t slot);
+void QBarCategoryAxis_OnMetaObject(const QBarCategoryAxis* self, intptr_t slot);
+QMetaObject* QBarCategoryAxis_QBaseMetaObject(const QBarCategoryAxis* self);
+void QBarCategoryAxis_OnMetacast(QBarCategoryAxis* self, intptr_t slot);
+void* QBarCategoryAxis_QBaseMetacast(QBarCategoryAxis* self, const char* param1);
 void QBarCategoryAxis_OnMetacall(QBarCategoryAxis* self, intptr_t slot);
 int QBarCategoryAxis_QBaseMetacall(QBarCategoryAxis* self, int param1, int param2, void** param3);
 void QBarCategoryAxis_OnType(const QBarCategoryAxis* self, intptr_t slot);

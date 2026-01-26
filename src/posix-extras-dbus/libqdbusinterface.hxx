@@ -17,6 +17,8 @@ class VirtualQDBusInterface final : public QDBusInterface {
     bool isVirtualQDBusInterface = true;
 
     // Virtual class public types (including callbacks)
+    using QDBusInterface_MetaObject_Callback = QMetaObject* (*)();
+    using QDBusInterface_Metacast_Callback = void* (*)(QDBusInterface*, const char*);
     using QDBusInterface_Metacall_Callback = int (*)(QDBusInterface*, int, int, void**);
     using QDBusInterface_ConnectNotify_Callback = void (*)(QDBusInterface*, QMetaMethod*);
     using QDBusInterface_DisconnectNotify_Callback = void (*)(QDBusInterface*, QMetaMethod*);
@@ -35,6 +37,8 @@ class VirtualQDBusInterface final : public QDBusInterface {
 
   protected:
     // Instance callback storage
+    QDBusInterface_MetaObject_Callback qdbusinterface_metaobject_callback = nullptr;
+    QDBusInterface_Metacast_Callback qdbusinterface_metacast_callback = nullptr;
     QDBusInterface_Metacall_Callback qdbusinterface_metacall_callback = nullptr;
     QDBusInterface_ConnectNotify_Callback qdbusinterface_connectnotify_callback = nullptr;
     QDBusInterface_DisconnectNotify_Callback qdbusinterface_disconnectnotify_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualQDBusInterface final : public QDBusInterface {
     QDBusInterface_IsSignalConnected_Callback qdbusinterface_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdbusinterface_metaobject_isbase = false;
+    mutable bool qdbusinterface_metacast_isbase = false;
     mutable bool qdbusinterface_metacall_isbase = false;
     mutable bool qdbusinterface_connectnotify_isbase = false;
     mutable bool qdbusinterface_disconnectnotify_isbase = false;
@@ -75,6 +81,8 @@ class VirtualQDBusInterface final : public QDBusInterface {
     VirtualQDBusInterface(const QString& service, const QString& path, const QString& interface, const QDBusConnection& connection, QObject* parent) : QDBusInterface(service, path, interface, connection, parent) {};
 
     ~VirtualQDBusInterface() {
+        qdbusinterface_metaobject_callback = nullptr;
+        qdbusinterface_metacast_callback = nullptr;
         qdbusinterface_metacall_callback = nullptr;
         qdbusinterface_connectnotify_callback = nullptr;
         qdbusinterface_disconnectnotify_callback = nullptr;
@@ -93,6 +101,8 @@ class VirtualQDBusInterface final : public QDBusInterface {
     }
 
     // Callback setters
+    inline void setQDBusInterface_MetaObject_Callback(QDBusInterface_MetaObject_Callback cb) { qdbusinterface_metaobject_callback = cb; }
+    inline void setQDBusInterface_Metacast_Callback(QDBusInterface_Metacast_Callback cb) { qdbusinterface_metacast_callback = cb; }
     inline void setQDBusInterface_Metacall_Callback(QDBusInterface_Metacall_Callback cb) { qdbusinterface_metacall_callback = cb; }
     inline void setQDBusInterface_ConnectNotify_Callback(QDBusInterface_ConnectNotify_Callback cb) { qdbusinterface_connectnotify_callback = cb; }
     inline void setQDBusInterface_DisconnectNotify_Callback(QDBusInterface_DisconnectNotify_Callback cb) { qdbusinterface_disconnectnotify_callback = cb; }
@@ -110,6 +120,8 @@ class VirtualQDBusInterface final : public QDBusInterface {
     inline void setQDBusInterface_IsSignalConnected_Callback(QDBusInterface_IsSignalConnected_Callback cb) { qdbusinterface_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDBusInterface_MetaObject_IsBase(bool value) const { qdbusinterface_metaobject_isbase = value; }
+    inline void setQDBusInterface_Metacast_IsBase(bool value) const { qdbusinterface_metacast_isbase = value; }
     inline void setQDBusInterface_Metacall_IsBase(bool value) const { qdbusinterface_metacall_isbase = value; }
     inline void setQDBusInterface_ConnectNotify_IsBase(bool value) const { qdbusinterface_connectnotify_isbase = value; }
     inline void setQDBusInterface_DisconnectNotify_IsBase(bool value) const { qdbusinterface_disconnectnotify_isbase = value; }
@@ -125,6 +137,34 @@ class VirtualQDBusInterface final : public QDBusInterface {
     inline void setQDBusInterface_SenderSignalIndex_IsBase(bool value) const { qdbusinterface_sendersignalindex_isbase = value; }
     inline void setQDBusInterface_Receivers_IsBase(bool value) const { qdbusinterface_receivers_isbase = value; }
     inline void setQDBusInterface_IsSignalConnected_IsBase(bool value) const { qdbusinterface_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdbusinterface_metaobject_isbase) {
+            qdbusinterface_metaobject_isbase = false;
+            return QDBusInterface::metaObject();
+        } else if (qdbusinterface_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdbusinterface_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDBusInterface::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdbusinterface_metacast_isbase) {
+            qdbusinterface_metacast_isbase = false;
+            return QDBusInterface::qt_metacast(param1);
+        } else if (qdbusinterface_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdbusinterface_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDBusInterface::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

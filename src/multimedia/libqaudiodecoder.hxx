@@ -17,6 +17,8 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
     bool isVirtualQAudioDecoder = true;
 
     // Virtual class public types (including callbacks)
+    using QAudioDecoder_MetaObject_Callback = QMetaObject* (*)();
+    using QAudioDecoder_Metacast_Callback = void* (*)(QAudioDecoder*, const char*);
     using QAudioDecoder_Metacall_Callback = int (*)(QAudioDecoder*, int, int, void**);
     using QAudioDecoder_Event_Callback = bool (*)(QAudioDecoder*, QEvent*);
     using QAudioDecoder_EventFilter_Callback = bool (*)(QAudioDecoder*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
 
   protected:
     // Instance callback storage
+    QAudioDecoder_MetaObject_Callback qaudiodecoder_metaobject_callback = nullptr;
+    QAudioDecoder_Metacast_Callback qaudiodecoder_metacast_callback = nullptr;
     QAudioDecoder_Metacall_Callback qaudiodecoder_metacall_callback = nullptr;
     QAudioDecoder_Event_Callback qaudiodecoder_event_callback = nullptr;
     QAudioDecoder_EventFilter_Callback qaudiodecoder_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
     QAudioDecoder_IsSignalConnected_Callback qaudiodecoder_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qaudiodecoder_metaobject_isbase = false;
+    mutable bool qaudiodecoder_metacast_isbase = false;
     mutable bool qaudiodecoder_metacall_isbase = false;
     mutable bool qaudiodecoder_event_isbase = false;
     mutable bool qaudiodecoder_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
     VirtualQAudioDecoder(QObject* parent) : QAudioDecoder(parent) {};
 
     ~VirtualQAudioDecoder() {
+        qaudiodecoder_metaobject_callback = nullptr;
+        qaudiodecoder_metacast_callback = nullptr;
         qaudiodecoder_metacall_callback = nullptr;
         qaudiodecoder_event_callback = nullptr;
         qaudiodecoder_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
     }
 
     // Callback setters
+    inline void setQAudioDecoder_MetaObject_Callback(QAudioDecoder_MetaObject_Callback cb) { qaudiodecoder_metaobject_callback = cb; }
+    inline void setQAudioDecoder_Metacast_Callback(QAudioDecoder_Metacast_Callback cb) { qaudiodecoder_metacast_callback = cb; }
     inline void setQAudioDecoder_Metacall_Callback(QAudioDecoder_Metacall_Callback cb) { qaudiodecoder_metacall_callback = cb; }
     inline void setQAudioDecoder_Event_Callback(QAudioDecoder_Event_Callback cb) { qaudiodecoder_event_callback = cb; }
     inline void setQAudioDecoder_EventFilter_Callback(QAudioDecoder_EventFilter_Callback cb) { qaudiodecoder_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
     inline void setQAudioDecoder_IsSignalConnected_Callback(QAudioDecoder_IsSignalConnected_Callback cb) { qaudiodecoder_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAudioDecoder_MetaObject_IsBase(bool value) const { qaudiodecoder_metaobject_isbase = value; }
+    inline void setQAudioDecoder_Metacast_IsBase(bool value) const { qaudiodecoder_metacast_isbase = value; }
     inline void setQAudioDecoder_Metacall_IsBase(bool value) const { qaudiodecoder_metacall_isbase = value; }
     inline void setQAudioDecoder_Event_IsBase(bool value) const { qaudiodecoder_event_isbase = value; }
     inline void setQAudioDecoder_EventFilter_IsBase(bool value) const { qaudiodecoder_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
     inline void setQAudioDecoder_SenderSignalIndex_IsBase(bool value) const { qaudiodecoder_sendersignalindex_isbase = value; }
     inline void setQAudioDecoder_Receivers_IsBase(bool value) const { qaudiodecoder_receivers_isbase = value; }
     inline void setQAudioDecoder_IsSignalConnected_IsBase(bool value) const { qaudiodecoder_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qaudiodecoder_metaobject_isbase) {
+            qaudiodecoder_metaobject_isbase = false;
+            return QAudioDecoder::metaObject();
+        } else if (qaudiodecoder_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qaudiodecoder_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAudioDecoder::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qaudiodecoder_metacast_isbase) {
+            qaudiodecoder_metacast_isbase = false;
+            return QAudioDecoder::qt_metacast(param1);
+        } else if (qaudiodecoder_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qaudiodecoder_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAudioDecoder::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

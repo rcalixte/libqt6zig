@@ -17,6 +17,8 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
     bool isVirtualQPrintPreviewDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QPrintPreviewDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QPrintPreviewDialog_Metacast_Callback = void* (*)(QPrintPreviewDialog*, const char*);
     using QPrintPreviewDialog_Metacall_Callback = int (*)(QPrintPreviewDialog*, int, int, void**);
     using QPrintPreviewDialog_SetVisible_Callback = void (*)(QPrintPreviewDialog*, bool);
     using QPrintPreviewDialog_Done_Callback = void (*)(QPrintPreviewDialog*, int);
@@ -84,6 +86,8 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
 
   protected:
     // Instance callback storage
+    QPrintPreviewDialog_MetaObject_Callback qprintpreviewdialog_metaobject_callback = nullptr;
+    QPrintPreviewDialog_Metacast_Callback qprintpreviewdialog_metacast_callback = nullptr;
     QPrintPreviewDialog_Metacall_Callback qprintpreviewdialog_metacall_callback = nullptr;
     QPrintPreviewDialog_SetVisible_Callback qprintpreviewdialog_setvisible_callback = nullptr;
     QPrintPreviewDialog_Done_Callback qprintpreviewdialog_done_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
     QPrintPreviewDialog_GetDecodedMetricF_Callback qprintpreviewdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qprintpreviewdialog_metaobject_isbase = false;
+    mutable bool qprintpreviewdialog_metacast_isbase = false;
     mutable bool qprintpreviewdialog_metacall_isbase = false;
     mutable bool qprintpreviewdialog_setvisible_isbase = false;
     mutable bool qprintpreviewdialog_done_isbase = false;
@@ -224,6 +230,8 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
     VirtualQPrintPreviewDialog(QPrinter* printer, QWidget* parent, Qt::WindowFlags flags) : QPrintPreviewDialog(printer, parent, flags) {};
 
     ~VirtualQPrintPreviewDialog() {
+        qprintpreviewdialog_metaobject_callback = nullptr;
+        qprintpreviewdialog_metacast_callback = nullptr;
         qprintpreviewdialog_metacall_callback = nullptr;
         qprintpreviewdialog_setvisible_callback = nullptr;
         qprintpreviewdialog_done_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
     }
 
     // Callback setters
+    inline void setQPrintPreviewDialog_MetaObject_Callback(QPrintPreviewDialog_MetaObject_Callback cb) { qprintpreviewdialog_metaobject_callback = cb; }
+    inline void setQPrintPreviewDialog_Metacast_Callback(QPrintPreviewDialog_Metacast_Callback cb) { qprintpreviewdialog_metacast_callback = cb; }
     inline void setQPrintPreviewDialog_Metacall_Callback(QPrintPreviewDialog_Metacall_Callback cb) { qprintpreviewdialog_metacall_callback = cb; }
     inline void setQPrintPreviewDialog_SetVisible_Callback(QPrintPreviewDialog_SetVisible_Callback cb) { qprintpreviewdialog_setvisible_callback = cb; }
     inline void setQPrintPreviewDialog_Done_Callback(QPrintPreviewDialog_Done_Callback cb) { qprintpreviewdialog_done_callback = cb; }
@@ -357,6 +367,8 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
     inline void setQPrintPreviewDialog_GetDecodedMetricF_Callback(QPrintPreviewDialog_GetDecodedMetricF_Callback cb) { qprintpreviewdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQPrintPreviewDialog_MetaObject_IsBase(bool value) const { qprintpreviewdialog_metaobject_isbase = value; }
+    inline void setQPrintPreviewDialog_Metacast_IsBase(bool value) const { qprintpreviewdialog_metacast_isbase = value; }
     inline void setQPrintPreviewDialog_Metacall_IsBase(bool value) const { qprintpreviewdialog_metacall_isbase = value; }
     inline void setQPrintPreviewDialog_SetVisible_IsBase(bool value) const { qprintpreviewdialog_setvisible_isbase = value; }
     inline void setQPrintPreviewDialog_Done_IsBase(bool value) const { qprintpreviewdialog_done_isbase = value; }
@@ -421,6 +433,34 @@ class VirtualQPrintPreviewDialog final : public QPrintPreviewDialog {
     inline void setQPrintPreviewDialog_Receivers_IsBase(bool value) const { qprintpreviewdialog_receivers_isbase = value; }
     inline void setQPrintPreviewDialog_IsSignalConnected_IsBase(bool value) const { qprintpreviewdialog_issignalconnected_isbase = value; }
     inline void setQPrintPreviewDialog_GetDecodedMetricF_IsBase(bool value) const { qprintpreviewdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qprintpreviewdialog_metaobject_isbase) {
+            qprintpreviewdialog_metaobject_isbase = false;
+            return QPrintPreviewDialog::metaObject();
+        } else if (qprintpreviewdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qprintpreviewdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPrintPreviewDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qprintpreviewdialog_metacast_isbase) {
+            qprintpreviewdialog_metacast_isbase = false;
+            return QPrintPreviewDialog::qt_metacast(param1);
+        } else if (qprintpreviewdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qprintpreviewdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPrintPreviewDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

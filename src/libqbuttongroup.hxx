@@ -17,6 +17,8 @@ class VirtualQButtonGroup final : public QButtonGroup {
     bool isVirtualQButtonGroup = true;
 
     // Virtual class public types (including callbacks)
+    using QButtonGroup_MetaObject_Callback = QMetaObject* (*)();
+    using QButtonGroup_Metacast_Callback = void* (*)(QButtonGroup*, const char*);
     using QButtonGroup_Metacall_Callback = int (*)(QButtonGroup*, int, int, void**);
     using QButtonGroup_Event_Callback = bool (*)(QButtonGroup*, QEvent*);
     using QButtonGroup_EventFilter_Callback = bool (*)(QButtonGroup*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQButtonGroup final : public QButtonGroup {
 
   protected:
     // Instance callback storage
+    QButtonGroup_MetaObject_Callback qbuttongroup_metaobject_callback = nullptr;
+    QButtonGroup_Metacast_Callback qbuttongroup_metacast_callback = nullptr;
     QButtonGroup_Metacall_Callback qbuttongroup_metacall_callback = nullptr;
     QButtonGroup_Event_Callback qbuttongroup_event_callback = nullptr;
     QButtonGroup_EventFilter_Callback qbuttongroup_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQButtonGroup final : public QButtonGroup {
     QButtonGroup_IsSignalConnected_Callback qbuttongroup_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qbuttongroup_metaobject_isbase = false;
+    mutable bool qbuttongroup_metacast_isbase = false;
     mutable bool qbuttongroup_metacall_isbase = false;
     mutable bool qbuttongroup_event_isbase = false;
     mutable bool qbuttongroup_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQButtonGroup final : public QButtonGroup {
     VirtualQButtonGroup(QObject* parent) : QButtonGroup(parent) {};
 
     ~VirtualQButtonGroup() {
+        qbuttongroup_metaobject_callback = nullptr;
+        qbuttongroup_metacast_callback = nullptr;
         qbuttongroup_metacall_callback = nullptr;
         qbuttongroup_event_callback = nullptr;
         qbuttongroup_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQButtonGroup final : public QButtonGroup {
     }
 
     // Callback setters
+    inline void setQButtonGroup_MetaObject_Callback(QButtonGroup_MetaObject_Callback cb) { qbuttongroup_metaobject_callback = cb; }
+    inline void setQButtonGroup_Metacast_Callback(QButtonGroup_Metacast_Callback cb) { qbuttongroup_metacast_callback = cb; }
     inline void setQButtonGroup_Metacall_Callback(QButtonGroup_Metacall_Callback cb) { qbuttongroup_metacall_callback = cb; }
     inline void setQButtonGroup_Event_Callback(QButtonGroup_Event_Callback cb) { qbuttongroup_event_callback = cb; }
     inline void setQButtonGroup_EventFilter_Callback(QButtonGroup_EventFilter_Callback cb) { qbuttongroup_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQButtonGroup final : public QButtonGroup {
     inline void setQButtonGroup_IsSignalConnected_Callback(QButtonGroup_IsSignalConnected_Callback cb) { qbuttongroup_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQButtonGroup_MetaObject_IsBase(bool value) const { qbuttongroup_metaobject_isbase = value; }
+    inline void setQButtonGroup_Metacast_IsBase(bool value) const { qbuttongroup_metacast_isbase = value; }
     inline void setQButtonGroup_Metacall_IsBase(bool value) const { qbuttongroup_metacall_isbase = value; }
     inline void setQButtonGroup_Event_IsBase(bool value) const { qbuttongroup_event_isbase = value; }
     inline void setQButtonGroup_EventFilter_IsBase(bool value) const { qbuttongroup_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQButtonGroup final : public QButtonGroup {
     inline void setQButtonGroup_SenderSignalIndex_IsBase(bool value) const { qbuttongroup_sendersignalindex_isbase = value; }
     inline void setQButtonGroup_Receivers_IsBase(bool value) const { qbuttongroup_receivers_isbase = value; }
     inline void setQButtonGroup_IsSignalConnected_IsBase(bool value) const { qbuttongroup_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qbuttongroup_metaobject_isbase) {
+            qbuttongroup_metaobject_isbase = false;
+            return QButtonGroup::metaObject();
+        } else if (qbuttongroup_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qbuttongroup_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QButtonGroup::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qbuttongroup_metacast_isbase) {
+            qbuttongroup_metacast_isbase = false;
+            return QButtonGroup::qt_metacast(param1);
+        } else if (qbuttongroup_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qbuttongroup_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QButtonGroup::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

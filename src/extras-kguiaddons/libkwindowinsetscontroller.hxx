@@ -17,6 +17,8 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
     bool isVirtualKWindowInsetsController = true;
 
     // Virtual class public types (including callbacks)
+    using KWindowInsetsController_MetaObject_Callback = QMetaObject* (*)();
+    using KWindowInsetsController_Metacast_Callback = void* (*)(KWindowInsetsController*, const char*);
     using KWindowInsetsController_Metacall_Callback = int (*)(KWindowInsetsController*, int, int, void**);
     using KWindowInsetsController_Event_Callback = bool (*)(KWindowInsetsController*, QEvent*);
     using KWindowInsetsController_EventFilter_Callback = bool (*)(KWindowInsetsController*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
 
   protected:
     // Instance callback storage
+    KWindowInsetsController_MetaObject_Callback kwindowinsetscontroller_metaobject_callback = nullptr;
+    KWindowInsetsController_Metacast_Callback kwindowinsetscontroller_metacast_callback = nullptr;
     KWindowInsetsController_Metacall_Callback kwindowinsetscontroller_metacall_callback = nullptr;
     KWindowInsetsController_Event_Callback kwindowinsetscontroller_event_callback = nullptr;
     KWindowInsetsController_EventFilter_Callback kwindowinsetscontroller_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
     KWindowInsetsController_IsSignalConnected_Callback kwindowinsetscontroller_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kwindowinsetscontroller_metaobject_isbase = false;
+    mutable bool kwindowinsetscontroller_metacast_isbase = false;
     mutable bool kwindowinsetscontroller_metacall_isbase = false;
     mutable bool kwindowinsetscontroller_event_isbase = false;
     mutable bool kwindowinsetscontroller_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
     VirtualKWindowInsetsController(QObject* parent) : KWindowInsetsController(parent) {};
 
     ~VirtualKWindowInsetsController() {
+        kwindowinsetscontroller_metaobject_callback = nullptr;
+        kwindowinsetscontroller_metacast_callback = nullptr;
         kwindowinsetscontroller_metacall_callback = nullptr;
         kwindowinsetscontroller_event_callback = nullptr;
         kwindowinsetscontroller_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
     }
 
     // Callback setters
+    inline void setKWindowInsetsController_MetaObject_Callback(KWindowInsetsController_MetaObject_Callback cb) { kwindowinsetscontroller_metaobject_callback = cb; }
+    inline void setKWindowInsetsController_Metacast_Callback(KWindowInsetsController_Metacast_Callback cb) { kwindowinsetscontroller_metacast_callback = cb; }
     inline void setKWindowInsetsController_Metacall_Callback(KWindowInsetsController_Metacall_Callback cb) { kwindowinsetscontroller_metacall_callback = cb; }
     inline void setKWindowInsetsController_Event_Callback(KWindowInsetsController_Event_Callback cb) { kwindowinsetscontroller_event_callback = cb; }
     inline void setKWindowInsetsController_EventFilter_Callback(KWindowInsetsController_EventFilter_Callback cb) { kwindowinsetscontroller_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
     inline void setKWindowInsetsController_IsSignalConnected_Callback(KWindowInsetsController_IsSignalConnected_Callback cb) { kwindowinsetscontroller_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKWindowInsetsController_MetaObject_IsBase(bool value) const { kwindowinsetscontroller_metaobject_isbase = value; }
+    inline void setKWindowInsetsController_Metacast_IsBase(bool value) const { kwindowinsetscontroller_metacast_isbase = value; }
     inline void setKWindowInsetsController_Metacall_IsBase(bool value) const { kwindowinsetscontroller_metacall_isbase = value; }
     inline void setKWindowInsetsController_Event_IsBase(bool value) const { kwindowinsetscontroller_event_isbase = value; }
     inline void setKWindowInsetsController_EventFilter_IsBase(bool value) const { kwindowinsetscontroller_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKWindowInsetsController final : public KWindowInsetsController {
     inline void setKWindowInsetsController_SenderSignalIndex_IsBase(bool value) const { kwindowinsetscontroller_sendersignalindex_isbase = value; }
     inline void setKWindowInsetsController_Receivers_IsBase(bool value) const { kwindowinsetscontroller_receivers_isbase = value; }
     inline void setKWindowInsetsController_IsSignalConnected_IsBase(bool value) const { kwindowinsetscontroller_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kwindowinsetscontroller_metaobject_isbase) {
+            kwindowinsetscontroller_metaobject_isbase = false;
+            return KWindowInsetsController::metaObject();
+        } else if (kwindowinsetscontroller_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kwindowinsetscontroller_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KWindowInsetsController::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kwindowinsetscontroller_metacast_isbase) {
+            kwindowinsetscontroller_metacast_isbase = false;
+            return KWindowInsetsController::qt_metacast(param1);
+        } else if (kwindowinsetscontroller_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kwindowinsetscontroller_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KWindowInsetsController::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

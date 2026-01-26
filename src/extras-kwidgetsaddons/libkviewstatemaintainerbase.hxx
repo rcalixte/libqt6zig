@@ -17,6 +17,8 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
     bool isVirtualKViewStateMaintainerBase = true;
 
     // Virtual class public types (including callbacks)
+    using KViewStateMaintainerBase_MetaObject_Callback = QMetaObject* (*)();
+    using KViewStateMaintainerBase_Metacast_Callback = void* (*)(KViewStateMaintainerBase*, const char*);
     using KViewStateMaintainerBase_Metacall_Callback = int (*)(KViewStateMaintainerBase*, int, int, void**);
     using KViewStateMaintainerBase_SaveState_Callback = void (*)();
     using KViewStateMaintainerBase_RestoreState_Callback = void (*)();
@@ -34,6 +36,8 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
 
   protected:
     // Instance callback storage
+    KViewStateMaintainerBase_MetaObject_Callback kviewstatemaintainerbase_metaobject_callback = nullptr;
+    KViewStateMaintainerBase_Metacast_Callback kviewstatemaintainerbase_metacast_callback = nullptr;
     KViewStateMaintainerBase_Metacall_Callback kviewstatemaintainerbase_metacall_callback = nullptr;
     KViewStateMaintainerBase_SaveState_Callback kviewstatemaintainerbase_savestate_callback = nullptr;
     KViewStateMaintainerBase_RestoreState_Callback kviewstatemaintainerbase_restorestate_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
     KViewStateMaintainerBase_IsSignalConnected_Callback kviewstatemaintainerbase_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kviewstatemaintainerbase_metaobject_isbase = false;
+    mutable bool kviewstatemaintainerbase_metacast_isbase = false;
     mutable bool kviewstatemaintainerbase_metacall_isbase = false;
     mutable bool kviewstatemaintainerbase_savestate_isbase = false;
     mutable bool kviewstatemaintainerbase_restorestate_isbase = false;
@@ -70,6 +76,8 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
     VirtualKViewStateMaintainerBase(QObject* parent) : KViewStateMaintainerBase(parent) {};
 
     ~VirtualKViewStateMaintainerBase() {
+        kviewstatemaintainerbase_metaobject_callback = nullptr;
+        kviewstatemaintainerbase_metacast_callback = nullptr;
         kviewstatemaintainerbase_metacall_callback = nullptr;
         kviewstatemaintainerbase_savestate_callback = nullptr;
         kviewstatemaintainerbase_restorestate_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
     }
 
     // Callback setters
+    inline void setKViewStateMaintainerBase_MetaObject_Callback(KViewStateMaintainerBase_MetaObject_Callback cb) { kviewstatemaintainerbase_metaobject_callback = cb; }
+    inline void setKViewStateMaintainerBase_Metacast_Callback(KViewStateMaintainerBase_Metacast_Callback cb) { kviewstatemaintainerbase_metacast_callback = cb; }
     inline void setKViewStateMaintainerBase_Metacall_Callback(KViewStateMaintainerBase_Metacall_Callback cb) { kviewstatemaintainerbase_metacall_callback = cb; }
     inline void setKViewStateMaintainerBase_SaveState_Callback(KViewStateMaintainerBase_SaveState_Callback cb) { kviewstatemaintainerbase_savestate_callback = cb; }
     inline void setKViewStateMaintainerBase_RestoreState_Callback(KViewStateMaintainerBase_RestoreState_Callback cb) { kviewstatemaintainerbase_restorestate_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
     inline void setKViewStateMaintainerBase_IsSignalConnected_Callback(KViewStateMaintainerBase_IsSignalConnected_Callback cb) { kviewstatemaintainerbase_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKViewStateMaintainerBase_MetaObject_IsBase(bool value) const { kviewstatemaintainerbase_metaobject_isbase = value; }
+    inline void setKViewStateMaintainerBase_Metacast_IsBase(bool value) const { kviewstatemaintainerbase_metacast_isbase = value; }
     inline void setKViewStateMaintainerBase_Metacall_IsBase(bool value) const { kviewstatemaintainerbase_metacall_isbase = value; }
     inline void setKViewStateMaintainerBase_SaveState_IsBase(bool value) const { kviewstatemaintainerbase_savestate_isbase = value; }
     inline void setKViewStateMaintainerBase_RestoreState_IsBase(bool value) const { kviewstatemaintainerbase_restorestate_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
     inline void setKViewStateMaintainerBase_SenderSignalIndex_IsBase(bool value) const { kviewstatemaintainerbase_sendersignalindex_isbase = value; }
     inline void setKViewStateMaintainerBase_Receivers_IsBase(bool value) const { kviewstatemaintainerbase_receivers_isbase = value; }
     inline void setKViewStateMaintainerBase_IsSignalConnected_IsBase(bool value) const { kviewstatemaintainerbase_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kviewstatemaintainerbase_metaobject_isbase) {
+            kviewstatemaintainerbase_metaobject_isbase = false;
+            return KViewStateMaintainerBase::metaObject();
+        } else if (kviewstatemaintainerbase_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kviewstatemaintainerbase_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KViewStateMaintainerBase::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kviewstatemaintainerbase_metacast_isbase) {
+            kviewstatemaintainerbase_metacast_isbase = false;
+            return KViewStateMaintainerBase::qt_metacast(param1);
+        } else if (kviewstatemaintainerbase_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kviewstatemaintainerbase_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KViewStateMaintainerBase::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

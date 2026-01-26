@@ -55,11 +55,21 @@ QStringListModel* QStringListModel_new4(const libqt_list /* of libqt_string */ s
 }
 
 QMetaObject* QStringListModel_MetaObject(const QStringListModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqstringlistmodel = dynamic_cast<const VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQStringListModel*)self)->metaObject();
+    }
 }
 
 void* QStringListModel_Metacast(QStringListModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQStringListModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QStringListModel_Metacall(QStringListModel* self, int param1, int param2, void** param3) {
@@ -251,6 +261,44 @@ int QStringListModel_SupportedDropActions(const QStringListModel* self) {
         return static_cast<int>(self->supportedDropActions());
     } else {
         return static_cast<int>(((VirtualQStringListModel*)self)->supportedDropActions());
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QStringListModel_QBaseMetaObject(const QStringListModel* self) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqstringlistmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QStringListModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnMetaObject(const QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_MetaObject_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QStringListModel_QBaseMetacast(QStringListModel* self, const char* param1) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Metacast_IsBase(true);
+        return vqstringlistmodel->qt_metacast(param1);
+    } else {
+        return self->QStringListModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStringListModel_OnMetacast(QStringListModel* self, intptr_t slot) {
+    auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+        vqstringlistmodel->setQStringListModel_Metacast_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Metacast_Callback>(slot));
     }
 }
 

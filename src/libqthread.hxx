@@ -17,6 +17,8 @@ class VirtualQThread final : public QThread {
     bool isVirtualQThread = true;
 
     // Virtual class public types (including callbacks)
+    using QThread_MetaObject_Callback = QMetaObject* (*)();
+    using QThread_Metacast_Callback = void* (*)(QThread*, const char*);
     using QThread_Metacall_Callback = int (*)(QThread*, int, int, void**);
     using QThread_Event_Callback = bool (*)(QThread*, QEvent*);
     using QThread_Run_Callback = void (*)();
@@ -34,6 +36,8 @@ class VirtualQThread final : public QThread {
 
   protected:
     // Instance callback storage
+    QThread_MetaObject_Callback qthread_metaobject_callback = nullptr;
+    QThread_Metacast_Callback qthread_metacast_callback = nullptr;
     QThread_Metacall_Callback qthread_metacall_callback = nullptr;
     QThread_Event_Callback qthread_event_callback = nullptr;
     QThread_Run_Callback qthread_run_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQThread final : public QThread {
     QThread_IsSignalConnected_Callback qthread_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qthread_metaobject_isbase = false;
+    mutable bool qthread_metacast_isbase = false;
     mutable bool qthread_metacall_isbase = false;
     mutable bool qthread_event_isbase = false;
     mutable bool qthread_run_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQThread final : public QThread {
     VirtualQThread(QObject* parent) : QThread(parent) {};
 
     ~VirtualQThread() {
+        qthread_metaobject_callback = nullptr;
+        qthread_metacast_callback = nullptr;
         qthread_metacall_callback = nullptr;
         qthread_event_callback = nullptr;
         qthread_run_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQThread final : public QThread {
     }
 
     // Callback setters
+    inline void setQThread_MetaObject_Callback(QThread_MetaObject_Callback cb) { qthread_metaobject_callback = cb; }
+    inline void setQThread_Metacast_Callback(QThread_Metacast_Callback cb) { qthread_metacast_callback = cb; }
     inline void setQThread_Metacall_Callback(QThread_Metacall_Callback cb) { qthread_metacall_callback = cb; }
     inline void setQThread_Event_Callback(QThread_Event_Callback cb) { qthread_event_callback = cb; }
     inline void setQThread_Run_Callback(QThread_Run_Callback cb) { qthread_run_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQThread final : public QThread {
     inline void setQThread_IsSignalConnected_Callback(QThread_IsSignalConnected_Callback cb) { qthread_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQThread_MetaObject_IsBase(bool value) const { qthread_metaobject_isbase = value; }
+    inline void setQThread_Metacast_IsBase(bool value) const { qthread_metacast_isbase = value; }
     inline void setQThread_Metacall_IsBase(bool value) const { qthread_metacall_isbase = value; }
     inline void setQThread_Event_IsBase(bool value) const { qthread_event_isbase = value; }
     inline void setQThread_Run_IsBase(bool value) const { qthread_run_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQThread final : public QThread {
     inline void setQThread_SenderSignalIndex_IsBase(bool value) const { qthread_sendersignalindex_isbase = value; }
     inline void setQThread_Receivers_IsBase(bool value) const { qthread_receivers_isbase = value; }
     inline void setQThread_IsSignalConnected_IsBase(bool value) const { qthread_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qthread_metaobject_isbase) {
+            qthread_metaobject_isbase = false;
+            return QThread::metaObject();
+        } else if (qthread_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qthread_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QThread::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qthread_metacast_isbase) {
+            qthread_metacast_isbase = false;
+            return QThread::qt_metacast(param1);
+        } else if (qthread_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qthread_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QThread::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

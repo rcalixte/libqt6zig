@@ -59,6 +59,10 @@ void KTextEditor__CodeCompletionModel_WaitForReset(KTextEditor__CodeCompletionMo
 void KTextEditor__CodeCompletionModel_Connect_WaitForReset(KTextEditor__CodeCompletionModel* self, intptr_t slot);
 void KTextEditor__CodeCompletionModel_HasGroupsChanged(KTextEditor__CodeCompletionModel* self, KTextEditor__CodeCompletionModel* model, bool hasGroups);
 void KTextEditor__CodeCompletionModel_Connect_HasGroupsChanged(KTextEditor__CodeCompletionModel* self, intptr_t slot);
+void KTextEditor__CodeCompletionModel_OnMetaObject(const KTextEditor__CodeCompletionModel* self, intptr_t slot);
+QMetaObject* KTextEditor__CodeCompletionModel_QBaseMetaObject(const KTextEditor__CodeCompletionModel* self);
+void KTextEditor__CodeCompletionModel_OnMetacast(KTextEditor__CodeCompletionModel* self, intptr_t slot);
+void* KTextEditor__CodeCompletionModel_QBaseMetacast(KTextEditor__CodeCompletionModel* self, const char* param1);
 void KTextEditor__CodeCompletionModel_OnMetacall(KTextEditor__CodeCompletionModel* self, intptr_t slot);
 int KTextEditor__CodeCompletionModel_QBaseMetacall(KTextEditor__CodeCompletionModel* self, int param1, int param2, void** param3);
 void KTextEditor__CodeCompletionModel_OnCompletionInvoked(KTextEditor__CodeCompletionModel* self, intptr_t slot);

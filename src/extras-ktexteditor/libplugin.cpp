@@ -20,11 +20,21 @@ KTextEditor__Plugin* KTextEditor__Plugin_new(QObject* parent) {
 }
 
 QMetaObject* KTextEditor__Plugin_MetaObject(const KTextEditor__Plugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktexteditor__plugin = dynamic_cast<const VirtualKTextEditorPlugin*>(self);
+    if (vktexteditor__plugin && vktexteditor__plugin->isVirtualKTextEditorPlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTextEditorPlugin*)self)->metaObject();
+    }
 }
 
 void* KTextEditor__Plugin_Metacast(KTextEditor__Plugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktexteditor__plugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
+    if (vktexteditor__plugin && vktexteditor__plugin->isVirtualKTextEditorPlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTextEditorPlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int KTextEditor__Plugin_Metacall(KTextEditor__Plugin* self, int param1, int param2, void** param3) {
@@ -60,6 +70,44 @@ KTextEditor__ConfigPage* KTextEditor__Plugin_ConfigPage(KTextEditor__Plugin* sel
         return self->configPage(static_cast<int>(number), parent);
     } else {
         return ((VirtualKTextEditorPlugin*)self)->configPage(static_cast<int>(number), parent);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KTextEditor__Plugin_QBaseMetaObject(const KTextEditor__Plugin* self) {
+    auto* vktexteditorplugin = const_cast<VirtualKTextEditorPlugin*>(dynamic_cast<const VirtualKTextEditorPlugin*>(self));
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+        vktexteditorplugin->setKTextEditor__Plugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vktexteditorplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->KTextEditor::Plugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__Plugin_OnMetaObject(const KTextEditor__Plugin* self, intptr_t slot) {
+    auto* vktexteditorplugin = const_cast<VirtualKTextEditorPlugin*>(dynamic_cast<const VirtualKTextEditorPlugin*>(self));
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+        vktexteditorplugin->setKTextEditor__Plugin_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTextEditor__Plugin_QBaseMetacast(KTextEditor__Plugin* self, const char* param1) {
+    auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+        vktexteditorplugin->setKTextEditor__Plugin_Metacast_IsBase(true);
+        return vktexteditorplugin->qt_metacast(param1);
+    } else {
+        return self->KTextEditor::Plugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__Plugin_OnMetacast(KTextEditor__Plugin* self, intptr_t slot) {
+    auto* vktexteditorplugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
+    if (vktexteditorplugin && vktexteditorplugin->isVirtualKTextEditorPlugin) {
+        vktexteditorplugin->setKTextEditor__Plugin_Metacast_Callback(reinterpret_cast<VirtualKTextEditorPlugin::KTextEditor__Plugin_Metacast_Callback>(slot));
     }
 }
 

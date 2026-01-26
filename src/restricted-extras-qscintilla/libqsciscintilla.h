@@ -377,6 +377,10 @@ void QsciScintilla_SetMarkerBackgroundColor2(QsciScintilla* self, const QColor* 
 void QsciScintilla_SetMarkerForegroundColor2(QsciScintilla* self, const QColor* col, int markerNumber);
 void QsciScintilla_SetWrapVisualFlags2(QsciScintilla* self, int endFlag, int startFlag);
 void QsciScintilla_SetWrapVisualFlags3(QsciScintilla* self, int endFlag, int startFlag, int indent);
+void QsciScintilla_OnMetaObject(const QsciScintilla* self, intptr_t slot);
+QMetaObject* QsciScintilla_QBaseMetaObject(const QsciScintilla* self);
+void QsciScintilla_OnMetacast(QsciScintilla* self, intptr_t slot);
+void* QsciScintilla_QBaseMetacast(QsciScintilla* self, const char* param1);
 void QsciScintilla_OnMetacall(QsciScintilla* self, intptr_t slot);
 int QsciScintilla_QBaseMetacall(QsciScintilla* self, int param1, int param2, void** param3);
 void QsciScintilla_OnApiContext(QsciScintilla* self, intptr_t slot);

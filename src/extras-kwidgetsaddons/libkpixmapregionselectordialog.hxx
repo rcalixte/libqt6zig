@@ -17,6 +17,8 @@ class VirtualKPixmapRegionSelectorDialog final : public KPixmapRegionSelectorDia
     bool isVirtualKPixmapRegionSelectorDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KPixmapRegionSelectorDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KPixmapRegionSelectorDialog_Metacast_Callback = void* (*)(KPixmapRegionSelectorDialog*, const char*);
     using KPixmapRegionSelectorDialog_Metacall_Callback = int (*)(KPixmapRegionSelectorDialog*, int, int, void**);
     using KPixmapRegionSelectorDialog_SetVisible_Callback = void (*)(KPixmapRegionSelectorDialog*, bool);
     using KPixmapRegionSelectorDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKPixmapRegionSelectorDialog final : public KPixmapRegionSelectorDia
 
   protected:
     // Instance callback storage
+    KPixmapRegionSelectorDialog_MetaObject_Callback kpixmapregionselectordialog_metaobject_callback = nullptr;
+    KPixmapRegionSelectorDialog_Metacast_Callback kpixmapregionselectordialog_metacast_callback = nullptr;
     KPixmapRegionSelectorDialog_Metacall_Callback kpixmapregionselectordialog_metacall_callback = nullptr;
     KPixmapRegionSelectorDialog_SetVisible_Callback kpixmapregionselectordialog_setvisible_callback = nullptr;
     KPixmapRegionSelectorDialog_SizeHint_Callback kpixmapregionselectordialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKPixmapRegionSelectorDialog final : public KPixmapRegionSelectorDia
     KPixmapRegionSelectorDialog_GetDecodedMetricF_Callback kpixmapregionselectordialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpixmapregionselectordialog_metaobject_isbase = false;
+    mutable bool kpixmapregionselectordialog_metacast_isbase = false;
     mutable bool kpixmapregionselectordialog_metacall_isbase = false;
     mutable bool kpixmapregionselectordialog_setvisible_isbase = false;
     mutable bool kpixmapregionselectordialog_sizehint_isbase = false;
@@ -220,6 +226,8 @@ class VirtualKPixmapRegionSelectorDialog final : public KPixmapRegionSelectorDia
     VirtualKPixmapRegionSelectorDialog() : KPixmapRegionSelectorDialog() {};
 
     ~VirtualKPixmapRegionSelectorDialog() {
+        kpixmapregionselectordialog_metaobject_callback = nullptr;
+        kpixmapregionselectordialog_metacast_callback = nullptr;
         kpixmapregionselectordialog_metacall_callback = nullptr;
         kpixmapregionselectordialog_setvisible_callback = nullptr;
         kpixmapregionselectordialog_sizehint_callback = nullptr;
@@ -287,6 +295,8 @@ class VirtualKPixmapRegionSelectorDialog final : public KPixmapRegionSelectorDia
     }
 
     // Callback setters
+    inline void setKPixmapRegionSelectorDialog_MetaObject_Callback(KPixmapRegionSelectorDialog_MetaObject_Callback cb) { kpixmapregionselectordialog_metaobject_callback = cb; }
+    inline void setKPixmapRegionSelectorDialog_Metacast_Callback(KPixmapRegionSelectorDialog_Metacast_Callback cb) { kpixmapregionselectordialog_metacast_callback = cb; }
     inline void setKPixmapRegionSelectorDialog_Metacall_Callback(KPixmapRegionSelectorDialog_Metacall_Callback cb) { kpixmapregionselectordialog_metacall_callback = cb; }
     inline void setKPixmapRegionSelectorDialog_SetVisible_Callback(KPixmapRegionSelectorDialog_SetVisible_Callback cb) { kpixmapregionselectordialog_setvisible_callback = cb; }
     inline void setKPixmapRegionSelectorDialog_SizeHint_Callback(KPixmapRegionSelectorDialog_SizeHint_Callback cb) { kpixmapregionselectordialog_sizehint_callback = cb; }
@@ -353,6 +363,8 @@ class VirtualKPixmapRegionSelectorDialog final : public KPixmapRegionSelectorDia
     inline void setKPixmapRegionSelectorDialog_GetDecodedMetricF_Callback(KPixmapRegionSelectorDialog_GetDecodedMetricF_Callback cb) { kpixmapregionselectordialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPixmapRegionSelectorDialog_MetaObject_IsBase(bool value) const { kpixmapregionselectordialog_metaobject_isbase = value; }
+    inline void setKPixmapRegionSelectorDialog_Metacast_IsBase(bool value) const { kpixmapregionselectordialog_metacast_isbase = value; }
     inline void setKPixmapRegionSelectorDialog_Metacall_IsBase(bool value) const { kpixmapregionselectordialog_metacall_isbase = value; }
     inline void setKPixmapRegionSelectorDialog_SetVisible_IsBase(bool value) const { kpixmapregionselectordialog_setvisible_isbase = value; }
     inline void setKPixmapRegionSelectorDialog_SizeHint_IsBase(bool value) const { kpixmapregionselectordialog_sizehint_isbase = value; }
@@ -417,6 +429,34 @@ class VirtualKPixmapRegionSelectorDialog final : public KPixmapRegionSelectorDia
     inline void setKPixmapRegionSelectorDialog_Receivers_IsBase(bool value) const { kpixmapregionselectordialog_receivers_isbase = value; }
     inline void setKPixmapRegionSelectorDialog_IsSignalConnected_IsBase(bool value) const { kpixmapregionselectordialog_issignalconnected_isbase = value; }
     inline void setKPixmapRegionSelectorDialog_GetDecodedMetricF_IsBase(bool value) const { kpixmapregionselectordialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpixmapregionselectordialog_metaobject_isbase) {
+            kpixmapregionselectordialog_metaobject_isbase = false;
+            return KPixmapRegionSelectorDialog::metaObject();
+        } else if (kpixmapregionselectordialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpixmapregionselectordialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPixmapRegionSelectorDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpixmapregionselectordialog_metacast_isbase) {
+            kpixmapregionselectordialog_metacast_isbase = false;
+            return KPixmapRegionSelectorDialog::qt_metacast(param1);
+        } else if (kpixmapregionselectordialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpixmapregionselectordialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPixmapRegionSelectorDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

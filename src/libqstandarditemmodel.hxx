@@ -261,6 +261,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     bool isVirtualQStandardItemModel = true;
 
     // Virtual class public types (including callbacks)
+    using QStandardItemModel_MetaObject_Callback = QMetaObject* (*)();
+    using QStandardItemModel_Metacast_Callback = void* (*)(QStandardItemModel*, const char*);
     using QStandardItemModel_Metacall_Callback = int (*)(QStandardItemModel*, int, int, void**);
     using QStandardItemModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
     using QStandardItemModel_Index_Callback = QModelIndex* (*)(const QStandardItemModel*, int, int, QModelIndex*);
@@ -333,6 +335,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
 
   protected:
     // Instance callback storage
+    QStandardItemModel_MetaObject_Callback qstandarditemmodel_metaobject_callback = nullptr;
+    QStandardItemModel_Metacast_Callback qstandarditemmodel_metacast_callback = nullptr;
     QStandardItemModel_Metacall_Callback qstandarditemmodel_metacall_callback = nullptr;
     QStandardItemModel_RoleNames_Callback qstandarditemmodel_rolenames_callback = nullptr;
     QStandardItemModel_Index_Callback qstandarditemmodel_index_callback = nullptr;
@@ -404,6 +408,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     QStandardItemModel_IsSignalConnected_Callback qstandarditemmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qstandarditemmodel_metaobject_isbase = false;
+    mutable bool qstandarditemmodel_metacast_isbase = false;
     mutable bool qstandarditemmodel_metacall_isbase = false;
     mutable bool qstandarditemmodel_rolenames_isbase = false;
     mutable bool qstandarditemmodel_index_isbase = false;
@@ -481,6 +487,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     VirtualQStandardItemModel(int rows, int columns, QObject* parent) : QStandardItemModel(rows, columns, parent) {};
 
     ~VirtualQStandardItemModel() {
+        qstandarditemmodel_metaobject_callback = nullptr;
+        qstandarditemmodel_metacast_callback = nullptr;
         qstandarditemmodel_metacall_callback = nullptr;
         qstandarditemmodel_rolenames_callback = nullptr;
         qstandarditemmodel_index_callback = nullptr;
@@ -553,6 +561,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     }
 
     // Callback setters
+    inline void setQStandardItemModel_MetaObject_Callback(QStandardItemModel_MetaObject_Callback cb) { qstandarditemmodel_metaobject_callback = cb; }
+    inline void setQStandardItemModel_Metacast_Callback(QStandardItemModel_Metacast_Callback cb) { qstandarditemmodel_metacast_callback = cb; }
     inline void setQStandardItemModel_Metacall_Callback(QStandardItemModel_Metacall_Callback cb) { qstandarditemmodel_metacall_callback = cb; }
     inline void setQStandardItemModel_RoleNames_Callback(QStandardItemModel_RoleNames_Callback cb) { qstandarditemmodel_rolenames_callback = cb; }
     inline void setQStandardItemModel_Index_Callback(QStandardItemModel_Index_Callback cb) { qstandarditemmodel_index_callback = cb; }
@@ -624,6 +634,8 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     inline void setQStandardItemModel_IsSignalConnected_Callback(QStandardItemModel_IsSignalConnected_Callback cb) { qstandarditemmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQStandardItemModel_MetaObject_IsBase(bool value) const { qstandarditemmodel_metaobject_isbase = value; }
+    inline void setQStandardItemModel_Metacast_IsBase(bool value) const { qstandarditemmodel_metacast_isbase = value; }
     inline void setQStandardItemModel_Metacall_IsBase(bool value) const { qstandarditemmodel_metacall_isbase = value; }
     inline void setQStandardItemModel_RoleNames_IsBase(bool value) const { qstandarditemmodel_rolenames_isbase = value; }
     inline void setQStandardItemModel_Index_IsBase(bool value) const { qstandarditemmodel_index_isbase = value; }
@@ -693,6 +705,34 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     inline void setQStandardItemModel_SenderSignalIndex_IsBase(bool value) const { qstandarditemmodel_sendersignalindex_isbase = value; }
     inline void setQStandardItemModel_Receivers_IsBase(bool value) const { qstandarditemmodel_receivers_isbase = value; }
     inline void setQStandardItemModel_IsSignalConnected_IsBase(bool value) const { qstandarditemmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qstandarditemmodel_metaobject_isbase) {
+            qstandarditemmodel_metaobject_isbase = false;
+            return QStandardItemModel::metaObject();
+        } else if (qstandarditemmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qstandarditemmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QStandardItemModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qstandarditemmodel_metacast_isbase) {
+            qstandarditemmodel_metacast_isbase = false;
+            return QStandardItemModel::qt_metacast(param1);
+        } else if (qstandarditemmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qstandarditemmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QStandardItemModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

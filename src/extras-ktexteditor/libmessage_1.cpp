@@ -28,11 +28,21 @@ KTextEditor__Message* KTextEditor__Message_new2(const libqt_string richtext, int
 }
 
 QMetaObject* KTextEditor__Message_MetaObject(const KTextEditor__Message* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktexteditor__message = dynamic_cast<const VirtualKTextEditorMessage*>(self);
+    if (vktexteditor__message && vktexteditor__message->isVirtualKTextEditorMessage) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTextEditorMessage*)self)->metaObject();
+    }
 }
 
 void* KTextEditor__Message_Metacast(KTextEditor__Message* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktexteditor__message = dynamic_cast<VirtualKTextEditorMessage*>(self);
+    if (vktexteditor__message && vktexteditor__message->isVirtualKTextEditorMessage) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTextEditorMessage*)self)->qt_metacast(param1);
+    }
 }
 
 int KTextEditor__Message_Metacall(KTextEditor__Message* self, int param1, int param2, void** param3) {
@@ -198,6 +208,44 @@ void KTextEditor__Message_AddAction2(KTextEditor__Message* self, QAction* action
 
 void KTextEditor__Message_SetAutoHide1(KTextEditor__Message* self, int delay) {
     self->setAutoHide(static_cast<int>(delay));
+}
+
+// Base class handler implementation
+QMetaObject* KTextEditor__Message_QBaseMetaObject(const KTextEditor__Message* self) {
+    auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+        vktexteditormessage->setKTextEditor__Message_MetaObject_IsBase(true);
+        return (QMetaObject*)vktexteditormessage->metaObject();
+    } else {
+        return (QMetaObject*)self->KTextEditor::Message::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__Message_OnMetaObject(const KTextEditor__Message* self, intptr_t slot) {
+    auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+        vktexteditormessage->setKTextEditor__Message_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTextEditor__Message_QBaseMetacast(KTextEditor__Message* self, const char* param1) {
+    auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+        vktexteditormessage->setKTextEditor__Message_Metacast_IsBase(true);
+        return vktexteditormessage->qt_metacast(param1);
+    } else {
+        return self->KTextEditor::Message::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__Message_OnMetacast(KTextEditor__Message* self, intptr_t slot) {
+    auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+        vktexteditormessage->setKTextEditor__Message_Metacast_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

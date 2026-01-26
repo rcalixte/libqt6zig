@@ -42,11 +42,21 @@ QGeoCodingManagerEngine* QGeoCodingManagerEngine_new2(const libqt_map /* of libq
 }
 
 QMetaObject* QGeoCodingManagerEngine_MetaObject(const QGeoCodingManagerEngine* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgeocodingmanagerengine = dynamic_cast<const VirtualQGeoCodingManagerEngine*>(self);
+    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGeoCodingManagerEngine*)self)->metaObject();
+    }
 }
 
 void* QGeoCodingManagerEngine_Metacast(QGeoCodingManagerEngine* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
+    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGeoCodingManagerEngine*)self)->qt_metacast(param1);
+    }
 }
 
 int QGeoCodingManagerEngine_Metacall(QGeoCodingManagerEngine* self, int param1, int param2, void** param3) {
@@ -155,6 +165,44 @@ void QGeoCodingManagerEngine_Connect_ErrorOccurred3(QGeoCodingManagerEngine* sel
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(errorString_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGeoCodingManagerEngine_QBaseMetaObject(const QGeoCodingManagerEngine* self) {
+    auto* vqgeocodingmanagerengine = const_cast<VirtualQGeoCodingManagerEngine*>(dynamic_cast<const VirtualQGeoCodingManagerEngine*>(self));
+    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
+        vqgeocodingmanagerengine->setQGeoCodingManagerEngine_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgeocodingmanagerengine->metaObject();
+    } else {
+        return (QMetaObject*)self->QGeoCodingManagerEngine::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoCodingManagerEngine_OnMetaObject(const QGeoCodingManagerEngine* self, intptr_t slot) {
+    auto* vqgeocodingmanagerengine = const_cast<VirtualQGeoCodingManagerEngine*>(dynamic_cast<const VirtualQGeoCodingManagerEngine*>(self));
+    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
+        vqgeocodingmanagerengine->setQGeoCodingManagerEngine_MetaObject_Callback(reinterpret_cast<VirtualQGeoCodingManagerEngine::QGeoCodingManagerEngine_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGeoCodingManagerEngine_QBaseMetacast(QGeoCodingManagerEngine* self, const char* param1) {
+    auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
+    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
+        vqgeocodingmanagerengine->setQGeoCodingManagerEngine_Metacast_IsBase(true);
+        return vqgeocodingmanagerengine->qt_metacast(param1);
+    } else {
+        return self->QGeoCodingManagerEngine::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoCodingManagerEngine_OnMetacast(QGeoCodingManagerEngine* self, intptr_t slot) {
+    auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
+    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
+        vqgeocodingmanagerengine->setQGeoCodingManagerEngine_Metacast_Callback(reinterpret_cast<VirtualQGeoCodingManagerEngine::QGeoCodingManagerEngine_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

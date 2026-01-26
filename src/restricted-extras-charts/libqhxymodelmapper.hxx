@@ -17,6 +17,8 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
     bool isVirtualQHXYModelMapper = true;
 
     // Virtual class public types (including callbacks)
+    using QHXYModelMapper_MetaObject_Callback = QMetaObject* (*)();
+    using QHXYModelMapper_Metacast_Callback = void* (*)(QHXYModelMapper*, const char*);
     using QHXYModelMapper_Metacall_Callback = int (*)(QHXYModelMapper*, int, int, void**);
     using QHXYModelMapper_Event_Callback = bool (*)(QHXYModelMapper*, QEvent*);
     using QHXYModelMapper_EventFilter_Callback = bool (*)(QHXYModelMapper*, QObject*, QEvent*);
@@ -42,6 +44,8 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
 
   protected:
     // Instance callback storage
+    QHXYModelMapper_MetaObject_Callback qhxymodelmapper_metaobject_callback = nullptr;
+    QHXYModelMapper_Metacast_Callback qhxymodelmapper_metacast_callback = nullptr;
     QHXYModelMapper_Metacall_Callback qhxymodelmapper_metacall_callback = nullptr;
     QHXYModelMapper_Event_Callback qhxymodelmapper_event_callback = nullptr;
     QHXYModelMapper_EventFilter_Callback qhxymodelmapper_eventfilter_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
     QHXYModelMapper_IsSignalConnected_Callback qhxymodelmapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qhxymodelmapper_metaobject_isbase = false;
+    mutable bool qhxymodelmapper_metacast_isbase = false;
     mutable bool qhxymodelmapper_metacall_isbase = false;
     mutable bool qhxymodelmapper_event_isbase = false;
     mutable bool qhxymodelmapper_eventfilter_isbase = false;
@@ -94,6 +100,8 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
     VirtualQHXYModelMapper(QObject* parent) : QHXYModelMapper(parent) {};
 
     ~VirtualQHXYModelMapper() {
+        qhxymodelmapper_metaobject_callback = nullptr;
+        qhxymodelmapper_metacast_callback = nullptr;
         qhxymodelmapper_metacall_callback = nullptr;
         qhxymodelmapper_event_callback = nullptr;
         qhxymodelmapper_eventfilter_callback = nullptr;
@@ -119,6 +127,8 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
     }
 
     // Callback setters
+    inline void setQHXYModelMapper_MetaObject_Callback(QHXYModelMapper_MetaObject_Callback cb) { qhxymodelmapper_metaobject_callback = cb; }
+    inline void setQHXYModelMapper_Metacast_Callback(QHXYModelMapper_Metacast_Callback cb) { qhxymodelmapper_metacast_callback = cb; }
     inline void setQHXYModelMapper_Metacall_Callback(QHXYModelMapper_Metacall_Callback cb) { qhxymodelmapper_metacall_callback = cb; }
     inline void setQHXYModelMapper_Event_Callback(QHXYModelMapper_Event_Callback cb) { qhxymodelmapper_event_callback = cb; }
     inline void setQHXYModelMapper_EventFilter_Callback(QHXYModelMapper_EventFilter_Callback cb) { qhxymodelmapper_eventfilter_callback = cb; }
@@ -143,6 +153,8 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
     inline void setQHXYModelMapper_IsSignalConnected_Callback(QHXYModelMapper_IsSignalConnected_Callback cb) { qhxymodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQHXYModelMapper_MetaObject_IsBase(bool value) const { qhxymodelmapper_metaobject_isbase = value; }
+    inline void setQHXYModelMapper_Metacast_IsBase(bool value) const { qhxymodelmapper_metacast_isbase = value; }
     inline void setQHXYModelMapper_Metacall_IsBase(bool value) const { qhxymodelmapper_metacall_isbase = value; }
     inline void setQHXYModelMapper_Event_IsBase(bool value) const { qhxymodelmapper_event_isbase = value; }
     inline void setQHXYModelMapper_EventFilter_IsBase(bool value) const { qhxymodelmapper_eventfilter_isbase = value; }
@@ -165,6 +177,34 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
     inline void setQHXYModelMapper_SenderSignalIndex_IsBase(bool value) const { qhxymodelmapper_sendersignalindex_isbase = value; }
     inline void setQHXYModelMapper_Receivers_IsBase(bool value) const { qhxymodelmapper_receivers_isbase = value; }
     inline void setQHXYModelMapper_IsSignalConnected_IsBase(bool value) const { qhxymodelmapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qhxymodelmapper_metaobject_isbase) {
+            qhxymodelmapper_metaobject_isbase = false;
+            return QHXYModelMapper::metaObject();
+        } else if (qhxymodelmapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qhxymodelmapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHXYModelMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qhxymodelmapper_metacast_isbase) {
+            qhxymodelmapper_metacast_isbase = false;
+            return QHXYModelMapper::qt_metacast(param1);
+        } else if (qhxymodelmapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qhxymodelmapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHXYModelMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

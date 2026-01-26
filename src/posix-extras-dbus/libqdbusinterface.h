@@ -36,6 +36,10 @@ QDBusInterface* QDBusInterface_new4(const libqt_string service, const libqt_stri
 QMetaObject* QDBusInterface_MetaObject(const QDBusInterface* self);
 void* QDBusInterface_Metacast(QDBusInterface* self, const char* param1);
 int QDBusInterface_Metacall(QDBusInterface* self, int param1, int param2, void** param3);
+void QDBusInterface_OnMetaObject(const QDBusInterface* self, intptr_t slot);
+QMetaObject* QDBusInterface_QBaseMetaObject(const QDBusInterface* self);
+void QDBusInterface_OnMetacast(QDBusInterface* self, intptr_t slot);
+void* QDBusInterface_QBaseMetacast(QDBusInterface* self, const char* param1);
 void QDBusInterface_OnMetacall(QDBusInterface* self, intptr_t slot);
 int QDBusInterface_QBaseMetacall(QDBusInterface* self, int param1, int param2, void** param3);
 void QDBusInterface_ConnectNotify(QDBusInterface* self, const QMetaMethod* signal);

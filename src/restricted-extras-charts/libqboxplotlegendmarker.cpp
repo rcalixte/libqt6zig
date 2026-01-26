@@ -24,11 +24,21 @@ QBoxPlotLegendMarker* QBoxPlotLegendMarker_new2(QBoxPlotSeries* series, QLegend*
 }
 
 QMetaObject* QBoxPlotLegendMarker_MetaObject(const QBoxPlotLegendMarker* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqboxplotlegendmarker = dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQBoxPlotLegendMarker*)self)->metaObject();
+    }
 }
 
 void* QBoxPlotLegendMarker_Metacast(QBoxPlotLegendMarker* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQBoxPlotLegendMarker*)self)->qt_metacast(param1);
+    }
 }
 
 int QBoxPlotLegendMarker_Metacall(QBoxPlotLegendMarker* self, int param1, int param2, void** param3) {
@@ -55,6 +65,44 @@ QBoxPlotSeries* QBoxPlotLegendMarker_Series(QBoxPlotLegendMarker* self) {
         return self->series();
     } else {
         return ((VirtualQBoxPlotLegendMarker*)self)->series();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QBoxPlotLegendMarker_QBaseMetaObject(const QBoxPlotLegendMarker* self) {
+    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        vqboxplotlegendmarker->setQBoxPlotLegendMarker_MetaObject_IsBase(true);
+        return (QMetaObject*)vqboxplotlegendmarker->metaObject();
+    } else {
+        return (QMetaObject*)self->QBoxPlotLegendMarker::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBoxPlotLegendMarker_OnMetaObject(const QBoxPlotLegendMarker* self, intptr_t slot) {
+    auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        vqboxplotlegendmarker->setQBoxPlotLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QBoxPlotLegendMarker_QBaseMetacast(QBoxPlotLegendMarker* self, const char* param1) {
+    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacast_IsBase(true);
+        return vqboxplotlegendmarker->qt_metacast(param1);
+    } else {
+        return self->QBoxPlotLegendMarker::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBoxPlotLegendMarker_OnMetacast(QBoxPlotLegendMarker* self, intptr_t slot) {
+    auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+        vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Metacast_Callback>(slot));
     }
 }
 

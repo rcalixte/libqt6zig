@@ -17,6 +17,8 @@ class VirtualQKeySequenceEdit final : public QKeySequenceEdit {
     bool isVirtualQKeySequenceEdit = true;
 
     // Virtual class public types (including callbacks)
+    using QKeySequenceEdit_MetaObject_Callback = QMetaObject* (*)();
+    using QKeySequenceEdit_Metacast_Callback = void* (*)(QKeySequenceEdit*, const char*);
     using QKeySequenceEdit_Metacall_Callback = int (*)(QKeySequenceEdit*, int, int, void**);
     using QKeySequenceEdit_Event_Callback = bool (*)(QKeySequenceEdit*, QEvent*);
     using QKeySequenceEdit_KeyPressEvent_Callback = void (*)(QKeySequenceEdit*, QKeyEvent*);
@@ -78,6 +80,8 @@ class VirtualQKeySequenceEdit final : public QKeySequenceEdit {
 
   protected:
     // Instance callback storage
+    QKeySequenceEdit_MetaObject_Callback qkeysequenceedit_metaobject_callback = nullptr;
+    QKeySequenceEdit_Metacast_Callback qkeysequenceedit_metacast_callback = nullptr;
     QKeySequenceEdit_Metacall_Callback qkeysequenceedit_metacall_callback = nullptr;
     QKeySequenceEdit_Event_Callback qkeysequenceedit_event_callback = nullptr;
     QKeySequenceEdit_KeyPressEvent_Callback qkeysequenceedit_keypressevent_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualQKeySequenceEdit final : public QKeySequenceEdit {
     QKeySequenceEdit_GetDecodedMetricF_Callback qkeysequenceedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qkeysequenceedit_metaobject_isbase = false;
+    mutable bool qkeysequenceedit_metacast_isbase = false;
     mutable bool qkeysequenceedit_metacall_isbase = false;
     mutable bool qkeysequenceedit_event_isbase = false;
     mutable bool qkeysequenceedit_keypressevent_isbase = false;
@@ -204,6 +210,8 @@ class VirtualQKeySequenceEdit final : public QKeySequenceEdit {
     VirtualQKeySequenceEdit(const QKeySequence& keySequence, QWidget* parent) : QKeySequenceEdit(keySequence, parent) {};
 
     ~VirtualQKeySequenceEdit() {
+        qkeysequenceedit_metaobject_callback = nullptr;
+        qkeysequenceedit_metacast_callback = nullptr;
         qkeysequenceedit_metacall_callback = nullptr;
         qkeysequenceedit_event_callback = nullptr;
         qkeysequenceedit_keypressevent_callback = nullptr;
@@ -265,6 +273,8 @@ class VirtualQKeySequenceEdit final : public QKeySequenceEdit {
     }
 
     // Callback setters
+    inline void setQKeySequenceEdit_MetaObject_Callback(QKeySequenceEdit_MetaObject_Callback cb) { qkeysequenceedit_metaobject_callback = cb; }
+    inline void setQKeySequenceEdit_Metacast_Callback(QKeySequenceEdit_Metacast_Callback cb) { qkeysequenceedit_metacast_callback = cb; }
     inline void setQKeySequenceEdit_Metacall_Callback(QKeySequenceEdit_Metacall_Callback cb) { qkeysequenceedit_metacall_callback = cb; }
     inline void setQKeySequenceEdit_Event_Callback(QKeySequenceEdit_Event_Callback cb) { qkeysequenceedit_event_callback = cb; }
     inline void setQKeySequenceEdit_KeyPressEvent_Callback(QKeySequenceEdit_KeyPressEvent_Callback cb) { qkeysequenceedit_keypressevent_callback = cb; }
@@ -325,6 +335,8 @@ class VirtualQKeySequenceEdit final : public QKeySequenceEdit {
     inline void setQKeySequenceEdit_GetDecodedMetricF_Callback(QKeySequenceEdit_GetDecodedMetricF_Callback cb) { qkeysequenceedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQKeySequenceEdit_MetaObject_IsBase(bool value) const { qkeysequenceedit_metaobject_isbase = value; }
+    inline void setQKeySequenceEdit_Metacast_IsBase(bool value) const { qkeysequenceedit_metacast_isbase = value; }
     inline void setQKeySequenceEdit_Metacall_IsBase(bool value) const { qkeysequenceedit_metacall_isbase = value; }
     inline void setQKeySequenceEdit_Event_IsBase(bool value) const { qkeysequenceedit_event_isbase = value; }
     inline void setQKeySequenceEdit_KeyPressEvent_IsBase(bool value) const { qkeysequenceedit_keypressevent_isbase = value; }
@@ -383,6 +395,34 @@ class VirtualQKeySequenceEdit final : public QKeySequenceEdit {
     inline void setQKeySequenceEdit_Receivers_IsBase(bool value) const { qkeysequenceedit_receivers_isbase = value; }
     inline void setQKeySequenceEdit_IsSignalConnected_IsBase(bool value) const { qkeysequenceedit_issignalconnected_isbase = value; }
     inline void setQKeySequenceEdit_GetDecodedMetricF_IsBase(bool value) const { qkeysequenceedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qkeysequenceedit_metaobject_isbase) {
+            qkeysequenceedit_metaobject_isbase = false;
+            return QKeySequenceEdit::metaObject();
+        } else if (qkeysequenceedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qkeysequenceedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QKeySequenceEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qkeysequenceedit_metacast_isbase) {
+            qkeysequenceedit_metacast_isbase = false;
+            return QKeySequenceEdit::qt_metacast(param1);
+        } else if (qkeysequenceedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qkeysequenceedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QKeySequenceEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

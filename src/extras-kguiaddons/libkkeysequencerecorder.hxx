@@ -17,6 +17,8 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
     bool isVirtualKKeySequenceRecorder = true;
 
     // Virtual class public types (including callbacks)
+    using KKeySequenceRecorder_MetaObject_Callback = QMetaObject* (*)();
+    using KKeySequenceRecorder_Metacast_Callback = void* (*)(KKeySequenceRecorder*, const char*);
     using KKeySequenceRecorder_Metacall_Callback = int (*)(KKeySequenceRecorder*, int, int, void**);
     using KKeySequenceRecorder_Event_Callback = bool (*)(KKeySequenceRecorder*, QEvent*);
     using KKeySequenceRecorder_EventFilter_Callback = bool (*)(KKeySequenceRecorder*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
 
   protected:
     // Instance callback storage
+    KKeySequenceRecorder_MetaObject_Callback kkeysequencerecorder_metaobject_callback = nullptr;
+    KKeySequenceRecorder_Metacast_Callback kkeysequencerecorder_metacast_callback = nullptr;
     KKeySequenceRecorder_Metacall_Callback kkeysequencerecorder_metacall_callback = nullptr;
     KKeySequenceRecorder_Event_Callback kkeysequencerecorder_event_callback = nullptr;
     KKeySequenceRecorder_EventFilter_Callback kkeysequencerecorder_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
     KKeySequenceRecorder_IsSignalConnected_Callback kkeysequencerecorder_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kkeysequencerecorder_metaobject_isbase = false;
+    mutable bool kkeysequencerecorder_metacast_isbase = false;
     mutable bool kkeysequencerecorder_metacall_isbase = false;
     mutable bool kkeysequencerecorder_event_isbase = false;
     mutable bool kkeysequencerecorder_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
     VirtualKKeySequenceRecorder(QWindow* window, QObject* parent) : KKeySequenceRecorder(window, parent) {};
 
     ~VirtualKKeySequenceRecorder() {
+        kkeysequencerecorder_metaobject_callback = nullptr;
+        kkeysequencerecorder_metacast_callback = nullptr;
         kkeysequencerecorder_metacall_callback = nullptr;
         kkeysequencerecorder_event_callback = nullptr;
         kkeysequencerecorder_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
     }
 
     // Callback setters
+    inline void setKKeySequenceRecorder_MetaObject_Callback(KKeySequenceRecorder_MetaObject_Callback cb) { kkeysequencerecorder_metaobject_callback = cb; }
+    inline void setKKeySequenceRecorder_Metacast_Callback(KKeySequenceRecorder_Metacast_Callback cb) { kkeysequencerecorder_metacast_callback = cb; }
     inline void setKKeySequenceRecorder_Metacall_Callback(KKeySequenceRecorder_Metacall_Callback cb) { kkeysequencerecorder_metacall_callback = cb; }
     inline void setKKeySequenceRecorder_Event_Callback(KKeySequenceRecorder_Event_Callback cb) { kkeysequencerecorder_event_callback = cb; }
     inline void setKKeySequenceRecorder_EventFilter_Callback(KKeySequenceRecorder_EventFilter_Callback cb) { kkeysequencerecorder_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
     inline void setKKeySequenceRecorder_IsSignalConnected_Callback(KKeySequenceRecorder_IsSignalConnected_Callback cb) { kkeysequencerecorder_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKKeySequenceRecorder_MetaObject_IsBase(bool value) const { kkeysequencerecorder_metaobject_isbase = value; }
+    inline void setKKeySequenceRecorder_Metacast_IsBase(bool value) const { kkeysequencerecorder_metacast_isbase = value; }
     inline void setKKeySequenceRecorder_Metacall_IsBase(bool value) const { kkeysequencerecorder_metacall_isbase = value; }
     inline void setKKeySequenceRecorder_Event_IsBase(bool value) const { kkeysequencerecorder_event_isbase = value; }
     inline void setKKeySequenceRecorder_EventFilter_IsBase(bool value) const { kkeysequencerecorder_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKKeySequenceRecorder final : public KKeySequenceRecorder {
     inline void setKKeySequenceRecorder_SenderSignalIndex_IsBase(bool value) const { kkeysequencerecorder_sendersignalindex_isbase = value; }
     inline void setKKeySequenceRecorder_Receivers_IsBase(bool value) const { kkeysequencerecorder_receivers_isbase = value; }
     inline void setKKeySequenceRecorder_IsSignalConnected_IsBase(bool value) const { kkeysequencerecorder_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kkeysequencerecorder_metaobject_isbase) {
+            kkeysequencerecorder_metaobject_isbase = false;
+            return KKeySequenceRecorder::metaObject();
+        } else if (kkeysequencerecorder_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kkeysequencerecorder_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KKeySequenceRecorder::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kkeysequencerecorder_metacast_isbase) {
+            kkeysequencerecorder_metacast_isbase = false;
+            return KKeySequenceRecorder::qt_metacast(param1);
+        } else if (kkeysequencerecorder_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kkeysequencerecorder_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KKeySequenceRecorder::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

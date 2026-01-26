@@ -28,11 +28,21 @@ QSslServer* QSslServer_new2(QObject* parent) {
 }
 
 QMetaObject* QSslServer_MetaObject(const QSslServer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsslserver = dynamic_cast<const VirtualQSslServer*>(self);
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSslServer*)self)->metaObject();
+    }
 }
 
 void* QSslServer_Metacast(QSslServer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSslServer*)self)->qt_metacast(param1);
+    }
 }
 
 int QSslServer_Metacall(QSslServer* self, int param1, int param2, void** param3) {
@@ -206,6 +216,44 @@ void QSslServer_IncomingConnection(QSslServer* self, intptr_t socket) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
     if (vqsslserver && vqsslserver->isVirtualQSslServer) {
         vqsslserver->incomingConnection((qintptr)(socket));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QSslServer_QBaseMetaObject(const QSslServer* self) {
+    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        vqsslserver->setQSslServer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsslserver->metaObject();
+    } else {
+        return (QMetaObject*)self->QSslServer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSslServer_OnMetaObject(const QSslServer* self, intptr_t slot) {
+    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        vqsslserver->setQSslServer_MetaObject_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSslServer_QBaseMetacast(QSslServer* self, const char* param1) {
+    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        vqsslserver->setQSslServer_Metacast_IsBase(true);
+        return vqsslserver->qt_metacast(param1);
+    } else {
+        return self->QSslServer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSslServer_OnMetacast(QSslServer* self, intptr_t slot) {
+    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
+    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+        vqsslserver->setQSslServer_Metacast_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Metacast_Callback>(slot));
     }
 }
 

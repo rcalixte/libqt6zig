@@ -24,11 +24,21 @@ QHBoxPlotModelMapper* QHBoxPlotModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QHBoxPlotModelMapper_MetaObject(const QHBoxPlotModelMapper* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqhboxplotmodelmapper = dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self);
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQHBoxPlotModelMapper*)self)->metaObject();
+    }
 }
 
 void* QHBoxPlotModelMapper_Metacast(QHBoxPlotModelMapper* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQHBoxPlotModelMapper*)self)->qt_metacast(param1);
+    }
 }
 
 int QHBoxPlotModelMapper_Metacall(QHBoxPlotModelMapper* self, int param1, int param2, void** param3) {
@@ -152,6 +162,44 @@ void QHBoxPlotModelMapper_Connect_ColumnCountChanged(QHBoxPlotModelMapper* self,
     QHBoxPlotModelMapper::connect(self, &QHBoxPlotModelMapper::columnCountChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QHBoxPlotModelMapper_QBaseMetaObject(const QHBoxPlotModelMapper* self) {
+    auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+        vqhboxplotmodelmapper->setQHBoxPlotModelMapper_MetaObject_IsBase(true);
+        return (QMetaObject*)vqhboxplotmodelmapper->metaObject();
+    } else {
+        return (QMetaObject*)self->QHBoxPlotModelMapper::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHBoxPlotModelMapper_OnMetaObject(const QHBoxPlotModelMapper* self, intptr_t slot) {
+    auto* vqhboxplotmodelmapper = const_cast<VirtualQHBoxPlotModelMapper*>(dynamic_cast<const VirtualQHBoxPlotModelMapper*>(self));
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+        vqhboxplotmodelmapper->setQHBoxPlotModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QHBoxPlotModelMapper_QBaseMetacast(QHBoxPlotModelMapper* self, const char* param1) {
+    auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+        vqhboxplotmodelmapper->setQHBoxPlotModelMapper_Metacast_IsBase(true);
+        return vqhboxplotmodelmapper->qt_metacast(param1);
+    } else {
+        return self->QHBoxPlotModelMapper::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHBoxPlotModelMapper_OnMetacast(QHBoxPlotModelMapper* self, intptr_t slot) {
+    auto* vqhboxplotmodelmapper = dynamic_cast<VirtualQHBoxPlotModelMapper*>(self);
+    if (vqhboxplotmodelmapper && vqhboxplotmodelmapper->isVirtualQHBoxPlotModelMapper) {
+        vqhboxplotmodelmapper->setQHBoxPlotModelMapper_Metacast_Callback(reinterpret_cast<VirtualQHBoxPlotModelMapper::QHBoxPlotModelMapper_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -51,11 +51,21 @@ QGraphicsProxyWidget* QGraphicsProxyWidget_new3(QGraphicsItem* parent, int wFlag
 }
 
 QMetaObject* QGraphicsProxyWidget_MetaObject(const QGraphicsProxyWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsproxywidget = dynamic_cast<const VirtualQGraphicsProxyWidget*>(self);
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsProxyWidget*)self)->metaObject();
+    }
 }
 
 void* QGraphicsProxyWidget_Metacast(QGraphicsProxyWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsProxyWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsProxyWidget_Metacall(QGraphicsProxyWidget* self, int param1, int param2, void** param3) {
@@ -316,6 +326,44 @@ void QGraphicsProxyWidget_ResizeEvent(QGraphicsProxyWidget* self, QGraphicsScene
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
     if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
         vqgraphicsproxywidget->resizeEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsProxyWidget_QBaseMetaObject(const QGraphicsProxyWidget* self) {
+    auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+        vqgraphicsproxywidget->setQGraphicsProxyWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsproxywidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsProxyWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsProxyWidget_OnMetaObject(const QGraphicsProxyWidget* self, intptr_t slot) {
+    auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+        vqgraphicsproxywidget->setQGraphicsProxyWidget_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsProxyWidget_QBaseMetacast(QGraphicsProxyWidget* self, const char* param1) {
+    auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+        vqgraphicsproxywidget->setQGraphicsProxyWidget_Metacast_IsBase(true);
+        return vqgraphicsproxywidget->qt_metacast(param1);
+    } else {
+        return self->QGraphicsProxyWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsProxyWidget_OnMetacast(QGraphicsProxyWidget* self, intptr_t slot) {
+    auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+        vqgraphicsproxywidget->setQGraphicsProxyWidget_Metacast_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Metacast_Callback>(slot));
     }
 }
 

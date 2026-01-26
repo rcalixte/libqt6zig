@@ -36,11 +36,21 @@ QPdfLinkModel* QPdfLinkModel_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfLinkModel_MetaObject(const QPdfLinkModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPdfLinkModel*)self)->metaObject();
+    }
 }
 
 void* QPdfLinkModel_Metacast(QPdfLinkModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPdfLinkModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QPdfLinkModel_Metacall(QPdfLinkModel* self, int param1, int param2, void** param3) {
@@ -160,6 +170,44 @@ void QPdfLinkModel_Connect_PageChanged(QPdfLinkModel* self, intptr_t slot) {
         int sigval1 = page;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QPdfLinkModel_QBaseMetaObject(const QPdfLinkModel* self) {
+    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpdflinkmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QPdfLinkModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfLinkModel_OnMetaObject(const QPdfLinkModel* self, intptr_t slot) {
+    auto* vqpdflinkmodel = const_cast<VirtualQPdfLinkModel*>(dynamic_cast<const VirtualQPdfLinkModel*>(self));
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_MetaObject_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPdfLinkModel_QBaseMetacast(QPdfLinkModel* self, const char* param1) {
+    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_Metacast_IsBase(true);
+        return vqpdflinkmodel->qt_metacast(param1);
+    } else {
+        return self->QPdfLinkModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfLinkModel_OnMetacast(QPdfLinkModel* self, intptr_t slot) {
+    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
+    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
+        vqpdflinkmodel->setQPdfLinkModel_Metacast_Callback(reinterpret_cast<VirtualQPdfLinkModel::QPdfLinkModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

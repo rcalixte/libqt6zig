@@ -17,6 +17,8 @@ class VirtualQTranslator final : public QTranslator {
     bool isVirtualQTranslator = true;
 
     // Virtual class public types (including callbacks)
+    using QTranslator_MetaObject_Callback = QMetaObject* (*)();
+    using QTranslator_Metacast_Callback = void* (*)(QTranslator*, const char*);
     using QTranslator_Metacall_Callback = int (*)(QTranslator*, int, int, void**);
     using QTranslator_Translate_Callback = const char* (*)(const QTranslator*, const char*, const char*, const char*, int);
     using QTranslator_IsEmpty_Callback = bool (*)();
@@ -34,6 +36,8 @@ class VirtualQTranslator final : public QTranslator {
 
   protected:
     // Instance callback storage
+    QTranslator_MetaObject_Callback qtranslator_metaobject_callback = nullptr;
+    QTranslator_Metacast_Callback qtranslator_metacast_callback = nullptr;
     QTranslator_Metacall_Callback qtranslator_metacall_callback = nullptr;
     QTranslator_Translate_Callback qtranslator_translate_callback = nullptr;
     QTranslator_IsEmpty_Callback qtranslator_isempty_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQTranslator final : public QTranslator {
     QTranslator_IsSignalConnected_Callback qtranslator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtranslator_metaobject_isbase = false;
+    mutable bool qtranslator_metacast_isbase = false;
     mutable bool qtranslator_metacall_isbase = false;
     mutable bool qtranslator_translate_isbase = false;
     mutable bool qtranslator_isempty_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQTranslator final : public QTranslator {
     VirtualQTranslator(QObject* parent) : QTranslator(parent) {};
 
     ~VirtualQTranslator() {
+        qtranslator_metaobject_callback = nullptr;
+        qtranslator_metacast_callback = nullptr;
         qtranslator_metacall_callback = nullptr;
         qtranslator_translate_callback = nullptr;
         qtranslator_isempty_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQTranslator final : public QTranslator {
     }
 
     // Callback setters
+    inline void setQTranslator_MetaObject_Callback(QTranslator_MetaObject_Callback cb) { qtranslator_metaobject_callback = cb; }
+    inline void setQTranslator_Metacast_Callback(QTranslator_Metacast_Callback cb) { qtranslator_metacast_callback = cb; }
     inline void setQTranslator_Metacall_Callback(QTranslator_Metacall_Callback cb) { qtranslator_metacall_callback = cb; }
     inline void setQTranslator_Translate_Callback(QTranslator_Translate_Callback cb) { qtranslator_translate_callback = cb; }
     inline void setQTranslator_IsEmpty_Callback(QTranslator_IsEmpty_Callback cb) { qtranslator_isempty_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQTranslator final : public QTranslator {
     inline void setQTranslator_IsSignalConnected_Callback(QTranslator_IsSignalConnected_Callback cb) { qtranslator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTranslator_MetaObject_IsBase(bool value) const { qtranslator_metaobject_isbase = value; }
+    inline void setQTranslator_Metacast_IsBase(bool value) const { qtranslator_metacast_isbase = value; }
     inline void setQTranslator_Metacall_IsBase(bool value) const { qtranslator_metacall_isbase = value; }
     inline void setQTranslator_Translate_IsBase(bool value) const { qtranslator_translate_isbase = value; }
     inline void setQTranslator_IsEmpty_IsBase(bool value) const { qtranslator_isempty_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQTranslator final : public QTranslator {
     inline void setQTranslator_SenderSignalIndex_IsBase(bool value) const { qtranslator_sendersignalindex_isbase = value; }
     inline void setQTranslator_Receivers_IsBase(bool value) const { qtranslator_receivers_isbase = value; }
     inline void setQTranslator_IsSignalConnected_IsBase(bool value) const { qtranslator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtranslator_metaobject_isbase) {
+            qtranslator_metaobject_isbase = false;
+            return QTranslator::metaObject();
+        } else if (qtranslator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtranslator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTranslator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtranslator_metacast_isbase) {
+            qtranslator_metacast_isbase = false;
+            return QTranslator::qt_metacast(param1);
+        } else if (qtranslator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtranslator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTranslator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

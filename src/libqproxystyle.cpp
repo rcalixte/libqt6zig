@@ -41,11 +41,21 @@ QProxyStyle* QProxyStyle_new3(QStyle* style) {
 }
 
 QMetaObject* QProxyStyle_MetaObject(const QProxyStyle* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
+    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQProxyStyle*)self)->metaObject();
+    }
 }
 
 void* QProxyStyle_Metacast(QProxyStyle* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
+    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQProxyStyle*)self)->qt_metacast(param1);
+    }
 }
 
 int QProxyStyle_Metacall(QProxyStyle* self, int param1, int param2, void** param3) {
@@ -280,6 +290,44 @@ bool QProxyStyle_Event(QProxyStyle* self, QEvent* e) {
         return vqproxystyle->event(e);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QProxyStyle_QBaseMetaObject(const QProxyStyle* self) {
+    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
+    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+        vqproxystyle->setQProxyStyle_MetaObject_IsBase(true);
+        return (QMetaObject*)vqproxystyle->metaObject();
+    } else {
+        return (QMetaObject*)self->QProxyStyle::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProxyStyle_OnMetaObject(const QProxyStyle* self, intptr_t slot) {
+    auto* vqproxystyle = const_cast<VirtualQProxyStyle*>(dynamic_cast<const VirtualQProxyStyle*>(self));
+    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+        vqproxystyle->setQProxyStyle_MetaObject_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QProxyStyle_QBaseMetacast(QProxyStyle* self, const char* param1) {
+    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
+    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+        vqproxystyle->setQProxyStyle_Metacast_IsBase(true);
+        return vqproxystyle->qt_metacast(param1);
+    } else {
+        return self->QProxyStyle::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProxyStyle_OnMetacast(QProxyStyle* self, intptr_t slot) {
+    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
+    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
+        vqproxystyle->setQProxyStyle_Metacast_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
     bool isVirtualKFilePreviewGenerator = true;
 
     // Virtual class public types (including callbacks)
+    using KFilePreviewGenerator_MetaObject_Callback = QMetaObject* (*)();
+    using KFilePreviewGenerator_Metacast_Callback = void* (*)(KFilePreviewGenerator*, const char*);
     using KFilePreviewGenerator_Metacall_Callback = int (*)(KFilePreviewGenerator*, int, int, void**);
     using KFilePreviewGenerator_Event_Callback = bool (*)(KFilePreviewGenerator*, QEvent*);
     using KFilePreviewGenerator_EventFilter_Callback = bool (*)(KFilePreviewGenerator*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
 
   protected:
     // Instance callback storage
+    KFilePreviewGenerator_MetaObject_Callback kfilepreviewgenerator_metaobject_callback = nullptr;
+    KFilePreviewGenerator_Metacast_Callback kfilepreviewgenerator_metacast_callback = nullptr;
     KFilePreviewGenerator_Metacall_Callback kfilepreviewgenerator_metacall_callback = nullptr;
     KFilePreviewGenerator_Event_Callback kfilepreviewgenerator_event_callback = nullptr;
     KFilePreviewGenerator_EventFilter_Callback kfilepreviewgenerator_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
     KFilePreviewGenerator_IsSignalConnected_Callback kfilepreviewgenerator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfilepreviewgenerator_metaobject_isbase = false;
+    mutable bool kfilepreviewgenerator_metacast_isbase = false;
     mutable bool kfilepreviewgenerator_metacall_isbase = false;
     mutable bool kfilepreviewgenerator_event_isbase = false;
     mutable bool kfilepreviewgenerator_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
     VirtualKFilePreviewGenerator(KAbstractViewAdapter* parent, QAbstractProxyModel* model) : KFilePreviewGenerator(parent, model) {};
 
     ~VirtualKFilePreviewGenerator() {
+        kfilepreviewgenerator_metaobject_callback = nullptr;
+        kfilepreviewgenerator_metacast_callback = nullptr;
         kfilepreviewgenerator_metacall_callback = nullptr;
         kfilepreviewgenerator_event_callback = nullptr;
         kfilepreviewgenerator_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
     }
 
     // Callback setters
+    inline void setKFilePreviewGenerator_MetaObject_Callback(KFilePreviewGenerator_MetaObject_Callback cb) { kfilepreviewgenerator_metaobject_callback = cb; }
+    inline void setKFilePreviewGenerator_Metacast_Callback(KFilePreviewGenerator_Metacast_Callback cb) { kfilepreviewgenerator_metacast_callback = cb; }
     inline void setKFilePreviewGenerator_Metacall_Callback(KFilePreviewGenerator_Metacall_Callback cb) { kfilepreviewgenerator_metacall_callback = cb; }
     inline void setKFilePreviewGenerator_Event_Callback(KFilePreviewGenerator_Event_Callback cb) { kfilepreviewgenerator_event_callback = cb; }
     inline void setKFilePreviewGenerator_EventFilter_Callback(KFilePreviewGenerator_EventFilter_Callback cb) { kfilepreviewgenerator_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
     inline void setKFilePreviewGenerator_IsSignalConnected_Callback(KFilePreviewGenerator_IsSignalConnected_Callback cb) { kfilepreviewgenerator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKFilePreviewGenerator_MetaObject_IsBase(bool value) const { kfilepreviewgenerator_metaobject_isbase = value; }
+    inline void setKFilePreviewGenerator_Metacast_IsBase(bool value) const { kfilepreviewgenerator_metacast_isbase = value; }
     inline void setKFilePreviewGenerator_Metacall_IsBase(bool value) const { kfilepreviewgenerator_metacall_isbase = value; }
     inline void setKFilePreviewGenerator_Event_IsBase(bool value) const { kfilepreviewgenerator_event_isbase = value; }
     inline void setKFilePreviewGenerator_EventFilter_IsBase(bool value) const { kfilepreviewgenerator_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKFilePreviewGenerator final : public KFilePreviewGenerator {
     inline void setKFilePreviewGenerator_SenderSignalIndex_IsBase(bool value) const { kfilepreviewgenerator_sendersignalindex_isbase = value; }
     inline void setKFilePreviewGenerator_Receivers_IsBase(bool value) const { kfilepreviewgenerator_receivers_isbase = value; }
     inline void setKFilePreviewGenerator_IsSignalConnected_IsBase(bool value) const { kfilepreviewgenerator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfilepreviewgenerator_metaobject_isbase) {
+            kfilepreviewgenerator_metaobject_isbase = false;
+            return KFilePreviewGenerator::metaObject();
+        } else if (kfilepreviewgenerator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfilepreviewgenerator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFilePreviewGenerator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfilepreviewgenerator_metacast_isbase) {
+            kfilepreviewgenerator_metacast_isbase = false;
+            return KFilePreviewGenerator::qt_metacast(param1);
+        } else if (kfilepreviewgenerator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfilepreviewgenerator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFilePreviewGenerator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

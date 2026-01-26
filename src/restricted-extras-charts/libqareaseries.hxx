@@ -17,6 +17,8 @@ class VirtualQAreaSeries final : public QAreaSeries {
     bool isVirtualQAreaSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QAreaSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QAreaSeries_Metacast_Callback = void* (*)(QAreaSeries*, const char*);
     using QAreaSeries_Metacall_Callback = int (*)(QAreaSeries*, int, int, void**);
     using QAreaSeries_Type_Callback = int (*)();
     using QAreaSeries_Event_Callback = bool (*)(QAreaSeries*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQAreaSeries final : public QAreaSeries {
 
   protected:
     // Instance callback storage
+    QAreaSeries_MetaObject_Callback qareaseries_metaobject_callback = nullptr;
+    QAreaSeries_Metacast_Callback qareaseries_metacast_callback = nullptr;
     QAreaSeries_Metacall_Callback qareaseries_metacall_callback = nullptr;
     QAreaSeries_Type_Callback qareaseries_type_callback = nullptr;
     QAreaSeries_Event_Callback qareaseries_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQAreaSeries final : public QAreaSeries {
     QAreaSeries_IsSignalConnected_Callback qareaseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qareaseries_metaobject_isbase = false;
+    mutable bool qareaseries_metacast_isbase = false;
     mutable bool qareaseries_metacall_isbase = false;
     mutable bool qareaseries_type_isbase = false;
     mutable bool qareaseries_event_isbase = false;
@@ -69,6 +75,8 @@ class VirtualQAreaSeries final : public QAreaSeries {
     VirtualQAreaSeries(QLineSeries* upperSeries, QLineSeries* lowerSeries) : QAreaSeries(upperSeries, lowerSeries) {};
 
     ~VirtualQAreaSeries() {
+        qareaseries_metaobject_callback = nullptr;
+        qareaseries_metacast_callback = nullptr;
         qareaseries_metacall_callback = nullptr;
         qareaseries_type_callback = nullptr;
         qareaseries_event_callback = nullptr;
@@ -85,6 +93,8 @@ class VirtualQAreaSeries final : public QAreaSeries {
     }
 
     // Callback setters
+    inline void setQAreaSeries_MetaObject_Callback(QAreaSeries_MetaObject_Callback cb) { qareaseries_metaobject_callback = cb; }
+    inline void setQAreaSeries_Metacast_Callback(QAreaSeries_Metacast_Callback cb) { qareaseries_metacast_callback = cb; }
     inline void setQAreaSeries_Metacall_Callback(QAreaSeries_Metacall_Callback cb) { qareaseries_metacall_callback = cb; }
     inline void setQAreaSeries_Type_Callback(QAreaSeries_Type_Callback cb) { qareaseries_type_callback = cb; }
     inline void setQAreaSeries_Event_Callback(QAreaSeries_Event_Callback cb) { qareaseries_event_callback = cb; }
@@ -100,6 +110,8 @@ class VirtualQAreaSeries final : public QAreaSeries {
     inline void setQAreaSeries_IsSignalConnected_Callback(QAreaSeries_IsSignalConnected_Callback cb) { qareaseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAreaSeries_MetaObject_IsBase(bool value) const { qareaseries_metaobject_isbase = value; }
+    inline void setQAreaSeries_Metacast_IsBase(bool value) const { qareaseries_metacast_isbase = value; }
     inline void setQAreaSeries_Metacall_IsBase(bool value) const { qareaseries_metacall_isbase = value; }
     inline void setQAreaSeries_Type_IsBase(bool value) const { qareaseries_type_isbase = value; }
     inline void setQAreaSeries_Event_IsBase(bool value) const { qareaseries_event_isbase = value; }
@@ -113,6 +125,34 @@ class VirtualQAreaSeries final : public QAreaSeries {
     inline void setQAreaSeries_SenderSignalIndex_IsBase(bool value) const { qareaseries_sendersignalindex_isbase = value; }
     inline void setQAreaSeries_Receivers_IsBase(bool value) const { qareaseries_receivers_isbase = value; }
     inline void setQAreaSeries_IsSignalConnected_IsBase(bool value) const { qareaseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qareaseries_metaobject_isbase) {
+            qareaseries_metaobject_isbase = false;
+            return QAreaSeries::metaObject();
+        } else if (qareaseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qareaseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAreaSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qareaseries_metacast_isbase) {
+            qareaseries_metacast_isbase = false;
+            return QAreaSeries::qt_metacast(param1);
+        } else if (qareaseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qareaseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAreaSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     bool isVirtualKSelectionOwner = true;
 
     // Virtual class public types (including callbacks)
+    using KSelectionOwner_MetaObject_Callback = QMetaObject* (*)();
+    using KSelectionOwner_Metacast_Callback = void* (*)(KSelectionOwner*, const char*);
     using KSelectionOwner_Metacall_Callback = int (*)(KSelectionOwner*, int, int, void**);
     using KSelectionOwner_TimerEvent_Callback = void (*)(KSelectionOwner*, QTimerEvent*);
     using KSelectionOwner_GetAtoms_Callback = void (*)();
@@ -34,6 +36,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
 
   protected:
     // Instance callback storage
+    KSelectionOwner_MetaObject_Callback kselectionowner_metaobject_callback = nullptr;
+    KSelectionOwner_Metacast_Callback kselectionowner_metacast_callback = nullptr;
     KSelectionOwner_Metacall_Callback kselectionowner_metacall_callback = nullptr;
     KSelectionOwner_TimerEvent_Callback kselectionowner_timerevent_callback = nullptr;
     KSelectionOwner_GetAtoms_Callback kselectionowner_getatoms_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     KSelectionOwner_IsSignalConnected_Callback kselectionowner_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kselectionowner_metaobject_isbase = false;
+    mutable bool kselectionowner_metacast_isbase = false;
     mutable bool kselectionowner_metacall_isbase = false;
     mutable bool kselectionowner_timerevent_isbase = false;
     mutable bool kselectionowner_getatoms_isbase = false;
@@ -71,6 +77,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     VirtualKSelectionOwner(const char* selection, int screen, QObject* parent) : KSelectionOwner(selection, screen, parent) {};
 
     ~VirtualKSelectionOwner() {
+        kselectionowner_metaobject_callback = nullptr;
+        kselectionowner_metacast_callback = nullptr;
         kselectionowner_metacall_callback = nullptr;
         kselectionowner_timerevent_callback = nullptr;
         kselectionowner_getatoms_callback = nullptr;
@@ -88,6 +96,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     }
 
     // Callback setters
+    inline void setKSelectionOwner_MetaObject_Callback(KSelectionOwner_MetaObject_Callback cb) { kselectionowner_metaobject_callback = cb; }
+    inline void setKSelectionOwner_Metacast_Callback(KSelectionOwner_Metacast_Callback cb) { kselectionowner_metacast_callback = cb; }
     inline void setKSelectionOwner_Metacall_Callback(KSelectionOwner_Metacall_Callback cb) { kselectionowner_metacall_callback = cb; }
     inline void setKSelectionOwner_TimerEvent_Callback(KSelectionOwner_TimerEvent_Callback cb) { kselectionowner_timerevent_callback = cb; }
     inline void setKSelectionOwner_GetAtoms_Callback(KSelectionOwner_GetAtoms_Callback cb) { kselectionowner_getatoms_callback = cb; }
@@ -104,6 +114,8 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     inline void setKSelectionOwner_IsSignalConnected_Callback(KSelectionOwner_IsSignalConnected_Callback cb) { kselectionowner_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKSelectionOwner_MetaObject_IsBase(bool value) const { kselectionowner_metaobject_isbase = value; }
+    inline void setKSelectionOwner_Metacast_IsBase(bool value) const { kselectionowner_metacast_isbase = value; }
     inline void setKSelectionOwner_Metacall_IsBase(bool value) const { kselectionowner_metacall_isbase = value; }
     inline void setKSelectionOwner_TimerEvent_IsBase(bool value) const { kselectionowner_timerevent_isbase = value; }
     inline void setKSelectionOwner_GetAtoms_IsBase(bool value) const { kselectionowner_getatoms_isbase = value; }
@@ -118,6 +130,34 @@ class VirtualKSelectionOwner final : public KSelectionOwner {
     inline void setKSelectionOwner_SenderSignalIndex_IsBase(bool value) const { kselectionowner_sendersignalindex_isbase = value; }
     inline void setKSelectionOwner_Receivers_IsBase(bool value) const { kselectionowner_receivers_isbase = value; }
     inline void setKSelectionOwner_IsSignalConnected_IsBase(bool value) const { kselectionowner_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kselectionowner_metaobject_isbase) {
+            kselectionowner_metaobject_isbase = false;
+            return KSelectionOwner::metaObject();
+        } else if (kselectionowner_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kselectionowner_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSelectionOwner::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kselectionowner_metacast_isbase) {
+            kselectionowner_metacast_isbase = false;
+            return KSelectionOwner::qt_metacast(param1);
+        } else if (kselectionowner_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kselectionowner_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSelectionOwner::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

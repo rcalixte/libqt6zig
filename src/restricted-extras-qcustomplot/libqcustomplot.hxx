@@ -301,6 +301,8 @@ class VirtualQCPLayer final : public QCPLayer {
     bool isVirtualQCPLayer = true;
 
     // Virtual class public types (including callbacks)
+    using QCPLayer_MetaObject_Callback = QMetaObject* (*)();
+    using QCPLayer_Metacast_Callback = void* (*)(QCPLayer*, const char*);
     using QCPLayer_Metacall_Callback = int (*)(QCPLayer*, int, int, void**);
     using QCPLayer_Event_Callback = bool (*)(QCPLayer*, QEvent*);
     using QCPLayer_EventFilter_Callback = bool (*)(QCPLayer*, QObject*, QEvent*);
@@ -320,6 +322,8 @@ class VirtualQCPLayer final : public QCPLayer {
 
   protected:
     // Instance callback storage
+    QCPLayer_MetaObject_Callback qcplayer_metaobject_callback = nullptr;
+    QCPLayer_Metacast_Callback qcplayer_metacast_callback = nullptr;
     QCPLayer_Metacall_Callback qcplayer_metacall_callback = nullptr;
     QCPLayer_Event_Callback qcplayer_event_callback = nullptr;
     QCPLayer_EventFilter_Callback qcplayer_eventfilter_callback = nullptr;
@@ -338,6 +342,8 @@ class VirtualQCPLayer final : public QCPLayer {
     QCPLayer_IsSignalConnected_Callback qcplayer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcplayer_metaobject_isbase = false;
+    mutable bool qcplayer_metacast_isbase = false;
     mutable bool qcplayer_metacall_isbase = false;
     mutable bool qcplayer_event_isbase = false;
     mutable bool qcplayer_eventfilter_isbase = false;
@@ -359,6 +365,8 @@ class VirtualQCPLayer final : public QCPLayer {
     VirtualQCPLayer(QCustomPlot* parentPlot, const QString& layerName) : QCPLayer(parentPlot, layerName) {};
 
     ~VirtualQCPLayer() {
+        qcplayer_metaobject_callback = nullptr;
+        qcplayer_metacast_callback = nullptr;
         qcplayer_metacall_callback = nullptr;
         qcplayer_event_callback = nullptr;
         qcplayer_eventfilter_callback = nullptr;
@@ -378,6 +386,8 @@ class VirtualQCPLayer final : public QCPLayer {
     }
 
     // Callback setters
+    inline void setQCPLayer_MetaObject_Callback(QCPLayer_MetaObject_Callback cb) { qcplayer_metaobject_callback = cb; }
+    inline void setQCPLayer_Metacast_Callback(QCPLayer_Metacast_Callback cb) { qcplayer_metacast_callback = cb; }
     inline void setQCPLayer_Metacall_Callback(QCPLayer_Metacall_Callback cb) { qcplayer_metacall_callback = cb; }
     inline void setQCPLayer_Event_Callback(QCPLayer_Event_Callback cb) { qcplayer_event_callback = cb; }
     inline void setQCPLayer_EventFilter_Callback(QCPLayer_EventFilter_Callback cb) { qcplayer_eventfilter_callback = cb; }
@@ -396,6 +406,8 @@ class VirtualQCPLayer final : public QCPLayer {
     inline void setQCPLayer_IsSignalConnected_Callback(QCPLayer_IsSignalConnected_Callback cb) { qcplayer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPLayer_MetaObject_IsBase(bool value) const { qcplayer_metaobject_isbase = value; }
+    inline void setQCPLayer_Metacast_IsBase(bool value) const { qcplayer_metacast_isbase = value; }
     inline void setQCPLayer_Metacall_IsBase(bool value) const { qcplayer_metacall_isbase = value; }
     inline void setQCPLayer_Event_IsBase(bool value) const { qcplayer_event_isbase = value; }
     inline void setQCPLayer_EventFilter_IsBase(bool value) const { qcplayer_eventfilter_isbase = value; }
@@ -412,6 +424,34 @@ class VirtualQCPLayer final : public QCPLayer {
     inline void setQCPLayer_SenderSignalIndex_IsBase(bool value) const { qcplayer_sendersignalindex_isbase = value; }
     inline void setQCPLayer_Receivers_IsBase(bool value) const { qcplayer_receivers_isbase = value; }
     inline void setQCPLayer_IsSignalConnected_IsBase(bool value) const { qcplayer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcplayer_metaobject_isbase) {
+            qcplayer_metaobject_isbase = false;
+            return QCPLayer::metaObject();
+        } else if (qcplayer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcplayer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPLayer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcplayer_metacast_isbase) {
+            qcplayer_metacast_isbase = false;
+            return QCPLayer::qt_metacast(param1);
+        } else if (qcplayer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcplayer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPLayer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -685,6 +725,8 @@ class VirtualQCPLayerable : public QCPLayerable {
     bool isVirtualQCPLayerable = true;
 
     // Virtual class public types (including callbacks)
+    using QCPLayerable_MetaObject_Callback = QMetaObject* (*)();
+    using QCPLayerable_Metacast_Callback = void* (*)(QCPLayerable*, const char*);
     using QCPLayerable_Metacall_Callback = int (*)(QCPLayerable*, int, int, void**);
     using QCPLayerable_SelectTest_Callback = double (*)(const QCPLayerable*, QPointF*, bool, QVariant*);
     using QCPLayerable_ParentPlotInitialized_Callback = void (*)(QCPLayerable*, QCustomPlot*);
@@ -717,6 +759,8 @@ class VirtualQCPLayerable : public QCPLayerable {
 
   protected:
     // Instance callback storage
+    QCPLayerable_MetaObject_Callback qcplayerable_metaobject_callback = nullptr;
+    QCPLayerable_Metacast_Callback qcplayerable_metacast_callback = nullptr;
     QCPLayerable_Metacall_Callback qcplayerable_metacall_callback = nullptr;
     QCPLayerable_SelectTest_Callback qcplayerable_selecttest_callback = nullptr;
     QCPLayerable_ParentPlotInitialized_Callback qcplayerable_parentplotinitialized_callback = nullptr;
@@ -748,6 +792,8 @@ class VirtualQCPLayerable : public QCPLayerable {
     QCPLayerable_IsSignalConnected_Callback qcplayerable_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcplayerable_metaobject_isbase = false;
+    mutable bool qcplayerable_metacast_isbase = false;
     mutable bool qcplayerable_metacall_isbase = false;
     mutable bool qcplayerable_selecttest_isbase = false;
     mutable bool qcplayerable_parentplotinitialized_isbase = false;
@@ -784,6 +830,8 @@ class VirtualQCPLayerable : public QCPLayerable {
     VirtualQCPLayerable(QCustomPlot* plot, QString targetLayer, QCPLayerable* parentLayerable) : QCPLayerable(plot, targetLayer, parentLayerable) {};
 
     ~VirtualQCPLayerable() {
+        qcplayerable_metaobject_callback = nullptr;
+        qcplayerable_metacast_callback = nullptr;
         qcplayerable_metacall_callback = nullptr;
         qcplayerable_selecttest_callback = nullptr;
         qcplayerable_parentplotinitialized_callback = nullptr;
@@ -816,6 +864,8 @@ class VirtualQCPLayerable : public QCPLayerable {
     }
 
     // Callback setters
+    inline void setQCPLayerable_MetaObject_Callback(QCPLayerable_MetaObject_Callback cb) { qcplayerable_metaobject_callback = cb; }
+    inline void setQCPLayerable_Metacast_Callback(QCPLayerable_Metacast_Callback cb) { qcplayerable_metacast_callback = cb; }
     inline void setQCPLayerable_Metacall_Callback(QCPLayerable_Metacall_Callback cb) { qcplayerable_metacall_callback = cb; }
     inline void setQCPLayerable_SelectTest_Callback(QCPLayerable_SelectTest_Callback cb) { qcplayerable_selecttest_callback = cb; }
     inline void setQCPLayerable_ParentPlotInitialized_Callback(QCPLayerable_ParentPlotInitialized_Callback cb) { qcplayerable_parentplotinitialized_callback = cb; }
@@ -847,6 +897,8 @@ class VirtualQCPLayerable : public QCPLayerable {
     inline void setQCPLayerable_IsSignalConnected_Callback(QCPLayerable_IsSignalConnected_Callback cb) { qcplayerable_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPLayerable_MetaObject_IsBase(bool value) const { qcplayerable_metaobject_isbase = value; }
+    inline void setQCPLayerable_Metacast_IsBase(bool value) const { qcplayerable_metacast_isbase = value; }
     inline void setQCPLayerable_Metacall_IsBase(bool value) const { qcplayerable_metacall_isbase = value; }
     inline void setQCPLayerable_SelectTest_IsBase(bool value) const { qcplayerable_selecttest_isbase = value; }
     inline void setQCPLayerable_ParentPlotInitialized_IsBase(bool value) const { qcplayerable_parentplotinitialized_isbase = value; }
@@ -876,6 +928,34 @@ class VirtualQCPLayerable : public QCPLayerable {
     inline void setQCPLayerable_SenderSignalIndex_IsBase(bool value) const { qcplayerable_sendersignalindex_isbase = value; }
     inline void setQCPLayerable_Receivers_IsBase(bool value) const { qcplayerable_receivers_isbase = value; }
     inline void setQCPLayerable_IsSignalConnected_IsBase(bool value) const { qcplayerable_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcplayerable_metaobject_isbase) {
+            qcplayerable_metaobject_isbase = false;
+            return QCPLayerable::metaObject();
+        } else if (qcplayerable_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcplayerable_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPLayerable::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcplayerable_metacast_isbase) {
+            qcplayerable_metacast_isbase = false;
+            return QCPLayerable::qt_metacast(param1);
+        } else if (qcplayerable_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcplayerable_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPLayerable::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1370,6 +1450,8 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
     bool isVirtualQCPSelectionRect = true;
 
     // Virtual class public types (including callbacks)
+    using QCPSelectionRect_MetaObject_Callback = QMetaObject* (*)();
+    using QCPSelectionRect_Metacast_Callback = void* (*)(QCPSelectionRect*, const char*);
     using QCPSelectionRect_Metacall_Callback = int (*)(QCPSelectionRect*, int, int, void**);
     using QCPSelectionRect_StartSelection_Callback = void (*)(QCPSelectionRect*, QMouseEvent*);
     using QCPSelectionRect_MoveSelection_Callback = void (*)(QCPSelectionRect*, QMouseEvent*);
@@ -1406,6 +1488,8 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
 
   protected:
     // Instance callback storage
+    QCPSelectionRect_MetaObject_Callback qcpselectionrect_metaobject_callback = nullptr;
+    QCPSelectionRect_Metacast_Callback qcpselectionrect_metacast_callback = nullptr;
     QCPSelectionRect_Metacall_Callback qcpselectionrect_metacall_callback = nullptr;
     QCPSelectionRect_StartSelection_Callback qcpselectionrect_startselection_callback = nullptr;
     QCPSelectionRect_MoveSelection_Callback qcpselectionrect_moveselection_callback = nullptr;
@@ -1441,6 +1525,8 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
     QCPSelectionRect_IsSignalConnected_Callback qcpselectionrect_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpselectionrect_metaobject_isbase = false;
+    mutable bool qcpselectionrect_metacast_isbase = false;
     mutable bool qcpselectionrect_metacall_isbase = false;
     mutable bool qcpselectionrect_startselection_isbase = false;
     mutable bool qcpselectionrect_moveselection_isbase = false;
@@ -1479,6 +1565,8 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
     VirtualQCPSelectionRect(QCustomPlot* parentPlot) : QCPSelectionRect(parentPlot) {};
 
     ~VirtualQCPSelectionRect() {
+        qcpselectionrect_metaobject_callback = nullptr;
+        qcpselectionrect_metacast_callback = nullptr;
         qcpselectionrect_metacall_callback = nullptr;
         qcpselectionrect_startselection_callback = nullptr;
         qcpselectionrect_moveselection_callback = nullptr;
@@ -1515,6 +1603,8 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
     }
 
     // Callback setters
+    inline void setQCPSelectionRect_MetaObject_Callback(QCPSelectionRect_MetaObject_Callback cb) { qcpselectionrect_metaobject_callback = cb; }
+    inline void setQCPSelectionRect_Metacast_Callback(QCPSelectionRect_Metacast_Callback cb) { qcpselectionrect_metacast_callback = cb; }
     inline void setQCPSelectionRect_Metacall_Callback(QCPSelectionRect_Metacall_Callback cb) { qcpselectionrect_metacall_callback = cb; }
     inline void setQCPSelectionRect_StartSelection_Callback(QCPSelectionRect_StartSelection_Callback cb) { qcpselectionrect_startselection_callback = cb; }
     inline void setQCPSelectionRect_MoveSelection_Callback(QCPSelectionRect_MoveSelection_Callback cb) { qcpselectionrect_moveselection_callback = cb; }
@@ -1550,6 +1640,8 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
     inline void setQCPSelectionRect_IsSignalConnected_Callback(QCPSelectionRect_IsSignalConnected_Callback cb) { qcpselectionrect_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPSelectionRect_MetaObject_IsBase(bool value) const { qcpselectionrect_metaobject_isbase = value; }
+    inline void setQCPSelectionRect_Metacast_IsBase(bool value) const { qcpselectionrect_metacast_isbase = value; }
     inline void setQCPSelectionRect_Metacall_IsBase(bool value) const { qcpselectionrect_metacall_isbase = value; }
     inline void setQCPSelectionRect_StartSelection_IsBase(bool value) const { qcpselectionrect_startselection_isbase = value; }
     inline void setQCPSelectionRect_MoveSelection_IsBase(bool value) const { qcpselectionrect_moveselection_isbase = value; }
@@ -1583,6 +1675,34 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
     inline void setQCPSelectionRect_SenderSignalIndex_IsBase(bool value) const { qcpselectionrect_sendersignalindex_isbase = value; }
     inline void setQCPSelectionRect_Receivers_IsBase(bool value) const { qcpselectionrect_receivers_isbase = value; }
     inline void setQCPSelectionRect_IsSignalConnected_IsBase(bool value) const { qcpselectionrect_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpselectionrect_metaobject_isbase) {
+            qcpselectionrect_metaobject_isbase = false;
+            return QCPSelectionRect::metaObject();
+        } else if (qcpselectionrect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpselectionrect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPSelectionRect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpselectionrect_metacast_isbase) {
+            qcpselectionrect_metacast_isbase = false;
+            return QCPSelectionRect::qt_metacast(param1);
+        } else if (qcpselectionrect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpselectionrect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPSelectionRect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -2151,6 +2271,8 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
     bool isVirtualQCPMarginGroup = true;
 
     // Virtual class public types (including callbacks)
+    using QCPMarginGroup_MetaObject_Callback = QMetaObject* (*)();
+    using QCPMarginGroup_Metacast_Callback = void* (*)(QCPMarginGroup*, const char*);
     using QCPMarginGroup_Metacall_Callback = int (*)(QCPMarginGroup*, int, int, void**);
     using QCPMarginGroup_CommonMargin_Callback = int (*)(const QCPMarginGroup*, int);
     using QCPMarginGroup_Event_Callback = bool (*)(QCPMarginGroup*, QEvent*);
@@ -2169,6 +2291,8 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
 
   protected:
     // Instance callback storage
+    QCPMarginGroup_MetaObject_Callback qcpmargingroup_metaobject_callback = nullptr;
+    QCPMarginGroup_Metacast_Callback qcpmargingroup_metacast_callback = nullptr;
     QCPMarginGroup_Metacall_Callback qcpmargingroup_metacall_callback = nullptr;
     QCPMarginGroup_CommonMargin_Callback qcpmargingroup_commonmargin_callback = nullptr;
     QCPMarginGroup_Event_Callback qcpmargingroup_event_callback = nullptr;
@@ -2186,6 +2310,8 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
     QCPMarginGroup_IsSignalConnected_Callback qcpmargingroup_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpmargingroup_metaobject_isbase = false;
+    mutable bool qcpmargingroup_metacast_isbase = false;
     mutable bool qcpmargingroup_metacall_isbase = false;
     mutable bool qcpmargingroup_commonmargin_isbase = false;
     mutable bool qcpmargingroup_event_isbase = false;
@@ -2206,6 +2332,8 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
     VirtualQCPMarginGroup(QCustomPlot* parentPlot) : QCPMarginGroup(parentPlot) {};
 
     ~VirtualQCPMarginGroup() {
+        qcpmargingroup_metaobject_callback = nullptr;
+        qcpmargingroup_metacast_callback = nullptr;
         qcpmargingroup_metacall_callback = nullptr;
         qcpmargingroup_commonmargin_callback = nullptr;
         qcpmargingroup_event_callback = nullptr;
@@ -2224,6 +2352,8 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
     }
 
     // Callback setters
+    inline void setQCPMarginGroup_MetaObject_Callback(QCPMarginGroup_MetaObject_Callback cb) { qcpmargingroup_metaobject_callback = cb; }
+    inline void setQCPMarginGroup_Metacast_Callback(QCPMarginGroup_Metacast_Callback cb) { qcpmargingroup_metacast_callback = cb; }
     inline void setQCPMarginGroup_Metacall_Callback(QCPMarginGroup_Metacall_Callback cb) { qcpmargingroup_metacall_callback = cb; }
     inline void setQCPMarginGroup_CommonMargin_Callback(QCPMarginGroup_CommonMargin_Callback cb) { qcpmargingroup_commonmargin_callback = cb; }
     inline void setQCPMarginGroup_Event_Callback(QCPMarginGroup_Event_Callback cb) { qcpmargingroup_event_callback = cb; }
@@ -2241,6 +2371,8 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
     inline void setQCPMarginGroup_IsSignalConnected_Callback(QCPMarginGroup_IsSignalConnected_Callback cb) { qcpmargingroup_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPMarginGroup_MetaObject_IsBase(bool value) const { qcpmargingroup_metaobject_isbase = value; }
+    inline void setQCPMarginGroup_Metacast_IsBase(bool value) const { qcpmargingroup_metacast_isbase = value; }
     inline void setQCPMarginGroup_Metacall_IsBase(bool value) const { qcpmargingroup_metacall_isbase = value; }
     inline void setQCPMarginGroup_CommonMargin_IsBase(bool value) const { qcpmargingroup_commonmargin_isbase = value; }
     inline void setQCPMarginGroup_Event_IsBase(bool value) const { qcpmargingroup_event_isbase = value; }
@@ -2256,6 +2388,34 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
     inline void setQCPMarginGroup_SenderSignalIndex_IsBase(bool value) const { qcpmargingroup_sendersignalindex_isbase = value; }
     inline void setQCPMarginGroup_Receivers_IsBase(bool value) const { qcpmargingroup_receivers_isbase = value; }
     inline void setQCPMarginGroup_IsSignalConnected_IsBase(bool value) const { qcpmargingroup_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpmargingroup_metaobject_isbase) {
+            qcpmargingroup_metaobject_isbase = false;
+            return QCPMarginGroup::metaObject();
+        } else if (qcpmargingroup_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpmargingroup_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPMarginGroup::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpmargingroup_metacast_isbase) {
+            qcpmargingroup_metacast_isbase = false;
+            return QCPMarginGroup::qt_metacast(param1);
+        } else if (qcpmargingroup_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpmargingroup_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPMarginGroup::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -2517,6 +2677,8 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
     bool isVirtualQCPLayoutElement = true;
 
     // Virtual class public types (including callbacks)
+    using QCPLayoutElement_MetaObject_Callback = QMetaObject* (*)();
+    using QCPLayoutElement_Metacast_Callback = void* (*)(QCPLayoutElement*, const char*);
     using QCPLayoutElement_Metacall_Callback = int (*)(QCPLayoutElement*, int, int, void**);
     using QCPLayoutElement_Update_Callback = void (*)(QCPLayoutElement*, int);
     using QCPLayoutElement_MinimumOuterSizeHint_Callback = QSize* (*)();
@@ -2555,6 +2717,8 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
 
   protected:
     // Instance callback storage
+    QCPLayoutElement_MetaObject_Callback qcplayoutelement_metaobject_callback = nullptr;
+    QCPLayoutElement_Metacast_Callback qcplayoutelement_metacast_callback = nullptr;
     QCPLayoutElement_Metacall_Callback qcplayoutelement_metacall_callback = nullptr;
     QCPLayoutElement_Update_Callback qcplayoutelement_update_callback = nullptr;
     QCPLayoutElement_MinimumOuterSizeHint_Callback qcplayoutelement_minimumoutersizehint_callback = nullptr;
@@ -2592,6 +2756,8 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
     QCPLayoutElement_IsSignalConnected_Callback qcplayoutelement_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcplayoutelement_metaobject_isbase = false;
+    mutable bool qcplayoutelement_metacast_isbase = false;
     mutable bool qcplayoutelement_metacall_isbase = false;
     mutable bool qcplayoutelement_update_isbase = false;
     mutable bool qcplayoutelement_minimumoutersizehint_isbase = false;
@@ -2633,6 +2799,8 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
     VirtualQCPLayoutElement(QCustomPlot* parentPlot) : QCPLayoutElement(parentPlot) {};
 
     ~VirtualQCPLayoutElement() {
+        qcplayoutelement_metaobject_callback = nullptr;
+        qcplayoutelement_metacast_callback = nullptr;
         qcplayoutelement_metacall_callback = nullptr;
         qcplayoutelement_update_callback = nullptr;
         qcplayoutelement_minimumoutersizehint_callback = nullptr;
@@ -2671,6 +2839,8 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
     }
 
     // Callback setters
+    inline void setQCPLayoutElement_MetaObject_Callback(QCPLayoutElement_MetaObject_Callback cb) { qcplayoutelement_metaobject_callback = cb; }
+    inline void setQCPLayoutElement_Metacast_Callback(QCPLayoutElement_Metacast_Callback cb) { qcplayoutelement_metacast_callback = cb; }
     inline void setQCPLayoutElement_Metacall_Callback(QCPLayoutElement_Metacall_Callback cb) { qcplayoutelement_metacall_callback = cb; }
     inline void setQCPLayoutElement_Update_Callback(QCPLayoutElement_Update_Callback cb) { qcplayoutelement_update_callback = cb; }
     inline void setQCPLayoutElement_MinimumOuterSizeHint_Callback(QCPLayoutElement_MinimumOuterSizeHint_Callback cb) { qcplayoutelement_minimumoutersizehint_callback = cb; }
@@ -2708,6 +2878,8 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
     inline void setQCPLayoutElement_IsSignalConnected_Callback(QCPLayoutElement_IsSignalConnected_Callback cb) { qcplayoutelement_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPLayoutElement_MetaObject_IsBase(bool value) const { qcplayoutelement_metaobject_isbase = value; }
+    inline void setQCPLayoutElement_Metacast_IsBase(bool value) const { qcplayoutelement_metacast_isbase = value; }
     inline void setQCPLayoutElement_Metacall_IsBase(bool value) const { qcplayoutelement_metacall_isbase = value; }
     inline void setQCPLayoutElement_Update_IsBase(bool value) const { qcplayoutelement_update_isbase = value; }
     inline void setQCPLayoutElement_MinimumOuterSizeHint_IsBase(bool value) const { qcplayoutelement_minimumoutersizehint_isbase = value; }
@@ -2743,6 +2915,34 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
     inline void setQCPLayoutElement_SenderSignalIndex_IsBase(bool value) const { qcplayoutelement_sendersignalindex_isbase = value; }
     inline void setQCPLayoutElement_Receivers_IsBase(bool value) const { qcplayoutelement_receivers_isbase = value; }
     inline void setQCPLayoutElement_IsSignalConnected_IsBase(bool value) const { qcplayoutelement_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcplayoutelement_metaobject_isbase) {
+            qcplayoutelement_metaobject_isbase = false;
+            return QCPLayoutElement::metaObject();
+        } else if (qcplayoutelement_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcplayoutelement_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPLayoutElement::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcplayoutelement_metacast_isbase) {
+            qcplayoutelement_metacast_isbase = false;
+            return QCPLayoutElement::qt_metacast(param1);
+        } else if (qcplayoutelement_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcplayoutelement_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPLayoutElement::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -3339,6 +3539,8 @@ class VirtualQCPLayout : public QCPLayout {
     bool isVirtualQCPLayout = true;
 
     // Virtual class public types (including callbacks)
+    using QCPLayout_MetaObject_Callback = QMetaObject* (*)();
+    using QCPLayout_Metacast_Callback = void* (*)(QCPLayout*, const char*);
     using QCPLayout_Metacall_Callback = int (*)(QCPLayout*, int, int, void**);
     using QCPLayout_Update_Callback = void (*)(QCPLayout*, int);
     using QCPLayout_Elements_Callback = QCPLayoutElement** (*)(const QCPLayout*, bool);
@@ -3387,6 +3589,8 @@ class VirtualQCPLayout : public QCPLayout {
 
   protected:
     // Instance callback storage
+    QCPLayout_MetaObject_Callback qcplayout_metaobject_callback = nullptr;
+    QCPLayout_Metacast_Callback qcplayout_metacast_callback = nullptr;
     QCPLayout_Metacall_Callback qcplayout_metacall_callback = nullptr;
     QCPLayout_Update_Callback qcplayout_update_callback = nullptr;
     QCPLayout_Elements_Callback qcplayout_elements_callback = nullptr;
@@ -3434,6 +3638,8 @@ class VirtualQCPLayout : public QCPLayout {
     QCPLayout_IsSignalConnected_Callback qcplayout_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcplayout_metaobject_isbase = false;
+    mutable bool qcplayout_metacast_isbase = false;
     mutable bool qcplayout_metacall_isbase = false;
     mutable bool qcplayout_update_isbase = false;
     mutable bool qcplayout_elements_isbase = false;
@@ -3484,6 +3690,8 @@ class VirtualQCPLayout : public QCPLayout {
     VirtualQCPLayout() : QCPLayout() {};
 
     ~VirtualQCPLayout() {
+        qcplayout_metaobject_callback = nullptr;
+        qcplayout_metacast_callback = nullptr;
         qcplayout_metacall_callback = nullptr;
         qcplayout_update_callback = nullptr;
         qcplayout_elements_callback = nullptr;
@@ -3532,6 +3740,8 @@ class VirtualQCPLayout : public QCPLayout {
     }
 
     // Callback setters
+    inline void setQCPLayout_MetaObject_Callback(QCPLayout_MetaObject_Callback cb) { qcplayout_metaobject_callback = cb; }
+    inline void setQCPLayout_Metacast_Callback(QCPLayout_Metacast_Callback cb) { qcplayout_metacast_callback = cb; }
     inline void setQCPLayout_Metacall_Callback(QCPLayout_Metacall_Callback cb) { qcplayout_metacall_callback = cb; }
     inline void setQCPLayout_Update_Callback(QCPLayout_Update_Callback cb) { qcplayout_update_callback = cb; }
     inline void setQCPLayout_Elements_Callback(QCPLayout_Elements_Callback cb) { qcplayout_elements_callback = cb; }
@@ -3579,6 +3789,8 @@ class VirtualQCPLayout : public QCPLayout {
     inline void setQCPLayout_IsSignalConnected_Callback(QCPLayout_IsSignalConnected_Callback cb) { qcplayout_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPLayout_MetaObject_IsBase(bool value) const { qcplayout_metaobject_isbase = value; }
+    inline void setQCPLayout_Metacast_IsBase(bool value) const { qcplayout_metacast_isbase = value; }
     inline void setQCPLayout_Metacall_IsBase(bool value) const { qcplayout_metacall_isbase = value; }
     inline void setQCPLayout_Update_IsBase(bool value) const { qcplayout_update_isbase = value; }
     inline void setQCPLayout_Elements_IsBase(bool value) const { qcplayout_elements_isbase = value; }
@@ -3624,6 +3836,34 @@ class VirtualQCPLayout : public QCPLayout {
     inline void setQCPLayout_SenderSignalIndex_IsBase(bool value) const { qcplayout_sendersignalindex_isbase = value; }
     inline void setQCPLayout_Receivers_IsBase(bool value) const { qcplayout_receivers_isbase = value; }
     inline void setQCPLayout_IsSignalConnected_IsBase(bool value) const { qcplayout_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcplayout_metaobject_isbase) {
+            qcplayout_metaobject_isbase = false;
+            return QCPLayout::metaObject();
+        } else if (qcplayout_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcplayout_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPLayout::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcplayout_metacast_isbase) {
+            qcplayout_metacast_isbase = false;
+            return QCPLayout::qt_metacast(param1);
+        } else if (qcplayout_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcplayout_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPLayout::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -4390,6 +4630,8 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
     bool isVirtualQCPLayoutGrid = true;
 
     // Virtual class public types (including callbacks)
+    using QCPLayoutGrid_MetaObject_Callback = QMetaObject* (*)();
+    using QCPLayoutGrid_Metacast_Callback = void* (*)(QCPLayoutGrid*, const char*);
     using QCPLayoutGrid_Metacall_Callback = int (*)(QCPLayoutGrid*, int, int, void**);
     using QCPLayoutGrid_UpdateLayout_Callback = void (*)();
     using QCPLayoutGrid_ElementCount_Callback = int (*)();
@@ -4440,6 +4682,8 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
 
   protected:
     // Instance callback storage
+    QCPLayoutGrid_MetaObject_Callback qcplayoutgrid_metaobject_callback = nullptr;
+    QCPLayoutGrid_Metacast_Callback qcplayoutgrid_metacast_callback = nullptr;
     QCPLayoutGrid_Metacall_Callback qcplayoutgrid_metacall_callback = nullptr;
     QCPLayoutGrid_UpdateLayout_Callback qcplayoutgrid_updatelayout_callback = nullptr;
     QCPLayoutGrid_ElementCount_Callback qcplayoutgrid_elementcount_callback = nullptr;
@@ -4489,6 +4733,8 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
     QCPLayoutGrid_IsSignalConnected_Callback qcplayoutgrid_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcplayoutgrid_metaobject_isbase = false;
+    mutable bool qcplayoutgrid_metacast_isbase = false;
     mutable bool qcplayoutgrid_metacall_isbase = false;
     mutable bool qcplayoutgrid_updatelayout_isbase = false;
     mutable bool qcplayoutgrid_elementcount_isbase = false;
@@ -4541,6 +4787,8 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
     VirtualQCPLayoutGrid() : QCPLayoutGrid() {};
 
     ~VirtualQCPLayoutGrid() {
+        qcplayoutgrid_metaobject_callback = nullptr;
+        qcplayoutgrid_metacast_callback = nullptr;
         qcplayoutgrid_metacall_callback = nullptr;
         qcplayoutgrid_updatelayout_callback = nullptr;
         qcplayoutgrid_elementcount_callback = nullptr;
@@ -4591,6 +4839,8 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
     }
 
     // Callback setters
+    inline void setQCPLayoutGrid_MetaObject_Callback(QCPLayoutGrid_MetaObject_Callback cb) { qcplayoutgrid_metaobject_callback = cb; }
+    inline void setQCPLayoutGrid_Metacast_Callback(QCPLayoutGrid_Metacast_Callback cb) { qcplayoutgrid_metacast_callback = cb; }
     inline void setQCPLayoutGrid_Metacall_Callback(QCPLayoutGrid_Metacall_Callback cb) { qcplayoutgrid_metacall_callback = cb; }
     inline void setQCPLayoutGrid_UpdateLayout_Callback(QCPLayoutGrid_UpdateLayout_Callback cb) { qcplayoutgrid_updatelayout_callback = cb; }
     inline void setQCPLayoutGrid_ElementCount_Callback(QCPLayoutGrid_ElementCount_Callback cb) { qcplayoutgrid_elementcount_callback = cb; }
@@ -4640,6 +4890,8 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
     inline void setQCPLayoutGrid_IsSignalConnected_Callback(QCPLayoutGrid_IsSignalConnected_Callback cb) { qcplayoutgrid_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPLayoutGrid_MetaObject_IsBase(bool value) const { qcplayoutgrid_metaobject_isbase = value; }
+    inline void setQCPLayoutGrid_Metacast_IsBase(bool value) const { qcplayoutgrid_metacast_isbase = value; }
     inline void setQCPLayoutGrid_Metacall_IsBase(bool value) const { qcplayoutgrid_metacall_isbase = value; }
     inline void setQCPLayoutGrid_UpdateLayout_IsBase(bool value) const { qcplayoutgrid_updatelayout_isbase = value; }
     inline void setQCPLayoutGrid_ElementCount_IsBase(bool value) const { qcplayoutgrid_elementcount_isbase = value; }
@@ -4687,6 +4939,34 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
     inline void setQCPLayoutGrid_SenderSignalIndex_IsBase(bool value) const { qcplayoutgrid_sendersignalindex_isbase = value; }
     inline void setQCPLayoutGrid_Receivers_IsBase(bool value) const { qcplayoutgrid_receivers_isbase = value; }
     inline void setQCPLayoutGrid_IsSignalConnected_IsBase(bool value) const { qcplayoutgrid_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcplayoutgrid_metaobject_isbase) {
+            qcplayoutgrid_metaobject_isbase = false;
+            return QCPLayoutGrid::metaObject();
+        } else if (qcplayoutgrid_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcplayoutgrid_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPLayoutGrid::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcplayoutgrid_metacast_isbase) {
+            qcplayoutgrid_metacast_isbase = false;
+            return QCPLayoutGrid::qt_metacast(param1);
+        } else if (qcplayoutgrid_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcplayoutgrid_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPLayoutGrid::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -5533,6 +5813,8 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
     bool isVirtualQCPLayoutInset = true;
 
     // Virtual class public types (including callbacks)
+    using QCPLayoutInset_MetaObject_Callback = QMetaObject* (*)();
+    using QCPLayoutInset_Metacast_Callback = void* (*)(QCPLayoutInset*, const char*);
     using QCPLayoutInset_Metacall_Callback = int (*)(QCPLayoutInset*, int, int, void**);
     using QCPLayoutInset_UpdateLayout_Callback = void (*)();
     using QCPLayoutInset_ElementCount_Callback = int (*)();
@@ -5581,6 +5863,8 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
 
   protected:
     // Instance callback storage
+    QCPLayoutInset_MetaObject_Callback qcplayoutinset_metaobject_callback = nullptr;
+    QCPLayoutInset_Metacast_Callback qcplayoutinset_metacast_callback = nullptr;
     QCPLayoutInset_Metacall_Callback qcplayoutinset_metacall_callback = nullptr;
     QCPLayoutInset_UpdateLayout_Callback qcplayoutinset_updatelayout_callback = nullptr;
     QCPLayoutInset_ElementCount_Callback qcplayoutinset_elementcount_callback = nullptr;
@@ -5628,6 +5912,8 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
     QCPLayoutInset_IsSignalConnected_Callback qcplayoutinset_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcplayoutinset_metaobject_isbase = false;
+    mutable bool qcplayoutinset_metacast_isbase = false;
     mutable bool qcplayoutinset_metacall_isbase = false;
     mutable bool qcplayoutinset_updatelayout_isbase = false;
     mutable bool qcplayoutinset_elementcount_isbase = false;
@@ -5678,6 +5964,8 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
     VirtualQCPLayoutInset() : QCPLayoutInset() {};
 
     ~VirtualQCPLayoutInset() {
+        qcplayoutinset_metaobject_callback = nullptr;
+        qcplayoutinset_metacast_callback = nullptr;
         qcplayoutinset_metacall_callback = nullptr;
         qcplayoutinset_updatelayout_callback = nullptr;
         qcplayoutinset_elementcount_callback = nullptr;
@@ -5726,6 +6014,8 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
     }
 
     // Callback setters
+    inline void setQCPLayoutInset_MetaObject_Callback(QCPLayoutInset_MetaObject_Callback cb) { qcplayoutinset_metaobject_callback = cb; }
+    inline void setQCPLayoutInset_Metacast_Callback(QCPLayoutInset_Metacast_Callback cb) { qcplayoutinset_metacast_callback = cb; }
     inline void setQCPLayoutInset_Metacall_Callback(QCPLayoutInset_Metacall_Callback cb) { qcplayoutinset_metacall_callback = cb; }
     inline void setQCPLayoutInset_UpdateLayout_Callback(QCPLayoutInset_UpdateLayout_Callback cb) { qcplayoutinset_updatelayout_callback = cb; }
     inline void setQCPLayoutInset_ElementCount_Callback(QCPLayoutInset_ElementCount_Callback cb) { qcplayoutinset_elementcount_callback = cb; }
@@ -5773,6 +6063,8 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
     inline void setQCPLayoutInset_IsSignalConnected_Callback(QCPLayoutInset_IsSignalConnected_Callback cb) { qcplayoutinset_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPLayoutInset_MetaObject_IsBase(bool value) const { qcplayoutinset_metaobject_isbase = value; }
+    inline void setQCPLayoutInset_Metacast_IsBase(bool value) const { qcplayoutinset_metacast_isbase = value; }
     inline void setQCPLayoutInset_Metacall_IsBase(bool value) const { qcplayoutinset_metacall_isbase = value; }
     inline void setQCPLayoutInset_UpdateLayout_IsBase(bool value) const { qcplayoutinset_updatelayout_isbase = value; }
     inline void setQCPLayoutInset_ElementCount_IsBase(bool value) const { qcplayoutinset_elementcount_isbase = value; }
@@ -5818,6 +6110,34 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
     inline void setQCPLayoutInset_SenderSignalIndex_IsBase(bool value) const { qcplayoutinset_sendersignalindex_isbase = value; }
     inline void setQCPLayoutInset_Receivers_IsBase(bool value) const { qcplayoutinset_receivers_isbase = value; }
     inline void setQCPLayoutInset_IsSignalConnected_IsBase(bool value) const { qcplayoutinset_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcplayoutinset_metaobject_isbase) {
+            qcplayoutinset_metaobject_isbase = false;
+            return QCPLayoutInset::metaObject();
+        } else if (qcplayoutinset_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcplayoutinset_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPLayoutInset::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcplayoutinset_metacast_isbase) {
+            qcplayoutinset_metacast_isbase = false;
+            return QCPLayoutInset::qt_metacast(param1);
+        } else if (qcplayoutinset_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcplayoutinset_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPLayoutInset::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -9558,6 +9878,8 @@ class VirtualQCPGrid final : public QCPGrid {
     bool isVirtualQCPGrid = true;
 
     // Virtual class public types (including callbacks)
+    using QCPGrid_MetaObject_Callback = QMetaObject* (*)();
+    using QCPGrid_Metacast_Callback = void* (*)(QCPGrid*, const char*);
     using QCPGrid_Metacall_Callback = int (*)(QCPGrid*, int, int, void**);
     using QCPGrid_ApplyDefaultAntialiasingHint_Callback = void (*)(const QCPGrid*, QCPPainter*);
     using QCPGrid_Draw_Callback = void (*)(QCPGrid*, QCPPainter*);
@@ -9592,6 +9914,8 @@ class VirtualQCPGrid final : public QCPGrid {
 
   protected:
     // Instance callback storage
+    QCPGrid_MetaObject_Callback qcpgrid_metaobject_callback = nullptr;
+    QCPGrid_Metacast_Callback qcpgrid_metacast_callback = nullptr;
     QCPGrid_Metacall_Callback qcpgrid_metacall_callback = nullptr;
     QCPGrid_ApplyDefaultAntialiasingHint_Callback qcpgrid_applydefaultantialiasinghint_callback = nullptr;
     QCPGrid_Draw_Callback qcpgrid_draw_callback = nullptr;
@@ -9625,6 +9949,8 @@ class VirtualQCPGrid final : public QCPGrid {
     QCPGrid_IsSignalConnected_Callback qcpgrid_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpgrid_metaobject_isbase = false;
+    mutable bool qcpgrid_metacast_isbase = false;
     mutable bool qcpgrid_metacall_isbase = false;
     mutable bool qcpgrid_applydefaultantialiasinghint_isbase = false;
     mutable bool qcpgrid_draw_isbase = false;
@@ -9661,6 +9987,8 @@ class VirtualQCPGrid final : public QCPGrid {
     VirtualQCPGrid(QCPAxis* parentAxis) : QCPGrid(parentAxis) {};
 
     ~VirtualQCPGrid() {
+        qcpgrid_metaobject_callback = nullptr;
+        qcpgrid_metacast_callback = nullptr;
         qcpgrid_metacall_callback = nullptr;
         qcpgrid_applydefaultantialiasinghint_callback = nullptr;
         qcpgrid_draw_callback = nullptr;
@@ -9695,6 +10023,8 @@ class VirtualQCPGrid final : public QCPGrid {
     }
 
     // Callback setters
+    inline void setQCPGrid_MetaObject_Callback(QCPGrid_MetaObject_Callback cb) { qcpgrid_metaobject_callback = cb; }
+    inline void setQCPGrid_Metacast_Callback(QCPGrid_Metacast_Callback cb) { qcpgrid_metacast_callback = cb; }
     inline void setQCPGrid_Metacall_Callback(QCPGrid_Metacall_Callback cb) { qcpgrid_metacall_callback = cb; }
     inline void setQCPGrid_ApplyDefaultAntialiasingHint_Callback(QCPGrid_ApplyDefaultAntialiasingHint_Callback cb) { qcpgrid_applydefaultantialiasinghint_callback = cb; }
     inline void setQCPGrid_Draw_Callback(QCPGrid_Draw_Callback cb) { qcpgrid_draw_callback = cb; }
@@ -9728,6 +10058,8 @@ class VirtualQCPGrid final : public QCPGrid {
     inline void setQCPGrid_IsSignalConnected_Callback(QCPGrid_IsSignalConnected_Callback cb) { qcpgrid_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPGrid_MetaObject_IsBase(bool value) const { qcpgrid_metaobject_isbase = value; }
+    inline void setQCPGrid_Metacast_IsBase(bool value) const { qcpgrid_metacast_isbase = value; }
     inline void setQCPGrid_Metacall_IsBase(bool value) const { qcpgrid_metacall_isbase = value; }
     inline void setQCPGrid_ApplyDefaultAntialiasingHint_IsBase(bool value) const { qcpgrid_applydefaultantialiasinghint_isbase = value; }
     inline void setQCPGrid_Draw_IsBase(bool value) const { qcpgrid_draw_isbase = value; }
@@ -9759,6 +10091,34 @@ class VirtualQCPGrid final : public QCPGrid {
     inline void setQCPGrid_SenderSignalIndex_IsBase(bool value) const { qcpgrid_sendersignalindex_isbase = value; }
     inline void setQCPGrid_Receivers_IsBase(bool value) const { qcpgrid_receivers_isbase = value; }
     inline void setQCPGrid_IsSignalConnected_IsBase(bool value) const { qcpgrid_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpgrid_metaobject_isbase) {
+            qcpgrid_metaobject_isbase = false;
+            return QCPGrid::metaObject();
+        } else if (qcpgrid_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpgrid_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPGrid::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpgrid_metacast_isbase) {
+            qcpgrid_metacast_isbase = false;
+            return QCPGrid::qt_metacast(param1);
+        } else if (qcpgrid_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpgrid_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPGrid::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -10295,6 +10655,8 @@ class VirtualQCPAxis final : public QCPAxis {
     bool isVirtualQCPAxis = true;
 
     // Virtual class public types (including callbacks)
+    using QCPAxis_MetaObject_Callback = QMetaObject* (*)();
+    using QCPAxis_Metacast_Callback = void* (*)(QCPAxis*, const char*);
     using QCPAxis_Metacall_Callback = int (*)(QCPAxis*, int, int, void**);
     using QCPAxis_SelectTest_Callback = double (*)(const QCPAxis*, QPointF*, bool, QVariant*);
     using QCPAxis_CalculateMargin_Callback = int (*)();
@@ -10336,6 +10698,8 @@ class VirtualQCPAxis final : public QCPAxis {
 
   protected:
     // Instance callback storage
+    QCPAxis_MetaObject_Callback qcpaxis_metaobject_callback = nullptr;
+    QCPAxis_Metacast_Callback qcpaxis_metacast_callback = nullptr;
     QCPAxis_Metacall_Callback qcpaxis_metacall_callback = nullptr;
     QCPAxis_SelectTest_Callback qcpaxis_selecttest_callback = nullptr;
     QCPAxis_CalculateMargin_Callback qcpaxis_calculatemargin_callback = nullptr;
@@ -10376,6 +10740,8 @@ class VirtualQCPAxis final : public QCPAxis {
     QCPAxis_IsSignalConnected_Callback qcpaxis_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpaxis_metaobject_isbase = false;
+    mutable bool qcpaxis_metacast_isbase = false;
     mutable bool qcpaxis_metacall_isbase = false;
     mutable bool qcpaxis_selecttest_isbase = false;
     mutable bool qcpaxis_calculatemargin_isbase = false;
@@ -10419,6 +10785,8 @@ class VirtualQCPAxis final : public QCPAxis {
     VirtualQCPAxis(QCPAxisRect* parent, QCPAxis::AxisType typeVal) : QCPAxis(parent, typeVal) {};
 
     ~VirtualQCPAxis() {
+        qcpaxis_metaobject_callback = nullptr;
+        qcpaxis_metacast_callback = nullptr;
         qcpaxis_metacall_callback = nullptr;
         qcpaxis_selecttest_callback = nullptr;
         qcpaxis_calculatemargin_callback = nullptr;
@@ -10460,6 +10828,8 @@ class VirtualQCPAxis final : public QCPAxis {
     }
 
     // Callback setters
+    inline void setQCPAxis_MetaObject_Callback(QCPAxis_MetaObject_Callback cb) { qcpaxis_metaobject_callback = cb; }
+    inline void setQCPAxis_Metacast_Callback(QCPAxis_Metacast_Callback cb) { qcpaxis_metacast_callback = cb; }
     inline void setQCPAxis_Metacall_Callback(QCPAxis_Metacall_Callback cb) { qcpaxis_metacall_callback = cb; }
     inline void setQCPAxis_SelectTest_Callback(QCPAxis_SelectTest_Callback cb) { qcpaxis_selecttest_callback = cb; }
     inline void setQCPAxis_CalculateMargin_Callback(QCPAxis_CalculateMargin_Callback cb) { qcpaxis_calculatemargin_callback = cb; }
@@ -10500,6 +10870,8 @@ class VirtualQCPAxis final : public QCPAxis {
     inline void setQCPAxis_IsSignalConnected_Callback(QCPAxis_IsSignalConnected_Callback cb) { qcpaxis_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPAxis_MetaObject_IsBase(bool value) const { qcpaxis_metaobject_isbase = value; }
+    inline void setQCPAxis_Metacast_IsBase(bool value) const { qcpaxis_metacast_isbase = value; }
     inline void setQCPAxis_Metacall_IsBase(bool value) const { qcpaxis_metacall_isbase = value; }
     inline void setQCPAxis_SelectTest_IsBase(bool value) const { qcpaxis_selecttest_isbase = value; }
     inline void setQCPAxis_CalculateMargin_IsBase(bool value) const { qcpaxis_calculatemargin_isbase = value; }
@@ -10538,6 +10910,34 @@ class VirtualQCPAxis final : public QCPAxis {
     inline void setQCPAxis_SenderSignalIndex_IsBase(bool value) const { qcpaxis_sendersignalindex_isbase = value; }
     inline void setQCPAxis_Receivers_IsBase(bool value) const { qcpaxis_receivers_isbase = value; }
     inline void setQCPAxis_IsSignalConnected_IsBase(bool value) const { qcpaxis_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpaxis_metaobject_isbase) {
+            qcpaxis_metaobject_isbase = false;
+            return QCPAxis::metaObject();
+        } else if (qcpaxis_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpaxis_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPAxis::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpaxis_metacast_isbase) {
+            qcpaxis_metacast_isbase = false;
+            return QCPAxis::qt_metacast(param1);
+        } else if (qcpaxis_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpaxis_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPAxis::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -11267,6 +11667,8 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
     bool isVirtualQCPAbstractPlottable = true;
 
     // Virtual class public types (including callbacks)
+    using QCPAbstractPlottable_MetaObject_Callback = QMetaObject* (*)();
+    using QCPAbstractPlottable_Metacast_Callback = void* (*)(QCPAbstractPlottable*, const char*);
     using QCPAbstractPlottable_Metacall_Callback = int (*)(QCPAbstractPlottable*, int, int, void**);
     using QCPAbstractPlottable_SelectTest_Callback = double (*)(const QCPAbstractPlottable*, QPointF*, bool, QVariant*);
     using QCPAbstractPlottable_Interface1D_Callback = QCPPlottableInterface1D* (*)();
@@ -11305,6 +11707,8 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
 
   protected:
     // Instance callback storage
+    QCPAbstractPlottable_MetaObject_Callback qcpabstractplottable_metaobject_callback = nullptr;
+    QCPAbstractPlottable_Metacast_Callback qcpabstractplottable_metacast_callback = nullptr;
     QCPAbstractPlottable_Metacall_Callback qcpabstractplottable_metacall_callback = nullptr;
     QCPAbstractPlottable_SelectTest_Callback qcpabstractplottable_selecttest_callback = nullptr;
     QCPAbstractPlottable_Interface1D_Callback qcpabstractplottable_interface1d_callback = nullptr;
@@ -11342,6 +11746,8 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
     QCPAbstractPlottable_IsSignalConnected_Callback qcpabstractplottable_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpabstractplottable_metaobject_isbase = false;
+    mutable bool qcpabstractplottable_metacast_isbase = false;
     mutable bool qcpabstractplottable_metacall_isbase = false;
     mutable bool qcpabstractplottable_selecttest_isbase = false;
     mutable bool qcpabstractplottable_interface1d_isbase = false;
@@ -11382,6 +11788,8 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
     VirtualQCPAbstractPlottable(QCPAxis* keyAxis, QCPAxis* valueAxis) : QCPAbstractPlottable(keyAxis, valueAxis) {};
 
     ~VirtualQCPAbstractPlottable() {
+        qcpabstractplottable_metaobject_callback = nullptr;
+        qcpabstractplottable_metacast_callback = nullptr;
         qcpabstractplottable_metacall_callback = nullptr;
         qcpabstractplottable_selecttest_callback = nullptr;
         qcpabstractplottable_interface1d_callback = nullptr;
@@ -11420,6 +11828,8 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
     }
 
     // Callback setters
+    inline void setQCPAbstractPlottable_MetaObject_Callback(QCPAbstractPlottable_MetaObject_Callback cb) { qcpabstractplottable_metaobject_callback = cb; }
+    inline void setQCPAbstractPlottable_Metacast_Callback(QCPAbstractPlottable_Metacast_Callback cb) { qcpabstractplottable_metacast_callback = cb; }
     inline void setQCPAbstractPlottable_Metacall_Callback(QCPAbstractPlottable_Metacall_Callback cb) { qcpabstractplottable_metacall_callback = cb; }
     inline void setQCPAbstractPlottable_SelectTest_Callback(QCPAbstractPlottable_SelectTest_Callback cb) { qcpabstractplottable_selecttest_callback = cb; }
     inline void setQCPAbstractPlottable_Interface1D_Callback(QCPAbstractPlottable_Interface1D_Callback cb) { qcpabstractplottable_interface1d_callback = cb; }
@@ -11457,6 +11867,8 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
     inline void setQCPAbstractPlottable_IsSignalConnected_Callback(QCPAbstractPlottable_IsSignalConnected_Callback cb) { qcpabstractplottable_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPAbstractPlottable_MetaObject_IsBase(bool value) const { qcpabstractplottable_metaobject_isbase = value; }
+    inline void setQCPAbstractPlottable_Metacast_IsBase(bool value) const { qcpabstractplottable_metacast_isbase = value; }
     inline void setQCPAbstractPlottable_Metacall_IsBase(bool value) const { qcpabstractplottable_metacall_isbase = value; }
     inline void setQCPAbstractPlottable_SelectTest_IsBase(bool value) const { qcpabstractplottable_selecttest_isbase = value; }
     inline void setQCPAbstractPlottable_Interface1D_IsBase(bool value) const { qcpabstractplottable_interface1d_isbase = value; }
@@ -11492,6 +11904,34 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
     inline void setQCPAbstractPlottable_SenderSignalIndex_IsBase(bool value) const { qcpabstractplottable_sendersignalindex_isbase = value; }
     inline void setQCPAbstractPlottable_Receivers_IsBase(bool value) const { qcpabstractplottable_receivers_isbase = value; }
     inline void setQCPAbstractPlottable_IsSignalConnected_IsBase(bool value) const { qcpabstractplottable_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpabstractplottable_metaobject_isbase) {
+            qcpabstractplottable_metaobject_isbase = false;
+            return QCPAbstractPlottable::metaObject();
+        } else if (qcpabstractplottable_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpabstractplottable_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPAbstractPlottable::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpabstractplottable_metacast_isbase) {
+            qcpabstractplottable_metacast_isbase = false;
+            return QCPAbstractPlottable::qt_metacast(param1);
+        } else if (qcpabstractplottable_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpabstractplottable_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPAbstractPlottable::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -12387,6 +12827,8 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
     bool isVirtualQCPAbstractItem = true;
 
     // Virtual class public types (including callbacks)
+    using QCPAbstractItem_MetaObject_Callback = QMetaObject* (*)();
+    using QCPAbstractItem_Metacast_Callback = void* (*)(QCPAbstractItem*, const char*);
     using QCPAbstractItem_Metacall_Callback = int (*)(QCPAbstractItem*, int, int, void**);
     using QCPAbstractItem_SelectTest_Callback = double (*)(const QCPAbstractItem*, QPointF*, bool, QVariant*);
     using QCPAbstractItem_SelectionCategory_Callback = int (*)();
@@ -12423,6 +12865,8 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
 
   protected:
     // Instance callback storage
+    QCPAbstractItem_MetaObject_Callback qcpabstractitem_metaobject_callback = nullptr;
+    QCPAbstractItem_Metacast_Callback qcpabstractitem_metacast_callback = nullptr;
     QCPAbstractItem_Metacall_Callback qcpabstractitem_metacall_callback = nullptr;
     QCPAbstractItem_SelectTest_Callback qcpabstractitem_selecttest_callback = nullptr;
     QCPAbstractItem_SelectionCategory_Callback qcpabstractitem_selectioncategory_callback = nullptr;
@@ -12458,6 +12902,8 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
     QCPAbstractItem_IsSignalConnected_Callback qcpabstractitem_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpabstractitem_metaobject_isbase = false;
+    mutable bool qcpabstractitem_metacast_isbase = false;
     mutable bool qcpabstractitem_metacall_isbase = false;
     mutable bool qcpabstractitem_selecttest_isbase = false;
     mutable bool qcpabstractitem_selectioncategory_isbase = false;
@@ -12496,6 +12942,8 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
     VirtualQCPAbstractItem(QCustomPlot* parentPlot) : QCPAbstractItem(parentPlot) {};
 
     ~VirtualQCPAbstractItem() {
+        qcpabstractitem_metaobject_callback = nullptr;
+        qcpabstractitem_metacast_callback = nullptr;
         qcpabstractitem_metacall_callback = nullptr;
         qcpabstractitem_selecttest_callback = nullptr;
         qcpabstractitem_selectioncategory_callback = nullptr;
@@ -12532,6 +12980,8 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
     }
 
     // Callback setters
+    inline void setQCPAbstractItem_MetaObject_Callback(QCPAbstractItem_MetaObject_Callback cb) { qcpabstractitem_metaobject_callback = cb; }
+    inline void setQCPAbstractItem_Metacast_Callback(QCPAbstractItem_Metacast_Callback cb) { qcpabstractitem_metacast_callback = cb; }
     inline void setQCPAbstractItem_Metacall_Callback(QCPAbstractItem_Metacall_Callback cb) { qcpabstractitem_metacall_callback = cb; }
     inline void setQCPAbstractItem_SelectTest_Callback(QCPAbstractItem_SelectTest_Callback cb) { qcpabstractitem_selecttest_callback = cb; }
     inline void setQCPAbstractItem_SelectionCategory_Callback(QCPAbstractItem_SelectionCategory_Callback cb) { qcpabstractitem_selectioncategory_callback = cb; }
@@ -12567,6 +13017,8 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
     inline void setQCPAbstractItem_IsSignalConnected_Callback(QCPAbstractItem_IsSignalConnected_Callback cb) { qcpabstractitem_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPAbstractItem_MetaObject_IsBase(bool value) const { qcpabstractitem_metaobject_isbase = value; }
+    inline void setQCPAbstractItem_Metacast_IsBase(bool value) const { qcpabstractitem_metacast_isbase = value; }
     inline void setQCPAbstractItem_Metacall_IsBase(bool value) const { qcpabstractitem_metacall_isbase = value; }
     inline void setQCPAbstractItem_SelectTest_IsBase(bool value) const { qcpabstractitem_selecttest_isbase = value; }
     inline void setQCPAbstractItem_SelectionCategory_IsBase(bool value) const { qcpabstractitem_selectioncategory_isbase = value; }
@@ -12600,6 +13052,34 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
     inline void setQCPAbstractItem_SenderSignalIndex_IsBase(bool value) const { qcpabstractitem_sendersignalindex_isbase = value; }
     inline void setQCPAbstractItem_Receivers_IsBase(bool value) const { qcpabstractitem_receivers_isbase = value; }
     inline void setQCPAbstractItem_IsSignalConnected_IsBase(bool value) const { qcpabstractitem_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpabstractitem_metaobject_isbase) {
+            qcpabstractitem_metaobject_isbase = false;
+            return QCPAbstractItem::metaObject();
+        } else if (qcpabstractitem_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpabstractitem_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPAbstractItem::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpabstractitem_metacast_isbase) {
+            qcpabstractitem_metacast_isbase = false;
+            return QCPAbstractItem::qt_metacast(param1);
+        } else if (qcpabstractitem_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpabstractitem_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPAbstractItem::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -13187,6 +13667,8 @@ class VirtualQCustomPlot final : public QCustomPlot {
     bool isVirtualQCustomPlot = true;
 
     // Virtual class public types (including callbacks)
+    using QCustomPlot_MetaObject_Callback = QMetaObject* (*)();
+    using QCustomPlot_Metacast_Callback = void* (*)(QCustomPlot*, const char*);
     using QCustomPlot_Metacall_Callback = int (*)(QCustomPlot*, int, int, void**);
     using QCustomPlot_MinimumSizeHint_Callback = QSize* (*)();
     using QCustomPlot_SizeHint_Callback = QSize* (*)();
@@ -13269,6 +13751,8 @@ class VirtualQCustomPlot final : public QCustomPlot {
 
   protected:
     // Instance callback storage
+    QCustomPlot_MetaObject_Callback qcustomplot_metaobject_callback = nullptr;
+    QCustomPlot_Metacast_Callback qcustomplot_metacast_callback = nullptr;
     QCustomPlot_Metacall_Callback qcustomplot_metacall_callback = nullptr;
     QCustomPlot_MinimumSizeHint_Callback qcustomplot_minimumsizehint_callback = nullptr;
     QCustomPlot_SizeHint_Callback qcustomplot_sizehint_callback = nullptr;
@@ -13350,6 +13834,8 @@ class VirtualQCustomPlot final : public QCustomPlot {
     QCustomPlot_GetDecodedMetricF_Callback qcustomplot_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcustomplot_metaobject_isbase = false;
+    mutable bool qcustomplot_metacast_isbase = false;
     mutable bool qcustomplot_metacall_isbase = false;
     mutable bool qcustomplot_minimumsizehint_isbase = false;
     mutable bool qcustomplot_sizehint_isbase = false;
@@ -13435,6 +13921,8 @@ class VirtualQCustomPlot final : public QCustomPlot {
     VirtualQCustomPlot() : QCustomPlot() {};
 
     ~VirtualQCustomPlot() {
+        qcustomplot_metaobject_callback = nullptr;
+        qcustomplot_metacast_callback = nullptr;
         qcustomplot_metacall_callback = nullptr;
         qcustomplot_minimumsizehint_callback = nullptr;
         qcustomplot_sizehint_callback = nullptr;
@@ -13517,6 +14005,8 @@ class VirtualQCustomPlot final : public QCustomPlot {
     }
 
     // Callback setters
+    inline void setQCustomPlot_MetaObject_Callback(QCustomPlot_MetaObject_Callback cb) { qcustomplot_metaobject_callback = cb; }
+    inline void setQCustomPlot_Metacast_Callback(QCustomPlot_Metacast_Callback cb) { qcustomplot_metacast_callback = cb; }
     inline void setQCustomPlot_Metacall_Callback(QCustomPlot_Metacall_Callback cb) { qcustomplot_metacall_callback = cb; }
     inline void setQCustomPlot_MinimumSizeHint_Callback(QCustomPlot_MinimumSizeHint_Callback cb) { qcustomplot_minimumsizehint_callback = cb; }
     inline void setQCustomPlot_SizeHint_Callback(QCustomPlot_SizeHint_Callback cb) { qcustomplot_sizehint_callback = cb; }
@@ -13598,6 +14088,8 @@ class VirtualQCustomPlot final : public QCustomPlot {
     inline void setQCustomPlot_GetDecodedMetricF_Callback(QCustomPlot_GetDecodedMetricF_Callback cb) { qcustomplot_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQCustomPlot_MetaObject_IsBase(bool value) const { qcustomplot_metaobject_isbase = value; }
+    inline void setQCustomPlot_Metacast_IsBase(bool value) const { qcustomplot_metacast_isbase = value; }
     inline void setQCustomPlot_Metacall_IsBase(bool value) const { qcustomplot_metacall_isbase = value; }
     inline void setQCustomPlot_MinimumSizeHint_IsBase(bool value) const { qcustomplot_minimumsizehint_isbase = value; }
     inline void setQCustomPlot_SizeHint_IsBase(bool value) const { qcustomplot_sizehint_isbase = value; }
@@ -13677,6 +14169,34 @@ class VirtualQCustomPlot final : public QCustomPlot {
     inline void setQCustomPlot_Receivers_IsBase(bool value) const { qcustomplot_receivers_isbase = value; }
     inline void setQCustomPlot_IsSignalConnected_IsBase(bool value) const { qcustomplot_issignalconnected_isbase = value; }
     inline void setQCustomPlot_GetDecodedMetricF_IsBase(bool value) const { qcustomplot_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcustomplot_metaobject_isbase) {
+            qcustomplot_metaobject_isbase = false;
+            return QCustomPlot::metaObject();
+        } else if (qcustomplot_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcustomplot_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCustomPlot::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcustomplot_metacast_isbase) {
+            qcustomplot_metacast_isbase = false;
+            return QCustomPlot::qt_metacast(param1);
+        } else if (qcustomplot_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcustomplot_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCustomPlot::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -15146,6 +15666,8 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
     bool isVirtualQCPAxisRect = true;
 
     // Virtual class public types (including callbacks)
+    using QCPAxisRect_MetaObject_Callback = QMetaObject* (*)();
+    using QCPAxisRect_Metacast_Callback = void* (*)(QCPAxisRect*, const char*);
     using QCPAxisRect_Metacall_Callback = int (*)(QCPAxisRect*, int, int, void**);
     using QCPAxisRect_Update_Callback = void (*)(QCPAxisRect*, int);
     using QCPAxisRect_Elements_Callback = QCPLayoutElement** (*)(const QCPAxisRect*, bool);
@@ -15186,6 +15708,8 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
 
   protected:
     // Instance callback storage
+    QCPAxisRect_MetaObject_Callback qcpaxisrect_metaobject_callback = nullptr;
+    QCPAxisRect_Metacast_Callback qcpaxisrect_metacast_callback = nullptr;
     QCPAxisRect_Metacall_Callback qcpaxisrect_metacall_callback = nullptr;
     QCPAxisRect_Update_Callback qcpaxisrect_update_callback = nullptr;
     QCPAxisRect_Elements_Callback qcpaxisrect_elements_callback = nullptr;
@@ -15225,6 +15749,8 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
     QCPAxisRect_IsSignalConnected_Callback qcpaxisrect_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpaxisrect_metaobject_isbase = false;
+    mutable bool qcpaxisrect_metacast_isbase = false;
     mutable bool qcpaxisrect_metacall_isbase = false;
     mutable bool qcpaxisrect_update_isbase = false;
     mutable bool qcpaxisrect_elements_isbase = false;
@@ -15268,6 +15794,8 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
     VirtualQCPAxisRect(QCustomPlot* parentPlot, bool setupDefaultAxes) : QCPAxisRect(parentPlot, setupDefaultAxes) {};
 
     ~VirtualQCPAxisRect() {
+        qcpaxisrect_metaobject_callback = nullptr;
+        qcpaxisrect_metacast_callback = nullptr;
         qcpaxisrect_metacall_callback = nullptr;
         qcpaxisrect_update_callback = nullptr;
         qcpaxisrect_elements_callback = nullptr;
@@ -15308,6 +15836,8 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
     }
 
     // Callback setters
+    inline void setQCPAxisRect_MetaObject_Callback(QCPAxisRect_MetaObject_Callback cb) { qcpaxisrect_metaobject_callback = cb; }
+    inline void setQCPAxisRect_Metacast_Callback(QCPAxisRect_Metacast_Callback cb) { qcpaxisrect_metacast_callback = cb; }
     inline void setQCPAxisRect_Metacall_Callback(QCPAxisRect_Metacall_Callback cb) { qcpaxisrect_metacall_callback = cb; }
     inline void setQCPAxisRect_Update_Callback(QCPAxisRect_Update_Callback cb) { qcpaxisrect_update_callback = cb; }
     inline void setQCPAxisRect_Elements_Callback(QCPAxisRect_Elements_Callback cb) { qcpaxisrect_elements_callback = cb; }
@@ -15347,6 +15877,8 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
     inline void setQCPAxisRect_IsSignalConnected_Callback(QCPAxisRect_IsSignalConnected_Callback cb) { qcpaxisrect_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPAxisRect_MetaObject_IsBase(bool value) const { qcpaxisrect_metaobject_isbase = value; }
+    inline void setQCPAxisRect_Metacast_IsBase(bool value) const { qcpaxisrect_metacast_isbase = value; }
     inline void setQCPAxisRect_Metacall_IsBase(bool value) const { qcpaxisrect_metacall_isbase = value; }
     inline void setQCPAxisRect_Update_IsBase(bool value) const { qcpaxisrect_update_isbase = value; }
     inline void setQCPAxisRect_Elements_IsBase(bool value) const { qcpaxisrect_elements_isbase = value; }
@@ -15384,6 +15916,34 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
     inline void setQCPAxisRect_SenderSignalIndex_IsBase(bool value) const { qcpaxisrect_sendersignalindex_isbase = value; }
     inline void setQCPAxisRect_Receivers_IsBase(bool value) const { qcpaxisrect_receivers_isbase = value; }
     inline void setQCPAxisRect_IsSignalConnected_IsBase(bool value) const { qcpaxisrect_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpaxisrect_metaobject_isbase) {
+            qcpaxisrect_metaobject_isbase = false;
+            return QCPAxisRect::metaObject();
+        } else if (qcpaxisrect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpaxisrect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPAxisRect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpaxisrect_metacast_isbase) {
+            qcpaxisrect_metacast_isbase = false;
+            return QCPAxisRect::qt_metacast(param1);
+        } else if (qcpaxisrect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpaxisrect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPAxisRect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -16012,6 +16572,8 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
     bool isVirtualQCPAbstractLegendItem = true;
 
     // Virtual class public types (including callbacks)
+    using QCPAbstractLegendItem_MetaObject_Callback = QMetaObject* (*)();
+    using QCPAbstractLegendItem_Metacast_Callback = void* (*)(QCPAbstractLegendItem*, const char*);
     using QCPAbstractLegendItem_Metacall_Callback = int (*)(QCPAbstractLegendItem*, int, int, void**);
     using QCPAbstractLegendItem_SelectTest_Callback = double (*)(const QCPAbstractLegendItem*, QPointF*, bool, QVariant*);
     using QCPAbstractLegendItem_SelectionCategory_Callback = int (*)();
@@ -16050,6 +16612,8 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
 
   protected:
     // Instance callback storage
+    QCPAbstractLegendItem_MetaObject_Callback qcpabstractlegenditem_metaobject_callback = nullptr;
+    QCPAbstractLegendItem_Metacast_Callback qcpabstractlegenditem_metacast_callback = nullptr;
     QCPAbstractLegendItem_Metacall_Callback qcpabstractlegenditem_metacall_callback = nullptr;
     QCPAbstractLegendItem_SelectTest_Callback qcpabstractlegenditem_selecttest_callback = nullptr;
     QCPAbstractLegendItem_SelectionCategory_Callback qcpabstractlegenditem_selectioncategory_callback = nullptr;
@@ -16087,6 +16651,8 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
     QCPAbstractLegendItem_IsSignalConnected_Callback qcpabstractlegenditem_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpabstractlegenditem_metaobject_isbase = false;
+    mutable bool qcpabstractlegenditem_metacast_isbase = false;
     mutable bool qcpabstractlegenditem_metacall_isbase = false;
     mutable bool qcpabstractlegenditem_selecttest_isbase = false;
     mutable bool qcpabstractlegenditem_selectioncategory_isbase = false;
@@ -16127,6 +16693,8 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
     VirtualQCPAbstractLegendItem(QCPLegend* parent) : QCPAbstractLegendItem(parent) {};
 
     ~VirtualQCPAbstractLegendItem() {
+        qcpabstractlegenditem_metaobject_callback = nullptr;
+        qcpabstractlegenditem_metacast_callback = nullptr;
         qcpabstractlegenditem_metacall_callback = nullptr;
         qcpabstractlegenditem_selecttest_callback = nullptr;
         qcpabstractlegenditem_selectioncategory_callback = nullptr;
@@ -16165,6 +16733,8 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
     }
 
     // Callback setters
+    inline void setQCPAbstractLegendItem_MetaObject_Callback(QCPAbstractLegendItem_MetaObject_Callback cb) { qcpabstractlegenditem_metaobject_callback = cb; }
+    inline void setQCPAbstractLegendItem_Metacast_Callback(QCPAbstractLegendItem_Metacast_Callback cb) { qcpabstractlegenditem_metacast_callback = cb; }
     inline void setQCPAbstractLegendItem_Metacall_Callback(QCPAbstractLegendItem_Metacall_Callback cb) { qcpabstractlegenditem_metacall_callback = cb; }
     inline void setQCPAbstractLegendItem_SelectTest_Callback(QCPAbstractLegendItem_SelectTest_Callback cb) { qcpabstractlegenditem_selecttest_callback = cb; }
     inline void setQCPAbstractLegendItem_SelectionCategory_Callback(QCPAbstractLegendItem_SelectionCategory_Callback cb) { qcpabstractlegenditem_selectioncategory_callback = cb; }
@@ -16202,6 +16772,8 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
     inline void setQCPAbstractLegendItem_IsSignalConnected_Callback(QCPAbstractLegendItem_IsSignalConnected_Callback cb) { qcpabstractlegenditem_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPAbstractLegendItem_MetaObject_IsBase(bool value) const { qcpabstractlegenditem_metaobject_isbase = value; }
+    inline void setQCPAbstractLegendItem_Metacast_IsBase(bool value) const { qcpabstractlegenditem_metacast_isbase = value; }
     inline void setQCPAbstractLegendItem_Metacall_IsBase(bool value) const { qcpabstractlegenditem_metacall_isbase = value; }
     inline void setQCPAbstractLegendItem_SelectTest_IsBase(bool value) const { qcpabstractlegenditem_selecttest_isbase = value; }
     inline void setQCPAbstractLegendItem_SelectionCategory_IsBase(bool value) const { qcpabstractlegenditem_selectioncategory_isbase = value; }
@@ -16237,6 +16809,34 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
     inline void setQCPAbstractLegendItem_SenderSignalIndex_IsBase(bool value) const { qcpabstractlegenditem_sendersignalindex_isbase = value; }
     inline void setQCPAbstractLegendItem_Receivers_IsBase(bool value) const { qcpabstractlegenditem_receivers_isbase = value; }
     inline void setQCPAbstractLegendItem_IsSignalConnected_IsBase(bool value) const { qcpabstractlegenditem_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpabstractlegenditem_metaobject_isbase) {
+            qcpabstractlegenditem_metaobject_isbase = false;
+            return QCPAbstractLegendItem::metaObject();
+        } else if (qcpabstractlegenditem_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpabstractlegenditem_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPAbstractLegendItem::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpabstractlegenditem_metacast_isbase) {
+            qcpabstractlegenditem_metacast_isbase = false;
+            return QCPAbstractLegendItem::qt_metacast(param1);
+        } else if (qcpabstractlegenditem_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpabstractlegenditem_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPAbstractLegendItem::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -16828,6 +17428,8 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
     bool isVirtualQCPPlottableLegendItem = true;
 
     // Virtual class public types (including callbacks)
+    using QCPPlottableLegendItem_MetaObject_Callback = QMetaObject* (*)();
+    using QCPPlottableLegendItem_Metacast_Callback = void* (*)(QCPPlottableLegendItem*, const char*);
     using QCPPlottableLegendItem_Metacall_Callback = int (*)(QCPPlottableLegendItem*, int, int, void**);
     using QCPPlottableLegendItem_Draw_Callback = void (*)(QCPPlottableLegendItem*, QCPPainter*);
     using QCPPlottableLegendItem_MinimumOuterSizeHint_Callback = QSize* (*)();
@@ -16869,6 +17471,8 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
 
   protected:
     // Instance callback storage
+    QCPPlottableLegendItem_MetaObject_Callback qcpplottablelegenditem_metaobject_callback = nullptr;
+    QCPPlottableLegendItem_Metacast_Callback qcpplottablelegenditem_metacast_callback = nullptr;
     QCPPlottableLegendItem_Metacall_Callback qcpplottablelegenditem_metacall_callback = nullptr;
     QCPPlottableLegendItem_Draw_Callback qcpplottablelegenditem_draw_callback = nullptr;
     QCPPlottableLegendItem_MinimumOuterSizeHint_Callback qcpplottablelegenditem_minimumoutersizehint_callback = nullptr;
@@ -16909,6 +17513,8 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
     QCPPlottableLegendItem_IsSignalConnected_Callback qcpplottablelegenditem_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpplottablelegenditem_metaobject_isbase = false;
+    mutable bool qcpplottablelegenditem_metacast_isbase = false;
     mutable bool qcpplottablelegenditem_metacall_isbase = false;
     mutable bool qcpplottablelegenditem_draw_isbase = false;
     mutable bool qcpplottablelegenditem_minimumoutersizehint_isbase = false;
@@ -16952,6 +17558,8 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
     VirtualQCPPlottableLegendItem(QCPLegend* parent, QCPAbstractPlottable* plottable) : QCPPlottableLegendItem(parent, plottable) {};
 
     ~VirtualQCPPlottableLegendItem() {
+        qcpplottablelegenditem_metaobject_callback = nullptr;
+        qcpplottablelegenditem_metacast_callback = nullptr;
         qcpplottablelegenditem_metacall_callback = nullptr;
         qcpplottablelegenditem_draw_callback = nullptr;
         qcpplottablelegenditem_minimumoutersizehint_callback = nullptr;
@@ -16993,6 +17601,8 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
     }
 
     // Callback setters
+    inline void setQCPPlottableLegendItem_MetaObject_Callback(QCPPlottableLegendItem_MetaObject_Callback cb) { qcpplottablelegenditem_metaobject_callback = cb; }
+    inline void setQCPPlottableLegendItem_Metacast_Callback(QCPPlottableLegendItem_Metacast_Callback cb) { qcpplottablelegenditem_metacast_callback = cb; }
     inline void setQCPPlottableLegendItem_Metacall_Callback(QCPPlottableLegendItem_Metacall_Callback cb) { qcpplottablelegenditem_metacall_callback = cb; }
     inline void setQCPPlottableLegendItem_Draw_Callback(QCPPlottableLegendItem_Draw_Callback cb) { qcpplottablelegenditem_draw_callback = cb; }
     inline void setQCPPlottableLegendItem_MinimumOuterSizeHint_Callback(QCPPlottableLegendItem_MinimumOuterSizeHint_Callback cb) { qcpplottablelegenditem_minimumoutersizehint_callback = cb; }
@@ -17033,6 +17643,8 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
     inline void setQCPPlottableLegendItem_IsSignalConnected_Callback(QCPPlottableLegendItem_IsSignalConnected_Callback cb) { qcpplottablelegenditem_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPPlottableLegendItem_MetaObject_IsBase(bool value) const { qcpplottablelegenditem_metaobject_isbase = value; }
+    inline void setQCPPlottableLegendItem_Metacast_IsBase(bool value) const { qcpplottablelegenditem_metacast_isbase = value; }
     inline void setQCPPlottableLegendItem_Metacall_IsBase(bool value) const { qcpplottablelegenditem_metacall_isbase = value; }
     inline void setQCPPlottableLegendItem_Draw_IsBase(bool value) const { qcpplottablelegenditem_draw_isbase = value; }
     inline void setQCPPlottableLegendItem_MinimumOuterSizeHint_IsBase(bool value) const { qcpplottablelegenditem_minimumoutersizehint_isbase = value; }
@@ -17071,6 +17683,34 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
     inline void setQCPPlottableLegendItem_SenderSignalIndex_IsBase(bool value) const { qcpplottablelegenditem_sendersignalindex_isbase = value; }
     inline void setQCPPlottableLegendItem_Receivers_IsBase(bool value) const { qcpplottablelegenditem_receivers_isbase = value; }
     inline void setQCPPlottableLegendItem_IsSignalConnected_IsBase(bool value) const { qcpplottablelegenditem_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpplottablelegenditem_metaobject_isbase) {
+            qcpplottablelegenditem_metaobject_isbase = false;
+            return QCPPlottableLegendItem::metaObject();
+        } else if (qcpplottablelegenditem_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpplottablelegenditem_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPPlottableLegendItem::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpplottablelegenditem_metacast_isbase) {
+            qcpplottablelegenditem_metacast_isbase = false;
+            return QCPPlottableLegendItem::qt_metacast(param1);
+        } else if (qcpplottablelegenditem_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpplottablelegenditem_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPPlottableLegendItem::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -17714,6 +18354,8 @@ class VirtualQCPLegend final : public QCPLegend {
     bool isVirtualQCPLegend = true;
 
     // Virtual class public types (including callbacks)
+    using QCPLegend_MetaObject_Callback = QMetaObject* (*)();
+    using QCPLegend_Metacast_Callback = void* (*)(QCPLegend*, const char*);
     using QCPLegend_Metacall_Callback = int (*)(QCPLegend*, int, int, void**);
     using QCPLegend_SelectTest_Callback = double (*)(const QCPLegend*, QPointF*, bool, QVariant*);
     using QCPLegend_ParentPlotInitialized_Callback = void (*)(QCPLegend*, QCustomPlot*);
@@ -17766,6 +18408,8 @@ class VirtualQCPLegend final : public QCPLegend {
 
   protected:
     // Instance callback storage
+    QCPLegend_MetaObject_Callback qcplegend_metaobject_callback = nullptr;
+    QCPLegend_Metacast_Callback qcplegend_metacast_callback = nullptr;
     QCPLegend_Metacall_Callback qcplegend_metacall_callback = nullptr;
     QCPLegend_SelectTest_Callback qcplegend_selecttest_callback = nullptr;
     QCPLegend_ParentPlotInitialized_Callback qcplegend_parentplotinitialized_callback = nullptr;
@@ -17817,6 +18461,8 @@ class VirtualQCPLegend final : public QCPLegend {
     QCPLegend_IsSignalConnected_Callback qcplegend_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcplegend_metaobject_isbase = false;
+    mutable bool qcplegend_metacast_isbase = false;
     mutable bool qcplegend_metacall_isbase = false;
     mutable bool qcplegend_selecttest_isbase = false;
     mutable bool qcplegend_parentplotinitialized_isbase = false;
@@ -17871,6 +18517,8 @@ class VirtualQCPLegend final : public QCPLegend {
     VirtualQCPLegend() : QCPLegend() {};
 
     ~VirtualQCPLegend() {
+        qcplegend_metaobject_callback = nullptr;
+        qcplegend_metacast_callback = nullptr;
         qcplegend_metacall_callback = nullptr;
         qcplegend_selecttest_callback = nullptr;
         qcplegend_parentplotinitialized_callback = nullptr;
@@ -17923,6 +18571,8 @@ class VirtualQCPLegend final : public QCPLegend {
     }
 
     // Callback setters
+    inline void setQCPLegend_MetaObject_Callback(QCPLegend_MetaObject_Callback cb) { qcplegend_metaobject_callback = cb; }
+    inline void setQCPLegend_Metacast_Callback(QCPLegend_Metacast_Callback cb) { qcplegend_metacast_callback = cb; }
     inline void setQCPLegend_Metacall_Callback(QCPLegend_Metacall_Callback cb) { qcplegend_metacall_callback = cb; }
     inline void setQCPLegend_SelectTest_Callback(QCPLegend_SelectTest_Callback cb) { qcplegend_selecttest_callback = cb; }
     inline void setQCPLegend_ParentPlotInitialized_Callback(QCPLegend_ParentPlotInitialized_Callback cb) { qcplegend_parentplotinitialized_callback = cb; }
@@ -17974,6 +18624,8 @@ class VirtualQCPLegend final : public QCPLegend {
     inline void setQCPLegend_IsSignalConnected_Callback(QCPLegend_IsSignalConnected_Callback cb) { qcplegend_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPLegend_MetaObject_IsBase(bool value) const { qcplegend_metaobject_isbase = value; }
+    inline void setQCPLegend_Metacast_IsBase(bool value) const { qcplegend_metacast_isbase = value; }
     inline void setQCPLegend_Metacall_IsBase(bool value) const { qcplegend_metacall_isbase = value; }
     inline void setQCPLegend_SelectTest_IsBase(bool value) const { qcplegend_selecttest_isbase = value; }
     inline void setQCPLegend_ParentPlotInitialized_IsBase(bool value) const { qcplegend_parentplotinitialized_isbase = value; }
@@ -18023,6 +18675,34 @@ class VirtualQCPLegend final : public QCPLegend {
     inline void setQCPLegend_SenderSignalIndex_IsBase(bool value) const { qcplegend_sendersignalindex_isbase = value; }
     inline void setQCPLegend_Receivers_IsBase(bool value) const { qcplegend_receivers_isbase = value; }
     inline void setQCPLegend_IsSignalConnected_IsBase(bool value) const { qcplegend_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcplegend_metaobject_isbase) {
+            qcplegend_metaobject_isbase = false;
+            return QCPLegend::metaObject();
+        } else if (qcplegend_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcplegend_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPLegend::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcplegend_metacast_isbase) {
+            qcplegend_metacast_isbase = false;
+            return QCPLegend::qt_metacast(param1);
+        } else if (qcplegend_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcplegend_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPLegend::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -18899,6 +19579,8 @@ class VirtualQCPTextElement final : public QCPTextElement {
     bool isVirtualQCPTextElement = true;
 
     // Virtual class public types (including callbacks)
+    using QCPTextElement_MetaObject_Callback = QMetaObject* (*)();
+    using QCPTextElement_Metacast_Callback = void* (*)(QCPTextElement*, const char*);
     using QCPTextElement_Metacall_Callback = int (*)(QCPTextElement*, int, int, void**);
     using QCPTextElement_SelectTest_Callback = double (*)(const QCPTextElement*, QPointF*, bool, QVariant*);
     using QCPTextElement_MousePressEvent_Callback = void (*)(QCPTextElement*, QMouseEvent*, QVariant*);
@@ -18939,6 +19621,8 @@ class VirtualQCPTextElement final : public QCPTextElement {
 
   protected:
     // Instance callback storage
+    QCPTextElement_MetaObject_Callback qcptextelement_metaobject_callback = nullptr;
+    QCPTextElement_Metacast_Callback qcptextelement_metacast_callback = nullptr;
     QCPTextElement_Metacall_Callback qcptextelement_metacall_callback = nullptr;
     QCPTextElement_SelectTest_Callback qcptextelement_selecttest_callback = nullptr;
     QCPTextElement_MousePressEvent_Callback qcptextelement_mousepressevent_callback = nullptr;
@@ -18978,6 +19662,8 @@ class VirtualQCPTextElement final : public QCPTextElement {
     QCPTextElement_IsSignalConnected_Callback qcptextelement_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcptextelement_metaobject_isbase = false;
+    mutable bool qcptextelement_metacast_isbase = false;
     mutable bool qcptextelement_metacall_isbase = false;
     mutable bool qcptextelement_selecttest_isbase = false;
     mutable bool qcptextelement_mousepressevent_isbase = false;
@@ -19024,6 +19710,8 @@ class VirtualQCPTextElement final : public QCPTextElement {
     VirtualQCPTextElement(QCustomPlot* parentPlot, const QString& text, const QFont& font) : QCPTextElement(parentPlot, text, font) {};
 
     ~VirtualQCPTextElement() {
+        qcptextelement_metaobject_callback = nullptr;
+        qcptextelement_metacast_callback = nullptr;
         qcptextelement_metacall_callback = nullptr;
         qcptextelement_selecttest_callback = nullptr;
         qcptextelement_mousepressevent_callback = nullptr;
@@ -19064,6 +19752,8 @@ class VirtualQCPTextElement final : public QCPTextElement {
     }
 
     // Callback setters
+    inline void setQCPTextElement_MetaObject_Callback(QCPTextElement_MetaObject_Callback cb) { qcptextelement_metaobject_callback = cb; }
+    inline void setQCPTextElement_Metacast_Callback(QCPTextElement_Metacast_Callback cb) { qcptextelement_metacast_callback = cb; }
     inline void setQCPTextElement_Metacall_Callback(QCPTextElement_Metacall_Callback cb) { qcptextelement_metacall_callback = cb; }
     inline void setQCPTextElement_SelectTest_Callback(QCPTextElement_SelectTest_Callback cb) { qcptextelement_selecttest_callback = cb; }
     inline void setQCPTextElement_MousePressEvent_Callback(QCPTextElement_MousePressEvent_Callback cb) { qcptextelement_mousepressevent_callback = cb; }
@@ -19103,6 +19793,8 @@ class VirtualQCPTextElement final : public QCPTextElement {
     inline void setQCPTextElement_IsSignalConnected_Callback(QCPTextElement_IsSignalConnected_Callback cb) { qcptextelement_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPTextElement_MetaObject_IsBase(bool value) const { qcptextelement_metaobject_isbase = value; }
+    inline void setQCPTextElement_Metacast_IsBase(bool value) const { qcptextelement_metacast_isbase = value; }
     inline void setQCPTextElement_Metacall_IsBase(bool value) const { qcptextelement_metacall_isbase = value; }
     inline void setQCPTextElement_SelectTest_IsBase(bool value) const { qcptextelement_selecttest_isbase = value; }
     inline void setQCPTextElement_MousePressEvent_IsBase(bool value) const { qcptextelement_mousepressevent_isbase = value; }
@@ -19140,6 +19832,34 @@ class VirtualQCPTextElement final : public QCPTextElement {
     inline void setQCPTextElement_SenderSignalIndex_IsBase(bool value) const { qcptextelement_sendersignalindex_isbase = value; }
     inline void setQCPTextElement_Receivers_IsBase(bool value) const { qcptextelement_receivers_isbase = value; }
     inline void setQCPTextElement_IsSignalConnected_IsBase(bool value) const { qcptextelement_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcptextelement_metaobject_isbase) {
+            qcptextelement_metaobject_isbase = false;
+            return QCPTextElement::metaObject();
+        } else if (qcptextelement_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcptextelement_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPTextElement::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcptextelement_metacast_isbase) {
+            qcptextelement_metacast_isbase = false;
+            return QCPTextElement::qt_metacast(param1);
+        } else if (qcptextelement_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcptextelement_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPTextElement::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -19764,6 +20484,8 @@ class VirtualQCPColorScale final : public QCPColorScale {
     bool isVirtualQCPColorScale = true;
 
     // Virtual class public types (including callbacks)
+    using QCPColorScale_MetaObject_Callback = QMetaObject* (*)();
+    using QCPColorScale_Metacast_Callback = void* (*)(QCPColorScale*, const char*);
     using QCPColorScale_Metacall_Callback = int (*)(QCPColorScale*, int, int, void**);
     using QCPColorScale_Update_Callback = void (*)(QCPColorScale*, int);
     using QCPColorScale_ApplyDefaultAntialiasingHint_Callback = void (*)(const QCPColorScale*, QCPPainter*);
@@ -19802,6 +20524,8 @@ class VirtualQCPColorScale final : public QCPColorScale {
 
   protected:
     // Instance callback storage
+    QCPColorScale_MetaObject_Callback qcpcolorscale_metaobject_callback = nullptr;
+    QCPColorScale_Metacast_Callback qcpcolorscale_metacast_callback = nullptr;
     QCPColorScale_Metacall_Callback qcpcolorscale_metacall_callback = nullptr;
     QCPColorScale_Update_Callback qcpcolorscale_update_callback = nullptr;
     QCPColorScale_ApplyDefaultAntialiasingHint_Callback qcpcolorscale_applydefaultantialiasinghint_callback = nullptr;
@@ -19839,6 +20563,8 @@ class VirtualQCPColorScale final : public QCPColorScale {
     QCPColorScale_IsSignalConnected_Callback qcpcolorscale_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpcolorscale_metaobject_isbase = false;
+    mutable bool qcpcolorscale_metacast_isbase = false;
     mutable bool qcpcolorscale_metacall_isbase = false;
     mutable bool qcpcolorscale_update_isbase = false;
     mutable bool qcpcolorscale_applydefaultantialiasinghint_isbase = false;
@@ -19879,6 +20605,8 @@ class VirtualQCPColorScale final : public QCPColorScale {
     VirtualQCPColorScale(QCustomPlot* parentPlot) : QCPColorScale(parentPlot) {};
 
     ~VirtualQCPColorScale() {
+        qcpcolorscale_metaobject_callback = nullptr;
+        qcpcolorscale_metacast_callback = nullptr;
         qcpcolorscale_metacall_callback = nullptr;
         qcpcolorscale_update_callback = nullptr;
         qcpcolorscale_applydefaultantialiasinghint_callback = nullptr;
@@ -19917,6 +20645,8 @@ class VirtualQCPColorScale final : public QCPColorScale {
     }
 
     // Callback setters
+    inline void setQCPColorScale_MetaObject_Callback(QCPColorScale_MetaObject_Callback cb) { qcpcolorscale_metaobject_callback = cb; }
+    inline void setQCPColorScale_Metacast_Callback(QCPColorScale_Metacast_Callback cb) { qcpcolorscale_metacast_callback = cb; }
     inline void setQCPColorScale_Metacall_Callback(QCPColorScale_Metacall_Callback cb) { qcpcolorscale_metacall_callback = cb; }
     inline void setQCPColorScale_Update_Callback(QCPColorScale_Update_Callback cb) { qcpcolorscale_update_callback = cb; }
     inline void setQCPColorScale_ApplyDefaultAntialiasingHint_Callback(QCPColorScale_ApplyDefaultAntialiasingHint_Callback cb) { qcpcolorscale_applydefaultantialiasinghint_callback = cb; }
@@ -19954,6 +20684,8 @@ class VirtualQCPColorScale final : public QCPColorScale {
     inline void setQCPColorScale_IsSignalConnected_Callback(QCPColorScale_IsSignalConnected_Callback cb) { qcpcolorscale_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPColorScale_MetaObject_IsBase(bool value) const { qcpcolorscale_metaobject_isbase = value; }
+    inline void setQCPColorScale_Metacast_IsBase(bool value) const { qcpcolorscale_metacast_isbase = value; }
     inline void setQCPColorScale_Metacall_IsBase(bool value) const { qcpcolorscale_metacall_isbase = value; }
     inline void setQCPColorScale_Update_IsBase(bool value) const { qcpcolorscale_update_isbase = value; }
     inline void setQCPColorScale_ApplyDefaultAntialiasingHint_IsBase(bool value) const { qcpcolorscale_applydefaultantialiasinghint_isbase = value; }
@@ -19989,6 +20721,34 @@ class VirtualQCPColorScale final : public QCPColorScale {
     inline void setQCPColorScale_SenderSignalIndex_IsBase(bool value) const { qcpcolorscale_sendersignalindex_isbase = value; }
     inline void setQCPColorScale_Receivers_IsBase(bool value) const { qcpcolorscale_receivers_isbase = value; }
     inline void setQCPColorScale_IsSignalConnected_IsBase(bool value) const { qcpcolorscale_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpcolorscale_metaobject_isbase) {
+            qcpcolorscale_metaobject_isbase = false;
+            return QCPColorScale::metaObject();
+        } else if (qcpcolorscale_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpcolorscale_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPColorScale::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpcolorscale_metacast_isbase) {
+            qcpcolorscale_metacast_isbase = false;
+            return QCPColorScale::qt_metacast(param1);
+        } else if (qcpcolorscale_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpcolorscale_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPColorScale::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -20585,6 +21345,8 @@ class VirtualQCPGraph final : public QCPGraph {
     bool isVirtualQCPGraph = true;
 
     // Virtual class public types (including callbacks)
+    using QCPGraph_MetaObject_Callback = QMetaObject* (*)();
+    using QCPGraph_Metacast_Callback = void* (*)(QCPGraph*, const char*);
     using QCPGraph_Metacall_Callback = int (*)(QCPGraph*, int, int, void**);
     using QCPGraph_SelectTest_Callback = double (*)(const QCPGraph*, QPointF*, bool, QVariant*);
     using QCPGraph_GetKeyRange_Callback = QCPRange* (*)(const QCPGraph*, bool*, int);
@@ -20652,6 +21414,8 @@ class VirtualQCPGraph final : public QCPGraph {
 
   protected:
     // Instance callback storage
+    QCPGraph_MetaObject_Callback qcpgraph_metaobject_callback = nullptr;
+    QCPGraph_Metacast_Callback qcpgraph_metacast_callback = nullptr;
     QCPGraph_Metacall_Callback qcpgraph_metacall_callback = nullptr;
     QCPGraph_SelectTest_Callback qcpgraph_selecttest_callback = nullptr;
     QCPGraph_GetKeyRange_Callback qcpgraph_getkeyrange_callback = nullptr;
@@ -20718,6 +21482,8 @@ class VirtualQCPGraph final : public QCPGraph {
     QCPGraph_IsSignalConnected_Callback qcpgraph_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpgraph_metaobject_isbase = false;
+    mutable bool qcpgraph_metacast_isbase = false;
     mutable bool qcpgraph_metacall_isbase = false;
     mutable bool qcpgraph_selecttest_isbase = false;
     mutable bool qcpgraph_getkeyrange_isbase = false;
@@ -20787,6 +21553,8 @@ class VirtualQCPGraph final : public QCPGraph {
     VirtualQCPGraph(QCPAxis* keyAxis, QCPAxis* valueAxis) : QCPGraph(keyAxis, valueAxis) {};
 
     ~VirtualQCPGraph() {
+        qcpgraph_metaobject_callback = nullptr;
+        qcpgraph_metacast_callback = nullptr;
         qcpgraph_metacall_callback = nullptr;
         qcpgraph_selecttest_callback = nullptr;
         qcpgraph_getkeyrange_callback = nullptr;
@@ -20854,6 +21622,8 @@ class VirtualQCPGraph final : public QCPGraph {
     }
 
     // Callback setters
+    inline void setQCPGraph_MetaObject_Callback(QCPGraph_MetaObject_Callback cb) { qcpgraph_metaobject_callback = cb; }
+    inline void setQCPGraph_Metacast_Callback(QCPGraph_Metacast_Callback cb) { qcpgraph_metacast_callback = cb; }
     inline void setQCPGraph_Metacall_Callback(QCPGraph_Metacall_Callback cb) { qcpgraph_metacall_callback = cb; }
     inline void setQCPGraph_SelectTest_Callback(QCPGraph_SelectTest_Callback cb) { qcpgraph_selecttest_callback = cb; }
     inline void setQCPGraph_GetKeyRange_Callback(QCPGraph_GetKeyRange_Callback cb) { qcpgraph_getkeyrange_callback = cb; }
@@ -20920,6 +21690,8 @@ class VirtualQCPGraph final : public QCPGraph {
     inline void setQCPGraph_IsSignalConnected_Callback(QCPGraph_IsSignalConnected_Callback cb) { qcpgraph_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPGraph_MetaObject_IsBase(bool value) const { qcpgraph_metaobject_isbase = value; }
+    inline void setQCPGraph_Metacast_IsBase(bool value) const { qcpgraph_metacast_isbase = value; }
     inline void setQCPGraph_Metacall_IsBase(bool value) const { qcpgraph_metacall_isbase = value; }
     inline void setQCPGraph_SelectTest_IsBase(bool value) const { qcpgraph_selecttest_isbase = value; }
     inline void setQCPGraph_GetKeyRange_IsBase(bool value) const { qcpgraph_getkeyrange_isbase = value; }
@@ -20984,6 +21756,34 @@ class VirtualQCPGraph final : public QCPGraph {
     inline void setQCPGraph_SenderSignalIndex_IsBase(bool value) const { qcpgraph_sendersignalindex_isbase = value; }
     inline void setQCPGraph_Receivers_IsBase(bool value) const { qcpgraph_receivers_isbase = value; }
     inline void setQCPGraph_IsSignalConnected_IsBase(bool value) const { qcpgraph_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpgraph_metaobject_isbase) {
+            qcpgraph_metaobject_isbase = false;
+            return QCPGraph::metaObject();
+        } else if (qcpgraph_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpgraph_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPGraph::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpgraph_metacast_isbase) {
+            qcpgraph_metacast_isbase = false;
+            return QCPGraph::qt_metacast(param1);
+        } else if (qcpgraph_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpgraph_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPGraph::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -22275,6 +23075,8 @@ class VirtualQCPCurve final : public QCPCurve {
     bool isVirtualQCPCurve = true;
 
     // Virtual class public types (including callbacks)
+    using QCPCurve_MetaObject_Callback = QMetaObject* (*)();
+    using QCPCurve_Metacast_Callback = void* (*)(QCPCurve*, const char*);
     using QCPCurve_Metacall_Callback = int (*)(QCPCurve*, int, int, void**);
     using QCPCurve_SelectTest_Callback = double (*)(const QCPCurve*, QPointF*, bool, QVariant*);
     using QCPCurve_GetKeyRange_Callback = QCPRange* (*)(const QCPCurve*, bool*, int);
@@ -22333,6 +23135,8 @@ class VirtualQCPCurve final : public QCPCurve {
 
   protected:
     // Instance callback storage
+    QCPCurve_MetaObject_Callback qcpcurve_metaobject_callback = nullptr;
+    QCPCurve_Metacast_Callback qcpcurve_metacast_callback = nullptr;
     QCPCurve_Metacall_Callback qcpcurve_metacall_callback = nullptr;
     QCPCurve_SelectTest_Callback qcpcurve_selecttest_callback = nullptr;
     QCPCurve_GetKeyRange_Callback qcpcurve_getkeyrange_callback = nullptr;
@@ -22390,6 +23194,8 @@ class VirtualQCPCurve final : public QCPCurve {
     QCPCurve_IsSignalConnected_Callback qcpcurve_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpcurve_metaobject_isbase = false;
+    mutable bool qcpcurve_metacast_isbase = false;
     mutable bool qcpcurve_metacall_isbase = false;
     mutable bool qcpcurve_selecttest_isbase = false;
     mutable bool qcpcurve_getkeyrange_isbase = false;
@@ -22450,6 +23256,8 @@ class VirtualQCPCurve final : public QCPCurve {
     VirtualQCPCurve(QCPAxis* keyAxis, QCPAxis* valueAxis) : QCPCurve(keyAxis, valueAxis) {};
 
     ~VirtualQCPCurve() {
+        qcpcurve_metaobject_callback = nullptr;
+        qcpcurve_metacast_callback = nullptr;
         qcpcurve_metacall_callback = nullptr;
         qcpcurve_selecttest_callback = nullptr;
         qcpcurve_getkeyrange_callback = nullptr;
@@ -22508,6 +23316,8 @@ class VirtualQCPCurve final : public QCPCurve {
     }
 
     // Callback setters
+    inline void setQCPCurve_MetaObject_Callback(QCPCurve_MetaObject_Callback cb) { qcpcurve_metaobject_callback = cb; }
+    inline void setQCPCurve_Metacast_Callback(QCPCurve_Metacast_Callback cb) { qcpcurve_metacast_callback = cb; }
     inline void setQCPCurve_Metacall_Callback(QCPCurve_Metacall_Callback cb) { qcpcurve_metacall_callback = cb; }
     inline void setQCPCurve_SelectTest_Callback(QCPCurve_SelectTest_Callback cb) { qcpcurve_selecttest_callback = cb; }
     inline void setQCPCurve_GetKeyRange_Callback(QCPCurve_GetKeyRange_Callback cb) { qcpcurve_getkeyrange_callback = cb; }
@@ -22565,6 +23375,8 @@ class VirtualQCPCurve final : public QCPCurve {
     inline void setQCPCurve_IsSignalConnected_Callback(QCPCurve_IsSignalConnected_Callback cb) { qcpcurve_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPCurve_MetaObject_IsBase(bool value) const { qcpcurve_metaobject_isbase = value; }
+    inline void setQCPCurve_Metacast_IsBase(bool value) const { qcpcurve_metacast_isbase = value; }
     inline void setQCPCurve_Metacall_IsBase(bool value) const { qcpcurve_metacall_isbase = value; }
     inline void setQCPCurve_SelectTest_IsBase(bool value) const { qcpcurve_selecttest_isbase = value; }
     inline void setQCPCurve_GetKeyRange_IsBase(bool value) const { qcpcurve_getkeyrange_isbase = value; }
@@ -22620,6 +23432,34 @@ class VirtualQCPCurve final : public QCPCurve {
     inline void setQCPCurve_SenderSignalIndex_IsBase(bool value) const { qcpcurve_sendersignalindex_isbase = value; }
     inline void setQCPCurve_Receivers_IsBase(bool value) const { qcpcurve_receivers_isbase = value; }
     inline void setQCPCurve_IsSignalConnected_IsBase(bool value) const { qcpcurve_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpcurve_metaobject_isbase) {
+            qcpcurve_metaobject_isbase = false;
+            return QCPCurve::metaObject();
+        } else if (qcpcurve_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpcurve_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPCurve::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpcurve_metacast_isbase) {
+            qcpcurve_metacast_isbase = false;
+            return QCPCurve::qt_metacast(param1);
+        } else if (qcpcurve_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpcurve_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPCurve::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -23625,6 +24465,8 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
     bool isVirtualQCPBarsGroup = true;
 
     // Virtual class public types (including callbacks)
+    using QCPBarsGroup_MetaObject_Callback = QMetaObject* (*)();
+    using QCPBarsGroup_Metacast_Callback = void* (*)(QCPBarsGroup*, const char*);
     using QCPBarsGroup_Metacall_Callback = int (*)(QCPBarsGroup*, int, int, void**);
     using QCPBarsGroup_Event_Callback = bool (*)(QCPBarsGroup*, QEvent*);
     using QCPBarsGroup_EventFilter_Callback = bool (*)(QCPBarsGroup*, QObject*, QEvent*);
@@ -23644,6 +24486,8 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
 
   protected:
     // Instance callback storage
+    QCPBarsGroup_MetaObject_Callback qcpbarsgroup_metaobject_callback = nullptr;
+    QCPBarsGroup_Metacast_Callback qcpbarsgroup_metacast_callback = nullptr;
     QCPBarsGroup_Metacall_Callback qcpbarsgroup_metacall_callback = nullptr;
     QCPBarsGroup_Event_Callback qcpbarsgroup_event_callback = nullptr;
     QCPBarsGroup_EventFilter_Callback qcpbarsgroup_eventfilter_callback = nullptr;
@@ -23662,6 +24506,8 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
     QCPBarsGroup_IsSignalConnected_Callback qcpbarsgroup_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpbarsgroup_metaobject_isbase = false;
+    mutable bool qcpbarsgroup_metacast_isbase = false;
     mutable bool qcpbarsgroup_metacall_isbase = false;
     mutable bool qcpbarsgroup_event_isbase = false;
     mutable bool qcpbarsgroup_eventfilter_isbase = false;
@@ -23683,6 +24529,8 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
     VirtualQCPBarsGroup(QCustomPlot* parentPlot) : QCPBarsGroup(parentPlot) {};
 
     ~VirtualQCPBarsGroup() {
+        qcpbarsgroup_metaobject_callback = nullptr;
+        qcpbarsgroup_metacast_callback = nullptr;
         qcpbarsgroup_metacall_callback = nullptr;
         qcpbarsgroup_event_callback = nullptr;
         qcpbarsgroup_eventfilter_callback = nullptr;
@@ -23702,6 +24550,8 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
     }
 
     // Callback setters
+    inline void setQCPBarsGroup_MetaObject_Callback(QCPBarsGroup_MetaObject_Callback cb) { qcpbarsgroup_metaobject_callback = cb; }
+    inline void setQCPBarsGroup_Metacast_Callback(QCPBarsGroup_Metacast_Callback cb) { qcpbarsgroup_metacast_callback = cb; }
     inline void setQCPBarsGroup_Metacall_Callback(QCPBarsGroup_Metacall_Callback cb) { qcpbarsgroup_metacall_callback = cb; }
     inline void setQCPBarsGroup_Event_Callback(QCPBarsGroup_Event_Callback cb) { qcpbarsgroup_event_callback = cb; }
     inline void setQCPBarsGroup_EventFilter_Callback(QCPBarsGroup_EventFilter_Callback cb) { qcpbarsgroup_eventfilter_callback = cb; }
@@ -23720,6 +24570,8 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
     inline void setQCPBarsGroup_IsSignalConnected_Callback(QCPBarsGroup_IsSignalConnected_Callback cb) { qcpbarsgroup_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPBarsGroup_MetaObject_IsBase(bool value) const { qcpbarsgroup_metaobject_isbase = value; }
+    inline void setQCPBarsGroup_Metacast_IsBase(bool value) const { qcpbarsgroup_metacast_isbase = value; }
     inline void setQCPBarsGroup_Metacall_IsBase(bool value) const { qcpbarsgroup_metacall_isbase = value; }
     inline void setQCPBarsGroup_Event_IsBase(bool value) const { qcpbarsgroup_event_isbase = value; }
     inline void setQCPBarsGroup_EventFilter_IsBase(bool value) const { qcpbarsgroup_eventfilter_isbase = value; }
@@ -23736,6 +24588,34 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
     inline void setQCPBarsGroup_SenderSignalIndex_IsBase(bool value) const { qcpbarsgroup_sendersignalindex_isbase = value; }
     inline void setQCPBarsGroup_Receivers_IsBase(bool value) const { qcpbarsgroup_receivers_isbase = value; }
     inline void setQCPBarsGroup_IsSignalConnected_IsBase(bool value) const { qcpbarsgroup_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpbarsgroup_metaobject_isbase) {
+            qcpbarsgroup_metaobject_isbase = false;
+            return QCPBarsGroup::metaObject();
+        } else if (qcpbarsgroup_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpbarsgroup_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPBarsGroup::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpbarsgroup_metacast_isbase) {
+            qcpbarsgroup_metacast_isbase = false;
+            return QCPBarsGroup::qt_metacast(param1);
+        } else if (qcpbarsgroup_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpbarsgroup_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPBarsGroup::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -24014,6 +24894,8 @@ class VirtualQCPBars final : public QCPBars {
     bool isVirtualQCPBars = true;
 
     // Virtual class public types (including callbacks)
+    using QCPBars_MetaObject_Callback = QMetaObject* (*)();
+    using QCPBars_Metacast_Callback = void* (*)(QCPBars*, const char*);
     using QCPBars_Metacall_Callback = int (*)(QCPBars*, int, int, void**);
     using QCPBars_SelectTestRect_Callback = QCPDataSelection* (*)(const QCPBars*, QRectF*, bool);
     using QCPBars_SelectTest_Callback = double (*)(const QCPBars*, QPointF*, bool, QVariant*);
@@ -24066,6 +24948,8 @@ class VirtualQCPBars final : public QCPBars {
 
   protected:
     // Instance callback storage
+    QCPBars_MetaObject_Callback qcpbars_metaobject_callback = nullptr;
+    QCPBars_Metacast_Callback qcpbars_metacast_callback = nullptr;
     QCPBars_Metacall_Callback qcpbars_metacall_callback = nullptr;
     QCPBars_SelectTestRect_Callback qcpbars_selecttestrect_callback = nullptr;
     QCPBars_SelectTest_Callback qcpbars_selecttest_callback = nullptr;
@@ -24117,6 +25001,8 @@ class VirtualQCPBars final : public QCPBars {
     QCPBars_IsSignalConnected_Callback qcpbars_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpbars_metaobject_isbase = false;
+    mutable bool qcpbars_metacast_isbase = false;
     mutable bool qcpbars_metacall_isbase = false;
     mutable bool qcpbars_selecttestrect_isbase = false;
     mutable bool qcpbars_selecttest_isbase = false;
@@ -24171,6 +25057,8 @@ class VirtualQCPBars final : public QCPBars {
     VirtualQCPBars(QCPAxis* keyAxis, QCPAxis* valueAxis) : QCPBars(keyAxis, valueAxis) {};
 
     ~VirtualQCPBars() {
+        qcpbars_metaobject_callback = nullptr;
+        qcpbars_metacast_callback = nullptr;
         qcpbars_metacall_callback = nullptr;
         qcpbars_selecttestrect_callback = nullptr;
         qcpbars_selecttest_callback = nullptr;
@@ -24223,6 +25111,8 @@ class VirtualQCPBars final : public QCPBars {
     }
 
     // Callback setters
+    inline void setQCPBars_MetaObject_Callback(QCPBars_MetaObject_Callback cb) { qcpbars_metaobject_callback = cb; }
+    inline void setQCPBars_Metacast_Callback(QCPBars_Metacast_Callback cb) { qcpbars_metacast_callback = cb; }
     inline void setQCPBars_Metacall_Callback(QCPBars_Metacall_Callback cb) { qcpbars_metacall_callback = cb; }
     inline void setQCPBars_SelectTestRect_Callback(QCPBars_SelectTestRect_Callback cb) { qcpbars_selecttestrect_callback = cb; }
     inline void setQCPBars_SelectTest_Callback(QCPBars_SelectTest_Callback cb) { qcpbars_selecttest_callback = cb; }
@@ -24274,6 +25164,8 @@ class VirtualQCPBars final : public QCPBars {
     inline void setQCPBars_IsSignalConnected_Callback(QCPBars_IsSignalConnected_Callback cb) { qcpbars_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPBars_MetaObject_IsBase(bool value) const { qcpbars_metaobject_isbase = value; }
+    inline void setQCPBars_Metacast_IsBase(bool value) const { qcpbars_metacast_isbase = value; }
     inline void setQCPBars_Metacall_IsBase(bool value) const { qcpbars_metacall_isbase = value; }
     inline void setQCPBars_SelectTestRect_IsBase(bool value) const { qcpbars_selecttestrect_isbase = value; }
     inline void setQCPBars_SelectTest_IsBase(bool value) const { qcpbars_selecttest_isbase = value; }
@@ -24323,6 +25215,34 @@ class VirtualQCPBars final : public QCPBars {
     inline void setQCPBars_SenderSignalIndex_IsBase(bool value) const { qcpbars_sendersignalindex_isbase = value; }
     inline void setQCPBars_Receivers_IsBase(bool value) const { qcpbars_receivers_isbase = value; }
     inline void setQCPBars_IsSignalConnected_IsBase(bool value) const { qcpbars_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpbars_metaobject_isbase) {
+            qcpbars_metaobject_isbase = false;
+            return QCPBars::metaObject();
+        } else if (qcpbars_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpbars_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPBars::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpbars_metacast_isbase) {
+            qcpbars_metacast_isbase = false;
+            return QCPBars::qt_metacast(param1);
+        } else if (qcpbars_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpbars_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPBars::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -25124,6 +26044,8 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
     bool isVirtualQCPStatisticalBox = true;
 
     // Virtual class public types (including callbacks)
+    using QCPStatisticalBox_MetaObject_Callback = QMetaObject* (*)();
+    using QCPStatisticalBox_Metacast_Callback = void* (*)(QCPStatisticalBox*, const char*);
     using QCPStatisticalBox_Metacall_Callback = int (*)(QCPStatisticalBox*, int, int, void**);
     using QCPStatisticalBox_SelectTestRect_Callback = QCPDataSelection* (*)(const QCPStatisticalBox*, QRectF*, bool);
     using QCPStatisticalBox_SelectTest_Callback = double (*)(const QCPStatisticalBox*, QPointF*, bool, QVariant*);
@@ -25172,6 +26094,8 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
 
   protected:
     // Instance callback storage
+    QCPStatisticalBox_MetaObject_Callback qcpstatisticalbox_metaobject_callback = nullptr;
+    QCPStatisticalBox_Metacast_Callback qcpstatisticalbox_metacast_callback = nullptr;
     QCPStatisticalBox_Metacall_Callback qcpstatisticalbox_metacall_callback = nullptr;
     QCPStatisticalBox_SelectTestRect_Callback qcpstatisticalbox_selecttestrect_callback = nullptr;
     QCPStatisticalBox_SelectTest_Callback qcpstatisticalbox_selecttest_callback = nullptr;
@@ -25219,6 +26143,8 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
     QCPStatisticalBox_IsSignalConnected_Callback qcpstatisticalbox_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpstatisticalbox_metaobject_isbase = false;
+    mutable bool qcpstatisticalbox_metacast_isbase = false;
     mutable bool qcpstatisticalbox_metacall_isbase = false;
     mutable bool qcpstatisticalbox_selecttestrect_isbase = false;
     mutable bool qcpstatisticalbox_selecttest_isbase = false;
@@ -25269,6 +26195,8 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
     VirtualQCPStatisticalBox(QCPAxis* keyAxis, QCPAxis* valueAxis) : QCPStatisticalBox(keyAxis, valueAxis) {};
 
     ~VirtualQCPStatisticalBox() {
+        qcpstatisticalbox_metaobject_callback = nullptr;
+        qcpstatisticalbox_metacast_callback = nullptr;
         qcpstatisticalbox_metacall_callback = nullptr;
         qcpstatisticalbox_selecttestrect_callback = nullptr;
         qcpstatisticalbox_selecttest_callback = nullptr;
@@ -25317,6 +26245,8 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
     }
 
     // Callback setters
+    inline void setQCPStatisticalBox_MetaObject_Callback(QCPStatisticalBox_MetaObject_Callback cb) { qcpstatisticalbox_metaobject_callback = cb; }
+    inline void setQCPStatisticalBox_Metacast_Callback(QCPStatisticalBox_Metacast_Callback cb) { qcpstatisticalbox_metacast_callback = cb; }
     inline void setQCPStatisticalBox_Metacall_Callback(QCPStatisticalBox_Metacall_Callback cb) { qcpstatisticalbox_metacall_callback = cb; }
     inline void setQCPStatisticalBox_SelectTestRect_Callback(QCPStatisticalBox_SelectTestRect_Callback cb) { qcpstatisticalbox_selecttestrect_callback = cb; }
     inline void setQCPStatisticalBox_SelectTest_Callback(QCPStatisticalBox_SelectTest_Callback cb) { qcpstatisticalbox_selecttest_callback = cb; }
@@ -25364,6 +26294,8 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
     inline void setQCPStatisticalBox_IsSignalConnected_Callback(QCPStatisticalBox_IsSignalConnected_Callback cb) { qcpstatisticalbox_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPStatisticalBox_MetaObject_IsBase(bool value) const { qcpstatisticalbox_metaobject_isbase = value; }
+    inline void setQCPStatisticalBox_Metacast_IsBase(bool value) const { qcpstatisticalbox_metacast_isbase = value; }
     inline void setQCPStatisticalBox_Metacall_IsBase(bool value) const { qcpstatisticalbox_metacall_isbase = value; }
     inline void setQCPStatisticalBox_SelectTestRect_IsBase(bool value) const { qcpstatisticalbox_selecttestrect_isbase = value; }
     inline void setQCPStatisticalBox_SelectTest_IsBase(bool value) const { qcpstatisticalbox_selecttest_isbase = value; }
@@ -25409,6 +26341,34 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
     inline void setQCPStatisticalBox_SenderSignalIndex_IsBase(bool value) const { qcpstatisticalbox_sendersignalindex_isbase = value; }
     inline void setQCPStatisticalBox_Receivers_IsBase(bool value) const { qcpstatisticalbox_receivers_isbase = value; }
     inline void setQCPStatisticalBox_IsSignalConnected_IsBase(bool value) const { qcpstatisticalbox_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpstatisticalbox_metaobject_isbase) {
+            qcpstatisticalbox_metaobject_isbase = false;
+            return QCPStatisticalBox::metaObject();
+        } else if (qcpstatisticalbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpstatisticalbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPStatisticalBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpstatisticalbox_metacast_isbase) {
+            qcpstatisticalbox_metacast_isbase = false;
+            return QCPStatisticalBox::qt_metacast(param1);
+        } else if (qcpstatisticalbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpstatisticalbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPStatisticalBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -26136,6 +27096,8 @@ class VirtualQCPColorMap final : public QCPColorMap {
     bool isVirtualQCPColorMap = true;
 
     // Virtual class public types (including callbacks)
+    using QCPColorMap_MetaObject_Callback = QMetaObject* (*)();
+    using QCPColorMap_Metacast_Callback = void* (*)(QCPColorMap*, const char*);
     using QCPColorMap_Metacall_Callback = int (*)(QCPColorMap*, int, int, void**);
     using QCPColorMap_SelectTest_Callback = double (*)(const QCPColorMap*, QPointF*, bool, QVariant*);
     using QCPColorMap_GetKeyRange_Callback = QCPRange* (*)(const QCPColorMap*, bool*, int);
@@ -26175,6 +27137,8 @@ class VirtualQCPColorMap final : public QCPColorMap {
 
   protected:
     // Instance callback storage
+    QCPColorMap_MetaObject_Callback qcpcolormap_metaobject_callback = nullptr;
+    QCPColorMap_Metacast_Callback qcpcolormap_metacast_callback = nullptr;
     QCPColorMap_Metacall_Callback qcpcolormap_metacall_callback = nullptr;
     QCPColorMap_SelectTest_Callback qcpcolormap_selecttest_callback = nullptr;
     QCPColorMap_GetKeyRange_Callback qcpcolormap_getkeyrange_callback = nullptr;
@@ -26213,6 +27177,8 @@ class VirtualQCPColorMap final : public QCPColorMap {
     QCPColorMap_IsSignalConnected_Callback qcpcolormap_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpcolormap_metaobject_isbase = false;
+    mutable bool qcpcolormap_metacast_isbase = false;
     mutable bool qcpcolormap_metacall_isbase = false;
     mutable bool qcpcolormap_selecttest_isbase = false;
     mutable bool qcpcolormap_getkeyrange_isbase = false;
@@ -26254,6 +27220,8 @@ class VirtualQCPColorMap final : public QCPColorMap {
     VirtualQCPColorMap(QCPAxis* keyAxis, QCPAxis* valueAxis) : QCPColorMap(keyAxis, valueAxis) {};
 
     ~VirtualQCPColorMap() {
+        qcpcolormap_metaobject_callback = nullptr;
+        qcpcolormap_metacast_callback = nullptr;
         qcpcolormap_metacall_callback = nullptr;
         qcpcolormap_selecttest_callback = nullptr;
         qcpcolormap_getkeyrange_callback = nullptr;
@@ -26293,6 +27261,8 @@ class VirtualQCPColorMap final : public QCPColorMap {
     }
 
     // Callback setters
+    inline void setQCPColorMap_MetaObject_Callback(QCPColorMap_MetaObject_Callback cb) { qcpcolormap_metaobject_callback = cb; }
+    inline void setQCPColorMap_Metacast_Callback(QCPColorMap_Metacast_Callback cb) { qcpcolormap_metacast_callback = cb; }
     inline void setQCPColorMap_Metacall_Callback(QCPColorMap_Metacall_Callback cb) { qcpcolormap_metacall_callback = cb; }
     inline void setQCPColorMap_SelectTest_Callback(QCPColorMap_SelectTest_Callback cb) { qcpcolormap_selecttest_callback = cb; }
     inline void setQCPColorMap_GetKeyRange_Callback(QCPColorMap_GetKeyRange_Callback cb) { qcpcolormap_getkeyrange_callback = cb; }
@@ -26331,6 +27301,8 @@ class VirtualQCPColorMap final : public QCPColorMap {
     inline void setQCPColorMap_IsSignalConnected_Callback(QCPColorMap_IsSignalConnected_Callback cb) { qcpcolormap_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPColorMap_MetaObject_IsBase(bool value) const { qcpcolormap_metaobject_isbase = value; }
+    inline void setQCPColorMap_Metacast_IsBase(bool value) const { qcpcolormap_metacast_isbase = value; }
     inline void setQCPColorMap_Metacall_IsBase(bool value) const { qcpcolormap_metacall_isbase = value; }
     inline void setQCPColorMap_SelectTest_IsBase(bool value) const { qcpcolormap_selecttest_isbase = value; }
     inline void setQCPColorMap_GetKeyRange_IsBase(bool value) const { qcpcolormap_getkeyrange_isbase = value; }
@@ -26367,6 +27339,34 @@ class VirtualQCPColorMap final : public QCPColorMap {
     inline void setQCPColorMap_SenderSignalIndex_IsBase(bool value) const { qcpcolormap_sendersignalindex_isbase = value; }
     inline void setQCPColorMap_Receivers_IsBase(bool value) const { qcpcolormap_receivers_isbase = value; }
     inline void setQCPColorMap_IsSignalConnected_IsBase(bool value) const { qcpcolormap_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpcolormap_metaobject_isbase) {
+            qcpcolormap_metaobject_isbase = false;
+            return QCPColorMap::metaObject();
+        } else if (qcpcolormap_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpcolormap_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPColorMap::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpcolormap_metacast_isbase) {
+            qcpcolormap_metacast_isbase = false;
+            return QCPColorMap::qt_metacast(param1);
+        } else if (qcpcolormap_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpcolormap_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPColorMap::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -26984,6 +27984,8 @@ class VirtualQCPFinancial final : public QCPFinancial {
     bool isVirtualQCPFinancial = true;
 
     // Virtual class public types (including callbacks)
+    using QCPFinancial_MetaObject_Callback = QMetaObject* (*)();
+    using QCPFinancial_Metacast_Callback = void* (*)(QCPFinancial*, const char*);
     using QCPFinancial_Metacall_Callback = int (*)(QCPFinancial*, int, int, void**);
     using QCPFinancial_SelectTestRect_Callback = QCPDataSelection* (*)(const QCPFinancial*, QRectF*, bool);
     using QCPFinancial_SelectTest_Callback = double (*)(const QCPFinancial*, QPointF*, bool, QVariant*);
@@ -27033,6 +28035,8 @@ class VirtualQCPFinancial final : public QCPFinancial {
 
   protected:
     // Instance callback storage
+    QCPFinancial_MetaObject_Callback qcpfinancial_metaobject_callback = nullptr;
+    QCPFinancial_Metacast_Callback qcpfinancial_metacast_callback = nullptr;
     QCPFinancial_Metacall_Callback qcpfinancial_metacall_callback = nullptr;
     QCPFinancial_SelectTestRect_Callback qcpfinancial_selecttestrect_callback = nullptr;
     QCPFinancial_SelectTest_Callback qcpfinancial_selecttest_callback = nullptr;
@@ -27081,6 +28085,8 @@ class VirtualQCPFinancial final : public QCPFinancial {
     QCPFinancial_IsSignalConnected_Callback qcpfinancial_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpfinancial_metaobject_isbase = false;
+    mutable bool qcpfinancial_metacast_isbase = false;
     mutable bool qcpfinancial_metacall_isbase = false;
     mutable bool qcpfinancial_selecttestrect_isbase = false;
     mutable bool qcpfinancial_selecttest_isbase = false;
@@ -27132,6 +28138,8 @@ class VirtualQCPFinancial final : public QCPFinancial {
     VirtualQCPFinancial(QCPAxis* keyAxis, QCPAxis* valueAxis) : QCPFinancial(keyAxis, valueAxis) {};
 
     ~VirtualQCPFinancial() {
+        qcpfinancial_metaobject_callback = nullptr;
+        qcpfinancial_metacast_callback = nullptr;
         qcpfinancial_metacall_callback = nullptr;
         qcpfinancial_selecttestrect_callback = nullptr;
         qcpfinancial_selecttest_callback = nullptr;
@@ -27181,6 +28189,8 @@ class VirtualQCPFinancial final : public QCPFinancial {
     }
 
     // Callback setters
+    inline void setQCPFinancial_MetaObject_Callback(QCPFinancial_MetaObject_Callback cb) { qcpfinancial_metaobject_callback = cb; }
+    inline void setQCPFinancial_Metacast_Callback(QCPFinancial_Metacast_Callback cb) { qcpfinancial_metacast_callback = cb; }
     inline void setQCPFinancial_Metacall_Callback(QCPFinancial_Metacall_Callback cb) { qcpfinancial_metacall_callback = cb; }
     inline void setQCPFinancial_SelectTestRect_Callback(QCPFinancial_SelectTestRect_Callback cb) { qcpfinancial_selecttestrect_callback = cb; }
     inline void setQCPFinancial_SelectTest_Callback(QCPFinancial_SelectTest_Callback cb) { qcpfinancial_selecttest_callback = cb; }
@@ -27229,6 +28239,8 @@ class VirtualQCPFinancial final : public QCPFinancial {
     inline void setQCPFinancial_IsSignalConnected_Callback(QCPFinancial_IsSignalConnected_Callback cb) { qcpfinancial_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPFinancial_MetaObject_IsBase(bool value) const { qcpfinancial_metaobject_isbase = value; }
+    inline void setQCPFinancial_Metacast_IsBase(bool value) const { qcpfinancial_metacast_isbase = value; }
     inline void setQCPFinancial_Metacall_IsBase(bool value) const { qcpfinancial_metacall_isbase = value; }
     inline void setQCPFinancial_SelectTestRect_IsBase(bool value) const { qcpfinancial_selecttestrect_isbase = value; }
     inline void setQCPFinancial_SelectTest_IsBase(bool value) const { qcpfinancial_selecttest_isbase = value; }
@@ -27275,6 +28287,34 @@ class VirtualQCPFinancial final : public QCPFinancial {
     inline void setQCPFinancial_SenderSignalIndex_IsBase(bool value) const { qcpfinancial_sendersignalindex_isbase = value; }
     inline void setQCPFinancial_Receivers_IsBase(bool value) const { qcpfinancial_receivers_isbase = value; }
     inline void setQCPFinancial_IsSignalConnected_IsBase(bool value) const { qcpfinancial_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpfinancial_metaobject_isbase) {
+            qcpfinancial_metaobject_isbase = false;
+            return QCPFinancial::metaObject();
+        } else if (qcpfinancial_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpfinancial_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPFinancial::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpfinancial_metacast_isbase) {
+            qcpfinancial_metacast_isbase = false;
+            return QCPFinancial::qt_metacast(param1);
+        } else if (qcpfinancial_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpfinancial_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPFinancial::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -28020,6 +29060,8 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
     bool isVirtualQCPErrorBars = true;
 
     // Virtual class public types (including callbacks)
+    using QCPErrorBars_MetaObject_Callback = QMetaObject* (*)();
+    using QCPErrorBars_Metacast_Callback = void* (*)(QCPErrorBars*, const char*);
     using QCPErrorBars_Metacall_Callback = int (*)(QCPErrorBars*, int, int, void**);
     using QCPErrorBars_DataCount_Callback = int (*)();
     using QCPErrorBars_DataMainKey_Callback = double (*)(const QCPErrorBars*, int);
@@ -28071,6 +29113,8 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
 
   protected:
     // Instance callback storage
+    QCPErrorBars_MetaObject_Callback qcperrorbars_metaobject_callback = nullptr;
+    QCPErrorBars_Metacast_Callback qcperrorbars_metacast_callback = nullptr;
     QCPErrorBars_Metacall_Callback qcperrorbars_metacall_callback = nullptr;
     QCPErrorBars_DataCount_Callback qcperrorbars_datacount_callback = nullptr;
     QCPErrorBars_DataMainKey_Callback qcperrorbars_datamainkey_callback = nullptr;
@@ -28121,6 +29165,8 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
     QCPErrorBars_IsSignalConnected_Callback qcperrorbars_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcperrorbars_metaobject_isbase = false;
+    mutable bool qcperrorbars_metacast_isbase = false;
     mutable bool qcperrorbars_metacall_isbase = false;
     mutable bool qcperrorbars_datacount_isbase = false;
     mutable bool qcperrorbars_datamainkey_isbase = false;
@@ -28174,6 +29220,8 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
     VirtualQCPErrorBars(QCPAxis* keyAxis, QCPAxis* valueAxis) : QCPErrorBars(keyAxis, valueAxis) {};
 
     ~VirtualQCPErrorBars() {
+        qcperrorbars_metaobject_callback = nullptr;
+        qcperrorbars_metacast_callback = nullptr;
         qcperrorbars_metacall_callback = nullptr;
         qcperrorbars_datacount_callback = nullptr;
         qcperrorbars_datamainkey_callback = nullptr;
@@ -28225,6 +29273,8 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
     }
 
     // Callback setters
+    inline void setQCPErrorBars_MetaObject_Callback(QCPErrorBars_MetaObject_Callback cb) { qcperrorbars_metaobject_callback = cb; }
+    inline void setQCPErrorBars_Metacast_Callback(QCPErrorBars_Metacast_Callback cb) { qcperrorbars_metacast_callback = cb; }
     inline void setQCPErrorBars_Metacall_Callback(QCPErrorBars_Metacall_Callback cb) { qcperrorbars_metacall_callback = cb; }
     inline void setQCPErrorBars_DataCount_Callback(QCPErrorBars_DataCount_Callback cb) { qcperrorbars_datacount_callback = cb; }
     inline void setQCPErrorBars_DataMainKey_Callback(QCPErrorBars_DataMainKey_Callback cb) { qcperrorbars_datamainkey_callback = cb; }
@@ -28275,6 +29325,8 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
     inline void setQCPErrorBars_IsSignalConnected_Callback(QCPErrorBars_IsSignalConnected_Callback cb) { qcperrorbars_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPErrorBars_MetaObject_IsBase(bool value) const { qcperrorbars_metaobject_isbase = value; }
+    inline void setQCPErrorBars_Metacast_IsBase(bool value) const { qcperrorbars_metacast_isbase = value; }
     inline void setQCPErrorBars_Metacall_IsBase(bool value) const { qcperrorbars_metacall_isbase = value; }
     inline void setQCPErrorBars_DataCount_IsBase(bool value) const { qcperrorbars_datacount_isbase = value; }
     inline void setQCPErrorBars_DataMainKey_IsBase(bool value) const { qcperrorbars_datamainkey_isbase = value; }
@@ -28323,6 +29375,34 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
     inline void setQCPErrorBars_SenderSignalIndex_IsBase(bool value) const { qcperrorbars_sendersignalindex_isbase = value; }
     inline void setQCPErrorBars_Receivers_IsBase(bool value) const { qcperrorbars_receivers_isbase = value; }
     inline void setQCPErrorBars_IsSignalConnected_IsBase(bool value) const { qcperrorbars_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcperrorbars_metaobject_isbase) {
+            qcperrorbars_metaobject_isbase = false;
+            return QCPErrorBars::metaObject();
+        } else if (qcperrorbars_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcperrorbars_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPErrorBars::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcperrorbars_metacast_isbase) {
+            qcperrorbars_metacast_isbase = false;
+            return QCPErrorBars::qt_metacast(param1);
+        } else if (qcperrorbars_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcperrorbars_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPErrorBars::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -29155,6 +30235,8 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
     bool isVirtualQCPItemStraightLine = true;
 
     // Virtual class public types (including callbacks)
+    using QCPItemStraightLine_MetaObject_Callback = QMetaObject* (*)();
+    using QCPItemStraightLine_Metacast_Callback = void* (*)(QCPItemStraightLine*, const char*);
     using QCPItemStraightLine_Metacall_Callback = int (*)(QCPItemStraightLine*, int, int, void**);
     using QCPItemStraightLine_SelectTest_Callback = double (*)(const QCPItemStraightLine*, QPointF*, bool, QVariant*);
     using QCPItemStraightLine_Draw_Callback = void (*)(QCPItemStraightLine*, QCPPainter*);
@@ -29193,6 +30275,8 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
 
   protected:
     // Instance callback storage
+    QCPItemStraightLine_MetaObject_Callback qcpitemstraightline_metaobject_callback = nullptr;
+    QCPItemStraightLine_Metacast_Callback qcpitemstraightline_metacast_callback = nullptr;
     QCPItemStraightLine_Metacall_Callback qcpitemstraightline_metacall_callback = nullptr;
     QCPItemStraightLine_SelectTest_Callback qcpitemstraightline_selecttest_callback = nullptr;
     QCPItemStraightLine_Draw_Callback qcpitemstraightline_draw_callback = nullptr;
@@ -29230,6 +30314,8 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
     QCPItemStraightLine_IsSignalConnected_Callback qcpitemstraightline_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpitemstraightline_metaobject_isbase = false;
+    mutable bool qcpitemstraightline_metacast_isbase = false;
     mutable bool qcpitemstraightline_metacall_isbase = false;
     mutable bool qcpitemstraightline_selecttest_isbase = false;
     mutable bool qcpitemstraightline_draw_isbase = false;
@@ -29270,6 +30356,8 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
     VirtualQCPItemStraightLine(QCustomPlot* parentPlot) : QCPItemStraightLine(parentPlot) {};
 
     ~VirtualQCPItemStraightLine() {
+        qcpitemstraightline_metaobject_callback = nullptr;
+        qcpitemstraightline_metacast_callback = nullptr;
         qcpitemstraightline_metacall_callback = nullptr;
         qcpitemstraightline_selecttest_callback = nullptr;
         qcpitemstraightline_draw_callback = nullptr;
@@ -29308,6 +30396,8 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
     }
 
     // Callback setters
+    inline void setQCPItemStraightLine_MetaObject_Callback(QCPItemStraightLine_MetaObject_Callback cb) { qcpitemstraightline_metaobject_callback = cb; }
+    inline void setQCPItemStraightLine_Metacast_Callback(QCPItemStraightLine_Metacast_Callback cb) { qcpitemstraightline_metacast_callback = cb; }
     inline void setQCPItemStraightLine_Metacall_Callback(QCPItemStraightLine_Metacall_Callback cb) { qcpitemstraightline_metacall_callback = cb; }
     inline void setQCPItemStraightLine_SelectTest_Callback(QCPItemStraightLine_SelectTest_Callback cb) { qcpitemstraightline_selecttest_callback = cb; }
     inline void setQCPItemStraightLine_Draw_Callback(QCPItemStraightLine_Draw_Callback cb) { qcpitemstraightline_draw_callback = cb; }
@@ -29345,6 +30435,8 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
     inline void setQCPItemStraightLine_IsSignalConnected_Callback(QCPItemStraightLine_IsSignalConnected_Callback cb) { qcpitemstraightline_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPItemStraightLine_MetaObject_IsBase(bool value) const { qcpitemstraightline_metaobject_isbase = value; }
+    inline void setQCPItemStraightLine_Metacast_IsBase(bool value) const { qcpitemstraightline_metacast_isbase = value; }
     inline void setQCPItemStraightLine_Metacall_IsBase(bool value) const { qcpitemstraightline_metacall_isbase = value; }
     inline void setQCPItemStraightLine_SelectTest_IsBase(bool value) const { qcpitemstraightline_selecttest_isbase = value; }
     inline void setQCPItemStraightLine_Draw_IsBase(bool value) const { qcpitemstraightline_draw_isbase = value; }
@@ -29380,6 +30472,34 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
     inline void setQCPItemStraightLine_SenderSignalIndex_IsBase(bool value) const { qcpitemstraightline_sendersignalindex_isbase = value; }
     inline void setQCPItemStraightLine_Receivers_IsBase(bool value) const { qcpitemstraightline_receivers_isbase = value; }
     inline void setQCPItemStraightLine_IsSignalConnected_IsBase(bool value) const { qcpitemstraightline_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpitemstraightline_metaobject_isbase) {
+            qcpitemstraightline_metaobject_isbase = false;
+            return QCPItemStraightLine::metaObject();
+        } else if (qcpitemstraightline_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpitemstraightline_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPItemStraightLine::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpitemstraightline_metacast_isbase) {
+            qcpitemstraightline_metacast_isbase = false;
+            return QCPItemStraightLine::qt_metacast(param1);
+        } else if (qcpitemstraightline_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpitemstraightline_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPItemStraightLine::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -30015,6 +31135,8 @@ class VirtualQCPItemLine final : public QCPItemLine {
     bool isVirtualQCPItemLine = true;
 
     // Virtual class public types (including callbacks)
+    using QCPItemLine_MetaObject_Callback = QMetaObject* (*)();
+    using QCPItemLine_Metacast_Callback = void* (*)(QCPItemLine*, const char*);
     using QCPItemLine_Metacall_Callback = int (*)(QCPItemLine*, int, int, void**);
     using QCPItemLine_SelectTest_Callback = double (*)(const QCPItemLine*, QPointF*, bool, QVariant*);
     using QCPItemLine_Draw_Callback = void (*)(QCPItemLine*, QCPPainter*);
@@ -30053,6 +31175,8 @@ class VirtualQCPItemLine final : public QCPItemLine {
 
   protected:
     // Instance callback storage
+    QCPItemLine_MetaObject_Callback qcpitemline_metaobject_callback = nullptr;
+    QCPItemLine_Metacast_Callback qcpitemline_metacast_callback = nullptr;
     QCPItemLine_Metacall_Callback qcpitemline_metacall_callback = nullptr;
     QCPItemLine_SelectTest_Callback qcpitemline_selecttest_callback = nullptr;
     QCPItemLine_Draw_Callback qcpitemline_draw_callback = nullptr;
@@ -30090,6 +31214,8 @@ class VirtualQCPItemLine final : public QCPItemLine {
     QCPItemLine_IsSignalConnected_Callback qcpitemline_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpitemline_metaobject_isbase = false;
+    mutable bool qcpitemline_metacast_isbase = false;
     mutable bool qcpitemline_metacall_isbase = false;
     mutable bool qcpitemline_selecttest_isbase = false;
     mutable bool qcpitemline_draw_isbase = false;
@@ -30130,6 +31256,8 @@ class VirtualQCPItemLine final : public QCPItemLine {
     VirtualQCPItemLine(QCustomPlot* parentPlot) : QCPItemLine(parentPlot) {};
 
     ~VirtualQCPItemLine() {
+        qcpitemline_metaobject_callback = nullptr;
+        qcpitemline_metacast_callback = nullptr;
         qcpitemline_metacall_callback = nullptr;
         qcpitemline_selecttest_callback = nullptr;
         qcpitemline_draw_callback = nullptr;
@@ -30168,6 +31296,8 @@ class VirtualQCPItemLine final : public QCPItemLine {
     }
 
     // Callback setters
+    inline void setQCPItemLine_MetaObject_Callback(QCPItemLine_MetaObject_Callback cb) { qcpitemline_metaobject_callback = cb; }
+    inline void setQCPItemLine_Metacast_Callback(QCPItemLine_Metacast_Callback cb) { qcpitemline_metacast_callback = cb; }
     inline void setQCPItemLine_Metacall_Callback(QCPItemLine_Metacall_Callback cb) { qcpitemline_metacall_callback = cb; }
     inline void setQCPItemLine_SelectTest_Callback(QCPItemLine_SelectTest_Callback cb) { qcpitemline_selecttest_callback = cb; }
     inline void setQCPItemLine_Draw_Callback(QCPItemLine_Draw_Callback cb) { qcpitemline_draw_callback = cb; }
@@ -30205,6 +31335,8 @@ class VirtualQCPItemLine final : public QCPItemLine {
     inline void setQCPItemLine_IsSignalConnected_Callback(QCPItemLine_IsSignalConnected_Callback cb) { qcpitemline_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPItemLine_MetaObject_IsBase(bool value) const { qcpitemline_metaobject_isbase = value; }
+    inline void setQCPItemLine_Metacast_IsBase(bool value) const { qcpitemline_metacast_isbase = value; }
     inline void setQCPItemLine_Metacall_IsBase(bool value) const { qcpitemline_metacall_isbase = value; }
     inline void setQCPItemLine_SelectTest_IsBase(bool value) const { qcpitemline_selecttest_isbase = value; }
     inline void setQCPItemLine_Draw_IsBase(bool value) const { qcpitemline_draw_isbase = value; }
@@ -30240,6 +31372,34 @@ class VirtualQCPItemLine final : public QCPItemLine {
     inline void setQCPItemLine_SenderSignalIndex_IsBase(bool value) const { qcpitemline_sendersignalindex_isbase = value; }
     inline void setQCPItemLine_Receivers_IsBase(bool value) const { qcpitemline_receivers_isbase = value; }
     inline void setQCPItemLine_IsSignalConnected_IsBase(bool value) const { qcpitemline_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpitemline_metaobject_isbase) {
+            qcpitemline_metaobject_isbase = false;
+            return QCPItemLine::metaObject();
+        } else if (qcpitemline_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpitemline_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPItemLine::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpitemline_metacast_isbase) {
+            qcpitemline_metacast_isbase = false;
+            return QCPItemLine::qt_metacast(param1);
+        } else if (qcpitemline_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpitemline_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPItemLine::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -30875,6 +32035,8 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
     bool isVirtualQCPItemCurve = true;
 
     // Virtual class public types (including callbacks)
+    using QCPItemCurve_MetaObject_Callback = QMetaObject* (*)();
+    using QCPItemCurve_Metacast_Callback = void* (*)(QCPItemCurve*, const char*);
     using QCPItemCurve_Metacall_Callback = int (*)(QCPItemCurve*, int, int, void**);
     using QCPItemCurve_SelectTest_Callback = double (*)(const QCPItemCurve*, QPointF*, bool, QVariant*);
     using QCPItemCurve_Draw_Callback = void (*)(QCPItemCurve*, QCPPainter*);
@@ -30912,6 +32074,8 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
 
   protected:
     // Instance callback storage
+    QCPItemCurve_MetaObject_Callback qcpitemcurve_metaobject_callback = nullptr;
+    QCPItemCurve_Metacast_Callback qcpitemcurve_metacast_callback = nullptr;
     QCPItemCurve_Metacall_Callback qcpitemcurve_metacall_callback = nullptr;
     QCPItemCurve_SelectTest_Callback qcpitemcurve_selecttest_callback = nullptr;
     QCPItemCurve_Draw_Callback qcpitemcurve_draw_callback = nullptr;
@@ -30948,6 +32112,8 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
     QCPItemCurve_IsSignalConnected_Callback qcpitemcurve_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpitemcurve_metaobject_isbase = false;
+    mutable bool qcpitemcurve_metacast_isbase = false;
     mutable bool qcpitemcurve_metacall_isbase = false;
     mutable bool qcpitemcurve_selecttest_isbase = false;
     mutable bool qcpitemcurve_draw_isbase = false;
@@ -30987,6 +32153,8 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
     VirtualQCPItemCurve(QCustomPlot* parentPlot) : QCPItemCurve(parentPlot) {};
 
     ~VirtualQCPItemCurve() {
+        qcpitemcurve_metaobject_callback = nullptr;
+        qcpitemcurve_metacast_callback = nullptr;
         qcpitemcurve_metacall_callback = nullptr;
         qcpitemcurve_selecttest_callback = nullptr;
         qcpitemcurve_draw_callback = nullptr;
@@ -31024,6 +32192,8 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
     }
 
     // Callback setters
+    inline void setQCPItemCurve_MetaObject_Callback(QCPItemCurve_MetaObject_Callback cb) { qcpitemcurve_metaobject_callback = cb; }
+    inline void setQCPItemCurve_Metacast_Callback(QCPItemCurve_Metacast_Callback cb) { qcpitemcurve_metacast_callback = cb; }
     inline void setQCPItemCurve_Metacall_Callback(QCPItemCurve_Metacall_Callback cb) { qcpitemcurve_metacall_callback = cb; }
     inline void setQCPItemCurve_SelectTest_Callback(QCPItemCurve_SelectTest_Callback cb) { qcpitemcurve_selecttest_callback = cb; }
     inline void setQCPItemCurve_Draw_Callback(QCPItemCurve_Draw_Callback cb) { qcpitemcurve_draw_callback = cb; }
@@ -31060,6 +32230,8 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
     inline void setQCPItemCurve_IsSignalConnected_Callback(QCPItemCurve_IsSignalConnected_Callback cb) { qcpitemcurve_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPItemCurve_MetaObject_IsBase(bool value) const { qcpitemcurve_metaobject_isbase = value; }
+    inline void setQCPItemCurve_Metacast_IsBase(bool value) const { qcpitemcurve_metacast_isbase = value; }
     inline void setQCPItemCurve_Metacall_IsBase(bool value) const { qcpitemcurve_metacall_isbase = value; }
     inline void setQCPItemCurve_SelectTest_IsBase(bool value) const { qcpitemcurve_selecttest_isbase = value; }
     inline void setQCPItemCurve_Draw_IsBase(bool value) const { qcpitemcurve_draw_isbase = value; }
@@ -31094,6 +32266,34 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
     inline void setQCPItemCurve_SenderSignalIndex_IsBase(bool value) const { qcpitemcurve_sendersignalindex_isbase = value; }
     inline void setQCPItemCurve_Receivers_IsBase(bool value) const { qcpitemcurve_receivers_isbase = value; }
     inline void setQCPItemCurve_IsSignalConnected_IsBase(bool value) const { qcpitemcurve_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpitemcurve_metaobject_isbase) {
+            qcpitemcurve_metaobject_isbase = false;
+            return QCPItemCurve::metaObject();
+        } else if (qcpitemcurve_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpitemcurve_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPItemCurve::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpitemcurve_metacast_isbase) {
+            qcpitemcurve_metacast_isbase = false;
+            return QCPItemCurve::qt_metacast(param1);
+        } else if (qcpitemcurve_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpitemcurve_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPItemCurve::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -31705,6 +32905,8 @@ class VirtualQCPItemRect final : public QCPItemRect {
 
     // Virtual class public types (including callbacks)
     using QCPItemRect::AnchorIndex;
+    using QCPItemRect_MetaObject_Callback = QMetaObject* (*)();
+    using QCPItemRect_Metacast_Callback = void* (*)(QCPItemRect*, const char*);
     using QCPItemRect_Metacall_Callback = int (*)(QCPItemRect*, int, int, void**);
     using QCPItemRect_SelectTest_Callback = double (*)(const QCPItemRect*, QPointF*, bool, QVariant*);
     using QCPItemRect_Draw_Callback = void (*)(QCPItemRect*, QCPPainter*);
@@ -31743,6 +32945,8 @@ class VirtualQCPItemRect final : public QCPItemRect {
 
   protected:
     // Instance callback storage
+    QCPItemRect_MetaObject_Callback qcpitemrect_metaobject_callback = nullptr;
+    QCPItemRect_Metacast_Callback qcpitemrect_metacast_callback = nullptr;
     QCPItemRect_Metacall_Callback qcpitemrect_metacall_callback = nullptr;
     QCPItemRect_SelectTest_Callback qcpitemrect_selecttest_callback = nullptr;
     QCPItemRect_Draw_Callback qcpitemrect_draw_callback = nullptr;
@@ -31780,6 +32984,8 @@ class VirtualQCPItemRect final : public QCPItemRect {
     QCPItemRect_IsSignalConnected_Callback qcpitemrect_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpitemrect_metaobject_isbase = false;
+    mutable bool qcpitemrect_metacast_isbase = false;
     mutable bool qcpitemrect_metacall_isbase = false;
     mutable bool qcpitemrect_selecttest_isbase = false;
     mutable bool qcpitemrect_draw_isbase = false;
@@ -31820,6 +33026,8 @@ class VirtualQCPItemRect final : public QCPItemRect {
     VirtualQCPItemRect(QCustomPlot* parentPlot) : QCPItemRect(parentPlot) {};
 
     ~VirtualQCPItemRect() {
+        qcpitemrect_metaobject_callback = nullptr;
+        qcpitemrect_metacast_callback = nullptr;
         qcpitemrect_metacall_callback = nullptr;
         qcpitemrect_selecttest_callback = nullptr;
         qcpitemrect_draw_callback = nullptr;
@@ -31858,6 +33066,8 @@ class VirtualQCPItemRect final : public QCPItemRect {
     }
 
     // Callback setters
+    inline void setQCPItemRect_MetaObject_Callback(QCPItemRect_MetaObject_Callback cb) { qcpitemrect_metaobject_callback = cb; }
+    inline void setQCPItemRect_Metacast_Callback(QCPItemRect_Metacast_Callback cb) { qcpitemrect_metacast_callback = cb; }
     inline void setQCPItemRect_Metacall_Callback(QCPItemRect_Metacall_Callback cb) { qcpitemrect_metacall_callback = cb; }
     inline void setQCPItemRect_SelectTest_Callback(QCPItemRect_SelectTest_Callback cb) { qcpitemrect_selecttest_callback = cb; }
     inline void setQCPItemRect_Draw_Callback(QCPItemRect_Draw_Callback cb) { qcpitemrect_draw_callback = cb; }
@@ -31895,6 +33105,8 @@ class VirtualQCPItemRect final : public QCPItemRect {
     inline void setQCPItemRect_IsSignalConnected_Callback(QCPItemRect_IsSignalConnected_Callback cb) { qcpitemrect_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPItemRect_MetaObject_IsBase(bool value) const { qcpitemrect_metaobject_isbase = value; }
+    inline void setQCPItemRect_Metacast_IsBase(bool value) const { qcpitemrect_metacast_isbase = value; }
     inline void setQCPItemRect_Metacall_IsBase(bool value) const { qcpitemrect_metacall_isbase = value; }
     inline void setQCPItemRect_SelectTest_IsBase(bool value) const { qcpitemrect_selecttest_isbase = value; }
     inline void setQCPItemRect_Draw_IsBase(bool value) const { qcpitemrect_draw_isbase = value; }
@@ -31930,6 +33142,34 @@ class VirtualQCPItemRect final : public QCPItemRect {
     inline void setQCPItemRect_SenderSignalIndex_IsBase(bool value) const { qcpitemrect_sendersignalindex_isbase = value; }
     inline void setQCPItemRect_Receivers_IsBase(bool value) const { qcpitemrect_receivers_isbase = value; }
     inline void setQCPItemRect_IsSignalConnected_IsBase(bool value) const { qcpitemrect_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpitemrect_metaobject_isbase) {
+            qcpitemrect_metaobject_isbase = false;
+            return QCPItemRect::metaObject();
+        } else if (qcpitemrect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpitemrect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPItemRect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpitemrect_metacast_isbase) {
+            qcpitemrect_metacast_isbase = false;
+            return QCPItemRect::qt_metacast(param1);
+        } else if (qcpitemrect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpitemrect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPItemRect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -32556,6 +33796,8 @@ class VirtualQCPItemText final : public QCPItemText {
 
     // Virtual class public types (including callbacks)
     using QCPItemText::AnchorIndex;
+    using QCPItemText_MetaObject_Callback = QMetaObject* (*)();
+    using QCPItemText_Metacast_Callback = void* (*)(QCPItemText*, const char*);
     using QCPItemText_Metacall_Callback = int (*)(QCPItemText*, int, int, void**);
     using QCPItemText_SelectTest_Callback = double (*)(const QCPItemText*, QPointF*, bool, QVariant*);
     using QCPItemText_Draw_Callback = void (*)(QCPItemText*, QCPPainter*);
@@ -32597,6 +33839,8 @@ class VirtualQCPItemText final : public QCPItemText {
 
   protected:
     // Instance callback storage
+    QCPItemText_MetaObject_Callback qcpitemtext_metaobject_callback = nullptr;
+    QCPItemText_Metacast_Callback qcpitemtext_metacast_callback = nullptr;
     QCPItemText_Metacall_Callback qcpitemtext_metacall_callback = nullptr;
     QCPItemText_SelectTest_Callback qcpitemtext_selecttest_callback = nullptr;
     QCPItemText_Draw_Callback qcpitemtext_draw_callback = nullptr;
@@ -32637,6 +33881,8 @@ class VirtualQCPItemText final : public QCPItemText {
     QCPItemText_IsSignalConnected_Callback qcpitemtext_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpitemtext_metaobject_isbase = false;
+    mutable bool qcpitemtext_metacast_isbase = false;
     mutable bool qcpitemtext_metacall_isbase = false;
     mutable bool qcpitemtext_selecttest_isbase = false;
     mutable bool qcpitemtext_draw_isbase = false;
@@ -32680,6 +33926,8 @@ class VirtualQCPItemText final : public QCPItemText {
     VirtualQCPItemText(QCustomPlot* parentPlot) : QCPItemText(parentPlot) {};
 
     ~VirtualQCPItemText() {
+        qcpitemtext_metaobject_callback = nullptr;
+        qcpitemtext_metacast_callback = nullptr;
         qcpitemtext_metacall_callback = nullptr;
         qcpitemtext_selecttest_callback = nullptr;
         qcpitemtext_draw_callback = nullptr;
@@ -32721,6 +33969,8 @@ class VirtualQCPItemText final : public QCPItemText {
     }
 
     // Callback setters
+    inline void setQCPItemText_MetaObject_Callback(QCPItemText_MetaObject_Callback cb) { qcpitemtext_metaobject_callback = cb; }
+    inline void setQCPItemText_Metacast_Callback(QCPItemText_Metacast_Callback cb) { qcpitemtext_metacast_callback = cb; }
     inline void setQCPItemText_Metacall_Callback(QCPItemText_Metacall_Callback cb) { qcpitemtext_metacall_callback = cb; }
     inline void setQCPItemText_SelectTest_Callback(QCPItemText_SelectTest_Callback cb) { qcpitemtext_selecttest_callback = cb; }
     inline void setQCPItemText_Draw_Callback(QCPItemText_Draw_Callback cb) { qcpitemtext_draw_callback = cb; }
@@ -32761,6 +34011,8 @@ class VirtualQCPItemText final : public QCPItemText {
     inline void setQCPItemText_IsSignalConnected_Callback(QCPItemText_IsSignalConnected_Callback cb) { qcpitemtext_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPItemText_MetaObject_IsBase(bool value) const { qcpitemtext_metaobject_isbase = value; }
+    inline void setQCPItemText_Metacast_IsBase(bool value) const { qcpitemtext_metacast_isbase = value; }
     inline void setQCPItemText_Metacall_IsBase(bool value) const { qcpitemtext_metacall_isbase = value; }
     inline void setQCPItemText_SelectTest_IsBase(bool value) const { qcpitemtext_selecttest_isbase = value; }
     inline void setQCPItemText_Draw_IsBase(bool value) const { qcpitemtext_draw_isbase = value; }
@@ -32799,6 +34051,34 @@ class VirtualQCPItemText final : public QCPItemText {
     inline void setQCPItemText_SenderSignalIndex_IsBase(bool value) const { qcpitemtext_sendersignalindex_isbase = value; }
     inline void setQCPItemText_Receivers_IsBase(bool value) const { qcpitemtext_receivers_isbase = value; }
     inline void setQCPItemText_IsSignalConnected_IsBase(bool value) const { qcpitemtext_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpitemtext_metaobject_isbase) {
+            qcpitemtext_metaobject_isbase = false;
+            return QCPItemText::metaObject();
+        } else if (qcpitemtext_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpitemtext_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPItemText::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpitemtext_metacast_isbase) {
+            qcpitemtext_metacast_isbase = false;
+            return QCPItemText::qt_metacast(param1);
+        } else if (qcpitemtext_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpitemtext_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPItemText::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -33478,6 +34758,8 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
 
     // Virtual class public types (including callbacks)
     using QCPItemEllipse::AnchorIndex;
+    using QCPItemEllipse_MetaObject_Callback = QMetaObject* (*)();
+    using QCPItemEllipse_Metacast_Callback = void* (*)(QCPItemEllipse*, const char*);
     using QCPItemEllipse_Metacall_Callback = int (*)(QCPItemEllipse*, int, int, void**);
     using QCPItemEllipse_SelectTest_Callback = double (*)(const QCPItemEllipse*, QPointF*, bool, QVariant*);
     using QCPItemEllipse_Draw_Callback = void (*)(QCPItemEllipse*, QCPPainter*);
@@ -33516,6 +34798,8 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
 
   protected:
     // Instance callback storage
+    QCPItemEllipse_MetaObject_Callback qcpitemellipse_metaobject_callback = nullptr;
+    QCPItemEllipse_Metacast_Callback qcpitemellipse_metacast_callback = nullptr;
     QCPItemEllipse_Metacall_Callback qcpitemellipse_metacall_callback = nullptr;
     QCPItemEllipse_SelectTest_Callback qcpitemellipse_selecttest_callback = nullptr;
     QCPItemEllipse_Draw_Callback qcpitemellipse_draw_callback = nullptr;
@@ -33553,6 +34837,8 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
     QCPItemEllipse_IsSignalConnected_Callback qcpitemellipse_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpitemellipse_metaobject_isbase = false;
+    mutable bool qcpitemellipse_metacast_isbase = false;
     mutable bool qcpitemellipse_metacall_isbase = false;
     mutable bool qcpitemellipse_selecttest_isbase = false;
     mutable bool qcpitemellipse_draw_isbase = false;
@@ -33593,6 +34879,8 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
     VirtualQCPItemEllipse(QCustomPlot* parentPlot) : QCPItemEllipse(parentPlot) {};
 
     ~VirtualQCPItemEllipse() {
+        qcpitemellipse_metaobject_callback = nullptr;
+        qcpitemellipse_metacast_callback = nullptr;
         qcpitemellipse_metacall_callback = nullptr;
         qcpitemellipse_selecttest_callback = nullptr;
         qcpitemellipse_draw_callback = nullptr;
@@ -33631,6 +34919,8 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
     }
 
     // Callback setters
+    inline void setQCPItemEllipse_MetaObject_Callback(QCPItemEllipse_MetaObject_Callback cb) { qcpitemellipse_metaobject_callback = cb; }
+    inline void setQCPItemEllipse_Metacast_Callback(QCPItemEllipse_Metacast_Callback cb) { qcpitemellipse_metacast_callback = cb; }
     inline void setQCPItemEllipse_Metacall_Callback(QCPItemEllipse_Metacall_Callback cb) { qcpitemellipse_metacall_callback = cb; }
     inline void setQCPItemEllipse_SelectTest_Callback(QCPItemEllipse_SelectTest_Callback cb) { qcpitemellipse_selecttest_callback = cb; }
     inline void setQCPItemEllipse_Draw_Callback(QCPItemEllipse_Draw_Callback cb) { qcpitemellipse_draw_callback = cb; }
@@ -33668,6 +34958,8 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
     inline void setQCPItemEllipse_IsSignalConnected_Callback(QCPItemEllipse_IsSignalConnected_Callback cb) { qcpitemellipse_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPItemEllipse_MetaObject_IsBase(bool value) const { qcpitemellipse_metaobject_isbase = value; }
+    inline void setQCPItemEllipse_Metacast_IsBase(bool value) const { qcpitemellipse_metacast_isbase = value; }
     inline void setQCPItemEllipse_Metacall_IsBase(bool value) const { qcpitemellipse_metacall_isbase = value; }
     inline void setQCPItemEllipse_SelectTest_IsBase(bool value) const { qcpitemellipse_selecttest_isbase = value; }
     inline void setQCPItemEllipse_Draw_IsBase(bool value) const { qcpitemellipse_draw_isbase = value; }
@@ -33703,6 +34995,34 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
     inline void setQCPItemEllipse_SenderSignalIndex_IsBase(bool value) const { qcpitemellipse_sendersignalindex_isbase = value; }
     inline void setQCPItemEllipse_Receivers_IsBase(bool value) const { qcpitemellipse_receivers_isbase = value; }
     inline void setQCPItemEllipse_IsSignalConnected_IsBase(bool value) const { qcpitemellipse_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpitemellipse_metaobject_isbase) {
+            qcpitemellipse_metaobject_isbase = false;
+            return QCPItemEllipse::metaObject();
+        } else if (qcpitemellipse_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpitemellipse_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPItemEllipse::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpitemellipse_metacast_isbase) {
+            qcpitemellipse_metacast_isbase = false;
+            return QCPItemEllipse::qt_metacast(param1);
+        } else if (qcpitemellipse_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpitemellipse_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPItemEllipse::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -34329,6 +35649,8 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
 
     // Virtual class public types (including callbacks)
     using QCPItemPixmap::AnchorIndex;
+    using QCPItemPixmap_MetaObject_Callback = QMetaObject* (*)();
+    using QCPItemPixmap_Metacast_Callback = void* (*)(QCPItemPixmap*, const char*);
     using QCPItemPixmap_Metacall_Callback = int (*)(QCPItemPixmap*, int, int, void**);
     using QCPItemPixmap_SelectTest_Callback = double (*)(const QCPItemPixmap*, QPointF*, bool, QVariant*);
     using QCPItemPixmap_Draw_Callback = void (*)(QCPItemPixmap*, QCPPainter*);
@@ -34373,6 +35695,8 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
 
   protected:
     // Instance callback storage
+    QCPItemPixmap_MetaObject_Callback qcpitempixmap_metaobject_callback = nullptr;
+    QCPItemPixmap_Metacast_Callback qcpitempixmap_metacast_callback = nullptr;
     QCPItemPixmap_Metacall_Callback qcpitempixmap_metacall_callback = nullptr;
     QCPItemPixmap_SelectTest_Callback qcpitempixmap_selecttest_callback = nullptr;
     QCPItemPixmap_Draw_Callback qcpitempixmap_draw_callback = nullptr;
@@ -34416,6 +35740,8 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
     QCPItemPixmap_IsSignalConnected_Callback qcpitempixmap_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpitempixmap_metaobject_isbase = false;
+    mutable bool qcpitempixmap_metacast_isbase = false;
     mutable bool qcpitempixmap_metacall_isbase = false;
     mutable bool qcpitempixmap_selecttest_isbase = false;
     mutable bool qcpitempixmap_draw_isbase = false;
@@ -34462,6 +35788,8 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
     VirtualQCPItemPixmap(QCustomPlot* parentPlot) : QCPItemPixmap(parentPlot) {};
 
     ~VirtualQCPItemPixmap() {
+        qcpitempixmap_metaobject_callback = nullptr;
+        qcpitempixmap_metacast_callback = nullptr;
         qcpitempixmap_metacall_callback = nullptr;
         qcpitempixmap_selecttest_callback = nullptr;
         qcpitempixmap_draw_callback = nullptr;
@@ -34506,6 +35834,8 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
     }
 
     // Callback setters
+    inline void setQCPItemPixmap_MetaObject_Callback(QCPItemPixmap_MetaObject_Callback cb) { qcpitempixmap_metaobject_callback = cb; }
+    inline void setQCPItemPixmap_Metacast_Callback(QCPItemPixmap_Metacast_Callback cb) { qcpitempixmap_metacast_callback = cb; }
     inline void setQCPItemPixmap_Metacall_Callback(QCPItemPixmap_Metacall_Callback cb) { qcpitempixmap_metacall_callback = cb; }
     inline void setQCPItemPixmap_SelectTest_Callback(QCPItemPixmap_SelectTest_Callback cb) { qcpitempixmap_selecttest_callback = cb; }
     inline void setQCPItemPixmap_Draw_Callback(QCPItemPixmap_Draw_Callback cb) { qcpitempixmap_draw_callback = cb; }
@@ -34549,6 +35879,8 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
     inline void setQCPItemPixmap_IsSignalConnected_Callback(QCPItemPixmap_IsSignalConnected_Callback cb) { qcpitempixmap_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPItemPixmap_MetaObject_IsBase(bool value) const { qcpitempixmap_metaobject_isbase = value; }
+    inline void setQCPItemPixmap_Metacast_IsBase(bool value) const { qcpitempixmap_metacast_isbase = value; }
     inline void setQCPItemPixmap_Metacall_IsBase(bool value) const { qcpitempixmap_metacall_isbase = value; }
     inline void setQCPItemPixmap_SelectTest_IsBase(bool value) const { qcpitempixmap_selecttest_isbase = value; }
     inline void setQCPItemPixmap_Draw_IsBase(bool value) const { qcpitempixmap_draw_isbase = value; }
@@ -34590,6 +35922,34 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
     inline void setQCPItemPixmap_SenderSignalIndex_IsBase(bool value) const { qcpitempixmap_sendersignalindex_isbase = value; }
     inline void setQCPItemPixmap_Receivers_IsBase(bool value) const { qcpitempixmap_receivers_isbase = value; }
     inline void setQCPItemPixmap_IsSignalConnected_IsBase(bool value) const { qcpitempixmap_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpitempixmap_metaobject_isbase) {
+            qcpitempixmap_metaobject_isbase = false;
+            return QCPItemPixmap::metaObject();
+        } else if (qcpitempixmap_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpitempixmap_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPItemPixmap::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpitempixmap_metacast_isbase) {
+            qcpitempixmap_metacast_isbase = false;
+            return QCPItemPixmap::qt_metacast(param1);
+        } else if (qcpitempixmap_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpitempixmap_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPItemPixmap::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -35315,6 +36675,8 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
     bool isVirtualQCPItemTracer = true;
 
     // Virtual class public types (including callbacks)
+    using QCPItemTracer_MetaObject_Callback = QMetaObject* (*)();
+    using QCPItemTracer_Metacast_Callback = void* (*)(QCPItemTracer*, const char*);
     using QCPItemTracer_Metacall_Callback = int (*)(QCPItemTracer*, int, int, void**);
     using QCPItemTracer_SelectTest_Callback = double (*)(const QCPItemTracer*, QPointF*, bool, QVariant*);
     using QCPItemTracer_Draw_Callback = void (*)(QCPItemTracer*, QCPPainter*);
@@ -35353,6 +36715,8 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
 
   protected:
     // Instance callback storage
+    QCPItemTracer_MetaObject_Callback qcpitemtracer_metaobject_callback = nullptr;
+    QCPItemTracer_Metacast_Callback qcpitemtracer_metacast_callback = nullptr;
     QCPItemTracer_Metacall_Callback qcpitemtracer_metacall_callback = nullptr;
     QCPItemTracer_SelectTest_Callback qcpitemtracer_selecttest_callback = nullptr;
     QCPItemTracer_Draw_Callback qcpitemtracer_draw_callback = nullptr;
@@ -35390,6 +36754,8 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
     QCPItemTracer_IsSignalConnected_Callback qcpitemtracer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpitemtracer_metaobject_isbase = false;
+    mutable bool qcpitemtracer_metacast_isbase = false;
     mutable bool qcpitemtracer_metacall_isbase = false;
     mutable bool qcpitemtracer_selecttest_isbase = false;
     mutable bool qcpitemtracer_draw_isbase = false;
@@ -35430,6 +36796,8 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
     VirtualQCPItemTracer(QCustomPlot* parentPlot) : QCPItemTracer(parentPlot) {};
 
     ~VirtualQCPItemTracer() {
+        qcpitemtracer_metaobject_callback = nullptr;
+        qcpitemtracer_metacast_callback = nullptr;
         qcpitemtracer_metacall_callback = nullptr;
         qcpitemtracer_selecttest_callback = nullptr;
         qcpitemtracer_draw_callback = nullptr;
@@ -35468,6 +36836,8 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
     }
 
     // Callback setters
+    inline void setQCPItemTracer_MetaObject_Callback(QCPItemTracer_MetaObject_Callback cb) { qcpitemtracer_metaobject_callback = cb; }
+    inline void setQCPItemTracer_Metacast_Callback(QCPItemTracer_Metacast_Callback cb) { qcpitemtracer_metacast_callback = cb; }
     inline void setQCPItemTracer_Metacall_Callback(QCPItemTracer_Metacall_Callback cb) { qcpitemtracer_metacall_callback = cb; }
     inline void setQCPItemTracer_SelectTest_Callback(QCPItemTracer_SelectTest_Callback cb) { qcpitemtracer_selecttest_callback = cb; }
     inline void setQCPItemTracer_Draw_Callback(QCPItemTracer_Draw_Callback cb) { qcpitemtracer_draw_callback = cb; }
@@ -35505,6 +36875,8 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
     inline void setQCPItemTracer_IsSignalConnected_Callback(QCPItemTracer_IsSignalConnected_Callback cb) { qcpitemtracer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPItemTracer_MetaObject_IsBase(bool value) const { qcpitemtracer_metaobject_isbase = value; }
+    inline void setQCPItemTracer_Metacast_IsBase(bool value) const { qcpitemtracer_metacast_isbase = value; }
     inline void setQCPItemTracer_Metacall_IsBase(bool value) const { qcpitemtracer_metacall_isbase = value; }
     inline void setQCPItemTracer_SelectTest_IsBase(bool value) const { qcpitemtracer_selecttest_isbase = value; }
     inline void setQCPItemTracer_Draw_IsBase(bool value) const { qcpitemtracer_draw_isbase = value; }
@@ -35540,6 +36912,34 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
     inline void setQCPItemTracer_SenderSignalIndex_IsBase(bool value) const { qcpitemtracer_sendersignalindex_isbase = value; }
     inline void setQCPItemTracer_Receivers_IsBase(bool value) const { qcpitemtracer_receivers_isbase = value; }
     inline void setQCPItemTracer_IsSignalConnected_IsBase(bool value) const { qcpitemtracer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpitemtracer_metaobject_isbase) {
+            qcpitemtracer_metaobject_isbase = false;
+            return QCPItemTracer::metaObject();
+        } else if (qcpitemtracer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpitemtracer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPItemTracer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpitemtracer_metacast_isbase) {
+            qcpitemtracer_metacast_isbase = false;
+            return QCPItemTracer::qt_metacast(param1);
+        } else if (qcpitemtracer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpitemtracer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPItemTracer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -36166,6 +37566,8 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
 
     // Virtual class public types (including callbacks)
     using QCPItemBracket::AnchorIndex;
+    using QCPItemBracket_MetaObject_Callback = QMetaObject* (*)();
+    using QCPItemBracket_Metacast_Callback = void* (*)(QCPItemBracket*, const char*);
     using QCPItemBracket_Metacall_Callback = int (*)(QCPItemBracket*, int, int, void**);
     using QCPItemBracket_SelectTest_Callback = double (*)(const QCPItemBracket*, QPointF*, bool, QVariant*);
     using QCPItemBracket_Draw_Callback = void (*)(QCPItemBracket*, QCPPainter*);
@@ -36203,6 +37605,8 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
 
   protected:
     // Instance callback storage
+    QCPItemBracket_MetaObject_Callback qcpitembracket_metaobject_callback = nullptr;
+    QCPItemBracket_Metacast_Callback qcpitembracket_metacast_callback = nullptr;
     QCPItemBracket_Metacall_Callback qcpitembracket_metacall_callback = nullptr;
     QCPItemBracket_SelectTest_Callback qcpitembracket_selecttest_callback = nullptr;
     QCPItemBracket_Draw_Callback qcpitembracket_draw_callback = nullptr;
@@ -36239,6 +37643,8 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
     QCPItemBracket_IsSignalConnected_Callback qcpitembracket_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcpitembracket_metaobject_isbase = false;
+    mutable bool qcpitembracket_metacast_isbase = false;
     mutable bool qcpitembracket_metacall_isbase = false;
     mutable bool qcpitembracket_selecttest_isbase = false;
     mutable bool qcpitembracket_draw_isbase = false;
@@ -36278,6 +37684,8 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
     VirtualQCPItemBracket(QCustomPlot* parentPlot) : QCPItemBracket(parentPlot) {};
 
     ~VirtualQCPItemBracket() {
+        qcpitembracket_metaobject_callback = nullptr;
+        qcpitembracket_metacast_callback = nullptr;
         qcpitembracket_metacall_callback = nullptr;
         qcpitembracket_selecttest_callback = nullptr;
         qcpitembracket_draw_callback = nullptr;
@@ -36315,6 +37723,8 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
     }
 
     // Callback setters
+    inline void setQCPItemBracket_MetaObject_Callback(QCPItemBracket_MetaObject_Callback cb) { qcpitembracket_metaobject_callback = cb; }
+    inline void setQCPItemBracket_Metacast_Callback(QCPItemBracket_Metacast_Callback cb) { qcpitembracket_metacast_callback = cb; }
     inline void setQCPItemBracket_Metacall_Callback(QCPItemBracket_Metacall_Callback cb) { qcpitembracket_metacall_callback = cb; }
     inline void setQCPItemBracket_SelectTest_Callback(QCPItemBracket_SelectTest_Callback cb) { qcpitembracket_selecttest_callback = cb; }
     inline void setQCPItemBracket_Draw_Callback(QCPItemBracket_Draw_Callback cb) { qcpitembracket_draw_callback = cb; }
@@ -36351,6 +37761,8 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
     inline void setQCPItemBracket_IsSignalConnected_Callback(QCPItemBracket_IsSignalConnected_Callback cb) { qcpitembracket_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPItemBracket_MetaObject_IsBase(bool value) const { qcpitembracket_metaobject_isbase = value; }
+    inline void setQCPItemBracket_Metacast_IsBase(bool value) const { qcpitembracket_metacast_isbase = value; }
     inline void setQCPItemBracket_Metacall_IsBase(bool value) const { qcpitembracket_metacall_isbase = value; }
     inline void setQCPItemBracket_SelectTest_IsBase(bool value) const { qcpitembracket_selecttest_isbase = value; }
     inline void setQCPItemBracket_Draw_IsBase(bool value) const { qcpitembracket_draw_isbase = value; }
@@ -36385,6 +37797,34 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
     inline void setQCPItemBracket_SenderSignalIndex_IsBase(bool value) const { qcpitembracket_sendersignalindex_isbase = value; }
     inline void setQCPItemBracket_Receivers_IsBase(bool value) const { qcpitembracket_receivers_isbase = value; }
     inline void setQCPItemBracket_IsSignalConnected_IsBase(bool value) const { qcpitembracket_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcpitembracket_metaobject_isbase) {
+            qcpitembracket_metaobject_isbase = false;
+            return QCPItemBracket::metaObject();
+        } else if (qcpitembracket_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcpitembracket_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPItemBracket::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcpitembracket_metacast_isbase) {
+            qcpitembracket_metacast_isbase = false;
+            return QCPItemBracket::qt_metacast(param1);
+        } else if (qcpitembracket_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcpitembracket_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPItemBracket::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -36995,6 +38435,8 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
     bool isVirtualQCPPolarAxisRadial = true;
 
     // Virtual class public types (including callbacks)
+    using QCPPolarAxisRadial_MetaObject_Callback = QMetaObject* (*)();
+    using QCPPolarAxisRadial_Metacast_Callback = void* (*)(QCPPolarAxisRadial*, const char*);
     using QCPPolarAxisRadial_Metacall_Callback = int (*)(QCPPolarAxisRadial*, int, int, void**);
     using QCPPolarAxisRadial_SelectTest_Callback = double (*)(const QCPPolarAxisRadial*, QPointF*, bool, QVariant*);
     using QCPPolarAxisRadial_ApplyDefaultAntialiasingHint_Callback = void (*)(const QCPPolarAxisRadial*, QCPPainter*);
@@ -37036,6 +38478,8 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
 
   protected:
     // Instance callback storage
+    QCPPolarAxisRadial_MetaObject_Callback qcppolaraxisradial_metaobject_callback = nullptr;
+    QCPPolarAxisRadial_Metacast_Callback qcppolaraxisradial_metacast_callback = nullptr;
     QCPPolarAxisRadial_Metacall_Callback qcppolaraxisradial_metacall_callback = nullptr;
     QCPPolarAxisRadial_SelectTest_Callback qcppolaraxisradial_selecttest_callback = nullptr;
     QCPPolarAxisRadial_ApplyDefaultAntialiasingHint_Callback qcppolaraxisradial_applydefaultantialiasinghint_callback = nullptr;
@@ -37076,6 +38520,8 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
     QCPPolarAxisRadial_IsSignalConnected_Callback qcppolaraxisradial_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcppolaraxisradial_metaobject_isbase = false;
+    mutable bool qcppolaraxisradial_metacast_isbase = false;
     mutable bool qcppolaraxisradial_metacall_isbase = false;
     mutable bool qcppolaraxisradial_selecttest_isbase = false;
     mutable bool qcppolaraxisradial_applydefaultantialiasinghint_isbase = false;
@@ -37119,6 +38565,8 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
     VirtualQCPPolarAxisRadial(QCPPolarAxisAngular* parent) : QCPPolarAxisRadial(parent) {};
 
     ~VirtualQCPPolarAxisRadial() {
+        qcppolaraxisradial_metaobject_callback = nullptr;
+        qcppolaraxisradial_metacast_callback = nullptr;
         qcppolaraxisradial_metacall_callback = nullptr;
         qcppolaraxisradial_selecttest_callback = nullptr;
         qcppolaraxisradial_applydefaultantialiasinghint_callback = nullptr;
@@ -37160,6 +38608,8 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
     }
 
     // Callback setters
+    inline void setQCPPolarAxisRadial_MetaObject_Callback(QCPPolarAxisRadial_MetaObject_Callback cb) { qcppolaraxisradial_metaobject_callback = cb; }
+    inline void setQCPPolarAxisRadial_Metacast_Callback(QCPPolarAxisRadial_Metacast_Callback cb) { qcppolaraxisradial_metacast_callback = cb; }
     inline void setQCPPolarAxisRadial_Metacall_Callback(QCPPolarAxisRadial_Metacall_Callback cb) { qcppolaraxisradial_metacall_callback = cb; }
     inline void setQCPPolarAxisRadial_SelectTest_Callback(QCPPolarAxisRadial_SelectTest_Callback cb) { qcppolaraxisradial_selecttest_callback = cb; }
     inline void setQCPPolarAxisRadial_ApplyDefaultAntialiasingHint_Callback(QCPPolarAxisRadial_ApplyDefaultAntialiasingHint_Callback cb) { qcppolaraxisradial_applydefaultantialiasinghint_callback = cb; }
@@ -37200,6 +38650,8 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
     inline void setQCPPolarAxisRadial_IsSignalConnected_Callback(QCPPolarAxisRadial_IsSignalConnected_Callback cb) { qcppolaraxisradial_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPPolarAxisRadial_MetaObject_IsBase(bool value) const { qcppolaraxisradial_metaobject_isbase = value; }
+    inline void setQCPPolarAxisRadial_Metacast_IsBase(bool value) const { qcppolaraxisradial_metacast_isbase = value; }
     inline void setQCPPolarAxisRadial_Metacall_IsBase(bool value) const { qcppolaraxisradial_metacall_isbase = value; }
     inline void setQCPPolarAxisRadial_SelectTest_IsBase(bool value) const { qcppolaraxisradial_selecttest_isbase = value; }
     inline void setQCPPolarAxisRadial_ApplyDefaultAntialiasingHint_IsBase(bool value) const { qcppolaraxisradial_applydefaultantialiasinghint_isbase = value; }
@@ -37238,6 +38690,34 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
     inline void setQCPPolarAxisRadial_SenderSignalIndex_IsBase(bool value) const { qcppolaraxisradial_sendersignalindex_isbase = value; }
     inline void setQCPPolarAxisRadial_Receivers_IsBase(bool value) const { qcppolaraxisradial_receivers_isbase = value; }
     inline void setQCPPolarAxisRadial_IsSignalConnected_IsBase(bool value) const { qcppolaraxisradial_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcppolaraxisradial_metaobject_isbase) {
+            qcppolaraxisradial_metaobject_isbase = false;
+            return QCPPolarAxisRadial::metaObject();
+        } else if (qcppolaraxisradial_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcppolaraxisradial_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPPolarAxisRadial::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcppolaraxisradial_metacast_isbase) {
+            qcppolaraxisradial_metacast_isbase = false;
+            return QCPPolarAxisRadial::qt_metacast(param1);
+        } else if (qcppolaraxisradial_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcppolaraxisradial_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPPolarAxisRadial::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -37880,6 +39360,8 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
     bool isVirtualQCPPolarAxisAngular = true;
 
     // Virtual class public types (including callbacks)
+    using QCPPolarAxisAngular_MetaObject_Callback = QMetaObject* (*)();
+    using QCPPolarAxisAngular_Metacast_Callback = void* (*)(QCPPolarAxisAngular*, const char*);
     using QCPPolarAxisAngular_Metacall_Callback = int (*)(QCPPolarAxisAngular*, int, int, void**);
     using QCPPolarAxisAngular_SelectTest_Callback = double (*)(const QCPPolarAxisAngular*, QPointF*, bool, QVariant*);
     using QCPPolarAxisAngular_Update_Callback = void (*)(QCPPolarAxisAngular*, int);
@@ -37928,6 +39410,8 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
 
   protected:
     // Instance callback storage
+    QCPPolarAxisAngular_MetaObject_Callback qcppolaraxisangular_metaobject_callback = nullptr;
+    QCPPolarAxisAngular_Metacast_Callback qcppolaraxisangular_metacast_callback = nullptr;
     QCPPolarAxisAngular_Metacall_Callback qcppolaraxisangular_metacall_callback = nullptr;
     QCPPolarAxisAngular_SelectTest_Callback qcppolaraxisangular_selecttest_callback = nullptr;
     QCPPolarAxisAngular_Update_Callback qcppolaraxisangular_update_callback = nullptr;
@@ -37975,6 +39459,8 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
     QCPPolarAxisAngular_IsSignalConnected_Callback qcppolaraxisangular_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcppolaraxisangular_metaobject_isbase = false;
+    mutable bool qcppolaraxisangular_metacast_isbase = false;
     mutable bool qcppolaraxisangular_metacall_isbase = false;
     mutable bool qcppolaraxisangular_selecttest_isbase = false;
     mutable bool qcppolaraxisangular_update_isbase = false;
@@ -38025,6 +39511,8 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
     VirtualQCPPolarAxisAngular(QCustomPlot* parentPlot) : QCPPolarAxisAngular(parentPlot) {};
 
     ~VirtualQCPPolarAxisAngular() {
+        qcppolaraxisangular_metaobject_callback = nullptr;
+        qcppolaraxisangular_metacast_callback = nullptr;
         qcppolaraxisangular_metacall_callback = nullptr;
         qcppolaraxisangular_selecttest_callback = nullptr;
         qcppolaraxisangular_update_callback = nullptr;
@@ -38073,6 +39561,8 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
     }
 
     // Callback setters
+    inline void setQCPPolarAxisAngular_MetaObject_Callback(QCPPolarAxisAngular_MetaObject_Callback cb) { qcppolaraxisangular_metaobject_callback = cb; }
+    inline void setQCPPolarAxisAngular_Metacast_Callback(QCPPolarAxisAngular_Metacast_Callback cb) { qcppolaraxisangular_metacast_callback = cb; }
     inline void setQCPPolarAxisAngular_Metacall_Callback(QCPPolarAxisAngular_Metacall_Callback cb) { qcppolaraxisangular_metacall_callback = cb; }
     inline void setQCPPolarAxisAngular_SelectTest_Callback(QCPPolarAxisAngular_SelectTest_Callback cb) { qcppolaraxisangular_selecttest_callback = cb; }
     inline void setQCPPolarAxisAngular_Update_Callback(QCPPolarAxisAngular_Update_Callback cb) { qcppolaraxisangular_update_callback = cb; }
@@ -38120,6 +39610,8 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
     inline void setQCPPolarAxisAngular_IsSignalConnected_Callback(QCPPolarAxisAngular_IsSignalConnected_Callback cb) { qcppolaraxisangular_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPPolarAxisAngular_MetaObject_IsBase(bool value) const { qcppolaraxisangular_metaobject_isbase = value; }
+    inline void setQCPPolarAxisAngular_Metacast_IsBase(bool value) const { qcppolaraxisangular_metacast_isbase = value; }
     inline void setQCPPolarAxisAngular_Metacall_IsBase(bool value) const { qcppolaraxisangular_metacall_isbase = value; }
     inline void setQCPPolarAxisAngular_SelectTest_IsBase(bool value) const { qcppolaraxisangular_selecttest_isbase = value; }
     inline void setQCPPolarAxisAngular_Update_IsBase(bool value) const { qcppolaraxisangular_update_isbase = value; }
@@ -38165,6 +39657,34 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
     inline void setQCPPolarAxisAngular_SenderSignalIndex_IsBase(bool value) const { qcppolaraxisangular_sendersignalindex_isbase = value; }
     inline void setQCPPolarAxisAngular_Receivers_IsBase(bool value) const { qcppolaraxisangular_receivers_isbase = value; }
     inline void setQCPPolarAxisAngular_IsSignalConnected_IsBase(bool value) const { qcppolaraxisangular_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcppolaraxisangular_metaobject_isbase) {
+            qcppolaraxisangular_metaobject_isbase = false;
+            return QCPPolarAxisAngular::metaObject();
+        } else if (qcppolaraxisangular_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcppolaraxisangular_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPPolarAxisAngular::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcppolaraxisangular_metacast_isbase) {
+            qcppolaraxisangular_metacast_isbase = false;
+            return QCPPolarAxisAngular::qt_metacast(param1);
+        } else if (qcppolaraxisangular_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcppolaraxisangular_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPPolarAxisAngular::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -38917,6 +40437,8 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
     bool isVirtualQCPPolarGrid = true;
 
     // Virtual class public types (including callbacks)
+    using QCPPolarGrid_MetaObject_Callback = QMetaObject* (*)();
+    using QCPPolarGrid_Metacast_Callback = void* (*)(QCPPolarGrid*, const char*);
     using QCPPolarGrid_Metacall_Callback = int (*)(QCPPolarGrid*, int, int, void**);
     using QCPPolarGrid_ApplyDefaultAntialiasingHint_Callback = void (*)(const QCPPolarGrid*, QCPPainter*);
     using QCPPolarGrid_Draw_Callback = void (*)(QCPPolarGrid*, QCPPainter*);
@@ -38952,6 +40474,8 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
 
   protected:
     // Instance callback storage
+    QCPPolarGrid_MetaObject_Callback qcppolargrid_metaobject_callback = nullptr;
+    QCPPolarGrid_Metacast_Callback qcppolargrid_metacast_callback = nullptr;
     QCPPolarGrid_Metacall_Callback qcppolargrid_metacall_callback = nullptr;
     QCPPolarGrid_ApplyDefaultAntialiasingHint_Callback qcppolargrid_applydefaultantialiasinghint_callback = nullptr;
     QCPPolarGrid_Draw_Callback qcppolargrid_draw_callback = nullptr;
@@ -38986,6 +40510,8 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
     QCPPolarGrid_IsSignalConnected_Callback qcppolargrid_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcppolargrid_metaobject_isbase = false;
+    mutable bool qcppolargrid_metacast_isbase = false;
     mutable bool qcppolargrid_metacall_isbase = false;
     mutable bool qcppolargrid_applydefaultantialiasinghint_isbase = false;
     mutable bool qcppolargrid_draw_isbase = false;
@@ -39023,6 +40549,8 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
     VirtualQCPPolarGrid(QCPPolarAxisAngular* parentAxis) : QCPPolarGrid(parentAxis) {};
 
     ~VirtualQCPPolarGrid() {
+        qcppolargrid_metaobject_callback = nullptr;
+        qcppolargrid_metacast_callback = nullptr;
         qcppolargrid_metacall_callback = nullptr;
         qcppolargrid_applydefaultantialiasinghint_callback = nullptr;
         qcppolargrid_draw_callback = nullptr;
@@ -39058,6 +40586,8 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
     }
 
     // Callback setters
+    inline void setQCPPolarGrid_MetaObject_Callback(QCPPolarGrid_MetaObject_Callback cb) { qcppolargrid_metaobject_callback = cb; }
+    inline void setQCPPolarGrid_Metacast_Callback(QCPPolarGrid_Metacast_Callback cb) { qcppolargrid_metacast_callback = cb; }
     inline void setQCPPolarGrid_Metacall_Callback(QCPPolarGrid_Metacall_Callback cb) { qcppolargrid_metacall_callback = cb; }
     inline void setQCPPolarGrid_ApplyDefaultAntialiasingHint_Callback(QCPPolarGrid_ApplyDefaultAntialiasingHint_Callback cb) { qcppolargrid_applydefaultantialiasinghint_callback = cb; }
     inline void setQCPPolarGrid_Draw_Callback(QCPPolarGrid_Draw_Callback cb) { qcppolargrid_draw_callback = cb; }
@@ -39092,6 +40622,8 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
     inline void setQCPPolarGrid_IsSignalConnected_Callback(QCPPolarGrid_IsSignalConnected_Callback cb) { qcppolargrid_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPPolarGrid_MetaObject_IsBase(bool value) const { qcppolargrid_metaobject_isbase = value; }
+    inline void setQCPPolarGrid_Metacast_IsBase(bool value) const { qcppolargrid_metacast_isbase = value; }
     inline void setQCPPolarGrid_Metacall_IsBase(bool value) const { qcppolargrid_metacall_isbase = value; }
     inline void setQCPPolarGrid_ApplyDefaultAntialiasingHint_IsBase(bool value) const { qcppolargrid_applydefaultantialiasinghint_isbase = value; }
     inline void setQCPPolarGrid_Draw_IsBase(bool value) const { qcppolargrid_draw_isbase = value; }
@@ -39124,6 +40656,34 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
     inline void setQCPPolarGrid_SenderSignalIndex_IsBase(bool value) const { qcppolargrid_sendersignalindex_isbase = value; }
     inline void setQCPPolarGrid_Receivers_IsBase(bool value) const { qcppolargrid_receivers_isbase = value; }
     inline void setQCPPolarGrid_IsSignalConnected_IsBase(bool value) const { qcppolargrid_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcppolargrid_metaobject_isbase) {
+            qcppolargrid_metaobject_isbase = false;
+            return QCPPolarGrid::metaObject();
+        } else if (qcppolargrid_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcppolargrid_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPPolarGrid::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcppolargrid_metacast_isbase) {
+            qcppolargrid_metacast_isbase = false;
+            return QCPPolarGrid::qt_metacast(param1);
+        } else if (qcppolargrid_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcppolargrid_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPPolarGrid::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -39728,6 +41288,8 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
     bool isVirtualQCPPolarLegendItem = true;
 
     // Virtual class public types (including callbacks)
+    using QCPPolarLegendItem_MetaObject_Callback = QMetaObject* (*)();
+    using QCPPolarLegendItem_Metacast_Callback = void* (*)(QCPPolarLegendItem*, const char*);
     using QCPPolarLegendItem_Metacall_Callback = int (*)(QCPPolarLegendItem*, int, int, void**);
     using QCPPolarLegendItem_Draw_Callback = void (*)(QCPPolarLegendItem*, QCPPainter*);
     using QCPPolarLegendItem_MinimumOuterSizeHint_Callback = QSize* (*)();
@@ -39769,6 +41331,8 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
 
   protected:
     // Instance callback storage
+    QCPPolarLegendItem_MetaObject_Callback qcppolarlegenditem_metaobject_callback = nullptr;
+    QCPPolarLegendItem_Metacast_Callback qcppolarlegenditem_metacast_callback = nullptr;
     QCPPolarLegendItem_Metacall_Callback qcppolarlegenditem_metacall_callback = nullptr;
     QCPPolarLegendItem_Draw_Callback qcppolarlegenditem_draw_callback = nullptr;
     QCPPolarLegendItem_MinimumOuterSizeHint_Callback qcppolarlegenditem_minimumoutersizehint_callback = nullptr;
@@ -39809,6 +41373,8 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
     QCPPolarLegendItem_IsSignalConnected_Callback qcppolarlegenditem_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcppolarlegenditem_metaobject_isbase = false;
+    mutable bool qcppolarlegenditem_metacast_isbase = false;
     mutable bool qcppolarlegenditem_metacall_isbase = false;
     mutable bool qcppolarlegenditem_draw_isbase = false;
     mutable bool qcppolarlegenditem_minimumoutersizehint_isbase = false;
@@ -39852,6 +41418,8 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
     VirtualQCPPolarLegendItem(QCPLegend* parent, QCPPolarGraph* graph) : QCPPolarLegendItem(parent, graph) {};
 
     ~VirtualQCPPolarLegendItem() {
+        qcppolarlegenditem_metaobject_callback = nullptr;
+        qcppolarlegenditem_metacast_callback = nullptr;
         qcppolarlegenditem_metacall_callback = nullptr;
         qcppolarlegenditem_draw_callback = nullptr;
         qcppolarlegenditem_minimumoutersizehint_callback = nullptr;
@@ -39893,6 +41461,8 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
     }
 
     // Callback setters
+    inline void setQCPPolarLegendItem_MetaObject_Callback(QCPPolarLegendItem_MetaObject_Callback cb) { qcppolarlegenditem_metaobject_callback = cb; }
+    inline void setQCPPolarLegendItem_Metacast_Callback(QCPPolarLegendItem_Metacast_Callback cb) { qcppolarlegenditem_metacast_callback = cb; }
     inline void setQCPPolarLegendItem_Metacall_Callback(QCPPolarLegendItem_Metacall_Callback cb) { qcppolarlegenditem_metacall_callback = cb; }
     inline void setQCPPolarLegendItem_Draw_Callback(QCPPolarLegendItem_Draw_Callback cb) { qcppolarlegenditem_draw_callback = cb; }
     inline void setQCPPolarLegendItem_MinimumOuterSizeHint_Callback(QCPPolarLegendItem_MinimumOuterSizeHint_Callback cb) { qcppolarlegenditem_minimumoutersizehint_callback = cb; }
@@ -39933,6 +41503,8 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
     inline void setQCPPolarLegendItem_IsSignalConnected_Callback(QCPPolarLegendItem_IsSignalConnected_Callback cb) { qcppolarlegenditem_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPPolarLegendItem_MetaObject_IsBase(bool value) const { qcppolarlegenditem_metaobject_isbase = value; }
+    inline void setQCPPolarLegendItem_Metacast_IsBase(bool value) const { qcppolarlegenditem_metacast_isbase = value; }
     inline void setQCPPolarLegendItem_Metacall_IsBase(bool value) const { qcppolarlegenditem_metacall_isbase = value; }
     inline void setQCPPolarLegendItem_Draw_IsBase(bool value) const { qcppolarlegenditem_draw_isbase = value; }
     inline void setQCPPolarLegendItem_MinimumOuterSizeHint_IsBase(bool value) const { qcppolarlegenditem_minimumoutersizehint_isbase = value; }
@@ -39971,6 +41543,34 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
     inline void setQCPPolarLegendItem_SenderSignalIndex_IsBase(bool value) const { qcppolarlegenditem_sendersignalindex_isbase = value; }
     inline void setQCPPolarLegendItem_Receivers_IsBase(bool value) const { qcppolarlegenditem_receivers_isbase = value; }
     inline void setQCPPolarLegendItem_IsSignalConnected_IsBase(bool value) const { qcppolarlegenditem_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcppolarlegenditem_metaobject_isbase) {
+            qcppolarlegenditem_metaobject_isbase = false;
+            return QCPPolarLegendItem::metaObject();
+        } else if (qcppolarlegenditem_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcppolarlegenditem_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPPolarLegendItem::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcppolarlegenditem_metacast_isbase) {
+            qcppolarlegenditem_metacast_isbase = false;
+            return QCPPolarLegendItem::qt_metacast(param1);
+        } else if (qcppolarlegenditem_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcppolarlegenditem_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPPolarLegendItem::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -40614,6 +42214,8 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
     bool isVirtualQCPPolarGraph = true;
 
     // Virtual class public types (including callbacks)
+    using QCPPolarGraph_MetaObject_Callback = QMetaObject* (*)();
+    using QCPPolarGraph_Metacast_Callback = void* (*)(QCPPolarGraph*, const char*);
     using QCPPolarGraph_Metacall_Callback = int (*)(QCPPolarGraph*, int, int, void**);
     using QCPPolarGraph_SelectTest_Callback = double (*)(const QCPPolarGraph*, QPointF*, bool, QVariant*);
     using QCPPolarGraph_Interface1D_Callback = QCPPlottableInterface1D* (*)();
@@ -40661,6 +42263,8 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
 
   protected:
     // Instance callback storage
+    QCPPolarGraph_MetaObject_Callback qcppolargraph_metaobject_callback = nullptr;
+    QCPPolarGraph_Metacast_Callback qcppolargraph_metacast_callback = nullptr;
     QCPPolarGraph_Metacall_Callback qcppolargraph_metacall_callback = nullptr;
     QCPPolarGraph_SelectTest_Callback qcppolargraph_selecttest_callback = nullptr;
     QCPPolarGraph_Interface1D_Callback qcppolargraph_interface1d_callback = nullptr;
@@ -40707,6 +42311,8 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
     QCPPolarGraph_IsSignalConnected_Callback qcppolargraph_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcppolargraph_metaobject_isbase = false;
+    mutable bool qcppolargraph_metacast_isbase = false;
     mutable bool qcppolargraph_metacall_isbase = false;
     mutable bool qcppolargraph_selecttest_isbase = false;
     mutable bool qcppolargraph_interface1d_isbase = false;
@@ -40756,6 +42362,8 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
     VirtualQCPPolarGraph(QCPPolarAxisAngular* keyAxis, QCPPolarAxisRadial* valueAxis) : QCPPolarGraph(keyAxis, valueAxis) {};
 
     ~VirtualQCPPolarGraph() {
+        qcppolargraph_metaobject_callback = nullptr;
+        qcppolargraph_metacast_callback = nullptr;
         qcppolargraph_metacall_callback = nullptr;
         qcppolargraph_selecttest_callback = nullptr;
         qcppolargraph_interface1d_callback = nullptr;
@@ -40803,6 +42411,8 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
     }
 
     // Callback setters
+    inline void setQCPPolarGraph_MetaObject_Callback(QCPPolarGraph_MetaObject_Callback cb) { qcppolargraph_metaobject_callback = cb; }
+    inline void setQCPPolarGraph_Metacast_Callback(QCPPolarGraph_Metacast_Callback cb) { qcppolargraph_metacast_callback = cb; }
     inline void setQCPPolarGraph_Metacall_Callback(QCPPolarGraph_Metacall_Callback cb) { qcppolargraph_metacall_callback = cb; }
     inline void setQCPPolarGraph_SelectTest_Callback(QCPPolarGraph_SelectTest_Callback cb) { qcppolargraph_selecttest_callback = cb; }
     inline void setQCPPolarGraph_Interface1D_Callback(QCPPolarGraph_Interface1D_Callback cb) { qcppolargraph_interface1d_callback = cb; }
@@ -40849,6 +42459,8 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
     inline void setQCPPolarGraph_IsSignalConnected_Callback(QCPPolarGraph_IsSignalConnected_Callback cb) { qcppolargraph_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCPPolarGraph_MetaObject_IsBase(bool value) const { qcppolargraph_metaobject_isbase = value; }
+    inline void setQCPPolarGraph_Metacast_IsBase(bool value) const { qcppolargraph_metacast_isbase = value; }
     inline void setQCPPolarGraph_Metacall_IsBase(bool value) const { qcppolargraph_metacall_isbase = value; }
     inline void setQCPPolarGraph_SelectTest_IsBase(bool value) const { qcppolargraph_selecttest_isbase = value; }
     inline void setQCPPolarGraph_Interface1D_IsBase(bool value) const { qcppolargraph_interface1d_isbase = value; }
@@ -40893,6 +42505,34 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
     inline void setQCPPolarGraph_SenderSignalIndex_IsBase(bool value) const { qcppolargraph_sendersignalindex_isbase = value; }
     inline void setQCPPolarGraph_Receivers_IsBase(bool value) const { qcppolargraph_receivers_isbase = value; }
     inline void setQCPPolarGraph_IsSignalConnected_IsBase(bool value) const { qcppolargraph_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcppolargraph_metaobject_isbase) {
+            qcppolargraph_metaobject_isbase = false;
+            return QCPPolarGraph::metaObject();
+        } else if (qcppolargraph_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcppolargraph_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCPPolarGraph::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcppolargraph_metacast_isbase) {
+            qcppolargraph_metacast_isbase = false;
+            return QCPPolarGraph::qt_metacast(param1);
+        } else if (qcppolargraph_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcppolargraph_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCPPolarGraph::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

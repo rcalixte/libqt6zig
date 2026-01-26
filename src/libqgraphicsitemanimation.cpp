@@ -27,11 +27,21 @@ QGraphicsItemAnimation* QGraphicsItemAnimation_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsItemAnimation_MetaObject(const QGraphicsItemAnimation* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsitemanimation = dynamic_cast<const VirtualQGraphicsItemAnimation*>(self);
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsItemAnimation*)self)->metaObject();
+    }
 }
 
 void* QGraphicsItemAnimation_Metacast(QGraphicsItemAnimation* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsItemAnimation*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsItemAnimation_Metacall(QGraphicsItemAnimation* self, int param1, int param2, void** param3) {
@@ -224,6 +234,44 @@ void QGraphicsItemAnimation_AfterAnimationStep(QGraphicsItemAnimation* self, dou
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
     if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
         vqgraphicsitemanimation->afterAnimationStep(static_cast<qreal>(step));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsItemAnimation_QBaseMetaObject(const QGraphicsItemAnimation* self) {
+    auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+        vqgraphicsitemanimation->setQGraphicsItemAnimation_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsitemanimation->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsItemAnimation::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItemAnimation_OnMetaObject(const QGraphicsItemAnimation* self, intptr_t slot) {
+    auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+        vqgraphicsitemanimation->setQGraphicsItemAnimation_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsItemAnimation_QBaseMetacast(QGraphicsItemAnimation* self, const char* param1) {
+    auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+        vqgraphicsitemanimation->setQGraphicsItemAnimation_Metacast_IsBase(true);
+        return vqgraphicsitemanimation->qt_metacast(param1);
+    } else {
+        return self->QGraphicsItemAnimation::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsItemAnimation_OnMetacast(QGraphicsItemAnimation* self, intptr_t slot) {
+    auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+        vqgraphicsitemanimation->setQGraphicsItemAnimation_Metacast_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_Metacast_Callback>(slot));
     }
 }
 

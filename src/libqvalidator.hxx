@@ -17,6 +17,8 @@ class VirtualQValidator : public QValidator {
     bool isVirtualQValidator = true;
 
     // Virtual class public types (including callbacks)
+    using QValidator_MetaObject_Callback = QMetaObject* (*)();
+    using QValidator_Metacast_Callback = void* (*)(QValidator*, const char*);
     using QValidator_Metacall_Callback = int (*)(QValidator*, int, int, void**);
     using QValidator_Validate_Callback = int (*)(const QValidator*, libqt_string, int*);
     using QValidator_Fixup_Callback = void (*)(const QValidator*, libqt_string);
@@ -34,6 +36,8 @@ class VirtualQValidator : public QValidator {
 
   protected:
     // Instance callback storage
+    QValidator_MetaObject_Callback qvalidator_metaobject_callback = nullptr;
+    QValidator_Metacast_Callback qvalidator_metacast_callback = nullptr;
     QValidator_Metacall_Callback qvalidator_metacall_callback = nullptr;
     QValidator_Validate_Callback qvalidator_validate_callback = nullptr;
     QValidator_Fixup_Callback qvalidator_fixup_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQValidator : public QValidator {
     QValidator_IsSignalConnected_Callback qvalidator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qvalidator_metaobject_isbase = false;
+    mutable bool qvalidator_metacast_isbase = false;
     mutable bool qvalidator_metacall_isbase = false;
     mutable bool qvalidator_validate_isbase = false;
     mutable bool qvalidator_fixup_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQValidator : public QValidator {
     VirtualQValidator(QObject* parent) : QValidator(parent) {};
 
     ~VirtualQValidator() {
+        qvalidator_metaobject_callback = nullptr;
+        qvalidator_metacast_callback = nullptr;
         qvalidator_metacall_callback = nullptr;
         qvalidator_validate_callback = nullptr;
         qvalidator_fixup_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQValidator : public QValidator {
     }
 
     // Callback setters
+    inline void setQValidator_MetaObject_Callback(QValidator_MetaObject_Callback cb) { qvalidator_metaobject_callback = cb; }
+    inline void setQValidator_Metacast_Callback(QValidator_Metacast_Callback cb) { qvalidator_metacast_callback = cb; }
     inline void setQValidator_Metacall_Callback(QValidator_Metacall_Callback cb) { qvalidator_metacall_callback = cb; }
     inline void setQValidator_Validate_Callback(QValidator_Validate_Callback cb) { qvalidator_validate_callback = cb; }
     inline void setQValidator_Fixup_Callback(QValidator_Fixup_Callback cb) { qvalidator_fixup_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQValidator : public QValidator {
     inline void setQValidator_IsSignalConnected_Callback(QValidator_IsSignalConnected_Callback cb) { qvalidator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQValidator_MetaObject_IsBase(bool value) const { qvalidator_metaobject_isbase = value; }
+    inline void setQValidator_Metacast_IsBase(bool value) const { qvalidator_metacast_isbase = value; }
     inline void setQValidator_Metacall_IsBase(bool value) const { qvalidator_metacall_isbase = value; }
     inline void setQValidator_Validate_IsBase(bool value) const { qvalidator_validate_isbase = value; }
     inline void setQValidator_Fixup_IsBase(bool value) const { qvalidator_fixup_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQValidator : public QValidator {
     inline void setQValidator_SenderSignalIndex_IsBase(bool value) const { qvalidator_sendersignalindex_isbase = value; }
     inline void setQValidator_Receivers_IsBase(bool value) const { qvalidator_receivers_isbase = value; }
     inline void setQValidator_IsSignalConnected_IsBase(bool value) const { qvalidator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qvalidator_metaobject_isbase) {
+            qvalidator_metaobject_isbase = false;
+            return QValidator::metaObject();
+        } else if (qvalidator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qvalidator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QValidator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qvalidator_metacast_isbase) {
+            qvalidator_metacast_isbase = false;
+            return QValidator::qt_metacast(param1);
+        } else if (qvalidator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qvalidator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QValidator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -370,6 +410,8 @@ class VirtualQIntValidator final : public QIntValidator {
     bool isVirtualQIntValidator = true;
 
     // Virtual class public types (including callbacks)
+    using QIntValidator_MetaObject_Callback = QMetaObject* (*)();
+    using QIntValidator_Metacast_Callback = void* (*)(QIntValidator*, const char*);
     using QIntValidator_Metacall_Callback = int (*)(QIntValidator*, int, int, void**);
     using QIntValidator_Validate_Callback = int (*)(const QIntValidator*, libqt_string, int*);
     using QIntValidator_Fixup_Callback = void (*)(const QIntValidator*, libqt_string);
@@ -387,6 +429,8 @@ class VirtualQIntValidator final : public QIntValidator {
 
   protected:
     // Instance callback storage
+    QIntValidator_MetaObject_Callback qintvalidator_metaobject_callback = nullptr;
+    QIntValidator_Metacast_Callback qintvalidator_metacast_callback = nullptr;
     QIntValidator_Metacall_Callback qintvalidator_metacall_callback = nullptr;
     QIntValidator_Validate_Callback qintvalidator_validate_callback = nullptr;
     QIntValidator_Fixup_Callback qintvalidator_fixup_callback = nullptr;
@@ -403,6 +447,8 @@ class VirtualQIntValidator final : public QIntValidator {
     QIntValidator_IsSignalConnected_Callback qintvalidator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qintvalidator_metaobject_isbase = false;
+    mutable bool qintvalidator_metacast_isbase = false;
     mutable bool qintvalidator_metacall_isbase = false;
     mutable bool qintvalidator_validate_isbase = false;
     mutable bool qintvalidator_fixup_isbase = false;
@@ -425,6 +471,8 @@ class VirtualQIntValidator final : public QIntValidator {
     VirtualQIntValidator(int bottom, int top, QObject* parent) : QIntValidator(bottom, top, parent) {};
 
     ~VirtualQIntValidator() {
+        qintvalidator_metaobject_callback = nullptr;
+        qintvalidator_metacast_callback = nullptr;
         qintvalidator_metacall_callback = nullptr;
         qintvalidator_validate_callback = nullptr;
         qintvalidator_fixup_callback = nullptr;
@@ -442,6 +490,8 @@ class VirtualQIntValidator final : public QIntValidator {
     }
 
     // Callback setters
+    inline void setQIntValidator_MetaObject_Callback(QIntValidator_MetaObject_Callback cb) { qintvalidator_metaobject_callback = cb; }
+    inline void setQIntValidator_Metacast_Callback(QIntValidator_Metacast_Callback cb) { qintvalidator_metacast_callback = cb; }
     inline void setQIntValidator_Metacall_Callback(QIntValidator_Metacall_Callback cb) { qintvalidator_metacall_callback = cb; }
     inline void setQIntValidator_Validate_Callback(QIntValidator_Validate_Callback cb) { qintvalidator_validate_callback = cb; }
     inline void setQIntValidator_Fixup_Callback(QIntValidator_Fixup_Callback cb) { qintvalidator_fixup_callback = cb; }
@@ -458,6 +508,8 @@ class VirtualQIntValidator final : public QIntValidator {
     inline void setQIntValidator_IsSignalConnected_Callback(QIntValidator_IsSignalConnected_Callback cb) { qintvalidator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQIntValidator_MetaObject_IsBase(bool value) const { qintvalidator_metaobject_isbase = value; }
+    inline void setQIntValidator_Metacast_IsBase(bool value) const { qintvalidator_metacast_isbase = value; }
     inline void setQIntValidator_Metacall_IsBase(bool value) const { qintvalidator_metacall_isbase = value; }
     inline void setQIntValidator_Validate_IsBase(bool value) const { qintvalidator_validate_isbase = value; }
     inline void setQIntValidator_Fixup_IsBase(bool value) const { qintvalidator_fixup_isbase = value; }
@@ -472,6 +524,34 @@ class VirtualQIntValidator final : public QIntValidator {
     inline void setQIntValidator_SenderSignalIndex_IsBase(bool value) const { qintvalidator_sendersignalindex_isbase = value; }
     inline void setQIntValidator_Receivers_IsBase(bool value) const { qintvalidator_receivers_isbase = value; }
     inline void setQIntValidator_IsSignalConnected_IsBase(bool value) const { qintvalidator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qintvalidator_metaobject_isbase) {
+            qintvalidator_metaobject_isbase = false;
+            return QIntValidator::metaObject();
+        } else if (qintvalidator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qintvalidator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QIntValidator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qintvalidator_metacast_isbase) {
+            qintvalidator_metacast_isbase = false;
+            return QIntValidator::qt_metacast(param1);
+        } else if (qintvalidator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qintvalidator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QIntValidator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -728,6 +808,8 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
     bool isVirtualQDoubleValidator = true;
 
     // Virtual class public types (including callbacks)
+    using QDoubleValidator_MetaObject_Callback = QMetaObject* (*)();
+    using QDoubleValidator_Metacast_Callback = void* (*)(QDoubleValidator*, const char*);
     using QDoubleValidator_Metacall_Callback = int (*)(QDoubleValidator*, int, int, void**);
     using QDoubleValidator_Validate_Callback = int (*)(const QDoubleValidator*, libqt_string, int*);
     using QDoubleValidator_Fixup_Callback = void (*)(const QDoubleValidator*, libqt_string);
@@ -745,6 +827,8 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
 
   protected:
     // Instance callback storage
+    QDoubleValidator_MetaObject_Callback qdoublevalidator_metaobject_callback = nullptr;
+    QDoubleValidator_Metacast_Callback qdoublevalidator_metacast_callback = nullptr;
     QDoubleValidator_Metacall_Callback qdoublevalidator_metacall_callback = nullptr;
     QDoubleValidator_Validate_Callback qdoublevalidator_validate_callback = nullptr;
     QDoubleValidator_Fixup_Callback qdoublevalidator_fixup_callback = nullptr;
@@ -761,6 +845,8 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
     QDoubleValidator_IsSignalConnected_Callback qdoublevalidator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdoublevalidator_metaobject_isbase = false;
+    mutable bool qdoublevalidator_metacast_isbase = false;
     mutable bool qdoublevalidator_metacall_isbase = false;
     mutable bool qdoublevalidator_validate_isbase = false;
     mutable bool qdoublevalidator_fixup_isbase = false;
@@ -783,6 +869,8 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
     VirtualQDoubleValidator(double bottom, double top, int decimals, QObject* parent) : QDoubleValidator(bottom, top, decimals, parent) {};
 
     ~VirtualQDoubleValidator() {
+        qdoublevalidator_metaobject_callback = nullptr;
+        qdoublevalidator_metacast_callback = nullptr;
         qdoublevalidator_metacall_callback = nullptr;
         qdoublevalidator_validate_callback = nullptr;
         qdoublevalidator_fixup_callback = nullptr;
@@ -800,6 +888,8 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
     }
 
     // Callback setters
+    inline void setQDoubleValidator_MetaObject_Callback(QDoubleValidator_MetaObject_Callback cb) { qdoublevalidator_metaobject_callback = cb; }
+    inline void setQDoubleValidator_Metacast_Callback(QDoubleValidator_Metacast_Callback cb) { qdoublevalidator_metacast_callback = cb; }
     inline void setQDoubleValidator_Metacall_Callback(QDoubleValidator_Metacall_Callback cb) { qdoublevalidator_metacall_callback = cb; }
     inline void setQDoubleValidator_Validate_Callback(QDoubleValidator_Validate_Callback cb) { qdoublevalidator_validate_callback = cb; }
     inline void setQDoubleValidator_Fixup_Callback(QDoubleValidator_Fixup_Callback cb) { qdoublevalidator_fixup_callback = cb; }
@@ -816,6 +906,8 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
     inline void setQDoubleValidator_IsSignalConnected_Callback(QDoubleValidator_IsSignalConnected_Callback cb) { qdoublevalidator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDoubleValidator_MetaObject_IsBase(bool value) const { qdoublevalidator_metaobject_isbase = value; }
+    inline void setQDoubleValidator_Metacast_IsBase(bool value) const { qdoublevalidator_metacast_isbase = value; }
     inline void setQDoubleValidator_Metacall_IsBase(bool value) const { qdoublevalidator_metacall_isbase = value; }
     inline void setQDoubleValidator_Validate_IsBase(bool value) const { qdoublevalidator_validate_isbase = value; }
     inline void setQDoubleValidator_Fixup_IsBase(bool value) const { qdoublevalidator_fixup_isbase = value; }
@@ -830,6 +922,34 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
     inline void setQDoubleValidator_SenderSignalIndex_IsBase(bool value) const { qdoublevalidator_sendersignalindex_isbase = value; }
     inline void setQDoubleValidator_Receivers_IsBase(bool value) const { qdoublevalidator_receivers_isbase = value; }
     inline void setQDoubleValidator_IsSignalConnected_IsBase(bool value) const { qdoublevalidator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdoublevalidator_metaobject_isbase) {
+            qdoublevalidator_metaobject_isbase = false;
+            return QDoubleValidator::metaObject();
+        } else if (qdoublevalidator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdoublevalidator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDoubleValidator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdoublevalidator_metacast_isbase) {
+            qdoublevalidator_metacast_isbase = false;
+            return QDoubleValidator::qt_metacast(param1);
+        } else if (qdoublevalidator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdoublevalidator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDoubleValidator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1086,6 +1206,8 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
     bool isVirtualQRegularExpressionValidator = true;
 
     // Virtual class public types (including callbacks)
+    using QRegularExpressionValidator_MetaObject_Callback = QMetaObject* (*)();
+    using QRegularExpressionValidator_Metacast_Callback = void* (*)(QRegularExpressionValidator*, const char*);
     using QRegularExpressionValidator_Metacall_Callback = int (*)(QRegularExpressionValidator*, int, int, void**);
     using QRegularExpressionValidator_Validate_Callback = int (*)(const QRegularExpressionValidator*, libqt_string, int*);
     using QRegularExpressionValidator_Fixup_Callback = void (*)(const QRegularExpressionValidator*, libqt_string);
@@ -1103,6 +1225,8 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
 
   protected:
     // Instance callback storage
+    QRegularExpressionValidator_MetaObject_Callback qregularexpressionvalidator_metaobject_callback = nullptr;
+    QRegularExpressionValidator_Metacast_Callback qregularexpressionvalidator_metacast_callback = nullptr;
     QRegularExpressionValidator_Metacall_Callback qregularexpressionvalidator_metacall_callback = nullptr;
     QRegularExpressionValidator_Validate_Callback qregularexpressionvalidator_validate_callback = nullptr;
     QRegularExpressionValidator_Fixup_Callback qregularexpressionvalidator_fixup_callback = nullptr;
@@ -1119,6 +1243,8 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
     QRegularExpressionValidator_IsSignalConnected_Callback qregularexpressionvalidator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qregularexpressionvalidator_metaobject_isbase = false;
+    mutable bool qregularexpressionvalidator_metacast_isbase = false;
     mutable bool qregularexpressionvalidator_metacall_isbase = false;
     mutable bool qregularexpressionvalidator_validate_isbase = false;
     mutable bool qregularexpressionvalidator_fixup_isbase = false;
@@ -1141,6 +1267,8 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
     VirtualQRegularExpressionValidator(const QRegularExpression& re, QObject* parent) : QRegularExpressionValidator(re, parent) {};
 
     ~VirtualQRegularExpressionValidator() {
+        qregularexpressionvalidator_metaobject_callback = nullptr;
+        qregularexpressionvalidator_metacast_callback = nullptr;
         qregularexpressionvalidator_metacall_callback = nullptr;
         qregularexpressionvalidator_validate_callback = nullptr;
         qregularexpressionvalidator_fixup_callback = nullptr;
@@ -1158,6 +1286,8 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
     }
 
     // Callback setters
+    inline void setQRegularExpressionValidator_MetaObject_Callback(QRegularExpressionValidator_MetaObject_Callback cb) { qregularexpressionvalidator_metaobject_callback = cb; }
+    inline void setQRegularExpressionValidator_Metacast_Callback(QRegularExpressionValidator_Metacast_Callback cb) { qregularexpressionvalidator_metacast_callback = cb; }
     inline void setQRegularExpressionValidator_Metacall_Callback(QRegularExpressionValidator_Metacall_Callback cb) { qregularexpressionvalidator_metacall_callback = cb; }
     inline void setQRegularExpressionValidator_Validate_Callback(QRegularExpressionValidator_Validate_Callback cb) { qregularexpressionvalidator_validate_callback = cb; }
     inline void setQRegularExpressionValidator_Fixup_Callback(QRegularExpressionValidator_Fixup_Callback cb) { qregularexpressionvalidator_fixup_callback = cb; }
@@ -1174,6 +1304,8 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
     inline void setQRegularExpressionValidator_IsSignalConnected_Callback(QRegularExpressionValidator_IsSignalConnected_Callback cb) { qregularexpressionvalidator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQRegularExpressionValidator_MetaObject_IsBase(bool value) const { qregularexpressionvalidator_metaobject_isbase = value; }
+    inline void setQRegularExpressionValidator_Metacast_IsBase(bool value) const { qregularexpressionvalidator_metacast_isbase = value; }
     inline void setQRegularExpressionValidator_Metacall_IsBase(bool value) const { qregularexpressionvalidator_metacall_isbase = value; }
     inline void setQRegularExpressionValidator_Validate_IsBase(bool value) const { qregularexpressionvalidator_validate_isbase = value; }
     inline void setQRegularExpressionValidator_Fixup_IsBase(bool value) const { qregularexpressionvalidator_fixup_isbase = value; }
@@ -1188,6 +1320,34 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
     inline void setQRegularExpressionValidator_SenderSignalIndex_IsBase(bool value) const { qregularexpressionvalidator_sendersignalindex_isbase = value; }
     inline void setQRegularExpressionValidator_Receivers_IsBase(bool value) const { qregularexpressionvalidator_receivers_isbase = value; }
     inline void setQRegularExpressionValidator_IsSignalConnected_IsBase(bool value) const { qregularexpressionvalidator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qregularexpressionvalidator_metaobject_isbase) {
+            qregularexpressionvalidator_metaobject_isbase = false;
+            return QRegularExpressionValidator::metaObject();
+        } else if (qregularexpressionvalidator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qregularexpressionvalidator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QRegularExpressionValidator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qregularexpressionvalidator_metacast_isbase) {
+            qregularexpressionvalidator_metacast_isbase = false;
+            return QRegularExpressionValidator::qt_metacast(param1);
+        } else if (qregularexpressionvalidator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qregularexpressionvalidator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QRegularExpressionValidator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

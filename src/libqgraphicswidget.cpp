@@ -58,11 +58,21 @@ QGraphicsWidget* QGraphicsWidget_new3(QGraphicsItem* parent, int wFlags) {
 }
 
 QMetaObject* QGraphicsWidget_MetaObject(const QGraphicsWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicswidget = dynamic_cast<const VirtualQGraphicsWidget*>(self);
+    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsWidget*)self)->metaObject();
+    }
 }
 
 void* QGraphicsWidget_Metacast(QGraphicsWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicswidget = dynamic_cast<VirtualQGraphicsWidget*>(self);
+    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsWidget_Metacall(QGraphicsWidget* self, int param1, int param2, void** param3) {
@@ -587,6 +597,44 @@ void QGraphicsWidget_SetShortcutAutoRepeat2(QGraphicsWidget* self, int id, bool 
 
 void QGraphicsWidget_SetAttribute2(QGraphicsWidget* self, int attribute, bool on) {
     self->setAttribute(static_cast<Qt::WidgetAttribute>(attribute), on);
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsWidget_QBaseMetaObject(const QGraphicsWidget* self) {
+    auto* vqgraphicswidget = const_cast<VirtualQGraphicsWidget*>(dynamic_cast<const VirtualQGraphicsWidget*>(self));
+    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
+        vqgraphicswidget->setQGraphicsWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicswidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsWidget_OnMetaObject(const QGraphicsWidget* self, intptr_t slot) {
+    auto* vqgraphicswidget = const_cast<VirtualQGraphicsWidget*>(dynamic_cast<const VirtualQGraphicsWidget*>(self));
+    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
+        vqgraphicswidget->setQGraphicsWidget_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsWidget::QGraphicsWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsWidget_QBaseMetacast(QGraphicsWidget* self, const char* param1) {
+    auto* vqgraphicswidget = dynamic_cast<VirtualQGraphicsWidget*>(self);
+    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
+        vqgraphicswidget->setQGraphicsWidget_Metacast_IsBase(true);
+        return vqgraphicswidget->qt_metacast(param1);
+    } else {
+        return self->QGraphicsWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsWidget_OnMetacast(QGraphicsWidget* self, intptr_t slot) {
+    auto* vqgraphicswidget = dynamic_cast<VirtualQGraphicsWidget*>(self);
+    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
+        vqgraphicswidget->setQGraphicsWidget_Metacast_Callback(reinterpret_cast<VirtualQGraphicsWidget::QGraphicsWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

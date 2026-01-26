@@ -17,6 +17,8 @@ class VirtualKTextEditorPlugin : public KTextEditor::Plugin {
     bool isVirtualKTextEditorPlugin = true;
 
     // Virtual class public types (including callbacks)
+    using KTextEditor__Plugin_MetaObject_Callback = QMetaObject* (*)();
+    using KTextEditor__Plugin_Metacast_Callback = void* (*)(KTextEditor__Plugin*, const char*);
     using KTextEditor__Plugin_Metacall_Callback = int (*)(KTextEditor__Plugin*, int, int, void**);
     using KTextEditor__Plugin_CreateView_Callback = QObject* (*)(KTextEditor__Plugin*, KTextEditor__MainWindow*);
     using KTextEditor__Plugin_ConfigPages_Callback = int (*)();
@@ -35,6 +37,8 @@ class VirtualKTextEditorPlugin : public KTextEditor::Plugin {
 
   protected:
     // Instance callback storage
+    KTextEditor__Plugin_MetaObject_Callback ktexteditor__plugin_metaobject_callback = nullptr;
+    KTextEditor__Plugin_Metacast_Callback ktexteditor__plugin_metacast_callback = nullptr;
     KTextEditor__Plugin_Metacall_Callback ktexteditor__plugin_metacall_callback = nullptr;
     KTextEditor__Plugin_CreateView_Callback ktexteditor__plugin_createview_callback = nullptr;
     KTextEditor__Plugin_ConfigPages_Callback ktexteditor__plugin_configpages_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualKTextEditorPlugin : public KTextEditor::Plugin {
     KTextEditor__Plugin_IsSignalConnected_Callback ktexteditor__plugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktexteditor__plugin_metaobject_isbase = false;
+    mutable bool ktexteditor__plugin_metacast_isbase = false;
     mutable bool ktexteditor__plugin_metacall_isbase = false;
     mutable bool ktexteditor__plugin_createview_isbase = false;
     mutable bool ktexteditor__plugin_configpages_isbase = false;
@@ -72,6 +78,8 @@ class VirtualKTextEditorPlugin : public KTextEditor::Plugin {
     VirtualKTextEditorPlugin(QObject* parent) : KTextEditor::Plugin(parent) {};
 
     ~VirtualKTextEditorPlugin() {
+        ktexteditor__plugin_metaobject_callback = nullptr;
+        ktexteditor__plugin_metacast_callback = nullptr;
         ktexteditor__plugin_metacall_callback = nullptr;
         ktexteditor__plugin_createview_callback = nullptr;
         ktexteditor__plugin_configpages_callback = nullptr;
@@ -90,6 +98,8 @@ class VirtualKTextEditorPlugin : public KTextEditor::Plugin {
     }
 
     // Callback setters
+    inline void setKTextEditor__Plugin_MetaObject_Callback(KTextEditor__Plugin_MetaObject_Callback cb) { ktexteditor__plugin_metaobject_callback = cb; }
+    inline void setKTextEditor__Plugin_Metacast_Callback(KTextEditor__Plugin_Metacast_Callback cb) { ktexteditor__plugin_metacast_callback = cb; }
     inline void setKTextEditor__Plugin_Metacall_Callback(KTextEditor__Plugin_Metacall_Callback cb) { ktexteditor__plugin_metacall_callback = cb; }
     inline void setKTextEditor__Plugin_CreateView_Callback(KTextEditor__Plugin_CreateView_Callback cb) { ktexteditor__plugin_createview_callback = cb; }
     inline void setKTextEditor__Plugin_ConfigPages_Callback(KTextEditor__Plugin_ConfigPages_Callback cb) { ktexteditor__plugin_configpages_callback = cb; }
@@ -107,6 +117,8 @@ class VirtualKTextEditorPlugin : public KTextEditor::Plugin {
     inline void setKTextEditor__Plugin_IsSignalConnected_Callback(KTextEditor__Plugin_IsSignalConnected_Callback cb) { ktexteditor__plugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKTextEditor__Plugin_MetaObject_IsBase(bool value) const { ktexteditor__plugin_metaobject_isbase = value; }
+    inline void setKTextEditor__Plugin_Metacast_IsBase(bool value) const { ktexteditor__plugin_metacast_isbase = value; }
     inline void setKTextEditor__Plugin_Metacall_IsBase(bool value) const { ktexteditor__plugin_metacall_isbase = value; }
     inline void setKTextEditor__Plugin_CreateView_IsBase(bool value) const { ktexteditor__plugin_createview_isbase = value; }
     inline void setKTextEditor__Plugin_ConfigPages_IsBase(bool value) const { ktexteditor__plugin_configpages_isbase = value; }
@@ -122,6 +134,34 @@ class VirtualKTextEditorPlugin : public KTextEditor::Plugin {
     inline void setKTextEditor__Plugin_SenderSignalIndex_IsBase(bool value) const { ktexteditor__plugin_sendersignalindex_isbase = value; }
     inline void setKTextEditor__Plugin_Receivers_IsBase(bool value) const { ktexteditor__plugin_receivers_isbase = value; }
     inline void setKTextEditor__Plugin_IsSignalConnected_IsBase(bool value) const { ktexteditor__plugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktexteditor__plugin_metaobject_isbase) {
+            ktexteditor__plugin_metaobject_isbase = false;
+            return KTextEditor__Plugin::metaObject();
+        } else if (ktexteditor__plugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktexteditor__plugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTextEditor__Plugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktexteditor__plugin_metacast_isbase) {
+            ktexteditor__plugin_metacast_isbase = false;
+            return KTextEditor__Plugin::qt_metacast(param1);
+        } else if (ktexteditor__plugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktexteditor__plugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTextEditor__Plugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

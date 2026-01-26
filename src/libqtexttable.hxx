@@ -17,6 +17,8 @@ class VirtualQTextTable final : public QTextTable {
     bool isVirtualQTextTable = true;
 
     // Virtual class public types (including callbacks)
+    using QTextTable_MetaObject_Callback = QMetaObject* (*)();
+    using QTextTable_Metacast_Callback = void* (*)(QTextTable*, const char*);
     using QTextTable_Metacall_Callback = int (*)(QTextTable*, int, int, void**);
     using QTextTable_Event_Callback = bool (*)(QTextTable*, QEvent*);
     using QTextTable_EventFilter_Callback = bool (*)(QTextTable*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQTextTable final : public QTextTable {
 
   protected:
     // Instance callback storage
+    QTextTable_MetaObject_Callback qtexttable_metaobject_callback = nullptr;
+    QTextTable_Metacast_Callback qtexttable_metacast_callback = nullptr;
     QTextTable_Metacall_Callback qtexttable_metacall_callback = nullptr;
     QTextTable_Event_Callback qtexttable_event_callback = nullptr;
     QTextTable_EventFilter_Callback qtexttable_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQTextTable final : public QTextTable {
     QTextTable_IsSignalConnected_Callback qtexttable_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtexttable_metaobject_isbase = false;
+    mutable bool qtexttable_metacast_isbase = false;
     mutable bool qtexttable_metacall_isbase = false;
     mutable bool qtexttable_event_isbase = false;
     mutable bool qtexttable_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualQTextTable final : public QTextTable {
     VirtualQTextTable(QTextDocument* doc) : QTextTable(doc) {};
 
     ~VirtualQTextTable() {
+        qtexttable_metaobject_callback = nullptr;
+        qtexttable_metacast_callback = nullptr;
         qtexttable_metacall_callback = nullptr;
         qtexttable_event_callback = nullptr;
         qtexttable_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualQTextTable final : public QTextTable {
     }
 
     // Callback setters
+    inline void setQTextTable_MetaObject_Callback(QTextTable_MetaObject_Callback cb) { qtexttable_metaobject_callback = cb; }
+    inline void setQTextTable_Metacast_Callback(QTextTable_Metacast_Callback cb) { qtexttable_metacast_callback = cb; }
     inline void setQTextTable_Metacall_Callback(QTextTable_Metacall_Callback cb) { qtexttable_metacall_callback = cb; }
     inline void setQTextTable_Event_Callback(QTextTable_Event_Callback cb) { qtexttable_event_callback = cb; }
     inline void setQTextTable_EventFilter_Callback(QTextTable_EventFilter_Callback cb) { qtexttable_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualQTextTable final : public QTextTable {
     inline void setQTextTable_IsSignalConnected_Callback(QTextTable_IsSignalConnected_Callback cb) { qtexttable_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTextTable_MetaObject_IsBase(bool value) const { qtexttable_metaobject_isbase = value; }
+    inline void setQTextTable_Metacast_IsBase(bool value) const { qtexttable_metacast_isbase = value; }
     inline void setQTextTable_Metacall_IsBase(bool value) const { qtexttable_metacall_isbase = value; }
     inline void setQTextTable_Event_IsBase(bool value) const { qtexttable_event_isbase = value; }
     inline void setQTextTable_EventFilter_IsBase(bool value) const { qtexttable_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualQTextTable final : public QTextTable {
     inline void setQTextTable_SenderSignalIndex_IsBase(bool value) const { qtexttable_sendersignalindex_isbase = value; }
     inline void setQTextTable_Receivers_IsBase(bool value) const { qtexttable_receivers_isbase = value; }
     inline void setQTextTable_IsSignalConnected_IsBase(bool value) const { qtexttable_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtexttable_metaobject_isbase) {
+            qtexttable_metaobject_isbase = false;
+            return QTextTable::metaObject();
+        } else if (qtexttable_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtexttable_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTextTable::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtexttable_metacast_isbase) {
+            qtexttable_metacast_isbase = false;
+            return QTextTable::qt_metacast(param1);
+        } else if (qtexttable_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtexttable_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTextTable::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

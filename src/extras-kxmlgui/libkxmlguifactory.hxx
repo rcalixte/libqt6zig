@@ -17,6 +17,8 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
     bool isVirtualKXMLGUIFactory = true;
 
     // Virtual class public types (including callbacks)
+    using KXMLGUIFactory_MetaObject_Callback = QMetaObject* (*)();
+    using KXMLGUIFactory_Metacast_Callback = void* (*)(KXMLGUIFactory*, const char*);
     using KXMLGUIFactory_Metacall_Callback = int (*)(KXMLGUIFactory*, int, int, void**);
     using KXMLGUIFactory_Event_Callback = bool (*)(KXMLGUIFactory*, QEvent*);
     using KXMLGUIFactory_EventFilter_Callback = bool (*)(KXMLGUIFactory*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
 
   protected:
     // Instance callback storage
+    KXMLGUIFactory_MetaObject_Callback kxmlguifactory_metaobject_callback = nullptr;
+    KXMLGUIFactory_Metacast_Callback kxmlguifactory_metacast_callback = nullptr;
     KXMLGUIFactory_Metacall_Callback kxmlguifactory_metacall_callback = nullptr;
     KXMLGUIFactory_Event_Callback kxmlguifactory_event_callback = nullptr;
     KXMLGUIFactory_EventFilter_Callback kxmlguifactory_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
     KXMLGUIFactory_IsSignalConnected_Callback kxmlguifactory_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kxmlguifactory_metaobject_isbase = false;
+    mutable bool kxmlguifactory_metacast_isbase = false;
     mutable bool kxmlguifactory_metacall_isbase = false;
     mutable bool kxmlguifactory_event_isbase = false;
     mutable bool kxmlguifactory_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
     VirtualKXMLGUIFactory(KXMLGUIBuilder* builder, QObject* parent) : KXMLGUIFactory(builder, parent) {};
 
     ~VirtualKXMLGUIFactory() {
+        kxmlguifactory_metaobject_callback = nullptr;
+        kxmlguifactory_metacast_callback = nullptr;
         kxmlguifactory_metacall_callback = nullptr;
         kxmlguifactory_event_callback = nullptr;
         kxmlguifactory_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
     }
 
     // Callback setters
+    inline void setKXMLGUIFactory_MetaObject_Callback(KXMLGUIFactory_MetaObject_Callback cb) { kxmlguifactory_metaobject_callback = cb; }
+    inline void setKXMLGUIFactory_Metacast_Callback(KXMLGUIFactory_Metacast_Callback cb) { kxmlguifactory_metacast_callback = cb; }
     inline void setKXMLGUIFactory_Metacall_Callback(KXMLGUIFactory_Metacall_Callback cb) { kxmlguifactory_metacall_callback = cb; }
     inline void setKXMLGUIFactory_Event_Callback(KXMLGUIFactory_Event_Callback cb) { kxmlguifactory_event_callback = cb; }
     inline void setKXMLGUIFactory_EventFilter_Callback(KXMLGUIFactory_EventFilter_Callback cb) { kxmlguifactory_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
     inline void setKXMLGUIFactory_IsSignalConnected_Callback(KXMLGUIFactory_IsSignalConnected_Callback cb) { kxmlguifactory_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKXMLGUIFactory_MetaObject_IsBase(bool value) const { kxmlguifactory_metaobject_isbase = value; }
+    inline void setKXMLGUIFactory_Metacast_IsBase(bool value) const { kxmlguifactory_metacast_isbase = value; }
     inline void setKXMLGUIFactory_Metacall_IsBase(bool value) const { kxmlguifactory_metacall_isbase = value; }
     inline void setKXMLGUIFactory_Event_IsBase(bool value) const { kxmlguifactory_event_isbase = value; }
     inline void setKXMLGUIFactory_EventFilter_IsBase(bool value) const { kxmlguifactory_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKXMLGUIFactory final : public KXMLGUIFactory {
     inline void setKXMLGUIFactory_SenderSignalIndex_IsBase(bool value) const { kxmlguifactory_sendersignalindex_isbase = value; }
     inline void setKXMLGUIFactory_Receivers_IsBase(bool value) const { kxmlguifactory_receivers_isbase = value; }
     inline void setKXMLGUIFactory_IsSignalConnected_IsBase(bool value) const { kxmlguifactory_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kxmlguifactory_metaobject_isbase) {
+            kxmlguifactory_metaobject_isbase = false;
+            return KXMLGUIFactory::metaObject();
+        } else if (kxmlguifactory_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kxmlguifactory_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KXMLGUIFactory::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kxmlguifactory_metacast_isbase) {
+            kxmlguifactory_metacast_isbase = false;
+            return KXMLGUIFactory::qt_metacast(param1);
+        } else if (kxmlguifactory_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kxmlguifactory_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KXMLGUIFactory::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

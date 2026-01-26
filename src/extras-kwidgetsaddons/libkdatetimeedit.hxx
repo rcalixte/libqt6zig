@@ -17,6 +17,8 @@ class VirtualKDateTimeEdit final : public KDateTimeEdit {
     bool isVirtualKDateTimeEdit = true;
 
     // Virtual class public types (including callbacks)
+    using KDateTimeEdit_MetaObject_Callback = QMetaObject* (*)();
+    using KDateTimeEdit_Metacast_Callback = void* (*)(KDateTimeEdit*, const char*);
     using KDateTimeEdit_Metacall_Callback = int (*)(KDateTimeEdit*, int, int, void**);
     using KDateTimeEdit_EventFilter_Callback = bool (*)(KDateTimeEdit*, QObject*, QEvent*);
     using KDateTimeEdit_FocusInEvent_Callback = void (*)(KDateTimeEdit*, QFocusEvent*);
@@ -82,6 +84,8 @@ class VirtualKDateTimeEdit final : public KDateTimeEdit {
 
   protected:
     // Instance callback storage
+    KDateTimeEdit_MetaObject_Callback kdatetimeedit_metaobject_callback = nullptr;
+    KDateTimeEdit_Metacast_Callback kdatetimeedit_metacast_callback = nullptr;
     KDateTimeEdit_Metacall_Callback kdatetimeedit_metacall_callback = nullptr;
     KDateTimeEdit_EventFilter_Callback kdatetimeedit_eventfilter_callback = nullptr;
     KDateTimeEdit_FocusInEvent_Callback kdatetimeedit_focusinevent_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualKDateTimeEdit final : public KDateTimeEdit {
     KDateTimeEdit_GetDecodedMetricF_Callback kdatetimeedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdatetimeedit_metaobject_isbase = false;
+    mutable bool kdatetimeedit_metacast_isbase = false;
     mutable bool kdatetimeedit_metacall_isbase = false;
     mutable bool kdatetimeedit_eventfilter_isbase = false;
     mutable bool kdatetimeedit_focusinevent_isbase = false;
@@ -214,6 +220,8 @@ class VirtualKDateTimeEdit final : public KDateTimeEdit {
     VirtualKDateTimeEdit() : KDateTimeEdit() {};
 
     ~VirtualKDateTimeEdit() {
+        kdatetimeedit_metaobject_callback = nullptr;
+        kdatetimeedit_metacast_callback = nullptr;
         kdatetimeedit_metacall_callback = nullptr;
         kdatetimeedit_eventfilter_callback = nullptr;
         kdatetimeedit_focusinevent_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualKDateTimeEdit final : public KDateTimeEdit {
     }
 
     // Callback setters
+    inline void setKDateTimeEdit_MetaObject_Callback(KDateTimeEdit_MetaObject_Callback cb) { kdatetimeedit_metaobject_callback = cb; }
+    inline void setKDateTimeEdit_Metacast_Callback(KDateTimeEdit_Metacast_Callback cb) { kdatetimeedit_metacast_callback = cb; }
     inline void setKDateTimeEdit_Metacall_Callback(KDateTimeEdit_Metacall_Callback cb) { kdatetimeedit_metacall_callback = cb; }
     inline void setKDateTimeEdit_EventFilter_Callback(KDateTimeEdit_EventFilter_Callback cb) { kdatetimeedit_eventfilter_callback = cb; }
     inline void setKDateTimeEdit_FocusInEvent_Callback(KDateTimeEdit_FocusInEvent_Callback cb) { kdatetimeedit_focusinevent_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualKDateTimeEdit final : public KDateTimeEdit {
     inline void setKDateTimeEdit_GetDecodedMetricF_Callback(KDateTimeEdit_GetDecodedMetricF_Callback cb) { kdatetimeedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKDateTimeEdit_MetaObject_IsBase(bool value) const { kdatetimeedit_metaobject_isbase = value; }
+    inline void setKDateTimeEdit_Metacast_IsBase(bool value) const { kdatetimeedit_metacast_isbase = value; }
     inline void setKDateTimeEdit_Metacall_IsBase(bool value) const { kdatetimeedit_metacall_isbase = value; }
     inline void setKDateTimeEdit_EventFilter_IsBase(bool value) const { kdatetimeedit_eventfilter_isbase = value; }
     inline void setKDateTimeEdit_FocusInEvent_IsBase(bool value) const { kdatetimeedit_focusinevent_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualKDateTimeEdit final : public KDateTimeEdit {
     inline void setKDateTimeEdit_Receivers_IsBase(bool value) const { kdatetimeedit_receivers_isbase = value; }
     inline void setKDateTimeEdit_IsSignalConnected_IsBase(bool value) const { kdatetimeedit_issignalconnected_isbase = value; }
     inline void setKDateTimeEdit_GetDecodedMetricF_IsBase(bool value) const { kdatetimeedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdatetimeedit_metaobject_isbase) {
+            kdatetimeedit_metaobject_isbase = false;
+            return KDateTimeEdit::metaObject();
+        } else if (kdatetimeedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdatetimeedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDateTimeEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdatetimeedit_metacast_isbase) {
+            kdatetimeedit_metacast_isbase = false;
+            return KDateTimeEdit::qt_metacast(param1);
+        } else if (kdatetimeedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdatetimeedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDateTimeEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

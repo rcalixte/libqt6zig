@@ -17,6 +17,8 @@ class VirtualKTwoFingerTap final : public KTwoFingerTap {
     bool isVirtualKTwoFingerTap = true;
 
     // Virtual class public types (including callbacks)
+    using KTwoFingerTap_MetaObject_Callback = QMetaObject* (*)();
+    using KTwoFingerTap_Metacast_Callback = void* (*)(KTwoFingerTap*, const char*);
     using KTwoFingerTap_Metacall_Callback = int (*)(KTwoFingerTap*, int, int, void**);
     using KTwoFingerTap_Event_Callback = bool (*)(KTwoFingerTap*, QEvent*);
     using KTwoFingerTap_EventFilter_Callback = bool (*)(KTwoFingerTap*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKTwoFingerTap final : public KTwoFingerTap {
 
   protected:
     // Instance callback storage
+    KTwoFingerTap_MetaObject_Callback ktwofingertap_metaobject_callback = nullptr;
+    KTwoFingerTap_Metacast_Callback ktwofingertap_metacast_callback = nullptr;
     KTwoFingerTap_Metacall_Callback ktwofingertap_metacall_callback = nullptr;
     KTwoFingerTap_Event_Callback ktwofingertap_event_callback = nullptr;
     KTwoFingerTap_EventFilter_Callback ktwofingertap_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKTwoFingerTap final : public KTwoFingerTap {
     KTwoFingerTap_IsSignalConnected_Callback ktwofingertap_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktwofingertap_metaobject_isbase = false;
+    mutable bool ktwofingertap_metacast_isbase = false;
     mutable bool ktwofingertap_metacall_isbase = false;
     mutable bool ktwofingertap_event_isbase = false;
     mutable bool ktwofingertap_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKTwoFingerTap final : public KTwoFingerTap {
     VirtualKTwoFingerTap(QObject* parent) : KTwoFingerTap(parent) {};
 
     ~VirtualKTwoFingerTap() {
+        ktwofingertap_metaobject_callback = nullptr;
+        ktwofingertap_metacast_callback = nullptr;
         ktwofingertap_metacall_callback = nullptr;
         ktwofingertap_event_callback = nullptr;
         ktwofingertap_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKTwoFingerTap final : public KTwoFingerTap {
     }
 
     // Callback setters
+    inline void setKTwoFingerTap_MetaObject_Callback(KTwoFingerTap_MetaObject_Callback cb) { ktwofingertap_metaobject_callback = cb; }
+    inline void setKTwoFingerTap_Metacast_Callback(KTwoFingerTap_Metacast_Callback cb) { ktwofingertap_metacast_callback = cb; }
     inline void setKTwoFingerTap_Metacall_Callback(KTwoFingerTap_Metacall_Callback cb) { ktwofingertap_metacall_callback = cb; }
     inline void setKTwoFingerTap_Event_Callback(KTwoFingerTap_Event_Callback cb) { ktwofingertap_event_callback = cb; }
     inline void setKTwoFingerTap_EventFilter_Callback(KTwoFingerTap_EventFilter_Callback cb) { ktwofingertap_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKTwoFingerTap final : public KTwoFingerTap {
     inline void setKTwoFingerTap_IsSignalConnected_Callback(KTwoFingerTap_IsSignalConnected_Callback cb) { ktwofingertap_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKTwoFingerTap_MetaObject_IsBase(bool value) const { ktwofingertap_metaobject_isbase = value; }
+    inline void setKTwoFingerTap_Metacast_IsBase(bool value) const { ktwofingertap_metacast_isbase = value; }
     inline void setKTwoFingerTap_Metacall_IsBase(bool value) const { ktwofingertap_metacall_isbase = value; }
     inline void setKTwoFingerTap_Event_IsBase(bool value) const { ktwofingertap_event_isbase = value; }
     inline void setKTwoFingerTap_EventFilter_IsBase(bool value) const { ktwofingertap_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKTwoFingerTap final : public KTwoFingerTap {
     inline void setKTwoFingerTap_SenderSignalIndex_IsBase(bool value) const { ktwofingertap_sendersignalindex_isbase = value; }
     inline void setKTwoFingerTap_Receivers_IsBase(bool value) const { ktwofingertap_receivers_isbase = value; }
     inline void setKTwoFingerTap_IsSignalConnected_IsBase(bool value) const { ktwofingertap_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktwofingertap_metaobject_isbase) {
+            ktwofingertap_metaobject_isbase = false;
+            return KTwoFingerTap::metaObject();
+        } else if (ktwofingertap_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktwofingertap_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTwoFingerTap::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktwofingertap_metacast_isbase) {
+            ktwofingertap_metacast_isbase = false;
+            return KTwoFingerTap::qt_metacast(param1);
+        } else if (ktwofingertap_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktwofingertap_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTwoFingerTap::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

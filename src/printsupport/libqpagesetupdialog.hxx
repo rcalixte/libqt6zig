@@ -17,6 +17,8 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
     bool isVirtualQPageSetupDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QPageSetupDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QPageSetupDialog_Metacast_Callback = void* (*)(QPageSetupDialog*, const char*);
     using QPageSetupDialog_Metacall_Callback = int (*)(QPageSetupDialog*, int, int, void**);
     using QPageSetupDialog_Exec_Callback = int (*)();
     using QPageSetupDialog_Done_Callback = void (*)(QPageSetupDialog*, int);
@@ -84,6 +86,8 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
 
   protected:
     // Instance callback storage
+    QPageSetupDialog_MetaObject_Callback qpagesetupdialog_metaobject_callback = nullptr;
+    QPageSetupDialog_Metacast_Callback qpagesetupdialog_metacast_callback = nullptr;
     QPageSetupDialog_Metacall_Callback qpagesetupdialog_metacall_callback = nullptr;
     QPageSetupDialog_Exec_Callback qpagesetupdialog_exec_callback = nullptr;
     QPageSetupDialog_Done_Callback qpagesetupdialog_done_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
     QPageSetupDialog_GetDecodedMetricF_Callback qpagesetupdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpagesetupdialog_metaobject_isbase = false;
+    mutable bool qpagesetupdialog_metacast_isbase = false;
     mutable bool qpagesetupdialog_metacall_isbase = false;
     mutable bool qpagesetupdialog_exec_isbase = false;
     mutable bool qpagesetupdialog_done_isbase = false;
@@ -222,6 +228,8 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
     VirtualQPageSetupDialog(QPrinter* printer, QWidget* parent) : QPageSetupDialog(printer, parent) {};
 
     ~VirtualQPageSetupDialog() {
+        qpagesetupdialog_metaobject_callback = nullptr;
+        qpagesetupdialog_metacast_callback = nullptr;
         qpagesetupdialog_metacall_callback = nullptr;
         qpagesetupdialog_exec_callback = nullptr;
         qpagesetupdialog_done_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
     }
 
     // Callback setters
+    inline void setQPageSetupDialog_MetaObject_Callback(QPageSetupDialog_MetaObject_Callback cb) { qpagesetupdialog_metaobject_callback = cb; }
+    inline void setQPageSetupDialog_Metacast_Callback(QPageSetupDialog_Metacast_Callback cb) { qpagesetupdialog_metacast_callback = cb; }
     inline void setQPageSetupDialog_Metacall_Callback(QPageSetupDialog_Metacall_Callback cb) { qpagesetupdialog_metacall_callback = cb; }
     inline void setQPageSetupDialog_Exec_Callback(QPageSetupDialog_Exec_Callback cb) { qpagesetupdialog_exec_callback = cb; }
     inline void setQPageSetupDialog_Done_Callback(QPageSetupDialog_Done_Callback cb) { qpagesetupdialog_done_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
     inline void setQPageSetupDialog_GetDecodedMetricF_Callback(QPageSetupDialog_GetDecodedMetricF_Callback cb) { qpagesetupdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQPageSetupDialog_MetaObject_IsBase(bool value) const { qpagesetupdialog_metaobject_isbase = value; }
+    inline void setQPageSetupDialog_Metacast_IsBase(bool value) const { qpagesetupdialog_metacast_isbase = value; }
     inline void setQPageSetupDialog_Metacall_IsBase(bool value) const { qpagesetupdialog_metacall_isbase = value; }
     inline void setQPageSetupDialog_Exec_IsBase(bool value) const { qpagesetupdialog_exec_isbase = value; }
     inline void setQPageSetupDialog_Done_IsBase(bool value) const { qpagesetupdialog_done_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualQPageSetupDialog final : public QPageSetupDialog {
     inline void setQPageSetupDialog_Receivers_IsBase(bool value) const { qpagesetupdialog_receivers_isbase = value; }
     inline void setQPageSetupDialog_IsSignalConnected_IsBase(bool value) const { qpagesetupdialog_issignalconnected_isbase = value; }
     inline void setQPageSetupDialog_GetDecodedMetricF_IsBase(bool value) const { qpagesetupdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpagesetupdialog_metaobject_isbase) {
+            qpagesetupdialog_metaobject_isbase = false;
+            return QPageSetupDialog::metaObject();
+        } else if (qpagesetupdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpagesetupdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPageSetupDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpagesetupdialog_metacast_isbase) {
+            qpagesetupdialog_metacast_isbase = false;
+            return QPageSetupDialog::qt_metacast(param1);
+        } else if (qpagesetupdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpagesetupdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPageSetupDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

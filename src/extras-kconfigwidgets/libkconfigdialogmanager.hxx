@@ -17,6 +17,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
     bool isVirtualKConfigDialogManager = true;
 
     // Virtual class public types (including callbacks)
+    using KConfigDialogManager_MetaObject_Callback = QMetaObject* (*)();
+    using KConfigDialogManager_Metacast_Callback = void* (*)(KConfigDialogManager*, const char*);
     using KConfigDialogManager_Metacall_Callback = int (*)(KConfigDialogManager*, int, int, void**);
     using KConfigDialogManager_Event_Callback = bool (*)(KConfigDialogManager*, QEvent*);
     using KConfigDialogManager_EventFilter_Callback = bool (*)(KConfigDialogManager*, QObject*, QEvent*);
@@ -42,6 +44,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
 
   protected:
     // Instance callback storage
+    KConfigDialogManager_MetaObject_Callback kconfigdialogmanager_metaobject_callback = nullptr;
+    KConfigDialogManager_Metacast_Callback kconfigdialogmanager_metacast_callback = nullptr;
     KConfigDialogManager_Metacall_Callback kconfigdialogmanager_metacall_callback = nullptr;
     KConfigDialogManager_Event_Callback kconfigdialogmanager_event_callback = nullptr;
     KConfigDialogManager_EventFilter_Callback kconfigdialogmanager_eventfilter_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
     KConfigDialogManager_IsSignalConnected_Callback kconfigdialogmanager_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kconfigdialogmanager_metaobject_isbase = false;
+    mutable bool kconfigdialogmanager_metacast_isbase = false;
     mutable bool kconfigdialogmanager_metacall_isbase = false;
     mutable bool kconfigdialogmanager_event_isbase = false;
     mutable bool kconfigdialogmanager_eventfilter_isbase = false;
@@ -93,6 +99,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
     VirtualKConfigDialogManager(QWidget* parent, KCoreConfigSkeleton* conf) : KConfigDialogManager(parent, conf) {};
 
     ~VirtualKConfigDialogManager() {
+        kconfigdialogmanager_metaobject_callback = nullptr;
+        kconfigdialogmanager_metacast_callback = nullptr;
         kconfigdialogmanager_metacall_callback = nullptr;
         kconfigdialogmanager_event_callback = nullptr;
         kconfigdialogmanager_eventfilter_callback = nullptr;
@@ -118,6 +126,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
     }
 
     // Callback setters
+    inline void setKConfigDialogManager_MetaObject_Callback(KConfigDialogManager_MetaObject_Callback cb) { kconfigdialogmanager_metaobject_callback = cb; }
+    inline void setKConfigDialogManager_Metacast_Callback(KConfigDialogManager_Metacast_Callback cb) { kconfigdialogmanager_metacast_callback = cb; }
     inline void setKConfigDialogManager_Metacall_Callback(KConfigDialogManager_Metacall_Callback cb) { kconfigdialogmanager_metacall_callback = cb; }
     inline void setKConfigDialogManager_Event_Callback(KConfigDialogManager_Event_Callback cb) { kconfigdialogmanager_event_callback = cb; }
     inline void setKConfigDialogManager_EventFilter_Callback(KConfigDialogManager_EventFilter_Callback cb) { kconfigdialogmanager_eventfilter_callback = cb; }
@@ -142,6 +152,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
     inline void setKConfigDialogManager_IsSignalConnected_Callback(KConfigDialogManager_IsSignalConnected_Callback cb) { kconfigdialogmanager_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKConfigDialogManager_MetaObject_IsBase(bool value) const { kconfigdialogmanager_metaobject_isbase = value; }
+    inline void setKConfigDialogManager_Metacast_IsBase(bool value) const { kconfigdialogmanager_metacast_isbase = value; }
     inline void setKConfigDialogManager_Metacall_IsBase(bool value) const { kconfigdialogmanager_metacall_isbase = value; }
     inline void setKConfigDialogManager_Event_IsBase(bool value) const { kconfigdialogmanager_event_isbase = value; }
     inline void setKConfigDialogManager_EventFilter_IsBase(bool value) const { kconfigdialogmanager_eventfilter_isbase = value; }
@@ -164,6 +176,34 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
     inline void setKConfigDialogManager_SenderSignalIndex_IsBase(bool value) const { kconfigdialogmanager_sendersignalindex_isbase = value; }
     inline void setKConfigDialogManager_Receivers_IsBase(bool value) const { kconfigdialogmanager_receivers_isbase = value; }
     inline void setKConfigDialogManager_IsSignalConnected_IsBase(bool value) const { kconfigdialogmanager_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kconfigdialogmanager_metaobject_isbase) {
+            kconfigdialogmanager_metaobject_isbase = false;
+            return KConfigDialogManager::metaObject();
+        } else if (kconfigdialogmanager_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kconfigdialogmanager_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KConfigDialogManager::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kconfigdialogmanager_metacast_isbase) {
+            kconfigdialogmanager_metacast_isbase = false;
+            return KConfigDialogManager::qt_metacast(param1);
+        } else if (kconfigdialogmanager_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kconfigdialogmanager_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KConfigDialogManager::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

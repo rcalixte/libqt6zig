@@ -17,6 +17,8 @@ class VirtualQScreenCapture final : public QScreenCapture {
     bool isVirtualQScreenCapture = true;
 
     // Virtual class public types (including callbacks)
+    using QScreenCapture_MetaObject_Callback = QMetaObject* (*)();
+    using QScreenCapture_Metacast_Callback = void* (*)(QScreenCapture*, const char*);
     using QScreenCapture_Metacall_Callback = int (*)(QScreenCapture*, int, int, void**);
     using QScreenCapture_Event_Callback = bool (*)(QScreenCapture*, QEvent*);
     using QScreenCapture_EventFilter_Callback = bool (*)(QScreenCapture*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQScreenCapture final : public QScreenCapture {
 
   protected:
     // Instance callback storage
+    QScreenCapture_MetaObject_Callback qscreencapture_metaobject_callback = nullptr;
+    QScreenCapture_Metacast_Callback qscreencapture_metacast_callback = nullptr;
     QScreenCapture_Metacall_Callback qscreencapture_metacall_callback = nullptr;
     QScreenCapture_Event_Callback qscreencapture_event_callback = nullptr;
     QScreenCapture_EventFilter_Callback qscreencapture_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQScreenCapture final : public QScreenCapture {
     QScreenCapture_IsSignalConnected_Callback qscreencapture_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscreencapture_metaobject_isbase = false;
+    mutable bool qscreencapture_metacast_isbase = false;
     mutable bool qscreencapture_metacall_isbase = false;
     mutable bool qscreencapture_event_isbase = false;
     mutable bool qscreencapture_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQScreenCapture final : public QScreenCapture {
     VirtualQScreenCapture(QObject* parent) : QScreenCapture(parent) {};
 
     ~VirtualQScreenCapture() {
+        qscreencapture_metaobject_callback = nullptr;
+        qscreencapture_metacast_callback = nullptr;
         qscreencapture_metacall_callback = nullptr;
         qscreencapture_event_callback = nullptr;
         qscreencapture_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQScreenCapture final : public QScreenCapture {
     }
 
     // Callback setters
+    inline void setQScreenCapture_MetaObject_Callback(QScreenCapture_MetaObject_Callback cb) { qscreencapture_metaobject_callback = cb; }
+    inline void setQScreenCapture_Metacast_Callback(QScreenCapture_Metacast_Callback cb) { qscreencapture_metacast_callback = cb; }
     inline void setQScreenCapture_Metacall_Callback(QScreenCapture_Metacall_Callback cb) { qscreencapture_metacall_callback = cb; }
     inline void setQScreenCapture_Event_Callback(QScreenCapture_Event_Callback cb) { qscreencapture_event_callback = cb; }
     inline void setQScreenCapture_EventFilter_Callback(QScreenCapture_EventFilter_Callback cb) { qscreencapture_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQScreenCapture final : public QScreenCapture {
     inline void setQScreenCapture_IsSignalConnected_Callback(QScreenCapture_IsSignalConnected_Callback cb) { qscreencapture_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQScreenCapture_MetaObject_IsBase(bool value) const { qscreencapture_metaobject_isbase = value; }
+    inline void setQScreenCapture_Metacast_IsBase(bool value) const { qscreencapture_metacast_isbase = value; }
     inline void setQScreenCapture_Metacall_IsBase(bool value) const { qscreencapture_metacall_isbase = value; }
     inline void setQScreenCapture_Event_IsBase(bool value) const { qscreencapture_event_isbase = value; }
     inline void setQScreenCapture_EventFilter_IsBase(bool value) const { qscreencapture_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQScreenCapture final : public QScreenCapture {
     inline void setQScreenCapture_SenderSignalIndex_IsBase(bool value) const { qscreencapture_sendersignalindex_isbase = value; }
     inline void setQScreenCapture_Receivers_IsBase(bool value) const { qscreencapture_receivers_isbase = value; }
     inline void setQScreenCapture_IsSignalConnected_IsBase(bool value) const { qscreencapture_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscreencapture_metaobject_isbase) {
+            qscreencapture_metaobject_isbase = false;
+            return QScreenCapture::metaObject();
+        } else if (qscreencapture_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscreencapture_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QScreenCapture::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscreencapture_metacast_isbase) {
+            qscreencapture_metacast_isbase = false;
+            return QScreenCapture::qt_metacast(param1);
+        } else if (qscreencapture_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscreencapture_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QScreenCapture::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

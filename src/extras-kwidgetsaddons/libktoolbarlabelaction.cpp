@@ -27,11 +27,21 @@ KToolBarLabelAction* KToolBarLabelAction_new2(QAction* buddy, const libqt_string
 }
 
 QMetaObject* KToolBarLabelAction_MetaObject(const KToolBarLabelAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktoolbarlabelaction = dynamic_cast<const VirtualKToolBarLabelAction*>(self);
+    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKToolBarLabelAction*)self)->metaObject();
+    }
 }
 
 void* KToolBarLabelAction_Metacast(KToolBarLabelAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
+    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKToolBarLabelAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KToolBarLabelAction_Metacall(KToolBarLabelAction* self, int param1, int param2, void** param3) {
@@ -94,6 +104,44 @@ bool KToolBarLabelAction_EventFilter(KToolBarLabelAction* self, QObject* watched
         return vktoolbarlabelaction->eventFilter(watched, event);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KToolBarLabelAction_QBaseMetaObject(const KToolBarLabelAction* self) {
+    auto* vktoolbarlabelaction = const_cast<VirtualKToolBarLabelAction*>(dynamic_cast<const VirtualKToolBarLabelAction*>(self));
+    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
+        vktoolbarlabelaction->setKToolBarLabelAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vktoolbarlabelaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KToolBarLabelAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolBarLabelAction_OnMetaObject(const KToolBarLabelAction* self, intptr_t slot) {
+    auto* vktoolbarlabelaction = const_cast<VirtualKToolBarLabelAction*>(dynamic_cast<const VirtualKToolBarLabelAction*>(self));
+    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
+        vktoolbarlabelaction->setKToolBarLabelAction_MetaObject_Callback(reinterpret_cast<VirtualKToolBarLabelAction::KToolBarLabelAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KToolBarLabelAction_QBaseMetacast(KToolBarLabelAction* self, const char* param1) {
+    auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
+    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
+        vktoolbarlabelaction->setKToolBarLabelAction_Metacast_IsBase(true);
+        return vktoolbarlabelaction->qt_metacast(param1);
+    } else {
+        return self->KToolBarLabelAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToolBarLabelAction_OnMetacast(KToolBarLabelAction* self, intptr_t slot) {
+    auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
+    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
+        vktoolbarlabelaction->setKToolBarLabelAction_Metacast_Callback(reinterpret_cast<VirtualKToolBarLabelAction::KToolBarLabelAction_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

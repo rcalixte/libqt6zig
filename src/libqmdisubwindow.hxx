@@ -17,6 +17,8 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
     bool isVirtualQMdiSubWindow = true;
 
     // Virtual class public types (including callbacks)
+    using QMdiSubWindow_MetaObject_Callback = QMetaObject* (*)();
+    using QMdiSubWindow_Metacast_Callback = void* (*)(QMdiSubWindow*, const char*);
     using QMdiSubWindow_Metacall_Callback = int (*)(QMdiSubWindow*, int, int, void**);
     using QMdiSubWindow_SizeHint_Callback = QSize* (*)();
     using QMdiSubWindow_MinimumSizeHint_Callback = QSize* (*)();
@@ -78,6 +80,8 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
 
   protected:
     // Instance callback storage
+    QMdiSubWindow_MetaObject_Callback qmdisubwindow_metaobject_callback = nullptr;
+    QMdiSubWindow_Metacast_Callback qmdisubwindow_metacast_callback = nullptr;
     QMdiSubWindow_Metacall_Callback qmdisubwindow_metacall_callback = nullptr;
     QMdiSubWindow_SizeHint_Callback qmdisubwindow_sizehint_callback = nullptr;
     QMdiSubWindow_MinimumSizeHint_Callback qmdisubwindow_minimumsizehint_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
     QMdiSubWindow_GetDecodedMetricF_Callback qmdisubwindow_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmdisubwindow_metaobject_isbase = false;
+    mutable bool qmdisubwindow_metacast_isbase = false;
     mutable bool qmdisubwindow_metacall_isbase = false;
     mutable bool qmdisubwindow_sizehint_isbase = false;
     mutable bool qmdisubwindow_minimumsizehint_isbase = false;
@@ -203,6 +209,8 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
     VirtualQMdiSubWindow(QWidget* parent, Qt::WindowFlags flags) : QMdiSubWindow(parent, flags) {};
 
     ~VirtualQMdiSubWindow() {
+        qmdisubwindow_metaobject_callback = nullptr;
+        qmdisubwindow_metacast_callback = nullptr;
         qmdisubwindow_metacall_callback = nullptr;
         qmdisubwindow_sizehint_callback = nullptr;
         qmdisubwindow_minimumsizehint_callback = nullptr;
@@ -264,6 +272,8 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
     }
 
     // Callback setters
+    inline void setQMdiSubWindow_MetaObject_Callback(QMdiSubWindow_MetaObject_Callback cb) { qmdisubwindow_metaobject_callback = cb; }
+    inline void setQMdiSubWindow_Metacast_Callback(QMdiSubWindow_Metacast_Callback cb) { qmdisubwindow_metacast_callback = cb; }
     inline void setQMdiSubWindow_Metacall_Callback(QMdiSubWindow_Metacall_Callback cb) { qmdisubwindow_metacall_callback = cb; }
     inline void setQMdiSubWindow_SizeHint_Callback(QMdiSubWindow_SizeHint_Callback cb) { qmdisubwindow_sizehint_callback = cb; }
     inline void setQMdiSubWindow_MinimumSizeHint_Callback(QMdiSubWindow_MinimumSizeHint_Callback cb) { qmdisubwindow_minimumsizehint_callback = cb; }
@@ -324,6 +334,8 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
     inline void setQMdiSubWindow_GetDecodedMetricF_Callback(QMdiSubWindow_GetDecodedMetricF_Callback cb) { qmdisubwindow_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQMdiSubWindow_MetaObject_IsBase(bool value) const { qmdisubwindow_metaobject_isbase = value; }
+    inline void setQMdiSubWindow_Metacast_IsBase(bool value) const { qmdisubwindow_metacast_isbase = value; }
     inline void setQMdiSubWindow_Metacall_IsBase(bool value) const { qmdisubwindow_metacall_isbase = value; }
     inline void setQMdiSubWindow_SizeHint_IsBase(bool value) const { qmdisubwindow_sizehint_isbase = value; }
     inline void setQMdiSubWindow_MinimumSizeHint_IsBase(bool value) const { qmdisubwindow_minimumsizehint_isbase = value; }
@@ -382,6 +394,34 @@ class VirtualQMdiSubWindow final : public QMdiSubWindow {
     inline void setQMdiSubWindow_Receivers_IsBase(bool value) const { qmdisubwindow_receivers_isbase = value; }
     inline void setQMdiSubWindow_IsSignalConnected_IsBase(bool value) const { qmdisubwindow_issignalconnected_isbase = value; }
     inline void setQMdiSubWindow_GetDecodedMetricF_IsBase(bool value) const { qmdisubwindow_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmdisubwindow_metaobject_isbase) {
+            qmdisubwindow_metaobject_isbase = false;
+            return QMdiSubWindow::metaObject();
+        } else if (qmdisubwindow_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmdisubwindow_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMdiSubWindow::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmdisubwindow_metacast_isbase) {
+            qmdisubwindow_metacast_isbase = false;
+            return QMdiSubWindow::qt_metacast(param1);
+        } else if (qmdisubwindow_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmdisubwindow_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMdiSubWindow::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

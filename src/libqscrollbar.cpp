@@ -58,11 +58,21 @@ QScrollBar* QScrollBar_new4(int param1, QWidget* parent) {
 }
 
 QMetaObject* QScrollBar_MetaObject(const QScrollBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscrollbar = dynamic_cast<const VirtualQScrollBar*>(self);
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQScrollBar*)self)->metaObject();
+    }
 }
 
 void* QScrollBar_Metacast(QScrollBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQScrollBar*)self)->qt_metacast(param1);
+    }
 }
 
 int QScrollBar_Metacall(QScrollBar* self, int param1, int param2, void** param3) {
@@ -152,6 +162,44 @@ void QScrollBar_InitStyleOption(const QScrollBar* self, QStyleOptionSlider* opti
     auto* vqscrollbar = dynamic_cast<const VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QScrollBar_QBaseMetaObject(const QScrollBar* self) {
+    auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+        vqscrollbar->setQScrollBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscrollbar->metaObject();
+    } else {
+        return (QMetaObject*)self->QScrollBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScrollBar_OnMetaObject(const QScrollBar* self, intptr_t slot) {
+    auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+        vqscrollbar->setQScrollBar_MetaObject_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QScrollBar_QBaseMetacast(QScrollBar* self, const char* param1) {
+    auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+        vqscrollbar->setQScrollBar_Metacast_IsBase(true);
+        return vqscrollbar->qt_metacast(param1);
+    } else {
+        return self->QScrollBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScrollBar_OnMetacast(QScrollBar* self, intptr_t slot) {
+    auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+        vqscrollbar->setQScrollBar_Metacast_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Metacast_Callback>(slot));
     }
 }
 

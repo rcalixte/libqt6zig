@@ -17,6 +17,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     bool isVirtualQsciLexerMatlab = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerMatlab_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerMatlab_Metacast_Callback = void* (*)(QsciLexerMatlab*, const char*);
     using QsciLexerMatlab_Metacall_Callback = int (*)(QsciLexerMatlab*, int, int, void**);
     using QsciLexerMatlab_Language_Callback = const char* (*)();
     using QsciLexerMatlab_Lexer_Callback = const char* (*)();
@@ -68,6 +70,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
 
   protected:
     // Instance callback storage
+    QsciLexerMatlab_MetaObject_Callback qscilexermatlab_metaobject_callback = nullptr;
+    QsciLexerMatlab_Metacast_Callback qscilexermatlab_metacast_callback = nullptr;
     QsciLexerMatlab_Metacall_Callback qscilexermatlab_metacall_callback = nullptr;
     QsciLexerMatlab_Language_Callback qscilexermatlab_language_callback = nullptr;
     QsciLexerMatlab_Lexer_Callback qscilexermatlab_lexer_callback = nullptr;
@@ -118,6 +122,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     QsciLexerMatlab_IsSignalConnected_Callback qscilexermatlab_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexermatlab_metaobject_isbase = false;
+    mutable bool qscilexermatlab_metacast_isbase = false;
     mutable bool qscilexermatlab_metacall_isbase = false;
     mutable bool qscilexermatlab_language_isbase = false;
     mutable bool qscilexermatlab_lexer_isbase = false;
@@ -172,6 +178,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     VirtualQsciLexerMatlab(QObject* parent) : QsciLexerMatlab(parent) {};
 
     ~VirtualQsciLexerMatlab() {
+        qscilexermatlab_metaobject_callback = nullptr;
+        qscilexermatlab_metacast_callback = nullptr;
         qscilexermatlab_metacall_callback = nullptr;
         qscilexermatlab_language_callback = nullptr;
         qscilexermatlab_lexer_callback = nullptr;
@@ -223,6 +231,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     }
 
     // Callback setters
+    inline void setQsciLexerMatlab_MetaObject_Callback(QsciLexerMatlab_MetaObject_Callback cb) { qscilexermatlab_metaobject_callback = cb; }
+    inline void setQsciLexerMatlab_Metacast_Callback(QsciLexerMatlab_Metacast_Callback cb) { qscilexermatlab_metacast_callback = cb; }
     inline void setQsciLexerMatlab_Metacall_Callback(QsciLexerMatlab_Metacall_Callback cb) { qscilexermatlab_metacall_callback = cb; }
     inline void setQsciLexerMatlab_Language_Callback(QsciLexerMatlab_Language_Callback cb) { qscilexermatlab_language_callback = cb; }
     inline void setQsciLexerMatlab_Lexer_Callback(QsciLexerMatlab_Lexer_Callback cb) { qscilexermatlab_lexer_callback = cb; }
@@ -273,6 +283,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     inline void setQsciLexerMatlab_IsSignalConnected_Callback(QsciLexerMatlab_IsSignalConnected_Callback cb) { qscilexermatlab_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerMatlab_MetaObject_IsBase(bool value) const { qscilexermatlab_metaobject_isbase = value; }
+    inline void setQsciLexerMatlab_Metacast_IsBase(bool value) const { qscilexermatlab_metacast_isbase = value; }
     inline void setQsciLexerMatlab_Metacall_IsBase(bool value) const { qscilexermatlab_metacall_isbase = value; }
     inline void setQsciLexerMatlab_Language_IsBase(bool value) const { qscilexermatlab_language_isbase = value; }
     inline void setQsciLexerMatlab_Lexer_IsBase(bool value) const { qscilexermatlab_lexer_isbase = value; }
@@ -321,6 +333,34 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     inline void setQsciLexerMatlab_SenderSignalIndex_IsBase(bool value) const { qscilexermatlab_sendersignalindex_isbase = value; }
     inline void setQsciLexerMatlab_Receivers_IsBase(bool value) const { qscilexermatlab_receivers_isbase = value; }
     inline void setQsciLexerMatlab_IsSignalConnected_IsBase(bool value) const { qscilexermatlab_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexermatlab_metaobject_isbase) {
+            qscilexermatlab_metaobject_isbase = false;
+            return QsciLexerMatlab::metaObject();
+        } else if (qscilexermatlab_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexermatlab_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerMatlab::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexermatlab_metacast_isbase) {
+            qscilexermatlab_metacast_isbase = false;
+            return QsciLexerMatlab::qt_metacast(param1);
+        } else if (qscilexermatlab_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexermatlab_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerMatlab::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

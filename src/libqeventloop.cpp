@@ -24,11 +24,21 @@ QEventLoop* QEventLoop_new2(QObject* parent) {
 }
 
 QMetaObject* QEventLoop_MetaObject(const QEventLoop* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqeventloop = dynamic_cast<const VirtualQEventLoop*>(self);
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQEventLoop*)self)->metaObject();
+    }
 }
 
 void* QEventLoop_Metacast(QEventLoop* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQEventLoop*)self)->qt_metacast(param1);
+    }
 }
 
 int QEventLoop_Metacall(QEventLoop* self, int param1, int param2, void** param3) {
@@ -91,6 +101,44 @@ int QEventLoop_Exec1(QEventLoop* self, int flags) {
 
 void QEventLoop_Exit1(QEventLoop* self, int returnCode) {
     self->exit(static_cast<int>(returnCode));
+}
+
+// Base class handler implementation
+QMetaObject* QEventLoop_QBaseMetaObject(const QEventLoop* self) {
+    auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+        vqeventloop->setQEventLoop_MetaObject_IsBase(true);
+        return (QMetaObject*)vqeventloop->metaObject();
+    } else {
+        return (QMetaObject*)self->QEventLoop::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QEventLoop_OnMetaObject(const QEventLoop* self, intptr_t slot) {
+    auto* vqeventloop = const_cast<VirtualQEventLoop*>(dynamic_cast<const VirtualQEventLoop*>(self));
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+        vqeventloop->setQEventLoop_MetaObject_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QEventLoop_QBaseMetacast(QEventLoop* self, const char* param1) {
+    auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+        vqeventloop->setQEventLoop_Metacast_IsBase(true);
+        return vqeventloop->qt_metacast(param1);
+    } else {
+        return self->QEventLoop::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QEventLoop_OnMetacast(QEventLoop* self, intptr_t slot) {
+    auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
+    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
+        vqeventloop->setQEventLoop_Metacast_Callback(reinterpret_cast<VirtualQEventLoop::QEventLoop_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

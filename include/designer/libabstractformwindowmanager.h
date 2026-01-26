@@ -77,6 +77,10 @@ void QDesignerFormWindowManagerInterface_SetActiveFormWindow(QDesignerFormWindow
 void QDesignerFormWindowManagerInterface_ShowPreview(QDesignerFormWindowManagerInterface* self);
 void QDesignerFormWindowManagerInterface_CloseAllPreviews(QDesignerFormWindowManagerInterface* self);
 void QDesignerFormWindowManagerInterface_ShowPluginDialog(QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnMetaObject(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
+QMetaObject* QDesignerFormWindowManagerInterface_QBaseMetaObject(const QDesignerFormWindowManagerInterface* self);
+void QDesignerFormWindowManagerInterface_OnMetacast(QDesignerFormWindowManagerInterface* self, intptr_t slot);
+void* QDesignerFormWindowManagerInterface_QBaseMetacast(QDesignerFormWindowManagerInterface* self, const char* param1);
 void QDesignerFormWindowManagerInterface_OnMetacall(QDesignerFormWindowManagerInterface* self, intptr_t slot);
 int QDesignerFormWindowManagerInterface_QBaseMetacall(QDesignerFormWindowManagerInterface* self, int param1, int param2, void** param3);
 void QDesignerFormWindowManagerInterface_OnAction(const QDesignerFormWindowManagerInterface* self, intptr_t slot);

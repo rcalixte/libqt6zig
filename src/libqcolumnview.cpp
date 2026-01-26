@@ -62,11 +62,21 @@ QColumnView* QColumnView_new2() {
 }
 
 QMetaObject* QColumnView_MetaObject(const QColumnView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcolumnview = dynamic_cast<const VirtualQColumnView*>(self);
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQColumnView*)self)->metaObject();
+    }
 }
 
 void* QColumnView_Metacast(QColumnView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQColumnView*)self)->qt_metacast(param1);
+    }
 }
 
 int QColumnView_Metacall(QColumnView* self, int param1, int param2, void** param3) {
@@ -284,6 +294,44 @@ QAbstractItemView* QColumnView_CreateColumn(QColumnView* self, const QModelIndex
         return vqcolumnview->createColumn(*rootIndex);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QColumnView_QBaseMetaObject(const QColumnView* self) {
+    auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+        vqcolumnview->setQColumnView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcolumnview->metaObject();
+    } else {
+        return (QMetaObject*)self->QColumnView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColumnView_OnMetaObject(const QColumnView* self, intptr_t slot) {
+    auto* vqcolumnview = const_cast<VirtualQColumnView*>(dynamic_cast<const VirtualQColumnView*>(self));
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+        vqcolumnview->setQColumnView_MetaObject_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QColumnView_QBaseMetacast(QColumnView* self, const char* param1) {
+    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+        vqcolumnview->setQColumnView_Metacast_IsBase(true);
+        return vqcolumnview->qt_metacast(param1);
+    } else {
+        return self->QColumnView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColumnView_OnMetacast(QColumnView* self, intptr_t slot) {
+    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
+    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
+        vqcolumnview->setQColumnView_Metacast_Callback(reinterpret_cast<VirtualQColumnView::QColumnView_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

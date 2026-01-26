@@ -40,6 +40,10 @@ int KParts__ListingNotificationExtension_SupportedNotificationEventTypes(const K
 KParts__ListingNotificationExtension* KParts__ListingNotificationExtension_ChildObject(QObject* obj);
 void KParts__ListingNotificationExtension_ListingEvent(KParts__ListingNotificationExtension* self, int param1, const KFileItemList* param2);
 void KParts__ListingNotificationExtension_Connect_ListingEvent(KParts__ListingNotificationExtension* self, intptr_t slot);
+void KParts__ListingNotificationExtension_OnMetaObject(const KParts__ListingNotificationExtension* self, intptr_t slot);
+QMetaObject* KParts__ListingNotificationExtension_QBaseMetaObject(const KParts__ListingNotificationExtension* self);
+void KParts__ListingNotificationExtension_OnMetacast(KParts__ListingNotificationExtension* self, intptr_t slot);
+void* KParts__ListingNotificationExtension_QBaseMetacast(KParts__ListingNotificationExtension* self, const char* param1);
 void KParts__ListingNotificationExtension_OnMetacall(KParts__ListingNotificationExtension* self, intptr_t slot);
 int KParts__ListingNotificationExtension_QBaseMetacall(KParts__ListingNotificationExtension* self, int param1, int param2, void** param3);
 void KParts__ListingNotificationExtension_OnSupportedNotificationEventTypes(const KParts__ListingNotificationExtension* self, intptr_t slot);

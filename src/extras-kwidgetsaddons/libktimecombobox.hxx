@@ -17,6 +17,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     bool isVirtualKTimeComboBox = true;
 
     // Virtual class public types (including callbacks)
+    using KTimeComboBox_MetaObject_Callback = QMetaObject* (*)();
+    using KTimeComboBox_Metacast_Callback = void* (*)(KTimeComboBox*, const char*);
     using KTimeComboBox_Metacall_Callback = int (*)(KTimeComboBox*, int, int, void**);
     using KTimeComboBox_EventFilter_Callback = bool (*)(KTimeComboBox*, QObject*, QEvent*);
     using KTimeComboBox_ShowPopup_Callback = void (*)();
@@ -83,6 +85,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
   protected:
     // Instance callback storage
+    KTimeComboBox_MetaObject_Callback ktimecombobox_metaobject_callback = nullptr;
+    KTimeComboBox_Metacast_Callback ktimecombobox_metacast_callback = nullptr;
     KTimeComboBox_Metacall_Callback ktimecombobox_metacall_callback = nullptr;
     KTimeComboBox_EventFilter_Callback ktimecombobox_eventfilter_callback = nullptr;
     KTimeComboBox_ShowPopup_Callback ktimecombobox_showpopup_callback = nullptr;
@@ -148,6 +152,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     KTimeComboBox_GetDecodedMetricF_Callback ktimecombobox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktimecombobox_metaobject_isbase = false;
+    mutable bool ktimecombobox_metacast_isbase = false;
     mutable bool ktimecombobox_metacall_isbase = false;
     mutable bool ktimecombobox_eventfilter_isbase = false;
     mutable bool ktimecombobox_showpopup_isbase = false;
@@ -217,6 +223,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     VirtualKTimeComboBox() : KTimeComboBox() {};
 
     ~VirtualKTimeComboBox() {
+        ktimecombobox_metaobject_callback = nullptr;
+        ktimecombobox_metacast_callback = nullptr;
         ktimecombobox_metacall_callback = nullptr;
         ktimecombobox_eventfilter_callback = nullptr;
         ktimecombobox_showpopup_callback = nullptr;
@@ -283,6 +291,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     }
 
     // Callback setters
+    inline void setKTimeComboBox_MetaObject_Callback(KTimeComboBox_MetaObject_Callback cb) { ktimecombobox_metaobject_callback = cb; }
+    inline void setKTimeComboBox_Metacast_Callback(KTimeComboBox_Metacast_Callback cb) { ktimecombobox_metacast_callback = cb; }
     inline void setKTimeComboBox_Metacall_Callback(KTimeComboBox_Metacall_Callback cb) { ktimecombobox_metacall_callback = cb; }
     inline void setKTimeComboBox_EventFilter_Callback(KTimeComboBox_EventFilter_Callback cb) { ktimecombobox_eventfilter_callback = cb; }
     inline void setKTimeComboBox_ShowPopup_Callback(KTimeComboBox_ShowPopup_Callback cb) { ktimecombobox_showpopup_callback = cb; }
@@ -348,6 +358,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     inline void setKTimeComboBox_GetDecodedMetricF_Callback(KTimeComboBox_GetDecodedMetricF_Callback cb) { ktimecombobox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKTimeComboBox_MetaObject_IsBase(bool value) const { ktimecombobox_metaobject_isbase = value; }
+    inline void setKTimeComboBox_Metacast_IsBase(bool value) const { ktimecombobox_metacast_isbase = value; }
     inline void setKTimeComboBox_Metacall_IsBase(bool value) const { ktimecombobox_metacall_isbase = value; }
     inline void setKTimeComboBox_EventFilter_IsBase(bool value) const { ktimecombobox_eventfilter_isbase = value; }
     inline void setKTimeComboBox_ShowPopup_IsBase(bool value) const { ktimecombobox_showpopup_isbase = value; }
@@ -411,6 +423,34 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     inline void setKTimeComboBox_Receivers_IsBase(bool value) const { ktimecombobox_receivers_isbase = value; }
     inline void setKTimeComboBox_IsSignalConnected_IsBase(bool value) const { ktimecombobox_issignalconnected_isbase = value; }
     inline void setKTimeComboBox_GetDecodedMetricF_IsBase(bool value) const { ktimecombobox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktimecombobox_metaobject_isbase) {
+            ktimecombobox_metaobject_isbase = false;
+            return KTimeComboBox::metaObject();
+        } else if (ktimecombobox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktimecombobox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTimeComboBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktimecombobox_metacast_isbase) {
+            ktimecombobox_metacast_isbase = false;
+            return KTimeComboBox::qt_metacast(param1);
+        } else if (ktimecombobox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktimecombobox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTimeComboBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

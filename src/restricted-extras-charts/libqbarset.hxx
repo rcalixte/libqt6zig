@@ -17,6 +17,8 @@ class VirtualQBarSet final : public QBarSet {
     bool isVirtualQBarSet = true;
 
     // Virtual class public types (including callbacks)
+    using QBarSet_MetaObject_Callback = QMetaObject* (*)();
+    using QBarSet_Metacast_Callback = void* (*)(QBarSet*, const char*);
     using QBarSet_Metacall_Callback = int (*)(QBarSet*, int, int, void**);
     using QBarSet_Event_Callback = bool (*)(QBarSet*, QEvent*);
     using QBarSet_EventFilter_Callback = bool (*)(QBarSet*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQBarSet final : public QBarSet {
 
   protected:
     // Instance callback storage
+    QBarSet_MetaObject_Callback qbarset_metaobject_callback = nullptr;
+    QBarSet_Metacast_Callback qbarset_metacast_callback = nullptr;
     QBarSet_Metacall_Callback qbarset_metacall_callback = nullptr;
     QBarSet_Event_Callback qbarset_event_callback = nullptr;
     QBarSet_EventFilter_Callback qbarset_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQBarSet final : public QBarSet {
     QBarSet_IsSignalConnected_Callback qbarset_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qbarset_metaobject_isbase = false;
+    mutable bool qbarset_metacast_isbase = false;
     mutable bool qbarset_metacall_isbase = false;
     mutable bool qbarset_event_isbase = false;
     mutable bool qbarset_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQBarSet final : public QBarSet {
     VirtualQBarSet(const QString label, QObject* parent) : QBarSet(label, parent) {};
 
     ~VirtualQBarSet() {
+        qbarset_metaobject_callback = nullptr;
+        qbarset_metacast_callback = nullptr;
         qbarset_metacall_callback = nullptr;
         qbarset_event_callback = nullptr;
         qbarset_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQBarSet final : public QBarSet {
     }
 
     // Callback setters
+    inline void setQBarSet_MetaObject_Callback(QBarSet_MetaObject_Callback cb) { qbarset_metaobject_callback = cb; }
+    inline void setQBarSet_Metacast_Callback(QBarSet_Metacast_Callback cb) { qbarset_metacast_callback = cb; }
     inline void setQBarSet_Metacall_Callback(QBarSet_Metacall_Callback cb) { qbarset_metacall_callback = cb; }
     inline void setQBarSet_Event_Callback(QBarSet_Event_Callback cb) { qbarset_event_callback = cb; }
     inline void setQBarSet_EventFilter_Callback(QBarSet_EventFilter_Callback cb) { qbarset_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQBarSet final : public QBarSet {
     inline void setQBarSet_IsSignalConnected_Callback(QBarSet_IsSignalConnected_Callback cb) { qbarset_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQBarSet_MetaObject_IsBase(bool value) const { qbarset_metaobject_isbase = value; }
+    inline void setQBarSet_Metacast_IsBase(bool value) const { qbarset_metacast_isbase = value; }
     inline void setQBarSet_Metacall_IsBase(bool value) const { qbarset_metacall_isbase = value; }
     inline void setQBarSet_Event_IsBase(bool value) const { qbarset_event_isbase = value; }
     inline void setQBarSet_EventFilter_IsBase(bool value) const { qbarset_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQBarSet final : public QBarSet {
     inline void setQBarSet_SenderSignalIndex_IsBase(bool value) const { qbarset_sendersignalindex_isbase = value; }
     inline void setQBarSet_Receivers_IsBase(bool value) const { qbarset_receivers_isbase = value; }
     inline void setQBarSet_IsSignalConnected_IsBase(bool value) const { qbarset_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qbarset_metaobject_isbase) {
+            qbarset_metaobject_isbase = false;
+            return QBarSet::metaObject();
+        } else if (qbarset_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qbarset_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QBarSet::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qbarset_metacast_isbase) {
+            qbarset_metacast_isbase = false;
+            return QBarSet::qt_metacast(param1);
+        } else if (qbarset_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qbarset_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QBarSet::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

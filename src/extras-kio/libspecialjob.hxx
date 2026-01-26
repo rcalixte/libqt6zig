@@ -17,6 +17,8 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
     bool isVirtualKIOSpecialJob = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__SpecialJob_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__SpecialJob_Metacast_Callback = void* (*)(KIO__SpecialJob*, const char*);
     using KIO__SpecialJob_Metacall_Callback = int (*)(KIO__SpecialJob*, int, int, void**);
     using KIO__SpecialJob_DoResume_Callback = bool (*)();
     using KIO__SpecialJob_SlotRedirection_Callback = void (*)(KIO__SpecialJob*, QUrl*);
@@ -64,6 +66,8 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
 
   protected:
     // Instance callback storage
+    KIO__SpecialJob_MetaObject_Callback kio__specialjob_metaobject_callback = nullptr;
+    KIO__SpecialJob_Metacast_Callback kio__specialjob_metacast_callback = nullptr;
     KIO__SpecialJob_Metacall_Callback kio__specialjob_metacall_callback = nullptr;
     KIO__SpecialJob_DoResume_Callback kio__specialjob_doresume_callback = nullptr;
     KIO__SpecialJob_SlotRedirection_Callback kio__specialjob_slotredirection_callback = nullptr;
@@ -110,6 +114,8 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
     KIO__SpecialJob_IsSignalConnected_Callback kio__specialjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__specialjob_metaobject_isbase = false;
+    mutable bool kio__specialjob_metacast_isbase = false;
     mutable bool kio__specialjob_metacall_isbase = false;
     mutable bool kio__specialjob_doresume_isbase = false;
     mutable bool kio__specialjob_slotredirection_isbase = false;
@@ -160,6 +166,8 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
     VirtualKIOSpecialJob(const QUrl& url, const QByteArray& data) : KIO::SpecialJob(url, data) {};
 
     ~VirtualKIOSpecialJob() {
+        kio__specialjob_metaobject_callback = nullptr;
+        kio__specialjob_metacast_callback = nullptr;
         kio__specialjob_metacall_callback = nullptr;
         kio__specialjob_doresume_callback = nullptr;
         kio__specialjob_slotredirection_callback = nullptr;
@@ -207,6 +215,8 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
     }
 
     // Callback setters
+    inline void setKIO__SpecialJob_MetaObject_Callback(KIO__SpecialJob_MetaObject_Callback cb) { kio__specialjob_metaobject_callback = cb; }
+    inline void setKIO__SpecialJob_Metacast_Callback(KIO__SpecialJob_Metacast_Callback cb) { kio__specialjob_metacast_callback = cb; }
     inline void setKIO__SpecialJob_Metacall_Callback(KIO__SpecialJob_Metacall_Callback cb) { kio__specialjob_metacall_callback = cb; }
     inline void setKIO__SpecialJob_DoResume_Callback(KIO__SpecialJob_DoResume_Callback cb) { kio__specialjob_doresume_callback = cb; }
     inline void setKIO__SpecialJob_SlotRedirection_Callback(KIO__SpecialJob_SlotRedirection_Callback cb) { kio__specialjob_slotredirection_callback = cb; }
@@ -253,6 +263,8 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
     inline void setKIO__SpecialJob_IsSignalConnected_Callback(KIO__SpecialJob_IsSignalConnected_Callback cb) { kio__specialjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__SpecialJob_MetaObject_IsBase(bool value) const { kio__specialjob_metaobject_isbase = value; }
+    inline void setKIO__SpecialJob_Metacast_IsBase(bool value) const { kio__specialjob_metacast_isbase = value; }
     inline void setKIO__SpecialJob_Metacall_IsBase(bool value) const { kio__specialjob_metacall_isbase = value; }
     inline void setKIO__SpecialJob_DoResume_IsBase(bool value) const { kio__specialjob_doresume_isbase = value; }
     inline void setKIO__SpecialJob_SlotRedirection_IsBase(bool value) const { kio__specialjob_slotredirection_isbase = value; }
@@ -297,6 +309,34 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
     inline void setKIO__SpecialJob_SenderSignalIndex_IsBase(bool value) const { kio__specialjob_sendersignalindex_isbase = value; }
     inline void setKIO__SpecialJob_Receivers_IsBase(bool value) const { kio__specialjob_receivers_isbase = value; }
     inline void setKIO__SpecialJob_IsSignalConnected_IsBase(bool value) const { kio__specialjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__specialjob_metaobject_isbase) {
+            kio__specialjob_metaobject_isbase = false;
+            return KIO__SpecialJob::metaObject();
+        } else if (kio__specialjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__specialjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__SpecialJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__specialjob_metacast_isbase) {
+            kio__specialjob_metacast_isbase = false;
+            return KIO__SpecialJob::qt_metacast(param1);
+        } else if (kio__specialjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__specialjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__SpecialJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

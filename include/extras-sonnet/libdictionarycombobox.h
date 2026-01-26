@@ -72,6 +72,10 @@ void Sonnet__DictionaryComboBox_DictionaryChanged(Sonnet__DictionaryComboBox* se
 void Sonnet__DictionaryComboBox_Connect_DictionaryChanged(Sonnet__DictionaryComboBox* self, intptr_t slot);
 void Sonnet__DictionaryComboBox_DictionaryNameChanged(Sonnet__DictionaryComboBox* self, const libqt_string dictionaryName);
 void Sonnet__DictionaryComboBox_Connect_DictionaryNameChanged(Sonnet__DictionaryComboBox* self, intptr_t slot);
+void Sonnet__DictionaryComboBox_OnMetaObject(const Sonnet__DictionaryComboBox* self, intptr_t slot);
+QMetaObject* Sonnet__DictionaryComboBox_QBaseMetaObject(const Sonnet__DictionaryComboBox* self);
+void Sonnet__DictionaryComboBox_OnMetacast(Sonnet__DictionaryComboBox* self, intptr_t slot);
+void* Sonnet__DictionaryComboBox_QBaseMetacast(Sonnet__DictionaryComboBox* self, const char* param1);
 void Sonnet__DictionaryComboBox_OnMetacall(Sonnet__DictionaryComboBox* self, intptr_t slot);
 int Sonnet__DictionaryComboBox_QBaseMetacall(Sonnet__DictionaryComboBox* self, int param1, int param2, void** param3);
 void Sonnet__DictionaryComboBox_SetModel(Sonnet__DictionaryComboBox* self, QAbstractItemModel* model);

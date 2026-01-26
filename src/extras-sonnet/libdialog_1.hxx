@@ -17,6 +17,8 @@ class VirtualSonnetDialog final : public Sonnet::Dialog {
     bool isVirtualSonnetDialog = true;
 
     // Virtual class public types (including callbacks)
+    using Sonnet__Dialog_MetaObject_Callback = QMetaObject* (*)();
+    using Sonnet__Dialog_Metacast_Callback = void* (*)(Sonnet__Dialog*, const char*);
     using Sonnet__Dialog_Metacall_Callback = int (*)(Sonnet__Dialog*, int, int, void**);
     using Sonnet__Dialog_SetVisible_Callback = void (*)(Sonnet__Dialog*, bool);
     using Sonnet__Dialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualSonnetDialog final : public Sonnet::Dialog {
 
   protected:
     // Instance callback storage
+    Sonnet__Dialog_MetaObject_Callback sonnet__dialog_metaobject_callback = nullptr;
+    Sonnet__Dialog_Metacast_Callback sonnet__dialog_metacast_callback = nullptr;
     Sonnet__Dialog_Metacall_Callback sonnet__dialog_metacall_callback = nullptr;
     Sonnet__Dialog_SetVisible_Callback sonnet__dialog_setvisible_callback = nullptr;
     Sonnet__Dialog_SizeHint_Callback sonnet__dialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualSonnetDialog final : public Sonnet::Dialog {
     Sonnet__Dialog_GetDecodedMetricF_Callback sonnet__dialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool sonnet__dialog_metaobject_isbase = false;
+    mutable bool sonnet__dialog_metacast_isbase = false;
     mutable bool sonnet__dialog_metacall_isbase = false;
     mutable bool sonnet__dialog_setvisible_isbase = false;
     mutable bool sonnet__dialog_sizehint_isbase = false;
@@ -219,6 +225,8 @@ class VirtualSonnetDialog final : public Sonnet::Dialog {
     VirtualSonnetDialog(Sonnet::BackgroundChecker* checker, QWidget* parent) : Sonnet::Dialog(checker, parent) {};
 
     ~VirtualSonnetDialog() {
+        sonnet__dialog_metaobject_callback = nullptr;
+        sonnet__dialog_metacast_callback = nullptr;
         sonnet__dialog_metacall_callback = nullptr;
         sonnet__dialog_setvisible_callback = nullptr;
         sonnet__dialog_sizehint_callback = nullptr;
@@ -286,6 +294,8 @@ class VirtualSonnetDialog final : public Sonnet::Dialog {
     }
 
     // Callback setters
+    inline void setSonnet__Dialog_MetaObject_Callback(Sonnet__Dialog_MetaObject_Callback cb) { sonnet__dialog_metaobject_callback = cb; }
+    inline void setSonnet__Dialog_Metacast_Callback(Sonnet__Dialog_Metacast_Callback cb) { sonnet__dialog_metacast_callback = cb; }
     inline void setSonnet__Dialog_Metacall_Callback(Sonnet__Dialog_Metacall_Callback cb) { sonnet__dialog_metacall_callback = cb; }
     inline void setSonnet__Dialog_SetVisible_Callback(Sonnet__Dialog_SetVisible_Callback cb) { sonnet__dialog_setvisible_callback = cb; }
     inline void setSonnet__Dialog_SizeHint_Callback(Sonnet__Dialog_SizeHint_Callback cb) { sonnet__dialog_sizehint_callback = cb; }
@@ -352,6 +362,8 @@ class VirtualSonnetDialog final : public Sonnet::Dialog {
     inline void setSonnet__Dialog_GetDecodedMetricF_Callback(Sonnet__Dialog_GetDecodedMetricF_Callback cb) { sonnet__dialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setSonnet__Dialog_MetaObject_IsBase(bool value) const { sonnet__dialog_metaobject_isbase = value; }
+    inline void setSonnet__Dialog_Metacast_IsBase(bool value) const { sonnet__dialog_metacast_isbase = value; }
     inline void setSonnet__Dialog_Metacall_IsBase(bool value) const { sonnet__dialog_metacall_isbase = value; }
     inline void setSonnet__Dialog_SetVisible_IsBase(bool value) const { sonnet__dialog_setvisible_isbase = value; }
     inline void setSonnet__Dialog_SizeHint_IsBase(bool value) const { sonnet__dialog_sizehint_isbase = value; }
@@ -416,6 +428,34 @@ class VirtualSonnetDialog final : public Sonnet::Dialog {
     inline void setSonnet__Dialog_Receivers_IsBase(bool value) const { sonnet__dialog_receivers_isbase = value; }
     inline void setSonnet__Dialog_IsSignalConnected_IsBase(bool value) const { sonnet__dialog_issignalconnected_isbase = value; }
     inline void setSonnet__Dialog_GetDecodedMetricF_IsBase(bool value) const { sonnet__dialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (sonnet__dialog_metaobject_isbase) {
+            sonnet__dialog_metaobject_isbase = false;
+            return Sonnet__Dialog::metaObject();
+        } else if (sonnet__dialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = sonnet__dialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Sonnet__Dialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (sonnet__dialog_metacast_isbase) {
+            sonnet__dialog_metacast_isbase = false;
+            return Sonnet__Dialog::qt_metacast(param1);
+        } else if (sonnet__dialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = sonnet__dialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Sonnet__Dialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

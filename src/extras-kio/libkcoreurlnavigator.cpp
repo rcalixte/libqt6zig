@@ -27,11 +27,21 @@ KCoreUrlNavigator* KCoreUrlNavigator_new3(const QUrl* url, QObject* parent) {
 }
 
 QMetaObject* KCoreUrlNavigator_MetaObject(const KCoreUrlNavigator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcoreurlnavigator = dynamic_cast<const VirtualKCoreUrlNavigator*>(self);
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCoreUrlNavigator*)self)->metaObject();
+    }
 }
 
 void* KCoreUrlNavigator_Metacast(KCoreUrlNavigator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCoreUrlNavigator*)self)->qt_metacast(param1);
+    }
 }
 
 int KCoreUrlNavigator_Metacall(KCoreUrlNavigator* self, int param1, int param2, void** param3) {
@@ -113,6 +123,44 @@ QUrl* KCoreUrlNavigator_LocationUrl1(const KCoreUrlNavigator* self, int historyI
 
 QVariant* KCoreUrlNavigator_LocationState1(const KCoreUrlNavigator* self, int historyIndex) {
     return new QVariant(self->locationState(static_cast<int>(historyIndex)));
+}
+
+// Base class handler implementation
+QMetaObject* KCoreUrlNavigator_QBaseMetaObject(const KCoreUrlNavigator* self) {
+    auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+        vkcoreurlnavigator->setKCoreUrlNavigator_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcoreurlnavigator->metaObject();
+    } else {
+        return (QMetaObject*)self->KCoreUrlNavigator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreUrlNavigator_OnMetaObject(const KCoreUrlNavigator* self, intptr_t slot) {
+    auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+        vkcoreurlnavigator->setKCoreUrlNavigator_MetaObject_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCoreUrlNavigator_QBaseMetacast(KCoreUrlNavigator* self, const char* param1) {
+    auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+        vkcoreurlnavigator->setKCoreUrlNavigator_Metacast_IsBase(true);
+        return vkcoreurlnavigator->qt_metacast(param1);
+    } else {
+        return self->KCoreUrlNavigator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreUrlNavigator_OnMetacast(KCoreUrlNavigator* self, intptr_t slot) {
+    auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+        vkcoreurlnavigator->setKCoreUrlNavigator_Metacast_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

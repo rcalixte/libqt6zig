@@ -66,6 +66,10 @@ void KBusyIndicatorWidget_ResizeEvent(KBusyIndicatorWidget* self, QResizeEvent* 
 void KBusyIndicatorWidget_PaintEvent(KBusyIndicatorWidget* self, QPaintEvent* param1);
 bool KBusyIndicatorWidget_Event(KBusyIndicatorWidget* self, QEvent* event);
 void KBusyIndicatorWidget_SetRunning1(KBusyIndicatorWidget* self, const bool enable);
+void KBusyIndicatorWidget_OnMetaObject(const KBusyIndicatorWidget* self, intptr_t slot);
+QMetaObject* KBusyIndicatorWidget_QBaseMetaObject(const KBusyIndicatorWidget* self);
+void KBusyIndicatorWidget_OnMetacast(KBusyIndicatorWidget* self, intptr_t slot);
+void* KBusyIndicatorWidget_QBaseMetacast(KBusyIndicatorWidget* self, const char* param1);
 void KBusyIndicatorWidget_OnMetacall(KBusyIndicatorWidget* self, intptr_t slot);
 int KBusyIndicatorWidget_QBaseMetacall(KBusyIndicatorWidget* self, int param1, int param2, void** param3);
 void KBusyIndicatorWidget_OnMinimumSizeHint(const KBusyIndicatorWidget* self, intptr_t slot);

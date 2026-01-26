@@ -17,6 +17,8 @@ class VirtualQTcpSocket final : public QTcpSocket {
     bool isVirtualQTcpSocket = true;
 
     // Virtual class public types (including callbacks)
+    using QTcpSocket_MetaObject_Callback = QMetaObject* (*)();
+    using QTcpSocket_Metacast_Callback = void* (*)(QTcpSocket*, const char*);
     using QTcpSocket_Metacall_Callback = int (*)(QTcpSocket*, int, int, void**);
     using QTcpSocket_Resume_Callback = void (*)();
     using QTcpSocket_Bind_Callback = bool (*)(QTcpSocket*, QHostAddress*, uint16_t, int);
@@ -69,6 +71,8 @@ class VirtualQTcpSocket final : public QTcpSocket {
 
   protected:
     // Instance callback storage
+    QTcpSocket_MetaObject_Callback qtcpsocket_metaobject_callback = nullptr;
+    QTcpSocket_Metacast_Callback qtcpsocket_metacast_callback = nullptr;
     QTcpSocket_Metacall_Callback qtcpsocket_metacall_callback = nullptr;
     QTcpSocket_Resume_Callback qtcpsocket_resume_callback = nullptr;
     QTcpSocket_Bind_Callback qtcpsocket_bind_callback = nullptr;
@@ -120,6 +124,8 @@ class VirtualQTcpSocket final : public QTcpSocket {
     QTcpSocket_IsSignalConnected_Callback qtcpsocket_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtcpsocket_metaobject_isbase = false;
+    mutable bool qtcpsocket_metacast_isbase = false;
     mutable bool qtcpsocket_metacall_isbase = false;
     mutable bool qtcpsocket_resume_isbase = false;
     mutable bool qtcpsocket_bind_isbase = false;
@@ -175,6 +181,8 @@ class VirtualQTcpSocket final : public QTcpSocket {
     VirtualQTcpSocket(QObject* parent) : QTcpSocket(parent) {};
 
     ~VirtualQTcpSocket() {
+        qtcpsocket_metaobject_callback = nullptr;
+        qtcpsocket_metacast_callback = nullptr;
         qtcpsocket_metacall_callback = nullptr;
         qtcpsocket_resume_callback = nullptr;
         qtcpsocket_bind_callback = nullptr;
@@ -227,6 +235,8 @@ class VirtualQTcpSocket final : public QTcpSocket {
     }
 
     // Callback setters
+    inline void setQTcpSocket_MetaObject_Callback(QTcpSocket_MetaObject_Callback cb) { qtcpsocket_metaobject_callback = cb; }
+    inline void setQTcpSocket_Metacast_Callback(QTcpSocket_Metacast_Callback cb) { qtcpsocket_metacast_callback = cb; }
     inline void setQTcpSocket_Metacall_Callback(QTcpSocket_Metacall_Callback cb) { qtcpsocket_metacall_callback = cb; }
     inline void setQTcpSocket_Resume_Callback(QTcpSocket_Resume_Callback cb) { qtcpsocket_resume_callback = cb; }
     inline void setQTcpSocket_Bind_Callback(QTcpSocket_Bind_Callback cb) { qtcpsocket_bind_callback = cb; }
@@ -278,6 +288,8 @@ class VirtualQTcpSocket final : public QTcpSocket {
     inline void setQTcpSocket_IsSignalConnected_Callback(QTcpSocket_IsSignalConnected_Callback cb) { qtcpsocket_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTcpSocket_MetaObject_IsBase(bool value) const { qtcpsocket_metaobject_isbase = value; }
+    inline void setQTcpSocket_Metacast_IsBase(bool value) const { qtcpsocket_metacast_isbase = value; }
     inline void setQTcpSocket_Metacall_IsBase(bool value) const { qtcpsocket_metacall_isbase = value; }
     inline void setQTcpSocket_Resume_IsBase(bool value) const { qtcpsocket_resume_isbase = value; }
     inline void setQTcpSocket_Bind_IsBase(bool value) const { qtcpsocket_bind_isbase = value; }
@@ -327,6 +339,34 @@ class VirtualQTcpSocket final : public QTcpSocket {
     inline void setQTcpSocket_SenderSignalIndex_IsBase(bool value) const { qtcpsocket_sendersignalindex_isbase = value; }
     inline void setQTcpSocket_Receivers_IsBase(bool value) const { qtcpsocket_receivers_isbase = value; }
     inline void setQTcpSocket_IsSignalConnected_IsBase(bool value) const { qtcpsocket_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtcpsocket_metaobject_isbase) {
+            qtcpsocket_metaobject_isbase = false;
+            return QTcpSocket::metaObject();
+        } else if (qtcpsocket_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtcpsocket_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTcpSocket::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtcpsocket_metacast_isbase) {
+            qtcpsocket_metacast_isbase = false;
+            return QTcpSocket::qt_metacast(param1);
+        } else if (qtcpsocket_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtcpsocket_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTcpSocket::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

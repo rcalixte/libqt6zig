@@ -19,11 +19,21 @@ KCompletion* KCompletion_new() {
 }
 
 QMetaObject* KCompletion_MetaObject(const KCompletion* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
+    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCompletion*)self)->metaObject();
+    }
 }
 
 void* KCompletion_Metacast(KCompletion* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
+    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCompletion*)self)->qt_metacast(param1);
+    }
 }
 
 int KCompletion_Metacall(KCompletion* self, int param1, int param2, void** param3) {
@@ -401,6 +411,44 @@ void KCompletion_PostProcessMatches2(const KCompletion* self, KCompletionMatches
     auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->postProcessMatches(matches);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KCompletion_QBaseMetaObject(const KCompletion* self) {
+    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
+    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+        vkcompletion->setKCompletion_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcompletion->metaObject();
+    } else {
+        return (QMetaObject*)self->KCompletion::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCompletion_OnMetaObject(const KCompletion* self, intptr_t slot) {
+    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
+    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+        vkcompletion->setKCompletion_MetaObject_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCompletion_QBaseMetacast(KCompletion* self, const char* param1) {
+    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
+    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+        vkcompletion->setKCompletion_Metacast_IsBase(true);
+        return vkcompletion->qt_metacast(param1);
+    } else {
+        return self->KCompletion::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCompletion_OnMetacast(KCompletion* self, intptr_t slot) {
+    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
+    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+        vkcompletion->setKCompletion_Metacast_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_Metacast_Callback>(slot));
     }
 }
 

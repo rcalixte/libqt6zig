@@ -40,11 +40,21 @@ KParts__ReadWritePart* KParts__ReadWritePart_new3(QObject* parent, const KPlugin
 }
 
 QMetaObject* KParts__ReadWritePart_MetaObject(const KParts__ReadWritePart* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkparts__readwritepart = dynamic_cast<const VirtualKPartsReadWritePart*>(self);
+    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPartsReadWritePart*)self)->metaObject();
+    }
 }
 
 void* KParts__ReadWritePart_Metacast(KParts__ReadWritePart* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
+    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPartsReadWritePart*)self)->qt_metacast(param1);
+    }
 }
 
 int KParts__ReadWritePart_Metacall(KParts__ReadWritePart* self, int param1, int param2, void** param3) {
@@ -162,6 +172,44 @@ bool KParts__ReadWritePart_SaveToUrl(KParts__ReadWritePart* self) {
         return vkparts__readwritepart->saveToUrl();
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KParts__ReadWritePart_QBaseMetaObject(const KParts__ReadWritePart* self) {
+    auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+        vkpartsreadwritepart->setKParts__ReadWritePart_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpartsreadwritepart->metaObject();
+    } else {
+        return (QMetaObject*)self->KParts::ReadWritePart::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__ReadWritePart_OnMetaObject(const KParts__ReadWritePart* self, intptr_t slot) {
+    auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+        vkpartsreadwritepart->setKParts__ReadWritePart_MetaObject_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KParts__ReadWritePart_QBaseMetacast(KParts__ReadWritePart* self, const char* param1) {
+    auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+        vkpartsreadwritepart->setKParts__ReadWritePart_Metacast_IsBase(true);
+        return vkpartsreadwritepart->qt_metacast(param1);
+    } else {
+        return self->KParts::ReadWritePart::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__ReadWritePart_OnMetacast(KParts__ReadWritePart* self, intptr_t slot) {
+    auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+        vkpartsreadwritepart->setKParts__ReadWritePart_Metacast_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

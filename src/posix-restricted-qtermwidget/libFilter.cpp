@@ -65,6 +65,64 @@ void Konsole__Filter_OnProcess(Konsole__Filter* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
+QMetaObject* Konsole__Filter_MetaObject(const Konsole__Filter* self) {
+    auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+        return (QMetaObject*)vkonsolefilter->metaObject();
+    } else {
+        return (QMetaObject*)self->Konsole::Filter::metaObject();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* Konsole__Filter_QBaseMetaObject(const Konsole__Filter* self) {
+    auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+        vkonsolefilter->setKonsole__Filter_MetaObject_IsBase(true);
+        return (QMetaObject*)vkonsolefilter->metaObject();
+    } else {
+        return (QMetaObject*)self->Konsole::Filter::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__Filter_OnMetaObject(const Konsole__Filter* self, intptr_t slot) {
+    auto* vkonsolefilter = const_cast<VirtualKonsoleFilter*>(dynamic_cast<const VirtualKonsoleFilter*>(self));
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+        vkonsolefilter->setKonsole__Filter_MetaObject_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_MetaObject_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void* Konsole__Filter_Metacast(Konsole__Filter* self, const char* param1) {
+    auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+        return vkonsolefilter->qt_metacast(param1);
+    } else {
+        return self->Konsole::Filter::qt_metacast(param1);
+    }
+}
+
+// Base class handler implementation
+void* Konsole__Filter_QBaseMetacast(Konsole__Filter* self, const char* param1) {
+    auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+        vkonsolefilter->setKonsole__Filter_Metacast_IsBase(true);
+        return vkonsolefilter->qt_metacast(param1);
+    } else {
+        return self->Konsole::Filter::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__Filter_OnMetacast(Konsole__Filter* self, intptr_t slot) {
+    auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
+    if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
+        vkonsolefilter->setKonsole__Filter_Metacast_Callback(reinterpret_cast<VirtualKonsoleFilter::Konsole__Filter_Metacast_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
 int Konsole__Filter_Metacall(Konsole__Filter* self, int param1, int param2, void** param3) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
@@ -603,6 +661,64 @@ void Konsole__RegExpFilter_OnNewHotSpot(Konsole__RegExpFilter* self, intptr_t sl
 }
 
 // Derived class handler implementation
+QMetaObject* Konsole__RegExpFilter_MetaObject(const Konsole__RegExpFilter* self) {
+    auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        return (QMetaObject*)vkonsoleregexpfilter->metaObject();
+    } else {
+        return (QMetaObject*)self->Konsole::RegExpFilter::metaObject();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* Konsole__RegExpFilter_QBaseMetaObject(const Konsole__RegExpFilter* self) {
+    auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        vkonsoleregexpfilter->setKonsole__RegExpFilter_MetaObject_IsBase(true);
+        return (QMetaObject*)vkonsoleregexpfilter->metaObject();
+    } else {
+        return (QMetaObject*)self->Konsole::RegExpFilter::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__RegExpFilter_OnMetaObject(const Konsole__RegExpFilter* self, intptr_t slot) {
+    auto* vkonsoleregexpfilter = const_cast<VirtualKonsoleRegExpFilter*>(dynamic_cast<const VirtualKonsoleRegExpFilter*>(self));
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        vkonsoleregexpfilter->setKonsole__RegExpFilter_MetaObject_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_MetaObject_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void* Konsole__RegExpFilter_Metacast(Konsole__RegExpFilter* self, const char* param1) {
+    auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        return vkonsoleregexpfilter->qt_metacast(param1);
+    } else {
+        return self->Konsole::RegExpFilter::qt_metacast(param1);
+    }
+}
+
+// Base class handler implementation
+void* Konsole__RegExpFilter_QBaseMetacast(Konsole__RegExpFilter* self, const char* param1) {
+    auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        vkonsoleregexpfilter->setKonsole__RegExpFilter_Metacast_IsBase(true);
+        return vkonsoleregexpfilter->qt_metacast(param1);
+    } else {
+        return self->Konsole::RegExpFilter::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__RegExpFilter_OnMetacast(Konsole__RegExpFilter* self, intptr_t slot) {
+    auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
+    if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
+        vkonsoleregexpfilter->setKonsole__RegExpFilter_Metacast_Callback(reinterpret_cast<VirtualKonsoleRegExpFilter::Konsole__RegExpFilter_Metacast_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
 int Konsole__RegExpFilter_Metacall(Konsole__RegExpFilter* self, int param1, int param2, void** param3) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
@@ -1078,11 +1194,21 @@ Konsole__UrlFilter* Konsole__UrlFilter_new() {
 }
 
 QMetaObject* Konsole__UrlFilter_MetaObject(const Konsole__UrlFilter* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkonsole__urlfilter = dynamic_cast<const VirtualKonsoleUrlFilter*>(self);
+    if (vkonsole__urlfilter && vkonsole__urlfilter->isVirtualKonsoleUrlFilter) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKonsoleUrlFilter*)self)->metaObject();
+    }
 }
 
 void* Konsole__UrlFilter_Metacast(Konsole__UrlFilter* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkonsole__urlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
+    if (vkonsole__urlfilter && vkonsole__urlfilter->isVirtualKonsoleUrlFilter) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKonsoleUrlFilter*)self)->qt_metacast(param1);
+    }
 }
 
 int Konsole__UrlFilter_Metacall(Konsole__UrlFilter* self, int param1, int param2, void** param3) {
@@ -1115,6 +1241,44 @@ void Konsole__UrlFilter_Connect_Activated(Konsole__UrlFilter* self, intptr_t slo
         bool sigval2 = fromContextMenu;
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* Konsole__UrlFilter_QBaseMetaObject(const Konsole__UrlFilter* self) {
+    auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+        vkonsoleurlfilter->setKonsole__UrlFilter_MetaObject_IsBase(true);
+        return (QMetaObject*)vkonsoleurlfilter->metaObject();
+    } else {
+        return (QMetaObject*)self->Konsole::UrlFilter::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__UrlFilter_OnMetaObject(const Konsole__UrlFilter* self, intptr_t slot) {
+    auto* vkonsoleurlfilter = const_cast<VirtualKonsoleUrlFilter*>(dynamic_cast<const VirtualKonsoleUrlFilter*>(self));
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+        vkonsoleurlfilter->setKonsole__UrlFilter_MetaObject_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Konsole__UrlFilter_QBaseMetacast(Konsole__UrlFilter* self, const char* param1) {
+    auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+        vkonsoleurlfilter->setKonsole__UrlFilter_Metacast_IsBase(true);
+        return vkonsoleurlfilter->qt_metacast(param1);
+    } else {
+        return self->Konsole::UrlFilter::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__UrlFilter_OnMetacast(Konsole__UrlFilter* self, intptr_t slot) {
+    auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
+    if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
+        vkonsoleurlfilter->setKonsole__UrlFilter_Metacast_Callback(reinterpret_cast<VirtualKonsoleUrlFilter::Konsole__UrlFilter_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -1631,11 +1795,21 @@ Konsole__FilterObject* Konsole__FilterObject_new(Konsole__Filter__HotSpot* filte
 }
 
 QMetaObject* Konsole__FilterObject_MetaObject(const Konsole__FilterObject* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkonsole__filterobject = dynamic_cast<const VirtualKonsoleFilterObject*>(self);
+    if (vkonsole__filterobject && vkonsole__filterobject->isVirtualKonsoleFilterObject) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKonsoleFilterObject*)self)->metaObject();
+    }
 }
 
 void* Konsole__FilterObject_Metacast(Konsole__FilterObject* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkonsole__filterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
+    if (vkonsole__filterobject && vkonsole__filterobject->isVirtualKonsoleFilterObject) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKonsoleFilterObject*)self)->qt_metacast(param1);
+    }
 }
 
 int Konsole__FilterObject_Metacall(Konsole__FilterObject* self, int param1, int param2, void** param3) {
@@ -1668,6 +1842,44 @@ void Konsole__FilterObject_Connect_Activated(Konsole__FilterObject* self, intptr
         bool sigval2 = fromContextMenu;
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+// Base class handler implementation
+QMetaObject* Konsole__FilterObject_QBaseMetaObject(const Konsole__FilterObject* self) {
+    auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+        vkonsolefilterobject->setKonsole__FilterObject_MetaObject_IsBase(true);
+        return (QMetaObject*)vkonsolefilterobject->metaObject();
+    } else {
+        return (QMetaObject*)self->Konsole::FilterObject::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__FilterObject_OnMetaObject(const Konsole__FilterObject* self, intptr_t slot) {
+    auto* vkonsolefilterobject = const_cast<VirtualKonsoleFilterObject*>(dynamic_cast<const VirtualKonsoleFilterObject*>(self));
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+        vkonsolefilterobject->setKonsole__FilterObject_MetaObject_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Konsole__FilterObject_QBaseMetacast(Konsole__FilterObject* self, const char* param1) {
+    auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+        vkonsolefilterobject->setKonsole__FilterObject_Metacast_IsBase(true);
+        return vkonsolefilterobject->qt_metacast(param1);
+    } else {
+        return self->Konsole::FilterObject::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Konsole__FilterObject_OnMetacast(Konsole__FilterObject* self, intptr_t slot) {
+    auto* vkonsolefilterobject = dynamic_cast<VirtualKonsoleFilterObject*>(self);
+    if (vkonsolefilterobject && vkonsolefilterobject->isVirtualKonsoleFilterObject) {
+        vkonsolefilterobject->setKonsole__FilterObject_Metacast_Callback(reinterpret_cast<VirtualKonsoleFilterObject::Konsole__FilterObject_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

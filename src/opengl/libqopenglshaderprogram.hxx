@@ -17,6 +17,8 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
     bool isVirtualQOpenGLShader = true;
 
     // Virtual class public types (including callbacks)
+    using QOpenGLShader_MetaObject_Callback = QMetaObject* (*)();
+    using QOpenGLShader_Metacast_Callback = void* (*)(QOpenGLShader*, const char*);
     using QOpenGLShader_Metacall_Callback = int (*)(QOpenGLShader*, int, int, void**);
     using QOpenGLShader_Event_Callback = bool (*)(QOpenGLShader*, QEvent*);
     using QOpenGLShader_EventFilter_Callback = bool (*)(QOpenGLShader*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
 
   protected:
     // Instance callback storage
+    QOpenGLShader_MetaObject_Callback qopenglshader_metaobject_callback = nullptr;
+    QOpenGLShader_Metacast_Callback qopenglshader_metacast_callback = nullptr;
     QOpenGLShader_Metacall_Callback qopenglshader_metacall_callback = nullptr;
     QOpenGLShader_Event_Callback qopenglshader_event_callback = nullptr;
     QOpenGLShader_EventFilter_Callback qopenglshader_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
     QOpenGLShader_IsSignalConnected_Callback qopenglshader_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qopenglshader_metaobject_isbase = false;
+    mutable bool qopenglshader_metacast_isbase = false;
     mutable bool qopenglshader_metacall_isbase = false;
     mutable bool qopenglshader_event_isbase = false;
     mutable bool qopenglshader_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
     VirtualQOpenGLShader(QOpenGLShader::ShaderType typeVal, QObject* parent) : QOpenGLShader(typeVal, parent) {};
 
     ~VirtualQOpenGLShader() {
+        qopenglshader_metaobject_callback = nullptr;
+        qopenglshader_metacast_callback = nullptr;
         qopenglshader_metacall_callback = nullptr;
         qopenglshader_event_callback = nullptr;
         qopenglshader_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
     }
 
     // Callback setters
+    inline void setQOpenGLShader_MetaObject_Callback(QOpenGLShader_MetaObject_Callback cb) { qopenglshader_metaobject_callback = cb; }
+    inline void setQOpenGLShader_Metacast_Callback(QOpenGLShader_Metacast_Callback cb) { qopenglshader_metacast_callback = cb; }
     inline void setQOpenGLShader_Metacall_Callback(QOpenGLShader_Metacall_Callback cb) { qopenglshader_metacall_callback = cb; }
     inline void setQOpenGLShader_Event_Callback(QOpenGLShader_Event_Callback cb) { qopenglshader_event_callback = cb; }
     inline void setQOpenGLShader_EventFilter_Callback(QOpenGLShader_EventFilter_Callback cb) { qopenglshader_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
     inline void setQOpenGLShader_IsSignalConnected_Callback(QOpenGLShader_IsSignalConnected_Callback cb) { qopenglshader_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQOpenGLShader_MetaObject_IsBase(bool value) const { qopenglshader_metaobject_isbase = value; }
+    inline void setQOpenGLShader_Metacast_IsBase(bool value) const { qopenglshader_metacast_isbase = value; }
     inline void setQOpenGLShader_Metacall_IsBase(bool value) const { qopenglshader_metacall_isbase = value; }
     inline void setQOpenGLShader_Event_IsBase(bool value) const { qopenglshader_event_isbase = value; }
     inline void setQOpenGLShader_EventFilter_IsBase(bool value) const { qopenglshader_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
     inline void setQOpenGLShader_SenderSignalIndex_IsBase(bool value) const { qopenglshader_sendersignalindex_isbase = value; }
     inline void setQOpenGLShader_Receivers_IsBase(bool value) const { qopenglshader_receivers_isbase = value; }
     inline void setQOpenGLShader_IsSignalConnected_IsBase(bool value) const { qopenglshader_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qopenglshader_metaobject_isbase) {
+            qopenglshader_metaobject_isbase = false;
+            return QOpenGLShader::metaObject();
+        } else if (qopenglshader_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qopenglshader_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QOpenGLShader::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qopenglshader_metacast_isbase) {
+            qopenglshader_metacast_isbase = false;
+            return QOpenGLShader::qt_metacast(param1);
+        } else if (qopenglshader_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qopenglshader_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QOpenGLShader::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -315,6 +355,8 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
     bool isVirtualQOpenGLShaderProgram = true;
 
     // Virtual class public types (including callbacks)
+    using QOpenGLShaderProgram_MetaObject_Callback = QMetaObject* (*)();
+    using QOpenGLShaderProgram_Metacast_Callback = void* (*)(QOpenGLShaderProgram*, const char*);
     using QOpenGLShaderProgram_Metacall_Callback = int (*)(QOpenGLShaderProgram*, int, int, void**);
     using QOpenGLShaderProgram_Link_Callback = bool (*)();
     using QOpenGLShaderProgram_Event_Callback = bool (*)(QOpenGLShaderProgram*, QEvent*);
@@ -331,6 +373,8 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
 
   protected:
     // Instance callback storage
+    QOpenGLShaderProgram_MetaObject_Callback qopenglshaderprogram_metaobject_callback = nullptr;
+    QOpenGLShaderProgram_Metacast_Callback qopenglshaderprogram_metacast_callback = nullptr;
     QOpenGLShaderProgram_Metacall_Callback qopenglshaderprogram_metacall_callback = nullptr;
     QOpenGLShaderProgram_Link_Callback qopenglshaderprogram_link_callback = nullptr;
     QOpenGLShaderProgram_Event_Callback qopenglshaderprogram_event_callback = nullptr;
@@ -346,6 +390,8 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
     QOpenGLShaderProgram_IsSignalConnected_Callback qopenglshaderprogram_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qopenglshaderprogram_metaobject_isbase = false;
+    mutable bool qopenglshaderprogram_metacast_isbase = false;
     mutable bool qopenglshaderprogram_metacall_isbase = false;
     mutable bool qopenglshaderprogram_link_isbase = false;
     mutable bool qopenglshaderprogram_event_isbase = false;
@@ -365,6 +411,8 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
     VirtualQOpenGLShaderProgram(QObject* parent) : QOpenGLShaderProgram(parent) {};
 
     ~VirtualQOpenGLShaderProgram() {
+        qopenglshaderprogram_metaobject_callback = nullptr;
+        qopenglshaderprogram_metacast_callback = nullptr;
         qopenglshaderprogram_metacall_callback = nullptr;
         qopenglshaderprogram_link_callback = nullptr;
         qopenglshaderprogram_event_callback = nullptr;
@@ -381,6 +429,8 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
     }
 
     // Callback setters
+    inline void setQOpenGLShaderProgram_MetaObject_Callback(QOpenGLShaderProgram_MetaObject_Callback cb) { qopenglshaderprogram_metaobject_callback = cb; }
+    inline void setQOpenGLShaderProgram_Metacast_Callback(QOpenGLShaderProgram_Metacast_Callback cb) { qopenglshaderprogram_metacast_callback = cb; }
     inline void setQOpenGLShaderProgram_Metacall_Callback(QOpenGLShaderProgram_Metacall_Callback cb) { qopenglshaderprogram_metacall_callback = cb; }
     inline void setQOpenGLShaderProgram_Link_Callback(QOpenGLShaderProgram_Link_Callback cb) { qopenglshaderprogram_link_callback = cb; }
     inline void setQOpenGLShaderProgram_Event_Callback(QOpenGLShaderProgram_Event_Callback cb) { qopenglshaderprogram_event_callback = cb; }
@@ -396,6 +446,8 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
     inline void setQOpenGLShaderProgram_IsSignalConnected_Callback(QOpenGLShaderProgram_IsSignalConnected_Callback cb) { qopenglshaderprogram_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQOpenGLShaderProgram_MetaObject_IsBase(bool value) const { qopenglshaderprogram_metaobject_isbase = value; }
+    inline void setQOpenGLShaderProgram_Metacast_IsBase(bool value) const { qopenglshaderprogram_metacast_isbase = value; }
     inline void setQOpenGLShaderProgram_Metacall_IsBase(bool value) const { qopenglshaderprogram_metacall_isbase = value; }
     inline void setQOpenGLShaderProgram_Link_IsBase(bool value) const { qopenglshaderprogram_link_isbase = value; }
     inline void setQOpenGLShaderProgram_Event_IsBase(bool value) const { qopenglshaderprogram_event_isbase = value; }
@@ -409,6 +461,34 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
     inline void setQOpenGLShaderProgram_SenderSignalIndex_IsBase(bool value) const { qopenglshaderprogram_sendersignalindex_isbase = value; }
     inline void setQOpenGLShaderProgram_Receivers_IsBase(bool value) const { qopenglshaderprogram_receivers_isbase = value; }
     inline void setQOpenGLShaderProgram_IsSignalConnected_IsBase(bool value) const { qopenglshaderprogram_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qopenglshaderprogram_metaobject_isbase) {
+            qopenglshaderprogram_metaobject_isbase = false;
+            return QOpenGLShaderProgram::metaObject();
+        } else if (qopenglshaderprogram_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qopenglshaderprogram_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QOpenGLShaderProgram::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qopenglshaderprogram_metacast_isbase) {
+            qopenglshaderprogram_metacast_isbase = false;
+            return QOpenGLShaderProgram::qt_metacast(param1);
+        } else if (qopenglshaderprogram_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qopenglshaderprogram_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QOpenGLShaderProgram::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

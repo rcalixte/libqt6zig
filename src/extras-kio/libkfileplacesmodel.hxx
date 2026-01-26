@@ -17,6 +17,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
     bool isVirtualKFilePlacesModel = true;
 
     // Virtual class public types (including callbacks)
+    using KFilePlacesModel_MetaObject_Callback = QMetaObject* (*)();
+    using KFilePlacesModel_Metacast_Callback = void* (*)(KFilePlacesModel*, const char*);
     using KFilePlacesModel_Metacall_Callback = int (*)(KFilePlacesModel*, int, int, void**);
     using KFilePlacesModel_Data_Callback = QVariant* (*)(const KFilePlacesModel*, QModelIndex*, int);
     using KFilePlacesModel_Index_Callback = QModelIndex* (*)(const KFilePlacesModel*, int, int, QModelIndex*);
@@ -89,6 +91,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
 
   protected:
     // Instance callback storage
+    KFilePlacesModel_MetaObject_Callback kfileplacesmodel_metaobject_callback = nullptr;
+    KFilePlacesModel_Metacast_Callback kfileplacesmodel_metacast_callback = nullptr;
     KFilePlacesModel_Metacall_Callback kfileplacesmodel_metacall_callback = nullptr;
     KFilePlacesModel_Data_Callback kfileplacesmodel_data_callback = nullptr;
     KFilePlacesModel_Index_Callback kfileplacesmodel_index_callback = nullptr;
@@ -160,6 +164,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
     KFilePlacesModel_IsSignalConnected_Callback kfileplacesmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfileplacesmodel_metaobject_isbase = false;
+    mutable bool kfileplacesmodel_metacast_isbase = false;
     mutable bool kfileplacesmodel_metacall_isbase = false;
     mutable bool kfileplacesmodel_data_isbase = false;
     mutable bool kfileplacesmodel_index_isbase = false;
@@ -235,6 +241,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
     VirtualKFilePlacesModel(QObject* parent) : KFilePlacesModel(parent) {};
 
     ~VirtualKFilePlacesModel() {
+        kfileplacesmodel_metaobject_callback = nullptr;
+        kfileplacesmodel_metacast_callback = nullptr;
         kfileplacesmodel_metacall_callback = nullptr;
         kfileplacesmodel_data_callback = nullptr;
         kfileplacesmodel_index_callback = nullptr;
@@ -307,6 +315,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
     }
 
     // Callback setters
+    inline void setKFilePlacesModel_MetaObject_Callback(KFilePlacesModel_MetaObject_Callback cb) { kfileplacesmodel_metaobject_callback = cb; }
+    inline void setKFilePlacesModel_Metacast_Callback(KFilePlacesModel_Metacast_Callback cb) { kfileplacesmodel_metacast_callback = cb; }
     inline void setKFilePlacesModel_Metacall_Callback(KFilePlacesModel_Metacall_Callback cb) { kfileplacesmodel_metacall_callback = cb; }
     inline void setKFilePlacesModel_Data_Callback(KFilePlacesModel_Data_Callback cb) { kfileplacesmodel_data_callback = cb; }
     inline void setKFilePlacesModel_Index_Callback(KFilePlacesModel_Index_Callback cb) { kfileplacesmodel_index_callback = cb; }
@@ -378,6 +388,8 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
     inline void setKFilePlacesModel_IsSignalConnected_Callback(KFilePlacesModel_IsSignalConnected_Callback cb) { kfileplacesmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKFilePlacesModel_MetaObject_IsBase(bool value) const { kfileplacesmodel_metaobject_isbase = value; }
+    inline void setKFilePlacesModel_Metacast_IsBase(bool value) const { kfileplacesmodel_metacast_isbase = value; }
     inline void setKFilePlacesModel_Metacall_IsBase(bool value) const { kfileplacesmodel_metacall_isbase = value; }
     inline void setKFilePlacesModel_Data_IsBase(bool value) const { kfileplacesmodel_data_isbase = value; }
     inline void setKFilePlacesModel_Index_IsBase(bool value) const { kfileplacesmodel_index_isbase = value; }
@@ -447,6 +459,34 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
     inline void setKFilePlacesModel_SenderSignalIndex_IsBase(bool value) const { kfileplacesmodel_sendersignalindex_isbase = value; }
     inline void setKFilePlacesModel_Receivers_IsBase(bool value) const { kfileplacesmodel_receivers_isbase = value; }
     inline void setKFilePlacesModel_IsSignalConnected_IsBase(bool value) const { kfileplacesmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfileplacesmodel_metaobject_isbase) {
+            kfileplacesmodel_metaobject_isbase = false;
+            return KFilePlacesModel::metaObject();
+        } else if (kfileplacesmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfileplacesmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFilePlacesModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfileplacesmodel_metacast_isbase) {
+            kfileplacesmodel_metacast_isbase = false;
+            return KFilePlacesModel::qt_metacast(param1);
+        } else if (kfileplacesmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfileplacesmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFilePlacesModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

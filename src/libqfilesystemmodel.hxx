@@ -17,6 +17,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
     bool isVirtualQFileSystemModel = true;
 
     // Virtual class public types (including callbacks)
+    using QFileSystemModel_MetaObject_Callback = QMetaObject* (*)();
+    using QFileSystemModel_Metacast_Callback = void* (*)(QFileSystemModel*, const char*);
     using QFileSystemModel_Metacall_Callback = int (*)(QFileSystemModel*, int, int, void**);
     using QFileSystemModel_Index_Callback = QModelIndex* (*)(const QFileSystemModel*, int, int, QModelIndex*);
     using QFileSystemModel_Parent_Callback = QModelIndex* (*)(const QFileSystemModel*, QModelIndex*);
@@ -89,6 +91,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
 
   protected:
     // Instance callback storage
+    QFileSystemModel_MetaObject_Callback qfilesystemmodel_metaobject_callback = nullptr;
+    QFileSystemModel_Metacast_Callback qfilesystemmodel_metacast_callback = nullptr;
     QFileSystemModel_Metacall_Callback qfilesystemmodel_metacall_callback = nullptr;
     QFileSystemModel_Index_Callback qfilesystemmodel_index_callback = nullptr;
     QFileSystemModel_Parent_Callback qfilesystemmodel_parent_callback = nullptr;
@@ -160,6 +164,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
     QFileSystemModel_IsSignalConnected_Callback qfilesystemmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qfilesystemmodel_metaobject_isbase = false;
+    mutable bool qfilesystemmodel_metacast_isbase = false;
     mutable bool qfilesystemmodel_metacall_isbase = false;
     mutable bool qfilesystemmodel_index_isbase = false;
     mutable bool qfilesystemmodel_parent_isbase = false;
@@ -235,6 +241,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
     VirtualQFileSystemModel(QObject* parent) : QFileSystemModel(parent) {};
 
     ~VirtualQFileSystemModel() {
+        qfilesystemmodel_metaobject_callback = nullptr;
+        qfilesystemmodel_metacast_callback = nullptr;
         qfilesystemmodel_metacall_callback = nullptr;
         qfilesystemmodel_index_callback = nullptr;
         qfilesystemmodel_parent_callback = nullptr;
@@ -307,6 +315,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
     }
 
     // Callback setters
+    inline void setQFileSystemModel_MetaObject_Callback(QFileSystemModel_MetaObject_Callback cb) { qfilesystemmodel_metaobject_callback = cb; }
+    inline void setQFileSystemModel_Metacast_Callback(QFileSystemModel_Metacast_Callback cb) { qfilesystemmodel_metacast_callback = cb; }
     inline void setQFileSystemModel_Metacall_Callback(QFileSystemModel_Metacall_Callback cb) { qfilesystemmodel_metacall_callback = cb; }
     inline void setQFileSystemModel_Index_Callback(QFileSystemModel_Index_Callback cb) { qfilesystemmodel_index_callback = cb; }
     inline void setQFileSystemModel_Parent_Callback(QFileSystemModel_Parent_Callback cb) { qfilesystemmodel_parent_callback = cb; }
@@ -378,6 +388,8 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
     inline void setQFileSystemModel_IsSignalConnected_Callback(QFileSystemModel_IsSignalConnected_Callback cb) { qfilesystemmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQFileSystemModel_MetaObject_IsBase(bool value) const { qfilesystemmodel_metaobject_isbase = value; }
+    inline void setQFileSystemModel_Metacast_IsBase(bool value) const { qfilesystemmodel_metacast_isbase = value; }
     inline void setQFileSystemModel_Metacall_IsBase(bool value) const { qfilesystemmodel_metacall_isbase = value; }
     inline void setQFileSystemModel_Index_IsBase(bool value) const { qfilesystemmodel_index_isbase = value; }
     inline void setQFileSystemModel_Parent_IsBase(bool value) const { qfilesystemmodel_parent_isbase = value; }
@@ -447,6 +459,34 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
     inline void setQFileSystemModel_SenderSignalIndex_IsBase(bool value) const { qfilesystemmodel_sendersignalindex_isbase = value; }
     inline void setQFileSystemModel_Receivers_IsBase(bool value) const { qfilesystemmodel_receivers_isbase = value; }
     inline void setQFileSystemModel_IsSignalConnected_IsBase(bool value) const { qfilesystemmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qfilesystemmodel_metaobject_isbase) {
+            qfilesystemmodel_metaobject_isbase = false;
+            return QFileSystemModel::metaObject();
+        } else if (qfilesystemmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qfilesystemmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFileSystemModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qfilesystemmodel_metacast_isbase) {
+            qfilesystemmodel_metacast_isbase = false;
+            return QFileSystemModel::qt_metacast(param1);
+        } else if (qfilesystemmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qfilesystemmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFileSystemModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

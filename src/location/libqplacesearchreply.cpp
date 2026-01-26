@@ -25,11 +25,21 @@ QPlaceSearchReply* QPlaceSearchReply_new2(QObject* parent) {
 }
 
 QMetaObject* QPlaceSearchReply_MetaObject(const QPlaceSearchReply* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqplacesearchreply = dynamic_cast<const VirtualQPlaceSearchReply*>(self);
+    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPlaceSearchReply*)self)->metaObject();
+    }
 }
 
 void* QPlaceSearchReply_Metacast(QPlaceSearchReply* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqplacesearchreply = dynamic_cast<VirtualQPlaceSearchReply*>(self);
+    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPlaceSearchReply*)self)->qt_metacast(param1);
+    }
 }
 
 int QPlaceSearchReply_Metacall(QPlaceSearchReply* self, int param1, int param2, void** param3) {
@@ -73,6 +83,44 @@ QPlaceSearchRequest* QPlaceSearchReply_PreviousPageRequest(const QPlaceSearchRep
 
 QPlaceSearchRequest* QPlaceSearchReply_NextPageRequest(const QPlaceSearchReply* self) {
     return new QPlaceSearchRequest(self->nextPageRequest());
+}
+
+// Base class handler implementation
+QMetaObject* QPlaceSearchReply_QBaseMetaObject(const QPlaceSearchReply* self) {
+    auto* vqplacesearchreply = const_cast<VirtualQPlaceSearchReply*>(dynamic_cast<const VirtualQPlaceSearchReply*>(self));
+    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
+        vqplacesearchreply->setQPlaceSearchReply_MetaObject_IsBase(true);
+        return (QMetaObject*)vqplacesearchreply->metaObject();
+    } else {
+        return (QMetaObject*)self->QPlaceSearchReply::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlaceSearchReply_OnMetaObject(const QPlaceSearchReply* self, intptr_t slot) {
+    auto* vqplacesearchreply = const_cast<VirtualQPlaceSearchReply*>(dynamic_cast<const VirtualQPlaceSearchReply*>(self));
+    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
+        vqplacesearchreply->setQPlaceSearchReply_MetaObject_Callback(reinterpret_cast<VirtualQPlaceSearchReply::QPlaceSearchReply_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPlaceSearchReply_QBaseMetacast(QPlaceSearchReply* self, const char* param1) {
+    auto* vqplacesearchreply = dynamic_cast<VirtualQPlaceSearchReply*>(self);
+    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
+        vqplacesearchreply->setQPlaceSearchReply_Metacast_IsBase(true);
+        return vqplacesearchreply->qt_metacast(param1);
+    } else {
+        return self->QPlaceSearchReply::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlaceSearchReply_OnMetacast(QPlaceSearchReply* self, intptr_t slot) {
+    auto* vqplacesearchreply = dynamic_cast<VirtualQPlaceSearchReply*>(self);
+    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
+        vqplacesearchreply->setQPlaceSearchReply_Metacast_Callback(reinterpret_cast<VirtualQPlaceSearchReply::QPlaceSearchReply_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -18,6 +18,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
 
     // Virtual class public types (including callbacks)
     using QNmeaSatelliteInfoSource::SatelliteInfoParseStatus;
+    using QNmeaSatelliteInfoSource_MetaObject_Callback = QMetaObject* (*)();
+    using QNmeaSatelliteInfoSource_Metacast_Callback = void* (*)(QNmeaSatelliteInfoSource*, const char*);
     using QNmeaSatelliteInfoSource_Metacall_Callback = int (*)(QNmeaSatelliteInfoSource*, int, int, void**);
     using QNmeaSatelliteInfoSource_SetUpdateInterval_Callback = void (*)(QNmeaSatelliteInfoSource*, int);
     using QNmeaSatelliteInfoSource_MinimumUpdateInterval_Callback = int (*)();
@@ -46,6 +48,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
 
   protected:
     // Instance callback storage
+    QNmeaSatelliteInfoSource_MetaObject_Callback qnmeasatelliteinfosource_metaobject_callback = nullptr;
+    QNmeaSatelliteInfoSource_Metacast_Callback qnmeasatelliteinfosource_metacast_callback = nullptr;
     QNmeaSatelliteInfoSource_Metacall_Callback qnmeasatelliteinfosource_metacall_callback = nullptr;
     QNmeaSatelliteInfoSource_SetUpdateInterval_Callback qnmeasatelliteinfosource_setupdateinterval_callback = nullptr;
     QNmeaSatelliteInfoSource_MinimumUpdateInterval_Callback qnmeasatelliteinfosource_minimumupdateinterval_callback = nullptr;
@@ -73,6 +77,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
     QNmeaSatelliteInfoSource_IsSignalConnected_Callback qnmeasatelliteinfosource_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qnmeasatelliteinfosource_metaobject_isbase = false;
+    mutable bool qnmeasatelliteinfosource_metacast_isbase = false;
     mutable bool qnmeasatelliteinfosource_metacall_isbase = false;
     mutable bool qnmeasatelliteinfosource_setupdateinterval_isbase = false;
     mutable bool qnmeasatelliteinfosource_minimumupdateinterval_isbase = false;
@@ -104,6 +110,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
     VirtualQNmeaSatelliteInfoSource(QNmeaSatelliteInfoSource::UpdateMode mode, QObject* parent) : QNmeaSatelliteInfoSource(mode, parent) {};
 
     ~VirtualQNmeaSatelliteInfoSource() {
+        qnmeasatelliteinfosource_metaobject_callback = nullptr;
+        qnmeasatelliteinfosource_metacast_callback = nullptr;
         qnmeasatelliteinfosource_metacall_callback = nullptr;
         qnmeasatelliteinfosource_setupdateinterval_callback = nullptr;
         qnmeasatelliteinfosource_minimumupdateinterval_callback = nullptr;
@@ -132,6 +140,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
     }
 
     // Callback setters
+    inline void setQNmeaSatelliteInfoSource_MetaObject_Callback(QNmeaSatelliteInfoSource_MetaObject_Callback cb) { qnmeasatelliteinfosource_metaobject_callback = cb; }
+    inline void setQNmeaSatelliteInfoSource_Metacast_Callback(QNmeaSatelliteInfoSource_Metacast_Callback cb) { qnmeasatelliteinfosource_metacast_callback = cb; }
     inline void setQNmeaSatelliteInfoSource_Metacall_Callback(QNmeaSatelliteInfoSource_Metacall_Callback cb) { qnmeasatelliteinfosource_metacall_callback = cb; }
     inline void setQNmeaSatelliteInfoSource_SetUpdateInterval_Callback(QNmeaSatelliteInfoSource_SetUpdateInterval_Callback cb) { qnmeasatelliteinfosource_setupdateinterval_callback = cb; }
     inline void setQNmeaSatelliteInfoSource_MinimumUpdateInterval_Callback(QNmeaSatelliteInfoSource_MinimumUpdateInterval_Callback cb) { qnmeasatelliteinfosource_minimumupdateinterval_callback = cb; }
@@ -159,6 +169,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
     inline void setQNmeaSatelliteInfoSource_IsSignalConnected_Callback(QNmeaSatelliteInfoSource_IsSignalConnected_Callback cb) { qnmeasatelliteinfosource_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQNmeaSatelliteInfoSource_MetaObject_IsBase(bool value) const { qnmeasatelliteinfosource_metaobject_isbase = value; }
+    inline void setQNmeaSatelliteInfoSource_Metacast_IsBase(bool value) const { qnmeasatelliteinfosource_metacast_isbase = value; }
     inline void setQNmeaSatelliteInfoSource_Metacall_IsBase(bool value) const { qnmeasatelliteinfosource_metacall_isbase = value; }
     inline void setQNmeaSatelliteInfoSource_SetUpdateInterval_IsBase(bool value) const { qnmeasatelliteinfosource_setupdateinterval_isbase = value; }
     inline void setQNmeaSatelliteInfoSource_MinimumUpdateInterval_IsBase(bool value) const { qnmeasatelliteinfosource_minimumupdateinterval_isbase = value; }
@@ -184,6 +196,34 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
     inline void setQNmeaSatelliteInfoSource_SenderSignalIndex_IsBase(bool value) const { qnmeasatelliteinfosource_sendersignalindex_isbase = value; }
     inline void setQNmeaSatelliteInfoSource_Receivers_IsBase(bool value) const { qnmeasatelliteinfosource_receivers_isbase = value; }
     inline void setQNmeaSatelliteInfoSource_IsSignalConnected_IsBase(bool value) const { qnmeasatelliteinfosource_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qnmeasatelliteinfosource_metaobject_isbase) {
+            qnmeasatelliteinfosource_metaobject_isbase = false;
+            return QNmeaSatelliteInfoSource::metaObject();
+        } else if (qnmeasatelliteinfosource_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qnmeasatelliteinfosource_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QNmeaSatelliteInfoSource::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qnmeasatelliteinfosource_metacast_isbase) {
+            qnmeasatelliteinfosource_metacast_isbase = false;
+            return QNmeaSatelliteInfoSource::qt_metacast(param1);
+        } else if (qnmeasatelliteinfosource_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qnmeasatelliteinfosource_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QNmeaSatelliteInfoSource::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     bool isVirtualKSelectionProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using KSelectionProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using KSelectionProxyModel_Metacast_Callback = void* (*)(KSelectionProxyModel*, const char*);
     using KSelectionProxyModel_Metacall_Callback = int (*)(KSelectionProxyModel*, int, int, void**);
     using KSelectionProxyModel_SetSourceModel_Callback = void (*)(KSelectionProxyModel*, QAbstractItemModel*);
     using KSelectionProxyModel_MapFromSource_Callback = QModelIndex* (*)(const KSelectionProxyModel*, QModelIndex*);
@@ -96,6 +98,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
   protected:
     // Instance callback storage
+    KSelectionProxyModel_MetaObject_Callback kselectionproxymodel_metaobject_callback = nullptr;
+    KSelectionProxyModel_Metacast_Callback kselectionproxymodel_metacast_callback = nullptr;
     KSelectionProxyModel_Metacall_Callback kselectionproxymodel_metacall_callback = nullptr;
     KSelectionProxyModel_SetSourceModel_Callback kselectionproxymodel_setsourcemodel_callback = nullptr;
     KSelectionProxyModel_MapFromSource_Callback kselectionproxymodel_mapfromsource_callback = nullptr;
@@ -174,6 +178,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     KSelectionProxyModel_IsSignalConnected_Callback kselectionproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kselectionproxymodel_metaobject_isbase = false;
+    mutable bool kselectionproxymodel_metacast_isbase = false;
     mutable bool kselectionproxymodel_metacall_isbase = false;
     mutable bool kselectionproxymodel_setsourcemodel_isbase = false;
     mutable bool kselectionproxymodel_mapfromsource_isbase = false;
@@ -257,6 +263,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     VirtualKSelectionProxyModel(QItemSelectionModel* selectionModel, QObject* parent) : KSelectionProxyModel(selectionModel, parent) {};
 
     ~VirtualKSelectionProxyModel() {
+        kselectionproxymodel_metaobject_callback = nullptr;
+        kselectionproxymodel_metacast_callback = nullptr;
         kselectionproxymodel_metacall_callback = nullptr;
         kselectionproxymodel_setsourcemodel_callback = nullptr;
         kselectionproxymodel_mapfromsource_callback = nullptr;
@@ -336,6 +344,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     }
 
     // Callback setters
+    inline void setKSelectionProxyModel_MetaObject_Callback(KSelectionProxyModel_MetaObject_Callback cb) { kselectionproxymodel_metaobject_callback = cb; }
+    inline void setKSelectionProxyModel_Metacast_Callback(KSelectionProxyModel_Metacast_Callback cb) { kselectionproxymodel_metacast_callback = cb; }
     inline void setKSelectionProxyModel_Metacall_Callback(KSelectionProxyModel_Metacall_Callback cb) { kselectionproxymodel_metacall_callback = cb; }
     inline void setKSelectionProxyModel_SetSourceModel_Callback(KSelectionProxyModel_SetSourceModel_Callback cb) { kselectionproxymodel_setsourcemodel_callback = cb; }
     inline void setKSelectionProxyModel_MapFromSource_Callback(KSelectionProxyModel_MapFromSource_Callback cb) { kselectionproxymodel_mapfromsource_callback = cb; }
@@ -414,6 +424,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     inline void setKSelectionProxyModel_IsSignalConnected_Callback(KSelectionProxyModel_IsSignalConnected_Callback cb) { kselectionproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKSelectionProxyModel_MetaObject_IsBase(bool value) const { kselectionproxymodel_metaobject_isbase = value; }
+    inline void setKSelectionProxyModel_Metacast_IsBase(bool value) const { kselectionproxymodel_metacast_isbase = value; }
     inline void setKSelectionProxyModel_Metacall_IsBase(bool value) const { kselectionproxymodel_metacall_isbase = value; }
     inline void setKSelectionProxyModel_SetSourceModel_IsBase(bool value) const { kselectionproxymodel_setsourcemodel_isbase = value; }
     inline void setKSelectionProxyModel_MapFromSource_IsBase(bool value) const { kselectionproxymodel_mapfromsource_isbase = value; }
@@ -490,6 +502,34 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     inline void setKSelectionProxyModel_SenderSignalIndex_IsBase(bool value) const { kselectionproxymodel_sendersignalindex_isbase = value; }
     inline void setKSelectionProxyModel_Receivers_IsBase(bool value) const { kselectionproxymodel_receivers_isbase = value; }
     inline void setKSelectionProxyModel_IsSignalConnected_IsBase(bool value) const { kselectionproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kselectionproxymodel_metaobject_isbase) {
+            kselectionproxymodel_metaobject_isbase = false;
+            return KSelectionProxyModel::metaObject();
+        } else if (kselectionproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kselectionproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSelectionProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kselectionproxymodel_metacast_isbase) {
+            kselectionproxymodel_metacast_isbase = false;
+            return KSelectionProxyModel::qt_metacast(param1);
+        } else if (kselectionproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kselectionproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSelectionProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

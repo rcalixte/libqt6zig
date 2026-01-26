@@ -17,6 +17,8 @@ class VirtualQsciLexerTeX final : public QsciLexerTeX {
     bool isVirtualQsciLexerTeX = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerTeX_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerTeX_Metacast_Callback = void* (*)(QsciLexerTeX*, const char*);
     using QsciLexerTeX_Metacall_Callback = int (*)(QsciLexerTeX*, int, int, void**);
     using QsciLexerTeX_Language_Callback = const char* (*)();
     using QsciLexerTeX_Lexer_Callback = const char* (*)();
@@ -68,6 +70,8 @@ class VirtualQsciLexerTeX final : public QsciLexerTeX {
 
   protected:
     // Instance callback storage
+    QsciLexerTeX_MetaObject_Callback qscilexertex_metaobject_callback = nullptr;
+    QsciLexerTeX_Metacast_Callback qscilexertex_metacast_callback = nullptr;
     QsciLexerTeX_Metacall_Callback qscilexertex_metacall_callback = nullptr;
     QsciLexerTeX_Language_Callback qscilexertex_language_callback = nullptr;
     QsciLexerTeX_Lexer_Callback qscilexertex_lexer_callback = nullptr;
@@ -118,6 +122,8 @@ class VirtualQsciLexerTeX final : public QsciLexerTeX {
     QsciLexerTeX_IsSignalConnected_Callback qscilexertex_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexertex_metaobject_isbase = false;
+    mutable bool qscilexertex_metacast_isbase = false;
     mutable bool qscilexertex_metacall_isbase = false;
     mutable bool qscilexertex_language_isbase = false;
     mutable bool qscilexertex_lexer_isbase = false;
@@ -172,6 +178,8 @@ class VirtualQsciLexerTeX final : public QsciLexerTeX {
     VirtualQsciLexerTeX(QObject* parent) : QsciLexerTeX(parent) {};
 
     ~VirtualQsciLexerTeX() {
+        qscilexertex_metaobject_callback = nullptr;
+        qscilexertex_metacast_callback = nullptr;
         qscilexertex_metacall_callback = nullptr;
         qscilexertex_language_callback = nullptr;
         qscilexertex_lexer_callback = nullptr;
@@ -223,6 +231,8 @@ class VirtualQsciLexerTeX final : public QsciLexerTeX {
     }
 
     // Callback setters
+    inline void setQsciLexerTeX_MetaObject_Callback(QsciLexerTeX_MetaObject_Callback cb) { qscilexertex_metaobject_callback = cb; }
+    inline void setQsciLexerTeX_Metacast_Callback(QsciLexerTeX_Metacast_Callback cb) { qscilexertex_metacast_callback = cb; }
     inline void setQsciLexerTeX_Metacall_Callback(QsciLexerTeX_Metacall_Callback cb) { qscilexertex_metacall_callback = cb; }
     inline void setQsciLexerTeX_Language_Callback(QsciLexerTeX_Language_Callback cb) { qscilexertex_language_callback = cb; }
     inline void setQsciLexerTeX_Lexer_Callback(QsciLexerTeX_Lexer_Callback cb) { qscilexertex_lexer_callback = cb; }
@@ -273,6 +283,8 @@ class VirtualQsciLexerTeX final : public QsciLexerTeX {
     inline void setQsciLexerTeX_IsSignalConnected_Callback(QsciLexerTeX_IsSignalConnected_Callback cb) { qscilexertex_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerTeX_MetaObject_IsBase(bool value) const { qscilexertex_metaobject_isbase = value; }
+    inline void setQsciLexerTeX_Metacast_IsBase(bool value) const { qscilexertex_metacast_isbase = value; }
     inline void setQsciLexerTeX_Metacall_IsBase(bool value) const { qscilexertex_metacall_isbase = value; }
     inline void setQsciLexerTeX_Language_IsBase(bool value) const { qscilexertex_language_isbase = value; }
     inline void setQsciLexerTeX_Lexer_IsBase(bool value) const { qscilexertex_lexer_isbase = value; }
@@ -321,6 +333,34 @@ class VirtualQsciLexerTeX final : public QsciLexerTeX {
     inline void setQsciLexerTeX_SenderSignalIndex_IsBase(bool value) const { qscilexertex_sendersignalindex_isbase = value; }
     inline void setQsciLexerTeX_Receivers_IsBase(bool value) const { qscilexertex_receivers_isbase = value; }
     inline void setQsciLexerTeX_IsSignalConnected_IsBase(bool value) const { qscilexertex_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexertex_metaobject_isbase) {
+            qscilexertex_metaobject_isbase = false;
+            return QsciLexerTeX::metaObject();
+        } else if (qscilexertex_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexertex_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerTeX::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexertex_metacast_isbase) {
+            qscilexertex_metacast_isbase = false;
+            return QsciLexerTeX::qt_metacast(param1);
+        } else if (qscilexertex_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexertex_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerTeX::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -42,11 +42,21 @@ QGeoRoutingManagerEngine* QGeoRoutingManagerEngine_new2(const libqt_map /* of li
 }
 
 QMetaObject* QGeoRoutingManagerEngine_MetaObject(const QGeoRoutingManagerEngine* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgeoroutingmanagerengine = dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self);
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGeoRoutingManagerEngine*)self)->metaObject();
+    }
 }
 
 void* QGeoRoutingManagerEngine_Metacast(QGeoRoutingManagerEngine* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGeoRoutingManagerEngine*)self)->qt_metacast(param1);
+    }
 }
 
 int QGeoRoutingManagerEngine_Metacall(QGeoRoutingManagerEngine* self, int param1, int param2, void** param3) {
@@ -177,6 +187,44 @@ void QGeoRoutingManagerEngine_Connect_ErrorOccurred3(QGeoRoutingManagerEngine* s
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(errorString_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGeoRoutingManagerEngine_QBaseMetaObject(const QGeoRoutingManagerEngine* self) {
+    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgeoroutingmanagerengine->metaObject();
+    } else {
+        return (QMetaObject*)self->QGeoRoutingManagerEngine::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoRoutingManagerEngine_OnMetaObject(const QGeoRoutingManagerEngine* self, intptr_t slot) {
+    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_MetaObject_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGeoRoutingManagerEngine_QBaseMetacast(QGeoRoutingManagerEngine* self, const char* param1) {
+    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacast_IsBase(true);
+        return vqgeoroutingmanagerengine->qt_metacast(param1);
+    } else {
+        return self->QGeoRoutingManagerEngine::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoRoutingManagerEngine_OnMetacast(QGeoRoutingManagerEngine* self, intptr_t slot) {
+    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacast_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

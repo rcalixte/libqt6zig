@@ -179,6 +179,10 @@ libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls2(QWidget* parent, const li
 libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls3(QWidget* parent, const libqt_string caption, const QUrl* dir);
 libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls4(QWidget* parent, const libqt_string caption, const QUrl* dir, const libqt_string filter);
 void QFileDialog_SaveFileContent3(const libqt_string fileContent, const libqt_string fileNameHint, QWidget* parent);
+void QFileDialog_OnMetaObject(const QFileDialog* self, intptr_t slot);
+QMetaObject* QFileDialog_QBaseMetaObject(const QFileDialog* self);
+void QFileDialog_OnMetacast(QFileDialog* self, intptr_t slot);
+void* QFileDialog_QBaseMetacast(QFileDialog* self, const char* param1);
 void QFileDialog_OnMetacall(QFileDialog* self, intptr_t slot);
 int QFileDialog_QBaseMetacall(QFileDialog* self, int param1, int param2, void** param3);
 void QFileDialog_OnSetVisible(QFileDialog* self, intptr_t slot);

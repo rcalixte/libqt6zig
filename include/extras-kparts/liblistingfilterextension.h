@@ -41,6 +41,10 @@ int KParts__ListingFilterExtension_SupportedFilterModes(const KParts__ListingFil
 bool KParts__ListingFilterExtension_SupportsMultipleFilters(const KParts__ListingFilterExtension* self, int mode);
 QVariant* KParts__ListingFilterExtension_Filter(const KParts__ListingFilterExtension* self, int mode);
 void KParts__ListingFilterExtension_SetFilter(KParts__ListingFilterExtension* self, int mode, const QVariant* filter);
+void KParts__ListingFilterExtension_OnMetaObject(const KParts__ListingFilterExtension* self, intptr_t slot);
+QMetaObject* KParts__ListingFilterExtension_QBaseMetaObject(const KParts__ListingFilterExtension* self);
+void KParts__ListingFilterExtension_OnMetacast(KParts__ListingFilterExtension* self, intptr_t slot);
+void* KParts__ListingFilterExtension_QBaseMetacast(KParts__ListingFilterExtension* self, const char* param1);
 void KParts__ListingFilterExtension_OnMetacall(KParts__ListingFilterExtension* self, intptr_t slot);
 int KParts__ListingFilterExtension_QBaseMetacall(KParts__ListingFilterExtension* self, int param1, int param2, void** param3);
 void KParts__ListingFilterExtension_OnSupportedFilterModes(const KParts__ListingFilterExtension* self, intptr_t slot);

@@ -37,11 +37,21 @@ KIO__PreviewJob* KIO__PreviewJob_new2(const KFileItemList* items, const QSize* s
 }
 
 QMetaObject* KIO__PreviewJob_MetaObject(const KIO__PreviewJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__previewjob = dynamic_cast<const VirtualKIOPreviewJob*>(self);
+    if (vkio__previewjob && vkio__previewjob->isVirtualKIOPreviewJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOPreviewJob*)self)->metaObject();
+    }
 }
 
 void* KIO__PreviewJob_Metacast(KIO__PreviewJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__previewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
+    if (vkio__previewjob && vkio__previewjob->isVirtualKIOPreviewJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOPreviewJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__PreviewJob_Metacall(KIO__PreviewJob* self, int param1, int param2, void** param3) {
@@ -209,6 +219,44 @@ void KIO__PreviewJob_SetDefaultDevicePixelRatio(double devicePixelRatio) {
 
 void KIO__PreviewJob_SetIgnoreMaximumSize1(KIO__PreviewJob* self, bool ignoreSize) {
     self->setIgnoreMaximumSize(ignoreSize);
+}
+
+// Base class handler implementation
+QMetaObject* KIO__PreviewJob_QBaseMetaObject(const KIO__PreviewJob* self) {
+    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+        vkiopreviewjob->setKIO__PreviewJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiopreviewjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::PreviewJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__PreviewJob_OnMetaObject(const KIO__PreviewJob* self, intptr_t slot) {
+    auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+        vkiopreviewjob->setKIO__PreviewJob_MetaObject_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__PreviewJob_QBaseMetacast(KIO__PreviewJob* self, const char* param1) {
+    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+        vkiopreviewjob->setKIO__PreviewJob_Metacast_IsBase(true);
+        return vkiopreviewjob->qt_metacast(param1);
+    } else {
+        return self->KIO::PreviewJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__PreviewJob_OnMetacast(KIO__PreviewJob* self, intptr_t slot) {
+    auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+        vkiopreviewjob->setKIO__PreviewJob_Metacast_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

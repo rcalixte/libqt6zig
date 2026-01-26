@@ -17,6 +17,8 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
     bool isVirtualQBarLegendMarker = true;
 
     // Virtual class public types (including callbacks)
+    using QBarLegendMarker_MetaObject_Callback = QMetaObject* (*)();
+    using QBarLegendMarker_Metacast_Callback = void* (*)(QBarLegendMarker*, const char*);
     using QBarLegendMarker_Metacall_Callback = int (*)(QBarLegendMarker*, int, int, void**);
     using QBarLegendMarker_Type_Callback = int (*)();
     using QBarLegendMarker_Series_Callback = QAbstractBarSeries* (*)();
@@ -34,6 +36,8 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
 
   protected:
     // Instance callback storage
+    QBarLegendMarker_MetaObject_Callback qbarlegendmarker_metaobject_callback = nullptr;
+    QBarLegendMarker_Metacast_Callback qbarlegendmarker_metacast_callback = nullptr;
     QBarLegendMarker_Metacall_Callback qbarlegendmarker_metacall_callback = nullptr;
     QBarLegendMarker_Type_Callback qbarlegendmarker_type_callback = nullptr;
     QBarLegendMarker_Series_Callback qbarlegendmarker_series_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
     QBarLegendMarker_IsSignalConnected_Callback qbarlegendmarker_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qbarlegendmarker_metaobject_isbase = false;
+    mutable bool qbarlegendmarker_metacast_isbase = false;
     mutable bool qbarlegendmarker_metacall_isbase = false;
     mutable bool qbarlegendmarker_type_isbase = false;
     mutable bool qbarlegendmarker_series_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
     VirtualQBarLegendMarker(QAbstractBarSeries* series, QBarSet* barset, QLegend* legend, QObject* parent) : QBarLegendMarker(series, barset, legend, parent) {};
 
     ~VirtualQBarLegendMarker() {
+        qbarlegendmarker_metaobject_callback = nullptr;
+        qbarlegendmarker_metacast_callback = nullptr;
         qbarlegendmarker_metacall_callback = nullptr;
         qbarlegendmarker_type_callback = nullptr;
         qbarlegendmarker_series_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
     }
 
     // Callback setters
+    inline void setQBarLegendMarker_MetaObject_Callback(QBarLegendMarker_MetaObject_Callback cb) { qbarlegendmarker_metaobject_callback = cb; }
+    inline void setQBarLegendMarker_Metacast_Callback(QBarLegendMarker_Metacast_Callback cb) { qbarlegendmarker_metacast_callback = cb; }
     inline void setQBarLegendMarker_Metacall_Callback(QBarLegendMarker_Metacall_Callback cb) { qbarlegendmarker_metacall_callback = cb; }
     inline void setQBarLegendMarker_Type_Callback(QBarLegendMarker_Type_Callback cb) { qbarlegendmarker_type_callback = cb; }
     inline void setQBarLegendMarker_Series_Callback(QBarLegendMarker_Series_Callback cb) { qbarlegendmarker_series_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
     inline void setQBarLegendMarker_IsSignalConnected_Callback(QBarLegendMarker_IsSignalConnected_Callback cb) { qbarlegendmarker_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQBarLegendMarker_MetaObject_IsBase(bool value) const { qbarlegendmarker_metaobject_isbase = value; }
+    inline void setQBarLegendMarker_Metacast_IsBase(bool value) const { qbarlegendmarker_metacast_isbase = value; }
     inline void setQBarLegendMarker_Metacall_IsBase(bool value) const { qbarlegendmarker_metacall_isbase = value; }
     inline void setQBarLegendMarker_Type_IsBase(bool value) const { qbarlegendmarker_type_isbase = value; }
     inline void setQBarLegendMarker_Series_IsBase(bool value) const { qbarlegendmarker_series_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
     inline void setQBarLegendMarker_SenderSignalIndex_IsBase(bool value) const { qbarlegendmarker_sendersignalindex_isbase = value; }
     inline void setQBarLegendMarker_Receivers_IsBase(bool value) const { qbarlegendmarker_receivers_isbase = value; }
     inline void setQBarLegendMarker_IsSignalConnected_IsBase(bool value) const { qbarlegendmarker_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qbarlegendmarker_metaobject_isbase) {
+            qbarlegendmarker_metaobject_isbase = false;
+            return QBarLegendMarker::metaObject();
+        } else if (qbarlegendmarker_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qbarlegendmarker_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QBarLegendMarker::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qbarlegendmarker_metacast_isbase) {
+            qbarlegendmarker_metacast_isbase = false;
+            return QBarLegendMarker::qt_metacast(param1);
+        } else if (qbarlegendmarker_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qbarlegendmarker_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QBarLegendMarker::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

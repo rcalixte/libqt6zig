@@ -17,6 +17,8 @@ class VirtualKXMessages final : public KXMessages {
     bool isVirtualKXMessages = true;
 
     // Virtual class public types (including callbacks)
+    using KXMessages_MetaObject_Callback = QMetaObject* (*)();
+    using KXMessages_Metacast_Callback = void* (*)(KXMessages*, const char*);
     using KXMessages_Metacall_Callback = int (*)(KXMessages*, int, int, void**);
     using KXMessages_Event_Callback = bool (*)(KXMessages*, QEvent*);
     using KXMessages_EventFilter_Callback = bool (*)(KXMessages*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKXMessages final : public KXMessages {
 
   protected:
     // Instance callback storage
+    KXMessages_MetaObject_Callback kxmessages_metaobject_callback = nullptr;
+    KXMessages_Metacast_Callback kxmessages_metacast_callback = nullptr;
     KXMessages_Metacall_Callback kxmessages_metacall_callback = nullptr;
     KXMessages_Event_Callback kxmessages_event_callback = nullptr;
     KXMessages_EventFilter_Callback kxmessages_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKXMessages final : public KXMessages {
     KXMessages_IsSignalConnected_Callback kxmessages_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kxmessages_metaobject_isbase = false;
+    mutable bool kxmessages_metacast_isbase = false;
     mutable bool kxmessages_metacall_isbase = false;
     mutable bool kxmessages_event_isbase = false;
     mutable bool kxmessages_eventfilter_isbase = false;
@@ -65,6 +71,8 @@ class VirtualKXMessages final : public KXMessages {
     VirtualKXMessages(const char* accept_broadcast, QObject* parent) : KXMessages(accept_broadcast, parent) {};
 
     ~VirtualKXMessages() {
+        kxmessages_metaobject_callback = nullptr;
+        kxmessages_metacast_callback = nullptr;
         kxmessages_metacall_callback = nullptr;
         kxmessages_event_callback = nullptr;
         kxmessages_eventfilter_callback = nullptr;
@@ -80,6 +88,8 @@ class VirtualKXMessages final : public KXMessages {
     }
 
     // Callback setters
+    inline void setKXMessages_MetaObject_Callback(KXMessages_MetaObject_Callback cb) { kxmessages_metaobject_callback = cb; }
+    inline void setKXMessages_Metacast_Callback(KXMessages_Metacast_Callback cb) { kxmessages_metacast_callback = cb; }
     inline void setKXMessages_Metacall_Callback(KXMessages_Metacall_Callback cb) { kxmessages_metacall_callback = cb; }
     inline void setKXMessages_Event_Callback(KXMessages_Event_Callback cb) { kxmessages_event_callback = cb; }
     inline void setKXMessages_EventFilter_Callback(KXMessages_EventFilter_Callback cb) { kxmessages_eventfilter_callback = cb; }
@@ -94,6 +104,8 @@ class VirtualKXMessages final : public KXMessages {
     inline void setKXMessages_IsSignalConnected_Callback(KXMessages_IsSignalConnected_Callback cb) { kxmessages_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKXMessages_MetaObject_IsBase(bool value) const { kxmessages_metaobject_isbase = value; }
+    inline void setKXMessages_Metacast_IsBase(bool value) const { kxmessages_metacast_isbase = value; }
     inline void setKXMessages_Metacall_IsBase(bool value) const { kxmessages_metacall_isbase = value; }
     inline void setKXMessages_Event_IsBase(bool value) const { kxmessages_event_isbase = value; }
     inline void setKXMessages_EventFilter_IsBase(bool value) const { kxmessages_eventfilter_isbase = value; }
@@ -106,6 +118,34 @@ class VirtualKXMessages final : public KXMessages {
     inline void setKXMessages_SenderSignalIndex_IsBase(bool value) const { kxmessages_sendersignalindex_isbase = value; }
     inline void setKXMessages_Receivers_IsBase(bool value) const { kxmessages_receivers_isbase = value; }
     inline void setKXMessages_IsSignalConnected_IsBase(bool value) const { kxmessages_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kxmessages_metaobject_isbase) {
+            kxmessages_metaobject_isbase = false;
+            return KXMessages::metaObject();
+        } else if (kxmessages_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kxmessages_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KXMessages::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kxmessages_metacast_isbase) {
+            kxmessages_metacast_isbase = false;
+            return KXMessages::qt_metacast(param1);
+        } else if (kxmessages_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kxmessages_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KXMessages::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

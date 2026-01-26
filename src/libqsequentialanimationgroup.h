@@ -42,6 +42,10 @@ bool QSequentialAnimationGroup_Event(QSequentialAnimationGroup* self, QEvent* ev
 void QSequentialAnimationGroup_UpdateCurrentTime(QSequentialAnimationGroup* self, int param1);
 void QSequentialAnimationGroup_UpdateState(QSequentialAnimationGroup* self, int newState, int oldState);
 void QSequentialAnimationGroup_UpdateDirection(QSequentialAnimationGroup* self, int direction);
+void QSequentialAnimationGroup_OnMetaObject(const QSequentialAnimationGroup* self, intptr_t slot);
+QMetaObject* QSequentialAnimationGroup_QBaseMetaObject(const QSequentialAnimationGroup* self);
+void QSequentialAnimationGroup_OnMetacast(QSequentialAnimationGroup* self, intptr_t slot);
+void* QSequentialAnimationGroup_QBaseMetacast(QSequentialAnimationGroup* self, const char* param1);
 void QSequentialAnimationGroup_OnMetacall(QSequentialAnimationGroup* self, intptr_t slot);
 int QSequentialAnimationGroup_QBaseMetacall(QSequentialAnimationGroup* self, int param1, int param2, void** param3);
 void QSequentialAnimationGroup_OnDuration(const QSequentialAnimationGroup* self, intptr_t slot);

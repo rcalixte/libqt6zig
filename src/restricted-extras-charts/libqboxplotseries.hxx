@@ -17,6 +17,8 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
     bool isVirtualQBoxPlotSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QBoxPlotSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QBoxPlotSeries_Metacast_Callback = void* (*)(QBoxPlotSeries*, const char*);
     using QBoxPlotSeries_Metacall_Callback = int (*)(QBoxPlotSeries*, int, int, void**);
     using QBoxPlotSeries_Type_Callback = int (*)();
     using QBoxPlotSeries_Event_Callback = bool (*)(QBoxPlotSeries*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
 
   protected:
     // Instance callback storage
+    QBoxPlotSeries_MetaObject_Callback qboxplotseries_metaobject_callback = nullptr;
+    QBoxPlotSeries_Metacast_Callback qboxplotseries_metacast_callback = nullptr;
     QBoxPlotSeries_Metacall_Callback qboxplotseries_metacall_callback = nullptr;
     QBoxPlotSeries_Type_Callback qboxplotseries_type_callback = nullptr;
     QBoxPlotSeries_Event_Callback qboxplotseries_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
     QBoxPlotSeries_IsSignalConnected_Callback qboxplotseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qboxplotseries_metaobject_isbase = false;
+    mutable bool qboxplotseries_metacast_isbase = false;
     mutable bool qboxplotseries_metacall_isbase = false;
     mutable bool qboxplotseries_type_isbase = false;
     mutable bool qboxplotseries_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
     VirtualQBoxPlotSeries(QObject* parent) : QBoxPlotSeries(parent) {};
 
     ~VirtualQBoxPlotSeries() {
+        qboxplotseries_metaobject_callback = nullptr;
+        qboxplotseries_metacast_callback = nullptr;
         qboxplotseries_metacall_callback = nullptr;
         qboxplotseries_type_callback = nullptr;
         qboxplotseries_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
     }
 
     // Callback setters
+    inline void setQBoxPlotSeries_MetaObject_Callback(QBoxPlotSeries_MetaObject_Callback cb) { qboxplotseries_metaobject_callback = cb; }
+    inline void setQBoxPlotSeries_Metacast_Callback(QBoxPlotSeries_Metacast_Callback cb) { qboxplotseries_metacast_callback = cb; }
     inline void setQBoxPlotSeries_Metacall_Callback(QBoxPlotSeries_Metacall_Callback cb) { qboxplotseries_metacall_callback = cb; }
     inline void setQBoxPlotSeries_Type_Callback(QBoxPlotSeries_Type_Callback cb) { qboxplotseries_type_callback = cb; }
     inline void setQBoxPlotSeries_Event_Callback(QBoxPlotSeries_Event_Callback cb) { qboxplotseries_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
     inline void setQBoxPlotSeries_IsSignalConnected_Callback(QBoxPlotSeries_IsSignalConnected_Callback cb) { qboxplotseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQBoxPlotSeries_MetaObject_IsBase(bool value) const { qboxplotseries_metaobject_isbase = value; }
+    inline void setQBoxPlotSeries_Metacast_IsBase(bool value) const { qboxplotseries_metacast_isbase = value; }
     inline void setQBoxPlotSeries_Metacall_IsBase(bool value) const { qboxplotseries_metacall_isbase = value; }
     inline void setQBoxPlotSeries_Type_IsBase(bool value) const { qboxplotseries_type_isbase = value; }
     inline void setQBoxPlotSeries_Event_IsBase(bool value) const { qboxplotseries_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
     inline void setQBoxPlotSeries_SenderSignalIndex_IsBase(bool value) const { qboxplotseries_sendersignalindex_isbase = value; }
     inline void setQBoxPlotSeries_Receivers_IsBase(bool value) const { qboxplotseries_receivers_isbase = value; }
     inline void setQBoxPlotSeries_IsSignalConnected_IsBase(bool value) const { qboxplotseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qboxplotseries_metaobject_isbase) {
+            qboxplotseries_metaobject_isbase = false;
+            return QBoxPlotSeries::metaObject();
+        } else if (qboxplotseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qboxplotseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QBoxPlotSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qboxplotseries_metacast_isbase) {
+            qboxplotseries_metacast_isbase = false;
+            return QBoxPlotSeries::qt_metacast(param1);
+        } else if (qboxplotseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qboxplotseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QBoxPlotSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

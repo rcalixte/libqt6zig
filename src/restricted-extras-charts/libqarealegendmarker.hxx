@@ -17,6 +17,8 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
     bool isVirtualQAreaLegendMarker = true;
 
     // Virtual class public types (including callbacks)
+    using QAreaLegendMarker_MetaObject_Callback = QMetaObject* (*)();
+    using QAreaLegendMarker_Metacast_Callback = void* (*)(QAreaLegendMarker*, const char*);
     using QAreaLegendMarker_Metacall_Callback = int (*)(QAreaLegendMarker*, int, int, void**);
     using QAreaLegendMarker_Type_Callback = int (*)();
     using QAreaLegendMarker_Series_Callback = QAreaSeries* (*)();
@@ -34,6 +36,8 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
 
   protected:
     // Instance callback storage
+    QAreaLegendMarker_MetaObject_Callback qarealegendmarker_metaobject_callback = nullptr;
+    QAreaLegendMarker_Metacast_Callback qarealegendmarker_metacast_callback = nullptr;
     QAreaLegendMarker_Metacall_Callback qarealegendmarker_metacall_callback = nullptr;
     QAreaLegendMarker_Type_Callback qarealegendmarker_type_callback = nullptr;
     QAreaLegendMarker_Series_Callback qarealegendmarker_series_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
     QAreaLegendMarker_IsSignalConnected_Callback qarealegendmarker_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qarealegendmarker_metaobject_isbase = false;
+    mutable bool qarealegendmarker_metacast_isbase = false;
     mutable bool qarealegendmarker_metacall_isbase = false;
     mutable bool qarealegendmarker_type_isbase = false;
     mutable bool qarealegendmarker_series_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
     VirtualQAreaLegendMarker(QAreaSeries* series, QLegend* legend, QObject* parent) : QAreaLegendMarker(series, legend, parent) {};
 
     ~VirtualQAreaLegendMarker() {
+        qarealegendmarker_metaobject_callback = nullptr;
+        qarealegendmarker_metacast_callback = nullptr;
         qarealegendmarker_metacall_callback = nullptr;
         qarealegendmarker_type_callback = nullptr;
         qarealegendmarker_series_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
     }
 
     // Callback setters
+    inline void setQAreaLegendMarker_MetaObject_Callback(QAreaLegendMarker_MetaObject_Callback cb) { qarealegendmarker_metaobject_callback = cb; }
+    inline void setQAreaLegendMarker_Metacast_Callback(QAreaLegendMarker_Metacast_Callback cb) { qarealegendmarker_metacast_callback = cb; }
     inline void setQAreaLegendMarker_Metacall_Callback(QAreaLegendMarker_Metacall_Callback cb) { qarealegendmarker_metacall_callback = cb; }
     inline void setQAreaLegendMarker_Type_Callback(QAreaLegendMarker_Type_Callback cb) { qarealegendmarker_type_callback = cb; }
     inline void setQAreaLegendMarker_Series_Callback(QAreaLegendMarker_Series_Callback cb) { qarealegendmarker_series_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
     inline void setQAreaLegendMarker_IsSignalConnected_Callback(QAreaLegendMarker_IsSignalConnected_Callback cb) { qarealegendmarker_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAreaLegendMarker_MetaObject_IsBase(bool value) const { qarealegendmarker_metaobject_isbase = value; }
+    inline void setQAreaLegendMarker_Metacast_IsBase(bool value) const { qarealegendmarker_metacast_isbase = value; }
     inline void setQAreaLegendMarker_Metacall_IsBase(bool value) const { qarealegendmarker_metacall_isbase = value; }
     inline void setQAreaLegendMarker_Type_IsBase(bool value) const { qarealegendmarker_type_isbase = value; }
     inline void setQAreaLegendMarker_Series_IsBase(bool value) const { qarealegendmarker_series_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
     inline void setQAreaLegendMarker_SenderSignalIndex_IsBase(bool value) const { qarealegendmarker_sendersignalindex_isbase = value; }
     inline void setQAreaLegendMarker_Receivers_IsBase(bool value) const { qarealegendmarker_receivers_isbase = value; }
     inline void setQAreaLegendMarker_IsSignalConnected_IsBase(bool value) const { qarealegendmarker_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qarealegendmarker_metaobject_isbase) {
+            qarealegendmarker_metaobject_isbase = false;
+            return QAreaLegendMarker::metaObject();
+        } else if (qarealegendmarker_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qarealegendmarker_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAreaLegendMarker::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qarealegendmarker_metacast_isbase) {
+            qarealegendmarker_metacast_isbase = false;
+            return QAreaLegendMarker::qt_metacast(param1);
+        } else if (qarealegendmarker_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qarealegendmarker_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAreaLegendMarker::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

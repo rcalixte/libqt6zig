@@ -49,11 +49,21 @@ KSslCertificateBox* KSslCertificateBox_new2() {
 }
 
 QMetaObject* KSslCertificateBox_MetaObject(const KSslCertificateBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vksslcertificatebox = dynamic_cast<const VirtualKSslCertificateBox*>(self);
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSslCertificateBox*)self)->metaObject();
+    }
 }
 
 void* KSslCertificateBox_Metacast(KSslCertificateBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSslCertificateBox*)self)->qt_metacast(param1);
+    }
 }
 
 int KSslCertificateBox_Metacall(KSslCertificateBox* self, int param1, int param2, void** param3) {
@@ -71,6 +81,44 @@ void KSslCertificateBox_SetCertificate(KSslCertificateBox* self, const QSslCerti
 
 void KSslCertificateBox_Clear(KSslCertificateBox* self) {
     self->clear();
+}
+
+// Base class handler implementation
+QMetaObject* KSslCertificateBox_QBaseMetaObject(const KSslCertificateBox* self) {
+    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+        vksslcertificatebox->setKSslCertificateBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vksslcertificatebox->metaObject();
+    } else {
+        return (QMetaObject*)self->KSslCertificateBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSslCertificateBox_OnMetaObject(const KSslCertificateBox* self, intptr_t slot) {
+    auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+        vksslcertificatebox->setKSslCertificateBox_MetaObject_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSslCertificateBox_QBaseMetacast(KSslCertificateBox* self, const char* param1) {
+    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+        vksslcertificatebox->setKSslCertificateBox_Metacast_IsBase(true);
+        return vksslcertificatebox->qt_metacast(param1);
+    } else {
+        return self->KSslCertificateBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSslCertificateBox_OnMetacast(KSslCertificateBox* self, intptr_t slot) {
+    auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+        vksslcertificatebox->setKSslCertificateBox_Metacast_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

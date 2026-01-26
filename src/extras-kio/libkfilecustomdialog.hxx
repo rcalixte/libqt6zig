@@ -17,6 +17,8 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
     bool isVirtualKFileCustomDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KFileCustomDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KFileCustomDialog_Metacast_Callback = void* (*)(KFileCustomDialog*, const char*);
     using KFileCustomDialog_Metacall_Callback = int (*)(KFileCustomDialog*, int, int, void**);
     using KFileCustomDialog_Accept_Callback = void (*)();
     using KFileCustomDialog_SetVisible_Callback = void (*)(KFileCustomDialog*, bool);
@@ -84,6 +86,8 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
 
   protected:
     // Instance callback storage
+    KFileCustomDialog_MetaObject_Callback kfilecustomdialog_metaobject_callback = nullptr;
+    KFileCustomDialog_Metacast_Callback kfilecustomdialog_metacast_callback = nullptr;
     KFileCustomDialog_Metacall_Callback kfilecustomdialog_metacall_callback = nullptr;
     KFileCustomDialog_Accept_Callback kfilecustomdialog_accept_callback = nullptr;
     KFileCustomDialog_SetVisible_Callback kfilecustomdialog_setvisible_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
     KFileCustomDialog_GetDecodedMetricF_Callback kfilecustomdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfilecustomdialog_metaobject_isbase = false;
+    mutable bool kfilecustomdialog_metacast_isbase = false;
     mutable bool kfilecustomdialog_metacall_isbase = false;
     mutable bool kfilecustomdialog_accept_isbase = false;
     mutable bool kfilecustomdialog_setvisible_isbase = false;
@@ -222,6 +228,8 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
     VirtualKFileCustomDialog(const QUrl& startDir, QWidget* parent) : KFileCustomDialog(startDir, parent) {};
 
     ~VirtualKFileCustomDialog() {
+        kfilecustomdialog_metaobject_callback = nullptr;
+        kfilecustomdialog_metacast_callback = nullptr;
         kfilecustomdialog_metacall_callback = nullptr;
         kfilecustomdialog_accept_callback = nullptr;
         kfilecustomdialog_setvisible_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
     }
 
     // Callback setters
+    inline void setKFileCustomDialog_MetaObject_Callback(KFileCustomDialog_MetaObject_Callback cb) { kfilecustomdialog_metaobject_callback = cb; }
+    inline void setKFileCustomDialog_Metacast_Callback(KFileCustomDialog_Metacast_Callback cb) { kfilecustomdialog_metacast_callback = cb; }
     inline void setKFileCustomDialog_Metacall_Callback(KFileCustomDialog_Metacall_Callback cb) { kfilecustomdialog_metacall_callback = cb; }
     inline void setKFileCustomDialog_Accept_Callback(KFileCustomDialog_Accept_Callback cb) { kfilecustomdialog_accept_callback = cb; }
     inline void setKFileCustomDialog_SetVisible_Callback(KFileCustomDialog_SetVisible_Callback cb) { kfilecustomdialog_setvisible_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
     inline void setKFileCustomDialog_GetDecodedMetricF_Callback(KFileCustomDialog_GetDecodedMetricF_Callback cb) { kfilecustomdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKFileCustomDialog_MetaObject_IsBase(bool value) const { kfilecustomdialog_metaobject_isbase = value; }
+    inline void setKFileCustomDialog_Metacast_IsBase(bool value) const { kfilecustomdialog_metacast_isbase = value; }
     inline void setKFileCustomDialog_Metacall_IsBase(bool value) const { kfilecustomdialog_metacall_isbase = value; }
     inline void setKFileCustomDialog_Accept_IsBase(bool value) const { kfilecustomdialog_accept_isbase = value; }
     inline void setKFileCustomDialog_SetVisible_IsBase(bool value) const { kfilecustomdialog_setvisible_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
     inline void setKFileCustomDialog_Receivers_IsBase(bool value) const { kfilecustomdialog_receivers_isbase = value; }
     inline void setKFileCustomDialog_IsSignalConnected_IsBase(bool value) const { kfilecustomdialog_issignalconnected_isbase = value; }
     inline void setKFileCustomDialog_GetDecodedMetricF_IsBase(bool value) const { kfilecustomdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfilecustomdialog_metaobject_isbase) {
+            kfilecustomdialog_metaobject_isbase = false;
+            return KFileCustomDialog::metaObject();
+        } else if (kfilecustomdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfilecustomdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFileCustomDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfilecustomdialog_metacast_isbase) {
+            kfilecustomdialog_metacast_isbase = false;
+            return KFileCustomDialog::qt_metacast(param1);
+        } else if (kfilecustomdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfilecustomdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFileCustomDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

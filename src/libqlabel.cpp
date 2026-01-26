@@ -72,11 +72,21 @@ QLabel* QLabel_new6(const libqt_string text, QWidget* parent, int f) {
 }
 
 QMetaObject* QLabel_MetaObject(const QLabel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqlabel = dynamic_cast<const VirtualQLabel*>(self);
+    if (vqlabel && vqlabel->isVirtualQLabel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQLabel*)self)->metaObject();
+    }
 }
 
 void* QLabel_Metacast(QLabel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
+    if (vqlabel && vqlabel->isVirtualQLabel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQLabel*)self)->qt_metacast(param1);
+    }
 }
 
 int QLabel_Metacall(QLabel* self, int param1, int param2, void** param3) {
@@ -389,6 +399,44 @@ bool QLabel_FocusNextPrevChild(QLabel* self, bool next) {
         return vqlabel->focusNextPrevChild(next);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QLabel_QBaseMetaObject(const QLabel* self) {
+    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
+    if (vqlabel && vqlabel->isVirtualQLabel) {
+        vqlabel->setQLabel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqlabel->metaObject();
+    } else {
+        return (QMetaObject*)self->QLabel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLabel_OnMetaObject(const QLabel* self, intptr_t slot) {
+    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
+    if (vqlabel && vqlabel->isVirtualQLabel) {
+        vqlabel->setQLabel_MetaObject_Callback(reinterpret_cast<VirtualQLabel::QLabel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QLabel_QBaseMetacast(QLabel* self, const char* param1) {
+    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
+    if (vqlabel && vqlabel->isVirtualQLabel) {
+        vqlabel->setQLabel_Metacast_IsBase(true);
+        return vqlabel->qt_metacast(param1);
+    } else {
+        return self->QLabel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLabel_OnMetacast(QLabel* self, intptr_t slot) {
+    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
+    if (vqlabel && vqlabel->isVirtualQLabel) {
+        vqlabel->setQLabel_Metacast_Callback(reinterpret_cast<VirtualQLabel::QLabel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

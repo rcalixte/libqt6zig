@@ -32,6 +32,10 @@ int KColorSchemeWatcher_Metacall(KColorSchemeWatcher* self, int param1, int para
 int KColorSchemeWatcher_SystemPreference(const KColorSchemeWatcher* self);
 void KColorSchemeWatcher_SystemPreferenceChanged(KColorSchemeWatcher* self);
 void KColorSchemeWatcher_Connect_SystemPreferenceChanged(KColorSchemeWatcher* self, intptr_t slot);
+void KColorSchemeWatcher_OnMetaObject(const KColorSchemeWatcher* self, intptr_t slot);
+QMetaObject* KColorSchemeWatcher_QBaseMetaObject(const KColorSchemeWatcher* self);
+void KColorSchemeWatcher_OnMetacast(KColorSchemeWatcher* self, intptr_t slot);
+void* KColorSchemeWatcher_QBaseMetacast(KColorSchemeWatcher* self, const char* param1);
 void KColorSchemeWatcher_OnMetacall(KColorSchemeWatcher* self, intptr_t slot);
 int KColorSchemeWatcher_QBaseMetacall(KColorSchemeWatcher* self, int param1, int param2, void** param3);
 bool KColorSchemeWatcher_Event(KColorSchemeWatcher* self, QEvent* event);

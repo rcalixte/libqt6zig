@@ -65,11 +65,21 @@ KLed* KLed_new6(const QColor* color, int state, int look, int shape, QWidget* pa
 }
 
 QMetaObject* KLed_MetaObject(const KLed* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkled = dynamic_cast<const VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKLed*)self)->metaObject();
+    }
 }
 
 void* KLed_Metacast(KLed* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKLed*)self)->qt_metacast(param1);
+    }
 }
 
 int KLed_Metacall(KLed* self, int param1, int param2, void** param3) {
@@ -162,6 +172,44 @@ void KLed_ResizeEvent(KLed* self, QResizeEvent* param1) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
     if (vkled && vkled->isVirtualKLed) {
         vkled->resizeEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KLed_QBaseMetaObject(const KLed* self) {
+    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_MetaObject_IsBase(true);
+        return (QMetaObject*)vkled->metaObject();
+    } else {
+        return (QMetaObject*)self->KLed::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLed_OnMetaObject(const KLed* self, intptr_t slot) {
+    auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_MetaObject_Callback(reinterpret_cast<VirtualKLed::KLed_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KLed_QBaseMetacast(KLed* self, const char* param1) {
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_Metacast_IsBase(true);
+        return vkled->qt_metacast(param1);
+    } else {
+        return self->KLed::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLed_OnMetacast(KLed* self, intptr_t slot) {
+    auto* vkled = dynamic_cast<VirtualKLed*>(self);
+    if (vkled && vkled->isVirtualKLed) {
+        vkled->setKLed_Metacast_Callback(reinterpret_cast<VirtualKLed::KLed_Metacast_Callback>(slot));
     }
 }
 

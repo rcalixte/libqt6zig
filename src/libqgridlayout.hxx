@@ -17,6 +17,8 @@ class VirtualQGridLayout final : public QGridLayout {
     bool isVirtualQGridLayout = true;
 
     // Virtual class public types (including callbacks)
+    using QGridLayout_MetaObject_Callback = QMetaObject* (*)();
+    using QGridLayout_Metacast_Callback = void* (*)(QGridLayout*, const char*);
     using QGridLayout_Metacall_Callback = int (*)(QGridLayout*, int, int, void**);
     using QGridLayout_SizeHint_Callback = QSize* (*)();
     using QGridLayout_MinimumSize_Callback = QSize* (*)();
@@ -60,6 +62,8 @@ class VirtualQGridLayout final : public QGridLayout {
 
   protected:
     // Instance callback storage
+    QGridLayout_MetaObject_Callback qgridlayout_metaobject_callback = nullptr;
+    QGridLayout_Metacast_Callback qgridlayout_metacast_callback = nullptr;
     QGridLayout_Metacall_Callback qgridlayout_metacall_callback = nullptr;
     QGridLayout_SizeHint_Callback qgridlayout_sizehint_callback = nullptr;
     QGridLayout_MinimumSize_Callback qgridlayout_minimumsize_callback = nullptr;
@@ -102,6 +106,8 @@ class VirtualQGridLayout final : public QGridLayout {
     QGridLayout_IsSignalConnected_Callback qgridlayout_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgridlayout_metaobject_isbase = false;
+    mutable bool qgridlayout_metacast_isbase = false;
     mutable bool qgridlayout_metacall_isbase = false;
     mutable bool qgridlayout_sizehint_isbase = false;
     mutable bool qgridlayout_minimumsize_isbase = false;
@@ -148,6 +154,8 @@ class VirtualQGridLayout final : public QGridLayout {
     VirtualQGridLayout() : QGridLayout() {};
 
     ~VirtualQGridLayout() {
+        qgridlayout_metaobject_callback = nullptr;
+        qgridlayout_metacast_callback = nullptr;
         qgridlayout_metacall_callback = nullptr;
         qgridlayout_sizehint_callback = nullptr;
         qgridlayout_minimumsize_callback = nullptr;
@@ -191,6 +199,8 @@ class VirtualQGridLayout final : public QGridLayout {
     }
 
     // Callback setters
+    inline void setQGridLayout_MetaObject_Callback(QGridLayout_MetaObject_Callback cb) { qgridlayout_metaobject_callback = cb; }
+    inline void setQGridLayout_Metacast_Callback(QGridLayout_Metacast_Callback cb) { qgridlayout_metacast_callback = cb; }
     inline void setQGridLayout_Metacall_Callback(QGridLayout_Metacall_Callback cb) { qgridlayout_metacall_callback = cb; }
     inline void setQGridLayout_SizeHint_Callback(QGridLayout_SizeHint_Callback cb) { qgridlayout_sizehint_callback = cb; }
     inline void setQGridLayout_MinimumSize_Callback(QGridLayout_MinimumSize_Callback cb) { qgridlayout_minimumsize_callback = cb; }
@@ -233,6 +243,8 @@ class VirtualQGridLayout final : public QGridLayout {
     inline void setQGridLayout_IsSignalConnected_Callback(QGridLayout_IsSignalConnected_Callback cb) { qgridlayout_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGridLayout_MetaObject_IsBase(bool value) const { qgridlayout_metaobject_isbase = value; }
+    inline void setQGridLayout_Metacast_IsBase(bool value) const { qgridlayout_metacast_isbase = value; }
     inline void setQGridLayout_Metacall_IsBase(bool value) const { qgridlayout_metacall_isbase = value; }
     inline void setQGridLayout_SizeHint_IsBase(bool value) const { qgridlayout_sizehint_isbase = value; }
     inline void setQGridLayout_MinimumSize_IsBase(bool value) const { qgridlayout_minimumsize_isbase = value; }
@@ -273,6 +285,34 @@ class VirtualQGridLayout final : public QGridLayout {
     inline void setQGridLayout_SenderSignalIndex_IsBase(bool value) const { qgridlayout_sendersignalindex_isbase = value; }
     inline void setQGridLayout_Receivers_IsBase(bool value) const { qgridlayout_receivers_isbase = value; }
     inline void setQGridLayout_IsSignalConnected_IsBase(bool value) const { qgridlayout_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgridlayout_metaobject_isbase) {
+            qgridlayout_metaobject_isbase = false;
+            return QGridLayout::metaObject();
+        } else if (qgridlayout_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgridlayout_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGridLayout::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgridlayout_metacast_isbase) {
+            qgridlayout_metacast_isbase = false;
+            return QGridLayout::qt_metacast(param1);
+        } else if (qgridlayout_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgridlayout_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGridLayout::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

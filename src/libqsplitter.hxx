@@ -17,6 +17,8 @@ class VirtualQSplitter final : public QSplitter {
     bool isVirtualQSplitter = true;
 
     // Virtual class public types (including callbacks)
+    using QSplitter_MetaObject_Callback = QMetaObject* (*)();
+    using QSplitter_Metacast_Callback = void* (*)(QSplitter*, const char*);
     using QSplitter_Metacall_Callback = int (*)(QSplitter*, int, int, void**);
     using QSplitter_SizeHint_Callback = QSize* (*)();
     using QSplitter_MinimumSizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualQSplitter final : public QSplitter {
 
   protected:
     // Instance callback storage
+    QSplitter_MetaObject_Callback qsplitter_metaobject_callback = nullptr;
+    QSplitter_Metacast_Callback qsplitter_metacast_callback = nullptr;
     QSplitter_Metacall_Callback qsplitter_metacall_callback = nullptr;
     QSplitter_SizeHint_Callback qsplitter_sizehint_callback = nullptr;
     QSplitter_MinimumSizeHint_Callback qsplitter_minimumsizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQSplitter final : public QSplitter {
     QSplitter_GetDecodedMetricF_Callback qsplitter_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsplitter_metaobject_isbase = false;
+    mutable bool qsplitter_metacast_isbase = false;
     mutable bool qsplitter_metacall_isbase = false;
     mutable bool qsplitter_sizehint_isbase = false;
     mutable bool qsplitter_minimumsizehint_isbase = false;
@@ -222,6 +228,8 @@ class VirtualQSplitter final : public QSplitter {
     VirtualQSplitter(Qt::Orientation param1, QWidget* parent) : QSplitter(param1, parent) {};
 
     ~VirtualQSplitter() {
+        qsplitter_metaobject_callback = nullptr;
+        qsplitter_metacast_callback = nullptr;
         qsplitter_metacall_callback = nullptr;
         qsplitter_sizehint_callback = nullptr;
         qsplitter_minimumsizehint_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualQSplitter final : public QSplitter {
     }
 
     // Callback setters
+    inline void setQSplitter_MetaObject_Callback(QSplitter_MetaObject_Callback cb) { qsplitter_metaobject_callback = cb; }
+    inline void setQSplitter_Metacast_Callback(QSplitter_Metacast_Callback cb) { qsplitter_metacast_callback = cb; }
     inline void setQSplitter_Metacall_Callback(QSplitter_Metacall_Callback cb) { qsplitter_metacall_callback = cb; }
     inline void setQSplitter_SizeHint_Callback(QSplitter_SizeHint_Callback cb) { qsplitter_sizehint_callback = cb; }
     inline void setQSplitter_MinimumSizeHint_Callback(QSplitter_MinimumSizeHint_Callback cb) { qsplitter_minimumsizehint_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualQSplitter final : public QSplitter {
     inline void setQSplitter_GetDecodedMetricF_Callback(QSplitter_GetDecodedMetricF_Callback cb) { qsplitter_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQSplitter_MetaObject_IsBase(bool value) const { qsplitter_metaobject_isbase = value; }
+    inline void setQSplitter_Metacast_IsBase(bool value) const { qsplitter_metacast_isbase = value; }
     inline void setQSplitter_Metacall_IsBase(bool value) const { qsplitter_metacall_isbase = value; }
     inline void setQSplitter_SizeHint_IsBase(bool value) const { qsplitter_sizehint_isbase = value; }
     inline void setQSplitter_MinimumSizeHint_IsBase(bool value) const { qsplitter_minimumsizehint_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualQSplitter final : public QSplitter {
     inline void setQSplitter_Receivers_IsBase(bool value) const { qsplitter_receivers_isbase = value; }
     inline void setQSplitter_IsSignalConnected_IsBase(bool value) const { qsplitter_issignalconnected_isbase = value; }
     inline void setQSplitter_GetDecodedMetricF_IsBase(bool value) const { qsplitter_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsplitter_metaobject_isbase) {
+            qsplitter_metaobject_isbase = false;
+            return QSplitter::metaObject();
+        } else if (qsplitter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsplitter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSplitter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsplitter_metacast_isbase) {
+            qsplitter_metacast_isbase = false;
+            return QSplitter::qt_metacast(param1);
+        } else if (qsplitter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsplitter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSplitter::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1452,6 +1492,8 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
     bool isVirtualQSplitterHandle = true;
 
     // Virtual class public types (including callbacks)
+    using QSplitterHandle_MetaObject_Callback = QMetaObject* (*)();
+    using QSplitterHandle_Metacast_Callback = void* (*)(QSplitterHandle*, const char*);
     using QSplitterHandle_Metacall_Callback = int (*)(QSplitterHandle*, int, int, void**);
     using QSplitterHandle_SizeHint_Callback = QSize* (*)();
     using QSplitterHandle_PaintEvent_Callback = void (*)(QSplitterHandle*, QPaintEvent*);
@@ -1515,6 +1557,8 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
 
   protected:
     // Instance callback storage
+    QSplitterHandle_MetaObject_Callback qsplitterhandle_metaobject_callback = nullptr;
+    QSplitterHandle_Metacast_Callback qsplitterhandle_metacast_callback = nullptr;
     QSplitterHandle_Metacall_Callback qsplitterhandle_metacall_callback = nullptr;
     QSplitterHandle_SizeHint_Callback qsplitterhandle_sizehint_callback = nullptr;
     QSplitterHandle_PaintEvent_Callback qsplitterhandle_paintevent_callback = nullptr;
@@ -1577,6 +1621,8 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
     QSplitterHandle_GetDecodedMetricF_Callback qsplitterhandle_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsplitterhandle_metaobject_isbase = false;
+    mutable bool qsplitterhandle_metacast_isbase = false;
     mutable bool qsplitterhandle_metacall_isbase = false;
     mutable bool qsplitterhandle_sizehint_isbase = false;
     mutable bool qsplitterhandle_paintevent_isbase = false;
@@ -1642,6 +1688,8 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
     VirtualQSplitterHandle(Qt::Orientation o, QSplitter* parent) : QSplitterHandle(o, parent) {};
 
     ~VirtualQSplitterHandle() {
+        qsplitterhandle_metaobject_callback = nullptr;
+        qsplitterhandle_metacast_callback = nullptr;
         qsplitterhandle_metacall_callback = nullptr;
         qsplitterhandle_sizehint_callback = nullptr;
         qsplitterhandle_paintevent_callback = nullptr;
@@ -1705,6 +1753,8 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
     }
 
     // Callback setters
+    inline void setQSplitterHandle_MetaObject_Callback(QSplitterHandle_MetaObject_Callback cb) { qsplitterhandle_metaobject_callback = cb; }
+    inline void setQSplitterHandle_Metacast_Callback(QSplitterHandle_Metacast_Callback cb) { qsplitterhandle_metacast_callback = cb; }
     inline void setQSplitterHandle_Metacall_Callback(QSplitterHandle_Metacall_Callback cb) { qsplitterhandle_metacall_callback = cb; }
     inline void setQSplitterHandle_SizeHint_Callback(QSplitterHandle_SizeHint_Callback cb) { qsplitterhandle_sizehint_callback = cb; }
     inline void setQSplitterHandle_PaintEvent_Callback(QSplitterHandle_PaintEvent_Callback cb) { qsplitterhandle_paintevent_callback = cb; }
@@ -1767,6 +1817,8 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
     inline void setQSplitterHandle_GetDecodedMetricF_Callback(QSplitterHandle_GetDecodedMetricF_Callback cb) { qsplitterhandle_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQSplitterHandle_MetaObject_IsBase(bool value) const { qsplitterhandle_metaobject_isbase = value; }
+    inline void setQSplitterHandle_Metacast_IsBase(bool value) const { qsplitterhandle_metacast_isbase = value; }
     inline void setQSplitterHandle_Metacall_IsBase(bool value) const { qsplitterhandle_metacall_isbase = value; }
     inline void setQSplitterHandle_SizeHint_IsBase(bool value) const { qsplitterhandle_sizehint_isbase = value; }
     inline void setQSplitterHandle_PaintEvent_IsBase(bool value) const { qsplitterhandle_paintevent_isbase = value; }
@@ -1827,6 +1879,34 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
     inline void setQSplitterHandle_Receivers_IsBase(bool value) const { qsplitterhandle_receivers_isbase = value; }
     inline void setQSplitterHandle_IsSignalConnected_IsBase(bool value) const { qsplitterhandle_issignalconnected_isbase = value; }
     inline void setQSplitterHandle_GetDecodedMetricF_IsBase(bool value) const { qsplitterhandle_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsplitterhandle_metaobject_isbase) {
+            qsplitterhandle_metaobject_isbase = false;
+            return QSplitterHandle::metaObject();
+        } else if (qsplitterhandle_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsplitterhandle_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSplitterHandle::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsplitterhandle_metacast_isbase) {
+            qsplitterhandle_metacast_isbase = false;
+            return QSplitterHandle::qt_metacast(param1);
+        } else if (qsplitterhandle_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsplitterhandle_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSplitterHandle::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

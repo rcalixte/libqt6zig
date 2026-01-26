@@ -18,6 +18,8 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
 
     // Virtual class public types (including callbacks)
     using Konsole::Emulation::EmulationCodec;
+    using Konsole__Emulation_MetaObject_Callback = QMetaObject* (*)();
+    using Konsole__Emulation_Metacast_Callback = void* (*)(Konsole__Emulation*, const char*);
     using Konsole__Emulation_Metacall_Callback = int (*)(Konsole__Emulation*, int, int, void**);
     using Konsole__Emulation_EraseChar_Callback = char (*)();
     using Konsole__Emulation_ClearEntireScreen_Callback = void (*)();
@@ -46,6 +48,8 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
 
   protected:
     // Instance callback storage
+    Konsole__Emulation_MetaObject_Callback konsole__emulation_metaobject_callback = nullptr;
+    Konsole__Emulation_Metacast_Callback konsole__emulation_metacast_callback = nullptr;
     Konsole__Emulation_Metacall_Callback konsole__emulation_metacall_callback = nullptr;
     Konsole__Emulation_EraseChar_Callback konsole__emulation_erasechar_callback = nullptr;
     Konsole__Emulation_ClearEntireScreen_Callback konsole__emulation_clearentirescreen_callback = nullptr;
@@ -73,6 +77,8 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
     Konsole__Emulation_IsSignalConnected_Callback konsole__emulation_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool konsole__emulation_metaobject_isbase = false;
+    mutable bool konsole__emulation_metacast_isbase = false;
     mutable bool konsole__emulation_metacall_isbase = false;
     mutable bool konsole__emulation_erasechar_isbase = false;
     mutable bool konsole__emulation_clearentirescreen_isbase = false;
@@ -103,6 +109,8 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
     VirtualKonsoleEmulation() : Konsole::Emulation() {};
 
     ~VirtualKonsoleEmulation() {
+        konsole__emulation_metaobject_callback = nullptr;
+        konsole__emulation_metacast_callback = nullptr;
         konsole__emulation_metacall_callback = nullptr;
         konsole__emulation_erasechar_callback = nullptr;
         konsole__emulation_clearentirescreen_callback = nullptr;
@@ -131,6 +139,8 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
     }
 
     // Callback setters
+    inline void setKonsole__Emulation_MetaObject_Callback(Konsole__Emulation_MetaObject_Callback cb) { konsole__emulation_metaobject_callback = cb; }
+    inline void setKonsole__Emulation_Metacast_Callback(Konsole__Emulation_Metacast_Callback cb) { konsole__emulation_metacast_callback = cb; }
     inline void setKonsole__Emulation_Metacall_Callback(Konsole__Emulation_Metacall_Callback cb) { konsole__emulation_metacall_callback = cb; }
     inline void setKonsole__Emulation_EraseChar_Callback(Konsole__Emulation_EraseChar_Callback cb) { konsole__emulation_erasechar_callback = cb; }
     inline void setKonsole__Emulation_ClearEntireScreen_Callback(Konsole__Emulation_ClearEntireScreen_Callback cb) { konsole__emulation_clearentirescreen_callback = cb; }
@@ -158,6 +168,8 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
     inline void setKonsole__Emulation_IsSignalConnected_Callback(Konsole__Emulation_IsSignalConnected_Callback cb) { konsole__emulation_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKonsole__Emulation_MetaObject_IsBase(bool value) const { konsole__emulation_metaobject_isbase = value; }
+    inline void setKonsole__Emulation_Metacast_IsBase(bool value) const { konsole__emulation_metacast_isbase = value; }
     inline void setKonsole__Emulation_Metacall_IsBase(bool value) const { konsole__emulation_metacall_isbase = value; }
     inline void setKonsole__Emulation_EraseChar_IsBase(bool value) const { konsole__emulation_erasechar_isbase = value; }
     inline void setKonsole__Emulation_ClearEntireScreen_IsBase(bool value) const { konsole__emulation_clearentirescreen_isbase = value; }
@@ -183,6 +195,34 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
     inline void setKonsole__Emulation_SenderSignalIndex_IsBase(bool value) const { konsole__emulation_sendersignalindex_isbase = value; }
     inline void setKonsole__Emulation_Receivers_IsBase(bool value) const { konsole__emulation_receivers_isbase = value; }
     inline void setKonsole__Emulation_IsSignalConnected_IsBase(bool value) const { konsole__emulation_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (konsole__emulation_metaobject_isbase) {
+            konsole__emulation_metaobject_isbase = false;
+            return Konsole__Emulation::metaObject();
+        } else if (konsole__emulation_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = konsole__emulation_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Konsole__Emulation::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (konsole__emulation_metacast_isbase) {
+            konsole__emulation_metacast_isbase = false;
+            return Konsole__Emulation::qt_metacast(param1);
+        } else if (konsole__emulation_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = konsole__emulation_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Konsole__Emulation::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

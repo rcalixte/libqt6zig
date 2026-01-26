@@ -56,11 +56,21 @@ QDesignerWidgetBoxInterface* QDesignerWidgetBoxInterface_new3(QWidget* parent, i
 }
 
 QMetaObject* QDesignerWidgetBoxInterface_MetaObject(const QDesignerWidgetBoxInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerwidgetboxinterface = dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self);
+    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerWidgetBoxInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerWidgetBoxInterface_Metacast(QDesignerWidgetBoxInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
+    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerWidgetBoxInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerWidgetBoxInterface_Metacall(QDesignerWidgetBoxInterface* self, int param1, int param2, void** param3) {
@@ -214,6 +224,44 @@ bool QDesignerWidgetBoxInterface_Save(QDesignerWidgetBoxInterface* self) {
         return vqdesignerwidgetboxinterface->save();
     } else {
         return ((VirtualQDesignerWidgetBoxInterface*)self)->save();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerWidgetBoxInterface_QBaseMetaObject(const QDesignerWidgetBoxInterface* self) {
+    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
+    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerwidgetboxinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerWidgetBoxInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerWidgetBoxInterface_OnMetaObject(const QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
+    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerWidgetBoxInterface_QBaseMetacast(QDesignerWidgetBoxInterface* self, const char* param1) {
+    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
+    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metacast_IsBase(true);
+        return vqdesignerwidgetboxinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerWidgetBoxInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerWidgetBoxInterface_OnMetacast(QDesignerWidgetBoxInterface* self, intptr_t slot) {
+    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
+    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
+        vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerWidgetBoxInterface::QDesignerWidgetBoxInterface_Metacast_Callback>(slot));
     }
 }
 

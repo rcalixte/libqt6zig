@@ -17,6 +17,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
     bool isVirtualQAbstractItemModel = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractItemModel_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractItemModel_Metacast_Callback = void* (*)(QAbstractItemModel*, const char*);
     using QAbstractItemModel_Metacall_Callback = int (*)(QAbstractItemModel*, int, int, void**);
     using QAbstractItemModel_Index_Callback = QModelIndex* (*)(const QAbstractItemModel*, int, int, QModelIndex*);
     using QAbstractItemModel_Parent_Callback = QModelIndex* (*)(const QAbstractItemModel*, QModelIndex*);
@@ -91,6 +93,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
 
   protected:
     // Instance callback storage
+    QAbstractItemModel_MetaObject_Callback qabstractitemmodel_metaobject_callback = nullptr;
+    QAbstractItemModel_Metacast_Callback qabstractitemmodel_metacast_callback = nullptr;
     QAbstractItemModel_Metacall_Callback qabstractitemmodel_metacall_callback = nullptr;
     QAbstractItemModel_Index_Callback qabstractitemmodel_index_callback = nullptr;
     QAbstractItemModel_Parent_Callback qabstractitemmodel_parent_callback = nullptr;
@@ -164,6 +168,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
     QAbstractItemModel_IsSignalConnected_Callback qabstractitemmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractitemmodel_metaobject_isbase = false;
+    mutable bool qabstractitemmodel_metacast_isbase = false;
     mutable bool qabstractitemmodel_metacall_isbase = false;
     mutable bool qabstractitemmodel_index_isbase = false;
     mutable bool qabstractitemmodel_parent_isbase = false;
@@ -241,6 +247,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
     VirtualQAbstractItemModel(QObject* parent) : QAbstractItemModel(parent) {};
 
     ~VirtualQAbstractItemModel() {
+        qabstractitemmodel_metaobject_callback = nullptr;
+        qabstractitemmodel_metacast_callback = nullptr;
         qabstractitemmodel_metacall_callback = nullptr;
         qabstractitemmodel_index_callback = nullptr;
         qabstractitemmodel_parent_callback = nullptr;
@@ -315,6 +323,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
     }
 
     // Callback setters
+    inline void setQAbstractItemModel_MetaObject_Callback(QAbstractItemModel_MetaObject_Callback cb) { qabstractitemmodel_metaobject_callback = cb; }
+    inline void setQAbstractItemModel_Metacast_Callback(QAbstractItemModel_Metacast_Callback cb) { qabstractitemmodel_metacast_callback = cb; }
     inline void setQAbstractItemModel_Metacall_Callback(QAbstractItemModel_Metacall_Callback cb) { qabstractitemmodel_metacall_callback = cb; }
     inline void setQAbstractItemModel_Index_Callback(QAbstractItemModel_Index_Callback cb) { qabstractitemmodel_index_callback = cb; }
     inline void setQAbstractItemModel_Parent_Callback(QAbstractItemModel_Parent_Callback cb) { qabstractitemmodel_parent_callback = cb; }
@@ -388,6 +398,8 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
     inline void setQAbstractItemModel_IsSignalConnected_Callback(QAbstractItemModel_IsSignalConnected_Callback cb) { qabstractitemmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractItemModel_MetaObject_IsBase(bool value) const { qabstractitemmodel_metaobject_isbase = value; }
+    inline void setQAbstractItemModel_Metacast_IsBase(bool value) const { qabstractitemmodel_metacast_isbase = value; }
     inline void setQAbstractItemModel_Metacall_IsBase(bool value) const { qabstractitemmodel_metacall_isbase = value; }
     inline void setQAbstractItemModel_Index_IsBase(bool value) const { qabstractitemmodel_index_isbase = value; }
     inline void setQAbstractItemModel_Parent_IsBase(bool value) const { qabstractitemmodel_parent_isbase = value; }
@@ -459,6 +471,34 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
     inline void setQAbstractItemModel_SenderSignalIndex_IsBase(bool value) const { qabstractitemmodel_sendersignalindex_isbase = value; }
     inline void setQAbstractItemModel_Receivers_IsBase(bool value) const { qabstractitemmodel_receivers_isbase = value; }
     inline void setQAbstractItemModel_IsSignalConnected_IsBase(bool value) const { qabstractitemmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractitemmodel_metaobject_isbase) {
+            qabstractitemmodel_metaobject_isbase = false;
+            return QAbstractItemModel::metaObject();
+        } else if (qabstractitemmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractitemmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractItemModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractitemmodel_metacast_isbase) {
+            qabstractitemmodel_metacast_isbase = false;
+            return QAbstractItemModel::qt_metacast(param1);
+        } else if (qabstractitemmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractitemmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractItemModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1776,6 +1816,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
     bool isVirtualQAbstractTableModel = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractTableModel_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractTableModel_Metacast_Callback = void* (*)(QAbstractTableModel*, const char*);
     using QAbstractTableModel_Metacall_Callback = int (*)(QAbstractTableModel*, int, int, void**);
     using QAbstractTableModel_Index_Callback = QModelIndex* (*)(const QAbstractTableModel*, int, int, QModelIndex*);
     using QAbstractTableModel_Sibling_Callback = QModelIndex* (*)(const QAbstractTableModel*, int, int, QModelIndex*);
@@ -1846,6 +1888,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
 
   protected:
     // Instance callback storage
+    QAbstractTableModel_MetaObject_Callback qabstracttablemodel_metaobject_callback = nullptr;
+    QAbstractTableModel_Metacast_Callback qabstracttablemodel_metacast_callback = nullptr;
     QAbstractTableModel_Metacall_Callback qabstracttablemodel_metacall_callback = nullptr;
     QAbstractTableModel_Index_Callback qabstracttablemodel_index_callback = nullptr;
     QAbstractTableModel_Sibling_Callback qabstracttablemodel_sibling_callback = nullptr;
@@ -1915,6 +1959,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
     QAbstractTableModel_IsSignalConnected_Callback qabstracttablemodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstracttablemodel_metaobject_isbase = false;
+    mutable bool qabstracttablemodel_metacast_isbase = false;
     mutable bool qabstracttablemodel_metacall_isbase = false;
     mutable bool qabstracttablemodel_index_isbase = false;
     mutable bool qabstracttablemodel_sibling_isbase = false;
@@ -1988,6 +2034,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
     VirtualQAbstractTableModel(QObject* parent) : QAbstractTableModel(parent) {};
 
     ~VirtualQAbstractTableModel() {
+        qabstracttablemodel_metaobject_callback = nullptr;
+        qabstracttablemodel_metacast_callback = nullptr;
         qabstracttablemodel_metacall_callback = nullptr;
         qabstracttablemodel_index_callback = nullptr;
         qabstracttablemodel_sibling_callback = nullptr;
@@ -2058,6 +2106,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
     }
 
     // Callback setters
+    inline void setQAbstractTableModel_MetaObject_Callback(QAbstractTableModel_MetaObject_Callback cb) { qabstracttablemodel_metaobject_callback = cb; }
+    inline void setQAbstractTableModel_Metacast_Callback(QAbstractTableModel_Metacast_Callback cb) { qabstracttablemodel_metacast_callback = cb; }
     inline void setQAbstractTableModel_Metacall_Callback(QAbstractTableModel_Metacall_Callback cb) { qabstracttablemodel_metacall_callback = cb; }
     inline void setQAbstractTableModel_Index_Callback(QAbstractTableModel_Index_Callback cb) { qabstracttablemodel_index_callback = cb; }
     inline void setQAbstractTableModel_Sibling_Callback(QAbstractTableModel_Sibling_Callback cb) { qabstracttablemodel_sibling_callback = cb; }
@@ -2127,6 +2177,8 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
     inline void setQAbstractTableModel_IsSignalConnected_Callback(QAbstractTableModel_IsSignalConnected_Callback cb) { qabstracttablemodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractTableModel_MetaObject_IsBase(bool value) const { qabstracttablemodel_metaobject_isbase = value; }
+    inline void setQAbstractTableModel_Metacast_IsBase(bool value) const { qabstracttablemodel_metacast_isbase = value; }
     inline void setQAbstractTableModel_Metacall_IsBase(bool value) const { qabstracttablemodel_metacall_isbase = value; }
     inline void setQAbstractTableModel_Index_IsBase(bool value) const { qabstracttablemodel_index_isbase = value; }
     inline void setQAbstractTableModel_Sibling_IsBase(bool value) const { qabstracttablemodel_sibling_isbase = value; }
@@ -2194,6 +2246,34 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
     inline void setQAbstractTableModel_SenderSignalIndex_IsBase(bool value) const { qabstracttablemodel_sendersignalindex_isbase = value; }
     inline void setQAbstractTableModel_Receivers_IsBase(bool value) const { qabstracttablemodel_receivers_isbase = value; }
     inline void setQAbstractTableModel_IsSignalConnected_IsBase(bool value) const { qabstracttablemodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstracttablemodel_metaobject_isbase) {
+            qabstracttablemodel_metaobject_isbase = false;
+            return QAbstractTableModel::metaObject();
+        } else if (qabstracttablemodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstracttablemodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractTableModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstracttablemodel_metacast_isbase) {
+            qabstracttablemodel_metacast_isbase = false;
+            return QAbstractTableModel::qt_metacast(param1);
+        } else if (qabstracttablemodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstracttablemodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractTableModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -3445,6 +3525,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
     bool isVirtualQAbstractListModel = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractListModel_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractListModel_Metacast_Callback = void* (*)(QAbstractListModel*, const char*);
     using QAbstractListModel_Metacall_Callback = int (*)(QAbstractListModel*, int, int, void**);
     using QAbstractListModel_Index_Callback = QModelIndex* (*)(const QAbstractListModel*, int, int, QModelIndex*);
     using QAbstractListModel_Sibling_Callback = QModelIndex* (*)(const QAbstractListModel*, int, int, QModelIndex*);
@@ -3514,6 +3596,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
 
   protected:
     // Instance callback storage
+    QAbstractListModel_MetaObject_Callback qabstractlistmodel_metaobject_callback = nullptr;
+    QAbstractListModel_Metacast_Callback qabstractlistmodel_metacast_callback = nullptr;
     QAbstractListModel_Metacall_Callback qabstractlistmodel_metacall_callback = nullptr;
     QAbstractListModel_Index_Callback qabstractlistmodel_index_callback = nullptr;
     QAbstractListModel_Sibling_Callback qabstractlistmodel_sibling_callback = nullptr;
@@ -3582,6 +3666,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
     QAbstractListModel_IsSignalConnected_Callback qabstractlistmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractlistmodel_metaobject_isbase = false;
+    mutable bool qabstractlistmodel_metacast_isbase = false;
     mutable bool qabstractlistmodel_metacall_isbase = false;
     mutable bool qabstractlistmodel_index_isbase = false;
     mutable bool qabstractlistmodel_sibling_isbase = false;
@@ -3654,6 +3740,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
     VirtualQAbstractListModel(QObject* parent) : QAbstractListModel(parent) {};
 
     ~VirtualQAbstractListModel() {
+        qabstractlistmodel_metaobject_callback = nullptr;
+        qabstractlistmodel_metacast_callback = nullptr;
         qabstractlistmodel_metacall_callback = nullptr;
         qabstractlistmodel_index_callback = nullptr;
         qabstractlistmodel_sibling_callback = nullptr;
@@ -3723,6 +3811,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
     }
 
     // Callback setters
+    inline void setQAbstractListModel_MetaObject_Callback(QAbstractListModel_MetaObject_Callback cb) { qabstractlistmodel_metaobject_callback = cb; }
+    inline void setQAbstractListModel_Metacast_Callback(QAbstractListModel_Metacast_Callback cb) { qabstractlistmodel_metacast_callback = cb; }
     inline void setQAbstractListModel_Metacall_Callback(QAbstractListModel_Metacall_Callback cb) { qabstractlistmodel_metacall_callback = cb; }
     inline void setQAbstractListModel_Index_Callback(QAbstractListModel_Index_Callback cb) { qabstractlistmodel_index_callback = cb; }
     inline void setQAbstractListModel_Sibling_Callback(QAbstractListModel_Sibling_Callback cb) { qabstractlistmodel_sibling_callback = cb; }
@@ -3791,6 +3881,8 @@ class VirtualQAbstractListModel : public QAbstractListModel {
     inline void setQAbstractListModel_IsSignalConnected_Callback(QAbstractListModel_IsSignalConnected_Callback cb) { qabstractlistmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractListModel_MetaObject_IsBase(bool value) const { qabstractlistmodel_metaobject_isbase = value; }
+    inline void setQAbstractListModel_Metacast_IsBase(bool value) const { qabstractlistmodel_metacast_isbase = value; }
     inline void setQAbstractListModel_Metacall_IsBase(bool value) const { qabstractlistmodel_metacall_isbase = value; }
     inline void setQAbstractListModel_Index_IsBase(bool value) const { qabstractlistmodel_index_isbase = value; }
     inline void setQAbstractListModel_Sibling_IsBase(bool value) const { qabstractlistmodel_sibling_isbase = value; }
@@ -3857,6 +3949,34 @@ class VirtualQAbstractListModel : public QAbstractListModel {
     inline void setQAbstractListModel_SenderSignalIndex_IsBase(bool value) const { qabstractlistmodel_sendersignalindex_isbase = value; }
     inline void setQAbstractListModel_Receivers_IsBase(bool value) const { qabstractlistmodel_receivers_isbase = value; }
     inline void setQAbstractListModel_IsSignalConnected_IsBase(bool value) const { qabstractlistmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractlistmodel_metaobject_isbase) {
+            qabstractlistmodel_metaobject_isbase = false;
+            return QAbstractListModel::metaObject();
+        } else if (qabstractlistmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractlistmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractListModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractlistmodel_metacast_isbase) {
+            qabstractlistmodel_metacast_isbase = false;
+            return QAbstractListModel::qt_metacast(param1);
+        } else if (qabstractlistmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractlistmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractListModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -68,11 +68,21 @@ KColorButton* KColorButton_new6(const QColor* c, const QColor* defaultColor, QWi
 }
 
 QMetaObject* KColorButton_MetaObject(const KColorButton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcolorbutton = dynamic_cast<const VirtualKColorButton*>(self);
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKColorButton*)self)->metaObject();
+    }
 }
 
 void* KColorButton_Metacast(KColorButton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKColorButton*)self)->qt_metacast(param1);
+    }
 }
 
 int KColorButton_Metacall(KColorButton* self, int param1, int param2, void** param3) {
@@ -179,6 +189,44 @@ void KColorButton_KeyPressEvent(KColorButton* self, QKeyEvent* e) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
     if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
         vkcolorbutton->keyPressEvent(e);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KColorButton_QBaseMetaObject(const KColorButton* self) {
+    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+        vkcolorbutton->setKColorButton_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcolorbutton->metaObject();
+    } else {
+        return (QMetaObject*)self->KColorButton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorButton_OnMetaObject(const KColorButton* self, intptr_t slot) {
+    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+        vkcolorbutton->setKColorButton_MetaObject_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KColorButton_QBaseMetacast(KColorButton* self, const char* param1) {
+    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+        vkcolorbutton->setKColorButton_Metacast_IsBase(true);
+        return vkcolorbutton->qt_metacast(param1);
+    } else {
+        return self->KColorButton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorButton_OnMetacast(KColorButton* self, intptr_t slot) {
+    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+        vkcolorbutton->setKColorButton_Metacast_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Metacast_Callback>(slot));
     }
 }
 

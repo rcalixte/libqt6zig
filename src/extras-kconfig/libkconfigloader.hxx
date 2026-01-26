@@ -18,6 +18,8 @@ class VirtualKConfigLoader final : public KConfigLoader {
 
     // Virtual class public types (including callbacks)
     using KConfigLoader_UsrSave_Callback = bool (*)();
+    using KConfigLoader_MetaObject_Callback = QMetaObject* (*)();
+    using KConfigLoader_Metacast_Callback = void* (*)(KConfigLoader*, const char*);
     using KConfigLoader_Metacall_Callback = int (*)(KConfigLoader*, int, int, void**);
     using KConfigLoader_SetDefaults_Callback = void (*)();
     using KConfigLoader_UseDefaults_Callback = bool (*)(KConfigLoader*, bool);
@@ -39,6 +41,8 @@ class VirtualKConfigLoader final : public KConfigLoader {
   protected:
     // Instance callback storage
     KConfigLoader_UsrSave_Callback kconfigloader_usrsave_callback = nullptr;
+    KConfigLoader_MetaObject_Callback kconfigloader_metaobject_callback = nullptr;
+    KConfigLoader_Metacast_Callback kconfigloader_metacast_callback = nullptr;
     KConfigLoader_Metacall_Callback kconfigloader_metacall_callback = nullptr;
     KConfigLoader_SetDefaults_Callback kconfigloader_setdefaults_callback = nullptr;
     KConfigLoader_UseDefaults_Callback kconfigloader_usedefaults_callback = nullptr;
@@ -59,6 +63,8 @@ class VirtualKConfigLoader final : public KConfigLoader {
 
     // Instance base flags
     mutable bool kconfigloader_usrsave_isbase = false;
+    mutable bool kconfigloader_metaobject_isbase = false;
+    mutable bool kconfigloader_metacast_isbase = false;
     mutable bool kconfigloader_metacall_isbase = false;
     mutable bool kconfigloader_setdefaults_isbase = false;
     mutable bool kconfigloader_usedefaults_isbase = false;
@@ -85,6 +91,8 @@ class VirtualKConfigLoader final : public KConfigLoader {
 
     ~VirtualKConfigLoader() {
         kconfigloader_usrsave_callback = nullptr;
+        kconfigloader_metaobject_callback = nullptr;
+        kconfigloader_metacast_callback = nullptr;
         kconfigloader_metacall_callback = nullptr;
         kconfigloader_setdefaults_callback = nullptr;
         kconfigloader_usedefaults_callback = nullptr;
@@ -106,6 +114,8 @@ class VirtualKConfigLoader final : public KConfigLoader {
 
     // Callback setters
     inline void setKConfigLoader_UsrSave_Callback(KConfigLoader_UsrSave_Callback cb) { kconfigloader_usrsave_callback = cb; }
+    inline void setKConfigLoader_MetaObject_Callback(KConfigLoader_MetaObject_Callback cb) { kconfigloader_metaobject_callback = cb; }
+    inline void setKConfigLoader_Metacast_Callback(KConfigLoader_Metacast_Callback cb) { kconfigloader_metacast_callback = cb; }
     inline void setKConfigLoader_Metacall_Callback(KConfigLoader_Metacall_Callback cb) { kconfigloader_metacall_callback = cb; }
     inline void setKConfigLoader_SetDefaults_Callback(KConfigLoader_SetDefaults_Callback cb) { kconfigloader_setdefaults_callback = cb; }
     inline void setKConfigLoader_UseDefaults_Callback(KConfigLoader_UseDefaults_Callback cb) { kconfigloader_usedefaults_callback = cb; }
@@ -126,6 +136,8 @@ class VirtualKConfigLoader final : public KConfigLoader {
 
     // Base flag setters
     inline void setKConfigLoader_UsrSave_IsBase(bool value) const { kconfigloader_usrsave_isbase = value; }
+    inline void setKConfigLoader_MetaObject_IsBase(bool value) const { kconfigloader_metaobject_isbase = value; }
+    inline void setKConfigLoader_Metacast_IsBase(bool value) const { kconfigloader_metacast_isbase = value; }
     inline void setKConfigLoader_Metacall_IsBase(bool value) const { kconfigloader_metacall_isbase = value; }
     inline void setKConfigLoader_SetDefaults_IsBase(bool value) const { kconfigloader_setdefaults_isbase = value; }
     inline void setKConfigLoader_UseDefaults_IsBase(bool value) const { kconfigloader_usedefaults_isbase = value; }
@@ -154,6 +166,34 @@ class VirtualKConfigLoader final : public KConfigLoader {
             return callback_ret;
         } else {
             return KConfigLoader::usrSave();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kconfigloader_metaobject_isbase) {
+            kconfigloader_metaobject_isbase = false;
+            return KConfigLoader::metaObject();
+        } else if (kconfigloader_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kconfigloader_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KConfigLoader::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kconfigloader_metacast_isbase) {
+            kconfigloader_metacast_isbase = false;
+            return KConfigLoader::qt_metacast(param1);
+        } else if (kconfigloader_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kconfigloader_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KConfigLoader::qt_metacast(param1);
         }
     }
 

@@ -25,11 +25,21 @@ QsciLexerPascal* QsciLexerPascal_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerPascal_MetaObject(const QsciLexerPascal* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerpascal = dynamic_cast<const VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerPascal*)self)->metaObject();
+    }
 }
 
 void* QsciLexerPascal_Metacast(QsciLexerPascal* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerPascal*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerPascal_Metacall(QsciLexerPascal* self, int param1, int param2, void** param3) {
@@ -179,6 +189,44 @@ const char* QsciLexerPascal_BlockStart1(const QsciLexerPascal* self, int* style)
 
 const char* QsciLexerPascal_BlockStartKeyword1(const QsciLexerPascal* self, int* style) {
     return (const char*)self->blockStartKeyword(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerPascal_QBaseMetaObject(const QsciLexerPascal* self) {
+    auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerpascal->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerPascal*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPascal_OnMetaObject(const QsciLexerPascal* self, intptr_t slot) {
+    auto* vqscilexerpascal = const_cast<VirtualQsciLexerPascal*>(dynamic_cast<const VirtualQsciLexerPascal*>(self));
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerPascal_QBaseMetacast(QsciLexerPascal* self, const char* param1) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_Metacast_IsBase(true);
+        return vqscilexerpascal->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerPascal*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPascal_OnMetacast(QsciLexerPascal* self, intptr_t slot) {
+    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
+    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
+        vqscilexerpascal->setQsciLexerPascal_Metacast_Callback(reinterpret_cast<VirtualQsciLexerPascal::QsciLexerPascal_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

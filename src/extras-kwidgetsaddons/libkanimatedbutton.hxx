@@ -17,6 +17,8 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
     bool isVirtualKAnimatedButton = true;
 
     // Virtual class public types (including callbacks)
+    using KAnimatedButton_MetaObject_Callback = QMetaObject* (*)();
+    using KAnimatedButton_Metacast_Callback = void* (*)(KAnimatedButton*, const char*);
     using KAnimatedButton_Metacall_Callback = int (*)(KAnimatedButton*, int, int, void**);
     using KAnimatedButton_SizeHint_Callback = QSize* (*)();
     using KAnimatedButton_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
 
   protected:
     // Instance callback storage
+    KAnimatedButton_MetaObject_Callback kanimatedbutton_metaobject_callback = nullptr;
+    KAnimatedButton_Metacast_Callback kanimatedbutton_metacast_callback = nullptr;
     KAnimatedButton_Metacall_Callback kanimatedbutton_metacall_callback = nullptr;
     KAnimatedButton_SizeHint_Callback kanimatedbutton_sizehint_callback = nullptr;
     KAnimatedButton_MinimumSizeHint_Callback kanimatedbutton_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
     KAnimatedButton_GetDecodedMetricF_Callback kanimatedbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kanimatedbutton_metaobject_isbase = false;
+    mutable bool kanimatedbutton_metacast_isbase = false;
     mutable bool kanimatedbutton_metacall_isbase = false;
     mutable bool kanimatedbutton_sizehint_isbase = false;
     mutable bool kanimatedbutton_minimumsizehint_isbase = false;
@@ -214,6 +220,8 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
     VirtualKAnimatedButton() : KAnimatedButton() {};
 
     ~VirtualKAnimatedButton() {
+        kanimatedbutton_metaobject_callback = nullptr;
+        kanimatedbutton_metacast_callback = nullptr;
         kanimatedbutton_metacall_callback = nullptr;
         kanimatedbutton_sizehint_callback = nullptr;
         kanimatedbutton_minimumsizehint_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
     }
 
     // Callback setters
+    inline void setKAnimatedButton_MetaObject_Callback(KAnimatedButton_MetaObject_Callback cb) { kanimatedbutton_metaobject_callback = cb; }
+    inline void setKAnimatedButton_Metacast_Callback(KAnimatedButton_Metacast_Callback cb) { kanimatedbutton_metacast_callback = cb; }
     inline void setKAnimatedButton_Metacall_Callback(KAnimatedButton_Metacall_Callback cb) { kanimatedbutton_metacall_callback = cb; }
     inline void setKAnimatedButton_SizeHint_Callback(KAnimatedButton_SizeHint_Callback cb) { kanimatedbutton_sizehint_callback = cb; }
     inline void setKAnimatedButton_MinimumSizeHint_Callback(KAnimatedButton_MinimumSizeHint_Callback cb) { kanimatedbutton_minimumsizehint_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
     inline void setKAnimatedButton_GetDecodedMetricF_Callback(KAnimatedButton_GetDecodedMetricF_Callback cb) { kanimatedbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKAnimatedButton_MetaObject_IsBase(bool value) const { kanimatedbutton_metaobject_isbase = value; }
+    inline void setKAnimatedButton_Metacast_IsBase(bool value) const { kanimatedbutton_metacast_isbase = value; }
     inline void setKAnimatedButton_Metacall_IsBase(bool value) const { kanimatedbutton_metacall_isbase = value; }
     inline void setKAnimatedButton_SizeHint_IsBase(bool value) const { kanimatedbutton_sizehint_isbase = value; }
     inline void setKAnimatedButton_MinimumSizeHint_IsBase(bool value) const { kanimatedbutton_minimumsizehint_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualKAnimatedButton final : public KAnimatedButton {
     inline void setKAnimatedButton_Receivers_IsBase(bool value) const { kanimatedbutton_receivers_isbase = value; }
     inline void setKAnimatedButton_IsSignalConnected_IsBase(bool value) const { kanimatedbutton_issignalconnected_isbase = value; }
     inline void setKAnimatedButton_GetDecodedMetricF_IsBase(bool value) const { kanimatedbutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kanimatedbutton_metaobject_isbase) {
+            kanimatedbutton_metaobject_isbase = false;
+            return KAnimatedButton::metaObject();
+        } else if (kanimatedbutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kanimatedbutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KAnimatedButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kanimatedbutton_metacast_isbase) {
+            kanimatedbutton_metacast_isbase = false;
+            return KAnimatedButton::qt_metacast(param1);
+        } else if (kanimatedbutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kanimatedbutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KAnimatedButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

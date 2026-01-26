@@ -17,6 +17,8 @@ class VirtualKSeparator final : public KSeparator {
     bool isVirtualKSeparator = true;
 
     // Virtual class public types (including callbacks)
+    using KSeparator_MetaObject_Callback = QMetaObject* (*)();
+    using KSeparator_Metacast_Callback = void* (*)(KSeparator*, const char*);
     using KSeparator_Metacall_Callback = int (*)(KSeparator*, int, int, void**);
     using KSeparator_SizeHint_Callback = QSize* (*)();
     using KSeparator_Event_Callback = bool (*)(KSeparator*, QEvent*);
@@ -80,6 +82,8 @@ class VirtualKSeparator final : public KSeparator {
 
   protected:
     // Instance callback storage
+    KSeparator_MetaObject_Callback kseparator_metaobject_callback = nullptr;
+    KSeparator_Metacast_Callback kseparator_metacast_callback = nullptr;
     KSeparator_Metacall_Callback kseparator_metacall_callback = nullptr;
     KSeparator_SizeHint_Callback kseparator_sizehint_callback = nullptr;
     KSeparator_Event_Callback kseparator_event_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualKSeparator final : public KSeparator {
     KSeparator_GetDecodedMetricF_Callback kseparator_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kseparator_metaobject_isbase = false;
+    mutable bool kseparator_metacast_isbase = false;
     mutable bool kseparator_metacall_isbase = false;
     mutable bool kseparator_sizehint_isbase = false;
     mutable bool kseparator_event_isbase = false;
@@ -212,6 +218,8 @@ class VirtualKSeparator final : public KSeparator {
     VirtualKSeparator(Qt::Orientation orientation, QWidget* parent, Qt::WindowFlags f) : KSeparator(orientation, parent, f) {};
 
     ~VirtualKSeparator() {
+        kseparator_metaobject_callback = nullptr;
+        kseparator_metacast_callback = nullptr;
         kseparator_metacall_callback = nullptr;
         kseparator_sizehint_callback = nullptr;
         kseparator_event_callback = nullptr;
@@ -275,6 +283,8 @@ class VirtualKSeparator final : public KSeparator {
     }
 
     // Callback setters
+    inline void setKSeparator_MetaObject_Callback(KSeparator_MetaObject_Callback cb) { kseparator_metaobject_callback = cb; }
+    inline void setKSeparator_Metacast_Callback(KSeparator_Metacast_Callback cb) { kseparator_metacast_callback = cb; }
     inline void setKSeparator_Metacall_Callback(KSeparator_Metacall_Callback cb) { kseparator_metacall_callback = cb; }
     inline void setKSeparator_SizeHint_Callback(KSeparator_SizeHint_Callback cb) { kseparator_sizehint_callback = cb; }
     inline void setKSeparator_Event_Callback(KSeparator_Event_Callback cb) { kseparator_event_callback = cb; }
@@ -337,6 +347,8 @@ class VirtualKSeparator final : public KSeparator {
     inline void setKSeparator_GetDecodedMetricF_Callback(KSeparator_GetDecodedMetricF_Callback cb) { kseparator_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKSeparator_MetaObject_IsBase(bool value) const { kseparator_metaobject_isbase = value; }
+    inline void setKSeparator_Metacast_IsBase(bool value) const { kseparator_metacast_isbase = value; }
     inline void setKSeparator_Metacall_IsBase(bool value) const { kseparator_metacall_isbase = value; }
     inline void setKSeparator_SizeHint_IsBase(bool value) const { kseparator_sizehint_isbase = value; }
     inline void setKSeparator_Event_IsBase(bool value) const { kseparator_event_isbase = value; }
@@ -397,6 +409,34 @@ class VirtualKSeparator final : public KSeparator {
     inline void setKSeparator_Receivers_IsBase(bool value) const { kseparator_receivers_isbase = value; }
     inline void setKSeparator_IsSignalConnected_IsBase(bool value) const { kseparator_issignalconnected_isbase = value; }
     inline void setKSeparator_GetDecodedMetricF_IsBase(bool value) const { kseparator_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kseparator_metaobject_isbase) {
+            kseparator_metaobject_isbase = false;
+            return KSeparator::metaObject();
+        } else if (kseparator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kseparator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSeparator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kseparator_metacast_isbase) {
+            kseparator_metacast_isbase = false;
+            return KSeparator::qt_metacast(param1);
+        } else if (kseparator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kseparator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSeparator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

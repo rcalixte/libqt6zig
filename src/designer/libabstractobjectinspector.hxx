@@ -17,6 +17,8 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
     bool isVirtualQDesignerObjectInspectorInterface = true;
 
     // Virtual class public types (including callbacks)
+    using QDesignerObjectInspectorInterface_MetaObject_Callback = QMetaObject* (*)();
+    using QDesignerObjectInspectorInterface_Metacast_Callback = void* (*)(QDesignerObjectInspectorInterface*, const char*);
     using QDesignerObjectInspectorInterface_Metacall_Callback = int (*)(QDesignerObjectInspectorInterface*, int, int, void**);
     using QDesignerObjectInspectorInterface_Core_Callback = QDesignerFormEditorInterface* (*)();
     using QDesignerObjectInspectorInterface_SetFormWindow_Callback = void (*)(QDesignerObjectInspectorInterface*, QDesignerFormWindowInterface*);
@@ -80,6 +82,8 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
 
   protected:
     // Instance callback storage
+    QDesignerObjectInspectorInterface_MetaObject_Callback qdesignerobjectinspectorinterface_metaobject_callback = nullptr;
+    QDesignerObjectInspectorInterface_Metacast_Callback qdesignerobjectinspectorinterface_metacast_callback = nullptr;
     QDesignerObjectInspectorInterface_Metacall_Callback qdesignerobjectinspectorinterface_metacall_callback = nullptr;
     QDesignerObjectInspectorInterface_Core_Callback qdesignerobjectinspectorinterface_core_callback = nullptr;
     QDesignerObjectInspectorInterface_SetFormWindow_Callback qdesignerobjectinspectorinterface_setformwindow_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
     QDesignerObjectInspectorInterface_GetDecodedMetricF_Callback qdesignerobjectinspectorinterface_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdesignerobjectinspectorinterface_metaobject_isbase = false;
+    mutable bool qdesignerobjectinspectorinterface_metacast_isbase = false;
     mutable bool qdesignerobjectinspectorinterface_metacall_isbase = false;
     mutable bool qdesignerobjectinspectorinterface_core_isbase = false;
     mutable bool qdesignerobjectinspectorinterface_setformwindow_isbase = false;
@@ -208,6 +214,8 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
     VirtualQDesignerObjectInspectorInterface(QWidget* parent, Qt::WindowFlags flags) : QDesignerObjectInspectorInterface(parent, flags) {};
 
     ~VirtualQDesignerObjectInspectorInterface() {
+        qdesignerobjectinspectorinterface_metaobject_callback = nullptr;
+        qdesignerobjectinspectorinterface_metacast_callback = nullptr;
         qdesignerobjectinspectorinterface_metacall_callback = nullptr;
         qdesignerobjectinspectorinterface_core_callback = nullptr;
         qdesignerobjectinspectorinterface_setformwindow_callback = nullptr;
@@ -271,6 +279,8 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
     }
 
     // Callback setters
+    inline void setQDesignerObjectInspectorInterface_MetaObject_Callback(QDesignerObjectInspectorInterface_MetaObject_Callback cb) { qdesignerobjectinspectorinterface_metaobject_callback = cb; }
+    inline void setQDesignerObjectInspectorInterface_Metacast_Callback(QDesignerObjectInspectorInterface_Metacast_Callback cb) { qdesignerobjectinspectorinterface_metacast_callback = cb; }
     inline void setQDesignerObjectInspectorInterface_Metacall_Callback(QDesignerObjectInspectorInterface_Metacall_Callback cb) { qdesignerobjectinspectorinterface_metacall_callback = cb; }
     inline void setQDesignerObjectInspectorInterface_Core_Callback(QDesignerObjectInspectorInterface_Core_Callback cb) { qdesignerobjectinspectorinterface_core_callback = cb; }
     inline void setQDesignerObjectInspectorInterface_SetFormWindow_Callback(QDesignerObjectInspectorInterface_SetFormWindow_Callback cb) { qdesignerobjectinspectorinterface_setformwindow_callback = cb; }
@@ -333,6 +343,8 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
     inline void setQDesignerObjectInspectorInterface_GetDecodedMetricF_Callback(QDesignerObjectInspectorInterface_GetDecodedMetricF_Callback cb) { qdesignerobjectinspectorinterface_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDesignerObjectInspectorInterface_MetaObject_IsBase(bool value) const { qdesignerobjectinspectorinterface_metaobject_isbase = value; }
+    inline void setQDesignerObjectInspectorInterface_Metacast_IsBase(bool value) const { qdesignerobjectinspectorinterface_metacast_isbase = value; }
     inline void setQDesignerObjectInspectorInterface_Metacall_IsBase(bool value) const { qdesignerobjectinspectorinterface_metacall_isbase = value; }
     inline void setQDesignerObjectInspectorInterface_Core_IsBase(bool value) const { qdesignerobjectinspectorinterface_core_isbase = value; }
     inline void setQDesignerObjectInspectorInterface_SetFormWindow_IsBase(bool value) const { qdesignerobjectinspectorinterface_setformwindow_isbase = value; }
@@ -393,6 +405,34 @@ class VirtualQDesignerObjectInspectorInterface : public QDesignerObjectInspector
     inline void setQDesignerObjectInspectorInterface_Receivers_IsBase(bool value) const { qdesignerobjectinspectorinterface_receivers_isbase = value; }
     inline void setQDesignerObjectInspectorInterface_IsSignalConnected_IsBase(bool value) const { qdesignerobjectinspectorinterface_issignalconnected_isbase = value; }
     inline void setQDesignerObjectInspectorInterface_GetDecodedMetricF_IsBase(bool value) const { qdesignerobjectinspectorinterface_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdesignerobjectinspectorinterface_metaobject_isbase) {
+            qdesignerobjectinspectorinterface_metaobject_isbase = false;
+            return QDesignerObjectInspectorInterface::metaObject();
+        } else if (qdesignerobjectinspectorinterface_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdesignerobjectinspectorinterface_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDesignerObjectInspectorInterface::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdesignerobjectinspectorinterface_metacast_isbase) {
+            qdesignerobjectinspectorinterface_metacast_isbase = false;
+            return QDesignerObjectInspectorInterface::qt_metacast(param1);
+        } else if (qdesignerobjectinspectorinterface_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdesignerobjectinspectorinterface_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDesignerObjectInspectorInterface::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

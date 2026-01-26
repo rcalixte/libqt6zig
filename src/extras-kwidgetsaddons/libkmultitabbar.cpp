@@ -63,11 +63,21 @@ KMultiTabBar* KMultiTabBar_new4(int pos, QWidget* parent) {
 }
 
 QMetaObject* KMultiTabBar_MetaObject(const KMultiTabBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkmultitabbar = dynamic_cast<const VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKMultiTabBar*)self)->metaObject();
+    }
 }
 
 void* KMultiTabBar_Metacast(KMultiTabBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKMultiTabBar*)self)->qt_metacast(param1);
+    }
 }
 
 int KMultiTabBar_Metacall(KMultiTabBar* self, int param1, int param2, void** param3) {
@@ -161,6 +171,44 @@ int KMultiTabBar_AppendTab2(KMultiTabBar* self, const QIcon* icon, int id) {
 int KMultiTabBar_AppendTab3(KMultiTabBar* self, const QIcon* icon, int id, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->appendTab(*icon, static_cast<int>(id), text_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KMultiTabBar_QBaseMetaObject(const KMultiTabBar* self) {
+    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vkmultitabbar->metaObject();
+    } else {
+        return (QMetaObject*)self->KMultiTabBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMultiTabBar_OnMetaObject(const KMultiTabBar* self, intptr_t slot) {
+    auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_MetaObject_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KMultiTabBar_QBaseMetacast(KMultiTabBar* self, const char* param1) {
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_Metacast_IsBase(true);
+        return vkmultitabbar->qt_metacast(param1);
+    } else {
+        return self->KMultiTabBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMultiTabBar_OnMetacast(KMultiTabBar* self, intptr_t slot) {
+    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+        vkmultitabbar->setKMultiTabBar_Metacast_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

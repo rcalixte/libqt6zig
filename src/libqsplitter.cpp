@@ -60,11 +60,21 @@ QSplitter* QSplitter_new4(int param1, QWidget* parent) {
 }
 
 QMetaObject* QSplitter_MetaObject(const QSplitter* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsplitter = dynamic_cast<const VirtualQSplitter*>(self);
+    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSplitter*)self)->metaObject();
+    }
 }
 
 void* QSplitter_Metacast(QSplitter* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
+    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSplitter*)self)->qt_metacast(param1);
+    }
 }
 
 int QSplitter_Metacall(QSplitter* self, int param1, int param2, void** param3) {
@@ -264,6 +274,44 @@ void QSplitter_ChangeEvent(QSplitter* self, QEvent* param1) {
 
 void QSplitter_SetOpaqueResize1(QSplitter* self, bool opaqueVal) {
     self->setOpaqueResize(opaqueVal);
+}
+
+// Base class handler implementation
+QMetaObject* QSplitter_QBaseMetaObject(const QSplitter* self) {
+    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
+    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+        vqsplitter->setQSplitter_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsplitter->metaObject();
+    } else {
+        return (QMetaObject*)self->QSplitter::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplitter_OnMetaObject(const QSplitter* self, intptr_t slot) {
+    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
+    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+        vqsplitter->setQSplitter_MetaObject_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSplitter_QBaseMetacast(QSplitter* self, const char* param1) {
+    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
+    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+        vqsplitter->setQSplitter_Metacast_IsBase(true);
+        return vqsplitter->qt_metacast(param1);
+    } else {
+        return self->QSplitter::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplitter_OnMetacast(QSplitter* self, intptr_t slot) {
+    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
+    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+        vqsplitter->setQSplitter_Metacast_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -2053,11 +2101,21 @@ QSplitterHandle* QSplitterHandle_new(int o, QSplitter* parent) {
 }
 
 QMetaObject* QSplitterHandle_MetaObject(const QSplitterHandle* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsplitterhandle = dynamic_cast<const VirtualQSplitterHandle*>(self);
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSplitterHandle*)self)->metaObject();
+    }
 }
 
 void* QSplitterHandle_Metacast(QSplitterHandle* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSplitterHandle*)self)->qt_metacast(param1);
+    }
 }
 
 int QSplitterHandle_Metacall(QSplitterHandle* self, int param1, int param2, void** param3) {
@@ -2135,6 +2193,44 @@ bool QSplitterHandle_Event(QSplitterHandle* self, QEvent* param1) {
         return vqsplitterhandle->event(param1);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QSplitterHandle_QBaseMetaObject(const QSplitterHandle* self) {
+    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+        vqsplitterhandle->setQSplitterHandle_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsplitterhandle->metaObject();
+    } else {
+        return (QMetaObject*)self->QSplitterHandle::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplitterHandle_OnMetaObject(const QSplitterHandle* self, intptr_t slot) {
+    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+        vqsplitterhandle->setQSplitterHandle_MetaObject_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSplitterHandle_QBaseMetacast(QSplitterHandle* self, const char* param1) {
+    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+        vqsplitterhandle->setQSplitterHandle_Metacast_IsBase(true);
+        return vqsplitterhandle->qt_metacast(param1);
+    } else {
+        return self->QSplitterHandle::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplitterHandle_OnMetacast(QSplitterHandle* self, intptr_t slot) {
+    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+        vqsplitterhandle->setQSplitterHandle_Metacast_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

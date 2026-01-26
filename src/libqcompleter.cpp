@@ -57,11 +57,21 @@ QCompleter* QCompleter_new6(const libqt_list /* of libqt_string */ completions, 
 }
 
 QMetaObject* QCompleter_MetaObject(const QCompleter* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcompleter = dynamic_cast<const VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCompleter*)self)->metaObject();
+    }
 }
 
 void* QCompleter_Metacast(QCompleter* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCompleter*)self)->qt_metacast(param1);
+    }
 }
 
 int QCompleter_Metacall(QCompleter* self, int param1, int param2, void** param3) {
@@ -319,6 +329,44 @@ void QCompleter_Highlighted2(QCompleter* self, const QModelIndex* index) {
 
 void QCompleter_Complete1(QCompleter* self, const QRect* rect) {
     self->complete(*rect);
+}
+
+// Base class handler implementation
+QMetaObject* QCompleter_QBaseMetaObject(const QCompleter* self) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
+        vqcompleter->setQCompleter_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcompleter->metaObject();
+    } else {
+        return (QMetaObject*)self->QCompleter::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCompleter_OnMetaObject(const QCompleter* self, intptr_t slot) {
+    auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
+        vqcompleter->setQCompleter_MetaObject_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCompleter_QBaseMetacast(QCompleter* self, const char* param1) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
+        vqcompleter->setQCompleter_Metacast_IsBase(true);
+        return vqcompleter->qt_metacast(param1);
+    } else {
+        return self->QCompleter::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCompleter_OnMetacast(QCompleter* self, intptr_t slot) {
+    auto* vqcompleter = dynamic_cast<VirtualQCompleter*>(self);
+    if (vqcompleter && vqcompleter->isVirtualQCompleter) {
+        vqcompleter->setQCompleter_Metacast_Callback(reinterpret_cast<VirtualQCompleter::QCompleter_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

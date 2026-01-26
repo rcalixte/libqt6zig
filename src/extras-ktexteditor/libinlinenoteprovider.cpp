@@ -22,11 +22,21 @@ KTextEditor__InlineNoteProvider* KTextEditor__InlineNoteProvider_new() {
 }
 
 QMetaObject* KTextEditor__InlineNoteProvider_MetaObject(const KTextEditor__InlineNoteProvider* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktexteditor__inlinenoteprovider = dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self);
+    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTextEditorInlineNoteProvider*)self)->metaObject();
+    }
 }
 
 void* KTextEditor__InlineNoteProvider_Metacast(KTextEditor__InlineNoteProvider* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktexteditor__inlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
+    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTextEditorInlineNoteProvider*)self)->qt_metacast(param1);
+    }
 }
 
 int KTextEditor__InlineNoteProvider_Metacall(KTextEditor__InlineNoteProvider* self, int param1, int param2, void** param3) {
@@ -140,6 +150,44 @@ void KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(KTextEditor__Inl
         int sigval1 = line;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KTextEditor__InlineNoteProvider_QBaseMetaObject(const KTextEditor__InlineNoteProvider* self) {
+    auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+        vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_MetaObject_IsBase(true);
+        return (QMetaObject*)vktexteditorinlinenoteprovider->metaObject();
+    } else {
+        return (QMetaObject*)self->KTextEditor::InlineNoteProvider::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__InlineNoteProvider_OnMetaObject(const KTextEditor__InlineNoteProvider* self, intptr_t slot) {
+    auto* vktexteditorinlinenoteprovider = const_cast<VirtualKTextEditorInlineNoteProvider*>(dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self));
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+        vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTextEditor__InlineNoteProvider_QBaseMetacast(KTextEditor__InlineNoteProvider* self, const char* param1) {
+    auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+        vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Metacast_IsBase(true);
+        return vktexteditorinlinenoteprovider->qt_metacast(param1);
+    } else {
+        return self->KTextEditor::InlineNoteProvider::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__InlineNoteProvider_OnMetacast(KTextEditor__InlineNoteProvider* self, intptr_t slot) {
+    auto* vktexteditorinlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
+    if (vktexteditorinlinenoteprovider && vktexteditorinlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
+        vktexteditorinlinenoteprovider->setKTextEditor__InlineNoteProvider_Metacast_Callback(reinterpret_cast<VirtualKTextEditorInlineNoteProvider::KTextEditor__InlineNoteProvider_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

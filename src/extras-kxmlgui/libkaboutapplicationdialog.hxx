@@ -17,6 +17,8 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
     bool isVirtualKAboutApplicationDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KAboutApplicationDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KAboutApplicationDialog_Metacast_Callback = void* (*)(KAboutApplicationDialog*, const char*);
     using KAboutApplicationDialog_Metacall_Callback = int (*)(KAboutApplicationDialog*, int, int, void**);
     using KAboutApplicationDialog_SetVisible_Callback = void (*)(KAboutApplicationDialog*, bool);
     using KAboutApplicationDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
 
   protected:
     // Instance callback storage
+    KAboutApplicationDialog_MetaObject_Callback kaboutapplicationdialog_metaobject_callback = nullptr;
+    KAboutApplicationDialog_Metacast_Callback kaboutapplicationdialog_metacast_callback = nullptr;
     KAboutApplicationDialog_Metacall_Callback kaboutapplicationdialog_metacall_callback = nullptr;
     KAboutApplicationDialog_SetVisible_Callback kaboutapplicationdialog_setvisible_callback = nullptr;
     KAboutApplicationDialog_SizeHint_Callback kaboutapplicationdialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
     KAboutApplicationDialog_GetDecodedMetricF_Callback kaboutapplicationdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kaboutapplicationdialog_metaobject_isbase = false;
+    mutable bool kaboutapplicationdialog_metacast_isbase = false;
     mutable bool kaboutapplicationdialog_metacall_isbase = false;
     mutable bool kaboutapplicationdialog_setvisible_isbase = false;
     mutable bool kaboutapplicationdialog_sizehint_isbase = false;
@@ -222,6 +228,8 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
     VirtualKAboutApplicationDialog(const KAboutData& aboutData, QWidget* parent) : KAboutApplicationDialog(aboutData, parent) {};
 
     ~VirtualKAboutApplicationDialog() {
+        kaboutapplicationdialog_metaobject_callback = nullptr;
+        kaboutapplicationdialog_metacast_callback = nullptr;
         kaboutapplicationdialog_metacall_callback = nullptr;
         kaboutapplicationdialog_setvisible_callback = nullptr;
         kaboutapplicationdialog_sizehint_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
     }
 
     // Callback setters
+    inline void setKAboutApplicationDialog_MetaObject_Callback(KAboutApplicationDialog_MetaObject_Callback cb) { kaboutapplicationdialog_metaobject_callback = cb; }
+    inline void setKAboutApplicationDialog_Metacast_Callback(KAboutApplicationDialog_Metacast_Callback cb) { kaboutapplicationdialog_metacast_callback = cb; }
     inline void setKAboutApplicationDialog_Metacall_Callback(KAboutApplicationDialog_Metacall_Callback cb) { kaboutapplicationdialog_metacall_callback = cb; }
     inline void setKAboutApplicationDialog_SetVisible_Callback(KAboutApplicationDialog_SetVisible_Callback cb) { kaboutapplicationdialog_setvisible_callback = cb; }
     inline void setKAboutApplicationDialog_SizeHint_Callback(KAboutApplicationDialog_SizeHint_Callback cb) { kaboutapplicationdialog_sizehint_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
     inline void setKAboutApplicationDialog_GetDecodedMetricF_Callback(KAboutApplicationDialog_GetDecodedMetricF_Callback cb) { kaboutapplicationdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKAboutApplicationDialog_MetaObject_IsBase(bool value) const { kaboutapplicationdialog_metaobject_isbase = value; }
+    inline void setKAboutApplicationDialog_Metacast_IsBase(bool value) const { kaboutapplicationdialog_metacast_isbase = value; }
     inline void setKAboutApplicationDialog_Metacall_IsBase(bool value) const { kaboutapplicationdialog_metacall_isbase = value; }
     inline void setKAboutApplicationDialog_SetVisible_IsBase(bool value) const { kaboutapplicationdialog_setvisible_isbase = value; }
     inline void setKAboutApplicationDialog_SizeHint_IsBase(bool value) const { kaboutapplicationdialog_sizehint_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualKAboutApplicationDialog final : public KAboutApplicationDialog {
     inline void setKAboutApplicationDialog_Receivers_IsBase(bool value) const { kaboutapplicationdialog_receivers_isbase = value; }
     inline void setKAboutApplicationDialog_IsSignalConnected_IsBase(bool value) const { kaboutapplicationdialog_issignalconnected_isbase = value; }
     inline void setKAboutApplicationDialog_GetDecodedMetricF_IsBase(bool value) const { kaboutapplicationdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kaboutapplicationdialog_metaobject_isbase) {
+            kaboutapplicationdialog_metaobject_isbase = false;
+            return KAboutApplicationDialog::metaObject();
+        } else if (kaboutapplicationdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kaboutapplicationdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KAboutApplicationDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kaboutapplicationdialog_metacast_isbase) {
+            kaboutapplicationdialog_metacast_isbase = false;
+            return KAboutApplicationDialog::qt_metacast(param1);
+        } else if (kaboutapplicationdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kaboutapplicationdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KAboutApplicationDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

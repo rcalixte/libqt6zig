@@ -23,11 +23,21 @@ QExtensionFactory* QExtensionFactory_new2(QExtensionManager* parent) {
 }
 
 QMetaObject* QExtensionFactory_MetaObject(const QExtensionFactory* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqextensionfactory = dynamic_cast<const VirtualQExtensionFactory*>(self);
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQExtensionFactory*)self)->metaObject();
+    }
 }
 
 void* QExtensionFactory_Metacast(QExtensionFactory* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQExtensionFactory*)self)->qt_metacast(param1);
+    }
 }
 
 int QExtensionFactory_Metacall(QExtensionFactory* self, int param1, int param2, void** param3) {
@@ -60,6 +70,44 @@ QObject* QExtensionFactory_CreateExtension(const QExtensionFactory* self, QObjec
         return vqextensionfactory->createExtension(object, iid_QString, parent);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QExtensionFactory_QBaseMetaObject(const QExtensionFactory* self) {
+    auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+        vqextensionfactory->setQExtensionFactory_MetaObject_IsBase(true);
+        return (QMetaObject*)vqextensionfactory->metaObject();
+    } else {
+        return (QMetaObject*)self->QExtensionFactory::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QExtensionFactory_OnMetaObject(const QExtensionFactory* self, intptr_t slot) {
+    auto* vqextensionfactory = const_cast<VirtualQExtensionFactory*>(dynamic_cast<const VirtualQExtensionFactory*>(self));
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+        vqextensionfactory->setQExtensionFactory_MetaObject_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QExtensionFactory_QBaseMetacast(QExtensionFactory* self, const char* param1) {
+    auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+        vqextensionfactory->setQExtensionFactory_Metacast_IsBase(true);
+        return vqextensionfactory->qt_metacast(param1);
+    } else {
+        return self->QExtensionFactory::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QExtensionFactory_OnMetacast(QExtensionFactory* self, intptr_t slot) {
+    auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
+    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
+        vqextensionfactory->setQExtensionFactory_Metacast_Callback(reinterpret_cast<VirtualQExtensionFactory::QExtensionFactory_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

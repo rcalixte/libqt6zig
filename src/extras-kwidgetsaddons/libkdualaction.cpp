@@ -26,11 +26,21 @@ KDualAction* KDualAction_new2(const libqt_string inactiveText, const libqt_strin
 }
 
 QMetaObject* KDualAction_MetaObject(const KDualAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdualaction = dynamic_cast<const VirtualKDualAction*>(self);
+    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDualAction*)self)->metaObject();
+    }
 }
 
 void* KDualAction_Metacast(KDualAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
+    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDualAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KDualAction_Metacall(KDualAction* self, int param1, int param2, void** param3) {
@@ -184,6 +194,44 @@ void KDualAction_Connect_ActiveChangedByUser(KDualAction* self, intptr_t slot) {
         bool sigval1 = param1;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KDualAction_QBaseMetaObject(const KDualAction* self) {
+    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
+    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+        vkdualaction->setKDualAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdualaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KDualAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDualAction_OnMetaObject(const KDualAction* self, intptr_t slot) {
+    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
+    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+        vkdualaction->setKDualAction_MetaObject_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDualAction_QBaseMetacast(KDualAction* self, const char* param1) {
+    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
+    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+        vkdualaction->setKDualAction_Metacast_IsBase(true);
+        return vkdualaction->qt_metacast(param1);
+    } else {
+        return self->KDualAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDualAction_OnMetacast(KDualAction* self, intptr_t slot) {
+    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
+    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+        vkdualaction->setKDualAction_Metacast_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

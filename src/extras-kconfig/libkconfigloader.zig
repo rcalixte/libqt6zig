@@ -203,31 +203,6 @@ pub const kconfigloader = struct {
 
     /// Inherited from KConfigSkeleton
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KConfigLoader `
-    ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KConfigSkeleton_MetaObject(@ptrCast(self));
-    }
-
-    /// Inherited from KConfigSkeleton
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KConfigLoader `
-    ///
-    /// ` param1: [:0]const u8 `
-    ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
-        const param1_Cstring = param1.ptr;
-        return qtc.KConfigSkeleton_Metacast(@ptrCast(self), param1_Cstring);
-    }
-
-    /// Inherited from KConfigSkeleton
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -2738,6 +2713,100 @@ pub const kconfigloader = struct {
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#metaObject)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigLoader `
+    ///
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KConfigLoader_MetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#metaObject)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigLoader `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.KConfigLoader_QBaseMetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#metaObject)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigLoader`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.KConfigLoader_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigLoader `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.KConfigLoader_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.KConfigLoader `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.KConfigLoader_QBaseMetacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#qt_metacast)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.KConfigLoader`
+    ///
+    /// ` callback: *const fn (self: QtC.KConfigLoader, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KConfigLoader_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfigSkeleton

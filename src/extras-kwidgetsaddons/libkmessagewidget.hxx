@@ -17,6 +17,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
     bool isVirtualKMessageWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KMessageWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KMessageWidget_Metacast_Callback = void* (*)(KMessageWidget*, const char*);
     using KMessageWidget_Metacall_Callback = int (*)(KMessageWidget*, int, int, void**);
     using KMessageWidget_SizeHint_Callback = QSize* (*)();
     using KMessageWidget_MinimumSizeHint_Callback = QSize* (*)();
@@ -80,6 +82,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
   protected:
     // Instance callback storage
+    KMessageWidget_MetaObject_Callback kmessagewidget_metaobject_callback = nullptr;
+    KMessageWidget_Metacast_Callback kmessagewidget_metacast_callback = nullptr;
     KMessageWidget_Metacall_Callback kmessagewidget_metacall_callback = nullptr;
     KMessageWidget_SizeHint_Callback kmessagewidget_sizehint_callback = nullptr;
     KMessageWidget_MinimumSizeHint_Callback kmessagewidget_minimumsizehint_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
     KMessageWidget_GetDecodedMetricF_Callback kmessagewidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kmessagewidget_metaobject_isbase = false;
+    mutable bool kmessagewidget_metacast_isbase = false;
     mutable bool kmessagewidget_metacall_isbase = false;
     mutable bool kmessagewidget_sizehint_isbase = false;
     mutable bool kmessagewidget_minimumsizehint_isbase = false;
@@ -210,6 +216,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
     VirtualKMessageWidget(const QString& text, QWidget* parent) : KMessageWidget(text, parent) {};
 
     ~VirtualKMessageWidget() {
+        kmessagewidget_metaobject_callback = nullptr;
+        kmessagewidget_metacast_callback = nullptr;
         kmessagewidget_metacall_callback = nullptr;
         kmessagewidget_sizehint_callback = nullptr;
         kmessagewidget_minimumsizehint_callback = nullptr;
@@ -273,6 +281,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
     }
 
     // Callback setters
+    inline void setKMessageWidget_MetaObject_Callback(KMessageWidget_MetaObject_Callback cb) { kmessagewidget_metaobject_callback = cb; }
+    inline void setKMessageWidget_Metacast_Callback(KMessageWidget_Metacast_Callback cb) { kmessagewidget_metacast_callback = cb; }
     inline void setKMessageWidget_Metacall_Callback(KMessageWidget_Metacall_Callback cb) { kmessagewidget_metacall_callback = cb; }
     inline void setKMessageWidget_SizeHint_Callback(KMessageWidget_SizeHint_Callback cb) { kmessagewidget_sizehint_callback = cb; }
     inline void setKMessageWidget_MinimumSizeHint_Callback(KMessageWidget_MinimumSizeHint_Callback cb) { kmessagewidget_minimumsizehint_callback = cb; }
@@ -335,6 +345,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
     inline void setKMessageWidget_GetDecodedMetricF_Callback(KMessageWidget_GetDecodedMetricF_Callback cb) { kmessagewidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKMessageWidget_MetaObject_IsBase(bool value) const { kmessagewidget_metaobject_isbase = value; }
+    inline void setKMessageWidget_Metacast_IsBase(bool value) const { kmessagewidget_metacast_isbase = value; }
     inline void setKMessageWidget_Metacall_IsBase(bool value) const { kmessagewidget_metacall_isbase = value; }
     inline void setKMessageWidget_SizeHint_IsBase(bool value) const { kmessagewidget_sizehint_isbase = value; }
     inline void setKMessageWidget_MinimumSizeHint_IsBase(bool value) const { kmessagewidget_minimumsizehint_isbase = value; }
@@ -395,6 +407,34 @@ class VirtualKMessageWidget final : public KMessageWidget {
     inline void setKMessageWidget_Receivers_IsBase(bool value) const { kmessagewidget_receivers_isbase = value; }
     inline void setKMessageWidget_IsSignalConnected_IsBase(bool value) const { kmessagewidget_issignalconnected_isbase = value; }
     inline void setKMessageWidget_GetDecodedMetricF_IsBase(bool value) const { kmessagewidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kmessagewidget_metaobject_isbase) {
+            kmessagewidget_metaobject_isbase = false;
+            return KMessageWidget::metaObject();
+        } else if (kmessagewidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kmessagewidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KMessageWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kmessagewidget_metacast_isbase) {
+            kmessagewidget_metacast_isbase = false;
+            return KMessageWidget::qt_metacast(param1);
+        } else if (kmessagewidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kmessagewidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KMessageWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

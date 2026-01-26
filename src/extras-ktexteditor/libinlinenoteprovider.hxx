@@ -17,6 +17,8 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
     bool isVirtualKTextEditorInlineNoteProvider = true;
 
     // Virtual class public types (including callbacks)
+    using KTextEditor__InlineNoteProvider_MetaObject_Callback = QMetaObject* (*)();
+    using KTextEditor__InlineNoteProvider_Metacast_Callback = void* (*)(KTextEditor__InlineNoteProvider*, const char*);
     using KTextEditor__InlineNoteProvider_Metacall_Callback = int (*)(KTextEditor__InlineNoteProvider*, int, int, void**);
     using KTextEditor__InlineNoteProvider_InlineNotes_Callback = int* (*)(const KTextEditor__InlineNoteProvider*, int);
     using KTextEditor__InlineNoteProvider_InlineNoteSize_Callback = QSize* (*)(const KTextEditor__InlineNoteProvider*, KTextEditor__InlineNote*);
@@ -39,6 +41,8 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
 
   protected:
     // Instance callback storage
+    KTextEditor__InlineNoteProvider_MetaObject_Callback ktexteditor__inlinenoteprovider_metaobject_callback = nullptr;
+    KTextEditor__InlineNoteProvider_Metacast_Callback ktexteditor__inlinenoteprovider_metacast_callback = nullptr;
     KTextEditor__InlineNoteProvider_Metacall_Callback ktexteditor__inlinenoteprovider_metacall_callback = nullptr;
     KTextEditor__InlineNoteProvider_InlineNotes_Callback ktexteditor__inlinenoteprovider_inlinenotes_callback = nullptr;
     KTextEditor__InlineNoteProvider_InlineNoteSize_Callback ktexteditor__inlinenoteprovider_inlinenotesize_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
     KTextEditor__InlineNoteProvider_IsSignalConnected_Callback ktexteditor__inlinenoteprovider_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktexteditor__inlinenoteprovider_metaobject_isbase = false;
+    mutable bool ktexteditor__inlinenoteprovider_metacast_isbase = false;
     mutable bool ktexteditor__inlinenoteprovider_metacall_isbase = false;
     mutable bool ktexteditor__inlinenoteprovider_inlinenotes_isbase = false;
     mutable bool ktexteditor__inlinenoteprovider_inlinenotesize_isbase = false;
@@ -84,6 +90,8 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
     VirtualKTextEditorInlineNoteProvider() : KTextEditor::InlineNoteProvider() {};
 
     ~VirtualKTextEditorInlineNoteProvider() {
+        ktexteditor__inlinenoteprovider_metaobject_callback = nullptr;
+        ktexteditor__inlinenoteprovider_metacast_callback = nullptr;
         ktexteditor__inlinenoteprovider_metacall_callback = nullptr;
         ktexteditor__inlinenoteprovider_inlinenotes_callback = nullptr;
         ktexteditor__inlinenoteprovider_inlinenotesize_callback = nullptr;
@@ -106,6 +114,8 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
     }
 
     // Callback setters
+    inline void setKTextEditor__InlineNoteProvider_MetaObject_Callback(KTextEditor__InlineNoteProvider_MetaObject_Callback cb) { ktexteditor__inlinenoteprovider_metaobject_callback = cb; }
+    inline void setKTextEditor__InlineNoteProvider_Metacast_Callback(KTextEditor__InlineNoteProvider_Metacast_Callback cb) { ktexteditor__inlinenoteprovider_metacast_callback = cb; }
     inline void setKTextEditor__InlineNoteProvider_Metacall_Callback(KTextEditor__InlineNoteProvider_Metacall_Callback cb) { ktexteditor__inlinenoteprovider_metacall_callback = cb; }
     inline void setKTextEditor__InlineNoteProvider_InlineNotes_Callback(KTextEditor__InlineNoteProvider_InlineNotes_Callback cb) { ktexteditor__inlinenoteprovider_inlinenotes_callback = cb; }
     inline void setKTextEditor__InlineNoteProvider_InlineNoteSize_Callback(KTextEditor__InlineNoteProvider_InlineNoteSize_Callback cb) { ktexteditor__inlinenoteprovider_inlinenotesize_callback = cb; }
@@ -127,6 +137,8 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
     inline void setKTextEditor__InlineNoteProvider_IsSignalConnected_Callback(KTextEditor__InlineNoteProvider_IsSignalConnected_Callback cb) { ktexteditor__inlinenoteprovider_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKTextEditor__InlineNoteProvider_MetaObject_IsBase(bool value) const { ktexteditor__inlinenoteprovider_metaobject_isbase = value; }
+    inline void setKTextEditor__InlineNoteProvider_Metacast_IsBase(bool value) const { ktexteditor__inlinenoteprovider_metacast_isbase = value; }
     inline void setKTextEditor__InlineNoteProvider_Metacall_IsBase(bool value) const { ktexteditor__inlinenoteprovider_metacall_isbase = value; }
     inline void setKTextEditor__InlineNoteProvider_InlineNotes_IsBase(bool value) const { ktexteditor__inlinenoteprovider_inlinenotes_isbase = value; }
     inline void setKTextEditor__InlineNoteProvider_InlineNoteSize_IsBase(bool value) const { ktexteditor__inlinenoteprovider_inlinenotesize_isbase = value; }
@@ -146,6 +158,34 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
     inline void setKTextEditor__InlineNoteProvider_SenderSignalIndex_IsBase(bool value) const { ktexteditor__inlinenoteprovider_sendersignalindex_isbase = value; }
     inline void setKTextEditor__InlineNoteProvider_Receivers_IsBase(bool value) const { ktexteditor__inlinenoteprovider_receivers_isbase = value; }
     inline void setKTextEditor__InlineNoteProvider_IsSignalConnected_IsBase(bool value) const { ktexteditor__inlinenoteprovider_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktexteditor__inlinenoteprovider_metaobject_isbase) {
+            ktexteditor__inlinenoteprovider_metaobject_isbase = false;
+            return KTextEditor__InlineNoteProvider::metaObject();
+        } else if (ktexteditor__inlinenoteprovider_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktexteditor__inlinenoteprovider_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTextEditor__InlineNoteProvider::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktexteditor__inlinenoteprovider_metacast_isbase) {
+            ktexteditor__inlinenoteprovider_metacast_isbase = false;
+            return KTextEditor__InlineNoteProvider::qt_metacast(param1);
+        } else if (ktexteditor__inlinenoteprovider_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktexteditor__inlinenoteprovider_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTextEditor__InlineNoteProvider::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

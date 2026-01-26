@@ -111,6 +111,10 @@ void QAbstractSpinBox_InitStyleOption(const QAbstractSpinBox* self, QStyleOption
 int QAbstractSpinBox_StepEnabled(const QAbstractSpinBox* self);
 void QAbstractSpinBox_EditingFinished(QAbstractSpinBox* self);
 void QAbstractSpinBox_Connect_EditingFinished(QAbstractSpinBox* self, intptr_t slot);
+void QAbstractSpinBox_OnMetaObject(const QAbstractSpinBox* self, intptr_t slot);
+QMetaObject* QAbstractSpinBox_QBaseMetaObject(const QAbstractSpinBox* self);
+void QAbstractSpinBox_OnMetacast(QAbstractSpinBox* self, intptr_t slot);
+void* QAbstractSpinBox_QBaseMetacast(QAbstractSpinBox* self, const char* param1);
 void QAbstractSpinBox_OnMetacall(QAbstractSpinBox* self, intptr_t slot);
 int QAbstractSpinBox_QBaseMetacall(QAbstractSpinBox* self, int param1, int param2, void** param3);
 void QAbstractSpinBox_OnSizeHint(const QAbstractSpinBox* self, intptr_t slot);

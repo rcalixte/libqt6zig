@@ -17,6 +17,8 @@ class VirtualQStylePlugin : public QStylePlugin {
     bool isVirtualQStylePlugin = true;
 
     // Virtual class public types (including callbacks)
+    using QStylePlugin_MetaObject_Callback = QMetaObject* (*)();
+    using QStylePlugin_Metacast_Callback = void* (*)(QStylePlugin*, const char*);
     using QStylePlugin_Metacall_Callback = int (*)(QStylePlugin*, int, int, void**);
     using QStylePlugin_Create_Callback = QStyle* (*)(QStylePlugin*, libqt_string);
     using QStylePlugin_Event_Callback = bool (*)(QStylePlugin*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQStylePlugin : public QStylePlugin {
 
   protected:
     // Instance callback storage
+    QStylePlugin_MetaObject_Callback qstyleplugin_metaobject_callback = nullptr;
+    QStylePlugin_Metacast_Callback qstyleplugin_metacast_callback = nullptr;
     QStylePlugin_Metacall_Callback qstyleplugin_metacall_callback = nullptr;
     QStylePlugin_Create_Callback qstyleplugin_create_callback = nullptr;
     QStylePlugin_Event_Callback qstyleplugin_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQStylePlugin : public QStylePlugin {
     QStylePlugin_IsSignalConnected_Callback qstyleplugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qstyleplugin_metaobject_isbase = false;
+    mutable bool qstyleplugin_metacast_isbase = false;
     mutable bool qstyleplugin_metacall_isbase = false;
     mutable bool qstyleplugin_create_isbase = false;
     mutable bool qstyleplugin_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQStylePlugin : public QStylePlugin {
     VirtualQStylePlugin(QObject* parent) : QStylePlugin(parent) {};
 
     ~VirtualQStylePlugin() {
+        qstyleplugin_metaobject_callback = nullptr;
+        qstyleplugin_metacast_callback = nullptr;
         qstyleplugin_metacall_callback = nullptr;
         qstyleplugin_create_callback = nullptr;
         qstyleplugin_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQStylePlugin : public QStylePlugin {
     }
 
     // Callback setters
+    inline void setQStylePlugin_MetaObject_Callback(QStylePlugin_MetaObject_Callback cb) { qstyleplugin_metaobject_callback = cb; }
+    inline void setQStylePlugin_Metacast_Callback(QStylePlugin_Metacast_Callback cb) { qstyleplugin_metacast_callback = cb; }
     inline void setQStylePlugin_Metacall_Callback(QStylePlugin_Metacall_Callback cb) { qstyleplugin_metacall_callback = cb; }
     inline void setQStylePlugin_Create_Callback(QStylePlugin_Create_Callback cb) { qstyleplugin_create_callback = cb; }
     inline void setQStylePlugin_Event_Callback(QStylePlugin_Event_Callback cb) { qstyleplugin_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQStylePlugin : public QStylePlugin {
     inline void setQStylePlugin_IsSignalConnected_Callback(QStylePlugin_IsSignalConnected_Callback cb) { qstyleplugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQStylePlugin_MetaObject_IsBase(bool value) const { qstyleplugin_metaobject_isbase = value; }
+    inline void setQStylePlugin_Metacast_IsBase(bool value) const { qstyleplugin_metacast_isbase = value; }
     inline void setQStylePlugin_Metacall_IsBase(bool value) const { qstyleplugin_metacall_isbase = value; }
     inline void setQStylePlugin_Create_IsBase(bool value) const { qstyleplugin_create_isbase = value; }
     inline void setQStylePlugin_Event_IsBase(bool value) const { qstyleplugin_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQStylePlugin : public QStylePlugin {
     inline void setQStylePlugin_SenderSignalIndex_IsBase(bool value) const { qstyleplugin_sendersignalindex_isbase = value; }
     inline void setQStylePlugin_Receivers_IsBase(bool value) const { qstyleplugin_receivers_isbase = value; }
     inline void setQStylePlugin_IsSignalConnected_IsBase(bool value) const { qstyleplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qstyleplugin_metaobject_isbase) {
+            qstyleplugin_metaobject_isbase = false;
+            return QStylePlugin::metaObject();
+        } else if (qstyleplugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qstyleplugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QStylePlugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qstyleplugin_metacast_isbase) {
+            qstyleplugin_metacast_isbase = false;
+            return QStylePlugin::qt_metacast(param1);
+        } else if (qstyleplugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qstyleplugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QStylePlugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

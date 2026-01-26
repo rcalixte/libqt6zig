@@ -17,6 +17,8 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     bool isVirtualQAbstractScrollArea = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractScrollArea_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractScrollArea_Metacast_Callback = void* (*)(QAbstractScrollArea*, const char*);
     using QAbstractScrollArea_Metacall_Callback = int (*)(QAbstractScrollArea*, int, int, void**);
     using QAbstractScrollArea_MinimumSizeHint_Callback = QSize* (*)();
     using QAbstractScrollArea_SizeHint_Callback = QSize* (*)();
@@ -87,6 +89,8 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
 
   protected:
     // Instance callback storage
+    QAbstractScrollArea_MetaObject_Callback qabstractscrollarea_metaobject_callback = nullptr;
+    QAbstractScrollArea_Metacast_Callback qabstractscrollarea_metacast_callback = nullptr;
     QAbstractScrollArea_Metacall_Callback qabstractscrollarea_metacall_callback = nullptr;
     QAbstractScrollArea_MinimumSizeHint_Callback qabstractscrollarea_minimumsizehint_callback = nullptr;
     QAbstractScrollArea_SizeHint_Callback qabstractscrollarea_sizehint_callback = nullptr;
@@ -156,6 +160,8 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     QAbstractScrollArea_GetDecodedMetricF_Callback qabstractscrollarea_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractscrollarea_metaobject_isbase = false;
+    mutable bool qabstractscrollarea_metacast_isbase = false;
     mutable bool qabstractscrollarea_metacall_isbase = false;
     mutable bool qabstractscrollarea_minimumsizehint_isbase = false;
     mutable bool qabstractscrollarea_sizehint_isbase = false;
@@ -229,6 +235,8 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     VirtualQAbstractScrollArea() : QAbstractScrollArea() {};
 
     ~VirtualQAbstractScrollArea() {
+        qabstractscrollarea_metaobject_callback = nullptr;
+        qabstractscrollarea_metacast_callback = nullptr;
         qabstractscrollarea_metacall_callback = nullptr;
         qabstractscrollarea_minimumsizehint_callback = nullptr;
         qabstractscrollarea_sizehint_callback = nullptr;
@@ -299,6 +307,8 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     }
 
     // Callback setters
+    inline void setQAbstractScrollArea_MetaObject_Callback(QAbstractScrollArea_MetaObject_Callback cb) { qabstractscrollarea_metaobject_callback = cb; }
+    inline void setQAbstractScrollArea_Metacast_Callback(QAbstractScrollArea_Metacast_Callback cb) { qabstractscrollarea_metacast_callback = cb; }
     inline void setQAbstractScrollArea_Metacall_Callback(QAbstractScrollArea_Metacall_Callback cb) { qabstractscrollarea_metacall_callback = cb; }
     inline void setQAbstractScrollArea_MinimumSizeHint_Callback(QAbstractScrollArea_MinimumSizeHint_Callback cb) { qabstractscrollarea_minimumsizehint_callback = cb; }
     inline void setQAbstractScrollArea_SizeHint_Callback(QAbstractScrollArea_SizeHint_Callback cb) { qabstractscrollarea_sizehint_callback = cb; }
@@ -368,6 +378,8 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     inline void setQAbstractScrollArea_GetDecodedMetricF_Callback(QAbstractScrollArea_GetDecodedMetricF_Callback cb) { qabstractscrollarea_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractScrollArea_MetaObject_IsBase(bool value) const { qabstractscrollarea_metaobject_isbase = value; }
+    inline void setQAbstractScrollArea_Metacast_IsBase(bool value) const { qabstractscrollarea_metacast_isbase = value; }
     inline void setQAbstractScrollArea_Metacall_IsBase(bool value) const { qabstractscrollarea_metacall_isbase = value; }
     inline void setQAbstractScrollArea_MinimumSizeHint_IsBase(bool value) const { qabstractscrollarea_minimumsizehint_isbase = value; }
     inline void setQAbstractScrollArea_SizeHint_IsBase(bool value) const { qabstractscrollarea_sizehint_isbase = value; }
@@ -435,6 +447,34 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     inline void setQAbstractScrollArea_Receivers_IsBase(bool value) const { qabstractscrollarea_receivers_isbase = value; }
     inline void setQAbstractScrollArea_IsSignalConnected_IsBase(bool value) const { qabstractscrollarea_issignalconnected_isbase = value; }
     inline void setQAbstractScrollArea_GetDecodedMetricF_IsBase(bool value) const { qabstractscrollarea_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractscrollarea_metaobject_isbase) {
+            qabstractscrollarea_metaobject_isbase = false;
+            return QAbstractScrollArea::metaObject();
+        } else if (qabstractscrollarea_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractscrollarea_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractScrollArea::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractscrollarea_metacast_isbase) {
+            qabstractscrollarea_metacast_isbase = false;
+            return QAbstractScrollArea::qt_metacast(param1);
+        } else if (qabstractscrollarea_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractscrollarea_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractScrollArea::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

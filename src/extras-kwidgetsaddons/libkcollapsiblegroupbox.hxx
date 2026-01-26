@@ -17,6 +17,8 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
     bool isVirtualKCollapsibleGroupBox = true;
 
     // Virtual class public types (including callbacks)
+    using KCollapsibleGroupBox_MetaObject_Callback = QMetaObject* (*)();
+    using KCollapsibleGroupBox_Metacast_Callback = void* (*)(KCollapsibleGroupBox*, const char*);
     using KCollapsibleGroupBox_Metacall_Callback = int (*)(KCollapsibleGroupBox*, int, int, void**);
     using KCollapsibleGroupBox_SizeHint_Callback = QSize* (*)();
     using KCollapsibleGroupBox_MinimumSizeHint_Callback = QSize* (*)();
@@ -78,6 +80,8 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
 
   protected:
     // Instance callback storage
+    KCollapsibleGroupBox_MetaObject_Callback kcollapsiblegroupbox_metaobject_callback = nullptr;
+    KCollapsibleGroupBox_Metacast_Callback kcollapsiblegroupbox_metacast_callback = nullptr;
     KCollapsibleGroupBox_Metacall_Callback kcollapsiblegroupbox_metacall_callback = nullptr;
     KCollapsibleGroupBox_SizeHint_Callback kcollapsiblegroupbox_sizehint_callback = nullptr;
     KCollapsibleGroupBox_MinimumSizeHint_Callback kcollapsiblegroupbox_minimumsizehint_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
     KCollapsibleGroupBox_GetDecodedMetricF_Callback kcollapsiblegroupbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcollapsiblegroupbox_metaobject_isbase = false;
+    mutable bool kcollapsiblegroupbox_metacast_isbase = false;
     mutable bool kcollapsiblegroupbox_metacall_isbase = false;
     mutable bool kcollapsiblegroupbox_sizehint_isbase = false;
     mutable bool kcollapsiblegroupbox_minimumsizehint_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
     VirtualKCollapsibleGroupBox() : KCollapsibleGroupBox() {};
 
     ~VirtualKCollapsibleGroupBox() {
+        kcollapsiblegroupbox_metaobject_callback = nullptr;
+        kcollapsiblegroupbox_metacast_callback = nullptr;
         kcollapsiblegroupbox_metacall_callback = nullptr;
         kcollapsiblegroupbox_sizehint_callback = nullptr;
         kcollapsiblegroupbox_minimumsizehint_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
     }
 
     // Callback setters
+    inline void setKCollapsibleGroupBox_MetaObject_Callback(KCollapsibleGroupBox_MetaObject_Callback cb) { kcollapsiblegroupbox_metaobject_callback = cb; }
+    inline void setKCollapsibleGroupBox_Metacast_Callback(KCollapsibleGroupBox_Metacast_Callback cb) { kcollapsiblegroupbox_metacast_callback = cb; }
     inline void setKCollapsibleGroupBox_Metacall_Callback(KCollapsibleGroupBox_Metacall_Callback cb) { kcollapsiblegroupbox_metacall_callback = cb; }
     inline void setKCollapsibleGroupBox_SizeHint_Callback(KCollapsibleGroupBox_SizeHint_Callback cb) { kcollapsiblegroupbox_sizehint_callback = cb; }
     inline void setKCollapsibleGroupBox_MinimumSizeHint_Callback(KCollapsibleGroupBox_MinimumSizeHint_Callback cb) { kcollapsiblegroupbox_minimumsizehint_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
     inline void setKCollapsibleGroupBox_GetDecodedMetricF_Callback(KCollapsibleGroupBox_GetDecodedMetricF_Callback cb) { kcollapsiblegroupbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKCollapsibleGroupBox_MetaObject_IsBase(bool value) const { kcollapsiblegroupbox_metaobject_isbase = value; }
+    inline void setKCollapsibleGroupBox_Metacast_IsBase(bool value) const { kcollapsiblegroupbox_metacast_isbase = value; }
     inline void setKCollapsibleGroupBox_Metacall_IsBase(bool value) const { kcollapsiblegroupbox_metacall_isbase = value; }
     inline void setKCollapsibleGroupBox_SizeHint_IsBase(bool value) const { kcollapsiblegroupbox_sizehint_isbase = value; }
     inline void setKCollapsibleGroupBox_MinimumSizeHint_IsBase(bool value) const { kcollapsiblegroupbox_minimumsizehint_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKCollapsibleGroupBox final : public KCollapsibleGroupBox {
     inline void setKCollapsibleGroupBox_Receivers_IsBase(bool value) const { kcollapsiblegroupbox_receivers_isbase = value; }
     inline void setKCollapsibleGroupBox_IsSignalConnected_IsBase(bool value) const { kcollapsiblegroupbox_issignalconnected_isbase = value; }
     inline void setKCollapsibleGroupBox_GetDecodedMetricF_IsBase(bool value) const { kcollapsiblegroupbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcollapsiblegroupbox_metaobject_isbase) {
+            kcollapsiblegroupbox_metaobject_isbase = false;
+            return KCollapsibleGroupBox::metaObject();
+        } else if (kcollapsiblegroupbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcollapsiblegroupbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCollapsibleGroupBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcollapsiblegroupbox_metacast_isbase) {
+            kcollapsiblegroupbox_metacast_isbase = false;
+            return KCollapsibleGroupBox::qt_metacast(param1);
+        } else if (kcollapsiblegroupbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcollapsiblegroupbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCollapsibleGroupBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

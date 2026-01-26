@@ -17,6 +17,8 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
     bool isVirtualKDatePickerPopup = true;
 
     // Virtual class public types (including callbacks)
+    using KDatePickerPopup_MetaObject_Callback = QMetaObject* (*)();
+    using KDatePickerPopup_Metacast_Callback = void* (*)(KDatePickerPopup*, const char*);
     using KDatePickerPopup_Metacall_Callback = int (*)(KDatePickerPopup*, int, int, void**);
     using KDatePickerPopup_SizeHint_Callback = QSize* (*)();
     using KDatePickerPopup_ChangeEvent_Callback = void (*)(KDatePickerPopup*, QEvent*);
@@ -80,6 +82,8 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
 
   protected:
     // Instance callback storage
+    KDatePickerPopup_MetaObject_Callback kdatepickerpopup_metaobject_callback = nullptr;
+    KDatePickerPopup_Metacast_Callback kdatepickerpopup_metacast_callback = nullptr;
     KDatePickerPopup_Metacall_Callback kdatepickerpopup_metacall_callback = nullptr;
     KDatePickerPopup_SizeHint_Callback kdatepickerpopup_sizehint_callback = nullptr;
     KDatePickerPopup_ChangeEvent_Callback kdatepickerpopup_changeevent_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
     KDatePickerPopup_GetDecodedMetricF_Callback kdatepickerpopup_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdatepickerpopup_metaobject_isbase = false;
+    mutable bool kdatepickerpopup_metacast_isbase = false;
     mutable bool kdatepickerpopup_metacall_isbase = false;
     mutable bool kdatepickerpopup_sizehint_isbase = false;
     mutable bool kdatepickerpopup_changeevent_isbase = false;
@@ -210,6 +216,8 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
     VirtualKDatePickerPopup(KDatePickerPopup::Modes modes, QDate date, QWidget* parent) : KDatePickerPopup(modes, date, parent) {};
 
     ~VirtualKDatePickerPopup() {
+        kdatepickerpopup_metaobject_callback = nullptr;
+        kdatepickerpopup_metacast_callback = nullptr;
         kdatepickerpopup_metacall_callback = nullptr;
         kdatepickerpopup_sizehint_callback = nullptr;
         kdatepickerpopup_changeevent_callback = nullptr;
@@ -273,6 +281,8 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
     }
 
     // Callback setters
+    inline void setKDatePickerPopup_MetaObject_Callback(KDatePickerPopup_MetaObject_Callback cb) { kdatepickerpopup_metaobject_callback = cb; }
+    inline void setKDatePickerPopup_Metacast_Callback(KDatePickerPopup_Metacast_Callback cb) { kdatepickerpopup_metacast_callback = cb; }
     inline void setKDatePickerPopup_Metacall_Callback(KDatePickerPopup_Metacall_Callback cb) { kdatepickerpopup_metacall_callback = cb; }
     inline void setKDatePickerPopup_SizeHint_Callback(KDatePickerPopup_SizeHint_Callback cb) { kdatepickerpopup_sizehint_callback = cb; }
     inline void setKDatePickerPopup_ChangeEvent_Callback(KDatePickerPopup_ChangeEvent_Callback cb) { kdatepickerpopup_changeevent_callback = cb; }
@@ -335,6 +345,8 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
     inline void setKDatePickerPopup_GetDecodedMetricF_Callback(KDatePickerPopup_GetDecodedMetricF_Callback cb) { kdatepickerpopup_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKDatePickerPopup_MetaObject_IsBase(bool value) const { kdatepickerpopup_metaobject_isbase = value; }
+    inline void setKDatePickerPopup_Metacast_IsBase(bool value) const { kdatepickerpopup_metacast_isbase = value; }
     inline void setKDatePickerPopup_Metacall_IsBase(bool value) const { kdatepickerpopup_metacall_isbase = value; }
     inline void setKDatePickerPopup_SizeHint_IsBase(bool value) const { kdatepickerpopup_sizehint_isbase = value; }
     inline void setKDatePickerPopup_ChangeEvent_IsBase(bool value) const { kdatepickerpopup_changeevent_isbase = value; }
@@ -395,6 +407,34 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
     inline void setKDatePickerPopup_Receivers_IsBase(bool value) const { kdatepickerpopup_receivers_isbase = value; }
     inline void setKDatePickerPopup_IsSignalConnected_IsBase(bool value) const { kdatepickerpopup_issignalconnected_isbase = value; }
     inline void setKDatePickerPopup_GetDecodedMetricF_IsBase(bool value) const { kdatepickerpopup_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdatepickerpopup_metaobject_isbase) {
+            kdatepickerpopup_metaobject_isbase = false;
+            return KDatePickerPopup::metaObject();
+        } else if (kdatepickerpopup_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdatepickerpopup_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDatePickerPopup::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdatepickerpopup_metacast_isbase) {
+            kdatepickerpopup_metacast_isbase = false;
+            return KDatePickerPopup::qt_metacast(param1);
+        } else if (kdatepickerpopup_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdatepickerpopup_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDatePickerPopup::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

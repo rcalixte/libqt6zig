@@ -17,6 +17,8 @@ class VirtualKEmailValidator final : public KEmailValidator {
     bool isVirtualKEmailValidator = true;
 
     // Virtual class public types (including callbacks)
+    using KEmailValidator_MetaObject_Callback = QMetaObject* (*)();
+    using KEmailValidator_Metacast_Callback = void* (*)(KEmailValidator*, const char*);
     using KEmailValidator_Metacall_Callback = int (*)(KEmailValidator*, int, int, void**);
     using KEmailValidator_Validate_Callback = int (*)(const KEmailValidator*, libqt_string, int*);
     using KEmailValidator_Fixup_Callback = void (*)(const KEmailValidator*, libqt_string);
@@ -34,6 +36,8 @@ class VirtualKEmailValidator final : public KEmailValidator {
 
   protected:
     // Instance callback storage
+    KEmailValidator_MetaObject_Callback kemailvalidator_metaobject_callback = nullptr;
+    KEmailValidator_Metacast_Callback kemailvalidator_metacast_callback = nullptr;
     KEmailValidator_Metacall_Callback kemailvalidator_metacall_callback = nullptr;
     KEmailValidator_Validate_Callback kemailvalidator_validate_callback = nullptr;
     KEmailValidator_Fixup_Callback kemailvalidator_fixup_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualKEmailValidator final : public KEmailValidator {
     KEmailValidator_IsSignalConnected_Callback kemailvalidator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kemailvalidator_metaobject_isbase = false;
+    mutable bool kemailvalidator_metacast_isbase = false;
     mutable bool kemailvalidator_metacall_isbase = false;
     mutable bool kemailvalidator_validate_isbase = false;
     mutable bool kemailvalidator_fixup_isbase = false;
@@ -70,6 +76,8 @@ class VirtualKEmailValidator final : public KEmailValidator {
     VirtualKEmailValidator(QObject* parent) : KEmailValidator(parent) {};
 
     ~VirtualKEmailValidator() {
+        kemailvalidator_metaobject_callback = nullptr;
+        kemailvalidator_metacast_callback = nullptr;
         kemailvalidator_metacall_callback = nullptr;
         kemailvalidator_validate_callback = nullptr;
         kemailvalidator_fixup_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualKEmailValidator final : public KEmailValidator {
     }
 
     // Callback setters
+    inline void setKEmailValidator_MetaObject_Callback(KEmailValidator_MetaObject_Callback cb) { kemailvalidator_metaobject_callback = cb; }
+    inline void setKEmailValidator_Metacast_Callback(KEmailValidator_Metacast_Callback cb) { kemailvalidator_metacast_callback = cb; }
     inline void setKEmailValidator_Metacall_Callback(KEmailValidator_Metacall_Callback cb) { kemailvalidator_metacall_callback = cb; }
     inline void setKEmailValidator_Validate_Callback(KEmailValidator_Validate_Callback cb) { kemailvalidator_validate_callback = cb; }
     inline void setKEmailValidator_Fixup_Callback(KEmailValidator_Fixup_Callback cb) { kemailvalidator_fixup_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualKEmailValidator final : public KEmailValidator {
     inline void setKEmailValidator_IsSignalConnected_Callback(KEmailValidator_IsSignalConnected_Callback cb) { kemailvalidator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKEmailValidator_MetaObject_IsBase(bool value) const { kemailvalidator_metaobject_isbase = value; }
+    inline void setKEmailValidator_Metacast_IsBase(bool value) const { kemailvalidator_metacast_isbase = value; }
     inline void setKEmailValidator_Metacall_IsBase(bool value) const { kemailvalidator_metacall_isbase = value; }
     inline void setKEmailValidator_Validate_IsBase(bool value) const { kemailvalidator_validate_isbase = value; }
     inline void setKEmailValidator_Fixup_IsBase(bool value) const { kemailvalidator_fixup_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualKEmailValidator final : public KEmailValidator {
     inline void setKEmailValidator_SenderSignalIndex_IsBase(bool value) const { kemailvalidator_sendersignalindex_isbase = value; }
     inline void setKEmailValidator_Receivers_IsBase(bool value) const { kemailvalidator_receivers_isbase = value; }
     inline void setKEmailValidator_IsSignalConnected_IsBase(bool value) const { kemailvalidator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kemailvalidator_metaobject_isbase) {
+            kemailvalidator_metaobject_isbase = false;
+            return KEmailValidator::metaObject();
+        } else if (kemailvalidator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kemailvalidator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KEmailValidator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kemailvalidator_metacast_isbase) {
+            kemailvalidator_metacast_isbase = false;
+            return KEmailValidator::qt_metacast(param1);
+        } else if (kemailvalidator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kemailvalidator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KEmailValidator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

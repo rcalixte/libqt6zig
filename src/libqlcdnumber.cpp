@@ -58,11 +58,21 @@ QLCDNumber* QLCDNumber_new4(unsigned int numDigits, QWidget* parent) {
 }
 
 QMetaObject* QLCDNumber_MetaObject(const QLCDNumber* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqlcdnumber = dynamic_cast<const VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQLCDNumber*)self)->metaObject();
+    }
 }
 
 void* QLCDNumber_Metacast(QLCDNumber* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQLCDNumber*)self)->qt_metacast(param1);
+    }
 }
 
 int QLCDNumber_Metacall(QLCDNumber* self, int param1, int param2, void** param3) {
@@ -183,6 +193,44 @@ void QLCDNumber_PaintEvent(QLCDNumber* self, QPaintEvent* param1) {
     auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
     if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
         vqlcdnumber->paintEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QLCDNumber_QBaseMetaObject(const QLCDNumber* self) {
+    auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_MetaObject_IsBase(true);
+        return (QMetaObject*)vqlcdnumber->metaObject();
+    } else {
+        return (QMetaObject*)self->QLCDNumber::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLCDNumber_OnMetaObject(const QLCDNumber* self, intptr_t slot) {
+    auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_MetaObject_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QLCDNumber_QBaseMetacast(QLCDNumber* self, const char* param1) {
+    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_Metacast_IsBase(true);
+        return vqlcdnumber->qt_metacast(param1);
+    } else {
+        return self->QLCDNumber::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLCDNumber_OnMetacast(QLCDNumber* self, intptr_t slot) {
+    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_Metacast_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_Metacast_Callback>(slot));
     }
 }
 

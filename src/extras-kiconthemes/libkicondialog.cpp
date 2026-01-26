@@ -49,11 +49,21 @@ KIconDialog* KIconDialog_new2() {
 }
 
 QMetaObject* KIconDialog_MetaObject(const KIconDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkicondialog = dynamic_cast<const VirtualKIconDialog*>(self);
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIconDialog*)self)->metaObject();
+    }
 }
 
 void* KIconDialog_Metacast(KIconDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIconDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KIconDialog_Metacall(KIconDialog* self, int param1, int param2, void** param3) {
@@ -257,6 +267,44 @@ libqt_string KIconDialog_GetIcon7(int group, int context, bool strictIconSize, i
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* KIconDialog_QBaseMetaObject(const KIconDialog* self) {
+    auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+        vkicondialog->setKIconDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkicondialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KIconDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIconDialog_OnMetaObject(const KIconDialog* self, intptr_t slot) {
+    auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+        vkicondialog->setKIconDialog_MetaObject_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIconDialog_QBaseMetacast(KIconDialog* self, const char* param1) {
+    auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+        vkicondialog->setKIconDialog_Metacast_IsBase(true);
+        return vkicondialog->qt_metacast(param1);
+    } else {
+        return self->KIconDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIconDialog_OnMetacast(KIconDialog* self, intptr_t slot) {
+    auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+        vkicondialog->setKIconDialog_Metacast_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

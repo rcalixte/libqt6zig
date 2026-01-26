@@ -111,11 +111,21 @@ KIO__ThumbnailCreator* KIO__ThumbnailCreator_new(QObject* parent, const libqt_li
 }
 
 QMetaObject* KIO__ThumbnailCreator_MetaObject(const KIO__ThumbnailCreator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__thumbnailcreator = dynamic_cast<const VirtualKIOThumbnailCreator*>(self);
+    if (vkio__thumbnailcreator && vkio__thumbnailcreator->isVirtualKIOThumbnailCreator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOThumbnailCreator*)self)->metaObject();
+    }
 }
 
 void* KIO__ThumbnailCreator_Metacast(KIO__ThumbnailCreator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__thumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
+    if (vkio__thumbnailcreator && vkio__thumbnailcreator->isVirtualKIOThumbnailCreator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOThumbnailCreator*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__ThumbnailCreator_Metacall(KIO__ThumbnailCreator* self, int param1, int param2, void** param3) {
@@ -133,6 +143,44 @@ KIO__ThumbnailResult* KIO__ThumbnailCreator_Create(KIO__ThumbnailCreator* self, 
         return new KIO::ThumbnailResult(vkio__thumbnailcreator->create(*request));
     } else {
         return new KIO::ThumbnailResult(((VirtualKIOThumbnailCreator*)self)->create(*request));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KIO__ThumbnailCreator_QBaseMetaObject(const KIO__ThumbnailCreator* self) {
+    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+        vkiothumbnailcreator->setKIO__ThumbnailCreator_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiothumbnailcreator->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::ThumbnailCreator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__ThumbnailCreator_OnMetaObject(const KIO__ThumbnailCreator* self, intptr_t slot) {
+    auto* vkiothumbnailcreator = const_cast<VirtualKIOThumbnailCreator*>(dynamic_cast<const VirtualKIOThumbnailCreator*>(self));
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+        vkiothumbnailcreator->setKIO__ThumbnailCreator_MetaObject_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__ThumbnailCreator_QBaseMetacast(KIO__ThumbnailCreator* self, const char* param1) {
+    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+        vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacast_IsBase(true);
+        return vkiothumbnailcreator->qt_metacast(param1);
+    } else {
+        return self->KIO::ThumbnailCreator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__ThumbnailCreator_OnMetacast(KIO__ThumbnailCreator* self, intptr_t slot) {
+    auto* vkiothumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
+    if (vkiothumbnailcreator && vkiothumbnailcreator->isVirtualKIOThumbnailCreator) {
+        vkiothumbnailcreator->setKIO__ThumbnailCreator_Metacast_Callback(reinterpret_cast<VirtualKIOThumbnailCreator::KIO__ThumbnailCreator_Metacast_Callback>(slot));
     }
 }
 

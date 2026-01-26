@@ -66,11 +66,21 @@ QLineEdit* QLineEdit_new4(const libqt_string param1, QWidget* parent) {
 }
 
 QMetaObject* QLineEdit_MetaObject(const QLineEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQLineEdit*)self)->metaObject();
+    }
 }
 
 void* QLineEdit_Metacast(QLineEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQLineEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int QLineEdit_Metacall(QLineEdit* self, int param1, int param2, void** param3) {
@@ -653,6 +663,44 @@ void QLineEdit_CursorForward2(QLineEdit* self, bool mark, int steps) {
 
 void QLineEdit_CursorBackward2(QLineEdit* self, bool mark, int steps) {
     self->cursorBackward(mark, static_cast<int>(steps));
+}
+
+// Base class handler implementation
+QMetaObject* QLineEdit_QBaseMetaObject(const QLineEdit* self) {
+    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vqlineedit->metaObject();
+    } else {
+        return (QMetaObject*)self->QLineEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLineEdit_OnMetaObject(const QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_MetaObject_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QLineEdit_QBaseMetacast(QLineEdit* self, const char* param1) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_Metacast_IsBase(true);
+        return vqlineedit->qt_metacast(param1);
+    } else {
+        return self->QLineEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLineEdit_OnMetacast(QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_Metacast_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

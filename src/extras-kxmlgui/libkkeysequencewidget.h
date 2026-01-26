@@ -85,6 +85,10 @@ void KKeySequenceWidget_SetKeySequence(KKeySequenceWidget* self, const QKeySeque
 void KKeySequenceWidget_ClearKeySequence(KKeySequenceWidget* self);
 void KKeySequenceWidget_ApplyStealShortcut(KKeySequenceWidget* self);
 void KKeySequenceWidget_SetKeySequence2(KKeySequenceWidget* self, const QKeySequence* seq, int val);
+void KKeySequenceWidget_OnMetaObject(const KKeySequenceWidget* self, intptr_t slot);
+QMetaObject* KKeySequenceWidget_QBaseMetaObject(const KKeySequenceWidget* self);
+void KKeySequenceWidget_OnMetacast(KKeySequenceWidget* self, intptr_t slot);
+void* KKeySequenceWidget_QBaseMetacast(KKeySequenceWidget* self, const char* param1);
 void KKeySequenceWidget_OnMetacall(KKeySequenceWidget* self, intptr_t slot);
 int KKeySequenceWidget_QBaseMetacall(KKeySequenceWidget* self, int param1, int param2, void** param3);
 int KKeySequenceWidget_DevType(const KKeySequenceWidget* self);

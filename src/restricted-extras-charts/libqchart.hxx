@@ -18,6 +18,8 @@ class VirtualQChart final : public QChart {
 
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
+    using QChart_MetaObject_Callback = QMetaObject* (*)();
+    using QChart_Metacast_Callback = void* (*)(QChart*, const char*);
     using QChart_Metacall_Callback = int (*)(QChart*, int, int, void**);
     using QChart_SetGeometry_Callback = void (*)(QChart*, QRectF*);
     using QChart_GetContentsMargins_Callback = void (*)(const QChart*, double*, double*, double*, double*);
@@ -96,6 +98,8 @@ class VirtualQChart final : public QChart {
 
   protected:
     // Instance callback storage
+    QChart_MetaObject_Callback qchart_metaobject_callback = nullptr;
+    QChart_Metacast_Callback qchart_metacast_callback = nullptr;
     QChart_Metacall_Callback qchart_metacall_callback = nullptr;
     QChart_SetGeometry_Callback qchart_setgeometry_callback = nullptr;
     QChart_GetContentsMargins_Callback qchart_getcontentsmargins_callback = nullptr;
@@ -173,6 +177,8 @@ class VirtualQChart final : public QChart {
     QChart_SetOwnedByLayout_Callback qchart_setownedbylayout_callback = nullptr;
 
     // Instance base flags
+    mutable bool qchart_metaobject_isbase = false;
+    mutable bool qchart_metacast_isbase = false;
     mutable bool qchart_metacall_isbase = false;
     mutable bool qchart_setgeometry_isbase = false;
     mutable bool qchart_getcontentsmargins_isbase = false;
@@ -255,6 +261,8 @@ class VirtualQChart final : public QChart {
     VirtualQChart(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QChart(parent, wFlags) {};
 
     ~VirtualQChart() {
+        qchart_metaobject_callback = nullptr;
+        qchart_metacast_callback = nullptr;
         qchart_metacall_callback = nullptr;
         qchart_setgeometry_callback = nullptr;
         qchart_getcontentsmargins_callback = nullptr;
@@ -333,6 +341,8 @@ class VirtualQChart final : public QChart {
     }
 
     // Callback setters
+    inline void setQChart_MetaObject_Callback(QChart_MetaObject_Callback cb) { qchart_metaobject_callback = cb; }
+    inline void setQChart_Metacast_Callback(QChart_Metacast_Callback cb) { qchart_metacast_callback = cb; }
     inline void setQChart_Metacall_Callback(QChart_Metacall_Callback cb) { qchart_metacall_callback = cb; }
     inline void setQChart_SetGeometry_Callback(QChart_SetGeometry_Callback cb) { qchart_setgeometry_callback = cb; }
     inline void setQChart_GetContentsMargins_Callback(QChart_GetContentsMargins_Callback cb) { qchart_getcontentsmargins_callback = cb; }
@@ -410,6 +420,8 @@ class VirtualQChart final : public QChart {
     inline void setQChart_SetOwnedByLayout_Callback(QChart_SetOwnedByLayout_Callback cb) { qchart_setownedbylayout_callback = cb; }
 
     // Base flag setters
+    inline void setQChart_MetaObject_IsBase(bool value) const { qchart_metaobject_isbase = value; }
+    inline void setQChart_Metacast_IsBase(bool value) const { qchart_metacast_isbase = value; }
     inline void setQChart_Metacall_IsBase(bool value) const { qchart_metacall_isbase = value; }
     inline void setQChart_SetGeometry_IsBase(bool value) const { qchart_setgeometry_isbase = value; }
     inline void setQChart_GetContentsMargins_IsBase(bool value) const { qchart_getcontentsmargins_isbase = value; }
@@ -485,6 +497,34 @@ class VirtualQChart final : public QChart {
     inline void setQChart_PrepareGeometryChange_IsBase(bool value) const { qchart_preparegeometrychange_isbase = value; }
     inline void setQChart_SetGraphicsItem_IsBase(bool value) const { qchart_setgraphicsitem_isbase = value; }
     inline void setQChart_SetOwnedByLayout_IsBase(bool value) const { qchart_setownedbylayout_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qchart_metaobject_isbase) {
+            qchart_metaobject_isbase = false;
+            return QChart::metaObject();
+        } else if (qchart_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qchart_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QChart::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qchart_metacast_isbase) {
+            qchart_metacast_isbase = false;
+            return QChart::qt_metacast(param1);
+        } else if (qchart_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qchart_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QChart::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -75,6 +75,10 @@ bool KFileFilterCombo_EventFilter(KFileFilterCombo* self, QObject* param1, QEven
 void KFileFilterCombo_FilterChanged(KFileFilterCombo* self);
 void KFileFilterCombo_Connect_FilterChanged(KFileFilterCombo* self, intptr_t slot);
 void KFileFilterCombo_SetFilters2(KFileFilterCombo* self, const libqt_list /* of KFileFilter* */ filters, const KFileFilter* defaultFilter);
+void KFileFilterCombo_OnMetaObject(const KFileFilterCombo* self, intptr_t slot);
+QMetaObject* KFileFilterCombo_QBaseMetaObject(const KFileFilterCombo* self);
+void KFileFilterCombo_OnMetacast(KFileFilterCombo* self, intptr_t slot);
+void* KFileFilterCombo_QBaseMetacast(KFileFilterCombo* self, const char* param1);
 void KFileFilterCombo_OnMetacall(KFileFilterCombo* self, intptr_t slot);
 int KFileFilterCombo_QBaseMetacall(KFileFilterCombo* self, int param1, int param2, void** param3);
 void KFileFilterCombo_OnEventFilter(KFileFilterCombo* self, intptr_t slot);

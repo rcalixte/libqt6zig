@@ -61,11 +61,21 @@ QAbstractItemView* QAbstractItemView_new2() {
 }
 
 QMetaObject* QAbstractItemView_MetaObject(const QAbstractItemView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractitemview = dynamic_cast<const VirtualQAbstractItemView*>(self);
+    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractItemView*)self)->metaObject();
+    }
 }
 
 void* QAbstractItemView_Metacast(QAbstractItemView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
+    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractItemView*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractItemView_Metacall(QAbstractItemView* self, int param1, int param2, void** param3) {
@@ -868,6 +878,44 @@ QSize* QAbstractItemView_ViewportSizeHint(const QAbstractItemView* self) {
         return new QSize(vqabstractitemview->viewportSizeHint());
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractItemView_QBaseMetaObject(const QAbstractItemView* self) {
+    auto* vqabstractitemview = const_cast<VirtualQAbstractItemView*>(dynamic_cast<const VirtualQAbstractItemView*>(self));
+    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
+        vqabstractitemview->setQAbstractItemView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractitemview->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractItemView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractItemView_OnMetaObject(const QAbstractItemView* self, intptr_t slot) {
+    auto* vqabstractitemview = const_cast<VirtualQAbstractItemView*>(dynamic_cast<const VirtualQAbstractItemView*>(self));
+    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
+        vqabstractitemview->setQAbstractItemView_MetaObject_Callback(reinterpret_cast<VirtualQAbstractItemView::QAbstractItemView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractItemView_QBaseMetacast(QAbstractItemView* self, const char* param1) {
+    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
+    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
+        vqabstractitemview->setQAbstractItemView_Metacast_IsBase(true);
+        return vqabstractitemview->qt_metacast(param1);
+    } else {
+        return self->QAbstractItemView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractItemView_OnMetacast(QAbstractItemView* self, intptr_t slot) {
+    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
+    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
+        vqabstractitemview->setQAbstractItemView_Metacast_Callback(reinterpret_cast<VirtualQAbstractItemView::QAbstractItemView_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

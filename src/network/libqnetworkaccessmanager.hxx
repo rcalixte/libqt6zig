@@ -17,6 +17,8 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     bool isVirtualQNetworkAccessManager = true;
 
     // Virtual class public types (including callbacks)
+    using QNetworkAccessManager_MetaObject_Callback = QMetaObject* (*)();
+    using QNetworkAccessManager_Metacast_Callback = void* (*)(QNetworkAccessManager*, const char*);
     using QNetworkAccessManager_Metacall_Callback = int (*)(QNetworkAccessManager*, int, int, void**);
     using QNetworkAccessManager_SupportedSchemes_Callback = const char** (*)();
     using QNetworkAccessManager_CreateRequest_Callback = QNetworkReply* (*)(QNetworkAccessManager*, int, QNetworkRequest*, QIODevice*);
@@ -35,6 +37,8 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
 
   protected:
     // Instance callback storage
+    QNetworkAccessManager_MetaObject_Callback qnetworkaccessmanager_metaobject_callback = nullptr;
+    QNetworkAccessManager_Metacast_Callback qnetworkaccessmanager_metacast_callback = nullptr;
     QNetworkAccessManager_Metacall_Callback qnetworkaccessmanager_metacall_callback = nullptr;
     QNetworkAccessManager_SupportedSchemes_Callback qnetworkaccessmanager_supportedschemes_callback = nullptr;
     QNetworkAccessManager_CreateRequest_Callback qnetworkaccessmanager_createrequest_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     QNetworkAccessManager_IsSignalConnected_Callback qnetworkaccessmanager_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qnetworkaccessmanager_metaobject_isbase = false;
+    mutable bool qnetworkaccessmanager_metacast_isbase = false;
     mutable bool qnetworkaccessmanager_metacall_isbase = false;
     mutable bool qnetworkaccessmanager_supportedschemes_isbase = false;
     mutable bool qnetworkaccessmanager_createrequest_isbase = false;
@@ -73,6 +79,8 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     VirtualQNetworkAccessManager(QObject* parent) : QNetworkAccessManager(parent) {};
 
     ~VirtualQNetworkAccessManager() {
+        qnetworkaccessmanager_metaobject_callback = nullptr;
+        qnetworkaccessmanager_metacast_callback = nullptr;
         qnetworkaccessmanager_metacall_callback = nullptr;
         qnetworkaccessmanager_supportedschemes_callback = nullptr;
         qnetworkaccessmanager_createrequest_callback = nullptr;
@@ -91,6 +99,8 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     }
 
     // Callback setters
+    inline void setQNetworkAccessManager_MetaObject_Callback(QNetworkAccessManager_MetaObject_Callback cb) { qnetworkaccessmanager_metaobject_callback = cb; }
+    inline void setQNetworkAccessManager_Metacast_Callback(QNetworkAccessManager_Metacast_Callback cb) { qnetworkaccessmanager_metacast_callback = cb; }
     inline void setQNetworkAccessManager_Metacall_Callback(QNetworkAccessManager_Metacall_Callback cb) { qnetworkaccessmanager_metacall_callback = cb; }
     inline void setQNetworkAccessManager_SupportedSchemes_Callback(QNetworkAccessManager_SupportedSchemes_Callback cb) { qnetworkaccessmanager_supportedschemes_callback = cb; }
     inline void setQNetworkAccessManager_CreateRequest_Callback(QNetworkAccessManager_CreateRequest_Callback cb) { qnetworkaccessmanager_createrequest_callback = cb; }
@@ -108,6 +118,8 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     inline void setQNetworkAccessManager_IsSignalConnected_Callback(QNetworkAccessManager_IsSignalConnected_Callback cb) { qnetworkaccessmanager_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQNetworkAccessManager_MetaObject_IsBase(bool value) const { qnetworkaccessmanager_metaobject_isbase = value; }
+    inline void setQNetworkAccessManager_Metacast_IsBase(bool value) const { qnetworkaccessmanager_metacast_isbase = value; }
     inline void setQNetworkAccessManager_Metacall_IsBase(bool value) const { qnetworkaccessmanager_metacall_isbase = value; }
     inline void setQNetworkAccessManager_SupportedSchemes_IsBase(bool value) const { qnetworkaccessmanager_supportedschemes_isbase = value; }
     inline void setQNetworkAccessManager_CreateRequest_IsBase(bool value) const { qnetworkaccessmanager_createrequest_isbase = value; }
@@ -123,6 +135,34 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     inline void setQNetworkAccessManager_SenderSignalIndex_IsBase(bool value) const { qnetworkaccessmanager_sendersignalindex_isbase = value; }
     inline void setQNetworkAccessManager_Receivers_IsBase(bool value) const { qnetworkaccessmanager_receivers_isbase = value; }
     inline void setQNetworkAccessManager_IsSignalConnected_IsBase(bool value) const { qnetworkaccessmanager_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qnetworkaccessmanager_metaobject_isbase) {
+            qnetworkaccessmanager_metaobject_isbase = false;
+            return QNetworkAccessManager::metaObject();
+        } else if (qnetworkaccessmanager_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qnetworkaccessmanager_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QNetworkAccessManager::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qnetworkaccessmanager_metacast_isbase) {
+            qnetworkaccessmanager_metacast_isbase = false;
+            return QNetworkAccessManager::qt_metacast(param1);
+        } else if (qnetworkaccessmanager_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qnetworkaccessmanager_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QNetworkAccessManager::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

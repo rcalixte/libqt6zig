@@ -17,6 +17,8 @@ class VirtualKFind final : public KFind {
     bool isVirtualKFind = true;
 
     // Virtual class public types (including callbacks)
+    using KFind_MetaObject_Callback = QMetaObject* (*)();
+    using KFind_Metacast_Callback = void* (*)(KFind*, const char*);
     using KFind_Metacall_Callback = int (*)(KFind*, int, int, void**);
     using KFind_SetOptions_Callback = void (*)(KFind*, long);
     using KFind_ResetCounts_Callback = void (*)();
@@ -39,6 +41,8 @@ class VirtualKFind final : public KFind {
 
   protected:
     // Instance callback storage
+    KFind_MetaObject_Callback kfind_metaobject_callback = nullptr;
+    KFind_Metacast_Callback kfind_metacast_callback = nullptr;
     KFind_Metacall_Callback kfind_metacall_callback = nullptr;
     KFind_SetOptions_Callback kfind_setoptions_callback = nullptr;
     KFind_ResetCounts_Callback kfind_resetcounts_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualKFind final : public KFind {
     KFind_IsSignalConnected_Callback kfind_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfind_metaobject_isbase = false;
+    mutable bool kfind_metacast_isbase = false;
     mutable bool kfind_metacall_isbase = false;
     mutable bool kfind_setoptions_isbase = false;
     mutable bool kfind_resetcounts_isbase = false;
@@ -85,6 +91,8 @@ class VirtualKFind final : public KFind {
     VirtualKFind(const QString& pattern, long options, QWidget* parent, QWidget* findDialog) : KFind(pattern, options, parent, findDialog) {};
 
     ~VirtualKFind() {
+        kfind_metaobject_callback = nullptr;
+        kfind_metacast_callback = nullptr;
         kfind_metacall_callback = nullptr;
         kfind_setoptions_callback = nullptr;
         kfind_resetcounts_callback = nullptr;
@@ -107,6 +115,8 @@ class VirtualKFind final : public KFind {
     }
 
     // Callback setters
+    inline void setKFind_MetaObject_Callback(KFind_MetaObject_Callback cb) { kfind_metaobject_callback = cb; }
+    inline void setKFind_Metacast_Callback(KFind_Metacast_Callback cb) { kfind_metacast_callback = cb; }
     inline void setKFind_Metacall_Callback(KFind_Metacall_Callback cb) { kfind_metacall_callback = cb; }
     inline void setKFind_SetOptions_Callback(KFind_SetOptions_Callback cb) { kfind_setoptions_callback = cb; }
     inline void setKFind_ResetCounts_Callback(KFind_ResetCounts_Callback cb) { kfind_resetcounts_callback = cb; }
@@ -128,6 +138,8 @@ class VirtualKFind final : public KFind {
     inline void setKFind_IsSignalConnected_Callback(KFind_IsSignalConnected_Callback cb) { kfind_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKFind_MetaObject_IsBase(bool value) const { kfind_metaobject_isbase = value; }
+    inline void setKFind_Metacast_IsBase(bool value) const { kfind_metacast_isbase = value; }
     inline void setKFind_Metacall_IsBase(bool value) const { kfind_metacall_isbase = value; }
     inline void setKFind_SetOptions_IsBase(bool value) const { kfind_setoptions_isbase = value; }
     inline void setKFind_ResetCounts_IsBase(bool value) const { kfind_resetcounts_isbase = value; }
@@ -147,6 +159,34 @@ class VirtualKFind final : public KFind {
     inline void setKFind_SenderSignalIndex_IsBase(bool value) const { kfind_sendersignalindex_isbase = value; }
     inline void setKFind_Receivers_IsBase(bool value) const { kfind_receivers_isbase = value; }
     inline void setKFind_IsSignalConnected_IsBase(bool value) const { kfind_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfind_metaobject_isbase) {
+            kfind_metaobject_isbase = false;
+            return KFind::metaObject();
+        } else if (kfind_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfind_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFind::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfind_metacast_isbase) {
+            kfind_metacast_isbase = false;
+            return KFind::qt_metacast(param1);
+        } else if (kfind_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfind_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFind::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

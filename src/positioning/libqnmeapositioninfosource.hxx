@@ -17,6 +17,8 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
     bool isVirtualQNmeaPositionInfoSource = true;
 
     // Virtual class public types (including callbacks)
+    using QNmeaPositionInfoSource_MetaObject_Callback = QMetaObject* (*)();
+    using QNmeaPositionInfoSource_Metacast_Callback = void* (*)(QNmeaPositionInfoSource*, const char*);
     using QNmeaPositionInfoSource_Metacall_Callback = int (*)(QNmeaPositionInfoSource*, int, int, void**);
     using QNmeaPositionInfoSource_SetUpdateInterval_Callback = void (*)(QNmeaPositionInfoSource*, int);
     using QNmeaPositionInfoSource_LastKnownPosition_Callback = QGeoPositionInfo* (*)(const QNmeaPositionInfoSource*, bool);
@@ -46,6 +48,8 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
 
   protected:
     // Instance callback storage
+    QNmeaPositionInfoSource_MetaObject_Callback qnmeapositioninfosource_metaobject_callback = nullptr;
+    QNmeaPositionInfoSource_Metacast_Callback qnmeapositioninfosource_metacast_callback = nullptr;
     QNmeaPositionInfoSource_Metacall_Callback qnmeapositioninfosource_metacall_callback = nullptr;
     QNmeaPositionInfoSource_SetUpdateInterval_Callback qnmeapositioninfosource_setupdateinterval_callback = nullptr;
     QNmeaPositionInfoSource_LastKnownPosition_Callback qnmeapositioninfosource_lastknownposition_callback = nullptr;
@@ -74,6 +78,8 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
     QNmeaPositionInfoSource_IsSignalConnected_Callback qnmeapositioninfosource_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qnmeapositioninfosource_metaobject_isbase = false;
+    mutable bool qnmeapositioninfosource_metacast_isbase = false;
     mutable bool qnmeapositioninfosource_metacall_isbase = false;
     mutable bool qnmeapositioninfosource_setupdateinterval_isbase = false;
     mutable bool qnmeapositioninfosource_lastknownposition_isbase = false;
@@ -106,6 +112,8 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
     VirtualQNmeaPositionInfoSource(QNmeaPositionInfoSource::UpdateMode updateMode, QObject* parent) : QNmeaPositionInfoSource(updateMode, parent) {};
 
     ~VirtualQNmeaPositionInfoSource() {
+        qnmeapositioninfosource_metaobject_callback = nullptr;
+        qnmeapositioninfosource_metacast_callback = nullptr;
         qnmeapositioninfosource_metacall_callback = nullptr;
         qnmeapositioninfosource_setupdateinterval_callback = nullptr;
         qnmeapositioninfosource_lastknownposition_callback = nullptr;
@@ -135,6 +143,8 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
     }
 
     // Callback setters
+    inline void setQNmeaPositionInfoSource_MetaObject_Callback(QNmeaPositionInfoSource_MetaObject_Callback cb) { qnmeapositioninfosource_metaobject_callback = cb; }
+    inline void setQNmeaPositionInfoSource_Metacast_Callback(QNmeaPositionInfoSource_Metacast_Callback cb) { qnmeapositioninfosource_metacast_callback = cb; }
     inline void setQNmeaPositionInfoSource_Metacall_Callback(QNmeaPositionInfoSource_Metacall_Callback cb) { qnmeapositioninfosource_metacall_callback = cb; }
     inline void setQNmeaPositionInfoSource_SetUpdateInterval_Callback(QNmeaPositionInfoSource_SetUpdateInterval_Callback cb) { qnmeapositioninfosource_setupdateinterval_callback = cb; }
     inline void setQNmeaPositionInfoSource_LastKnownPosition_Callback(QNmeaPositionInfoSource_LastKnownPosition_Callback cb) { qnmeapositioninfosource_lastknownposition_callback = cb; }
@@ -163,6 +173,8 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
     inline void setQNmeaPositionInfoSource_IsSignalConnected_Callback(QNmeaPositionInfoSource_IsSignalConnected_Callback cb) { qnmeapositioninfosource_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQNmeaPositionInfoSource_MetaObject_IsBase(bool value) const { qnmeapositioninfosource_metaobject_isbase = value; }
+    inline void setQNmeaPositionInfoSource_Metacast_IsBase(bool value) const { qnmeapositioninfosource_metacast_isbase = value; }
     inline void setQNmeaPositionInfoSource_Metacall_IsBase(bool value) const { qnmeapositioninfosource_metacall_isbase = value; }
     inline void setQNmeaPositionInfoSource_SetUpdateInterval_IsBase(bool value) const { qnmeapositioninfosource_setupdateinterval_isbase = value; }
     inline void setQNmeaPositionInfoSource_LastKnownPosition_IsBase(bool value) const { qnmeapositioninfosource_lastknownposition_isbase = value; }
@@ -189,6 +201,34 @@ class VirtualQNmeaPositionInfoSource final : public QNmeaPositionInfoSource {
     inline void setQNmeaPositionInfoSource_SenderSignalIndex_IsBase(bool value) const { qnmeapositioninfosource_sendersignalindex_isbase = value; }
     inline void setQNmeaPositionInfoSource_Receivers_IsBase(bool value) const { qnmeapositioninfosource_receivers_isbase = value; }
     inline void setQNmeaPositionInfoSource_IsSignalConnected_IsBase(bool value) const { qnmeapositioninfosource_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qnmeapositioninfosource_metaobject_isbase) {
+            qnmeapositioninfosource_metaobject_isbase = false;
+            return QNmeaPositionInfoSource::metaObject();
+        } else if (qnmeapositioninfosource_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qnmeapositioninfosource_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QNmeaPositionInfoSource::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qnmeapositioninfosource_metacast_isbase) {
+            qnmeapositioninfosource_metacast_isbase = false;
+            return QNmeaPositionInfoSource::qt_metacast(param1);
+        } else if (qnmeapositioninfosource_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qnmeapositioninfosource_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QNmeaPositionInfoSource::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

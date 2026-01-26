@@ -23,11 +23,21 @@ KColorSchemeManager* KColorSchemeManager_new2(QObject* parent) {
 }
 
 QMetaObject* KColorSchemeManager_MetaObject(const KColorSchemeManager* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcolorschememanager = dynamic_cast<const VirtualKColorSchemeManager*>(self);
+    if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKColorSchemeManager*)self)->metaObject();
+    }
 }
 
 void* KColorSchemeManager_Metacast(KColorSchemeManager* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
+    if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKColorSchemeManager*)self)->qt_metacast(param1);
+    }
 }
 
 int KColorSchemeManager_Metacall(KColorSchemeManager* self, int param1, int param2, void** param3) {
@@ -92,6 +102,44 @@ KColorSchemeManager* KColorSchemeManager_Instance() {
 
 void KColorSchemeManager_ActivateScheme(KColorSchemeManager* self, const QModelIndex* index) {
     self->activateScheme(*index);
+}
+
+// Base class handler implementation
+QMetaObject* KColorSchemeManager_QBaseMetaObject(const KColorSchemeManager* self) {
+    auto* vkcolorschememanager = const_cast<VirtualKColorSchemeManager*>(dynamic_cast<const VirtualKColorSchemeManager*>(self));
+    if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
+        vkcolorschememanager->setKColorSchemeManager_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcolorschememanager->metaObject();
+    } else {
+        return (QMetaObject*)self->KColorSchemeManager::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorSchemeManager_OnMetaObject(const KColorSchemeManager* self, intptr_t slot) {
+    auto* vkcolorschememanager = const_cast<VirtualKColorSchemeManager*>(dynamic_cast<const VirtualKColorSchemeManager*>(self));
+    if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
+        vkcolorschememanager->setKColorSchemeManager_MetaObject_Callback(reinterpret_cast<VirtualKColorSchemeManager::KColorSchemeManager_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KColorSchemeManager_QBaseMetacast(KColorSchemeManager* self, const char* param1) {
+    auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
+    if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
+        vkcolorschememanager->setKColorSchemeManager_Metacast_IsBase(true);
+        return vkcolorschememanager->qt_metacast(param1);
+    } else {
+        return self->KColorSchemeManager::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorSchemeManager_OnMetacast(KColorSchemeManager* self, intptr_t slot) {
+    auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
+    if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
+        vkcolorschememanager->setKColorSchemeManager_Metacast_Callback(reinterpret_cast<VirtualKColorSchemeManager::KColorSchemeManager_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

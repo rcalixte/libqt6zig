@@ -39,6 +39,10 @@ QWidget* QDesignerWidgetFactoryInterface_CreateWidget(const QDesignerWidgetFacto
 QLayout* QDesignerWidgetFactoryInterface_CreateLayout(const QDesignerWidgetFactoryInterface* self, QWidget* widget, QLayout* layout, int typeVal);
 bool QDesignerWidgetFactoryInterface_IsPassiveInteractor(QDesignerWidgetFactoryInterface* self, QWidget* widget);
 void QDesignerWidgetFactoryInterface_Initialize(const QDesignerWidgetFactoryInterface* self, QObject* object);
+void QDesignerWidgetFactoryInterface_OnMetaObject(const QDesignerWidgetFactoryInterface* self, intptr_t slot);
+QMetaObject* QDesignerWidgetFactoryInterface_QBaseMetaObject(const QDesignerWidgetFactoryInterface* self);
+void QDesignerWidgetFactoryInterface_OnMetacast(QDesignerWidgetFactoryInterface* self, intptr_t slot);
+void* QDesignerWidgetFactoryInterface_QBaseMetacast(QDesignerWidgetFactoryInterface* self, const char* param1);
 void QDesignerWidgetFactoryInterface_OnMetacall(QDesignerWidgetFactoryInterface* self, intptr_t slot);
 int QDesignerWidgetFactoryInterface_QBaseMetacall(QDesignerWidgetFactoryInterface* self, int param1, int param2, void** param3);
 void QDesignerWidgetFactoryInterface_OnCore(const QDesignerWidgetFactoryInterface* self, intptr_t slot);

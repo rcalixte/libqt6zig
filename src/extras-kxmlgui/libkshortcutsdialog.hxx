@@ -17,6 +17,8 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
     bool isVirtualKShortcutsDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KShortcutsDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KShortcutsDialog_Metacast_Callback = void* (*)(KShortcutsDialog*, const char*);
     using KShortcutsDialog_Metacall_Callback = int (*)(KShortcutsDialog*, int, int, void**);
     using KShortcutsDialog_SizeHint_Callback = QSize* (*)();
     using KShortcutsDialog_Accept_Callback = void (*)();
@@ -84,6 +86,8 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
 
   protected:
     // Instance callback storage
+    KShortcutsDialog_MetaObject_Callback kshortcutsdialog_metaobject_callback = nullptr;
+    KShortcutsDialog_Metacast_Callback kshortcutsdialog_metacast_callback = nullptr;
     KShortcutsDialog_Metacall_Callback kshortcutsdialog_metacall_callback = nullptr;
     KShortcutsDialog_SizeHint_Callback kshortcutsdialog_sizehint_callback = nullptr;
     KShortcutsDialog_Accept_Callback kshortcutsdialog_accept_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
     KShortcutsDialog_GetDecodedMetricF_Callback kshortcutsdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kshortcutsdialog_metaobject_isbase = false;
+    mutable bool kshortcutsdialog_metacast_isbase = false;
     mutable bool kshortcutsdialog_metacall_isbase = false;
     mutable bool kshortcutsdialog_sizehint_isbase = false;
     mutable bool kshortcutsdialog_accept_isbase = false;
@@ -223,6 +229,8 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
     VirtualKShortcutsDialog(KShortcutsEditor::ActionTypes actionTypes, KShortcutsEditor::LetterShortcuts allowLetterShortcuts, QWidget* parent) : KShortcutsDialog(actionTypes, allowLetterShortcuts, parent) {};
 
     ~VirtualKShortcutsDialog() {
+        kshortcutsdialog_metaobject_callback = nullptr;
+        kshortcutsdialog_metacast_callback = nullptr;
         kshortcutsdialog_metacall_callback = nullptr;
         kshortcutsdialog_sizehint_callback = nullptr;
         kshortcutsdialog_accept_callback = nullptr;
@@ -290,6 +298,8 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
     }
 
     // Callback setters
+    inline void setKShortcutsDialog_MetaObject_Callback(KShortcutsDialog_MetaObject_Callback cb) { kshortcutsdialog_metaobject_callback = cb; }
+    inline void setKShortcutsDialog_Metacast_Callback(KShortcutsDialog_Metacast_Callback cb) { kshortcutsdialog_metacast_callback = cb; }
     inline void setKShortcutsDialog_Metacall_Callback(KShortcutsDialog_Metacall_Callback cb) { kshortcutsdialog_metacall_callback = cb; }
     inline void setKShortcutsDialog_SizeHint_Callback(KShortcutsDialog_SizeHint_Callback cb) { kshortcutsdialog_sizehint_callback = cb; }
     inline void setKShortcutsDialog_Accept_Callback(KShortcutsDialog_Accept_Callback cb) { kshortcutsdialog_accept_callback = cb; }
@@ -356,6 +366,8 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
     inline void setKShortcutsDialog_GetDecodedMetricF_Callback(KShortcutsDialog_GetDecodedMetricF_Callback cb) { kshortcutsdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKShortcutsDialog_MetaObject_IsBase(bool value) const { kshortcutsdialog_metaobject_isbase = value; }
+    inline void setKShortcutsDialog_Metacast_IsBase(bool value) const { kshortcutsdialog_metacast_isbase = value; }
     inline void setKShortcutsDialog_Metacall_IsBase(bool value) const { kshortcutsdialog_metacall_isbase = value; }
     inline void setKShortcutsDialog_SizeHint_IsBase(bool value) const { kshortcutsdialog_sizehint_isbase = value; }
     inline void setKShortcutsDialog_Accept_IsBase(bool value) const { kshortcutsdialog_accept_isbase = value; }
@@ -420,6 +432,34 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
     inline void setKShortcutsDialog_Receivers_IsBase(bool value) const { kshortcutsdialog_receivers_isbase = value; }
     inline void setKShortcutsDialog_IsSignalConnected_IsBase(bool value) const { kshortcutsdialog_issignalconnected_isbase = value; }
     inline void setKShortcutsDialog_GetDecodedMetricF_IsBase(bool value) const { kshortcutsdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kshortcutsdialog_metaobject_isbase) {
+            kshortcutsdialog_metaobject_isbase = false;
+            return KShortcutsDialog::metaObject();
+        } else if (kshortcutsdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kshortcutsdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KShortcutsDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kshortcutsdialog_metacast_isbase) {
+            kshortcutsdialog_metacast_isbase = false;
+            return KShortcutsDialog::qt_metacast(param1);
+        } else if (kshortcutsdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kshortcutsdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KShortcutsDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

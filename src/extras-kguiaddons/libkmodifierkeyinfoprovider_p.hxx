@@ -17,6 +17,8 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
     bool isVirtualKModifierKeyInfoProvider = true;
 
     // Virtual class public types (including callbacks)
+    using KModifierKeyInfoProvider_MetaObject_Callback = QMetaObject* (*)();
+    using KModifierKeyInfoProvider_Metacast_Callback = void* (*)(KModifierKeyInfoProvider*, const char*);
     using KModifierKeyInfoProvider_Metacall_Callback = int (*)(KModifierKeyInfoProvider*, int, int, void**);
     using KModifierKeyInfoProvider_SetKeyLatched_Callback = bool (*)(KModifierKeyInfoProvider*, int, bool);
     using KModifierKeyInfoProvider_SetKeyLocked_Callback = bool (*)(KModifierKeyInfoProvider*, int, bool);
@@ -35,6 +37,8 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
 
   protected:
     // Instance callback storage
+    KModifierKeyInfoProvider_MetaObject_Callback kmodifierkeyinfoprovider_metaobject_callback = nullptr;
+    KModifierKeyInfoProvider_Metacast_Callback kmodifierkeyinfoprovider_metacast_callback = nullptr;
     KModifierKeyInfoProvider_Metacall_Callback kmodifierkeyinfoprovider_metacall_callback = nullptr;
     KModifierKeyInfoProvider_SetKeyLatched_Callback kmodifierkeyinfoprovider_setkeylatched_callback = nullptr;
     KModifierKeyInfoProvider_SetKeyLocked_Callback kmodifierkeyinfoprovider_setkeylocked_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
     KModifierKeyInfoProvider_IsSignalConnected_Callback kmodifierkeyinfoprovider_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kmodifierkeyinfoprovider_metaobject_isbase = false;
+    mutable bool kmodifierkeyinfoprovider_metacast_isbase = false;
     mutable bool kmodifierkeyinfoprovider_metacall_isbase = false;
     mutable bool kmodifierkeyinfoprovider_setkeylatched_isbase = false;
     mutable bool kmodifierkeyinfoprovider_setkeylocked_isbase = false;
@@ -72,6 +78,8 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
     VirtualKModifierKeyInfoProvider() : KModifierKeyInfoProvider() {};
 
     ~VirtualKModifierKeyInfoProvider() {
+        kmodifierkeyinfoprovider_metaobject_callback = nullptr;
+        kmodifierkeyinfoprovider_metacast_callback = nullptr;
         kmodifierkeyinfoprovider_metacall_callback = nullptr;
         kmodifierkeyinfoprovider_setkeylatched_callback = nullptr;
         kmodifierkeyinfoprovider_setkeylocked_callback = nullptr;
@@ -90,6 +98,8 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
     }
 
     // Callback setters
+    inline void setKModifierKeyInfoProvider_MetaObject_Callback(KModifierKeyInfoProvider_MetaObject_Callback cb) { kmodifierkeyinfoprovider_metaobject_callback = cb; }
+    inline void setKModifierKeyInfoProvider_Metacast_Callback(KModifierKeyInfoProvider_Metacast_Callback cb) { kmodifierkeyinfoprovider_metacast_callback = cb; }
     inline void setKModifierKeyInfoProvider_Metacall_Callback(KModifierKeyInfoProvider_Metacall_Callback cb) { kmodifierkeyinfoprovider_metacall_callback = cb; }
     inline void setKModifierKeyInfoProvider_SetKeyLatched_Callback(KModifierKeyInfoProvider_SetKeyLatched_Callback cb) { kmodifierkeyinfoprovider_setkeylatched_callback = cb; }
     inline void setKModifierKeyInfoProvider_SetKeyLocked_Callback(KModifierKeyInfoProvider_SetKeyLocked_Callback cb) { kmodifierkeyinfoprovider_setkeylocked_callback = cb; }
@@ -107,6 +117,8 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
     inline void setKModifierKeyInfoProvider_IsSignalConnected_Callback(KModifierKeyInfoProvider_IsSignalConnected_Callback cb) { kmodifierkeyinfoprovider_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKModifierKeyInfoProvider_MetaObject_IsBase(bool value) const { kmodifierkeyinfoprovider_metaobject_isbase = value; }
+    inline void setKModifierKeyInfoProvider_Metacast_IsBase(bool value) const { kmodifierkeyinfoprovider_metacast_isbase = value; }
     inline void setKModifierKeyInfoProvider_Metacall_IsBase(bool value) const { kmodifierkeyinfoprovider_metacall_isbase = value; }
     inline void setKModifierKeyInfoProvider_SetKeyLatched_IsBase(bool value) const { kmodifierkeyinfoprovider_setkeylatched_isbase = value; }
     inline void setKModifierKeyInfoProvider_SetKeyLocked_IsBase(bool value) const { kmodifierkeyinfoprovider_setkeylocked_isbase = value; }
@@ -122,6 +134,34 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
     inline void setKModifierKeyInfoProvider_SenderSignalIndex_IsBase(bool value) const { kmodifierkeyinfoprovider_sendersignalindex_isbase = value; }
     inline void setKModifierKeyInfoProvider_Receivers_IsBase(bool value) const { kmodifierkeyinfoprovider_receivers_isbase = value; }
     inline void setKModifierKeyInfoProvider_IsSignalConnected_IsBase(bool value) const { kmodifierkeyinfoprovider_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kmodifierkeyinfoprovider_metaobject_isbase) {
+            kmodifierkeyinfoprovider_metaobject_isbase = false;
+            return KModifierKeyInfoProvider::metaObject();
+        } else if (kmodifierkeyinfoprovider_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kmodifierkeyinfoprovider_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KModifierKeyInfoProvider::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kmodifierkeyinfoprovider_metacast_isbase) {
+            kmodifierkeyinfoprovider_metacast_isbase = false;
+            return KModifierKeyInfoProvider::qt_metacast(param1);
+        } else if (kmodifierkeyinfoprovider_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kmodifierkeyinfoprovider_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KModifierKeyInfoProvider::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

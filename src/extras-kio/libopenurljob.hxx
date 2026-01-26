@@ -17,6 +17,8 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
     bool isVirtualKIOOpenUrlJob = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__OpenUrlJob_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__OpenUrlJob_Metacast_Callback = void* (*)(KIO__OpenUrlJob*, const char*);
     using KIO__OpenUrlJob_Metacall_Callback = int (*)(KIO__OpenUrlJob*, int, int, void**);
     using KIO__OpenUrlJob_Start_Callback = void (*)();
     using KIO__OpenUrlJob_DoKill_Callback = bool (*)();
@@ -55,6 +57,8 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
 
   protected:
     // Instance callback storage
+    KIO__OpenUrlJob_MetaObject_Callback kio__openurljob_metaobject_callback = nullptr;
+    KIO__OpenUrlJob_Metacast_Callback kio__openurljob_metacast_callback = nullptr;
     KIO__OpenUrlJob_Metacall_Callback kio__openurljob_metacall_callback = nullptr;
     KIO__OpenUrlJob_Start_Callback kio__openurljob_start_callback = nullptr;
     KIO__OpenUrlJob_DoKill_Callback kio__openurljob_dokill_callback = nullptr;
@@ -92,6 +96,8 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
     KIO__OpenUrlJob_IsSignalConnected_Callback kio__openurljob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__openurljob_metaobject_isbase = false;
+    mutable bool kio__openurljob_metacast_isbase = false;
     mutable bool kio__openurljob_metacall_isbase = false;
     mutable bool kio__openurljob_start_isbase = false;
     mutable bool kio__openurljob_dokill_isbase = false;
@@ -135,6 +141,8 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
     VirtualKIOOpenUrlJob(const QUrl& url, const QString& mimeType, QObject* parent) : KIO::OpenUrlJob(url, mimeType, parent) {};
 
     ~VirtualKIOOpenUrlJob() {
+        kio__openurljob_metaobject_callback = nullptr;
+        kio__openurljob_metacast_callback = nullptr;
         kio__openurljob_metacall_callback = nullptr;
         kio__openurljob_start_callback = nullptr;
         kio__openurljob_dokill_callback = nullptr;
@@ -173,6 +181,8 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
     }
 
     // Callback setters
+    inline void setKIO__OpenUrlJob_MetaObject_Callback(KIO__OpenUrlJob_MetaObject_Callback cb) { kio__openurljob_metaobject_callback = cb; }
+    inline void setKIO__OpenUrlJob_Metacast_Callback(KIO__OpenUrlJob_Metacast_Callback cb) { kio__openurljob_metacast_callback = cb; }
     inline void setKIO__OpenUrlJob_Metacall_Callback(KIO__OpenUrlJob_Metacall_Callback cb) { kio__openurljob_metacall_callback = cb; }
     inline void setKIO__OpenUrlJob_Start_Callback(KIO__OpenUrlJob_Start_Callback cb) { kio__openurljob_start_callback = cb; }
     inline void setKIO__OpenUrlJob_DoKill_Callback(KIO__OpenUrlJob_DoKill_Callback cb) { kio__openurljob_dokill_callback = cb; }
@@ -210,6 +220,8 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
     inline void setKIO__OpenUrlJob_IsSignalConnected_Callback(KIO__OpenUrlJob_IsSignalConnected_Callback cb) { kio__openurljob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__OpenUrlJob_MetaObject_IsBase(bool value) const { kio__openurljob_metaobject_isbase = value; }
+    inline void setKIO__OpenUrlJob_Metacast_IsBase(bool value) const { kio__openurljob_metacast_isbase = value; }
     inline void setKIO__OpenUrlJob_Metacall_IsBase(bool value) const { kio__openurljob_metacall_isbase = value; }
     inline void setKIO__OpenUrlJob_Start_IsBase(bool value) const { kio__openurljob_start_isbase = value; }
     inline void setKIO__OpenUrlJob_DoKill_IsBase(bool value) const { kio__openurljob_dokill_isbase = value; }
@@ -245,6 +257,34 @@ class VirtualKIOOpenUrlJob final : public KIO::OpenUrlJob {
     inline void setKIO__OpenUrlJob_SenderSignalIndex_IsBase(bool value) const { kio__openurljob_sendersignalindex_isbase = value; }
     inline void setKIO__OpenUrlJob_Receivers_IsBase(bool value) const { kio__openurljob_receivers_isbase = value; }
     inline void setKIO__OpenUrlJob_IsSignalConnected_IsBase(bool value) const { kio__openurljob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__openurljob_metaobject_isbase) {
+            kio__openurljob_metaobject_isbase = false;
+            return KIO__OpenUrlJob::metaObject();
+        } else if (kio__openurljob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__openurljob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__OpenUrlJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__openurljob_metacast_isbase) {
+            kio__openurljob_metacast_isbase = false;
+            return KIO__OpenUrlJob::qt_metacast(param1);
+        } else if (kio__openurljob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__openurljob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__OpenUrlJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

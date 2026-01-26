@@ -65,6 +65,10 @@ void KIO__RenameFileDialog_RenamingFinished(KIO__RenameFileDialog* self, const l
 void KIO__RenameFileDialog_Connect_RenamingFinished(KIO__RenameFileDialog* self, intptr_t slot);
 void KIO__RenameFileDialog_Error(KIO__RenameFileDialog* self, KJob* errorVal);
 void KIO__RenameFileDialog_Connect_Error(KIO__RenameFileDialog* self, intptr_t slot);
+void KIO__RenameFileDialog_OnMetaObject(const KIO__RenameFileDialog* self, intptr_t slot);
+QMetaObject* KIO__RenameFileDialog_QBaseMetaObject(const KIO__RenameFileDialog* self);
+void KIO__RenameFileDialog_OnMetacast(KIO__RenameFileDialog* self, intptr_t slot);
+void* KIO__RenameFileDialog_QBaseMetacast(KIO__RenameFileDialog* self, const char* param1);
 void KIO__RenameFileDialog_OnMetacall(KIO__RenameFileDialog* self, intptr_t slot);
 int KIO__RenameFileDialog_QBaseMetacall(KIO__RenameFileDialog* self, int param1, int param2, void** param3);
 void KIO__RenameFileDialog_SetVisible(KIO__RenameFileDialog* self, bool visible);

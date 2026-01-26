@@ -40,11 +40,21 @@ KSelectionProxyModel* KSelectionProxyModel_new3(QItemSelectionModel* selectionMo
 }
 
 QMetaObject* KSelectionProxyModel_MetaObject(const KSelectionProxyModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSelectionProxyModel*)self)->metaObject();
+    }
 }
 
 void* KSelectionProxyModel_Metacast(KSelectionProxyModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSelectionProxyModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KSelectionProxyModel_Metacall(KSelectionProxyModel* self, int param1, int param2, void** param3) {
@@ -289,6 +299,44 @@ libqt_list /* of QModelIndex* */ KSelectionProxyModel_Match(const KSelectionProx
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KSelectionProxyModel_QBaseMetaObject(const KSelectionProxyModel* self) {
+    auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+        vkselectionproxymodel->setKSelectionProxyModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkselectionproxymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KSelectionProxyModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectionProxyModel_OnMetaObject(const KSelectionProxyModel* self, intptr_t slot) {
+    auto* vkselectionproxymodel = const_cast<VirtualKSelectionProxyModel*>(dynamic_cast<const VirtualKSelectionProxyModel*>(self));
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+        vkselectionproxymodel->setKSelectionProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSelectionProxyModel_QBaseMetacast(KSelectionProxyModel* self, const char* param1) {
+    auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+        vkselectionproxymodel->setKSelectionProxyModel_Metacast_IsBase(true);
+        return vkselectionproxymodel->qt_metacast(param1);
+    } else {
+        return self->KSelectionProxyModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectionProxyModel_OnMetacast(KSelectionProxyModel* self, intptr_t slot) {
+    auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
+    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
+        vkselectionproxymodel->setKSelectionProxyModel_Metacast_Callback(reinterpret_cast<VirtualKSelectionProxyModel::KSelectionProxyModel_Metacast_Callback>(slot));
     }
 }
 

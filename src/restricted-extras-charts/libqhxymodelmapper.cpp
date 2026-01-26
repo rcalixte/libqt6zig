@@ -24,11 +24,21 @@ QHXYModelMapper* QHXYModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QHXYModelMapper_MetaObject(const QHXYModelMapper* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqhxymodelmapper = dynamic_cast<const VirtualQHXYModelMapper*>(self);
+    if (vqhxymodelmapper && vqhxymodelmapper->isVirtualQHXYModelMapper) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQHXYModelMapper*)self)->metaObject();
+    }
 }
 
 void* QHXYModelMapper_Metacast(QHXYModelMapper* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqhxymodelmapper = dynamic_cast<VirtualQHXYModelMapper*>(self);
+    if (vqhxymodelmapper && vqhxymodelmapper->isVirtualQHXYModelMapper) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQHXYModelMapper*)self)->qt_metacast(param1);
+    }
 }
 
 int QHXYModelMapper_Metacall(QHXYModelMapper* self, int param1, int param2, void** param3) {
@@ -152,6 +162,44 @@ void QHXYModelMapper_Connect_ColumnCountChanged(QHXYModelMapper* self, intptr_t 
     QHXYModelMapper::connect(self, &QHXYModelMapper::columnCountChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QHXYModelMapper_QBaseMetaObject(const QHXYModelMapper* self) {
+    auto* vqhxymodelmapper = const_cast<VirtualQHXYModelMapper*>(dynamic_cast<const VirtualQHXYModelMapper*>(self));
+    if (vqhxymodelmapper && vqhxymodelmapper->isVirtualQHXYModelMapper) {
+        vqhxymodelmapper->setQHXYModelMapper_MetaObject_IsBase(true);
+        return (QMetaObject*)vqhxymodelmapper->metaObject();
+    } else {
+        return (QMetaObject*)self->QHXYModelMapper::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHXYModelMapper_OnMetaObject(const QHXYModelMapper* self, intptr_t slot) {
+    auto* vqhxymodelmapper = const_cast<VirtualQHXYModelMapper*>(dynamic_cast<const VirtualQHXYModelMapper*>(self));
+    if (vqhxymodelmapper && vqhxymodelmapper->isVirtualQHXYModelMapper) {
+        vqhxymodelmapper->setQHXYModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQHXYModelMapper::QHXYModelMapper_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QHXYModelMapper_QBaseMetacast(QHXYModelMapper* self, const char* param1) {
+    auto* vqhxymodelmapper = dynamic_cast<VirtualQHXYModelMapper*>(self);
+    if (vqhxymodelmapper && vqhxymodelmapper->isVirtualQHXYModelMapper) {
+        vqhxymodelmapper->setQHXYModelMapper_Metacast_IsBase(true);
+        return vqhxymodelmapper->qt_metacast(param1);
+    } else {
+        return self->QHXYModelMapper::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHXYModelMapper_OnMetacast(QHXYModelMapper* self, intptr_t slot) {
+    auto* vqhxymodelmapper = dynamic_cast<VirtualQHXYModelMapper*>(self);
+    if (vqhxymodelmapper && vqhxymodelmapper->isVirtualQHXYModelMapper) {
+        vqhxymodelmapper->setQHXYModelMapper_Metacast_Callback(reinterpret_cast<VirtualQHXYModelMapper::QHXYModelMapper_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

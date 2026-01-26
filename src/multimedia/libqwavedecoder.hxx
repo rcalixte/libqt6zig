@@ -17,6 +17,8 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
     bool isVirtualQWaveDecoder = true;
 
     // Virtual class public types (including callbacks)
+    using QWaveDecoder_MetaObject_Callback = QMetaObject* (*)();
+    using QWaveDecoder_Metacast_Callback = void* (*)(QWaveDecoder*, const char*);
     using QWaveDecoder_Metacall_Callback = int (*)(QWaveDecoder*, int, int, void**);
     using QWaveDecoder_Open_Callback = bool (*)(QWaveDecoder*, int);
     using QWaveDecoder_Close_Callback = void (*)();
@@ -49,6 +51,8 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
 
   protected:
     // Instance callback storage
+    QWaveDecoder_MetaObject_Callback qwavedecoder_metaobject_callback = nullptr;
+    QWaveDecoder_Metacast_Callback qwavedecoder_metacast_callback = nullptr;
     QWaveDecoder_Metacall_Callback qwavedecoder_metacall_callback = nullptr;
     QWaveDecoder_Open_Callback qwavedecoder_open_callback = nullptr;
     QWaveDecoder_Close_Callback qwavedecoder_close_callback = nullptr;
@@ -80,6 +84,8 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
     QWaveDecoder_IsSignalConnected_Callback qwavedecoder_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwavedecoder_metaobject_isbase = false;
+    mutable bool qwavedecoder_metacast_isbase = false;
     mutable bool qwavedecoder_metacall_isbase = false;
     mutable bool qwavedecoder_open_isbase = false;
     mutable bool qwavedecoder_close_isbase = false;
@@ -117,6 +123,8 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
     VirtualQWaveDecoder(QIODevice* device, const QAudioFormat& format, QObject* parent) : QWaveDecoder(device, format, parent) {};
 
     ~VirtualQWaveDecoder() {
+        qwavedecoder_metaobject_callback = nullptr;
+        qwavedecoder_metacast_callback = nullptr;
         qwavedecoder_metacall_callback = nullptr;
         qwavedecoder_open_callback = nullptr;
         qwavedecoder_close_callback = nullptr;
@@ -149,6 +157,8 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
     }
 
     // Callback setters
+    inline void setQWaveDecoder_MetaObject_Callback(QWaveDecoder_MetaObject_Callback cb) { qwavedecoder_metaobject_callback = cb; }
+    inline void setQWaveDecoder_Metacast_Callback(QWaveDecoder_Metacast_Callback cb) { qwavedecoder_metacast_callback = cb; }
     inline void setQWaveDecoder_Metacall_Callback(QWaveDecoder_Metacall_Callback cb) { qwavedecoder_metacall_callback = cb; }
     inline void setQWaveDecoder_Open_Callback(QWaveDecoder_Open_Callback cb) { qwavedecoder_open_callback = cb; }
     inline void setQWaveDecoder_Close_Callback(QWaveDecoder_Close_Callback cb) { qwavedecoder_close_callback = cb; }
@@ -180,6 +190,8 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
     inline void setQWaveDecoder_IsSignalConnected_Callback(QWaveDecoder_IsSignalConnected_Callback cb) { qwavedecoder_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQWaveDecoder_MetaObject_IsBase(bool value) const { qwavedecoder_metaobject_isbase = value; }
+    inline void setQWaveDecoder_Metacast_IsBase(bool value) const { qwavedecoder_metacast_isbase = value; }
     inline void setQWaveDecoder_Metacall_IsBase(bool value) const { qwavedecoder_metacall_isbase = value; }
     inline void setQWaveDecoder_Open_IsBase(bool value) const { qwavedecoder_open_isbase = value; }
     inline void setQWaveDecoder_Close_IsBase(bool value) const { qwavedecoder_close_isbase = value; }
@@ -209,6 +221,34 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
     inline void setQWaveDecoder_SenderSignalIndex_IsBase(bool value) const { qwavedecoder_sendersignalindex_isbase = value; }
     inline void setQWaveDecoder_Receivers_IsBase(bool value) const { qwavedecoder_receivers_isbase = value; }
     inline void setQWaveDecoder_IsSignalConnected_IsBase(bool value) const { qwavedecoder_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwavedecoder_metaobject_isbase) {
+            qwavedecoder_metaobject_isbase = false;
+            return QWaveDecoder::metaObject();
+        } else if (qwavedecoder_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwavedecoder_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWaveDecoder::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwavedecoder_metacast_isbase) {
+            qwavedecoder_metacast_isbase = false;
+            return QWaveDecoder::qt_metacast(param1);
+        } else if (qwavedecoder_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwavedecoder_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWaveDecoder::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

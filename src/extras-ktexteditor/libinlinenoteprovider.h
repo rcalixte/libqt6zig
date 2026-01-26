@@ -49,6 +49,10 @@ void KTextEditor__InlineNoteProvider_InlineNotesReset(KTextEditor__InlineNotePro
 void KTextEditor__InlineNoteProvider_Connect_InlineNotesReset(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 void KTextEditor__InlineNoteProvider_InlineNotesChanged(KTextEditor__InlineNoteProvider* self, int line);
 void KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(KTextEditor__InlineNoteProvider* self, intptr_t slot);
+void KTextEditor__InlineNoteProvider_OnMetaObject(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
+QMetaObject* KTextEditor__InlineNoteProvider_QBaseMetaObject(const KTextEditor__InlineNoteProvider* self);
+void KTextEditor__InlineNoteProvider_OnMetacast(KTextEditor__InlineNoteProvider* self, intptr_t slot);
+void* KTextEditor__InlineNoteProvider_QBaseMetacast(KTextEditor__InlineNoteProvider* self, const char* param1);
 void KTextEditor__InlineNoteProvider_OnMetacall(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 int KTextEditor__InlineNoteProvider_QBaseMetacall(KTextEditor__InlineNoteProvider* self, int param1, int param2, void** param3);
 void KTextEditor__InlineNoteProvider_OnInlineNotes(const KTextEditor__InlineNoteProvider* self, intptr_t slot);

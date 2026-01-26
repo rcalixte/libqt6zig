@@ -17,6 +17,8 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
     bool isVirtualKPartsReadWritePart = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__ReadWritePart_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__ReadWritePart_Metacast_Callback = void* (*)(KParts__ReadWritePart*, const char*);
     using KParts__ReadWritePart_Metacall_Callback = int (*)(KParts__ReadWritePart*, int, int, void**);
     using KParts__ReadWritePart_SetReadWrite_Callback = void (*)(KParts__ReadWritePart*, bool);
     using KParts__ReadWritePart_QueryClose_Callback = bool (*)();
@@ -69,6 +71,8 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
 
   protected:
     // Instance callback storage
+    KParts__ReadWritePart_MetaObject_Callback kparts__readwritepart_metaobject_callback = nullptr;
+    KParts__ReadWritePart_Metacast_Callback kparts__readwritepart_metacast_callback = nullptr;
     KParts__ReadWritePart_Metacall_Callback kparts__readwritepart_metacall_callback = nullptr;
     KParts__ReadWritePart_SetReadWrite_Callback kparts__readwritepart_setreadwrite_callback = nullptr;
     KParts__ReadWritePart_QueryClose_Callback kparts__readwritepart_queryclose_callback = nullptr;
@@ -120,6 +124,8 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
     KParts__ReadWritePart_LoadStandardsXmlFile_Callback kparts__readwritepart_loadstandardsxmlfile_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__readwritepart_metaobject_isbase = false;
+    mutable bool kparts__readwritepart_metacast_isbase = false;
     mutable bool kparts__readwritepart_metacall_isbase = false;
     mutable bool kparts__readwritepart_setreadwrite_isbase = false;
     mutable bool kparts__readwritepart_queryclose_isbase = false;
@@ -176,6 +182,8 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
     VirtualKPartsReadWritePart(QObject* parent, const KPluginMetaData& data) : KParts::ReadWritePart(parent, data) {};
 
     ~VirtualKPartsReadWritePart() {
+        kparts__readwritepart_metaobject_callback = nullptr;
+        kparts__readwritepart_metacast_callback = nullptr;
         kparts__readwritepart_metacall_callback = nullptr;
         kparts__readwritepart_setreadwrite_callback = nullptr;
         kparts__readwritepart_queryclose_callback = nullptr;
@@ -228,6 +236,8 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
     }
 
     // Callback setters
+    inline void setKParts__ReadWritePart_MetaObject_Callback(KParts__ReadWritePart_MetaObject_Callback cb) { kparts__readwritepart_metaobject_callback = cb; }
+    inline void setKParts__ReadWritePart_Metacast_Callback(KParts__ReadWritePart_Metacast_Callback cb) { kparts__readwritepart_metacast_callback = cb; }
     inline void setKParts__ReadWritePart_Metacall_Callback(KParts__ReadWritePart_Metacall_Callback cb) { kparts__readwritepart_metacall_callback = cb; }
     inline void setKParts__ReadWritePart_SetReadWrite_Callback(KParts__ReadWritePart_SetReadWrite_Callback cb) { kparts__readwritepart_setreadwrite_callback = cb; }
     inline void setKParts__ReadWritePart_QueryClose_Callback(KParts__ReadWritePart_QueryClose_Callback cb) { kparts__readwritepart_queryclose_callback = cb; }
@@ -279,6 +289,8 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
     inline void setKParts__ReadWritePart_LoadStandardsXmlFile_Callback(KParts__ReadWritePart_LoadStandardsXmlFile_Callback cb) { kparts__readwritepart_loadstandardsxmlfile_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__ReadWritePart_MetaObject_IsBase(bool value) const { kparts__readwritepart_metaobject_isbase = value; }
+    inline void setKParts__ReadWritePart_Metacast_IsBase(bool value) const { kparts__readwritepart_metacast_isbase = value; }
     inline void setKParts__ReadWritePart_Metacall_IsBase(bool value) const { kparts__readwritepart_metacall_isbase = value; }
     inline void setKParts__ReadWritePart_SetReadWrite_IsBase(bool value) const { kparts__readwritepart_setreadwrite_isbase = value; }
     inline void setKParts__ReadWritePart_QueryClose_IsBase(bool value) const { kparts__readwritepart_queryclose_isbase = value; }
@@ -328,6 +340,34 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
     inline void setKParts__ReadWritePart_IsSignalConnected_IsBase(bool value) const { kparts__readwritepart_issignalconnected_isbase = value; }
     inline void setKParts__ReadWritePart_StandardsXmlFileLocation_IsBase(bool value) const { kparts__readwritepart_standardsxmlfilelocation_isbase = value; }
     inline void setKParts__ReadWritePart_LoadStandardsXmlFile_IsBase(bool value) const { kparts__readwritepart_loadstandardsxmlfile_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__readwritepart_metaobject_isbase) {
+            kparts__readwritepart_metaobject_isbase = false;
+            return KParts__ReadWritePart::metaObject();
+        } else if (kparts__readwritepart_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__readwritepart_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__ReadWritePart::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__readwritepart_metacast_isbase) {
+            kparts__readwritepart_metacast_isbase = false;
+            return KParts__ReadWritePart::qt_metacast(param1);
+        } else if (kparts__readwritepart_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__readwritepart_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__ReadWritePart::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

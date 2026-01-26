@@ -17,6 +17,8 @@ class VirtualQGraphicsItemAnimation final : public QGraphicsItemAnimation {
     bool isVirtualQGraphicsItemAnimation = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsItemAnimation_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsItemAnimation_Metacast_Callback = void* (*)(QGraphicsItemAnimation*, const char*);
     using QGraphicsItemAnimation_Metacall_Callback = int (*)(QGraphicsItemAnimation*, int, int, void**);
     using QGraphicsItemAnimation_BeforeAnimationStep_Callback = void (*)(QGraphicsItemAnimation*, double);
     using QGraphicsItemAnimation_AfterAnimationStep_Callback = void (*)(QGraphicsItemAnimation*, double);
@@ -34,6 +36,8 @@ class VirtualQGraphicsItemAnimation final : public QGraphicsItemAnimation {
 
   protected:
     // Instance callback storage
+    QGraphicsItemAnimation_MetaObject_Callback qgraphicsitemanimation_metaobject_callback = nullptr;
+    QGraphicsItemAnimation_Metacast_Callback qgraphicsitemanimation_metacast_callback = nullptr;
     QGraphicsItemAnimation_Metacall_Callback qgraphicsitemanimation_metacall_callback = nullptr;
     QGraphicsItemAnimation_BeforeAnimationStep_Callback qgraphicsitemanimation_beforeanimationstep_callback = nullptr;
     QGraphicsItemAnimation_AfterAnimationStep_Callback qgraphicsitemanimation_afteranimationstep_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQGraphicsItemAnimation final : public QGraphicsItemAnimation {
     QGraphicsItemAnimation_IsSignalConnected_Callback qgraphicsitemanimation_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsitemanimation_metaobject_isbase = false;
+    mutable bool qgraphicsitemanimation_metacast_isbase = false;
     mutable bool qgraphicsitemanimation_metacall_isbase = false;
     mutable bool qgraphicsitemanimation_beforeanimationstep_isbase = false;
     mutable bool qgraphicsitemanimation_afteranimationstep_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQGraphicsItemAnimation final : public QGraphicsItemAnimation {
     VirtualQGraphicsItemAnimation(QObject* parent) : QGraphicsItemAnimation(parent) {};
 
     ~VirtualQGraphicsItemAnimation() {
+        qgraphicsitemanimation_metaobject_callback = nullptr;
+        qgraphicsitemanimation_metacast_callback = nullptr;
         qgraphicsitemanimation_metacall_callback = nullptr;
         qgraphicsitemanimation_beforeanimationstep_callback = nullptr;
         qgraphicsitemanimation_afteranimationstep_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQGraphicsItemAnimation final : public QGraphicsItemAnimation {
     }
 
     // Callback setters
+    inline void setQGraphicsItemAnimation_MetaObject_Callback(QGraphicsItemAnimation_MetaObject_Callback cb) { qgraphicsitemanimation_metaobject_callback = cb; }
+    inline void setQGraphicsItemAnimation_Metacast_Callback(QGraphicsItemAnimation_Metacast_Callback cb) { qgraphicsitemanimation_metacast_callback = cb; }
     inline void setQGraphicsItemAnimation_Metacall_Callback(QGraphicsItemAnimation_Metacall_Callback cb) { qgraphicsitemanimation_metacall_callback = cb; }
     inline void setQGraphicsItemAnimation_BeforeAnimationStep_Callback(QGraphicsItemAnimation_BeforeAnimationStep_Callback cb) { qgraphicsitemanimation_beforeanimationstep_callback = cb; }
     inline void setQGraphicsItemAnimation_AfterAnimationStep_Callback(QGraphicsItemAnimation_AfterAnimationStep_Callback cb) { qgraphicsitemanimation_afteranimationstep_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQGraphicsItemAnimation final : public QGraphicsItemAnimation {
     inline void setQGraphicsItemAnimation_IsSignalConnected_Callback(QGraphicsItemAnimation_IsSignalConnected_Callback cb) { qgraphicsitemanimation_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsItemAnimation_MetaObject_IsBase(bool value) const { qgraphicsitemanimation_metaobject_isbase = value; }
+    inline void setQGraphicsItemAnimation_Metacast_IsBase(bool value) const { qgraphicsitemanimation_metacast_isbase = value; }
     inline void setQGraphicsItemAnimation_Metacall_IsBase(bool value) const { qgraphicsitemanimation_metacall_isbase = value; }
     inline void setQGraphicsItemAnimation_BeforeAnimationStep_IsBase(bool value) const { qgraphicsitemanimation_beforeanimationstep_isbase = value; }
     inline void setQGraphicsItemAnimation_AfterAnimationStep_IsBase(bool value) const { qgraphicsitemanimation_afteranimationstep_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQGraphicsItemAnimation final : public QGraphicsItemAnimation {
     inline void setQGraphicsItemAnimation_SenderSignalIndex_IsBase(bool value) const { qgraphicsitemanimation_sendersignalindex_isbase = value; }
     inline void setQGraphicsItemAnimation_Receivers_IsBase(bool value) const { qgraphicsitemanimation_receivers_isbase = value; }
     inline void setQGraphicsItemAnimation_IsSignalConnected_IsBase(bool value) const { qgraphicsitemanimation_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsitemanimation_metaobject_isbase) {
+            qgraphicsitemanimation_metaobject_isbase = false;
+            return QGraphicsItemAnimation::metaObject();
+        } else if (qgraphicsitemanimation_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsitemanimation_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsItemAnimation::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsitemanimation_metacast_isbase) {
+            qgraphicsitemanimation_metacast_isbase = false;
+            return QGraphicsItemAnimation::qt_metacast(param1);
+        } else if (qgraphicsitemanimation_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsitemanimation_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsItemAnimation::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -83,6 +83,10 @@ int KMultiTabBar_AppendButton3(KMultiTabBar* self, const QIcon* icon, int id, QM
 int KMultiTabBar_AppendButton4(KMultiTabBar* self, const QIcon* icon, int id, QMenu* popup, const libqt_string not_used_yet);
 int KMultiTabBar_AppendTab2(KMultiTabBar* self, const QIcon* icon, int id);
 int KMultiTabBar_AppendTab3(KMultiTabBar* self, const QIcon* icon, int id, const libqt_string text);
+void KMultiTabBar_OnMetaObject(const KMultiTabBar* self, intptr_t slot);
+QMetaObject* KMultiTabBar_QBaseMetaObject(const KMultiTabBar* self);
+void KMultiTabBar_OnMetacast(KMultiTabBar* self, intptr_t slot);
+void* KMultiTabBar_QBaseMetacast(KMultiTabBar* self, const char* param1);
 void KMultiTabBar_OnMetacall(KMultiTabBar* self, intptr_t slot);
 int KMultiTabBar_QBaseMetacall(KMultiTabBar* self, int param1, int param2, void** param3);
 void KMultiTabBar_OnFontChange(KMultiTabBar* self, intptr_t slot);

@@ -17,6 +17,8 @@ class VirtualQVideoSink final : public QVideoSink {
     bool isVirtualQVideoSink = true;
 
     // Virtual class public types (including callbacks)
+    using QVideoSink_MetaObject_Callback = QMetaObject* (*)();
+    using QVideoSink_Metacast_Callback = void* (*)(QVideoSink*, const char*);
     using QVideoSink_Metacall_Callback = int (*)(QVideoSink*, int, int, void**);
     using QVideoSink_Event_Callback = bool (*)(QVideoSink*, QEvent*);
     using QVideoSink_EventFilter_Callback = bool (*)(QVideoSink*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQVideoSink final : public QVideoSink {
 
   protected:
     // Instance callback storage
+    QVideoSink_MetaObject_Callback qvideosink_metaobject_callback = nullptr;
+    QVideoSink_Metacast_Callback qvideosink_metacast_callback = nullptr;
     QVideoSink_Metacall_Callback qvideosink_metacall_callback = nullptr;
     QVideoSink_Event_Callback qvideosink_event_callback = nullptr;
     QVideoSink_EventFilter_Callback qvideosink_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQVideoSink final : public QVideoSink {
     QVideoSink_IsSignalConnected_Callback qvideosink_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qvideosink_metaobject_isbase = false;
+    mutable bool qvideosink_metacast_isbase = false;
     mutable bool qvideosink_metacall_isbase = false;
     mutable bool qvideosink_event_isbase = false;
     mutable bool qvideosink_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQVideoSink final : public QVideoSink {
     VirtualQVideoSink(QObject* parent) : QVideoSink(parent) {};
 
     ~VirtualQVideoSink() {
+        qvideosink_metaobject_callback = nullptr;
+        qvideosink_metacast_callback = nullptr;
         qvideosink_metacall_callback = nullptr;
         qvideosink_event_callback = nullptr;
         qvideosink_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQVideoSink final : public QVideoSink {
     }
 
     // Callback setters
+    inline void setQVideoSink_MetaObject_Callback(QVideoSink_MetaObject_Callback cb) { qvideosink_metaobject_callback = cb; }
+    inline void setQVideoSink_Metacast_Callback(QVideoSink_Metacast_Callback cb) { qvideosink_metacast_callback = cb; }
     inline void setQVideoSink_Metacall_Callback(QVideoSink_Metacall_Callback cb) { qvideosink_metacall_callback = cb; }
     inline void setQVideoSink_Event_Callback(QVideoSink_Event_Callback cb) { qvideosink_event_callback = cb; }
     inline void setQVideoSink_EventFilter_Callback(QVideoSink_EventFilter_Callback cb) { qvideosink_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQVideoSink final : public QVideoSink {
     inline void setQVideoSink_IsSignalConnected_Callback(QVideoSink_IsSignalConnected_Callback cb) { qvideosink_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQVideoSink_MetaObject_IsBase(bool value) const { qvideosink_metaobject_isbase = value; }
+    inline void setQVideoSink_Metacast_IsBase(bool value) const { qvideosink_metacast_isbase = value; }
     inline void setQVideoSink_Metacall_IsBase(bool value) const { qvideosink_metacall_isbase = value; }
     inline void setQVideoSink_Event_IsBase(bool value) const { qvideosink_event_isbase = value; }
     inline void setQVideoSink_EventFilter_IsBase(bool value) const { qvideosink_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQVideoSink final : public QVideoSink {
     inline void setQVideoSink_SenderSignalIndex_IsBase(bool value) const { qvideosink_sendersignalindex_isbase = value; }
     inline void setQVideoSink_Receivers_IsBase(bool value) const { qvideosink_receivers_isbase = value; }
     inline void setQVideoSink_IsSignalConnected_IsBase(bool value) const { qvideosink_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qvideosink_metaobject_isbase) {
+            qvideosink_metaobject_isbase = false;
+            return QVideoSink::metaObject();
+        } else if (qvideosink_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qvideosink_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QVideoSink::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qvideosink_metacast_isbase) {
+            qvideosink_metacast_isbase = false;
+            return QVideoSink::qt_metacast(param1);
+        } else if (qvideosink_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qvideosink_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QVideoSink::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

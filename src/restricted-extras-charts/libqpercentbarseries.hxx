@@ -17,6 +17,8 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
     bool isVirtualQPercentBarSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QPercentBarSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QPercentBarSeries_Metacast_Callback = void* (*)(QPercentBarSeries*, const char*);
     using QPercentBarSeries_Metacall_Callback = int (*)(QPercentBarSeries*, int, int, void**);
     using QPercentBarSeries_Type_Callback = int (*)();
     using QPercentBarSeries_Event_Callback = bool (*)(QPercentBarSeries*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
 
   protected:
     // Instance callback storage
+    QPercentBarSeries_MetaObject_Callback qpercentbarseries_metaobject_callback = nullptr;
+    QPercentBarSeries_Metacast_Callback qpercentbarseries_metacast_callback = nullptr;
     QPercentBarSeries_Metacall_Callback qpercentbarseries_metacall_callback = nullptr;
     QPercentBarSeries_Type_Callback qpercentbarseries_type_callback = nullptr;
     QPercentBarSeries_Event_Callback qpercentbarseries_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
     QPercentBarSeries_IsSignalConnected_Callback qpercentbarseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpercentbarseries_metaobject_isbase = false;
+    mutable bool qpercentbarseries_metacast_isbase = false;
     mutable bool qpercentbarseries_metacall_isbase = false;
     mutable bool qpercentbarseries_type_isbase = false;
     mutable bool qpercentbarseries_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
     VirtualQPercentBarSeries(QObject* parent) : QPercentBarSeries(parent) {};
 
     ~VirtualQPercentBarSeries() {
+        qpercentbarseries_metaobject_callback = nullptr;
+        qpercentbarseries_metacast_callback = nullptr;
         qpercentbarseries_metacall_callback = nullptr;
         qpercentbarseries_type_callback = nullptr;
         qpercentbarseries_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
     }
 
     // Callback setters
+    inline void setQPercentBarSeries_MetaObject_Callback(QPercentBarSeries_MetaObject_Callback cb) { qpercentbarseries_metaobject_callback = cb; }
+    inline void setQPercentBarSeries_Metacast_Callback(QPercentBarSeries_Metacast_Callback cb) { qpercentbarseries_metacast_callback = cb; }
     inline void setQPercentBarSeries_Metacall_Callback(QPercentBarSeries_Metacall_Callback cb) { qpercentbarseries_metacall_callback = cb; }
     inline void setQPercentBarSeries_Type_Callback(QPercentBarSeries_Type_Callback cb) { qpercentbarseries_type_callback = cb; }
     inline void setQPercentBarSeries_Event_Callback(QPercentBarSeries_Event_Callback cb) { qpercentbarseries_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
     inline void setQPercentBarSeries_IsSignalConnected_Callback(QPercentBarSeries_IsSignalConnected_Callback cb) { qpercentbarseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPercentBarSeries_MetaObject_IsBase(bool value) const { qpercentbarseries_metaobject_isbase = value; }
+    inline void setQPercentBarSeries_Metacast_IsBase(bool value) const { qpercentbarseries_metacast_isbase = value; }
     inline void setQPercentBarSeries_Metacall_IsBase(bool value) const { qpercentbarseries_metacall_isbase = value; }
     inline void setQPercentBarSeries_Type_IsBase(bool value) const { qpercentbarseries_type_isbase = value; }
     inline void setQPercentBarSeries_Event_IsBase(bool value) const { qpercentbarseries_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQPercentBarSeries final : public QPercentBarSeries {
     inline void setQPercentBarSeries_SenderSignalIndex_IsBase(bool value) const { qpercentbarseries_sendersignalindex_isbase = value; }
     inline void setQPercentBarSeries_Receivers_IsBase(bool value) const { qpercentbarseries_receivers_isbase = value; }
     inline void setQPercentBarSeries_IsSignalConnected_IsBase(bool value) const { qpercentbarseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpercentbarseries_metaobject_isbase) {
+            qpercentbarseries_metaobject_isbase = false;
+            return QPercentBarSeries::metaObject();
+        } else if (qpercentbarseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpercentbarseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPercentBarSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpercentbarseries_metacast_isbase) {
+            qpercentbarseries_metacast_isbase = false;
+            return QPercentBarSeries::qt_metacast(param1);
+        } else if (qpercentbarseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpercentbarseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPercentBarSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

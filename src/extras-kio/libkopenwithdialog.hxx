@@ -17,6 +17,8 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
     bool isVirtualKOpenWithDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KOpenWithDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KOpenWithDialog_Metacast_Callback = void* (*)(KOpenWithDialog*, const char*);
     using KOpenWithDialog_Metacall_Callback = int (*)(KOpenWithDialog*, int, int, void**);
     using KOpenWithDialog_Accept_Callback = void (*)();
     using KOpenWithDialog_SetVisible_Callback = void (*)(KOpenWithDialog*, bool);
@@ -83,6 +85,8 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
 
   protected:
     // Instance callback storage
+    KOpenWithDialog_MetaObject_Callback kopenwithdialog_metaobject_callback = nullptr;
+    KOpenWithDialog_Metacast_Callback kopenwithdialog_metacast_callback = nullptr;
     KOpenWithDialog_Metacall_Callback kopenwithdialog_metacall_callback = nullptr;
     KOpenWithDialog_Accept_Callback kopenwithdialog_accept_callback = nullptr;
     KOpenWithDialog_SetVisible_Callback kopenwithdialog_setvisible_callback = nullptr;
@@ -148,6 +152,8 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
     KOpenWithDialog_GetDecodedMetricF_Callback kopenwithdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kopenwithdialog_metaobject_isbase = false;
+    mutable bool kopenwithdialog_metacast_isbase = false;
     mutable bool kopenwithdialog_metacall_isbase = false;
     mutable bool kopenwithdialog_accept_isbase = false;
     mutable bool kopenwithdialog_setvisible_isbase = false;
@@ -225,6 +231,8 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
     VirtualKOpenWithDialog(const QList<QUrl>& urls, const QString& mimeType, const QString& text, const QString& value, QWidget* parent) : KOpenWithDialog(urls, mimeType, text, value, parent) {};
 
     ~VirtualKOpenWithDialog() {
+        kopenwithdialog_metaobject_callback = nullptr;
+        kopenwithdialog_metacast_callback = nullptr;
         kopenwithdialog_metacall_callback = nullptr;
         kopenwithdialog_accept_callback = nullptr;
         kopenwithdialog_setvisible_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
     }
 
     // Callback setters
+    inline void setKOpenWithDialog_MetaObject_Callback(KOpenWithDialog_MetaObject_Callback cb) { kopenwithdialog_metaobject_callback = cb; }
+    inline void setKOpenWithDialog_Metacast_Callback(KOpenWithDialog_Metacast_Callback cb) { kopenwithdialog_metacast_callback = cb; }
     inline void setKOpenWithDialog_Metacall_Callback(KOpenWithDialog_Metacall_Callback cb) { kopenwithdialog_metacall_callback = cb; }
     inline void setKOpenWithDialog_Accept_Callback(KOpenWithDialog_Accept_Callback cb) { kopenwithdialog_accept_callback = cb; }
     inline void setKOpenWithDialog_SetVisible_Callback(KOpenWithDialog_SetVisible_Callback cb) { kopenwithdialog_setvisible_callback = cb; }
@@ -356,6 +366,8 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
     inline void setKOpenWithDialog_GetDecodedMetricF_Callback(KOpenWithDialog_GetDecodedMetricF_Callback cb) { kopenwithdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKOpenWithDialog_MetaObject_IsBase(bool value) const { kopenwithdialog_metaobject_isbase = value; }
+    inline void setKOpenWithDialog_Metacast_IsBase(bool value) const { kopenwithdialog_metacast_isbase = value; }
     inline void setKOpenWithDialog_Metacall_IsBase(bool value) const { kopenwithdialog_metacall_isbase = value; }
     inline void setKOpenWithDialog_Accept_IsBase(bool value) const { kopenwithdialog_accept_isbase = value; }
     inline void setKOpenWithDialog_SetVisible_IsBase(bool value) const { kopenwithdialog_setvisible_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualKOpenWithDialog final : public KOpenWithDialog {
     inline void setKOpenWithDialog_Receivers_IsBase(bool value) const { kopenwithdialog_receivers_isbase = value; }
     inline void setKOpenWithDialog_IsSignalConnected_IsBase(bool value) const { kopenwithdialog_issignalconnected_isbase = value; }
     inline void setKOpenWithDialog_GetDecodedMetricF_IsBase(bool value) const { kopenwithdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kopenwithdialog_metaobject_isbase) {
+            kopenwithdialog_metaobject_isbase = false;
+            return KOpenWithDialog::metaObject();
+        } else if (kopenwithdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kopenwithdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KOpenWithDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kopenwithdialog_metacast_isbase) {
+            kopenwithdialog_metacast_isbase = false;
+            return KOpenWithDialog::qt_metacast(param1);
+        } else if (kopenwithdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kopenwithdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KOpenWithDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -38,11 +38,21 @@ QFileSystemModel* QFileSystemModel_new2(QObject* parent) {
 }
 
 QMetaObject* QFileSystemModel_MetaObject(const QFileSystemModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
+    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFileSystemModel*)self)->metaObject();
+    }
 }
 
 void* QFileSystemModel_Metacast(QFileSystemModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
+    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFileSystemModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QFileSystemModel_Metacall(QFileSystemModel* self, int param1, int param2, void** param3) {
@@ -595,6 +605,44 @@ QVariant* QFileSystemModel_MyComputer1(const QFileSystemModel* self, int role) {
 
 void QFileSystemModel_SetOption2(QFileSystemModel* self, int option, bool on) {
     self->setOption(static_cast<QFileSystemModel::Option>(option), on);
+}
+
+// Base class handler implementation
+QMetaObject* QFileSystemModel_QBaseMetaObject(const QFileSystemModel* self) {
+    auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
+    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
+        vqfilesystemmodel->setQFileSystemModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqfilesystemmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QFileSystemModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileSystemModel_OnMetaObject(const QFileSystemModel* self, intptr_t slot) {
+    auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
+    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
+        vqfilesystemmodel->setQFileSystemModel_MetaObject_Callback(reinterpret_cast<VirtualQFileSystemModel::QFileSystemModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFileSystemModel_QBaseMetacast(QFileSystemModel* self, const char* param1) {
+    auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
+    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
+        vqfilesystemmodel->setQFileSystemModel_Metacast_IsBase(true);
+        return vqfilesystemmodel->qt_metacast(param1);
+    } else {
+        return self->QFileSystemModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileSystemModel_OnMetacast(QFileSystemModel* self, intptr_t slot) {
+    auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
+    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
+        vqfilesystemmodel->setQFileSystemModel_Metacast_Callback(reinterpret_cast<VirtualQFileSystemModel::QFileSystemModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

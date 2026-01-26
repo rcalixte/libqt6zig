@@ -17,6 +17,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     bool isVirtualQsciLexerPython = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerPython_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerPython_Metacast_Callback = void* (*)(QsciLexerPython*, const char*);
     using QsciLexerPython_Metacall_Callback = int (*)(QsciLexerPython*, int, int, void**);
     using QsciLexerPython_IndentationGuideView_Callback = int (*)();
     using QsciLexerPython_SetFoldComments_Callback = void (*)(QsciLexerPython*, bool);
@@ -71,6 +73,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
 
   protected:
     // Instance callback storage
+    QsciLexerPython_MetaObject_Callback qscilexerpython_metaobject_callback = nullptr;
+    QsciLexerPython_Metacast_Callback qscilexerpython_metacast_callback = nullptr;
     QsciLexerPython_Metacall_Callback qscilexerpython_metacall_callback = nullptr;
     QsciLexerPython_IndentationGuideView_Callback qscilexerpython_indentationguideview_callback = nullptr;
     QsciLexerPython_SetFoldComments_Callback qscilexerpython_setfoldcomments_callback = nullptr;
@@ -124,6 +128,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     QsciLexerPython_IsSignalConnected_Callback qscilexerpython_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexerpython_metaobject_isbase = false;
+    mutable bool qscilexerpython_metacast_isbase = false;
     mutable bool qscilexerpython_metacall_isbase = false;
     mutable bool qscilexerpython_indentationguideview_isbase = false;
     mutable bool qscilexerpython_setfoldcomments_isbase = false;
@@ -181,6 +187,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     VirtualQsciLexerPython(QObject* parent) : QsciLexerPython(parent) {};
 
     ~VirtualQsciLexerPython() {
+        qscilexerpython_metaobject_callback = nullptr;
+        qscilexerpython_metacast_callback = nullptr;
         qscilexerpython_metacall_callback = nullptr;
         qscilexerpython_indentationguideview_callback = nullptr;
         qscilexerpython_setfoldcomments_callback = nullptr;
@@ -235,6 +243,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     }
 
     // Callback setters
+    inline void setQsciLexerPython_MetaObject_Callback(QsciLexerPython_MetaObject_Callback cb) { qscilexerpython_metaobject_callback = cb; }
+    inline void setQsciLexerPython_Metacast_Callback(QsciLexerPython_Metacast_Callback cb) { qscilexerpython_metacast_callback = cb; }
     inline void setQsciLexerPython_Metacall_Callback(QsciLexerPython_Metacall_Callback cb) { qscilexerpython_metacall_callback = cb; }
     inline void setQsciLexerPython_IndentationGuideView_Callback(QsciLexerPython_IndentationGuideView_Callback cb) { qscilexerpython_indentationguideview_callback = cb; }
     inline void setQsciLexerPython_SetFoldComments_Callback(QsciLexerPython_SetFoldComments_Callback cb) { qscilexerpython_setfoldcomments_callback = cb; }
@@ -288,6 +298,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     inline void setQsciLexerPython_IsSignalConnected_Callback(QsciLexerPython_IsSignalConnected_Callback cb) { qscilexerpython_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerPython_MetaObject_IsBase(bool value) const { qscilexerpython_metaobject_isbase = value; }
+    inline void setQsciLexerPython_Metacast_IsBase(bool value) const { qscilexerpython_metacast_isbase = value; }
     inline void setQsciLexerPython_Metacall_IsBase(bool value) const { qscilexerpython_metacall_isbase = value; }
     inline void setQsciLexerPython_IndentationGuideView_IsBase(bool value) const { qscilexerpython_indentationguideview_isbase = value; }
     inline void setQsciLexerPython_SetFoldComments_IsBase(bool value) const { qscilexerpython_setfoldcomments_isbase = value; }
@@ -339,6 +351,34 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     inline void setQsciLexerPython_SenderSignalIndex_IsBase(bool value) const { qscilexerpython_sendersignalindex_isbase = value; }
     inline void setQsciLexerPython_Receivers_IsBase(bool value) const { qscilexerpython_receivers_isbase = value; }
     inline void setQsciLexerPython_IsSignalConnected_IsBase(bool value) const { qscilexerpython_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexerpython_metaobject_isbase) {
+            qscilexerpython_metaobject_isbase = false;
+            return QsciLexerPython::metaObject();
+        } else if (qscilexerpython_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexerpython_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerPython::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexerpython_metacast_isbase) {
+            qscilexerpython_metacast_isbase = false;
+            return QsciLexerPython::qt_metacast(param1);
+        } else if (qscilexerpython_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexerpython_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerPython::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

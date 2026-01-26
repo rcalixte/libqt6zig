@@ -17,6 +17,8 @@ class VirtualQCheckBox final : public QCheckBox {
     bool isVirtualQCheckBox = true;
 
     // Virtual class public types (including callbacks)
+    using QCheckBox_MetaObject_Callback = QMetaObject* (*)();
+    using QCheckBox_Metacast_Callback = void* (*)(QCheckBox*, const char*);
     using QCheckBox_Metacall_Callback = int (*)(QCheckBox*, int, int, void**);
     using QCheckBox_SizeHint_Callback = QSize* (*)();
     using QCheckBox_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualQCheckBox final : public QCheckBox {
 
   protected:
     // Instance callback storage
+    QCheckBox_MetaObject_Callback qcheckbox_metaobject_callback = nullptr;
+    QCheckBox_Metacast_Callback qcheckbox_metacast_callback = nullptr;
     QCheckBox_Metacall_Callback qcheckbox_metacall_callback = nullptr;
     QCheckBox_SizeHint_Callback qcheckbox_sizehint_callback = nullptr;
     QCheckBox_MinimumSizeHint_Callback qcheckbox_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQCheckBox final : public QCheckBox {
     QCheckBox_GetDecodedMetricF_Callback qcheckbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcheckbox_metaobject_isbase = false;
+    mutable bool qcheckbox_metacast_isbase = false;
     mutable bool qcheckbox_metacall_isbase = false;
     mutable bool qcheckbox_sizehint_isbase = false;
     mutable bool qcheckbox_minimumsizehint_isbase = false;
@@ -216,6 +222,8 @@ class VirtualQCheckBox final : public QCheckBox {
     VirtualQCheckBox(const QString& text, QWidget* parent) : QCheckBox(text, parent) {};
 
     ~VirtualQCheckBox() {
+        qcheckbox_metaobject_callback = nullptr;
+        qcheckbox_metacast_callback = nullptr;
         qcheckbox_metacall_callback = nullptr;
         qcheckbox_sizehint_callback = nullptr;
         qcheckbox_minimumsizehint_callback = nullptr;
@@ -281,6 +289,8 @@ class VirtualQCheckBox final : public QCheckBox {
     }
 
     // Callback setters
+    inline void setQCheckBox_MetaObject_Callback(QCheckBox_MetaObject_Callback cb) { qcheckbox_metaobject_callback = cb; }
+    inline void setQCheckBox_Metacast_Callback(QCheckBox_Metacast_Callback cb) { qcheckbox_metacast_callback = cb; }
     inline void setQCheckBox_Metacall_Callback(QCheckBox_Metacall_Callback cb) { qcheckbox_metacall_callback = cb; }
     inline void setQCheckBox_SizeHint_Callback(QCheckBox_SizeHint_Callback cb) { qcheckbox_sizehint_callback = cb; }
     inline void setQCheckBox_MinimumSizeHint_Callback(QCheckBox_MinimumSizeHint_Callback cb) { qcheckbox_minimumsizehint_callback = cb; }
@@ -345,6 +355,8 @@ class VirtualQCheckBox final : public QCheckBox {
     inline void setQCheckBox_GetDecodedMetricF_Callback(QCheckBox_GetDecodedMetricF_Callback cb) { qcheckbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQCheckBox_MetaObject_IsBase(bool value) const { qcheckbox_metaobject_isbase = value; }
+    inline void setQCheckBox_Metacast_IsBase(bool value) const { qcheckbox_metacast_isbase = value; }
     inline void setQCheckBox_Metacall_IsBase(bool value) const { qcheckbox_metacall_isbase = value; }
     inline void setQCheckBox_SizeHint_IsBase(bool value) const { qcheckbox_sizehint_isbase = value; }
     inline void setQCheckBox_MinimumSizeHint_IsBase(bool value) const { qcheckbox_minimumsizehint_isbase = value; }
@@ -407,6 +419,34 @@ class VirtualQCheckBox final : public QCheckBox {
     inline void setQCheckBox_Receivers_IsBase(bool value) const { qcheckbox_receivers_isbase = value; }
     inline void setQCheckBox_IsSignalConnected_IsBase(bool value) const { qcheckbox_issignalconnected_isbase = value; }
     inline void setQCheckBox_GetDecodedMetricF_IsBase(bool value) const { qcheckbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcheckbox_metaobject_isbase) {
+            qcheckbox_metaobject_isbase = false;
+            return QCheckBox::metaObject();
+        } else if (qcheckbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcheckbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCheckBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcheckbox_metacast_isbase) {
+            qcheckbox_metacast_isbase = false;
+            return QCheckBox::qt_metacast(param1);
+        } else if (qcheckbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcheckbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCheckBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

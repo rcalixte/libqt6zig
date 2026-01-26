@@ -40,6 +40,10 @@ void KIO__FavIconRequestJob_SetIconUrl(KIO__FavIconRequestJob* self, const QUrl*
 libqt_string KIO__FavIconRequestJob_IconFile(const KIO__FavIconRequestJob* self);
 QUrl* KIO__FavIconRequestJob_HostUrl(const KIO__FavIconRequestJob* self);
 void KIO__FavIconRequestJob_Start(KIO__FavIconRequestJob* self);
+void KIO__FavIconRequestJob_OnMetaObject(const KIO__FavIconRequestJob* self, intptr_t slot);
+QMetaObject* KIO__FavIconRequestJob_QBaseMetaObject(const KIO__FavIconRequestJob* self);
+void KIO__FavIconRequestJob_OnMetacast(KIO__FavIconRequestJob* self, intptr_t slot);
+void* KIO__FavIconRequestJob_QBaseMetacast(KIO__FavIconRequestJob* self, const char* param1);
 void KIO__FavIconRequestJob_OnMetacall(KIO__FavIconRequestJob* self, intptr_t slot);
 int KIO__FavIconRequestJob_QBaseMetacall(KIO__FavIconRequestJob* self, int param1, int param2, void** param3);
 void KIO__FavIconRequestJob_OnStart(KIO__FavIconRequestJob* self, intptr_t slot);

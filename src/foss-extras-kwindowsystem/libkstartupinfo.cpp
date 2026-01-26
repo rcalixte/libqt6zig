@@ -25,11 +25,21 @@ KStartupInfo* KStartupInfo_new2(int flags, QObject* parent) {
 }
 
 QMetaObject* KStartupInfo_MetaObject(const KStartupInfo* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkstartupinfo = dynamic_cast<const VirtualKStartupInfo*>(self);
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKStartupInfo*)self)->metaObject();
+    }
 }
 
 void* KStartupInfo_Metacast(KStartupInfo* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKStartupInfo*)self)->qt_metacast(param1);
+    }
 }
 
 int KStartupInfo_Metacall(KStartupInfo* self, int param1, int param2, void** param3) {
@@ -185,6 +195,44 @@ void KStartupInfo_CustomEvent(KStartupInfo* self, QEvent* e_P) {
     auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
     if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
         vkstartupinfo->customEvent(e_P);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KStartupInfo_QBaseMetaObject(const KStartupInfo* self) {
+    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+        vkstartupinfo->setKStartupInfo_MetaObject_IsBase(true);
+        return (QMetaObject*)vkstartupinfo->metaObject();
+    } else {
+        return (QMetaObject*)self->KStartupInfo::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KStartupInfo_OnMetaObject(const KStartupInfo* self, intptr_t slot) {
+    auto* vkstartupinfo = const_cast<VirtualKStartupInfo*>(dynamic_cast<const VirtualKStartupInfo*>(self));
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+        vkstartupinfo->setKStartupInfo_MetaObject_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KStartupInfo_QBaseMetacast(KStartupInfo* self, const char* param1) {
+    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+        vkstartupinfo->setKStartupInfo_Metacast_IsBase(true);
+        return vkstartupinfo->qt_metacast(param1);
+    } else {
+        return self->KStartupInfo::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KStartupInfo_OnMetacast(KStartupInfo* self, intptr_t slot) {
+    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
+    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
+        vkstartupinfo->setKStartupInfo_Metacast_Callback(reinterpret_cast<VirtualKStartupInfo::KStartupInfo_Metacast_Callback>(slot));
     }
 }
 

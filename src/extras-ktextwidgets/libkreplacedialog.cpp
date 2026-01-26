@@ -102,11 +102,21 @@ KReplaceDialog* KReplaceDialog_new6(QWidget* parent, long options, const libqt_l
 }
 
 QMetaObject* KReplaceDialog_MetaObject(const KReplaceDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkreplacedialog = dynamic_cast<const VirtualKReplaceDialog*>(self);
+    if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKReplaceDialog*)self)->metaObject();
+    }
 }
 
 void* KReplaceDialog_Metacast(KReplaceDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
+    if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKReplaceDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KReplaceDialog_Metacall(KReplaceDialog* self, int param1, int param2, void** param3) {
@@ -178,6 +188,44 @@ void KReplaceDialog_ShowEvent(KReplaceDialog* self, QShowEvent* param1) {
     auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
     if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
         vkreplacedialog->showEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KReplaceDialog_QBaseMetaObject(const KReplaceDialog* self) {
+    auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
+    if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
+        vkreplacedialog->setKReplaceDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkreplacedialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KReplaceDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KReplaceDialog_OnMetaObject(const KReplaceDialog* self, intptr_t slot) {
+    auto* vkreplacedialog = const_cast<VirtualKReplaceDialog*>(dynamic_cast<const VirtualKReplaceDialog*>(self));
+    if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
+        vkreplacedialog->setKReplaceDialog_MetaObject_Callback(reinterpret_cast<VirtualKReplaceDialog::KReplaceDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KReplaceDialog_QBaseMetacast(KReplaceDialog* self, const char* param1) {
+    auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
+    if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
+        vkreplacedialog->setKReplaceDialog_Metacast_IsBase(true);
+        return vkreplacedialog->qt_metacast(param1);
+    } else {
+        return self->KReplaceDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KReplaceDialog_OnMetacast(KReplaceDialog* self, intptr_t slot) {
+    auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
+    if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
+        vkreplacedialog->setKReplaceDialog_Metacast_Callback(reinterpret_cast<VirtualKReplaceDialog::KReplaceDialog_Metacast_Callback>(slot));
     }
 }
 

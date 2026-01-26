@@ -17,6 +17,8 @@ class VirtualKDirLister final : public KDirLister {
     bool isVirtualKDirLister = true;
 
     // Virtual class public types (including callbacks)
+    using KDirLister_MetaObject_Callback = QMetaObject* (*)();
+    using KDirLister_Metacast_Callback = void* (*)(KDirLister*, const char*);
     using KDirLister_Metacall_Callback = int (*)(KDirLister*, int, int, void**);
     using KDirLister_JobStarted_Callback = void (*)(KDirLister*, KIO__ListJob*);
     using KDirLister_Event_Callback = bool (*)(KDirLister*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualKDirLister final : public KDirLister {
 
   protected:
     // Instance callback storage
+    KDirLister_MetaObject_Callback kdirlister_metaobject_callback = nullptr;
+    KDirLister_Metacast_Callback kdirlister_metacast_callback = nullptr;
     KDirLister_Metacall_Callback kdirlister_metacall_callback = nullptr;
     KDirLister_JobStarted_Callback kdirlister_jobstarted_callback = nullptr;
     KDirLister_Event_Callback kdirlister_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualKDirLister final : public KDirLister {
     KDirLister_IsSignalConnected_Callback kdirlister_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdirlister_metaobject_isbase = false;
+    mutable bool kdirlister_metacast_isbase = false;
     mutable bool kdirlister_metacall_isbase = false;
     mutable bool kdirlister_jobstarted_isbase = false;
     mutable bool kdirlister_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualKDirLister final : public KDirLister {
     VirtualKDirLister(QObject* parent) : KDirLister(parent) {};
 
     ~VirtualKDirLister() {
+        kdirlister_metaobject_callback = nullptr;
+        kdirlister_metacast_callback = nullptr;
         kdirlister_metacall_callback = nullptr;
         kdirlister_jobstarted_callback = nullptr;
         kdirlister_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualKDirLister final : public KDirLister {
     }
 
     // Callback setters
+    inline void setKDirLister_MetaObject_Callback(KDirLister_MetaObject_Callback cb) { kdirlister_metaobject_callback = cb; }
+    inline void setKDirLister_Metacast_Callback(KDirLister_Metacast_Callback cb) { kdirlister_metacast_callback = cb; }
     inline void setKDirLister_Metacall_Callback(KDirLister_Metacall_Callback cb) { kdirlister_metacall_callback = cb; }
     inline void setKDirLister_JobStarted_Callback(KDirLister_JobStarted_Callback cb) { kdirlister_jobstarted_callback = cb; }
     inline void setKDirLister_Event_Callback(KDirLister_Event_Callback cb) { kdirlister_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualKDirLister final : public KDirLister {
     inline void setKDirLister_IsSignalConnected_Callback(KDirLister_IsSignalConnected_Callback cb) { kdirlister_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKDirLister_MetaObject_IsBase(bool value) const { kdirlister_metaobject_isbase = value; }
+    inline void setKDirLister_Metacast_IsBase(bool value) const { kdirlister_metacast_isbase = value; }
     inline void setKDirLister_Metacall_IsBase(bool value) const { kdirlister_metacall_isbase = value; }
     inline void setKDirLister_JobStarted_IsBase(bool value) const { kdirlister_jobstarted_isbase = value; }
     inline void setKDirLister_Event_IsBase(bool value) const { kdirlister_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualKDirLister final : public KDirLister {
     inline void setKDirLister_SenderSignalIndex_IsBase(bool value) const { kdirlister_sendersignalindex_isbase = value; }
     inline void setKDirLister_Receivers_IsBase(bool value) const { kdirlister_receivers_isbase = value; }
     inline void setKDirLister_IsSignalConnected_IsBase(bool value) const { kdirlister_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdirlister_metaobject_isbase) {
+            kdirlister_metaobject_isbase = false;
+            return KDirLister::metaObject();
+        } else if (kdirlister_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdirlister_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDirLister::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdirlister_metacast_isbase) {
+            kdirlister_metacast_isbase = false;
+            return KDirLister::qt_metacast(param1);
+        } else if (kdirlister_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdirlister_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDirLister::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

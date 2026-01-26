@@ -17,6 +17,8 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
     bool isVirtualKPartsPartManager = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__PartManager_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__PartManager_Metacast_Callback = void* (*)(KParts__PartManager*, const char*);
     using KParts__PartManager_Metacall_Callback = int (*)(KParts__PartManager*, int, int, void**);
     using KParts__PartManager_EventFilter_Callback = bool (*)(KParts__PartManager*, QObject*, QEvent*);
     using KParts__PartManager_AddPart_Callback = void (*)(KParts__PartManager*, KParts__Part*, bool);
@@ -42,6 +44,8 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
   protected:
     // Instance callback storage
+    KParts__PartManager_MetaObject_Callback kparts__partmanager_metaobject_callback = nullptr;
+    KParts__PartManager_Metacast_Callback kparts__partmanager_metacast_callback = nullptr;
     KParts__PartManager_Metacall_Callback kparts__partmanager_metacall_callback = nullptr;
     KParts__PartManager_EventFilter_Callback kparts__partmanager_eventfilter_callback = nullptr;
     KParts__PartManager_AddPart_Callback kparts__partmanager_addpart_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
     KParts__PartManager_IsSignalConnected_Callback kparts__partmanager_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__partmanager_metaobject_isbase = false;
+    mutable bool kparts__partmanager_metacast_isbase = false;
     mutable bool kparts__partmanager_metacall_isbase = false;
     mutable bool kparts__partmanager_eventfilter_isbase = false;
     mutable bool kparts__partmanager_addpart_isbase = false;
@@ -94,6 +100,8 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
     VirtualKPartsPartManager(QWidget* topLevel, QObject* parent) : KParts::PartManager(topLevel, parent) {};
 
     ~VirtualKPartsPartManager() {
+        kparts__partmanager_metaobject_callback = nullptr;
+        kparts__partmanager_metacast_callback = nullptr;
         kparts__partmanager_metacall_callback = nullptr;
         kparts__partmanager_eventfilter_callback = nullptr;
         kparts__partmanager_addpart_callback = nullptr;
@@ -119,6 +127,8 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
     }
 
     // Callback setters
+    inline void setKParts__PartManager_MetaObject_Callback(KParts__PartManager_MetaObject_Callback cb) { kparts__partmanager_metaobject_callback = cb; }
+    inline void setKParts__PartManager_Metacast_Callback(KParts__PartManager_Metacast_Callback cb) { kparts__partmanager_metacast_callback = cb; }
     inline void setKParts__PartManager_Metacall_Callback(KParts__PartManager_Metacall_Callback cb) { kparts__partmanager_metacall_callback = cb; }
     inline void setKParts__PartManager_EventFilter_Callback(KParts__PartManager_EventFilter_Callback cb) { kparts__partmanager_eventfilter_callback = cb; }
     inline void setKParts__PartManager_AddPart_Callback(KParts__PartManager_AddPart_Callback cb) { kparts__partmanager_addpart_callback = cb; }
@@ -143,6 +153,8 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
     inline void setKParts__PartManager_IsSignalConnected_Callback(KParts__PartManager_IsSignalConnected_Callback cb) { kparts__partmanager_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__PartManager_MetaObject_IsBase(bool value) const { kparts__partmanager_metaobject_isbase = value; }
+    inline void setKParts__PartManager_Metacast_IsBase(bool value) const { kparts__partmanager_metacast_isbase = value; }
     inline void setKParts__PartManager_Metacall_IsBase(bool value) const { kparts__partmanager_metacall_isbase = value; }
     inline void setKParts__PartManager_EventFilter_IsBase(bool value) const { kparts__partmanager_eventfilter_isbase = value; }
     inline void setKParts__PartManager_AddPart_IsBase(bool value) const { kparts__partmanager_addpart_isbase = value; }
@@ -165,6 +177,34 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
     inline void setKParts__PartManager_SenderSignalIndex_IsBase(bool value) const { kparts__partmanager_sendersignalindex_isbase = value; }
     inline void setKParts__PartManager_Receivers_IsBase(bool value) const { kparts__partmanager_receivers_isbase = value; }
     inline void setKParts__PartManager_IsSignalConnected_IsBase(bool value) const { kparts__partmanager_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__partmanager_metaobject_isbase) {
+            kparts__partmanager_metaobject_isbase = false;
+            return KParts__PartManager::metaObject();
+        } else if (kparts__partmanager_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__partmanager_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__PartManager::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__partmanager_metacast_isbase) {
+            kparts__partmanager_metacast_isbase = false;
+            return KParts__PartManager::qt_metacast(param1);
+        } else if (kparts__partmanager_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__partmanager_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__PartManager::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

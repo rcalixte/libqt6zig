@@ -17,6 +17,8 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
     bool isVirtualKFileFilterCombo = true;
 
     // Virtual class public types (including callbacks)
+    using KFileFilterCombo_MetaObject_Callback = QMetaObject* (*)();
+    using KFileFilterCombo_Metacast_Callback = void* (*)(KFileFilterCombo*, const char*);
     using KFileFilterCombo_Metacall_Callback = int (*)(KFileFilterCombo*, int, int, void**);
     using KFileFilterCombo_EventFilter_Callback = bool (*)(KFileFilterCombo*, QObject*, QEvent*);
     using KFileFilterCombo_SetAutoCompletion_Callback = void (*)(KFileFilterCombo*, bool);
@@ -95,6 +97,8 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
 
   protected:
     // Instance callback storage
+    KFileFilterCombo_MetaObject_Callback kfilefiltercombo_metaobject_callback = nullptr;
+    KFileFilterCombo_Metacast_Callback kfilefiltercombo_metacast_callback = nullptr;
     KFileFilterCombo_Metacall_Callback kfilefiltercombo_metacall_callback = nullptr;
     KFileFilterCombo_EventFilter_Callback kfilefiltercombo_eventfilter_callback = nullptr;
     KFileFilterCombo_SetAutoCompletion_Callback kfilefiltercombo_setautocompletion_callback = nullptr;
@@ -172,6 +176,8 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
     KFileFilterCombo_Delegate_Callback kfilefiltercombo_delegate_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfilefiltercombo_metaobject_isbase = false;
+    mutable bool kfilefiltercombo_metacast_isbase = false;
     mutable bool kfilefiltercombo_metacall_isbase = false;
     mutable bool kfilefiltercombo_eventfilter_isbase = false;
     mutable bool kfilefiltercombo_setautocompletion_isbase = false;
@@ -253,6 +259,8 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
     VirtualKFileFilterCombo() : KFileFilterCombo() {};
 
     ~VirtualKFileFilterCombo() {
+        kfilefiltercombo_metaobject_callback = nullptr;
+        kfilefiltercombo_metacast_callback = nullptr;
         kfilefiltercombo_metacall_callback = nullptr;
         kfilefiltercombo_eventfilter_callback = nullptr;
         kfilefiltercombo_setautocompletion_callback = nullptr;
@@ -331,6 +339,8 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
     }
 
     // Callback setters
+    inline void setKFileFilterCombo_MetaObject_Callback(KFileFilterCombo_MetaObject_Callback cb) { kfilefiltercombo_metaobject_callback = cb; }
+    inline void setKFileFilterCombo_Metacast_Callback(KFileFilterCombo_Metacast_Callback cb) { kfilefiltercombo_metacast_callback = cb; }
     inline void setKFileFilterCombo_Metacall_Callback(KFileFilterCombo_Metacall_Callback cb) { kfilefiltercombo_metacall_callback = cb; }
     inline void setKFileFilterCombo_EventFilter_Callback(KFileFilterCombo_EventFilter_Callback cb) { kfilefiltercombo_eventfilter_callback = cb; }
     inline void setKFileFilterCombo_SetAutoCompletion_Callback(KFileFilterCombo_SetAutoCompletion_Callback cb) { kfilefiltercombo_setautocompletion_callback = cb; }
@@ -408,6 +418,8 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
     inline void setKFileFilterCombo_Delegate_Callback(KFileFilterCombo_Delegate_Callback cb) { kfilefiltercombo_delegate_callback = cb; }
 
     // Base flag setters
+    inline void setKFileFilterCombo_MetaObject_IsBase(bool value) const { kfilefiltercombo_metaobject_isbase = value; }
+    inline void setKFileFilterCombo_Metacast_IsBase(bool value) const { kfilefiltercombo_metacast_isbase = value; }
     inline void setKFileFilterCombo_Metacall_IsBase(bool value) const { kfilefiltercombo_metacall_isbase = value; }
     inline void setKFileFilterCombo_EventFilter_IsBase(bool value) const { kfilefiltercombo_eventfilter_isbase = value; }
     inline void setKFileFilterCombo_SetAutoCompletion_IsBase(bool value) const { kfilefiltercombo_setautocompletion_isbase = value; }
@@ -483,6 +495,34 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
     inline void setKFileFilterCombo_SetKeyBindingMap_IsBase(bool value) const { kfilefiltercombo_setkeybindingmap_isbase = value; }
     inline void setKFileFilterCombo_SetDelegate_IsBase(bool value) const { kfilefiltercombo_setdelegate_isbase = value; }
     inline void setKFileFilterCombo_Delegate_IsBase(bool value) const { kfilefiltercombo_delegate_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfilefiltercombo_metaobject_isbase) {
+            kfilefiltercombo_metaobject_isbase = false;
+            return KFileFilterCombo::metaObject();
+        } else if (kfilefiltercombo_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfilefiltercombo_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFileFilterCombo::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfilefiltercombo_metacast_isbase) {
+            kfilefiltercombo_metacast_isbase = false;
+            return KFileFilterCombo::qt_metacast(param1);
+        } else if (kfilefiltercombo_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfilefiltercombo_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFileFilterCombo::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
