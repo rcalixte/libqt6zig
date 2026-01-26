@@ -76,6 +76,10 @@ void KPixmapRegionSelectorWidget_PixmapRotated(KPixmapRegionSelectorWidget* self
 void KPixmapRegionSelectorWidget_Connect_PixmapRotated(KPixmapRegionSelectorWidget* self, intptr_t slot);
 QMenu* KPixmapRegionSelectorWidget_CreatePopupMenu(KPixmapRegionSelectorWidget* self);
 bool KPixmapRegionSelectorWidget_EventFilter(KPixmapRegionSelectorWidget* self, QObject* obj, QEvent* ev);
+void KPixmapRegionSelectorWidget_OnMetaObject(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+QMetaObject* KPixmapRegionSelectorWidget_QBaseMetaObject(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnMetacast(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void* KPixmapRegionSelectorWidget_QBaseMetacast(KPixmapRegionSelectorWidget* self, const char* param1);
 void KPixmapRegionSelectorWidget_OnMetacall(KPixmapRegionSelectorWidget* self, intptr_t slot);
 int KPixmapRegionSelectorWidget_QBaseMetacall(KPixmapRegionSelectorWidget* self, int param1, int param2, void** param3);
 void KPixmapRegionSelectorWidget_OnCreatePopupMenu(KPixmapRegionSelectorWidget* self, intptr_t slot);

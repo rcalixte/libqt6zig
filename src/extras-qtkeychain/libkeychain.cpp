@@ -138,11 +138,21 @@ QKeychain__ReadPasswordJob* QKeychain__ReadPasswordJob_new2(const libqt_string s
 }
 
 QMetaObject* QKeychain__ReadPasswordJob_MetaObject(const QKeychain__ReadPasswordJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqkeychain__readpasswordjob = dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self);
+    if (vqkeychain__readpasswordjob && vqkeychain__readpasswordjob->isVirtualQKeychainReadPasswordJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQKeychainReadPasswordJob*)self)->metaObject();
+    }
 }
 
 void* QKeychain__ReadPasswordJob_Metacast(QKeychain__ReadPasswordJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqkeychain__readpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
+    if (vqkeychain__readpasswordjob && vqkeychain__readpasswordjob->isVirtualQKeychainReadPasswordJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQKeychainReadPasswordJob*)self)->qt_metacast(param1);
+    }
 }
 
 int QKeychain__ReadPasswordJob_Metacall(QKeychain__ReadPasswordJob* self, int param1, int param2, void** param3) {
@@ -174,6 +184,44 @@ libqt_string QKeychain__ReadPasswordJob_TextData(const QKeychain__ReadPasswordJo
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* QKeychain__ReadPasswordJob_QBaseMetaObject(const QKeychain__ReadPasswordJob* self) {
+    auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+        vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vqkeychainreadpasswordjob->metaObject();
+    } else {
+        return (QMetaObject*)self->QKeychain::ReadPasswordJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QKeychain__ReadPasswordJob_OnMetaObject(const QKeychain__ReadPasswordJob* self, intptr_t slot) {
+    auto* vqkeychainreadpasswordjob = const_cast<VirtualQKeychainReadPasswordJob*>(dynamic_cast<const VirtualQKeychainReadPasswordJob*>(self));
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+        vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_MetaObject_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QKeychain__ReadPasswordJob_QBaseMetacast(QKeychain__ReadPasswordJob* self, const char* param1) {
+    auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+        vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Metacast_IsBase(true);
+        return vqkeychainreadpasswordjob->qt_metacast(param1);
+    } else {
+        return self->QKeychain::ReadPasswordJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QKeychain__ReadPasswordJob_OnMetacast(QKeychain__ReadPasswordJob* self, intptr_t slot) {
+    auto* vqkeychainreadpasswordjob = dynamic_cast<VirtualQKeychainReadPasswordJob*>(self);
+    if (vqkeychainreadpasswordjob && vqkeychainreadpasswordjob->isVirtualQKeychainReadPasswordJob) {
+        vqkeychainreadpasswordjob->setQKeychain__ReadPasswordJob_Metacast_Callback(reinterpret_cast<VirtualQKeychainReadPasswordJob::QKeychain__ReadPasswordJob_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -558,11 +606,21 @@ QKeychain__WritePasswordJob* QKeychain__WritePasswordJob_new2(const libqt_string
 }
 
 QMetaObject* QKeychain__WritePasswordJob_MetaObject(const QKeychain__WritePasswordJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqkeychain__writepasswordjob = dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self);
+    if (vqkeychain__writepasswordjob && vqkeychain__writepasswordjob->isVirtualQKeychainWritePasswordJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQKeychainWritePasswordJob*)self)->metaObject();
+    }
 }
 
 void* QKeychain__WritePasswordJob_Metacast(QKeychain__WritePasswordJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqkeychain__writepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
+    if (vqkeychain__writepasswordjob && vqkeychain__writepasswordjob->isVirtualQKeychainWritePasswordJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQKeychainWritePasswordJob*)self)->qt_metacast(param1);
+    }
 }
 
 int QKeychain__WritePasswordJob_Metacall(QKeychain__WritePasswordJob* self, int param1, int param2, void** param3) {
@@ -582,6 +640,44 @@ void QKeychain__WritePasswordJob_SetBinaryData(QKeychain__WritePasswordJob* self
 void QKeychain__WritePasswordJob_SetTextData(QKeychain__WritePasswordJob* self, const libqt_string data) {
     QString data_QString = QString::fromUtf8(data.data, data.len);
     self->setTextData(data_QString);
+}
+
+// Base class handler implementation
+QMetaObject* QKeychain__WritePasswordJob_QBaseMetaObject(const QKeychain__WritePasswordJob* self) {
+    auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+        vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vqkeychainwritepasswordjob->metaObject();
+    } else {
+        return (QMetaObject*)self->QKeychain::WritePasswordJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QKeychain__WritePasswordJob_OnMetaObject(const QKeychain__WritePasswordJob* self, intptr_t slot) {
+    auto* vqkeychainwritepasswordjob = const_cast<VirtualQKeychainWritePasswordJob*>(dynamic_cast<const VirtualQKeychainWritePasswordJob*>(self));
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+        vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_MetaObject_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QKeychain__WritePasswordJob_QBaseMetacast(QKeychain__WritePasswordJob* self, const char* param1) {
+    auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+        vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Metacast_IsBase(true);
+        return vqkeychainwritepasswordjob->qt_metacast(param1);
+    } else {
+        return self->QKeychain::WritePasswordJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QKeychain__WritePasswordJob_OnMetacast(QKeychain__WritePasswordJob* self, intptr_t slot) {
+    auto* vqkeychainwritepasswordjob = dynamic_cast<VirtualQKeychainWritePasswordJob*>(self);
+    if (vqkeychainwritepasswordjob && vqkeychainwritepasswordjob->isVirtualQKeychainWritePasswordJob) {
+        vqkeychainwritepasswordjob->setQKeychain__WritePasswordJob_Metacast_Callback(reinterpret_cast<VirtualQKeychainWritePasswordJob::QKeychain__WritePasswordJob_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -966,11 +1062,21 @@ QKeychain__DeletePasswordJob* QKeychain__DeletePasswordJob_new2(const libqt_stri
 }
 
 QMetaObject* QKeychain__DeletePasswordJob_MetaObject(const QKeychain__DeletePasswordJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqkeychain__deletepasswordjob = dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self);
+    if (vqkeychain__deletepasswordjob && vqkeychain__deletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQKeychainDeletePasswordJob*)self)->metaObject();
+    }
 }
 
 void* QKeychain__DeletePasswordJob_Metacast(QKeychain__DeletePasswordJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqkeychain__deletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
+    if (vqkeychain__deletepasswordjob && vqkeychain__deletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQKeychainDeletePasswordJob*)self)->qt_metacast(param1);
+    }
 }
 
 int QKeychain__DeletePasswordJob_Metacall(QKeychain__DeletePasswordJob* self, int param1, int param2, void** param3) {
@@ -979,6 +1085,44 @@ int QKeychain__DeletePasswordJob_Metacall(QKeychain__DeletePasswordJob* self, in
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
         return ((VirtualQKeychainDeletePasswordJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QKeychain__DeletePasswordJob_QBaseMetaObject(const QKeychain__DeletePasswordJob* self) {
+    auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+        vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vqkeychaindeletepasswordjob->metaObject();
+    } else {
+        return (QMetaObject*)self->QKeychain::DeletePasswordJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QKeychain__DeletePasswordJob_OnMetaObject(const QKeychain__DeletePasswordJob* self, intptr_t slot) {
+    auto* vqkeychaindeletepasswordjob = const_cast<VirtualQKeychainDeletePasswordJob*>(dynamic_cast<const VirtualQKeychainDeletePasswordJob*>(self));
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+        vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_MetaObject_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QKeychain__DeletePasswordJob_QBaseMetacast(QKeychain__DeletePasswordJob* self, const char* param1) {
+    auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+        vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Metacast_IsBase(true);
+        return vqkeychaindeletepasswordjob->qt_metacast(param1);
+    } else {
+        return self->QKeychain::DeletePasswordJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QKeychain__DeletePasswordJob_OnMetacast(QKeychain__DeletePasswordJob* self, intptr_t slot) {
+    auto* vqkeychaindeletepasswordjob = dynamic_cast<VirtualQKeychainDeletePasswordJob*>(self);
+    if (vqkeychaindeletepasswordjob && vqkeychaindeletepasswordjob->isVirtualQKeychainDeletePasswordJob) {
+        vqkeychaindeletepasswordjob->setQKeychain__DeletePasswordJob_Metacast_Callback(reinterpret_cast<VirtualQKeychainDeletePasswordJob::QKeychain__DeletePasswordJob_Metacast_Callback>(slot));
     }
 }
 

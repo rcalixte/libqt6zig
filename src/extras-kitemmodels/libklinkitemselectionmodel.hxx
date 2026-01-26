@@ -17,6 +17,8 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
     bool isVirtualKLinkItemSelectionModel = true;
 
     // Virtual class public types (including callbacks)
+    using KLinkItemSelectionModel_MetaObject_Callback = QMetaObject* (*)();
+    using KLinkItemSelectionModel_Metacast_Callback = void* (*)(KLinkItemSelectionModel*, const char*);
     using KLinkItemSelectionModel_Metacall_Callback = int (*)(KLinkItemSelectionModel*, int, int, void**);
     using KLinkItemSelectionModel_Select_Callback = void (*)(KLinkItemSelectionModel*, QModelIndex*, int);
     using KLinkItemSelectionModel_Select2_Callback = void (*)(KLinkItemSelectionModel*, QItemSelection*, int);
@@ -39,6 +41,8 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
 
   protected:
     // Instance callback storage
+    KLinkItemSelectionModel_MetaObject_Callback klinkitemselectionmodel_metaobject_callback = nullptr;
+    KLinkItemSelectionModel_Metacast_Callback klinkitemselectionmodel_metacast_callback = nullptr;
     KLinkItemSelectionModel_Metacall_Callback klinkitemselectionmodel_metacall_callback = nullptr;
     KLinkItemSelectionModel_Select_Callback klinkitemselectionmodel_select_callback = nullptr;
     KLinkItemSelectionModel_Select2_Callback klinkitemselectionmodel_select2_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
     KLinkItemSelectionModel_IsSignalConnected_Callback klinkitemselectionmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool klinkitemselectionmodel_metaobject_isbase = false;
+    mutable bool klinkitemselectionmodel_metacast_isbase = false;
     mutable bool klinkitemselectionmodel_metacall_isbase = false;
     mutable bool klinkitemselectionmodel_select_isbase = false;
     mutable bool klinkitemselectionmodel_select2_isbase = false;
@@ -87,6 +93,8 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
     VirtualKLinkItemSelectionModel(QObject* parent) : KLinkItemSelectionModel(parent) {};
 
     ~VirtualKLinkItemSelectionModel() {
+        klinkitemselectionmodel_metaobject_callback = nullptr;
+        klinkitemselectionmodel_metacast_callback = nullptr;
         klinkitemselectionmodel_metacall_callback = nullptr;
         klinkitemselectionmodel_select_callback = nullptr;
         klinkitemselectionmodel_select2_callback = nullptr;
@@ -109,6 +117,8 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
     }
 
     // Callback setters
+    inline void setKLinkItemSelectionModel_MetaObject_Callback(KLinkItemSelectionModel_MetaObject_Callback cb) { klinkitemselectionmodel_metaobject_callback = cb; }
+    inline void setKLinkItemSelectionModel_Metacast_Callback(KLinkItemSelectionModel_Metacast_Callback cb) { klinkitemselectionmodel_metacast_callback = cb; }
     inline void setKLinkItemSelectionModel_Metacall_Callback(KLinkItemSelectionModel_Metacall_Callback cb) { klinkitemselectionmodel_metacall_callback = cb; }
     inline void setKLinkItemSelectionModel_Select_Callback(KLinkItemSelectionModel_Select_Callback cb) { klinkitemselectionmodel_select_callback = cb; }
     inline void setKLinkItemSelectionModel_Select2_Callback(KLinkItemSelectionModel_Select2_Callback cb) { klinkitemselectionmodel_select2_callback = cb; }
@@ -130,6 +140,8 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
     inline void setKLinkItemSelectionModel_IsSignalConnected_Callback(KLinkItemSelectionModel_IsSignalConnected_Callback cb) { klinkitemselectionmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKLinkItemSelectionModel_MetaObject_IsBase(bool value) const { klinkitemselectionmodel_metaobject_isbase = value; }
+    inline void setKLinkItemSelectionModel_Metacast_IsBase(bool value) const { klinkitemselectionmodel_metacast_isbase = value; }
     inline void setKLinkItemSelectionModel_Metacall_IsBase(bool value) const { klinkitemselectionmodel_metacall_isbase = value; }
     inline void setKLinkItemSelectionModel_Select_IsBase(bool value) const { klinkitemselectionmodel_select_isbase = value; }
     inline void setKLinkItemSelectionModel_Select2_IsBase(bool value) const { klinkitemselectionmodel_select2_isbase = value; }
@@ -149,6 +161,34 @@ class VirtualKLinkItemSelectionModel final : public KLinkItemSelectionModel {
     inline void setKLinkItemSelectionModel_SenderSignalIndex_IsBase(bool value) const { klinkitemselectionmodel_sendersignalindex_isbase = value; }
     inline void setKLinkItemSelectionModel_Receivers_IsBase(bool value) const { klinkitemselectionmodel_receivers_isbase = value; }
     inline void setKLinkItemSelectionModel_IsSignalConnected_IsBase(bool value) const { klinkitemselectionmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (klinkitemselectionmodel_metaobject_isbase) {
+            klinkitemselectionmodel_metaobject_isbase = false;
+            return KLinkItemSelectionModel::metaObject();
+        } else if (klinkitemselectionmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = klinkitemselectionmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KLinkItemSelectionModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (klinkitemselectionmodel_metacast_isbase) {
+            klinkitemselectionmodel_metacast_isbase = false;
+            return KLinkItemSelectionModel::qt_metacast(param1);
+        } else if (klinkitemselectionmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = klinkitemselectionmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KLinkItemSelectionModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

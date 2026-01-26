@@ -17,6 +17,8 @@ class VirtualQHCandlestickModelMapper final : public QHCandlestickModelMapper {
     bool isVirtualQHCandlestickModelMapper = true;
 
     // Virtual class public types (including callbacks)
+    using QHCandlestickModelMapper_MetaObject_Callback = QMetaObject* (*)();
+    using QHCandlestickModelMapper_Metacast_Callback = void* (*)(QHCandlestickModelMapper*, const char*);
     using QHCandlestickModelMapper_Metacall_Callback = int (*)(QHCandlestickModelMapper*, int, int, void**);
     using QHCandlestickModelMapper_Orientation_Callback = int (*)();
     using QHCandlestickModelMapper_Event_Callback = bool (*)(QHCandlestickModelMapper*, QEvent*);
@@ -47,6 +49,8 @@ class VirtualQHCandlestickModelMapper final : public QHCandlestickModelMapper {
 
   protected:
     // Instance callback storage
+    QHCandlestickModelMapper_MetaObject_Callback qhcandlestickmodelmapper_metaobject_callback = nullptr;
+    QHCandlestickModelMapper_Metacast_Callback qhcandlestickmodelmapper_metacast_callback = nullptr;
     QHCandlestickModelMapper_Metacall_Callback qhcandlestickmodelmapper_metacall_callback = nullptr;
     QHCandlestickModelMapper_Orientation_Callback qhcandlestickmodelmapper_orientation_callback = nullptr;
     QHCandlestickModelMapper_Event_Callback qhcandlestickmodelmapper_event_callback = nullptr;
@@ -76,6 +80,8 @@ class VirtualQHCandlestickModelMapper final : public QHCandlestickModelMapper {
     QHCandlestickModelMapper_IsSignalConnected_Callback qhcandlestickmodelmapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qhcandlestickmodelmapper_metaobject_isbase = false;
+    mutable bool qhcandlestickmodelmapper_metacast_isbase = false;
     mutable bool qhcandlestickmodelmapper_metacall_isbase = false;
     mutable bool qhcandlestickmodelmapper_orientation_isbase = false;
     mutable bool qhcandlestickmodelmapper_event_isbase = false;
@@ -109,6 +115,8 @@ class VirtualQHCandlestickModelMapper final : public QHCandlestickModelMapper {
     VirtualQHCandlestickModelMapper(QObject* parent) : QHCandlestickModelMapper(parent) {};
 
     ~VirtualQHCandlestickModelMapper() {
+        qhcandlestickmodelmapper_metaobject_callback = nullptr;
+        qhcandlestickmodelmapper_metacast_callback = nullptr;
         qhcandlestickmodelmapper_metacall_callback = nullptr;
         qhcandlestickmodelmapper_orientation_callback = nullptr;
         qhcandlestickmodelmapper_event_callback = nullptr;
@@ -139,6 +147,8 @@ class VirtualQHCandlestickModelMapper final : public QHCandlestickModelMapper {
     }
 
     // Callback setters
+    inline void setQHCandlestickModelMapper_MetaObject_Callback(QHCandlestickModelMapper_MetaObject_Callback cb) { qhcandlestickmodelmapper_metaobject_callback = cb; }
+    inline void setQHCandlestickModelMapper_Metacast_Callback(QHCandlestickModelMapper_Metacast_Callback cb) { qhcandlestickmodelmapper_metacast_callback = cb; }
     inline void setQHCandlestickModelMapper_Metacall_Callback(QHCandlestickModelMapper_Metacall_Callback cb) { qhcandlestickmodelmapper_metacall_callback = cb; }
     inline void setQHCandlestickModelMapper_Orientation_Callback(QHCandlestickModelMapper_Orientation_Callback cb) { qhcandlestickmodelmapper_orientation_callback = cb; }
     inline void setQHCandlestickModelMapper_Event_Callback(QHCandlestickModelMapper_Event_Callback cb) { qhcandlestickmodelmapper_event_callback = cb; }
@@ -168,6 +178,8 @@ class VirtualQHCandlestickModelMapper final : public QHCandlestickModelMapper {
     inline void setQHCandlestickModelMapper_IsSignalConnected_Callback(QHCandlestickModelMapper_IsSignalConnected_Callback cb) { qhcandlestickmodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQHCandlestickModelMapper_MetaObject_IsBase(bool value) const { qhcandlestickmodelmapper_metaobject_isbase = value; }
+    inline void setQHCandlestickModelMapper_Metacast_IsBase(bool value) const { qhcandlestickmodelmapper_metacast_isbase = value; }
     inline void setQHCandlestickModelMapper_Metacall_IsBase(bool value) const { qhcandlestickmodelmapper_metacall_isbase = value; }
     inline void setQHCandlestickModelMapper_Orientation_IsBase(bool value) const { qhcandlestickmodelmapper_orientation_isbase = value; }
     inline void setQHCandlestickModelMapper_Event_IsBase(bool value) const { qhcandlestickmodelmapper_event_isbase = value; }
@@ -195,6 +207,34 @@ class VirtualQHCandlestickModelMapper final : public QHCandlestickModelMapper {
     inline void setQHCandlestickModelMapper_SenderSignalIndex_IsBase(bool value) const { qhcandlestickmodelmapper_sendersignalindex_isbase = value; }
     inline void setQHCandlestickModelMapper_Receivers_IsBase(bool value) const { qhcandlestickmodelmapper_receivers_isbase = value; }
     inline void setQHCandlestickModelMapper_IsSignalConnected_IsBase(bool value) const { qhcandlestickmodelmapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qhcandlestickmodelmapper_metaobject_isbase) {
+            qhcandlestickmodelmapper_metaobject_isbase = false;
+            return QHCandlestickModelMapper::metaObject();
+        } else if (qhcandlestickmodelmapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qhcandlestickmodelmapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHCandlestickModelMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qhcandlestickmodelmapper_metacast_isbase) {
+            qhcandlestickmodelmapper_metacast_isbase = false;
+            return QHCandlestickModelMapper::qt_metacast(param1);
+        } else if (qhcandlestickmodelmapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qhcandlestickmodelmapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHCandlestickModelMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

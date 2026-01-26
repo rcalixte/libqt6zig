@@ -53,11 +53,21 @@ QAbstractScrollArea* QAbstractScrollArea_new2() {
 }
 
 QMetaObject* QAbstractScrollArea_MetaObject(const QAbstractScrollArea* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractscrollarea = dynamic_cast<const VirtualQAbstractScrollArea*>(self);
+    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractScrollArea*)self)->metaObject();
+    }
 }
 
 void* QAbstractScrollArea_Metacast(QAbstractScrollArea* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
+    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractScrollArea*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractScrollArea_Metacall(QAbstractScrollArea* self, int param1, int param2, void** param3) {
@@ -301,6 +311,44 @@ QSize* QAbstractScrollArea_ViewportSizeHint(const QAbstractScrollArea* self) {
         return new QSize(vqabstractscrollarea->viewportSizeHint());
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractScrollArea_QBaseMetaObject(const QAbstractScrollArea* self) {
+    auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
+    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
+        vqabstractscrollarea->setQAbstractScrollArea_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractscrollarea->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractScrollArea::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractScrollArea_OnMetaObject(const QAbstractScrollArea* self, intptr_t slot) {
+    auto* vqabstractscrollarea = const_cast<VirtualQAbstractScrollArea*>(dynamic_cast<const VirtualQAbstractScrollArea*>(self));
+    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
+        vqabstractscrollarea->setQAbstractScrollArea_MetaObject_Callback(reinterpret_cast<VirtualQAbstractScrollArea::QAbstractScrollArea_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractScrollArea_QBaseMetacast(QAbstractScrollArea* self, const char* param1) {
+    auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
+    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
+        vqabstractscrollarea->setQAbstractScrollArea_Metacast_IsBase(true);
+        return vqabstractscrollarea->qt_metacast(param1);
+    } else {
+        return self->QAbstractScrollArea::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractScrollArea_OnMetacast(QAbstractScrollArea* self, intptr_t slot) {
+    auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
+    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
+        vqabstractscrollarea->setQAbstractScrollArea_Metacast_Callback(reinterpret_cast<VirtualQAbstractScrollArea::QAbstractScrollArea_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

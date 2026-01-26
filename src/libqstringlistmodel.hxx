@@ -17,6 +17,8 @@ class VirtualQStringListModel final : public QStringListModel {
     bool isVirtualQStringListModel = true;
 
     // Virtual class public types (including callbacks)
+    using QStringListModel_MetaObject_Callback = QMetaObject* (*)();
+    using QStringListModel_Metacast_Callback = void* (*)(QStringListModel*, const char*);
     using QStringListModel_Metacall_Callback = int (*)(QStringListModel*, int, int, void**);
     using QStringListModel_RowCount_Callback = int (*)(const QStringListModel*, QModelIndex*);
     using QStringListModel_Sibling_Callback = QModelIndex* (*)(const QStringListModel*, int, int, QModelIndex*);
@@ -86,6 +88,8 @@ class VirtualQStringListModel final : public QStringListModel {
 
   protected:
     // Instance callback storage
+    QStringListModel_MetaObject_Callback qstringlistmodel_metaobject_callback = nullptr;
+    QStringListModel_Metacast_Callback qstringlistmodel_metacast_callback = nullptr;
     QStringListModel_Metacall_Callback qstringlistmodel_metacall_callback = nullptr;
     QStringListModel_RowCount_Callback qstringlistmodel_rowcount_callback = nullptr;
     QStringListModel_Sibling_Callback qstringlistmodel_sibling_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualQStringListModel final : public QStringListModel {
     QStringListModel_IsSignalConnected_Callback qstringlistmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qstringlistmodel_metaobject_isbase = false;
+    mutable bool qstringlistmodel_metacast_isbase = false;
     mutable bool qstringlistmodel_metacall_isbase = false;
     mutable bool qstringlistmodel_rowcount_isbase = false;
     mutable bool qstringlistmodel_sibling_isbase = false;
@@ -228,6 +234,8 @@ class VirtualQStringListModel final : public QStringListModel {
     VirtualQStringListModel(const QList<QString>& strings, QObject* parent) : QStringListModel(strings, parent) {};
 
     ~VirtualQStringListModel() {
+        qstringlistmodel_metaobject_callback = nullptr;
+        qstringlistmodel_metacast_callback = nullptr;
         qstringlistmodel_metacall_callback = nullptr;
         qstringlistmodel_rowcount_callback = nullptr;
         qstringlistmodel_sibling_callback = nullptr;
@@ -297,6 +305,8 @@ class VirtualQStringListModel final : public QStringListModel {
     }
 
     // Callback setters
+    inline void setQStringListModel_MetaObject_Callback(QStringListModel_MetaObject_Callback cb) { qstringlistmodel_metaobject_callback = cb; }
+    inline void setQStringListModel_Metacast_Callback(QStringListModel_Metacast_Callback cb) { qstringlistmodel_metacast_callback = cb; }
     inline void setQStringListModel_Metacall_Callback(QStringListModel_Metacall_Callback cb) { qstringlistmodel_metacall_callback = cb; }
     inline void setQStringListModel_RowCount_Callback(QStringListModel_RowCount_Callback cb) { qstringlistmodel_rowcount_callback = cb; }
     inline void setQStringListModel_Sibling_Callback(QStringListModel_Sibling_Callback cb) { qstringlistmodel_sibling_callback = cb; }
@@ -365,6 +375,8 @@ class VirtualQStringListModel final : public QStringListModel {
     inline void setQStringListModel_IsSignalConnected_Callback(QStringListModel_IsSignalConnected_Callback cb) { qstringlistmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQStringListModel_MetaObject_IsBase(bool value) const { qstringlistmodel_metaobject_isbase = value; }
+    inline void setQStringListModel_Metacast_IsBase(bool value) const { qstringlistmodel_metacast_isbase = value; }
     inline void setQStringListModel_Metacall_IsBase(bool value) const { qstringlistmodel_metacall_isbase = value; }
     inline void setQStringListModel_RowCount_IsBase(bool value) const { qstringlistmodel_rowcount_isbase = value; }
     inline void setQStringListModel_Sibling_IsBase(bool value) const { qstringlistmodel_sibling_isbase = value; }
@@ -431,6 +443,34 @@ class VirtualQStringListModel final : public QStringListModel {
     inline void setQStringListModel_SenderSignalIndex_IsBase(bool value) const { qstringlistmodel_sendersignalindex_isbase = value; }
     inline void setQStringListModel_Receivers_IsBase(bool value) const { qstringlistmodel_receivers_isbase = value; }
     inline void setQStringListModel_IsSignalConnected_IsBase(bool value) const { qstringlistmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qstringlistmodel_metaobject_isbase) {
+            qstringlistmodel_metaobject_isbase = false;
+            return QStringListModel::metaObject();
+        } else if (qstringlistmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qstringlistmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QStringListModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qstringlistmodel_metacast_isbase) {
+            qstringlistmodel_metacast_isbase = false;
+            return QStringListModel::qt_metacast(param1);
+        } else if (qstringlistmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qstringlistmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QStringListModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

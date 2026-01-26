@@ -20,6 +20,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using QAbstractItemView_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractItemView_Metacast_Callback = void* (*)(QAbstractItemView*, const char*);
     using QAbstractItemView_Metacall_Callback = int (*)(QAbstractItemView*, int, int, void**);
     using QAbstractItemView_SetModel_Callback = void (*)(QAbstractItemView*, QAbstractItemModel*);
     using QAbstractItemView_SetSelectionModel_Callback = void (*)(QAbstractItemView*, QItemSelectionModel*);
@@ -139,6 +141,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
 
   protected:
     // Instance callback storage
+    QAbstractItemView_MetaObject_Callback qabstractitemview_metaobject_callback = nullptr;
+    QAbstractItemView_Metacast_Callback qabstractitemview_metacast_callback = nullptr;
     QAbstractItemView_Metacall_Callback qabstractitemview_metacall_callback = nullptr;
     QAbstractItemView_SetModel_Callback qabstractitemview_setmodel_callback = nullptr;
     QAbstractItemView_SetSelectionModel_Callback qabstractitemview_setselectionmodel_callback = nullptr;
@@ -257,6 +261,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     QAbstractItemView_GetDecodedMetricF_Callback qabstractitemview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractitemview_metaobject_isbase = false;
+    mutable bool qabstractitemview_metacast_isbase = false;
     mutable bool qabstractitemview_metacall_isbase = false;
     mutable bool qabstractitemview_setmodel_isbase = false;
     mutable bool qabstractitemview_setselectionmodel_isbase = false;
@@ -379,6 +385,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     VirtualQAbstractItemView() : QAbstractItemView() {};
 
     ~VirtualQAbstractItemView() {
+        qabstractitemview_metaobject_callback = nullptr;
+        qabstractitemview_metacast_callback = nullptr;
         qabstractitemview_metacall_callback = nullptr;
         qabstractitemview_setmodel_callback = nullptr;
         qabstractitemview_setselectionmodel_callback = nullptr;
@@ -498,6 +506,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     }
 
     // Callback setters
+    inline void setQAbstractItemView_MetaObject_Callback(QAbstractItemView_MetaObject_Callback cb) { qabstractitemview_metaobject_callback = cb; }
+    inline void setQAbstractItemView_Metacast_Callback(QAbstractItemView_Metacast_Callback cb) { qabstractitemview_metacast_callback = cb; }
     inline void setQAbstractItemView_Metacall_Callback(QAbstractItemView_Metacall_Callback cb) { qabstractitemview_metacall_callback = cb; }
     inline void setQAbstractItemView_SetModel_Callback(QAbstractItemView_SetModel_Callback cb) { qabstractitemview_setmodel_callback = cb; }
     inline void setQAbstractItemView_SetSelectionModel_Callback(QAbstractItemView_SetSelectionModel_Callback cb) { qabstractitemview_setselectionmodel_callback = cb; }
@@ -616,6 +626,8 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     inline void setQAbstractItemView_GetDecodedMetricF_Callback(QAbstractItemView_GetDecodedMetricF_Callback cb) { qabstractitemview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractItemView_MetaObject_IsBase(bool value) const { qabstractitemview_metaobject_isbase = value; }
+    inline void setQAbstractItemView_Metacast_IsBase(bool value) const { qabstractitemview_metacast_isbase = value; }
     inline void setQAbstractItemView_Metacall_IsBase(bool value) const { qabstractitemview_metacall_isbase = value; }
     inline void setQAbstractItemView_SetModel_IsBase(bool value) const { qabstractitemview_setmodel_isbase = value; }
     inline void setQAbstractItemView_SetSelectionModel_IsBase(bool value) const { qabstractitemview_setselectionmodel_isbase = value; }
@@ -732,6 +744,34 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     inline void setQAbstractItemView_Receivers_IsBase(bool value) const { qabstractitemview_receivers_isbase = value; }
     inline void setQAbstractItemView_IsSignalConnected_IsBase(bool value) const { qabstractitemview_issignalconnected_isbase = value; }
     inline void setQAbstractItemView_GetDecodedMetricF_IsBase(bool value) const { qabstractitemview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractitemview_metaobject_isbase) {
+            qabstractitemview_metaobject_isbase = false;
+            return QAbstractItemView::metaObject();
+        } else if (qabstractitemview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractitemview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractItemView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractitemview_metacast_isbase) {
+            qabstractitemview_metacast_isbase = false;
+            return QAbstractItemView::qt_metacast(param1);
+        } else if (qabstractitemview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractitemview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractItemView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
     bool isVirtualKColumnHeadersModel = true;
 
     // Virtual class public types (including callbacks)
+    using KColumnHeadersModel_MetaObject_Callback = QMetaObject* (*)();
+    using KColumnHeadersModel_Metacast_Callback = void* (*)(KColumnHeadersModel*, const char*);
     using KColumnHeadersModel_Metacall_Callback = int (*)(KColumnHeadersModel*, int, int, void**);
     using KColumnHeadersModel_RowCount_Callback = int (*)(const KColumnHeadersModel*, QModelIndex*);
     using KColumnHeadersModel_Data_Callback = QVariant* (*)(const KColumnHeadersModel*, QModelIndex*, int);
@@ -86,6 +88,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
 
   protected:
     // Instance callback storage
+    KColumnHeadersModel_MetaObject_Callback kcolumnheadersmodel_metaobject_callback = nullptr;
+    KColumnHeadersModel_Metacast_Callback kcolumnheadersmodel_metacast_callback = nullptr;
     KColumnHeadersModel_Metacall_Callback kcolumnheadersmodel_metacall_callback = nullptr;
     KColumnHeadersModel_RowCount_Callback kcolumnheadersmodel_rowcount_callback = nullptr;
     KColumnHeadersModel_Data_Callback kcolumnheadersmodel_data_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
     KColumnHeadersModel_IsSignalConnected_Callback kcolumnheadersmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcolumnheadersmodel_metaobject_isbase = false;
+    mutable bool kcolumnheadersmodel_metacast_isbase = false;
     mutable bool kcolumnheadersmodel_metacall_isbase = false;
     mutable bool kcolumnheadersmodel_rowcount_isbase = false;
     mutable bool kcolumnheadersmodel_data_isbase = false;
@@ -226,6 +232,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
     VirtualKColumnHeadersModel(QObject* parent) : KColumnHeadersModel(parent) {};
 
     ~VirtualKColumnHeadersModel() {
+        kcolumnheadersmodel_metaobject_callback = nullptr;
+        kcolumnheadersmodel_metacast_callback = nullptr;
         kcolumnheadersmodel_metacall_callback = nullptr;
         kcolumnheadersmodel_rowcount_callback = nullptr;
         kcolumnheadersmodel_data_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
     }
 
     // Callback setters
+    inline void setKColumnHeadersModel_MetaObject_Callback(KColumnHeadersModel_MetaObject_Callback cb) { kcolumnheadersmodel_metaobject_callback = cb; }
+    inline void setKColumnHeadersModel_Metacast_Callback(KColumnHeadersModel_Metacast_Callback cb) { kcolumnheadersmodel_metacast_callback = cb; }
     inline void setKColumnHeadersModel_Metacall_Callback(KColumnHeadersModel_Metacall_Callback cb) { kcolumnheadersmodel_metacall_callback = cb; }
     inline void setKColumnHeadersModel_RowCount_Callback(KColumnHeadersModel_RowCount_Callback cb) { kcolumnheadersmodel_rowcount_callback = cb; }
     inline void setKColumnHeadersModel_Data_Callback(KColumnHeadersModel_Data_Callback cb) { kcolumnheadersmodel_data_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
     inline void setKColumnHeadersModel_IsSignalConnected_Callback(KColumnHeadersModel_IsSignalConnected_Callback cb) { kcolumnheadersmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKColumnHeadersModel_MetaObject_IsBase(bool value) const { kcolumnheadersmodel_metaobject_isbase = value; }
+    inline void setKColumnHeadersModel_Metacast_IsBase(bool value) const { kcolumnheadersmodel_metacast_isbase = value; }
     inline void setKColumnHeadersModel_Metacall_IsBase(bool value) const { kcolumnheadersmodel_metacall_isbase = value; }
     inline void setKColumnHeadersModel_RowCount_IsBase(bool value) const { kcolumnheadersmodel_rowcount_isbase = value; }
     inline void setKColumnHeadersModel_Data_IsBase(bool value) const { kcolumnheadersmodel_data_isbase = value; }
@@ -429,6 +441,34 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
     inline void setKColumnHeadersModel_SenderSignalIndex_IsBase(bool value) const { kcolumnheadersmodel_sendersignalindex_isbase = value; }
     inline void setKColumnHeadersModel_Receivers_IsBase(bool value) const { kcolumnheadersmodel_receivers_isbase = value; }
     inline void setKColumnHeadersModel_IsSignalConnected_IsBase(bool value) const { kcolumnheadersmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcolumnheadersmodel_metaobject_isbase) {
+            kcolumnheadersmodel_metaobject_isbase = false;
+            return KColumnHeadersModel::metaObject();
+        } else if (kcolumnheadersmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcolumnheadersmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KColumnHeadersModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcolumnheadersmodel_metacast_isbase) {
+            kcolumnheadersmodel_metacast_isbase = false;
+            return KColumnHeadersModel::qt_metacast(param1);
+        } else if (kcolumnheadersmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcolumnheadersmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KColumnHeadersModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

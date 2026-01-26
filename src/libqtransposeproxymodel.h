@@ -57,6 +57,10 @@ bool QTransposeProxyModel_InsertColumns(QTransposeProxyModel* self, int column, 
 bool QTransposeProxyModel_RemoveColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent);
 bool QTransposeProxyModel_MoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
 void QTransposeProxyModel_Sort(QTransposeProxyModel* self, int column, int order);
+void QTransposeProxyModel_OnMetaObject(const QTransposeProxyModel* self, intptr_t slot);
+QMetaObject* QTransposeProxyModel_QBaseMetaObject(const QTransposeProxyModel* self);
+void QTransposeProxyModel_OnMetacast(QTransposeProxyModel* self, intptr_t slot);
+void* QTransposeProxyModel_QBaseMetacast(QTransposeProxyModel* self, const char* param1);
 void QTransposeProxyModel_OnMetacall(QTransposeProxyModel* self, intptr_t slot);
 int QTransposeProxyModel_QBaseMetacall(QTransposeProxyModel* self, int param1, int param2, void** param3);
 void QTransposeProxyModel_OnSetSourceModel(QTransposeProxyModel* self, intptr_t slot);

@@ -55,6 +55,10 @@ void QPdfPageNavigator_Connect_ForwardAvailableChanged(QPdfPageNavigator* self, 
 void QPdfPageNavigator_Jumped(QPdfPageNavigator* self, QPdfLink* current);
 void QPdfPageNavigator_Connect_Jumped(QPdfPageNavigator* self, intptr_t slot);
 void QPdfPageNavigator_Jump3(QPdfPageNavigator* self, int page, const QPointF* location, double zoom);
+void QPdfPageNavigator_OnMetaObject(const QPdfPageNavigator* self, intptr_t slot);
+QMetaObject* QPdfPageNavigator_QBaseMetaObject(const QPdfPageNavigator* self);
+void QPdfPageNavigator_OnMetacast(QPdfPageNavigator* self, intptr_t slot);
+void* QPdfPageNavigator_QBaseMetacast(QPdfPageNavigator* self, const char* param1);
 void QPdfPageNavigator_OnMetacall(QPdfPageNavigator* self, intptr_t slot);
 int QPdfPageNavigator_QBaseMetacall(QPdfPageNavigator* self, int param1, int param2, void** param3);
 bool QPdfPageNavigator_Event(QPdfPageNavigator* self, QEvent* event);

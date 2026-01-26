@@ -17,6 +17,8 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
     bool isVirtualKNewPasswordWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KNewPasswordWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KNewPasswordWidget_Metacast_Callback = void* (*)(KNewPasswordWidget*, const char*);
     using KNewPasswordWidget_Metacall_Callback = int (*)(KNewPasswordWidget*, int, int, void**);
     using KNewPasswordWidget_DevType_Callback = int (*)();
     using KNewPasswordWidget_SetVisible_Callback = void (*)(KNewPasswordWidget*, bool);
@@ -78,6 +80,8 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
 
   protected:
     // Instance callback storage
+    KNewPasswordWidget_MetaObject_Callback knewpasswordwidget_metaobject_callback = nullptr;
+    KNewPasswordWidget_Metacast_Callback knewpasswordwidget_metacast_callback = nullptr;
     KNewPasswordWidget_Metacall_Callback knewpasswordwidget_metacall_callback = nullptr;
     KNewPasswordWidget_DevType_Callback knewpasswordwidget_devtype_callback = nullptr;
     KNewPasswordWidget_SetVisible_Callback knewpasswordwidget_setvisible_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
     KNewPasswordWidget_GetDecodedMetricF_Callback knewpasswordwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool knewpasswordwidget_metaobject_isbase = false;
+    mutable bool knewpasswordwidget_metacast_isbase = false;
     mutable bool knewpasswordwidget_metacall_isbase = false;
     mutable bool knewpasswordwidget_devtype_isbase = false;
     mutable bool knewpasswordwidget_setvisible_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
     VirtualKNewPasswordWidget() : KNewPasswordWidget() {};
 
     ~VirtualKNewPasswordWidget() {
+        knewpasswordwidget_metaobject_callback = nullptr;
+        knewpasswordwidget_metacast_callback = nullptr;
         knewpasswordwidget_metacall_callback = nullptr;
         knewpasswordwidget_devtype_callback = nullptr;
         knewpasswordwidget_setvisible_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
     }
 
     // Callback setters
+    inline void setKNewPasswordWidget_MetaObject_Callback(KNewPasswordWidget_MetaObject_Callback cb) { knewpasswordwidget_metaobject_callback = cb; }
+    inline void setKNewPasswordWidget_Metacast_Callback(KNewPasswordWidget_Metacast_Callback cb) { knewpasswordwidget_metacast_callback = cb; }
     inline void setKNewPasswordWidget_Metacall_Callback(KNewPasswordWidget_Metacall_Callback cb) { knewpasswordwidget_metacall_callback = cb; }
     inline void setKNewPasswordWidget_DevType_Callback(KNewPasswordWidget_DevType_Callback cb) { knewpasswordwidget_devtype_callback = cb; }
     inline void setKNewPasswordWidget_SetVisible_Callback(KNewPasswordWidget_SetVisible_Callback cb) { knewpasswordwidget_setvisible_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
     inline void setKNewPasswordWidget_GetDecodedMetricF_Callback(KNewPasswordWidget_GetDecodedMetricF_Callback cb) { knewpasswordwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKNewPasswordWidget_MetaObject_IsBase(bool value) const { knewpasswordwidget_metaobject_isbase = value; }
+    inline void setKNewPasswordWidget_Metacast_IsBase(bool value) const { knewpasswordwidget_metacast_isbase = value; }
     inline void setKNewPasswordWidget_Metacall_IsBase(bool value) const { knewpasswordwidget_metacall_isbase = value; }
     inline void setKNewPasswordWidget_DevType_IsBase(bool value) const { knewpasswordwidget_devtype_isbase = value; }
     inline void setKNewPasswordWidget_SetVisible_IsBase(bool value) const { knewpasswordwidget_setvisible_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
     inline void setKNewPasswordWidget_Receivers_IsBase(bool value) const { knewpasswordwidget_receivers_isbase = value; }
     inline void setKNewPasswordWidget_IsSignalConnected_IsBase(bool value) const { knewpasswordwidget_issignalconnected_isbase = value; }
     inline void setKNewPasswordWidget_GetDecodedMetricF_IsBase(bool value) const { knewpasswordwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knewpasswordwidget_metaobject_isbase) {
+            knewpasswordwidget_metaobject_isbase = false;
+            return KNewPasswordWidget::metaObject();
+        } else if (knewpasswordwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knewpasswordwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNewPasswordWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knewpasswordwidget_metacast_isbase) {
+            knewpasswordwidget_metacast_isbase = false;
+            return KNewPasswordWidget::qt_metacast(param1);
+        } else if (knewpasswordwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knewpasswordwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNewPasswordWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

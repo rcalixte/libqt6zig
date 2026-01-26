@@ -35,11 +35,21 @@ QPdfWriter* QPdfWriter_new2(QIODevice* device) {
 }
 
 QMetaObject* QPdfWriter_MetaObject(const QPdfWriter* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpdfwriter = dynamic_cast<const VirtualQPdfWriter*>(self);
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPdfWriter*)self)->metaObject();
+    }
 }
 
 void* QPdfWriter_Metacast(QPdfWriter* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPdfWriter*)self)->qt_metacast(param1);
+    }
 }
 
 int QPdfWriter_Metacall(QPdfWriter* self, int param1, int param2, void** param3) {
@@ -176,6 +186,44 @@ void QPdfWriter_AddFileAttachment3(QPdfWriter* self, const libqt_string fileName
     QByteArray data_QByteArray(data.data, data.len);
     QString mimeType_QString = QString::fromUtf8(mimeType.data, mimeType.len);
     self->addFileAttachment(fileName_QString, data_QByteArray, mimeType_QString);
+}
+
+// Base class handler implementation
+QMetaObject* QPdfWriter_QBaseMetaObject(const QPdfWriter* self) {
+    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpdfwriter->metaObject();
+    } else {
+        return (QMetaObject*)self->QPdfWriter::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfWriter_OnMetaObject(const QPdfWriter* self, intptr_t slot) {
+    auto* vqpdfwriter = const_cast<VirtualQPdfWriter*>(dynamic_cast<const VirtualQPdfWriter*>(self));
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_MetaObject_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPdfWriter_QBaseMetacast(QPdfWriter* self, const char* param1) {
+    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_Metacast_IsBase(true);
+        return vqpdfwriter->qt_metacast(param1);
+    } else {
+        return self->QPdfWriter::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfWriter_OnMetacast(QPdfWriter* self, intptr_t slot) {
+    auto* vqpdfwriter = dynamic_cast<VirtualQPdfWriter*>(self);
+    if (vqpdfwriter && vqpdfwriter->isVirtualQPdfWriter) {
+        vqpdfwriter->setQPdfWriter_Metacast_Callback(reinterpret_cast<VirtualQPdfWriter::QPdfWriter_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

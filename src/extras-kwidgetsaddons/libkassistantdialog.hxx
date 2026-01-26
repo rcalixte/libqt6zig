@@ -17,6 +17,8 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
     bool isVirtualKAssistantDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KAssistantDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KAssistantDialog_Metacast_Callback = void* (*)(KAssistantDialog*, const char*);
     using KAssistantDialog_Metacall_Callback = int (*)(KAssistantDialog*, int, int, void**);
     using KAssistantDialog_Back_Callback = void (*)();
     using KAssistantDialog_Next_Callback = void (*)();
@@ -90,6 +92,8 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
 
   protected:
     // Instance callback storage
+    KAssistantDialog_MetaObject_Callback kassistantdialog_metaobject_callback = nullptr;
+    KAssistantDialog_Metacast_Callback kassistantdialog_metacast_callback = nullptr;
     KAssistantDialog_Metacall_Callback kassistantdialog_metacall_callback = nullptr;
     KAssistantDialog_Back_Callback kassistantdialog_back_callback = nullptr;
     KAssistantDialog_Next_Callback kassistantdialog_next_callback = nullptr;
@@ -162,6 +166,8 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
     KAssistantDialog_GetDecodedMetricF_Callback kassistantdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kassistantdialog_metaobject_isbase = false;
+    mutable bool kassistantdialog_metacast_isbase = false;
     mutable bool kassistantdialog_metacall_isbase = false;
     mutable bool kassistantdialog_back_isbase = false;
     mutable bool kassistantdialog_next_isbase = false;
@@ -239,6 +245,8 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
     VirtualKAssistantDialog(QWidget* parent, Qt::WindowFlags flags) : KAssistantDialog(parent, flags) {};
 
     ~VirtualKAssistantDialog() {
+        kassistantdialog_metaobject_callback = nullptr;
+        kassistantdialog_metacast_callback = nullptr;
         kassistantdialog_metacall_callback = nullptr;
         kassistantdialog_back_callback = nullptr;
         kassistantdialog_next_callback = nullptr;
@@ -312,6 +320,8 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
     }
 
     // Callback setters
+    inline void setKAssistantDialog_MetaObject_Callback(KAssistantDialog_MetaObject_Callback cb) { kassistantdialog_metaobject_callback = cb; }
+    inline void setKAssistantDialog_Metacast_Callback(KAssistantDialog_Metacast_Callback cb) { kassistantdialog_metacast_callback = cb; }
     inline void setKAssistantDialog_Metacall_Callback(KAssistantDialog_Metacall_Callback cb) { kassistantdialog_metacall_callback = cb; }
     inline void setKAssistantDialog_Back_Callback(KAssistantDialog_Back_Callback cb) { kassistantdialog_back_callback = cb; }
     inline void setKAssistantDialog_Next_Callback(KAssistantDialog_Next_Callback cb) { kassistantdialog_next_callback = cb; }
@@ -384,6 +394,8 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
     inline void setKAssistantDialog_GetDecodedMetricF_Callback(KAssistantDialog_GetDecodedMetricF_Callback cb) { kassistantdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKAssistantDialog_MetaObject_IsBase(bool value) const { kassistantdialog_metaobject_isbase = value; }
+    inline void setKAssistantDialog_Metacast_IsBase(bool value) const { kassistantdialog_metacast_isbase = value; }
     inline void setKAssistantDialog_Metacall_IsBase(bool value) const { kassistantdialog_metacall_isbase = value; }
     inline void setKAssistantDialog_Back_IsBase(bool value) const { kassistantdialog_back_isbase = value; }
     inline void setKAssistantDialog_Next_IsBase(bool value) const { kassistantdialog_next_isbase = value; }
@@ -454,6 +466,34 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
     inline void setKAssistantDialog_Receivers_IsBase(bool value) const { kassistantdialog_receivers_isbase = value; }
     inline void setKAssistantDialog_IsSignalConnected_IsBase(bool value) const { kassistantdialog_issignalconnected_isbase = value; }
     inline void setKAssistantDialog_GetDecodedMetricF_IsBase(bool value) const { kassistantdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kassistantdialog_metaobject_isbase) {
+            kassistantdialog_metaobject_isbase = false;
+            return KAssistantDialog::metaObject();
+        } else if (kassistantdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kassistantdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KAssistantDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kassistantdialog_metacast_isbase) {
+            kassistantdialog_metacast_isbase = false;
+            return KAssistantDialog::qt_metacast(param1);
+        } else if (kassistantdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kassistantdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KAssistantDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

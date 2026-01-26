@@ -17,6 +17,8 @@ class VirtualQComboBox final : public QComboBox {
     bool isVirtualQComboBox = true;
 
     // Virtual class public types (including callbacks)
+    using QComboBox_MetaObject_Callback = QMetaObject* (*)();
+    using QComboBox_Metacast_Callback = void* (*)(QComboBox*, const char*);
     using QComboBox_Metacall_Callback = int (*)(QComboBox*, int, int, void**);
     using QComboBox_SetModel_Callback = void (*)(QComboBox*, QAbstractItemModel*);
     using QComboBox_SizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualQComboBox final : public QComboBox {
 
   protected:
     // Instance callback storage
+    QComboBox_MetaObject_Callback qcombobox_metaobject_callback = nullptr;
+    QComboBox_Metacast_Callback qcombobox_metacast_callback = nullptr;
     QComboBox_Metacall_Callback qcombobox_metacall_callback = nullptr;
     QComboBox_SetModel_Callback qcombobox_setmodel_callback = nullptr;
     QComboBox_SizeHint_Callback qcombobox_sizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQComboBox final : public QComboBox {
     QComboBox_GetDecodedMetricF_Callback qcombobox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcombobox_metaobject_isbase = false;
+    mutable bool qcombobox_metacast_isbase = false;
     mutable bool qcombobox_metacall_isbase = false;
     mutable bool qcombobox_setmodel_isbase = false;
     mutable bool qcombobox_sizehint_isbase = false;
@@ -214,6 +220,8 @@ class VirtualQComboBox final : public QComboBox {
     VirtualQComboBox() : QComboBox() {};
 
     ~VirtualQComboBox() {
+        qcombobox_metaobject_callback = nullptr;
+        qcombobox_metacast_callback = nullptr;
         qcombobox_metacall_callback = nullptr;
         qcombobox_setmodel_callback = nullptr;
         qcombobox_sizehint_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualQComboBox final : public QComboBox {
     }
 
     // Callback setters
+    inline void setQComboBox_MetaObject_Callback(QComboBox_MetaObject_Callback cb) { qcombobox_metaobject_callback = cb; }
+    inline void setQComboBox_Metacast_Callback(QComboBox_Metacast_Callback cb) { qcombobox_metacast_callback = cb; }
     inline void setQComboBox_Metacall_Callback(QComboBox_Metacall_Callback cb) { qcombobox_metacall_callback = cb; }
     inline void setQComboBox_SetModel_Callback(QComboBox_SetModel_Callback cb) { qcombobox_setmodel_callback = cb; }
     inline void setQComboBox_SizeHint_Callback(QComboBox_SizeHint_Callback cb) { qcombobox_sizehint_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualQComboBox final : public QComboBox {
     inline void setQComboBox_GetDecodedMetricF_Callback(QComboBox_GetDecodedMetricF_Callback cb) { qcombobox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQComboBox_MetaObject_IsBase(bool value) const { qcombobox_metaobject_isbase = value; }
+    inline void setQComboBox_Metacast_IsBase(bool value) const { qcombobox_metacast_isbase = value; }
     inline void setQComboBox_Metacall_IsBase(bool value) const { qcombobox_metacall_isbase = value; }
     inline void setQComboBox_SetModel_IsBase(bool value) const { qcombobox_setmodel_isbase = value; }
     inline void setQComboBox_SizeHint_IsBase(bool value) const { qcombobox_sizehint_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualQComboBox final : public QComboBox {
     inline void setQComboBox_Receivers_IsBase(bool value) const { qcombobox_receivers_isbase = value; }
     inline void setQComboBox_IsSignalConnected_IsBase(bool value) const { qcombobox_issignalconnected_isbase = value; }
     inline void setQComboBox_GetDecodedMetricF_IsBase(bool value) const { qcombobox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcombobox_metaobject_isbase) {
+            qcombobox_metaobject_isbase = false;
+            return QComboBox::metaObject();
+        } else if (qcombobox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcombobox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QComboBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcombobox_metacast_isbase) {
+            qcombobox_metacast_isbase = false;
+            return QComboBox::qt_metacast(param1);
+        } else if (qcombobox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcombobox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QComboBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

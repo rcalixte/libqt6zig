@@ -59,6 +59,10 @@ void QItemDelegate_DrawFocus(const QItemDelegate* self, QPainter* painter, const
 void QItemDelegate_DrawCheck(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, int state);
 bool QItemDelegate_EventFilter(QItemDelegate* self, QObject* object, QEvent* event);
 bool QItemDelegate_EditorEvent(QItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index);
+void QItemDelegate_OnMetaObject(const QItemDelegate* self, intptr_t slot);
+QMetaObject* QItemDelegate_QBaseMetaObject(const QItemDelegate* self);
+void QItemDelegate_OnMetacast(QItemDelegate* self, intptr_t slot);
+void* QItemDelegate_QBaseMetacast(QItemDelegate* self, const char* param1);
 void QItemDelegate_OnMetacall(QItemDelegate* self, intptr_t slot);
 int QItemDelegate_QBaseMetacall(QItemDelegate* self, int param1, int param2, void** param3);
 void QItemDelegate_OnPaint(const QItemDelegate* self, intptr_t slot);

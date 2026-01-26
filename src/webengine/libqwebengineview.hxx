@@ -17,6 +17,8 @@ class VirtualQWebEngineView final : public QWebEngineView {
     bool isVirtualQWebEngineView = true;
 
     // Virtual class public types (including callbacks)
+    using QWebEngineView_MetaObject_Callback = QMetaObject* (*)();
+    using QWebEngineView_Metacast_Callback = void* (*)(QWebEngineView*, const char*);
     using QWebEngineView_Metacall_Callback = int (*)(QWebEngineView*, int, int, void**);
     using QWebEngineView_SizeHint_Callback = QSize* (*)();
     using QWebEngineView_CreateWindow_Callback = QWebEngineView* (*)(QWebEngineView*, int);
@@ -79,6 +81,8 @@ class VirtualQWebEngineView final : public QWebEngineView {
 
   protected:
     // Instance callback storage
+    QWebEngineView_MetaObject_Callback qwebengineview_metaobject_callback = nullptr;
+    QWebEngineView_Metacast_Callback qwebengineview_metacast_callback = nullptr;
     QWebEngineView_Metacall_Callback qwebengineview_metacall_callback = nullptr;
     QWebEngineView_SizeHint_Callback qwebengineview_sizehint_callback = nullptr;
     QWebEngineView_CreateWindow_Callback qwebengineview_createwindow_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualQWebEngineView final : public QWebEngineView {
     QWebEngineView_GetDecodedMetricF_Callback qwebengineview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwebengineview_metaobject_isbase = false;
+    mutable bool qwebengineview_metacast_isbase = false;
     mutable bool qwebengineview_metacall_isbase = false;
     mutable bool qwebengineview_sizehint_isbase = false;
     mutable bool qwebengineview_createwindow_isbase = false;
@@ -209,6 +215,8 @@ class VirtualQWebEngineView final : public QWebEngineView {
     VirtualQWebEngineView(QWebEnginePage* page, QWidget* parent) : QWebEngineView(page, parent) {};
 
     ~VirtualQWebEngineView() {
+        qwebengineview_metaobject_callback = nullptr;
+        qwebengineview_metacast_callback = nullptr;
         qwebengineview_metacall_callback = nullptr;
         qwebengineview_sizehint_callback = nullptr;
         qwebengineview_createwindow_callback = nullptr;
@@ -271,6 +279,8 @@ class VirtualQWebEngineView final : public QWebEngineView {
     }
 
     // Callback setters
+    inline void setQWebEngineView_MetaObject_Callback(QWebEngineView_MetaObject_Callback cb) { qwebengineview_metaobject_callback = cb; }
+    inline void setQWebEngineView_Metacast_Callback(QWebEngineView_Metacast_Callback cb) { qwebengineview_metacast_callback = cb; }
     inline void setQWebEngineView_Metacall_Callback(QWebEngineView_Metacall_Callback cb) { qwebengineview_metacall_callback = cb; }
     inline void setQWebEngineView_SizeHint_Callback(QWebEngineView_SizeHint_Callback cb) { qwebengineview_sizehint_callback = cb; }
     inline void setQWebEngineView_CreateWindow_Callback(QWebEngineView_CreateWindow_Callback cb) { qwebengineview_createwindow_callback = cb; }
@@ -332,6 +342,8 @@ class VirtualQWebEngineView final : public QWebEngineView {
     inline void setQWebEngineView_GetDecodedMetricF_Callback(QWebEngineView_GetDecodedMetricF_Callback cb) { qwebengineview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQWebEngineView_MetaObject_IsBase(bool value) const { qwebengineview_metaobject_isbase = value; }
+    inline void setQWebEngineView_Metacast_IsBase(bool value) const { qwebengineview_metacast_isbase = value; }
     inline void setQWebEngineView_Metacall_IsBase(bool value) const { qwebengineview_metacall_isbase = value; }
     inline void setQWebEngineView_SizeHint_IsBase(bool value) const { qwebengineview_sizehint_isbase = value; }
     inline void setQWebEngineView_CreateWindow_IsBase(bool value) const { qwebengineview_createwindow_isbase = value; }
@@ -391,6 +403,34 @@ class VirtualQWebEngineView final : public QWebEngineView {
     inline void setQWebEngineView_Receivers_IsBase(bool value) const { qwebengineview_receivers_isbase = value; }
     inline void setQWebEngineView_IsSignalConnected_IsBase(bool value) const { qwebengineview_issignalconnected_isbase = value; }
     inline void setQWebEngineView_GetDecodedMetricF_IsBase(bool value) const { qwebengineview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwebengineview_metaobject_isbase) {
+            qwebengineview_metaobject_isbase = false;
+            return QWebEngineView::metaObject();
+        } else if (qwebengineview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwebengineview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWebEngineView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwebengineview_metacast_isbase) {
+            qwebengineview_metacast_isbase = false;
+            return QWebEngineView::qt_metacast(param1);
+        } else if (qwebengineview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwebengineview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWebEngineView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

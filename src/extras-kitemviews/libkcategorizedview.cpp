@@ -64,11 +64,21 @@ KCategorizedView* KCategorizedView_new2() {
 }
 
 QMetaObject* KCategorizedView_MetaObject(const KCategorizedView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcategorizedview = dynamic_cast<const VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCategorizedView*)self)->metaObject();
+    }
 }
 
 void* KCategorizedView_Metacast(KCategorizedView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCategorizedView*)self)->qt_metacast(param1);
+    }
 }
 
 int KCategorizedView_Metacall(KCategorizedView* self, int param1, int param2, void** param3) {
@@ -356,6 +366,44 @@ void KCategorizedView_SlotLayoutChanged(KCategorizedView* self) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
     if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
         vkcategorizedview->slotLayoutChanged();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KCategorizedView_QBaseMetaObject(const KCategorizedView* self) {
+    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcategorizedview->metaObject();
+    } else {
+        return (QMetaObject*)self->KCategorizedView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCategorizedView_OnMetaObject(const KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_MetaObject_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCategorizedView_QBaseMetacast(KCategorizedView* self, const char* param1) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_Metacast_IsBase(true);
+        return vkcategorizedview->qt_metacast(param1);
+    } else {
+        return self->KCategorizedView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCategorizedView_OnMetacast(KCategorizedView* self, intptr_t slot) {
+    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+        vkcategorizedview->setKCategorizedView_Metacast_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Metacast_Callback>(slot));
     }
 }
 

@@ -17,6 +17,8 @@ class VirtualKCoreUrlNavigator final : public KCoreUrlNavigator {
     bool isVirtualKCoreUrlNavigator = true;
 
     // Virtual class public types (including callbacks)
+    using KCoreUrlNavigator_MetaObject_Callback = QMetaObject* (*)();
+    using KCoreUrlNavigator_Metacast_Callback = void* (*)(KCoreUrlNavigator*, const char*);
     using KCoreUrlNavigator_Metacall_Callback = int (*)(KCoreUrlNavigator*, int, int, void**);
     using KCoreUrlNavigator_Event_Callback = bool (*)(KCoreUrlNavigator*, QEvent*);
     using KCoreUrlNavigator_EventFilter_Callback = bool (*)(KCoreUrlNavigator*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKCoreUrlNavigator final : public KCoreUrlNavigator {
 
   protected:
     // Instance callback storage
+    KCoreUrlNavigator_MetaObject_Callback kcoreurlnavigator_metaobject_callback = nullptr;
+    KCoreUrlNavigator_Metacast_Callback kcoreurlnavigator_metacast_callback = nullptr;
     KCoreUrlNavigator_Metacall_Callback kcoreurlnavigator_metacall_callback = nullptr;
     KCoreUrlNavigator_Event_Callback kcoreurlnavigator_event_callback = nullptr;
     KCoreUrlNavigator_EventFilter_Callback kcoreurlnavigator_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKCoreUrlNavigator final : public KCoreUrlNavigator {
     KCoreUrlNavigator_IsSignalConnected_Callback kcoreurlnavigator_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcoreurlnavigator_metaobject_isbase = false;
+    mutable bool kcoreurlnavigator_metacast_isbase = false;
     mutable bool kcoreurlnavigator_metacall_isbase = false;
     mutable bool kcoreurlnavigator_event_isbase = false;
     mutable bool kcoreurlnavigator_eventfilter_isbase = false;
@@ -65,6 +71,8 @@ class VirtualKCoreUrlNavigator final : public KCoreUrlNavigator {
     VirtualKCoreUrlNavigator(const QUrl& url, QObject* parent) : KCoreUrlNavigator(url, parent) {};
 
     ~VirtualKCoreUrlNavigator() {
+        kcoreurlnavigator_metaobject_callback = nullptr;
+        kcoreurlnavigator_metacast_callback = nullptr;
         kcoreurlnavigator_metacall_callback = nullptr;
         kcoreurlnavigator_event_callback = nullptr;
         kcoreurlnavigator_eventfilter_callback = nullptr;
@@ -80,6 +88,8 @@ class VirtualKCoreUrlNavigator final : public KCoreUrlNavigator {
     }
 
     // Callback setters
+    inline void setKCoreUrlNavigator_MetaObject_Callback(KCoreUrlNavigator_MetaObject_Callback cb) { kcoreurlnavigator_metaobject_callback = cb; }
+    inline void setKCoreUrlNavigator_Metacast_Callback(KCoreUrlNavigator_Metacast_Callback cb) { kcoreurlnavigator_metacast_callback = cb; }
     inline void setKCoreUrlNavigator_Metacall_Callback(KCoreUrlNavigator_Metacall_Callback cb) { kcoreurlnavigator_metacall_callback = cb; }
     inline void setKCoreUrlNavigator_Event_Callback(KCoreUrlNavigator_Event_Callback cb) { kcoreurlnavigator_event_callback = cb; }
     inline void setKCoreUrlNavigator_EventFilter_Callback(KCoreUrlNavigator_EventFilter_Callback cb) { kcoreurlnavigator_eventfilter_callback = cb; }
@@ -94,6 +104,8 @@ class VirtualKCoreUrlNavigator final : public KCoreUrlNavigator {
     inline void setKCoreUrlNavigator_IsSignalConnected_Callback(KCoreUrlNavigator_IsSignalConnected_Callback cb) { kcoreurlnavigator_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCoreUrlNavigator_MetaObject_IsBase(bool value) const { kcoreurlnavigator_metaobject_isbase = value; }
+    inline void setKCoreUrlNavigator_Metacast_IsBase(bool value) const { kcoreurlnavigator_metacast_isbase = value; }
     inline void setKCoreUrlNavigator_Metacall_IsBase(bool value) const { kcoreurlnavigator_metacall_isbase = value; }
     inline void setKCoreUrlNavigator_Event_IsBase(bool value) const { kcoreurlnavigator_event_isbase = value; }
     inline void setKCoreUrlNavigator_EventFilter_IsBase(bool value) const { kcoreurlnavigator_eventfilter_isbase = value; }
@@ -106,6 +118,34 @@ class VirtualKCoreUrlNavigator final : public KCoreUrlNavigator {
     inline void setKCoreUrlNavigator_SenderSignalIndex_IsBase(bool value) const { kcoreurlnavigator_sendersignalindex_isbase = value; }
     inline void setKCoreUrlNavigator_Receivers_IsBase(bool value) const { kcoreurlnavigator_receivers_isbase = value; }
     inline void setKCoreUrlNavigator_IsSignalConnected_IsBase(bool value) const { kcoreurlnavigator_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcoreurlnavigator_metaobject_isbase) {
+            kcoreurlnavigator_metaobject_isbase = false;
+            return KCoreUrlNavigator::metaObject();
+        } else if (kcoreurlnavigator_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcoreurlnavigator_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCoreUrlNavigator::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcoreurlnavigator_metacast_isbase) {
+            kcoreurlnavigator_metacast_isbase = false;
+            return KCoreUrlNavigator::qt_metacast(param1);
+        } else if (kcoreurlnavigator_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcoreurlnavigator_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCoreUrlNavigator::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

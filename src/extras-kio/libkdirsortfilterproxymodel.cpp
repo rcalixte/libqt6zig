@@ -37,11 +37,21 @@ KDirSortFilterProxyModel* KDirSortFilterProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* KDirSortFilterProxyModel_MetaObject(const KDirSortFilterProxyModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdirsortfilterproxymodel = dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self);
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDirSortFilterProxyModel*)self)->metaObject();
+    }
 }
 
 void* KDirSortFilterProxyModel_Metacast(KDirSortFilterProxyModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDirSortFilterProxyModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KDirSortFilterProxyModel_Metacall(KDirSortFilterProxyModel* self, int param1, int param2, void** param3) {
@@ -101,6 +111,44 @@ bool KDirSortFilterProxyModel_SubSortLessThan(const KDirSortFilterProxyModel* se
         return vkdirsortfilterproxymodel->subSortLessThan(*left, *right);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KDirSortFilterProxyModel_QBaseMetaObject(const KDirSortFilterProxyModel* self) {
+    auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+        vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdirsortfilterproxymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KDirSortFilterProxyModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirSortFilterProxyModel_OnMetaObject(const KDirSortFilterProxyModel* self, intptr_t slot) {
+    auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+        vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDirSortFilterProxyModel_QBaseMetacast(KDirSortFilterProxyModel* self, const char* param1) {
+    auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+        vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Metacast_IsBase(true);
+        return vkdirsortfilterproxymodel->qt_metacast(param1);
+    } else {
+        return self->KDirSortFilterProxyModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirSortFilterProxyModel_OnMetacast(KDirSortFilterProxyModel* self, intptr_t slot) {
+    auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+        vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Metacast_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

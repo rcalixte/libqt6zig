@@ -92,6 +92,10 @@ void QAreaSeries_Connect_PointLabelsClippingChanged(QAreaSeries* self, intptr_t 
 void QAreaSeries_SetPointsVisible1(QAreaSeries* self, bool visible);
 void QAreaSeries_SetPointLabelsVisible1(QAreaSeries* self, bool visible);
 void QAreaSeries_SetPointLabelsClipping1(QAreaSeries* self, bool enabled);
+void QAreaSeries_OnMetaObject(const QAreaSeries* self, intptr_t slot);
+QMetaObject* QAreaSeries_QBaseMetaObject(const QAreaSeries* self);
+void QAreaSeries_OnMetacast(QAreaSeries* self, intptr_t slot);
+void* QAreaSeries_QBaseMetacast(QAreaSeries* self, const char* param1);
 void QAreaSeries_OnMetacall(QAreaSeries* self, intptr_t slot);
 int QAreaSeries_QBaseMetacall(QAreaSeries* self, int param1, int param2, void** param3);
 void QAreaSeries_OnType(const QAreaSeries* self, intptr_t slot);

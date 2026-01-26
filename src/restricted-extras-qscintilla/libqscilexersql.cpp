@@ -25,11 +25,21 @@ QsciLexerSQL* QsciLexerSQL_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerSQL_MetaObject(const QsciLexerSQL* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexersql = dynamic_cast<const VirtualQsciLexerSQL*>(self);
+    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerSQL*)self)->metaObject();
+    }
 }
 
 void* QsciLexerSQL_Metacast(QsciLexerSQL* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
+    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerSQL*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerSQL_Metacall(QsciLexerSQL* self, int param1, int param2, void** param3) {
@@ -165,6 +175,44 @@ void QsciLexerSQL_SetFoldCompact(QsciLexerSQL* self, bool fold) {
         self->setFoldCompact(fold);
     } else {
         ((VirtualQsciLexerSQL*)self)->setFoldCompact(fold);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerSQL_QBaseMetaObject(const QsciLexerSQL* self) {
+    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
+    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+        vqscilexersql->setQsciLexerSQL_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexersql->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerSQL*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerSQL_OnMetaObject(const QsciLexerSQL* self, intptr_t slot) {
+    auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
+    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+        vqscilexersql->setQsciLexerSQL_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerSQL_QBaseMetacast(QsciLexerSQL* self, const char* param1) {
+    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
+    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+        vqscilexersql->setQsciLexerSQL_Metacast_IsBase(true);
+        return vqscilexersql->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerSQL*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerSQL_OnMetacast(QsciLexerSQL* self, intptr_t slot) {
+    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
+    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
+        vqscilexersql->setQsciLexerSQL_Metacast_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_Metacast_Callback>(slot));
     }
 }
 

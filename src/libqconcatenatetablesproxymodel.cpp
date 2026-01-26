@@ -32,11 +32,21 @@ QConcatenateTablesProxyModel* QConcatenateTablesProxyModel_new2(QObject* parent)
 }
 
 QMetaObject* QConcatenateTablesProxyModel_MetaObject(const QConcatenateTablesProxyModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqconcatenatetablesproxymodel = dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self);
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQConcatenateTablesProxyModel*)self)->metaObject();
+    }
 }
 
 void* QConcatenateTablesProxyModel_Metacast(QConcatenateTablesProxyModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQConcatenateTablesProxyModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QConcatenateTablesProxyModel_Metacall(QConcatenateTablesProxyModel* self, int param1, int param2, void** param3) {
@@ -283,6 +293,44 @@ QSize* QConcatenateTablesProxyModel_Span(const QConcatenateTablesProxyModel* sel
         return new QSize(self->span(*index));
     } else {
         return new QSize(((VirtualQConcatenateTablesProxyModel*)self)->span(*index));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QConcatenateTablesProxyModel_QBaseMetaObject(const QConcatenateTablesProxyModel* self) {
+    auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+        vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqconcatenatetablesproxymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QConcatenateTablesProxyModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QConcatenateTablesProxyModel_OnMetaObject(const QConcatenateTablesProxyModel* self, intptr_t slot) {
+    auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+        vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MetaObject_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QConcatenateTablesProxyModel_QBaseMetacast(QConcatenateTablesProxyModel* self, const char* param1) {
+    auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+        vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Metacast_IsBase(true);
+        return vqconcatenatetablesproxymodel->qt_metacast(param1);
+    } else {
+        return self->QConcatenateTablesProxyModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QConcatenateTablesProxyModel_OnMetacast(QConcatenateTablesProxyModel* self, intptr_t slot) {
+    auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+        vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Metacast_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Metacast_Callback>(slot));
     }
 }
 

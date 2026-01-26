@@ -17,6 +17,8 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
     bool isVirtualKIOFavIconRequestJob = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__FavIconRequestJob_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__FavIconRequestJob_Metacast_Callback = void* (*)(KIO__FavIconRequestJob*, const char*);
     using KIO__FavIconRequestJob_Metacall_Callback = int (*)(KIO__FavIconRequestJob*, int, int, void**);
     using KIO__FavIconRequestJob_Start_Callback = void (*)();
     using KIO__FavIconRequestJob_AddSubjob_Callback = bool (*)(KIO__FavIconRequestJob*, KJob*);
@@ -55,6 +57,8 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
 
   protected:
     // Instance callback storage
+    KIO__FavIconRequestJob_MetaObject_Callback kio__faviconrequestjob_metaobject_callback = nullptr;
+    KIO__FavIconRequestJob_Metacast_Callback kio__faviconrequestjob_metacast_callback = nullptr;
     KIO__FavIconRequestJob_Metacall_Callback kio__faviconrequestjob_metacall_callback = nullptr;
     KIO__FavIconRequestJob_Start_Callback kio__faviconrequestjob_start_callback = nullptr;
     KIO__FavIconRequestJob_AddSubjob_Callback kio__faviconrequestjob_addsubjob_callback = nullptr;
@@ -92,6 +96,8 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
     KIO__FavIconRequestJob_IsSignalConnected_Callback kio__faviconrequestjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__faviconrequestjob_metaobject_isbase = false;
+    mutable bool kio__faviconrequestjob_metacast_isbase = false;
     mutable bool kio__faviconrequestjob_metacall_isbase = false;
     mutable bool kio__faviconrequestjob_start_isbase = false;
     mutable bool kio__faviconrequestjob_addsubjob_isbase = false;
@@ -134,6 +140,8 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
     VirtualKIOFavIconRequestJob(const QUrl& hostUrl, KIO::LoadType reload, QObject* parent) : KIO::FavIconRequestJob(hostUrl, reload, parent) {};
 
     ~VirtualKIOFavIconRequestJob() {
+        kio__faviconrequestjob_metaobject_callback = nullptr;
+        kio__faviconrequestjob_metacast_callback = nullptr;
         kio__faviconrequestjob_metacall_callback = nullptr;
         kio__faviconrequestjob_start_callback = nullptr;
         kio__faviconrequestjob_addsubjob_callback = nullptr;
@@ -172,6 +180,8 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
     }
 
     // Callback setters
+    inline void setKIO__FavIconRequestJob_MetaObject_Callback(KIO__FavIconRequestJob_MetaObject_Callback cb) { kio__faviconrequestjob_metaobject_callback = cb; }
+    inline void setKIO__FavIconRequestJob_Metacast_Callback(KIO__FavIconRequestJob_Metacast_Callback cb) { kio__faviconrequestjob_metacast_callback = cb; }
     inline void setKIO__FavIconRequestJob_Metacall_Callback(KIO__FavIconRequestJob_Metacall_Callback cb) { kio__faviconrequestjob_metacall_callback = cb; }
     inline void setKIO__FavIconRequestJob_Start_Callback(KIO__FavIconRequestJob_Start_Callback cb) { kio__faviconrequestjob_start_callback = cb; }
     inline void setKIO__FavIconRequestJob_AddSubjob_Callback(KIO__FavIconRequestJob_AddSubjob_Callback cb) { kio__faviconrequestjob_addsubjob_callback = cb; }
@@ -209,6 +219,8 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
     inline void setKIO__FavIconRequestJob_IsSignalConnected_Callback(KIO__FavIconRequestJob_IsSignalConnected_Callback cb) { kio__faviconrequestjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__FavIconRequestJob_MetaObject_IsBase(bool value) const { kio__faviconrequestjob_metaobject_isbase = value; }
+    inline void setKIO__FavIconRequestJob_Metacast_IsBase(bool value) const { kio__faviconrequestjob_metacast_isbase = value; }
     inline void setKIO__FavIconRequestJob_Metacall_IsBase(bool value) const { kio__faviconrequestjob_metacall_isbase = value; }
     inline void setKIO__FavIconRequestJob_Start_IsBase(bool value) const { kio__faviconrequestjob_start_isbase = value; }
     inline void setKIO__FavIconRequestJob_AddSubjob_IsBase(bool value) const { kio__faviconrequestjob_addsubjob_isbase = value; }
@@ -244,6 +256,34 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
     inline void setKIO__FavIconRequestJob_SenderSignalIndex_IsBase(bool value) const { kio__faviconrequestjob_sendersignalindex_isbase = value; }
     inline void setKIO__FavIconRequestJob_Receivers_IsBase(bool value) const { kio__faviconrequestjob_receivers_isbase = value; }
     inline void setKIO__FavIconRequestJob_IsSignalConnected_IsBase(bool value) const { kio__faviconrequestjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__faviconrequestjob_metaobject_isbase) {
+            kio__faviconrequestjob_metaobject_isbase = false;
+            return KIO__FavIconRequestJob::metaObject();
+        } else if (kio__faviconrequestjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__faviconrequestjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__FavIconRequestJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__faviconrequestjob_metacast_isbase) {
+            kio__faviconrequestjob_metacast_isbase = false;
+            return KIO__FavIconRequestJob::qt_metacast(param1);
+        } else if (kio__faviconrequestjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__faviconrequestjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__FavIconRequestJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

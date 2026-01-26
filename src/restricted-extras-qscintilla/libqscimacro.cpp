@@ -21,11 +21,21 @@ QsciMacro* QsciMacro_new2(const libqt_string asc, QsciScintilla* parent) {
 }
 
 QMetaObject* QsciMacro_MetaObject(const QsciMacro* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscimacro = dynamic_cast<const VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciMacro*)self)->metaObject();
+    }
 }
 
 void* QsciMacro_Metacast(QsciMacro* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciMacro*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciMacro_Metacall(QsciMacro* self, int param1, int param2, void** param3) {
@@ -82,6 +92,44 @@ void QsciMacro_EndRecording(QsciMacro* self) {
         self->endRecording();
     } else {
         ((VirtualQsciMacro*)self)->endRecording();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QsciMacro_QBaseMetaObject(const QsciMacro* self) {
+    auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscimacro->metaObject();
+    } else {
+        return (QMetaObject*)self->QsciMacro::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciMacro_OnMetaObject(const QsciMacro* self, intptr_t slot) {
+    auto* vqscimacro = const_cast<VirtualQsciMacro*>(dynamic_cast<const VirtualQsciMacro*>(self));
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_MetaObject_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciMacro_QBaseMetacast(QsciMacro* self, const char* param1) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_Metacast_IsBase(true);
+        return vqscimacro->qt_metacast(param1);
+    } else {
+        return self->QsciMacro::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciMacro_OnMetacast(QsciMacro* self, intptr_t slot) {
+    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
+    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
+        vqscimacro->setQsciMacro_Metacast_Callback(reinterpret_cast<VirtualQsciMacro::QsciMacro_Metacast_Callback>(slot));
     }
 }
 

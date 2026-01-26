@@ -17,6 +17,8 @@ class VirtualKCompletion final : public KCompletion {
     bool isVirtualKCompletion = true;
 
     // Virtual class public types (including callbacks)
+    using KCompletion_MetaObject_Callback = QMetaObject* (*)();
+    using KCompletion_Metacast_Callback = void* (*)(KCompletion*, const char*);
     using KCompletion_Metacall_Callback = int (*)(KCompletion*, int, int, void**);
     using KCompletion_LastMatch_Callback = const char* (*)();
     using KCompletion_SetCompletionMode_Callback = void (*)(KCompletion*, int);
@@ -43,6 +45,8 @@ class VirtualKCompletion final : public KCompletion {
 
   protected:
     // Instance callback storage
+    KCompletion_MetaObject_Callback kcompletion_metaobject_callback = nullptr;
+    KCompletion_Metacast_Callback kcompletion_metacast_callback = nullptr;
     KCompletion_Metacall_Callback kcompletion_metacall_callback = nullptr;
     KCompletion_LastMatch_Callback kcompletion_lastmatch_callback = nullptr;
     KCompletion_SetCompletionMode_Callback kcompletion_setcompletionmode_callback = nullptr;
@@ -68,6 +72,8 @@ class VirtualKCompletion final : public KCompletion {
     KCompletion_IsSignalConnected_Callback kcompletion_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcompletion_metaobject_isbase = false;
+    mutable bool kcompletion_metacast_isbase = false;
     mutable bool kcompletion_metacall_isbase = false;
     mutable bool kcompletion_lastmatch_isbase = false;
     mutable bool kcompletion_setcompletionmode_isbase = false;
@@ -96,6 +102,8 @@ class VirtualKCompletion final : public KCompletion {
     VirtualKCompletion() : KCompletion() {};
 
     ~VirtualKCompletion() {
+        kcompletion_metaobject_callback = nullptr;
+        kcompletion_metacast_callback = nullptr;
         kcompletion_metacall_callback = nullptr;
         kcompletion_lastmatch_callback = nullptr;
         kcompletion_setcompletionmode_callback = nullptr;
@@ -122,6 +130,8 @@ class VirtualKCompletion final : public KCompletion {
     }
 
     // Callback setters
+    inline void setKCompletion_MetaObject_Callback(KCompletion_MetaObject_Callback cb) { kcompletion_metaobject_callback = cb; }
+    inline void setKCompletion_Metacast_Callback(KCompletion_Metacast_Callback cb) { kcompletion_metacast_callback = cb; }
     inline void setKCompletion_Metacall_Callback(KCompletion_Metacall_Callback cb) { kcompletion_metacall_callback = cb; }
     inline void setKCompletion_LastMatch_Callback(KCompletion_LastMatch_Callback cb) { kcompletion_lastmatch_callback = cb; }
     inline void setKCompletion_SetCompletionMode_Callback(KCompletion_SetCompletionMode_Callback cb) { kcompletion_setcompletionmode_callback = cb; }
@@ -147,6 +157,8 @@ class VirtualKCompletion final : public KCompletion {
     inline void setKCompletion_IsSignalConnected_Callback(KCompletion_IsSignalConnected_Callback cb) { kcompletion_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCompletion_MetaObject_IsBase(bool value) const { kcompletion_metaobject_isbase = value; }
+    inline void setKCompletion_Metacast_IsBase(bool value) const { kcompletion_metacast_isbase = value; }
     inline void setKCompletion_Metacall_IsBase(bool value) const { kcompletion_metacall_isbase = value; }
     inline void setKCompletion_LastMatch_IsBase(bool value) const { kcompletion_lastmatch_isbase = value; }
     inline void setKCompletion_SetCompletionMode_IsBase(bool value) const { kcompletion_setcompletionmode_isbase = value; }
@@ -170,6 +182,34 @@ class VirtualKCompletion final : public KCompletion {
     inline void setKCompletion_SenderSignalIndex_IsBase(bool value) const { kcompletion_sendersignalindex_isbase = value; }
     inline void setKCompletion_Receivers_IsBase(bool value) const { kcompletion_receivers_isbase = value; }
     inline void setKCompletion_IsSignalConnected_IsBase(bool value) const { kcompletion_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcompletion_metaobject_isbase) {
+            kcompletion_metaobject_isbase = false;
+            return KCompletion::metaObject();
+        } else if (kcompletion_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcompletion_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCompletion::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcompletion_metacast_isbase) {
+            kcompletion_metacast_isbase = false;
+            return KCompletion::qt_metacast(param1);
+        } else if (kcompletion_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcompletion_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCompletion::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

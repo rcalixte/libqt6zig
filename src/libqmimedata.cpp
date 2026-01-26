@@ -22,11 +22,21 @@ QMimeData* QMimeData_new() {
 }
 
 QMetaObject* QMimeData_MetaObject(const QMimeData* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmimedata = dynamic_cast<const VirtualQMimeData*>(self);
+    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMimeData*)self)->metaObject();
+    }
 }
 
 void* QMimeData_Metacast(QMimeData* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
+    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMimeData*)self)->qt_metacast(param1);
+    }
 }
 
 int QMimeData_Metacall(QMimeData* self, int param1, int param2, void** param3) {
@@ -217,6 +227,44 @@ QVariant* QMimeData_RetrieveData(const QMimeData* self, const libqt_string mimet
         return new QVariant(vqmimedata->retrieveData(mimetype_QString, *preferredType));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QMimeData_QBaseMetaObject(const QMimeData* self) {
+    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
+    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+        vqmimedata->setQMimeData_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmimedata->metaObject();
+    } else {
+        return (QMetaObject*)self->QMimeData::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMimeData_OnMetaObject(const QMimeData* self, intptr_t slot) {
+    auto* vqmimedata = const_cast<VirtualQMimeData*>(dynamic_cast<const VirtualQMimeData*>(self));
+    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+        vqmimedata->setQMimeData_MetaObject_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMimeData_QBaseMetacast(QMimeData* self, const char* param1) {
+    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
+    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+        vqmimedata->setQMimeData_Metacast_IsBase(true);
+        return vqmimedata->qt_metacast(param1);
+    } else {
+        return self->QMimeData::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMimeData_OnMetacast(QMimeData* self, intptr_t slot) {
+    auto* vqmimedata = dynamic_cast<VirtualQMimeData*>(self);
+    if (vqmimedata && vqmimedata->isVirtualQMimeData) {
+        vqmimedata->setQMimeData_Metacast_Callback(reinterpret_cast<VirtualQMimeData::QMimeData_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

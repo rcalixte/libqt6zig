@@ -17,6 +17,8 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
     bool isVirtualKSslCertificateBox = true;
 
     // Virtual class public types (including callbacks)
+    using KSslCertificateBox_MetaObject_Callback = QMetaObject* (*)();
+    using KSslCertificateBox_Metacast_Callback = void* (*)(KSslCertificateBox*, const char*);
     using KSslCertificateBox_Metacall_Callback = int (*)(KSslCertificateBox*, int, int, void**);
     using KSslCertificateBox_DevType_Callback = int (*)();
     using KSslCertificateBox_SetVisible_Callback = void (*)(KSslCertificateBox*, bool);
@@ -78,6 +80,8 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
 
   protected:
     // Instance callback storage
+    KSslCertificateBox_MetaObject_Callback ksslcertificatebox_metaobject_callback = nullptr;
+    KSslCertificateBox_Metacast_Callback ksslcertificatebox_metacast_callback = nullptr;
     KSslCertificateBox_Metacall_Callback ksslcertificatebox_metacall_callback = nullptr;
     KSslCertificateBox_DevType_Callback ksslcertificatebox_devtype_callback = nullptr;
     KSslCertificateBox_SetVisible_Callback ksslcertificatebox_setvisible_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
     KSslCertificateBox_GetDecodedMetricF_Callback ksslcertificatebox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ksslcertificatebox_metaobject_isbase = false;
+    mutable bool ksslcertificatebox_metacast_isbase = false;
     mutable bool ksslcertificatebox_metacall_isbase = false;
     mutable bool ksslcertificatebox_devtype_isbase = false;
     mutable bool ksslcertificatebox_setvisible_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
     VirtualKSslCertificateBox() : KSslCertificateBox() {};
 
     ~VirtualKSslCertificateBox() {
+        ksslcertificatebox_metaobject_callback = nullptr;
+        ksslcertificatebox_metacast_callback = nullptr;
         ksslcertificatebox_metacall_callback = nullptr;
         ksslcertificatebox_devtype_callback = nullptr;
         ksslcertificatebox_setvisible_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
     }
 
     // Callback setters
+    inline void setKSslCertificateBox_MetaObject_Callback(KSslCertificateBox_MetaObject_Callback cb) { ksslcertificatebox_metaobject_callback = cb; }
+    inline void setKSslCertificateBox_Metacast_Callback(KSslCertificateBox_Metacast_Callback cb) { ksslcertificatebox_metacast_callback = cb; }
     inline void setKSslCertificateBox_Metacall_Callback(KSslCertificateBox_Metacall_Callback cb) { ksslcertificatebox_metacall_callback = cb; }
     inline void setKSslCertificateBox_DevType_Callback(KSslCertificateBox_DevType_Callback cb) { ksslcertificatebox_devtype_callback = cb; }
     inline void setKSslCertificateBox_SetVisible_Callback(KSslCertificateBox_SetVisible_Callback cb) { ksslcertificatebox_setvisible_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
     inline void setKSslCertificateBox_GetDecodedMetricF_Callback(KSslCertificateBox_GetDecodedMetricF_Callback cb) { ksslcertificatebox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKSslCertificateBox_MetaObject_IsBase(bool value) const { ksslcertificatebox_metaobject_isbase = value; }
+    inline void setKSslCertificateBox_Metacast_IsBase(bool value) const { ksslcertificatebox_metacast_isbase = value; }
     inline void setKSslCertificateBox_Metacall_IsBase(bool value) const { ksslcertificatebox_metacall_isbase = value; }
     inline void setKSslCertificateBox_DevType_IsBase(bool value) const { ksslcertificatebox_devtype_isbase = value; }
     inline void setKSslCertificateBox_SetVisible_IsBase(bool value) const { ksslcertificatebox_setvisible_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKSslCertificateBox final : public KSslCertificateBox {
     inline void setKSslCertificateBox_Receivers_IsBase(bool value) const { ksslcertificatebox_receivers_isbase = value; }
     inline void setKSslCertificateBox_IsSignalConnected_IsBase(bool value) const { ksslcertificatebox_issignalconnected_isbase = value; }
     inline void setKSslCertificateBox_GetDecodedMetricF_IsBase(bool value) const { ksslcertificatebox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ksslcertificatebox_metaobject_isbase) {
+            ksslcertificatebox_metaobject_isbase = false;
+            return KSslCertificateBox::metaObject();
+        } else if (ksslcertificatebox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ksslcertificatebox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSslCertificateBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ksslcertificatebox_metacast_isbase) {
+            ksslcertificatebox_metacast_isbase = false;
+            return KSslCertificateBox::qt_metacast(param1);
+        } else if (ksslcertificatebox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ksslcertificatebox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSslCertificateBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

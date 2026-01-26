@@ -17,6 +17,8 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
     bool isVirtualKNSCoreItemsModel = true;
 
     // Virtual class public types (including callbacks)
+    using KNSCore__ItemsModel_MetaObject_Callback = QMetaObject* (*)();
+    using KNSCore__ItemsModel_Metacast_Callback = void* (*)(KNSCore__ItemsModel*, const char*);
     using KNSCore__ItemsModel_Metacall_Callback = int (*)(KNSCore__ItemsModel*, int, int, void**);
     using KNSCore__ItemsModel_RowCount_Callback = int (*)(const KNSCore__ItemsModel*, QModelIndex*);
     using KNSCore__ItemsModel_Data_Callback = QVariant* (*)(const KNSCore__ItemsModel*, QModelIndex*, int);
@@ -86,6 +88,8 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
 
   protected:
     // Instance callback storage
+    KNSCore__ItemsModel_MetaObject_Callback knscore__itemsmodel_metaobject_callback = nullptr;
+    KNSCore__ItemsModel_Metacast_Callback knscore__itemsmodel_metacast_callback = nullptr;
     KNSCore__ItemsModel_Metacall_Callback knscore__itemsmodel_metacall_callback = nullptr;
     KNSCore__ItemsModel_RowCount_Callback knscore__itemsmodel_rowcount_callback = nullptr;
     KNSCore__ItemsModel_Data_Callback knscore__itemsmodel_data_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
     KNSCore__ItemsModel_IsSignalConnected_Callback knscore__itemsmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool knscore__itemsmodel_metaobject_isbase = false;
+    mutable bool knscore__itemsmodel_metacast_isbase = false;
     mutable bool knscore__itemsmodel_metacall_isbase = false;
     mutable bool knscore__itemsmodel_rowcount_isbase = false;
     mutable bool knscore__itemsmodel_data_isbase = false;
@@ -226,6 +232,8 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
     VirtualKNSCoreItemsModel(KNSCore::EngineBase* engine, QObject* parent) : KNSCore::ItemsModel(engine, parent) {};
 
     ~VirtualKNSCoreItemsModel() {
+        knscore__itemsmodel_metaobject_callback = nullptr;
+        knscore__itemsmodel_metacast_callback = nullptr;
         knscore__itemsmodel_metacall_callback = nullptr;
         knscore__itemsmodel_rowcount_callback = nullptr;
         knscore__itemsmodel_data_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
     }
 
     // Callback setters
+    inline void setKNSCore__ItemsModel_MetaObject_Callback(KNSCore__ItemsModel_MetaObject_Callback cb) { knscore__itemsmodel_metaobject_callback = cb; }
+    inline void setKNSCore__ItemsModel_Metacast_Callback(KNSCore__ItemsModel_Metacast_Callback cb) { knscore__itemsmodel_metacast_callback = cb; }
     inline void setKNSCore__ItemsModel_Metacall_Callback(KNSCore__ItemsModel_Metacall_Callback cb) { knscore__itemsmodel_metacall_callback = cb; }
     inline void setKNSCore__ItemsModel_RowCount_Callback(KNSCore__ItemsModel_RowCount_Callback cb) { knscore__itemsmodel_rowcount_callback = cb; }
     inline void setKNSCore__ItemsModel_Data_Callback(KNSCore__ItemsModel_Data_Callback cb) { knscore__itemsmodel_data_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
     inline void setKNSCore__ItemsModel_IsSignalConnected_Callback(KNSCore__ItemsModel_IsSignalConnected_Callback cb) { knscore__itemsmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKNSCore__ItemsModel_MetaObject_IsBase(bool value) const { knscore__itemsmodel_metaobject_isbase = value; }
+    inline void setKNSCore__ItemsModel_Metacast_IsBase(bool value) const { knscore__itemsmodel_metacast_isbase = value; }
     inline void setKNSCore__ItemsModel_Metacall_IsBase(bool value) const { knscore__itemsmodel_metacall_isbase = value; }
     inline void setKNSCore__ItemsModel_RowCount_IsBase(bool value) const { knscore__itemsmodel_rowcount_isbase = value; }
     inline void setKNSCore__ItemsModel_Data_IsBase(bool value) const { knscore__itemsmodel_data_isbase = value; }
@@ -429,6 +441,34 @@ class VirtualKNSCoreItemsModel final : public KNSCore::ItemsModel {
     inline void setKNSCore__ItemsModel_SenderSignalIndex_IsBase(bool value) const { knscore__itemsmodel_sendersignalindex_isbase = value; }
     inline void setKNSCore__ItemsModel_Receivers_IsBase(bool value) const { knscore__itemsmodel_receivers_isbase = value; }
     inline void setKNSCore__ItemsModel_IsSignalConnected_IsBase(bool value) const { knscore__itemsmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knscore__itemsmodel_metaobject_isbase) {
+            knscore__itemsmodel_metaobject_isbase = false;
+            return KNSCore__ItemsModel::metaObject();
+        } else if (knscore__itemsmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knscore__itemsmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNSCore__ItemsModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knscore__itemsmodel_metacast_isbase) {
+            knscore__itemsmodel_metacast_isbase = false;
+            return KNSCore__ItemsModel::qt_metacast(param1);
+        } else if (knscore__itemsmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knscore__itemsmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNSCore__ItemsModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

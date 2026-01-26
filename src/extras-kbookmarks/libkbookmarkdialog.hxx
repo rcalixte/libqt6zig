@@ -17,6 +17,8 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
     bool isVirtualKBookmarkDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KBookmarkDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KBookmarkDialog_Metacast_Callback = void* (*)(KBookmarkDialog*, const char*);
     using KBookmarkDialog_Metacall_Callback = int (*)(KBookmarkDialog*, int, int, void**);
     using KBookmarkDialog_Accept_Callback = void (*)();
     using KBookmarkDialog_SetVisible_Callback = void (*)(KBookmarkDialog*, bool);
@@ -85,6 +87,8 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
 
   protected:
     // Instance callback storage
+    KBookmarkDialog_MetaObject_Callback kbookmarkdialog_metaobject_callback = nullptr;
+    KBookmarkDialog_Metacast_Callback kbookmarkdialog_metacast_callback = nullptr;
     KBookmarkDialog_Metacall_Callback kbookmarkdialog_metacall_callback = nullptr;
     KBookmarkDialog_Accept_Callback kbookmarkdialog_accept_callback = nullptr;
     KBookmarkDialog_SetVisible_Callback kbookmarkdialog_setvisible_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
     KBookmarkDialog_GetDecodedMetricF_Callback kbookmarkdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kbookmarkdialog_metaobject_isbase = false;
+    mutable bool kbookmarkdialog_metacast_isbase = false;
     mutable bool kbookmarkdialog_metacall_isbase = false;
     mutable bool kbookmarkdialog_accept_isbase = false;
     mutable bool kbookmarkdialog_setvisible_isbase = false;
@@ -223,6 +229,8 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
     VirtualKBookmarkDialog(KBookmarkManager* manager, QWidget* parent) : KBookmarkDialog(manager, parent) {};
 
     ~VirtualKBookmarkDialog() {
+        kbookmarkdialog_metaobject_callback = nullptr;
+        kbookmarkdialog_metacast_callback = nullptr;
         kbookmarkdialog_metacall_callback = nullptr;
         kbookmarkdialog_accept_callback = nullptr;
         kbookmarkdialog_setvisible_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
     }
 
     // Callback setters
+    inline void setKBookmarkDialog_MetaObject_Callback(KBookmarkDialog_MetaObject_Callback cb) { kbookmarkdialog_metaobject_callback = cb; }
+    inline void setKBookmarkDialog_Metacast_Callback(KBookmarkDialog_Metacast_Callback cb) { kbookmarkdialog_metacast_callback = cb; }
     inline void setKBookmarkDialog_Metacall_Callback(KBookmarkDialog_Metacall_Callback cb) { kbookmarkdialog_metacall_callback = cb; }
     inline void setKBookmarkDialog_Accept_Callback(KBookmarkDialog_Accept_Callback cb) { kbookmarkdialog_accept_callback = cb; }
     inline void setKBookmarkDialog_SetVisible_Callback(KBookmarkDialog_SetVisible_Callback cb) { kbookmarkdialog_setvisible_callback = cb; }
@@ -358,6 +368,8 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
     inline void setKBookmarkDialog_GetDecodedMetricF_Callback(KBookmarkDialog_GetDecodedMetricF_Callback cb) { kbookmarkdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKBookmarkDialog_MetaObject_IsBase(bool value) const { kbookmarkdialog_metaobject_isbase = value; }
+    inline void setKBookmarkDialog_Metacast_IsBase(bool value) const { kbookmarkdialog_metacast_isbase = value; }
     inline void setKBookmarkDialog_Metacall_IsBase(bool value) const { kbookmarkdialog_metacall_isbase = value; }
     inline void setKBookmarkDialog_Accept_IsBase(bool value) const { kbookmarkdialog_accept_isbase = value; }
     inline void setKBookmarkDialog_SetVisible_IsBase(bool value) const { kbookmarkdialog_setvisible_isbase = value; }
@@ -423,6 +435,34 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
     inline void setKBookmarkDialog_Receivers_IsBase(bool value) const { kbookmarkdialog_receivers_isbase = value; }
     inline void setKBookmarkDialog_IsSignalConnected_IsBase(bool value) const { kbookmarkdialog_issignalconnected_isbase = value; }
     inline void setKBookmarkDialog_GetDecodedMetricF_IsBase(bool value) const { kbookmarkdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kbookmarkdialog_metaobject_isbase) {
+            kbookmarkdialog_metaobject_isbase = false;
+            return KBookmarkDialog::metaObject();
+        } else if (kbookmarkdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kbookmarkdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KBookmarkDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kbookmarkdialog_metacast_isbase) {
+            kbookmarkdialog_metacast_isbase = false;
+            return KBookmarkDialog::qt_metacast(param1);
+        } else if (kbookmarkdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kbookmarkdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KBookmarkDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

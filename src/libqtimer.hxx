@@ -17,6 +17,8 @@ class VirtualQTimer final : public QTimer {
     bool isVirtualQTimer = true;
 
     // Virtual class public types (including callbacks)
+    using QTimer_MetaObject_Callback = QMetaObject* (*)();
+    using QTimer_Metacast_Callback = void* (*)(QTimer*, const char*);
     using QTimer_Metacall_Callback = int (*)(QTimer*, int, int, void**);
     using QTimer_TimerEvent_Callback = void (*)(QTimer*, QTimerEvent*);
     using QTimer_Event_Callback = bool (*)(QTimer*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQTimer final : public QTimer {
 
   protected:
     // Instance callback storage
+    QTimer_MetaObject_Callback qtimer_metaobject_callback = nullptr;
+    QTimer_Metacast_Callback qtimer_metacast_callback = nullptr;
     QTimer_Metacall_Callback qtimer_metacall_callback = nullptr;
     QTimer_TimerEvent_Callback qtimer_timerevent_callback = nullptr;
     QTimer_Event_Callback qtimer_event_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQTimer final : public QTimer {
     QTimer_IsSignalConnected_Callback qtimer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtimer_metaobject_isbase = false;
+    mutable bool qtimer_metacast_isbase = false;
     mutable bool qtimer_metacall_isbase = false;
     mutable bool qtimer_timerevent_isbase = false;
     mutable bool qtimer_event_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQTimer final : public QTimer {
     VirtualQTimer(QObject* parent) : QTimer(parent) {};
 
     ~VirtualQTimer() {
+        qtimer_metaobject_callback = nullptr;
+        qtimer_metacast_callback = nullptr;
         qtimer_metacall_callback = nullptr;
         qtimer_timerevent_callback = nullptr;
         qtimer_event_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQTimer final : public QTimer {
     }
 
     // Callback setters
+    inline void setQTimer_MetaObject_Callback(QTimer_MetaObject_Callback cb) { qtimer_metaobject_callback = cb; }
+    inline void setQTimer_Metacast_Callback(QTimer_Metacast_Callback cb) { qtimer_metacast_callback = cb; }
     inline void setQTimer_Metacall_Callback(QTimer_Metacall_Callback cb) { qtimer_metacall_callback = cb; }
     inline void setQTimer_TimerEvent_Callback(QTimer_TimerEvent_Callback cb) { qtimer_timerevent_callback = cb; }
     inline void setQTimer_Event_Callback(QTimer_Event_Callback cb) { qtimer_event_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQTimer final : public QTimer {
     inline void setQTimer_IsSignalConnected_Callback(QTimer_IsSignalConnected_Callback cb) { qtimer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTimer_MetaObject_IsBase(bool value) const { qtimer_metaobject_isbase = value; }
+    inline void setQTimer_Metacast_IsBase(bool value) const { qtimer_metacast_isbase = value; }
     inline void setQTimer_Metacall_IsBase(bool value) const { qtimer_metacall_isbase = value; }
     inline void setQTimer_TimerEvent_IsBase(bool value) const { qtimer_timerevent_isbase = value; }
     inline void setQTimer_Event_IsBase(bool value) const { qtimer_event_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQTimer final : public QTimer {
     inline void setQTimer_SenderSignalIndex_IsBase(bool value) const { qtimer_sendersignalindex_isbase = value; }
     inline void setQTimer_Receivers_IsBase(bool value) const { qtimer_receivers_isbase = value; }
     inline void setQTimer_IsSignalConnected_IsBase(bool value) const { qtimer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtimer_metaobject_isbase) {
+            qtimer_metaobject_isbase = false;
+            return QTimer::metaObject();
+        } else if (qtimer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtimer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTimer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtimer_metacast_isbase) {
+            qtimer_metacast_isbase = false;
+            return QTimer::qt_metacast(param1);
+        } else if (qtimer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtimer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTimer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

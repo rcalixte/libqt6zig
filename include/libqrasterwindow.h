@@ -54,6 +54,10 @@ int QRasterWindow_Metacall(QRasterWindow* self, int param1, int param2, void** p
 int QRasterWindow_Metric(const QRasterWindow* self, int metric);
 QPaintDevice* QRasterWindow_Redirected(const QRasterWindow* self, QPoint* param1);
 void QRasterWindow_ResizeEvent(QRasterWindow* self, QResizeEvent* event);
+void QRasterWindow_OnMetaObject(const QRasterWindow* self, intptr_t slot);
+QMetaObject* QRasterWindow_QBaseMetaObject(const QRasterWindow* self);
+void QRasterWindow_OnMetacast(QRasterWindow* self, intptr_t slot);
+void* QRasterWindow_QBaseMetacast(QRasterWindow* self, const char* param1);
 void QRasterWindow_OnMetacall(QRasterWindow* self, intptr_t slot);
 int QRasterWindow_QBaseMetacall(QRasterWindow* self, int param1, int param2, void** param3);
 void QRasterWindow_OnMetric(const QRasterWindow* self, intptr_t slot);

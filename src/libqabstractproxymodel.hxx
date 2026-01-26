@@ -17,6 +17,8 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
     bool isVirtualQAbstractProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractProxyModel_Metacast_Callback = void* (*)(QAbstractProxyModel*, const char*);
     using QAbstractProxyModel_Metacall_Callback = int (*)(QAbstractProxyModel*, int, int, void**);
     using QAbstractProxyModel_SetSourceModel_Callback = void (*)(QAbstractProxyModel*, QAbstractItemModel*);
     using QAbstractProxyModel_MapToSource_Callback = QModelIndex* (*)(const QAbstractProxyModel*, QModelIndex*);
@@ -95,6 +97,8 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
 
   protected:
     // Instance callback storage
+    QAbstractProxyModel_MetaObject_Callback qabstractproxymodel_metaobject_callback = nullptr;
+    QAbstractProxyModel_Metacast_Callback qabstractproxymodel_metacast_callback = nullptr;
     QAbstractProxyModel_Metacall_Callback qabstractproxymodel_metacall_callback = nullptr;
     QAbstractProxyModel_SetSourceModel_Callback qabstractproxymodel_setsourcemodel_callback = nullptr;
     QAbstractProxyModel_MapToSource_Callback qabstractproxymodel_maptosource_callback = nullptr;
@@ -172,6 +176,8 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
     QAbstractProxyModel_IsSignalConnected_Callback qabstractproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractproxymodel_metaobject_isbase = false;
+    mutable bool qabstractproxymodel_metacast_isbase = false;
     mutable bool qabstractproxymodel_metacall_isbase = false;
     mutable bool qabstractproxymodel_setsourcemodel_isbase = false;
     mutable bool qabstractproxymodel_maptosource_isbase = false;
@@ -253,6 +259,8 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
     VirtualQAbstractProxyModel(QObject* parent) : QAbstractProxyModel(parent) {};
 
     ~VirtualQAbstractProxyModel() {
+        qabstractproxymodel_metaobject_callback = nullptr;
+        qabstractproxymodel_metacast_callback = nullptr;
         qabstractproxymodel_metacall_callback = nullptr;
         qabstractproxymodel_setsourcemodel_callback = nullptr;
         qabstractproxymodel_maptosource_callback = nullptr;
@@ -331,6 +339,8 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
     }
 
     // Callback setters
+    inline void setQAbstractProxyModel_MetaObject_Callback(QAbstractProxyModel_MetaObject_Callback cb) { qabstractproxymodel_metaobject_callback = cb; }
+    inline void setQAbstractProxyModel_Metacast_Callback(QAbstractProxyModel_Metacast_Callback cb) { qabstractproxymodel_metacast_callback = cb; }
     inline void setQAbstractProxyModel_Metacall_Callback(QAbstractProxyModel_Metacall_Callback cb) { qabstractproxymodel_metacall_callback = cb; }
     inline void setQAbstractProxyModel_SetSourceModel_Callback(QAbstractProxyModel_SetSourceModel_Callback cb) { qabstractproxymodel_setsourcemodel_callback = cb; }
     inline void setQAbstractProxyModel_MapToSource_Callback(QAbstractProxyModel_MapToSource_Callback cb) { qabstractproxymodel_maptosource_callback = cb; }
@@ -408,6 +418,8 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
     inline void setQAbstractProxyModel_IsSignalConnected_Callback(QAbstractProxyModel_IsSignalConnected_Callback cb) { qabstractproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractProxyModel_MetaObject_IsBase(bool value) const { qabstractproxymodel_metaobject_isbase = value; }
+    inline void setQAbstractProxyModel_Metacast_IsBase(bool value) const { qabstractproxymodel_metacast_isbase = value; }
     inline void setQAbstractProxyModel_Metacall_IsBase(bool value) const { qabstractproxymodel_metacall_isbase = value; }
     inline void setQAbstractProxyModel_SetSourceModel_IsBase(bool value) const { qabstractproxymodel_setsourcemodel_isbase = value; }
     inline void setQAbstractProxyModel_MapToSource_IsBase(bool value) const { qabstractproxymodel_maptosource_isbase = value; }
@@ -483,6 +495,34 @@ class VirtualQAbstractProxyModel : public QAbstractProxyModel {
     inline void setQAbstractProxyModel_SenderSignalIndex_IsBase(bool value) const { qabstractproxymodel_sendersignalindex_isbase = value; }
     inline void setQAbstractProxyModel_Receivers_IsBase(bool value) const { qabstractproxymodel_receivers_isbase = value; }
     inline void setQAbstractProxyModel_IsSignalConnected_IsBase(bool value) const { qabstractproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractproxymodel_metaobject_isbase) {
+            qabstractproxymodel_metaobject_isbase = false;
+            return QAbstractProxyModel::metaObject();
+        } else if (qabstractproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractproxymodel_metacast_isbase) {
+            qabstractproxymodel_metacast_isbase = false;
+            return QAbstractProxyModel::qt_metacast(param1);
+        } else if (qabstractproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

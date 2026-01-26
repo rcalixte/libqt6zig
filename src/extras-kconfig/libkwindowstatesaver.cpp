@@ -23,11 +23,21 @@ KWindowStateSaver* KWindowStateSaver_new2(QWindow* window, const libqt_string co
 }
 
 QMetaObject* KWindowStateSaver_MetaObject(const KWindowStateSaver* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkwindowstatesaver = dynamic_cast<const VirtualKWindowStateSaver*>(self);
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKWindowStateSaver*)self)->metaObject();
+    }
 }
 
 void* KWindowStateSaver_Metacast(KWindowStateSaver* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKWindowStateSaver*)self)->qt_metacast(param1);
+    }
 }
 
 int KWindowStateSaver_Metacall(KWindowStateSaver* self, int param1, int param2, void** param3) {
@@ -36,6 +46,44 @@ int KWindowStateSaver_Metacall(KWindowStateSaver* self, int param1, int param2, 
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
         return ((VirtualKWindowStateSaver*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KWindowStateSaver_QBaseMetaObject(const KWindowStateSaver* self) {
+    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+        vkwindowstatesaver->setKWindowStateSaver_MetaObject_IsBase(true);
+        return (QMetaObject*)vkwindowstatesaver->metaObject();
+    } else {
+        return (QMetaObject*)self->KWindowStateSaver::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KWindowStateSaver_OnMetaObject(const KWindowStateSaver* self, intptr_t slot) {
+    auto* vkwindowstatesaver = const_cast<VirtualKWindowStateSaver*>(dynamic_cast<const VirtualKWindowStateSaver*>(self));
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+        vkwindowstatesaver->setKWindowStateSaver_MetaObject_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KWindowStateSaver_QBaseMetacast(KWindowStateSaver* self, const char* param1) {
+    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+        vkwindowstatesaver->setKWindowStateSaver_Metacast_IsBase(true);
+        return vkwindowstatesaver->qt_metacast(param1);
+    } else {
+        return self->KWindowStateSaver::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KWindowStateSaver_OnMetacast(KWindowStateSaver* self, intptr_t slot) {
+    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
+    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
+        vkwindowstatesaver->setKWindowStateSaver_Metacast_Callback(reinterpret_cast<VirtualKWindowStateSaver::KWindowStateSaver_Metacast_Callback>(slot));
     }
 }
 

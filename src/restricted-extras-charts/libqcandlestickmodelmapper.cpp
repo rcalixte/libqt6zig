@@ -23,11 +23,21 @@ QCandlestickModelMapper* QCandlestickModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QCandlestickModelMapper_MetaObject(const QCandlestickModelMapper* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcandlestickmodelmapper = dynamic_cast<const VirtualQCandlestickModelMapper*>(self);
+    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCandlestickModelMapper*)self)->metaObject();
+    }
 }
 
 void* QCandlestickModelMapper_Metacast(QCandlestickModelMapper* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcandlestickmodelmapper = dynamic_cast<VirtualQCandlestickModelMapper*>(self);
+    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCandlestickModelMapper*)self)->qt_metacast(param1);
+    }
 }
 
 int QCandlestickModelMapper_Metacall(QCandlestickModelMapper* self, int param1, int param2, void** param3) {
@@ -84,6 +94,44 @@ void QCandlestickModelMapper_Connect_SeriesReplaced(QCandlestickModelMapper* sel
     QCandlestickModelMapper::connect(self, &QCandlestickModelMapper::seriesReplaced, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QCandlestickModelMapper_QBaseMetaObject(const QCandlestickModelMapper* self) {
+    auto* vqcandlestickmodelmapper = const_cast<VirtualQCandlestickModelMapper*>(dynamic_cast<const VirtualQCandlestickModelMapper*>(self));
+    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
+        vqcandlestickmodelmapper->setQCandlestickModelMapper_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcandlestickmodelmapper->metaObject();
+    } else {
+        return (QMetaObject*)self->QCandlestickModelMapper::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCandlestickModelMapper_OnMetaObject(const QCandlestickModelMapper* self, intptr_t slot) {
+    auto* vqcandlestickmodelmapper = const_cast<VirtualQCandlestickModelMapper*>(dynamic_cast<const VirtualQCandlestickModelMapper*>(self));
+    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
+        vqcandlestickmodelmapper->setQCandlestickModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQCandlestickModelMapper::QCandlestickModelMapper_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCandlestickModelMapper_QBaseMetacast(QCandlestickModelMapper* self, const char* param1) {
+    auto* vqcandlestickmodelmapper = dynamic_cast<VirtualQCandlestickModelMapper*>(self);
+    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
+        vqcandlestickmodelmapper->setQCandlestickModelMapper_Metacast_IsBase(true);
+        return vqcandlestickmodelmapper->qt_metacast(param1);
+    } else {
+        return self->QCandlestickModelMapper::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCandlestickModelMapper_OnMetacast(QCandlestickModelMapper* self, intptr_t slot) {
+    auto* vqcandlestickmodelmapper = dynamic_cast<VirtualQCandlestickModelMapper*>(self);
+    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
+        vqcandlestickmodelmapper->setQCandlestickModelMapper_Metacast_Callback(reinterpret_cast<VirtualQCandlestickModelMapper::QCandlestickModelMapper_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

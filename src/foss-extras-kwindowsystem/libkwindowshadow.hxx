@@ -17,6 +17,8 @@ class VirtualKWindowShadow final : public KWindowShadow {
     bool isVirtualKWindowShadow = true;
 
     // Virtual class public types (including callbacks)
+    using KWindowShadow_MetaObject_Callback = QMetaObject* (*)();
+    using KWindowShadow_Metacast_Callback = void* (*)(KWindowShadow*, const char*);
     using KWindowShadow_Metacall_Callback = int (*)(KWindowShadow*, int, int, void**);
     using KWindowShadow_Event_Callback = bool (*)(KWindowShadow*, QEvent*);
     using KWindowShadow_EventFilter_Callback = bool (*)(KWindowShadow*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKWindowShadow final : public KWindowShadow {
 
   protected:
     // Instance callback storage
+    KWindowShadow_MetaObject_Callback kwindowshadow_metaobject_callback = nullptr;
+    KWindowShadow_Metacast_Callback kwindowshadow_metacast_callback = nullptr;
     KWindowShadow_Metacall_Callback kwindowshadow_metacall_callback = nullptr;
     KWindowShadow_Event_Callback kwindowshadow_event_callback = nullptr;
     KWindowShadow_EventFilter_Callback kwindowshadow_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKWindowShadow final : public KWindowShadow {
     KWindowShadow_IsSignalConnected_Callback kwindowshadow_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kwindowshadow_metaobject_isbase = false;
+    mutable bool kwindowshadow_metacast_isbase = false;
     mutable bool kwindowshadow_metacall_isbase = false;
     mutable bool kwindowshadow_event_isbase = false;
     mutable bool kwindowshadow_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKWindowShadow final : public KWindowShadow {
     VirtualKWindowShadow(QObject* parent) : KWindowShadow(parent) {};
 
     ~VirtualKWindowShadow() {
+        kwindowshadow_metaobject_callback = nullptr;
+        kwindowshadow_metacast_callback = nullptr;
         kwindowshadow_metacall_callback = nullptr;
         kwindowshadow_event_callback = nullptr;
         kwindowshadow_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKWindowShadow final : public KWindowShadow {
     }
 
     // Callback setters
+    inline void setKWindowShadow_MetaObject_Callback(KWindowShadow_MetaObject_Callback cb) { kwindowshadow_metaobject_callback = cb; }
+    inline void setKWindowShadow_Metacast_Callback(KWindowShadow_Metacast_Callback cb) { kwindowshadow_metacast_callback = cb; }
     inline void setKWindowShadow_Metacall_Callback(KWindowShadow_Metacall_Callback cb) { kwindowshadow_metacall_callback = cb; }
     inline void setKWindowShadow_Event_Callback(KWindowShadow_Event_Callback cb) { kwindowshadow_event_callback = cb; }
     inline void setKWindowShadow_EventFilter_Callback(KWindowShadow_EventFilter_Callback cb) { kwindowshadow_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKWindowShadow final : public KWindowShadow {
     inline void setKWindowShadow_IsSignalConnected_Callback(KWindowShadow_IsSignalConnected_Callback cb) { kwindowshadow_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKWindowShadow_MetaObject_IsBase(bool value) const { kwindowshadow_metaobject_isbase = value; }
+    inline void setKWindowShadow_Metacast_IsBase(bool value) const { kwindowshadow_metacast_isbase = value; }
     inline void setKWindowShadow_Metacall_IsBase(bool value) const { kwindowshadow_metacall_isbase = value; }
     inline void setKWindowShadow_Event_IsBase(bool value) const { kwindowshadow_event_isbase = value; }
     inline void setKWindowShadow_EventFilter_IsBase(bool value) const { kwindowshadow_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKWindowShadow final : public KWindowShadow {
     inline void setKWindowShadow_SenderSignalIndex_IsBase(bool value) const { kwindowshadow_sendersignalindex_isbase = value; }
     inline void setKWindowShadow_Receivers_IsBase(bool value) const { kwindowshadow_receivers_isbase = value; }
     inline void setKWindowShadow_IsSignalConnected_IsBase(bool value) const { kwindowshadow_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kwindowshadow_metaobject_isbase) {
+            kwindowshadow_metaobject_isbase = false;
+            return KWindowShadow::metaObject();
+        } else if (kwindowshadow_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kwindowshadow_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KWindowShadow::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kwindowshadow_metacast_isbase) {
+            kwindowshadow_metacast_isbase = false;
+            return KWindowShadow::qt_metacast(param1);
+        } else if (kwindowshadow_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kwindowshadow_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KWindowShadow::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

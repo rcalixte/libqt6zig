@@ -17,6 +17,8 @@ class VirtualQCommonStyle final : public QCommonStyle {
     bool isVirtualQCommonStyle = true;
 
     // Virtual class public types (including callbacks)
+    using QCommonStyle_MetaObject_Callback = QMetaObject* (*)();
+    using QCommonStyle_Metacast_Callback = void* (*)(QCommonStyle*, const char*);
     using QCommonStyle_Metacall_Callback = int (*)(QCommonStyle*, int, int, void**);
     using QCommonStyle_DrawPrimitive_Callback = void (*)(const QCommonStyle*, int, QStyleOption*, QPainter*, QWidget*);
     using QCommonStyle_DrawControl_Callback = void (*)(const QCommonStyle*, int, QStyleOption*, QPainter*, QWidget*);
@@ -55,6 +57,8 @@ class VirtualQCommonStyle final : public QCommonStyle {
 
   protected:
     // Instance callback storage
+    QCommonStyle_MetaObject_Callback qcommonstyle_metaobject_callback = nullptr;
+    QCommonStyle_Metacast_Callback qcommonstyle_metacast_callback = nullptr;
     QCommonStyle_Metacall_Callback qcommonstyle_metacall_callback = nullptr;
     QCommonStyle_DrawPrimitive_Callback qcommonstyle_drawprimitive_callback = nullptr;
     QCommonStyle_DrawControl_Callback qcommonstyle_drawcontrol_callback = nullptr;
@@ -92,6 +96,8 @@ class VirtualQCommonStyle final : public QCommonStyle {
     QCommonStyle_IsSignalConnected_Callback qcommonstyle_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcommonstyle_metaobject_isbase = false;
+    mutable bool qcommonstyle_metacast_isbase = false;
     mutable bool qcommonstyle_metacall_isbase = false;
     mutable bool qcommonstyle_drawprimitive_isbase = false;
     mutable bool qcommonstyle_drawcontrol_isbase = false;
@@ -132,6 +138,8 @@ class VirtualQCommonStyle final : public QCommonStyle {
     VirtualQCommonStyle() : QCommonStyle() {};
 
     ~VirtualQCommonStyle() {
+        qcommonstyle_metaobject_callback = nullptr;
+        qcommonstyle_metacast_callback = nullptr;
         qcommonstyle_metacall_callback = nullptr;
         qcommonstyle_drawprimitive_callback = nullptr;
         qcommonstyle_drawcontrol_callback = nullptr;
@@ -170,6 +178,8 @@ class VirtualQCommonStyle final : public QCommonStyle {
     }
 
     // Callback setters
+    inline void setQCommonStyle_MetaObject_Callback(QCommonStyle_MetaObject_Callback cb) { qcommonstyle_metaobject_callback = cb; }
+    inline void setQCommonStyle_Metacast_Callback(QCommonStyle_Metacast_Callback cb) { qcommonstyle_metacast_callback = cb; }
     inline void setQCommonStyle_Metacall_Callback(QCommonStyle_Metacall_Callback cb) { qcommonstyle_metacall_callback = cb; }
     inline void setQCommonStyle_DrawPrimitive_Callback(QCommonStyle_DrawPrimitive_Callback cb) { qcommonstyle_drawprimitive_callback = cb; }
     inline void setQCommonStyle_DrawControl_Callback(QCommonStyle_DrawControl_Callback cb) { qcommonstyle_drawcontrol_callback = cb; }
@@ -207,6 +217,8 @@ class VirtualQCommonStyle final : public QCommonStyle {
     inline void setQCommonStyle_IsSignalConnected_Callback(QCommonStyle_IsSignalConnected_Callback cb) { qcommonstyle_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCommonStyle_MetaObject_IsBase(bool value) const { qcommonstyle_metaobject_isbase = value; }
+    inline void setQCommonStyle_Metacast_IsBase(bool value) const { qcommonstyle_metacast_isbase = value; }
     inline void setQCommonStyle_Metacall_IsBase(bool value) const { qcommonstyle_metacall_isbase = value; }
     inline void setQCommonStyle_DrawPrimitive_IsBase(bool value) const { qcommonstyle_drawprimitive_isbase = value; }
     inline void setQCommonStyle_DrawControl_IsBase(bool value) const { qcommonstyle_drawcontrol_isbase = value; }
@@ -242,6 +254,34 @@ class VirtualQCommonStyle final : public QCommonStyle {
     inline void setQCommonStyle_SenderSignalIndex_IsBase(bool value) const { qcommonstyle_sendersignalindex_isbase = value; }
     inline void setQCommonStyle_Receivers_IsBase(bool value) const { qcommonstyle_receivers_isbase = value; }
     inline void setQCommonStyle_IsSignalConnected_IsBase(bool value) const { qcommonstyle_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcommonstyle_metaobject_isbase) {
+            qcommonstyle_metaobject_isbase = false;
+            return QCommonStyle::metaObject();
+        } else if (qcommonstyle_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcommonstyle_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCommonStyle::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcommonstyle_metacast_isbase) {
+            qcommonstyle_metacast_isbase = false;
+            return QCommonStyle::qt_metacast(param1);
+        } else if (qcommonstyle_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcommonstyle_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCommonStyle::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

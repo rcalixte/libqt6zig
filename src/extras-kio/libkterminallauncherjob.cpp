@@ -26,11 +26,21 @@ KTerminalLauncherJob* KTerminalLauncherJob_new2(const libqt_string command, QObj
 }
 
 QMetaObject* KTerminalLauncherJob_MetaObject(const KTerminalLauncherJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkterminallauncherjob = dynamic_cast<const VirtualKTerminalLauncherJob*>(self);
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTerminalLauncherJob*)self)->metaObject();
+    }
 }
 
 void* KTerminalLauncherJob_Metacast(KTerminalLauncherJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTerminalLauncherJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KTerminalLauncherJob_Metacall(KTerminalLauncherJob* self, int param1, int param2, void** param3) {
@@ -62,6 +72,44 @@ void KTerminalLauncherJob_Start(KTerminalLauncherJob* self) {
         self->start();
     } else {
         ((VirtualKTerminalLauncherJob*)self)->start();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KTerminalLauncherJob_QBaseMetaObject(const KTerminalLauncherJob* self) {
+    auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+        vkterminallauncherjob->setKTerminalLauncherJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkterminallauncherjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KTerminalLauncherJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTerminalLauncherJob_OnMetaObject(const KTerminalLauncherJob* self, intptr_t slot) {
+    auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+        vkterminallauncherjob->setKTerminalLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTerminalLauncherJob_QBaseMetacast(KTerminalLauncherJob* self, const char* param1) {
+    auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+        vkterminallauncherjob->setKTerminalLauncherJob_Metacast_IsBase(true);
+        return vkterminallauncherjob->qt_metacast(param1);
+    } else {
+        return self->KTerminalLauncherJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTerminalLauncherJob_OnMetacast(KTerminalLauncherJob* self, intptr_t slot) {
+    auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
+    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
+        vkterminallauncherjob->setKTerminalLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKTerminalLauncherJob::KTerminalLauncherJob_Metacast_Callback>(slot));
     }
 }
 

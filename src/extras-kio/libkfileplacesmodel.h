@@ -107,6 +107,10 @@ void KFilePlacesModel_AddPlace3(KFilePlacesModel* self, const libqt_string text,
 void KFilePlacesModel_AddPlace4(KFilePlacesModel* self, const libqt_string text, const QUrl* url, const libqt_string iconName, const libqt_string appName);
 void KFilePlacesModel_EditPlace4(KFilePlacesModel* self, const QModelIndex* index, const libqt_string text, const QUrl* url, const libqt_string iconName);
 void KFilePlacesModel_EditPlace5(KFilePlacesModel* self, const QModelIndex* index, const libqt_string text, const QUrl* url, const libqt_string iconName, const libqt_string appName);
+void KFilePlacesModel_OnMetaObject(const KFilePlacesModel* self, intptr_t slot);
+QMetaObject* KFilePlacesModel_QBaseMetaObject(const KFilePlacesModel* self);
+void KFilePlacesModel_OnMetacast(KFilePlacesModel* self, intptr_t slot);
+void* KFilePlacesModel_QBaseMetacast(KFilePlacesModel* self, const char* param1);
 void KFilePlacesModel_OnMetacall(KFilePlacesModel* self, intptr_t slot);
 int KFilePlacesModel_QBaseMetacall(KFilePlacesModel* self, int param1, int param2, void** param3);
 void KFilePlacesModel_OnData(const KFilePlacesModel* self, intptr_t slot);

@@ -26,11 +26,21 @@ QTimeLine* QTimeLine_new3(int duration, QObject* parent) {
 }
 
 QMetaObject* QTimeLine_MetaObject(const QTimeLine* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtimeline = dynamic_cast<const VirtualQTimeLine*>(self);
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTimeLine*)self)->metaObject();
+    }
 }
 
 void* QTimeLine_Metacast(QTimeLine* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTimeLine*)self)->qt_metacast(param1);
+    }
 }
 
 int QTimeLine_Metacall(QTimeLine* self, int param1, int param2, void** param3) {
@@ -159,6 +169,44 @@ void QTimeLine_TimerEvent(QTimeLine* self, QTimerEvent* event) {
     auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
     if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
         vqtimeline->timerEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QTimeLine_QBaseMetaObject(const QTimeLine* self) {
+    auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        vqtimeline->setQTimeLine_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtimeline->metaObject();
+    } else {
+        return (QMetaObject*)self->QTimeLine::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTimeLine_OnMetaObject(const QTimeLine* self, intptr_t slot) {
+    auto* vqtimeline = const_cast<VirtualQTimeLine*>(dynamic_cast<const VirtualQTimeLine*>(self));
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        vqtimeline->setQTimeLine_MetaObject_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTimeLine_QBaseMetacast(QTimeLine* self, const char* param1) {
+    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        vqtimeline->setQTimeLine_Metacast_IsBase(true);
+        return vqtimeline->qt_metacast(param1);
+    } else {
+        return self->QTimeLine::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTimeLine_OnMetacast(QTimeLine* self, intptr_t slot) {
+    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
+    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
+        vqtimeline->setQTimeLine_Metacast_Callback(reinterpret_cast<VirtualQTimeLine::QTimeLine_Metacast_Callback>(slot));
     }
 }
 

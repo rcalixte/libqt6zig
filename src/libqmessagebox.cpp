@@ -96,11 +96,21 @@ QMessageBox* QMessageBox_new9(const libqt_string title, const libqt_string text,
 }
 
 QMetaObject* QMessageBox_MetaObject(const QMessageBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmessagebox = dynamic_cast<const VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMessageBox*)self)->metaObject();
+    }
 }
 
 void* QMessageBox_Metacast(QMessageBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMessageBox*)self)->qt_metacast(param1);
+    }
 }
 
 int QMessageBox_Metacall(QMessageBox* self, int param1, int param2, void** param3) {
@@ -729,6 +739,44 @@ int QMessageBox_Critical8(QWidget* parent, const libqt_string title, const libqt
     QString button1Text_QString = QString::fromUtf8(button1Text.data, button1Text.len);
     QString button2Text_QString = QString::fromUtf8(button2Text.data, button2Text.len);
     return QMessageBox::critical(parent, title_QString, text_QString, button0Text_QString, button1Text_QString, button2Text_QString, static_cast<int>(defaultButtonNumber), static_cast<int>(escapeButtonNumber));
+}
+
+// Base class handler implementation
+QMetaObject* QMessageBox_QBaseMetaObject(const QMessageBox* self) {
+    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmessagebox->metaObject();
+    } else {
+        return (QMetaObject*)self->QMessageBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMessageBox_OnMetaObject(const QMessageBox* self, intptr_t slot) {
+    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_MetaObject_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMessageBox_QBaseMetacast(QMessageBox* self, const char* param1) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_Metacast_IsBase(true);
+        return vqmessagebox->qt_metacast(param1);
+    } else {
+        return self->QMessageBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMessageBox_OnMetacast(QMessageBox* self, intptr_t slot) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+        vqmessagebox->setQMessageBox_Metacast_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

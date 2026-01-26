@@ -17,6 +17,8 @@ class VirtualQAudioEngine final : public QAudioEngine {
     bool isVirtualQAudioEngine = true;
 
     // Virtual class public types (including callbacks)
+    using QAudioEngine_MetaObject_Callback = QMetaObject* (*)();
+    using QAudioEngine_Metacast_Callback = void* (*)(QAudioEngine*, const char*);
     using QAudioEngine_Metacall_Callback = int (*)(QAudioEngine*, int, int, void**);
     using QAudioEngine_Event_Callback = bool (*)(QAudioEngine*, QEvent*);
     using QAudioEngine_EventFilter_Callback = bool (*)(QAudioEngine*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQAudioEngine final : public QAudioEngine {
 
   protected:
     // Instance callback storage
+    QAudioEngine_MetaObject_Callback qaudioengine_metaobject_callback = nullptr;
+    QAudioEngine_Metacast_Callback qaudioengine_metacast_callback = nullptr;
     QAudioEngine_Metacall_Callback qaudioengine_metacall_callback = nullptr;
     QAudioEngine_Event_Callback qaudioengine_event_callback = nullptr;
     QAudioEngine_EventFilter_Callback qaudioengine_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQAudioEngine final : public QAudioEngine {
     QAudioEngine_IsSignalConnected_Callback qaudioengine_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qaudioengine_metaobject_isbase = false;
+    mutable bool qaudioengine_metacast_isbase = false;
     mutable bool qaudioengine_metacall_isbase = false;
     mutable bool qaudioengine_event_isbase = false;
     mutable bool qaudioengine_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQAudioEngine final : public QAudioEngine {
     VirtualQAudioEngine(int sampleRate, QObject* parent) : QAudioEngine(sampleRate, parent) {};
 
     ~VirtualQAudioEngine() {
+        qaudioengine_metaobject_callback = nullptr;
+        qaudioengine_metacast_callback = nullptr;
         qaudioengine_metacall_callback = nullptr;
         qaudioengine_event_callback = nullptr;
         qaudioengine_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQAudioEngine final : public QAudioEngine {
     }
 
     // Callback setters
+    inline void setQAudioEngine_MetaObject_Callback(QAudioEngine_MetaObject_Callback cb) { qaudioengine_metaobject_callback = cb; }
+    inline void setQAudioEngine_Metacast_Callback(QAudioEngine_Metacast_Callback cb) { qaudioengine_metacast_callback = cb; }
     inline void setQAudioEngine_Metacall_Callback(QAudioEngine_Metacall_Callback cb) { qaudioengine_metacall_callback = cb; }
     inline void setQAudioEngine_Event_Callback(QAudioEngine_Event_Callback cb) { qaudioengine_event_callback = cb; }
     inline void setQAudioEngine_EventFilter_Callback(QAudioEngine_EventFilter_Callback cb) { qaudioengine_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQAudioEngine final : public QAudioEngine {
     inline void setQAudioEngine_IsSignalConnected_Callback(QAudioEngine_IsSignalConnected_Callback cb) { qaudioengine_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAudioEngine_MetaObject_IsBase(bool value) const { qaudioengine_metaobject_isbase = value; }
+    inline void setQAudioEngine_Metacast_IsBase(bool value) const { qaudioengine_metacast_isbase = value; }
     inline void setQAudioEngine_Metacall_IsBase(bool value) const { qaudioengine_metacall_isbase = value; }
     inline void setQAudioEngine_Event_IsBase(bool value) const { qaudioengine_event_isbase = value; }
     inline void setQAudioEngine_EventFilter_IsBase(bool value) const { qaudioengine_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQAudioEngine final : public QAudioEngine {
     inline void setQAudioEngine_SenderSignalIndex_IsBase(bool value) const { qaudioengine_sendersignalindex_isbase = value; }
     inline void setQAudioEngine_Receivers_IsBase(bool value) const { qaudioengine_receivers_isbase = value; }
     inline void setQAudioEngine_IsSignalConnected_IsBase(bool value) const { qaudioengine_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qaudioengine_metaobject_isbase) {
+            qaudioengine_metaobject_isbase = false;
+            return QAudioEngine::metaObject();
+        } else if (qaudioengine_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qaudioengine_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAudioEngine::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qaudioengine_metacast_isbase) {
+            qaudioengine_metacast_isbase = false;
+            return QAudioEngine::qt_metacast(param1);
+        } else if (qaudioengine_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qaudioengine_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAudioEngine::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

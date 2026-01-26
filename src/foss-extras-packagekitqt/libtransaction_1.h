@@ -114,6 +114,10 @@ void PackageKit__Transaction_Transaction(PackageKit__Transaction* self, PackageK
 void PackageKit__Transaction_Connect_Transaction(PackageKit__Transaction* self, intptr_t slot);
 void PackageKit__Transaction_ConnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal);
 void PackageKit__Transaction_DisconnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal);
+void PackageKit__Transaction_OnMetaObject(const PackageKit__Transaction* self, intptr_t slot);
+QMetaObject* PackageKit__Transaction_QBaseMetaObject(const PackageKit__Transaction* self);
+void PackageKit__Transaction_OnMetacast(PackageKit__Transaction* self, intptr_t slot);
+void* PackageKit__Transaction_QBaseMetacast(PackageKit__Transaction* self, const char* param1);
 void PackageKit__Transaction_OnMetacall(PackageKit__Transaction* self, intptr_t slot);
 int PackageKit__Transaction_QBaseMetacall(PackageKit__Transaction* self, int param1, int param2, void** param3);
 void PackageKit__Transaction_OnConnectNotify(PackageKit__Transaction* self, intptr_t slot);

@@ -23,11 +23,21 @@ QFileSelector* QFileSelector_new2(QObject* parent) {
 }
 
 QMetaObject* QFileSelector_MetaObject(const QFileSelector* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqfileselector = dynamic_cast<const VirtualQFileSelector*>(self);
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFileSelector*)self)->metaObject();
+    }
 }
 
 void* QFileSelector_Metacast(QFileSelector* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFileSelector*)self)->qt_metacast(param1);
+    }
 }
 
 int QFileSelector_Metacall(QFileSelector* self, int param1, int param2, void** param3) {
@@ -107,6 +117,44 @@ libqt_list /* of libqt_string */ QFileSelector_AllSelectors(const QFileSelector*
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+QMetaObject* QFileSelector_QBaseMetaObject(const QFileSelector* self) {
+    auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+        vqfileselector->setQFileSelector_MetaObject_IsBase(true);
+        return (QMetaObject*)vqfileselector->metaObject();
+    } else {
+        return (QMetaObject*)self->QFileSelector::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileSelector_OnMetaObject(const QFileSelector* self, intptr_t slot) {
+    auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+        vqfileselector->setQFileSelector_MetaObject_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFileSelector_QBaseMetacast(QFileSelector* self, const char* param1) {
+    auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+        vqfileselector->setQFileSelector_Metacast_IsBase(true);
+        return vqfileselector->qt_metacast(param1);
+    } else {
+        return self->QFileSelector::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileSelector_OnMetacast(QFileSelector* self, intptr_t slot) {
+    auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+        vqfileselector->setQFileSelector_Metacast_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

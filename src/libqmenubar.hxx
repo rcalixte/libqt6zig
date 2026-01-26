@@ -17,6 +17,8 @@ class VirtualQMenuBar final : public QMenuBar {
     bool isVirtualQMenuBar = true;
 
     // Virtual class public types (including callbacks)
+    using QMenuBar_MetaObject_Callback = QMetaObject* (*)();
+    using QMenuBar_Metacast_Callback = void* (*)(QMenuBar*, const char*);
     using QMenuBar_Metacall_Callback = int (*)(QMenuBar*, int, int, void**);
     using QMenuBar_SizeHint_Callback = QSize* (*)();
     using QMenuBar_MinimumSizeHint_Callback = QSize* (*)();
@@ -79,6 +81,8 @@ class VirtualQMenuBar final : public QMenuBar {
 
   protected:
     // Instance callback storage
+    QMenuBar_MetaObject_Callback qmenubar_metaobject_callback = nullptr;
+    QMenuBar_Metacast_Callback qmenubar_metacast_callback = nullptr;
     QMenuBar_Metacall_Callback qmenubar_metacall_callback = nullptr;
     QMenuBar_SizeHint_Callback qmenubar_sizehint_callback = nullptr;
     QMenuBar_MinimumSizeHint_Callback qmenubar_minimumsizehint_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualQMenuBar final : public QMenuBar {
     QMenuBar_GetDecodedMetricF_Callback qmenubar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmenubar_metaobject_isbase = false;
+    mutable bool qmenubar_metacast_isbase = false;
     mutable bool qmenubar_metacall_isbase = false;
     mutable bool qmenubar_sizehint_isbase = false;
     mutable bool qmenubar_minimumsizehint_isbase = false;
@@ -205,6 +211,8 @@ class VirtualQMenuBar final : public QMenuBar {
     VirtualQMenuBar() : QMenuBar() {};
 
     ~VirtualQMenuBar() {
+        qmenubar_metaobject_callback = nullptr;
+        qmenubar_metacast_callback = nullptr;
         qmenubar_metacall_callback = nullptr;
         qmenubar_sizehint_callback = nullptr;
         qmenubar_minimumsizehint_callback = nullptr;
@@ -267,6 +275,8 @@ class VirtualQMenuBar final : public QMenuBar {
     }
 
     // Callback setters
+    inline void setQMenuBar_MetaObject_Callback(QMenuBar_MetaObject_Callback cb) { qmenubar_metaobject_callback = cb; }
+    inline void setQMenuBar_Metacast_Callback(QMenuBar_Metacast_Callback cb) { qmenubar_metacast_callback = cb; }
     inline void setQMenuBar_Metacall_Callback(QMenuBar_Metacall_Callback cb) { qmenubar_metacall_callback = cb; }
     inline void setQMenuBar_SizeHint_Callback(QMenuBar_SizeHint_Callback cb) { qmenubar_sizehint_callback = cb; }
     inline void setQMenuBar_MinimumSizeHint_Callback(QMenuBar_MinimumSizeHint_Callback cb) { qmenubar_minimumsizehint_callback = cb; }
@@ -328,6 +338,8 @@ class VirtualQMenuBar final : public QMenuBar {
     inline void setQMenuBar_GetDecodedMetricF_Callback(QMenuBar_GetDecodedMetricF_Callback cb) { qmenubar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQMenuBar_MetaObject_IsBase(bool value) const { qmenubar_metaobject_isbase = value; }
+    inline void setQMenuBar_Metacast_IsBase(bool value) const { qmenubar_metacast_isbase = value; }
     inline void setQMenuBar_Metacall_IsBase(bool value) const { qmenubar_metacall_isbase = value; }
     inline void setQMenuBar_SizeHint_IsBase(bool value) const { qmenubar_sizehint_isbase = value; }
     inline void setQMenuBar_MinimumSizeHint_IsBase(bool value) const { qmenubar_minimumsizehint_isbase = value; }
@@ -387,6 +399,34 @@ class VirtualQMenuBar final : public QMenuBar {
     inline void setQMenuBar_Receivers_IsBase(bool value) const { qmenubar_receivers_isbase = value; }
     inline void setQMenuBar_IsSignalConnected_IsBase(bool value) const { qmenubar_issignalconnected_isbase = value; }
     inline void setQMenuBar_GetDecodedMetricF_IsBase(bool value) const { qmenubar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmenubar_metaobject_isbase) {
+            qmenubar_metaobject_isbase = false;
+            return QMenuBar::metaObject();
+        } else if (qmenubar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmenubar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMenuBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmenubar_metacast_isbase) {
+            qmenubar_metacast_isbase = false;
+            return QMenuBar::qt_metacast(param1);
+        } else if (qmenubar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmenubar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMenuBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

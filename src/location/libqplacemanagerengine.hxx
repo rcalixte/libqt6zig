@@ -17,6 +17,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
     bool isVirtualQPlaceManagerEngine = true;
 
     // Virtual class public types (including callbacks)
+    using QPlaceManagerEngine_MetaObject_Callback = QMetaObject* (*)();
+    using QPlaceManagerEngine_Metacast_Callback = void* (*)(QPlaceManagerEngine*, const char*);
     using QPlaceManagerEngine_Metacall_Callback = int (*)(QPlaceManagerEngine*, int, int, void**);
     using QPlaceManagerEngine_GetPlaceDetails_Callback = QPlaceDetailsReply* (*)(QPlaceManagerEngine*, libqt_string);
     using QPlaceManagerEngine_GetPlaceContent_Callback = QPlaceContentReply* (*)(QPlaceManagerEngine*, QPlaceContentRequest*);
@@ -51,6 +53,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
 
   protected:
     // Instance callback storage
+    QPlaceManagerEngine_MetaObject_Callback qplacemanagerengine_metaobject_callback = nullptr;
+    QPlaceManagerEngine_Metacast_Callback qplacemanagerengine_metacast_callback = nullptr;
     QPlaceManagerEngine_Metacall_Callback qplacemanagerengine_metacall_callback = nullptr;
     QPlaceManagerEngine_GetPlaceDetails_Callback qplacemanagerengine_getplacedetails_callback = nullptr;
     QPlaceManagerEngine_GetPlaceContent_Callback qplacemanagerengine_getplacecontent_callback = nullptr;
@@ -84,6 +88,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
     QPlaceManagerEngine_IsSignalConnected_Callback qplacemanagerengine_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qplacemanagerengine_metaobject_isbase = false;
+    mutable bool qplacemanagerengine_metacast_isbase = false;
     mutable bool qplacemanagerengine_metacall_isbase = false;
     mutable bool qplacemanagerengine_getplacedetails_isbase = false;
     mutable bool qplacemanagerengine_getplacecontent_isbase = false;
@@ -121,6 +127,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
     VirtualQPlaceManagerEngine(const QMap<QString, QVariant>& parameters, QObject* parent) : QPlaceManagerEngine(parameters, parent) {};
 
     ~VirtualQPlaceManagerEngine() {
+        qplacemanagerengine_metaobject_callback = nullptr;
+        qplacemanagerengine_metacast_callback = nullptr;
         qplacemanagerengine_metacall_callback = nullptr;
         qplacemanagerengine_getplacedetails_callback = nullptr;
         qplacemanagerengine_getplacecontent_callback = nullptr;
@@ -155,6 +163,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
     }
 
     // Callback setters
+    inline void setQPlaceManagerEngine_MetaObject_Callback(QPlaceManagerEngine_MetaObject_Callback cb) { qplacemanagerengine_metaobject_callback = cb; }
+    inline void setQPlaceManagerEngine_Metacast_Callback(QPlaceManagerEngine_Metacast_Callback cb) { qplacemanagerengine_metacast_callback = cb; }
     inline void setQPlaceManagerEngine_Metacall_Callback(QPlaceManagerEngine_Metacall_Callback cb) { qplacemanagerengine_metacall_callback = cb; }
     inline void setQPlaceManagerEngine_GetPlaceDetails_Callback(QPlaceManagerEngine_GetPlaceDetails_Callback cb) { qplacemanagerengine_getplacedetails_callback = cb; }
     inline void setQPlaceManagerEngine_GetPlaceContent_Callback(QPlaceManagerEngine_GetPlaceContent_Callback cb) { qplacemanagerengine_getplacecontent_callback = cb; }
@@ -188,6 +198,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
     inline void setQPlaceManagerEngine_IsSignalConnected_Callback(QPlaceManagerEngine_IsSignalConnected_Callback cb) { qplacemanagerengine_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPlaceManagerEngine_MetaObject_IsBase(bool value) const { qplacemanagerengine_metaobject_isbase = value; }
+    inline void setQPlaceManagerEngine_Metacast_IsBase(bool value) const { qplacemanagerengine_metacast_isbase = value; }
     inline void setQPlaceManagerEngine_Metacall_IsBase(bool value) const { qplacemanagerengine_metacall_isbase = value; }
     inline void setQPlaceManagerEngine_GetPlaceDetails_IsBase(bool value) const { qplacemanagerengine_getplacedetails_isbase = value; }
     inline void setQPlaceManagerEngine_GetPlaceContent_IsBase(bool value) const { qplacemanagerengine_getplacecontent_isbase = value; }
@@ -219,6 +231,34 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
     inline void setQPlaceManagerEngine_SenderSignalIndex_IsBase(bool value) const { qplacemanagerengine_sendersignalindex_isbase = value; }
     inline void setQPlaceManagerEngine_Receivers_IsBase(bool value) const { qplacemanagerengine_receivers_isbase = value; }
     inline void setQPlaceManagerEngine_IsSignalConnected_IsBase(bool value) const { qplacemanagerengine_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qplacemanagerengine_metaobject_isbase) {
+            qplacemanagerengine_metaobject_isbase = false;
+            return QPlaceManagerEngine::metaObject();
+        } else if (qplacemanagerengine_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qplacemanagerengine_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPlaceManagerEngine::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qplacemanagerengine_metacast_isbase) {
+            qplacemanagerengine_metacast_isbase = false;
+            return QPlaceManagerEngine::qt_metacast(param1);
+        } else if (qplacemanagerengine_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qplacemanagerengine_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPlaceManagerEngine::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -21,11 +21,21 @@ KListOpenFilesJob* KListOpenFilesJob_new(const libqt_string path) {
 }
 
 QMetaObject* KListOpenFilesJob_MetaObject(const KListOpenFilesJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vklistopenfilesjob = dynamic_cast<const VirtualKListOpenFilesJob*>(self);
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKListOpenFilesJob*)self)->metaObject();
+    }
 }
 
 void* KListOpenFilesJob_Metacast(KListOpenFilesJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKListOpenFilesJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KListOpenFilesJob_Metacall(KListOpenFilesJob* self, int param1, int param2, void** param3) {
@@ -57,6 +67,44 @@ libqt_list /* of KProcessList__KProcessInfo* */ KListOpenFilesJob_ProcessInfoLis
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+QMetaObject* KListOpenFilesJob_QBaseMetaObject(const KListOpenFilesJob* self) {
+    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+        vklistopenfilesjob->setKListOpenFilesJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vklistopenfilesjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KListOpenFilesJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KListOpenFilesJob_OnMetaObject(const KListOpenFilesJob* self, intptr_t slot) {
+    auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+        vklistopenfilesjob->setKListOpenFilesJob_MetaObject_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KListOpenFilesJob_QBaseMetacast(KListOpenFilesJob* self, const char* param1) {
+    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+        vklistopenfilesjob->setKListOpenFilesJob_Metacast_IsBase(true);
+        return vklistopenfilesjob->qt_metacast(param1);
+    } else {
+        return self->KListOpenFilesJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KListOpenFilesJob_OnMetacast(KListOpenFilesJob* self, intptr_t slot) {
+    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
+    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
+        vklistopenfilesjob->setKListOpenFilesJob_Metacast_Callback(reinterpret_cast<VirtualKListOpenFilesJob::KListOpenFilesJob_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

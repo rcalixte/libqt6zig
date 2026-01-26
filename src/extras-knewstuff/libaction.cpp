@@ -22,11 +22,21 @@ KNSWidgets__Action* KNSWidgets__Action_new(const libqt_string text, const libqt_
 }
 
 QMetaObject* KNSWidgets__Action_MetaObject(const KNSWidgets__Action* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknswidgets__action = dynamic_cast<const VirtualKNSWidgetsAction*>(self);
+    if (vknswidgets__action && vknswidgets__action->isVirtualKNSWidgetsAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNSWidgetsAction*)self)->metaObject();
+    }
 }
 
 void* KNSWidgets__Action_Metacast(KNSWidgets__Action* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknswidgets__action = dynamic_cast<VirtualKNSWidgetsAction*>(self);
+    if (vknswidgets__action && vknswidgets__action->isVirtualKNSWidgetsAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNSWidgetsAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KNSWidgets__Action_Metacall(KNSWidgets__Action* self, int param1, int param2, void** param3) {
@@ -63,6 +73,44 @@ void KNSWidgets__Action_Connect_DialogFinished(KNSWidgets__Action* self, intptr_
         slotFunc(self, sigval1);
         free(changedEntries_arr);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KNSWidgets__Action_QBaseMetaObject(const KNSWidgets__Action* self) {
+    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+        vknswidgetsaction->setKNSWidgets__Action_MetaObject_IsBase(true);
+        return (QMetaObject*)vknswidgetsaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KNSWidgets::Action::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSWidgets__Action_OnMetaObject(const KNSWidgets__Action* self, intptr_t slot) {
+    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+        vknswidgetsaction->setKNSWidgets__Action_MetaObject_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNSWidgets__Action_QBaseMetacast(KNSWidgets__Action* self, const char* param1) {
+    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+        vknswidgetsaction->setKNSWidgets__Action_Metacast_IsBase(true);
+        return vknswidgetsaction->qt_metacast(param1);
+    } else {
+        return self->KNSWidgets::Action::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSWidgets__Action_OnMetacast(KNSWidgets__Action* self, intptr_t slot) {
+    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+        vknswidgetsaction->setKNSWidgets__Action_Metacast_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

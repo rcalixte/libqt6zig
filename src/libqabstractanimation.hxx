@@ -17,6 +17,8 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
     bool isVirtualQAbstractAnimation = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractAnimation_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractAnimation_Metacast_Callback = void* (*)(QAbstractAnimation*, const char*);
     using QAbstractAnimation_Metacall_Callback = int (*)(QAbstractAnimation*, int, int, void**);
     using QAbstractAnimation_Duration_Callback = int (*)();
     using QAbstractAnimation_Event_Callback = bool (*)(QAbstractAnimation*, QEvent*);
@@ -36,6 +38,8 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
 
   protected:
     // Instance callback storage
+    QAbstractAnimation_MetaObject_Callback qabstractanimation_metaobject_callback = nullptr;
+    QAbstractAnimation_Metacast_Callback qabstractanimation_metacast_callback = nullptr;
     QAbstractAnimation_Metacall_Callback qabstractanimation_metacall_callback = nullptr;
     QAbstractAnimation_Duration_Callback qabstractanimation_duration_callback = nullptr;
     QAbstractAnimation_Event_Callback qabstractanimation_event_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
     QAbstractAnimation_IsSignalConnected_Callback qabstractanimation_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractanimation_metaobject_isbase = false;
+    mutable bool qabstractanimation_metacast_isbase = false;
     mutable bool qabstractanimation_metacall_isbase = false;
     mutable bool qabstractanimation_duration_isbase = false;
     mutable bool qabstractanimation_event_isbase = false;
@@ -76,6 +82,8 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
     VirtualQAbstractAnimation(QObject* parent) : QAbstractAnimation(parent) {};
 
     ~VirtualQAbstractAnimation() {
+        qabstractanimation_metaobject_callback = nullptr;
+        qabstractanimation_metacast_callback = nullptr;
         qabstractanimation_metacall_callback = nullptr;
         qabstractanimation_duration_callback = nullptr;
         qabstractanimation_event_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
     }
 
     // Callback setters
+    inline void setQAbstractAnimation_MetaObject_Callback(QAbstractAnimation_MetaObject_Callback cb) { qabstractanimation_metaobject_callback = cb; }
+    inline void setQAbstractAnimation_Metacast_Callback(QAbstractAnimation_Metacast_Callback cb) { qabstractanimation_metacast_callback = cb; }
     inline void setQAbstractAnimation_Metacall_Callback(QAbstractAnimation_Metacall_Callback cb) { qabstractanimation_metacall_callback = cb; }
     inline void setQAbstractAnimation_Duration_Callback(QAbstractAnimation_Duration_Callback cb) { qabstractanimation_duration_callback = cb; }
     inline void setQAbstractAnimation_Event_Callback(QAbstractAnimation_Event_Callback cb) { qabstractanimation_event_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
     inline void setQAbstractAnimation_IsSignalConnected_Callback(QAbstractAnimation_IsSignalConnected_Callback cb) { qabstractanimation_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractAnimation_MetaObject_IsBase(bool value) const { qabstractanimation_metaobject_isbase = value; }
+    inline void setQAbstractAnimation_Metacast_IsBase(bool value) const { qabstractanimation_metacast_isbase = value; }
     inline void setQAbstractAnimation_Metacall_IsBase(bool value) const { qabstractanimation_metacall_isbase = value; }
     inline void setQAbstractAnimation_Duration_IsBase(bool value) const { qabstractanimation_duration_isbase = value; }
     inline void setQAbstractAnimation_Event_IsBase(bool value) const { qabstractanimation_event_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
     inline void setQAbstractAnimation_SenderSignalIndex_IsBase(bool value) const { qabstractanimation_sendersignalindex_isbase = value; }
     inline void setQAbstractAnimation_Receivers_IsBase(bool value) const { qabstractanimation_receivers_isbase = value; }
     inline void setQAbstractAnimation_IsSignalConnected_IsBase(bool value) const { qabstractanimation_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractanimation_metaobject_isbase) {
+            qabstractanimation_metaobject_isbase = false;
+            return QAbstractAnimation::metaObject();
+        } else if (qabstractanimation_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractanimation_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractAnimation::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractanimation_metacast_isbase) {
+            qabstractanimation_metacast_isbase = false;
+            return QAbstractAnimation::qt_metacast(param1);
+        } else if (qabstractanimation_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractanimation_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractAnimation::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -395,6 +435,8 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
     bool isVirtualQAnimationDriver = true;
 
     // Virtual class public types (including callbacks)
+    using QAnimationDriver_MetaObject_Callback = QMetaObject* (*)();
+    using QAnimationDriver_Metacast_Callback = void* (*)(QAnimationDriver*, const char*);
     using QAnimationDriver_Metacall_Callback = int (*)(QAnimationDriver*, int, int, void**);
     using QAnimationDriver_Advance_Callback = void (*)();
     using QAnimationDriver_Elapsed_Callback = long long (*)();
@@ -415,6 +457,8 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
 
   protected:
     // Instance callback storage
+    QAnimationDriver_MetaObject_Callback qanimationdriver_metaobject_callback = nullptr;
+    QAnimationDriver_Metacast_Callback qanimationdriver_metacast_callback = nullptr;
     QAnimationDriver_Metacall_Callback qanimationdriver_metacall_callback = nullptr;
     QAnimationDriver_Advance_Callback qanimationdriver_advance_callback = nullptr;
     QAnimationDriver_Elapsed_Callback qanimationdriver_elapsed_callback = nullptr;
@@ -434,6 +478,8 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
     QAnimationDriver_IsSignalConnected_Callback qanimationdriver_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qanimationdriver_metaobject_isbase = false;
+    mutable bool qanimationdriver_metacast_isbase = false;
     mutable bool qanimationdriver_metacall_isbase = false;
     mutable bool qanimationdriver_advance_isbase = false;
     mutable bool qanimationdriver_elapsed_isbase = false;
@@ -457,6 +503,8 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
     VirtualQAnimationDriver(QObject* parent) : QAnimationDriver(parent) {};
 
     ~VirtualQAnimationDriver() {
+        qanimationdriver_metaobject_callback = nullptr;
+        qanimationdriver_metacast_callback = nullptr;
         qanimationdriver_metacall_callback = nullptr;
         qanimationdriver_advance_callback = nullptr;
         qanimationdriver_elapsed_callback = nullptr;
@@ -477,6 +525,8 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
     }
 
     // Callback setters
+    inline void setQAnimationDriver_MetaObject_Callback(QAnimationDriver_MetaObject_Callback cb) { qanimationdriver_metaobject_callback = cb; }
+    inline void setQAnimationDriver_Metacast_Callback(QAnimationDriver_Metacast_Callback cb) { qanimationdriver_metacast_callback = cb; }
     inline void setQAnimationDriver_Metacall_Callback(QAnimationDriver_Metacall_Callback cb) { qanimationdriver_metacall_callback = cb; }
     inline void setQAnimationDriver_Advance_Callback(QAnimationDriver_Advance_Callback cb) { qanimationdriver_advance_callback = cb; }
     inline void setQAnimationDriver_Elapsed_Callback(QAnimationDriver_Elapsed_Callback cb) { qanimationdriver_elapsed_callback = cb; }
@@ -496,6 +546,8 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
     inline void setQAnimationDriver_IsSignalConnected_Callback(QAnimationDriver_IsSignalConnected_Callback cb) { qanimationdriver_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAnimationDriver_MetaObject_IsBase(bool value) const { qanimationdriver_metaobject_isbase = value; }
+    inline void setQAnimationDriver_Metacast_IsBase(bool value) const { qanimationdriver_metacast_isbase = value; }
     inline void setQAnimationDriver_Metacall_IsBase(bool value) const { qanimationdriver_metacall_isbase = value; }
     inline void setQAnimationDriver_Advance_IsBase(bool value) const { qanimationdriver_advance_isbase = value; }
     inline void setQAnimationDriver_Elapsed_IsBase(bool value) const { qanimationdriver_elapsed_isbase = value; }
@@ -513,6 +565,34 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
     inline void setQAnimationDriver_SenderSignalIndex_IsBase(bool value) const { qanimationdriver_sendersignalindex_isbase = value; }
     inline void setQAnimationDriver_Receivers_IsBase(bool value) const { qanimationdriver_receivers_isbase = value; }
     inline void setQAnimationDriver_IsSignalConnected_IsBase(bool value) const { qanimationdriver_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qanimationdriver_metaobject_isbase) {
+            qanimationdriver_metaobject_isbase = false;
+            return QAnimationDriver::metaObject();
+        } else if (qanimationdriver_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qanimationdriver_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAnimationDriver::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qanimationdriver_metacast_isbase) {
+            qanimationdriver_metacast_isbase = false;
+            return QAnimationDriver::qt_metacast(param1);
+        } else if (qanimationdriver_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qanimationdriver_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAnimationDriver::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

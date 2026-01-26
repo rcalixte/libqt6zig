@@ -39,6 +39,10 @@ void QAnimationGroup_RemoveAnimation(QAnimationGroup* self, QAbstractAnimation* 
 QAbstractAnimation* QAnimationGroup_TakeAnimation(QAnimationGroup* self, int index);
 void QAnimationGroup_Clear(QAnimationGroup* self);
 bool QAnimationGroup_Event(QAnimationGroup* self, QEvent* event);
+void QAnimationGroup_OnMetaObject(const QAnimationGroup* self, intptr_t slot);
+QMetaObject* QAnimationGroup_QBaseMetaObject(const QAnimationGroup* self);
+void QAnimationGroup_OnMetacast(QAnimationGroup* self, intptr_t slot);
+void* QAnimationGroup_QBaseMetacast(QAnimationGroup* self, const char* param1);
 void QAnimationGroup_OnMetacall(QAnimationGroup* self, intptr_t slot);
 int QAnimationGroup_QBaseMetacall(QAnimationGroup* self, int param1, int param2, void** param3);
 void QAnimationGroup_OnEvent(QAnimationGroup* self, intptr_t slot);

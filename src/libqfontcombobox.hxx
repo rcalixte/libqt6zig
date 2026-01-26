@@ -17,6 +17,8 @@ class VirtualQFontComboBox final : public QFontComboBox {
     bool isVirtualQFontComboBox = true;
 
     // Virtual class public types (including callbacks)
+    using QFontComboBox_MetaObject_Callback = QMetaObject* (*)();
+    using QFontComboBox_Metacast_Callback = void* (*)(QFontComboBox*, const char*);
     using QFontComboBox_Metacall_Callback = int (*)(QFontComboBox*, int, int, void**);
     using QFontComboBox_SizeHint_Callback = QSize* (*)();
     using QFontComboBox_Event_Callback = bool (*)(QFontComboBox*, QEvent*);
@@ -82,6 +84,8 @@ class VirtualQFontComboBox final : public QFontComboBox {
 
   protected:
     // Instance callback storage
+    QFontComboBox_MetaObject_Callback qfontcombobox_metaobject_callback = nullptr;
+    QFontComboBox_Metacast_Callback qfontcombobox_metacast_callback = nullptr;
     QFontComboBox_Metacall_Callback qfontcombobox_metacall_callback = nullptr;
     QFontComboBox_SizeHint_Callback qfontcombobox_sizehint_callback = nullptr;
     QFontComboBox_Event_Callback qfontcombobox_event_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQFontComboBox final : public QFontComboBox {
     QFontComboBox_GetDecodedMetricF_Callback qfontcombobox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qfontcombobox_metaobject_isbase = false;
+    mutable bool qfontcombobox_metacast_isbase = false;
     mutable bool qfontcombobox_metacall_isbase = false;
     mutable bool qfontcombobox_sizehint_isbase = false;
     mutable bool qfontcombobox_event_isbase = false;
@@ -214,6 +220,8 @@ class VirtualQFontComboBox final : public QFontComboBox {
     VirtualQFontComboBox() : QFontComboBox() {};
 
     ~VirtualQFontComboBox() {
+        qfontcombobox_metaobject_callback = nullptr;
+        qfontcombobox_metacast_callback = nullptr;
         qfontcombobox_metacall_callback = nullptr;
         qfontcombobox_sizehint_callback = nullptr;
         qfontcombobox_event_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualQFontComboBox final : public QFontComboBox {
     }
 
     // Callback setters
+    inline void setQFontComboBox_MetaObject_Callback(QFontComboBox_MetaObject_Callback cb) { qfontcombobox_metaobject_callback = cb; }
+    inline void setQFontComboBox_Metacast_Callback(QFontComboBox_Metacast_Callback cb) { qfontcombobox_metacast_callback = cb; }
     inline void setQFontComboBox_Metacall_Callback(QFontComboBox_Metacall_Callback cb) { qfontcombobox_metacall_callback = cb; }
     inline void setQFontComboBox_SizeHint_Callback(QFontComboBox_SizeHint_Callback cb) { qfontcombobox_sizehint_callback = cb; }
     inline void setQFontComboBox_Event_Callback(QFontComboBox_Event_Callback cb) { qfontcombobox_event_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualQFontComboBox final : public QFontComboBox {
     inline void setQFontComboBox_GetDecodedMetricF_Callback(QFontComboBox_GetDecodedMetricF_Callback cb) { qfontcombobox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQFontComboBox_MetaObject_IsBase(bool value) const { qfontcombobox_metaobject_isbase = value; }
+    inline void setQFontComboBox_Metacast_IsBase(bool value) const { qfontcombobox_metacast_isbase = value; }
     inline void setQFontComboBox_Metacall_IsBase(bool value) const { qfontcombobox_metacall_isbase = value; }
     inline void setQFontComboBox_SizeHint_IsBase(bool value) const { qfontcombobox_sizehint_isbase = value; }
     inline void setQFontComboBox_Event_IsBase(bool value) const { qfontcombobox_event_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualQFontComboBox final : public QFontComboBox {
     inline void setQFontComboBox_Receivers_IsBase(bool value) const { qfontcombobox_receivers_isbase = value; }
     inline void setQFontComboBox_IsSignalConnected_IsBase(bool value) const { qfontcombobox_issignalconnected_isbase = value; }
     inline void setQFontComboBox_GetDecodedMetricF_IsBase(bool value) const { qfontcombobox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qfontcombobox_metaobject_isbase) {
+            qfontcombobox_metaobject_isbase = false;
+            return QFontComboBox::metaObject();
+        } else if (qfontcombobox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qfontcombobox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFontComboBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qfontcombobox_metacast_isbase) {
+            qfontcombobox_metacast_isbase = false;
+            return QFontComboBox::qt_metacast(param1);
+        } else if (qfontcombobox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qfontcombobox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFontComboBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

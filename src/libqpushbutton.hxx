@@ -17,6 +17,8 @@ class VirtualQPushButton final : public QPushButton {
     bool isVirtualQPushButton = true;
 
     // Virtual class public types (including callbacks)
+    using QPushButton_MetaObject_Callback = QMetaObject* (*)();
+    using QPushButton_Metacast_Callback = void* (*)(QPushButton*, const char*);
     using QPushButton_Metacall_Callback = int (*)(QPushButton*, int, int, void**);
     using QPushButton_SizeHint_Callback = QSize* (*)();
     using QPushButton_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualQPushButton final : public QPushButton {
 
   protected:
     // Instance callback storage
+    QPushButton_MetaObject_Callback qpushbutton_metaobject_callback = nullptr;
+    QPushButton_Metacast_Callback qpushbutton_metacast_callback = nullptr;
     QPushButton_Metacall_Callback qpushbutton_metacall_callback = nullptr;
     QPushButton_SizeHint_Callback qpushbutton_sizehint_callback = nullptr;
     QPushButton_MinimumSizeHint_Callback qpushbutton_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQPushButton final : public QPushButton {
     QPushButton_GetDecodedMetricF_Callback qpushbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpushbutton_metaobject_isbase = false;
+    mutable bool qpushbutton_metacast_isbase = false;
     mutable bool qpushbutton_metacall_isbase = false;
     mutable bool qpushbutton_sizehint_isbase = false;
     mutable bool qpushbutton_minimumsizehint_isbase = false;
@@ -218,6 +224,8 @@ class VirtualQPushButton final : public QPushButton {
     VirtualQPushButton(const QIcon& icon, const QString& text, QWidget* parent) : QPushButton(icon, text, parent) {};
 
     ~VirtualQPushButton() {
+        qpushbutton_metaobject_callback = nullptr;
+        qpushbutton_metacast_callback = nullptr;
         qpushbutton_metacall_callback = nullptr;
         qpushbutton_sizehint_callback = nullptr;
         qpushbutton_minimumsizehint_callback = nullptr;
@@ -283,6 +291,8 @@ class VirtualQPushButton final : public QPushButton {
     }
 
     // Callback setters
+    inline void setQPushButton_MetaObject_Callback(QPushButton_MetaObject_Callback cb) { qpushbutton_metaobject_callback = cb; }
+    inline void setQPushButton_Metacast_Callback(QPushButton_Metacast_Callback cb) { qpushbutton_metacast_callback = cb; }
     inline void setQPushButton_Metacall_Callback(QPushButton_Metacall_Callback cb) { qpushbutton_metacall_callback = cb; }
     inline void setQPushButton_SizeHint_Callback(QPushButton_SizeHint_Callback cb) { qpushbutton_sizehint_callback = cb; }
     inline void setQPushButton_MinimumSizeHint_Callback(QPushButton_MinimumSizeHint_Callback cb) { qpushbutton_minimumsizehint_callback = cb; }
@@ -347,6 +357,8 @@ class VirtualQPushButton final : public QPushButton {
     inline void setQPushButton_GetDecodedMetricF_Callback(QPushButton_GetDecodedMetricF_Callback cb) { qpushbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQPushButton_MetaObject_IsBase(bool value) const { qpushbutton_metaobject_isbase = value; }
+    inline void setQPushButton_Metacast_IsBase(bool value) const { qpushbutton_metacast_isbase = value; }
     inline void setQPushButton_Metacall_IsBase(bool value) const { qpushbutton_metacall_isbase = value; }
     inline void setQPushButton_SizeHint_IsBase(bool value) const { qpushbutton_sizehint_isbase = value; }
     inline void setQPushButton_MinimumSizeHint_IsBase(bool value) const { qpushbutton_minimumsizehint_isbase = value; }
@@ -409,6 +421,34 @@ class VirtualQPushButton final : public QPushButton {
     inline void setQPushButton_Receivers_IsBase(bool value) const { qpushbutton_receivers_isbase = value; }
     inline void setQPushButton_IsSignalConnected_IsBase(bool value) const { qpushbutton_issignalconnected_isbase = value; }
     inline void setQPushButton_GetDecodedMetricF_IsBase(bool value) const { qpushbutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpushbutton_metaobject_isbase) {
+            qpushbutton_metaobject_isbase = false;
+            return QPushButton::metaObject();
+        } else if (qpushbutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpushbutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPushButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpushbutton_metacast_isbase) {
+            qpushbutton_metacast_isbase = false;
+            return QPushButton::qt_metacast(param1);
+        } else if (qpushbutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpushbutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPushButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

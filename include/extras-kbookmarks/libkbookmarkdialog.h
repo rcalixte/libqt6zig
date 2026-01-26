@@ -75,6 +75,10 @@ KBookmarkGroup* KBookmarkDialog_AddBookmarks2(KBookmarkDialog* self, const libqt
 KBookmarkGroup* KBookmarkDialog_AddBookmarks3(KBookmarkDialog* self, const libqt_list /* of KBookmarkOwner__FutureBookmark* */ list, const libqt_string name, KBookmarkGroup* parent);
 KBookmarkGroup* KBookmarkDialog_CreateNewFolder2(KBookmarkDialog* self, const libqt_string name, KBookmark* parent);
 KBookmarkGroup* KBookmarkDialog_SelectFolder1(KBookmarkDialog* self, KBookmark* start);
+void KBookmarkDialog_OnMetaObject(const KBookmarkDialog* self, intptr_t slot);
+QMetaObject* KBookmarkDialog_QBaseMetaObject(const KBookmarkDialog* self);
+void KBookmarkDialog_OnMetacast(KBookmarkDialog* self, intptr_t slot);
+void* KBookmarkDialog_QBaseMetacast(KBookmarkDialog* self, const char* param1);
 void KBookmarkDialog_OnMetacall(KBookmarkDialog* self, intptr_t slot);
 int KBookmarkDialog_QBaseMetacall(KBookmarkDialog* self, int param1, int param2, void** param3);
 void KBookmarkDialog_OnAccept(KBookmarkDialog* self, intptr_t slot);

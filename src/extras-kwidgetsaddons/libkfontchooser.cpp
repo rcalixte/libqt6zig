@@ -59,11 +59,21 @@ KFontChooser* KFontChooser_new4(int flags, QWidget* parent) {
 }
 
 QMetaObject* KFontChooser_MetaObject(const KFontChooser* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfontchooser = dynamic_cast<const VirtualKFontChooser*>(self);
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFontChooser*)self)->metaObject();
+    }
 }
 
 void* KFontChooser_Metacast(KFontChooser* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFontChooser*)self)->qt_metacast(param1);
+    }
 }
 
 int KFontChooser_Metacall(KFontChooser* self, int param1, int param2, void** param3) {
@@ -189,6 +199,44 @@ void KFontChooser_Connect_FontSelected(KFontChooser* self, intptr_t slot) {
 
 void KFontChooser_SetFont2(KFontChooser* self, const QFont* font, bool onlyFixed) {
     self->setFont(*font, onlyFixed);
+}
+
+// Base class handler implementation
+QMetaObject* KFontChooser_QBaseMetaObject(const KFontChooser* self) {
+    auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        vkfontchooser->setKFontChooser_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfontchooser->metaObject();
+    } else {
+        return (QMetaObject*)self->KFontChooser::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontChooser_OnMetaObject(const KFontChooser* self, intptr_t slot) {
+    auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        vkfontchooser->setKFontChooser_MetaObject_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFontChooser_QBaseMetacast(KFontChooser* self, const char* param1) {
+    auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        vkfontchooser->setKFontChooser_Metacast_IsBase(true);
+        return vkfontchooser->qt_metacast(param1);
+    } else {
+        return self->KFontChooser::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontChooser_OnMetacast(KFontChooser* self, intptr_t slot) {
+    auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+        vkfontchooser->setKFontChooser_Metacast_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

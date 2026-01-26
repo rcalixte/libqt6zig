@@ -33,11 +33,21 @@ QPdfBookmarkModel* QPdfBookmarkModel_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfBookmarkModel_MetaObject(const QPdfBookmarkModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpdfbookmarkmodel = dynamic_cast<const VirtualQPdfBookmarkModel*>(self);
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPdfBookmarkModel*)self)->metaObject();
+    }
 }
 
 void* QPdfBookmarkModel_Metacast(QPdfBookmarkModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPdfBookmarkModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QPdfBookmarkModel_Metacall(QPdfBookmarkModel* self, int param1, int param2, void** param3) {
@@ -161,6 +171,44 @@ void QPdfBookmarkModel_Connect_DocumentChanged(QPdfBookmarkModel* self, intptr_t
         QPdfDocument* sigval1 = document;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QPdfBookmarkModel_QBaseMetaObject(const QPdfBookmarkModel* self) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpdfbookmarkmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QPdfBookmarkModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfBookmarkModel_OnMetaObject(const QPdfBookmarkModel* self, intptr_t slot) {
+    auto* vqpdfbookmarkmodel = const_cast<VirtualQPdfBookmarkModel*>(dynamic_cast<const VirtualQPdfBookmarkModel*>(self));
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_MetaObject_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPdfBookmarkModel_QBaseMetacast(QPdfBookmarkModel* self, const char* param1) {
+    auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Metacast_IsBase(true);
+        return vqpdfbookmarkmodel->qt_metacast(param1);
+    } else {
+        return self->QPdfBookmarkModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfBookmarkModel_OnMetacast(QPdfBookmarkModel* self, intptr_t slot) {
+    auto* vqpdfbookmarkmodel = dynamic_cast<VirtualQPdfBookmarkModel*>(self);
+    if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
+        vqpdfbookmarkmodel->setQPdfBookmarkModel_Metacast_Callback(reinterpret_cast<VirtualQPdfBookmarkModel::QPdfBookmarkModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

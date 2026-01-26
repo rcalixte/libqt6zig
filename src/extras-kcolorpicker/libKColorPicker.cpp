@@ -56,11 +56,21 @@ kColorPicker__KColorPicker* kColorPicker__KColorPicker_new3(bool showAlphaChanne
 }
 
 QMetaObject* kColorPicker__KColorPicker_MetaObject(const kColorPicker__KColorPicker* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcolorpicker__kcolorpicker = dynamic_cast<const VirtualkColorPickerKColorPicker*>(self);
+    if (vkcolorpicker__kcolorpicker && vkcolorpicker__kcolorpicker->isVirtualkColorPickerKColorPicker) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualkColorPickerKColorPicker*)self)->metaObject();
+    }
 }
 
 void* kColorPicker__KColorPicker_Metacast(kColorPicker__KColorPicker* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcolorpicker__kcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
+    if (vkcolorpicker__kcolorpicker && vkcolorpicker__kcolorpicker->isVirtualkColorPickerKColorPicker) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualkColorPickerKColorPicker*)self)->qt_metacast(param1);
+    }
 }
 
 int kColorPicker__KColorPicker_Metacall(kColorPicker__KColorPicker* self, int param1, int param2, void** param3) {
@@ -108,6 +118,44 @@ void kColorPicker__KColorPicker_Connect_ColorChanged(kColorPicker__KColorPicker*
 
 void kColorPicker__KColorPicker_ResetColors1(kColorPicker__KColorPicker* self, bool showAlphaChannel) {
     self->resetColors(showAlphaChannel);
+}
+
+// Base class handler implementation
+QMetaObject* kColorPicker__KColorPicker_QBaseMetaObject(const kColorPicker__KColorPicker* self) {
+    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcolorpickerkcolorpicker->metaObject();
+    } else {
+        return (QMetaObject*)self->kColorPicker::KColorPicker::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void kColorPicker__KColorPicker_OnMetaObject(const kColorPicker__KColorPicker* self, intptr_t slot) {
+    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MetaObject_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* kColorPicker__KColorPicker_QBaseMetacast(kColorPicker__KColorPicker* self, const char* param1) {
+    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacast_IsBase(true);
+        return vkcolorpickerkcolorpicker->qt_metacast(param1);
+    } else {
+        return self->kColorPicker::KColorPicker::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void kColorPicker__KColorPicker_OnMetacast(kColorPicker__KColorPicker* self, intptr_t slot) {
+    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
+    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacast_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

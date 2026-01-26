@@ -17,6 +17,8 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
     bool isVirtualKTextEditorCodeCompletionModel = true;
 
     // Virtual class public types (including callbacks)
+    using KTextEditor__CodeCompletionModel_MetaObject_Callback = QMetaObject* (*)();
+    using KTextEditor__CodeCompletionModel_Metacast_Callback = void* (*)(KTextEditor__CodeCompletionModel*, const char*);
     using KTextEditor__CodeCompletionModel_Metacall_Callback = int (*)(KTextEditor__CodeCompletionModel*, int, int, void**);
     using KTextEditor__CodeCompletionModel_CompletionInvoked_Callback = void (*)(KTextEditor__CodeCompletionModel*, KTextEditor__View*, KTextEditor__Range*, int);
     using KTextEditor__CodeCompletionModel_ExecuteCompletionItem_Callback = void (*)(const KTextEditor__CodeCompletionModel*, KTextEditor__View*, KTextEditor__Range*, QModelIndex*);
@@ -92,6 +94,8 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
 
   protected:
     // Instance callback storage
+    KTextEditor__CodeCompletionModel_MetaObject_Callback ktexteditor__codecompletionmodel_metaobject_callback = nullptr;
+    KTextEditor__CodeCompletionModel_Metacast_Callback ktexteditor__codecompletionmodel_metacast_callback = nullptr;
     KTextEditor__CodeCompletionModel_Metacall_Callback ktexteditor__codecompletionmodel_metacall_callback = nullptr;
     KTextEditor__CodeCompletionModel_CompletionInvoked_Callback ktexteditor__codecompletionmodel_completioninvoked_callback = nullptr;
     KTextEditor__CodeCompletionModel_ExecuteCompletionItem_Callback ktexteditor__codecompletionmodel_executecompletionitem_callback = nullptr;
@@ -166,6 +170,8 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
     KTextEditor__CodeCompletionModel_IsSignalConnected_Callback ktexteditor__codecompletionmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktexteditor__codecompletionmodel_metaobject_isbase = false;
+    mutable bool ktexteditor__codecompletionmodel_metacast_isbase = false;
     mutable bool ktexteditor__codecompletionmodel_metacall_isbase = false;
     mutable bool ktexteditor__codecompletionmodel_completioninvoked_isbase = false;
     mutable bool ktexteditor__codecompletionmodel_executecompletionitem_isbase = false;
@@ -243,6 +249,8 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
     VirtualKTextEditorCodeCompletionModel(QObject* parent) : KTextEditor::CodeCompletionModel(parent) {};
 
     ~VirtualKTextEditorCodeCompletionModel() {
+        ktexteditor__codecompletionmodel_metaobject_callback = nullptr;
+        ktexteditor__codecompletionmodel_metacast_callback = nullptr;
         ktexteditor__codecompletionmodel_metacall_callback = nullptr;
         ktexteditor__codecompletionmodel_completioninvoked_callback = nullptr;
         ktexteditor__codecompletionmodel_executecompletionitem_callback = nullptr;
@@ -318,6 +326,8 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
     }
 
     // Callback setters
+    inline void setKTextEditor__CodeCompletionModel_MetaObject_Callback(KTextEditor__CodeCompletionModel_MetaObject_Callback cb) { ktexteditor__codecompletionmodel_metaobject_callback = cb; }
+    inline void setKTextEditor__CodeCompletionModel_Metacast_Callback(KTextEditor__CodeCompletionModel_Metacast_Callback cb) { ktexteditor__codecompletionmodel_metacast_callback = cb; }
     inline void setKTextEditor__CodeCompletionModel_Metacall_Callback(KTextEditor__CodeCompletionModel_Metacall_Callback cb) { ktexteditor__codecompletionmodel_metacall_callback = cb; }
     inline void setKTextEditor__CodeCompletionModel_CompletionInvoked_Callback(KTextEditor__CodeCompletionModel_CompletionInvoked_Callback cb) { ktexteditor__codecompletionmodel_completioninvoked_callback = cb; }
     inline void setKTextEditor__CodeCompletionModel_ExecuteCompletionItem_Callback(KTextEditor__CodeCompletionModel_ExecuteCompletionItem_Callback cb) { ktexteditor__codecompletionmodel_executecompletionitem_callback = cb; }
@@ -392,6 +402,8 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
     inline void setKTextEditor__CodeCompletionModel_IsSignalConnected_Callback(KTextEditor__CodeCompletionModel_IsSignalConnected_Callback cb) { ktexteditor__codecompletionmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKTextEditor__CodeCompletionModel_MetaObject_IsBase(bool value) const { ktexteditor__codecompletionmodel_metaobject_isbase = value; }
+    inline void setKTextEditor__CodeCompletionModel_Metacast_IsBase(bool value) const { ktexteditor__codecompletionmodel_metacast_isbase = value; }
     inline void setKTextEditor__CodeCompletionModel_Metacall_IsBase(bool value) const { ktexteditor__codecompletionmodel_metacall_isbase = value; }
     inline void setKTextEditor__CodeCompletionModel_CompletionInvoked_IsBase(bool value) const { ktexteditor__codecompletionmodel_completioninvoked_isbase = value; }
     inline void setKTextEditor__CodeCompletionModel_ExecuteCompletionItem_IsBase(bool value) const { ktexteditor__codecompletionmodel_executecompletionitem_isbase = value; }
@@ -464,6 +476,34 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
     inline void setKTextEditor__CodeCompletionModel_SenderSignalIndex_IsBase(bool value) const { ktexteditor__codecompletionmodel_sendersignalindex_isbase = value; }
     inline void setKTextEditor__CodeCompletionModel_Receivers_IsBase(bool value) const { ktexteditor__codecompletionmodel_receivers_isbase = value; }
     inline void setKTextEditor__CodeCompletionModel_IsSignalConnected_IsBase(bool value) const { ktexteditor__codecompletionmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktexteditor__codecompletionmodel_metaobject_isbase) {
+            ktexteditor__codecompletionmodel_metaobject_isbase = false;
+            return KTextEditor__CodeCompletionModel::metaObject();
+        } else if (ktexteditor__codecompletionmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktexteditor__codecompletionmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTextEditor__CodeCompletionModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktexteditor__codecompletionmodel_metacast_isbase) {
+            ktexteditor__codecompletionmodel_metacast_isbase = false;
+            return KTextEditor__CodeCompletionModel::qt_metacast(param1);
+        } else if (ktexteditor__codecompletionmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktexteditor__codecompletionmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTextEditor__CodeCompletionModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

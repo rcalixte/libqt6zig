@@ -55,6 +55,10 @@ void QAbstractItemDelegate_SizeHintChanged(QAbstractItemDelegate* self, const QM
 void QAbstractItemDelegate_Connect_SizeHintChanged(QAbstractItemDelegate* self, intptr_t slot);
 void QAbstractItemDelegate_CloseEditor2(QAbstractItemDelegate* self, QWidget* editor, int hint);
 void QAbstractItemDelegate_Connect_CloseEditor2(QAbstractItemDelegate* self, intptr_t slot);
+void QAbstractItemDelegate_OnMetaObject(const QAbstractItemDelegate* self, intptr_t slot);
+QMetaObject* QAbstractItemDelegate_QBaseMetaObject(const QAbstractItemDelegate* self);
+void QAbstractItemDelegate_OnMetacast(QAbstractItemDelegate* self, intptr_t slot);
+void* QAbstractItemDelegate_QBaseMetacast(QAbstractItemDelegate* self, const char* param1);
 void QAbstractItemDelegate_OnMetacall(QAbstractItemDelegate* self, intptr_t slot);
 int QAbstractItemDelegate_QBaseMetacall(QAbstractItemDelegate* self, int param1, int param2, void** param3);
 void QAbstractItemDelegate_OnPaint(const QAbstractItemDelegate* self, intptr_t slot);

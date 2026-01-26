@@ -45,11 +45,21 @@ Sonnet__ConfigDialog* Sonnet__ConfigDialog_new(QWidget* parent) {
 }
 
 QMetaObject* Sonnet__ConfigDialog_MetaObject(const Sonnet__ConfigDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vsonnet__configdialog = dynamic_cast<const VirtualSonnetConfigDialog*>(self);
+    if (vsonnet__configdialog && vsonnet__configdialog->isVirtualSonnetConfigDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualSonnetConfigDialog*)self)->metaObject();
+    }
 }
 
 void* Sonnet__ConfigDialog_Metacast(Sonnet__ConfigDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vsonnet__configdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
+    if (vsonnet__configdialog && vsonnet__configdialog->isVirtualSonnetConfigDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualSonnetConfigDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int Sonnet__ConfigDialog_Metacall(Sonnet__ConfigDialog* self, int param1, int param2, void** param3) {
@@ -121,6 +131,44 @@ void Sonnet__ConfigDialog_Connect_ConfigChanged(Sonnet__ConfigDialog* self, intp
     Sonnet::ConfigDialog::connect(self, &Sonnet::ConfigDialog::configChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* Sonnet__ConfigDialog_QBaseMetaObject(const Sonnet__ConfigDialog* self) {
+    auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+        vsonnetconfigdialog->setSonnet__ConfigDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vsonnetconfigdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->Sonnet::ConfigDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__ConfigDialog_OnMetaObject(const Sonnet__ConfigDialog* self, intptr_t slot) {
+    auto* vsonnetconfigdialog = const_cast<VirtualSonnetConfigDialog*>(dynamic_cast<const VirtualSonnetConfigDialog*>(self));
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+        vsonnetconfigdialog->setSonnet__ConfigDialog_MetaObject_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Sonnet__ConfigDialog_QBaseMetacast(Sonnet__ConfigDialog* self, const char* param1) {
+    auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+        vsonnetconfigdialog->setSonnet__ConfigDialog_Metacast_IsBase(true);
+        return vsonnetconfigdialog->qt_metacast(param1);
+    } else {
+        return self->Sonnet::ConfigDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__ConfigDialog_OnMetacast(Sonnet__ConfigDialog* self, intptr_t slot) {
+    auto* vsonnetconfigdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
+    if (vsonnetconfigdialog && vsonnetconfigdialog->isVirtualSonnetConfigDialog) {
+        vsonnetconfigdialog->setSonnet__ConfigDialog_Metacast_Callback(reinterpret_cast<VirtualSonnetConfigDialog::Sonnet__ConfigDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

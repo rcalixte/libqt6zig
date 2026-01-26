@@ -17,6 +17,8 @@ class VirtualQStackedLayout final : public QStackedLayout {
     bool isVirtualQStackedLayout = true;
 
     // Virtual class public types (including callbacks)
+    using QStackedLayout_MetaObject_Callback = QMetaObject* (*)();
+    using QStackedLayout_Metacast_Callback = void* (*)(QStackedLayout*, const char*);
     using QStackedLayout_Metacall_Callback = int (*)(QStackedLayout*, int, int, void**);
     using QStackedLayout_Count_Callback = int (*)();
     using QStackedLayout_AddItem_Callback = void (*)(QStackedLayout*, QLayoutItem*);
@@ -60,6 +62,8 @@ class VirtualQStackedLayout final : public QStackedLayout {
 
   protected:
     // Instance callback storage
+    QStackedLayout_MetaObject_Callback qstackedlayout_metaobject_callback = nullptr;
+    QStackedLayout_Metacast_Callback qstackedlayout_metacast_callback = nullptr;
     QStackedLayout_Metacall_Callback qstackedlayout_metacall_callback = nullptr;
     QStackedLayout_Count_Callback qstackedlayout_count_callback = nullptr;
     QStackedLayout_AddItem_Callback qstackedlayout_additem_callback = nullptr;
@@ -102,6 +106,8 @@ class VirtualQStackedLayout final : public QStackedLayout {
     QStackedLayout_IsSignalConnected_Callback qstackedlayout_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qstackedlayout_metaobject_isbase = false;
+    mutable bool qstackedlayout_metacast_isbase = false;
     mutable bool qstackedlayout_metacall_isbase = false;
     mutable bool qstackedlayout_count_isbase = false;
     mutable bool qstackedlayout_additem_isbase = false;
@@ -149,6 +155,8 @@ class VirtualQStackedLayout final : public QStackedLayout {
     VirtualQStackedLayout(QLayout* parentLayout) : QStackedLayout(parentLayout) {};
 
     ~VirtualQStackedLayout() {
+        qstackedlayout_metaobject_callback = nullptr;
+        qstackedlayout_metacast_callback = nullptr;
         qstackedlayout_metacall_callback = nullptr;
         qstackedlayout_count_callback = nullptr;
         qstackedlayout_additem_callback = nullptr;
@@ -192,6 +200,8 @@ class VirtualQStackedLayout final : public QStackedLayout {
     }
 
     // Callback setters
+    inline void setQStackedLayout_MetaObject_Callback(QStackedLayout_MetaObject_Callback cb) { qstackedlayout_metaobject_callback = cb; }
+    inline void setQStackedLayout_Metacast_Callback(QStackedLayout_Metacast_Callback cb) { qstackedlayout_metacast_callback = cb; }
     inline void setQStackedLayout_Metacall_Callback(QStackedLayout_Metacall_Callback cb) { qstackedlayout_metacall_callback = cb; }
     inline void setQStackedLayout_Count_Callback(QStackedLayout_Count_Callback cb) { qstackedlayout_count_callback = cb; }
     inline void setQStackedLayout_AddItem_Callback(QStackedLayout_AddItem_Callback cb) { qstackedlayout_additem_callback = cb; }
@@ -234,6 +244,8 @@ class VirtualQStackedLayout final : public QStackedLayout {
     inline void setQStackedLayout_IsSignalConnected_Callback(QStackedLayout_IsSignalConnected_Callback cb) { qstackedlayout_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQStackedLayout_MetaObject_IsBase(bool value) const { qstackedlayout_metaobject_isbase = value; }
+    inline void setQStackedLayout_Metacast_IsBase(bool value) const { qstackedlayout_metacast_isbase = value; }
     inline void setQStackedLayout_Metacall_IsBase(bool value) const { qstackedlayout_metacall_isbase = value; }
     inline void setQStackedLayout_Count_IsBase(bool value) const { qstackedlayout_count_isbase = value; }
     inline void setQStackedLayout_AddItem_IsBase(bool value) const { qstackedlayout_additem_isbase = value; }
@@ -274,6 +286,34 @@ class VirtualQStackedLayout final : public QStackedLayout {
     inline void setQStackedLayout_SenderSignalIndex_IsBase(bool value) const { qstackedlayout_sendersignalindex_isbase = value; }
     inline void setQStackedLayout_Receivers_IsBase(bool value) const { qstackedlayout_receivers_isbase = value; }
     inline void setQStackedLayout_IsSignalConnected_IsBase(bool value) const { qstackedlayout_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qstackedlayout_metaobject_isbase) {
+            qstackedlayout_metaobject_isbase = false;
+            return QStackedLayout::metaObject();
+        } else if (qstackedlayout_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qstackedlayout_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QStackedLayout::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qstackedlayout_metacast_isbase) {
+            qstackedlayout_metacast_isbase = false;
+            return QStackedLayout::qt_metacast(param1);
+        } else if (qstackedlayout_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qstackedlayout_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QStackedLayout::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

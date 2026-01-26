@@ -23,11 +23,21 @@ KOverlayIconPlugin* KOverlayIconPlugin_new2(QObject* parent) {
 }
 
 QMetaObject* KOverlayIconPlugin_MetaObject(const KOverlayIconPlugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkoverlayiconplugin = dynamic_cast<const VirtualKOverlayIconPlugin*>(self);
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKOverlayIconPlugin*)self)->metaObject();
+    }
 }
 
 void* KOverlayIconPlugin_Metacast(KOverlayIconPlugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKOverlayIconPlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int KOverlayIconPlugin_Metacall(KOverlayIconPlugin* self, int param1, int param2, void** param3) {
@@ -115,6 +125,44 @@ void KOverlayIconPlugin_Connect_OverlaysChanged(KOverlayIconPlugin* self, intptr
         slotFunc(self, sigval1, sigval2);
         free(overlays_arr);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KOverlayIconPlugin_QBaseMetaObject(const KOverlayIconPlugin* self) {
+    auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+        vkoverlayiconplugin->setKOverlayIconPlugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vkoverlayiconplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->KOverlayIconPlugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KOverlayIconPlugin_OnMetaObject(const KOverlayIconPlugin* self, intptr_t slot) {
+    auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+        vkoverlayiconplugin->setKOverlayIconPlugin_MetaObject_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KOverlayIconPlugin_QBaseMetacast(KOverlayIconPlugin* self, const char* param1) {
+    auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+        vkoverlayiconplugin->setKOverlayIconPlugin_Metacast_IsBase(true);
+        return vkoverlayiconplugin->qt_metacast(param1);
+    } else {
+        return self->KOverlayIconPlugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KOverlayIconPlugin_OnMetacast(KOverlayIconPlugin* self, intptr_t slot) {
+    auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+        vkoverlayiconplugin->setKOverlayIconPlugin_Metacast_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

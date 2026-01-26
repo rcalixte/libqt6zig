@@ -65,11 +65,21 @@ QTextDocument* QTextDocument_new4(const libqt_string text, QObject* parent) {
 }
 
 QMetaObject* QTextDocument_MetaObject(const QTextDocument* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtextdocument = dynamic_cast<const VirtualQTextDocument*>(self);
+    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTextDocument*)self)->metaObject();
+    }
 }
 
 void* QTextDocument_Metacast(QTextDocument* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
+    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTextDocument*)self)->qt_metacast(param1);
+    }
 }
 
 int QTextDocument_Metacall(QTextDocument* self, int param1, int param2, void** param3) {
@@ -699,6 +709,44 @@ void QTextDocument_ClearUndoRedoStacks1(QTextDocument* self, int historyToClear)
 
 void QTextDocument_SetModified1(QTextDocument* self, bool m) {
     self->setModified(m);
+}
+
+// Base class handler implementation
+QMetaObject* QTextDocument_QBaseMetaObject(const QTextDocument* self) {
+    auto* vqtextdocument = const_cast<VirtualQTextDocument*>(dynamic_cast<const VirtualQTextDocument*>(self));
+    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
+        vqtextdocument->setQTextDocument_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtextdocument->metaObject();
+    } else {
+        return (QMetaObject*)self->QTextDocument::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextDocument_OnMetaObject(const QTextDocument* self, intptr_t slot) {
+    auto* vqtextdocument = const_cast<VirtualQTextDocument*>(dynamic_cast<const VirtualQTextDocument*>(self));
+    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
+        vqtextdocument->setQTextDocument_MetaObject_Callback(reinterpret_cast<VirtualQTextDocument::QTextDocument_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTextDocument_QBaseMetacast(QTextDocument* self, const char* param1) {
+    auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
+    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
+        vqtextdocument->setQTextDocument_Metacast_IsBase(true);
+        return vqtextdocument->qt_metacast(param1);
+    } else {
+        return self->QTextDocument::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextDocument_OnMetacast(QTextDocument* self, intptr_t slot) {
+    auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
+    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
+        vqtextdocument->setQTextDocument_Metacast_Callback(reinterpret_cast<VirtualQTextDocument::QTextDocument_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

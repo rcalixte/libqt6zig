@@ -22,11 +22,21 @@ KConfigDialogManager* KConfigDialogManager_new(QWidget* parent, KCoreConfigSkele
 }
 
 QMetaObject* KConfigDialogManager_MetaObject(const KConfigDialogManager* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkconfigdialogmanager = dynamic_cast<const VirtualKConfigDialogManager*>(self);
+    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKConfigDialogManager*)self)->metaObject();
+    }
 }
 
 void* KConfigDialogManager_Metacast(KConfigDialogManager* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
+    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKConfigDialogManager*)self)->qt_metacast(param1);
+    }
 }
 
 int KConfigDialogManager_Metacall(KConfigDialogManager* self, int param1, int param2, void** param3) {
@@ -118,6 +128,44 @@ void KConfigDialogManager_UpdateWidgetsDefault(KConfigDialogManager* self) {
 
 void KConfigDialogManager_SetDefaultsIndicatorsVisible(KConfigDialogManager* self, bool enabled) {
     self->setDefaultsIndicatorsVisible(enabled);
+}
+
+// Base class handler implementation
+QMetaObject* KConfigDialogManager_QBaseMetaObject(const KConfigDialogManager* self) {
+    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
+    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+        vkconfigdialogmanager->setKConfigDialogManager_MetaObject_IsBase(true);
+        return (QMetaObject*)vkconfigdialogmanager->metaObject();
+    } else {
+        return (QMetaObject*)self->KConfigDialogManager::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigDialogManager_OnMetaObject(const KConfigDialogManager* self, intptr_t slot) {
+    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
+    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+        vkconfigdialogmanager->setKConfigDialogManager_MetaObject_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KConfigDialogManager_QBaseMetacast(KConfigDialogManager* self, const char* param1) {
+    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
+    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+        vkconfigdialogmanager->setKConfigDialogManager_Metacast_IsBase(true);
+        return vkconfigdialogmanager->qt_metacast(param1);
+    } else {
+        return self->KConfigDialogManager::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigDialogManager_OnMetacast(KConfigDialogManager* self, intptr_t slot) {
+    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
+    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+        vkconfigdialogmanager->setKConfigDialogManager_Metacast_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

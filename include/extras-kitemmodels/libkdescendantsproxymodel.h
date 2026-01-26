@@ -76,6 +76,10 @@ void KDescendantsProxyModel_SourceIndexExpanded(KDescendantsProxyModel* self, co
 void KDescendantsProxyModel_Connect_SourceIndexExpanded(KDescendantsProxyModel* self, intptr_t slot);
 void KDescendantsProxyModel_SourceIndexCollapsed(KDescendantsProxyModel* self, const QModelIndex* sourceIndex);
 void KDescendantsProxyModel_Connect_SourceIndexCollapsed(KDescendantsProxyModel* self, intptr_t slot);
+void KDescendantsProxyModel_OnMetaObject(const KDescendantsProxyModel* self, intptr_t slot);
+QMetaObject* KDescendantsProxyModel_QBaseMetaObject(const KDescendantsProxyModel* self);
+void KDescendantsProxyModel_OnMetacast(KDescendantsProxyModel* self, intptr_t slot);
+void* KDescendantsProxyModel_QBaseMetacast(KDescendantsProxyModel* self, const char* param1);
 void KDescendantsProxyModel_OnMetacall(KDescendantsProxyModel* self, intptr_t slot);
 int KDescendantsProxyModel_QBaseMetacall(KDescendantsProxyModel* self, int param1, int param2, void** param3);
 void KDescendantsProxyModel_OnSetSourceModel(KDescendantsProxyModel* self, intptr_t slot);

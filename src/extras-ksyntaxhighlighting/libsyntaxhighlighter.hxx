@@ -17,6 +17,8 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     bool isVirtualKSyntaxHighlightingSyntaxHighlighter = true;
 
     // Virtual class public types (including callbacks)
+    using KSyntaxHighlighting__SyntaxHighlighter_MetaObject_Callback = QMetaObject* (*)();
+    using KSyntaxHighlighting__SyntaxHighlighter_Metacast_Callback = void* (*)(KSyntaxHighlighting__SyntaxHighlighter*, const char*);
     using KSyntaxHighlighting__SyntaxHighlighter_Metacall_Callback = int (*)(KSyntaxHighlighting__SyntaxHighlighter*, int, int, void**);
     using KSyntaxHighlighting__SyntaxHighlighter_SetDefinition_Callback = void (*)(KSyntaxHighlighting__SyntaxHighlighter*, KSyntaxHighlighting__Definition*);
     using KSyntaxHighlighting__SyntaxHighlighter_SetTheme_Callback = void (*)(KSyntaxHighlighting__SyntaxHighlighter*, KSyntaxHighlighting__Theme*);
@@ -45,6 +47,8 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
 
   protected:
     // Instance callback storage
+    KSyntaxHighlighting__SyntaxHighlighter_MetaObject_Callback ksyntaxhighlighting__syntaxhighlighter_metaobject_callback = nullptr;
+    KSyntaxHighlighting__SyntaxHighlighter_Metacast_Callback ksyntaxhighlighting__syntaxhighlighter_metacast_callback = nullptr;
     KSyntaxHighlighting__SyntaxHighlighter_Metacall_Callback ksyntaxhighlighting__syntaxhighlighter_metacall_callback = nullptr;
     KSyntaxHighlighting__SyntaxHighlighter_SetDefinition_Callback ksyntaxhighlighting__syntaxhighlighter_setdefinition_callback = nullptr;
     KSyntaxHighlighting__SyntaxHighlighter_SetTheme_Callback ksyntaxhighlighting__syntaxhighlighter_settheme_callback = nullptr;
@@ -72,6 +76,8 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback ksyntaxhighlighting__syntaxhighlighter_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ksyntaxhighlighting__syntaxhighlighter_metaobject_isbase = false;
+    mutable bool ksyntaxhighlighting__syntaxhighlighter_metacast_isbase = false;
     mutable bool ksyntaxhighlighting__syntaxhighlighter_metacall_isbase = false;
     mutable bool ksyntaxhighlighting__syntaxhighlighter_setdefinition_isbase = false;
     mutable bool ksyntaxhighlighting__syntaxhighlighter_settheme_isbase = false;
@@ -104,6 +110,8 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     VirtualKSyntaxHighlightingSyntaxHighlighter(QObject* parent) : KSyntaxHighlighting::SyntaxHighlighter(parent) {};
 
     ~VirtualKSyntaxHighlightingSyntaxHighlighter() {
+        ksyntaxhighlighting__syntaxhighlighter_metaobject_callback = nullptr;
+        ksyntaxhighlighting__syntaxhighlighter_metacast_callback = nullptr;
         ksyntaxhighlighting__syntaxhighlighter_metacall_callback = nullptr;
         ksyntaxhighlighting__syntaxhighlighter_setdefinition_callback = nullptr;
         ksyntaxhighlighting__syntaxhighlighter_settheme_callback = nullptr;
@@ -132,6 +140,8 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     }
 
     // Callback setters
+    inline void setKSyntaxHighlighting__SyntaxHighlighter_MetaObject_Callback(KSyntaxHighlighting__SyntaxHighlighter_MetaObject_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_metaobject_callback = cb; }
+    inline void setKSyntaxHighlighting__SyntaxHighlighter_Metacast_Callback(KSyntaxHighlighting__SyntaxHighlighter_Metacast_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_metacast_callback = cb; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_Metacall_Callback(KSyntaxHighlighting__SyntaxHighlighter_Metacall_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_metacall_callback = cb; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_SetDefinition_Callback(KSyntaxHighlighting__SyntaxHighlighter_SetDefinition_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_setdefinition_callback = cb; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_SetTheme_Callback(KSyntaxHighlighting__SyntaxHighlighter_SetTheme_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_settheme_callback = cb; }
@@ -159,6 +169,8 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     inline void setKSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback(KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKSyntaxHighlighting__SyntaxHighlighter_MetaObject_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_metaobject_isbase = value; }
+    inline void setKSyntaxHighlighting__SyntaxHighlighter_Metacast_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_metacast_isbase = value; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_Metacall_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_metacall_isbase = value; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_SetDefinition_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_setdefinition_isbase = value; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_SetTheme_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_settheme_isbase = value; }
@@ -184,6 +196,34 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     inline void setKSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_isbase = value; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_Receivers_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_receivers_isbase = value; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ksyntaxhighlighting__syntaxhighlighter_metaobject_isbase) {
+            ksyntaxhighlighting__syntaxhighlighter_metaobject_isbase = false;
+            return KSyntaxHighlighting__SyntaxHighlighter::metaObject();
+        } else if (ksyntaxhighlighting__syntaxhighlighter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ksyntaxhighlighting__syntaxhighlighter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSyntaxHighlighting__SyntaxHighlighter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ksyntaxhighlighting__syntaxhighlighter_metacast_isbase) {
+            ksyntaxhighlighting__syntaxhighlighter_metacast_isbase = false;
+            return KSyntaxHighlighting__SyntaxHighlighter::qt_metacast(param1);
+        } else if (ksyntaxhighlighting__syntaxhighlighter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ksyntaxhighlighting__syntaxhighlighter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSyntaxHighlighting__SyntaxHighlighter::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

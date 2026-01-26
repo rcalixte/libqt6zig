@@ -187,6 +187,10 @@ libqt_list /* of QGraphicsItem* */ QGraphicsView_Items52(const QGraphicsView* se
 libqt_list /* of QGraphicsItem* */ QGraphicsView_Items24(const QGraphicsView* self, const QPainterPath* path, int mode);
 void QGraphicsView_InvalidateScene1(QGraphicsView* self, const QRectF* rect);
 void QGraphicsView_InvalidateScene2(QGraphicsView* self, const QRectF* rect, int layers);
+void QGraphicsView_OnMetaObject(const QGraphicsView* self, intptr_t slot);
+QMetaObject* QGraphicsView_QBaseMetaObject(const QGraphicsView* self);
+void QGraphicsView_OnMetacast(QGraphicsView* self, intptr_t slot);
+void* QGraphicsView_QBaseMetacast(QGraphicsView* self, const char* param1);
 void QGraphicsView_OnMetacall(QGraphicsView* self, intptr_t slot);
 int QGraphicsView_QBaseMetacall(QGraphicsView* self, int param1, int param2, void** param3);
 void QGraphicsView_OnSizeHint(const QGraphicsView* self, intptr_t slot);

@@ -17,6 +17,8 @@ class VirtualQFile final : public QFile {
     bool isVirtualQFile = true;
 
     // Virtual class public types (including callbacks)
+    using QFile_MetaObject_Callback = QMetaObject* (*)();
+    using QFile_Metacast_Callback = void* (*)(QFile*, const char*);
     using QFile_Metacall_Callback = int (*)(QFile*, int, int, void**);
     using QFile_FileName_Callback = const char* (*)();
     using QFile_Open_Callback = bool (*)(QFile*, int);
@@ -55,6 +57,8 @@ class VirtualQFile final : public QFile {
 
   protected:
     // Instance callback storage
+    QFile_MetaObject_Callback qfile_metaobject_callback = nullptr;
+    QFile_Metacast_Callback qfile_metacast_callback = nullptr;
     QFile_Metacall_Callback qfile_metacall_callback = nullptr;
     QFile_FileName_Callback qfile_filename_callback = nullptr;
     QFile_Open_Callback qfile_open_callback = nullptr;
@@ -92,6 +96,8 @@ class VirtualQFile final : public QFile {
     QFile_IsSignalConnected_Callback qfile_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qfile_metaobject_isbase = false;
+    mutable bool qfile_metacast_isbase = false;
     mutable bool qfile_metacall_isbase = false;
     mutable bool qfile_filename_isbase = false;
     mutable bool qfile_open_isbase = false;
@@ -135,6 +141,8 @@ class VirtualQFile final : public QFile {
     VirtualQFile(const QString& name, QObject* parent) : QFile(name, parent) {};
 
     ~VirtualQFile() {
+        qfile_metaobject_callback = nullptr;
+        qfile_metacast_callback = nullptr;
         qfile_metacall_callback = nullptr;
         qfile_filename_callback = nullptr;
         qfile_open_callback = nullptr;
@@ -173,6 +181,8 @@ class VirtualQFile final : public QFile {
     }
 
     // Callback setters
+    inline void setQFile_MetaObject_Callback(QFile_MetaObject_Callback cb) { qfile_metaobject_callback = cb; }
+    inline void setQFile_Metacast_Callback(QFile_Metacast_Callback cb) { qfile_metacast_callback = cb; }
     inline void setQFile_Metacall_Callback(QFile_Metacall_Callback cb) { qfile_metacall_callback = cb; }
     inline void setQFile_FileName_Callback(QFile_FileName_Callback cb) { qfile_filename_callback = cb; }
     inline void setQFile_Open_Callback(QFile_Open_Callback cb) { qfile_open_callback = cb; }
@@ -210,6 +220,8 @@ class VirtualQFile final : public QFile {
     inline void setQFile_IsSignalConnected_Callback(QFile_IsSignalConnected_Callback cb) { qfile_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQFile_MetaObject_IsBase(bool value) const { qfile_metaobject_isbase = value; }
+    inline void setQFile_Metacast_IsBase(bool value) const { qfile_metacast_isbase = value; }
     inline void setQFile_Metacall_IsBase(bool value) const { qfile_metacall_isbase = value; }
     inline void setQFile_FileName_IsBase(bool value) const { qfile_filename_isbase = value; }
     inline void setQFile_Open_IsBase(bool value) const { qfile_open_isbase = value; }
@@ -245,6 +257,34 @@ class VirtualQFile final : public QFile {
     inline void setQFile_SenderSignalIndex_IsBase(bool value) const { qfile_sendersignalindex_isbase = value; }
     inline void setQFile_Receivers_IsBase(bool value) const { qfile_receivers_isbase = value; }
     inline void setQFile_IsSignalConnected_IsBase(bool value) const { qfile_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qfile_metaobject_isbase) {
+            qfile_metaobject_isbase = false;
+            return QFile::metaObject();
+        } else if (qfile_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qfile_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFile::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qfile_metacast_isbase) {
+            qfile_metacast_isbase = false;
+            return QFile::qt_metacast(param1);
+        } else if (qfile_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qfile_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFile::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

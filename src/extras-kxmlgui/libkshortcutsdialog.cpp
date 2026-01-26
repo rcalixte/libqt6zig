@@ -64,11 +64,21 @@ KShortcutsDialog* KShortcutsDialog_new5(int actionTypes, int allowLetterShortcut
 }
 
 QMetaObject* KShortcutsDialog_MetaObject(const KShortcutsDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkshortcutsdialog = dynamic_cast<const VirtualKShortcutsDialog*>(self);
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKShortcutsDialog*)self)->metaObject();
+    }
 }
 
 void* KShortcutsDialog_Metacast(KShortcutsDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKShortcutsDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KShortcutsDialog_Metacall(KShortcutsDialog* self, int param1, int param2, void** param3) {
@@ -167,6 +177,44 @@ void KShortcutsDialog_ShowDialog2(KActionCollection* collection, int allowLetter
 
 void KShortcutsDialog_ShowDialog3(KActionCollection* collection, int allowLetterShortcuts, QWidget* parent) {
     KShortcutsDialog::showDialog(collection, static_cast<KShortcutsEditor::LetterShortcuts>(allowLetterShortcuts), parent);
+}
+
+// Base class handler implementation
+QMetaObject* KShortcutsDialog_QBaseMetaObject(const KShortcutsDialog* self) {
+    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+        vkshortcutsdialog->setKShortcutsDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkshortcutsdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KShortcutsDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KShortcutsDialog_OnMetaObject(const KShortcutsDialog* self, intptr_t slot) {
+    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+        vkshortcutsdialog->setKShortcutsDialog_MetaObject_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KShortcutsDialog_QBaseMetacast(KShortcutsDialog* self, const char* param1) {
+    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+        vkshortcutsdialog->setKShortcutsDialog_Metacast_IsBase(true);
+        return vkshortcutsdialog->qt_metacast(param1);
+    } else {
+        return self->KShortcutsDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KShortcutsDialog_OnMetacast(KShortcutsDialog* self, intptr_t slot) {
+    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+        vkshortcutsdialog->setKShortcutsDialog_Metacast_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -63,11 +63,21 @@ QTreeView* QTreeView_new2() {
 }
 
 QMetaObject* QTreeView_MetaObject(const QTreeView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
+    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTreeView*)self)->metaObject();
+    }
 }
 
 void* QTreeView_Metacast(QTreeView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
+    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTreeView*)self)->qt_metacast(param1);
+    }
 }
 
 int QTreeView_Metacall(QTreeView* self, int param1, int param2, void** param3) {
@@ -640,6 +650,44 @@ void QTreeView_CurrentChanged(QTreeView* self, const QModelIndex* current, const
 
 void QTreeView_ExpandRecursively2(QTreeView* self, const QModelIndex* index, int depth) {
     self->expandRecursively(*index, static_cast<int>(depth));
+}
+
+// Base class handler implementation
+QMetaObject* QTreeView_QBaseMetaObject(const QTreeView* self) {
+    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
+    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+        vqtreeview->setQTreeView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtreeview->metaObject();
+    } else {
+        return (QMetaObject*)self->QTreeView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTreeView_OnMetaObject(const QTreeView* self, intptr_t slot) {
+    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
+    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+        vqtreeview->setQTreeView_MetaObject_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTreeView_QBaseMetacast(QTreeView* self, const char* param1) {
+    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
+    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+        vqtreeview->setQTreeView_Metacast_IsBase(true);
+        return vqtreeview->qt_metacast(param1);
+    } else {
+        return self->QTreeView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTreeView_OnMetacast(QTreeView* self, intptr_t slot) {
+    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
+    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+        vqtreeview->setQTreeView_Metacast_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

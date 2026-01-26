@@ -21,11 +21,21 @@ QGenericPlugin* QGenericPlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QGenericPlugin_MetaObject(const QGenericPlugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgenericplugin = dynamic_cast<const VirtualQGenericPlugin*>(self);
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGenericPlugin*)self)->metaObject();
+    }
 }
 
 void* QGenericPlugin_Metacast(QGenericPlugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGenericPlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int QGenericPlugin_Metacall(QGenericPlugin* self, int param1, int param2, void** param3) {
@@ -45,6 +55,44 @@ QObject* QGenericPlugin_Create(QGenericPlugin* self, const libqt_string name, co
         return vqgenericplugin->create(name_QString, spec_QString);
     } else {
         return ((VirtualQGenericPlugin*)self)->create(name_QString, spec_QString);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGenericPlugin_QBaseMetaObject(const QGenericPlugin* self) {
+    auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+        vqgenericplugin->setQGenericPlugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgenericplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->QGenericPlugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGenericPlugin_OnMetaObject(const QGenericPlugin* self, intptr_t slot) {
+    auto* vqgenericplugin = const_cast<VirtualQGenericPlugin*>(dynamic_cast<const VirtualQGenericPlugin*>(self));
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+        vqgenericplugin->setQGenericPlugin_MetaObject_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGenericPlugin_QBaseMetacast(QGenericPlugin* self, const char* param1) {
+    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+        vqgenericplugin->setQGenericPlugin_Metacast_IsBase(true);
+        return vqgenericplugin->qt_metacast(param1);
+    } else {
+        return self->QGenericPlugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGenericPlugin_OnMetacast(QGenericPlugin* self, intptr_t slot) {
+    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
+    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
+        vqgenericplugin->setQGenericPlugin_Metacast_Callback(reinterpret_cast<VirtualQGenericPlugin::QGenericPlugin_Metacast_Callback>(slot));
     }
 }
 

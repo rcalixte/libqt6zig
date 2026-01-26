@@ -97,6 +97,10 @@ bool KCompletionBox_EventFilter(KCompletionBox* self, QObject* param1, QEvent* p
 QPoint* KCompletionBox_GlobalPositionHint(const KCompletionBox* self);
 void KCompletionBox_SlotActivated(KCompletionBox* self, QListWidgetItem* param1);
 void KCompletionBox_InsertItems2(KCompletionBox* self, const libqt_list /* of libqt_string */ items, int index);
+void KCompletionBox_OnMetaObject(const KCompletionBox* self, intptr_t slot);
+QMetaObject* KCompletionBox_QBaseMetaObject(const KCompletionBox* self);
+void KCompletionBox_OnMetacast(KCompletionBox* self, intptr_t slot);
+void* KCompletionBox_QBaseMetacast(KCompletionBox* self, const char* param1);
 void KCompletionBox_OnMetacall(KCompletionBox* self, intptr_t slot);
 int KCompletionBox_QBaseMetacall(KCompletionBox* self, int param1, int param2, void** param3);
 void KCompletionBox_OnSizeHint(const KCompletionBox* self, intptr_t slot);

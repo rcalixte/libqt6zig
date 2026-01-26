@@ -25,11 +25,21 @@ KEMailClientLauncherJob* KEMailClientLauncherJob_new2(QObject* parent) {
 }
 
 QMetaObject* KEMailClientLauncherJob_MetaObject(const KEMailClientLauncherJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkemailclientlauncherjob = dynamic_cast<const VirtualKEMailClientLauncherJob*>(self);
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKEMailClientLauncherJob*)self)->metaObject();
+    }
 }
 
 void* KEMailClientLauncherJob_Metacast(KEMailClientLauncherJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKEMailClientLauncherJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KEMailClientLauncherJob_Metacall(KEMailClientLauncherJob* self, int param1, int param2, void** param3) {
@@ -105,6 +115,44 @@ void KEMailClientLauncherJob_Start(KEMailClientLauncherJob* self) {
         self->start();
     } else {
         ((VirtualKEMailClientLauncherJob*)self)->start();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KEMailClientLauncherJob_QBaseMetaObject(const KEMailClientLauncherJob* self) {
+    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+        vkemailclientlauncherjob->setKEMailClientLauncherJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkemailclientlauncherjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KEMailClientLauncherJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEMailClientLauncherJob_OnMetaObject(const KEMailClientLauncherJob* self, intptr_t slot) {
+    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+        vkemailclientlauncherjob->setKEMailClientLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KEMailClientLauncherJob_QBaseMetacast(KEMailClientLauncherJob* self, const char* param1) {
+    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+        vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacast_IsBase(true);
+        return vkemailclientlauncherjob->qt_metacast(param1);
+    } else {
+        return self->KEMailClientLauncherJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEMailClientLauncherJob_OnMetacast(KEMailClientLauncherJob* self, intptr_t slot) {
+    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
+    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+        vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Metacast_Callback>(slot));
     }
 }
 

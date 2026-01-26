@@ -87,11 +87,21 @@ KFindDialog* KFindDialog_new6(QWidget* parent, long options, const libqt_list /*
 }
 
 QMetaObject* KFindDialog_MetaObject(const KFindDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfinddialog = dynamic_cast<const VirtualKFindDialog*>(self);
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFindDialog*)self)->metaObject();
+    }
 }
 
 void* KFindDialog_Metacast(KFindDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFindDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KFindDialog_Metacall(KFindDialog* self, int param1, int param2, void** param3) {
@@ -225,6 +235,44 @@ void KFindDialog_ShowEvent(KFindDialog* self, QShowEvent* param1) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
     if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
         vkfinddialog->showEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KFindDialog_QBaseMetaObject(const KFindDialog* self) {
+    auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+        vkfinddialog->setKFindDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfinddialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KFindDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFindDialog_OnMetaObject(const KFindDialog* self, intptr_t slot) {
+    auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+        vkfinddialog->setKFindDialog_MetaObject_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFindDialog_QBaseMetacast(KFindDialog* self, const char* param1) {
+    auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+        vkfinddialog->setKFindDialog_Metacast_IsBase(true);
+        return vkfinddialog->qt_metacast(param1);
+    } else {
+        return self->KFindDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFindDialog_OnMetacast(KFindDialog* self, intptr_t slot) {
+    auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+        vkfinddialog->setKFindDialog_Metacast_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Metacast_Callback>(slot));
     }
 }
 

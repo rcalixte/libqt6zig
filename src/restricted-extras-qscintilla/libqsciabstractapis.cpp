@@ -17,11 +17,21 @@ QsciAbstractAPIs* QsciAbstractAPIs_new(QsciLexer* lexer) {
 }
 
 QMetaObject* QsciAbstractAPIs_MetaObject(const QsciAbstractAPIs* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsciabstractapis = dynamic_cast<const VirtualQsciAbstractAPIs*>(self);
+    if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciAbstractAPIs*)self)->metaObject();
+    }
 }
 
 void* QsciAbstractAPIs_Metacast(QsciAbstractAPIs* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
+    if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciAbstractAPIs*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciAbstractAPIs_Metacall(QsciAbstractAPIs* self, int param1, int param2, void** param3) {
@@ -123,6 +133,44 @@ libqt_list /* of libqt_string */ QsciAbstractAPIs_CallTips(QsciAbstractAPIs* sel
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QsciAbstractAPIs_QBaseMetaObject(const QsciAbstractAPIs* self) {
+    auto* vqsciabstractapis = const_cast<VirtualQsciAbstractAPIs*>(dynamic_cast<const VirtualQsciAbstractAPIs*>(self));
+    if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
+        vqsciabstractapis->setQsciAbstractAPIs_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsciabstractapis->metaObject();
+    } else {
+        return (QMetaObject*)self->QsciAbstractAPIs::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciAbstractAPIs_OnMetaObject(const QsciAbstractAPIs* self, intptr_t slot) {
+    auto* vqsciabstractapis = const_cast<VirtualQsciAbstractAPIs*>(dynamic_cast<const VirtualQsciAbstractAPIs*>(self));
+    if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
+        vqsciabstractapis->setQsciAbstractAPIs_MetaObject_Callback(reinterpret_cast<VirtualQsciAbstractAPIs::QsciAbstractAPIs_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciAbstractAPIs_QBaseMetacast(QsciAbstractAPIs* self, const char* param1) {
+    auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
+    if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
+        vqsciabstractapis->setQsciAbstractAPIs_Metacast_IsBase(true);
+        return vqsciabstractapis->qt_metacast(param1);
+    } else {
+        return self->QsciAbstractAPIs::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciAbstractAPIs_OnMetacast(QsciAbstractAPIs* self, intptr_t slot) {
+    auto* vqsciabstractapis = dynamic_cast<VirtualQsciAbstractAPIs*>(self);
+    if (vqsciabstractapis && vqsciabstractapis->isVirtualQsciAbstractAPIs) {
+        vqsciabstractapis->setQsciAbstractAPIs_Metacast_Callback(reinterpret_cast<VirtualQsciAbstractAPIs::QsciAbstractAPIs_Metacast_Callback>(slot));
     }
 }
 

@@ -17,6 +17,8 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
     bool isVirtualQSyntaxHighlighter = true;
 
     // Virtual class public types (including callbacks)
+    using QSyntaxHighlighter_MetaObject_Callback = QMetaObject* (*)();
+    using QSyntaxHighlighter_Metacast_Callback = void* (*)(QSyntaxHighlighter*, const char*);
     using QSyntaxHighlighter_Metacall_Callback = int (*)(QSyntaxHighlighter*, int, int, void**);
     using QSyntaxHighlighter_HighlightBlock_Callback = void (*)(QSyntaxHighlighter*, libqt_string);
     using QSyntaxHighlighter_Event_Callback = bool (*)(QSyntaxHighlighter*, QEvent*);
@@ -43,6 +45,8 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
 
   protected:
     // Instance callback storage
+    QSyntaxHighlighter_MetaObject_Callback qsyntaxhighlighter_metaobject_callback = nullptr;
+    QSyntaxHighlighter_Metacast_Callback qsyntaxhighlighter_metacast_callback = nullptr;
     QSyntaxHighlighter_Metacall_Callback qsyntaxhighlighter_metacall_callback = nullptr;
     QSyntaxHighlighter_HighlightBlock_Callback qsyntaxhighlighter_highlightblock_callback = nullptr;
     QSyntaxHighlighter_Event_Callback qsyntaxhighlighter_event_callback = nullptr;
@@ -68,6 +72,8 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
     QSyntaxHighlighter_IsSignalConnected_Callback qsyntaxhighlighter_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsyntaxhighlighter_metaobject_isbase = false;
+    mutable bool qsyntaxhighlighter_metacast_isbase = false;
     mutable bool qsyntaxhighlighter_metacall_isbase = false;
     mutable bool qsyntaxhighlighter_highlightblock_isbase = false;
     mutable bool qsyntaxhighlighter_event_isbase = false;
@@ -97,6 +103,8 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
     VirtualQSyntaxHighlighter(QTextDocument* parent) : QSyntaxHighlighter(parent) {};
 
     ~VirtualQSyntaxHighlighter() {
+        qsyntaxhighlighter_metaobject_callback = nullptr;
+        qsyntaxhighlighter_metacast_callback = nullptr;
         qsyntaxhighlighter_metacall_callback = nullptr;
         qsyntaxhighlighter_highlightblock_callback = nullptr;
         qsyntaxhighlighter_event_callback = nullptr;
@@ -123,6 +131,8 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
     }
 
     // Callback setters
+    inline void setQSyntaxHighlighter_MetaObject_Callback(QSyntaxHighlighter_MetaObject_Callback cb) { qsyntaxhighlighter_metaobject_callback = cb; }
+    inline void setQSyntaxHighlighter_Metacast_Callback(QSyntaxHighlighter_Metacast_Callback cb) { qsyntaxhighlighter_metacast_callback = cb; }
     inline void setQSyntaxHighlighter_Metacall_Callback(QSyntaxHighlighter_Metacall_Callback cb) { qsyntaxhighlighter_metacall_callback = cb; }
     inline void setQSyntaxHighlighter_HighlightBlock_Callback(QSyntaxHighlighter_HighlightBlock_Callback cb) { qsyntaxhighlighter_highlightblock_callback = cb; }
     inline void setQSyntaxHighlighter_Event_Callback(QSyntaxHighlighter_Event_Callback cb) { qsyntaxhighlighter_event_callback = cb; }
@@ -148,6 +158,8 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
     inline void setQSyntaxHighlighter_IsSignalConnected_Callback(QSyntaxHighlighter_IsSignalConnected_Callback cb) { qsyntaxhighlighter_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSyntaxHighlighter_MetaObject_IsBase(bool value) const { qsyntaxhighlighter_metaobject_isbase = value; }
+    inline void setQSyntaxHighlighter_Metacast_IsBase(bool value) const { qsyntaxhighlighter_metacast_isbase = value; }
     inline void setQSyntaxHighlighter_Metacall_IsBase(bool value) const { qsyntaxhighlighter_metacall_isbase = value; }
     inline void setQSyntaxHighlighter_HighlightBlock_IsBase(bool value) const { qsyntaxhighlighter_highlightblock_isbase = value; }
     inline void setQSyntaxHighlighter_Event_IsBase(bool value) const { qsyntaxhighlighter_event_isbase = value; }
@@ -171,6 +183,34 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
     inline void setQSyntaxHighlighter_SenderSignalIndex_IsBase(bool value) const { qsyntaxhighlighter_sendersignalindex_isbase = value; }
     inline void setQSyntaxHighlighter_Receivers_IsBase(bool value) const { qsyntaxhighlighter_receivers_isbase = value; }
     inline void setQSyntaxHighlighter_IsSignalConnected_IsBase(bool value) const { qsyntaxhighlighter_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsyntaxhighlighter_metaobject_isbase) {
+            qsyntaxhighlighter_metaobject_isbase = false;
+            return QSyntaxHighlighter::metaObject();
+        } else if (qsyntaxhighlighter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsyntaxhighlighter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSyntaxHighlighter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsyntaxhighlighter_metacast_isbase) {
+            qsyntaxhighlighter_metacast_isbase = false;
+            return QSyntaxHighlighter::qt_metacast(param1);
+        } else if (qsyntaxhighlighter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsyntaxhighlighter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSyntaxHighlighter::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

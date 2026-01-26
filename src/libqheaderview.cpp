@@ -62,11 +62,21 @@ QHeaderView* QHeaderView_new2(int orientation, QWidget* parent) {
 }
 
 QMetaObject* QHeaderView_MetaObject(const QHeaderView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQHeaderView*)self)->metaObject();
+    }
 }
 
 void* QHeaderView_Metacast(QHeaderView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQHeaderView*)self)->qt_metacast(param1);
+    }
 }
 
 int QHeaderView_Metacall(QHeaderView* self, int param1, int param2, void** param3) {
@@ -715,6 +725,44 @@ void QHeaderView_InitStyleOption(const QHeaderView* self, QStyleOptionHeader* op
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QHeaderView_QBaseMetaObject(const QHeaderView* self) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqheaderview->metaObject();
+    } else {
+        return (QMetaObject*)self->QHeaderView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnMetaObject(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_MetaObject_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QHeaderView_QBaseMetacast(QHeaderView* self, const char* param1) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_Metacast_IsBase(true);
+        return vqheaderview->qt_metacast(param1);
+    } else {
+        return self->QHeaderView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnMetacast(QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_Metacast_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Metacast_Callback>(slot));
     }
 }
 

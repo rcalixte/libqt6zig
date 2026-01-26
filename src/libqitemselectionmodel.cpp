@@ -136,11 +136,21 @@ QItemSelectionModel* QItemSelectionModel_new3(QAbstractItemModel* model) {
 }
 
 QMetaObject* QItemSelectionModel_MetaObject(const QItemSelectionModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqitemselectionmodel = dynamic_cast<const VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQItemSelectionModel*)self)->metaObject();
+    }
 }
 
 void* QItemSelectionModel_Metacast(QItemSelectionModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQItemSelectionModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QItemSelectionModel_Metacall(QItemSelectionModel* self, int param1, int param2, void** param3) {
@@ -413,6 +423,44 @@ libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedColumns1(const QIte
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+QMetaObject* QItemSelectionModel_QBaseMetaObject(const QItemSelectionModel* self) {
+    auto* vqitemselectionmodel = const_cast<VirtualQItemSelectionModel*>(dynamic_cast<const VirtualQItemSelectionModel*>(self));
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqitemselectionmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QItemSelectionModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QItemSelectionModel_OnMetaObject(const QItemSelectionModel* self, intptr_t slot) {
+    auto* vqitemselectionmodel = const_cast<VirtualQItemSelectionModel*>(dynamic_cast<const VirtualQItemSelectionModel*>(self));
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_MetaObject_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QItemSelectionModel_QBaseMetacast(QItemSelectionModel* self, const char* param1) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Metacast_IsBase(true);
+        return vqitemselectionmodel->qt_metacast(param1);
+    } else {
+        return self->QItemSelectionModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QItemSelectionModel_OnMetacast(QItemSelectionModel* self, intptr_t slot) {
+    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
+    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
+        vqitemselectionmodel->setQItemSelectionModel_Metacast_Callback(reinterpret_cast<VirtualQItemSelectionModel::QItemSelectionModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

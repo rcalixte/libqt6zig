@@ -5,6 +5,7 @@
 #include <QEvent>
 #include <QList>
 #include <QMetaMethod>
+#include <QMetaObject>
 #include <QObject>
 #include <QProcessEnvironment>
 #include <QString>
@@ -131,6 +132,64 @@ void KIO__CommandLauncherJob_OnStart(KIO__CommandLauncherJob* self, intptr_t slo
     auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_Start_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Start_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+QMetaObject* KIO__CommandLauncherJob_MetaObject(const KIO__CommandLauncherJob* self) {
+    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+        return (QMetaObject*)vkiocommandlauncherjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::CommandLauncherJob::metaObject();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KIO__CommandLauncherJob_QBaseMetaObject(const KIO__CommandLauncherJob* self) {
+    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+        vkiocommandlauncherjob->setKIO__CommandLauncherJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiocommandlauncherjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::CommandLauncherJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__CommandLauncherJob_OnMetaObject(const KIO__CommandLauncherJob* self, intptr_t slot) {
+    auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+        vkiocommandlauncherjob->setKIO__CommandLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void* KIO__CommandLauncherJob_Metacast(KIO__CommandLauncherJob* self, const char* param1) {
+    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+        return vkiocommandlauncherjob->qt_metacast(param1);
+    } else {
+        return self->KIO::CommandLauncherJob::qt_metacast(param1);
+    }
+}
+
+// Base class handler implementation
+void* KIO__CommandLauncherJob_QBaseMetacast(KIO__CommandLauncherJob* self, const char* param1) {
+    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacast_IsBase(true);
+        return vkiocommandlauncherjob->qt_metacast(param1);
+    } else {
+        return self->KIO::CommandLauncherJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__CommandLauncherJob_OnMetacast(KIO__CommandLauncherJob* self, intptr_t slot) {
+    auto* vkiocommandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
+    if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
+        vkiocommandlauncherjob->setKIO__CommandLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKIOCommandLauncherJob::KIO__CommandLauncherJob_Metacast_Callback>(slot));
     }
 }
 

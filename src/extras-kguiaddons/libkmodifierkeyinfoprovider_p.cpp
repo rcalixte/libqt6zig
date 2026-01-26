@@ -18,11 +18,21 @@ KModifierKeyInfoProvider* KModifierKeyInfoProvider_new() {
 }
 
 QMetaObject* KModifierKeyInfoProvider_MetaObject(const KModifierKeyInfoProvider* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKModifierKeyInfoProvider*)self)->metaObject();
+    }
 }
 
 void* KModifierKeyInfoProvider_Metacast(KModifierKeyInfoProvider* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKModifierKeyInfoProvider*)self)->qt_metacast(param1);
+    }
 }
 
 int KModifierKeyInfoProvider_Metacall(KModifierKeyInfoProvider* self, int param1, int param2, void** param3) {
@@ -159,6 +169,44 @@ void KModifierKeyInfoProvider_Connect_KeyRemoved(KModifierKeyInfoProvider* self,
         int sigval1 = static_cast<int>(key);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KModifierKeyInfoProvider_QBaseMetaObject(const KModifierKeyInfoProvider* self) {
+    auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_MetaObject_IsBase(true);
+        return (QMetaObject*)vkmodifierkeyinfoprovider->metaObject();
+    } else {
+        return (QMetaObject*)self->KModifierKeyInfoProvider::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KModifierKeyInfoProvider_OnMetaObject(const KModifierKeyInfoProvider* self, intptr_t slot) {
+    auto* vkmodifierkeyinfoprovider = const_cast<VirtualKModifierKeyInfoProvider*>(dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self));
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_MetaObject_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KModifierKeyInfoProvider_QBaseMetacast(KModifierKeyInfoProvider* self, const char* param1) {
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Metacast_IsBase(true);
+        return vkmodifierkeyinfoprovider->qt_metacast(param1);
+    } else {
+        return self->KModifierKeyInfoProvider::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KModifierKeyInfoProvider_OnMetacast(KModifierKeyInfoProvider* self, intptr_t slot) {
+    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
+    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
+        vkmodifierkeyinfoprovider->setKModifierKeyInfoProvider_Metacast_Callback(reinterpret_cast<VirtualKModifierKeyInfoProvider::KModifierKeyInfoProvider_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

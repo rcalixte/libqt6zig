@@ -17,6 +17,8 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
     bool isVirtualKNewFileMenu = true;
 
     // Virtual class public types (including callbacks)
+    using KNewFileMenu_MetaObject_Callback = QMetaObject* (*)();
+    using KNewFileMenu_Metacast_Callback = void* (*)(KNewFileMenu*, const char*);
     using KNewFileMenu_Metacall_Callback = int (*)(KNewFileMenu*, int, int, void**);
     using KNewFileMenu_SlotResult_Callback = void (*)(KNewFileMenu*, KJob*);
     using KNewFileMenu_CreateWidget_Callback = QWidget* (*)(KNewFileMenu*, QWidget*);
@@ -36,6 +38,8 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
 
   protected:
     // Instance callback storage
+    KNewFileMenu_MetaObject_Callback knewfilemenu_metaobject_callback = nullptr;
+    KNewFileMenu_Metacast_Callback knewfilemenu_metacast_callback = nullptr;
     KNewFileMenu_Metacall_Callback knewfilemenu_metacall_callback = nullptr;
     KNewFileMenu_SlotResult_Callback knewfilemenu_slotresult_callback = nullptr;
     KNewFileMenu_CreateWidget_Callback knewfilemenu_createwidget_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
     KNewFileMenu_IsSignalConnected_Callback knewfilemenu_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool knewfilemenu_metaobject_isbase = false;
+    mutable bool knewfilemenu_metacast_isbase = false;
     mutable bool knewfilemenu_metacall_isbase = false;
     mutable bool knewfilemenu_slotresult_isbase = false;
     mutable bool knewfilemenu_createwidget_isbase = false;
@@ -75,6 +81,8 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
     VirtualKNewFileMenu(QObject* parent) : KNewFileMenu(parent) {};
 
     ~VirtualKNewFileMenu() {
+        knewfilemenu_metaobject_callback = nullptr;
+        knewfilemenu_metacast_callback = nullptr;
         knewfilemenu_metacall_callback = nullptr;
         knewfilemenu_slotresult_callback = nullptr;
         knewfilemenu_createwidget_callback = nullptr;
@@ -94,6 +102,8 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
     }
 
     // Callback setters
+    inline void setKNewFileMenu_MetaObject_Callback(KNewFileMenu_MetaObject_Callback cb) { knewfilemenu_metaobject_callback = cb; }
+    inline void setKNewFileMenu_Metacast_Callback(KNewFileMenu_Metacast_Callback cb) { knewfilemenu_metacast_callback = cb; }
     inline void setKNewFileMenu_Metacall_Callback(KNewFileMenu_Metacall_Callback cb) { knewfilemenu_metacall_callback = cb; }
     inline void setKNewFileMenu_SlotResult_Callback(KNewFileMenu_SlotResult_Callback cb) { knewfilemenu_slotresult_callback = cb; }
     inline void setKNewFileMenu_CreateWidget_Callback(KNewFileMenu_CreateWidget_Callback cb) { knewfilemenu_createwidget_callback = cb; }
@@ -112,6 +122,8 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
     inline void setKNewFileMenu_IsSignalConnected_Callback(KNewFileMenu_IsSignalConnected_Callback cb) { knewfilemenu_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKNewFileMenu_MetaObject_IsBase(bool value) const { knewfilemenu_metaobject_isbase = value; }
+    inline void setKNewFileMenu_Metacast_IsBase(bool value) const { knewfilemenu_metacast_isbase = value; }
     inline void setKNewFileMenu_Metacall_IsBase(bool value) const { knewfilemenu_metacall_isbase = value; }
     inline void setKNewFileMenu_SlotResult_IsBase(bool value) const { knewfilemenu_slotresult_isbase = value; }
     inline void setKNewFileMenu_CreateWidget_IsBase(bool value) const { knewfilemenu_createwidget_isbase = value; }
@@ -128,6 +140,34 @@ class VirtualKNewFileMenu final : public KNewFileMenu {
     inline void setKNewFileMenu_SenderSignalIndex_IsBase(bool value) const { knewfilemenu_sendersignalindex_isbase = value; }
     inline void setKNewFileMenu_Receivers_IsBase(bool value) const { knewfilemenu_receivers_isbase = value; }
     inline void setKNewFileMenu_IsSignalConnected_IsBase(bool value) const { knewfilemenu_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knewfilemenu_metaobject_isbase) {
+            knewfilemenu_metaobject_isbase = false;
+            return KNewFileMenu::metaObject();
+        } else if (knewfilemenu_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knewfilemenu_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNewFileMenu::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knewfilemenu_metacast_isbase) {
+            knewfilemenu_metacast_isbase = false;
+            return KNewFileMenu::qt_metacast(param1);
+        } else if (knewfilemenu_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knewfilemenu_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNewFileMenu::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

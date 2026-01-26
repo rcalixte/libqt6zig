@@ -17,6 +17,8 @@ class VirtualQPdfBookmarkModel final : public QPdfBookmarkModel {
     bool isVirtualQPdfBookmarkModel = true;
 
     // Virtual class public types (including callbacks)
+    using QPdfBookmarkModel_MetaObject_Callback = QMetaObject* (*)();
+    using QPdfBookmarkModel_Metacast_Callback = void* (*)(QPdfBookmarkModel*, const char*);
     using QPdfBookmarkModel_Metacall_Callback = int (*)(QPdfBookmarkModel*, int, int, void**);
     using QPdfBookmarkModel_Data_Callback = QVariant* (*)(const QPdfBookmarkModel*, QModelIndex*, int);
     using QPdfBookmarkModel_Index_Callback = QModelIndex* (*)(const QPdfBookmarkModel*, int, int, QModelIndex*);
@@ -89,6 +91,8 @@ class VirtualQPdfBookmarkModel final : public QPdfBookmarkModel {
 
   protected:
     // Instance callback storage
+    QPdfBookmarkModel_MetaObject_Callback qpdfbookmarkmodel_metaobject_callback = nullptr;
+    QPdfBookmarkModel_Metacast_Callback qpdfbookmarkmodel_metacast_callback = nullptr;
     QPdfBookmarkModel_Metacall_Callback qpdfbookmarkmodel_metacall_callback = nullptr;
     QPdfBookmarkModel_Data_Callback qpdfbookmarkmodel_data_callback = nullptr;
     QPdfBookmarkModel_Index_Callback qpdfbookmarkmodel_index_callback = nullptr;
@@ -160,6 +164,8 @@ class VirtualQPdfBookmarkModel final : public QPdfBookmarkModel {
     QPdfBookmarkModel_IsSignalConnected_Callback qpdfbookmarkmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpdfbookmarkmodel_metaobject_isbase = false;
+    mutable bool qpdfbookmarkmodel_metacast_isbase = false;
     mutable bool qpdfbookmarkmodel_metacall_isbase = false;
     mutable bool qpdfbookmarkmodel_data_isbase = false;
     mutable bool qpdfbookmarkmodel_index_isbase = false;
@@ -235,6 +241,8 @@ class VirtualQPdfBookmarkModel final : public QPdfBookmarkModel {
     VirtualQPdfBookmarkModel(QObject* parent) : QPdfBookmarkModel(parent) {};
 
     ~VirtualQPdfBookmarkModel() {
+        qpdfbookmarkmodel_metaobject_callback = nullptr;
+        qpdfbookmarkmodel_metacast_callback = nullptr;
         qpdfbookmarkmodel_metacall_callback = nullptr;
         qpdfbookmarkmodel_data_callback = nullptr;
         qpdfbookmarkmodel_index_callback = nullptr;
@@ -307,6 +315,8 @@ class VirtualQPdfBookmarkModel final : public QPdfBookmarkModel {
     }
 
     // Callback setters
+    inline void setQPdfBookmarkModel_MetaObject_Callback(QPdfBookmarkModel_MetaObject_Callback cb) { qpdfbookmarkmodel_metaobject_callback = cb; }
+    inline void setQPdfBookmarkModel_Metacast_Callback(QPdfBookmarkModel_Metacast_Callback cb) { qpdfbookmarkmodel_metacast_callback = cb; }
     inline void setQPdfBookmarkModel_Metacall_Callback(QPdfBookmarkModel_Metacall_Callback cb) { qpdfbookmarkmodel_metacall_callback = cb; }
     inline void setQPdfBookmarkModel_Data_Callback(QPdfBookmarkModel_Data_Callback cb) { qpdfbookmarkmodel_data_callback = cb; }
     inline void setQPdfBookmarkModel_Index_Callback(QPdfBookmarkModel_Index_Callback cb) { qpdfbookmarkmodel_index_callback = cb; }
@@ -378,6 +388,8 @@ class VirtualQPdfBookmarkModel final : public QPdfBookmarkModel {
     inline void setQPdfBookmarkModel_IsSignalConnected_Callback(QPdfBookmarkModel_IsSignalConnected_Callback cb) { qpdfbookmarkmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPdfBookmarkModel_MetaObject_IsBase(bool value) const { qpdfbookmarkmodel_metaobject_isbase = value; }
+    inline void setQPdfBookmarkModel_Metacast_IsBase(bool value) const { qpdfbookmarkmodel_metacast_isbase = value; }
     inline void setQPdfBookmarkModel_Metacall_IsBase(bool value) const { qpdfbookmarkmodel_metacall_isbase = value; }
     inline void setQPdfBookmarkModel_Data_IsBase(bool value) const { qpdfbookmarkmodel_data_isbase = value; }
     inline void setQPdfBookmarkModel_Index_IsBase(bool value) const { qpdfbookmarkmodel_index_isbase = value; }
@@ -447,6 +459,34 @@ class VirtualQPdfBookmarkModel final : public QPdfBookmarkModel {
     inline void setQPdfBookmarkModel_SenderSignalIndex_IsBase(bool value) const { qpdfbookmarkmodel_sendersignalindex_isbase = value; }
     inline void setQPdfBookmarkModel_Receivers_IsBase(bool value) const { qpdfbookmarkmodel_receivers_isbase = value; }
     inline void setQPdfBookmarkModel_IsSignalConnected_IsBase(bool value) const { qpdfbookmarkmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpdfbookmarkmodel_metaobject_isbase) {
+            qpdfbookmarkmodel_metaobject_isbase = false;
+            return QPdfBookmarkModel::metaObject();
+        } else if (qpdfbookmarkmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpdfbookmarkmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPdfBookmarkModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpdfbookmarkmodel_metacast_isbase) {
+            qpdfbookmarkmodel_metacast_isbase = false;
+            return QPdfBookmarkModel::qt_metacast(param1);
+        } else if (qpdfbookmarkmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpdfbookmarkmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPdfBookmarkModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

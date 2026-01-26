@@ -72,6 +72,10 @@ void QSvgRenderer_Render3(QSvgRenderer* self, QPainter* p, const libqt_string el
 void QSvgRenderer_RepaintNeeded(QSvgRenderer* self);
 void QSvgRenderer_Connect_RepaintNeeded(QSvgRenderer* self, intptr_t slot);
 void QSvgRenderer_Render32(QSvgRenderer* self, QPainter* p, const libqt_string elementId, const QRectF* bounds);
+void QSvgRenderer_OnMetaObject(const QSvgRenderer* self, intptr_t slot);
+QMetaObject* QSvgRenderer_QBaseMetaObject(const QSvgRenderer* self);
+void QSvgRenderer_OnMetacast(QSvgRenderer* self, intptr_t slot);
+void* QSvgRenderer_QBaseMetacast(QSvgRenderer* self, const char* param1);
 void QSvgRenderer_OnMetacall(QSvgRenderer* self, intptr_t slot);
 int QSvgRenderer_QBaseMetacall(QSvgRenderer* self, int param1, int param2, void** param3);
 bool QSvgRenderer_Event(QSvgRenderer* self, QEvent* event);

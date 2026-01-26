@@ -17,6 +17,8 @@ class VirtualQProxyStyle final : public QProxyStyle {
     bool isVirtualQProxyStyle = true;
 
     // Virtual class public types (including callbacks)
+    using QProxyStyle_MetaObject_Callback = QMetaObject* (*)();
+    using QProxyStyle_Metacast_Callback = void* (*)(QProxyStyle*, const char*);
     using QProxyStyle_Metacall_Callback = int (*)(QProxyStyle*, int, int, void**);
     using QProxyStyle_DrawPrimitive_Callback = void (*)(const QProxyStyle*, int, QStyleOption*, QPainter*, QWidget*);
     using QProxyStyle_DrawControl_Callback = void (*)(const QProxyStyle*, int, QStyleOption*, QPainter*, QWidget*);
@@ -55,6 +57,8 @@ class VirtualQProxyStyle final : public QProxyStyle {
 
   protected:
     // Instance callback storage
+    QProxyStyle_MetaObject_Callback qproxystyle_metaobject_callback = nullptr;
+    QProxyStyle_Metacast_Callback qproxystyle_metacast_callback = nullptr;
     QProxyStyle_Metacall_Callback qproxystyle_metacall_callback = nullptr;
     QProxyStyle_DrawPrimitive_Callback qproxystyle_drawprimitive_callback = nullptr;
     QProxyStyle_DrawControl_Callback qproxystyle_drawcontrol_callback = nullptr;
@@ -92,6 +96,8 @@ class VirtualQProxyStyle final : public QProxyStyle {
     QProxyStyle_IsSignalConnected_Callback qproxystyle_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qproxystyle_metaobject_isbase = false;
+    mutable bool qproxystyle_metacast_isbase = false;
     mutable bool qproxystyle_metacall_isbase = false;
     mutable bool qproxystyle_drawprimitive_isbase = false;
     mutable bool qproxystyle_drawcontrol_isbase = false;
@@ -134,6 +140,8 @@ class VirtualQProxyStyle final : public QProxyStyle {
     VirtualQProxyStyle(QStyle* style) : QProxyStyle(style) {};
 
     ~VirtualQProxyStyle() {
+        qproxystyle_metaobject_callback = nullptr;
+        qproxystyle_metacast_callback = nullptr;
         qproxystyle_metacall_callback = nullptr;
         qproxystyle_drawprimitive_callback = nullptr;
         qproxystyle_drawcontrol_callback = nullptr;
@@ -172,6 +180,8 @@ class VirtualQProxyStyle final : public QProxyStyle {
     }
 
     // Callback setters
+    inline void setQProxyStyle_MetaObject_Callback(QProxyStyle_MetaObject_Callback cb) { qproxystyle_metaobject_callback = cb; }
+    inline void setQProxyStyle_Metacast_Callback(QProxyStyle_Metacast_Callback cb) { qproxystyle_metacast_callback = cb; }
     inline void setQProxyStyle_Metacall_Callback(QProxyStyle_Metacall_Callback cb) { qproxystyle_metacall_callback = cb; }
     inline void setQProxyStyle_DrawPrimitive_Callback(QProxyStyle_DrawPrimitive_Callback cb) { qproxystyle_drawprimitive_callback = cb; }
     inline void setQProxyStyle_DrawControl_Callback(QProxyStyle_DrawControl_Callback cb) { qproxystyle_drawcontrol_callback = cb; }
@@ -209,6 +219,8 @@ class VirtualQProxyStyle final : public QProxyStyle {
     inline void setQProxyStyle_IsSignalConnected_Callback(QProxyStyle_IsSignalConnected_Callback cb) { qproxystyle_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQProxyStyle_MetaObject_IsBase(bool value) const { qproxystyle_metaobject_isbase = value; }
+    inline void setQProxyStyle_Metacast_IsBase(bool value) const { qproxystyle_metacast_isbase = value; }
     inline void setQProxyStyle_Metacall_IsBase(bool value) const { qproxystyle_metacall_isbase = value; }
     inline void setQProxyStyle_DrawPrimitive_IsBase(bool value) const { qproxystyle_drawprimitive_isbase = value; }
     inline void setQProxyStyle_DrawControl_IsBase(bool value) const { qproxystyle_drawcontrol_isbase = value; }
@@ -244,6 +256,34 @@ class VirtualQProxyStyle final : public QProxyStyle {
     inline void setQProxyStyle_SenderSignalIndex_IsBase(bool value) const { qproxystyle_sendersignalindex_isbase = value; }
     inline void setQProxyStyle_Receivers_IsBase(bool value) const { qproxystyle_receivers_isbase = value; }
     inline void setQProxyStyle_IsSignalConnected_IsBase(bool value) const { qproxystyle_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qproxystyle_metaobject_isbase) {
+            qproxystyle_metaobject_isbase = false;
+            return QProxyStyle::metaObject();
+        } else if (qproxystyle_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qproxystyle_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QProxyStyle::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qproxystyle_metacast_isbase) {
+            qproxystyle_metacast_isbase = false;
+            return QProxyStyle::qt_metacast(param1);
+        } else if (qproxystyle_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qproxystyle_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QProxyStyle::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQProcess final : public QProcess {
     bool isVirtualQProcess = true;
 
     // Virtual class public types (including callbacks)
+    using QProcess_MetaObject_Callback = QMetaObject* (*)();
+    using QProcess_Metacast_Callback = void* (*)(QProcess*, const char*);
     using QProcess_Metacall_Callback = int (*)(QProcess*, int, int, void**);
     using QProcess_Open_Callback = bool (*)(QProcess*, int);
     using QProcess_WaitForReadyRead_Callback = bool (*)(QProcess*, int);
@@ -52,6 +54,8 @@ class VirtualQProcess final : public QProcess {
 
   protected:
     // Instance callback storage
+    QProcess_MetaObject_Callback qprocess_metaobject_callback = nullptr;
+    QProcess_Metacast_Callback qprocess_metacast_callback = nullptr;
     QProcess_Metacall_Callback qprocess_metacall_callback = nullptr;
     QProcess_Open_Callback qprocess_open_callback = nullptr;
     QProcess_WaitForReadyRead_Callback qprocess_waitforreadyread_callback = nullptr;
@@ -86,6 +90,8 @@ class VirtualQProcess final : public QProcess {
     QProcess_IsSignalConnected_Callback qprocess_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qprocess_metaobject_isbase = false;
+    mutable bool qprocess_metacast_isbase = false;
     mutable bool qprocess_metacall_isbase = false;
     mutable bool qprocess_open_isbase = false;
     mutable bool qprocess_waitforreadyread_isbase = false;
@@ -124,6 +130,8 @@ class VirtualQProcess final : public QProcess {
     VirtualQProcess(QObject* parent) : QProcess(parent) {};
 
     ~VirtualQProcess() {
+        qprocess_metaobject_callback = nullptr;
+        qprocess_metacast_callback = nullptr;
         qprocess_metacall_callback = nullptr;
         qprocess_open_callback = nullptr;
         qprocess_waitforreadyread_callback = nullptr;
@@ -159,6 +167,8 @@ class VirtualQProcess final : public QProcess {
     }
 
     // Callback setters
+    inline void setQProcess_MetaObject_Callback(QProcess_MetaObject_Callback cb) { qprocess_metaobject_callback = cb; }
+    inline void setQProcess_Metacast_Callback(QProcess_Metacast_Callback cb) { qprocess_metacast_callback = cb; }
     inline void setQProcess_Metacall_Callback(QProcess_Metacall_Callback cb) { qprocess_metacall_callback = cb; }
     inline void setQProcess_Open_Callback(QProcess_Open_Callback cb) { qprocess_open_callback = cb; }
     inline void setQProcess_WaitForReadyRead_Callback(QProcess_WaitForReadyRead_Callback cb) { qprocess_waitforreadyread_callback = cb; }
@@ -193,6 +203,8 @@ class VirtualQProcess final : public QProcess {
     inline void setQProcess_IsSignalConnected_Callback(QProcess_IsSignalConnected_Callback cb) { qprocess_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQProcess_MetaObject_IsBase(bool value) const { qprocess_metaobject_isbase = value; }
+    inline void setQProcess_Metacast_IsBase(bool value) const { qprocess_metacast_isbase = value; }
     inline void setQProcess_Metacall_IsBase(bool value) const { qprocess_metacall_isbase = value; }
     inline void setQProcess_Open_IsBase(bool value) const { qprocess_open_isbase = value; }
     inline void setQProcess_WaitForReadyRead_IsBase(bool value) const { qprocess_waitforreadyread_isbase = value; }
@@ -225,6 +237,34 @@ class VirtualQProcess final : public QProcess {
     inline void setQProcess_SenderSignalIndex_IsBase(bool value) const { qprocess_sendersignalindex_isbase = value; }
     inline void setQProcess_Receivers_IsBase(bool value) const { qprocess_receivers_isbase = value; }
     inline void setQProcess_IsSignalConnected_IsBase(bool value) const { qprocess_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qprocess_metaobject_isbase) {
+            qprocess_metaobject_isbase = false;
+            return QProcess::metaObject();
+        } else if (qprocess_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qprocess_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QProcess::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qprocess_metacast_isbase) {
+            qprocess_metacast_isbase = false;
+            return QProcess::qt_metacast(param1);
+        } else if (qprocess_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qprocess_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QProcess::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

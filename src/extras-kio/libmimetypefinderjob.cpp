@@ -25,11 +25,21 @@ KIO__MimeTypeFinderJob* KIO__MimeTypeFinderJob_new2(const QUrl* url, QObject* pa
 }
 
 QMetaObject* KIO__MimeTypeFinderJob_MetaObject(const KIO__MimeTypeFinderJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__mimetypefinderjob = dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self);
+    if (vkio__mimetypefinderjob && vkio__mimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOMimeTypeFinderJob*)self)->metaObject();
+    }
 }
 
 void* KIO__MimeTypeFinderJob_Metacast(KIO__MimeTypeFinderJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__mimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
+    if (vkio__mimetypefinderjob && vkio__mimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOMimeTypeFinderJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__MimeTypeFinderJob_Metacall(KIO__MimeTypeFinderJob* self, int param1, int param2, void** param3) {
@@ -103,6 +113,44 @@ void KIO__MimeTypeFinderJob_SlotResult(KIO__MimeTypeFinderJob* self, KJob* job) 
     auto* vkio__mimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
     if (vkio__mimetypefinderjob && vkio__mimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkio__mimetypefinderjob->slotResult(job);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KIO__MimeTypeFinderJob_QBaseMetaObject(const KIO__MimeTypeFinderJob* self) {
+    auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+        vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiomimetypefinderjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::MimeTypeFinderJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__MimeTypeFinderJob_OnMetaObject(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
+    auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+        vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_MetaObject_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__MimeTypeFinderJob_QBaseMetacast(KIO__MimeTypeFinderJob* self, const char* param1) {
+    auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+        vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Metacast_IsBase(true);
+        return vkiomimetypefinderjob->qt_metacast(param1);
+    } else {
+        return self->KIO::MimeTypeFinderJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__MimeTypeFinderJob_OnMetacast(KIO__MimeTypeFinderJob* self, intptr_t slot) {
+    auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+        vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Metacast_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_Metacast_Callback>(slot));
     }
 }
 

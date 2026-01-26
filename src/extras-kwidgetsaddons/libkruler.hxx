@@ -18,6 +18,8 @@ class VirtualKRuler final : public KRuler {
 
     // Virtual class public types (including callbacks)
     using QAbstractSlider::SliderChange;
+    using KRuler_MetaObject_Callback = QMetaObject* (*)();
+    using KRuler_Metacast_Callback = void* (*)(KRuler*, const char*);
     using KRuler_Metacall_Callback = int (*)(KRuler*, int, int, void**);
     using KRuler_PaintEvent_Callback = void (*)(KRuler*, QPaintEvent*);
     using KRuler_Event_Callback = bool (*)(KRuler*, QEvent*);
@@ -82,6 +84,8 @@ class VirtualKRuler final : public KRuler {
 
   protected:
     // Instance callback storage
+    KRuler_MetaObject_Callback kruler_metaobject_callback = nullptr;
+    KRuler_Metacast_Callback kruler_metacast_callback = nullptr;
     KRuler_Metacall_Callback kruler_metacall_callback = nullptr;
     KRuler_PaintEvent_Callback kruler_paintevent_callback = nullptr;
     KRuler_Event_Callback kruler_event_callback = nullptr;
@@ -145,6 +149,8 @@ class VirtualKRuler final : public KRuler {
     KRuler_GetDecodedMetricF_Callback kruler_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kruler_metaobject_isbase = false;
+    mutable bool kruler_metacast_isbase = false;
     mutable bool kruler_metacall_isbase = false;
     mutable bool kruler_paintevent_isbase = false;
     mutable bool kruler_event_isbase = false;
@@ -218,6 +224,8 @@ class VirtualKRuler final : public KRuler {
     VirtualKRuler(Qt::Orientation orient, int widgetWidth, QWidget* parent, Qt::WindowFlags f) : KRuler(orient, widgetWidth, parent, f) {};
 
     ~VirtualKRuler() {
+        kruler_metaobject_callback = nullptr;
+        kruler_metacast_callback = nullptr;
         kruler_metacall_callback = nullptr;
         kruler_paintevent_callback = nullptr;
         kruler_event_callback = nullptr;
@@ -282,6 +290,8 @@ class VirtualKRuler final : public KRuler {
     }
 
     // Callback setters
+    inline void setKRuler_MetaObject_Callback(KRuler_MetaObject_Callback cb) { kruler_metaobject_callback = cb; }
+    inline void setKRuler_Metacast_Callback(KRuler_Metacast_Callback cb) { kruler_metacast_callback = cb; }
     inline void setKRuler_Metacall_Callback(KRuler_Metacall_Callback cb) { kruler_metacall_callback = cb; }
     inline void setKRuler_PaintEvent_Callback(KRuler_PaintEvent_Callback cb) { kruler_paintevent_callback = cb; }
     inline void setKRuler_Event_Callback(KRuler_Event_Callback cb) { kruler_event_callback = cb; }
@@ -345,6 +355,8 @@ class VirtualKRuler final : public KRuler {
     inline void setKRuler_GetDecodedMetricF_Callback(KRuler_GetDecodedMetricF_Callback cb) { kruler_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKRuler_MetaObject_IsBase(bool value) const { kruler_metaobject_isbase = value; }
+    inline void setKRuler_Metacast_IsBase(bool value) const { kruler_metacast_isbase = value; }
     inline void setKRuler_Metacall_IsBase(bool value) const { kruler_metacall_isbase = value; }
     inline void setKRuler_PaintEvent_IsBase(bool value) const { kruler_paintevent_isbase = value; }
     inline void setKRuler_Event_IsBase(bool value) const { kruler_event_isbase = value; }
@@ -406,6 +418,34 @@ class VirtualKRuler final : public KRuler {
     inline void setKRuler_Receivers_IsBase(bool value) const { kruler_receivers_isbase = value; }
     inline void setKRuler_IsSignalConnected_IsBase(bool value) const { kruler_issignalconnected_isbase = value; }
     inline void setKRuler_GetDecodedMetricF_IsBase(bool value) const { kruler_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kruler_metaobject_isbase) {
+            kruler_metaobject_isbase = false;
+            return KRuler::metaObject();
+        } else if (kruler_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kruler_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KRuler::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kruler_metacast_isbase) {
+            kruler_metacast_isbase = false;
+            return KRuler::qt_metacast(param1);
+        } else if (kruler_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kruler_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KRuler::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

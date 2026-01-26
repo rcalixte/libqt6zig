@@ -44,11 +44,21 @@ QBoxSet* QBoxSet_new6(const double le, const double lq, const double m, const do
 }
 
 QMetaObject* QBoxSet_MetaObject(const QBoxSet* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqboxset = dynamic_cast<const VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQBoxSet*)self)->metaObject();
+    }
 }
 
 void* QBoxSet_Metacast(QBoxSet* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQBoxSet*)self)->qt_metacast(param1);
+    }
 }
 
 int QBoxSet_Metacall(QBoxSet* self, int param1, int param2, void** param3) {
@@ -243,6 +253,44 @@ void QBoxSet_Connect_Cleared(QBoxSet* self, intptr_t slot) {
     QBoxSet::connect(self, &QBoxSet::cleared, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QBoxSet_QBaseMetaObject(const QBoxSet* self) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+        vqboxset->setQBoxSet_MetaObject_IsBase(true);
+        return (QMetaObject*)vqboxset->metaObject();
+    } else {
+        return (QMetaObject*)self->QBoxSet::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBoxSet_OnMetaObject(const QBoxSet* self, intptr_t slot) {
+    auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+        vqboxset->setQBoxSet_MetaObject_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QBoxSet_QBaseMetacast(QBoxSet* self, const char* param1) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+        vqboxset->setQBoxSet_Metacast_IsBase(true);
+        return vqboxset->qt_metacast(param1);
+    } else {
+        return self->QBoxSet::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBoxSet_OnMetacast(QBoxSet* self, intptr_t slot) {
+    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
+    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+        vqboxset->setQBoxSet_Metacast_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

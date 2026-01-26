@@ -31,11 +31,21 @@ QStackedLayout* QStackedLayout_new3(QLayout* parentLayout) {
 }
 
 QMetaObject* QStackedLayout_MetaObject(const QStackedLayout* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqstackedlayout = dynamic_cast<const VirtualQStackedLayout*>(self);
+    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQStackedLayout*)self)->metaObject();
+    }
 }
 
 void* QStackedLayout_Metacast(QStackedLayout* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
+    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQStackedLayout*)self)->qt_metacast(param1);
+    }
 }
 
 int QStackedLayout_Metacall(QStackedLayout* self, int param1, int param2, void** param3) {
@@ -186,6 +196,44 @@ void QStackedLayout_SetCurrentIndex(QStackedLayout* self, int index) {
 
 void QStackedLayout_SetCurrentWidget(QStackedLayout* self, QWidget* w) {
     self->setCurrentWidget(w);
+}
+
+// Base class handler implementation
+QMetaObject* QStackedLayout_QBaseMetaObject(const QStackedLayout* self) {
+    auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
+    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
+        vqstackedlayout->setQStackedLayout_MetaObject_IsBase(true);
+        return (QMetaObject*)vqstackedlayout->metaObject();
+    } else {
+        return (QMetaObject*)self->QStackedLayout::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStackedLayout_OnMetaObject(const QStackedLayout* self, intptr_t slot) {
+    auto* vqstackedlayout = const_cast<VirtualQStackedLayout*>(dynamic_cast<const VirtualQStackedLayout*>(self));
+    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
+        vqstackedlayout->setQStackedLayout_MetaObject_Callback(reinterpret_cast<VirtualQStackedLayout::QStackedLayout_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QStackedLayout_QBaseMetacast(QStackedLayout* self, const char* param1) {
+    auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
+    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
+        vqstackedlayout->setQStackedLayout_Metacast_IsBase(true);
+        return vqstackedlayout->qt_metacast(param1);
+    } else {
+        return self->QStackedLayout::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStackedLayout_OnMetacast(QStackedLayout* self, intptr_t slot) {
+    auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
+    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
+        vqstackedlayout->setQStackedLayout_Metacast_Callback(reinterpret_cast<VirtualQStackedLayout::QStackedLayout_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

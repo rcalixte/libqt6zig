@@ -17,6 +17,8 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     bool isVirtualQGenericPlugin = true;
 
     // Virtual class public types (including callbacks)
+    using QGenericPlugin_MetaObject_Callback = QMetaObject* (*)();
+    using QGenericPlugin_Metacast_Callback = void* (*)(QGenericPlugin*, const char*);
     using QGenericPlugin_Metacall_Callback = int (*)(QGenericPlugin*, int, int, void**);
     using QGenericPlugin_Create_Callback = QObject* (*)(QGenericPlugin*, libqt_string, libqt_string);
     using QGenericPlugin_Event_Callback = bool (*)(QGenericPlugin*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQGenericPlugin : public QGenericPlugin {
 
   protected:
     // Instance callback storage
+    QGenericPlugin_MetaObject_Callback qgenericplugin_metaobject_callback = nullptr;
+    QGenericPlugin_Metacast_Callback qgenericplugin_metacast_callback = nullptr;
     QGenericPlugin_Metacall_Callback qgenericplugin_metacall_callback = nullptr;
     QGenericPlugin_Create_Callback qgenericplugin_create_callback = nullptr;
     QGenericPlugin_Event_Callback qgenericplugin_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     QGenericPlugin_IsSignalConnected_Callback qgenericplugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgenericplugin_metaobject_isbase = false;
+    mutable bool qgenericplugin_metacast_isbase = false;
     mutable bool qgenericplugin_metacall_isbase = false;
     mutable bool qgenericplugin_create_isbase = false;
     mutable bool qgenericplugin_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     VirtualQGenericPlugin(QObject* parent) : QGenericPlugin(parent) {};
 
     ~VirtualQGenericPlugin() {
+        qgenericplugin_metaobject_callback = nullptr;
+        qgenericplugin_metacast_callback = nullptr;
         qgenericplugin_metacall_callback = nullptr;
         qgenericplugin_create_callback = nullptr;
         qgenericplugin_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     }
 
     // Callback setters
+    inline void setQGenericPlugin_MetaObject_Callback(QGenericPlugin_MetaObject_Callback cb) { qgenericplugin_metaobject_callback = cb; }
+    inline void setQGenericPlugin_Metacast_Callback(QGenericPlugin_Metacast_Callback cb) { qgenericplugin_metacast_callback = cb; }
     inline void setQGenericPlugin_Metacall_Callback(QGenericPlugin_Metacall_Callback cb) { qgenericplugin_metacall_callback = cb; }
     inline void setQGenericPlugin_Create_Callback(QGenericPlugin_Create_Callback cb) { qgenericplugin_create_callback = cb; }
     inline void setQGenericPlugin_Event_Callback(QGenericPlugin_Event_Callback cb) { qgenericplugin_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     inline void setQGenericPlugin_IsSignalConnected_Callback(QGenericPlugin_IsSignalConnected_Callback cb) { qgenericplugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGenericPlugin_MetaObject_IsBase(bool value) const { qgenericplugin_metaobject_isbase = value; }
+    inline void setQGenericPlugin_Metacast_IsBase(bool value) const { qgenericplugin_metacast_isbase = value; }
     inline void setQGenericPlugin_Metacall_IsBase(bool value) const { qgenericplugin_metacall_isbase = value; }
     inline void setQGenericPlugin_Create_IsBase(bool value) const { qgenericplugin_create_isbase = value; }
     inline void setQGenericPlugin_Event_IsBase(bool value) const { qgenericplugin_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     inline void setQGenericPlugin_SenderSignalIndex_IsBase(bool value) const { qgenericplugin_sendersignalindex_isbase = value; }
     inline void setQGenericPlugin_Receivers_IsBase(bool value) const { qgenericplugin_receivers_isbase = value; }
     inline void setQGenericPlugin_IsSignalConnected_IsBase(bool value) const { qgenericplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgenericplugin_metaobject_isbase) {
+            qgenericplugin_metaobject_isbase = false;
+            return QGenericPlugin::metaObject();
+        } else if (qgenericplugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgenericplugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGenericPlugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgenericplugin_metacast_isbase) {
+            qgenericplugin_metacast_isbase = false;
+            return QGenericPlugin::qt_metacast(param1);
+        } else if (qgenericplugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgenericplugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGenericPlugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

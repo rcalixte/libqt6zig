@@ -17,6 +17,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     bool isVirtualKReplaceDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KReplaceDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KReplaceDialog_Metacast_Callback = void* (*)(KReplaceDialog*, const char*);
     using KReplaceDialog_Metacall_Callback = int (*)(KReplaceDialog*, int, int, void**);
     using KReplaceDialog_ShowEvent_Callback = void (*)(KReplaceDialog*, QShowEvent*);
     using KReplaceDialog_SetVisible_Callback = void (*)(KReplaceDialog*, bool);
@@ -84,6 +86,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
 
   protected:
     // Instance callback storage
+    KReplaceDialog_MetaObject_Callback kreplacedialog_metaobject_callback = nullptr;
+    KReplaceDialog_Metacast_Callback kreplacedialog_metacast_callback = nullptr;
     KReplaceDialog_Metacall_Callback kreplacedialog_metacall_callback = nullptr;
     KReplaceDialog_ShowEvent_Callback kreplacedialog_showevent_callback = nullptr;
     KReplaceDialog_SetVisible_Callback kreplacedialog_setvisible_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     KReplaceDialog_GetDecodedMetricF_Callback kreplacedialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kreplacedialog_metaobject_isbase = false;
+    mutable bool kreplacedialog_metacast_isbase = false;
     mutable bool kreplacedialog_metacall_isbase = false;
     mutable bool kreplacedialog_showevent_isbase = false;
     mutable bool kreplacedialog_setvisible_isbase = false;
@@ -224,6 +230,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     VirtualKReplaceDialog(QWidget* parent, long options, const QList<QString>& findStrings, const QList<QString>& replaceStrings, bool hasSelection) : KReplaceDialog(parent, options, findStrings, replaceStrings, hasSelection) {};
 
     ~VirtualKReplaceDialog() {
+        kreplacedialog_metaobject_callback = nullptr;
+        kreplacedialog_metacast_callback = nullptr;
         kreplacedialog_metacall_callback = nullptr;
         kreplacedialog_showevent_callback = nullptr;
         kreplacedialog_setvisible_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     }
 
     // Callback setters
+    inline void setKReplaceDialog_MetaObject_Callback(KReplaceDialog_MetaObject_Callback cb) { kreplacedialog_metaobject_callback = cb; }
+    inline void setKReplaceDialog_Metacast_Callback(KReplaceDialog_Metacast_Callback cb) { kreplacedialog_metacast_callback = cb; }
     inline void setKReplaceDialog_Metacall_Callback(KReplaceDialog_Metacall_Callback cb) { kreplacedialog_metacall_callback = cb; }
     inline void setKReplaceDialog_ShowEvent_Callback(KReplaceDialog_ShowEvent_Callback cb) { kreplacedialog_showevent_callback = cb; }
     inline void setKReplaceDialog_SetVisible_Callback(KReplaceDialog_SetVisible_Callback cb) { kreplacedialog_setvisible_callback = cb; }
@@ -357,6 +367,8 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     inline void setKReplaceDialog_GetDecodedMetricF_Callback(KReplaceDialog_GetDecodedMetricF_Callback cb) { kreplacedialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKReplaceDialog_MetaObject_IsBase(bool value) const { kreplacedialog_metaobject_isbase = value; }
+    inline void setKReplaceDialog_Metacast_IsBase(bool value) const { kreplacedialog_metacast_isbase = value; }
     inline void setKReplaceDialog_Metacall_IsBase(bool value) const { kreplacedialog_metacall_isbase = value; }
     inline void setKReplaceDialog_ShowEvent_IsBase(bool value) const { kreplacedialog_showevent_isbase = value; }
     inline void setKReplaceDialog_SetVisible_IsBase(bool value) const { kreplacedialog_setvisible_isbase = value; }
@@ -421,6 +433,34 @@ class VirtualKReplaceDialog final : public KReplaceDialog {
     inline void setKReplaceDialog_Receivers_IsBase(bool value) const { kreplacedialog_receivers_isbase = value; }
     inline void setKReplaceDialog_IsSignalConnected_IsBase(bool value) const { kreplacedialog_issignalconnected_isbase = value; }
     inline void setKReplaceDialog_GetDecodedMetricF_IsBase(bool value) const { kreplacedialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kreplacedialog_metaobject_isbase) {
+            kreplacedialog_metaobject_isbase = false;
+            return KReplaceDialog::metaObject();
+        } else if (kreplacedialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kreplacedialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KReplaceDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kreplacedialog_metacast_isbase) {
+            kreplacedialog_metacast_isbase = false;
+            return KReplaceDialog::qt_metacast(param1);
+        } else if (kreplacedialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kreplacedialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KReplaceDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

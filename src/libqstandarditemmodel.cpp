@@ -776,11 +776,21 @@ QStandardItemModel* QStandardItemModel_new4(int rows, int columns, QObject* pare
 }
 
 QMetaObject* QStandardItemModel_MetaObject(const QStandardItemModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqstandarditemmodel = dynamic_cast<const VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQStandardItemModel*)self)->metaObject();
+    }
 }
 
 void* QStandardItemModel_Metacast(QStandardItemModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQStandardItemModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QStandardItemModel_Metacall(QStandardItemModel* self, int param1, int param2, void** param3) {
@@ -1386,6 +1396,44 @@ libqt_list /* of QStandardItem* */ QStandardItemModel_FindItems3(const QStandard
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+// Base class handler implementation
+QMetaObject* QStandardItemModel_QBaseMetaObject(const QStandardItemModel* self) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqstandarditemmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QStandardItemModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStandardItemModel_OnMetaObject(const QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = const_cast<VirtualQStandardItemModel*>(dynamic_cast<const VirtualQStandardItemModel*>(self));
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_MetaObject_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QStandardItemModel_QBaseMetacast(QStandardItemModel* self, const char* param1) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Metacast_IsBase(true);
+        return vqstandarditemmodel->qt_metacast(param1);
+    } else {
+        return self->QStandardItemModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStandardItemModel_OnMetacast(QStandardItemModel* self, intptr_t slot) {
+    auto* vqstandarditemmodel = dynamic_cast<VirtualQStandardItemModel*>(self);
+    if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
+        vqstandarditemmodel->setQStandardItemModel_Metacast_Callback(reinterpret_cast<VirtualQStandardItemModel::QStandardItemModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

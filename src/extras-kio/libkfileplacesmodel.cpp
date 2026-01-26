@@ -37,11 +37,21 @@ KFilePlacesModel* KFilePlacesModel_new2(QObject* parent) {
 }
 
 QMetaObject* KFilePlacesModel_MetaObject(const KFilePlacesModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFilePlacesModel*)self)->metaObject();
+    }
 }
 
 void* KFilePlacesModel_Metacast(KFilePlacesModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFilePlacesModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KFilePlacesModel_Metacall(KFilePlacesModel* self, int param1, int param2, void** param3) {
@@ -534,6 +544,44 @@ void KFilePlacesModel_EditPlace5(KFilePlacesModel* self, const QModelIndex* inde
     QString iconName_QString = QString::fromUtf8(iconName.data, iconName.len);
     QString appName_QString = QString::fromUtf8(appName.data, appName.len);
     self->editPlace(*index, text_QString, *url, iconName_QString, appName_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KFilePlacesModel_QBaseMetaObject(const KFilePlacesModel* self) {
+    auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+        vkfileplacesmodel->setKFilePlacesModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfileplacesmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KFilePlacesModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFilePlacesModel_OnMetaObject(const KFilePlacesModel* self, intptr_t slot) {
+    auto* vkfileplacesmodel = const_cast<VirtualKFilePlacesModel*>(dynamic_cast<const VirtualKFilePlacesModel*>(self));
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+        vkfileplacesmodel->setKFilePlacesModel_MetaObject_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFilePlacesModel_QBaseMetacast(KFilePlacesModel* self, const char* param1) {
+    auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+        vkfileplacesmodel->setKFilePlacesModel_Metacast_IsBase(true);
+        return vkfileplacesmodel->qt_metacast(param1);
+    } else {
+        return self->KFilePlacesModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFilePlacesModel_OnMetacast(KFilePlacesModel* self, intptr_t slot) {
+    auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
+    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
+        vkfileplacesmodel->setKFilePlacesModel_Metacast_Callback(reinterpret_cast<VirtualKFilePlacesModel::KFilePlacesModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

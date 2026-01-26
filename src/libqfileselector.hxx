@@ -17,6 +17,8 @@ class VirtualQFileSelector final : public QFileSelector {
     bool isVirtualQFileSelector = true;
 
     // Virtual class public types (including callbacks)
+    using QFileSelector_MetaObject_Callback = QMetaObject* (*)();
+    using QFileSelector_Metacast_Callback = void* (*)(QFileSelector*, const char*);
     using QFileSelector_Metacall_Callback = int (*)(QFileSelector*, int, int, void**);
     using QFileSelector_Event_Callback = bool (*)(QFileSelector*, QEvent*);
     using QFileSelector_EventFilter_Callback = bool (*)(QFileSelector*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQFileSelector final : public QFileSelector {
 
   protected:
     // Instance callback storage
+    QFileSelector_MetaObject_Callback qfileselector_metaobject_callback = nullptr;
+    QFileSelector_Metacast_Callback qfileselector_metacast_callback = nullptr;
     QFileSelector_Metacall_Callback qfileselector_metacall_callback = nullptr;
     QFileSelector_Event_Callback qfileselector_event_callback = nullptr;
     QFileSelector_EventFilter_Callback qfileselector_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQFileSelector final : public QFileSelector {
     QFileSelector_IsSignalConnected_Callback qfileselector_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qfileselector_metaobject_isbase = false;
+    mutable bool qfileselector_metacast_isbase = false;
     mutable bool qfileselector_metacall_isbase = false;
     mutable bool qfileselector_event_isbase = false;
     mutable bool qfileselector_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQFileSelector final : public QFileSelector {
     VirtualQFileSelector(QObject* parent) : QFileSelector(parent) {};
 
     ~VirtualQFileSelector() {
+        qfileselector_metaobject_callback = nullptr;
+        qfileselector_metacast_callback = nullptr;
         qfileselector_metacall_callback = nullptr;
         qfileselector_event_callback = nullptr;
         qfileselector_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQFileSelector final : public QFileSelector {
     }
 
     // Callback setters
+    inline void setQFileSelector_MetaObject_Callback(QFileSelector_MetaObject_Callback cb) { qfileselector_metaobject_callback = cb; }
+    inline void setQFileSelector_Metacast_Callback(QFileSelector_Metacast_Callback cb) { qfileselector_metacast_callback = cb; }
     inline void setQFileSelector_Metacall_Callback(QFileSelector_Metacall_Callback cb) { qfileselector_metacall_callback = cb; }
     inline void setQFileSelector_Event_Callback(QFileSelector_Event_Callback cb) { qfileselector_event_callback = cb; }
     inline void setQFileSelector_EventFilter_Callback(QFileSelector_EventFilter_Callback cb) { qfileselector_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQFileSelector final : public QFileSelector {
     inline void setQFileSelector_IsSignalConnected_Callback(QFileSelector_IsSignalConnected_Callback cb) { qfileselector_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQFileSelector_MetaObject_IsBase(bool value) const { qfileselector_metaobject_isbase = value; }
+    inline void setQFileSelector_Metacast_IsBase(bool value) const { qfileselector_metacast_isbase = value; }
     inline void setQFileSelector_Metacall_IsBase(bool value) const { qfileselector_metacall_isbase = value; }
     inline void setQFileSelector_Event_IsBase(bool value) const { qfileselector_event_isbase = value; }
     inline void setQFileSelector_EventFilter_IsBase(bool value) const { qfileselector_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQFileSelector final : public QFileSelector {
     inline void setQFileSelector_SenderSignalIndex_IsBase(bool value) const { qfileselector_sendersignalindex_isbase = value; }
     inline void setQFileSelector_Receivers_IsBase(bool value) const { qfileselector_receivers_isbase = value; }
     inline void setQFileSelector_IsSignalConnected_IsBase(bool value) const { qfileselector_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qfileselector_metaobject_isbase) {
+            qfileselector_metaobject_isbase = false;
+            return QFileSelector::metaObject();
+        } else if (qfileselector_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qfileselector_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFileSelector::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qfileselector_metacast_isbase) {
+            qfileselector_metacast_isbase = false;
+            return QFileSelector::qt_metacast(param1);
+        } else if (qfileselector_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qfileselector_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFileSelector::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQThreadPool final : public QThreadPool {
     bool isVirtualQThreadPool = true;
 
     // Virtual class public types (including callbacks)
+    using QThreadPool_MetaObject_Callback = QMetaObject* (*)();
+    using QThreadPool_Metacast_Callback = void* (*)(QThreadPool*, const char*);
     using QThreadPool_Metacall_Callback = int (*)(QThreadPool*, int, int, void**);
     using QThreadPool_Event_Callback = bool (*)(QThreadPool*, QEvent*);
     using QThreadPool_EventFilter_Callback = bool (*)(QThreadPool*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQThreadPool final : public QThreadPool {
 
   protected:
     // Instance callback storage
+    QThreadPool_MetaObject_Callback qthreadpool_metaobject_callback = nullptr;
+    QThreadPool_Metacast_Callback qthreadpool_metacast_callback = nullptr;
     QThreadPool_Metacall_Callback qthreadpool_metacall_callback = nullptr;
     QThreadPool_Event_Callback qthreadpool_event_callback = nullptr;
     QThreadPool_EventFilter_Callback qthreadpool_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQThreadPool final : public QThreadPool {
     QThreadPool_IsSignalConnected_Callback qthreadpool_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qthreadpool_metaobject_isbase = false;
+    mutable bool qthreadpool_metacast_isbase = false;
     mutable bool qthreadpool_metacall_isbase = false;
     mutable bool qthreadpool_event_isbase = false;
     mutable bool qthreadpool_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQThreadPool final : public QThreadPool {
     VirtualQThreadPool(QObject* parent) : QThreadPool(parent) {};
 
     ~VirtualQThreadPool() {
+        qthreadpool_metaobject_callback = nullptr;
+        qthreadpool_metacast_callback = nullptr;
         qthreadpool_metacall_callback = nullptr;
         qthreadpool_event_callback = nullptr;
         qthreadpool_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQThreadPool final : public QThreadPool {
     }
 
     // Callback setters
+    inline void setQThreadPool_MetaObject_Callback(QThreadPool_MetaObject_Callback cb) { qthreadpool_metaobject_callback = cb; }
+    inline void setQThreadPool_Metacast_Callback(QThreadPool_Metacast_Callback cb) { qthreadpool_metacast_callback = cb; }
     inline void setQThreadPool_Metacall_Callback(QThreadPool_Metacall_Callback cb) { qthreadpool_metacall_callback = cb; }
     inline void setQThreadPool_Event_Callback(QThreadPool_Event_Callback cb) { qthreadpool_event_callback = cb; }
     inline void setQThreadPool_EventFilter_Callback(QThreadPool_EventFilter_Callback cb) { qthreadpool_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQThreadPool final : public QThreadPool {
     inline void setQThreadPool_IsSignalConnected_Callback(QThreadPool_IsSignalConnected_Callback cb) { qthreadpool_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQThreadPool_MetaObject_IsBase(bool value) const { qthreadpool_metaobject_isbase = value; }
+    inline void setQThreadPool_Metacast_IsBase(bool value) const { qthreadpool_metacast_isbase = value; }
     inline void setQThreadPool_Metacall_IsBase(bool value) const { qthreadpool_metacall_isbase = value; }
     inline void setQThreadPool_Event_IsBase(bool value) const { qthreadpool_event_isbase = value; }
     inline void setQThreadPool_EventFilter_IsBase(bool value) const { qthreadpool_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQThreadPool final : public QThreadPool {
     inline void setQThreadPool_SenderSignalIndex_IsBase(bool value) const { qthreadpool_sendersignalindex_isbase = value; }
     inline void setQThreadPool_Receivers_IsBase(bool value) const { qthreadpool_receivers_isbase = value; }
     inline void setQThreadPool_IsSignalConnected_IsBase(bool value) const { qthreadpool_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qthreadpool_metaobject_isbase) {
+            qthreadpool_metaobject_isbase = false;
+            return QThreadPool::metaObject();
+        } else if (qthreadpool_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qthreadpool_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QThreadPool::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qthreadpool_metacast_isbase) {
+            qthreadpool_metacast_isbase = false;
+            return QThreadPool::qt_metacast(param1);
+        } else if (qthreadpool_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qthreadpool_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QThreadPool::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQFormLayout final : public QFormLayout {
     bool isVirtualQFormLayout = true;
 
     // Virtual class public types (including callbacks)
+    using QFormLayout_MetaObject_Callback = QMetaObject* (*)();
+    using QFormLayout_Metacast_Callback = void* (*)(QFormLayout*, const char*);
     using QFormLayout_Metacall_Callback = int (*)(QFormLayout*, int, int, void**);
     using QFormLayout_Spacing_Callback = int (*)();
     using QFormLayout_SetSpacing_Callback = void (*)(QFormLayout*, int);
@@ -60,6 +62,8 @@ class VirtualQFormLayout final : public QFormLayout {
 
   protected:
     // Instance callback storage
+    QFormLayout_MetaObject_Callback qformlayout_metaobject_callback = nullptr;
+    QFormLayout_Metacast_Callback qformlayout_metacast_callback = nullptr;
     QFormLayout_Metacall_Callback qformlayout_metacall_callback = nullptr;
     QFormLayout_Spacing_Callback qformlayout_spacing_callback = nullptr;
     QFormLayout_SetSpacing_Callback qformlayout_setspacing_callback = nullptr;
@@ -102,6 +106,8 @@ class VirtualQFormLayout final : public QFormLayout {
     QFormLayout_IsSignalConnected_Callback qformlayout_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qformlayout_metaobject_isbase = false;
+    mutable bool qformlayout_metacast_isbase = false;
     mutable bool qformlayout_metacall_isbase = false;
     mutable bool qformlayout_spacing_isbase = false;
     mutable bool qformlayout_setspacing_isbase = false;
@@ -148,6 +154,8 @@ class VirtualQFormLayout final : public QFormLayout {
     VirtualQFormLayout() : QFormLayout() {};
 
     ~VirtualQFormLayout() {
+        qformlayout_metaobject_callback = nullptr;
+        qformlayout_metacast_callback = nullptr;
         qformlayout_metacall_callback = nullptr;
         qformlayout_spacing_callback = nullptr;
         qformlayout_setspacing_callback = nullptr;
@@ -191,6 +199,8 @@ class VirtualQFormLayout final : public QFormLayout {
     }
 
     // Callback setters
+    inline void setQFormLayout_MetaObject_Callback(QFormLayout_MetaObject_Callback cb) { qformlayout_metaobject_callback = cb; }
+    inline void setQFormLayout_Metacast_Callback(QFormLayout_Metacast_Callback cb) { qformlayout_metacast_callback = cb; }
     inline void setQFormLayout_Metacall_Callback(QFormLayout_Metacall_Callback cb) { qformlayout_metacall_callback = cb; }
     inline void setQFormLayout_Spacing_Callback(QFormLayout_Spacing_Callback cb) { qformlayout_spacing_callback = cb; }
     inline void setQFormLayout_SetSpacing_Callback(QFormLayout_SetSpacing_Callback cb) { qformlayout_setspacing_callback = cb; }
@@ -233,6 +243,8 @@ class VirtualQFormLayout final : public QFormLayout {
     inline void setQFormLayout_IsSignalConnected_Callback(QFormLayout_IsSignalConnected_Callback cb) { qformlayout_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQFormLayout_MetaObject_IsBase(bool value) const { qformlayout_metaobject_isbase = value; }
+    inline void setQFormLayout_Metacast_IsBase(bool value) const { qformlayout_metacast_isbase = value; }
     inline void setQFormLayout_Metacall_IsBase(bool value) const { qformlayout_metacall_isbase = value; }
     inline void setQFormLayout_Spacing_IsBase(bool value) const { qformlayout_spacing_isbase = value; }
     inline void setQFormLayout_SetSpacing_IsBase(bool value) const { qformlayout_setspacing_isbase = value; }
@@ -273,6 +285,34 @@ class VirtualQFormLayout final : public QFormLayout {
     inline void setQFormLayout_SenderSignalIndex_IsBase(bool value) const { qformlayout_sendersignalindex_isbase = value; }
     inline void setQFormLayout_Receivers_IsBase(bool value) const { qformlayout_receivers_isbase = value; }
     inline void setQFormLayout_IsSignalConnected_IsBase(bool value) const { qformlayout_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qformlayout_metaobject_isbase) {
+            qformlayout_metaobject_isbase = false;
+            return QFormLayout::metaObject();
+        } else if (qformlayout_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qformlayout_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFormLayout::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qformlayout_metacast_isbase) {
+            qformlayout_metacast_isbase = false;
+            return QFormLayout::qt_metacast(param1);
+        } else if (qformlayout_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qformlayout_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFormLayout::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

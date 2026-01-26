@@ -33,6 +33,10 @@ int KSelectionWatcher_Metacall(KSelectionWatcher* self, int param1, int param2, 
 void KSelectionWatcher_FilterEvent(KSelectionWatcher* self, void* ev_P);
 void KSelectionWatcher_LostOwner(KSelectionWatcher* self);
 void KSelectionWatcher_Connect_LostOwner(KSelectionWatcher* self, intptr_t slot);
+void KSelectionWatcher_OnMetaObject(const KSelectionWatcher* self, intptr_t slot);
+QMetaObject* KSelectionWatcher_QBaseMetaObject(const KSelectionWatcher* self);
+void KSelectionWatcher_OnMetacast(KSelectionWatcher* self, intptr_t slot);
+void* KSelectionWatcher_QBaseMetacast(KSelectionWatcher* self, const char* param1);
 void KSelectionWatcher_OnMetacall(KSelectionWatcher* self, intptr_t slot);
 int KSelectionWatcher_QBaseMetacall(KSelectionWatcher* self, int param1, int param2, void** param3);
 bool KSelectionWatcher_Event(KSelectionWatcher* self, QEvent* event);

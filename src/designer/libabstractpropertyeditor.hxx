@@ -17,6 +17,8 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     bool isVirtualQDesignerPropertyEditorInterface = true;
 
     // Virtual class public types (including callbacks)
+    using QDesignerPropertyEditorInterface_MetaObject_Callback = QMetaObject* (*)();
+    using QDesignerPropertyEditorInterface_Metacast_Callback = void* (*)(QDesignerPropertyEditorInterface*, const char*);
     using QDesignerPropertyEditorInterface_Metacall_Callback = int (*)(QDesignerPropertyEditorInterface*, int, int, void**);
     using QDesignerPropertyEditorInterface_Core_Callback = QDesignerFormEditorInterface* (*)();
     using QDesignerPropertyEditorInterface_IsReadOnly_Callback = bool (*)();
@@ -85,6 +87,8 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
 
   protected:
     // Instance callback storage
+    QDesignerPropertyEditorInterface_MetaObject_Callback qdesignerpropertyeditorinterface_metaobject_callback = nullptr;
+    QDesignerPropertyEditorInterface_Metacast_Callback qdesignerpropertyeditorinterface_metacast_callback = nullptr;
     QDesignerPropertyEditorInterface_Metacall_Callback qdesignerpropertyeditorinterface_metacall_callback = nullptr;
     QDesignerPropertyEditorInterface_Core_Callback qdesignerpropertyeditorinterface_core_callback = nullptr;
     QDesignerPropertyEditorInterface_IsReadOnly_Callback qdesignerpropertyeditorinterface_isreadonly_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     QDesignerPropertyEditorInterface_GetDecodedMetricF_Callback qdesignerpropertyeditorinterface_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdesignerpropertyeditorinterface_metaobject_isbase = false;
+    mutable bool qdesignerpropertyeditorinterface_metacast_isbase = false;
     mutable bool qdesignerpropertyeditorinterface_metacall_isbase = false;
     mutable bool qdesignerpropertyeditorinterface_core_isbase = false;
     mutable bool qdesignerpropertyeditorinterface_isreadonly_isbase = false;
@@ -223,6 +229,8 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     VirtualQDesignerPropertyEditorInterface(QWidget* parent, Qt::WindowFlags flags) : QDesignerPropertyEditorInterface(parent, flags) {};
 
     ~VirtualQDesignerPropertyEditorInterface() {
+        qdesignerpropertyeditorinterface_metaobject_callback = nullptr;
+        qdesignerpropertyeditorinterface_metacast_callback = nullptr;
         qdesignerpropertyeditorinterface_metacall_callback = nullptr;
         qdesignerpropertyeditorinterface_core_callback = nullptr;
         qdesignerpropertyeditorinterface_isreadonly_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     }
 
     // Callback setters
+    inline void setQDesignerPropertyEditorInterface_MetaObject_Callback(QDesignerPropertyEditorInterface_MetaObject_Callback cb) { qdesignerpropertyeditorinterface_metaobject_callback = cb; }
+    inline void setQDesignerPropertyEditorInterface_Metacast_Callback(QDesignerPropertyEditorInterface_Metacast_Callback cb) { qdesignerpropertyeditorinterface_metacast_callback = cb; }
     inline void setQDesignerPropertyEditorInterface_Metacall_Callback(QDesignerPropertyEditorInterface_Metacall_Callback cb) { qdesignerpropertyeditorinterface_metacall_callback = cb; }
     inline void setQDesignerPropertyEditorInterface_Core_Callback(QDesignerPropertyEditorInterface_Core_Callback cb) { qdesignerpropertyeditorinterface_core_callback = cb; }
     inline void setQDesignerPropertyEditorInterface_IsReadOnly_Callback(QDesignerPropertyEditorInterface_IsReadOnly_Callback cb) { qdesignerpropertyeditorinterface_isreadonly_callback = cb; }
@@ -358,6 +368,8 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     inline void setQDesignerPropertyEditorInterface_GetDecodedMetricF_Callback(QDesignerPropertyEditorInterface_GetDecodedMetricF_Callback cb) { qdesignerpropertyeditorinterface_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDesignerPropertyEditorInterface_MetaObject_IsBase(bool value) const { qdesignerpropertyeditorinterface_metaobject_isbase = value; }
+    inline void setQDesignerPropertyEditorInterface_Metacast_IsBase(bool value) const { qdesignerpropertyeditorinterface_metacast_isbase = value; }
     inline void setQDesignerPropertyEditorInterface_Metacall_IsBase(bool value) const { qdesignerpropertyeditorinterface_metacall_isbase = value; }
     inline void setQDesignerPropertyEditorInterface_Core_IsBase(bool value) const { qdesignerpropertyeditorinterface_core_isbase = value; }
     inline void setQDesignerPropertyEditorInterface_IsReadOnly_IsBase(bool value) const { qdesignerpropertyeditorinterface_isreadonly_isbase = value; }
@@ -423,6 +435,34 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     inline void setQDesignerPropertyEditorInterface_Receivers_IsBase(bool value) const { qdesignerpropertyeditorinterface_receivers_isbase = value; }
     inline void setQDesignerPropertyEditorInterface_IsSignalConnected_IsBase(bool value) const { qdesignerpropertyeditorinterface_issignalconnected_isbase = value; }
     inline void setQDesignerPropertyEditorInterface_GetDecodedMetricF_IsBase(bool value) const { qdesignerpropertyeditorinterface_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdesignerpropertyeditorinterface_metaobject_isbase) {
+            qdesignerpropertyeditorinterface_metaobject_isbase = false;
+            return QDesignerPropertyEditorInterface::metaObject();
+        } else if (qdesignerpropertyeditorinterface_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdesignerpropertyeditorinterface_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDesignerPropertyEditorInterface::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdesignerpropertyeditorinterface_metacast_isbase) {
+            qdesignerpropertyeditorinterface_metacast_isbase = false;
+            return QDesignerPropertyEditorInterface::qt_metacast(param1);
+        } else if (qdesignerpropertyeditorinterface_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdesignerpropertyeditorinterface_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDesignerPropertyEditorInterface::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

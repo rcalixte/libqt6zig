@@ -23,11 +23,21 @@ QScreenCapture* QScreenCapture_new2(QObject* parent) {
 }
 
 QMetaObject* QScreenCapture_MetaObject(const QScreenCapture* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscreencapture = dynamic_cast<const VirtualQScreenCapture*>(self);
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQScreenCapture*)self)->metaObject();
+    }
 }
 
 void* QScreenCapture_Metacast(QScreenCapture* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQScreenCapture*)self)->qt_metacast(param1);
+    }
 }
 
 int QScreenCapture_Metacall(QScreenCapture* self, int param1, int param2, void** param3) {
@@ -137,6 +147,44 @@ void QScreenCapture_Connect_ErrorOccurred(QScreenCapture* self, intptr_t slot) {
         slotFunc(self, sigval1, sigval2);
         libqt_free(errorString_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QScreenCapture_QBaseMetaObject(const QScreenCapture* self) {
+    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+        vqscreencapture->setQScreenCapture_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscreencapture->metaObject();
+    } else {
+        return (QMetaObject*)self->QScreenCapture::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScreenCapture_OnMetaObject(const QScreenCapture* self, intptr_t slot) {
+    auto* vqscreencapture = const_cast<VirtualQScreenCapture*>(dynamic_cast<const VirtualQScreenCapture*>(self));
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+        vqscreencapture->setQScreenCapture_MetaObject_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QScreenCapture_QBaseMetacast(QScreenCapture* self, const char* param1) {
+    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+        vqscreencapture->setQScreenCapture_Metacast_IsBase(true);
+        return vqscreencapture->qt_metacast(param1);
+    } else {
+        return self->QScreenCapture::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScreenCapture_OnMetacast(QScreenCapture* self, intptr_t slot) {
+    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
+    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
+        vqscreencapture->setQScreenCapture_Metacast_Callback(reinterpret_cast<VirtualQScreenCapture::QScreenCapture_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

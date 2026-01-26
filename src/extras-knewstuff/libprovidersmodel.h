@@ -46,6 +46,10 @@ int KNSCore__ProvidersModel_RowCount(const KNSCore__ProvidersModel* self, const 
 QObject* KNSCore__ProvidersModel_Engine(const KNSCore__ProvidersModel* self);
 void KNSCore__ProvidersModel_SetEngine(KNSCore__ProvidersModel* self, QObject* engine);
 void KNSCore__ProvidersModel_EngineChanged(KNSCore__ProvidersModel* self);
+void KNSCore__ProvidersModel_OnMetaObject(const KNSCore__ProvidersModel* self, intptr_t slot);
+QMetaObject* KNSCore__ProvidersModel_QBaseMetaObject(const KNSCore__ProvidersModel* self);
+void KNSCore__ProvidersModel_OnMetacast(KNSCore__ProvidersModel* self, intptr_t slot);
+void* KNSCore__ProvidersModel_QBaseMetacast(KNSCore__ProvidersModel* self, const char* param1);
 void KNSCore__ProvidersModel_OnMetacall(KNSCore__ProvidersModel* self, intptr_t slot);
 int KNSCore__ProvidersModel_QBaseMetacall(KNSCore__ProvidersModel* self, int param1, int param2, void** param3);
 void KNSCore__ProvidersModel_OnRoleNames(const KNSCore__ProvidersModel* self, intptr_t slot);

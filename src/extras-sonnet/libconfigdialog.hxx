@@ -17,6 +17,8 @@ class VirtualSonnetConfigDialog final : public Sonnet::ConfigDialog {
     bool isVirtualSonnetConfigDialog = true;
 
     // Virtual class public types (including callbacks)
+    using Sonnet__ConfigDialog_MetaObject_Callback = QMetaObject* (*)();
+    using Sonnet__ConfigDialog_Metacast_Callback = void* (*)(Sonnet__ConfigDialog*, const char*);
     using Sonnet__ConfigDialog_Metacall_Callback = int (*)(Sonnet__ConfigDialog*, int, int, void**);
     using Sonnet__ConfigDialog_SlotOk_Callback = void (*)();
     using Sonnet__ConfigDialog_SlotApply_Callback = void (*)();
@@ -86,6 +88,8 @@ class VirtualSonnetConfigDialog final : public Sonnet::ConfigDialog {
 
   protected:
     // Instance callback storage
+    Sonnet__ConfigDialog_MetaObject_Callback sonnet__configdialog_metaobject_callback = nullptr;
+    Sonnet__ConfigDialog_Metacast_Callback sonnet__configdialog_metacast_callback = nullptr;
     Sonnet__ConfigDialog_Metacall_Callback sonnet__configdialog_metacall_callback = nullptr;
     Sonnet__ConfigDialog_SlotOk_Callback sonnet__configdialog_slotok_callback = nullptr;
     Sonnet__ConfigDialog_SlotApply_Callback sonnet__configdialog_slotapply_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualSonnetConfigDialog final : public Sonnet::ConfigDialog {
     Sonnet__ConfigDialog_GetDecodedMetricF_Callback sonnet__configdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool sonnet__configdialog_metaobject_isbase = false;
+    mutable bool sonnet__configdialog_metacast_isbase = false;
     mutable bool sonnet__configdialog_metacall_isbase = false;
     mutable bool sonnet__configdialog_slotok_isbase = false;
     mutable bool sonnet__configdialog_slotapply_isbase = false;
@@ -225,6 +231,8 @@ class VirtualSonnetConfigDialog final : public Sonnet::ConfigDialog {
     VirtualSonnetConfigDialog(QWidget* parent) : Sonnet::ConfigDialog(parent) {};
 
     ~VirtualSonnetConfigDialog() {
+        sonnet__configdialog_metaobject_callback = nullptr;
+        sonnet__configdialog_metacast_callback = nullptr;
         sonnet__configdialog_metacall_callback = nullptr;
         sonnet__configdialog_slotok_callback = nullptr;
         sonnet__configdialog_slotapply_callback = nullptr;
@@ -294,6 +302,8 @@ class VirtualSonnetConfigDialog final : public Sonnet::ConfigDialog {
     }
 
     // Callback setters
+    inline void setSonnet__ConfigDialog_MetaObject_Callback(Sonnet__ConfigDialog_MetaObject_Callback cb) { sonnet__configdialog_metaobject_callback = cb; }
+    inline void setSonnet__ConfigDialog_Metacast_Callback(Sonnet__ConfigDialog_Metacast_Callback cb) { sonnet__configdialog_metacast_callback = cb; }
     inline void setSonnet__ConfigDialog_Metacall_Callback(Sonnet__ConfigDialog_Metacall_Callback cb) { sonnet__configdialog_metacall_callback = cb; }
     inline void setSonnet__ConfigDialog_SlotOk_Callback(Sonnet__ConfigDialog_SlotOk_Callback cb) { sonnet__configdialog_slotok_callback = cb; }
     inline void setSonnet__ConfigDialog_SlotApply_Callback(Sonnet__ConfigDialog_SlotApply_Callback cb) { sonnet__configdialog_slotapply_callback = cb; }
@@ -362,6 +372,8 @@ class VirtualSonnetConfigDialog final : public Sonnet::ConfigDialog {
     inline void setSonnet__ConfigDialog_GetDecodedMetricF_Callback(Sonnet__ConfigDialog_GetDecodedMetricF_Callback cb) { sonnet__configdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setSonnet__ConfigDialog_MetaObject_IsBase(bool value) const { sonnet__configdialog_metaobject_isbase = value; }
+    inline void setSonnet__ConfigDialog_Metacast_IsBase(bool value) const { sonnet__configdialog_metacast_isbase = value; }
     inline void setSonnet__ConfigDialog_Metacall_IsBase(bool value) const { sonnet__configdialog_metacall_isbase = value; }
     inline void setSonnet__ConfigDialog_SlotOk_IsBase(bool value) const { sonnet__configdialog_slotok_isbase = value; }
     inline void setSonnet__ConfigDialog_SlotApply_IsBase(bool value) const { sonnet__configdialog_slotapply_isbase = value; }
@@ -428,6 +440,34 @@ class VirtualSonnetConfigDialog final : public Sonnet::ConfigDialog {
     inline void setSonnet__ConfigDialog_Receivers_IsBase(bool value) const { sonnet__configdialog_receivers_isbase = value; }
     inline void setSonnet__ConfigDialog_IsSignalConnected_IsBase(bool value) const { sonnet__configdialog_issignalconnected_isbase = value; }
     inline void setSonnet__ConfigDialog_GetDecodedMetricF_IsBase(bool value) const { sonnet__configdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (sonnet__configdialog_metaobject_isbase) {
+            sonnet__configdialog_metaobject_isbase = false;
+            return Sonnet__ConfigDialog::metaObject();
+        } else if (sonnet__configdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = sonnet__configdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Sonnet__ConfigDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (sonnet__configdialog_metacast_isbase) {
+            sonnet__configdialog_metacast_isbase = false;
+            return Sonnet__ConfigDialog::qt_metacast(param1);
+        } else if (sonnet__configdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = sonnet__configdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Sonnet__ConfigDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

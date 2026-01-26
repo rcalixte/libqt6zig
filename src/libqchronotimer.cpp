@@ -29,11 +29,21 @@ QChronoTimer* QChronoTimer_new4(QObject* parent) {
 }
 
 QMetaObject* QChronoTimer_MetaObject(const QChronoTimer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqchronotimer = dynamic_cast<const VirtualQChronoTimer*>(self);
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQChronoTimer*)self)->metaObject();
+    }
 }
 
 void* QChronoTimer_Metacast(QChronoTimer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQChronoTimer*)self)->qt_metacast(param1);
+    }
 }
 
 int QChronoTimer_Metacall(QChronoTimer* self, int param1, int param2, void** param3) {
@@ -95,6 +105,44 @@ void QChronoTimer_TimerEvent(QChronoTimer* self, QTimerEvent* param1) {
     auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
     if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
         vqchronotimer->timerEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QChronoTimer_QBaseMetaObject(const QChronoTimer* self) {
+    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        vqchronotimer->setQChronoTimer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqchronotimer->metaObject();
+    } else {
+        return (QMetaObject*)self->QChronoTimer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChronoTimer_OnMetaObject(const QChronoTimer* self, intptr_t slot) {
+    auto* vqchronotimer = const_cast<VirtualQChronoTimer*>(dynamic_cast<const VirtualQChronoTimer*>(self));
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        vqchronotimer->setQChronoTimer_MetaObject_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QChronoTimer_QBaseMetacast(QChronoTimer* self, const char* param1) {
+    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        vqchronotimer->setQChronoTimer_Metacast_IsBase(true);
+        return vqchronotimer->qt_metacast(param1);
+    } else {
+        return self->QChronoTimer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChronoTimer_OnMetacast(QChronoTimer* self, intptr_t slot) {
+    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
+    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
+        vqchronotimer->setQChronoTimer_Metacast_Callback(reinterpret_cast<VirtualQChronoTimer::QChronoTimer_Metacast_Callback>(slot));
     }
 }
 

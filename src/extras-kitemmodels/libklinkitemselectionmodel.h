@@ -41,6 +41,10 @@ void KLinkItemSelectionModel_Select(KLinkItemSelectionModel* self, const QModelI
 void KLinkItemSelectionModel_Select2(KLinkItemSelectionModel* self, const QItemSelection* selection, int command);
 void KLinkItemSelectionModel_LinkedItemSelectionModelChanged(KLinkItemSelectionModel* self);
 void KLinkItemSelectionModel_Connect_LinkedItemSelectionModelChanged(KLinkItemSelectionModel* self, intptr_t slot);
+void KLinkItemSelectionModel_OnMetaObject(const KLinkItemSelectionModel* self, intptr_t slot);
+QMetaObject* KLinkItemSelectionModel_QBaseMetaObject(const KLinkItemSelectionModel* self);
+void KLinkItemSelectionModel_OnMetacast(KLinkItemSelectionModel* self, intptr_t slot);
+void* KLinkItemSelectionModel_QBaseMetacast(KLinkItemSelectionModel* self, const char* param1);
 void KLinkItemSelectionModel_OnMetacall(KLinkItemSelectionModel* self, intptr_t slot);
 int KLinkItemSelectionModel_QBaseMetacall(KLinkItemSelectionModel* self, int param1, int param2, void** param3);
 void KLinkItemSelectionModel_OnSelect(KLinkItemSelectionModel* self, intptr_t slot);

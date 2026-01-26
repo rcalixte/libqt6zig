@@ -29,11 +29,21 @@ QDesignerFormWindowManagerInterface* QDesignerFormWindowManagerInterface_new2(QO
 }
 
 QMetaObject* QDesignerFormWindowManagerInterface_MetaObject(const QDesignerFormWindowManagerInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self);
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerFormWindowManagerInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerFormWindowManagerInterface_Metacast(QDesignerFormWindowManagerInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerFormWindowManagerInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerFormWindowManagerInterface_Metacall(QDesignerFormWindowManagerInterface* self, int param1, int param2, void** param3) {
@@ -303,6 +313,44 @@ void QDesignerFormWindowManagerInterface_ShowPluginDialog(QDesignerFormWindowMan
         vqdesignerformwindowmanagerinterface->showPluginDialog();
     } else {
         ((VirtualQDesignerFormWindowManagerInterface*)self)->showPluginDialog();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerFormWindowManagerInterface_QBaseMetaObject(const QDesignerFormWindowManagerInterface* self) {
+    auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+        vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerformwindowmanagerinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerFormWindowManagerInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerFormWindowManagerInterface_OnMetaObject(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
+    auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+        vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerFormWindowManagerInterface_QBaseMetacast(QDesignerFormWindowManagerInterface* self, const char* param1) {
+    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+        vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_Metacast_IsBase(true);
+        return vqdesignerformwindowmanagerinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerFormWindowManagerInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerFormWindowManagerInterface_OnMetacast(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
+    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+        vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_Metacast_Callback>(slot));
     }
 }
 

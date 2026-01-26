@@ -17,6 +17,8 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
     bool isVirtualKAdjustingScrollArea = true;
 
     // Virtual class public types (including callbacks)
+    using KAdjustingScrollArea_MetaObject_Callback = QMetaObject* (*)();
+    using KAdjustingScrollArea_Metacast_Callback = void* (*)(KAdjustingScrollArea*, const char*);
     using KAdjustingScrollArea_Metacall_Callback = int (*)(KAdjustingScrollArea*, int, int, void**);
     using KAdjustingScrollArea_MinimumSizeHint_Callback = QSize* (*)();
     using KAdjustingScrollArea_SizeHint_Callback = QSize* (*)();
@@ -85,6 +87,8 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
 
   protected:
     // Instance callback storage
+    KAdjustingScrollArea_MetaObject_Callback kadjustingscrollarea_metaobject_callback = nullptr;
+    KAdjustingScrollArea_Metacast_Callback kadjustingscrollarea_metacast_callback = nullptr;
     KAdjustingScrollArea_Metacall_Callback kadjustingscrollarea_metacall_callback = nullptr;
     KAdjustingScrollArea_MinimumSizeHint_Callback kadjustingscrollarea_minimumsizehint_callback = nullptr;
     KAdjustingScrollArea_SizeHint_Callback kadjustingscrollarea_sizehint_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
     KAdjustingScrollArea_GetDecodedMetricF_Callback kadjustingscrollarea_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kadjustingscrollarea_metaobject_isbase = false;
+    mutable bool kadjustingscrollarea_metacast_isbase = false;
     mutable bool kadjustingscrollarea_metacall_isbase = false;
     mutable bool kadjustingscrollarea_minimumsizehint_isbase = false;
     mutable bool kadjustingscrollarea_sizehint_isbase = false;
@@ -223,6 +229,8 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
     VirtualKAdjustingScrollArea() : KAdjustingScrollArea() {};
 
     ~VirtualKAdjustingScrollArea() {
+        kadjustingscrollarea_metaobject_callback = nullptr;
+        kadjustingscrollarea_metacast_callback = nullptr;
         kadjustingscrollarea_metacall_callback = nullptr;
         kadjustingscrollarea_minimumsizehint_callback = nullptr;
         kadjustingscrollarea_sizehint_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
     }
 
     // Callback setters
+    inline void setKAdjustingScrollArea_MetaObject_Callback(KAdjustingScrollArea_MetaObject_Callback cb) { kadjustingscrollarea_metaobject_callback = cb; }
+    inline void setKAdjustingScrollArea_Metacast_Callback(KAdjustingScrollArea_Metacast_Callback cb) { kadjustingscrollarea_metacast_callback = cb; }
     inline void setKAdjustingScrollArea_Metacall_Callback(KAdjustingScrollArea_Metacall_Callback cb) { kadjustingscrollarea_metacall_callback = cb; }
     inline void setKAdjustingScrollArea_MinimumSizeHint_Callback(KAdjustingScrollArea_MinimumSizeHint_Callback cb) { kadjustingscrollarea_minimumsizehint_callback = cb; }
     inline void setKAdjustingScrollArea_SizeHint_Callback(KAdjustingScrollArea_SizeHint_Callback cb) { kadjustingscrollarea_sizehint_callback = cb; }
@@ -358,6 +368,8 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
     inline void setKAdjustingScrollArea_GetDecodedMetricF_Callback(KAdjustingScrollArea_GetDecodedMetricF_Callback cb) { kadjustingscrollarea_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKAdjustingScrollArea_MetaObject_IsBase(bool value) const { kadjustingscrollarea_metaobject_isbase = value; }
+    inline void setKAdjustingScrollArea_Metacast_IsBase(bool value) const { kadjustingscrollarea_metacast_isbase = value; }
     inline void setKAdjustingScrollArea_Metacall_IsBase(bool value) const { kadjustingscrollarea_metacall_isbase = value; }
     inline void setKAdjustingScrollArea_MinimumSizeHint_IsBase(bool value) const { kadjustingscrollarea_minimumsizehint_isbase = value; }
     inline void setKAdjustingScrollArea_SizeHint_IsBase(bool value) const { kadjustingscrollarea_sizehint_isbase = value; }
@@ -423,6 +435,34 @@ class VirtualKAdjustingScrollArea final : public KAdjustingScrollArea {
     inline void setKAdjustingScrollArea_Receivers_IsBase(bool value) const { kadjustingscrollarea_receivers_isbase = value; }
     inline void setKAdjustingScrollArea_IsSignalConnected_IsBase(bool value) const { kadjustingscrollarea_issignalconnected_isbase = value; }
     inline void setKAdjustingScrollArea_GetDecodedMetricF_IsBase(bool value) const { kadjustingscrollarea_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kadjustingscrollarea_metaobject_isbase) {
+            kadjustingscrollarea_metaobject_isbase = false;
+            return KAdjustingScrollArea::metaObject();
+        } else if (kadjustingscrollarea_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kadjustingscrollarea_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KAdjustingScrollArea::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kadjustingscrollarea_metacast_isbase) {
+            kadjustingscrollarea_metacast_isbase = false;
+            return KAdjustingScrollArea::qt_metacast(param1);
+        } else if (kadjustingscrollarea_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kadjustingscrollarea_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KAdjustingScrollArea::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

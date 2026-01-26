@@ -68,11 +68,21 @@ KUrlComboBox* KUrlComboBox_new4(int mode, bool rw, QWidget* parent) {
 }
 
 QMetaObject* KUrlComboBox_MetaObject(const KUrlComboBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkurlcombobox = dynamic_cast<const VirtualKUrlComboBox*>(self);
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKUrlComboBox*)self)->metaObject();
+    }
 }
 
 void* KUrlComboBox_Metacast(KUrlComboBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKUrlComboBox*)self)->qt_metacast(param1);
+    }
 }
 
 int KUrlComboBox_Metacall(KUrlComboBox* self, int param1, int param2, void** param3) {
@@ -204,6 +214,44 @@ void KUrlComboBox_AddDefaultUrl3(KUrlComboBox* self, const QUrl* url, const QIco
 
 void KUrlComboBox_RemoveUrl2(KUrlComboBox* self, const QUrl* url, bool checkDefaultURLs) {
     self->removeUrl(*url, checkDefaultURLs);
+}
+
+// Base class handler implementation
+QMetaObject* KUrlComboBox_QBaseMetaObject(const KUrlComboBox* self) {
+    auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+        vkurlcombobox->setKUrlComboBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vkurlcombobox->metaObject();
+    } else {
+        return (QMetaObject*)self->KUrlComboBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlComboBox_OnMetaObject(const KUrlComboBox* self, intptr_t slot) {
+    auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+        vkurlcombobox->setKUrlComboBox_MetaObject_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KUrlComboBox_QBaseMetacast(KUrlComboBox* self, const char* param1) {
+    auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+        vkurlcombobox->setKUrlComboBox_Metacast_IsBase(true);
+        return vkurlcombobox->qt_metacast(param1);
+    } else {
+        return self->KUrlComboBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlComboBox_OnMetacast(KUrlComboBox* self, intptr_t slot) {
+    auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+        vkurlcombobox->setKUrlComboBox_Metacast_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

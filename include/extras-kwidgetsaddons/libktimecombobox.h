@@ -101,6 +101,10 @@ void KTimeComboBox_SetMinimumTime2(KTimeComboBox* self, const QTime* minTime, co
 void KTimeComboBox_SetMaximumTime2(KTimeComboBox* self, const QTime* maxTime, const libqt_string maxWarnMsg);
 void KTimeComboBox_SetTimeList2(KTimeComboBox* self, libqt_list /* of QTime* */ timeList, const libqt_string minWarnMsg);
 void KTimeComboBox_SetTimeList3(KTimeComboBox* self, libqt_list /* of QTime* */ timeList, const libqt_string minWarnMsg, const libqt_string maxWarnMsg);
+void KTimeComboBox_OnMetaObject(const KTimeComboBox* self, intptr_t slot);
+QMetaObject* KTimeComboBox_QBaseMetaObject(const KTimeComboBox* self);
+void KTimeComboBox_OnMetacast(KTimeComboBox* self, intptr_t slot);
+void* KTimeComboBox_QBaseMetacast(KTimeComboBox* self, const char* param1);
 void KTimeComboBox_OnMetacall(KTimeComboBox* self, intptr_t slot);
 int KTimeComboBox_QBaseMetacall(KTimeComboBox* self, int param1, int param2, void** param3);
 void KTimeComboBox_OnEventFilter(KTimeComboBox* self, intptr_t slot);

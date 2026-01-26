@@ -652,11 +652,21 @@ QTreeWidget* QTreeWidget_new2() {
 }
 
 QMetaObject* QTreeWidget_MetaObject(const QTreeWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtreewidget = dynamic_cast<const VirtualQTreeWidget*>(self);
+    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTreeWidget*)self)->metaObject();
+    }
 }
 
 void* QTreeWidget_Metacast(QTreeWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtreewidget = dynamic_cast<VirtualQTreeWidget*>(self);
+    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTreeWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QTreeWidget_Metacall(QTreeWidget* self, int param1, int param2, void** param3) {
@@ -1116,6 +1126,44 @@ QModelIndex* QTreeWidget_IndexFromItem2(const QTreeWidget* self, const QTreeWidg
 
 void QTreeWidget_ScrollToItem2(QTreeWidget* self, const QTreeWidgetItem* item, int hint) {
     self->scrollToItem(item, static_cast<QAbstractItemView::ScrollHint>(hint));
+}
+
+// Base class handler implementation
+QMetaObject* QTreeWidget_QBaseMetaObject(const QTreeWidget* self) {
+    auto* vqtreewidget = const_cast<VirtualQTreeWidget*>(dynamic_cast<const VirtualQTreeWidget*>(self));
+    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
+        vqtreewidget->setQTreeWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtreewidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QTreeWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTreeWidget_OnMetaObject(const QTreeWidget* self, intptr_t slot) {
+    auto* vqtreewidget = const_cast<VirtualQTreeWidget*>(dynamic_cast<const VirtualQTreeWidget*>(self));
+    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
+        vqtreewidget->setQTreeWidget_MetaObject_Callback(reinterpret_cast<VirtualQTreeWidget::QTreeWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTreeWidget_QBaseMetacast(QTreeWidget* self, const char* param1) {
+    auto* vqtreewidget = dynamic_cast<VirtualQTreeWidget*>(self);
+    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
+        vqtreewidget->setQTreeWidget_Metacast_IsBase(true);
+        return vqtreewidget->qt_metacast(param1);
+    } else {
+        return self->QTreeWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTreeWidget_OnMetacast(QTreeWidget* self, intptr_t slot) {
+    auto* vqtreewidget = dynamic_cast<VirtualQTreeWidget*>(self);
+    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
+        vqtreewidget->setQTreeWidget_Metacast_Callback(reinterpret_cast<VirtualQTreeWidget::QTreeWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

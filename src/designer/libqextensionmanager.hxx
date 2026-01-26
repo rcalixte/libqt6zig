@@ -17,6 +17,8 @@ class VirtualQExtensionManager final : public QExtensionManager {
     bool isVirtualQExtensionManager = true;
 
     // Virtual class public types (including callbacks)
+    using QExtensionManager_MetaObject_Callback = QMetaObject* (*)();
+    using QExtensionManager_Metacast_Callback = void* (*)(QExtensionManager*, const char*);
     using QExtensionManager_Metacall_Callback = int (*)(QExtensionManager*, int, int, void**);
     using QExtensionManager_RegisterExtensions_Callback = void (*)(QExtensionManager*, QAbstractExtensionFactory*, libqt_string);
     using QExtensionManager_UnregisterExtensions_Callback = void (*)(QExtensionManager*, QAbstractExtensionFactory*, libqt_string);
@@ -35,6 +37,8 @@ class VirtualQExtensionManager final : public QExtensionManager {
 
   protected:
     // Instance callback storage
+    QExtensionManager_MetaObject_Callback qextensionmanager_metaobject_callback = nullptr;
+    QExtensionManager_Metacast_Callback qextensionmanager_metacast_callback = nullptr;
     QExtensionManager_Metacall_Callback qextensionmanager_metacall_callback = nullptr;
     QExtensionManager_RegisterExtensions_Callback qextensionmanager_registerextensions_callback = nullptr;
     QExtensionManager_UnregisterExtensions_Callback qextensionmanager_unregisterextensions_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualQExtensionManager final : public QExtensionManager {
     QExtensionManager_IsSignalConnected_Callback qextensionmanager_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qextensionmanager_metaobject_isbase = false;
+    mutable bool qextensionmanager_metacast_isbase = false;
     mutable bool qextensionmanager_metacall_isbase = false;
     mutable bool qextensionmanager_registerextensions_isbase = false;
     mutable bool qextensionmanager_unregisterextensions_isbase = false;
@@ -73,6 +79,8 @@ class VirtualQExtensionManager final : public QExtensionManager {
     VirtualQExtensionManager(QObject* parent) : QExtensionManager(parent) {};
 
     ~VirtualQExtensionManager() {
+        qextensionmanager_metaobject_callback = nullptr;
+        qextensionmanager_metacast_callback = nullptr;
         qextensionmanager_metacall_callback = nullptr;
         qextensionmanager_registerextensions_callback = nullptr;
         qextensionmanager_unregisterextensions_callback = nullptr;
@@ -91,6 +99,8 @@ class VirtualQExtensionManager final : public QExtensionManager {
     }
 
     // Callback setters
+    inline void setQExtensionManager_MetaObject_Callback(QExtensionManager_MetaObject_Callback cb) { qextensionmanager_metaobject_callback = cb; }
+    inline void setQExtensionManager_Metacast_Callback(QExtensionManager_Metacast_Callback cb) { qextensionmanager_metacast_callback = cb; }
     inline void setQExtensionManager_Metacall_Callback(QExtensionManager_Metacall_Callback cb) { qextensionmanager_metacall_callback = cb; }
     inline void setQExtensionManager_RegisterExtensions_Callback(QExtensionManager_RegisterExtensions_Callback cb) { qextensionmanager_registerextensions_callback = cb; }
     inline void setQExtensionManager_UnregisterExtensions_Callback(QExtensionManager_UnregisterExtensions_Callback cb) { qextensionmanager_unregisterextensions_callback = cb; }
@@ -108,6 +118,8 @@ class VirtualQExtensionManager final : public QExtensionManager {
     inline void setQExtensionManager_IsSignalConnected_Callback(QExtensionManager_IsSignalConnected_Callback cb) { qextensionmanager_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQExtensionManager_MetaObject_IsBase(bool value) const { qextensionmanager_metaobject_isbase = value; }
+    inline void setQExtensionManager_Metacast_IsBase(bool value) const { qextensionmanager_metacast_isbase = value; }
     inline void setQExtensionManager_Metacall_IsBase(bool value) const { qextensionmanager_metacall_isbase = value; }
     inline void setQExtensionManager_RegisterExtensions_IsBase(bool value) const { qextensionmanager_registerextensions_isbase = value; }
     inline void setQExtensionManager_UnregisterExtensions_IsBase(bool value) const { qextensionmanager_unregisterextensions_isbase = value; }
@@ -123,6 +135,34 @@ class VirtualQExtensionManager final : public QExtensionManager {
     inline void setQExtensionManager_SenderSignalIndex_IsBase(bool value) const { qextensionmanager_sendersignalindex_isbase = value; }
     inline void setQExtensionManager_Receivers_IsBase(bool value) const { qextensionmanager_receivers_isbase = value; }
     inline void setQExtensionManager_IsSignalConnected_IsBase(bool value) const { qextensionmanager_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qextensionmanager_metaobject_isbase) {
+            qextensionmanager_metaobject_isbase = false;
+            return QExtensionManager::metaObject();
+        } else if (qextensionmanager_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qextensionmanager_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QExtensionManager::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qextensionmanager_metacast_isbase) {
+            qextensionmanager_metacast_isbase = false;
+            return QExtensionManager::qt_metacast(param1);
+        } else if (qextensionmanager_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qextensionmanager_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QExtensionManager::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

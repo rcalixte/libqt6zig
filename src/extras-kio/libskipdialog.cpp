@@ -46,11 +46,21 @@ KIO__SkipDialog* KIO__SkipDialog_new(QWidget* parent, int options, const libqt_s
 }
 
 QMetaObject* KIO__SkipDialog_MetaObject(const KIO__SkipDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__skipdialog = dynamic_cast<const VirtualKIOSkipDialog*>(self);
+    if (vkio__skipdialog && vkio__skipdialog->isVirtualKIOSkipDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOSkipDialog*)self)->metaObject();
+    }
 }
 
 void* KIO__SkipDialog_Metacast(KIO__SkipDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__skipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
+    if (vkio__skipdialog && vkio__skipdialog->isVirtualKIOSkipDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOSkipDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__SkipDialog_Metacall(KIO__SkipDialog* self, int param1, int param2, void** param3) {
@@ -59,6 +69,44 @@ int KIO__SkipDialog_Metacall(KIO__SkipDialog* self, int param1, int param2, void
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
         return ((VirtualKIOSkipDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KIO__SkipDialog_QBaseMetaObject(const KIO__SkipDialog* self) {
+    auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+        vkioskipdialog->setKIO__SkipDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkioskipdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::SkipDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__SkipDialog_OnMetaObject(const KIO__SkipDialog* self, intptr_t slot) {
+    auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+        vkioskipdialog->setKIO__SkipDialog_MetaObject_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__SkipDialog_QBaseMetacast(KIO__SkipDialog* self, const char* param1) {
+    auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+        vkioskipdialog->setKIO__SkipDialog_Metacast_IsBase(true);
+        return vkioskipdialog->qt_metacast(param1);
+    } else {
+        return self->KIO::SkipDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__SkipDialog_OnMetacast(KIO__SkipDialog* self, intptr_t slot) {
+    auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+        vkioskipdialog->setKIO__SkipDialog_Metacast_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Metacast_Callback>(slot));
     }
 }
 

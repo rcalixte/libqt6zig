@@ -30,6 +30,10 @@ QMetaObject* KLineEditUrlDropEventFilter_MetaObject(const KLineEditUrlDropEventF
 void* KLineEditUrlDropEventFilter_Metacast(KLineEditUrlDropEventFilter* self, const char* param1);
 int KLineEditUrlDropEventFilter_Metacall(KLineEditUrlDropEventFilter* self, int param1, int param2, void** param3);
 bool KLineEditUrlDropEventFilter_EventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event);
+void KLineEditUrlDropEventFilter_OnMetaObject(const KLineEditUrlDropEventFilter* self, intptr_t slot);
+QMetaObject* KLineEditUrlDropEventFilter_QBaseMetaObject(const KLineEditUrlDropEventFilter* self);
+void KLineEditUrlDropEventFilter_OnMetacast(KLineEditUrlDropEventFilter* self, intptr_t slot);
+void* KLineEditUrlDropEventFilter_QBaseMetacast(KLineEditUrlDropEventFilter* self, const char* param1);
 void KLineEditUrlDropEventFilter_OnMetacall(KLineEditUrlDropEventFilter* self, intptr_t slot);
 int KLineEditUrlDropEventFilter_QBaseMetacall(KLineEditUrlDropEventFilter* self, int param1, int param2, void** param3);
 void KLineEditUrlDropEventFilter_OnEventFilter(KLineEditUrlDropEventFilter* self, intptr_t slot);

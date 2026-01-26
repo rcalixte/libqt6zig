@@ -17,6 +17,8 @@ class VirtualQMdiArea final : public QMdiArea {
     bool isVirtualQMdiArea = true;
 
     // Virtual class public types (including callbacks)
+    using QMdiArea_MetaObject_Callback = QMetaObject* (*)();
+    using QMdiArea_Metacast_Callback = void* (*)(QMdiArea*, const char*);
     using QMdiArea_Metacall_Callback = int (*)(QMdiArea*, int, int, void**);
     using QMdiArea_SizeHint_Callback = QSize* (*)();
     using QMdiArea_MinimumSizeHint_Callback = QSize* (*)();
@@ -86,6 +88,8 @@ class VirtualQMdiArea final : public QMdiArea {
 
   protected:
     // Instance callback storage
+    QMdiArea_MetaObject_Callback qmdiarea_metaobject_callback = nullptr;
+    QMdiArea_Metacast_Callback qmdiarea_metacast_callback = nullptr;
     QMdiArea_Metacall_Callback qmdiarea_metacall_callback = nullptr;
     QMdiArea_SizeHint_Callback qmdiarea_sizehint_callback = nullptr;
     QMdiArea_MinimumSizeHint_Callback qmdiarea_minimumsizehint_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualQMdiArea final : public QMdiArea {
     QMdiArea_GetDecodedMetricF_Callback qmdiarea_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmdiarea_metaobject_isbase = false;
+    mutable bool qmdiarea_metacast_isbase = false;
     mutable bool qmdiarea_metacall_isbase = false;
     mutable bool qmdiarea_sizehint_isbase = false;
     mutable bool qmdiarea_minimumsizehint_isbase = false;
@@ -226,6 +232,8 @@ class VirtualQMdiArea final : public QMdiArea {
     VirtualQMdiArea() : QMdiArea() {};
 
     ~VirtualQMdiArea() {
+        qmdiarea_metaobject_callback = nullptr;
+        qmdiarea_metacast_callback = nullptr;
         qmdiarea_metacall_callback = nullptr;
         qmdiarea_sizehint_callback = nullptr;
         qmdiarea_minimumsizehint_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualQMdiArea final : public QMdiArea {
     }
 
     // Callback setters
+    inline void setQMdiArea_MetaObject_Callback(QMdiArea_MetaObject_Callback cb) { qmdiarea_metaobject_callback = cb; }
+    inline void setQMdiArea_Metacast_Callback(QMdiArea_Metacast_Callback cb) { qmdiarea_metacast_callback = cb; }
     inline void setQMdiArea_Metacall_Callback(QMdiArea_Metacall_Callback cb) { qmdiarea_metacall_callback = cb; }
     inline void setQMdiArea_SizeHint_Callback(QMdiArea_SizeHint_Callback cb) { qmdiarea_sizehint_callback = cb; }
     inline void setQMdiArea_MinimumSizeHint_Callback(QMdiArea_MinimumSizeHint_Callback cb) { qmdiarea_minimumsizehint_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualQMdiArea final : public QMdiArea {
     inline void setQMdiArea_GetDecodedMetricF_Callback(QMdiArea_GetDecodedMetricF_Callback cb) { qmdiarea_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQMdiArea_MetaObject_IsBase(bool value) const { qmdiarea_metaobject_isbase = value; }
+    inline void setQMdiArea_Metacast_IsBase(bool value) const { qmdiarea_metacast_isbase = value; }
     inline void setQMdiArea_Metacall_IsBase(bool value) const { qmdiarea_metacall_isbase = value; }
     inline void setQMdiArea_SizeHint_IsBase(bool value) const { qmdiarea_sizehint_isbase = value; }
     inline void setQMdiArea_MinimumSizeHint_IsBase(bool value) const { qmdiarea_minimumsizehint_isbase = value; }
@@ -429,6 +441,34 @@ class VirtualQMdiArea final : public QMdiArea {
     inline void setQMdiArea_Receivers_IsBase(bool value) const { qmdiarea_receivers_isbase = value; }
     inline void setQMdiArea_IsSignalConnected_IsBase(bool value) const { qmdiarea_issignalconnected_isbase = value; }
     inline void setQMdiArea_GetDecodedMetricF_IsBase(bool value) const { qmdiarea_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmdiarea_metaobject_isbase) {
+            qmdiarea_metaobject_isbase = false;
+            return QMdiArea::metaObject();
+        } else if (qmdiarea_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmdiarea_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMdiArea::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmdiarea_metacast_isbase) {
+            qmdiarea_metacast_isbase = false;
+            return QMdiArea::qt_metacast(param1);
+        } else if (qmdiarea_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmdiarea_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMdiArea::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

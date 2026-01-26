@@ -17,6 +17,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
     bool isVirtualKTextEditorConfigPage = true;
 
     // Virtual class public types (including callbacks)
+    using KTextEditor__ConfigPage_MetaObject_Callback = QMetaObject* (*)();
+    using KTextEditor__ConfigPage_Metacast_Callback = void* (*)(KTextEditor__ConfigPage*, const char*);
     using KTextEditor__ConfigPage_Metacall_Callback = int (*)(KTextEditor__ConfigPage*, int, int, void**);
     using KTextEditor__ConfigPage_Name_Callback = const char* (*)();
     using KTextEditor__ConfigPage_FullName_Callback = const char* (*)();
@@ -84,6 +86,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
 
   protected:
     // Instance callback storage
+    KTextEditor__ConfigPage_MetaObject_Callback ktexteditor__configpage_metaobject_callback = nullptr;
+    KTextEditor__ConfigPage_Metacast_Callback ktexteditor__configpage_metacast_callback = nullptr;
     KTextEditor__ConfigPage_Metacall_Callback ktexteditor__configpage_metacall_callback = nullptr;
     KTextEditor__ConfigPage_Name_Callback ktexteditor__configpage_name_callback = nullptr;
     KTextEditor__ConfigPage_FullName_Callback ktexteditor__configpage_fullname_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
     KTextEditor__ConfigPage_GetDecodedMetricF_Callback ktexteditor__configpage_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktexteditor__configpage_metaobject_isbase = false;
+    mutable bool ktexteditor__configpage_metacast_isbase = false;
     mutable bool ktexteditor__configpage_metacall_isbase = false;
     mutable bool ktexteditor__configpage_name_isbase = false;
     mutable bool ktexteditor__configpage_fullname_isbase = false;
@@ -219,6 +225,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
     VirtualKTextEditorConfigPage(QWidget* parent) : KTextEditor::ConfigPage(parent) {};
 
     ~VirtualKTextEditorConfigPage() {
+        ktexteditor__configpage_metaobject_callback = nullptr;
+        ktexteditor__configpage_metacast_callback = nullptr;
         ktexteditor__configpage_metacall_callback = nullptr;
         ktexteditor__configpage_name_callback = nullptr;
         ktexteditor__configpage_fullname_callback = nullptr;
@@ -286,6 +294,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
     }
 
     // Callback setters
+    inline void setKTextEditor__ConfigPage_MetaObject_Callback(KTextEditor__ConfigPage_MetaObject_Callback cb) { ktexteditor__configpage_metaobject_callback = cb; }
+    inline void setKTextEditor__ConfigPage_Metacast_Callback(KTextEditor__ConfigPage_Metacast_Callback cb) { ktexteditor__configpage_metacast_callback = cb; }
     inline void setKTextEditor__ConfigPage_Metacall_Callback(KTextEditor__ConfigPage_Metacall_Callback cb) { ktexteditor__configpage_metacall_callback = cb; }
     inline void setKTextEditor__ConfigPage_Name_Callback(KTextEditor__ConfigPage_Name_Callback cb) { ktexteditor__configpage_name_callback = cb; }
     inline void setKTextEditor__ConfigPage_FullName_Callback(KTextEditor__ConfigPage_FullName_Callback cb) { ktexteditor__configpage_fullname_callback = cb; }
@@ -352,6 +362,8 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
     inline void setKTextEditor__ConfigPage_GetDecodedMetricF_Callback(KTextEditor__ConfigPage_GetDecodedMetricF_Callback cb) { ktexteditor__configpage_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKTextEditor__ConfigPage_MetaObject_IsBase(bool value) const { ktexteditor__configpage_metaobject_isbase = value; }
+    inline void setKTextEditor__ConfigPage_Metacast_IsBase(bool value) const { ktexteditor__configpage_metacast_isbase = value; }
     inline void setKTextEditor__ConfigPage_Metacall_IsBase(bool value) const { ktexteditor__configpage_metacall_isbase = value; }
     inline void setKTextEditor__ConfigPage_Name_IsBase(bool value) const { ktexteditor__configpage_name_isbase = value; }
     inline void setKTextEditor__ConfigPage_FullName_IsBase(bool value) const { ktexteditor__configpage_fullname_isbase = value; }
@@ -416,6 +428,34 @@ class VirtualKTextEditorConfigPage : public KTextEditor::ConfigPage {
     inline void setKTextEditor__ConfigPage_Receivers_IsBase(bool value) const { ktexteditor__configpage_receivers_isbase = value; }
     inline void setKTextEditor__ConfigPage_IsSignalConnected_IsBase(bool value) const { ktexteditor__configpage_issignalconnected_isbase = value; }
     inline void setKTextEditor__ConfigPage_GetDecodedMetricF_IsBase(bool value) const { ktexteditor__configpage_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktexteditor__configpage_metaobject_isbase) {
+            ktexteditor__configpage_metaobject_isbase = false;
+            return KTextEditor__ConfigPage::metaObject();
+        } else if (ktexteditor__configpage_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktexteditor__configpage_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTextEditor__ConfigPage::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktexteditor__configpage_metacast_isbase) {
+            ktexteditor__configpage_metacast_isbase = false;
+            return KTextEditor__ConfigPage::qt_metacast(param1);
+        } else if (ktexteditor__configpage_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktexteditor__configpage_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTextEditor__ConfigPage::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

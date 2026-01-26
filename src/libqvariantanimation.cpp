@@ -26,11 +26,21 @@ QVariantAnimation* QVariantAnimation_new2(QObject* parent) {
 }
 
 QMetaObject* QVariantAnimation_MetaObject(const QVariantAnimation* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqvariantanimation = dynamic_cast<const VirtualQVariantAnimation*>(self);
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQVariantAnimation*)self)->metaObject();
+    }
 }
 
 void* QVariantAnimation_Metacast(QVariantAnimation* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQVariantAnimation*)self)->qt_metacast(param1);
+    }
 }
 
 int QVariantAnimation_Metacall(QVariantAnimation* self, int param1, int param2, void** param3) {
@@ -171,6 +181,44 @@ QVariant* QVariantAnimation_Interpolated(const QVariantAnimation* self, const QV
         return new QVariant(vqvariantanimation->interpolated(*from, *to, static_cast<qreal>(progress)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QVariantAnimation_QBaseMetaObject(const QVariantAnimation* self) {
+    auto* vqvariantanimation = const_cast<VirtualQVariantAnimation*>(dynamic_cast<const VirtualQVariantAnimation*>(self));
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+        vqvariantanimation->setQVariantAnimation_MetaObject_IsBase(true);
+        return (QMetaObject*)vqvariantanimation->metaObject();
+    } else {
+        return (QMetaObject*)self->QVariantAnimation::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVariantAnimation_OnMetaObject(const QVariantAnimation* self, intptr_t slot) {
+    auto* vqvariantanimation = const_cast<VirtualQVariantAnimation*>(dynamic_cast<const VirtualQVariantAnimation*>(self));
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+        vqvariantanimation->setQVariantAnimation_MetaObject_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QVariantAnimation_QBaseMetacast(QVariantAnimation* self, const char* param1) {
+    auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+        vqvariantanimation->setQVariantAnimation_Metacast_IsBase(true);
+        return vqvariantanimation->qt_metacast(param1);
+    } else {
+        return self->QVariantAnimation::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVariantAnimation_OnMetacast(QVariantAnimation* self, intptr_t slot) {
+    auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+        vqvariantanimation->setQVariantAnimation_Metacast_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

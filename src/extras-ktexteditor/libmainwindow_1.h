@@ -84,6 +84,10 @@ void KTextEditor__MainWindow_WidgetRemoved(KTextEditor__MainWindow* self, QWidge
 void KTextEditor__MainWindow_Connect_WidgetRemoved(KTextEditor__MainWindow* self, intptr_t slot);
 bool KTextEditor__MainWindow_ShowMessage(KTextEditor__MainWindow* self, const libqt_map /* of libqt_string to QVariant* */ message);
 KTextEditor__View* KTextEditor__MainWindow_OpenUrl2(KTextEditor__MainWindow* self, const QUrl* url, const libqt_string encoding);
+void KTextEditor__MainWindow_OnMetaObject(const KTextEditor__MainWindow* self, intptr_t slot);
+QMetaObject* KTextEditor__MainWindow_QBaseMetaObject(const KTextEditor__MainWindow* self);
+void KTextEditor__MainWindow_OnMetacast(KTextEditor__MainWindow* self, intptr_t slot);
+void* KTextEditor__MainWindow_QBaseMetacast(KTextEditor__MainWindow* self, const char* param1);
 void KTextEditor__MainWindow_OnMetacall(KTextEditor__MainWindow* self, intptr_t slot);
 int KTextEditor__MainWindow_QBaseMetacall(KTextEditor__MainWindow* self, int param1, int param2, void** param3);
 bool KTextEditor__MainWindow_Event(KTextEditor__MainWindow* self, QEvent* event);

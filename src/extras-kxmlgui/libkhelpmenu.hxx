@@ -17,6 +17,8 @@ class VirtualKHelpMenu final : public KHelpMenu {
     bool isVirtualKHelpMenu = true;
 
     // Virtual class public types (including callbacks)
+    using KHelpMenu_MetaObject_Callback = QMetaObject* (*)();
+    using KHelpMenu_Metacast_Callback = void* (*)(KHelpMenu*, const char*);
     using KHelpMenu_Metacall_Callback = int (*)(KHelpMenu*, int, int, void**);
     using KHelpMenu_Event_Callback = bool (*)(KHelpMenu*, QEvent*);
     using KHelpMenu_EventFilter_Callback = bool (*)(KHelpMenu*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKHelpMenu final : public KHelpMenu {
 
   protected:
     // Instance callback storage
+    KHelpMenu_MetaObject_Callback khelpmenu_metaobject_callback = nullptr;
+    KHelpMenu_Metacast_Callback khelpmenu_metacast_callback = nullptr;
     KHelpMenu_Metacall_Callback khelpmenu_metacall_callback = nullptr;
     KHelpMenu_Event_Callback khelpmenu_event_callback = nullptr;
     KHelpMenu_EventFilter_Callback khelpmenu_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKHelpMenu final : public KHelpMenu {
     KHelpMenu_IsSignalConnected_Callback khelpmenu_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool khelpmenu_metaobject_isbase = false;
+    mutable bool khelpmenu_metacast_isbase = false;
     mutable bool khelpmenu_metacall_isbase = false;
     mutable bool khelpmenu_event_isbase = false;
     mutable bool khelpmenu_eventfilter_isbase = false;
@@ -68,6 +74,8 @@ class VirtualKHelpMenu final : public KHelpMenu {
     VirtualKHelpMenu(QWidget* parent, const QString& unused, bool showWhatsThis) : KHelpMenu(parent, unused, showWhatsThis) {};
 
     ~VirtualKHelpMenu() {
+        khelpmenu_metaobject_callback = nullptr;
+        khelpmenu_metacast_callback = nullptr;
         khelpmenu_metacall_callback = nullptr;
         khelpmenu_event_callback = nullptr;
         khelpmenu_eventfilter_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualKHelpMenu final : public KHelpMenu {
     }
 
     // Callback setters
+    inline void setKHelpMenu_MetaObject_Callback(KHelpMenu_MetaObject_Callback cb) { khelpmenu_metaobject_callback = cb; }
+    inline void setKHelpMenu_Metacast_Callback(KHelpMenu_Metacast_Callback cb) { khelpmenu_metacast_callback = cb; }
     inline void setKHelpMenu_Metacall_Callback(KHelpMenu_Metacall_Callback cb) { khelpmenu_metacall_callback = cb; }
     inline void setKHelpMenu_Event_Callback(KHelpMenu_Event_Callback cb) { khelpmenu_event_callback = cb; }
     inline void setKHelpMenu_EventFilter_Callback(KHelpMenu_EventFilter_Callback cb) { khelpmenu_eventfilter_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualKHelpMenu final : public KHelpMenu {
     inline void setKHelpMenu_IsSignalConnected_Callback(KHelpMenu_IsSignalConnected_Callback cb) { khelpmenu_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKHelpMenu_MetaObject_IsBase(bool value) const { khelpmenu_metaobject_isbase = value; }
+    inline void setKHelpMenu_Metacast_IsBase(bool value) const { khelpmenu_metacast_isbase = value; }
     inline void setKHelpMenu_Metacall_IsBase(bool value) const { khelpmenu_metacall_isbase = value; }
     inline void setKHelpMenu_Event_IsBase(bool value) const { khelpmenu_event_isbase = value; }
     inline void setKHelpMenu_EventFilter_IsBase(bool value) const { khelpmenu_eventfilter_isbase = value; }
@@ -109,6 +121,34 @@ class VirtualKHelpMenu final : public KHelpMenu {
     inline void setKHelpMenu_SenderSignalIndex_IsBase(bool value) const { khelpmenu_sendersignalindex_isbase = value; }
     inline void setKHelpMenu_Receivers_IsBase(bool value) const { khelpmenu_receivers_isbase = value; }
     inline void setKHelpMenu_IsSignalConnected_IsBase(bool value) const { khelpmenu_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (khelpmenu_metaobject_isbase) {
+            khelpmenu_metaobject_isbase = false;
+            return KHelpMenu::metaObject();
+        } else if (khelpmenu_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = khelpmenu_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KHelpMenu::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (khelpmenu_metacast_isbase) {
+            khelpmenu_metacast_isbase = false;
+            return KHelpMenu::qt_metacast(param1);
+        } else if (khelpmenu_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = khelpmenu_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KHelpMenu::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -30,11 +30,21 @@ KToggleAction* KToggleAction_new3(const QIcon* icon, const libqt_string text, QO
 }
 
 QMetaObject* KToggleAction_MetaObject(const KToggleAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktoggleaction = dynamic_cast<const VirtualKToggleAction*>(self);
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKToggleAction*)self)->metaObject();
+    }
 }
 
 void* KToggleAction_Metacast(KToggleAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKToggleAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KToggleAction_Metacall(KToggleAction* self, int param1, int param2, void** param3) {
@@ -54,6 +64,44 @@ void KToggleAction_SlotToggled(KToggleAction* self, bool checked) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
     if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
         vktoggleaction->slotToggled(checked);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KToggleAction_QBaseMetaObject(const KToggleAction* self) {
+    auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+        vktoggleaction->setKToggleAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vktoggleaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KToggleAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToggleAction_OnMetaObject(const KToggleAction* self, intptr_t slot) {
+    auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+        vktoggleaction->setKToggleAction_MetaObject_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KToggleAction_QBaseMetacast(KToggleAction* self, const char* param1) {
+    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+        vktoggleaction->setKToggleAction_Metacast_IsBase(true);
+        return vktoggleaction->qt_metacast(param1);
+    } else {
+        return self->KToggleAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToggleAction_OnMetacast(KToggleAction* self, intptr_t slot) {
+    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+        vktoggleaction->setKToggleAction_Metacast_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_Metacast_Callback>(slot));
     }
 }
 

@@ -17,6 +17,8 @@ class VirtualKActionMenu final : public KActionMenu {
     bool isVirtualKActionMenu = true;
 
     // Virtual class public types (including callbacks)
+    using KActionMenu_MetaObject_Callback = QMetaObject* (*)();
+    using KActionMenu_Metacast_Callback = void* (*)(KActionMenu*, const char*);
     using KActionMenu_Metacall_Callback = int (*)(KActionMenu*, int, int, void**);
     using KActionMenu_CreateWidget_Callback = QWidget* (*)(KActionMenu*, QWidget*);
     using KActionMenu_Event_Callback = bool (*)(KActionMenu*, QEvent*);
@@ -35,6 +37,8 @@ class VirtualKActionMenu final : public KActionMenu {
 
   protected:
     // Instance callback storage
+    KActionMenu_MetaObject_Callback kactionmenu_metaobject_callback = nullptr;
+    KActionMenu_Metacast_Callback kactionmenu_metacast_callback = nullptr;
     KActionMenu_Metacall_Callback kactionmenu_metacall_callback = nullptr;
     KActionMenu_CreateWidget_Callback kactionmenu_createwidget_callback = nullptr;
     KActionMenu_Event_Callback kactionmenu_event_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualKActionMenu final : public KActionMenu {
     KActionMenu_IsSignalConnected_Callback kactionmenu_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kactionmenu_metaobject_isbase = false;
+    mutable bool kactionmenu_metacast_isbase = false;
     mutable bool kactionmenu_metacall_isbase = false;
     mutable bool kactionmenu_createwidget_isbase = false;
     mutable bool kactionmenu_event_isbase = false;
@@ -74,6 +80,8 @@ class VirtualKActionMenu final : public KActionMenu {
     VirtualKActionMenu(const QIcon& icon, const QString& text, QObject* parent) : KActionMenu(icon, text, parent) {};
 
     ~VirtualKActionMenu() {
+        kactionmenu_metaobject_callback = nullptr;
+        kactionmenu_metacast_callback = nullptr;
         kactionmenu_metacall_callback = nullptr;
         kactionmenu_createwidget_callback = nullptr;
         kactionmenu_event_callback = nullptr;
@@ -92,6 +100,8 @@ class VirtualKActionMenu final : public KActionMenu {
     }
 
     // Callback setters
+    inline void setKActionMenu_MetaObject_Callback(KActionMenu_MetaObject_Callback cb) { kactionmenu_metaobject_callback = cb; }
+    inline void setKActionMenu_Metacast_Callback(KActionMenu_Metacast_Callback cb) { kactionmenu_metacast_callback = cb; }
     inline void setKActionMenu_Metacall_Callback(KActionMenu_Metacall_Callback cb) { kactionmenu_metacall_callback = cb; }
     inline void setKActionMenu_CreateWidget_Callback(KActionMenu_CreateWidget_Callback cb) { kactionmenu_createwidget_callback = cb; }
     inline void setKActionMenu_Event_Callback(KActionMenu_Event_Callback cb) { kactionmenu_event_callback = cb; }
@@ -109,6 +119,8 @@ class VirtualKActionMenu final : public KActionMenu {
     inline void setKActionMenu_IsSignalConnected_Callback(KActionMenu_IsSignalConnected_Callback cb) { kactionmenu_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKActionMenu_MetaObject_IsBase(bool value) const { kactionmenu_metaobject_isbase = value; }
+    inline void setKActionMenu_Metacast_IsBase(bool value) const { kactionmenu_metacast_isbase = value; }
     inline void setKActionMenu_Metacall_IsBase(bool value) const { kactionmenu_metacall_isbase = value; }
     inline void setKActionMenu_CreateWidget_IsBase(bool value) const { kactionmenu_createwidget_isbase = value; }
     inline void setKActionMenu_Event_IsBase(bool value) const { kactionmenu_event_isbase = value; }
@@ -124,6 +136,34 @@ class VirtualKActionMenu final : public KActionMenu {
     inline void setKActionMenu_SenderSignalIndex_IsBase(bool value) const { kactionmenu_sendersignalindex_isbase = value; }
     inline void setKActionMenu_Receivers_IsBase(bool value) const { kactionmenu_receivers_isbase = value; }
     inline void setKActionMenu_IsSignalConnected_IsBase(bool value) const { kactionmenu_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kactionmenu_metaobject_isbase) {
+            kactionmenu_metaobject_isbase = false;
+            return KActionMenu::metaObject();
+        } else if (kactionmenu_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kactionmenu_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KActionMenu::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kactionmenu_metacast_isbase) {
+            kactionmenu_metacast_isbase = false;
+            return KActionMenu::qt_metacast(param1);
+        } else if (kactionmenu_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kactionmenu_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KActionMenu::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

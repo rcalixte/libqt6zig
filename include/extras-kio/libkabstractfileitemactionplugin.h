@@ -34,6 +34,10 @@ int KAbstractFileItemActionPlugin_Metacall(KAbstractFileItemActionPlugin* self, 
 libqt_list /* of QAction* */ KAbstractFileItemActionPlugin_Actions(KAbstractFileItemActionPlugin* self, const KFileItemListProperties* fileItemInfos, QWidget* parentWidget);
 void KAbstractFileItemActionPlugin_Error(KAbstractFileItemActionPlugin* self, const libqt_string errorMessage);
 void KAbstractFileItemActionPlugin_Connect_Error(KAbstractFileItemActionPlugin* self, intptr_t slot);
+void KAbstractFileItemActionPlugin_OnMetaObject(const KAbstractFileItemActionPlugin* self, intptr_t slot);
+QMetaObject* KAbstractFileItemActionPlugin_QBaseMetaObject(const KAbstractFileItemActionPlugin* self);
+void KAbstractFileItemActionPlugin_OnMetacast(KAbstractFileItemActionPlugin* self, intptr_t slot);
+void* KAbstractFileItemActionPlugin_QBaseMetacast(KAbstractFileItemActionPlugin* self, const char* param1);
 void KAbstractFileItemActionPlugin_OnMetacall(KAbstractFileItemActionPlugin* self, intptr_t slot);
 int KAbstractFileItemActionPlugin_QBaseMetacall(KAbstractFileItemActionPlugin* self, int param1, int param2, void** param3);
 void KAbstractFileItemActionPlugin_OnActions(KAbstractFileItemActionPlugin* self, intptr_t slot);

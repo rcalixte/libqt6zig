@@ -68,11 +68,21 @@ KUrlRequester* KUrlRequester_new5(const QUrl* url, QWidget* parent) {
 }
 
 QMetaObject* KUrlRequester_MetaObject(const KUrlRequester* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkurlrequester = dynamic_cast<const VirtualKUrlRequester*>(self);
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKUrlRequester*)self)->metaObject();
+    }
 }
 
 void* KUrlRequester_Metacast(KUrlRequester* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKUrlRequester*)self)->qt_metacast(param1);
+    }
 }
 
 int KUrlRequester_Metacall(KUrlRequester* self, int param1, int param2, void** param3) {
@@ -361,6 +371,44 @@ bool KUrlRequester_EventFilter(KUrlRequester* self, QObject* obj, QEvent* ev) {
         return vkurlrequester->eventFilter(obj, ev);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KUrlRequester_QBaseMetaObject(const KUrlRequester* self) {
+    auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+        vkurlrequester->setKUrlRequester_MetaObject_IsBase(true);
+        return (QMetaObject*)vkurlrequester->metaObject();
+    } else {
+        return (QMetaObject*)self->KUrlRequester::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlRequester_OnMetaObject(const KUrlRequester* self, intptr_t slot) {
+    auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+        vkurlrequester->setKUrlRequester_MetaObject_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KUrlRequester_QBaseMetacast(KUrlRequester* self, const char* param1) {
+    auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+        vkurlrequester->setKUrlRequester_Metacast_IsBase(true);
+        return vkurlrequester->qt_metacast(param1);
+    } else {
+        return self->KUrlRequester::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlRequester_OnMetacast(KUrlRequester* self, intptr_t slot) {
+    auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+        vkurlrequester->setKUrlRequester_Metacast_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -2049,11 +2097,21 @@ KUrlComboRequester* KUrlComboRequester_new2() {
 }
 
 QMetaObject* KUrlComboRequester_MetaObject(const KUrlComboRequester* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkurlcomborequester = dynamic_cast<const VirtualKUrlComboRequester*>(self);
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKUrlComboRequester*)self)->metaObject();
+    }
 }
 
 void* KUrlComboRequester_Metacast(KUrlComboRequester* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKUrlComboRequester*)self)->qt_metacast(param1);
+    }
 }
 
 int KUrlComboRequester_Metacall(KUrlComboRequester* self, int param1, int param2, void** param3) {
@@ -2062,6 +2120,44 @@ int KUrlComboRequester_Metacall(KUrlComboRequester* self, int param1, int param2
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
         return ((VirtualKUrlComboRequester*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KUrlComboRequester_QBaseMetaObject(const KUrlComboRequester* self) {
+    auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+        vkurlcomborequester->setKUrlComboRequester_MetaObject_IsBase(true);
+        return (QMetaObject*)vkurlcomborequester->metaObject();
+    } else {
+        return (QMetaObject*)self->KUrlComboRequester::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlComboRequester_OnMetaObject(const KUrlComboRequester* self, intptr_t slot) {
+    auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+        vkurlcomborequester->setKUrlComboRequester_MetaObject_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KUrlComboRequester_QBaseMetacast(KUrlComboRequester* self, const char* param1) {
+    auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+        vkurlcomborequester->setKUrlComboRequester_Metacast_IsBase(true);
+        return vkurlcomborequester->qt_metacast(param1);
+    } else {
+        return self->KUrlComboRequester::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlComboRequester_OnMetacast(KUrlComboRequester* self, intptr_t slot) {
+    auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+        vkurlcomborequester->setKUrlComboRequester_Metacast_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Metacast_Callback>(slot));
     }
 }
 

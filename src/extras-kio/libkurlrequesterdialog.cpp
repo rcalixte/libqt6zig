@@ -56,11 +56,21 @@ KUrlRequesterDialog* KUrlRequesterDialog_new3(const QUrl* url, QWidget* parent) 
 }
 
 QMetaObject* KUrlRequesterDialog_MetaObject(const KUrlRequesterDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkurlrequesterdialog = dynamic_cast<const VirtualKUrlRequesterDialog*>(self);
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKUrlRequesterDialog*)self)->metaObject();
+    }
 }
 
 void* KUrlRequesterDialog_Metacast(KUrlRequesterDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKUrlRequesterDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KUrlRequesterDialog_Metacall(KUrlRequesterDialog* self, int param1, int param2, void** param3) {
@@ -95,6 +105,44 @@ QUrl* KUrlRequesterDialog_GetUrl2(const QUrl* url, QWidget* parent) {
 QUrl* KUrlRequesterDialog_GetUrl3(const QUrl* url, QWidget* parent, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return new QUrl(KUrlRequesterDialog::getUrl(*url, parent, title_QString));
+}
+
+// Base class handler implementation
+QMetaObject* KUrlRequesterDialog_QBaseMetaObject(const KUrlRequesterDialog* self) {
+    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+        vkurlrequesterdialog->setKUrlRequesterDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkurlrequesterdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KUrlRequesterDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlRequesterDialog_OnMetaObject(const KUrlRequesterDialog* self, intptr_t slot) {
+    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+        vkurlrequesterdialog->setKUrlRequesterDialog_MetaObject_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KUrlRequesterDialog_QBaseMetacast(KUrlRequesterDialog* self, const char* param1) {
+    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+        vkurlrequesterdialog->setKUrlRequesterDialog_Metacast_IsBase(true);
+        return vkurlrequesterdialog->qt_metacast(param1);
+    } else {
+        return self->KUrlRequesterDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlRequesterDialog_OnMetacast(KUrlRequesterDialog* self, intptr_t slot) {
+    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
+    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+        vkurlrequesterdialog->setKUrlRequesterDialog_Metacast_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

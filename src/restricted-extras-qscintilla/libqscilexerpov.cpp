@@ -25,11 +25,21 @@ QsciLexerPOV* QsciLexerPOV_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerPOV_MetaObject(const QsciLexerPOV* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerpov = dynamic_cast<const VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerPOV*)self)->metaObject();
+    }
 }
 
 void* QsciLexerPOV_Metacast(QsciLexerPOV* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerPOV*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerPOV_Metacall(QsciLexerPOV* self, int param1, int param2, void** param3) {
@@ -129,6 +139,44 @@ void QsciLexerPOV_SetFoldDirectives(QsciLexerPOV* self, bool fold) {
         self->setFoldDirectives(fold);
     } else {
         ((VirtualQsciLexerPOV*)self)->setFoldDirectives(fold);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerPOV_QBaseMetaObject(const QsciLexerPOV* self) {
+    auto* vqscilexerpov = const_cast<VirtualQsciLexerPOV*>(dynamic_cast<const VirtualQsciLexerPOV*>(self));
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerpov->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerPOV*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPOV_OnMetaObject(const QsciLexerPOV* self, intptr_t slot) {
+    auto* vqscilexerpov = const_cast<VirtualQsciLexerPOV*>(dynamic_cast<const VirtualQsciLexerPOV*>(self));
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerPOV_QBaseMetacast(QsciLexerPOV* self, const char* param1) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_Metacast_IsBase(true);
+        return vqscilexerpov->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerPOV*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPOV_OnMetacast(QsciLexerPOV* self, intptr_t slot) {
+    auto* vqscilexerpov = dynamic_cast<VirtualQsciLexerPOV*>(self);
+    if (vqscilexerpov && vqscilexerpov->isVirtualQsciLexerPOV) {
+        vqscilexerpov->setQsciLexerPOV_Metacast_Callback(reinterpret_cast<VirtualQsciLexerPOV::QsciLexerPOV_Metacast_Callback>(slot));
     }
 }
 

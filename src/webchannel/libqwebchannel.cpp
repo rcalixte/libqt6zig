@@ -23,11 +23,21 @@ QWebChannel* QWebChannel_new2(QObject* parent) {
 }
 
 QMetaObject* QWebChannel_MetaObject(const QWebChannel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwebchannel = dynamic_cast<const VirtualQWebChannel*>(self);
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWebChannel*)self)->metaObject();
+    }
 }
 
 void* QWebChannel_Metacast(QWebChannel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWebChannel*)self)->qt_metacast(param1);
+    }
 }
 
 int QWebChannel_Metacall(QWebChannel* self, int param1, int param2, void** param3) {
@@ -120,6 +130,44 @@ void QWebChannel_ConnectTo(QWebChannel* self, QWebChannelAbstractTransport* tran
 
 void QWebChannel_DisconnectFrom(QWebChannel* self, QWebChannelAbstractTransport* transport) {
     self->disconnectFrom(transport);
+}
+
+// Base class handler implementation
+QMetaObject* QWebChannel_QBaseMetaObject(const QWebChannel* self) {
+    auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+        vqwebchannel->setQWebChannel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwebchannel->metaObject();
+    } else {
+        return (QMetaObject*)self->QWebChannel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebChannel_OnMetaObject(const QWebChannel* self, intptr_t slot) {
+    auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+        vqwebchannel->setQWebChannel_MetaObject_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWebChannel_QBaseMetacast(QWebChannel* self, const char* param1) {
+    auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+        vqwebchannel->setQWebChannel_Metacast_IsBase(true);
+        return vqwebchannel->qt_metacast(param1);
+    } else {
+        return self->QWebChannel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebChannel_OnMetacast(QWebChannel* self, intptr_t slot) {
+    auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+        vqwebchannel->setQWebChannel_Metacast_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

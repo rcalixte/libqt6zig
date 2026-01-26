@@ -34,11 +34,21 @@ QTransposeProxyModel* QTransposeProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* QTransposeProxyModel_MetaObject(const QTransposeProxyModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtransposeproxymodel = dynamic_cast<const VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTransposeProxyModel*)self)->metaObject();
+    }
 }
 
 void* QTransposeProxyModel_Metacast(QTransposeProxyModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTransposeProxyModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QTransposeProxyModel_Metacall(QTransposeProxyModel* self, int param1, int param2, void** param3) {
@@ -252,6 +262,44 @@ void QTransposeProxyModel_Sort(QTransposeProxyModel* self, int column, int order
         self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
     } else {
         ((VirtualQTransposeProxyModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QTransposeProxyModel_QBaseMetaObject(const QTransposeProxyModel* self) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtransposeproxymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QTransposeProxyModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnMetaObject(const QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = const_cast<VirtualQTransposeProxyModel*>(dynamic_cast<const VirtualQTransposeProxyModel*>(self));
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_MetaObject_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTransposeProxyModel_QBaseMetacast(QTransposeProxyModel* self, const char* param1) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Metacast_IsBase(true);
+        return vqtransposeproxymodel->qt_metacast(param1);
+    } else {
+        return self->QTransposeProxyModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTransposeProxyModel_OnMetacast(QTransposeProxyModel* self, intptr_t slot) {
+    auto* vqtransposeproxymodel = dynamic_cast<VirtualQTransposeProxyModel*>(self);
+    if (vqtransposeproxymodel && vqtransposeproxymodel->isVirtualQTransposeProxyModel) {
+        vqtransposeproxymodel->setQTransposeProxyModel_Metacast_Callback(reinterpret_cast<VirtualQTransposeProxyModel::QTransposeProxyModel_Metacast_Callback>(slot));
     }
 }
 

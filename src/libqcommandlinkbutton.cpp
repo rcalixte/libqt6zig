@@ -73,11 +73,21 @@ QCommandLinkButton* QCommandLinkButton_new6(const libqt_string text, const libqt
 }
 
 QMetaObject* QCommandLinkButton_MetaObject(const QCommandLinkButton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcommandlinkbutton = dynamic_cast<const VirtualQCommandLinkButton*>(self);
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCommandLinkButton*)self)->metaObject();
+    }
 }
 
 void* QCommandLinkButton_Metacast(QCommandLinkButton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCommandLinkButton*)self)->qt_metacast(param1);
+    }
 }
 
 int QCommandLinkButton_Metacall(QCommandLinkButton* self, int param1, int param2, void** param3) {
@@ -154,6 +164,44 @@ void QCommandLinkButton_PaintEvent(QCommandLinkButton* self, QPaintEvent* param1
     auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
     if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
         vqcommandlinkbutton->paintEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCommandLinkButton_QBaseMetaObject(const QCommandLinkButton* self) {
+    auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+        vqcommandlinkbutton->setQCommandLinkButton_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcommandlinkbutton->metaObject();
+    } else {
+        return (QMetaObject*)self->QCommandLinkButton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCommandLinkButton_OnMetaObject(const QCommandLinkButton* self, intptr_t slot) {
+    auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+        vqcommandlinkbutton->setQCommandLinkButton_MetaObject_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCommandLinkButton_QBaseMetacast(QCommandLinkButton* self, const char* param1) {
+    auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+        vqcommandlinkbutton->setQCommandLinkButton_Metacast_IsBase(true);
+        return vqcommandlinkbutton->qt_metacast(param1);
+    } else {
+        return self->QCommandLinkButton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCommandLinkButton_OnMetacast(QCommandLinkButton* self, intptr_t slot) {
+    auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+        vqcommandlinkbutton->setQCommandLinkButton_Metacast_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_Metacast_Callback>(slot));
     }
 }
 

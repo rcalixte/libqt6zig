@@ -32,11 +32,21 @@ QVideoFrameInput* QVideoFrameInput_new4(const QVideoFrameFormat* format, QObject
 }
 
 QMetaObject* QVideoFrameInput_MetaObject(const QVideoFrameInput* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqvideoframeinput = dynamic_cast<const VirtualQVideoFrameInput*>(self);
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQVideoFrameInput*)self)->metaObject();
+    }
 }
 
 void* QVideoFrameInput_Metacast(QVideoFrameInput* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQVideoFrameInput*)self)->qt_metacast(param1);
+    }
 }
 
 int QVideoFrameInput_Metacall(QVideoFrameInput* self, int param1, int param2, void** param3) {
@@ -69,6 +79,44 @@ void QVideoFrameInput_Connect_ReadyToSendVideoFrame(QVideoFrameInput* self, intp
     QVideoFrameInput::connect(self, &QVideoFrameInput::readyToSendVideoFrame, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QVideoFrameInput_QBaseMetaObject(const QVideoFrameInput* self) {
+    auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+        vqvideoframeinput->setQVideoFrameInput_MetaObject_IsBase(true);
+        return (QMetaObject*)vqvideoframeinput->metaObject();
+    } else {
+        return (QMetaObject*)self->QVideoFrameInput::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoFrameInput_OnMetaObject(const QVideoFrameInput* self, intptr_t slot) {
+    auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+        vqvideoframeinput->setQVideoFrameInput_MetaObject_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QVideoFrameInput_QBaseMetacast(QVideoFrameInput* self, const char* param1) {
+    auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+        vqvideoframeinput->setQVideoFrameInput_Metacast_IsBase(true);
+        return vqvideoframeinput->qt_metacast(param1);
+    } else {
+        return self->QVideoFrameInput::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoFrameInput_OnMetacast(QVideoFrameInput* self, intptr_t slot) {
+    auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+        vqvideoframeinput->setQVideoFrameInput_Metacast_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

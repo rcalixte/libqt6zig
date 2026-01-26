@@ -21,11 +21,21 @@ QSignalMapper* QSignalMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QSignalMapper_MetaObject(const QSignalMapper* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsignalmapper = dynamic_cast<const VirtualQSignalMapper*>(self);
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSignalMapper*)self)->metaObject();
+    }
 }
 
 void* QSignalMapper_Metacast(QSignalMapper* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSignalMapper*)self)->qt_metacast(param1);
+    }
 }
 
 int QSignalMapper_Metacall(QSignalMapper* self, int param1, int param2, void** param3) {
@@ -117,6 +127,44 @@ void QSignalMapper_Map(QSignalMapper* self) {
 
 void QSignalMapper_Map2(QSignalMapper* self, QObject* sender) {
     self->map(sender);
+}
+
+// Base class handler implementation
+QMetaObject* QSignalMapper_QBaseMetaObject(const QSignalMapper* self) {
+    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+        vqsignalmapper->setQSignalMapper_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsignalmapper->metaObject();
+    } else {
+        return (QMetaObject*)self->QSignalMapper::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSignalMapper_OnMetaObject(const QSignalMapper* self, intptr_t slot) {
+    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+        vqsignalmapper->setQSignalMapper_MetaObject_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSignalMapper_QBaseMetacast(QSignalMapper* self, const char* param1) {
+    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+        vqsignalmapper->setQSignalMapper_Metacast_IsBase(true);
+        return vqsignalmapper->qt_metacast(param1);
+    } else {
+        return self->QSignalMapper::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSignalMapper_OnMetacast(QSignalMapper* self, intptr_t slot) {
+    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
+    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+        vqsignalmapper->setQSignalMapper_Metacast_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

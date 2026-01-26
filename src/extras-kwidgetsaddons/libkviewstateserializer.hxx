@@ -17,6 +17,8 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
     bool isVirtualKViewStateSerializer = true;
 
     // Virtual class public types (including callbacks)
+    using KViewStateSerializer_MetaObject_Callback = QMetaObject* (*)();
+    using KViewStateSerializer_Metacast_Callback = void* (*)(KViewStateSerializer*, const char*);
     using KViewStateSerializer_Metacall_Callback = int (*)(KViewStateSerializer*, int, int, void**);
     using KViewStateSerializer_IndexFromConfigString_Callback = QModelIndex* (*)(const KViewStateSerializer*, QAbstractItemModel*, libqt_string);
     using KViewStateSerializer_IndexToConfigString_Callback = const char* (*)(const KViewStateSerializer*, QModelIndex*);
@@ -35,6 +37,8 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
 
   protected:
     // Instance callback storage
+    KViewStateSerializer_MetaObject_Callback kviewstateserializer_metaobject_callback = nullptr;
+    KViewStateSerializer_Metacast_Callback kviewstateserializer_metacast_callback = nullptr;
     KViewStateSerializer_Metacall_Callback kviewstateserializer_metacall_callback = nullptr;
     KViewStateSerializer_IndexFromConfigString_Callback kviewstateserializer_indexfromconfigstring_callback = nullptr;
     KViewStateSerializer_IndexToConfigString_Callback kviewstateserializer_indextoconfigstring_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
     KViewStateSerializer_IsSignalConnected_Callback kviewstateserializer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kviewstateserializer_metaobject_isbase = false;
+    mutable bool kviewstateserializer_metacast_isbase = false;
     mutable bool kviewstateserializer_metacall_isbase = false;
     mutable bool kviewstateserializer_indexfromconfigstring_isbase = false;
     mutable bool kviewstateserializer_indextoconfigstring_isbase = false;
@@ -73,6 +79,8 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
     VirtualKViewStateSerializer(QObject* parent) : KViewStateSerializer(parent) {};
 
     ~VirtualKViewStateSerializer() {
+        kviewstateserializer_metaobject_callback = nullptr;
+        kviewstateserializer_metacast_callback = nullptr;
         kviewstateserializer_metacall_callback = nullptr;
         kviewstateserializer_indexfromconfigstring_callback = nullptr;
         kviewstateserializer_indextoconfigstring_callback = nullptr;
@@ -91,6 +99,8 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
     }
 
     // Callback setters
+    inline void setKViewStateSerializer_MetaObject_Callback(KViewStateSerializer_MetaObject_Callback cb) { kviewstateserializer_metaobject_callback = cb; }
+    inline void setKViewStateSerializer_Metacast_Callback(KViewStateSerializer_Metacast_Callback cb) { kviewstateserializer_metacast_callback = cb; }
     inline void setKViewStateSerializer_Metacall_Callback(KViewStateSerializer_Metacall_Callback cb) { kviewstateserializer_metacall_callback = cb; }
     inline void setKViewStateSerializer_IndexFromConfigString_Callback(KViewStateSerializer_IndexFromConfigString_Callback cb) { kviewstateserializer_indexfromconfigstring_callback = cb; }
     inline void setKViewStateSerializer_IndexToConfigString_Callback(KViewStateSerializer_IndexToConfigString_Callback cb) { kviewstateserializer_indextoconfigstring_callback = cb; }
@@ -108,6 +118,8 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
     inline void setKViewStateSerializer_IsSignalConnected_Callback(KViewStateSerializer_IsSignalConnected_Callback cb) { kviewstateserializer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKViewStateSerializer_MetaObject_IsBase(bool value) const { kviewstateserializer_metaobject_isbase = value; }
+    inline void setKViewStateSerializer_Metacast_IsBase(bool value) const { kviewstateserializer_metacast_isbase = value; }
     inline void setKViewStateSerializer_Metacall_IsBase(bool value) const { kviewstateserializer_metacall_isbase = value; }
     inline void setKViewStateSerializer_IndexFromConfigString_IsBase(bool value) const { kviewstateserializer_indexfromconfigstring_isbase = value; }
     inline void setKViewStateSerializer_IndexToConfigString_IsBase(bool value) const { kviewstateserializer_indextoconfigstring_isbase = value; }
@@ -123,6 +135,34 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
     inline void setKViewStateSerializer_SenderSignalIndex_IsBase(bool value) const { kviewstateserializer_sendersignalindex_isbase = value; }
     inline void setKViewStateSerializer_Receivers_IsBase(bool value) const { kviewstateserializer_receivers_isbase = value; }
     inline void setKViewStateSerializer_IsSignalConnected_IsBase(bool value) const { kviewstateserializer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kviewstateserializer_metaobject_isbase) {
+            kviewstateserializer_metaobject_isbase = false;
+            return KViewStateSerializer::metaObject();
+        } else if (kviewstateserializer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kviewstateserializer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KViewStateSerializer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kviewstateserializer_metacast_isbase) {
+            kviewstateserializer_metacast_isbase = false;
+            return KViewStateSerializer::qt_metacast(param1);
+        } else if (kviewstateserializer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kviewstateserializer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KViewStateSerializer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

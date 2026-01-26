@@ -17,6 +17,8 @@ class VirtualQMediaDevices final : public QMediaDevices {
     bool isVirtualQMediaDevices = true;
 
     // Virtual class public types (including callbacks)
+    using QMediaDevices_MetaObject_Callback = QMetaObject* (*)();
+    using QMediaDevices_Metacast_Callback = void* (*)(QMediaDevices*, const char*);
     using QMediaDevices_Metacall_Callback = int (*)(QMediaDevices*, int, int, void**);
     using QMediaDevices_ConnectNotify_Callback = void (*)(QMediaDevices*, QMetaMethod*);
     using QMediaDevices_Event_Callback = bool (*)(QMediaDevices*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQMediaDevices final : public QMediaDevices {
 
   protected:
     // Instance callback storage
+    QMediaDevices_MetaObject_Callback qmediadevices_metaobject_callback = nullptr;
+    QMediaDevices_Metacast_Callback qmediadevices_metacast_callback = nullptr;
     QMediaDevices_Metacall_Callback qmediadevices_metacall_callback = nullptr;
     QMediaDevices_ConnectNotify_Callback qmediadevices_connectnotify_callback = nullptr;
     QMediaDevices_Event_Callback qmediadevices_event_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQMediaDevices final : public QMediaDevices {
     QMediaDevices_IsSignalConnected_Callback qmediadevices_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmediadevices_metaobject_isbase = false;
+    mutable bool qmediadevices_metacast_isbase = false;
     mutable bool qmediadevices_metacall_isbase = false;
     mutable bool qmediadevices_connectnotify_isbase = false;
     mutable bool qmediadevices_event_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQMediaDevices final : public QMediaDevices {
     VirtualQMediaDevices(QObject* parent) : QMediaDevices(parent) {};
 
     ~VirtualQMediaDevices() {
+        qmediadevices_metaobject_callback = nullptr;
+        qmediadevices_metacast_callback = nullptr;
         qmediadevices_metacall_callback = nullptr;
         qmediadevices_connectnotify_callback = nullptr;
         qmediadevices_event_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQMediaDevices final : public QMediaDevices {
     }
 
     // Callback setters
+    inline void setQMediaDevices_MetaObject_Callback(QMediaDevices_MetaObject_Callback cb) { qmediadevices_metaobject_callback = cb; }
+    inline void setQMediaDevices_Metacast_Callback(QMediaDevices_Metacast_Callback cb) { qmediadevices_metacast_callback = cb; }
     inline void setQMediaDevices_Metacall_Callback(QMediaDevices_Metacall_Callback cb) { qmediadevices_metacall_callback = cb; }
     inline void setQMediaDevices_ConnectNotify_Callback(QMediaDevices_ConnectNotify_Callback cb) { qmediadevices_connectnotify_callback = cb; }
     inline void setQMediaDevices_Event_Callback(QMediaDevices_Event_Callback cb) { qmediadevices_event_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQMediaDevices final : public QMediaDevices {
     inline void setQMediaDevices_IsSignalConnected_Callback(QMediaDevices_IsSignalConnected_Callback cb) { qmediadevices_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQMediaDevices_MetaObject_IsBase(bool value) const { qmediadevices_metaobject_isbase = value; }
+    inline void setQMediaDevices_Metacast_IsBase(bool value) const { qmediadevices_metacast_isbase = value; }
     inline void setQMediaDevices_Metacall_IsBase(bool value) const { qmediadevices_metacall_isbase = value; }
     inline void setQMediaDevices_ConnectNotify_IsBase(bool value) const { qmediadevices_connectnotify_isbase = value; }
     inline void setQMediaDevices_Event_IsBase(bool value) const { qmediadevices_event_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQMediaDevices final : public QMediaDevices {
     inline void setQMediaDevices_SenderSignalIndex_IsBase(bool value) const { qmediadevices_sendersignalindex_isbase = value; }
     inline void setQMediaDevices_Receivers_IsBase(bool value) const { qmediadevices_receivers_isbase = value; }
     inline void setQMediaDevices_IsSignalConnected_IsBase(bool value) const { qmediadevices_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmediadevices_metaobject_isbase) {
+            qmediadevices_metaobject_isbase = false;
+            return QMediaDevices::metaObject();
+        } else if (qmediadevices_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmediadevices_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMediaDevices::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmediadevices_metacast_isbase) {
+            qmediadevices_metacast_isbase = false;
+            return QMediaDevices::qt_metacast(param1);
+        } else if (qmediadevices_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmediadevices_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMediaDevices::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

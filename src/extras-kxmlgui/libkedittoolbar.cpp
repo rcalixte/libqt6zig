@@ -59,11 +59,21 @@ KEditToolBar* KEditToolBar_new4(KXMLGUIFactory* factory, QWidget* parent) {
 }
 
 QMetaObject* KEditToolBar_MetaObject(const KEditToolBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkedittoolbar = dynamic_cast<const VirtualKEditToolBar*>(self);
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKEditToolBar*)self)->metaObject();
+    }
 }
 
 void* KEditToolBar_Metacast(KEditToolBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKEditToolBar*)self)->qt_metacast(param1);
+    }
 }
 
 int KEditToolBar_Metacall(KEditToolBar* self, int param1, int param2, void** param3) {
@@ -118,6 +128,44 @@ void KEditToolBar_HideEvent(KEditToolBar* self, QHideEvent* event) {
 void KEditToolBar_SetResourceFile2(KEditToolBar* self, const libqt_string file, bool global) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     self->setResourceFile(file_QString, global);
+}
+
+// Base class handler implementation
+QMetaObject* KEditToolBar_QBaseMetaObject(const KEditToolBar* self) {
+    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+        vkedittoolbar->setKEditToolBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vkedittoolbar->metaObject();
+    } else {
+        return (QMetaObject*)self->KEditToolBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEditToolBar_OnMetaObject(const KEditToolBar* self, intptr_t slot) {
+    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+        vkedittoolbar->setKEditToolBar_MetaObject_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KEditToolBar_QBaseMetacast(KEditToolBar* self, const char* param1) {
+    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+        vkedittoolbar->setKEditToolBar_Metacast_IsBase(true);
+        return vkedittoolbar->qt_metacast(param1);
+    } else {
+        return self->KEditToolBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEditToolBar_OnMetacast(KEditToolBar* self, intptr_t slot) {
+    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+        vkedittoolbar->setKEditToolBar_Metacast_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

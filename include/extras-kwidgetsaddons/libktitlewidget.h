@@ -79,6 +79,10 @@ void KTitleWidget_SetText22(KTitleWidget* self, const libqt_string text, int ali
 void KTitleWidget_SetComment2(KTitleWidget* self, const libqt_string comment, int typeVal);
 void KTitleWidget_SetIcon22(KTitleWidget* self, const QIcon* icon, int alignment);
 void KTitleWidget_SetIcon23(KTitleWidget* self, int typeVal, int alignment);
+void KTitleWidget_OnMetaObject(const KTitleWidget* self, intptr_t slot);
+QMetaObject* KTitleWidget_QBaseMetaObject(const KTitleWidget* self);
+void KTitleWidget_OnMetacast(KTitleWidget* self, intptr_t slot);
+void* KTitleWidget_QBaseMetacast(KTitleWidget* self, const char* param1);
 void KTitleWidget_OnMetacall(KTitleWidget* self, intptr_t slot);
 int KTitleWidget_QBaseMetacall(KTitleWidget* self, int param1, int param2, void** param3);
 void KTitleWidget_OnChangeEvent(KTitleWidget* self, intptr_t slot);

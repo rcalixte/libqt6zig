@@ -17,6 +17,8 @@ class VirtualKIOKUriFilterSearchProviderActions final : public KIO::KUriFilterSe
     bool isVirtualKIOKUriFilterSearchProviderActions = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__KUriFilterSearchProviderActions_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__KUriFilterSearchProviderActions_Metacast_Callback = void* (*)(KIO__KUriFilterSearchProviderActions*, const char*);
     using KIO__KUriFilterSearchProviderActions_Metacall_Callback = int (*)(KIO__KUriFilterSearchProviderActions*, int, int, void**);
     using KIO__KUriFilterSearchProviderActions_Event_Callback = bool (*)(KIO__KUriFilterSearchProviderActions*, QEvent*);
     using KIO__KUriFilterSearchProviderActions_EventFilter_Callback = bool (*)(KIO__KUriFilterSearchProviderActions*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKIOKUriFilterSearchProviderActions final : public KIO::KUriFilterSe
 
   protected:
     // Instance callback storage
+    KIO__KUriFilterSearchProviderActions_MetaObject_Callback kio__kurifiltersearchprovideractions_metaobject_callback = nullptr;
+    KIO__KUriFilterSearchProviderActions_Metacast_Callback kio__kurifiltersearchprovideractions_metacast_callback = nullptr;
     KIO__KUriFilterSearchProviderActions_Metacall_Callback kio__kurifiltersearchprovideractions_metacall_callback = nullptr;
     KIO__KUriFilterSearchProviderActions_Event_Callback kio__kurifiltersearchprovideractions_event_callback = nullptr;
     KIO__KUriFilterSearchProviderActions_EventFilter_Callback kio__kurifiltersearchprovideractions_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKIOKUriFilterSearchProviderActions final : public KIO::KUriFilterSe
     KIO__KUriFilterSearchProviderActions_IsSignalConnected_Callback kio__kurifiltersearchprovideractions_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__kurifiltersearchprovideractions_metaobject_isbase = false;
+    mutable bool kio__kurifiltersearchprovideractions_metacast_isbase = false;
     mutable bool kio__kurifiltersearchprovideractions_metacall_isbase = false;
     mutable bool kio__kurifiltersearchprovideractions_event_isbase = false;
     mutable bool kio__kurifiltersearchprovideractions_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKIOKUriFilterSearchProviderActions final : public KIO::KUriFilterSe
     VirtualKIOKUriFilterSearchProviderActions(QObject* parent) : KIO::KUriFilterSearchProviderActions(parent) {};
 
     ~VirtualKIOKUriFilterSearchProviderActions() {
+        kio__kurifiltersearchprovideractions_metaobject_callback = nullptr;
+        kio__kurifiltersearchprovideractions_metacast_callback = nullptr;
         kio__kurifiltersearchprovideractions_metacall_callback = nullptr;
         kio__kurifiltersearchprovideractions_event_callback = nullptr;
         kio__kurifiltersearchprovideractions_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKIOKUriFilterSearchProviderActions final : public KIO::KUriFilterSe
     }
 
     // Callback setters
+    inline void setKIO__KUriFilterSearchProviderActions_MetaObject_Callback(KIO__KUriFilterSearchProviderActions_MetaObject_Callback cb) { kio__kurifiltersearchprovideractions_metaobject_callback = cb; }
+    inline void setKIO__KUriFilterSearchProviderActions_Metacast_Callback(KIO__KUriFilterSearchProviderActions_Metacast_Callback cb) { kio__kurifiltersearchprovideractions_metacast_callback = cb; }
     inline void setKIO__KUriFilterSearchProviderActions_Metacall_Callback(KIO__KUriFilterSearchProviderActions_Metacall_Callback cb) { kio__kurifiltersearchprovideractions_metacall_callback = cb; }
     inline void setKIO__KUriFilterSearchProviderActions_Event_Callback(KIO__KUriFilterSearchProviderActions_Event_Callback cb) { kio__kurifiltersearchprovideractions_event_callback = cb; }
     inline void setKIO__KUriFilterSearchProviderActions_EventFilter_Callback(KIO__KUriFilterSearchProviderActions_EventFilter_Callback cb) { kio__kurifiltersearchprovideractions_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKIOKUriFilterSearchProviderActions final : public KIO::KUriFilterSe
     inline void setKIO__KUriFilterSearchProviderActions_IsSignalConnected_Callback(KIO__KUriFilterSearchProviderActions_IsSignalConnected_Callback cb) { kio__kurifiltersearchprovideractions_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__KUriFilterSearchProviderActions_MetaObject_IsBase(bool value) const { kio__kurifiltersearchprovideractions_metaobject_isbase = value; }
+    inline void setKIO__KUriFilterSearchProviderActions_Metacast_IsBase(bool value) const { kio__kurifiltersearchprovideractions_metacast_isbase = value; }
     inline void setKIO__KUriFilterSearchProviderActions_Metacall_IsBase(bool value) const { kio__kurifiltersearchprovideractions_metacall_isbase = value; }
     inline void setKIO__KUriFilterSearchProviderActions_Event_IsBase(bool value) const { kio__kurifiltersearchprovideractions_event_isbase = value; }
     inline void setKIO__KUriFilterSearchProviderActions_EventFilter_IsBase(bool value) const { kio__kurifiltersearchprovideractions_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKIOKUriFilterSearchProviderActions final : public KIO::KUriFilterSe
     inline void setKIO__KUriFilterSearchProviderActions_SenderSignalIndex_IsBase(bool value) const { kio__kurifiltersearchprovideractions_sendersignalindex_isbase = value; }
     inline void setKIO__KUriFilterSearchProviderActions_Receivers_IsBase(bool value) const { kio__kurifiltersearchprovideractions_receivers_isbase = value; }
     inline void setKIO__KUriFilterSearchProviderActions_IsSignalConnected_IsBase(bool value) const { kio__kurifiltersearchprovideractions_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__kurifiltersearchprovideractions_metaobject_isbase) {
+            kio__kurifiltersearchprovideractions_metaobject_isbase = false;
+            return KIO__KUriFilterSearchProviderActions::metaObject();
+        } else if (kio__kurifiltersearchprovideractions_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__kurifiltersearchprovideractions_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__KUriFilterSearchProviderActions::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__kurifiltersearchprovideractions_metacast_isbase) {
+            kio__kurifiltersearchprovideractions_metacast_isbase = false;
+            return KIO__KUriFilterSearchProviderActions::qt_metacast(param1);
+        } else if (kio__kurifiltersearchprovideractions_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__kurifiltersearchprovideractions_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__KUriFilterSearchProviderActions::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

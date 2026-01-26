@@ -17,6 +17,8 @@ class VirtualKXYSelector final : public KXYSelector {
     bool isVirtualKXYSelector = true;
 
     // Virtual class public types (including callbacks)
+    using KXYSelector_MetaObject_Callback = QMetaObject* (*)();
+    using KXYSelector_Metacast_Callback = void* (*)(KXYSelector*, const char*);
     using KXYSelector_Metacall_Callback = int (*)(KXYSelector*, int, int, void**);
     using KXYSelector_MinimumSizeHint_Callback = QSize* (*)();
     using KXYSelector_DrawContents_Callback = void (*)(KXYSelector*, QPainter*);
@@ -81,6 +83,8 @@ class VirtualKXYSelector final : public KXYSelector {
 
   protected:
     // Instance callback storage
+    KXYSelector_MetaObject_Callback kxyselector_metaobject_callback = nullptr;
+    KXYSelector_Metacast_Callback kxyselector_metacast_callback = nullptr;
     KXYSelector_Metacall_Callback kxyselector_metacall_callback = nullptr;
     KXYSelector_MinimumSizeHint_Callback kxyselector_minimumsizehint_callback = nullptr;
     KXYSelector_DrawContents_Callback kxyselector_drawcontents_callback = nullptr;
@@ -144,6 +148,8 @@ class VirtualKXYSelector final : public KXYSelector {
     KXYSelector_GetDecodedMetricF_Callback kxyselector_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kxyselector_metaobject_isbase = false;
+    mutable bool kxyselector_metacast_isbase = false;
     mutable bool kxyselector_metacall_isbase = false;
     mutable bool kxyselector_minimumsizehint_isbase = false;
     mutable bool kxyselector_drawcontents_isbase = false;
@@ -211,6 +217,8 @@ class VirtualKXYSelector final : public KXYSelector {
     VirtualKXYSelector() : KXYSelector() {};
 
     ~VirtualKXYSelector() {
+        kxyselector_metaobject_callback = nullptr;
+        kxyselector_metacast_callback = nullptr;
         kxyselector_metacall_callback = nullptr;
         kxyselector_minimumsizehint_callback = nullptr;
         kxyselector_drawcontents_callback = nullptr;
@@ -275,6 +283,8 @@ class VirtualKXYSelector final : public KXYSelector {
     }
 
     // Callback setters
+    inline void setKXYSelector_MetaObject_Callback(KXYSelector_MetaObject_Callback cb) { kxyselector_metaobject_callback = cb; }
+    inline void setKXYSelector_Metacast_Callback(KXYSelector_Metacast_Callback cb) { kxyselector_metacast_callback = cb; }
     inline void setKXYSelector_Metacall_Callback(KXYSelector_Metacall_Callback cb) { kxyselector_metacall_callback = cb; }
     inline void setKXYSelector_MinimumSizeHint_Callback(KXYSelector_MinimumSizeHint_Callback cb) { kxyselector_minimumsizehint_callback = cb; }
     inline void setKXYSelector_DrawContents_Callback(KXYSelector_DrawContents_Callback cb) { kxyselector_drawcontents_callback = cb; }
@@ -338,6 +348,8 @@ class VirtualKXYSelector final : public KXYSelector {
     inline void setKXYSelector_GetDecodedMetricF_Callback(KXYSelector_GetDecodedMetricF_Callback cb) { kxyselector_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKXYSelector_MetaObject_IsBase(bool value) const { kxyselector_metaobject_isbase = value; }
+    inline void setKXYSelector_Metacast_IsBase(bool value) const { kxyselector_metacast_isbase = value; }
     inline void setKXYSelector_Metacall_IsBase(bool value) const { kxyselector_metacall_isbase = value; }
     inline void setKXYSelector_MinimumSizeHint_IsBase(bool value) const { kxyselector_minimumsizehint_isbase = value; }
     inline void setKXYSelector_DrawContents_IsBase(bool value) const { kxyselector_drawcontents_isbase = value; }
@@ -399,6 +411,34 @@ class VirtualKXYSelector final : public KXYSelector {
     inline void setKXYSelector_Receivers_IsBase(bool value) const { kxyselector_receivers_isbase = value; }
     inline void setKXYSelector_IsSignalConnected_IsBase(bool value) const { kxyselector_issignalconnected_isbase = value; }
     inline void setKXYSelector_GetDecodedMetricF_IsBase(bool value) const { kxyselector_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kxyselector_metaobject_isbase) {
+            kxyselector_metaobject_isbase = false;
+            return KXYSelector::metaObject();
+        } else if (kxyselector_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kxyselector_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KXYSelector::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kxyselector_metacast_isbase) {
+            kxyselector_metacast_isbase = false;
+            return KXYSelector::qt_metacast(param1);
+        } else if (kxyselector_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kxyselector_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KXYSelector::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

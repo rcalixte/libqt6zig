@@ -17,6 +17,8 @@ class VirtualQSoundEffect final : public QSoundEffect {
     bool isVirtualQSoundEffect = true;
 
     // Virtual class public types (including callbacks)
+    using QSoundEffect_MetaObject_Callback = QMetaObject* (*)();
+    using QSoundEffect_Metacast_Callback = void* (*)(QSoundEffect*, const char*);
     using QSoundEffect_Metacall_Callback = int (*)(QSoundEffect*, int, int, void**);
     using QSoundEffect_Event_Callback = bool (*)(QSoundEffect*, QEvent*);
     using QSoundEffect_EventFilter_Callback = bool (*)(QSoundEffect*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQSoundEffect final : public QSoundEffect {
 
   protected:
     // Instance callback storage
+    QSoundEffect_MetaObject_Callback qsoundeffect_metaobject_callback = nullptr;
+    QSoundEffect_Metacast_Callback qsoundeffect_metacast_callback = nullptr;
     QSoundEffect_Metacall_Callback qsoundeffect_metacall_callback = nullptr;
     QSoundEffect_Event_Callback qsoundeffect_event_callback = nullptr;
     QSoundEffect_EventFilter_Callback qsoundeffect_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQSoundEffect final : public QSoundEffect {
     QSoundEffect_IsSignalConnected_Callback qsoundeffect_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsoundeffect_metaobject_isbase = false;
+    mutable bool qsoundeffect_metacast_isbase = false;
     mutable bool qsoundeffect_metacall_isbase = false;
     mutable bool qsoundeffect_event_isbase = false;
     mutable bool qsoundeffect_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQSoundEffect final : public QSoundEffect {
     VirtualQSoundEffect(const QAudioDevice& audioDevice, QObject* parent) : QSoundEffect(audioDevice, parent) {};
 
     ~VirtualQSoundEffect() {
+        qsoundeffect_metaobject_callback = nullptr;
+        qsoundeffect_metacast_callback = nullptr;
         qsoundeffect_metacall_callback = nullptr;
         qsoundeffect_event_callback = nullptr;
         qsoundeffect_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQSoundEffect final : public QSoundEffect {
     }
 
     // Callback setters
+    inline void setQSoundEffect_MetaObject_Callback(QSoundEffect_MetaObject_Callback cb) { qsoundeffect_metaobject_callback = cb; }
+    inline void setQSoundEffect_Metacast_Callback(QSoundEffect_Metacast_Callback cb) { qsoundeffect_metacast_callback = cb; }
     inline void setQSoundEffect_Metacall_Callback(QSoundEffect_Metacall_Callback cb) { qsoundeffect_metacall_callback = cb; }
     inline void setQSoundEffect_Event_Callback(QSoundEffect_Event_Callback cb) { qsoundeffect_event_callback = cb; }
     inline void setQSoundEffect_EventFilter_Callback(QSoundEffect_EventFilter_Callback cb) { qsoundeffect_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQSoundEffect final : public QSoundEffect {
     inline void setQSoundEffect_IsSignalConnected_Callback(QSoundEffect_IsSignalConnected_Callback cb) { qsoundeffect_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSoundEffect_MetaObject_IsBase(bool value) const { qsoundeffect_metaobject_isbase = value; }
+    inline void setQSoundEffect_Metacast_IsBase(bool value) const { qsoundeffect_metacast_isbase = value; }
     inline void setQSoundEffect_Metacall_IsBase(bool value) const { qsoundeffect_metacall_isbase = value; }
     inline void setQSoundEffect_Event_IsBase(bool value) const { qsoundeffect_event_isbase = value; }
     inline void setQSoundEffect_EventFilter_IsBase(bool value) const { qsoundeffect_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQSoundEffect final : public QSoundEffect {
     inline void setQSoundEffect_SenderSignalIndex_IsBase(bool value) const { qsoundeffect_sendersignalindex_isbase = value; }
     inline void setQSoundEffect_Receivers_IsBase(bool value) const { qsoundeffect_receivers_isbase = value; }
     inline void setQSoundEffect_IsSignalConnected_IsBase(bool value) const { qsoundeffect_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsoundeffect_metaobject_isbase) {
+            qsoundeffect_metaobject_isbase = false;
+            return QSoundEffect::metaObject();
+        } else if (qsoundeffect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsoundeffect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSoundEffect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsoundeffect_metacast_isbase) {
+            qsoundeffect_metacast_isbase = false;
+            return QSoundEffect::qt_metacast(param1);
+        } else if (qsoundeffect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsoundeffect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSoundEffect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -54,11 +54,21 @@ KImageFilePreview* KImageFilePreview_new2() {
 }
 
 QMetaObject* KImageFilePreview_MetaObject(const KImageFilePreview* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkimagefilepreview = dynamic_cast<const VirtualKImageFilePreview*>(self);
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKImageFilePreview*)self)->metaObject();
+    }
 }
 
 void* KImageFilePreview_Metacast(KImageFilePreview* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKImageFilePreview*)self)->qt_metacast(param1);
+    }
 }
 
 int KImageFilePreview_Metacall(KImageFilePreview* self, int param1, int param2, void** param3) {
@@ -117,6 +127,44 @@ KIO__PreviewJob* KImageFilePreview_CreateJob(KImageFilePreview* self, const QUrl
         return vkimagefilepreview->createJob(*url, static_cast<int>(width), static_cast<int>(height));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KImageFilePreview_QBaseMetaObject(const KImageFilePreview* self) {
+    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+        vkimagefilepreview->setKImageFilePreview_MetaObject_IsBase(true);
+        return (QMetaObject*)vkimagefilepreview->metaObject();
+    } else {
+        return (QMetaObject*)self->KImageFilePreview::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KImageFilePreview_OnMetaObject(const KImageFilePreview* self, intptr_t slot) {
+    auto* vkimagefilepreview = const_cast<VirtualKImageFilePreview*>(dynamic_cast<const VirtualKImageFilePreview*>(self));
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+        vkimagefilepreview->setKImageFilePreview_MetaObject_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KImageFilePreview_QBaseMetacast(KImageFilePreview* self, const char* param1) {
+    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+        vkimagefilepreview->setKImageFilePreview_Metacast_IsBase(true);
+        return vkimagefilepreview->qt_metacast(param1);
+    } else {
+        return self->KImageFilePreview::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KImageFilePreview_OnMetacast(KImageFilePreview* self, intptr_t slot) {
+    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
+    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
+        vkimagefilepreview->setKImageFilePreview_Metacast_Callback(reinterpret_cast<VirtualKImageFilePreview::KImageFilePreview_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

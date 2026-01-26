@@ -19,11 +19,21 @@ KSycoca* KSycoca_new() {
 }
 
 QMetaObject* KSycoca_MetaObject(const KSycoca* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vksycoca = dynamic_cast<const VirtualKSycoca*>(self);
+    if (vksycoca && vksycoca->isVirtualKSycoca) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSycoca*)self)->metaObject();
+    }
 }
 
 void* KSycoca_Metacast(KSycoca* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
+    if (vksycoca && vksycoca->isVirtualKSycoca) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSycoca*)self)->qt_metacast(param1);
+    }
 }
 
 int KSycoca_Metacall(KSycoca* self, int param1, int param2, void** param3) {
@@ -121,6 +131,44 @@ void KSycoca_ConnectNotify(KSycoca* self, const QMetaMethod* signal) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
     if (vksycoca && vksycoca->isVirtualKSycoca) {
         vksycoca->connectNotify(*signal);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KSycoca_QBaseMetaObject(const KSycoca* self) {
+    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
+    if (vksycoca && vksycoca->isVirtualKSycoca) {
+        vksycoca->setKSycoca_MetaObject_IsBase(true);
+        return (QMetaObject*)vksycoca->metaObject();
+    } else {
+        return (QMetaObject*)self->KSycoca::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSycoca_OnMetaObject(const KSycoca* self, intptr_t slot) {
+    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
+    if (vksycoca && vksycoca->isVirtualKSycoca) {
+        vksycoca->setKSycoca_MetaObject_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSycoca_QBaseMetacast(KSycoca* self, const char* param1) {
+    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
+    if (vksycoca && vksycoca->isVirtualKSycoca) {
+        vksycoca->setKSycoca_Metacast_IsBase(true);
+        return vksycoca->qt_metacast(param1);
+    } else {
+        return self->KSycoca::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSycoca_OnMetacast(KSycoca* self, intptr_t slot) {
+    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
+    if (vksycoca && vksycoca->isVirtualKSycoca) {
+        vksycoca->setKSycoca_Metacast_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Metacast_Callback>(slot));
     }
 }
 

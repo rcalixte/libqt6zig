@@ -18,6 +18,8 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
 
     // Virtual class public types (including callbacks)
     using KIO__ApplicationLauncherJob_Start_Callback = void (*)();
+    using KIO__ApplicationLauncherJob_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__ApplicationLauncherJob_Metacast_Callback = void* (*)(KIO__ApplicationLauncherJob*, const char*);
     using KIO__ApplicationLauncherJob_Metacall_Callback = int (*)(KIO__ApplicationLauncherJob*, int, int, void**);
     using KIO__ApplicationLauncherJob_DoKill_Callback = bool (*)();
     using KIO__ApplicationLauncherJob_DoSuspend_Callback = bool (*)();
@@ -50,6 +52,8 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
   protected:
     // Instance callback storage
     KIO__ApplicationLauncherJob_Start_Callback kio__applicationlauncherjob_start_callback = nullptr;
+    KIO__ApplicationLauncherJob_MetaObject_Callback kio__applicationlauncherjob_metaobject_callback = nullptr;
+    KIO__ApplicationLauncherJob_Metacast_Callback kio__applicationlauncherjob_metacast_callback = nullptr;
     KIO__ApplicationLauncherJob_Metacall_Callback kio__applicationlauncherjob_metacall_callback = nullptr;
     KIO__ApplicationLauncherJob_DoKill_Callback kio__applicationlauncherjob_dokill_callback = nullptr;
     KIO__ApplicationLauncherJob_DoSuspend_Callback kio__applicationlauncherjob_dosuspend_callback = nullptr;
@@ -81,6 +85,8 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
 
     // Instance base flags
     mutable bool kio__applicationlauncherjob_start_isbase = false;
+    mutable bool kio__applicationlauncherjob_metaobject_isbase = false;
+    mutable bool kio__applicationlauncherjob_metacast_isbase = false;
     mutable bool kio__applicationlauncherjob_metacall_isbase = false;
     mutable bool kio__applicationlauncherjob_dokill_isbase = false;
     mutable bool kio__applicationlauncherjob_dosuspend_isbase = false;
@@ -120,6 +126,8 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
 
     ~VirtualKIOApplicationLauncherJob() {
         kio__applicationlauncherjob_start_callback = nullptr;
+        kio__applicationlauncherjob_metaobject_callback = nullptr;
+        kio__applicationlauncherjob_metacast_callback = nullptr;
         kio__applicationlauncherjob_metacall_callback = nullptr;
         kio__applicationlauncherjob_dokill_callback = nullptr;
         kio__applicationlauncherjob_dosuspend_callback = nullptr;
@@ -152,6 +160,8 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
 
     // Callback setters
     inline void setKIO__ApplicationLauncherJob_Start_Callback(KIO__ApplicationLauncherJob_Start_Callback cb) { kio__applicationlauncherjob_start_callback = cb; }
+    inline void setKIO__ApplicationLauncherJob_MetaObject_Callback(KIO__ApplicationLauncherJob_MetaObject_Callback cb) { kio__applicationlauncherjob_metaobject_callback = cb; }
+    inline void setKIO__ApplicationLauncherJob_Metacast_Callback(KIO__ApplicationLauncherJob_Metacast_Callback cb) { kio__applicationlauncherjob_metacast_callback = cb; }
     inline void setKIO__ApplicationLauncherJob_Metacall_Callback(KIO__ApplicationLauncherJob_Metacall_Callback cb) { kio__applicationlauncherjob_metacall_callback = cb; }
     inline void setKIO__ApplicationLauncherJob_DoKill_Callback(KIO__ApplicationLauncherJob_DoKill_Callback cb) { kio__applicationlauncherjob_dokill_callback = cb; }
     inline void setKIO__ApplicationLauncherJob_DoSuspend_Callback(KIO__ApplicationLauncherJob_DoSuspend_Callback cb) { kio__applicationlauncherjob_dosuspend_callback = cb; }
@@ -183,6 +193,8 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
 
     // Base flag setters
     inline void setKIO__ApplicationLauncherJob_Start_IsBase(bool value) const { kio__applicationlauncherjob_start_isbase = value; }
+    inline void setKIO__ApplicationLauncherJob_MetaObject_IsBase(bool value) const { kio__applicationlauncherjob_metaobject_isbase = value; }
+    inline void setKIO__ApplicationLauncherJob_Metacast_IsBase(bool value) const { kio__applicationlauncherjob_metacast_isbase = value; }
     inline void setKIO__ApplicationLauncherJob_Metacall_IsBase(bool value) const { kio__applicationlauncherjob_metacall_isbase = value; }
     inline void setKIO__ApplicationLauncherJob_DoKill_IsBase(bool value) const { kio__applicationlauncherjob_dokill_isbase = value; }
     inline void setKIO__ApplicationLauncherJob_DoSuspend_IsBase(bool value) const { kio__applicationlauncherjob_dosuspend_isbase = value; }
@@ -221,6 +233,34 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
             kio__applicationlauncherjob_start_callback();
         } else {
             KIO__ApplicationLauncherJob::start();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__applicationlauncherjob_metaobject_isbase) {
+            kio__applicationlauncherjob_metaobject_isbase = false;
+            return KIO__ApplicationLauncherJob::metaObject();
+        } else if (kio__applicationlauncherjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__applicationlauncherjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__ApplicationLauncherJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__applicationlauncherjob_metacast_isbase) {
+            kio__applicationlauncherjob_metacast_isbase = false;
+            return KIO__ApplicationLauncherJob::qt_metacast(param1);
+        } else if (kio__applicationlauncherjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__applicationlauncherjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__ApplicationLauncherJob::qt_metacast(param1);
         }
     }
 

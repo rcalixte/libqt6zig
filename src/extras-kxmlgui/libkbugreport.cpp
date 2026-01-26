@@ -50,11 +50,21 @@ KBugReport* KBugReport_new2(const KAboutData* aboutData, QWidget* parent) {
 }
 
 QMetaObject* KBugReport_MetaObject(const KBugReport* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkbugreport = dynamic_cast<const VirtualKBugReport*>(self);
+    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKBugReport*)self)->metaObject();
+    }
 }
 
 void* KBugReport_Metacast(KBugReport* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
+    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKBugReport*)self)->qt_metacast(param1);
+    }
 }
 
 int KBugReport_Metacall(KBugReport* self, int param1, int param2, void** param3) {
@@ -72,6 +82,44 @@ void KBugReport_Accept(KBugReport* self) {
         self->accept();
     } else {
         ((VirtualKBugReport*)self)->accept();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KBugReport_QBaseMetaObject(const KBugReport* self) {
+    auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
+    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+        vkbugreport->setKBugReport_MetaObject_IsBase(true);
+        return (QMetaObject*)vkbugreport->metaObject();
+    } else {
+        return (QMetaObject*)self->KBugReport::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBugReport_OnMetaObject(const KBugReport* self, intptr_t slot) {
+    auto* vkbugreport = const_cast<VirtualKBugReport*>(dynamic_cast<const VirtualKBugReport*>(self));
+    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+        vkbugreport->setKBugReport_MetaObject_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KBugReport_QBaseMetacast(KBugReport* self, const char* param1) {
+    auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
+    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+        vkbugreport->setKBugReport_Metacast_IsBase(true);
+        return vkbugreport->qt_metacast(param1);
+    } else {
+        return self->KBugReport::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBugReport_OnMetacast(KBugReport* self, intptr_t slot) {
+    auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
+    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
+        vkbugreport->setKBugReport_Metacast_Callback(reinterpret_cast<VirtualKBugReport::KBugReport_Metacast_Callback>(slot));
     }
 }
 

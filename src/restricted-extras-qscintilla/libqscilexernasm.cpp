@@ -26,11 +26,21 @@ QsciLexerNASM* QsciLexerNASM_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerNASM_MetaObject(const QsciLexerNASM* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexernasm = dynamic_cast<const VirtualQsciLexerNASM*>(self);
+    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerNASM*)self)->metaObject();
+    }
 }
 
 void* QsciLexerNASM_Metacast(QsciLexerNASM* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexernasm = dynamic_cast<VirtualQsciLexerNASM*>(self);
+    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerNASM*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerNASM_Metacall(QsciLexerNASM* self, int param1, int param2, void** param3) {
@@ -48,6 +58,44 @@ const char* QsciLexerNASM_Language(const QsciLexerNASM* self) {
 
 const char* QsciLexerNASM_Lexer(const QsciLexerNASM* self) {
     return (const char*)self->lexer();
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerNASM_QBaseMetaObject(const QsciLexerNASM* self) {
+    auto* vqscilexernasm = const_cast<VirtualQsciLexerNASM*>(dynamic_cast<const VirtualQsciLexerNASM*>(self));
+    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
+        vqscilexernasm->setQsciLexerNASM_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexernasm->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerNASM*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerNASM_OnMetaObject(const QsciLexerNASM* self, intptr_t slot) {
+    auto* vqscilexernasm = const_cast<VirtualQsciLexerNASM*>(dynamic_cast<const VirtualQsciLexerNASM*>(self));
+    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
+        vqscilexernasm->setQsciLexerNASM_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerNASM::QsciLexerNASM_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerNASM_QBaseMetacast(QsciLexerNASM* self, const char* param1) {
+    auto* vqscilexernasm = dynamic_cast<VirtualQsciLexerNASM*>(self);
+    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
+        vqscilexernasm->setQsciLexerNASM_Metacast_IsBase(true);
+        return vqscilexernasm->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerNASM*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerNASM_OnMetacast(QsciLexerNASM* self, intptr_t slot) {
+    auto* vqscilexernasm = dynamic_cast<VirtualQsciLexerNASM*>(self);
+    if (vqscilexernasm && vqscilexernasm->isVirtualQsciLexerNASM) {
+        vqscilexernasm->setQsciLexerNASM_Metacast_Callback(reinterpret_cast<VirtualQsciLexerNASM::QsciLexerNASM_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

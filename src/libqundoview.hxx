@@ -20,6 +20,8 @@ class VirtualQUndoView final : public QUndoView {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using QUndoView_MetaObject_Callback = QMetaObject* (*)();
+    using QUndoView_Metacast_Callback = void* (*)(QUndoView*, const char*);
     using QUndoView_Metacall_Callback = int (*)(QUndoView*, int, int, void**);
     using QUndoView_VisualRect_Callback = QRect* (*)(const QUndoView*, QModelIndex*);
     using QUndoView_ScrollTo_Callback = void (*)(QUndoView*, QModelIndex*, int);
@@ -143,6 +145,8 @@ class VirtualQUndoView final : public QUndoView {
 
   protected:
     // Instance callback storage
+    QUndoView_MetaObject_Callback qundoview_metaobject_callback = nullptr;
+    QUndoView_Metacast_Callback qundoview_metacast_callback = nullptr;
     QUndoView_Metacall_Callback qundoview_metacall_callback = nullptr;
     QUndoView_VisualRect_Callback qundoview_visualrect_callback = nullptr;
     QUndoView_ScrollTo_Callback qundoview_scrollto_callback = nullptr;
@@ -265,6 +269,8 @@ class VirtualQUndoView final : public QUndoView {
     QUndoView_GetDecodedMetricF_Callback qundoview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qundoview_metaobject_isbase = false;
+    mutable bool qundoview_metacast_isbase = false;
     mutable bool qundoview_metacall_isbase = false;
     mutable bool qundoview_visualrect_isbase = false;
     mutable bool qundoview_scrollto_isbase = false;
@@ -395,6 +401,8 @@ class VirtualQUndoView final : public QUndoView {
     VirtualQUndoView(QUndoGroup* group, QWidget* parent) : QUndoView(group, parent) {};
 
     ~VirtualQUndoView() {
+        qundoview_metaobject_callback = nullptr;
+        qundoview_metacast_callback = nullptr;
         qundoview_metacall_callback = nullptr;
         qundoview_visualrect_callback = nullptr;
         qundoview_scrollto_callback = nullptr;
@@ -518,6 +526,8 @@ class VirtualQUndoView final : public QUndoView {
     }
 
     // Callback setters
+    inline void setQUndoView_MetaObject_Callback(QUndoView_MetaObject_Callback cb) { qundoview_metaobject_callback = cb; }
+    inline void setQUndoView_Metacast_Callback(QUndoView_Metacast_Callback cb) { qundoview_metacast_callback = cb; }
     inline void setQUndoView_Metacall_Callback(QUndoView_Metacall_Callback cb) { qundoview_metacall_callback = cb; }
     inline void setQUndoView_VisualRect_Callback(QUndoView_VisualRect_Callback cb) { qundoview_visualrect_callback = cb; }
     inline void setQUndoView_ScrollTo_Callback(QUndoView_ScrollTo_Callback cb) { qundoview_scrollto_callback = cb; }
@@ -640,6 +650,8 @@ class VirtualQUndoView final : public QUndoView {
     inline void setQUndoView_GetDecodedMetricF_Callback(QUndoView_GetDecodedMetricF_Callback cb) { qundoview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQUndoView_MetaObject_IsBase(bool value) const { qundoview_metaobject_isbase = value; }
+    inline void setQUndoView_Metacast_IsBase(bool value) const { qundoview_metacast_isbase = value; }
     inline void setQUndoView_Metacall_IsBase(bool value) const { qundoview_metacall_isbase = value; }
     inline void setQUndoView_VisualRect_IsBase(bool value) const { qundoview_visualrect_isbase = value; }
     inline void setQUndoView_ScrollTo_IsBase(bool value) const { qundoview_scrollto_isbase = value; }
@@ -760,6 +772,34 @@ class VirtualQUndoView final : public QUndoView {
     inline void setQUndoView_Receivers_IsBase(bool value) const { qundoview_receivers_isbase = value; }
     inline void setQUndoView_IsSignalConnected_IsBase(bool value) const { qundoview_issignalconnected_isbase = value; }
     inline void setQUndoView_GetDecodedMetricF_IsBase(bool value) const { qundoview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qundoview_metaobject_isbase) {
+            qundoview_metaobject_isbase = false;
+            return QUndoView::metaObject();
+        } else if (qundoview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qundoview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QUndoView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qundoview_metacast_isbase) {
+            qundoview_metacast_isbase = false;
+            return QUndoView::qt_metacast(param1);
+        } else if (qundoview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qundoview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QUndoView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

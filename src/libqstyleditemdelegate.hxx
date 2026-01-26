@@ -17,6 +17,8 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
     bool isVirtualQStyledItemDelegate = true;
 
     // Virtual class public types (including callbacks)
+    using QStyledItemDelegate_MetaObject_Callback = QMetaObject* (*)();
+    using QStyledItemDelegate_Metacast_Callback = void* (*)(QStyledItemDelegate*, const char*);
     using QStyledItemDelegate_Metacall_Callback = int (*)(QStyledItemDelegate*, int, int, void**);
     using QStyledItemDelegate_Paint_Callback = void (*)(const QStyledItemDelegate*, QPainter*, QStyleOptionViewItem*, QModelIndex*);
     using QStyledItemDelegate_SizeHint_Callback = QSize* (*)(const QStyledItemDelegate*, QStyleOptionViewItem*, QModelIndex*);
@@ -44,6 +46,8 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
 
   protected:
     // Instance callback storage
+    QStyledItemDelegate_MetaObject_Callback qstyleditemdelegate_metaobject_callback = nullptr;
+    QStyledItemDelegate_Metacast_Callback qstyleditemdelegate_metacast_callback = nullptr;
     QStyledItemDelegate_Metacall_Callback qstyleditemdelegate_metacall_callback = nullptr;
     QStyledItemDelegate_Paint_Callback qstyleditemdelegate_paint_callback = nullptr;
     QStyledItemDelegate_SizeHint_Callback qstyleditemdelegate_sizehint_callback = nullptr;
@@ -70,6 +74,8 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
     QStyledItemDelegate_IsSignalConnected_Callback qstyleditemdelegate_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qstyleditemdelegate_metaobject_isbase = false;
+    mutable bool qstyleditemdelegate_metacast_isbase = false;
     mutable bool qstyleditemdelegate_metacall_isbase = false;
     mutable bool qstyleditemdelegate_paint_isbase = false;
     mutable bool qstyleditemdelegate_sizehint_isbase = false;
@@ -100,6 +106,8 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
     VirtualQStyledItemDelegate(QObject* parent) : QStyledItemDelegate(parent) {};
 
     ~VirtualQStyledItemDelegate() {
+        qstyleditemdelegate_metaobject_callback = nullptr;
+        qstyleditemdelegate_metacast_callback = nullptr;
         qstyleditemdelegate_metacall_callback = nullptr;
         qstyleditemdelegate_paint_callback = nullptr;
         qstyleditemdelegate_sizehint_callback = nullptr;
@@ -127,6 +135,8 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
     }
 
     // Callback setters
+    inline void setQStyledItemDelegate_MetaObject_Callback(QStyledItemDelegate_MetaObject_Callback cb) { qstyleditemdelegate_metaobject_callback = cb; }
+    inline void setQStyledItemDelegate_Metacast_Callback(QStyledItemDelegate_Metacast_Callback cb) { qstyleditemdelegate_metacast_callback = cb; }
     inline void setQStyledItemDelegate_Metacall_Callback(QStyledItemDelegate_Metacall_Callback cb) { qstyleditemdelegate_metacall_callback = cb; }
     inline void setQStyledItemDelegate_Paint_Callback(QStyledItemDelegate_Paint_Callback cb) { qstyleditemdelegate_paint_callback = cb; }
     inline void setQStyledItemDelegate_SizeHint_Callback(QStyledItemDelegate_SizeHint_Callback cb) { qstyleditemdelegate_sizehint_callback = cb; }
@@ -153,6 +163,8 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
     inline void setQStyledItemDelegate_IsSignalConnected_Callback(QStyledItemDelegate_IsSignalConnected_Callback cb) { qstyleditemdelegate_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQStyledItemDelegate_MetaObject_IsBase(bool value) const { qstyleditemdelegate_metaobject_isbase = value; }
+    inline void setQStyledItemDelegate_Metacast_IsBase(bool value) const { qstyleditemdelegate_metacast_isbase = value; }
     inline void setQStyledItemDelegate_Metacall_IsBase(bool value) const { qstyleditemdelegate_metacall_isbase = value; }
     inline void setQStyledItemDelegate_Paint_IsBase(bool value) const { qstyleditemdelegate_paint_isbase = value; }
     inline void setQStyledItemDelegate_SizeHint_IsBase(bool value) const { qstyleditemdelegate_sizehint_isbase = value; }
@@ -177,6 +189,34 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
     inline void setQStyledItemDelegate_SenderSignalIndex_IsBase(bool value) const { qstyleditemdelegate_sendersignalindex_isbase = value; }
     inline void setQStyledItemDelegate_Receivers_IsBase(bool value) const { qstyleditemdelegate_receivers_isbase = value; }
     inline void setQStyledItemDelegate_IsSignalConnected_IsBase(bool value) const { qstyleditemdelegate_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qstyleditemdelegate_metaobject_isbase) {
+            qstyleditemdelegate_metaobject_isbase = false;
+            return QStyledItemDelegate::metaObject();
+        } else if (qstyleditemdelegate_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qstyleditemdelegate_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QStyledItemDelegate::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qstyleditemdelegate_metacast_isbase) {
+            qstyleditemdelegate_metacast_isbase = false;
+            return QStyledItemDelegate::qt_metacast(param1);
+        } else if (qstyleditemdelegate_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qstyleditemdelegate_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QStyledItemDelegate::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

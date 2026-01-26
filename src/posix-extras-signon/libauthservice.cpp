@@ -25,11 +25,21 @@ SignOn__AuthService* SignOn__AuthService_new2(QObject* parent) {
 }
 
 QMetaObject* SignOn__AuthService_MetaObject(const SignOn__AuthService* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vsignon__authservice = dynamic_cast<const VirtualSignOnAuthService*>(self);
+    if (vsignon__authservice && vsignon__authservice->isVirtualSignOnAuthService) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualSignOnAuthService*)self)->metaObject();
+    }
 }
 
 void* SignOn__AuthService_Metacast(SignOn__AuthService* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vsignon__authservice = dynamic_cast<VirtualSignOnAuthService*>(self);
+    if (vsignon__authservice && vsignon__authservice->isVirtualSignOnAuthService) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualSignOnAuthService*)self)->qt_metacast(param1);
+    }
 }
 
 int SignOn__AuthService_Metacall(SignOn__AuthService* self, int param1, int param2, void** param3) {
@@ -181,6 +191,44 @@ void SignOn__AuthService_Connect_Cleared(SignOn__AuthService* self, intptr_t slo
     SignOn::AuthService::connect(self, &SignOn::AuthService::cleared, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* SignOn__AuthService_QBaseMetaObject(const SignOn__AuthService* self) {
+    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+        vsignonauthservice->setSignOn__AuthService_MetaObject_IsBase(true);
+        return (QMetaObject*)vsignonauthservice->metaObject();
+    } else {
+        return (QMetaObject*)self->SignOn::AuthService::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void SignOn__AuthService_OnMetaObject(const SignOn__AuthService* self, intptr_t slot) {
+    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+        vsignonauthservice->setSignOn__AuthService_MetaObject_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* SignOn__AuthService_QBaseMetacast(SignOn__AuthService* self, const char* param1) {
+    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+        vsignonauthservice->setSignOn__AuthService_Metacast_IsBase(true);
+        return vsignonauthservice->qt_metacast(param1);
+    } else {
+        return self->SignOn::AuthService::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void SignOn__AuthService_OnMetacast(SignOn__AuthService* self, intptr_t slot) {
+    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+        vsignonauthservice->setSignOn__AuthService_Metacast_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

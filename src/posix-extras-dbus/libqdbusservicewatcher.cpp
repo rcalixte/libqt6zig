@@ -38,11 +38,21 @@ QDBusServiceWatcher* QDBusServiceWatcher_new5(const libqt_string service, const 
 }
 
 QMetaObject* QDBusServiceWatcher_MetaObject(const QDBusServiceWatcher* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdbusservicewatcher = dynamic_cast<const VirtualQDBusServiceWatcher*>(self);
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDBusServiceWatcher*)self)->metaObject();
+    }
 }
 
 void* QDBusServiceWatcher_Metacast(QDBusServiceWatcher* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDBusServiceWatcher*)self)->qt_metacast(param1);
+    }
 }
 
 int QDBusServiceWatcher_Metacall(QDBusServiceWatcher* self, int param1, int param2, void** param3) {
@@ -188,6 +198,44 @@ void QDBusServiceWatcher_Connect_ServiceOwnerChanged(QDBusServiceWatcher* self, 
         libqt_free(oldOwner_str);
         libqt_free(newOwner_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QDBusServiceWatcher_QBaseMetaObject(const QDBusServiceWatcher* self) {
+    auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+        vqdbusservicewatcher->setQDBusServiceWatcher_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdbusservicewatcher->metaObject();
+    } else {
+        return (QMetaObject*)self->QDBusServiceWatcher::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDBusServiceWatcher_OnMetaObject(const QDBusServiceWatcher* self, intptr_t slot) {
+    auto* vqdbusservicewatcher = const_cast<VirtualQDBusServiceWatcher*>(dynamic_cast<const VirtualQDBusServiceWatcher*>(self));
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+        vqdbusservicewatcher->setQDBusServiceWatcher_MetaObject_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDBusServiceWatcher_QBaseMetacast(QDBusServiceWatcher* self, const char* param1) {
+    auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+        vqdbusservicewatcher->setQDBusServiceWatcher_Metacast_IsBase(true);
+        return vqdbusservicewatcher->qt_metacast(param1);
+    } else {
+        return self->QDBusServiceWatcher::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDBusServiceWatcher_OnMetacast(QDBusServiceWatcher* self, intptr_t slot) {
+    auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
+    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
+        vqdbusservicewatcher->setQDBusServiceWatcher_Metacast_Callback(reinterpret_cast<VirtualQDBusServiceWatcher::QDBusServiceWatcher_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

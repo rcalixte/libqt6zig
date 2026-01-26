@@ -33,6 +33,10 @@ int KOverlayIconPlugin_Metacall(KOverlayIconPlugin* self, int param1, int param2
 libqt_list /* of libqt_string */ KOverlayIconPlugin_GetOverlays(KOverlayIconPlugin* self, const QUrl* item);
 void KOverlayIconPlugin_OverlaysChanged(KOverlayIconPlugin* self, const QUrl* url, const libqt_list /* of libqt_string */ overlays);
 void KOverlayIconPlugin_Connect_OverlaysChanged(KOverlayIconPlugin* self, intptr_t slot);
+void KOverlayIconPlugin_OnMetaObject(const KOverlayIconPlugin* self, intptr_t slot);
+QMetaObject* KOverlayIconPlugin_QBaseMetaObject(const KOverlayIconPlugin* self);
+void KOverlayIconPlugin_OnMetacast(KOverlayIconPlugin* self, intptr_t slot);
+void* KOverlayIconPlugin_QBaseMetacast(KOverlayIconPlugin* self, const char* param1);
 void KOverlayIconPlugin_OnMetacall(KOverlayIconPlugin* self, intptr_t slot);
 int KOverlayIconPlugin_QBaseMetacall(KOverlayIconPlugin* self, int param1, int param2, void** param3);
 void KOverlayIconPlugin_OnGetOverlays(KOverlayIconPlugin* self, intptr_t slot);

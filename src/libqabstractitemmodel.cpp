@@ -309,11 +309,21 @@ QAbstractItemModel* QAbstractItemModel_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractItemModel_MetaObject(const QAbstractItemModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
+    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractItemModel*)self)->metaObject();
+    }
 }
 
 void* QAbstractItemModel_Metacast(QAbstractItemModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
+    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractItemModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractItemModel_Metacall(QAbstractItemModel* self, int param1, int param2, void** param3) {
@@ -1038,6 +1048,44 @@ void QAbstractItemModel_Connect_LayoutAboutToBeChanged2(QAbstractItemModel* self
         slotFunc(self, sigval1, sigval2);
         free(parents_arr);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractItemModel_QBaseMetaObject(const QAbstractItemModel* self) {
+    auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
+    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
+        vqabstractitemmodel->setQAbstractItemModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractitemmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractItemModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractItemModel_OnMetaObject(const QAbstractItemModel* self, intptr_t slot) {
+    auto* vqabstractitemmodel = const_cast<VirtualQAbstractItemModel*>(dynamic_cast<const VirtualQAbstractItemModel*>(self));
+    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
+        vqabstractitemmodel->setQAbstractItemModel_MetaObject_Callback(reinterpret_cast<VirtualQAbstractItemModel::QAbstractItemModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractItemModel_QBaseMetacast(QAbstractItemModel* self, const char* param1) {
+    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
+    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
+        vqabstractitemmodel->setQAbstractItemModel_Metacast_IsBase(true);
+        return vqabstractitemmodel->qt_metacast(param1);
+    } else {
+        return self->QAbstractItemModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractItemModel_OnMetacast(QAbstractItemModel* self, intptr_t slot) {
+    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
+    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
+        vqabstractitemmodel->setQAbstractItemModel_Metacast_Callback(reinterpret_cast<VirtualQAbstractItemModel::QAbstractItemModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -3104,11 +3152,21 @@ QAbstractTableModel* QAbstractTableModel_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractTableModel_MetaObject(const QAbstractTableModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstracttablemodel = dynamic_cast<const VirtualQAbstractTableModel*>(self);
+    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractTableModel*)self)->metaObject();
+    }
 }
 
 void* QAbstractTableModel_Metacast(QAbstractTableModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
+    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractTableModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractTableModel_Metacall(QAbstractTableModel* self, int param1, int param2, void** param3) {
@@ -3153,6 +3211,44 @@ int QAbstractTableModel_Flags(const QAbstractTableModel* self, const QModelIndex
         return static_cast<int>(self->flags(*index));
     } else {
         return static_cast<int>(((VirtualQAbstractTableModel*)self)->flags(*index));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractTableModel_QBaseMetaObject(const QAbstractTableModel* self) {
+    auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
+    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
+        vqabstracttablemodel->setQAbstractTableModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstracttablemodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractTableModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTableModel_OnMetaObject(const QAbstractTableModel* self, intptr_t slot) {
+    auto* vqabstracttablemodel = const_cast<VirtualQAbstractTableModel*>(dynamic_cast<const VirtualQAbstractTableModel*>(self));
+    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
+        vqabstracttablemodel->setQAbstractTableModel_MetaObject_Callback(reinterpret_cast<VirtualQAbstractTableModel::QAbstractTableModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractTableModel_QBaseMetacast(QAbstractTableModel* self, const char* param1) {
+    auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
+    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
+        vqabstracttablemodel->setQAbstractTableModel_Metacast_IsBase(true);
+        return vqabstracttablemodel->qt_metacast(param1);
+    } else {
+        return self->QAbstractTableModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractTableModel_OnMetacast(QAbstractTableModel* self, intptr_t slot) {
+    auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
+    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
+        vqabstracttablemodel->setQAbstractTableModel_Metacast_Callback(reinterpret_cast<VirtualQAbstractTableModel::QAbstractTableModel_Metacast_Callback>(slot));
     }
 }
 
@@ -5396,11 +5492,21 @@ QAbstractListModel* QAbstractListModel_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractListModel_MetaObject(const QAbstractListModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractlistmodel = dynamic_cast<const VirtualQAbstractListModel*>(self);
+    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractListModel*)self)->metaObject();
+    }
 }
 
 void* QAbstractListModel_Metacast(QAbstractListModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
+    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractListModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractListModel_Metacall(QAbstractListModel* self, int param1, int param2, void** param3) {
@@ -5445,6 +5551,44 @@ int QAbstractListModel_Flags(const QAbstractListModel* self, const QModelIndex* 
         return static_cast<int>(self->flags(*index));
     } else {
         return static_cast<int>(((VirtualQAbstractListModel*)self)->flags(*index));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractListModel_QBaseMetaObject(const QAbstractListModel* self) {
+    auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
+    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
+        vqabstractlistmodel->setQAbstractListModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractlistmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractListModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractListModel_OnMetaObject(const QAbstractListModel* self, intptr_t slot) {
+    auto* vqabstractlistmodel = const_cast<VirtualQAbstractListModel*>(dynamic_cast<const VirtualQAbstractListModel*>(self));
+    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
+        vqabstractlistmodel->setQAbstractListModel_MetaObject_Callback(reinterpret_cast<VirtualQAbstractListModel::QAbstractListModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractListModel_QBaseMetacast(QAbstractListModel* self, const char* param1) {
+    auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
+    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
+        vqabstractlistmodel->setQAbstractListModel_Metacast_IsBase(true);
+        return vqabstractlistmodel->qt_metacast(param1);
+    } else {
+        return self->QAbstractListModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractListModel_OnMetacast(QAbstractListModel* self, intptr_t slot) {
+    auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
+    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
+        vqabstractlistmodel->setQAbstractListModel_Metacast_Callback(reinterpret_cast<VirtualQAbstractListModel::QAbstractListModel_Metacast_Callback>(slot));
     }
 }
 

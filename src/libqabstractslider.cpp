@@ -48,11 +48,21 @@ QAbstractSlider* QAbstractSlider_new2() {
 }
 
 QMetaObject* QAbstractSlider_MetaObject(const QAbstractSlider* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractslider = dynamic_cast<const VirtualQAbstractSlider*>(self);
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractSlider*)self)->metaObject();
+    }
 }
 
 void* QAbstractSlider_Metacast(QAbstractSlider* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractSlider*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractSlider_Metacall(QAbstractSlider* self, int param1, int param2, void** param3) {
@@ -271,6 +281,44 @@ void QAbstractSlider_ChangeEvent(QAbstractSlider* self, QEvent* e) {
     auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
     if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
         vqabstractslider->changeEvent(e);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractSlider_QBaseMetaObject(const QAbstractSlider* self) {
+    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+        vqabstractslider->setQAbstractSlider_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractslider->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractSlider::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractSlider_OnMetaObject(const QAbstractSlider* self, intptr_t slot) {
+    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+        vqabstractslider->setQAbstractSlider_MetaObject_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractSlider_QBaseMetacast(QAbstractSlider* self, const char* param1) {
+    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+        vqabstractslider->setQAbstractSlider_Metacast_IsBase(true);
+        return vqabstractslider->qt_metacast(param1);
+    } else {
+        return self->QAbstractSlider::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractSlider_OnMetacast(QAbstractSlider* self, intptr_t slot) {
+    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+        vqabstractslider->setQAbstractSlider_Metacast_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_Metacast_Callback>(slot));
     }
 }
 

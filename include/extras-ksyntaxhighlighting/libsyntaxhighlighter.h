@@ -57,6 +57,10 @@ QTextBlock* KSyntaxHighlighting__SyntaxHighlighter_FindFoldingRegionEnd(const KS
 void KSyntaxHighlighting__SyntaxHighlighter_HighlightBlock(KSyntaxHighlighting__SyntaxHighlighter* self, const libqt_string text);
 void KSyntaxHighlighting__SyntaxHighlighter_ApplyFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, const KSyntaxHighlighting__Format* format);
 void KSyntaxHighlighting__SyntaxHighlighter_ApplyFolding(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, KSyntaxHighlighting__FoldingRegion* region);
+void KSyntaxHighlighting__SyntaxHighlighter_OnMetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_QBaseMetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self);
+void KSyntaxHighlighting__SyntaxHighlighter_OnMetacast(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void* KSyntaxHighlighting__SyntaxHighlighter_QBaseMetacast(KSyntaxHighlighting__SyntaxHighlighter* self, const char* param1);
 void KSyntaxHighlighting__SyntaxHighlighter_OnMetacall(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
 int KSyntaxHighlighting__SyntaxHighlighter_QBaseMetacall(KSyntaxHighlighting__SyntaxHighlighter* self, int param1, int param2, void** param3);
 void KSyntaxHighlighting__SyntaxHighlighter_OnSetDefinition(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);

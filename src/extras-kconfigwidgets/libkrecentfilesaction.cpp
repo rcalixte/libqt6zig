@@ -36,11 +36,21 @@ KRecentFilesAction* KRecentFilesAction_new3(const QIcon* icon, const libqt_strin
 }
 
 QMetaObject* KRecentFilesAction_MetaObject(const KRecentFilesAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkrecentfilesaction = dynamic_cast<const VirtualKRecentFilesAction*>(self);
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKRecentFilesAction*)self)->metaObject();
+    }
 }
 
 void* KRecentFilesAction_Metacast(KRecentFilesAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKRecentFilesAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KRecentFilesAction_Metacall(KRecentFilesAction* self, int param1, int param2, void** param3) {
@@ -151,6 +161,44 @@ void KRecentFilesAction_AddAction4(KRecentFilesAction* self, QAction* action, co
 void KRecentFilesAction_AddUrl22(KRecentFilesAction* self, const QUrl* url, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->addUrl(*url, name_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KRecentFilesAction_QBaseMetaObject(const KRecentFilesAction* self) {
+    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+        vkrecentfilesaction->setKRecentFilesAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vkrecentfilesaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KRecentFilesAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRecentFilesAction_OnMetaObject(const KRecentFilesAction* self, intptr_t slot) {
+    auto* vkrecentfilesaction = const_cast<VirtualKRecentFilesAction*>(dynamic_cast<const VirtualKRecentFilesAction*>(self));
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+        vkrecentfilesaction->setKRecentFilesAction_MetaObject_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KRecentFilesAction_QBaseMetacast(KRecentFilesAction* self, const char* param1) {
+    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+        vkrecentfilesaction->setKRecentFilesAction_Metacast_IsBase(true);
+        return vkrecentfilesaction->qt_metacast(param1);
+    } else {
+        return self->KRecentFilesAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRecentFilesAction_OnMetacast(KRecentFilesAction* self, intptr_t slot) {
+    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
+    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
+        vkrecentfilesaction->setKRecentFilesAction_Metacast_Callback(reinterpret_cast<VirtualKRecentFilesAction::KRecentFilesAction_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

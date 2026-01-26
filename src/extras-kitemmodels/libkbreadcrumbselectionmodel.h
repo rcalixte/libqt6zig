@@ -40,6 +40,10 @@ int KBreadcrumbSelectionModel_BreadcrumbLength(const KBreadcrumbSelectionModel* 
 void KBreadcrumbSelectionModel_SetBreadcrumbLength(KBreadcrumbSelectionModel* self, int breadcrumbLength);
 void KBreadcrumbSelectionModel_Select(KBreadcrumbSelectionModel* self, const QModelIndex* index, int command);
 void KBreadcrumbSelectionModel_Select2(KBreadcrumbSelectionModel* self, const QItemSelection* selection, int command);
+void KBreadcrumbSelectionModel_OnMetaObject(const KBreadcrumbSelectionModel* self, intptr_t slot);
+QMetaObject* KBreadcrumbSelectionModel_QBaseMetaObject(const KBreadcrumbSelectionModel* self);
+void KBreadcrumbSelectionModel_OnMetacast(KBreadcrumbSelectionModel* self, intptr_t slot);
+void* KBreadcrumbSelectionModel_QBaseMetacast(KBreadcrumbSelectionModel* self, const char* param1);
 void KBreadcrumbSelectionModel_OnMetacall(KBreadcrumbSelectionModel* self, intptr_t slot);
 int KBreadcrumbSelectionModel_QBaseMetacall(KBreadcrumbSelectionModel* self, int param1, int param2, void** param3);
 void KBreadcrumbSelectionModel_OnSelect(KBreadcrumbSelectionModel* self, intptr_t slot);

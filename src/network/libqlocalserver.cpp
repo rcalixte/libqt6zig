@@ -22,11 +22,21 @@ QLocalServer* QLocalServer_new2(QObject* parent) {
 }
 
 QMetaObject* QLocalServer_MetaObject(const QLocalServer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqlocalserver = dynamic_cast<const VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQLocalServer*)self)->metaObject();
+    }
 }
 
 void* QLocalServer_Metacast(QLocalServer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQLocalServer*)self)->qt_metacast(param1);
+    }
 }
 
 int QLocalServer_Metacall(QLocalServer* self, int param1, int param2, void** param3) {
@@ -175,6 +185,44 @@ bool QLocalServer_WaitForNewConnection1(QLocalServer* self, int msec) {
 
 bool QLocalServer_WaitForNewConnection2(QLocalServer* self, int msec, bool* timedOut) {
     return self->waitForNewConnection(static_cast<int>(msec), timedOut);
+}
+
+// Base class handler implementation
+QMetaObject* QLocalServer_QBaseMetaObject(const QLocalServer* self) {
+    auto* vqlocalserver = const_cast<VirtualQLocalServer*>(dynamic_cast<const VirtualQLocalServer*>(self));
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqlocalserver->metaObject();
+    } else {
+        return (QMetaObject*)self->QLocalServer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLocalServer_OnMetaObject(const QLocalServer* self, intptr_t slot) {
+    auto* vqlocalserver = const_cast<VirtualQLocalServer*>(dynamic_cast<const VirtualQLocalServer*>(self));
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_MetaObject_Callback(reinterpret_cast<VirtualQLocalServer::QLocalServer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QLocalServer_QBaseMetacast(QLocalServer* self, const char* param1) {
+    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_Metacast_IsBase(true);
+        return vqlocalserver->qt_metacast(param1);
+    } else {
+        return self->QLocalServer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLocalServer_OnMetacast(QLocalServer* self, intptr_t slot) {
+    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
+    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
+        vqlocalserver->setQLocalServer_Metacast_Callback(reinterpret_cast<VirtualQLocalServer::QLocalServer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -40,6 +40,10 @@ void KIO__OpenFileManagerWindowJob_SetHighlightUrls(KIO__OpenFileManagerWindowJo
 libqt_string KIO__OpenFileManagerWindowJob_StartupId(const KIO__OpenFileManagerWindowJob* self);
 void KIO__OpenFileManagerWindowJob_SetStartupId(KIO__OpenFileManagerWindowJob* self, const libqt_string startupId);
 void KIO__OpenFileManagerWindowJob_Start(KIO__OpenFileManagerWindowJob* self);
+void KIO__OpenFileManagerWindowJob_OnMetaObject(const KIO__OpenFileManagerWindowJob* self, intptr_t slot);
+QMetaObject* KIO__OpenFileManagerWindowJob_QBaseMetaObject(const KIO__OpenFileManagerWindowJob* self);
+void KIO__OpenFileManagerWindowJob_OnMetacast(KIO__OpenFileManagerWindowJob* self, intptr_t slot);
+void* KIO__OpenFileManagerWindowJob_QBaseMetacast(KIO__OpenFileManagerWindowJob* self, const char* param1);
 void KIO__OpenFileManagerWindowJob_OnMetacall(KIO__OpenFileManagerWindowJob* self, intptr_t slot);
 int KIO__OpenFileManagerWindowJob_QBaseMetacall(KIO__OpenFileManagerWindowJob* self, int param1, int param2, void** param3);
 void KIO__OpenFileManagerWindowJob_OnStart(KIO__OpenFileManagerWindowJob* self, intptr_t slot);

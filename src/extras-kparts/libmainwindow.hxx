@@ -17,6 +17,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     bool isVirtualKPartsMainWindow = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__MainWindow_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__MainWindow_Metacast_Callback = void* (*)(KParts__MainWindow*, const char*);
     using KParts__MainWindow_Metacall_Callback = int (*)(KParts__MainWindow*, int, int, void**);
     using KParts__MainWindow_ConfigureToolbars_Callback = void (*)();
     using KParts__MainWindow_SlotSetStatusBarText_Callback = void (*)(KParts__MainWindow*, libqt_string);
@@ -120,6 +122,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
 
   protected:
     // Instance callback storage
+    KParts__MainWindow_MetaObject_Callback kparts__mainwindow_metaobject_callback = nullptr;
+    KParts__MainWindow_Metacast_Callback kparts__mainwindow_metacast_callback = nullptr;
     KParts__MainWindow_Metacall_Callback kparts__mainwindow_metacall_callback = nullptr;
     KParts__MainWindow_ConfigureToolbars_Callback kparts__mainwindow_configuretoolbars_callback = nullptr;
     KParts__MainWindow_SlotSetStatusBarText_Callback kparts__mainwindow_slotsetstatusbartext_callback = nullptr;
@@ -222,6 +226,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     KParts__MainWindow_LoadStandardsXmlFile_Callback kparts__mainwindow_loadstandardsxmlfile_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__mainwindow_metaobject_isbase = false;
+    mutable bool kparts__mainwindow_metacast_isbase = false;
     mutable bool kparts__mainwindow_metacall_isbase = false;
     mutable bool kparts__mainwindow_configuretoolbars_isbase = false;
     mutable bool kparts__mainwindow_slotsetstatusbartext_isbase = false;
@@ -329,6 +335,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     VirtualKPartsMainWindow(QWidget* parent, Qt::WindowFlags f) : KParts::MainWindow(parent, f) {};
 
     ~VirtualKPartsMainWindow() {
+        kparts__mainwindow_metaobject_callback = nullptr;
+        kparts__mainwindow_metacast_callback = nullptr;
         kparts__mainwindow_metacall_callback = nullptr;
         kparts__mainwindow_configuretoolbars_callback = nullptr;
         kparts__mainwindow_slotsetstatusbartext_callback = nullptr;
@@ -432,6 +440,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     }
 
     // Callback setters
+    inline void setKParts__MainWindow_MetaObject_Callback(KParts__MainWindow_MetaObject_Callback cb) { kparts__mainwindow_metaobject_callback = cb; }
+    inline void setKParts__MainWindow_Metacast_Callback(KParts__MainWindow_Metacast_Callback cb) { kparts__mainwindow_metacast_callback = cb; }
     inline void setKParts__MainWindow_Metacall_Callback(KParts__MainWindow_Metacall_Callback cb) { kparts__mainwindow_metacall_callback = cb; }
     inline void setKParts__MainWindow_ConfigureToolbars_Callback(KParts__MainWindow_ConfigureToolbars_Callback cb) { kparts__mainwindow_configuretoolbars_callback = cb; }
     inline void setKParts__MainWindow_SlotSetStatusBarText_Callback(KParts__MainWindow_SlotSetStatusBarText_Callback cb) { kparts__mainwindow_slotsetstatusbartext_callback = cb; }
@@ -534,6 +544,8 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     inline void setKParts__MainWindow_LoadStandardsXmlFile_Callback(KParts__MainWindow_LoadStandardsXmlFile_Callback cb) { kparts__mainwindow_loadstandardsxmlfile_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__MainWindow_MetaObject_IsBase(bool value) const { kparts__mainwindow_metaobject_isbase = value; }
+    inline void setKParts__MainWindow_Metacast_IsBase(bool value) const { kparts__mainwindow_metacast_isbase = value; }
     inline void setKParts__MainWindow_Metacall_IsBase(bool value) const { kparts__mainwindow_metacall_isbase = value; }
     inline void setKParts__MainWindow_ConfigureToolbars_IsBase(bool value) const { kparts__mainwindow_configuretoolbars_isbase = value; }
     inline void setKParts__MainWindow_SlotSetStatusBarText_IsBase(bool value) const { kparts__mainwindow_slotsetstatusbartext_isbase = value; }
@@ -634,6 +646,34 @@ class VirtualKPartsMainWindow final : public KParts::MainWindow {
     inline void setKParts__MainWindow_GetDecodedMetricF_IsBase(bool value) const { kparts__mainwindow_getdecodedmetricf_isbase = value; }
     inline void setKParts__MainWindow_StandardsXmlFileLocation_IsBase(bool value) const { kparts__mainwindow_standardsxmlfilelocation_isbase = value; }
     inline void setKParts__MainWindow_LoadStandardsXmlFile_IsBase(bool value) const { kparts__mainwindow_loadstandardsxmlfile_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__mainwindow_metaobject_isbase) {
+            kparts__mainwindow_metaobject_isbase = false;
+            return KParts__MainWindow::metaObject();
+        } else if (kparts__mainwindow_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__mainwindow_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__MainWindow::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__mainwindow_metacast_isbase) {
+            kparts__mainwindow_metacast_isbase = false;
+            return KParts__MainWindow::qt_metacast(param1);
+        } else if (kparts__mainwindow_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__mainwindow_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__MainWindow::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

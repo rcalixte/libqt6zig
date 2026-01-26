@@ -17,6 +17,8 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
     bool isVirtualKListOpenFilesJob = true;
 
     // Virtual class public types (including callbacks)
+    using KListOpenFilesJob_MetaObject_Callback = QMetaObject* (*)();
+    using KListOpenFilesJob_Metacast_Callback = void* (*)(KListOpenFilesJob*, const char*);
     using KListOpenFilesJob_Metacall_Callback = int (*)(KListOpenFilesJob*, int, int, void**);
     using KListOpenFilesJob_Start_Callback = void (*)();
     using KListOpenFilesJob_DoKill_Callback = bool (*)();
@@ -49,6 +51,8 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
 
   protected:
     // Instance callback storage
+    KListOpenFilesJob_MetaObject_Callback klistopenfilesjob_metaobject_callback = nullptr;
+    KListOpenFilesJob_Metacast_Callback klistopenfilesjob_metacast_callback = nullptr;
     KListOpenFilesJob_Metacall_Callback klistopenfilesjob_metacall_callback = nullptr;
     KListOpenFilesJob_Start_Callback klistopenfilesjob_start_callback = nullptr;
     KListOpenFilesJob_DoKill_Callback klistopenfilesjob_dokill_callback = nullptr;
@@ -80,6 +84,8 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
     KListOpenFilesJob_IsSignalConnected_Callback klistopenfilesjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool klistopenfilesjob_metaobject_isbase = false;
+    mutable bool klistopenfilesjob_metacast_isbase = false;
     mutable bool klistopenfilesjob_metacall_isbase = false;
     mutable bool klistopenfilesjob_start_isbase = false;
     mutable bool klistopenfilesjob_dokill_isbase = false;
@@ -114,6 +120,8 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
     VirtualKListOpenFilesJob(const QString& path) : KListOpenFilesJob(path) {};
 
     ~VirtualKListOpenFilesJob() {
+        klistopenfilesjob_metaobject_callback = nullptr;
+        klistopenfilesjob_metacast_callback = nullptr;
         klistopenfilesjob_metacall_callback = nullptr;
         klistopenfilesjob_start_callback = nullptr;
         klistopenfilesjob_dokill_callback = nullptr;
@@ -146,6 +154,8 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
     }
 
     // Callback setters
+    inline void setKListOpenFilesJob_MetaObject_Callback(KListOpenFilesJob_MetaObject_Callback cb) { klistopenfilesjob_metaobject_callback = cb; }
+    inline void setKListOpenFilesJob_Metacast_Callback(KListOpenFilesJob_Metacast_Callback cb) { klistopenfilesjob_metacast_callback = cb; }
     inline void setKListOpenFilesJob_Metacall_Callback(KListOpenFilesJob_Metacall_Callback cb) { klistopenfilesjob_metacall_callback = cb; }
     inline void setKListOpenFilesJob_Start_Callback(KListOpenFilesJob_Start_Callback cb) { klistopenfilesjob_start_callback = cb; }
     inline void setKListOpenFilesJob_DoKill_Callback(KListOpenFilesJob_DoKill_Callback cb) { klistopenfilesjob_dokill_callback = cb; }
@@ -177,6 +187,8 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
     inline void setKListOpenFilesJob_IsSignalConnected_Callback(KListOpenFilesJob_IsSignalConnected_Callback cb) { klistopenfilesjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKListOpenFilesJob_MetaObject_IsBase(bool value) const { klistopenfilesjob_metaobject_isbase = value; }
+    inline void setKListOpenFilesJob_Metacast_IsBase(bool value) const { klistopenfilesjob_metacast_isbase = value; }
     inline void setKListOpenFilesJob_Metacall_IsBase(bool value) const { klistopenfilesjob_metacall_isbase = value; }
     inline void setKListOpenFilesJob_Start_IsBase(bool value) const { klistopenfilesjob_start_isbase = value; }
     inline void setKListOpenFilesJob_DoKill_IsBase(bool value) const { klistopenfilesjob_dokill_isbase = value; }
@@ -206,6 +218,34 @@ class VirtualKListOpenFilesJob final : public KListOpenFilesJob {
     inline void setKListOpenFilesJob_SenderSignalIndex_IsBase(bool value) const { klistopenfilesjob_sendersignalindex_isbase = value; }
     inline void setKListOpenFilesJob_Receivers_IsBase(bool value) const { klistopenfilesjob_receivers_isbase = value; }
     inline void setKListOpenFilesJob_IsSignalConnected_IsBase(bool value) const { klistopenfilesjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (klistopenfilesjob_metaobject_isbase) {
+            klistopenfilesjob_metaobject_isbase = false;
+            return KListOpenFilesJob::metaObject();
+        } else if (klistopenfilesjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = klistopenfilesjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KListOpenFilesJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (klistopenfilesjob_metacast_isbase) {
+            klistopenfilesjob_metacast_isbase = false;
+            return KListOpenFilesJob::qt_metacast(param1);
+        } else if (klistopenfilesjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = klistopenfilesjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KListOpenFilesJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

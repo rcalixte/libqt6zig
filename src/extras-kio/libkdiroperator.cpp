@@ -66,11 +66,21 @@ KDirOperator* KDirOperator_new3(const QUrl* urlName, QWidget* parent) {
 }
 
 QMetaObject* KDirOperator_MetaObject(const KDirOperator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdiroperator = dynamic_cast<const VirtualKDirOperator*>(self);
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDirOperator*)self)->metaObject();
+    }
 }
 
 void* KDirOperator_Metacast(KDirOperator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDirOperator*)self)->qt_metacast(param1);
+    }
 }
 
 int KDirOperator_Metacall(KDirOperator* self, int param1, int param2, void** param3) {
@@ -881,6 +891,44 @@ void KDirOperator_Connect_RenamingFinished(KDirOperator* self, intptr_t slot) {
         slotFunc(self, sigval1);
         free(urls_arr);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KDirOperator_QBaseMetaObject(const KDirOperator* self) {
+    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+        vkdiroperator->setKDirOperator_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdiroperator->metaObject();
+    } else {
+        return (QMetaObject*)self->KDirOperator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirOperator_OnMetaObject(const KDirOperator* self, intptr_t slot) {
+    auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+        vkdiroperator->setKDirOperator_MetaObject_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDirOperator_QBaseMetacast(KDirOperator* self, const char* param1) {
+    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+        vkdiroperator->setKDirOperator_Metacast_IsBase(true);
+        return vkdiroperator->qt_metacast(param1);
+    } else {
+        return self->KDirOperator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDirOperator_OnMetacast(KDirOperator* self, intptr_t slot) {
+    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+        vkdiroperator->setKDirOperator_Metacast_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

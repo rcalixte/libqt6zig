@@ -22,11 +22,21 @@ QAccessiblePlugin* QAccessiblePlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QAccessiblePlugin_MetaObject(const QAccessiblePlugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqaccessibleplugin = dynamic_cast<const VirtualQAccessiblePlugin*>(self);
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAccessiblePlugin*)self)->metaObject();
+    }
 }
 
 void* QAccessiblePlugin_Metacast(QAccessiblePlugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAccessiblePlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int QAccessiblePlugin_Metacall(QAccessiblePlugin* self, int param1, int param2, void** param3) {
@@ -45,6 +55,44 @@ QAccessibleInterface* QAccessiblePlugin_Create(QAccessiblePlugin* self, const li
         return vqaccessibleplugin->create(key_QString, object);
     } else {
         return ((VirtualQAccessiblePlugin*)self)->create(key_QString, object);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QAccessiblePlugin_QBaseMetaObject(const QAccessiblePlugin* self) {
+    auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        vqaccessibleplugin->setQAccessiblePlugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vqaccessibleplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->QAccessiblePlugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAccessiblePlugin_OnMetaObject(const QAccessiblePlugin* self, intptr_t slot) {
+    auto* vqaccessibleplugin = const_cast<VirtualQAccessiblePlugin*>(dynamic_cast<const VirtualQAccessiblePlugin*>(self));
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        vqaccessibleplugin->setQAccessiblePlugin_MetaObject_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAccessiblePlugin_QBaseMetacast(QAccessiblePlugin* self, const char* param1) {
+    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        vqaccessibleplugin->setQAccessiblePlugin_Metacast_IsBase(true);
+        return vqaccessibleplugin->qt_metacast(param1);
+    } else {
+        return self->QAccessiblePlugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAccessiblePlugin_OnMetacast(QAccessiblePlugin* self, intptr_t slot) {
+    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
+    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
+        vqaccessibleplugin->setQAccessiblePlugin_Metacast_Callback(reinterpret_cast<VirtualQAccessiblePlugin::QAccessiblePlugin_Metacast_Callback>(slot));
     }
 }
 

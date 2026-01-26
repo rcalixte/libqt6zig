@@ -25,11 +25,21 @@ QsciLexerHTML* QsciLexerHTML_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerHTML_MetaObject(const QsciLexerHTML* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerhtml = dynamic_cast<const VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerHTML*)self)->metaObject();
+    }
 }
 
 void* QsciLexerHTML_Metacast(QsciLexerHTML* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerHTML*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerHTML_Metacall(QsciLexerHTML* self, int param1, int param2, void** param3) {
@@ -161,6 +171,44 @@ void QsciLexerHTML_SetCaseSensitiveTags(QsciLexerHTML* self, bool sens) {
         self->setCaseSensitiveTags(sens);
     } else {
         ((VirtualQsciLexerHTML*)self)->setCaseSensitiveTags(sens);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerHTML_QBaseMetaObject(const QsciLexerHTML* self) {
+    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerhtml->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerHTML*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerHTML_OnMetaObject(const QsciLexerHTML* self, intptr_t slot) {
+    auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerHTML_QBaseMetacast(QsciLexerHTML* self, const char* param1) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_Metacast_IsBase(true);
+        return vqscilexerhtml->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerHTML*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerHTML_OnMetacast(QsciLexerHTML* self, intptr_t slot) {
+    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
+    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
+        vqscilexerhtml->setQsciLexerHTML_Metacast_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_Metacast_Callback>(slot));
     }
 }
 

@@ -50,11 +50,21 @@ QRubberBand* QRubberBand_new2(int param1, QWidget* param2) {
 }
 
 QMetaObject* QRubberBand_MetaObject(const QRubberBand* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqrubberband = dynamic_cast<const VirtualQRubberBand*>(self);
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQRubberBand*)self)->metaObject();
+    }
 }
 
 void* QRubberBand_Metacast(QRubberBand* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQRubberBand*)self)->qt_metacast(param1);
+    }
 }
 
 int QRubberBand_Metacall(QRubberBand* self, int param1, int param2, void** param3) {
@@ -141,6 +151,44 @@ void QRubberBand_InitStyleOption(const QRubberBand* self, QStyleOptionRubberBand
     auto* vqrubberband = dynamic_cast<const VirtualQRubberBand*>(self);
     if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
         vqrubberband->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QRubberBand_QBaseMetaObject(const QRubberBand* self) {
+    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+        vqrubberband->setQRubberBand_MetaObject_IsBase(true);
+        return (QMetaObject*)vqrubberband->metaObject();
+    } else {
+        return (QMetaObject*)self->QRubberBand::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRubberBand_OnMetaObject(const QRubberBand* self, intptr_t slot) {
+    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+        vqrubberband->setQRubberBand_MetaObject_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QRubberBand_QBaseMetacast(QRubberBand* self, const char* param1) {
+    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+        vqrubberband->setQRubberBand_Metacast_IsBase(true);
+        return vqrubberband->qt_metacast(param1);
+    } else {
+        return self->QRubberBand::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRubberBand_OnMetacast(QRubberBand* self, intptr_t slot) {
+    auto* vqrubberband = dynamic_cast<VirtualQRubberBand*>(self);
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+        vqrubberband->setQRubberBand_Metacast_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_Metacast_Callback>(slot));
     }
 }
 

@@ -432,11 +432,21 @@ QImageIOPlugin* QImageIOPlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QImageIOPlugin_MetaObject(const QImageIOPlugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqimageioplugin = dynamic_cast<const VirtualQImageIOPlugin*>(self);
+    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQImageIOPlugin*)self)->metaObject();
+    }
 }
 
 void* QImageIOPlugin_Metacast(QImageIOPlugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
+    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQImageIOPlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int QImageIOPlugin_Metacall(QImageIOPlugin* self, int param1, int param2, void** param3) {
@@ -465,6 +475,44 @@ QImageIOHandler* QImageIOPlugin_Create(const QImageIOPlugin* self, QIODevice* de
         return vqimageioplugin->create(device, format_QByteArray);
     } else {
         return ((VirtualQImageIOPlugin*)self)->create(device, format_QByteArray);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QImageIOPlugin_QBaseMetaObject(const QImageIOPlugin* self) {
+    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
+    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+        vqimageioplugin->setQImageIOPlugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vqimageioplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->QImageIOPlugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QImageIOPlugin_OnMetaObject(const QImageIOPlugin* self, intptr_t slot) {
+    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
+    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+        vqimageioplugin->setQImageIOPlugin_MetaObject_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QImageIOPlugin_QBaseMetacast(QImageIOPlugin* self, const char* param1) {
+    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
+    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+        vqimageioplugin->setQImageIOPlugin_Metacast_IsBase(true);
+        return vqimageioplugin->qt_metacast(param1);
+    } else {
+        return self->QImageIOPlugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QImageIOPlugin_OnMetacast(QImageIOPlugin* self, intptr_t slot) {
+    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
+    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+        vqimageioplugin->setQImageIOPlugin_Metacast_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Metacast_Callback>(slot));
     }
 }
 

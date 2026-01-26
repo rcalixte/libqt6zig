@@ -27,11 +27,21 @@ QSplineSeries* QSplineSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QSplineSeries_MetaObject(const QSplineSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsplineseries = dynamic_cast<const VirtualQSplineSeries*>(self);
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSplineSeries*)self)->metaObject();
+    }
 }
 
 void* QSplineSeries_Metacast(QSplineSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSplineSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QSplineSeries_Metacall(QSplineSeries* self, int param1, int param2, void** param3) {
@@ -49,6 +59,44 @@ int QSplineSeries_Type(const QSplineSeries* self) {
         return static_cast<int>(self->type());
     } else {
         return static_cast<int>(((VirtualQSplineSeries*)self)->type());
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QSplineSeries_QBaseMetaObject(const QSplineSeries* self) {
+    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        vqsplineseries->setQSplineSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsplineseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QSplineSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplineSeries_OnMetaObject(const QSplineSeries* self, intptr_t slot) {
+    auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        vqsplineseries->setQSplineSeries_MetaObject_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSplineSeries_QBaseMetacast(QSplineSeries* self, const char* param1) {
+    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        vqsplineseries->setQSplineSeries_Metacast_IsBase(true);
+        return vqsplineseries->qt_metacast(param1);
+    } else {
+        return self->QSplineSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplineSeries_OnMetacast(QSplineSeries* self, intptr_t slot) {
+    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+        vqsplineseries->setQSplineSeries_Metacast_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Metacast_Callback>(slot));
     }
 }
 

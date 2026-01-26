@@ -63,11 +63,21 @@ QMenu* QMenu_new4(const libqt_string title, QWidget* parent) {
 }
 
 QMetaObject* QMenu_MetaObject(const QMenu* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmenu = dynamic_cast<const VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMenu*)self)->metaObject();
+    }
 }
 
 void* QMenu_Metacast(QMenu* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMenu*)self)->qt_metacast(param1);
+    }
 }
 
 int QMenu_Metacall(QMenu* self, int param1, int param2, void** param3) {
@@ -444,6 +454,44 @@ QAction* QMenu_Exec4(const libqt_list /* of QAction* */ actions, const QPoint* p
         actions_QList.push_back(actions_arr[i]);
     }
     return QMenu::exec(actions_QList, *pos, at, parent);
+}
+
+// Base class handler implementation
+QMetaObject* QMenu_QBaseMetaObject(const QMenu* self) {
+    auto* vqmenu = const_cast<VirtualQMenu*>(dynamic_cast<const VirtualQMenu*>(self));
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmenu->metaObject();
+    } else {
+        return (QMetaObject*)self->QMenu::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnMetaObject(const QMenu* self, intptr_t slot) {
+    auto* vqmenu = const_cast<VirtualQMenu*>(dynamic_cast<const VirtualQMenu*>(self));
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_MetaObject_Callback(reinterpret_cast<VirtualQMenu::QMenu_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMenu_QBaseMetacast(QMenu* self, const char* param1) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_Metacast_IsBase(true);
+        return vqmenu->qt_metacast(param1);
+    } else {
+        return self->QMenu::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenu_OnMetacast(QMenu* self, intptr_t slot) {
+    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
+    if (vqmenu && vqmenu->isVirtualQMenu) {
+        vqmenu->setQMenu_Metacast_Callback(reinterpret_cast<VirtualQMenu::QMenu_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

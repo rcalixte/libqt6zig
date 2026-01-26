@@ -17,6 +17,8 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
     bool isVirtualKIOSkipDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__SkipDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__SkipDialog_Metacast_Callback = void* (*)(KIO__SkipDialog*, const char*);
     using KIO__SkipDialog_Metacall_Callback = int (*)(KIO__SkipDialog*, int, int, void**);
     using KIO__SkipDialog_SetVisible_Callback = void (*)(KIO__SkipDialog*, bool);
     using KIO__SkipDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
 
   protected:
     // Instance callback storage
+    KIO__SkipDialog_MetaObject_Callback kio__skipdialog_metaobject_callback = nullptr;
+    KIO__SkipDialog_Metacast_Callback kio__skipdialog_metacast_callback = nullptr;
     KIO__SkipDialog_Metacall_Callback kio__skipdialog_metacall_callback = nullptr;
     KIO__SkipDialog_SetVisible_Callback kio__skipdialog_setvisible_callback = nullptr;
     KIO__SkipDialog_SizeHint_Callback kio__skipdialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
     KIO__SkipDialog_GetDecodedMetricF_Callback kio__skipdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__skipdialog_metaobject_isbase = false;
+    mutable bool kio__skipdialog_metacast_isbase = false;
     mutable bool kio__skipdialog_metacall_isbase = false;
     mutable bool kio__skipdialog_setvisible_isbase = false;
     mutable bool kio__skipdialog_sizehint_isbase = false;
@@ -219,6 +225,8 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
     VirtualKIOSkipDialog(QWidget* parent, KIO::SkipDialog_Options options, const QString& _error_text) : KIO::SkipDialog(parent, options, _error_text) {};
 
     ~VirtualKIOSkipDialog() {
+        kio__skipdialog_metaobject_callback = nullptr;
+        kio__skipdialog_metacast_callback = nullptr;
         kio__skipdialog_metacall_callback = nullptr;
         kio__skipdialog_setvisible_callback = nullptr;
         kio__skipdialog_sizehint_callback = nullptr;
@@ -286,6 +294,8 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
     }
 
     // Callback setters
+    inline void setKIO__SkipDialog_MetaObject_Callback(KIO__SkipDialog_MetaObject_Callback cb) { kio__skipdialog_metaobject_callback = cb; }
+    inline void setKIO__SkipDialog_Metacast_Callback(KIO__SkipDialog_Metacast_Callback cb) { kio__skipdialog_metacast_callback = cb; }
     inline void setKIO__SkipDialog_Metacall_Callback(KIO__SkipDialog_Metacall_Callback cb) { kio__skipdialog_metacall_callback = cb; }
     inline void setKIO__SkipDialog_SetVisible_Callback(KIO__SkipDialog_SetVisible_Callback cb) { kio__skipdialog_setvisible_callback = cb; }
     inline void setKIO__SkipDialog_SizeHint_Callback(KIO__SkipDialog_SizeHint_Callback cb) { kio__skipdialog_sizehint_callback = cb; }
@@ -352,6 +362,8 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
     inline void setKIO__SkipDialog_GetDecodedMetricF_Callback(KIO__SkipDialog_GetDecodedMetricF_Callback cb) { kio__skipdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__SkipDialog_MetaObject_IsBase(bool value) const { kio__skipdialog_metaobject_isbase = value; }
+    inline void setKIO__SkipDialog_Metacast_IsBase(bool value) const { kio__skipdialog_metacast_isbase = value; }
     inline void setKIO__SkipDialog_Metacall_IsBase(bool value) const { kio__skipdialog_metacall_isbase = value; }
     inline void setKIO__SkipDialog_SetVisible_IsBase(bool value) const { kio__skipdialog_setvisible_isbase = value; }
     inline void setKIO__SkipDialog_SizeHint_IsBase(bool value) const { kio__skipdialog_sizehint_isbase = value; }
@@ -416,6 +428,34 @@ class VirtualKIOSkipDialog final : public KIO::SkipDialog {
     inline void setKIO__SkipDialog_Receivers_IsBase(bool value) const { kio__skipdialog_receivers_isbase = value; }
     inline void setKIO__SkipDialog_IsSignalConnected_IsBase(bool value) const { kio__skipdialog_issignalconnected_isbase = value; }
     inline void setKIO__SkipDialog_GetDecodedMetricF_IsBase(bool value) const { kio__skipdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__skipdialog_metaobject_isbase) {
+            kio__skipdialog_metaobject_isbase = false;
+            return KIO__SkipDialog::metaObject();
+        } else if (kio__skipdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__skipdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__SkipDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__skipdialog_metacast_isbase) {
+            kio__skipdialog_metacast_isbase = false;
+            return KIO__SkipDialog::qt_metacast(param1);
+        } else if (kio__skipdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__skipdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__SkipDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

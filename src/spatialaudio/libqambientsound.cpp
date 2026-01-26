@@ -19,11 +19,21 @@ QAmbientSound* QAmbientSound_new(QAudioEngine* engine) {
 }
 
 QMetaObject* QAmbientSound_MetaObject(const QAmbientSound* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqambientsound = dynamic_cast<const VirtualQAmbientSound*>(self);
+    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAmbientSound*)self)->metaObject();
+    }
 }
 
 void* QAmbientSound_Metacast(QAmbientSound* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
+    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAmbientSound*)self)->qt_metacast(param1);
+    }
 }
 
 int QAmbientSound_Metacall(QAmbientSound* self, int param1, int param2, void** param3) {
@@ -125,6 +135,44 @@ void QAmbientSound_Pause(QAmbientSound* self) {
 
 void QAmbientSound_Stop(QAmbientSound* self) {
     self->stop();
+}
+
+// Base class handler implementation
+QMetaObject* QAmbientSound_QBaseMetaObject(const QAmbientSound* self) {
+    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
+    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+        vqambientsound->setQAmbientSound_MetaObject_IsBase(true);
+        return (QMetaObject*)vqambientsound->metaObject();
+    } else {
+        return (QMetaObject*)self->QAmbientSound::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAmbientSound_OnMetaObject(const QAmbientSound* self, intptr_t slot) {
+    auto* vqambientsound = const_cast<VirtualQAmbientSound*>(dynamic_cast<const VirtualQAmbientSound*>(self));
+    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+        vqambientsound->setQAmbientSound_MetaObject_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAmbientSound_QBaseMetacast(QAmbientSound* self, const char* param1) {
+    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
+    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+        vqambientsound->setQAmbientSound_Metacast_IsBase(true);
+        return vqambientsound->qt_metacast(param1);
+    } else {
+        return self->QAmbientSound::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAmbientSound_OnMetacast(QAmbientSound* self, intptr_t slot) {
+    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
+    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
+        vqambientsound->setQAmbientSound_Metacast_Callback(reinterpret_cast<VirtualQAmbientSound::QAmbientSound_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -23,11 +23,21 @@ KCompositeJob* KCompositeJob_new2(QObject* parent) {
 }
 
 QMetaObject* KCompositeJob_MetaObject(const KCompositeJob* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcompositejob = dynamic_cast<const VirtualKCompositeJob*>(self);
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCompositeJob*)self)->metaObject();
+    }
 }
 
 void* KCompositeJob_Metacast(KCompositeJob* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCompositeJob*)self)->qt_metacast(param1);
+    }
 }
 
 int KCompositeJob_Metacall(KCompositeJob* self, int param1, int param2, void** param3) {
@@ -67,6 +77,44 @@ void KCompositeJob_SlotInfoMessage(KCompositeJob* self, KJob* job, const libqt_s
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->slotInfoMessage(job, message_QString);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KCompositeJob_QBaseMetaObject(const KCompositeJob* self) {
+    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+        vkcompositejob->setKCompositeJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcompositejob->metaObject();
+    } else {
+        return (QMetaObject*)self->KCompositeJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCompositeJob_OnMetaObject(const KCompositeJob* self, intptr_t slot) {
+    auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+        vkcompositejob->setKCompositeJob_MetaObject_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCompositeJob_QBaseMetacast(KCompositeJob* self, const char* param1) {
+    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+        vkcompositejob->setKCompositeJob_Metacast_IsBase(true);
+        return vkcompositejob->qt_metacast(param1);
+    } else {
+        return self->KCompositeJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCompositeJob_OnMetacast(KCompositeJob* self, intptr_t slot) {
+    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+        vkcompositejob->setKCompositeJob_Metacast_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Metacast_Callback>(slot));
     }
 }
 

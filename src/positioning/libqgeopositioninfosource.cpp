@@ -21,11 +21,21 @@ QGeoPositionInfoSource* QGeoPositionInfoSource_new(QObject* parent) {
 }
 
 QMetaObject* QGeoPositionInfoSource_MetaObject(const QGeoPositionInfoSource* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgeopositioninfosource = dynamic_cast<const VirtualQGeoPositionInfoSource*>(self);
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGeoPositionInfoSource*)self)->metaObject();
+    }
 }
 
 void* QGeoPositionInfoSource_Metacast(QGeoPositionInfoSource* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGeoPositionInfoSource*)self)->qt_metacast(param1);
+    }
 }
 
 int QGeoPositionInfoSource_Metacall(QGeoPositionInfoSource* self, int param1, int param2, void** param3) {
@@ -246,6 +256,44 @@ void QGeoPositionInfoSource_Connect_SupportedPositioningMethodsChanged(QGeoPosit
     QGeoPositionInfoSource::connect(self, &QGeoPositionInfoSource::supportedPositioningMethodsChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGeoPositionInfoSource_QBaseMetaObject(const QGeoPositionInfoSource* self) {
+    auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+        vqgeopositioninfosource->setQGeoPositionInfoSource_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgeopositioninfosource->metaObject();
+    } else {
+        return (QMetaObject*)self->QGeoPositionInfoSource::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoPositionInfoSource_OnMetaObject(const QGeoPositionInfoSource* self, intptr_t slot) {
+    auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+        vqgeopositioninfosource->setQGeoPositionInfoSource_MetaObject_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGeoPositionInfoSource_QBaseMetacast(QGeoPositionInfoSource* self, const char* param1) {
+    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+        vqgeopositioninfosource->setQGeoPositionInfoSource_Metacast_IsBase(true);
+        return vqgeopositioninfosource->qt_metacast(param1);
+    } else {
+        return self->QGeoPositionInfoSource::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoPositionInfoSource_OnMetacast(QGeoPositionInfoSource* self, intptr_t slot) {
+    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+        vqgeopositioninfosource->setQGeoPositionInfoSource_Metacast_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

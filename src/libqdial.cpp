@@ -50,11 +50,21 @@ QDial* QDial_new2() {
 }
 
 QMetaObject* QDial_MetaObject(const QDial* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdial = dynamic_cast<const VirtualQDial*>(self);
+    if (vqdial && vqdial->isVirtualQDial) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDial*)self)->metaObject();
+    }
 }
 
 void* QDial_Metacast(QDial* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdial = dynamic_cast<VirtualQDial*>(self);
+    if (vqdial && vqdial->isVirtualQDial) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDial*)self)->qt_metacast(param1);
+    }
 }
 
 int QDial_Metacall(QDial* self, int param1, int param2, void** param3) {
@@ -166,6 +176,44 @@ void QDial_InitStyleOption(const QDial* self, QStyleOptionSlider* option) {
     auto* vqdial = dynamic_cast<const VirtualQDial*>(self);
     if (vqdial && vqdial->isVirtualQDial) {
         vqdial->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDial_QBaseMetaObject(const QDial* self) {
+    auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
+    if (vqdial && vqdial->isVirtualQDial) {
+        vqdial->setQDial_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdial->metaObject();
+    } else {
+        return (QMetaObject*)self->QDial::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDial_OnMetaObject(const QDial* self, intptr_t slot) {
+    auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
+    if (vqdial && vqdial->isVirtualQDial) {
+        vqdial->setQDial_MetaObject_Callback(reinterpret_cast<VirtualQDial::QDial_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDial_QBaseMetacast(QDial* self, const char* param1) {
+    auto* vqdial = dynamic_cast<VirtualQDial*>(self);
+    if (vqdial && vqdial->isVirtualQDial) {
+        vqdial->setQDial_Metacast_IsBase(true);
+        return vqdial->qt_metacast(param1);
+    } else {
+        return self->QDial::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDial_OnMetacast(QDial* self, intptr_t slot) {
+    auto* vqdial = dynamic_cast<VirtualQDial*>(self);
+    if (vqdial && vqdial->isVirtualQDial) {
+        vqdial->setQDial_Metacast_Callback(reinterpret_cast<VirtualQDial::QDial_Metacast_Callback>(slot));
     }
 }
 

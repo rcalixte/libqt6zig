@@ -33,11 +33,21 @@ KFontSizeAction* KFontSizeAction_new3(const QIcon* icon, const libqt_string text
 }
 
 QMetaObject* KFontSizeAction_MetaObject(const KFontSizeAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfontsizeaction = dynamic_cast<const VirtualKFontSizeAction*>(self);
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFontSizeAction*)self)->metaObject();
+    }
 }
 
 void* KFontSizeAction_Metacast(KFontSizeAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFontSizeAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KFontSizeAction_Metacall(KFontSizeAction* self, int param1, int param2, void** param3) {
@@ -73,6 +83,44 @@ void KFontSizeAction_SlotActionTriggered(KFontSizeAction* self, QAction* action)
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
     if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
         vkfontsizeaction->slotActionTriggered(action);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KFontSizeAction_QBaseMetaObject(const KFontSizeAction* self) {
+    auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        vkfontsizeaction->setKFontSizeAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfontsizeaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KFontSizeAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontSizeAction_OnMetaObject(const KFontSizeAction* self, intptr_t slot) {
+    auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        vkfontsizeaction->setKFontSizeAction_MetaObject_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFontSizeAction_QBaseMetacast(KFontSizeAction* self, const char* param1) {
+    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        vkfontsizeaction->setKFontSizeAction_Metacast_IsBase(true);
+        return vkfontsizeaction->qt_metacast(param1);
+    } else {
+        return self->KFontSizeAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontSizeAction_OnMetacast(KFontSizeAction* self, intptr_t slot) {
+    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+        vkfontsizeaction->setKFontSizeAction_Metacast_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_Metacast_Callback>(slot));
     }
 }
 

@@ -128,6 +128,10 @@ void QDesignerWidgetDataBaseInterface_Changed(QDesignerWidgetDataBaseInterface* 
 void QDesignerWidgetDataBaseInterface_Connect_Changed(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
 bool QDesignerWidgetDataBaseInterface_IsContainer2(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName);
 bool QDesignerWidgetDataBaseInterface_IsCustom2(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName);
+void QDesignerWidgetDataBaseInterface_OnMetaObject(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+QMetaObject* QDesignerWidgetDataBaseInterface_QBaseMetaObject(const QDesignerWidgetDataBaseInterface* self);
+void QDesignerWidgetDataBaseInterface_OnMetacast(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+void* QDesignerWidgetDataBaseInterface_QBaseMetacast(QDesignerWidgetDataBaseInterface* self, const char* param1);
 void QDesignerWidgetDataBaseInterface_OnMetacall(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
 int QDesignerWidgetDataBaseInterface_QBaseMetacall(QDesignerWidgetDataBaseInterface* self, int param1, int param2, void** param3);
 void QDesignerWidgetDataBaseInterface_OnCount(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);

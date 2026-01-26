@@ -62,6 +62,10 @@ void KParts__PartManager_PartRemoved(KParts__PartManager* self, KParts__Part* pa
 void KParts__PartManager_Connect_PartRemoved(KParts__PartManager* self, intptr_t slot);
 void KParts__PartManager_ActivePartChanged(KParts__PartManager* self, KParts__Part* newPart);
 void KParts__PartManager_Connect_ActivePartChanged(KParts__PartManager* self, intptr_t slot);
+void KParts__PartManager_OnMetaObject(const KParts__PartManager* self, intptr_t slot);
+QMetaObject* KParts__PartManager_QBaseMetaObject(const KParts__PartManager* self);
+void KParts__PartManager_OnMetacast(KParts__PartManager* self, intptr_t slot);
+void* KParts__PartManager_QBaseMetacast(KParts__PartManager* self, const char* param1);
 void KParts__PartManager_OnMetacall(KParts__PartManager* self, intptr_t slot);
 int KParts__PartManager_QBaseMetacall(KParts__PartManager* self, int param1, int param2, void** param3);
 void KParts__PartManager_OnEventFilter(KParts__PartManager* self, intptr_t slot);

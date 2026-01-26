@@ -17,6 +17,8 @@ class VirtualQMainWindow final : public QMainWindow {
     bool isVirtualQMainWindow = true;
 
     // Virtual class public types (including callbacks)
+    using QMainWindow_MetaObject_Callback = QMetaObject* (*)();
+    using QMainWindow_Metacast_Callback = void* (*)(QMainWindow*, const char*);
     using QMainWindow_Metacall_Callback = int (*)(QMainWindow*, int, int, void**);
     using QMainWindow_CreatePopupMenu_Callback = QMenu* (*)();
     using QMainWindow_ContextMenuEvent_Callback = void (*)(QMainWindow*, QContextMenuEvent*);
@@ -79,6 +81,8 @@ class VirtualQMainWindow final : public QMainWindow {
 
   protected:
     // Instance callback storage
+    QMainWindow_MetaObject_Callback qmainwindow_metaobject_callback = nullptr;
+    QMainWindow_Metacast_Callback qmainwindow_metacast_callback = nullptr;
     QMainWindow_Metacall_Callback qmainwindow_metacall_callback = nullptr;
     QMainWindow_CreatePopupMenu_Callback qmainwindow_createpopupmenu_callback = nullptr;
     QMainWindow_ContextMenuEvent_Callback qmainwindow_contextmenuevent_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualQMainWindow final : public QMainWindow {
     QMainWindow_GetDecodedMetricF_Callback qmainwindow_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmainwindow_metaobject_isbase = false;
+    mutable bool qmainwindow_metacast_isbase = false;
     mutable bool qmainwindow_metacall_isbase = false;
     mutable bool qmainwindow_createpopupmenu_isbase = false;
     mutable bool qmainwindow_contextmenuevent_isbase = false;
@@ -206,6 +212,8 @@ class VirtualQMainWindow final : public QMainWindow {
     VirtualQMainWindow(QWidget* parent, Qt::WindowFlags flags) : QMainWindow(parent, flags) {};
 
     ~VirtualQMainWindow() {
+        qmainwindow_metaobject_callback = nullptr;
+        qmainwindow_metacast_callback = nullptr;
         qmainwindow_metacall_callback = nullptr;
         qmainwindow_createpopupmenu_callback = nullptr;
         qmainwindow_contextmenuevent_callback = nullptr;
@@ -268,6 +276,8 @@ class VirtualQMainWindow final : public QMainWindow {
     }
 
     // Callback setters
+    inline void setQMainWindow_MetaObject_Callback(QMainWindow_MetaObject_Callback cb) { qmainwindow_metaobject_callback = cb; }
+    inline void setQMainWindow_Metacast_Callback(QMainWindow_Metacast_Callback cb) { qmainwindow_metacast_callback = cb; }
     inline void setQMainWindow_Metacall_Callback(QMainWindow_Metacall_Callback cb) { qmainwindow_metacall_callback = cb; }
     inline void setQMainWindow_CreatePopupMenu_Callback(QMainWindow_CreatePopupMenu_Callback cb) { qmainwindow_createpopupmenu_callback = cb; }
     inline void setQMainWindow_ContextMenuEvent_Callback(QMainWindow_ContextMenuEvent_Callback cb) { qmainwindow_contextmenuevent_callback = cb; }
@@ -329,6 +339,8 @@ class VirtualQMainWindow final : public QMainWindow {
     inline void setQMainWindow_GetDecodedMetricF_Callback(QMainWindow_GetDecodedMetricF_Callback cb) { qmainwindow_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQMainWindow_MetaObject_IsBase(bool value) const { qmainwindow_metaobject_isbase = value; }
+    inline void setQMainWindow_Metacast_IsBase(bool value) const { qmainwindow_metacast_isbase = value; }
     inline void setQMainWindow_Metacall_IsBase(bool value) const { qmainwindow_metacall_isbase = value; }
     inline void setQMainWindow_CreatePopupMenu_IsBase(bool value) const { qmainwindow_createpopupmenu_isbase = value; }
     inline void setQMainWindow_ContextMenuEvent_IsBase(bool value) const { qmainwindow_contextmenuevent_isbase = value; }
@@ -388,6 +400,34 @@ class VirtualQMainWindow final : public QMainWindow {
     inline void setQMainWindow_Receivers_IsBase(bool value) const { qmainwindow_receivers_isbase = value; }
     inline void setQMainWindow_IsSignalConnected_IsBase(bool value) const { qmainwindow_issignalconnected_isbase = value; }
     inline void setQMainWindow_GetDecodedMetricF_IsBase(bool value) const { qmainwindow_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmainwindow_metaobject_isbase) {
+            qmainwindow_metaobject_isbase = false;
+            return QMainWindow::metaObject();
+        } else if (qmainwindow_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmainwindow_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMainWindow::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmainwindow_metacast_isbase) {
+            qmainwindow_metacast_isbase = false;
+            return QMainWindow::qt_metacast(param1);
+        } else if (qmainwindow_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmainwindow_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMainWindow::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -59,6 +59,10 @@ KAboutPluginDialog* KAboutPluginDialog_new4(const KPluginMetaData* pluginMetaDat
 QMetaObject* KAboutPluginDialog_MetaObject(const KAboutPluginDialog* self);
 void* KAboutPluginDialog_Metacast(KAboutPluginDialog* self, const char* param1);
 int KAboutPluginDialog_Metacall(KAboutPluginDialog* self, int param1, int param2, void** param3);
+void KAboutPluginDialog_OnMetaObject(const KAboutPluginDialog* self, intptr_t slot);
+QMetaObject* KAboutPluginDialog_QBaseMetaObject(const KAboutPluginDialog* self);
+void KAboutPluginDialog_OnMetacast(KAboutPluginDialog* self, intptr_t slot);
+void* KAboutPluginDialog_QBaseMetacast(KAboutPluginDialog* self, const char* param1);
 void KAboutPluginDialog_OnMetacall(KAboutPluginDialog* self, intptr_t slot);
 int KAboutPluginDialog_QBaseMetacall(KAboutPluginDialog* self, int param1, int param2, void** param3);
 void KAboutPluginDialog_SetVisible(KAboutPluginDialog* self, bool visible);

@@ -35,6 +35,10 @@ QMetaObject* KIO__DndPopupMenuPlugin_MetaObject(const KIO__DndPopupMenuPlugin* s
 void* KIO__DndPopupMenuPlugin_Metacast(KIO__DndPopupMenuPlugin* self, const char* param1);
 int KIO__DndPopupMenuPlugin_Metacall(KIO__DndPopupMenuPlugin* self, int param1, int param2, void** param3);
 libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_Setup(KIO__DndPopupMenuPlugin* self, const KFileItemListProperties* popupMenuInfo, const QUrl* destination);
+void KIO__DndPopupMenuPlugin_OnMetaObject(const KIO__DndPopupMenuPlugin* self, intptr_t slot);
+QMetaObject* KIO__DndPopupMenuPlugin_QBaseMetaObject(const KIO__DndPopupMenuPlugin* self);
+void KIO__DndPopupMenuPlugin_OnMetacast(KIO__DndPopupMenuPlugin* self, intptr_t slot);
+void* KIO__DndPopupMenuPlugin_QBaseMetacast(KIO__DndPopupMenuPlugin* self, const char* param1);
 void KIO__DndPopupMenuPlugin_OnMetacall(KIO__DndPopupMenuPlugin* self, intptr_t slot);
 int KIO__DndPopupMenuPlugin_QBaseMetacall(KIO__DndPopupMenuPlugin* self, int param1, int param2, void** param3);
 void KIO__DndPopupMenuPlugin_OnSetup(KIO__DndPopupMenuPlugin* self, intptr_t slot);

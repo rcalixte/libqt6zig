@@ -20,6 +20,8 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using KFilePlacesView_MetaObject_Callback = QMetaObject* (*)();
+    using KFilePlacesView_Metacast_Callback = void* (*)(KFilePlacesView*, const char*);
     using KFilePlacesView_Metacall_Callback = int (*)(KFilePlacesView*, int, int, void**);
     using KFilePlacesView_SizeHint_Callback = QSize* (*)();
     using KFilePlacesView_SetModel_Callback = void (*)(KFilePlacesView*, QAbstractItemModel*);
@@ -143,6 +145,8 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
 
   protected:
     // Instance callback storage
+    KFilePlacesView_MetaObject_Callback kfileplacesview_metaobject_callback = nullptr;
+    KFilePlacesView_Metacast_Callback kfileplacesview_metacast_callback = nullptr;
     KFilePlacesView_Metacall_Callback kfileplacesview_metacall_callback = nullptr;
     KFilePlacesView_SizeHint_Callback kfileplacesview_sizehint_callback = nullptr;
     KFilePlacesView_SetModel_Callback kfileplacesview_setmodel_callback = nullptr;
@@ -265,6 +269,8 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
     KFilePlacesView_GetDecodedMetricF_Callback kfileplacesview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfileplacesview_metaobject_isbase = false;
+    mutable bool kfileplacesview_metacast_isbase = false;
     mutable bool kfileplacesview_metacall_isbase = false;
     mutable bool kfileplacesview_sizehint_isbase = false;
     mutable bool kfileplacesview_setmodel_isbase = false;
@@ -391,6 +397,8 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
     VirtualKFilePlacesView() : KFilePlacesView() {};
 
     ~VirtualKFilePlacesView() {
+        kfileplacesview_metaobject_callback = nullptr;
+        kfileplacesview_metacast_callback = nullptr;
         kfileplacesview_metacall_callback = nullptr;
         kfileplacesview_sizehint_callback = nullptr;
         kfileplacesview_setmodel_callback = nullptr;
@@ -514,6 +522,8 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
     }
 
     // Callback setters
+    inline void setKFilePlacesView_MetaObject_Callback(KFilePlacesView_MetaObject_Callback cb) { kfileplacesview_metaobject_callback = cb; }
+    inline void setKFilePlacesView_Metacast_Callback(KFilePlacesView_Metacast_Callback cb) { kfileplacesview_metacast_callback = cb; }
     inline void setKFilePlacesView_Metacall_Callback(KFilePlacesView_Metacall_Callback cb) { kfileplacesview_metacall_callback = cb; }
     inline void setKFilePlacesView_SizeHint_Callback(KFilePlacesView_SizeHint_Callback cb) { kfileplacesview_sizehint_callback = cb; }
     inline void setKFilePlacesView_SetModel_Callback(KFilePlacesView_SetModel_Callback cb) { kfileplacesview_setmodel_callback = cb; }
@@ -636,6 +646,8 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
     inline void setKFilePlacesView_GetDecodedMetricF_Callback(KFilePlacesView_GetDecodedMetricF_Callback cb) { kfileplacesview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKFilePlacesView_MetaObject_IsBase(bool value) const { kfileplacesview_metaobject_isbase = value; }
+    inline void setKFilePlacesView_Metacast_IsBase(bool value) const { kfileplacesview_metacast_isbase = value; }
     inline void setKFilePlacesView_Metacall_IsBase(bool value) const { kfileplacesview_metacall_isbase = value; }
     inline void setKFilePlacesView_SizeHint_IsBase(bool value) const { kfileplacesview_sizehint_isbase = value; }
     inline void setKFilePlacesView_SetModel_IsBase(bool value) const { kfileplacesview_setmodel_isbase = value; }
@@ -756,6 +768,34 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
     inline void setKFilePlacesView_Receivers_IsBase(bool value) const { kfileplacesview_receivers_isbase = value; }
     inline void setKFilePlacesView_IsSignalConnected_IsBase(bool value) const { kfileplacesview_issignalconnected_isbase = value; }
     inline void setKFilePlacesView_GetDecodedMetricF_IsBase(bool value) const { kfileplacesview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfileplacesview_metaobject_isbase) {
+            kfileplacesview_metaobject_isbase = false;
+            return KFilePlacesView::metaObject();
+        } else if (kfileplacesview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfileplacesview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFilePlacesView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfileplacesview_metacast_isbase) {
+            kfileplacesview_metacast_isbase = false;
+            return KFilePlacesView::qt_metacast(param1);
+        } else if (kfileplacesview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfileplacesview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFilePlacesView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -28,11 +28,21 @@ QFormLayout* QFormLayout_new2() {
 }
 
 QMetaObject* QFormLayout_MetaObject(const QFormLayout* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
+    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFormLayout*)self)->metaObject();
+    }
 }
 
 void* QFormLayout_Metacast(QFormLayout* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
+    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFormLayout*)self)->qt_metacast(param1);
+    }
 }
 
 int QFormLayout_Metacall(QFormLayout* self, int param1, int param2, void** param3) {
@@ -335,6 +345,44 @@ int QFormLayout_Count(const QFormLayout* self) {
 
 int QFormLayout_RowCount(const QFormLayout* self) {
     return self->rowCount();
+}
+
+// Base class handler implementation
+QMetaObject* QFormLayout_QBaseMetaObject(const QFormLayout* self) {
+    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
+    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+        vqformlayout->setQFormLayout_MetaObject_IsBase(true);
+        return (QMetaObject*)vqformlayout->metaObject();
+    } else {
+        return (QMetaObject*)self->QFormLayout::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFormLayout_OnMetaObject(const QFormLayout* self, intptr_t slot) {
+    auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
+    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+        vqformlayout->setQFormLayout_MetaObject_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFormLayout_QBaseMetacast(QFormLayout* self, const char* param1) {
+    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
+    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+        vqformlayout->setQFormLayout_Metacast_IsBase(true);
+        return vqformlayout->qt_metacast(param1);
+    } else {
+        return self->QFormLayout::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFormLayout_OnMetacast(QFormLayout* self, intptr_t slot) {
+    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
+    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
+        vqformlayout->setQFormLayout_Metacast_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

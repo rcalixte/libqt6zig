@@ -55,11 +55,21 @@ KDateTimeEdit* KDateTimeEdit_new2() {
 }
 
 QMetaObject* KDateTimeEdit_MetaObject(const KDateTimeEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdatetimeedit = dynamic_cast<const VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDateTimeEdit*)self)->metaObject();
+    }
 }
 
 void* KDateTimeEdit_Metacast(KDateTimeEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDateTimeEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int KDateTimeEdit_Metacall(KDateTimeEdit* self, int param1, int param2, void** param3) {
@@ -571,6 +581,44 @@ void KDateTimeEdit_SetTimeList3(KDateTimeEdit* self, libqt_list /* of QTime* */ 
     QString minWarnMsg_QString = QString::fromUtf8(minWarnMsg.data, minWarnMsg.len);
     QString maxWarnMsg_QString = QString::fromUtf8(maxWarnMsg.data, maxWarnMsg.len);
     self->setTimeList(timeList_QList, minWarnMsg_QString, maxWarnMsg_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KDateTimeEdit_QBaseMetaObject(const KDateTimeEdit* self) {
+    auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdatetimeedit->metaObject();
+    } else {
+        return (QMetaObject*)self->KDateTimeEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnMetaObject(const KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_MetaObject_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDateTimeEdit_QBaseMetacast(KDateTimeEdit* self, const char* param1) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_Metacast_IsBase(true);
+        return vkdatetimeedit->qt_metacast(param1);
+    } else {
+        return self->KDateTimeEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDateTimeEdit_OnMetacast(KDateTimeEdit* self, intptr_t slot) {
+    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+        vkdatetimeedit->setKDateTimeEdit_Metacast_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

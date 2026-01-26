@@ -20,11 +20,21 @@ QActionGroup* QActionGroup_new(QObject* parent) {
 }
 
 QMetaObject* QActionGroup_MetaObject(const QActionGroup* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqactiongroup = dynamic_cast<const VirtualQActionGroup*>(self);
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQActionGroup*)self)->metaObject();
+    }
 }
 
 void* QActionGroup_Metacast(QActionGroup* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQActionGroup*)self)->qt_metacast(param1);
+    }
 }
 
 int QActionGroup_Metacall(QActionGroup* self, int param1, int param2, void** param3) {
@@ -129,6 +139,44 @@ void QActionGroup_Connect_Hovered(QActionGroup* self, intptr_t slot) {
         QAction* sigval1 = param1;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QActionGroup_QBaseMetaObject(const QActionGroup* self) {
+    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+        vqactiongroup->setQActionGroup_MetaObject_IsBase(true);
+        return (QMetaObject*)vqactiongroup->metaObject();
+    } else {
+        return (QMetaObject*)self->QActionGroup::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QActionGroup_OnMetaObject(const QActionGroup* self, intptr_t slot) {
+    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+        vqactiongroup->setQActionGroup_MetaObject_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QActionGroup_QBaseMetacast(QActionGroup* self, const char* param1) {
+    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+        vqactiongroup->setQActionGroup_Metacast_IsBase(true);
+        return vqactiongroup->qt_metacast(param1);
+    } else {
+        return self->QActionGroup::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QActionGroup_OnMetacast(QActionGroup* self, intptr_t slot) {
+    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
+    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+        vqactiongroup->setQActionGroup_Metacast_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

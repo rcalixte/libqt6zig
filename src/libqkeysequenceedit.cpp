@@ -59,11 +59,21 @@ QKeySequenceEdit* QKeySequenceEdit_new4(const QKeySequence* keySequence, QWidget
 }
 
 QMetaObject* QKeySequenceEdit_MetaObject(const QKeySequenceEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqkeysequenceedit = dynamic_cast<const VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQKeySequenceEdit*)self)->metaObject();
+    }
 }
 
 void* QKeySequenceEdit_Metacast(QKeySequenceEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQKeySequenceEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int QKeySequenceEdit_Metacall(QKeySequenceEdit* self, int param1, int param2, void** param3) {
@@ -184,6 +194,44 @@ void QKeySequenceEdit_FocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1)
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
         vqkeysequenceedit->focusOutEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QKeySequenceEdit_QBaseMetaObject(const QKeySequenceEdit* self) {
+    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vqkeysequenceedit->metaObject();
+    } else {
+        return (QMetaObject*)self->QKeySequenceEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QKeySequenceEdit_OnMetaObject(const QKeySequenceEdit* self, intptr_t slot) {
+    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_MetaObject_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QKeySequenceEdit_QBaseMetacast(QKeySequenceEdit* self, const char* param1) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_Metacast_IsBase(true);
+        return vqkeysequenceedit->qt_metacast(param1);
+    } else {
+        return self->QKeySequenceEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QKeySequenceEdit_OnMetacast(QKeySequenceEdit* self, intptr_t slot) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+        vqkeysequenceedit->setQKeySequenceEdit_Metacast_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metacast_Callback>(slot));
     }
 }
 

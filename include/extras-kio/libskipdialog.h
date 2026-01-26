@@ -58,6 +58,10 @@ KIO__SkipDialog* KIO__SkipDialog_new(QWidget* parent, int options, const libqt_s
 QMetaObject* KIO__SkipDialog_MetaObject(const KIO__SkipDialog* self);
 void* KIO__SkipDialog_Metacast(KIO__SkipDialog* self, const char* param1);
 int KIO__SkipDialog_Metacall(KIO__SkipDialog* self, int param1, int param2, void** param3);
+void KIO__SkipDialog_OnMetaObject(const KIO__SkipDialog* self, intptr_t slot);
+QMetaObject* KIO__SkipDialog_QBaseMetaObject(const KIO__SkipDialog* self);
+void KIO__SkipDialog_OnMetacast(KIO__SkipDialog* self, intptr_t slot);
+void* KIO__SkipDialog_QBaseMetacast(KIO__SkipDialog* self, const char* param1);
 void KIO__SkipDialog_OnMetacall(KIO__SkipDialog* self, intptr_t slot);
 int KIO__SkipDialog_QBaseMetacall(KIO__SkipDialog* self, int param1, int param2, void** param3);
 void KIO__SkipDialog_SetVisible(KIO__SkipDialog* self, bool visible);

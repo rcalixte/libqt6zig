@@ -17,6 +17,8 @@ class VirtualQAudioRoom final : public QAudioRoom {
     bool isVirtualQAudioRoom = true;
 
     // Virtual class public types (including callbacks)
+    using QAudioRoom_MetaObject_Callback = QMetaObject* (*)();
+    using QAudioRoom_Metacast_Callback = void* (*)(QAudioRoom*, const char*);
     using QAudioRoom_Metacall_Callback = int (*)(QAudioRoom*, int, int, void**);
     using QAudioRoom_Event_Callback = bool (*)(QAudioRoom*, QEvent*);
     using QAudioRoom_EventFilter_Callback = bool (*)(QAudioRoom*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQAudioRoom final : public QAudioRoom {
 
   protected:
     // Instance callback storage
+    QAudioRoom_MetaObject_Callback qaudioroom_metaobject_callback = nullptr;
+    QAudioRoom_Metacast_Callback qaudioroom_metacast_callback = nullptr;
     QAudioRoom_Metacall_Callback qaudioroom_metacall_callback = nullptr;
     QAudioRoom_Event_Callback qaudioroom_event_callback = nullptr;
     QAudioRoom_EventFilter_Callback qaudioroom_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQAudioRoom final : public QAudioRoom {
     QAudioRoom_IsSignalConnected_Callback qaudioroom_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qaudioroom_metaobject_isbase = false;
+    mutable bool qaudioroom_metacast_isbase = false;
     mutable bool qaudioroom_metacall_isbase = false;
     mutable bool qaudioroom_event_isbase = false;
     mutable bool qaudioroom_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualQAudioRoom final : public QAudioRoom {
     VirtualQAudioRoom(QAudioEngine* engine) : QAudioRoom(engine) {};
 
     ~VirtualQAudioRoom() {
+        qaudioroom_metaobject_callback = nullptr;
+        qaudioroom_metacast_callback = nullptr;
         qaudioroom_metacall_callback = nullptr;
         qaudioroom_event_callback = nullptr;
         qaudioroom_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualQAudioRoom final : public QAudioRoom {
     }
 
     // Callback setters
+    inline void setQAudioRoom_MetaObject_Callback(QAudioRoom_MetaObject_Callback cb) { qaudioroom_metaobject_callback = cb; }
+    inline void setQAudioRoom_Metacast_Callback(QAudioRoom_Metacast_Callback cb) { qaudioroom_metacast_callback = cb; }
     inline void setQAudioRoom_Metacall_Callback(QAudioRoom_Metacall_Callback cb) { qaudioroom_metacall_callback = cb; }
     inline void setQAudioRoom_Event_Callback(QAudioRoom_Event_Callback cb) { qaudioroom_event_callback = cb; }
     inline void setQAudioRoom_EventFilter_Callback(QAudioRoom_EventFilter_Callback cb) { qaudioroom_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualQAudioRoom final : public QAudioRoom {
     inline void setQAudioRoom_IsSignalConnected_Callback(QAudioRoom_IsSignalConnected_Callback cb) { qaudioroom_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAudioRoom_MetaObject_IsBase(bool value) const { qaudioroom_metaobject_isbase = value; }
+    inline void setQAudioRoom_Metacast_IsBase(bool value) const { qaudioroom_metacast_isbase = value; }
     inline void setQAudioRoom_Metacall_IsBase(bool value) const { qaudioroom_metacall_isbase = value; }
     inline void setQAudioRoom_Event_IsBase(bool value) const { qaudioroom_event_isbase = value; }
     inline void setQAudioRoom_EventFilter_IsBase(bool value) const { qaudioroom_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualQAudioRoom final : public QAudioRoom {
     inline void setQAudioRoom_SenderSignalIndex_IsBase(bool value) const { qaudioroom_sendersignalindex_isbase = value; }
     inline void setQAudioRoom_Receivers_IsBase(bool value) const { qaudioroom_receivers_isbase = value; }
     inline void setQAudioRoom_IsSignalConnected_IsBase(bool value) const { qaudioroom_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qaudioroom_metaobject_isbase) {
+            qaudioroom_metaobject_isbase = false;
+            return QAudioRoom::metaObject();
+        } else if (qaudioroom_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qaudioroom_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAudioRoom::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qaudioroom_metacast_isbase) {
+            qaudioroom_metacast_isbase = false;
+            return QAudioRoom::qt_metacast(param1);
+        } else if (qaudioroom_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qaudioroom_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAudioRoom::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

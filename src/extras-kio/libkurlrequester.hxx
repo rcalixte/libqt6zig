@@ -17,6 +17,8 @@ class VirtualKUrlRequester final : public KUrlRequester {
     bool isVirtualKUrlRequester = true;
 
     // Virtual class public types (including callbacks)
+    using KUrlRequester_MetaObject_Callback = QMetaObject* (*)();
+    using KUrlRequester_Metacast_Callback = void* (*)(KUrlRequester*, const char*);
     using KUrlRequester_Metacall_Callback = int (*)(KUrlRequester*, int, int, void**);
     using KUrlRequester_FileDialog_Callback = QFileDialog* (*)();
     using KUrlRequester_ChangeEvent_Callback = void (*)(KUrlRequester*, QEvent*);
@@ -79,6 +81,8 @@ class VirtualKUrlRequester final : public KUrlRequester {
 
   protected:
     // Instance callback storage
+    KUrlRequester_MetaObject_Callback kurlrequester_metaobject_callback = nullptr;
+    KUrlRequester_Metacast_Callback kurlrequester_metacast_callback = nullptr;
     KUrlRequester_Metacall_Callback kurlrequester_metacall_callback = nullptr;
     KUrlRequester_FileDialog_Callback kurlrequester_filedialog_callback = nullptr;
     KUrlRequester_ChangeEvent_Callback kurlrequester_changeevent_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualKUrlRequester final : public KUrlRequester {
     KUrlRequester_GetDecodedMetricF_Callback kurlrequester_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kurlrequester_metaobject_isbase = false;
+    mutable bool kurlrequester_metacast_isbase = false;
     mutable bool kurlrequester_metacall_isbase = false;
     mutable bool kurlrequester_filedialog_isbase = false;
     mutable bool kurlrequester_changeevent_isbase = false;
@@ -208,6 +214,8 @@ class VirtualKUrlRequester final : public KUrlRequester {
     VirtualKUrlRequester(const QUrl& url, QWidget* parent) : KUrlRequester(url, parent) {};
 
     ~VirtualKUrlRequester() {
+        kurlrequester_metaobject_callback = nullptr;
+        kurlrequester_metacast_callback = nullptr;
         kurlrequester_metacall_callback = nullptr;
         kurlrequester_filedialog_callback = nullptr;
         kurlrequester_changeevent_callback = nullptr;
@@ -270,6 +278,8 @@ class VirtualKUrlRequester final : public KUrlRequester {
     }
 
     // Callback setters
+    inline void setKUrlRequester_MetaObject_Callback(KUrlRequester_MetaObject_Callback cb) { kurlrequester_metaobject_callback = cb; }
+    inline void setKUrlRequester_Metacast_Callback(KUrlRequester_Metacast_Callback cb) { kurlrequester_metacast_callback = cb; }
     inline void setKUrlRequester_Metacall_Callback(KUrlRequester_Metacall_Callback cb) { kurlrequester_metacall_callback = cb; }
     inline void setKUrlRequester_FileDialog_Callback(KUrlRequester_FileDialog_Callback cb) { kurlrequester_filedialog_callback = cb; }
     inline void setKUrlRequester_ChangeEvent_Callback(KUrlRequester_ChangeEvent_Callback cb) { kurlrequester_changeevent_callback = cb; }
@@ -331,6 +341,8 @@ class VirtualKUrlRequester final : public KUrlRequester {
     inline void setKUrlRequester_GetDecodedMetricF_Callback(KUrlRequester_GetDecodedMetricF_Callback cb) { kurlrequester_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKUrlRequester_MetaObject_IsBase(bool value) const { kurlrequester_metaobject_isbase = value; }
+    inline void setKUrlRequester_Metacast_IsBase(bool value) const { kurlrequester_metacast_isbase = value; }
     inline void setKUrlRequester_Metacall_IsBase(bool value) const { kurlrequester_metacall_isbase = value; }
     inline void setKUrlRequester_FileDialog_IsBase(bool value) const { kurlrequester_filedialog_isbase = value; }
     inline void setKUrlRequester_ChangeEvent_IsBase(bool value) const { kurlrequester_changeevent_isbase = value; }
@@ -390,6 +402,34 @@ class VirtualKUrlRequester final : public KUrlRequester {
     inline void setKUrlRequester_Receivers_IsBase(bool value) const { kurlrequester_receivers_isbase = value; }
     inline void setKUrlRequester_IsSignalConnected_IsBase(bool value) const { kurlrequester_issignalconnected_isbase = value; }
     inline void setKUrlRequester_GetDecodedMetricF_IsBase(bool value) const { kurlrequester_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kurlrequester_metaobject_isbase) {
+            kurlrequester_metaobject_isbase = false;
+            return KUrlRequester::metaObject();
+        } else if (kurlrequester_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kurlrequester_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KUrlRequester::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kurlrequester_metacast_isbase) {
+            kurlrequester_metacast_isbase = false;
+            return KUrlRequester::qt_metacast(param1);
+        } else if (kurlrequester_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kurlrequester_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KUrlRequester::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1340,6 +1380,8 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
     bool isVirtualKUrlComboRequester = true;
 
     // Virtual class public types (including callbacks)
+    using KUrlComboRequester_MetaObject_Callback = QMetaObject* (*)();
+    using KUrlComboRequester_Metacast_Callback = void* (*)(KUrlComboRequester*, const char*);
     using KUrlComboRequester_Metacall_Callback = int (*)(KUrlComboRequester*, int, int, void**);
     using KUrlComboRequester_FileDialog_Callback = QFileDialog* (*)();
     using KUrlComboRequester_ChangeEvent_Callback = void (*)(KUrlComboRequester*, QEvent*);
@@ -1402,6 +1444,8 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
 
   protected:
     // Instance callback storage
+    KUrlComboRequester_MetaObject_Callback kurlcomborequester_metaobject_callback = nullptr;
+    KUrlComboRequester_Metacast_Callback kurlcomborequester_metacast_callback = nullptr;
     KUrlComboRequester_Metacall_Callback kurlcomborequester_metacall_callback = nullptr;
     KUrlComboRequester_FileDialog_Callback kurlcomborequester_filedialog_callback = nullptr;
     KUrlComboRequester_ChangeEvent_Callback kurlcomborequester_changeevent_callback = nullptr;
@@ -1463,6 +1507,8 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
     KUrlComboRequester_GetDecodedMetricF_Callback kurlcomborequester_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kurlcomborequester_metaobject_isbase = false;
+    mutable bool kurlcomborequester_metacast_isbase = false;
     mutable bool kurlcomborequester_metacall_isbase = false;
     mutable bool kurlcomborequester_filedialog_isbase = false;
     mutable bool kurlcomborequester_changeevent_isbase = false;
@@ -1528,6 +1574,8 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
     VirtualKUrlComboRequester() : KUrlComboRequester() {};
 
     ~VirtualKUrlComboRequester() {
+        kurlcomborequester_metaobject_callback = nullptr;
+        kurlcomborequester_metacast_callback = nullptr;
         kurlcomborequester_metacall_callback = nullptr;
         kurlcomborequester_filedialog_callback = nullptr;
         kurlcomborequester_changeevent_callback = nullptr;
@@ -1590,6 +1638,8 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
     }
 
     // Callback setters
+    inline void setKUrlComboRequester_MetaObject_Callback(KUrlComboRequester_MetaObject_Callback cb) { kurlcomborequester_metaobject_callback = cb; }
+    inline void setKUrlComboRequester_Metacast_Callback(KUrlComboRequester_Metacast_Callback cb) { kurlcomborequester_metacast_callback = cb; }
     inline void setKUrlComboRequester_Metacall_Callback(KUrlComboRequester_Metacall_Callback cb) { kurlcomborequester_metacall_callback = cb; }
     inline void setKUrlComboRequester_FileDialog_Callback(KUrlComboRequester_FileDialog_Callback cb) { kurlcomborequester_filedialog_callback = cb; }
     inline void setKUrlComboRequester_ChangeEvent_Callback(KUrlComboRequester_ChangeEvent_Callback cb) { kurlcomborequester_changeevent_callback = cb; }
@@ -1651,6 +1701,8 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
     inline void setKUrlComboRequester_GetDecodedMetricF_Callback(KUrlComboRequester_GetDecodedMetricF_Callback cb) { kurlcomborequester_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKUrlComboRequester_MetaObject_IsBase(bool value) const { kurlcomborequester_metaobject_isbase = value; }
+    inline void setKUrlComboRequester_Metacast_IsBase(bool value) const { kurlcomborequester_metacast_isbase = value; }
     inline void setKUrlComboRequester_Metacall_IsBase(bool value) const { kurlcomborequester_metacall_isbase = value; }
     inline void setKUrlComboRequester_FileDialog_IsBase(bool value) const { kurlcomborequester_filedialog_isbase = value; }
     inline void setKUrlComboRequester_ChangeEvent_IsBase(bool value) const { kurlcomborequester_changeevent_isbase = value; }
@@ -1710,6 +1762,34 @@ class VirtualKUrlComboRequester final : public KUrlComboRequester {
     inline void setKUrlComboRequester_Receivers_IsBase(bool value) const { kurlcomborequester_receivers_isbase = value; }
     inline void setKUrlComboRequester_IsSignalConnected_IsBase(bool value) const { kurlcomborequester_issignalconnected_isbase = value; }
     inline void setKUrlComboRequester_GetDecodedMetricF_IsBase(bool value) const { kurlcomborequester_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kurlcomborequester_metaobject_isbase) {
+            kurlcomborequester_metaobject_isbase = false;
+            return KUrlComboRequester::metaObject();
+        } else if (kurlcomborequester_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kurlcomborequester_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KUrlComboRequester::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kurlcomborequester_metacast_isbase) {
+            kurlcomborequester_metacast_isbase = false;
+            return KUrlComboRequester::qt_metacast(param1);
+        } else if (kurlcomborequester_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kurlcomborequester_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KUrlComboRequester::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

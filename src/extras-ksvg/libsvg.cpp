@@ -30,11 +30,21 @@ KSvg__Svg* KSvg__Svg_new2(QObject* parent) {
 }
 
 QMetaObject* KSvg__Svg_MetaObject(const KSvg__Svg* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vksvg__svg = dynamic_cast<const VirtualKSvgSvg*>(self);
+    if (vksvg__svg && vksvg__svg->isVirtualKSvgSvg) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSvgSvg*)self)->metaObject();
+    }
 }
 
 void* KSvg__Svg_Metacast(KSvg__Svg* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vksvg__svg = dynamic_cast<VirtualKSvgSvg*>(self);
+    if (vksvg__svg && vksvg__svg->isVirtualKSvgSvg) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSvgSvg*)self)->qt_metacast(param1);
+    }
 }
 
 int KSvg__Svg_Metacall(KSvg__Svg* self, int param1, int param2, void** param3) {
@@ -311,6 +321,44 @@ void KSvg__Svg_Paint33(KSvg__Svg* self, QPainter* painter, const QRectF* rect, c
 void KSvg__Svg_Paint6(KSvg__Svg* self, QPainter* painter, int x, int y, int width, int height, const libqt_string elementID) {
     QString elementID_QString = QString::fromUtf8(elementID.data, elementID.len);
     self->paint(painter, static_cast<int>(x), static_cast<int>(y), static_cast<int>(width), static_cast<int>(height), elementID_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KSvg__Svg_QBaseMetaObject(const KSvg__Svg* self) {
+    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
+    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
+        vksvgsvg->setKSvg__Svg_MetaObject_IsBase(true);
+        return (QMetaObject*)vksvgsvg->metaObject();
+    } else {
+        return (QMetaObject*)self->KSvg::Svg::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSvg__Svg_OnMetaObject(const KSvg__Svg* self, intptr_t slot) {
+    auto* vksvgsvg = const_cast<VirtualKSvgSvg*>(dynamic_cast<const VirtualKSvgSvg*>(self));
+    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
+        vksvgsvg->setKSvg__Svg_MetaObject_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSvg__Svg_QBaseMetacast(KSvg__Svg* self, const char* param1) {
+    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
+    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
+        vksvgsvg->setKSvg__Svg_Metacast_IsBase(true);
+        return vksvgsvg->qt_metacast(param1);
+    } else {
+        return self->KSvg::Svg::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSvg__Svg_OnMetacast(KSvg__Svg* self, intptr_t slot) {
+    auto* vksvgsvg = dynamic_cast<VirtualKSvgSvg*>(self);
+    if (vksvgsvg && vksvgsvg->isVirtualKSvgSvg) {
+        vksvgsvg->setKSvg__Svg_Metacast_Callback(reinterpret_cast<VirtualKSvgSvg::KSvg__Svg_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

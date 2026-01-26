@@ -57,11 +57,21 @@ KListWidgetSearchLine* KListWidgetSearchLine_new3(QWidget* parent, QListWidget* 
 }
 
 QMetaObject* KListWidgetSearchLine_MetaObject(const KListWidgetSearchLine* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vklistwidgetsearchline = dynamic_cast<const VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKListWidgetSearchLine*)self)->metaObject();
+    }
 }
 
 void* KListWidgetSearchLine_Metacast(KListWidgetSearchLine* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKListWidgetSearchLine*)self)->qt_metacast(param1);
+    }
 }
 
 int KListWidgetSearchLine_Metacall(KListWidgetSearchLine* self, int param1, int param2, void** param3) {
@@ -118,6 +128,44 @@ bool KListWidgetSearchLine_Event(KListWidgetSearchLine* self, QEvent* event) {
         return vklistwidgetsearchline->event(event);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KListWidgetSearchLine_QBaseMetaObject(const KListWidgetSearchLine* self) {
+    auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_MetaObject_IsBase(true);
+        return (QMetaObject*)vklistwidgetsearchline->metaObject();
+    } else {
+        return (QMetaObject*)self->KListWidgetSearchLine::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KListWidgetSearchLine_OnMetaObject(const KListWidgetSearchLine* self, intptr_t slot) {
+    auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_MetaObject_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KListWidgetSearchLine_QBaseMetacast(KListWidgetSearchLine* self, const char* param1) {
+    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_Metacast_IsBase(true);
+        return vklistwidgetsearchline->qt_metacast(param1);
+    } else {
+        return self->KListWidgetSearchLine::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KListWidgetSearchLine_OnMetacast(KListWidgetSearchLine* self, intptr_t slot) {
+    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+        vklistwidgetsearchline->setKListWidgetSearchLine_Metacast_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

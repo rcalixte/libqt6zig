@@ -29,11 +29,21 @@ KActionCollection* KActionCollection_new2(QObject* parent, const libqt_string cN
 }
 
 QMetaObject* KActionCollection_MetaObject(const KActionCollection* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkactioncollection = dynamic_cast<const VirtualKActionCollection*>(self);
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKActionCollection*)self)->metaObject();
+    }
 }
 
 void* KActionCollection_Metacast(KActionCollection* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKActionCollection*)self)->qt_metacast(param1);
+    }
 }
 
 int KActionCollection_Metacall(KActionCollection* self, int param1, int param2, void** param3) {
@@ -371,6 +381,44 @@ void KActionCollection_WriteSettings2(const KActionCollection* self, KConfigGrou
 
 void KActionCollection_WriteSettings3(const KActionCollection* self, KConfigGroup* config, bool writeDefaults, QAction* oneAction) {
     self->writeSettings(config, writeDefaults, oneAction);
+}
+
+// Base class handler implementation
+QMetaObject* KActionCollection_QBaseMetaObject(const KActionCollection* self) {
+    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+        vkactioncollection->setKActionCollection_MetaObject_IsBase(true);
+        return (QMetaObject*)vkactioncollection->metaObject();
+    } else {
+        return (QMetaObject*)self->KActionCollection::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionCollection_OnMetaObject(const KActionCollection* self, intptr_t slot) {
+    auto* vkactioncollection = const_cast<VirtualKActionCollection*>(dynamic_cast<const VirtualKActionCollection*>(self));
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+        vkactioncollection->setKActionCollection_MetaObject_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KActionCollection_QBaseMetacast(KActionCollection* self, const char* param1) {
+    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+        vkactioncollection->setKActionCollection_Metacast_IsBase(true);
+        return vkactioncollection->qt_metacast(param1);
+    } else {
+        return self->KActionCollection::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionCollection_OnMetacast(KActionCollection* self, intptr_t slot) {
+    auto* vkactioncollection = dynamic_cast<VirtualKActionCollection*>(self);
+    if (vkactioncollection && vkactioncollection->isVirtualKActionCollection) {
+        vkactioncollection->setKActionCollection_Metacast_Callback(reinterpret_cast<VirtualKActionCollection::KActionCollection_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

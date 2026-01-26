@@ -17,6 +17,8 @@ class VirtualKPartsFileInfoExtension : public KParts::FileInfoExtension {
     bool isVirtualKPartsFileInfoExtension = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__FileInfoExtension_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__FileInfoExtension_Metacast_Callback = void* (*)(KParts__FileInfoExtension*, const char*);
     using KParts__FileInfoExtension_Metacall_Callback = int (*)(KParts__FileInfoExtension*, int, int, void**);
     using KParts__FileInfoExtension_HasSelection_Callback = bool (*)();
     using KParts__FileInfoExtension_SupportedQueryModes_Callback = int (*)();
@@ -35,6 +37,8 @@ class VirtualKPartsFileInfoExtension : public KParts::FileInfoExtension {
 
   protected:
     // Instance callback storage
+    KParts__FileInfoExtension_MetaObject_Callback kparts__fileinfoextension_metaobject_callback = nullptr;
+    KParts__FileInfoExtension_Metacast_Callback kparts__fileinfoextension_metacast_callback = nullptr;
     KParts__FileInfoExtension_Metacall_Callback kparts__fileinfoextension_metacall_callback = nullptr;
     KParts__FileInfoExtension_HasSelection_Callback kparts__fileinfoextension_hasselection_callback = nullptr;
     KParts__FileInfoExtension_SupportedQueryModes_Callback kparts__fileinfoextension_supportedquerymodes_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualKPartsFileInfoExtension : public KParts::FileInfoExtension {
     KParts__FileInfoExtension_IsSignalConnected_Callback kparts__fileinfoextension_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__fileinfoextension_metaobject_isbase = false;
+    mutable bool kparts__fileinfoextension_metacast_isbase = false;
     mutable bool kparts__fileinfoextension_metacall_isbase = false;
     mutable bool kparts__fileinfoextension_hasselection_isbase = false;
     mutable bool kparts__fileinfoextension_supportedquerymodes_isbase = false;
@@ -72,6 +78,8 @@ class VirtualKPartsFileInfoExtension : public KParts::FileInfoExtension {
     VirtualKPartsFileInfoExtension(KParts::ReadOnlyPart* parent) : KParts::FileInfoExtension(parent) {};
 
     ~VirtualKPartsFileInfoExtension() {
+        kparts__fileinfoextension_metaobject_callback = nullptr;
+        kparts__fileinfoextension_metacast_callback = nullptr;
         kparts__fileinfoextension_metacall_callback = nullptr;
         kparts__fileinfoextension_hasselection_callback = nullptr;
         kparts__fileinfoextension_supportedquerymodes_callback = nullptr;
@@ -90,6 +98,8 @@ class VirtualKPartsFileInfoExtension : public KParts::FileInfoExtension {
     }
 
     // Callback setters
+    inline void setKParts__FileInfoExtension_MetaObject_Callback(KParts__FileInfoExtension_MetaObject_Callback cb) { kparts__fileinfoextension_metaobject_callback = cb; }
+    inline void setKParts__FileInfoExtension_Metacast_Callback(KParts__FileInfoExtension_Metacast_Callback cb) { kparts__fileinfoextension_metacast_callback = cb; }
     inline void setKParts__FileInfoExtension_Metacall_Callback(KParts__FileInfoExtension_Metacall_Callback cb) { kparts__fileinfoextension_metacall_callback = cb; }
     inline void setKParts__FileInfoExtension_HasSelection_Callback(KParts__FileInfoExtension_HasSelection_Callback cb) { kparts__fileinfoextension_hasselection_callback = cb; }
     inline void setKParts__FileInfoExtension_SupportedQueryModes_Callback(KParts__FileInfoExtension_SupportedQueryModes_Callback cb) { kparts__fileinfoextension_supportedquerymodes_callback = cb; }
@@ -107,6 +117,8 @@ class VirtualKPartsFileInfoExtension : public KParts::FileInfoExtension {
     inline void setKParts__FileInfoExtension_IsSignalConnected_Callback(KParts__FileInfoExtension_IsSignalConnected_Callback cb) { kparts__fileinfoextension_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__FileInfoExtension_MetaObject_IsBase(bool value) const { kparts__fileinfoextension_metaobject_isbase = value; }
+    inline void setKParts__FileInfoExtension_Metacast_IsBase(bool value) const { kparts__fileinfoextension_metacast_isbase = value; }
     inline void setKParts__FileInfoExtension_Metacall_IsBase(bool value) const { kparts__fileinfoextension_metacall_isbase = value; }
     inline void setKParts__FileInfoExtension_HasSelection_IsBase(bool value) const { kparts__fileinfoextension_hasselection_isbase = value; }
     inline void setKParts__FileInfoExtension_SupportedQueryModes_IsBase(bool value) const { kparts__fileinfoextension_supportedquerymodes_isbase = value; }
@@ -122,6 +134,34 @@ class VirtualKPartsFileInfoExtension : public KParts::FileInfoExtension {
     inline void setKParts__FileInfoExtension_SenderSignalIndex_IsBase(bool value) const { kparts__fileinfoextension_sendersignalindex_isbase = value; }
     inline void setKParts__FileInfoExtension_Receivers_IsBase(bool value) const { kparts__fileinfoextension_receivers_isbase = value; }
     inline void setKParts__FileInfoExtension_IsSignalConnected_IsBase(bool value) const { kparts__fileinfoextension_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__fileinfoextension_metaobject_isbase) {
+            kparts__fileinfoextension_metaobject_isbase = false;
+            return KParts__FileInfoExtension::metaObject();
+        } else if (kparts__fileinfoextension_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__fileinfoextension_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__FileInfoExtension::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__fileinfoextension_metacast_isbase) {
+            kparts__fileinfoextension_metacast_isbase = false;
+            return KParts__FileInfoExtension::qt_metacast(param1);
+        } else if (kparts__fileinfoextension_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__fileinfoextension_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__FileInfoExtension::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

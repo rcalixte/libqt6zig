@@ -17,6 +17,8 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
     bool isVirtualKToolTipWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KToolTipWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KToolTipWidget_Metacast_Callback = void* (*)(KToolTipWidget*, const char*);
     using KToolTipWidget_Metacall_Callback = int (*)(KToolTipWidget*, int, int, void**);
     using KToolTipWidget_EnterEvent_Callback = void (*)(KToolTipWidget*, QEnterEvent*);
     using KToolTipWidget_HideEvent_Callback = void (*)(KToolTipWidget*, QHideEvent*);
@@ -78,6 +80,8 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
 
   protected:
     // Instance callback storage
+    KToolTipWidget_MetaObject_Callback ktooltipwidget_metaobject_callback = nullptr;
+    KToolTipWidget_Metacast_Callback ktooltipwidget_metacast_callback = nullptr;
     KToolTipWidget_Metacall_Callback ktooltipwidget_metacall_callback = nullptr;
     KToolTipWidget_EnterEvent_Callback ktooltipwidget_enterevent_callback = nullptr;
     KToolTipWidget_HideEvent_Callback ktooltipwidget_hideevent_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
     KToolTipWidget_GetDecodedMetricF_Callback ktooltipwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktooltipwidget_metaobject_isbase = false;
+    mutable bool ktooltipwidget_metacast_isbase = false;
     mutable bool ktooltipwidget_metacall_isbase = false;
     mutable bool ktooltipwidget_enterevent_isbase = false;
     mutable bool ktooltipwidget_hideevent_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
     VirtualKToolTipWidget() : KToolTipWidget() {};
 
     ~VirtualKToolTipWidget() {
+        ktooltipwidget_metaobject_callback = nullptr;
+        ktooltipwidget_metacast_callback = nullptr;
         ktooltipwidget_metacall_callback = nullptr;
         ktooltipwidget_enterevent_callback = nullptr;
         ktooltipwidget_hideevent_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
     }
 
     // Callback setters
+    inline void setKToolTipWidget_MetaObject_Callback(KToolTipWidget_MetaObject_Callback cb) { ktooltipwidget_metaobject_callback = cb; }
+    inline void setKToolTipWidget_Metacast_Callback(KToolTipWidget_Metacast_Callback cb) { ktooltipwidget_metacast_callback = cb; }
     inline void setKToolTipWidget_Metacall_Callback(KToolTipWidget_Metacall_Callback cb) { ktooltipwidget_metacall_callback = cb; }
     inline void setKToolTipWidget_EnterEvent_Callback(KToolTipWidget_EnterEvent_Callback cb) { ktooltipwidget_enterevent_callback = cb; }
     inline void setKToolTipWidget_HideEvent_Callback(KToolTipWidget_HideEvent_Callback cb) { ktooltipwidget_hideevent_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
     inline void setKToolTipWidget_GetDecodedMetricF_Callback(KToolTipWidget_GetDecodedMetricF_Callback cb) { ktooltipwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKToolTipWidget_MetaObject_IsBase(bool value) const { ktooltipwidget_metaobject_isbase = value; }
+    inline void setKToolTipWidget_Metacast_IsBase(bool value) const { ktooltipwidget_metacast_isbase = value; }
     inline void setKToolTipWidget_Metacall_IsBase(bool value) const { ktooltipwidget_metacall_isbase = value; }
     inline void setKToolTipWidget_EnterEvent_IsBase(bool value) const { ktooltipwidget_enterevent_isbase = value; }
     inline void setKToolTipWidget_HideEvent_IsBase(bool value) const { ktooltipwidget_hideevent_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKToolTipWidget final : public KToolTipWidget {
     inline void setKToolTipWidget_Receivers_IsBase(bool value) const { ktooltipwidget_receivers_isbase = value; }
     inline void setKToolTipWidget_IsSignalConnected_IsBase(bool value) const { ktooltipwidget_issignalconnected_isbase = value; }
     inline void setKToolTipWidget_GetDecodedMetricF_IsBase(bool value) const { ktooltipwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktooltipwidget_metaobject_isbase) {
+            ktooltipwidget_metaobject_isbase = false;
+            return KToolTipWidget::metaObject();
+        } else if (ktooltipwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktooltipwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KToolTipWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktooltipwidget_metacast_isbase) {
+            ktooltipwidget_metacast_isbase = false;
+            return KToolTipWidget::qt_metacast(param1);
+        } else if (ktooltipwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktooltipwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KToolTipWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -24,11 +24,21 @@ KToggleFullScreenAction* KToggleFullScreenAction_new2(QWidget* window, QObject* 
 }
 
 QMetaObject* KToggleFullScreenAction_MetaObject(const KToggleFullScreenAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktogglefullscreenaction = dynamic_cast<const VirtualKToggleFullScreenAction*>(self);
+    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKToggleFullScreenAction*)self)->metaObject();
+    }
 }
 
 void* KToggleFullScreenAction_Metacast(KToggleFullScreenAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
+    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKToggleFullScreenAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KToggleFullScreenAction_Metacall(KToggleFullScreenAction* self, int param1, int param2, void** param3) {
@@ -60,6 +70,44 @@ void KToggleFullScreenAction_SlotToggled(KToggleFullScreenAction* self, bool che
     auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
     if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
         vktogglefullscreenaction->slotToggled(checked);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KToggleFullScreenAction_QBaseMetaObject(const KToggleFullScreenAction* self) {
+    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
+    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+        vktogglefullscreenaction->setKToggleFullScreenAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vktogglefullscreenaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KToggleFullScreenAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToggleFullScreenAction_OnMetaObject(const KToggleFullScreenAction* self, intptr_t slot) {
+    auto* vktogglefullscreenaction = const_cast<VirtualKToggleFullScreenAction*>(dynamic_cast<const VirtualKToggleFullScreenAction*>(self));
+    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+        vktogglefullscreenaction->setKToggleFullScreenAction_MetaObject_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KToggleFullScreenAction_QBaseMetacast(KToggleFullScreenAction* self, const char* param1) {
+    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
+    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+        vktogglefullscreenaction->setKToggleFullScreenAction_Metacast_IsBase(true);
+        return vktogglefullscreenaction->qt_metacast(param1);
+    } else {
+        return self->KToggleFullScreenAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KToggleFullScreenAction_OnMetacast(KToggleFullScreenAction* self, intptr_t slot) {
+    auto* vktogglefullscreenaction = dynamic_cast<VirtualKToggleFullScreenAction*>(self);
+    if (vktogglefullscreenaction && vktogglefullscreenaction->isVirtualKToggleFullScreenAction) {
+        vktogglefullscreenaction->setKToggleFullScreenAction_Metacast_Callback(reinterpret_cast<VirtualKToggleFullScreenAction::KToggleFullScreenAction_Metacast_Callback>(slot));
     }
 }
 

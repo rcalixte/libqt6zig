@@ -17,6 +17,8 @@ class VirtualQTabBar final : public QTabBar {
     bool isVirtualQTabBar = true;
 
     // Virtual class public types (including callbacks)
+    using QTabBar_MetaObject_Callback = QMetaObject* (*)();
+    using QTabBar_Metacast_Callback = void* (*)(QTabBar*, const char*);
     using QTabBar_Metacall_Callback = int (*)(QTabBar*, int, int, void**);
     using QTabBar_SizeHint_Callback = QSize* (*)();
     using QTabBar_MinimumSizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualQTabBar final : public QTabBar {
 
   protected:
     // Instance callback storage
+    QTabBar_MetaObject_Callback qtabbar_metaobject_callback = nullptr;
+    QTabBar_Metacast_Callback qtabbar_metacast_callback = nullptr;
     QTabBar_Metacall_Callback qtabbar_metacall_callback = nullptr;
     QTabBar_SizeHint_Callback qtabbar_sizehint_callback = nullptr;
     QTabBar_MinimumSizeHint_Callback qtabbar_minimumsizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQTabBar final : public QTabBar {
     QTabBar_GetDecodedMetricF_Callback qtabbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtabbar_metaobject_isbase = false;
+    mutable bool qtabbar_metacast_isbase = false;
     mutable bool qtabbar_metacall_isbase = false;
     mutable bool qtabbar_sizehint_isbase = false;
     mutable bool qtabbar_minimumsizehint_isbase = false;
@@ -220,6 +226,8 @@ class VirtualQTabBar final : public QTabBar {
     VirtualQTabBar() : QTabBar() {};
 
     ~VirtualQTabBar() {
+        qtabbar_metaobject_callback = nullptr;
+        qtabbar_metacast_callback = nullptr;
         qtabbar_metacall_callback = nullptr;
         qtabbar_sizehint_callback = nullptr;
         qtabbar_minimumsizehint_callback = nullptr;
@@ -287,6 +295,8 @@ class VirtualQTabBar final : public QTabBar {
     }
 
     // Callback setters
+    inline void setQTabBar_MetaObject_Callback(QTabBar_MetaObject_Callback cb) { qtabbar_metaobject_callback = cb; }
+    inline void setQTabBar_Metacast_Callback(QTabBar_Metacast_Callback cb) { qtabbar_metacast_callback = cb; }
     inline void setQTabBar_Metacall_Callback(QTabBar_Metacall_Callback cb) { qtabbar_metacall_callback = cb; }
     inline void setQTabBar_SizeHint_Callback(QTabBar_SizeHint_Callback cb) { qtabbar_sizehint_callback = cb; }
     inline void setQTabBar_MinimumSizeHint_Callback(QTabBar_MinimumSizeHint_Callback cb) { qtabbar_minimumsizehint_callback = cb; }
@@ -353,6 +363,8 @@ class VirtualQTabBar final : public QTabBar {
     inline void setQTabBar_GetDecodedMetricF_Callback(QTabBar_GetDecodedMetricF_Callback cb) { qtabbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQTabBar_MetaObject_IsBase(bool value) const { qtabbar_metaobject_isbase = value; }
+    inline void setQTabBar_Metacast_IsBase(bool value) const { qtabbar_metacast_isbase = value; }
     inline void setQTabBar_Metacall_IsBase(bool value) const { qtabbar_metacall_isbase = value; }
     inline void setQTabBar_SizeHint_IsBase(bool value) const { qtabbar_sizehint_isbase = value; }
     inline void setQTabBar_MinimumSizeHint_IsBase(bool value) const { qtabbar_minimumsizehint_isbase = value; }
@@ -417,6 +429,34 @@ class VirtualQTabBar final : public QTabBar {
     inline void setQTabBar_Receivers_IsBase(bool value) const { qtabbar_receivers_isbase = value; }
     inline void setQTabBar_IsSignalConnected_IsBase(bool value) const { qtabbar_issignalconnected_isbase = value; }
     inline void setQTabBar_GetDecodedMetricF_IsBase(bool value) const { qtabbar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtabbar_metaobject_isbase) {
+            qtabbar_metaobject_isbase = false;
+            return QTabBar::metaObject();
+        } else if (qtabbar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtabbar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTabBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtabbar_metacast_isbase) {
+            qtabbar_metacast_isbase = false;
+            return QTabBar::qt_metacast(param1);
+        } else if (qtabbar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtabbar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTabBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

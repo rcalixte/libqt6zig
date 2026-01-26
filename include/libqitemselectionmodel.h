@@ -96,6 +96,10 @@ bool QItemSelectionModel_RowIntersectsSelection2(const QItemSelectionModel* self
 bool QItemSelectionModel_ColumnIntersectsSelection2(const QItemSelectionModel* self, int column, const QModelIndex* parent);
 libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedRows1(const QItemSelectionModel* self, int column);
 libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedColumns1(const QItemSelectionModel* self, int row);
+void QItemSelectionModel_OnMetaObject(const QItemSelectionModel* self, intptr_t slot);
+QMetaObject* QItemSelectionModel_QBaseMetaObject(const QItemSelectionModel* self);
+void QItemSelectionModel_OnMetacast(QItemSelectionModel* self, intptr_t slot);
+void* QItemSelectionModel_QBaseMetacast(QItemSelectionModel* self, const char* param1);
 void QItemSelectionModel_OnMetacall(QItemSelectionModel* self, intptr_t slot);
 int QItemSelectionModel_QBaseMetacall(QItemSelectionModel* self, int param1, int param2, void** param3);
 void QItemSelectionModel_OnSetCurrentIndex(QItemSelectionModel* self, intptr_t slot);

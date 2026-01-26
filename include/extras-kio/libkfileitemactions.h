@@ -46,6 +46,10 @@ void KFileItemActions_RunPreferredApplications(KFileItemActions* self, const KFi
 void KFileItemActions_AddActionsTo2(KFileItemActions* self, QMenu* menu, int sources);
 void KFileItemActions_AddActionsTo3(KFileItemActions* self, QMenu* menu, int sources, const libqt_list /* of QAction* */ additionalActions);
 void KFileItemActions_AddActionsTo4(KFileItemActions* self, QMenu* menu, int sources, const libqt_list /* of QAction* */ additionalActions, const libqt_list /* of libqt_string */ excludeList);
+void KFileItemActions_OnMetaObject(const KFileItemActions* self, intptr_t slot);
+QMetaObject* KFileItemActions_QBaseMetaObject(const KFileItemActions* self);
+void KFileItemActions_OnMetacast(KFileItemActions* self, intptr_t slot);
+void* KFileItemActions_QBaseMetacast(KFileItemActions* self, const char* param1);
 void KFileItemActions_OnMetacall(KFileItemActions* self, intptr_t slot);
 int KFileItemActions_QBaseMetacall(KFileItemActions* self, int param1, int param2, void** param3);
 bool KFileItemActions_Event(KFileItemActions* self, QEvent* event);

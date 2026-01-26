@@ -44,6 +44,10 @@ bool QTranslator_Load33(QTranslator* self, const QLocale* locale, const libqt_st
 bool QTranslator_Load42(QTranslator* self, const QLocale* locale, const libqt_string filename, const libqt_string prefix, const libqt_string directory);
 bool QTranslator_Load5(QTranslator* self, const QLocale* locale, const libqt_string filename, const libqt_string prefix, const libqt_string directory, const libqt_string suffix);
 bool QTranslator_Load34(QTranslator* self, const unsigned char* data, int lenVal, const libqt_string directory);
+void QTranslator_OnMetaObject(const QTranslator* self, intptr_t slot);
+QMetaObject* QTranslator_QBaseMetaObject(const QTranslator* self);
+void QTranslator_OnMetacast(QTranslator* self, intptr_t slot);
+void* QTranslator_QBaseMetacast(QTranslator* self, const char* param1);
 void QTranslator_OnMetacall(QTranslator* self, intptr_t slot);
 int QTranslator_QBaseMetacall(QTranslator* self, int param1, int param2, void** param3);
 void QTranslator_OnTranslate(const QTranslator* self, intptr_t slot);

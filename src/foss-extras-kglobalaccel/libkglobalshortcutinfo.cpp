@@ -23,11 +23,21 @@ KGlobalShortcutInfo* KGlobalShortcutInfo_new2(const KGlobalShortcutInfo* rhs) {
 }
 
 QMetaObject* KGlobalShortcutInfo_MetaObject(const KGlobalShortcutInfo* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkglobalshortcutinfo = dynamic_cast<const VirtualKGlobalShortcutInfo*>(self);
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKGlobalShortcutInfo*)self)->metaObject();
+    }
 }
 
 void* KGlobalShortcutInfo_Metacast(KGlobalShortcutInfo* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKGlobalShortcutInfo*)self)->qt_metacast(param1);
+    }
 }
 
 int KGlobalShortcutInfo_Metacall(KGlobalShortcutInfo* self, int param1, int param2, void** param3) {
@@ -139,6 +149,44 @@ libqt_string KGlobalShortcutInfo_UniqueName(const KGlobalShortcutInfo* self) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* KGlobalShortcutInfo_QBaseMetaObject(const KGlobalShortcutInfo* self) {
+    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+        vkglobalshortcutinfo->setKGlobalShortcutInfo_MetaObject_IsBase(true);
+        return (QMetaObject*)vkglobalshortcutinfo->metaObject();
+    } else {
+        return (QMetaObject*)self->KGlobalShortcutInfo::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KGlobalShortcutInfo_OnMetaObject(const KGlobalShortcutInfo* self, intptr_t slot) {
+    auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+        vkglobalshortcutinfo->setKGlobalShortcutInfo_MetaObject_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KGlobalShortcutInfo_QBaseMetacast(KGlobalShortcutInfo* self, const char* param1) {
+    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+        vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacast_IsBase(true);
+        return vkglobalshortcutinfo->qt_metacast(param1);
+    } else {
+        return self->KGlobalShortcutInfo::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KGlobalShortcutInfo_OnMetacast(KGlobalShortcutInfo* self, intptr_t slot) {
+    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+        vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacast_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

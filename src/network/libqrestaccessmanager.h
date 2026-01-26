@@ -60,6 +60,10 @@ QNetworkReply* QRestAccessManager_Patch4(QRestAccessManager* self, const QNetwor
 QNetworkReply* QRestAccessManager_SendCustomRequest(QRestAccessManager* self, const QNetworkRequest* request, const libqt_string method, const libqt_string data);
 QNetworkReply* QRestAccessManager_SendCustomRequest2(QRestAccessManager* self, const QNetworkRequest* request, const libqt_string method, QIODevice* data);
 QNetworkReply* QRestAccessManager_SendCustomRequest3(QRestAccessManager* self, const QNetworkRequest* request, const libqt_string method, QHttpMultiPart* data);
+void QRestAccessManager_OnMetaObject(const QRestAccessManager* self, intptr_t slot);
+QMetaObject* QRestAccessManager_QBaseMetaObject(const QRestAccessManager* self);
+void QRestAccessManager_OnMetacast(QRestAccessManager* self, intptr_t slot);
+void* QRestAccessManager_QBaseMetacast(QRestAccessManager* self, const char* param1);
 void QRestAccessManager_OnMetacall(QRestAccessManager* self, intptr_t slot);
 int QRestAccessManager_QBaseMetacall(QRestAccessManager* self, int param1, int param2, void** param3);
 bool QRestAccessManager_Event(QRestAccessManager* self, QEvent* event);

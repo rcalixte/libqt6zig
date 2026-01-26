@@ -20,6 +20,8 @@ class VirtualQTreeView final : public QTreeView {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using QTreeView_MetaObject_Callback = QMetaObject* (*)();
+    using QTreeView_Metacast_Callback = void* (*)(QTreeView*, const char*);
     using QTreeView_Metacall_Callback = int (*)(QTreeView*, int, int, void**);
     using QTreeView_SetModel_Callback = void (*)(QTreeView*, QAbstractItemModel*);
     using QTreeView_SetRootIndex_Callback = void (*)(QTreeView*, QModelIndex*);
@@ -149,6 +151,8 @@ class VirtualQTreeView final : public QTreeView {
 
   protected:
     // Instance callback storage
+    QTreeView_MetaObject_Callback qtreeview_metaobject_callback = nullptr;
+    QTreeView_Metacast_Callback qtreeview_metacast_callback = nullptr;
     QTreeView_Metacall_Callback qtreeview_metacall_callback = nullptr;
     QTreeView_SetModel_Callback qtreeview_setmodel_callback = nullptr;
     QTreeView_SetRootIndex_Callback qtreeview_setrootindex_callback = nullptr;
@@ -277,6 +281,8 @@ class VirtualQTreeView final : public QTreeView {
     QTreeView_GetDecodedMetricF_Callback qtreeview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtreeview_metaobject_isbase = false;
+    mutable bool qtreeview_metacast_isbase = false;
     mutable bool qtreeview_metacall_isbase = false;
     mutable bool qtreeview_setmodel_isbase = false;
     mutable bool qtreeview_setrootindex_isbase = false;
@@ -409,6 +415,8 @@ class VirtualQTreeView final : public QTreeView {
     VirtualQTreeView() : QTreeView() {};
 
     ~VirtualQTreeView() {
+        qtreeview_metaobject_callback = nullptr;
+        qtreeview_metacast_callback = nullptr;
         qtreeview_metacall_callback = nullptr;
         qtreeview_setmodel_callback = nullptr;
         qtreeview_setrootindex_callback = nullptr;
@@ -538,6 +546,8 @@ class VirtualQTreeView final : public QTreeView {
     }
 
     // Callback setters
+    inline void setQTreeView_MetaObject_Callback(QTreeView_MetaObject_Callback cb) { qtreeview_metaobject_callback = cb; }
+    inline void setQTreeView_Metacast_Callback(QTreeView_Metacast_Callback cb) { qtreeview_metacast_callback = cb; }
     inline void setQTreeView_Metacall_Callback(QTreeView_Metacall_Callback cb) { qtreeview_metacall_callback = cb; }
     inline void setQTreeView_SetModel_Callback(QTreeView_SetModel_Callback cb) { qtreeview_setmodel_callback = cb; }
     inline void setQTreeView_SetRootIndex_Callback(QTreeView_SetRootIndex_Callback cb) { qtreeview_setrootindex_callback = cb; }
@@ -666,6 +676,8 @@ class VirtualQTreeView final : public QTreeView {
     inline void setQTreeView_GetDecodedMetricF_Callback(QTreeView_GetDecodedMetricF_Callback cb) { qtreeview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQTreeView_MetaObject_IsBase(bool value) const { qtreeview_metaobject_isbase = value; }
+    inline void setQTreeView_Metacast_IsBase(bool value) const { qtreeview_metacast_isbase = value; }
     inline void setQTreeView_Metacall_IsBase(bool value) const { qtreeview_metacall_isbase = value; }
     inline void setQTreeView_SetModel_IsBase(bool value) const { qtreeview_setmodel_isbase = value; }
     inline void setQTreeView_SetRootIndex_IsBase(bool value) const { qtreeview_setrootindex_isbase = value; }
@@ -792,6 +804,34 @@ class VirtualQTreeView final : public QTreeView {
     inline void setQTreeView_Receivers_IsBase(bool value) const { qtreeview_receivers_isbase = value; }
     inline void setQTreeView_IsSignalConnected_IsBase(bool value) const { qtreeview_issignalconnected_isbase = value; }
     inline void setQTreeView_GetDecodedMetricF_IsBase(bool value) const { qtreeview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtreeview_metaobject_isbase) {
+            qtreeview_metaobject_isbase = false;
+            return QTreeView::metaObject();
+        } else if (qtreeview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtreeview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTreeView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtreeview_metacast_isbase) {
+            qtreeview_metacast_isbase = false;
+            return QTreeView::qt_metacast(param1);
+        } else if (qtreeview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtreeview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTreeView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

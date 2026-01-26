@@ -17,6 +17,8 @@ class VirtualQAmbientSound final : public QAmbientSound {
     bool isVirtualQAmbientSound = true;
 
     // Virtual class public types (including callbacks)
+    using QAmbientSound_MetaObject_Callback = QMetaObject* (*)();
+    using QAmbientSound_Metacast_Callback = void* (*)(QAmbientSound*, const char*);
     using QAmbientSound_Metacall_Callback = int (*)(QAmbientSound*, int, int, void**);
     using QAmbientSound_Event_Callback = bool (*)(QAmbientSound*, QEvent*);
     using QAmbientSound_EventFilter_Callback = bool (*)(QAmbientSound*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQAmbientSound final : public QAmbientSound {
 
   protected:
     // Instance callback storage
+    QAmbientSound_MetaObject_Callback qambientsound_metaobject_callback = nullptr;
+    QAmbientSound_Metacast_Callback qambientsound_metacast_callback = nullptr;
     QAmbientSound_Metacall_Callback qambientsound_metacall_callback = nullptr;
     QAmbientSound_Event_Callback qambientsound_event_callback = nullptr;
     QAmbientSound_EventFilter_Callback qambientsound_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQAmbientSound final : public QAmbientSound {
     QAmbientSound_IsSignalConnected_Callback qambientsound_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qambientsound_metaobject_isbase = false;
+    mutable bool qambientsound_metacast_isbase = false;
     mutable bool qambientsound_metacall_isbase = false;
     mutable bool qambientsound_event_isbase = false;
     mutable bool qambientsound_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualQAmbientSound final : public QAmbientSound {
     VirtualQAmbientSound(QAudioEngine* engine) : QAmbientSound(engine) {};
 
     ~VirtualQAmbientSound() {
+        qambientsound_metaobject_callback = nullptr;
+        qambientsound_metacast_callback = nullptr;
         qambientsound_metacall_callback = nullptr;
         qambientsound_event_callback = nullptr;
         qambientsound_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualQAmbientSound final : public QAmbientSound {
     }
 
     // Callback setters
+    inline void setQAmbientSound_MetaObject_Callback(QAmbientSound_MetaObject_Callback cb) { qambientsound_metaobject_callback = cb; }
+    inline void setQAmbientSound_Metacast_Callback(QAmbientSound_Metacast_Callback cb) { qambientsound_metacast_callback = cb; }
     inline void setQAmbientSound_Metacall_Callback(QAmbientSound_Metacall_Callback cb) { qambientsound_metacall_callback = cb; }
     inline void setQAmbientSound_Event_Callback(QAmbientSound_Event_Callback cb) { qambientsound_event_callback = cb; }
     inline void setQAmbientSound_EventFilter_Callback(QAmbientSound_EventFilter_Callback cb) { qambientsound_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualQAmbientSound final : public QAmbientSound {
     inline void setQAmbientSound_IsSignalConnected_Callback(QAmbientSound_IsSignalConnected_Callback cb) { qambientsound_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAmbientSound_MetaObject_IsBase(bool value) const { qambientsound_metaobject_isbase = value; }
+    inline void setQAmbientSound_Metacast_IsBase(bool value) const { qambientsound_metacast_isbase = value; }
     inline void setQAmbientSound_Metacall_IsBase(bool value) const { qambientsound_metacall_isbase = value; }
     inline void setQAmbientSound_Event_IsBase(bool value) const { qambientsound_event_isbase = value; }
     inline void setQAmbientSound_EventFilter_IsBase(bool value) const { qambientsound_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualQAmbientSound final : public QAmbientSound {
     inline void setQAmbientSound_SenderSignalIndex_IsBase(bool value) const { qambientsound_sendersignalindex_isbase = value; }
     inline void setQAmbientSound_Receivers_IsBase(bool value) const { qambientsound_receivers_isbase = value; }
     inline void setQAmbientSound_IsSignalConnected_IsBase(bool value) const { qambientsound_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qambientsound_metaobject_isbase) {
+            qambientsound_metaobject_isbase = false;
+            return QAmbientSound::metaObject();
+        } else if (qambientsound_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qambientsound_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAmbientSound::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qambientsound_metacast_isbase) {
+            qambientsound_metacast_isbase = false;
+            return QAmbientSound::qt_metacast(param1);
+        } else if (qambientsound_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qambientsound_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAmbientSound::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
     bool isVirtualKTerminalLauncherJob = true;
 
     // Virtual class public types (including callbacks)
+    using KTerminalLauncherJob_MetaObject_Callback = QMetaObject* (*)();
+    using KTerminalLauncherJob_Metacast_Callback = void* (*)(KTerminalLauncherJob*, const char*);
     using KTerminalLauncherJob_Metacall_Callback = int (*)(KTerminalLauncherJob*, int, int, void**);
     using KTerminalLauncherJob_Start_Callback = void (*)();
     using KTerminalLauncherJob_DoKill_Callback = bool (*)();
@@ -49,6 +51,8 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
 
   protected:
     // Instance callback storage
+    KTerminalLauncherJob_MetaObject_Callback kterminallauncherjob_metaobject_callback = nullptr;
+    KTerminalLauncherJob_Metacast_Callback kterminallauncherjob_metacast_callback = nullptr;
     KTerminalLauncherJob_Metacall_Callback kterminallauncherjob_metacall_callback = nullptr;
     KTerminalLauncherJob_Start_Callback kterminallauncherjob_start_callback = nullptr;
     KTerminalLauncherJob_DoKill_Callback kterminallauncherjob_dokill_callback = nullptr;
@@ -80,6 +84,8 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
     KTerminalLauncherJob_IsSignalConnected_Callback kterminallauncherjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kterminallauncherjob_metaobject_isbase = false;
+    mutable bool kterminallauncherjob_metacast_isbase = false;
     mutable bool kterminallauncherjob_metacall_isbase = false;
     mutable bool kterminallauncherjob_start_isbase = false;
     mutable bool kterminallauncherjob_dokill_isbase = false;
@@ -115,6 +121,8 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
     VirtualKTerminalLauncherJob(const QString& command, QObject* parent) : KTerminalLauncherJob(command, parent) {};
 
     ~VirtualKTerminalLauncherJob() {
+        kterminallauncherjob_metaobject_callback = nullptr;
+        kterminallauncherjob_metacast_callback = nullptr;
         kterminallauncherjob_metacall_callback = nullptr;
         kterminallauncherjob_start_callback = nullptr;
         kterminallauncherjob_dokill_callback = nullptr;
@@ -147,6 +155,8 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
     }
 
     // Callback setters
+    inline void setKTerminalLauncherJob_MetaObject_Callback(KTerminalLauncherJob_MetaObject_Callback cb) { kterminallauncherjob_metaobject_callback = cb; }
+    inline void setKTerminalLauncherJob_Metacast_Callback(KTerminalLauncherJob_Metacast_Callback cb) { kterminallauncherjob_metacast_callback = cb; }
     inline void setKTerminalLauncherJob_Metacall_Callback(KTerminalLauncherJob_Metacall_Callback cb) { kterminallauncherjob_metacall_callback = cb; }
     inline void setKTerminalLauncherJob_Start_Callback(KTerminalLauncherJob_Start_Callback cb) { kterminallauncherjob_start_callback = cb; }
     inline void setKTerminalLauncherJob_DoKill_Callback(KTerminalLauncherJob_DoKill_Callback cb) { kterminallauncherjob_dokill_callback = cb; }
@@ -178,6 +188,8 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
     inline void setKTerminalLauncherJob_IsSignalConnected_Callback(KTerminalLauncherJob_IsSignalConnected_Callback cb) { kterminallauncherjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKTerminalLauncherJob_MetaObject_IsBase(bool value) const { kterminallauncherjob_metaobject_isbase = value; }
+    inline void setKTerminalLauncherJob_Metacast_IsBase(bool value) const { kterminallauncherjob_metacast_isbase = value; }
     inline void setKTerminalLauncherJob_Metacall_IsBase(bool value) const { kterminallauncherjob_metacall_isbase = value; }
     inline void setKTerminalLauncherJob_Start_IsBase(bool value) const { kterminallauncherjob_start_isbase = value; }
     inline void setKTerminalLauncherJob_DoKill_IsBase(bool value) const { kterminallauncherjob_dokill_isbase = value; }
@@ -207,6 +219,34 @@ class VirtualKTerminalLauncherJob final : public KTerminalLauncherJob {
     inline void setKTerminalLauncherJob_SenderSignalIndex_IsBase(bool value) const { kterminallauncherjob_sendersignalindex_isbase = value; }
     inline void setKTerminalLauncherJob_Receivers_IsBase(bool value) const { kterminallauncherjob_receivers_isbase = value; }
     inline void setKTerminalLauncherJob_IsSignalConnected_IsBase(bool value) const { kterminallauncherjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kterminallauncherjob_metaobject_isbase) {
+            kterminallauncherjob_metaobject_isbase = false;
+            return KTerminalLauncherJob::metaObject();
+        } else if (kterminallauncherjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kterminallauncherjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTerminalLauncherJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kterminallauncherjob_metacast_isbase) {
+            kterminallauncherjob_metacast_isbase = false;
+            return KTerminalLauncherJob::qt_metacast(param1);
+        } else if (kterminallauncherjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kterminallauncherjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTerminalLauncherJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

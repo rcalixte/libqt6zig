@@ -34,6 +34,10 @@ int KDateValidator_Metacall(KDateValidator* self, int param1, int param2, void**
 int KDateValidator_Validate(const KDateValidator* self, libqt_string text, int* e);
 void KDateValidator_Fixup(const KDateValidator* self, libqt_string input);
 int KDateValidator_Date(const KDateValidator* self, const libqt_string text, QDate* date);
+void KDateValidator_OnMetaObject(const KDateValidator* self, intptr_t slot);
+QMetaObject* KDateValidator_QBaseMetaObject(const KDateValidator* self);
+void KDateValidator_OnMetacast(KDateValidator* self, intptr_t slot);
+void* KDateValidator_QBaseMetacast(KDateValidator* self, const char* param1);
 void KDateValidator_OnMetacall(KDateValidator* self, intptr_t slot);
 int KDateValidator_QBaseMetacall(KDateValidator* self, int param1, int param2, void** param3);
 void KDateValidator_OnValidate(const KDateValidator* self, intptr_t slot);

@@ -24,11 +24,21 @@ QBuffer* QBuffer_new2(QObject* parent) {
 }
 
 QMetaObject* QBuffer_MetaObject(const QBuffer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqbuffer = dynamic_cast<const VirtualQBuffer*>(self);
+    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQBuffer*)self)->metaObject();
+    }
 }
 
 void* QBuffer_Metacast(QBuffer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
+    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQBuffer*)self)->qt_metacast(param1);
+    }
 }
 
 int QBuffer_Metacall(QBuffer* self, int param1, int param2, void** param3) {
@@ -170,6 +180,44 @@ long long QBuffer_WriteData(QBuffer* self, const char* data, long long lenVal) {
         return static_cast<long long>(vqbuffer->writeData(data, static_cast<qint64>(lenVal)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QBuffer_QBaseMetaObject(const QBuffer* self) {
+    auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
+    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+        vqbuffer->setQBuffer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqbuffer->metaObject();
+    } else {
+        return (QMetaObject*)self->QBuffer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBuffer_OnMetaObject(const QBuffer* self, intptr_t slot) {
+    auto* vqbuffer = const_cast<VirtualQBuffer*>(dynamic_cast<const VirtualQBuffer*>(self));
+    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+        vqbuffer->setQBuffer_MetaObject_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QBuffer_QBaseMetacast(QBuffer* self, const char* param1) {
+    auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
+    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+        vqbuffer->setQBuffer_Metacast_IsBase(true);
+        return vqbuffer->qt_metacast(param1);
+    } else {
+        return self->QBuffer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBuffer_OnMetacast(QBuffer* self, intptr_t slot) {
+    auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
+    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
+        vqbuffer->setQBuffer_Metacast_Callback(reinterpret_cast<VirtualQBuffer::QBuffer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

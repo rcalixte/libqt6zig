@@ -17,6 +17,8 @@ class VirtualKDirModel final : public KDirModel {
     bool isVirtualKDirModel = true;
 
     // Virtual class public types (including callbacks)
+    using KDirModel_MetaObject_Callback = QMetaObject* (*)();
+    using KDirModel_Metacast_Callback = void* (*)(KDirModel*, const char*);
     using KDirModel_Metacall_Callback = int (*)(KDirModel*, int, int, void**);
     using KDirModel_CanFetchMore_Callback = bool (*)(const KDirModel*, QModelIndex*);
     using KDirModel_ColumnCount_Callback = int (*)(const KDirModel*, QModelIndex*);
@@ -85,6 +87,8 @@ class VirtualKDirModel final : public KDirModel {
 
   protected:
     // Instance callback storage
+    KDirModel_MetaObject_Callback kdirmodel_metaobject_callback = nullptr;
+    KDirModel_Metacast_Callback kdirmodel_metacast_callback = nullptr;
     KDirModel_Metacall_Callback kdirmodel_metacall_callback = nullptr;
     KDirModel_CanFetchMore_Callback kdirmodel_canfetchmore_callback = nullptr;
     KDirModel_ColumnCount_Callback kdirmodel_columncount_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualKDirModel final : public KDirModel {
     KDirModel_IsSignalConnected_Callback kdirmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdirmodel_metaobject_isbase = false;
+    mutable bool kdirmodel_metacast_isbase = false;
     mutable bool kdirmodel_metacall_isbase = false;
     mutable bool kdirmodel_canfetchmore_isbase = false;
     mutable bool kdirmodel_columncount_isbase = false;
@@ -223,6 +229,8 @@ class VirtualKDirModel final : public KDirModel {
     VirtualKDirModel(QObject* parent) : KDirModel(parent) {};
 
     ~VirtualKDirModel() {
+        kdirmodel_metaobject_callback = nullptr;
+        kdirmodel_metacast_callback = nullptr;
         kdirmodel_metacall_callback = nullptr;
         kdirmodel_canfetchmore_callback = nullptr;
         kdirmodel_columncount_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKDirModel final : public KDirModel {
     }
 
     // Callback setters
+    inline void setKDirModel_MetaObject_Callback(KDirModel_MetaObject_Callback cb) { kdirmodel_metaobject_callback = cb; }
+    inline void setKDirModel_Metacast_Callback(KDirModel_Metacast_Callback cb) { kdirmodel_metacast_callback = cb; }
     inline void setKDirModel_Metacall_Callback(KDirModel_Metacall_Callback cb) { kdirmodel_metacall_callback = cb; }
     inline void setKDirModel_CanFetchMore_Callback(KDirModel_CanFetchMore_Callback cb) { kdirmodel_canfetchmore_callback = cb; }
     inline void setKDirModel_ColumnCount_Callback(KDirModel_ColumnCount_Callback cb) { kdirmodel_columncount_callback = cb; }
@@ -358,6 +368,8 @@ class VirtualKDirModel final : public KDirModel {
     inline void setKDirModel_IsSignalConnected_Callback(KDirModel_IsSignalConnected_Callback cb) { kdirmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKDirModel_MetaObject_IsBase(bool value) const { kdirmodel_metaobject_isbase = value; }
+    inline void setKDirModel_Metacast_IsBase(bool value) const { kdirmodel_metacast_isbase = value; }
     inline void setKDirModel_Metacall_IsBase(bool value) const { kdirmodel_metacall_isbase = value; }
     inline void setKDirModel_CanFetchMore_IsBase(bool value) const { kdirmodel_canfetchmore_isbase = value; }
     inline void setKDirModel_ColumnCount_IsBase(bool value) const { kdirmodel_columncount_isbase = value; }
@@ -423,6 +435,34 @@ class VirtualKDirModel final : public KDirModel {
     inline void setKDirModel_SenderSignalIndex_IsBase(bool value) const { kdirmodel_sendersignalindex_isbase = value; }
     inline void setKDirModel_Receivers_IsBase(bool value) const { kdirmodel_receivers_isbase = value; }
     inline void setKDirModel_IsSignalConnected_IsBase(bool value) const { kdirmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdirmodel_metaobject_isbase) {
+            kdirmodel_metaobject_isbase = false;
+            return KDirModel::metaObject();
+        } else if (kdirmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdirmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDirModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdirmodel_metacast_isbase) {
+            kdirmodel_metacast_isbase = false;
+            return KDirModel::qt_metacast(param1);
+        } else if (kdirmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdirmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDirModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKConfigDialog final : public KConfigDialog {
     bool isVirtualKConfigDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KConfigDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KConfigDialog_Metacast_Callback = void* (*)(KConfigDialog*, const char*);
     using KConfigDialog_Metacall_Callback = int (*)(KConfigDialog*, int, int, void**);
     using KConfigDialog_UpdateSettings_Callback = void (*)();
     using KConfigDialog_UpdateWidgets_Callback = void (*)();
@@ -98,6 +100,8 @@ class VirtualKConfigDialog final : public KConfigDialog {
 
   protected:
     // Instance callback storage
+    KConfigDialog_MetaObject_Callback kconfigdialog_metaobject_callback = nullptr;
+    KConfigDialog_Metacast_Callback kconfigdialog_metacast_callback = nullptr;
     KConfigDialog_Metacall_Callback kconfigdialog_metacall_callback = nullptr;
     KConfigDialog_UpdateSettings_Callback kconfigdialog_updatesettings_callback = nullptr;
     KConfigDialog_UpdateWidgets_Callback kconfigdialog_updatewidgets_callback = nullptr;
@@ -178,6 +182,8 @@ class VirtualKConfigDialog final : public KConfigDialog {
     KConfigDialog_GetDecodedMetricF_Callback kconfigdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kconfigdialog_metaobject_isbase = false;
+    mutable bool kconfigdialog_metacast_isbase = false;
     mutable bool kconfigdialog_metacall_isbase = false;
     mutable bool kconfigdialog_updatesettings_isbase = false;
     mutable bool kconfigdialog_updatewidgets_isbase = false;
@@ -261,6 +267,8 @@ class VirtualKConfigDialog final : public KConfigDialog {
     VirtualKConfigDialog(QWidget* parent, const QString& name, KCoreConfigSkeleton* config) : KConfigDialog(parent, name, config) {};
 
     ~VirtualKConfigDialog() {
+        kconfigdialog_metaobject_callback = nullptr;
+        kconfigdialog_metacast_callback = nullptr;
         kconfigdialog_metacall_callback = nullptr;
         kconfigdialog_updatesettings_callback = nullptr;
         kconfigdialog_updatewidgets_callback = nullptr;
@@ -342,6 +350,8 @@ class VirtualKConfigDialog final : public KConfigDialog {
     }
 
     // Callback setters
+    inline void setKConfigDialog_MetaObject_Callback(KConfigDialog_MetaObject_Callback cb) { kconfigdialog_metaobject_callback = cb; }
+    inline void setKConfigDialog_Metacast_Callback(KConfigDialog_Metacast_Callback cb) { kconfigdialog_metacast_callback = cb; }
     inline void setKConfigDialog_Metacall_Callback(KConfigDialog_Metacall_Callback cb) { kconfigdialog_metacall_callback = cb; }
     inline void setKConfigDialog_UpdateSettings_Callback(KConfigDialog_UpdateSettings_Callback cb) { kconfigdialog_updatesettings_callback = cb; }
     inline void setKConfigDialog_UpdateWidgets_Callback(KConfigDialog_UpdateWidgets_Callback cb) { kconfigdialog_updatewidgets_callback = cb; }
@@ -422,6 +432,8 @@ class VirtualKConfigDialog final : public KConfigDialog {
     inline void setKConfigDialog_GetDecodedMetricF_Callback(KConfigDialog_GetDecodedMetricF_Callback cb) { kconfigdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKConfigDialog_MetaObject_IsBase(bool value) const { kconfigdialog_metaobject_isbase = value; }
+    inline void setKConfigDialog_Metacast_IsBase(bool value) const { kconfigdialog_metacast_isbase = value; }
     inline void setKConfigDialog_Metacall_IsBase(bool value) const { kconfigdialog_metacall_isbase = value; }
     inline void setKConfigDialog_UpdateSettings_IsBase(bool value) const { kconfigdialog_updatesettings_isbase = value; }
     inline void setKConfigDialog_UpdateWidgets_IsBase(bool value) const { kconfigdialog_updatewidgets_isbase = value; }
@@ -500,6 +512,34 @@ class VirtualKConfigDialog final : public KConfigDialog {
     inline void setKConfigDialog_Receivers_IsBase(bool value) const { kconfigdialog_receivers_isbase = value; }
     inline void setKConfigDialog_IsSignalConnected_IsBase(bool value) const { kconfigdialog_issignalconnected_isbase = value; }
     inline void setKConfigDialog_GetDecodedMetricF_IsBase(bool value) const { kconfigdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kconfigdialog_metaobject_isbase) {
+            kconfigdialog_metaobject_isbase = false;
+            return KConfigDialog::metaObject();
+        } else if (kconfigdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kconfigdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KConfigDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kconfigdialog_metacast_isbase) {
+            kconfigdialog_metacast_isbase = false;
+            return KConfigDialog::qt_metacast(param1);
+        } else if (kconfigdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kconfigdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KConfigDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

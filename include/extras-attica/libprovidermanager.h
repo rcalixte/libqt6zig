@@ -58,6 +58,10 @@ void Attica__ProviderManager_AuthenticationCredentialsMissing(Attica__ProviderMa
 void Attica__ProviderManager_Connect_AuthenticationCredentialsMissing(Attica__ProviderManager* self, intptr_t slot);
 void Attica__ProviderManager_FailedToLoad(Attica__ProviderManager* self, const QUrl* provider, int errorVal);
 void Attica__ProviderManager_Connect_FailedToLoad(Attica__ProviderManager* self, intptr_t slot);
+void Attica__ProviderManager_OnMetaObject(const Attica__ProviderManager* self, intptr_t slot);
+QMetaObject* Attica__ProviderManager_QBaseMetaObject(const Attica__ProviderManager* self);
+void Attica__ProviderManager_OnMetacast(Attica__ProviderManager* self, intptr_t slot);
+void* Attica__ProviderManager_QBaseMetacast(Attica__ProviderManager* self, const char* param1);
 void Attica__ProviderManager_OnMetacall(Attica__ProviderManager* self, intptr_t slot);
 int Attica__ProviderManager_QBaseMetacall(Attica__ProviderManager* self, int param1, int param2, void** param3);
 bool Attica__ProviderManager_Event(Attica__ProviderManager* self, QEvent* event);

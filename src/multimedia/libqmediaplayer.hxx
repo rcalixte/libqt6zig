@@ -17,6 +17,8 @@ class VirtualQMediaPlayer final : public QMediaPlayer {
     bool isVirtualQMediaPlayer = true;
 
     // Virtual class public types (including callbacks)
+    using QMediaPlayer_MetaObject_Callback = QMetaObject* (*)();
+    using QMediaPlayer_Metacast_Callback = void* (*)(QMediaPlayer*, const char*);
     using QMediaPlayer_Metacall_Callback = int (*)(QMediaPlayer*, int, int, void**);
     using QMediaPlayer_Event_Callback = bool (*)(QMediaPlayer*, QEvent*);
     using QMediaPlayer_EventFilter_Callback = bool (*)(QMediaPlayer*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQMediaPlayer final : public QMediaPlayer {
 
   protected:
     // Instance callback storage
+    QMediaPlayer_MetaObject_Callback qmediaplayer_metaobject_callback = nullptr;
+    QMediaPlayer_Metacast_Callback qmediaplayer_metacast_callback = nullptr;
     QMediaPlayer_Metacall_Callback qmediaplayer_metacall_callback = nullptr;
     QMediaPlayer_Event_Callback qmediaplayer_event_callback = nullptr;
     QMediaPlayer_EventFilter_Callback qmediaplayer_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQMediaPlayer final : public QMediaPlayer {
     QMediaPlayer_IsSignalConnected_Callback qmediaplayer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmediaplayer_metaobject_isbase = false;
+    mutable bool qmediaplayer_metacast_isbase = false;
     mutable bool qmediaplayer_metacall_isbase = false;
     mutable bool qmediaplayer_event_isbase = false;
     mutable bool qmediaplayer_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQMediaPlayer final : public QMediaPlayer {
     VirtualQMediaPlayer(QObject* parent) : QMediaPlayer(parent) {};
 
     ~VirtualQMediaPlayer() {
+        qmediaplayer_metaobject_callback = nullptr;
+        qmediaplayer_metacast_callback = nullptr;
         qmediaplayer_metacall_callback = nullptr;
         qmediaplayer_event_callback = nullptr;
         qmediaplayer_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQMediaPlayer final : public QMediaPlayer {
     }
 
     // Callback setters
+    inline void setQMediaPlayer_MetaObject_Callback(QMediaPlayer_MetaObject_Callback cb) { qmediaplayer_metaobject_callback = cb; }
+    inline void setQMediaPlayer_Metacast_Callback(QMediaPlayer_Metacast_Callback cb) { qmediaplayer_metacast_callback = cb; }
     inline void setQMediaPlayer_Metacall_Callback(QMediaPlayer_Metacall_Callback cb) { qmediaplayer_metacall_callback = cb; }
     inline void setQMediaPlayer_Event_Callback(QMediaPlayer_Event_Callback cb) { qmediaplayer_event_callback = cb; }
     inline void setQMediaPlayer_EventFilter_Callback(QMediaPlayer_EventFilter_Callback cb) { qmediaplayer_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQMediaPlayer final : public QMediaPlayer {
     inline void setQMediaPlayer_IsSignalConnected_Callback(QMediaPlayer_IsSignalConnected_Callback cb) { qmediaplayer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQMediaPlayer_MetaObject_IsBase(bool value) const { qmediaplayer_metaobject_isbase = value; }
+    inline void setQMediaPlayer_Metacast_IsBase(bool value) const { qmediaplayer_metacast_isbase = value; }
     inline void setQMediaPlayer_Metacall_IsBase(bool value) const { qmediaplayer_metacall_isbase = value; }
     inline void setQMediaPlayer_Event_IsBase(bool value) const { qmediaplayer_event_isbase = value; }
     inline void setQMediaPlayer_EventFilter_IsBase(bool value) const { qmediaplayer_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQMediaPlayer final : public QMediaPlayer {
     inline void setQMediaPlayer_SenderSignalIndex_IsBase(bool value) const { qmediaplayer_sendersignalindex_isbase = value; }
     inline void setQMediaPlayer_Receivers_IsBase(bool value) const { qmediaplayer_receivers_isbase = value; }
     inline void setQMediaPlayer_IsSignalConnected_IsBase(bool value) const { qmediaplayer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmediaplayer_metaobject_isbase) {
+            qmediaplayer_metaobject_isbase = false;
+            return QMediaPlayer::metaObject();
+        } else if (qmediaplayer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmediaplayer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMediaPlayer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmediaplayer_metacast_isbase) {
+            qmediaplayer_metacast_isbase = false;
+            return QMediaPlayer::qt_metacast(param1);
+        } else if (qmediaplayer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmediaplayer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMediaPlayer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

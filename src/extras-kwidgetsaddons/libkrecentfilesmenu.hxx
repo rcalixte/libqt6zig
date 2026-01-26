@@ -17,6 +17,8 @@ class VirtualKRecentFilesMenu final : public KRecentFilesMenu {
     bool isVirtualKRecentFilesMenu = true;
 
     // Virtual class public types (including callbacks)
+    using KRecentFilesMenu_MetaObject_Callback = QMetaObject* (*)();
+    using KRecentFilesMenu_Metacast_Callback = void* (*)(KRecentFilesMenu*, const char*);
     using KRecentFilesMenu_Metacall_Callback = int (*)(KRecentFilesMenu*, int, int, void**);
     using KRecentFilesMenu_SizeHint_Callback = QSize* (*)();
     using KRecentFilesMenu_ChangeEvent_Callback = void (*)(KRecentFilesMenu*, QEvent*);
@@ -80,6 +82,8 @@ class VirtualKRecentFilesMenu final : public KRecentFilesMenu {
 
   protected:
     // Instance callback storage
+    KRecentFilesMenu_MetaObject_Callback krecentfilesmenu_metaobject_callback = nullptr;
+    KRecentFilesMenu_Metacast_Callback krecentfilesmenu_metacast_callback = nullptr;
     KRecentFilesMenu_Metacall_Callback krecentfilesmenu_metacall_callback = nullptr;
     KRecentFilesMenu_SizeHint_Callback krecentfilesmenu_sizehint_callback = nullptr;
     KRecentFilesMenu_ChangeEvent_Callback krecentfilesmenu_changeevent_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualKRecentFilesMenu final : public KRecentFilesMenu {
     KRecentFilesMenu_GetDecodedMetricF_Callback krecentfilesmenu_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool krecentfilesmenu_metaobject_isbase = false;
+    mutable bool krecentfilesmenu_metacast_isbase = false;
     mutable bool krecentfilesmenu_metacall_isbase = false;
     mutable bool krecentfilesmenu_sizehint_isbase = false;
     mutable bool krecentfilesmenu_changeevent_isbase = false;
@@ -210,6 +216,8 @@ class VirtualKRecentFilesMenu final : public KRecentFilesMenu {
     VirtualKRecentFilesMenu(const QString& title, QWidget* parent) : KRecentFilesMenu(title, parent) {};
 
     ~VirtualKRecentFilesMenu() {
+        krecentfilesmenu_metaobject_callback = nullptr;
+        krecentfilesmenu_metacast_callback = nullptr;
         krecentfilesmenu_metacall_callback = nullptr;
         krecentfilesmenu_sizehint_callback = nullptr;
         krecentfilesmenu_changeevent_callback = nullptr;
@@ -273,6 +281,8 @@ class VirtualKRecentFilesMenu final : public KRecentFilesMenu {
     }
 
     // Callback setters
+    inline void setKRecentFilesMenu_MetaObject_Callback(KRecentFilesMenu_MetaObject_Callback cb) { krecentfilesmenu_metaobject_callback = cb; }
+    inline void setKRecentFilesMenu_Metacast_Callback(KRecentFilesMenu_Metacast_Callback cb) { krecentfilesmenu_metacast_callback = cb; }
     inline void setKRecentFilesMenu_Metacall_Callback(KRecentFilesMenu_Metacall_Callback cb) { krecentfilesmenu_metacall_callback = cb; }
     inline void setKRecentFilesMenu_SizeHint_Callback(KRecentFilesMenu_SizeHint_Callback cb) { krecentfilesmenu_sizehint_callback = cb; }
     inline void setKRecentFilesMenu_ChangeEvent_Callback(KRecentFilesMenu_ChangeEvent_Callback cb) { krecentfilesmenu_changeevent_callback = cb; }
@@ -335,6 +345,8 @@ class VirtualKRecentFilesMenu final : public KRecentFilesMenu {
     inline void setKRecentFilesMenu_GetDecodedMetricF_Callback(KRecentFilesMenu_GetDecodedMetricF_Callback cb) { krecentfilesmenu_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKRecentFilesMenu_MetaObject_IsBase(bool value) const { krecentfilesmenu_metaobject_isbase = value; }
+    inline void setKRecentFilesMenu_Metacast_IsBase(bool value) const { krecentfilesmenu_metacast_isbase = value; }
     inline void setKRecentFilesMenu_Metacall_IsBase(bool value) const { krecentfilesmenu_metacall_isbase = value; }
     inline void setKRecentFilesMenu_SizeHint_IsBase(bool value) const { krecentfilesmenu_sizehint_isbase = value; }
     inline void setKRecentFilesMenu_ChangeEvent_IsBase(bool value) const { krecentfilesmenu_changeevent_isbase = value; }
@@ -395,6 +407,34 @@ class VirtualKRecentFilesMenu final : public KRecentFilesMenu {
     inline void setKRecentFilesMenu_Receivers_IsBase(bool value) const { krecentfilesmenu_receivers_isbase = value; }
     inline void setKRecentFilesMenu_IsSignalConnected_IsBase(bool value) const { krecentfilesmenu_issignalconnected_isbase = value; }
     inline void setKRecentFilesMenu_GetDecodedMetricF_IsBase(bool value) const { krecentfilesmenu_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (krecentfilesmenu_metaobject_isbase) {
+            krecentfilesmenu_metaobject_isbase = false;
+            return KRecentFilesMenu::metaObject();
+        } else if (krecentfilesmenu_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = krecentfilesmenu_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KRecentFilesMenu::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (krecentfilesmenu_metacast_isbase) {
+            krecentfilesmenu_metacast_isbase = false;
+            return KRecentFilesMenu::qt_metacast(param1);
+        } else if (krecentfilesmenu_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = krecentfilesmenu_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KRecentFilesMenu::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -30,11 +30,21 @@ QApplication* QApplication_new2(int* argc, char** argv, int param3) {
 }
 
 QMetaObject* QApplication_MetaObject(const QApplication* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqapplication = dynamic_cast<const VirtualQApplication*>(self);
+    if (vqapplication && vqapplication->isVirtualQApplication) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQApplication*)self)->metaObject();
+    }
 }
 
 void* QApplication_Metacast(QApplication* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
+    if (vqapplication && vqapplication->isVirtualQApplication) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQApplication*)self)->qt_metacast(param1);
+    }
 }
 
 int QApplication_Metacall(QApplication* self, int param1, int param2, void** param3) {
@@ -298,6 +308,44 @@ void QApplication_Alert2(QWidget* widget, int duration) {
 
 void QApplication_SetEffectEnabled2(int param1, bool enable) {
     QApplication::setEffectEnabled(static_cast<Qt::UIEffect>(param1), enable);
+}
+
+// Base class handler implementation
+QMetaObject* QApplication_QBaseMetaObject(const QApplication* self) {
+    auto* vqapplication = const_cast<VirtualQApplication*>(dynamic_cast<const VirtualQApplication*>(self));
+    if (vqapplication && vqapplication->isVirtualQApplication) {
+        vqapplication->setQApplication_MetaObject_IsBase(true);
+        return (QMetaObject*)vqapplication->metaObject();
+    } else {
+        return (QMetaObject*)self->QApplication::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QApplication_OnMetaObject(const QApplication* self, intptr_t slot) {
+    auto* vqapplication = const_cast<VirtualQApplication*>(dynamic_cast<const VirtualQApplication*>(self));
+    if (vqapplication && vqapplication->isVirtualQApplication) {
+        vqapplication->setQApplication_MetaObject_Callback(reinterpret_cast<VirtualQApplication::QApplication_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QApplication_QBaseMetacast(QApplication* self, const char* param1) {
+    auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
+    if (vqapplication && vqapplication->isVirtualQApplication) {
+        vqapplication->setQApplication_Metacast_IsBase(true);
+        return vqapplication->qt_metacast(param1);
+    } else {
+        return self->QApplication::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QApplication_OnMetacast(QApplication* self, intptr_t slot) {
+    auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
+    if (vqapplication && vqapplication->isVirtualQApplication) {
+        vqapplication->setQApplication_Metacast_Callback(reinterpret_cast<VirtualQApplication::QApplication_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

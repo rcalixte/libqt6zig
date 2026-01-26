@@ -17,6 +17,8 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
     bool isVirtualKJobUiDelegate = true;
 
     // Virtual class public types (including callbacks)
+    using KJobUiDelegate_MetaObject_Callback = QMetaObject* (*)();
+    using KJobUiDelegate_Metacast_Callback = void* (*)(KJobUiDelegate*, const char*);
     using KJobUiDelegate_Metacall_Callback = int (*)(KJobUiDelegate*, int, int, void**);
     using KJobUiDelegate_SetJob_Callback = bool (*)(KJobUiDelegate*, KJob*);
     using KJobUiDelegate_ShowErrorMessage_Callback = void (*)();
@@ -36,6 +38,8 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
 
   protected:
     // Instance callback storage
+    KJobUiDelegate_MetaObject_Callback kjobuidelegate_metaobject_callback = nullptr;
+    KJobUiDelegate_Metacast_Callback kjobuidelegate_metacast_callback = nullptr;
     KJobUiDelegate_Metacall_Callback kjobuidelegate_metacall_callback = nullptr;
     KJobUiDelegate_SetJob_Callback kjobuidelegate_setjob_callback = nullptr;
     KJobUiDelegate_ShowErrorMessage_Callback kjobuidelegate_showerrormessage_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
     KJobUiDelegate_IsSignalConnected_Callback kjobuidelegate_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kjobuidelegate_metaobject_isbase = false;
+    mutable bool kjobuidelegate_metacast_isbase = false;
     mutable bool kjobuidelegate_metacall_isbase = false;
     mutable bool kjobuidelegate_setjob_isbase = false;
     mutable bool kjobuidelegate_showerrormessage_isbase = false;
@@ -76,6 +82,8 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
     VirtualKJobUiDelegate(KJobUiDelegate::Flags flags) : KJobUiDelegate(flags) {};
 
     ~VirtualKJobUiDelegate() {
+        kjobuidelegate_metaobject_callback = nullptr;
+        kjobuidelegate_metacast_callback = nullptr;
         kjobuidelegate_metacall_callback = nullptr;
         kjobuidelegate_setjob_callback = nullptr;
         kjobuidelegate_showerrormessage_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
     }
 
     // Callback setters
+    inline void setKJobUiDelegate_MetaObject_Callback(KJobUiDelegate_MetaObject_Callback cb) { kjobuidelegate_metaobject_callback = cb; }
+    inline void setKJobUiDelegate_Metacast_Callback(KJobUiDelegate_Metacast_Callback cb) { kjobuidelegate_metacast_callback = cb; }
     inline void setKJobUiDelegate_Metacall_Callback(KJobUiDelegate_Metacall_Callback cb) { kjobuidelegate_metacall_callback = cb; }
     inline void setKJobUiDelegate_SetJob_Callback(KJobUiDelegate_SetJob_Callback cb) { kjobuidelegate_setjob_callback = cb; }
     inline void setKJobUiDelegate_ShowErrorMessage_Callback(KJobUiDelegate_ShowErrorMessage_Callback cb) { kjobuidelegate_showerrormessage_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
     inline void setKJobUiDelegate_IsSignalConnected_Callback(KJobUiDelegate_IsSignalConnected_Callback cb) { kjobuidelegate_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKJobUiDelegate_MetaObject_IsBase(bool value) const { kjobuidelegate_metaobject_isbase = value; }
+    inline void setKJobUiDelegate_Metacast_IsBase(bool value) const { kjobuidelegate_metacast_isbase = value; }
     inline void setKJobUiDelegate_Metacall_IsBase(bool value) const { kjobuidelegate_metacall_isbase = value; }
     inline void setKJobUiDelegate_SetJob_IsBase(bool value) const { kjobuidelegate_setjob_isbase = value; }
     inline void setKJobUiDelegate_ShowErrorMessage_IsBase(bool value) const { kjobuidelegate_showerrormessage_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
     inline void setKJobUiDelegate_SenderSignalIndex_IsBase(bool value) const { kjobuidelegate_sendersignalindex_isbase = value; }
     inline void setKJobUiDelegate_Receivers_IsBase(bool value) const { kjobuidelegate_receivers_isbase = value; }
     inline void setKJobUiDelegate_IsSignalConnected_IsBase(bool value) const { kjobuidelegate_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kjobuidelegate_metaobject_isbase) {
+            kjobuidelegate_metaobject_isbase = false;
+            return KJobUiDelegate::metaObject();
+        } else if (kjobuidelegate_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kjobuidelegate_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KJobUiDelegate::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kjobuidelegate_metacast_isbase) {
+            kjobuidelegate_metacast_isbase = false;
+            return KJobUiDelegate::qt_metacast(param1);
+        } else if (kjobuidelegate_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kjobuidelegate_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KJobUiDelegate::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

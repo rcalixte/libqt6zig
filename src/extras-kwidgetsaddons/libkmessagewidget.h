@@ -96,6 +96,10 @@ void KMessageWidget_Connect_ShowAnimationFinished(KMessageWidget* self, intptr_t
 void KMessageWidget_PaintEvent(KMessageWidget* self, QPaintEvent* event);
 bool KMessageWidget_Event(KMessageWidget* self, QEvent* event);
 void KMessageWidget_ResizeEvent(KMessageWidget* self, QResizeEvent* event);
+void KMessageWidget_OnMetaObject(const KMessageWidget* self, intptr_t slot);
+QMetaObject* KMessageWidget_QBaseMetaObject(const KMessageWidget* self);
+void KMessageWidget_OnMetacast(KMessageWidget* self, intptr_t slot);
+void* KMessageWidget_QBaseMetacast(KMessageWidget* self, const char* param1);
 void KMessageWidget_OnMetacall(KMessageWidget* self, intptr_t slot);
 int KMessageWidget_QBaseMetacall(KMessageWidget* self, int param1, int param2, void** param3);
 void KMessageWidget_OnSizeHint(const KMessageWidget* self, intptr_t slot);

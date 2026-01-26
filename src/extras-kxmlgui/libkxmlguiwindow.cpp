@@ -65,11 +65,21 @@ KXmlGuiWindow* KXmlGuiWindow_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* KXmlGuiWindow_MetaObject(const KXmlGuiWindow* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkxmlguiwindow = dynamic_cast<const VirtualKXmlGuiWindow*>(self);
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKXmlGuiWindow*)self)->metaObject();
+    }
 }
 
 void* KXmlGuiWindow_Metacast(KXmlGuiWindow* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKXmlGuiWindow*)self)->qt_metacast(param1);
+    }
 }
 
 int KXmlGuiWindow_Metacall(KXmlGuiWindow* self, int param1, int param2, void** param3) {
@@ -246,6 +256,44 @@ void KXmlGuiWindow_SetupGUI23(KXmlGuiWindow* self, const QSize* defaultSize, int
 void KXmlGuiWindow_SetupGUI3(KXmlGuiWindow* self, const QSize* defaultSize, int options, const libqt_string xmlfile) {
     QString xmlfile_QString = QString::fromUtf8(xmlfile.data, xmlfile.len);
     self->setupGUI(*defaultSize, static_cast<KXmlGuiWindow::StandardWindowOptions>(options), xmlfile_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KXmlGuiWindow_QBaseMetaObject(const KXmlGuiWindow* self) {
+    auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+        vkxmlguiwindow->setKXmlGuiWindow_MetaObject_IsBase(true);
+        return (QMetaObject*)vkxmlguiwindow->metaObject();
+    } else {
+        return (QMetaObject*)self->KXmlGuiWindow::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXmlGuiWindow_OnMetaObject(const KXmlGuiWindow* self, intptr_t slot) {
+    auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+        vkxmlguiwindow->setKXmlGuiWindow_MetaObject_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KXmlGuiWindow_QBaseMetacast(KXmlGuiWindow* self, const char* param1) {
+    auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+        vkxmlguiwindow->setKXmlGuiWindow_Metacast_IsBase(true);
+        return vkxmlguiwindow->qt_metacast(param1);
+    } else {
+        return self->KXmlGuiWindow::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXmlGuiWindow_OnMetacast(KXmlGuiWindow* self, intptr_t slot) {
+    auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
+    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
+        vkxmlguiwindow->setKXmlGuiWindow_Metacast_Callback(reinterpret_cast<VirtualKXmlGuiWindow::KXmlGuiWindow_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

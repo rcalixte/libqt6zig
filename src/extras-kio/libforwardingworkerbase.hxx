@@ -18,6 +18,8 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
 
     // Virtual class public types (including callbacks)
     using KIO::ForwardingWorkerBase::UDSEntryCreationMode;
+    using KIO__ForwardingWorkerBase_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__ForwardingWorkerBase_Metacast_Callback = void* (*)(KIO__ForwardingWorkerBase*, const char*);
     using KIO__ForwardingWorkerBase_Metacall_Callback = int (*)(KIO__ForwardingWorkerBase*, int, int, void**);
     using KIO__ForwardingWorkerBase_Get_Callback = KIO__WorkerResult* (*)(KIO__ForwardingWorkerBase*, QUrl*);
     using KIO__ForwardingWorkerBase_Put_Callback = KIO__WorkerResult* (*)(KIO__ForwardingWorkerBase*, QUrl*, int, int);
@@ -64,6 +66,8 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
 
   protected:
     // Instance callback storage
+    KIO__ForwardingWorkerBase_MetaObject_Callback kio__forwardingworkerbase_metaobject_callback = nullptr;
+    KIO__ForwardingWorkerBase_Metacast_Callback kio__forwardingworkerbase_metacast_callback = nullptr;
     KIO__ForwardingWorkerBase_Metacall_Callback kio__forwardingworkerbase_metacall_callback = nullptr;
     KIO__ForwardingWorkerBase_Get_Callback kio__forwardingworkerbase_get_callback = nullptr;
     KIO__ForwardingWorkerBase_Put_Callback kio__forwardingworkerbase_put_callback = nullptr;
@@ -109,6 +113,8 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
     KIO__ForwardingWorkerBase_IsSignalConnected_Callback kio__forwardingworkerbase_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__forwardingworkerbase_metaobject_isbase = false;
+    mutable bool kio__forwardingworkerbase_metacast_isbase = false;
     mutable bool kio__forwardingworkerbase_metacall_isbase = false;
     mutable bool kio__forwardingworkerbase_get_isbase = false;
     mutable bool kio__forwardingworkerbase_put_isbase = false;
@@ -157,6 +163,8 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
     VirtualKIOForwardingWorkerBase(const QByteArray& protocol, const QByteArray& poolSocket, const QByteArray& appSocket) : KIO::ForwardingWorkerBase(protocol, poolSocket, appSocket) {};
 
     ~VirtualKIOForwardingWorkerBase() {
+        kio__forwardingworkerbase_metaobject_callback = nullptr;
+        kio__forwardingworkerbase_metacast_callback = nullptr;
         kio__forwardingworkerbase_metacall_callback = nullptr;
         kio__forwardingworkerbase_get_callback = nullptr;
         kio__forwardingworkerbase_put_callback = nullptr;
@@ -203,6 +211,8 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
     }
 
     // Callback setters
+    inline void setKIO__ForwardingWorkerBase_MetaObject_Callback(KIO__ForwardingWorkerBase_MetaObject_Callback cb) { kio__forwardingworkerbase_metaobject_callback = cb; }
+    inline void setKIO__ForwardingWorkerBase_Metacast_Callback(KIO__ForwardingWorkerBase_Metacast_Callback cb) { kio__forwardingworkerbase_metacast_callback = cb; }
     inline void setKIO__ForwardingWorkerBase_Metacall_Callback(KIO__ForwardingWorkerBase_Metacall_Callback cb) { kio__forwardingworkerbase_metacall_callback = cb; }
     inline void setKIO__ForwardingWorkerBase_Get_Callback(KIO__ForwardingWorkerBase_Get_Callback cb) { kio__forwardingworkerbase_get_callback = cb; }
     inline void setKIO__ForwardingWorkerBase_Put_Callback(KIO__ForwardingWorkerBase_Put_Callback cb) { kio__forwardingworkerbase_put_callback = cb; }
@@ -248,6 +258,8 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
     inline void setKIO__ForwardingWorkerBase_IsSignalConnected_Callback(KIO__ForwardingWorkerBase_IsSignalConnected_Callback cb) { kio__forwardingworkerbase_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__ForwardingWorkerBase_MetaObject_IsBase(bool value) const { kio__forwardingworkerbase_metaobject_isbase = value; }
+    inline void setKIO__ForwardingWorkerBase_Metacast_IsBase(bool value) const { kio__forwardingworkerbase_metacast_isbase = value; }
     inline void setKIO__ForwardingWorkerBase_Metacall_IsBase(bool value) const { kio__forwardingworkerbase_metacall_isbase = value; }
     inline void setKIO__ForwardingWorkerBase_Get_IsBase(bool value) const { kio__forwardingworkerbase_get_isbase = value; }
     inline void setKIO__ForwardingWorkerBase_Put_IsBase(bool value) const { kio__forwardingworkerbase_put_isbase = value; }
@@ -291,6 +303,34 @@ class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
     inline void setKIO__ForwardingWorkerBase_SenderSignalIndex_IsBase(bool value) const { kio__forwardingworkerbase_sendersignalindex_isbase = value; }
     inline void setKIO__ForwardingWorkerBase_Receivers_IsBase(bool value) const { kio__forwardingworkerbase_receivers_isbase = value; }
     inline void setKIO__ForwardingWorkerBase_IsSignalConnected_IsBase(bool value) const { kio__forwardingworkerbase_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__forwardingworkerbase_metaobject_isbase) {
+            kio__forwardingworkerbase_metaobject_isbase = false;
+            return KIO__ForwardingWorkerBase::metaObject();
+        } else if (kio__forwardingworkerbase_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__forwardingworkerbase_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__ForwardingWorkerBase::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__forwardingworkerbase_metacast_isbase) {
+            kio__forwardingworkerbase_metacast_isbase = false;
+            return KIO__ForwardingWorkerBase::qt_metacast(param1);
+        } else if (kio__forwardingworkerbase_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__forwardingworkerbase_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__ForwardingWorkerBase::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

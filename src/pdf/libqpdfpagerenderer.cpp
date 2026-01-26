@@ -25,11 +25,21 @@ QPdfPageRenderer* QPdfPageRenderer_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfPageRenderer_MetaObject(const QPdfPageRenderer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpdfpagerenderer = dynamic_cast<const VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPdfPageRenderer*)self)->metaObject();
+    }
 }
 
 void* QPdfPageRenderer_Metacast(QPdfPageRenderer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPdfPageRenderer*)self)->qt_metacast(param1);
+    }
 }
 
 int QPdfPageRenderer_Metacall(QPdfPageRenderer* self, int param1, int param2, void** param3) {
@@ -105,6 +115,44 @@ void QPdfPageRenderer_Connect_PageRendered(QPdfPageRenderer* self, intptr_t slot
 
 unsigned long long QPdfPageRenderer_RequestPage3(QPdfPageRenderer* self, int pageNumber, QSize* imageSize, QPdfDocumentRenderOptions* options) {
     return static_cast<unsigned long long>(self->requestPage(static_cast<int>(pageNumber), *imageSize, *options));
+}
+
+// Base class handler implementation
+QMetaObject* QPdfPageRenderer_QBaseMetaObject(const QPdfPageRenderer* self) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
+        vqpdfpagerenderer->setQPdfPageRenderer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpdfpagerenderer->metaObject();
+    } else {
+        return (QMetaObject*)self->QPdfPageRenderer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfPageRenderer_OnMetaObject(const QPdfPageRenderer* self, intptr_t slot) {
+    auto* vqpdfpagerenderer = const_cast<VirtualQPdfPageRenderer*>(dynamic_cast<const VirtualQPdfPageRenderer*>(self));
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
+        vqpdfpagerenderer->setQPdfPageRenderer_MetaObject_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPdfPageRenderer_QBaseMetacast(QPdfPageRenderer* self, const char* param1) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
+        vqpdfpagerenderer->setQPdfPageRenderer_Metacast_IsBase(true);
+        return vqpdfpagerenderer->qt_metacast(param1);
+    } else {
+        return self->QPdfPageRenderer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfPageRenderer_OnMetacast(QPdfPageRenderer* self, intptr_t slot) {
+    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
+    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
+        vqpdfpagerenderer->setQPdfPageRenderer_Metacast_Callback(reinterpret_cast<VirtualQPdfPageRenderer::QPdfPageRenderer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualKPropertiesDialog final : public KPropertiesDialog {
     bool isVirtualKPropertiesDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KPropertiesDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KPropertiesDialog_Metacast_Callback = void* (*)(KPropertiesDialog*, const char*);
     using KPropertiesDialog_Metacall_Callback = int (*)(KPropertiesDialog*, int, int, void**);
     using KPropertiesDialog_Accept_Callback = void (*)();
     using KPropertiesDialog_Reject_Callback = void (*)();
@@ -88,6 +90,8 @@ class VirtualKPropertiesDialog final : public KPropertiesDialog {
 
   protected:
     // Instance callback storage
+    KPropertiesDialog_MetaObject_Callback kpropertiesdialog_metaobject_callback = nullptr;
+    KPropertiesDialog_Metacast_Callback kpropertiesdialog_metacast_callback = nullptr;
     KPropertiesDialog_Metacall_Callback kpropertiesdialog_metacall_callback = nullptr;
     KPropertiesDialog_Accept_Callback kpropertiesdialog_accept_callback = nullptr;
     KPropertiesDialog_Reject_Callback kpropertiesdialog_reject_callback = nullptr;
@@ -158,6 +162,8 @@ class VirtualKPropertiesDialog final : public KPropertiesDialog {
     KPropertiesDialog_GetDecodedMetricF_Callback kpropertiesdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpropertiesdialog_metaobject_isbase = false;
+    mutable bool kpropertiesdialog_metacast_isbase = false;
     mutable bool kpropertiesdialog_metacall_isbase = false;
     mutable bool kpropertiesdialog_accept_isbase = false;
     mutable bool kpropertiesdialog_reject_isbase = false;
@@ -242,6 +248,8 @@ class VirtualKPropertiesDialog final : public KPropertiesDialog {
     VirtualKPropertiesDialog(const QString& title, QWidget* parent) : KPropertiesDialog(title, parent) {};
 
     ~VirtualKPropertiesDialog() {
+        kpropertiesdialog_metaobject_callback = nullptr;
+        kpropertiesdialog_metacast_callback = nullptr;
         kpropertiesdialog_metacall_callback = nullptr;
         kpropertiesdialog_accept_callback = nullptr;
         kpropertiesdialog_reject_callback = nullptr;
@@ -313,6 +321,8 @@ class VirtualKPropertiesDialog final : public KPropertiesDialog {
     }
 
     // Callback setters
+    inline void setKPropertiesDialog_MetaObject_Callback(KPropertiesDialog_MetaObject_Callback cb) { kpropertiesdialog_metaobject_callback = cb; }
+    inline void setKPropertiesDialog_Metacast_Callback(KPropertiesDialog_Metacast_Callback cb) { kpropertiesdialog_metacast_callback = cb; }
     inline void setKPropertiesDialog_Metacall_Callback(KPropertiesDialog_Metacall_Callback cb) { kpropertiesdialog_metacall_callback = cb; }
     inline void setKPropertiesDialog_Accept_Callback(KPropertiesDialog_Accept_Callback cb) { kpropertiesdialog_accept_callback = cb; }
     inline void setKPropertiesDialog_Reject_Callback(KPropertiesDialog_Reject_Callback cb) { kpropertiesdialog_reject_callback = cb; }
@@ -383,6 +393,8 @@ class VirtualKPropertiesDialog final : public KPropertiesDialog {
     inline void setKPropertiesDialog_GetDecodedMetricF_Callback(KPropertiesDialog_GetDecodedMetricF_Callback cb) { kpropertiesdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPropertiesDialog_MetaObject_IsBase(bool value) const { kpropertiesdialog_metaobject_isbase = value; }
+    inline void setKPropertiesDialog_Metacast_IsBase(bool value) const { kpropertiesdialog_metacast_isbase = value; }
     inline void setKPropertiesDialog_Metacall_IsBase(bool value) const { kpropertiesdialog_metacall_isbase = value; }
     inline void setKPropertiesDialog_Accept_IsBase(bool value) const { kpropertiesdialog_accept_isbase = value; }
     inline void setKPropertiesDialog_Reject_IsBase(bool value) const { kpropertiesdialog_reject_isbase = value; }
@@ -451,6 +463,34 @@ class VirtualKPropertiesDialog final : public KPropertiesDialog {
     inline void setKPropertiesDialog_Receivers_IsBase(bool value) const { kpropertiesdialog_receivers_isbase = value; }
     inline void setKPropertiesDialog_IsSignalConnected_IsBase(bool value) const { kpropertiesdialog_issignalconnected_isbase = value; }
     inline void setKPropertiesDialog_GetDecodedMetricF_IsBase(bool value) const { kpropertiesdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpropertiesdialog_metaobject_isbase) {
+            kpropertiesdialog_metaobject_isbase = false;
+            return KPropertiesDialog::metaObject();
+        } else if (kpropertiesdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpropertiesdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPropertiesDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpropertiesdialog_metacast_isbase) {
+            kpropertiesdialog_metacast_isbase = false;
+            return KPropertiesDialog::qt_metacast(param1);
+        } else if (kpropertiesdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpropertiesdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPropertiesDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

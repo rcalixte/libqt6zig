@@ -17,6 +17,8 @@ class VirtualQPdfWriter final : public QPdfWriter {
     bool isVirtualQPdfWriter = true;
 
     // Virtual class public types (including callbacks)
+    using QPdfWriter_MetaObject_Callback = QMetaObject* (*)();
+    using QPdfWriter_Metacast_Callback = void* (*)(QPdfWriter*, const char*);
     using QPdfWriter_Metacall_Callback = int (*)(QPdfWriter*, int, int, void**);
     using QPdfWriter_NewPage_Callback = bool (*)();
     using QPdfWriter_PaintEngine_Callback = QPaintEngine* (*)();
@@ -45,6 +47,8 @@ class VirtualQPdfWriter final : public QPdfWriter {
 
   protected:
     // Instance callback storage
+    QPdfWriter_MetaObject_Callback qpdfwriter_metaobject_callback = nullptr;
+    QPdfWriter_Metacast_Callback qpdfwriter_metacast_callback = nullptr;
     QPdfWriter_Metacall_Callback qpdfwriter_metacall_callback = nullptr;
     QPdfWriter_NewPage_Callback qpdfwriter_newpage_callback = nullptr;
     QPdfWriter_PaintEngine_Callback qpdfwriter_paintengine_callback = nullptr;
@@ -72,6 +76,8 @@ class VirtualQPdfWriter final : public QPdfWriter {
     QPdfWriter_GetDecodedMetricF_Callback qpdfwriter_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpdfwriter_metaobject_isbase = false;
+    mutable bool qpdfwriter_metacast_isbase = false;
     mutable bool qpdfwriter_metacall_isbase = false;
     mutable bool qpdfwriter_newpage_isbase = false;
     mutable bool qpdfwriter_paintengine_isbase = false;
@@ -103,6 +109,8 @@ class VirtualQPdfWriter final : public QPdfWriter {
     VirtualQPdfWriter(QIODevice* device) : QPdfWriter(device) {};
 
     ~VirtualQPdfWriter() {
+        qpdfwriter_metaobject_callback = nullptr;
+        qpdfwriter_metacast_callback = nullptr;
         qpdfwriter_metacall_callback = nullptr;
         qpdfwriter_newpage_callback = nullptr;
         qpdfwriter_paintengine_callback = nullptr;
@@ -131,6 +139,8 @@ class VirtualQPdfWriter final : public QPdfWriter {
     }
 
     // Callback setters
+    inline void setQPdfWriter_MetaObject_Callback(QPdfWriter_MetaObject_Callback cb) { qpdfwriter_metaobject_callback = cb; }
+    inline void setQPdfWriter_Metacast_Callback(QPdfWriter_Metacast_Callback cb) { qpdfwriter_metacast_callback = cb; }
     inline void setQPdfWriter_Metacall_Callback(QPdfWriter_Metacall_Callback cb) { qpdfwriter_metacall_callback = cb; }
     inline void setQPdfWriter_NewPage_Callback(QPdfWriter_NewPage_Callback cb) { qpdfwriter_newpage_callback = cb; }
     inline void setQPdfWriter_PaintEngine_Callback(QPdfWriter_PaintEngine_Callback cb) { qpdfwriter_paintengine_callback = cb; }
@@ -158,6 +168,8 @@ class VirtualQPdfWriter final : public QPdfWriter {
     inline void setQPdfWriter_GetDecodedMetricF_Callback(QPdfWriter_GetDecodedMetricF_Callback cb) { qpdfwriter_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQPdfWriter_MetaObject_IsBase(bool value) const { qpdfwriter_metaobject_isbase = value; }
+    inline void setQPdfWriter_Metacast_IsBase(bool value) const { qpdfwriter_metacast_isbase = value; }
     inline void setQPdfWriter_Metacall_IsBase(bool value) const { qpdfwriter_metacall_isbase = value; }
     inline void setQPdfWriter_NewPage_IsBase(bool value) const { qpdfwriter_newpage_isbase = value; }
     inline void setQPdfWriter_PaintEngine_IsBase(bool value) const { qpdfwriter_paintengine_isbase = value; }
@@ -183,6 +195,34 @@ class VirtualQPdfWriter final : public QPdfWriter {
     inline void setQPdfWriter_Receivers_IsBase(bool value) const { qpdfwriter_receivers_isbase = value; }
     inline void setQPdfWriter_IsSignalConnected_IsBase(bool value) const { qpdfwriter_issignalconnected_isbase = value; }
     inline void setQPdfWriter_GetDecodedMetricF_IsBase(bool value) const { qpdfwriter_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpdfwriter_metaobject_isbase) {
+            qpdfwriter_metaobject_isbase = false;
+            return QPdfWriter::metaObject();
+        } else if (qpdfwriter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpdfwriter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPdfWriter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpdfwriter_metacast_isbase) {
+            qpdfwriter_metacast_isbase = false;
+            return QPdfWriter::qt_metacast(param1);
+        } else if (qpdfwriter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpdfwriter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPdfWriter::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -20,6 +20,8 @@ class VirtualKCategorizedView final : public KCategorizedView {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using KCategorizedView_MetaObject_Callback = QMetaObject* (*)();
+    using KCategorizedView_Metacast_Callback = void* (*)(KCategorizedView*, const char*);
     using KCategorizedView_Metacall_Callback = int (*)(KCategorizedView*, int, int, void**);
     using KCategorizedView_SetModel_Callback = void (*)(KCategorizedView*, QAbstractItemModel*);
     using KCategorizedView_VisualRect_Callback = QRect* (*)(const KCategorizedView*, QModelIndex*);
@@ -144,6 +146,8 @@ class VirtualKCategorizedView final : public KCategorizedView {
 
   protected:
     // Instance callback storage
+    KCategorizedView_MetaObject_Callback kcategorizedview_metaobject_callback = nullptr;
+    KCategorizedView_Metacast_Callback kcategorizedview_metacast_callback = nullptr;
     KCategorizedView_Metacall_Callback kcategorizedview_metacall_callback = nullptr;
     KCategorizedView_SetModel_Callback kcategorizedview_setmodel_callback = nullptr;
     KCategorizedView_VisualRect_Callback kcategorizedview_visualrect_callback = nullptr;
@@ -267,6 +271,8 @@ class VirtualKCategorizedView final : public KCategorizedView {
     KCategorizedView_GetDecodedMetricF_Callback kcategorizedview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcategorizedview_metaobject_isbase = false;
+    mutable bool kcategorizedview_metacast_isbase = false;
     mutable bool kcategorizedview_metacall_isbase = false;
     mutable bool kcategorizedview_setmodel_isbase = false;
     mutable bool kcategorizedview_visualrect_isbase = false;
@@ -394,6 +400,8 @@ class VirtualKCategorizedView final : public KCategorizedView {
     VirtualKCategorizedView() : KCategorizedView() {};
 
     ~VirtualKCategorizedView() {
+        kcategorizedview_metaobject_callback = nullptr;
+        kcategorizedview_metacast_callback = nullptr;
         kcategorizedview_metacall_callback = nullptr;
         kcategorizedview_setmodel_callback = nullptr;
         kcategorizedview_visualrect_callback = nullptr;
@@ -518,6 +526,8 @@ class VirtualKCategorizedView final : public KCategorizedView {
     }
 
     // Callback setters
+    inline void setKCategorizedView_MetaObject_Callback(KCategorizedView_MetaObject_Callback cb) { kcategorizedview_metaobject_callback = cb; }
+    inline void setKCategorizedView_Metacast_Callback(KCategorizedView_Metacast_Callback cb) { kcategorizedview_metacast_callback = cb; }
     inline void setKCategorizedView_Metacall_Callback(KCategorizedView_Metacall_Callback cb) { kcategorizedview_metacall_callback = cb; }
     inline void setKCategorizedView_SetModel_Callback(KCategorizedView_SetModel_Callback cb) { kcategorizedview_setmodel_callback = cb; }
     inline void setKCategorizedView_VisualRect_Callback(KCategorizedView_VisualRect_Callback cb) { kcategorizedview_visualrect_callback = cb; }
@@ -641,6 +651,8 @@ class VirtualKCategorizedView final : public KCategorizedView {
     inline void setKCategorizedView_GetDecodedMetricF_Callback(KCategorizedView_GetDecodedMetricF_Callback cb) { kcategorizedview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKCategorizedView_MetaObject_IsBase(bool value) const { kcategorizedview_metaobject_isbase = value; }
+    inline void setKCategorizedView_Metacast_IsBase(bool value) const { kcategorizedview_metacast_isbase = value; }
     inline void setKCategorizedView_Metacall_IsBase(bool value) const { kcategorizedview_metacall_isbase = value; }
     inline void setKCategorizedView_SetModel_IsBase(bool value) const { kcategorizedview_setmodel_isbase = value; }
     inline void setKCategorizedView_VisualRect_IsBase(bool value) const { kcategorizedview_visualrect_isbase = value; }
@@ -762,6 +774,34 @@ class VirtualKCategorizedView final : public KCategorizedView {
     inline void setKCategorizedView_Receivers_IsBase(bool value) const { kcategorizedview_receivers_isbase = value; }
     inline void setKCategorizedView_IsSignalConnected_IsBase(bool value) const { kcategorizedview_issignalconnected_isbase = value; }
     inline void setKCategorizedView_GetDecodedMetricF_IsBase(bool value) const { kcategorizedview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcategorizedview_metaobject_isbase) {
+            kcategorizedview_metaobject_isbase = false;
+            return KCategorizedView::metaObject();
+        } else if (kcategorizedview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcategorizedview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCategorizedView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcategorizedview_metacast_isbase) {
+            kcategorizedview_metacast_isbase = false;
+            return KCategorizedView::qt_metacast(param1);
+        } else if (kcategorizedview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcategorizedview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCategorizedView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
     bool isVirtualKBookmarkManager = true;
 
     // Virtual class public types (including callbacks)
+    using KBookmarkManager_MetaObject_Callback = QMetaObject* (*)();
+    using KBookmarkManager_Metacast_Callback = void* (*)(KBookmarkManager*, const char*);
     using KBookmarkManager_Metacall_Callback = int (*)(KBookmarkManager*, int, int, void**);
     using KBookmarkManager_Event_Callback = bool (*)(KBookmarkManager*, QEvent*);
     using KBookmarkManager_EventFilter_Callback = bool (*)(KBookmarkManager*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
 
   protected:
     // Instance callback storage
+    KBookmarkManager_MetaObject_Callback kbookmarkmanager_metaobject_callback = nullptr;
+    KBookmarkManager_Metacast_Callback kbookmarkmanager_metacast_callback = nullptr;
     KBookmarkManager_Metacall_Callback kbookmarkmanager_metacall_callback = nullptr;
     KBookmarkManager_Event_Callback kbookmarkmanager_event_callback = nullptr;
     KBookmarkManager_EventFilter_Callback kbookmarkmanager_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
     KBookmarkManager_IsSignalConnected_Callback kbookmarkmanager_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kbookmarkmanager_metaobject_isbase = false;
+    mutable bool kbookmarkmanager_metacast_isbase = false;
     mutable bool kbookmarkmanager_metacall_isbase = false;
     mutable bool kbookmarkmanager_event_isbase = false;
     mutable bool kbookmarkmanager_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
     VirtualKBookmarkManager(const QString& bookmarksFile, QObject* parent) : KBookmarkManager(bookmarksFile, parent) {};
 
     ~VirtualKBookmarkManager() {
+        kbookmarkmanager_metaobject_callback = nullptr;
+        kbookmarkmanager_metacast_callback = nullptr;
         kbookmarkmanager_metacall_callback = nullptr;
         kbookmarkmanager_event_callback = nullptr;
         kbookmarkmanager_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
     }
 
     // Callback setters
+    inline void setKBookmarkManager_MetaObject_Callback(KBookmarkManager_MetaObject_Callback cb) { kbookmarkmanager_metaobject_callback = cb; }
+    inline void setKBookmarkManager_Metacast_Callback(KBookmarkManager_Metacast_Callback cb) { kbookmarkmanager_metacast_callback = cb; }
     inline void setKBookmarkManager_Metacall_Callback(KBookmarkManager_Metacall_Callback cb) { kbookmarkmanager_metacall_callback = cb; }
     inline void setKBookmarkManager_Event_Callback(KBookmarkManager_Event_Callback cb) { kbookmarkmanager_event_callback = cb; }
     inline void setKBookmarkManager_EventFilter_Callback(KBookmarkManager_EventFilter_Callback cb) { kbookmarkmanager_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
     inline void setKBookmarkManager_IsSignalConnected_Callback(KBookmarkManager_IsSignalConnected_Callback cb) { kbookmarkmanager_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKBookmarkManager_MetaObject_IsBase(bool value) const { kbookmarkmanager_metaobject_isbase = value; }
+    inline void setKBookmarkManager_Metacast_IsBase(bool value) const { kbookmarkmanager_metacast_isbase = value; }
     inline void setKBookmarkManager_Metacall_IsBase(bool value) const { kbookmarkmanager_metacall_isbase = value; }
     inline void setKBookmarkManager_Event_IsBase(bool value) const { kbookmarkmanager_event_isbase = value; }
     inline void setKBookmarkManager_EventFilter_IsBase(bool value) const { kbookmarkmanager_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKBookmarkManager final : public KBookmarkManager {
     inline void setKBookmarkManager_SenderSignalIndex_IsBase(bool value) const { kbookmarkmanager_sendersignalindex_isbase = value; }
     inline void setKBookmarkManager_Receivers_IsBase(bool value) const { kbookmarkmanager_receivers_isbase = value; }
     inline void setKBookmarkManager_IsSignalConnected_IsBase(bool value) const { kbookmarkmanager_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kbookmarkmanager_metaobject_isbase) {
+            kbookmarkmanager_metaobject_isbase = false;
+            return KBookmarkManager::metaObject();
+        } else if (kbookmarkmanager_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kbookmarkmanager_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KBookmarkManager::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kbookmarkmanager_metacast_isbase) {
+            kbookmarkmanager_metacast_isbase = false;
+            return KBookmarkManager::qt_metacast(param1);
+        } else if (kbookmarkmanager_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kbookmarkmanager_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KBookmarkManager::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

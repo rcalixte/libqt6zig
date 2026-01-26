@@ -58,6 +58,10 @@ int KPreviewWidgetBase_Metacall(KPreviewWidgetBase* self, int param1, int param2
 libqt_list /* of libqt_string */ KPreviewWidgetBase_SupportedMimeTypes(const KPreviewWidgetBase* self);
 void KPreviewWidgetBase_ShowPreview(KPreviewWidgetBase* self, const QUrl* url);
 void KPreviewWidgetBase_ClearPreview(KPreviewWidgetBase* self);
+void KPreviewWidgetBase_OnMetaObject(const KPreviewWidgetBase* self, intptr_t slot);
+QMetaObject* KPreviewWidgetBase_QBaseMetaObject(const KPreviewWidgetBase* self);
+void KPreviewWidgetBase_OnMetacast(KPreviewWidgetBase* self, intptr_t slot);
+void* KPreviewWidgetBase_QBaseMetacast(KPreviewWidgetBase* self, const char* param1);
 void KPreviewWidgetBase_OnMetacall(KPreviewWidgetBase* self, intptr_t slot);
 int KPreviewWidgetBase_QBaseMetacall(KPreviewWidgetBase* self, int param1, int param2, void** param3);
 void KPreviewWidgetBase_OnShowPreview(KPreviewWidgetBase* self, intptr_t slot);

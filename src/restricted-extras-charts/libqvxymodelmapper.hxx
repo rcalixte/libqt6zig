@@ -17,6 +17,8 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
     bool isVirtualQVXYModelMapper = true;
 
     // Virtual class public types (including callbacks)
+    using QVXYModelMapper_MetaObject_Callback = QMetaObject* (*)();
+    using QVXYModelMapper_Metacast_Callback = void* (*)(QVXYModelMapper*, const char*);
     using QVXYModelMapper_Metacall_Callback = int (*)(QVXYModelMapper*, int, int, void**);
     using QVXYModelMapper_Event_Callback = bool (*)(QVXYModelMapper*, QEvent*);
     using QVXYModelMapper_EventFilter_Callback = bool (*)(QVXYModelMapper*, QObject*, QEvent*);
@@ -42,6 +44,8 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
 
   protected:
     // Instance callback storage
+    QVXYModelMapper_MetaObject_Callback qvxymodelmapper_metaobject_callback = nullptr;
+    QVXYModelMapper_Metacast_Callback qvxymodelmapper_metacast_callback = nullptr;
     QVXYModelMapper_Metacall_Callback qvxymodelmapper_metacall_callback = nullptr;
     QVXYModelMapper_Event_Callback qvxymodelmapper_event_callback = nullptr;
     QVXYModelMapper_EventFilter_Callback qvxymodelmapper_eventfilter_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
     QVXYModelMapper_IsSignalConnected_Callback qvxymodelmapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qvxymodelmapper_metaobject_isbase = false;
+    mutable bool qvxymodelmapper_metacast_isbase = false;
     mutable bool qvxymodelmapper_metacall_isbase = false;
     mutable bool qvxymodelmapper_event_isbase = false;
     mutable bool qvxymodelmapper_eventfilter_isbase = false;
@@ -94,6 +100,8 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
     VirtualQVXYModelMapper(QObject* parent) : QVXYModelMapper(parent) {};
 
     ~VirtualQVXYModelMapper() {
+        qvxymodelmapper_metaobject_callback = nullptr;
+        qvxymodelmapper_metacast_callback = nullptr;
         qvxymodelmapper_metacall_callback = nullptr;
         qvxymodelmapper_event_callback = nullptr;
         qvxymodelmapper_eventfilter_callback = nullptr;
@@ -119,6 +127,8 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
     }
 
     // Callback setters
+    inline void setQVXYModelMapper_MetaObject_Callback(QVXYModelMapper_MetaObject_Callback cb) { qvxymodelmapper_metaobject_callback = cb; }
+    inline void setQVXYModelMapper_Metacast_Callback(QVXYModelMapper_Metacast_Callback cb) { qvxymodelmapper_metacast_callback = cb; }
     inline void setQVXYModelMapper_Metacall_Callback(QVXYModelMapper_Metacall_Callback cb) { qvxymodelmapper_metacall_callback = cb; }
     inline void setQVXYModelMapper_Event_Callback(QVXYModelMapper_Event_Callback cb) { qvxymodelmapper_event_callback = cb; }
     inline void setQVXYModelMapper_EventFilter_Callback(QVXYModelMapper_EventFilter_Callback cb) { qvxymodelmapper_eventfilter_callback = cb; }
@@ -143,6 +153,8 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
     inline void setQVXYModelMapper_IsSignalConnected_Callback(QVXYModelMapper_IsSignalConnected_Callback cb) { qvxymodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQVXYModelMapper_MetaObject_IsBase(bool value) const { qvxymodelmapper_metaobject_isbase = value; }
+    inline void setQVXYModelMapper_Metacast_IsBase(bool value) const { qvxymodelmapper_metacast_isbase = value; }
     inline void setQVXYModelMapper_Metacall_IsBase(bool value) const { qvxymodelmapper_metacall_isbase = value; }
     inline void setQVXYModelMapper_Event_IsBase(bool value) const { qvxymodelmapper_event_isbase = value; }
     inline void setQVXYModelMapper_EventFilter_IsBase(bool value) const { qvxymodelmapper_eventfilter_isbase = value; }
@@ -165,6 +177,34 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
     inline void setQVXYModelMapper_SenderSignalIndex_IsBase(bool value) const { qvxymodelmapper_sendersignalindex_isbase = value; }
     inline void setQVXYModelMapper_Receivers_IsBase(bool value) const { qvxymodelmapper_receivers_isbase = value; }
     inline void setQVXYModelMapper_IsSignalConnected_IsBase(bool value) const { qvxymodelmapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qvxymodelmapper_metaobject_isbase) {
+            qvxymodelmapper_metaobject_isbase = false;
+            return QVXYModelMapper::metaObject();
+        } else if (qvxymodelmapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qvxymodelmapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QVXYModelMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qvxymodelmapper_metacast_isbase) {
+            qvxymodelmapper_metacast_isbase = false;
+            return QVXYModelMapper::qt_metacast(param1);
+        } else if (qvxymodelmapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qvxymodelmapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QVXYModelMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -23,11 +23,21 @@ QDBusVirtualObject* QDBusVirtualObject_new2(QObject* parent) {
 }
 
 QMetaObject* QDBusVirtualObject_MetaObject(const QDBusVirtualObject* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdbusvirtualobject = dynamic_cast<const VirtualQDBusVirtualObject*>(self);
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDBusVirtualObject*)self)->metaObject();
+    }
 }
 
 void* QDBusVirtualObject_Metacast(QDBusVirtualObject* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDBusVirtualObject*)self)->qt_metacast(param1);
+    }
 }
 
 int QDBusVirtualObject_Metacall(QDBusVirtualObject* self, int param1, int param2, void** param3) {
@@ -71,6 +81,44 @@ bool QDBusVirtualObject_HandleMessage(QDBusVirtualObject* self, const QDBusMessa
         return vqdbusvirtualobject->handleMessage(*message, *connection);
     } else {
         return ((VirtualQDBusVirtualObject*)self)->handleMessage(*message, *connection);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDBusVirtualObject_QBaseMetaObject(const QDBusVirtualObject* self) {
+    auto* vqdbusvirtualobject = const_cast<VirtualQDBusVirtualObject*>(dynamic_cast<const VirtualQDBusVirtualObject*>(self));
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+        vqdbusvirtualobject->setQDBusVirtualObject_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdbusvirtualobject->metaObject();
+    } else {
+        return (QMetaObject*)self->QDBusVirtualObject::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDBusVirtualObject_OnMetaObject(const QDBusVirtualObject* self, intptr_t slot) {
+    auto* vqdbusvirtualobject = const_cast<VirtualQDBusVirtualObject*>(dynamic_cast<const VirtualQDBusVirtualObject*>(self));
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+        vqdbusvirtualobject->setQDBusVirtualObject_MetaObject_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDBusVirtualObject_QBaseMetacast(QDBusVirtualObject* self, const char* param1) {
+    auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+        vqdbusvirtualobject->setQDBusVirtualObject_Metacast_IsBase(true);
+        return vqdbusvirtualobject->qt_metacast(param1);
+    } else {
+        return self->QDBusVirtualObject::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDBusVirtualObject_OnMetacast(QDBusVirtualObject* self, intptr_t slot) {
+    auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+        vqdbusvirtualobject->setQDBusVirtualObject_Metacast_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_Metacast_Callback>(slot));
     }
 }
 

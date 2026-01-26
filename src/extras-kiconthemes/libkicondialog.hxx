@@ -17,6 +17,8 @@ class VirtualKIconDialog final : public KIconDialog {
     bool isVirtualKIconDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KIconDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KIconDialog_Metacast_Callback = void* (*)(KIconDialog*, const char*);
     using KIconDialog_Metacall_Callback = int (*)(KIconDialog*, int, int, void**);
     using KIconDialog_ShowEvent_Callback = void (*)(KIconDialog*, QShowEvent*);
     using KIconDialog_SetVisible_Callback = void (*)(KIconDialog*, bool);
@@ -85,6 +87,8 @@ class VirtualKIconDialog final : public KIconDialog {
 
   protected:
     // Instance callback storage
+    KIconDialog_MetaObject_Callback kicondialog_metaobject_callback = nullptr;
+    KIconDialog_Metacast_Callback kicondialog_metacast_callback = nullptr;
     KIconDialog_Metacall_Callback kicondialog_metacall_callback = nullptr;
     KIconDialog_ShowEvent_Callback kicondialog_showevent_callback = nullptr;
     KIconDialog_SetVisible_Callback kicondialog_setvisible_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualKIconDialog final : public KIconDialog {
     KIconDialog_GetDecodedMetricF_Callback kicondialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kicondialog_metaobject_isbase = false;
+    mutable bool kicondialog_metacast_isbase = false;
     mutable bool kicondialog_metacall_isbase = false;
     mutable bool kicondialog_showevent_isbase = false;
     mutable bool kicondialog_setvisible_isbase = false;
@@ -223,6 +229,8 @@ class VirtualKIconDialog final : public KIconDialog {
     VirtualKIconDialog() : KIconDialog() {};
 
     ~VirtualKIconDialog() {
+        kicondialog_metaobject_callback = nullptr;
+        kicondialog_metacast_callback = nullptr;
         kicondialog_metacall_callback = nullptr;
         kicondialog_showevent_callback = nullptr;
         kicondialog_setvisible_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKIconDialog final : public KIconDialog {
     }
 
     // Callback setters
+    inline void setKIconDialog_MetaObject_Callback(KIconDialog_MetaObject_Callback cb) { kicondialog_metaobject_callback = cb; }
+    inline void setKIconDialog_Metacast_Callback(KIconDialog_Metacast_Callback cb) { kicondialog_metacast_callback = cb; }
     inline void setKIconDialog_Metacall_Callback(KIconDialog_Metacall_Callback cb) { kicondialog_metacall_callback = cb; }
     inline void setKIconDialog_ShowEvent_Callback(KIconDialog_ShowEvent_Callback cb) { kicondialog_showevent_callback = cb; }
     inline void setKIconDialog_SetVisible_Callback(KIconDialog_SetVisible_Callback cb) { kicondialog_setvisible_callback = cb; }
@@ -358,6 +368,8 @@ class VirtualKIconDialog final : public KIconDialog {
     inline void setKIconDialog_GetDecodedMetricF_Callback(KIconDialog_GetDecodedMetricF_Callback cb) { kicondialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKIconDialog_MetaObject_IsBase(bool value) const { kicondialog_metaobject_isbase = value; }
+    inline void setKIconDialog_Metacast_IsBase(bool value) const { kicondialog_metacast_isbase = value; }
     inline void setKIconDialog_Metacall_IsBase(bool value) const { kicondialog_metacall_isbase = value; }
     inline void setKIconDialog_ShowEvent_IsBase(bool value) const { kicondialog_showevent_isbase = value; }
     inline void setKIconDialog_SetVisible_IsBase(bool value) const { kicondialog_setvisible_isbase = value; }
@@ -423,6 +435,34 @@ class VirtualKIconDialog final : public KIconDialog {
     inline void setKIconDialog_Receivers_IsBase(bool value) const { kicondialog_receivers_isbase = value; }
     inline void setKIconDialog_IsSignalConnected_IsBase(bool value) const { kicondialog_issignalconnected_isbase = value; }
     inline void setKIconDialog_GetDecodedMetricF_IsBase(bool value) const { kicondialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kicondialog_metaobject_isbase) {
+            kicondialog_metaobject_isbase = false;
+            return KIconDialog::metaObject();
+        } else if (kicondialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kicondialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIconDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kicondialog_metacast_isbase) {
+            kicondialog_metacast_isbase = false;
+            return KIconDialog::qt_metacast(param1);
+        } else if (kicondialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kicondialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIconDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

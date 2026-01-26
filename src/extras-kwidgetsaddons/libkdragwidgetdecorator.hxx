@@ -17,6 +17,8 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
     bool isVirtualKDragWidgetDecoratorBase = true;
 
     // Virtual class public types (including callbacks)
+    using KDragWidgetDecoratorBase_MetaObject_Callback = QMetaObject* (*)();
+    using KDragWidgetDecoratorBase_Metacast_Callback = void* (*)(KDragWidgetDecoratorBase*, const char*);
     using KDragWidgetDecoratorBase_Metacall_Callback = int (*)(KDragWidgetDecoratorBase*, int, int, void**);
     using KDragWidgetDecoratorBase_DragObject_Callback = QDrag* (*)();
     using KDragWidgetDecoratorBase_EventFilter_Callback = bool (*)(KDragWidgetDecoratorBase*, QObject*, QEvent*);
@@ -35,6 +37,8 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
 
   protected:
     // Instance callback storage
+    KDragWidgetDecoratorBase_MetaObject_Callback kdragwidgetdecoratorbase_metaobject_callback = nullptr;
+    KDragWidgetDecoratorBase_Metacast_Callback kdragwidgetdecoratorbase_metacast_callback = nullptr;
     KDragWidgetDecoratorBase_Metacall_Callback kdragwidgetdecoratorbase_metacall_callback = nullptr;
     KDragWidgetDecoratorBase_DragObject_Callback kdragwidgetdecoratorbase_dragobject_callback = nullptr;
     KDragWidgetDecoratorBase_EventFilter_Callback kdragwidgetdecoratorbase_eventfilter_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
     KDragWidgetDecoratorBase_IsSignalConnected_Callback kdragwidgetdecoratorbase_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdragwidgetdecoratorbase_metaobject_isbase = false;
+    mutable bool kdragwidgetdecoratorbase_metacast_isbase = false;
     mutable bool kdragwidgetdecoratorbase_metacall_isbase = false;
     mutable bool kdragwidgetdecoratorbase_dragobject_isbase = false;
     mutable bool kdragwidgetdecoratorbase_eventfilter_isbase = false;
@@ -73,6 +79,8 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
     VirtualKDragWidgetDecoratorBase() : KDragWidgetDecoratorBase() {};
 
     ~VirtualKDragWidgetDecoratorBase() {
+        kdragwidgetdecoratorbase_metaobject_callback = nullptr;
+        kdragwidgetdecoratorbase_metacast_callback = nullptr;
         kdragwidgetdecoratorbase_metacall_callback = nullptr;
         kdragwidgetdecoratorbase_dragobject_callback = nullptr;
         kdragwidgetdecoratorbase_eventfilter_callback = nullptr;
@@ -91,6 +99,8 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
     }
 
     // Callback setters
+    inline void setKDragWidgetDecoratorBase_MetaObject_Callback(KDragWidgetDecoratorBase_MetaObject_Callback cb) { kdragwidgetdecoratorbase_metaobject_callback = cb; }
+    inline void setKDragWidgetDecoratorBase_Metacast_Callback(KDragWidgetDecoratorBase_Metacast_Callback cb) { kdragwidgetdecoratorbase_metacast_callback = cb; }
     inline void setKDragWidgetDecoratorBase_Metacall_Callback(KDragWidgetDecoratorBase_Metacall_Callback cb) { kdragwidgetdecoratorbase_metacall_callback = cb; }
     inline void setKDragWidgetDecoratorBase_DragObject_Callback(KDragWidgetDecoratorBase_DragObject_Callback cb) { kdragwidgetdecoratorbase_dragobject_callback = cb; }
     inline void setKDragWidgetDecoratorBase_EventFilter_Callback(KDragWidgetDecoratorBase_EventFilter_Callback cb) { kdragwidgetdecoratorbase_eventfilter_callback = cb; }
@@ -108,6 +118,8 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
     inline void setKDragWidgetDecoratorBase_IsSignalConnected_Callback(KDragWidgetDecoratorBase_IsSignalConnected_Callback cb) { kdragwidgetdecoratorbase_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKDragWidgetDecoratorBase_MetaObject_IsBase(bool value) const { kdragwidgetdecoratorbase_metaobject_isbase = value; }
+    inline void setKDragWidgetDecoratorBase_Metacast_IsBase(bool value) const { kdragwidgetdecoratorbase_metacast_isbase = value; }
     inline void setKDragWidgetDecoratorBase_Metacall_IsBase(bool value) const { kdragwidgetdecoratorbase_metacall_isbase = value; }
     inline void setKDragWidgetDecoratorBase_DragObject_IsBase(bool value) const { kdragwidgetdecoratorbase_dragobject_isbase = value; }
     inline void setKDragWidgetDecoratorBase_EventFilter_IsBase(bool value) const { kdragwidgetdecoratorbase_eventfilter_isbase = value; }
@@ -123,6 +135,34 @@ class VirtualKDragWidgetDecoratorBase final : public KDragWidgetDecoratorBase {
     inline void setKDragWidgetDecoratorBase_SenderSignalIndex_IsBase(bool value) const { kdragwidgetdecoratorbase_sendersignalindex_isbase = value; }
     inline void setKDragWidgetDecoratorBase_Receivers_IsBase(bool value) const { kdragwidgetdecoratorbase_receivers_isbase = value; }
     inline void setKDragWidgetDecoratorBase_IsSignalConnected_IsBase(bool value) const { kdragwidgetdecoratorbase_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdragwidgetdecoratorbase_metaobject_isbase) {
+            kdragwidgetdecoratorbase_metaobject_isbase = false;
+            return KDragWidgetDecoratorBase::metaObject();
+        } else if (kdragwidgetdecoratorbase_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdragwidgetdecoratorbase_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDragWidgetDecoratorBase::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdragwidgetdecoratorbase_metacast_isbase) {
+            kdragwidgetdecoratorbase_metacast_isbase = false;
+            return KDragWidgetDecoratorBase::qt_metacast(param1);
+        } else if (kdragwidgetdecoratorbase_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdragwidgetdecoratorbase_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDragWidgetDecoratorBase::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

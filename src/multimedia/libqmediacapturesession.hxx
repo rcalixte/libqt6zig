@@ -17,6 +17,8 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
     bool isVirtualQMediaCaptureSession = true;
 
     // Virtual class public types (including callbacks)
+    using QMediaCaptureSession_MetaObject_Callback = QMetaObject* (*)();
+    using QMediaCaptureSession_Metacast_Callback = void* (*)(QMediaCaptureSession*, const char*);
     using QMediaCaptureSession_Metacall_Callback = int (*)(QMediaCaptureSession*, int, int, void**);
     using QMediaCaptureSession_Event_Callback = bool (*)(QMediaCaptureSession*, QEvent*);
     using QMediaCaptureSession_EventFilter_Callback = bool (*)(QMediaCaptureSession*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
 
   protected:
     // Instance callback storage
+    QMediaCaptureSession_MetaObject_Callback qmediacapturesession_metaobject_callback = nullptr;
+    QMediaCaptureSession_Metacast_Callback qmediacapturesession_metacast_callback = nullptr;
     QMediaCaptureSession_Metacall_Callback qmediacapturesession_metacall_callback = nullptr;
     QMediaCaptureSession_Event_Callback qmediacapturesession_event_callback = nullptr;
     QMediaCaptureSession_EventFilter_Callback qmediacapturesession_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
     QMediaCaptureSession_IsSignalConnected_Callback qmediacapturesession_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmediacapturesession_metaobject_isbase = false;
+    mutable bool qmediacapturesession_metacast_isbase = false;
     mutable bool qmediacapturesession_metacall_isbase = false;
     mutable bool qmediacapturesession_event_isbase = false;
     mutable bool qmediacapturesession_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
     VirtualQMediaCaptureSession(QObject* parent) : QMediaCaptureSession(parent) {};
 
     ~VirtualQMediaCaptureSession() {
+        qmediacapturesession_metaobject_callback = nullptr;
+        qmediacapturesession_metacast_callback = nullptr;
         qmediacapturesession_metacall_callback = nullptr;
         qmediacapturesession_event_callback = nullptr;
         qmediacapturesession_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
     }
 
     // Callback setters
+    inline void setQMediaCaptureSession_MetaObject_Callback(QMediaCaptureSession_MetaObject_Callback cb) { qmediacapturesession_metaobject_callback = cb; }
+    inline void setQMediaCaptureSession_Metacast_Callback(QMediaCaptureSession_Metacast_Callback cb) { qmediacapturesession_metacast_callback = cb; }
     inline void setQMediaCaptureSession_Metacall_Callback(QMediaCaptureSession_Metacall_Callback cb) { qmediacapturesession_metacall_callback = cb; }
     inline void setQMediaCaptureSession_Event_Callback(QMediaCaptureSession_Event_Callback cb) { qmediacapturesession_event_callback = cb; }
     inline void setQMediaCaptureSession_EventFilter_Callback(QMediaCaptureSession_EventFilter_Callback cb) { qmediacapturesession_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
     inline void setQMediaCaptureSession_IsSignalConnected_Callback(QMediaCaptureSession_IsSignalConnected_Callback cb) { qmediacapturesession_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQMediaCaptureSession_MetaObject_IsBase(bool value) const { qmediacapturesession_metaobject_isbase = value; }
+    inline void setQMediaCaptureSession_Metacast_IsBase(bool value) const { qmediacapturesession_metacast_isbase = value; }
     inline void setQMediaCaptureSession_Metacall_IsBase(bool value) const { qmediacapturesession_metacall_isbase = value; }
     inline void setQMediaCaptureSession_Event_IsBase(bool value) const { qmediacapturesession_event_isbase = value; }
     inline void setQMediaCaptureSession_EventFilter_IsBase(bool value) const { qmediacapturesession_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
     inline void setQMediaCaptureSession_SenderSignalIndex_IsBase(bool value) const { qmediacapturesession_sendersignalindex_isbase = value; }
     inline void setQMediaCaptureSession_Receivers_IsBase(bool value) const { qmediacapturesession_receivers_isbase = value; }
     inline void setQMediaCaptureSession_IsSignalConnected_IsBase(bool value) const { qmediacapturesession_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmediacapturesession_metaobject_isbase) {
+            qmediacapturesession_metaobject_isbase = false;
+            return QMediaCaptureSession::metaObject();
+        } else if (qmediacapturesession_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmediacapturesession_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMediaCaptureSession::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmediacapturesession_metacast_isbase) {
+            qmediacapturesession_metacast_isbase = false;
+            return QMediaCaptureSession::qt_metacast(param1);
+        } else if (qmediacapturesession_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmediacapturesession_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMediaCaptureSession::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

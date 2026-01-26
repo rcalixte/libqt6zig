@@ -1048,11 +1048,21 @@ QDesignerWidgetDataBaseInterface* QDesignerWidgetDataBaseInterface_new2(QObject*
 }
 
 QMetaObject* QDesignerWidgetDataBaseInterface_MetaObject(const QDesignerWidgetDataBaseInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self);
+    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerWidgetDataBaseInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerWidgetDataBaseInterface_Metacast(QDesignerWidgetDataBaseInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
+    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerWidgetDataBaseInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerWidgetDataBaseInterface_Metacall(QDesignerWidgetDataBaseInterface* self, int param1, int param2, void** param3) {
@@ -1162,6 +1172,44 @@ bool QDesignerWidgetDataBaseInterface_IsContainer2(const QDesignerWidgetDataBase
 
 bool QDesignerWidgetDataBaseInterface_IsCustom2(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName) {
     return self->isCustom(object, resolveName);
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerWidgetDataBaseInterface_QBaseMetaObject(const QDesignerWidgetDataBaseInterface* self) {
+    auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
+    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
+        vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerwidgetdatabaseinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerWidgetDataBaseInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerWidgetDataBaseInterface_OnMetaObject(const QDesignerWidgetDataBaseInterface* self, intptr_t slot) {
+    auto* vqdesignerwidgetdatabaseinterface = const_cast<VirtualQDesignerWidgetDataBaseInterface*>(dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self));
+    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
+        vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerWidgetDataBaseInterface::QDesignerWidgetDataBaseInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerWidgetDataBaseInterface_QBaseMetacast(QDesignerWidgetDataBaseInterface* self, const char* param1) {
+    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
+    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
+        vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Metacast_IsBase(true);
+        return vqdesignerwidgetdatabaseinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerWidgetDataBaseInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerWidgetDataBaseInterface_OnMetacast(QDesignerWidgetDataBaseInterface* self, intptr_t slot) {
+    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
+    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
+        vqdesignerwidgetdatabaseinterface->setQDesignerWidgetDataBaseInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerWidgetDataBaseInterface::QDesignerWidgetDataBaseInterface_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

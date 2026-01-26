@@ -17,6 +17,8 @@ class VirtualQWindowCapture final : public QWindowCapture {
     bool isVirtualQWindowCapture = true;
 
     // Virtual class public types (including callbacks)
+    using QWindowCapture_MetaObject_Callback = QMetaObject* (*)();
+    using QWindowCapture_Metacast_Callback = void* (*)(QWindowCapture*, const char*);
     using QWindowCapture_Metacall_Callback = int (*)(QWindowCapture*, int, int, void**);
     using QWindowCapture_Event_Callback = bool (*)(QWindowCapture*, QEvent*);
     using QWindowCapture_EventFilter_Callback = bool (*)(QWindowCapture*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQWindowCapture final : public QWindowCapture {
 
   protected:
     // Instance callback storage
+    QWindowCapture_MetaObject_Callback qwindowcapture_metaobject_callback = nullptr;
+    QWindowCapture_Metacast_Callback qwindowcapture_metacast_callback = nullptr;
     QWindowCapture_Metacall_Callback qwindowcapture_metacall_callback = nullptr;
     QWindowCapture_Event_Callback qwindowcapture_event_callback = nullptr;
     QWindowCapture_EventFilter_Callback qwindowcapture_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQWindowCapture final : public QWindowCapture {
     QWindowCapture_IsSignalConnected_Callback qwindowcapture_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwindowcapture_metaobject_isbase = false;
+    mutable bool qwindowcapture_metacast_isbase = false;
     mutable bool qwindowcapture_metacall_isbase = false;
     mutable bool qwindowcapture_event_isbase = false;
     mutable bool qwindowcapture_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQWindowCapture final : public QWindowCapture {
     VirtualQWindowCapture(QObject* parent) : QWindowCapture(parent) {};
 
     ~VirtualQWindowCapture() {
+        qwindowcapture_metaobject_callback = nullptr;
+        qwindowcapture_metacast_callback = nullptr;
         qwindowcapture_metacall_callback = nullptr;
         qwindowcapture_event_callback = nullptr;
         qwindowcapture_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQWindowCapture final : public QWindowCapture {
     }
 
     // Callback setters
+    inline void setQWindowCapture_MetaObject_Callback(QWindowCapture_MetaObject_Callback cb) { qwindowcapture_metaobject_callback = cb; }
+    inline void setQWindowCapture_Metacast_Callback(QWindowCapture_Metacast_Callback cb) { qwindowcapture_metacast_callback = cb; }
     inline void setQWindowCapture_Metacall_Callback(QWindowCapture_Metacall_Callback cb) { qwindowcapture_metacall_callback = cb; }
     inline void setQWindowCapture_Event_Callback(QWindowCapture_Event_Callback cb) { qwindowcapture_event_callback = cb; }
     inline void setQWindowCapture_EventFilter_Callback(QWindowCapture_EventFilter_Callback cb) { qwindowcapture_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQWindowCapture final : public QWindowCapture {
     inline void setQWindowCapture_IsSignalConnected_Callback(QWindowCapture_IsSignalConnected_Callback cb) { qwindowcapture_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQWindowCapture_MetaObject_IsBase(bool value) const { qwindowcapture_metaobject_isbase = value; }
+    inline void setQWindowCapture_Metacast_IsBase(bool value) const { qwindowcapture_metacast_isbase = value; }
     inline void setQWindowCapture_Metacall_IsBase(bool value) const { qwindowcapture_metacall_isbase = value; }
     inline void setQWindowCapture_Event_IsBase(bool value) const { qwindowcapture_event_isbase = value; }
     inline void setQWindowCapture_EventFilter_IsBase(bool value) const { qwindowcapture_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQWindowCapture final : public QWindowCapture {
     inline void setQWindowCapture_SenderSignalIndex_IsBase(bool value) const { qwindowcapture_sendersignalindex_isbase = value; }
     inline void setQWindowCapture_Receivers_IsBase(bool value) const { qwindowcapture_receivers_isbase = value; }
     inline void setQWindowCapture_IsSignalConnected_IsBase(bool value) const { qwindowcapture_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwindowcapture_metaobject_isbase) {
+            qwindowcapture_metaobject_isbase = false;
+            return QWindowCapture::metaObject();
+        } else if (qwindowcapture_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwindowcapture_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWindowCapture::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwindowcapture_metacast_isbase) {
+            qwindowcapture_metacast_isbase = false;
+            return QWindowCapture::qt_metacast(param1);
+        } else if (qwindowcapture_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwindowcapture_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWindowCapture::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -57,11 +57,21 @@ KCapacityBar* KCapacityBar_new4(int drawTextMode, QWidget* parent) {
 }
 
 QMetaObject* KCapacityBar_MetaObject(const KCapacityBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcapacitybar = dynamic_cast<const VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCapacityBar*)self)->metaObject();
+    }
 }
 
 void* KCapacityBar_Metacast(KCapacityBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCapacityBar*)self)->qt_metacast(param1);
+    }
 }
 
 int KCapacityBar_Metacall(KCapacityBar* self, int param1, int param2, void** param3) {
@@ -166,6 +176,44 @@ void KCapacityBar_ChangeEvent(KCapacityBar* self, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
         vkcapacitybar->changeEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KCapacityBar_QBaseMetaObject(const KCapacityBar* self) {
+    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcapacitybar->metaObject();
+    } else {
+        return (QMetaObject*)self->KCapacityBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCapacityBar_OnMetaObject(const KCapacityBar* self, intptr_t slot) {
+    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_MetaObject_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCapacityBar_QBaseMetacast(KCapacityBar* self, const char* param1) {
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_Metacast_IsBase(true);
+        return vkcapacitybar->qt_metacast(param1);
+    } else {
+        return self->KCapacityBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCapacityBar_OnMetacast(KCapacityBar* self, intptr_t slot) {
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+        vkcapacitybar->setKCapacityBar_Metacast_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metacast_Callback>(slot));
     }
 }
 

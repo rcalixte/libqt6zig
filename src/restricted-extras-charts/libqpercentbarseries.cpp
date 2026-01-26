@@ -23,11 +23,21 @@ QPercentBarSeries* QPercentBarSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QPercentBarSeries_MetaObject(const QPercentBarSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpercentbarseries = dynamic_cast<const VirtualQPercentBarSeries*>(self);
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPercentBarSeries*)self)->metaObject();
+    }
 }
 
 void* QPercentBarSeries_Metacast(QPercentBarSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPercentBarSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QPercentBarSeries_Metacall(QPercentBarSeries* self, int param1, int param2, void** param3) {
@@ -45,6 +55,44 @@ int QPercentBarSeries_Type(const QPercentBarSeries* self) {
         return static_cast<int>(self->type());
     } else {
         return static_cast<int>(((VirtualQPercentBarSeries*)self)->type());
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QPercentBarSeries_QBaseMetaObject(const QPercentBarSeries* self) {
+    auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+        vqpercentbarseries->setQPercentBarSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpercentbarseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QPercentBarSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPercentBarSeries_OnMetaObject(const QPercentBarSeries* self, intptr_t slot) {
+    auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+        vqpercentbarseries->setQPercentBarSeries_MetaObject_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPercentBarSeries_QBaseMetacast(QPercentBarSeries* self, const char* param1) {
+    auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+        vqpercentbarseries->setQPercentBarSeries_Metacast_IsBase(true);
+        return vqpercentbarseries->qt_metacast(param1);
+    } else {
+        return self->QPercentBarSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPercentBarSeries_OnMetacast(QPercentBarSeries* self, intptr_t slot) {
+    auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+        vqpercentbarseries->setQPercentBarSeries_Metacast_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_Metacast_Callback>(slot));
     }
 }
 

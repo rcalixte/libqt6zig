@@ -28,11 +28,21 @@ QDesignerIntegrationInterface* QDesignerIntegrationInterface_new2(QDesignerFormE
 }
 
 QMetaObject* QDesignerIntegrationInterface_MetaObject(const QDesignerIntegrationInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
+    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerIntegrationInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerIntegrationInterface_Metacast(QDesignerIntegrationInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
+    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerIntegrationInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerIntegrationInterface_Metacall(QDesignerIntegrationInterface* self, int param1, int param2, void** param3) {
@@ -332,6 +342,44 @@ void QDesignerIntegrationInterface_UpdateCustomWidgetPlugins(QDesignerIntegratio
         vqdesignerintegrationinterface->updateCustomWidgetPlugins();
     } else {
         ((VirtualQDesignerIntegrationInterface*)self)->updateCustomWidgetPlugins();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerIntegrationInterface_QBaseMetaObject(const QDesignerIntegrationInterface* self) {
+    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
+    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerintegrationinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerIntegrationInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerIntegrationInterface_OnMetaObject(const QDesignerIntegrationInterface* self, intptr_t slot) {
+    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
+    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerIntegrationInterface_QBaseMetacast(QDesignerIntegrationInterface* self, const char* param1) {
+    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
+    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Metacast_IsBase(true);
+        return vqdesignerintegrationinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerIntegrationInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerIntegrationInterface_OnMetacast(QDesignerIntegrationInterface* self, intptr_t slot) {
+    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
+    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Metacast_Callback>(slot));
     }
 }
 
@@ -1104,11 +1152,21 @@ QDesignerIntegration* QDesignerIntegration_new2(QDesignerFormEditorInterface* co
 }
 
 QMetaObject* QDesignerIntegration_MetaObject(const QDesignerIntegration* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
+    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerIntegration*)self)->metaObject();
+    }
 }
 
 void* QDesignerIntegration_Metacast(QDesignerIntegration* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
+    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerIntegration*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerIntegration_Metacall(QDesignerIntegration* self, int param1, int param2, void** param3) {
@@ -1339,6 +1397,44 @@ void QDesignerIntegration_UpdateCustomWidgetPlugins(QDesignerIntegration* self) 
         self->updateCustomWidgetPlugins();
     } else {
         ((VirtualQDesignerIntegration*)self)->updateCustomWidgetPlugins();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerIntegration_QBaseMetaObject(const QDesignerIntegration* self) {
+    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
+    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+        vqdesignerintegration->setQDesignerIntegration_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerintegration->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerIntegration::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerIntegration_OnMetaObject(const QDesignerIntegration* self, intptr_t slot) {
+    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
+    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+        vqdesignerintegration->setQDesignerIntegration_MetaObject_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerIntegration_QBaseMetacast(QDesignerIntegration* self, const char* param1) {
+    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
+    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+        vqdesignerintegration->setQDesignerIntegration_Metacast_IsBase(true);
+        return vqdesignerintegration->qt_metacast(param1);
+    } else {
+        return self->QDesignerIntegration::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerIntegration_OnMetacast(QDesignerIntegration* self, intptr_t slot) {
+    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
+    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+        vqdesignerintegration->setQDesignerIntegration_Metacast_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Metacast_Callback>(slot));
     }
 }
 

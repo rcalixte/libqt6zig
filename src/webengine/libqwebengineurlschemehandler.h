@@ -31,6 +31,10 @@ QMetaObject* QWebEngineUrlSchemeHandler_MetaObject(const QWebEngineUrlSchemeHand
 void* QWebEngineUrlSchemeHandler_Metacast(QWebEngineUrlSchemeHandler* self, const char* param1);
 int QWebEngineUrlSchemeHandler_Metacall(QWebEngineUrlSchemeHandler* self, int param1, int param2, void** param3);
 void QWebEngineUrlSchemeHandler_RequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1);
+void QWebEngineUrlSchemeHandler_OnMetaObject(const QWebEngineUrlSchemeHandler* self, intptr_t slot);
+QMetaObject* QWebEngineUrlSchemeHandler_QBaseMetaObject(const QWebEngineUrlSchemeHandler* self);
+void QWebEngineUrlSchemeHandler_OnMetacast(QWebEngineUrlSchemeHandler* self, intptr_t slot);
+void* QWebEngineUrlSchemeHandler_QBaseMetacast(QWebEngineUrlSchemeHandler* self, const char* param1);
 void QWebEngineUrlSchemeHandler_OnMetacall(QWebEngineUrlSchemeHandler* self, intptr_t slot);
 int QWebEngineUrlSchemeHandler_QBaseMetacall(QWebEngineUrlSchemeHandler* self, int param1, int param2, void** param3);
 void QWebEngineUrlSchemeHandler_OnRequestStarted(QWebEngineUrlSchemeHandler* self, intptr_t slot);

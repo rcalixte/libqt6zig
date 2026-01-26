@@ -17,6 +17,8 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
     bool isVirtualSonnetBackgroundChecker = true;
 
     // Virtual class public types (including callbacks)
+    using Sonnet__BackgroundChecker_MetaObject_Callback = QMetaObject* (*)();
+    using Sonnet__BackgroundChecker_Metacast_Callback = void* (*)(Sonnet__BackgroundChecker*, const char*);
     using Sonnet__BackgroundChecker_Metacall_Callback = int (*)(Sonnet__BackgroundChecker*, int, int, void**);
     using Sonnet__BackgroundChecker_Start_Callback = void (*)();
     using Sonnet__BackgroundChecker_Stop_Callback = void (*)();
@@ -38,6 +40,8 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
 
   protected:
     // Instance callback storage
+    Sonnet__BackgroundChecker_MetaObject_Callback sonnet__backgroundchecker_metaobject_callback = nullptr;
+    Sonnet__BackgroundChecker_Metacast_Callback sonnet__backgroundchecker_metacast_callback = nullptr;
     Sonnet__BackgroundChecker_Metacall_Callback sonnet__backgroundchecker_metacall_callback = nullptr;
     Sonnet__BackgroundChecker_Start_Callback sonnet__backgroundchecker_start_callback = nullptr;
     Sonnet__BackgroundChecker_Stop_Callback sonnet__backgroundchecker_stop_callback = nullptr;
@@ -58,6 +62,8 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
     Sonnet__BackgroundChecker_IsSignalConnected_Callback sonnet__backgroundchecker_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool sonnet__backgroundchecker_metaobject_isbase = false;
+    mutable bool sonnet__backgroundchecker_metacast_isbase = false;
     mutable bool sonnet__backgroundchecker_metacall_isbase = false;
     mutable bool sonnet__backgroundchecker_start_isbase = false;
     mutable bool sonnet__backgroundchecker_stop_isbase = false;
@@ -84,6 +90,8 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
     VirtualSonnetBackgroundChecker(const Sonnet::Speller& speller, QObject* parent) : Sonnet::BackgroundChecker(speller, parent) {};
 
     ~VirtualSonnetBackgroundChecker() {
+        sonnet__backgroundchecker_metaobject_callback = nullptr;
+        sonnet__backgroundchecker_metacast_callback = nullptr;
         sonnet__backgroundchecker_metacall_callback = nullptr;
         sonnet__backgroundchecker_start_callback = nullptr;
         sonnet__backgroundchecker_stop_callback = nullptr;
@@ -105,6 +113,8 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
     }
 
     // Callback setters
+    inline void setSonnet__BackgroundChecker_MetaObject_Callback(Sonnet__BackgroundChecker_MetaObject_Callback cb) { sonnet__backgroundchecker_metaobject_callback = cb; }
+    inline void setSonnet__BackgroundChecker_Metacast_Callback(Sonnet__BackgroundChecker_Metacast_Callback cb) { sonnet__backgroundchecker_metacast_callback = cb; }
     inline void setSonnet__BackgroundChecker_Metacall_Callback(Sonnet__BackgroundChecker_Metacall_Callback cb) { sonnet__backgroundchecker_metacall_callback = cb; }
     inline void setSonnet__BackgroundChecker_Start_Callback(Sonnet__BackgroundChecker_Start_Callback cb) { sonnet__backgroundchecker_start_callback = cb; }
     inline void setSonnet__BackgroundChecker_Stop_Callback(Sonnet__BackgroundChecker_Stop_Callback cb) { sonnet__backgroundchecker_stop_callback = cb; }
@@ -125,6 +135,8 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
     inline void setSonnet__BackgroundChecker_IsSignalConnected_Callback(Sonnet__BackgroundChecker_IsSignalConnected_Callback cb) { sonnet__backgroundchecker_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setSonnet__BackgroundChecker_MetaObject_IsBase(bool value) const { sonnet__backgroundchecker_metaobject_isbase = value; }
+    inline void setSonnet__BackgroundChecker_Metacast_IsBase(bool value) const { sonnet__backgroundchecker_metacast_isbase = value; }
     inline void setSonnet__BackgroundChecker_Metacall_IsBase(bool value) const { sonnet__backgroundchecker_metacall_isbase = value; }
     inline void setSonnet__BackgroundChecker_Start_IsBase(bool value) const { sonnet__backgroundchecker_start_isbase = value; }
     inline void setSonnet__BackgroundChecker_Stop_IsBase(bool value) const { sonnet__backgroundchecker_stop_isbase = value; }
@@ -143,6 +155,34 @@ class VirtualSonnetBackgroundChecker final : public Sonnet::BackgroundChecker {
     inline void setSonnet__BackgroundChecker_SenderSignalIndex_IsBase(bool value) const { sonnet__backgroundchecker_sendersignalindex_isbase = value; }
     inline void setSonnet__BackgroundChecker_Receivers_IsBase(bool value) const { sonnet__backgroundchecker_receivers_isbase = value; }
     inline void setSonnet__BackgroundChecker_IsSignalConnected_IsBase(bool value) const { sonnet__backgroundchecker_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (sonnet__backgroundchecker_metaobject_isbase) {
+            sonnet__backgroundchecker_metaobject_isbase = false;
+            return Sonnet__BackgroundChecker::metaObject();
+        } else if (sonnet__backgroundchecker_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = sonnet__backgroundchecker_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Sonnet__BackgroundChecker::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (sonnet__backgroundchecker_metacast_isbase) {
+            sonnet__backgroundchecker_metacast_isbase = false;
+            return Sonnet__BackgroundChecker::qt_metacast(param1);
+        } else if (sonnet__backgroundchecker_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = sonnet__backgroundchecker_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Sonnet__BackgroundChecker::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

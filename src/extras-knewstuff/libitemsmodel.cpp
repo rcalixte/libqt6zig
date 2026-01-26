@@ -36,11 +36,21 @@ KNSCore__ItemsModel* KNSCore__ItemsModel_new2(KNSCore__EngineBase* engine, QObje
 }
 
 QMetaObject* KNSCore__ItemsModel_MetaObject(const KNSCore__ItemsModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknscore__itemsmodel = dynamic_cast<const VirtualKNSCoreItemsModel*>(self);
+    if (vknscore__itemsmodel && vknscore__itemsmodel->isVirtualKNSCoreItemsModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNSCoreItemsModel*)self)->metaObject();
+    }
 }
 
 void* KNSCore__ItemsModel_Metacast(KNSCore__ItemsModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknscore__itemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
+    if (vknscore__itemsmodel && vknscore__itemsmodel->isVirtualKNSCoreItemsModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNSCoreItemsModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KNSCore__ItemsModel_Metacall(KNSCore__ItemsModel* self, int param1, int param2, void** param3) {
@@ -142,6 +152,44 @@ void KNSCore__ItemsModel_ClearEntries(KNSCore__ItemsModel* self) {
 
 void KNSCore__ItemsModel_SlotEntryPreviewLoaded(KNSCore__ItemsModel* self, const KNSCore__Entry* entry, int typeVal) {
     self->slotEntryPreviewLoaded(*entry, static_cast<KNSCore::Entry::PreviewType>(typeVal));
+}
+
+// Base class handler implementation
+QMetaObject* KNSCore__ItemsModel_QBaseMetaObject(const KNSCore__ItemsModel* self) {
+    auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
+    if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
+        vknscoreitemsmodel->setKNSCore__ItemsModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vknscoreitemsmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KNSCore::ItemsModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__ItemsModel_OnMetaObject(const KNSCore__ItemsModel* self, intptr_t slot) {
+    auto* vknscoreitemsmodel = const_cast<VirtualKNSCoreItemsModel*>(dynamic_cast<const VirtualKNSCoreItemsModel*>(self));
+    if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
+        vknscoreitemsmodel->setKNSCore__ItemsModel_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreItemsModel::KNSCore__ItemsModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNSCore__ItemsModel_QBaseMetacast(KNSCore__ItemsModel* self, const char* param1) {
+    auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
+    if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
+        vknscoreitemsmodel->setKNSCore__ItemsModel_Metacast_IsBase(true);
+        return vknscoreitemsmodel->qt_metacast(param1);
+    } else {
+        return self->KNSCore::ItemsModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__ItemsModel_OnMetacast(KNSCore__ItemsModel* self, intptr_t slot) {
+    auto* vknscoreitemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
+    if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
+        vknscoreitemsmodel->setKNSCore__ItemsModel_Metacast_Callback(reinterpret_cast<VirtualKNSCoreItemsModel::KNSCore__ItemsModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

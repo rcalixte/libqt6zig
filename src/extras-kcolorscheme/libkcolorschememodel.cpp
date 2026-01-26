@@ -33,11 +33,21 @@ KColorSchemeModel* KColorSchemeModel_new2(QObject* parent) {
 }
 
 QMetaObject* KColorSchemeModel_MetaObject(const KColorSchemeModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcolorschememodel = dynamic_cast<const VirtualKColorSchemeModel*>(self);
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKColorSchemeModel*)self)->metaObject();
+    }
 }
 
 void* KColorSchemeModel_Metacast(KColorSchemeModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKColorSchemeModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KColorSchemeModel_Metacall(KColorSchemeModel* self, int param1, int param2, void** param3) {
@@ -64,6 +74,44 @@ int KColorSchemeModel_RowCount(const KColorSchemeModel* self, const QModelIndex*
         return self->rowCount(*parent);
     } else {
         return ((VirtualKColorSchemeModel*)self)->rowCount(*parent);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KColorSchemeModel_QBaseMetaObject(const KColorSchemeModel* self) {
+    auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+        vkcolorschememodel->setKColorSchemeModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcolorschememodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KColorSchemeModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorSchemeModel_OnMetaObject(const KColorSchemeModel* self, intptr_t slot) {
+    auto* vkcolorschememodel = const_cast<VirtualKColorSchemeModel*>(dynamic_cast<const VirtualKColorSchemeModel*>(self));
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+        vkcolorschememodel->setKColorSchemeModel_MetaObject_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KColorSchemeModel_QBaseMetacast(KColorSchemeModel* self, const char* param1) {
+    auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+        vkcolorschememodel->setKColorSchemeModel_Metacast_IsBase(true);
+        return vkcolorschememodel->qt_metacast(param1);
+    } else {
+        return self->KColorSchemeModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorSchemeModel_OnMetacast(KColorSchemeModel* self, intptr_t slot) {
+    auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
+    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
+        vkcolorschememodel->setKColorSchemeModel_Metacast_Callback(reinterpret_cast<VirtualKColorSchemeModel::KColorSchemeModel_Metacast_Callback>(slot));
     }
 }
 

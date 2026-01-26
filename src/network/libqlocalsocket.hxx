@@ -17,6 +17,8 @@ class VirtualQLocalSocket final : public QLocalSocket {
     bool isVirtualQLocalSocket = true;
 
     // Virtual class public types (including callbacks)
+    using QLocalSocket_MetaObject_Callback = QMetaObject* (*)();
+    using QLocalSocket_Metacast_Callback = void* (*)(QLocalSocket*, const char*);
     using QLocalSocket_Metacall_Callback = int (*)(QLocalSocket*, int, int, void**);
     using QLocalSocket_IsSequential_Callback = bool (*)();
     using QLocalSocket_BytesAvailable_Callback = long long (*)();
@@ -51,6 +53,8 @@ class VirtualQLocalSocket final : public QLocalSocket {
 
   protected:
     // Instance callback storage
+    QLocalSocket_MetaObject_Callback qlocalsocket_metaobject_callback = nullptr;
+    QLocalSocket_Metacast_Callback qlocalsocket_metacast_callback = nullptr;
     QLocalSocket_Metacall_Callback qlocalsocket_metacall_callback = nullptr;
     QLocalSocket_IsSequential_Callback qlocalsocket_issequential_callback = nullptr;
     QLocalSocket_BytesAvailable_Callback qlocalsocket_bytesavailable_callback = nullptr;
@@ -84,6 +88,8 @@ class VirtualQLocalSocket final : public QLocalSocket {
     QLocalSocket_IsSignalConnected_Callback qlocalsocket_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlocalsocket_metaobject_isbase = false;
+    mutable bool qlocalsocket_metacast_isbase = false;
     mutable bool qlocalsocket_metacall_isbase = false;
     mutable bool qlocalsocket_issequential_isbase = false;
     mutable bool qlocalsocket_bytesavailable_isbase = false;
@@ -121,6 +127,8 @@ class VirtualQLocalSocket final : public QLocalSocket {
     VirtualQLocalSocket(QObject* parent) : QLocalSocket(parent) {};
 
     ~VirtualQLocalSocket() {
+        qlocalsocket_metaobject_callback = nullptr;
+        qlocalsocket_metacast_callback = nullptr;
         qlocalsocket_metacall_callback = nullptr;
         qlocalsocket_issequential_callback = nullptr;
         qlocalsocket_bytesavailable_callback = nullptr;
@@ -155,6 +163,8 @@ class VirtualQLocalSocket final : public QLocalSocket {
     }
 
     // Callback setters
+    inline void setQLocalSocket_MetaObject_Callback(QLocalSocket_MetaObject_Callback cb) { qlocalsocket_metaobject_callback = cb; }
+    inline void setQLocalSocket_Metacast_Callback(QLocalSocket_Metacast_Callback cb) { qlocalsocket_metacast_callback = cb; }
     inline void setQLocalSocket_Metacall_Callback(QLocalSocket_Metacall_Callback cb) { qlocalsocket_metacall_callback = cb; }
     inline void setQLocalSocket_IsSequential_Callback(QLocalSocket_IsSequential_Callback cb) { qlocalsocket_issequential_callback = cb; }
     inline void setQLocalSocket_BytesAvailable_Callback(QLocalSocket_BytesAvailable_Callback cb) { qlocalsocket_bytesavailable_callback = cb; }
@@ -188,6 +198,8 @@ class VirtualQLocalSocket final : public QLocalSocket {
     inline void setQLocalSocket_IsSignalConnected_Callback(QLocalSocket_IsSignalConnected_Callback cb) { qlocalsocket_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQLocalSocket_MetaObject_IsBase(bool value) const { qlocalsocket_metaobject_isbase = value; }
+    inline void setQLocalSocket_Metacast_IsBase(bool value) const { qlocalsocket_metacast_isbase = value; }
     inline void setQLocalSocket_Metacall_IsBase(bool value) const { qlocalsocket_metacall_isbase = value; }
     inline void setQLocalSocket_IsSequential_IsBase(bool value) const { qlocalsocket_issequential_isbase = value; }
     inline void setQLocalSocket_BytesAvailable_IsBase(bool value) const { qlocalsocket_bytesavailable_isbase = value; }
@@ -219,6 +231,34 @@ class VirtualQLocalSocket final : public QLocalSocket {
     inline void setQLocalSocket_SenderSignalIndex_IsBase(bool value) const { qlocalsocket_sendersignalindex_isbase = value; }
     inline void setQLocalSocket_Receivers_IsBase(bool value) const { qlocalsocket_receivers_isbase = value; }
     inline void setQLocalSocket_IsSignalConnected_IsBase(bool value) const { qlocalsocket_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlocalsocket_metaobject_isbase) {
+            qlocalsocket_metaobject_isbase = false;
+            return QLocalSocket::metaObject();
+        } else if (qlocalsocket_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlocalsocket_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QLocalSocket::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlocalsocket_metacast_isbase) {
+            qlocalsocket_metacast_isbase = false;
+            return QLocalSocket::qt_metacast(param1);
+        } else if (qlocalsocket_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlocalsocket_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QLocalSocket::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

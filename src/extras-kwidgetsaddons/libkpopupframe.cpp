@@ -50,11 +50,21 @@ KPopupFrame* KPopupFrame_new2() {
 }
 
 QMetaObject* KPopupFrame_MetaObject(const KPopupFrame* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpopupframe = dynamic_cast<const VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPopupFrame*)self)->metaObject();
+    }
 }
 
 void* KPopupFrame_Metacast(KPopupFrame* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPopupFrame*)self)->qt_metacast(param1);
+    }
 }
 
 int KPopupFrame_Metacall(KPopupFrame* self, int param1, int param2, void** param3) {
@@ -118,6 +128,44 @@ void KPopupFrame_Connect_LeaveModality(KPopupFrame* self, intptr_t slot) {
     KPopupFrame::connect(self, &KPopupFrame::leaveModality, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KPopupFrame_QBaseMetaObject(const KPopupFrame* self) {
+    auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpopupframe->metaObject();
+    } else {
+        return (QMetaObject*)self->KPopupFrame::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPopupFrame_OnMetaObject(const KPopupFrame* self, intptr_t slot) {
+    auto* vkpopupframe = const_cast<VirtualKPopupFrame*>(dynamic_cast<const VirtualKPopupFrame*>(self));
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_MetaObject_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPopupFrame_QBaseMetacast(KPopupFrame* self, const char* param1) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_Metacast_IsBase(true);
+        return vkpopupframe->qt_metacast(param1);
+    } else {
+        return self->KPopupFrame::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPopupFrame_OnMetacast(KPopupFrame* self, intptr_t slot) {
+    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
+    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
+        vkpopupframe->setKPopupFrame_Metacast_Callback(reinterpret_cast<VirtualKPopupFrame::KPopupFrame_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

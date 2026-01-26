@@ -36,11 +36,21 @@ KCheckableProxyModel* KCheckableProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* KCheckableProxyModel_MetaObject(const KCheckableProxyModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcheckableproxymodel = dynamic_cast<const VirtualKCheckableProxyModel*>(self);
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCheckableProxyModel*)self)->metaObject();
+    }
 }
 
 void* KCheckableProxyModel_Metacast(KCheckableProxyModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCheckableProxyModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KCheckableProxyModel_Metacall(KCheckableProxyModel* self, int param1, int param2, void** param3) {
@@ -151,6 +161,44 @@ bool KCheckableProxyModel_Select(KCheckableProxyModel* self, const QItemSelectio
         return vkcheckableproxymodel->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KCheckableProxyModel_QBaseMetaObject(const KCheckableProxyModel* self) {
+    auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+        vkcheckableproxymodel->setKCheckableProxyModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcheckableproxymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KCheckableProxyModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCheckableProxyModel_OnMetaObject(const KCheckableProxyModel* self, intptr_t slot) {
+    auto* vkcheckableproxymodel = const_cast<VirtualKCheckableProxyModel*>(dynamic_cast<const VirtualKCheckableProxyModel*>(self));
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+        vkcheckableproxymodel->setKCheckableProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCheckableProxyModel_QBaseMetacast(KCheckableProxyModel* self, const char* param1) {
+    auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+        vkcheckableproxymodel->setKCheckableProxyModel_Metacast_IsBase(true);
+        return vkcheckableproxymodel->qt_metacast(param1);
+    } else {
+        return self->KCheckableProxyModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCheckableProxyModel_OnMetacast(KCheckableProxyModel* self, intptr_t slot) {
+    auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
+    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
+        vkcheckableproxymodel->setKCheckableProxyModel_Metacast_Callback(reinterpret_cast<VirtualKCheckableProxyModel::KCheckableProxyModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

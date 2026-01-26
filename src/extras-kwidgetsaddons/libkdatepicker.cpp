@@ -59,11 +59,21 @@ KDatePicker* KDatePicker_new4(const QDate* dt, QWidget* parent) {
 }
 
 QMetaObject* KDatePicker_MetaObject(const KDatePicker* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkdatepicker = dynamic_cast<const VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKDatePicker*)self)->metaObject();
+    }
 }
 
 void* KDatePicker_Metacast(KDatePicker* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKDatePicker*)self)->qt_metacast(param1);
+    }
 }
 
 int KDatePicker_Metacall(KDatePicker* self, int param1, int param2, void** param3) {
@@ -191,6 +201,44 @@ void KDatePicker_Connect_TableClicked(KDatePicker* self, intptr_t slot) {
 
 void KDatePicker_SetDateRange2(KDatePicker* self, const QDate* minDate, const QDate* maxDate) {
     self->setDateRange(*minDate, *maxDate);
+}
+
+// Base class handler implementation
+QMetaObject* KDatePicker_QBaseMetaObject(const KDatePicker* self) {
+    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_MetaObject_IsBase(true);
+        return (QMetaObject*)vkdatepicker->metaObject();
+    } else {
+        return (QMetaObject*)self->KDatePicker::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDatePicker_OnMetaObject(const KDatePicker* self, intptr_t slot) {
+    auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_MetaObject_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KDatePicker_QBaseMetacast(KDatePicker* self, const char* param1) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_Metacast_IsBase(true);
+        return vkdatepicker->qt_metacast(param1);
+    } else {
+        return self->KDatePicker::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KDatePicker_OnMetacast(KDatePicker* self, intptr_t slot) {
+    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+        vkdatepicker->setKDatePicker_Metacast_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -68,6 +68,10 @@ void KSplitterCollapserButton_PaintEvent(KSplitterCollapserButton* self, QPaintE
 void KSplitterCollapserButton_EnterEvent(KSplitterCollapserButton* self, QEnterEvent* event);
 void KSplitterCollapserButton_LeaveEvent(KSplitterCollapserButton* self, QEvent* event);
 void KSplitterCollapserButton_ShowEvent(KSplitterCollapserButton* self, QShowEvent* event);
+void KSplitterCollapserButton_OnMetaObject(const KSplitterCollapserButton* self, intptr_t slot);
+QMetaObject* KSplitterCollapserButton_QBaseMetaObject(const KSplitterCollapserButton* self);
+void KSplitterCollapserButton_OnMetacast(KSplitterCollapserButton* self, intptr_t slot);
+void* KSplitterCollapserButton_QBaseMetacast(KSplitterCollapserButton* self, const char* param1);
 void KSplitterCollapserButton_OnMetacall(KSplitterCollapserButton* self, intptr_t slot);
 int KSplitterCollapserButton_QBaseMetacall(KSplitterCollapserButton* self, int param1, int param2, void** param3);
 void KSplitterCollapserButton_OnSizeHint(const KSplitterCollapserButton* self, intptr_t slot);

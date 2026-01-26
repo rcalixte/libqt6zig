@@ -17,6 +17,8 @@ class VirtualKActionSelector final : public KActionSelector {
     bool isVirtualKActionSelector = true;
 
     // Virtual class public types (including callbacks)
+    using KActionSelector_MetaObject_Callback = QMetaObject* (*)();
+    using KActionSelector_Metacast_Callback = void* (*)(KActionSelector*, const char*);
     using KActionSelector_Metacall_Callback = int (*)(KActionSelector*, int, int, void**);
     using KActionSelector_KeyPressEvent_Callback = void (*)(KActionSelector*, QKeyEvent*);
     using KActionSelector_EventFilter_Callback = bool (*)(KActionSelector*, QObject*, QEvent*);
@@ -78,6 +80,8 @@ class VirtualKActionSelector final : public KActionSelector {
 
   protected:
     // Instance callback storage
+    KActionSelector_MetaObject_Callback kactionselector_metaobject_callback = nullptr;
+    KActionSelector_Metacast_Callback kactionselector_metacast_callback = nullptr;
     KActionSelector_Metacall_Callback kactionselector_metacall_callback = nullptr;
     KActionSelector_KeyPressEvent_Callback kactionselector_keypressevent_callback = nullptr;
     KActionSelector_EventFilter_Callback kactionselector_eventfilter_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKActionSelector final : public KActionSelector {
     KActionSelector_GetDecodedMetricF_Callback kactionselector_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kactionselector_metaobject_isbase = false;
+    mutable bool kactionselector_metacast_isbase = false;
     mutable bool kactionselector_metacall_isbase = false;
     mutable bool kactionselector_keypressevent_isbase = false;
     mutable bool kactionselector_eventfilter_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKActionSelector final : public KActionSelector {
     VirtualKActionSelector() : KActionSelector() {};
 
     ~VirtualKActionSelector() {
+        kactionselector_metaobject_callback = nullptr;
+        kactionselector_metacast_callback = nullptr;
         kactionselector_metacall_callback = nullptr;
         kactionselector_keypressevent_callback = nullptr;
         kactionselector_eventfilter_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKActionSelector final : public KActionSelector {
     }
 
     // Callback setters
+    inline void setKActionSelector_MetaObject_Callback(KActionSelector_MetaObject_Callback cb) { kactionselector_metaobject_callback = cb; }
+    inline void setKActionSelector_Metacast_Callback(KActionSelector_Metacast_Callback cb) { kactionselector_metacast_callback = cb; }
     inline void setKActionSelector_Metacall_Callback(KActionSelector_Metacall_Callback cb) { kactionselector_metacall_callback = cb; }
     inline void setKActionSelector_KeyPressEvent_Callback(KActionSelector_KeyPressEvent_Callback cb) { kactionselector_keypressevent_callback = cb; }
     inline void setKActionSelector_EventFilter_Callback(KActionSelector_EventFilter_Callback cb) { kactionselector_eventfilter_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKActionSelector final : public KActionSelector {
     inline void setKActionSelector_GetDecodedMetricF_Callback(KActionSelector_GetDecodedMetricF_Callback cb) { kactionselector_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKActionSelector_MetaObject_IsBase(bool value) const { kactionselector_metaobject_isbase = value; }
+    inline void setKActionSelector_Metacast_IsBase(bool value) const { kactionselector_metacast_isbase = value; }
     inline void setKActionSelector_Metacall_IsBase(bool value) const { kactionselector_metacall_isbase = value; }
     inline void setKActionSelector_KeyPressEvent_IsBase(bool value) const { kactionselector_keypressevent_isbase = value; }
     inline void setKActionSelector_EventFilter_IsBase(bool value) const { kactionselector_eventfilter_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKActionSelector final : public KActionSelector {
     inline void setKActionSelector_Receivers_IsBase(bool value) const { kactionselector_receivers_isbase = value; }
     inline void setKActionSelector_IsSignalConnected_IsBase(bool value) const { kactionselector_issignalconnected_isbase = value; }
     inline void setKActionSelector_GetDecodedMetricF_IsBase(bool value) const { kactionselector_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kactionselector_metaobject_isbase) {
+            kactionselector_metaobject_isbase = false;
+            return KActionSelector::metaObject();
+        } else if (kactionselector_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kactionselector_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KActionSelector::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kactionselector_metacast_isbase) {
+            kactionselector_metacast_isbase = false;
+            return KActionSelector::qt_metacast(param1);
+        } else if (kactionselector_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kactionselector_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KActionSelector::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

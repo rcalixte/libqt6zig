@@ -54,11 +54,21 @@ KNSWidgets__Dialog* KNSWidgets__Dialog_new2(const libqt_string configFile, QWidg
 }
 
 QMetaObject* KNSWidgets__Dialog_MetaObject(const KNSWidgets__Dialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknswidgets__dialog = dynamic_cast<const VirtualKNSWidgetsDialog*>(self);
+    if (vknswidgets__dialog && vknswidgets__dialog->isVirtualKNSWidgetsDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNSWidgetsDialog*)self)->metaObject();
+    }
 }
 
 void* KNSWidgets__Dialog_Metacast(KNSWidgets__Dialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknswidgets__dialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
+    if (vknswidgets__dialog && vknswidgets__dialog->isVirtualKNSWidgetsDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNSWidgetsDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KNSWidgets__Dialog_Metacall(KNSWidgets__Dialog* self, int param1, int param2, void** param3) {
@@ -93,6 +103,44 @@ void KNSWidgets__Dialog_Open(KNSWidgets__Dialog* self) {
         self->open();
     } else {
         ((VirtualKNSWidgetsDialog*)self)->open();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KNSWidgets__Dialog_QBaseMetaObject(const KNSWidgets__Dialog* self) {
+    auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+        vknswidgetsdialog->setKNSWidgets__Dialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vknswidgetsdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KNSWidgets::Dialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSWidgets__Dialog_OnMetaObject(const KNSWidgets__Dialog* self, intptr_t slot) {
+    auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+        vknswidgetsdialog->setKNSWidgets__Dialog_MetaObject_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNSWidgets__Dialog_QBaseMetacast(KNSWidgets__Dialog* self, const char* param1) {
+    auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+        vknswidgetsdialog->setKNSWidgets__Dialog_Metacast_IsBase(true);
+        return vknswidgetsdialog->qt_metacast(param1);
+    } else {
+        return self->KNSWidgets::Dialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSWidgets__Dialog_OnMetacast(KNSWidgets__Dialog* self, intptr_t slot) {
+    auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+        vknswidgetsdialog->setKNSWidgets__Dialog_Metacast_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Metacast_Callback>(slot));
     }
 }
 

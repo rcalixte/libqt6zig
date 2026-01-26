@@ -202,11 +202,21 @@ QUndoStack* QUndoStack_new2(QObject* parent) {
 }
 
 QMetaObject* QUndoStack_MetaObject(const QUndoStack* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqundostack = dynamic_cast<const VirtualQUndoStack*>(self);
+    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQUndoStack*)self)->metaObject();
+    }
 }
 
 void* QUndoStack_Metacast(QUndoStack* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
+    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQUndoStack*)self)->qt_metacast(param1);
+    }
 }
 
 int QUndoStack_Metacall(QUndoStack* self, int param1, int param2, void** param3) {
@@ -443,6 +453,44 @@ QAction* QUndoStack_CreateRedoAction2(const QUndoStack* self, QObject* parent, c
 
 void QUndoStack_SetActive1(QUndoStack* self, bool active) {
     self->setActive(active);
+}
+
+// Base class handler implementation
+QMetaObject* QUndoStack_QBaseMetaObject(const QUndoStack* self) {
+    auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
+    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+        vqundostack->setQUndoStack_MetaObject_IsBase(true);
+        return (QMetaObject*)vqundostack->metaObject();
+    } else {
+        return (QMetaObject*)self->QUndoStack::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QUndoStack_OnMetaObject(const QUndoStack* self, intptr_t slot) {
+    auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
+    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+        vqundostack->setQUndoStack_MetaObject_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QUndoStack_QBaseMetacast(QUndoStack* self, const char* param1) {
+    auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
+    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+        vqundostack->setQUndoStack_Metacast_IsBase(true);
+        return vqundostack->qt_metacast(param1);
+    } else {
+        return self->QUndoStack::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QUndoStack_OnMetacast(QUndoStack* self, intptr_t slot) {
+    auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
+    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+        vqundostack->setQUndoStack_Metacast_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

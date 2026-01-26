@@ -17,6 +17,8 @@ class VirtualKFontChooser final : public KFontChooser {
     bool isVirtualKFontChooser = true;
 
     // Virtual class public types (including callbacks)
+    using KFontChooser_MetaObject_Callback = QMetaObject* (*)();
+    using KFontChooser_Metacast_Callback = void* (*)(KFontChooser*, const char*);
     using KFontChooser_Metacall_Callback = int (*)(KFontChooser*, int, int, void**);
     using KFontChooser_SizeHint_Callback = QSize* (*)();
     using KFontChooser_DevType_Callback = int (*)();
@@ -78,6 +80,8 @@ class VirtualKFontChooser final : public KFontChooser {
 
   protected:
     // Instance callback storage
+    KFontChooser_MetaObject_Callback kfontchooser_metaobject_callback = nullptr;
+    KFontChooser_Metacast_Callback kfontchooser_metacast_callback = nullptr;
     KFontChooser_Metacall_Callback kfontchooser_metacall_callback = nullptr;
     KFontChooser_SizeHint_Callback kfontchooser_sizehint_callback = nullptr;
     KFontChooser_DevType_Callback kfontchooser_devtype_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKFontChooser final : public KFontChooser {
     KFontChooser_GetDecodedMetricF_Callback kfontchooser_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfontchooser_metaobject_isbase = false;
+    mutable bool kfontchooser_metacast_isbase = false;
     mutable bool kfontchooser_metacall_isbase = false;
     mutable bool kfontchooser_sizehint_isbase = false;
     mutable bool kfontchooser_devtype_isbase = false;
@@ -204,6 +210,8 @@ class VirtualKFontChooser final : public KFontChooser {
     VirtualKFontChooser(KFontChooser::DisplayFlags flags, QWidget* parent) : KFontChooser(flags, parent) {};
 
     ~VirtualKFontChooser() {
+        kfontchooser_metaobject_callback = nullptr;
+        kfontchooser_metacast_callback = nullptr;
         kfontchooser_metacall_callback = nullptr;
         kfontchooser_sizehint_callback = nullptr;
         kfontchooser_devtype_callback = nullptr;
@@ -265,6 +273,8 @@ class VirtualKFontChooser final : public KFontChooser {
     }
 
     // Callback setters
+    inline void setKFontChooser_MetaObject_Callback(KFontChooser_MetaObject_Callback cb) { kfontchooser_metaobject_callback = cb; }
+    inline void setKFontChooser_Metacast_Callback(KFontChooser_Metacast_Callback cb) { kfontchooser_metacast_callback = cb; }
     inline void setKFontChooser_Metacall_Callback(KFontChooser_Metacall_Callback cb) { kfontchooser_metacall_callback = cb; }
     inline void setKFontChooser_SizeHint_Callback(KFontChooser_SizeHint_Callback cb) { kfontchooser_sizehint_callback = cb; }
     inline void setKFontChooser_DevType_Callback(KFontChooser_DevType_Callback cb) { kfontchooser_devtype_callback = cb; }
@@ -325,6 +335,8 @@ class VirtualKFontChooser final : public KFontChooser {
     inline void setKFontChooser_GetDecodedMetricF_Callback(KFontChooser_GetDecodedMetricF_Callback cb) { kfontchooser_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKFontChooser_MetaObject_IsBase(bool value) const { kfontchooser_metaobject_isbase = value; }
+    inline void setKFontChooser_Metacast_IsBase(bool value) const { kfontchooser_metacast_isbase = value; }
     inline void setKFontChooser_Metacall_IsBase(bool value) const { kfontchooser_metacall_isbase = value; }
     inline void setKFontChooser_SizeHint_IsBase(bool value) const { kfontchooser_sizehint_isbase = value; }
     inline void setKFontChooser_DevType_IsBase(bool value) const { kfontchooser_devtype_isbase = value; }
@@ -383,6 +395,34 @@ class VirtualKFontChooser final : public KFontChooser {
     inline void setKFontChooser_Receivers_IsBase(bool value) const { kfontchooser_receivers_isbase = value; }
     inline void setKFontChooser_IsSignalConnected_IsBase(bool value) const { kfontchooser_issignalconnected_isbase = value; }
     inline void setKFontChooser_GetDecodedMetricF_IsBase(bool value) const { kfontchooser_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfontchooser_metaobject_isbase) {
+            kfontchooser_metaobject_isbase = false;
+            return KFontChooser::metaObject();
+        } else if (kfontchooser_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfontchooser_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFontChooser::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfontchooser_metacast_isbase) {
+            kfontchooser_metacast_isbase = false;
+            return KFontChooser::qt_metacast(param1);
+        } else if (kfontchooser_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfontchooser_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFontChooser::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
     bool isVirtualKKeySequenceWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KKeySequenceWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KKeySequenceWidget_Metacast_Callback = void* (*)(KKeySequenceWidget*, const char*);
     using KKeySequenceWidget_Metacall_Callback = int (*)(KKeySequenceWidget*, int, int, void**);
     using KKeySequenceWidget_DevType_Callback = int (*)();
     using KKeySequenceWidget_SetVisible_Callback = void (*)(KKeySequenceWidget*, bool);
@@ -77,6 +79,8 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
 
   protected:
     // Instance callback storage
+    KKeySequenceWidget_MetaObject_Callback kkeysequencewidget_metaobject_callback = nullptr;
+    KKeySequenceWidget_Metacast_Callback kkeysequencewidget_metacast_callback = nullptr;
     KKeySequenceWidget_Metacall_Callback kkeysequencewidget_metacall_callback = nullptr;
     KKeySequenceWidget_DevType_Callback kkeysequencewidget_devtype_callback = nullptr;
     KKeySequenceWidget_SetVisible_Callback kkeysequencewidget_setvisible_callback = nullptr;
@@ -136,6 +140,8 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
     KKeySequenceWidget_GetDecodedMetricF_Callback kkeysequencewidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kkeysequencewidget_metaobject_isbase = false;
+    mutable bool kkeysequencewidget_metacast_isbase = false;
     mutable bool kkeysequencewidget_metacall_isbase = false;
     mutable bool kkeysequencewidget_devtype_isbase = false;
     mutable bool kkeysequencewidget_setvisible_isbase = false;
@@ -199,6 +205,8 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
     VirtualKKeySequenceWidget() : KKeySequenceWidget() {};
 
     ~VirtualKKeySequenceWidget() {
+        kkeysequencewidget_metaobject_callback = nullptr;
+        kkeysequencewidget_metacast_callback = nullptr;
         kkeysequencewidget_metacall_callback = nullptr;
         kkeysequencewidget_devtype_callback = nullptr;
         kkeysequencewidget_setvisible_callback = nullptr;
@@ -259,6 +267,8 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
     }
 
     // Callback setters
+    inline void setKKeySequenceWidget_MetaObject_Callback(KKeySequenceWidget_MetaObject_Callback cb) { kkeysequencewidget_metaobject_callback = cb; }
+    inline void setKKeySequenceWidget_Metacast_Callback(KKeySequenceWidget_Metacast_Callback cb) { kkeysequencewidget_metacast_callback = cb; }
     inline void setKKeySequenceWidget_Metacall_Callback(KKeySequenceWidget_Metacall_Callback cb) { kkeysequencewidget_metacall_callback = cb; }
     inline void setKKeySequenceWidget_DevType_Callback(KKeySequenceWidget_DevType_Callback cb) { kkeysequencewidget_devtype_callback = cb; }
     inline void setKKeySequenceWidget_SetVisible_Callback(KKeySequenceWidget_SetVisible_Callback cb) { kkeysequencewidget_setvisible_callback = cb; }
@@ -318,6 +328,8 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
     inline void setKKeySequenceWidget_GetDecodedMetricF_Callback(KKeySequenceWidget_GetDecodedMetricF_Callback cb) { kkeysequencewidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKKeySequenceWidget_MetaObject_IsBase(bool value) const { kkeysequencewidget_metaobject_isbase = value; }
+    inline void setKKeySequenceWidget_Metacast_IsBase(bool value) const { kkeysequencewidget_metacast_isbase = value; }
     inline void setKKeySequenceWidget_Metacall_IsBase(bool value) const { kkeysequencewidget_metacall_isbase = value; }
     inline void setKKeySequenceWidget_DevType_IsBase(bool value) const { kkeysequencewidget_devtype_isbase = value; }
     inline void setKKeySequenceWidget_SetVisible_IsBase(bool value) const { kkeysequencewidget_setvisible_isbase = value; }
@@ -375,6 +387,34 @@ class VirtualKKeySequenceWidget final : public KKeySequenceWidget {
     inline void setKKeySequenceWidget_Receivers_IsBase(bool value) const { kkeysequencewidget_receivers_isbase = value; }
     inline void setKKeySequenceWidget_IsSignalConnected_IsBase(bool value) const { kkeysequencewidget_issignalconnected_isbase = value; }
     inline void setKKeySequenceWidget_GetDecodedMetricF_IsBase(bool value) const { kkeysequencewidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kkeysequencewidget_metaobject_isbase) {
+            kkeysequencewidget_metaobject_isbase = false;
+            return KKeySequenceWidget::metaObject();
+        } else if (kkeysequencewidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kkeysequencewidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KKeySequenceWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kkeysequencewidget_metacast_isbase) {
+            kkeysequencewidget_metacast_isbase = false;
+            return KKeySequenceWidget::qt_metacast(param1);
+        } else if (kkeysequencewidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kkeysequencewidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KKeySequenceWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

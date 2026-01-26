@@ -59,11 +59,21 @@ QGroupBox* QGroupBox_new4(const libqt_string title, QWidget* parent) {
 }
 
 QMetaObject* QGroupBox_MetaObject(const QGroupBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgroupbox = dynamic_cast<const VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGroupBox*)self)->metaObject();
+    }
 }
 
 void* QGroupBox_Metacast(QGroupBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGroupBox*)self)->qt_metacast(param1);
+    }
 }
 
 int QGroupBox_Metacall(QGroupBox* self, int param1, int param2, void** param3) {
@@ -237,6 +247,44 @@ void QGroupBox_Connect_Clicked1(QGroupBox* self, intptr_t slot) {
         bool sigval1 = checked;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGroupBox_QBaseMetaObject(const QGroupBox* self) {
+    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgroupbox->metaObject();
+    } else {
+        return (QMetaObject*)self->QGroupBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnMetaObject(const QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_MetaObject_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGroupBox_QBaseMetacast(QGroupBox* self, const char* param1) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_Metacast_IsBase(true);
+        return vqgroupbox->qt_metacast(param1);
+    } else {
+        return self->QGroupBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnMetacast(QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_Metacast_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

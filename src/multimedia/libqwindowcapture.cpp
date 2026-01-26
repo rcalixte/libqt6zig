@@ -24,11 +24,21 @@ QWindowCapture* QWindowCapture_new2(QObject* parent) {
 }
 
 QMetaObject* QWindowCapture_MetaObject(const QWindowCapture* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwindowcapture = dynamic_cast<const VirtualQWindowCapture*>(self);
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWindowCapture*)self)->metaObject();
+    }
 }
 
 void* QWindowCapture_Metacast(QWindowCapture* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWindowCapture*)self)->qt_metacast(param1);
+    }
 }
 
 int QWindowCapture_Metacall(QWindowCapture* self, int param1, int param2, void** param3) {
@@ -151,6 +161,44 @@ void QWindowCapture_Connect_ErrorOccurred(QWindowCapture* self, intptr_t slot) {
         slotFunc(self, sigval1, sigval2);
         libqt_free(errorString_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QWindowCapture_QBaseMetaObject(const QWindowCapture* self) {
+    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+        vqwindowcapture->setQWindowCapture_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwindowcapture->metaObject();
+    } else {
+        return (QMetaObject*)self->QWindowCapture::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWindowCapture_OnMetaObject(const QWindowCapture* self, intptr_t slot) {
+    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+        vqwindowcapture->setQWindowCapture_MetaObject_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWindowCapture_QBaseMetacast(QWindowCapture* self, const char* param1) {
+    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+        vqwindowcapture->setQWindowCapture_Metacast_IsBase(true);
+        return vqwindowcapture->qt_metacast(param1);
+    } else {
+        return self->QWindowCapture::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWindowCapture_OnMetacast(QWindowCapture* self, intptr_t slot) {
+    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+        vqwindowcapture->setQWindowCapture_Metacast_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

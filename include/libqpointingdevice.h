@@ -60,6 +60,10 @@ bool QPointingDevice_OperatorEqual(const QPointingDevice* self, const QPointingD
 void QPointingDevice_GrabChanged(const QPointingDevice* self, QObject* grabber, int transition, const QPointerEvent* event, const QEventPoint* point);
 void QPointingDevice_Connect_GrabChanged(QPointingDevice* self, intptr_t slot);
 QPointingDevice* QPointingDevice_PrimaryPointingDevice1(const libqt_string seatName);
+void QPointingDevice_OnMetaObject(const QPointingDevice* self, intptr_t slot);
+QMetaObject* QPointingDevice_QBaseMetaObject(const QPointingDevice* self);
+void QPointingDevice_OnMetacast(QPointingDevice* self, intptr_t slot);
+void* QPointingDevice_QBaseMetacast(QPointingDevice* self, const char* param1);
 void QPointingDevice_OnMetacall(QPointingDevice* self, intptr_t slot);
 int QPointingDevice_QBaseMetacall(QPointingDevice* self, int param1, int param2, void** param3);
 bool QPointingDevice_Event(QPointingDevice* self, QEvent* event);

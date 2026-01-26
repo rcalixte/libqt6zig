@@ -17,6 +17,8 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
     bool isVirtualQPauseAnimation = true;
 
     // Virtual class public types (including callbacks)
+    using QPauseAnimation_MetaObject_Callback = QMetaObject* (*)();
+    using QPauseAnimation_Metacast_Callback = void* (*)(QPauseAnimation*, const char*);
     using QPauseAnimation_Metacall_Callback = int (*)(QPauseAnimation*, int, int, void**);
     using QPauseAnimation_Duration_Callback = int (*)();
     using QPauseAnimation_Event_Callback = bool (*)(QPauseAnimation*, QEvent*);
@@ -36,6 +38,8 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
 
   protected:
     // Instance callback storage
+    QPauseAnimation_MetaObject_Callback qpauseanimation_metaobject_callback = nullptr;
+    QPauseAnimation_Metacast_Callback qpauseanimation_metacast_callback = nullptr;
     QPauseAnimation_Metacall_Callback qpauseanimation_metacall_callback = nullptr;
     QPauseAnimation_Duration_Callback qpauseanimation_duration_callback = nullptr;
     QPauseAnimation_Event_Callback qpauseanimation_event_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
     QPauseAnimation_IsSignalConnected_Callback qpauseanimation_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpauseanimation_metaobject_isbase = false;
+    mutable bool qpauseanimation_metacast_isbase = false;
     mutable bool qpauseanimation_metacall_isbase = false;
     mutable bool qpauseanimation_duration_isbase = false;
     mutable bool qpauseanimation_event_isbase = false;
@@ -78,6 +84,8 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
     VirtualQPauseAnimation(int msecs, QObject* parent) : QPauseAnimation(msecs, parent) {};
 
     ~VirtualQPauseAnimation() {
+        qpauseanimation_metaobject_callback = nullptr;
+        qpauseanimation_metacast_callback = nullptr;
         qpauseanimation_metacall_callback = nullptr;
         qpauseanimation_duration_callback = nullptr;
         qpauseanimation_event_callback = nullptr;
@@ -97,6 +105,8 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
     }
 
     // Callback setters
+    inline void setQPauseAnimation_MetaObject_Callback(QPauseAnimation_MetaObject_Callback cb) { qpauseanimation_metaobject_callback = cb; }
+    inline void setQPauseAnimation_Metacast_Callback(QPauseAnimation_Metacast_Callback cb) { qpauseanimation_metacast_callback = cb; }
     inline void setQPauseAnimation_Metacall_Callback(QPauseAnimation_Metacall_Callback cb) { qpauseanimation_metacall_callback = cb; }
     inline void setQPauseAnimation_Duration_Callback(QPauseAnimation_Duration_Callback cb) { qpauseanimation_duration_callback = cb; }
     inline void setQPauseAnimation_Event_Callback(QPauseAnimation_Event_Callback cb) { qpauseanimation_event_callback = cb; }
@@ -115,6 +125,8 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
     inline void setQPauseAnimation_IsSignalConnected_Callback(QPauseAnimation_IsSignalConnected_Callback cb) { qpauseanimation_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPauseAnimation_MetaObject_IsBase(bool value) const { qpauseanimation_metaobject_isbase = value; }
+    inline void setQPauseAnimation_Metacast_IsBase(bool value) const { qpauseanimation_metacast_isbase = value; }
     inline void setQPauseAnimation_Metacall_IsBase(bool value) const { qpauseanimation_metacall_isbase = value; }
     inline void setQPauseAnimation_Duration_IsBase(bool value) const { qpauseanimation_duration_isbase = value; }
     inline void setQPauseAnimation_Event_IsBase(bool value) const { qpauseanimation_event_isbase = value; }
@@ -131,6 +143,34 @@ class VirtualQPauseAnimation final : public QPauseAnimation {
     inline void setQPauseAnimation_SenderSignalIndex_IsBase(bool value) const { qpauseanimation_sendersignalindex_isbase = value; }
     inline void setQPauseAnimation_Receivers_IsBase(bool value) const { qpauseanimation_receivers_isbase = value; }
     inline void setQPauseAnimation_IsSignalConnected_IsBase(bool value) const { qpauseanimation_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpauseanimation_metaobject_isbase) {
+            qpauseanimation_metaobject_isbase = false;
+            return QPauseAnimation::metaObject();
+        } else if (qpauseanimation_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpauseanimation_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPauseAnimation::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpauseanimation_metacast_isbase) {
+            qpauseanimation_metacast_isbase = false;
+            return QPauseAnimation::qt_metacast(param1);
+        } else if (qpauseanimation_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpauseanimation_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPauseAnimation::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

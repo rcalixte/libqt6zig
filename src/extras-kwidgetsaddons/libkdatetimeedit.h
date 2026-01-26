@@ -137,6 +137,10 @@ void KDateTimeEdit_SetMinimumDateTime2(KDateTimeEdit* self, const QDateTime* min
 void KDateTimeEdit_SetMaximumDateTime2(KDateTimeEdit* self, const QDateTime* maxDateTime, const libqt_string maxWarnMsg);
 void KDateTimeEdit_SetTimeList2(KDateTimeEdit* self, libqt_list /* of QTime* */ timeList, const libqt_string minWarnMsg);
 void KDateTimeEdit_SetTimeList3(KDateTimeEdit* self, libqt_list /* of QTime* */ timeList, const libqt_string minWarnMsg, const libqt_string maxWarnMsg);
+void KDateTimeEdit_OnMetaObject(const KDateTimeEdit* self, intptr_t slot);
+QMetaObject* KDateTimeEdit_QBaseMetaObject(const KDateTimeEdit* self);
+void KDateTimeEdit_OnMetacast(KDateTimeEdit* self, intptr_t slot);
+void* KDateTimeEdit_QBaseMetacast(KDateTimeEdit* self, const char* param1);
 void KDateTimeEdit_OnMetacall(KDateTimeEdit* self, intptr_t slot);
 int KDateTimeEdit_QBaseMetacall(KDateTimeEdit* self, int param1, int param2, void** param3);
 void KDateTimeEdit_OnEventFilter(KDateTimeEdit* self, intptr_t slot);

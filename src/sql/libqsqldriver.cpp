@@ -28,11 +28,21 @@ QSqlDriver* QSqlDriver_new2(QObject* parent) {
 }
 
 QMetaObject* QSqlDriver_MetaObject(const QSqlDriver* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSqlDriver*)self)->metaObject();
+    }
 }
 
 void* QSqlDriver_Metacast(QSqlDriver* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSqlDriver*)self)->qt_metacast(param1);
+    }
 }
 
 int QSqlDriver_Metacall(QSqlDriver* self, int param1, int param2, void** param3) {
@@ -449,6 +459,44 @@ void QSqlDriver_SetLastError(QSqlDriver* self, const QSqlError* e) {
     auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setLastError(*e);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QSqlDriver_QBaseMetaObject(const QSqlDriver* self) {
+    auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+        vqsqldriver->setQSqlDriver_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsqldriver->metaObject();
+    } else {
+        return (QMetaObject*)self->QSqlDriver::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlDriver_OnMetaObject(const QSqlDriver* self, intptr_t slot) {
+    auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+        vqsqldriver->setQSqlDriver_MetaObject_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSqlDriver_QBaseMetacast(QSqlDriver* self, const char* param1) {
+    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+        vqsqldriver->setQSqlDriver_Metacast_IsBase(true);
+        return vqsqldriver->qt_metacast(param1);
+    } else {
+        return self->QSqlDriver::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlDriver_OnMetacast(QSqlDriver* self, intptr_t slot) {
+    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
+    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
+        vqsqldriver->setQSqlDriver_Metacast_Callback(reinterpret_cast<VirtualQSqlDriver::QSqlDriver_Metacast_Callback>(slot));
     }
 }
 

@@ -49,6 +49,10 @@ bool KCategorizedSortFilterProxyModel_SortCategoriesByNaturalComparison(const KC
 bool KCategorizedSortFilterProxyModel_LessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right);
 bool KCategorizedSortFilterProxyModel_SubSortLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right);
 int KCategorizedSortFilterProxyModel_CompareCategories(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right);
+void KCategorizedSortFilterProxyModel_OnMetaObject(const KCategorizedSortFilterProxyModel* self, intptr_t slot);
+QMetaObject* KCategorizedSortFilterProxyModel_QBaseMetaObject(const KCategorizedSortFilterProxyModel* self);
+void KCategorizedSortFilterProxyModel_OnMetacast(KCategorizedSortFilterProxyModel* self, intptr_t slot);
+void* KCategorizedSortFilterProxyModel_QBaseMetacast(KCategorizedSortFilterProxyModel* self, const char* param1);
 void KCategorizedSortFilterProxyModel_OnMetacall(KCategorizedSortFilterProxyModel* self, intptr_t slot);
 int KCategorizedSortFilterProxyModel_QBaseMetacall(KCategorizedSortFilterProxyModel* self, int param1, int param2, void** param3);
 void KCategorizedSortFilterProxyModel_OnSort(KCategorizedSortFilterProxyModel* self, intptr_t slot);

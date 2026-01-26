@@ -17,6 +17,8 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
     bool isVirtualKBookmarkContextMenu = true;
 
     // Virtual class public types (including callbacks)
+    using KBookmarkContextMenu_MetaObject_Callback = QMetaObject* (*)();
+    using KBookmarkContextMenu_Metacast_Callback = void* (*)(KBookmarkContextMenu*, const char*);
     using KBookmarkContextMenu_Metacall_Callback = int (*)(KBookmarkContextMenu*, int, int, void**);
     using KBookmarkContextMenu_AddActions_Callback = void (*)();
     using KBookmarkContextMenu_SizeHint_Callback = QSize* (*)();
@@ -89,6 +91,8 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
 
   protected:
     // Instance callback storage
+    KBookmarkContextMenu_MetaObject_Callback kbookmarkcontextmenu_metaobject_callback = nullptr;
+    KBookmarkContextMenu_Metacast_Callback kbookmarkcontextmenu_metacast_callback = nullptr;
     KBookmarkContextMenu_Metacall_Callback kbookmarkcontextmenu_metacall_callback = nullptr;
     KBookmarkContextMenu_AddActions_Callback kbookmarkcontextmenu_addactions_callback = nullptr;
     KBookmarkContextMenu_SizeHint_Callback kbookmarkcontextmenu_sizehint_callback = nullptr;
@@ -160,6 +164,8 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
     KBookmarkContextMenu_GetDecodedMetricF_Callback kbookmarkcontextmenu_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kbookmarkcontextmenu_metaobject_isbase = false;
+    mutable bool kbookmarkcontextmenu_metacast_isbase = false;
     mutable bool kbookmarkcontextmenu_metacall_isbase = false;
     mutable bool kbookmarkcontextmenu_addactions_isbase = false;
     mutable bool kbookmarkcontextmenu_sizehint_isbase = false;
@@ -235,6 +241,8 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
     VirtualKBookmarkContextMenu(const KBookmark& bm, KBookmarkManager* manager, KBookmarkOwner* owner, QWidget* parent) : KBookmarkContextMenu(bm, manager, owner, parent) {};
 
     ~VirtualKBookmarkContextMenu() {
+        kbookmarkcontextmenu_metaobject_callback = nullptr;
+        kbookmarkcontextmenu_metacast_callback = nullptr;
         kbookmarkcontextmenu_metacall_callback = nullptr;
         kbookmarkcontextmenu_addactions_callback = nullptr;
         kbookmarkcontextmenu_sizehint_callback = nullptr;
@@ -307,6 +315,8 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
     }
 
     // Callback setters
+    inline void setKBookmarkContextMenu_MetaObject_Callback(KBookmarkContextMenu_MetaObject_Callback cb) { kbookmarkcontextmenu_metaobject_callback = cb; }
+    inline void setKBookmarkContextMenu_Metacast_Callback(KBookmarkContextMenu_Metacast_Callback cb) { kbookmarkcontextmenu_metacast_callback = cb; }
     inline void setKBookmarkContextMenu_Metacall_Callback(KBookmarkContextMenu_Metacall_Callback cb) { kbookmarkcontextmenu_metacall_callback = cb; }
     inline void setKBookmarkContextMenu_AddActions_Callback(KBookmarkContextMenu_AddActions_Callback cb) { kbookmarkcontextmenu_addactions_callback = cb; }
     inline void setKBookmarkContextMenu_SizeHint_Callback(KBookmarkContextMenu_SizeHint_Callback cb) { kbookmarkcontextmenu_sizehint_callback = cb; }
@@ -378,6 +388,8 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
     inline void setKBookmarkContextMenu_GetDecodedMetricF_Callback(KBookmarkContextMenu_GetDecodedMetricF_Callback cb) { kbookmarkcontextmenu_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKBookmarkContextMenu_MetaObject_IsBase(bool value) const { kbookmarkcontextmenu_metaobject_isbase = value; }
+    inline void setKBookmarkContextMenu_Metacast_IsBase(bool value) const { kbookmarkcontextmenu_metacast_isbase = value; }
     inline void setKBookmarkContextMenu_Metacall_IsBase(bool value) const { kbookmarkcontextmenu_metacall_isbase = value; }
     inline void setKBookmarkContextMenu_AddActions_IsBase(bool value) const { kbookmarkcontextmenu_addactions_isbase = value; }
     inline void setKBookmarkContextMenu_SizeHint_IsBase(bool value) const { kbookmarkcontextmenu_sizehint_isbase = value; }
@@ -447,6 +459,34 @@ class VirtualKBookmarkContextMenu final : public KBookmarkContextMenu {
     inline void setKBookmarkContextMenu_Receivers_IsBase(bool value) const { kbookmarkcontextmenu_receivers_isbase = value; }
     inline void setKBookmarkContextMenu_IsSignalConnected_IsBase(bool value) const { kbookmarkcontextmenu_issignalconnected_isbase = value; }
     inline void setKBookmarkContextMenu_GetDecodedMetricF_IsBase(bool value) const { kbookmarkcontextmenu_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kbookmarkcontextmenu_metaobject_isbase) {
+            kbookmarkcontextmenu_metaobject_isbase = false;
+            return KBookmarkContextMenu::metaObject();
+        } else if (kbookmarkcontextmenu_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kbookmarkcontextmenu_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KBookmarkContextMenu::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kbookmarkcontextmenu_metacast_isbase) {
+            kbookmarkcontextmenu_metacast_isbase = false;
+            return KBookmarkContextMenu::qt_metacast(param1);
+        } else if (kbookmarkcontextmenu_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kbookmarkcontextmenu_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KBookmarkContextMenu::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

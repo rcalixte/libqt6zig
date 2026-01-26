@@ -50,11 +50,21 @@ KXYSelector* KXYSelector_new2() {
 }
 
 QMetaObject* KXYSelector_MetaObject(const KXYSelector* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkxyselector = dynamic_cast<const VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKXYSelector*)self)->metaObject();
+    }
 }
 
 void* KXYSelector_Metacast(KXYSelector* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKXYSelector*)self)->qt_metacast(param1);
+    }
 }
 
 int KXYSelector_Metacall(KXYSelector* self, int param1, int param2, void** param3) {
@@ -159,6 +169,44 @@ void KXYSelector_WheelEvent(KXYSelector* self, QWheelEvent* param1) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
     if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
         vkxyselector->wheelEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KXYSelector_QBaseMetaObject(const KXYSelector* self) {
+    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_MetaObject_IsBase(true);
+        return (QMetaObject*)vkxyselector->metaObject();
+    } else {
+        return (QMetaObject*)self->KXYSelector::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnMetaObject(const KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_MetaObject_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KXYSelector_QBaseMetacast(KXYSelector* self, const char* param1) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_Metacast_IsBase(true);
+        return vkxyselector->qt_metacast(param1);
+    } else {
+        return self->KXYSelector::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KXYSelector_OnMetacast(KXYSelector* self, intptr_t slot) {
+    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+        vkxyselector->setKXYSelector_Metacast_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Metacast_Callback>(slot));
     }
 }
 

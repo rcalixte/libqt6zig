@@ -81,6 +81,10 @@ void QAbstractTextDocumentLayout_DrawInlineObject(QAbstractTextDocumentLayout* s
 void QAbstractTextDocumentLayout_UnregisterHandler2(QAbstractTextDocumentLayout* self, int objectType, QObject* component);
 void QAbstractTextDocumentLayout_Update1(QAbstractTextDocumentLayout* self, const QRectF* param1);
 void QAbstractTextDocumentLayout_Connect_Update1(QAbstractTextDocumentLayout* self, intptr_t slot);
+void QAbstractTextDocumentLayout_OnMetaObject(const QAbstractTextDocumentLayout* self, intptr_t slot);
+QMetaObject* QAbstractTextDocumentLayout_QBaseMetaObject(const QAbstractTextDocumentLayout* self);
+void QAbstractTextDocumentLayout_OnMetacast(QAbstractTextDocumentLayout* self, intptr_t slot);
+void* QAbstractTextDocumentLayout_QBaseMetacast(QAbstractTextDocumentLayout* self, const char* param1);
 void QAbstractTextDocumentLayout_OnMetacall(QAbstractTextDocumentLayout* self, intptr_t slot);
 int QAbstractTextDocumentLayout_QBaseMetacall(QAbstractTextDocumentLayout* self, int param1, int param2, void** param3);
 void QAbstractTextDocumentLayout_OnDraw(QAbstractTextDocumentLayout* self, intptr_t slot);

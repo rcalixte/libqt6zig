@@ -73,11 +73,21 @@ KRuler* KRuler_new8(int orient, int widgetWidth, QWidget* parent, int f) {
 }
 
 QMetaObject* KRuler_MetaObject(const KRuler* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkruler = dynamic_cast<const VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKRuler*)self)->metaObject();
+    }
 }
 
 void* KRuler_Metacast(KRuler* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKRuler*)self)->qt_metacast(param1);
+    }
 }
 
 int KRuler_Metacall(KRuler* self, int param1, int param2, void** param3) {
@@ -267,6 +277,44 @@ void KRuler_SlideUp1(KRuler* self, int count) {
 
 void KRuler_SlideDown1(KRuler* self, int count) {
     self->slideDown(static_cast<int>(count));
+}
+
+// Base class handler implementation
+QMetaObject* KRuler_QBaseMetaObject(const KRuler* self) {
+    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_MetaObject_IsBase(true);
+        return (QMetaObject*)vkruler->metaObject();
+    } else {
+        return (QMetaObject*)self->KRuler::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRuler_OnMetaObject(const KRuler* self, intptr_t slot) {
+    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_MetaObject_Callback(reinterpret_cast<VirtualKRuler::KRuler_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KRuler_QBaseMetacast(KRuler* self, const char* param1) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_Metacast_IsBase(true);
+        return vkruler->qt_metacast(param1);
+    } else {
+        return self->KRuler::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRuler_OnMetacast(KRuler* self, intptr_t slot) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler && vkruler->isVirtualKRuler) {
+        vkruler->setKRuler_Metacast_Callback(reinterpret_cast<VirtualKRuler::KRuler_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

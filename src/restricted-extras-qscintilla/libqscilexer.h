@@ -92,6 +92,10 @@ bool QsciLexer_ReadProperties(QsciLexer* self, QSettings* qs, const libqt_string
 bool QsciLexer_WriteProperties(const QsciLexer* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexer_ReadSettings2(QsciLexer* self, QSettings* qs, const char* prefix);
 bool QsciLexer_WriteSettings2(const QsciLexer* self, QSettings* qs, const char* prefix);
+void QsciLexer_OnMetaObject(const QsciLexer* self, intptr_t slot);
+QMetaObject* QsciLexer_QBaseMetaObject(const QsciLexer* self);
+void QsciLexer_OnMetacast(QsciLexer* self, intptr_t slot);
+void* QsciLexer_QBaseMetacast(QsciLexer* self, const char* param1);
 void QsciLexer_OnMetacall(QsciLexer* self, intptr_t slot);
 int QsciLexer_QBaseMetacall(QsciLexer* self, int param1, int param2, void** param3);
 void QsciLexer_OnLanguage(const QsciLexer* self, intptr_t slot);

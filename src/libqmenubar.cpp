@@ -53,11 +53,21 @@ QMenuBar* QMenuBar_new2() {
 }
 
 QMetaObject* QMenuBar_MetaObject(const QMenuBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmenubar = dynamic_cast<const VirtualQMenuBar*>(self);
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMenuBar*)self)->metaObject();
+    }
 }
 
 void* QMenuBar_Metacast(QMenuBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMenuBar*)self)->qt_metacast(param1);
+    }
 }
 
 int QMenuBar_Metacall(QMenuBar* self, int param1, int param2, void** param3) {
@@ -312,6 +322,44 @@ void QMenuBar_SetCornerWidget2(QMenuBar* self, QWidget* w, int corner) {
 
 QWidget* QMenuBar_CornerWidget1(const QMenuBar* self, int corner) {
     return self->cornerWidget(static_cast<Qt::Corner>(corner));
+}
+
+// Base class handler implementation
+QMetaObject* QMenuBar_QBaseMetaObject(const QMenuBar* self) {
+    auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+        vqmenubar->setQMenuBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmenubar->metaObject();
+    } else {
+        return (QMetaObject*)self->QMenuBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenuBar_OnMetaObject(const QMenuBar* self, intptr_t slot) {
+    auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+        vqmenubar->setQMenuBar_MetaObject_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMenuBar_QBaseMetacast(QMenuBar* self, const char* param1) {
+    auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+        vqmenubar->setQMenuBar_Metacast_IsBase(true);
+        return vqmenubar->qt_metacast(param1);
+    } else {
+        return self->QMenuBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMenuBar_OnMetacast(QMenuBar* self, intptr_t slot) {
+    auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+        vqmenubar->setQMenuBar_Metacast_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

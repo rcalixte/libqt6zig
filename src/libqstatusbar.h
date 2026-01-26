@@ -76,6 +76,10 @@ int QStatusBar_InsertWidget3(QStatusBar* self, int index, QWidget* widget, int s
 void QStatusBar_AddPermanentWidget2(QStatusBar* self, QWidget* widget, int stretch);
 int QStatusBar_InsertPermanentWidget3(QStatusBar* self, int index, QWidget* widget, int stretch);
 void QStatusBar_ShowMessage2(QStatusBar* self, const libqt_string text, int timeout);
+void QStatusBar_OnMetaObject(const QStatusBar* self, intptr_t slot);
+QMetaObject* QStatusBar_QBaseMetaObject(const QStatusBar* self);
+void QStatusBar_OnMetacast(QStatusBar* self, intptr_t slot);
+void* QStatusBar_QBaseMetacast(QStatusBar* self, const char* param1);
 void QStatusBar_OnMetacall(QStatusBar* self, intptr_t slot);
 int QStatusBar_QBaseMetacall(QStatusBar* self, int param1, int param2, void** param3);
 void QStatusBar_OnShowEvent(QStatusBar* self, intptr_t slot);

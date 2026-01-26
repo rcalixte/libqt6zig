@@ -22,11 +22,21 @@ KEmailValidator* KEmailValidator_new2(QObject* parent) {
 }
 
 QMetaObject* KEmailValidator_MetaObject(const KEmailValidator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkemailvalidator = dynamic_cast<const VirtualKEmailValidator*>(self);
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKEmailValidator*)self)->metaObject();
+    }
 }
 
 void* KEmailValidator_Metacast(KEmailValidator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKEmailValidator*)self)->qt_metacast(param1);
+    }
 }
 
 int KEmailValidator_Metacall(KEmailValidator* self, int param1, int param2, void** param3) {
@@ -55,6 +65,44 @@ void KEmailValidator_Fixup(const KEmailValidator* self, libqt_string str) {
         self->fixup(str_QString);
     } else {
         ((VirtualKEmailValidator*)self)->fixup(str_QString);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KEmailValidator_QBaseMetaObject(const KEmailValidator* self) {
+    auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+        vkemailvalidator->setKEmailValidator_MetaObject_IsBase(true);
+        return (QMetaObject*)vkemailvalidator->metaObject();
+    } else {
+        return (QMetaObject*)self->KEmailValidator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEmailValidator_OnMetaObject(const KEmailValidator* self, intptr_t slot) {
+    auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+        vkemailvalidator->setKEmailValidator_MetaObject_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KEmailValidator_QBaseMetacast(KEmailValidator* self, const char* param1) {
+    auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+        vkemailvalidator->setKEmailValidator_Metacast_IsBase(true);
+        return vkemailvalidator->qt_metacast(param1);
+    } else {
+        return self->KEmailValidator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEmailValidator_OnMetacast(KEmailValidator* self, intptr_t slot) {
+    auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+        vkemailvalidator->setKEmailValidator_Metacast_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_Metacast_Callback>(slot));
     }
 }
 

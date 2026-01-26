@@ -17,6 +17,8 @@ class VirtualKIONameFinderJob final : public KIO::NameFinderJob {
     bool isVirtualKIONameFinderJob = true;
 
     // Virtual class public types (including callbacks)
+    using KIO__NameFinderJob_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__NameFinderJob_Metacast_Callback = void* (*)(KIO__NameFinderJob*, const char*);
     using KIO__NameFinderJob_Metacall_Callback = int (*)(KIO__NameFinderJob*, int, int, void**);
     using KIO__NameFinderJob_Start_Callback = void (*)();
     using KIO__NameFinderJob_AddSubjob_Callback = bool (*)(KIO__NameFinderJob*, KJob*);
@@ -56,6 +58,8 @@ class VirtualKIONameFinderJob final : public KIO::NameFinderJob {
 
   protected:
     // Instance callback storage
+    KIO__NameFinderJob_MetaObject_Callback kio__namefinderjob_metaobject_callback = nullptr;
+    KIO__NameFinderJob_Metacast_Callback kio__namefinderjob_metacast_callback = nullptr;
     KIO__NameFinderJob_Metacall_Callback kio__namefinderjob_metacall_callback = nullptr;
     KIO__NameFinderJob_Start_Callback kio__namefinderjob_start_callback = nullptr;
     KIO__NameFinderJob_AddSubjob_Callback kio__namefinderjob_addsubjob_callback = nullptr;
@@ -94,6 +98,8 @@ class VirtualKIONameFinderJob final : public KIO::NameFinderJob {
     KIO__NameFinderJob_IsSignalConnected_Callback kio__namefinderjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kio__namefinderjob_metaobject_isbase = false;
+    mutable bool kio__namefinderjob_metacast_isbase = false;
     mutable bool kio__namefinderjob_metacall_isbase = false;
     mutable bool kio__namefinderjob_start_isbase = false;
     mutable bool kio__namefinderjob_addsubjob_isbase = false;
@@ -135,6 +141,8 @@ class VirtualKIONameFinderJob final : public KIO::NameFinderJob {
     VirtualKIONameFinderJob(const QUrl& baseUrl, const QString& name, QObject* parent) : KIO::NameFinderJob(baseUrl, name, parent) {};
 
     ~VirtualKIONameFinderJob() {
+        kio__namefinderjob_metaobject_callback = nullptr;
+        kio__namefinderjob_metacast_callback = nullptr;
         kio__namefinderjob_metacall_callback = nullptr;
         kio__namefinderjob_start_callback = nullptr;
         kio__namefinderjob_addsubjob_callback = nullptr;
@@ -174,6 +182,8 @@ class VirtualKIONameFinderJob final : public KIO::NameFinderJob {
     }
 
     // Callback setters
+    inline void setKIO__NameFinderJob_MetaObject_Callback(KIO__NameFinderJob_MetaObject_Callback cb) { kio__namefinderjob_metaobject_callback = cb; }
+    inline void setKIO__NameFinderJob_Metacast_Callback(KIO__NameFinderJob_Metacast_Callback cb) { kio__namefinderjob_metacast_callback = cb; }
     inline void setKIO__NameFinderJob_Metacall_Callback(KIO__NameFinderJob_Metacall_Callback cb) { kio__namefinderjob_metacall_callback = cb; }
     inline void setKIO__NameFinderJob_Start_Callback(KIO__NameFinderJob_Start_Callback cb) { kio__namefinderjob_start_callback = cb; }
     inline void setKIO__NameFinderJob_AddSubjob_Callback(KIO__NameFinderJob_AddSubjob_Callback cb) { kio__namefinderjob_addsubjob_callback = cb; }
@@ -212,6 +222,8 @@ class VirtualKIONameFinderJob final : public KIO::NameFinderJob {
     inline void setKIO__NameFinderJob_IsSignalConnected_Callback(KIO__NameFinderJob_IsSignalConnected_Callback cb) { kio__namefinderjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIO__NameFinderJob_MetaObject_IsBase(bool value) const { kio__namefinderjob_metaobject_isbase = value; }
+    inline void setKIO__NameFinderJob_Metacast_IsBase(bool value) const { kio__namefinderjob_metacast_isbase = value; }
     inline void setKIO__NameFinderJob_Metacall_IsBase(bool value) const { kio__namefinderjob_metacall_isbase = value; }
     inline void setKIO__NameFinderJob_Start_IsBase(bool value) const { kio__namefinderjob_start_isbase = value; }
     inline void setKIO__NameFinderJob_AddSubjob_IsBase(bool value) const { kio__namefinderjob_addsubjob_isbase = value; }
@@ -248,6 +260,34 @@ class VirtualKIONameFinderJob final : public KIO::NameFinderJob {
     inline void setKIO__NameFinderJob_SenderSignalIndex_IsBase(bool value) const { kio__namefinderjob_sendersignalindex_isbase = value; }
     inline void setKIO__NameFinderJob_Receivers_IsBase(bool value) const { kio__namefinderjob_receivers_isbase = value; }
     inline void setKIO__NameFinderJob_IsSignalConnected_IsBase(bool value) const { kio__namefinderjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__namefinderjob_metaobject_isbase) {
+            kio__namefinderjob_metaobject_isbase = false;
+            return KIO__NameFinderJob::metaObject();
+        } else if (kio__namefinderjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__namefinderjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__NameFinderJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__namefinderjob_metacast_isbase) {
+            kio__namefinderjob_metacast_isbase = false;
+            return KIO__NameFinderJob::qt_metacast(param1);
+        } else if (kio__namefinderjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__namefinderjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__NameFinderJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

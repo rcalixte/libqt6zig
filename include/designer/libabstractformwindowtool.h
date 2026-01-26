@@ -40,6 +40,10 @@ QAction* QDesignerFormWindowToolInterface_Action(const QDesignerFormWindowToolIn
 void QDesignerFormWindowToolInterface_Activated(QDesignerFormWindowToolInterface* self);
 void QDesignerFormWindowToolInterface_Deactivated(QDesignerFormWindowToolInterface* self);
 bool QDesignerFormWindowToolInterface_HandleEvent(QDesignerFormWindowToolInterface* self, QWidget* widget, QWidget* managedWidget, QEvent* event);
+void QDesignerFormWindowToolInterface_OnMetaObject(const QDesignerFormWindowToolInterface* self, intptr_t slot);
+QMetaObject* QDesignerFormWindowToolInterface_QBaseMetaObject(const QDesignerFormWindowToolInterface* self);
+void QDesignerFormWindowToolInterface_OnMetacast(QDesignerFormWindowToolInterface* self, intptr_t slot);
+void* QDesignerFormWindowToolInterface_QBaseMetacast(QDesignerFormWindowToolInterface* self, const char* param1);
 void QDesignerFormWindowToolInterface_OnMetacall(QDesignerFormWindowToolInterface* self, intptr_t slot);
 int QDesignerFormWindowToolInterface_QBaseMetacall(QDesignerFormWindowToolInterface* self, int param1, int param2, void** param3);
 void QDesignerFormWindowToolInterface_OnCore(const QDesignerFormWindowToolInterface* self, intptr_t slot);

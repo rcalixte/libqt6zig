@@ -49,11 +49,21 @@ KCommandBar* KCommandBar_new(QWidget* parent) {
 }
 
 QMetaObject* KCommandBar_MetaObject(const KCommandBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcommandbar = dynamic_cast<const VirtualKCommandBar*>(self);
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCommandBar*)self)->metaObject();
+    }
 }
 
 void* KCommandBar_Metacast(KCommandBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCommandBar*)self)->qt_metacast(param1);
+    }
 }
 
 int KCommandBar_Metacall(KCommandBar* self, int param1, int param2, void** param3) {
@@ -85,6 +95,44 @@ bool KCommandBar_EventFilter(KCommandBar* self, QObject* obj, QEvent* event) {
         return vkcommandbar->eventFilter(obj, event);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KCommandBar_QBaseMetaObject(const KCommandBar* self) {
+    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+        vkcommandbar->setKCommandBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcommandbar->metaObject();
+    } else {
+        return (QMetaObject*)self->KCommandBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCommandBar_OnMetaObject(const KCommandBar* self, intptr_t slot) {
+    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+        vkcommandbar->setKCommandBar_MetaObject_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCommandBar_QBaseMetacast(KCommandBar* self, const char* param1) {
+    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+        vkcommandbar->setKCommandBar_Metacast_IsBase(true);
+        return vkcommandbar->qt_metacast(param1);
+    } else {
+        return self->KCommandBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCommandBar_OnMetacast(KCommandBar* self, intptr_t slot) {
+    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
+    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+        vkcommandbar->setKCommandBar_Metacast_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

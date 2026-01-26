@@ -17,6 +17,8 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
     bool isVirtualKExtraColumnsProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using KExtraColumnsProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using KExtraColumnsProxyModel_Metacast_Callback = void* (*)(KExtraColumnsProxyModel*, const char*);
     using KExtraColumnsProxyModel_Metacall_Callback = int (*)(KExtraColumnsProxyModel*, int, int, void**);
     using KExtraColumnsProxyModel_ExtraColumnData_Callback = QVariant* (*)(const KExtraColumnsProxyModel*, QModelIndex*, int, int, int);
     using KExtraColumnsProxyModel_SetExtraColumnData_Callback = bool (*)(KExtraColumnsProxyModel*, QModelIndex*, int, int, QVariant*, int);
@@ -99,6 +101,8 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
 
   protected:
     // Instance callback storage
+    KExtraColumnsProxyModel_MetaObject_Callback kextracolumnsproxymodel_metaobject_callback = nullptr;
+    KExtraColumnsProxyModel_Metacast_Callback kextracolumnsproxymodel_metacast_callback = nullptr;
     KExtraColumnsProxyModel_Metacall_Callback kextracolumnsproxymodel_metacall_callback = nullptr;
     KExtraColumnsProxyModel_ExtraColumnData_Callback kextracolumnsproxymodel_extracolumndata_callback = nullptr;
     KExtraColumnsProxyModel_SetExtraColumnData_Callback kextracolumnsproxymodel_setextracolumndata_callback = nullptr;
@@ -180,6 +184,8 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
     KExtraColumnsProxyModel_IsSignalConnected_Callback kextracolumnsproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kextracolumnsproxymodel_metaobject_isbase = false;
+    mutable bool kextracolumnsproxymodel_metacast_isbase = false;
     mutable bool kextracolumnsproxymodel_metacall_isbase = false;
     mutable bool kextracolumnsproxymodel_extracolumndata_isbase = false;
     mutable bool kextracolumnsproxymodel_setextracolumndata_isbase = false;
@@ -265,6 +271,8 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
     VirtualKExtraColumnsProxyModel(QObject* parent) : KExtraColumnsProxyModel(parent) {};
 
     ~VirtualKExtraColumnsProxyModel() {
+        kextracolumnsproxymodel_metaobject_callback = nullptr;
+        kextracolumnsproxymodel_metacast_callback = nullptr;
         kextracolumnsproxymodel_metacall_callback = nullptr;
         kextracolumnsproxymodel_extracolumndata_callback = nullptr;
         kextracolumnsproxymodel_setextracolumndata_callback = nullptr;
@@ -347,6 +355,8 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
     }
 
     // Callback setters
+    inline void setKExtraColumnsProxyModel_MetaObject_Callback(KExtraColumnsProxyModel_MetaObject_Callback cb) { kextracolumnsproxymodel_metaobject_callback = cb; }
+    inline void setKExtraColumnsProxyModel_Metacast_Callback(KExtraColumnsProxyModel_Metacast_Callback cb) { kextracolumnsproxymodel_metacast_callback = cb; }
     inline void setKExtraColumnsProxyModel_Metacall_Callback(KExtraColumnsProxyModel_Metacall_Callback cb) { kextracolumnsproxymodel_metacall_callback = cb; }
     inline void setKExtraColumnsProxyModel_ExtraColumnData_Callback(KExtraColumnsProxyModel_ExtraColumnData_Callback cb) { kextracolumnsproxymodel_extracolumndata_callback = cb; }
     inline void setKExtraColumnsProxyModel_SetExtraColumnData_Callback(KExtraColumnsProxyModel_SetExtraColumnData_Callback cb) { kextracolumnsproxymodel_setextracolumndata_callback = cb; }
@@ -428,6 +438,8 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
     inline void setKExtraColumnsProxyModel_IsSignalConnected_Callback(KExtraColumnsProxyModel_IsSignalConnected_Callback cb) { kextracolumnsproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKExtraColumnsProxyModel_MetaObject_IsBase(bool value) const { kextracolumnsproxymodel_metaobject_isbase = value; }
+    inline void setKExtraColumnsProxyModel_Metacast_IsBase(bool value) const { kextracolumnsproxymodel_metacast_isbase = value; }
     inline void setKExtraColumnsProxyModel_Metacall_IsBase(bool value) const { kextracolumnsproxymodel_metacall_isbase = value; }
     inline void setKExtraColumnsProxyModel_ExtraColumnData_IsBase(bool value) const { kextracolumnsproxymodel_extracolumndata_isbase = value; }
     inline void setKExtraColumnsProxyModel_SetExtraColumnData_IsBase(bool value) const { kextracolumnsproxymodel_setextracolumndata_isbase = value; }
@@ -507,6 +519,34 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
     inline void setKExtraColumnsProxyModel_SenderSignalIndex_IsBase(bool value) const { kextracolumnsproxymodel_sendersignalindex_isbase = value; }
     inline void setKExtraColumnsProxyModel_Receivers_IsBase(bool value) const { kextracolumnsproxymodel_receivers_isbase = value; }
     inline void setKExtraColumnsProxyModel_IsSignalConnected_IsBase(bool value) const { kextracolumnsproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kextracolumnsproxymodel_metaobject_isbase) {
+            kextracolumnsproxymodel_metaobject_isbase = false;
+            return KExtraColumnsProxyModel::metaObject();
+        } else if (kextracolumnsproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kextracolumnsproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KExtraColumnsProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kextracolumnsproxymodel_metacast_isbase) {
+            kextracolumnsproxymodel_metacast_isbase = false;
+            return KExtraColumnsProxyModel::qt_metacast(param1);
+        } else if (kextracolumnsproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kextracolumnsproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KExtraColumnsProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

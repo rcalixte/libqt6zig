@@ -17,6 +17,8 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
     bool isVirtualQDateTimeAxis = true;
 
     // Virtual class public types (including callbacks)
+    using QDateTimeAxis_MetaObject_Callback = QMetaObject* (*)();
+    using QDateTimeAxis_Metacast_Callback = void* (*)(QDateTimeAxis*, const char*);
     using QDateTimeAxis_Metacall_Callback = int (*)(QDateTimeAxis*, int, int, void**);
     using QDateTimeAxis_Type_Callback = int (*)();
     using QDateTimeAxis_Event_Callback = bool (*)(QDateTimeAxis*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
 
   protected:
     // Instance callback storage
+    QDateTimeAxis_MetaObject_Callback qdatetimeaxis_metaobject_callback = nullptr;
+    QDateTimeAxis_Metacast_Callback qdatetimeaxis_metacast_callback = nullptr;
     QDateTimeAxis_Metacall_Callback qdatetimeaxis_metacall_callback = nullptr;
     QDateTimeAxis_Type_Callback qdatetimeaxis_type_callback = nullptr;
     QDateTimeAxis_Event_Callback qdatetimeaxis_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
     QDateTimeAxis_IsSignalConnected_Callback qdatetimeaxis_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdatetimeaxis_metaobject_isbase = false;
+    mutable bool qdatetimeaxis_metacast_isbase = false;
     mutable bool qdatetimeaxis_metacall_isbase = false;
     mutable bool qdatetimeaxis_type_isbase = false;
     mutable bool qdatetimeaxis_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
     VirtualQDateTimeAxis(QObject* parent) : QDateTimeAxis(parent) {};
 
     ~VirtualQDateTimeAxis() {
+        qdatetimeaxis_metaobject_callback = nullptr;
+        qdatetimeaxis_metacast_callback = nullptr;
         qdatetimeaxis_metacall_callback = nullptr;
         qdatetimeaxis_type_callback = nullptr;
         qdatetimeaxis_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
     }
 
     // Callback setters
+    inline void setQDateTimeAxis_MetaObject_Callback(QDateTimeAxis_MetaObject_Callback cb) { qdatetimeaxis_metaobject_callback = cb; }
+    inline void setQDateTimeAxis_Metacast_Callback(QDateTimeAxis_Metacast_Callback cb) { qdatetimeaxis_metacast_callback = cb; }
     inline void setQDateTimeAxis_Metacall_Callback(QDateTimeAxis_Metacall_Callback cb) { qdatetimeaxis_metacall_callback = cb; }
     inline void setQDateTimeAxis_Type_Callback(QDateTimeAxis_Type_Callback cb) { qdatetimeaxis_type_callback = cb; }
     inline void setQDateTimeAxis_Event_Callback(QDateTimeAxis_Event_Callback cb) { qdatetimeaxis_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
     inline void setQDateTimeAxis_IsSignalConnected_Callback(QDateTimeAxis_IsSignalConnected_Callback cb) { qdatetimeaxis_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDateTimeAxis_MetaObject_IsBase(bool value) const { qdatetimeaxis_metaobject_isbase = value; }
+    inline void setQDateTimeAxis_Metacast_IsBase(bool value) const { qdatetimeaxis_metacast_isbase = value; }
     inline void setQDateTimeAxis_Metacall_IsBase(bool value) const { qdatetimeaxis_metacall_isbase = value; }
     inline void setQDateTimeAxis_Type_IsBase(bool value) const { qdatetimeaxis_type_isbase = value; }
     inline void setQDateTimeAxis_Event_IsBase(bool value) const { qdatetimeaxis_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
     inline void setQDateTimeAxis_SenderSignalIndex_IsBase(bool value) const { qdatetimeaxis_sendersignalindex_isbase = value; }
     inline void setQDateTimeAxis_Receivers_IsBase(bool value) const { qdatetimeaxis_receivers_isbase = value; }
     inline void setQDateTimeAxis_IsSignalConnected_IsBase(bool value) const { qdatetimeaxis_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdatetimeaxis_metaobject_isbase) {
+            qdatetimeaxis_metaobject_isbase = false;
+            return QDateTimeAxis::metaObject();
+        } else if (qdatetimeaxis_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdatetimeaxis_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDateTimeAxis::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdatetimeaxis_metacast_isbase) {
+            qdatetimeaxis_metacast_isbase = false;
+            return QDateTimeAxis::qt_metacast(param1);
+        } else if (qdatetimeaxis_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdatetimeaxis_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDateTimeAxis::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

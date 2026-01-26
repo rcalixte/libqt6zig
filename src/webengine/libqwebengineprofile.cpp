@@ -43,11 +43,21 @@ QWebEngineProfile* QWebEngineProfile_new4(const libqt_string name, QObject* pare
 }
 
 QMetaObject* QWebEngineProfile_MetaObject(const QWebEngineProfile* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwebengineprofile = dynamic_cast<const VirtualQWebEngineProfile*>(self);
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWebEngineProfile*)self)->metaObject();
+    }
 }
 
 void* QWebEngineProfile_Metacast(QWebEngineProfile* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWebEngineProfile*)self)->qt_metacast(param1);
+    }
 }
 
 int QWebEngineProfile_Metacall(QWebEngineProfile* self, int param1, int param2, void** param3) {
@@ -377,6 +387,44 @@ void QWebEngineProfile_Connect_ClearHttpCacheCompleted(QWebEngineProfile* self, 
     QWebEngineProfile::connect(self, &QWebEngineProfile::clearHttpCacheCompleted, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QWebEngineProfile_QBaseMetaObject(const QWebEngineProfile* self) {
+    auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+        vqwebengineprofile->setQWebEngineProfile_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwebengineprofile->metaObject();
+    } else {
+        return (QMetaObject*)self->QWebEngineProfile::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEngineProfile_OnMetaObject(const QWebEngineProfile* self, intptr_t slot) {
+    auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+        vqwebengineprofile->setQWebEngineProfile_MetaObject_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWebEngineProfile_QBaseMetacast(QWebEngineProfile* self, const char* param1) {
+    auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+        vqwebengineprofile->setQWebEngineProfile_Metacast_IsBase(true);
+        return vqwebengineprofile->qt_metacast(param1);
+    } else {
+        return self->QWebEngineProfile::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEngineProfile_OnMetacast(QWebEngineProfile* self, intptr_t slot) {
+    auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+        vqwebengineprofile->setQWebEngineProfile_Metacast_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

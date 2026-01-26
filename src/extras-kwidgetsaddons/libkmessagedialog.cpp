@@ -59,11 +59,21 @@ KMessageDialog* KMessageDialog_new3(int typeVal, const libqt_string text, QWidge
 }
 
 QMetaObject* KMessageDialog_MetaObject(const KMessageDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkmessagedialog = dynamic_cast<const VirtualKMessageDialog*>(self);
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKMessageDialog*)self)->metaObject();
+    }
 }
 
 void* KMessageDialog_Metacast(KMessageDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKMessageDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KMessageDialog_Metacall(KMessageDialog* self, int param1, int param2, void** param3) {
@@ -160,6 +170,44 @@ void KMessageDialog_Beep2(int typeVal, const libqt_string text) {
 void KMessageDialog_Beep3(int typeVal, const libqt_string text, QWidget* dialog) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     KMessageDialog::beep(static_cast<KMessageDialog::Type>(typeVal), text_QString, dialog);
+}
+
+// Base class handler implementation
+QMetaObject* KMessageDialog_QBaseMetaObject(const KMessageDialog* self) {
+    auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+        vkmessagedialog->setKMessageDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkmessagedialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KMessageDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageDialog_OnMetaObject(const KMessageDialog* self, intptr_t slot) {
+    auto* vkmessagedialog = const_cast<VirtualKMessageDialog*>(dynamic_cast<const VirtualKMessageDialog*>(self));
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+        vkmessagedialog->setKMessageDialog_MetaObject_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KMessageDialog_QBaseMetacast(KMessageDialog* self, const char* param1) {
+    auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+        vkmessagedialog->setKMessageDialog_Metacast_IsBase(true);
+        return vkmessagedialog->qt_metacast(param1);
+    } else {
+        return self->KMessageDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageDialog_OnMetacast(KMessageDialog* self, intptr_t slot) {
+    auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
+    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
+        vkmessagedialog->setKMessageDialog_Metacast_Callback(reinterpret_cast<VirtualKMessageDialog::KMessageDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -43,11 +43,21 @@ KParts__ReadOnlyPart* KParts__ReadOnlyPart_new3(QObject* parent, const KPluginMe
 }
 
 QMetaObject* KParts__ReadOnlyPart_MetaObject(const KParts__ReadOnlyPart* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkparts__readonlypart = dynamic_cast<const VirtualKPartsReadOnlyPart*>(self);
+    if (vkparts__readonlypart && vkparts__readonlypart->isVirtualKPartsReadOnlyPart) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPartsReadOnlyPart*)self)->metaObject();
+    }
 }
 
 void* KParts__ReadOnlyPart_Metacast(KParts__ReadOnlyPart* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkparts__readonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
+    if (vkparts__readonlypart && vkparts__readonlypart->isVirtualKPartsReadOnlyPart) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPartsReadOnlyPart*)self)->qt_metacast(param1);
+    }
 }
 
 int KParts__ReadOnlyPart_Metacall(KParts__ReadOnlyPart* self, int param1, int param2, void** param3) {
@@ -195,6 +205,44 @@ void KParts__ReadOnlyPart_GuiActivateEvent(KParts__ReadOnlyPart* self, KParts__G
     auto* vkparts__readonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkparts__readonlypart && vkparts__readonlypart->isVirtualKPartsReadOnlyPart) {
         vkparts__readonlypart->guiActivateEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KParts__ReadOnlyPart_QBaseMetaObject(const KParts__ReadOnlyPart* self) {
+    auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+        vkpartsreadonlypart->setKParts__ReadOnlyPart_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpartsreadonlypart->metaObject();
+    } else {
+        return (QMetaObject*)self->KParts::ReadOnlyPart::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__ReadOnlyPart_OnMetaObject(const KParts__ReadOnlyPart* self, intptr_t slot) {
+    auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+        vkpartsreadonlypart->setKParts__ReadOnlyPart_MetaObject_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KParts__ReadOnlyPart_QBaseMetacast(KParts__ReadOnlyPart* self, const char* param1) {
+    auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+        vkpartsreadonlypart->setKParts__ReadOnlyPart_Metacast_IsBase(true);
+        return vkpartsreadonlypart->qt_metacast(param1);
+    } else {
+        return self->KParts::ReadOnlyPart::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__ReadOnlyPart_OnMetacast(KParts__ReadOnlyPart* self, intptr_t slot) {
+    auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
+    if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
+        vkpartsreadonlypart->setKParts__ReadOnlyPart_Metacast_Callback(reinterpret_cast<VirtualKPartsReadOnlyPart::KParts__ReadOnlyPart_Metacast_Callback>(slot));
     }
 }
 

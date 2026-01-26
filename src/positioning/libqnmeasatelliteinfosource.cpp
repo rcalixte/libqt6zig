@@ -27,11 +27,21 @@ QNmeaSatelliteInfoSource* QNmeaSatelliteInfoSource_new2(int mode, QObject* paren
 }
 
 QMetaObject* QNmeaSatelliteInfoSource_MetaObject(const QNmeaSatelliteInfoSource* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqnmeasatelliteinfosource = dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self);
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQNmeaSatelliteInfoSource*)self)->metaObject();
+    }
 }
 
 void* QNmeaSatelliteInfoSource_Metacast(QNmeaSatelliteInfoSource* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQNmeaSatelliteInfoSource*)self)->qt_metacast(param1);
+    }
 }
 
 int QNmeaSatelliteInfoSource_Metacall(QNmeaSatelliteInfoSource* self, int param1, int param2, void** param3) {
@@ -155,6 +165,44 @@ int QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea(QNmeaSatelliteInfoSource
         return static_cast<int>(vqnmeasatelliteinfosource->parseSatelliteInfoFromNmea(data, static_cast<int>(size), infos_QList, (QGeoSatelliteInfo::SatelliteSystem&)(*system)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QNmeaSatelliteInfoSource_QBaseMetaObject(const QNmeaSatelliteInfoSource* self) {
+    auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+        vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_MetaObject_IsBase(true);
+        return (QMetaObject*)vqnmeasatelliteinfosource->metaObject();
+    } else {
+        return (QMetaObject*)self->QNmeaSatelliteInfoSource::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QNmeaSatelliteInfoSource_OnMetaObject(const QNmeaSatelliteInfoSource* self, intptr_t slot) {
+    auto* vqnmeasatelliteinfosource = const_cast<VirtualQNmeaSatelliteInfoSource*>(dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self));
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+        vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_MetaObject_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QNmeaSatelliteInfoSource_QBaseMetacast(QNmeaSatelliteInfoSource* self, const char* param1) {
+    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+        vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Metacast_IsBase(true);
+        return vqnmeasatelliteinfosource->qt_metacast(param1);
+    } else {
+        return self->QNmeaSatelliteInfoSource::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QNmeaSatelliteInfoSource_OnMetacast(QNmeaSatelliteInfoSource* self, intptr_t slot) {
+    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
+    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
+        vqnmeasatelliteinfosource->setQNmeaSatelliteInfoSource_Metacast_Callback(reinterpret_cast<VirtualQNmeaSatelliteInfoSource::QNmeaSatelliteInfoSource_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

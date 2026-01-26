@@ -17,6 +17,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     bool isVirtualKRichTextEdit = true;
 
     // Virtual class public types (including callbacks)
+    using KRichTextEdit_MetaObject_Callback = QMetaObject* (*)();
+    using KRichTextEdit_Metacast_Callback = void* (*)(KRichTextEdit*, const char*);
     using KRichTextEdit_Metacall_Callback = int (*)(KRichTextEdit*, int, int, void**);
     using KRichTextEdit_KeyPressEvent_Callback = void (*)(KRichTextEdit*, QKeyEvent*);
     using KRichTextEdit_SetReadOnly_Callback = void (*)(KRichTextEdit*, bool);
@@ -108,6 +110,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
 
   protected:
     // Instance callback storage
+    KRichTextEdit_MetaObject_Callback krichtextedit_metaobject_callback = nullptr;
+    KRichTextEdit_Metacast_Callback krichtextedit_metacast_callback = nullptr;
     KRichTextEdit_Metacall_Callback krichtextedit_metacall_callback = nullptr;
     KRichTextEdit_KeyPressEvent_Callback krichtextedit_keypressevent_callback = nullptr;
     KRichTextEdit_SetReadOnly_Callback krichtextedit_setreadonly_callback = nullptr;
@@ -198,6 +202,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     KRichTextEdit_GetDecodedMetricF_Callback krichtextedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool krichtextedit_metaobject_isbase = false;
+    mutable bool krichtextedit_metacast_isbase = false;
     mutable bool krichtextedit_metacall_isbase = false;
     mutable bool krichtextedit_keypressevent_isbase = false;
     mutable bool krichtextedit_setreadonly_isbase = false;
@@ -294,6 +300,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     VirtualKRichTextEdit(const QString& text, QWidget* parent) : KRichTextEdit(text, parent) {};
 
     ~VirtualKRichTextEdit() {
+        krichtextedit_metaobject_callback = nullptr;
+        krichtextedit_metacast_callback = nullptr;
         krichtextedit_metacall_callback = nullptr;
         krichtextedit_keypressevent_callback = nullptr;
         krichtextedit_setreadonly_callback = nullptr;
@@ -385,6 +393,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     }
 
     // Callback setters
+    inline void setKRichTextEdit_MetaObject_Callback(KRichTextEdit_MetaObject_Callback cb) { krichtextedit_metaobject_callback = cb; }
+    inline void setKRichTextEdit_Metacast_Callback(KRichTextEdit_Metacast_Callback cb) { krichtextedit_metacast_callback = cb; }
     inline void setKRichTextEdit_Metacall_Callback(KRichTextEdit_Metacall_Callback cb) { krichtextedit_metacall_callback = cb; }
     inline void setKRichTextEdit_KeyPressEvent_Callback(KRichTextEdit_KeyPressEvent_Callback cb) { krichtextedit_keypressevent_callback = cb; }
     inline void setKRichTextEdit_SetReadOnly_Callback(KRichTextEdit_SetReadOnly_Callback cb) { krichtextedit_setreadonly_callback = cb; }
@@ -475,6 +485,8 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     inline void setKRichTextEdit_GetDecodedMetricF_Callback(KRichTextEdit_GetDecodedMetricF_Callback cb) { krichtextedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKRichTextEdit_MetaObject_IsBase(bool value) const { krichtextedit_metaobject_isbase = value; }
+    inline void setKRichTextEdit_Metacast_IsBase(bool value) const { krichtextedit_metacast_isbase = value; }
     inline void setKRichTextEdit_Metacall_IsBase(bool value) const { krichtextedit_metacall_isbase = value; }
     inline void setKRichTextEdit_KeyPressEvent_IsBase(bool value) const { krichtextedit_keypressevent_isbase = value; }
     inline void setKRichTextEdit_SetReadOnly_IsBase(bool value) const { krichtextedit_setreadonly_isbase = value; }
@@ -563,6 +575,34 @@ class VirtualKRichTextEdit final : public KRichTextEdit {
     inline void setKRichTextEdit_Receivers_IsBase(bool value) const { krichtextedit_receivers_isbase = value; }
     inline void setKRichTextEdit_IsSignalConnected_IsBase(bool value) const { krichtextedit_issignalconnected_isbase = value; }
     inline void setKRichTextEdit_GetDecodedMetricF_IsBase(bool value) const { krichtextedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (krichtextedit_metaobject_isbase) {
+            krichtextedit_metaobject_isbase = false;
+            return KRichTextEdit::metaObject();
+        } else if (krichtextedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = krichtextedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KRichTextEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (krichtextedit_metacast_isbase) {
+            krichtextedit_metacast_isbase = false;
+            return KRichTextEdit::qt_metacast(param1);
+        } else if (krichtextedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = krichtextedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KRichTextEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

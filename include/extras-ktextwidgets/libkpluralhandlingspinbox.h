@@ -61,6 +61,10 @@ QMetaObject* KPluralHandlingSpinBox_MetaObject(const KPluralHandlingSpinBox* sel
 void* KPluralHandlingSpinBox_Metacast(KPluralHandlingSpinBox* self, const char* param1);
 int KPluralHandlingSpinBox_Metacall(KPluralHandlingSpinBox* self, int param1, int param2, void** param3);
 void KPluralHandlingSpinBox_SetSuffix(KPluralHandlingSpinBox* self, const KLocalizedString* suffix);
+void KPluralHandlingSpinBox_OnMetaObject(const KPluralHandlingSpinBox* self, intptr_t slot);
+QMetaObject* KPluralHandlingSpinBox_QBaseMetaObject(const KPluralHandlingSpinBox* self);
+void KPluralHandlingSpinBox_OnMetacast(KPluralHandlingSpinBox* self, intptr_t slot);
+void* KPluralHandlingSpinBox_QBaseMetacast(KPluralHandlingSpinBox* self, const char* param1);
 void KPluralHandlingSpinBox_OnMetacall(KPluralHandlingSpinBox* self, intptr_t slot);
 int KPluralHandlingSpinBox_QBaseMetacall(KPluralHandlingSpinBox* self, int param1, int param2, void** param3);
 bool KPluralHandlingSpinBox_Event(KPluralHandlingSpinBox* self, QEvent* event);

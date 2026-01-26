@@ -17,6 +17,8 @@ class VirtualQRubberBand final : public QRubberBand {
     bool isVirtualQRubberBand = true;
 
     // Virtual class public types (including callbacks)
+    using QRubberBand_MetaObject_Callback = QMetaObject* (*)();
+    using QRubberBand_Metacast_Callback = void* (*)(QRubberBand*, const char*);
     using QRubberBand_Metacall_Callback = int (*)(QRubberBand*, int, int, void**);
     using QRubberBand_Event_Callback = bool (*)(QRubberBand*, QEvent*);
     using QRubberBand_PaintEvent_Callback = void (*)(QRubberBand*, QPaintEvent*);
@@ -79,6 +81,8 @@ class VirtualQRubberBand final : public QRubberBand {
 
   protected:
     // Instance callback storage
+    QRubberBand_MetaObject_Callback qrubberband_metaobject_callback = nullptr;
+    QRubberBand_Metacast_Callback qrubberband_metacast_callback = nullptr;
     QRubberBand_Metacall_Callback qrubberband_metacall_callback = nullptr;
     QRubberBand_Event_Callback qrubberband_event_callback = nullptr;
     QRubberBand_PaintEvent_Callback qrubberband_paintevent_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualQRubberBand final : public QRubberBand {
     QRubberBand_GetDecodedMetricF_Callback qrubberband_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qrubberband_metaobject_isbase = false;
+    mutable bool qrubberband_metacast_isbase = false;
     mutable bool qrubberband_metacall_isbase = false;
     mutable bool qrubberband_event_isbase = false;
     mutable bool qrubberband_paintevent_isbase = false;
@@ -205,6 +211,8 @@ class VirtualQRubberBand final : public QRubberBand {
     VirtualQRubberBand(QRubberBand::Shape param1, QWidget* param2) : QRubberBand(param1, param2) {};
 
     ~VirtualQRubberBand() {
+        qrubberband_metaobject_callback = nullptr;
+        qrubberband_metacast_callback = nullptr;
         qrubberband_metacall_callback = nullptr;
         qrubberband_event_callback = nullptr;
         qrubberband_paintevent_callback = nullptr;
@@ -267,6 +275,8 @@ class VirtualQRubberBand final : public QRubberBand {
     }
 
     // Callback setters
+    inline void setQRubberBand_MetaObject_Callback(QRubberBand_MetaObject_Callback cb) { qrubberband_metaobject_callback = cb; }
+    inline void setQRubberBand_Metacast_Callback(QRubberBand_Metacast_Callback cb) { qrubberband_metacast_callback = cb; }
     inline void setQRubberBand_Metacall_Callback(QRubberBand_Metacall_Callback cb) { qrubberband_metacall_callback = cb; }
     inline void setQRubberBand_Event_Callback(QRubberBand_Event_Callback cb) { qrubberband_event_callback = cb; }
     inline void setQRubberBand_PaintEvent_Callback(QRubberBand_PaintEvent_Callback cb) { qrubberband_paintevent_callback = cb; }
@@ -328,6 +338,8 @@ class VirtualQRubberBand final : public QRubberBand {
     inline void setQRubberBand_GetDecodedMetricF_Callback(QRubberBand_GetDecodedMetricF_Callback cb) { qrubberband_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQRubberBand_MetaObject_IsBase(bool value) const { qrubberband_metaobject_isbase = value; }
+    inline void setQRubberBand_Metacast_IsBase(bool value) const { qrubberband_metacast_isbase = value; }
     inline void setQRubberBand_Metacall_IsBase(bool value) const { qrubberband_metacall_isbase = value; }
     inline void setQRubberBand_Event_IsBase(bool value) const { qrubberband_event_isbase = value; }
     inline void setQRubberBand_PaintEvent_IsBase(bool value) const { qrubberband_paintevent_isbase = value; }
@@ -387,6 +399,34 @@ class VirtualQRubberBand final : public QRubberBand {
     inline void setQRubberBand_Receivers_IsBase(bool value) const { qrubberband_receivers_isbase = value; }
     inline void setQRubberBand_IsSignalConnected_IsBase(bool value) const { qrubberband_issignalconnected_isbase = value; }
     inline void setQRubberBand_GetDecodedMetricF_IsBase(bool value) const { qrubberband_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qrubberband_metaobject_isbase) {
+            qrubberband_metaobject_isbase = false;
+            return QRubberBand::metaObject();
+        } else if (qrubberband_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qrubberband_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QRubberBand::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qrubberband_metacast_isbase) {
+            qrubberband_metacast_isbase = false;
+            return QRubberBand::qt_metacast(param1);
+        } else if (qrubberband_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qrubberband_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QRubberBand::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

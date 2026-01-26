@@ -17,6 +17,8 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
     bool isVirtualKAboutPluginDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KAboutPluginDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KAboutPluginDialog_Metacast_Callback = void* (*)(KAboutPluginDialog*, const char*);
     using KAboutPluginDialog_Metacall_Callback = int (*)(KAboutPluginDialog*, int, int, void**);
     using KAboutPluginDialog_SetVisible_Callback = void (*)(KAboutPluginDialog*, bool);
     using KAboutPluginDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
 
   protected:
     // Instance callback storage
+    KAboutPluginDialog_MetaObject_Callback kaboutplugindialog_metaobject_callback = nullptr;
+    KAboutPluginDialog_Metacast_Callback kaboutplugindialog_metacast_callback = nullptr;
     KAboutPluginDialog_Metacall_Callback kaboutplugindialog_metacall_callback = nullptr;
     KAboutPluginDialog_SetVisible_Callback kaboutplugindialog_setvisible_callback = nullptr;
     KAboutPluginDialog_SizeHint_Callback kaboutplugindialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
     KAboutPluginDialog_GetDecodedMetricF_Callback kaboutplugindialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kaboutplugindialog_metaobject_isbase = false;
+    mutable bool kaboutplugindialog_metacast_isbase = false;
     mutable bool kaboutplugindialog_metacall_isbase = false;
     mutable bool kaboutplugindialog_setvisible_isbase = false;
     mutable bool kaboutplugindialog_sizehint_isbase = false;
@@ -222,6 +228,8 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
     VirtualKAboutPluginDialog(const KPluginMetaData& pluginMetaData, QWidget* parent) : KAboutPluginDialog(pluginMetaData, parent) {};
 
     ~VirtualKAboutPluginDialog() {
+        kaboutplugindialog_metaobject_callback = nullptr;
+        kaboutplugindialog_metacast_callback = nullptr;
         kaboutplugindialog_metacall_callback = nullptr;
         kaboutplugindialog_setvisible_callback = nullptr;
         kaboutplugindialog_sizehint_callback = nullptr;
@@ -289,6 +297,8 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
     }
 
     // Callback setters
+    inline void setKAboutPluginDialog_MetaObject_Callback(KAboutPluginDialog_MetaObject_Callback cb) { kaboutplugindialog_metaobject_callback = cb; }
+    inline void setKAboutPluginDialog_Metacast_Callback(KAboutPluginDialog_Metacast_Callback cb) { kaboutplugindialog_metacast_callback = cb; }
     inline void setKAboutPluginDialog_Metacall_Callback(KAboutPluginDialog_Metacall_Callback cb) { kaboutplugindialog_metacall_callback = cb; }
     inline void setKAboutPluginDialog_SetVisible_Callback(KAboutPluginDialog_SetVisible_Callback cb) { kaboutplugindialog_setvisible_callback = cb; }
     inline void setKAboutPluginDialog_SizeHint_Callback(KAboutPluginDialog_SizeHint_Callback cb) { kaboutplugindialog_sizehint_callback = cb; }
@@ -355,6 +365,8 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
     inline void setKAboutPluginDialog_GetDecodedMetricF_Callback(KAboutPluginDialog_GetDecodedMetricF_Callback cb) { kaboutplugindialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKAboutPluginDialog_MetaObject_IsBase(bool value) const { kaboutplugindialog_metaobject_isbase = value; }
+    inline void setKAboutPluginDialog_Metacast_IsBase(bool value) const { kaboutplugindialog_metacast_isbase = value; }
     inline void setKAboutPluginDialog_Metacall_IsBase(bool value) const { kaboutplugindialog_metacall_isbase = value; }
     inline void setKAboutPluginDialog_SetVisible_IsBase(bool value) const { kaboutplugindialog_setvisible_isbase = value; }
     inline void setKAboutPluginDialog_SizeHint_IsBase(bool value) const { kaboutplugindialog_sizehint_isbase = value; }
@@ -419,6 +431,34 @@ class VirtualKAboutPluginDialog final : public KAboutPluginDialog {
     inline void setKAboutPluginDialog_Receivers_IsBase(bool value) const { kaboutplugindialog_receivers_isbase = value; }
     inline void setKAboutPluginDialog_IsSignalConnected_IsBase(bool value) const { kaboutplugindialog_issignalconnected_isbase = value; }
     inline void setKAboutPluginDialog_GetDecodedMetricF_IsBase(bool value) const { kaboutplugindialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kaboutplugindialog_metaobject_isbase) {
+            kaboutplugindialog_metaobject_isbase = false;
+            return KAboutPluginDialog::metaObject();
+        } else if (kaboutplugindialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kaboutplugindialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KAboutPluginDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kaboutplugindialog_metacast_isbase) {
+            kaboutplugindialog_metacast_isbase = false;
+            return KAboutPluginDialog::qt_metacast(param1);
+        } else if (kaboutplugindialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kaboutplugindialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KAboutPluginDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

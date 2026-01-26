@@ -35,6 +35,10 @@ KBookmarkActionMenu* KBookmarkActionMenu_new2(const KBookmark* bm, const libqt_s
 QMetaObject* KBookmarkActionMenu_MetaObject(const KBookmarkActionMenu* self);
 void* KBookmarkActionMenu_Metacast(KBookmarkActionMenu* self, const char* param1);
 int KBookmarkActionMenu_Metacall(KBookmarkActionMenu* self, int param1, int param2, void** param3);
+void KBookmarkActionMenu_OnMetaObject(const KBookmarkActionMenu* self, intptr_t slot);
+QMetaObject* KBookmarkActionMenu_QBaseMetaObject(const KBookmarkActionMenu* self);
+void KBookmarkActionMenu_OnMetacast(KBookmarkActionMenu* self, intptr_t slot);
+void* KBookmarkActionMenu_QBaseMetacast(KBookmarkActionMenu* self, const char* param1);
 void KBookmarkActionMenu_OnMetacall(KBookmarkActionMenu* self, intptr_t slot);
 int KBookmarkActionMenu_QBaseMetacall(KBookmarkActionMenu* self, int param1, int param2, void** param3);
 QWidget* KBookmarkActionMenu_CreateWidget(KBookmarkActionMenu* self, QWidget* parent);

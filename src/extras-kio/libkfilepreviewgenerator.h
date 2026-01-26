@@ -38,6 +38,10 @@ void KFilePreviewGenerator_SetEnabledPlugins(KFilePreviewGenerator* self, const 
 libqt_list /* of libqt_string */ KFilePreviewGenerator_EnabledPlugins(const KFilePreviewGenerator* self);
 void KFilePreviewGenerator_UpdateIcons(KFilePreviewGenerator* self);
 void KFilePreviewGenerator_CancelPreviews(KFilePreviewGenerator* self);
+void KFilePreviewGenerator_OnMetaObject(const KFilePreviewGenerator* self, intptr_t slot);
+QMetaObject* KFilePreviewGenerator_QBaseMetaObject(const KFilePreviewGenerator* self);
+void KFilePreviewGenerator_OnMetacast(KFilePreviewGenerator* self, intptr_t slot);
+void* KFilePreviewGenerator_QBaseMetacast(KFilePreviewGenerator* self, const char* param1);
 void KFilePreviewGenerator_OnMetacall(KFilePreviewGenerator* self, intptr_t slot);
 int KFilePreviewGenerator_QBaseMetacall(KFilePreviewGenerator* self, int param1, int param2, void** param3);
 bool KFilePreviewGenerator_Event(KFilePreviewGenerator* self, QEvent* event);

@@ -23,11 +23,21 @@ KLocalizedQmlContext* KLocalizedQmlContext_new2(QObject* parent) {
 }
 
 QMetaObject* KLocalizedQmlContext_MetaObject(const KLocalizedQmlContext* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vklocalizedqmlcontext = dynamic_cast<const VirtualKLocalizedQmlContext*>(self);
+    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKLocalizedQmlContext*)self)->metaObject();
+    }
 }
 
 void* KLocalizedQmlContext_Metacast(KLocalizedQmlContext* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
+    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKLocalizedQmlContext*)self)->qt_metacast(param1);
+    }
 }
 
 int KLocalizedQmlContext_Metacall(KLocalizedQmlContext* self, int param1, int param2, void** param3) {
@@ -2626,6 +2636,44 @@ libqt_string KLocalizedQmlContext_Xi18ndcp14(const KLocalizedQmlContext* self, c
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* KLocalizedQmlContext_QBaseMetaObject(const KLocalizedQmlContext* self) {
+    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
+    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+        vklocalizedqmlcontext->setKLocalizedQmlContext_MetaObject_IsBase(true);
+        return (QMetaObject*)vklocalizedqmlcontext->metaObject();
+    } else {
+        return (QMetaObject*)self->KLocalizedQmlContext::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLocalizedQmlContext_OnMetaObject(const KLocalizedQmlContext* self, intptr_t slot) {
+    auto* vklocalizedqmlcontext = const_cast<VirtualKLocalizedQmlContext*>(dynamic_cast<const VirtualKLocalizedQmlContext*>(self));
+    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+        vklocalizedqmlcontext->setKLocalizedQmlContext_MetaObject_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KLocalizedQmlContext_QBaseMetacast(KLocalizedQmlContext* self, const char* param1) {
+    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
+    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+        vklocalizedqmlcontext->setKLocalizedQmlContext_Metacast_IsBase(true);
+        return vklocalizedqmlcontext->qt_metacast(param1);
+    } else {
+        return self->KLocalizedQmlContext::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KLocalizedQmlContext_OnMetacast(KLocalizedQmlContext* self, intptr_t slot) {
+    auto* vklocalizedqmlcontext = dynamic_cast<VirtualKLocalizedQmlContext*>(self);
+    if (vklocalizedqmlcontext && vklocalizedqmlcontext->isVirtualKLocalizedQmlContext) {
+        vklocalizedqmlcontext->setKLocalizedQmlContext_Metacast_Callback(reinterpret_cast<VirtualKLocalizedQmlContext::KLocalizedQmlContext_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

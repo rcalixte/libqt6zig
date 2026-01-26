@@ -36,11 +36,21 @@ QItemDelegate* QItemDelegate_new2(QObject* parent) {
 }
 
 QMetaObject* QItemDelegate_MetaObject(const QItemDelegate* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQItemDelegate*)self)->metaObject();
+    }
 }
 
 void* QItemDelegate_Metacast(QItemDelegate* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQItemDelegate*)self)->qt_metacast(param1);
+    }
 }
 
 int QItemDelegate_Metacall(QItemDelegate* self, int param1, int param2, void** param3) {
@@ -165,6 +175,44 @@ bool QItemDelegate_EditorEvent(QItemDelegate* self, QEvent* event, QAbstractItem
         return vqitemdelegate->editorEvent(event, model, *option, *index);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QItemDelegate_QBaseMetaObject(const QItemDelegate* self) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_MetaObject_IsBase(true);
+        return (QMetaObject*)vqitemdelegate->metaObject();
+    } else {
+        return (QMetaObject*)self->QItemDelegate::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QItemDelegate_OnMetaObject(const QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QItemDelegate_QBaseMetacast(QItemDelegate* self, const char* param1) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_Metacast_IsBase(true);
+        return vqitemdelegate->qt_metacast(param1);
+    } else {
+        return self->QItemDelegate::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QItemDelegate_OnMetacast(QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_Metacast_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

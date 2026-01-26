@@ -72,11 +72,21 @@ QDBusPendingCallWatcher* QDBusPendingCallWatcher_new2(const QDBusPendingCall* ca
 }
 
 QMetaObject* QDBusPendingCallWatcher_MetaObject(const QDBusPendingCallWatcher* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdbuspendingcallwatcher = dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self);
+    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDBusPendingCallWatcher*)self)->metaObject();
+    }
 }
 
 void* QDBusPendingCallWatcher_Metacast(QDBusPendingCallWatcher* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
+    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDBusPendingCallWatcher*)self)->qt_metacast(param1);
+    }
 }
 
 int QDBusPendingCallWatcher_Metacall(QDBusPendingCallWatcher* self, int param1, int param2, void** param3) {
@@ -113,6 +123,44 @@ void QDBusPendingCallWatcher_Connect_Finished1(QDBusPendingCallWatcher* self, in
         QDBusPendingCallWatcher* sigval1 = selfVal;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QDBusPendingCallWatcher_QBaseMetaObject(const QDBusPendingCallWatcher* self) {
+    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
+    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdbuspendingcallwatcher->metaObject();
+    } else {
+        return (QMetaObject*)self->QDBusPendingCallWatcher::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDBusPendingCallWatcher_OnMetaObject(const QDBusPendingCallWatcher* self, intptr_t slot) {
+    auto* vqdbuspendingcallwatcher = const_cast<VirtualQDBusPendingCallWatcher*>(dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self));
+    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_MetaObject_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDBusPendingCallWatcher_QBaseMetacast(QDBusPendingCallWatcher* self, const char* param1) {
+    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
+    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Metacast_IsBase(true);
+        return vqdbuspendingcallwatcher->qt_metacast(param1);
+    } else {
+        return self->QDBusPendingCallWatcher::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDBusPendingCallWatcher_OnMetacast(QDBusPendingCallWatcher* self, intptr_t slot) {
+    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
+    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
+        vqdbuspendingcallwatcher->setQDBusPendingCallWatcher_Metacast_Callback(reinterpret_cast<VirtualQDBusPendingCallWatcher::QDBusPendingCallWatcher_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     bool isVirtualQsciLexerFortran77 = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerFortran77_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerFortran77_Metacast_Callback = void* (*)(QsciLexerFortran77*, const char*);
     using QsciLexerFortran77_Metacall_Callback = int (*)(QsciLexerFortran77*, int, int, void**);
     using QsciLexerFortran77_SetFoldCompact_Callback = void (*)(QsciLexerFortran77*, bool);
     using QsciLexerFortran77_Language_Callback = const char* (*)();
@@ -69,6 +71,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
 
   protected:
     // Instance callback storage
+    QsciLexerFortran77_MetaObject_Callback qscilexerfortran77_metaobject_callback = nullptr;
+    QsciLexerFortran77_Metacast_Callback qscilexerfortran77_metacast_callback = nullptr;
     QsciLexerFortran77_Metacall_Callback qscilexerfortran77_metacall_callback = nullptr;
     QsciLexerFortran77_SetFoldCompact_Callback qscilexerfortran77_setfoldcompact_callback = nullptr;
     QsciLexerFortran77_Language_Callback qscilexerfortran77_language_callback = nullptr;
@@ -120,6 +124,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     QsciLexerFortran77_IsSignalConnected_Callback qscilexerfortran77_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexerfortran77_metaobject_isbase = false;
+    mutable bool qscilexerfortran77_metacast_isbase = false;
     mutable bool qscilexerfortran77_metacall_isbase = false;
     mutable bool qscilexerfortran77_setfoldcompact_isbase = false;
     mutable bool qscilexerfortran77_language_isbase = false;
@@ -175,6 +181,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     VirtualQsciLexerFortran77(QObject* parent) : QsciLexerFortran77(parent) {};
 
     ~VirtualQsciLexerFortran77() {
+        qscilexerfortran77_metaobject_callback = nullptr;
+        qscilexerfortran77_metacast_callback = nullptr;
         qscilexerfortran77_metacall_callback = nullptr;
         qscilexerfortran77_setfoldcompact_callback = nullptr;
         qscilexerfortran77_language_callback = nullptr;
@@ -227,6 +235,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     }
 
     // Callback setters
+    inline void setQsciLexerFortran77_MetaObject_Callback(QsciLexerFortran77_MetaObject_Callback cb) { qscilexerfortran77_metaobject_callback = cb; }
+    inline void setQsciLexerFortran77_Metacast_Callback(QsciLexerFortran77_Metacast_Callback cb) { qscilexerfortran77_metacast_callback = cb; }
     inline void setQsciLexerFortran77_Metacall_Callback(QsciLexerFortran77_Metacall_Callback cb) { qscilexerfortran77_metacall_callback = cb; }
     inline void setQsciLexerFortran77_SetFoldCompact_Callback(QsciLexerFortran77_SetFoldCompact_Callback cb) { qscilexerfortran77_setfoldcompact_callback = cb; }
     inline void setQsciLexerFortran77_Language_Callback(QsciLexerFortran77_Language_Callback cb) { qscilexerfortran77_language_callback = cb; }
@@ -278,6 +288,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     inline void setQsciLexerFortran77_IsSignalConnected_Callback(QsciLexerFortran77_IsSignalConnected_Callback cb) { qscilexerfortran77_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerFortran77_MetaObject_IsBase(bool value) const { qscilexerfortran77_metaobject_isbase = value; }
+    inline void setQsciLexerFortran77_Metacast_IsBase(bool value) const { qscilexerfortran77_metacast_isbase = value; }
     inline void setQsciLexerFortran77_Metacall_IsBase(bool value) const { qscilexerfortran77_metacall_isbase = value; }
     inline void setQsciLexerFortran77_SetFoldCompact_IsBase(bool value) const { qscilexerfortran77_setfoldcompact_isbase = value; }
     inline void setQsciLexerFortran77_Language_IsBase(bool value) const { qscilexerfortran77_language_isbase = value; }
@@ -327,6 +339,34 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     inline void setQsciLexerFortran77_SenderSignalIndex_IsBase(bool value) const { qscilexerfortran77_sendersignalindex_isbase = value; }
     inline void setQsciLexerFortran77_Receivers_IsBase(bool value) const { qscilexerfortran77_receivers_isbase = value; }
     inline void setQsciLexerFortran77_IsSignalConnected_IsBase(bool value) const { qscilexerfortran77_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexerfortran77_metaobject_isbase) {
+            qscilexerfortran77_metaobject_isbase = false;
+            return QsciLexerFortran77::metaObject();
+        } else if (qscilexerfortran77_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexerfortran77_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerFortran77::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexerfortran77_metacast_isbase) {
+            qscilexerfortran77_metacast_isbase = false;
+            return QsciLexerFortran77::qt_metacast(param1);
+        } else if (qscilexerfortran77_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexerfortran77_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerFortran77::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

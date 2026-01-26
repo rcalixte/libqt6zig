@@ -17,6 +17,8 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
     bool isVirtualQSequentialAnimationGroup = true;
 
     // Virtual class public types (including callbacks)
+    using QSequentialAnimationGroup_MetaObject_Callback = QMetaObject* (*)();
+    using QSequentialAnimationGroup_Metacast_Callback = void* (*)(QSequentialAnimationGroup*, const char*);
     using QSequentialAnimationGroup_Metacall_Callback = int (*)(QSequentialAnimationGroup*, int, int, void**);
     using QSequentialAnimationGroup_Duration_Callback = int (*)();
     using QSequentialAnimationGroup_Event_Callback = bool (*)(QSequentialAnimationGroup*, QEvent*);
@@ -36,6 +38,8 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
 
   protected:
     // Instance callback storage
+    QSequentialAnimationGroup_MetaObject_Callback qsequentialanimationgroup_metaobject_callback = nullptr;
+    QSequentialAnimationGroup_Metacast_Callback qsequentialanimationgroup_metacast_callback = nullptr;
     QSequentialAnimationGroup_Metacall_Callback qsequentialanimationgroup_metacall_callback = nullptr;
     QSequentialAnimationGroup_Duration_Callback qsequentialanimationgroup_duration_callback = nullptr;
     QSequentialAnimationGroup_Event_Callback qsequentialanimationgroup_event_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
     QSequentialAnimationGroup_IsSignalConnected_Callback qsequentialanimationgroup_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsequentialanimationgroup_metaobject_isbase = false;
+    mutable bool qsequentialanimationgroup_metacast_isbase = false;
     mutable bool qsequentialanimationgroup_metacall_isbase = false;
     mutable bool qsequentialanimationgroup_duration_isbase = false;
     mutable bool qsequentialanimationgroup_event_isbase = false;
@@ -76,6 +82,8 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
     VirtualQSequentialAnimationGroup(QObject* parent) : QSequentialAnimationGroup(parent) {};
 
     ~VirtualQSequentialAnimationGroup() {
+        qsequentialanimationgroup_metaobject_callback = nullptr;
+        qsequentialanimationgroup_metacast_callback = nullptr;
         qsequentialanimationgroup_metacall_callback = nullptr;
         qsequentialanimationgroup_duration_callback = nullptr;
         qsequentialanimationgroup_event_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
     }
 
     // Callback setters
+    inline void setQSequentialAnimationGroup_MetaObject_Callback(QSequentialAnimationGroup_MetaObject_Callback cb) { qsequentialanimationgroup_metaobject_callback = cb; }
+    inline void setQSequentialAnimationGroup_Metacast_Callback(QSequentialAnimationGroup_Metacast_Callback cb) { qsequentialanimationgroup_metacast_callback = cb; }
     inline void setQSequentialAnimationGroup_Metacall_Callback(QSequentialAnimationGroup_Metacall_Callback cb) { qsequentialanimationgroup_metacall_callback = cb; }
     inline void setQSequentialAnimationGroup_Duration_Callback(QSequentialAnimationGroup_Duration_Callback cb) { qsequentialanimationgroup_duration_callback = cb; }
     inline void setQSequentialAnimationGroup_Event_Callback(QSequentialAnimationGroup_Event_Callback cb) { qsequentialanimationgroup_event_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
     inline void setQSequentialAnimationGroup_IsSignalConnected_Callback(QSequentialAnimationGroup_IsSignalConnected_Callback cb) { qsequentialanimationgroup_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSequentialAnimationGroup_MetaObject_IsBase(bool value) const { qsequentialanimationgroup_metaobject_isbase = value; }
+    inline void setQSequentialAnimationGroup_Metacast_IsBase(bool value) const { qsequentialanimationgroup_metacast_isbase = value; }
     inline void setQSequentialAnimationGroup_Metacall_IsBase(bool value) const { qsequentialanimationgroup_metacall_isbase = value; }
     inline void setQSequentialAnimationGroup_Duration_IsBase(bool value) const { qsequentialanimationgroup_duration_isbase = value; }
     inline void setQSequentialAnimationGroup_Event_IsBase(bool value) const { qsequentialanimationgroup_event_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
     inline void setQSequentialAnimationGroup_SenderSignalIndex_IsBase(bool value) const { qsequentialanimationgroup_sendersignalindex_isbase = value; }
     inline void setQSequentialAnimationGroup_Receivers_IsBase(bool value) const { qsequentialanimationgroup_receivers_isbase = value; }
     inline void setQSequentialAnimationGroup_IsSignalConnected_IsBase(bool value) const { qsequentialanimationgroup_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsequentialanimationgroup_metaobject_isbase) {
+            qsequentialanimationgroup_metaobject_isbase = false;
+            return QSequentialAnimationGroup::metaObject();
+        } else if (qsequentialanimationgroup_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsequentialanimationgroup_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSequentialAnimationGroup::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsequentialanimationgroup_metacast_isbase) {
+            qsequentialanimationgroup_metacast_isbase = false;
+            return QSequentialAnimationGroup::qt_metacast(param1);
+        } else if (qsequentialanimationgroup_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsequentialanimationgroup_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSequentialAnimationGroup::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

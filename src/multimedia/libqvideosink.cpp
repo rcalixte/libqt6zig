@@ -23,11 +23,21 @@ QVideoSink* QVideoSink_new2(QObject* parent) {
 }
 
 QMetaObject* QVideoSink_MetaObject(const QVideoSink* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqvideosink = dynamic_cast<const VirtualQVideoSink*>(self);
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQVideoSink*)self)->metaObject();
+    }
 }
 
 void* QVideoSink_Metacast(QVideoSink* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQVideoSink*)self)->qt_metacast(param1);
+    }
 }
 
 int QVideoSink_Metacall(QVideoSink* self, int param1, int param2, void** param3) {
@@ -111,6 +121,44 @@ void QVideoSink_Connect_VideoSizeChanged(QVideoSink* self, intptr_t slot) {
     QVideoSink::connect(self, &QVideoSink::videoSizeChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QVideoSink_QBaseMetaObject(const QVideoSink* self) {
+    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+        vqvideosink->setQVideoSink_MetaObject_IsBase(true);
+        return (QMetaObject*)vqvideosink->metaObject();
+    } else {
+        return (QMetaObject*)self->QVideoSink::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoSink_OnMetaObject(const QVideoSink* self, intptr_t slot) {
+    auto* vqvideosink = const_cast<VirtualQVideoSink*>(dynamic_cast<const VirtualQVideoSink*>(self));
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+        vqvideosink->setQVideoSink_MetaObject_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QVideoSink_QBaseMetacast(QVideoSink* self, const char* param1) {
+    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+        vqvideosink->setQVideoSink_Metacast_IsBase(true);
+        return vqvideosink->qt_metacast(param1);
+    } else {
+        return self->QVideoSink::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoSink_OnMetacast(QVideoSink* self, intptr_t slot) {
+    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
+    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
+        vqvideosink->setQVideoSink_Metacast_Callback(reinterpret_cast<VirtualQVideoSink::QVideoSink_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

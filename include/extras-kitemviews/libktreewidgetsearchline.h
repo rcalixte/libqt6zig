@@ -90,6 +90,10 @@ void KTreeWidgetSearchLine_ConnectTreeWidget(KTreeWidgetSearchLine* self, QTreeW
 void KTreeWidgetSearchLine_DisconnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1);
 bool KTreeWidgetSearchLine_CanChooseColumnsCheck(KTreeWidgetSearchLine* self);
 bool KTreeWidgetSearchLine_Event(KTreeWidgetSearchLine* self, QEvent* event);
+void KTreeWidgetSearchLine_OnMetaObject(const KTreeWidgetSearchLine* self, intptr_t slot);
+QMetaObject* KTreeWidgetSearchLine_QBaseMetaObject(const KTreeWidgetSearchLine* self);
+void KTreeWidgetSearchLine_OnMetacast(KTreeWidgetSearchLine* self, intptr_t slot);
+void* KTreeWidgetSearchLine_QBaseMetacast(KTreeWidgetSearchLine* self, const char* param1);
 void KTreeWidgetSearchLine_OnMetacall(KTreeWidgetSearchLine* self, intptr_t slot);
 int KTreeWidgetSearchLine_QBaseMetacall(KTreeWidgetSearchLine* self, int param1, int param2, void** param3);
 void KTreeWidgetSearchLine_OnUpdateSearch(KTreeWidgetSearchLine* self, intptr_t slot);

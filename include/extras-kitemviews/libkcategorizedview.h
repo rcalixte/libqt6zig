@@ -111,6 +111,10 @@ void KCategorizedView_CurrentChanged(KCategorizedView* self, const QModelIndex* 
 void KCategorizedView_DataChanged(KCategorizedView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
 void KCategorizedView_RowsInserted(KCategorizedView* self, const QModelIndex* parent, int start, int end);
 void KCategorizedView_SlotLayoutChanged(KCategorizedView* self);
+void KCategorizedView_OnMetaObject(const KCategorizedView* self, intptr_t slot);
+QMetaObject* KCategorizedView_QBaseMetaObject(const KCategorizedView* self);
+void KCategorizedView_OnMetacast(KCategorizedView* self, intptr_t slot);
+void* KCategorizedView_QBaseMetacast(KCategorizedView* self, const char* param1);
 void KCategorizedView_OnMetacall(KCategorizedView* self, intptr_t slot);
 int KCategorizedView_QBaseMetacall(KCategorizedView* self, int param1, int param2, void** param3);
 void KCategorizedView_OnSetModel(KCategorizedView* self, intptr_t slot);

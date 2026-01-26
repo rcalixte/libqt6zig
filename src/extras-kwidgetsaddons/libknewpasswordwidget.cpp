@@ -49,11 +49,21 @@ KNewPasswordWidget* KNewPasswordWidget_new2() {
 }
 
 QMetaObject* KNewPasswordWidget_MetaObject(const KNewPasswordWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknewpasswordwidget = dynamic_cast<const VirtualKNewPasswordWidget*>(self);
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNewPasswordWidget*)self)->metaObject();
+    }
 }
 
 void* KNewPasswordWidget_Metacast(KNewPasswordWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNewPasswordWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KNewPasswordWidget_Metacall(KNewPasswordWidget* self, int param1, int param2, void** param3) {
@@ -162,6 +172,44 @@ void KNewPasswordWidget_Connect_PasswordStatusChanged(KNewPasswordWidget* self, 
     KNewPasswordWidget::connect(self, &KNewPasswordWidget::passwordStatusChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KNewPasswordWidget_QBaseMetaObject(const KNewPasswordWidget* self) {
+    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+        vknewpasswordwidget->setKNewPasswordWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vknewpasswordwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KNewPasswordWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNewPasswordWidget_OnMetaObject(const KNewPasswordWidget* self, intptr_t slot) {
+    auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+        vknewpasswordwidget->setKNewPasswordWidget_MetaObject_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNewPasswordWidget_QBaseMetacast(KNewPasswordWidget* self, const char* param1) {
+    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+        vknewpasswordwidget->setKNewPasswordWidget_Metacast_IsBase(true);
+        return vknewpasswordwidget->qt_metacast(param1);
+    } else {
+        return self->KNewPasswordWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNewPasswordWidget_OnMetacast(KNewPasswordWidget* self, intptr_t slot) {
+    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+        vknewpasswordwidget->setKNewPasswordWidget_Metacast_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

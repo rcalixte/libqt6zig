@@ -17,6 +17,8 @@ class VirtualQTextEdit final : public QTextEdit {
     bool isVirtualQTextEdit = true;
 
     // Virtual class public types (including callbacks)
+    using QTextEdit_MetaObject_Callback = QMetaObject* (*)();
+    using QTextEdit_Metacast_Callback = void* (*)(QTextEdit*, const char*);
     using QTextEdit_Metacall_Callback = int (*)(QTextEdit*, int, int, void**);
     using QTextEdit_LoadResource_Callback = QVariant* (*)(QTextEdit*, int, QUrl*);
     using QTextEdit_InputMethodQuery_Callback = QVariant* (*)(const QTextEdit*, int);
@@ -92,6 +94,8 @@ class VirtualQTextEdit final : public QTextEdit {
 
   protected:
     // Instance callback storage
+    QTextEdit_MetaObject_Callback qtextedit_metaobject_callback = nullptr;
+    QTextEdit_Metacast_Callback qtextedit_metacast_callback = nullptr;
     QTextEdit_Metacall_Callback qtextedit_metacall_callback = nullptr;
     QTextEdit_LoadResource_Callback qtextedit_loadresource_callback = nullptr;
     QTextEdit_InputMethodQuery_Callback qtextedit_inputmethodquery_callback = nullptr;
@@ -166,6 +170,8 @@ class VirtualQTextEdit final : public QTextEdit {
     QTextEdit_GetDecodedMetricF_Callback qtextedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtextedit_metaobject_isbase = false;
+    mutable bool qtextedit_metacast_isbase = false;
     mutable bool qtextedit_metacall_isbase = false;
     mutable bool qtextedit_loadresource_isbase = false;
     mutable bool qtextedit_inputmethodquery_isbase = false;
@@ -246,6 +252,8 @@ class VirtualQTextEdit final : public QTextEdit {
     VirtualQTextEdit(const QString& text, QWidget* parent) : QTextEdit(text, parent) {};
 
     ~VirtualQTextEdit() {
+        qtextedit_metaobject_callback = nullptr;
+        qtextedit_metacast_callback = nullptr;
         qtextedit_metacall_callback = nullptr;
         qtextedit_loadresource_callback = nullptr;
         qtextedit_inputmethodquery_callback = nullptr;
@@ -321,6 +329,8 @@ class VirtualQTextEdit final : public QTextEdit {
     }
 
     // Callback setters
+    inline void setQTextEdit_MetaObject_Callback(QTextEdit_MetaObject_Callback cb) { qtextedit_metaobject_callback = cb; }
+    inline void setQTextEdit_Metacast_Callback(QTextEdit_Metacast_Callback cb) { qtextedit_metacast_callback = cb; }
     inline void setQTextEdit_Metacall_Callback(QTextEdit_Metacall_Callback cb) { qtextedit_metacall_callback = cb; }
     inline void setQTextEdit_LoadResource_Callback(QTextEdit_LoadResource_Callback cb) { qtextedit_loadresource_callback = cb; }
     inline void setQTextEdit_InputMethodQuery_Callback(QTextEdit_InputMethodQuery_Callback cb) { qtextedit_inputmethodquery_callback = cb; }
@@ -395,6 +405,8 @@ class VirtualQTextEdit final : public QTextEdit {
     inline void setQTextEdit_GetDecodedMetricF_Callback(QTextEdit_GetDecodedMetricF_Callback cb) { qtextedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQTextEdit_MetaObject_IsBase(bool value) const { qtextedit_metaobject_isbase = value; }
+    inline void setQTextEdit_Metacast_IsBase(bool value) const { qtextedit_metacast_isbase = value; }
     inline void setQTextEdit_Metacall_IsBase(bool value) const { qtextedit_metacall_isbase = value; }
     inline void setQTextEdit_LoadResource_IsBase(bool value) const { qtextedit_loadresource_isbase = value; }
     inline void setQTextEdit_InputMethodQuery_IsBase(bool value) const { qtextedit_inputmethodquery_isbase = value; }
@@ -467,6 +479,34 @@ class VirtualQTextEdit final : public QTextEdit {
     inline void setQTextEdit_Receivers_IsBase(bool value) const { qtextedit_receivers_isbase = value; }
     inline void setQTextEdit_IsSignalConnected_IsBase(bool value) const { qtextedit_issignalconnected_isbase = value; }
     inline void setQTextEdit_GetDecodedMetricF_IsBase(bool value) const { qtextedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtextedit_metaobject_isbase) {
+            qtextedit_metaobject_isbase = false;
+            return QTextEdit::metaObject();
+        } else if (qtextedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtextedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTextEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtextedit_metacast_isbase) {
+            qtextedit_metacast_isbase = false;
+            return QTextEdit::qt_metacast(param1);
+        } else if (qtextedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtextedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTextEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -18,6 +18,8 @@ class VirtualQDial final : public QDial {
 
     // Virtual class public types (including callbacks)
     using QAbstractSlider::SliderChange;
+    using QDial_MetaObject_Callback = QMetaObject* (*)();
+    using QDial_Metacast_Callback = void* (*)(QDial*, const char*);
     using QDial_Metacall_Callback = int (*)(QDial*, int, int, void**);
     using QDial_SizeHint_Callback = QSize* (*)();
     using QDial_MinimumSizeHint_Callback = QSize* (*)();
@@ -83,6 +85,8 @@ class VirtualQDial final : public QDial {
 
   protected:
     // Instance callback storage
+    QDial_MetaObject_Callback qdial_metaobject_callback = nullptr;
+    QDial_Metacast_Callback qdial_metacast_callback = nullptr;
     QDial_Metacall_Callback qdial_metacall_callback = nullptr;
     QDial_SizeHint_Callback qdial_sizehint_callback = nullptr;
     QDial_MinimumSizeHint_Callback qdial_minimumsizehint_callback = nullptr;
@@ -147,6 +151,8 @@ class VirtualQDial final : public QDial {
     QDial_GetDecodedMetricF_Callback qdial_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdial_metaobject_isbase = false;
+    mutable bool qdial_metacast_isbase = false;
     mutable bool qdial_metacall_isbase = false;
     mutable bool qdial_sizehint_isbase = false;
     mutable bool qdial_minimumsizehint_isbase = false;
@@ -215,6 +221,8 @@ class VirtualQDial final : public QDial {
     VirtualQDial() : QDial() {};
 
     ~VirtualQDial() {
+        qdial_metaobject_callback = nullptr;
+        qdial_metacast_callback = nullptr;
         qdial_metacall_callback = nullptr;
         qdial_sizehint_callback = nullptr;
         qdial_minimumsizehint_callback = nullptr;
@@ -280,6 +288,8 @@ class VirtualQDial final : public QDial {
     }
 
     // Callback setters
+    inline void setQDial_MetaObject_Callback(QDial_MetaObject_Callback cb) { qdial_metaobject_callback = cb; }
+    inline void setQDial_Metacast_Callback(QDial_Metacast_Callback cb) { qdial_metacast_callback = cb; }
     inline void setQDial_Metacall_Callback(QDial_Metacall_Callback cb) { qdial_metacall_callback = cb; }
     inline void setQDial_SizeHint_Callback(QDial_SizeHint_Callback cb) { qdial_sizehint_callback = cb; }
     inline void setQDial_MinimumSizeHint_Callback(QDial_MinimumSizeHint_Callback cb) { qdial_minimumsizehint_callback = cb; }
@@ -344,6 +354,8 @@ class VirtualQDial final : public QDial {
     inline void setQDial_GetDecodedMetricF_Callback(QDial_GetDecodedMetricF_Callback cb) { qdial_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDial_MetaObject_IsBase(bool value) const { qdial_metaobject_isbase = value; }
+    inline void setQDial_Metacast_IsBase(bool value) const { qdial_metacast_isbase = value; }
     inline void setQDial_Metacall_IsBase(bool value) const { qdial_metacall_isbase = value; }
     inline void setQDial_SizeHint_IsBase(bool value) const { qdial_sizehint_isbase = value; }
     inline void setQDial_MinimumSizeHint_IsBase(bool value) const { qdial_minimumsizehint_isbase = value; }
@@ -406,6 +418,34 @@ class VirtualQDial final : public QDial {
     inline void setQDial_Receivers_IsBase(bool value) const { qdial_receivers_isbase = value; }
     inline void setQDial_IsSignalConnected_IsBase(bool value) const { qdial_issignalconnected_isbase = value; }
     inline void setQDial_GetDecodedMetricF_IsBase(bool value) const { qdial_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdial_metaobject_isbase) {
+            qdial_metaobject_isbase = false;
+            return QDial::metaObject();
+        } else if (qdial_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdial_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDial::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdial_metacast_isbase) {
+            qdial_metacast_isbase = false;
+            return QDial::qt_metacast(param1);
+        } else if (qdial_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdial_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDial::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

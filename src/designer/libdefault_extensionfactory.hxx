@@ -17,6 +17,8 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
     bool isVirtualQExtensionFactory = true;
 
     // Virtual class public types (including callbacks)
+    using QExtensionFactory_MetaObject_Callback = QMetaObject* (*)();
+    using QExtensionFactory_Metacast_Callback = void* (*)(QExtensionFactory*, const char*);
     using QExtensionFactory_Metacall_Callback = int (*)(QExtensionFactory*, int, int, void**);
     using QExtensionFactory_Extension_Callback = QObject* (*)(const QExtensionFactory*, QObject*, libqt_string);
     using QExtensionFactory_CreateExtension_Callback = QObject* (*)(const QExtensionFactory*, QObject*, libqt_string, QObject*);
@@ -34,6 +36,8 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
 
   protected:
     // Instance callback storage
+    QExtensionFactory_MetaObject_Callback qextensionfactory_metaobject_callback = nullptr;
+    QExtensionFactory_Metacast_Callback qextensionfactory_metacast_callback = nullptr;
     QExtensionFactory_Metacall_Callback qextensionfactory_metacall_callback = nullptr;
     QExtensionFactory_Extension_Callback qextensionfactory_extension_callback = nullptr;
     QExtensionFactory_CreateExtension_Callback qextensionfactory_createextension_callback = nullptr;
@@ -50,6 +54,8 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
     QExtensionFactory_IsSignalConnected_Callback qextensionfactory_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qextensionfactory_metaobject_isbase = false;
+    mutable bool qextensionfactory_metacast_isbase = false;
     mutable bool qextensionfactory_metacall_isbase = false;
     mutable bool qextensionfactory_extension_isbase = false;
     mutable bool qextensionfactory_createextension_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
     VirtualQExtensionFactory(QExtensionManager* parent) : QExtensionFactory(parent) {};
 
     ~VirtualQExtensionFactory() {
+        qextensionfactory_metaobject_callback = nullptr;
+        qextensionfactory_metacast_callback = nullptr;
         qextensionfactory_metacall_callback = nullptr;
         qextensionfactory_extension_callback = nullptr;
         qextensionfactory_createextension_callback = nullptr;
@@ -87,6 +95,8 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
     }
 
     // Callback setters
+    inline void setQExtensionFactory_MetaObject_Callback(QExtensionFactory_MetaObject_Callback cb) { qextensionfactory_metaobject_callback = cb; }
+    inline void setQExtensionFactory_Metacast_Callback(QExtensionFactory_Metacast_Callback cb) { qextensionfactory_metacast_callback = cb; }
     inline void setQExtensionFactory_Metacall_Callback(QExtensionFactory_Metacall_Callback cb) { qextensionfactory_metacall_callback = cb; }
     inline void setQExtensionFactory_Extension_Callback(QExtensionFactory_Extension_Callback cb) { qextensionfactory_extension_callback = cb; }
     inline void setQExtensionFactory_CreateExtension_Callback(QExtensionFactory_CreateExtension_Callback cb) { qextensionfactory_createextension_callback = cb; }
@@ -103,6 +113,8 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
     inline void setQExtensionFactory_IsSignalConnected_Callback(QExtensionFactory_IsSignalConnected_Callback cb) { qextensionfactory_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQExtensionFactory_MetaObject_IsBase(bool value) const { qextensionfactory_metaobject_isbase = value; }
+    inline void setQExtensionFactory_Metacast_IsBase(bool value) const { qextensionfactory_metacast_isbase = value; }
     inline void setQExtensionFactory_Metacall_IsBase(bool value) const { qextensionfactory_metacall_isbase = value; }
     inline void setQExtensionFactory_Extension_IsBase(bool value) const { qextensionfactory_extension_isbase = value; }
     inline void setQExtensionFactory_CreateExtension_IsBase(bool value) const { qextensionfactory_createextension_isbase = value; }
@@ -117,6 +129,34 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
     inline void setQExtensionFactory_SenderSignalIndex_IsBase(bool value) const { qextensionfactory_sendersignalindex_isbase = value; }
     inline void setQExtensionFactory_Receivers_IsBase(bool value) const { qextensionfactory_receivers_isbase = value; }
     inline void setQExtensionFactory_IsSignalConnected_IsBase(bool value) const { qextensionfactory_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qextensionfactory_metaobject_isbase) {
+            qextensionfactory_metaobject_isbase = false;
+            return QExtensionFactory::metaObject();
+        } else if (qextensionfactory_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qextensionfactory_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QExtensionFactory::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qextensionfactory_metacast_isbase) {
+            qextensionfactory_metacast_isbase = false;
+            return QExtensionFactory::qt_metacast(param1);
+        } else if (qextensionfactory_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qextensionfactory_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QExtensionFactory::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -63,11 +63,21 @@ QTableView* QTableView_new2() {
 }
 
 QMetaObject* QTableView_MetaObject(const QTableView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTableView*)self)->metaObject();
+    }
 }
 
 void* QTableView_Metacast(QTableView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTableView*)self)->qt_metacast(param1);
+    }
 }
 
 int QTableView_Metacall(QTableView* self, int param1, int param2, void** param3) {
@@ -461,6 +471,44 @@ void QTableView_CurrentChanged(QTableView* self, const QModelIndex* current, con
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
         vqtableview->currentChanged(*current, *previous);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QTableView_QBaseMetaObject(const QTableView* self) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtableview->metaObject();
+    } else {
+        return (QMetaObject*)self->QTableView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnMetaObject(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_MetaObject_Callback(reinterpret_cast<VirtualQTableView::QTableView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTableView_QBaseMetacast(QTableView* self, const char* param1) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_Metacast_IsBase(true);
+        return vqtableview->qt_metacast(param1);
+    } else {
+        return self->QTableView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnMetacast(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_Metacast_Callback(reinterpret_cast<VirtualQTableView::QTableView_Metacast_Callback>(slot));
     }
 }
 

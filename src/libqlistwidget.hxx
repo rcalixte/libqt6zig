@@ -184,6 +184,8 @@ class VirtualQListWidget final : public QListWidget {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using QListWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QListWidget_Metacast_Callback = void* (*)(QListWidget*, const char*);
     using QListWidget_Metacall_Callback = int (*)(QListWidget*, int, int, void**);
     using QListWidget_SetSelectionModel_Callback = void (*)(QListWidget*, QItemSelectionModel*);
     using QListWidget_DropEvent_Callback = void (*)(QListWidget*, QDropEvent*);
@@ -310,6 +312,8 @@ class VirtualQListWidget final : public QListWidget {
 
   protected:
     // Instance callback storage
+    QListWidget_MetaObject_Callback qlistwidget_metaobject_callback = nullptr;
+    QListWidget_Metacast_Callback qlistwidget_metacast_callback = nullptr;
     QListWidget_Metacall_Callback qlistwidget_metacall_callback = nullptr;
     QListWidget_SetSelectionModel_Callback qlistwidget_setselectionmodel_callback = nullptr;
     QListWidget_DropEvent_Callback qlistwidget_dropevent_callback = nullptr;
@@ -435,6 +439,8 @@ class VirtualQListWidget final : public QListWidget {
     QListWidget_GetDecodedMetricF_Callback qlistwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlistwidget_metaobject_isbase = false;
+    mutable bool qlistwidget_metacast_isbase = false;
     mutable bool qlistwidget_metacall_isbase = false;
     mutable bool qlistwidget_setselectionmodel_isbase = false;
     mutable bool qlistwidget_dropevent_isbase = false;
@@ -564,6 +570,8 @@ class VirtualQListWidget final : public QListWidget {
     VirtualQListWidget() : QListWidget() {};
 
     ~VirtualQListWidget() {
+        qlistwidget_metaobject_callback = nullptr;
+        qlistwidget_metacast_callback = nullptr;
         qlistwidget_metacall_callback = nullptr;
         qlistwidget_setselectionmodel_callback = nullptr;
         qlistwidget_dropevent_callback = nullptr;
@@ -690,6 +698,8 @@ class VirtualQListWidget final : public QListWidget {
     }
 
     // Callback setters
+    inline void setQListWidget_MetaObject_Callback(QListWidget_MetaObject_Callback cb) { qlistwidget_metaobject_callback = cb; }
+    inline void setQListWidget_Metacast_Callback(QListWidget_Metacast_Callback cb) { qlistwidget_metacast_callback = cb; }
     inline void setQListWidget_Metacall_Callback(QListWidget_Metacall_Callback cb) { qlistwidget_metacall_callback = cb; }
     inline void setQListWidget_SetSelectionModel_Callback(QListWidget_SetSelectionModel_Callback cb) { qlistwidget_setselectionmodel_callback = cb; }
     inline void setQListWidget_DropEvent_Callback(QListWidget_DropEvent_Callback cb) { qlistwidget_dropevent_callback = cb; }
@@ -815,6 +825,8 @@ class VirtualQListWidget final : public QListWidget {
     inline void setQListWidget_GetDecodedMetricF_Callback(QListWidget_GetDecodedMetricF_Callback cb) { qlistwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQListWidget_MetaObject_IsBase(bool value) const { qlistwidget_metaobject_isbase = value; }
+    inline void setQListWidget_Metacast_IsBase(bool value) const { qlistwidget_metacast_isbase = value; }
     inline void setQListWidget_Metacall_IsBase(bool value) const { qlistwidget_metacall_isbase = value; }
     inline void setQListWidget_SetSelectionModel_IsBase(bool value) const { qlistwidget_setselectionmodel_isbase = value; }
     inline void setQListWidget_DropEvent_IsBase(bool value) const { qlistwidget_dropevent_isbase = value; }
@@ -938,6 +950,34 @@ class VirtualQListWidget final : public QListWidget {
     inline void setQListWidget_Receivers_IsBase(bool value) const { qlistwidget_receivers_isbase = value; }
     inline void setQListWidget_IsSignalConnected_IsBase(bool value) const { qlistwidget_issignalconnected_isbase = value; }
     inline void setQListWidget_GetDecodedMetricF_IsBase(bool value) const { qlistwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlistwidget_metaobject_isbase) {
+            qlistwidget_metaobject_isbase = false;
+            return QListWidget::metaObject();
+        } else if (qlistwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlistwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QListWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlistwidget_metacast_isbase) {
+            qlistwidget_metacast_isbase = false;
+            return QListWidget::qt_metacast(param1);
+        } else if (qlistwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlistwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QListWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

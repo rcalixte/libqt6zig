@@ -17,6 +17,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
     bool isVirtualQSvgWidget = true;
 
     // Virtual class public types (including callbacks)
+    using QSvgWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QSvgWidget_Metacast_Callback = void* (*)(QSvgWidget*, const char*);
     using QSvgWidget_Metacall_Callback = int (*)(QSvgWidget*, int, int, void**);
     using QSvgWidget_SizeHint_Callback = QSize* (*)();
     using QSvgWidget_PaintEvent_Callback = void (*)(QSvgWidget*, QPaintEvent*);
@@ -78,6 +80,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
 
   protected:
     // Instance callback storage
+    QSvgWidget_MetaObject_Callback qsvgwidget_metaobject_callback = nullptr;
+    QSvgWidget_Metacast_Callback qsvgwidget_metacast_callback = nullptr;
     QSvgWidget_Metacall_Callback qsvgwidget_metacall_callback = nullptr;
     QSvgWidget_SizeHint_Callback qsvgwidget_sizehint_callback = nullptr;
     QSvgWidget_PaintEvent_Callback qsvgwidget_paintevent_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
     QSvgWidget_GetDecodedMetricF_Callback qsvgwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsvgwidget_metaobject_isbase = false;
+    mutable bool qsvgwidget_metacast_isbase = false;
     mutable bool qsvgwidget_metacall_isbase = false;
     mutable bool qsvgwidget_sizehint_isbase = false;
     mutable bool qsvgwidget_paintevent_isbase = false;
@@ -204,6 +210,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
     VirtualQSvgWidget(const QString& file, QWidget* parent) : QSvgWidget(file, parent) {};
 
     ~VirtualQSvgWidget() {
+        qsvgwidget_metaobject_callback = nullptr;
+        qsvgwidget_metacast_callback = nullptr;
         qsvgwidget_metacall_callback = nullptr;
         qsvgwidget_sizehint_callback = nullptr;
         qsvgwidget_paintevent_callback = nullptr;
@@ -265,6 +273,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
     }
 
     // Callback setters
+    inline void setQSvgWidget_MetaObject_Callback(QSvgWidget_MetaObject_Callback cb) { qsvgwidget_metaobject_callback = cb; }
+    inline void setQSvgWidget_Metacast_Callback(QSvgWidget_Metacast_Callback cb) { qsvgwidget_metacast_callback = cb; }
     inline void setQSvgWidget_Metacall_Callback(QSvgWidget_Metacall_Callback cb) { qsvgwidget_metacall_callback = cb; }
     inline void setQSvgWidget_SizeHint_Callback(QSvgWidget_SizeHint_Callback cb) { qsvgwidget_sizehint_callback = cb; }
     inline void setQSvgWidget_PaintEvent_Callback(QSvgWidget_PaintEvent_Callback cb) { qsvgwidget_paintevent_callback = cb; }
@@ -325,6 +335,8 @@ class VirtualQSvgWidget final : public QSvgWidget {
     inline void setQSvgWidget_GetDecodedMetricF_Callback(QSvgWidget_GetDecodedMetricF_Callback cb) { qsvgwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQSvgWidget_MetaObject_IsBase(bool value) const { qsvgwidget_metaobject_isbase = value; }
+    inline void setQSvgWidget_Metacast_IsBase(bool value) const { qsvgwidget_metacast_isbase = value; }
     inline void setQSvgWidget_Metacall_IsBase(bool value) const { qsvgwidget_metacall_isbase = value; }
     inline void setQSvgWidget_SizeHint_IsBase(bool value) const { qsvgwidget_sizehint_isbase = value; }
     inline void setQSvgWidget_PaintEvent_IsBase(bool value) const { qsvgwidget_paintevent_isbase = value; }
@@ -383,6 +395,34 @@ class VirtualQSvgWidget final : public QSvgWidget {
     inline void setQSvgWidget_Receivers_IsBase(bool value) const { qsvgwidget_receivers_isbase = value; }
     inline void setQSvgWidget_IsSignalConnected_IsBase(bool value) const { qsvgwidget_issignalconnected_isbase = value; }
     inline void setQSvgWidget_GetDecodedMetricF_IsBase(bool value) const { qsvgwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsvgwidget_metaobject_isbase) {
+            qsvgwidget_metaobject_isbase = false;
+            return QSvgWidget::metaObject();
+        } else if (qsvgwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsvgwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSvgWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsvgwidget_metacast_isbase) {
+            qsvgwidget_metacast_isbase = false;
+            return QSvgWidget::qt_metacast(param1);
+        } else if (qsvgwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsvgwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSvgWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQVBarModelMapper final : public QVBarModelMapper {
     bool isVirtualQVBarModelMapper = true;
 
     // Virtual class public types (including callbacks)
+    using QVBarModelMapper_MetaObject_Callback = QMetaObject* (*)();
+    using QVBarModelMapper_Metacast_Callback = void* (*)(QVBarModelMapper*, const char*);
     using QVBarModelMapper_Metacall_Callback = int (*)(QVBarModelMapper*, int, int, void**);
     using QVBarModelMapper_Event_Callback = bool (*)(QVBarModelMapper*, QEvent*);
     using QVBarModelMapper_EventFilter_Callback = bool (*)(QVBarModelMapper*, QObject*, QEvent*);
@@ -42,6 +44,8 @@ class VirtualQVBarModelMapper final : public QVBarModelMapper {
 
   protected:
     // Instance callback storage
+    QVBarModelMapper_MetaObject_Callback qvbarmodelmapper_metaobject_callback = nullptr;
+    QVBarModelMapper_Metacast_Callback qvbarmodelmapper_metacast_callback = nullptr;
     QVBarModelMapper_Metacall_Callback qvbarmodelmapper_metacall_callback = nullptr;
     QVBarModelMapper_Event_Callback qvbarmodelmapper_event_callback = nullptr;
     QVBarModelMapper_EventFilter_Callback qvbarmodelmapper_eventfilter_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualQVBarModelMapper final : public QVBarModelMapper {
     QVBarModelMapper_IsSignalConnected_Callback qvbarmodelmapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qvbarmodelmapper_metaobject_isbase = false;
+    mutable bool qvbarmodelmapper_metacast_isbase = false;
     mutable bool qvbarmodelmapper_metacall_isbase = false;
     mutable bool qvbarmodelmapper_event_isbase = false;
     mutable bool qvbarmodelmapper_eventfilter_isbase = false;
@@ -94,6 +100,8 @@ class VirtualQVBarModelMapper final : public QVBarModelMapper {
     VirtualQVBarModelMapper(QObject* parent) : QVBarModelMapper(parent) {};
 
     ~VirtualQVBarModelMapper() {
+        qvbarmodelmapper_metaobject_callback = nullptr;
+        qvbarmodelmapper_metacast_callback = nullptr;
         qvbarmodelmapper_metacall_callback = nullptr;
         qvbarmodelmapper_event_callback = nullptr;
         qvbarmodelmapper_eventfilter_callback = nullptr;
@@ -119,6 +127,8 @@ class VirtualQVBarModelMapper final : public QVBarModelMapper {
     }
 
     // Callback setters
+    inline void setQVBarModelMapper_MetaObject_Callback(QVBarModelMapper_MetaObject_Callback cb) { qvbarmodelmapper_metaobject_callback = cb; }
+    inline void setQVBarModelMapper_Metacast_Callback(QVBarModelMapper_Metacast_Callback cb) { qvbarmodelmapper_metacast_callback = cb; }
     inline void setQVBarModelMapper_Metacall_Callback(QVBarModelMapper_Metacall_Callback cb) { qvbarmodelmapper_metacall_callback = cb; }
     inline void setQVBarModelMapper_Event_Callback(QVBarModelMapper_Event_Callback cb) { qvbarmodelmapper_event_callback = cb; }
     inline void setQVBarModelMapper_EventFilter_Callback(QVBarModelMapper_EventFilter_Callback cb) { qvbarmodelmapper_eventfilter_callback = cb; }
@@ -143,6 +153,8 @@ class VirtualQVBarModelMapper final : public QVBarModelMapper {
     inline void setQVBarModelMapper_IsSignalConnected_Callback(QVBarModelMapper_IsSignalConnected_Callback cb) { qvbarmodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQVBarModelMapper_MetaObject_IsBase(bool value) const { qvbarmodelmapper_metaobject_isbase = value; }
+    inline void setQVBarModelMapper_Metacast_IsBase(bool value) const { qvbarmodelmapper_metacast_isbase = value; }
     inline void setQVBarModelMapper_Metacall_IsBase(bool value) const { qvbarmodelmapper_metacall_isbase = value; }
     inline void setQVBarModelMapper_Event_IsBase(bool value) const { qvbarmodelmapper_event_isbase = value; }
     inline void setQVBarModelMapper_EventFilter_IsBase(bool value) const { qvbarmodelmapper_eventfilter_isbase = value; }
@@ -165,6 +177,34 @@ class VirtualQVBarModelMapper final : public QVBarModelMapper {
     inline void setQVBarModelMapper_SenderSignalIndex_IsBase(bool value) const { qvbarmodelmapper_sendersignalindex_isbase = value; }
     inline void setQVBarModelMapper_Receivers_IsBase(bool value) const { qvbarmodelmapper_receivers_isbase = value; }
     inline void setQVBarModelMapper_IsSignalConnected_IsBase(bool value) const { qvbarmodelmapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qvbarmodelmapper_metaobject_isbase) {
+            qvbarmodelmapper_metaobject_isbase = false;
+            return QVBarModelMapper::metaObject();
+        } else if (qvbarmodelmapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qvbarmodelmapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QVBarModelMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qvbarmodelmapper_metacast_isbase) {
+            qvbarmodelmapper_metacast_isbase = false;
+            return QVBarModelMapper::qt_metacast(param1);
+        } else if (qvbarmodelmapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qvbarmodelmapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QVBarModelMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

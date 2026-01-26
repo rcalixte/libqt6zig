@@ -32,6 +32,10 @@ void* QPlaceSearchSuggestionReply_Metacast(QPlaceSearchSuggestionReply* self, co
 int QPlaceSearchSuggestionReply_Metacall(QPlaceSearchSuggestionReply* self, int param1, int param2, void** param3);
 libqt_list /* of libqt_string */ QPlaceSearchSuggestionReply_Suggestions(const QPlaceSearchSuggestionReply* self);
 int QPlaceSearchSuggestionReply_Type(const QPlaceSearchSuggestionReply* self);
+void QPlaceSearchSuggestionReply_OnMetaObject(const QPlaceSearchSuggestionReply* self, intptr_t slot);
+QMetaObject* QPlaceSearchSuggestionReply_QBaseMetaObject(const QPlaceSearchSuggestionReply* self);
+void QPlaceSearchSuggestionReply_OnMetacast(QPlaceSearchSuggestionReply* self, intptr_t slot);
+void* QPlaceSearchSuggestionReply_QBaseMetacast(QPlaceSearchSuggestionReply* self, const char* param1);
 void QPlaceSearchSuggestionReply_OnMetacall(QPlaceSearchSuggestionReply* self, intptr_t slot);
 int QPlaceSearchSuggestionReply_QBaseMetacall(QPlaceSearchSuggestionReply* self, int param1, int param2, void** param3);
 void QPlaceSearchSuggestionReply_OnType(const QPlaceSearchSuggestionReply* self, intptr_t slot);

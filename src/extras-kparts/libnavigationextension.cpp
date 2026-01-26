@@ -27,11 +27,21 @@ KParts__NavigationExtension* KParts__NavigationExtension_new(KParts__ReadOnlyPar
 }
 
 QMetaObject* KParts__NavigationExtension_MetaObject(const KParts__NavigationExtension* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkparts__navigationextension = dynamic_cast<const VirtualKPartsNavigationExtension*>(self);
+    if (vkparts__navigationextension && vkparts__navigationextension->isVirtualKPartsNavigationExtension) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPartsNavigationExtension*)self)->metaObject();
+    }
 }
 
 void* KParts__NavigationExtension_Metacast(KParts__NavigationExtension* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkparts__navigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
+    if (vkparts__navigationextension && vkparts__navigationextension->isVirtualKPartsNavigationExtension) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPartsNavigationExtension*)self)->qt_metacast(param1);
+    }
 }
 
 int KParts__NavigationExtension_Metacall(KParts__NavigationExtension* self, int param1, int param2, void** param3) {
@@ -285,6 +295,44 @@ void KParts__NavigationExtension_PopupMenu6(KParts__NavigationExtension* self, c
         actionGroups_QMap[actionGroups_karr_i_QString] = actionGroups_varr_i_QList;
     }
     self->popupMenu(*global, *url, mode, *arguments, static_cast<KParts::NavigationExtension::PopupFlags>(flags), actionGroups_QMap);
+}
+
+// Base class handler implementation
+QMetaObject* KParts__NavigationExtension_QBaseMetaObject(const KParts__NavigationExtension* self) {
+    auto* vkpartsnavigationextension = const_cast<VirtualKPartsNavigationExtension*>(dynamic_cast<const VirtualKPartsNavigationExtension*>(self));
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+        vkpartsnavigationextension->setKParts__NavigationExtension_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpartsnavigationextension->metaObject();
+    } else {
+        return (QMetaObject*)self->KParts::NavigationExtension::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__NavigationExtension_OnMetaObject(const KParts__NavigationExtension* self, intptr_t slot) {
+    auto* vkpartsnavigationextension = const_cast<VirtualKPartsNavigationExtension*>(dynamic_cast<const VirtualKPartsNavigationExtension*>(self));
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+        vkpartsnavigationextension->setKParts__NavigationExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KParts__NavigationExtension_QBaseMetacast(KParts__NavigationExtension* self, const char* param1) {
+    auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+        vkpartsnavigationextension->setKParts__NavigationExtension_Metacast_IsBase(true);
+        return vkpartsnavigationextension->qt_metacast(param1);
+    } else {
+        return self->KParts::NavigationExtension::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__NavigationExtension_OnMetacast(KParts__NavigationExtension* self, intptr_t slot) {
+    auto* vkpartsnavigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
+    if (vkpartsnavigationextension && vkpartsnavigationextension->isVirtualKPartsNavigationExtension) {
+        vkpartsnavigationextension->setKParts__NavigationExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsNavigationExtension::KParts__NavigationExtension_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

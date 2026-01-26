@@ -62,6 +62,10 @@ int QPageSetupDialog_Metacall(QPageSetupDialog* self, int param1, int param2, vo
 int QPageSetupDialog_Exec(QPageSetupDialog* self);
 void QPageSetupDialog_Done(QPageSetupDialog* self, int result);
 QPrinter* QPageSetupDialog_Printer(QPageSetupDialog* self);
+void QPageSetupDialog_OnMetaObject(const QPageSetupDialog* self, intptr_t slot);
+QMetaObject* QPageSetupDialog_QBaseMetaObject(const QPageSetupDialog* self);
+void QPageSetupDialog_OnMetacast(QPageSetupDialog* self, intptr_t slot);
+void* QPageSetupDialog_QBaseMetacast(QPageSetupDialog* self, const char* param1);
 void QPageSetupDialog_OnMetacall(QPageSetupDialog* self, intptr_t slot);
 int QPageSetupDialog_QBaseMetacall(QPageSetupDialog* self, int param1, int param2, void** param3);
 void QPageSetupDialog_OnExec(QPageSetupDialog* self, intptr_t slot);

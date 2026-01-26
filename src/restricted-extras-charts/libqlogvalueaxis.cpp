@@ -22,11 +22,21 @@ QLogValueAxis* QLogValueAxis_new2(QObject* parent) {
 }
 
 QMetaObject* QLogValueAxis_MetaObject(const QLogValueAxis* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqlogvalueaxis = dynamic_cast<const VirtualQLogValueAxis*>(self);
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQLogValueAxis*)self)->metaObject();
+    }
 }
 
 void* QLogValueAxis_Metacast(QLogValueAxis* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQLogValueAxis*)self)->qt_metacast(param1);
+    }
 }
 
 int QLogValueAxis_Metacall(QLogValueAxis* self, int param1, int param2, void** param3) {
@@ -195,6 +205,44 @@ void QLogValueAxis_Connect_MinorTickCountChanged(QLogValueAxis* self, intptr_t s
         int sigval1 = minorTickCount;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QLogValueAxis_QBaseMetaObject(const QLogValueAxis* self) {
+    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        vqlogvalueaxis->setQLogValueAxis_MetaObject_IsBase(true);
+        return (QMetaObject*)vqlogvalueaxis->metaObject();
+    } else {
+        return (QMetaObject*)self->QLogValueAxis::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLogValueAxis_OnMetaObject(const QLogValueAxis* self, intptr_t slot) {
+    auto* vqlogvalueaxis = const_cast<VirtualQLogValueAxis*>(dynamic_cast<const VirtualQLogValueAxis*>(self));
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        vqlogvalueaxis->setQLogValueAxis_MetaObject_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QLogValueAxis_QBaseMetacast(QLogValueAxis* self, const char* param1) {
+    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        vqlogvalueaxis->setQLogValueAxis_Metacast_IsBase(true);
+        return vqlogvalueaxis->qt_metacast(param1);
+    } else {
+        return self->QLogValueAxis::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLogValueAxis_OnMetacast(QLogValueAxis* self, intptr_t slot) {
+    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
+    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
+        vqlogvalueaxis->setQLogValueAxis_Metacast_Callback(reinterpret_cast<VirtualQLogValueAxis::QLogValueAxis_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

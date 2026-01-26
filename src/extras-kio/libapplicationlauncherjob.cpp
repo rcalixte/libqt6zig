@@ -7,6 +7,7 @@
 #include <QEvent>
 #include <QList>
 #include <QMetaMethod>
+#include <QMetaObject>
 #include <QObject>
 #include <QString>
 #include <QByteArray>
@@ -107,6 +108,64 @@ void KIO__ApplicationLauncherJob_OnStart(KIO__ApplicationLauncherJob* self, intp
     auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Start_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_Start_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+QMetaObject* KIO__ApplicationLauncherJob_MetaObject(const KIO__ApplicationLauncherJob* self) {
+    auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+        return (QMetaObject*)vkioapplicationlauncherjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::ApplicationLauncherJob::metaObject();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KIO__ApplicationLauncherJob_QBaseMetaObject(const KIO__ApplicationLauncherJob* self) {
+    auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+        vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_MetaObject_IsBase(true);
+        return (QMetaObject*)vkioapplicationlauncherjob->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::ApplicationLauncherJob::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__ApplicationLauncherJob_OnMetaObject(const KIO__ApplicationLauncherJob* self, intptr_t slot) {
+    auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+        vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_MetaObject_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void* KIO__ApplicationLauncherJob_Metacast(KIO__ApplicationLauncherJob* self, const char* param1) {
+    auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+        return vkioapplicationlauncherjob->qt_metacast(param1);
+    } else {
+        return self->KIO::ApplicationLauncherJob::qt_metacast(param1);
+    }
+}
+
+// Base class handler implementation
+void* KIO__ApplicationLauncherJob_QBaseMetacast(KIO__ApplicationLauncherJob* self, const char* param1) {
+    auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+        vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Metacast_IsBase(true);
+        return vkioapplicationlauncherjob->qt_metacast(param1);
+    } else {
+        return self->KIO::ApplicationLauncherJob::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__ApplicationLauncherJob_OnMetacast(KIO__ApplicationLauncherJob* self, intptr_t slot) {
+    auto* vkioapplicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
+    if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
+        vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKIOApplicationLauncherJob::KIO__ApplicationLauncherJob_Metacast_Callback>(slot));
     }
 }
 

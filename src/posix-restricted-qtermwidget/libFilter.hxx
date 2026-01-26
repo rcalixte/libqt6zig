@@ -18,6 +18,8 @@ class VirtualKonsoleFilter : public Konsole::Filter {
 
     // Virtual class public types (including callbacks)
     using Konsole__Filter_Process_Callback = void (*)();
+    using Konsole__Filter_MetaObject_Callback = QMetaObject* (*)();
+    using Konsole__Filter_Metacast_Callback = void* (*)(Konsole__Filter*, const char*);
     using Konsole__Filter_Metacall_Callback = int (*)(Konsole__Filter*, int, int, void**);
     using Konsole__Filter_Event_Callback = bool (*)(Konsole__Filter*, QEvent*);
     using Konsole__Filter_EventFilter_Callback = bool (*)(Konsole__Filter*, QObject*, QEvent*);
@@ -37,6 +39,8 @@ class VirtualKonsoleFilter : public Konsole::Filter {
   protected:
     // Instance callback storage
     Konsole__Filter_Process_Callback konsole__filter_process_callback = nullptr;
+    Konsole__Filter_MetaObject_Callback konsole__filter_metaobject_callback = nullptr;
+    Konsole__Filter_Metacast_Callback konsole__filter_metacast_callback = nullptr;
     Konsole__Filter_Metacall_Callback konsole__filter_metacall_callback = nullptr;
     Konsole__Filter_Event_Callback konsole__filter_event_callback = nullptr;
     Konsole__Filter_EventFilter_Callback konsole__filter_eventfilter_callback = nullptr;
@@ -55,6 +59,8 @@ class VirtualKonsoleFilter : public Konsole::Filter {
 
     // Instance base flags
     mutable bool konsole__filter_process_isbase = false;
+    mutable bool konsole__filter_metaobject_isbase = false;
+    mutable bool konsole__filter_metacast_isbase = false;
     mutable bool konsole__filter_metacall_isbase = false;
     mutable bool konsole__filter_event_isbase = false;
     mutable bool konsole__filter_eventfilter_isbase = false;
@@ -76,6 +82,8 @@ class VirtualKonsoleFilter : public Konsole::Filter {
 
     ~VirtualKonsoleFilter() {
         konsole__filter_process_callback = nullptr;
+        konsole__filter_metaobject_callback = nullptr;
+        konsole__filter_metacast_callback = nullptr;
         konsole__filter_metacall_callback = nullptr;
         konsole__filter_event_callback = nullptr;
         konsole__filter_eventfilter_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualKonsoleFilter : public Konsole::Filter {
 
     // Callback setters
     inline void setKonsole__Filter_Process_Callback(Konsole__Filter_Process_Callback cb) { konsole__filter_process_callback = cb; }
+    inline void setKonsole__Filter_MetaObject_Callback(Konsole__Filter_MetaObject_Callback cb) { konsole__filter_metaobject_callback = cb; }
+    inline void setKonsole__Filter_Metacast_Callback(Konsole__Filter_Metacast_Callback cb) { konsole__filter_metacast_callback = cb; }
     inline void setKonsole__Filter_Metacall_Callback(Konsole__Filter_Metacall_Callback cb) { konsole__filter_metacall_callback = cb; }
     inline void setKonsole__Filter_Event_Callback(Konsole__Filter_Event_Callback cb) { konsole__filter_event_callback = cb; }
     inline void setKonsole__Filter_EventFilter_Callback(Konsole__Filter_EventFilter_Callback cb) { konsole__filter_eventfilter_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualKonsoleFilter : public Konsole::Filter {
 
     // Base flag setters
     inline void setKonsole__Filter_Process_IsBase(bool value) const { konsole__filter_process_isbase = value; }
+    inline void setKonsole__Filter_MetaObject_IsBase(bool value) const { konsole__filter_metaobject_isbase = value; }
+    inline void setKonsole__Filter_Metacast_IsBase(bool value) const { konsole__filter_metacast_isbase = value; }
     inline void setKonsole__Filter_Metacall_IsBase(bool value) const { konsole__filter_metacall_isbase = value; }
     inline void setKonsole__Filter_Event_IsBase(bool value) const { konsole__filter_event_isbase = value; }
     inline void setKonsole__Filter_EventFilter_IsBase(bool value) const { konsole__filter_eventfilter_isbase = value; }
@@ -133,6 +145,34 @@ class VirtualKonsoleFilter : public Konsole::Filter {
     virtual void process() override {
         if (konsole__filter_process_callback != nullptr) {
             konsole__filter_process_callback();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (konsole__filter_metaobject_isbase) {
+            konsole__filter_metaobject_isbase = false;
+            return Konsole__Filter::metaObject();
+        } else if (konsole__filter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = konsole__filter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Konsole__Filter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (konsole__filter_metacast_isbase) {
+            konsole__filter_metacast_isbase = false;
+            return Konsole__Filter::qt_metacast(param1);
+        } else if (konsole__filter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = konsole__filter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Konsole__Filter::qt_metacast(param1);
         }
     }
 
@@ -397,6 +437,8 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
     // Virtual class public types (including callbacks)
     using Konsole__RegExpFilter_Process_Callback = void (*)();
     using Konsole__RegExpFilter_NewHotSpot_Callback = Konsole__RegExpFilter__HotSpot* (*)(Konsole__RegExpFilter*, int, int, int, int);
+    using Konsole__RegExpFilter_MetaObject_Callback = QMetaObject* (*)();
+    using Konsole__RegExpFilter_Metacast_Callback = void* (*)(Konsole__RegExpFilter*, const char*);
     using Konsole__RegExpFilter_Metacall_Callback = int (*)(Konsole__RegExpFilter*, int, int, void**);
     using Konsole__RegExpFilter_Event_Callback = bool (*)(Konsole__RegExpFilter*, QEvent*);
     using Konsole__RegExpFilter_EventFilter_Callback = bool (*)(Konsole__RegExpFilter*, QObject*, QEvent*);
@@ -417,6 +459,8 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
     // Instance callback storage
     Konsole__RegExpFilter_Process_Callback konsole__regexpfilter_process_callback = nullptr;
     Konsole__RegExpFilter_NewHotSpot_Callback konsole__regexpfilter_newhotspot_callback = nullptr;
+    Konsole__RegExpFilter_MetaObject_Callback konsole__regexpfilter_metaobject_callback = nullptr;
+    Konsole__RegExpFilter_Metacast_Callback konsole__regexpfilter_metacast_callback = nullptr;
     Konsole__RegExpFilter_Metacall_Callback konsole__regexpfilter_metacall_callback = nullptr;
     Konsole__RegExpFilter_Event_Callback konsole__regexpfilter_event_callback = nullptr;
     Konsole__RegExpFilter_EventFilter_Callback konsole__regexpfilter_eventfilter_callback = nullptr;
@@ -436,6 +480,8 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
     // Instance base flags
     mutable bool konsole__regexpfilter_process_isbase = false;
     mutable bool konsole__regexpfilter_newhotspot_isbase = false;
+    mutable bool konsole__regexpfilter_metaobject_isbase = false;
+    mutable bool konsole__regexpfilter_metacast_isbase = false;
     mutable bool konsole__regexpfilter_metacall_isbase = false;
     mutable bool konsole__regexpfilter_event_isbase = false;
     mutable bool konsole__regexpfilter_eventfilter_isbase = false;
@@ -458,6 +504,8 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
     ~VirtualKonsoleRegExpFilter() {
         konsole__regexpfilter_process_callback = nullptr;
         konsole__regexpfilter_newhotspot_callback = nullptr;
+        konsole__regexpfilter_metaobject_callback = nullptr;
+        konsole__regexpfilter_metacast_callback = nullptr;
         konsole__regexpfilter_metacall_callback = nullptr;
         konsole__regexpfilter_event_callback = nullptr;
         konsole__regexpfilter_eventfilter_callback = nullptr;
@@ -478,6 +526,8 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
     // Callback setters
     inline void setKonsole__RegExpFilter_Process_Callback(Konsole__RegExpFilter_Process_Callback cb) { konsole__regexpfilter_process_callback = cb; }
     inline void setKonsole__RegExpFilter_NewHotSpot_Callback(Konsole__RegExpFilter_NewHotSpot_Callback cb) { konsole__regexpfilter_newhotspot_callback = cb; }
+    inline void setKonsole__RegExpFilter_MetaObject_Callback(Konsole__RegExpFilter_MetaObject_Callback cb) { konsole__regexpfilter_metaobject_callback = cb; }
+    inline void setKonsole__RegExpFilter_Metacast_Callback(Konsole__RegExpFilter_Metacast_Callback cb) { konsole__regexpfilter_metacast_callback = cb; }
     inline void setKonsole__RegExpFilter_Metacall_Callback(Konsole__RegExpFilter_Metacall_Callback cb) { konsole__regexpfilter_metacall_callback = cb; }
     inline void setKonsole__RegExpFilter_Event_Callback(Konsole__RegExpFilter_Event_Callback cb) { konsole__regexpfilter_event_callback = cb; }
     inline void setKonsole__RegExpFilter_EventFilter_Callback(Konsole__RegExpFilter_EventFilter_Callback cb) { konsole__regexpfilter_eventfilter_callback = cb; }
@@ -497,6 +547,8 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
     // Base flag setters
     inline void setKonsole__RegExpFilter_Process_IsBase(bool value) const { konsole__regexpfilter_process_isbase = value; }
     inline void setKonsole__RegExpFilter_NewHotSpot_IsBase(bool value) const { konsole__regexpfilter_newhotspot_isbase = value; }
+    inline void setKonsole__RegExpFilter_MetaObject_IsBase(bool value) const { konsole__regexpfilter_metaobject_isbase = value; }
+    inline void setKonsole__RegExpFilter_Metacast_IsBase(bool value) const { konsole__regexpfilter_metacast_isbase = value; }
     inline void setKonsole__RegExpFilter_Metacall_IsBase(bool value) const { konsole__regexpfilter_metacall_isbase = value; }
     inline void setKonsole__RegExpFilter_Event_IsBase(bool value) const { konsole__regexpfilter_event_isbase = value; }
     inline void setKonsole__RegExpFilter_EventFilter_IsBase(bool value) const { konsole__regexpfilter_eventfilter_isbase = value; }
@@ -540,6 +592,34 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
             return callback_ret;
         } else {
             return Konsole__RegExpFilter::newHotSpot(startLine, startColumn, endLine, endColumn);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (konsole__regexpfilter_metaobject_isbase) {
+            konsole__regexpfilter_metaobject_isbase = false;
+            return Konsole__RegExpFilter::metaObject();
+        } else if (konsole__regexpfilter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = konsole__regexpfilter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Konsole__RegExpFilter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (konsole__regexpfilter_metacast_isbase) {
+            konsole__regexpfilter_metacast_isbase = false;
+            return Konsole__RegExpFilter::qt_metacast(param1);
+        } else if (konsole__regexpfilter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = konsole__regexpfilter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Konsole__RegExpFilter::qt_metacast(param1);
         }
     }
 
@@ -804,6 +884,8 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
     bool isVirtualKonsoleUrlFilter = true;
 
     // Virtual class public types (including callbacks)
+    using Konsole__UrlFilter_MetaObject_Callback = QMetaObject* (*)();
+    using Konsole__UrlFilter_Metacast_Callback = void* (*)(Konsole__UrlFilter*, const char*);
     using Konsole__UrlFilter_Metacall_Callback = int (*)(Konsole__UrlFilter*, int, int, void**);
     using Konsole__UrlFilter_NewHotSpot_Callback = Konsole__RegExpFilter__HotSpot* (*)(Konsole__UrlFilter*, int, int, int, int);
     using Konsole__UrlFilter_Process_Callback = void (*)();
@@ -824,6 +906,8 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
 
   protected:
     // Instance callback storage
+    Konsole__UrlFilter_MetaObject_Callback konsole__urlfilter_metaobject_callback = nullptr;
+    Konsole__UrlFilter_Metacast_Callback konsole__urlfilter_metacast_callback = nullptr;
     Konsole__UrlFilter_Metacall_Callback konsole__urlfilter_metacall_callback = nullptr;
     Konsole__UrlFilter_NewHotSpot_Callback konsole__urlfilter_newhotspot_callback = nullptr;
     Konsole__UrlFilter_Process_Callback konsole__urlfilter_process_callback = nullptr;
@@ -843,6 +927,8 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
     Konsole__UrlFilter_IsSignalConnected_Callback konsole__urlfilter_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool konsole__urlfilter_metaobject_isbase = false;
+    mutable bool konsole__urlfilter_metacast_isbase = false;
     mutable bool konsole__urlfilter_metacall_isbase = false;
     mutable bool konsole__urlfilter_newhotspot_isbase = false;
     mutable bool konsole__urlfilter_process_isbase = false;
@@ -865,6 +951,8 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
     VirtualKonsoleUrlFilter() : Konsole::UrlFilter() {};
 
     ~VirtualKonsoleUrlFilter() {
+        konsole__urlfilter_metaobject_callback = nullptr;
+        konsole__urlfilter_metacast_callback = nullptr;
         konsole__urlfilter_metacall_callback = nullptr;
         konsole__urlfilter_newhotspot_callback = nullptr;
         konsole__urlfilter_process_callback = nullptr;
@@ -885,6 +973,8 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
     }
 
     // Callback setters
+    inline void setKonsole__UrlFilter_MetaObject_Callback(Konsole__UrlFilter_MetaObject_Callback cb) { konsole__urlfilter_metaobject_callback = cb; }
+    inline void setKonsole__UrlFilter_Metacast_Callback(Konsole__UrlFilter_Metacast_Callback cb) { konsole__urlfilter_metacast_callback = cb; }
     inline void setKonsole__UrlFilter_Metacall_Callback(Konsole__UrlFilter_Metacall_Callback cb) { konsole__urlfilter_metacall_callback = cb; }
     inline void setKonsole__UrlFilter_NewHotSpot_Callback(Konsole__UrlFilter_NewHotSpot_Callback cb) { konsole__urlfilter_newhotspot_callback = cb; }
     inline void setKonsole__UrlFilter_Process_Callback(Konsole__UrlFilter_Process_Callback cb) { konsole__urlfilter_process_callback = cb; }
@@ -904,6 +994,8 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
     inline void setKonsole__UrlFilter_IsSignalConnected_Callback(Konsole__UrlFilter_IsSignalConnected_Callback cb) { konsole__urlfilter_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKonsole__UrlFilter_MetaObject_IsBase(bool value) const { konsole__urlfilter_metaobject_isbase = value; }
+    inline void setKonsole__UrlFilter_Metacast_IsBase(bool value) const { konsole__urlfilter_metacast_isbase = value; }
     inline void setKonsole__UrlFilter_Metacall_IsBase(bool value) const { konsole__urlfilter_metacall_isbase = value; }
     inline void setKonsole__UrlFilter_NewHotSpot_IsBase(bool value) const { konsole__urlfilter_newhotspot_isbase = value; }
     inline void setKonsole__UrlFilter_Process_IsBase(bool value) const { konsole__urlfilter_process_isbase = value; }
@@ -921,6 +1013,34 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
     inline void setKonsole__UrlFilter_SenderSignalIndex_IsBase(bool value) const { konsole__urlfilter_sendersignalindex_isbase = value; }
     inline void setKonsole__UrlFilter_Receivers_IsBase(bool value) const { konsole__urlfilter_receivers_isbase = value; }
     inline void setKonsole__UrlFilter_IsSignalConnected_IsBase(bool value) const { konsole__urlfilter_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (konsole__urlfilter_metaobject_isbase) {
+            konsole__urlfilter_metaobject_isbase = false;
+            return Konsole__UrlFilter::metaObject();
+        } else if (konsole__urlfilter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = konsole__urlfilter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Konsole__UrlFilter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (konsole__urlfilter_metacast_isbase) {
+            konsole__urlfilter_metacast_isbase = false;
+            return Konsole__UrlFilter::qt_metacast(param1);
+        } else if (konsole__urlfilter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = konsole__urlfilter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Konsole__UrlFilter::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1213,6 +1333,8 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
     bool isVirtualKonsoleFilterObject = true;
 
     // Virtual class public types (including callbacks)
+    using Konsole__FilterObject_MetaObject_Callback = QMetaObject* (*)();
+    using Konsole__FilterObject_Metacast_Callback = void* (*)(Konsole__FilterObject*, const char*);
     using Konsole__FilterObject_Metacall_Callback = int (*)(Konsole__FilterObject*, int, int, void**);
     using Konsole__FilterObject_Event_Callback = bool (*)(Konsole__FilterObject*, QEvent*);
     using Konsole__FilterObject_EventFilter_Callback = bool (*)(Konsole__FilterObject*, QObject*, QEvent*);
@@ -1228,6 +1350,8 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
 
   protected:
     // Instance callback storage
+    Konsole__FilterObject_MetaObject_Callback konsole__filterobject_metaobject_callback = nullptr;
+    Konsole__FilterObject_Metacast_Callback konsole__filterobject_metacast_callback = nullptr;
     Konsole__FilterObject_Metacall_Callback konsole__filterobject_metacall_callback = nullptr;
     Konsole__FilterObject_Event_Callback konsole__filterobject_event_callback = nullptr;
     Konsole__FilterObject_EventFilter_Callback konsole__filterobject_eventfilter_callback = nullptr;
@@ -1242,6 +1366,8 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
     Konsole__FilterObject_IsSignalConnected_Callback konsole__filterobject_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool konsole__filterobject_metaobject_isbase = false;
+    mutable bool konsole__filterobject_metacast_isbase = false;
     mutable bool konsole__filterobject_metacall_isbase = false;
     mutable bool konsole__filterobject_event_isbase = false;
     mutable bool konsole__filterobject_eventfilter_isbase = false;
@@ -1259,6 +1385,8 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
     VirtualKonsoleFilterObject(Konsole::Filter::HotSpot* filter) : Konsole::FilterObject(filter) {};
 
     ~VirtualKonsoleFilterObject() {
+        konsole__filterobject_metaobject_callback = nullptr;
+        konsole__filterobject_metacast_callback = nullptr;
         konsole__filterobject_metacall_callback = nullptr;
         konsole__filterobject_event_callback = nullptr;
         konsole__filterobject_eventfilter_callback = nullptr;
@@ -1274,6 +1402,8 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
     }
 
     // Callback setters
+    inline void setKonsole__FilterObject_MetaObject_Callback(Konsole__FilterObject_MetaObject_Callback cb) { konsole__filterobject_metaobject_callback = cb; }
+    inline void setKonsole__FilterObject_Metacast_Callback(Konsole__FilterObject_Metacast_Callback cb) { konsole__filterobject_metacast_callback = cb; }
     inline void setKonsole__FilterObject_Metacall_Callback(Konsole__FilterObject_Metacall_Callback cb) { konsole__filterobject_metacall_callback = cb; }
     inline void setKonsole__FilterObject_Event_Callback(Konsole__FilterObject_Event_Callback cb) { konsole__filterobject_event_callback = cb; }
     inline void setKonsole__FilterObject_EventFilter_Callback(Konsole__FilterObject_EventFilter_Callback cb) { konsole__filterobject_eventfilter_callback = cb; }
@@ -1288,6 +1418,8 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
     inline void setKonsole__FilterObject_IsSignalConnected_Callback(Konsole__FilterObject_IsSignalConnected_Callback cb) { konsole__filterobject_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKonsole__FilterObject_MetaObject_IsBase(bool value) const { konsole__filterobject_metaobject_isbase = value; }
+    inline void setKonsole__FilterObject_Metacast_IsBase(bool value) const { konsole__filterobject_metacast_isbase = value; }
     inline void setKonsole__FilterObject_Metacall_IsBase(bool value) const { konsole__filterobject_metacall_isbase = value; }
     inline void setKonsole__FilterObject_Event_IsBase(bool value) const { konsole__filterobject_event_isbase = value; }
     inline void setKonsole__FilterObject_EventFilter_IsBase(bool value) const { konsole__filterobject_eventfilter_isbase = value; }
@@ -1300,6 +1432,34 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
     inline void setKonsole__FilterObject_SenderSignalIndex_IsBase(bool value) const { konsole__filterobject_sendersignalindex_isbase = value; }
     inline void setKonsole__FilterObject_Receivers_IsBase(bool value) const { konsole__filterobject_receivers_isbase = value; }
     inline void setKonsole__FilterObject_IsSignalConnected_IsBase(bool value) const { konsole__filterobject_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (konsole__filterobject_metaobject_isbase) {
+            konsole__filterobject_metaobject_isbase = false;
+            return Konsole__FilterObject::metaObject();
+        } else if (konsole__filterobject_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = konsole__filterobject_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Konsole__FilterObject::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (konsole__filterobject_metacast_isbase) {
+            konsole__filterobject_metacast_isbase = false;
+            return Konsole__FilterObject::qt_metacast(param1);
+        } else if (konsole__filterobject_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = konsole__filterobject_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Konsole__FilterObject::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

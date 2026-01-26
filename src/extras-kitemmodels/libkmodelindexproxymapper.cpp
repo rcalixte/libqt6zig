@@ -24,11 +24,21 @@ KModelIndexProxyMapper* KModelIndexProxyMapper_new2(const QAbstractItemModel* le
 }
 
 QMetaObject* KModelIndexProxyMapper_MetaObject(const KModelIndexProxyMapper* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkmodelindexproxymapper = dynamic_cast<const VirtualKModelIndexProxyMapper*>(self);
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKModelIndexProxyMapper*)self)->metaObject();
+    }
 }
 
 void* KModelIndexProxyMapper_Metacast(KModelIndexProxyMapper* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKModelIndexProxyMapper*)self)->qt_metacast(param1);
+    }
 }
 
 int KModelIndexProxyMapper_Metacall(KModelIndexProxyMapper* self, int param1, int param2, void** param3) {
@@ -69,6 +79,44 @@ void KModelIndexProxyMapper_Connect_IsConnectedChanged(KModelIndexProxyMapper* s
     KModelIndexProxyMapper::connect(self, &KModelIndexProxyMapper::isConnectedChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KModelIndexProxyMapper_QBaseMetaObject(const KModelIndexProxyMapper* self) {
+    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+        vkmodelindexproxymapper->setKModelIndexProxyMapper_MetaObject_IsBase(true);
+        return (QMetaObject*)vkmodelindexproxymapper->metaObject();
+    } else {
+        return (QMetaObject*)self->KModelIndexProxyMapper::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KModelIndexProxyMapper_OnMetaObject(const KModelIndexProxyMapper* self, intptr_t slot) {
+    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+        vkmodelindexproxymapper->setKModelIndexProxyMapper_MetaObject_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KModelIndexProxyMapper_QBaseMetacast(KModelIndexProxyMapper* self, const char* param1) {
+    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+        vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacast_IsBase(true);
+        return vkmodelindexproxymapper->qt_metacast(param1);
+    } else {
+        return self->KModelIndexProxyMapper::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KModelIndexProxyMapper_OnMetacast(KModelIndexProxyMapper* self, intptr_t slot) {
+    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
+    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+        vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacast_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

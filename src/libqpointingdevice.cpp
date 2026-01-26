@@ -88,11 +88,21 @@ QPointingDevice* QPointingDevice_new6(const libqt_string name, long long systemI
 }
 
 QMetaObject* QPointingDevice_MetaObject(const QPointingDevice* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpointingdevice = dynamic_cast<const VirtualQPointingDevice*>(self);
+    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPointingDevice*)self)->metaObject();
+    }
 }
 
 void* QPointingDevice_Metacast(QPointingDevice* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
+    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPointingDevice*)self)->qt_metacast(param1);
+    }
 }
 
 int QPointingDevice_Metacall(QPointingDevice* self, int param1, int param2, void** param3) {
@@ -160,6 +170,44 @@ void QPointingDevice_Connect_GrabChanged(QPointingDevice* self, intptr_t slot) {
 QPointingDevice* QPointingDevice_PrimaryPointingDevice1(const libqt_string seatName) {
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
     return (QPointingDevice*)QPointingDevice::primaryPointingDevice(seatName_QString);
+}
+
+// Base class handler implementation
+QMetaObject* QPointingDevice_QBaseMetaObject(const QPointingDevice* self) {
+    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
+    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+        vqpointingdevice->setQPointingDevice_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpointingdevice->metaObject();
+    } else {
+        return (QMetaObject*)self->QPointingDevice::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPointingDevice_OnMetaObject(const QPointingDevice* self, intptr_t slot) {
+    auto* vqpointingdevice = const_cast<VirtualQPointingDevice*>(dynamic_cast<const VirtualQPointingDevice*>(self));
+    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+        vqpointingdevice->setQPointingDevice_MetaObject_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPointingDevice_QBaseMetacast(QPointingDevice* self, const char* param1) {
+    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
+    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+        vqpointingdevice->setQPointingDevice_Metacast_IsBase(true);
+        return vqpointingdevice->qt_metacast(param1);
+    } else {
+        return self->QPointingDevice::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPointingDevice_OnMetacast(QPointingDevice* self, intptr_t slot) {
+    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
+    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
+        vqpointingdevice->setQPointingDevice_Metacast_Callback(reinterpret_cast<VirtualQPointingDevice::QPointingDevice_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

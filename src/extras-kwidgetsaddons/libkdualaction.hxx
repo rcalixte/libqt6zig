@@ -17,6 +17,8 @@ class VirtualKDualAction final : public KDualAction {
     bool isVirtualKDualAction = true;
 
     // Virtual class public types (including callbacks)
+    using KDualAction_MetaObject_Callback = QMetaObject* (*)();
+    using KDualAction_Metacast_Callback = void* (*)(KDualAction*, const char*);
     using KDualAction_Metacall_Callback = int (*)(KDualAction*, int, int, void**);
     using KDualAction_Event_Callback = bool (*)(KDualAction*, QEvent*);
     using KDualAction_EventFilter_Callback = bool (*)(KDualAction*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKDualAction final : public KDualAction {
 
   protected:
     // Instance callback storage
+    KDualAction_MetaObject_Callback kdualaction_metaobject_callback = nullptr;
+    KDualAction_Metacast_Callback kdualaction_metacast_callback = nullptr;
     KDualAction_Metacall_Callback kdualaction_metacall_callback = nullptr;
     KDualAction_Event_Callback kdualaction_event_callback = nullptr;
     KDualAction_EventFilter_Callback kdualaction_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKDualAction final : public KDualAction {
     KDualAction_IsSignalConnected_Callback kdualaction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdualaction_metaobject_isbase = false;
+    mutable bool kdualaction_metacast_isbase = false;
     mutable bool kdualaction_metacall_isbase = false;
     mutable bool kdualaction_event_isbase = false;
     mutable bool kdualaction_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKDualAction final : public KDualAction {
     VirtualKDualAction(const QString& inactiveText, const QString& activeText, QObject* parent) : KDualAction(inactiveText, activeText, parent) {};
 
     ~VirtualKDualAction() {
+        kdualaction_metaobject_callback = nullptr;
+        kdualaction_metacast_callback = nullptr;
         kdualaction_metacall_callback = nullptr;
         kdualaction_event_callback = nullptr;
         kdualaction_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKDualAction final : public KDualAction {
     }
 
     // Callback setters
+    inline void setKDualAction_MetaObject_Callback(KDualAction_MetaObject_Callback cb) { kdualaction_metaobject_callback = cb; }
+    inline void setKDualAction_Metacast_Callback(KDualAction_Metacast_Callback cb) { kdualaction_metacast_callback = cb; }
     inline void setKDualAction_Metacall_Callback(KDualAction_Metacall_Callback cb) { kdualaction_metacall_callback = cb; }
     inline void setKDualAction_Event_Callback(KDualAction_Event_Callback cb) { kdualaction_event_callback = cb; }
     inline void setKDualAction_EventFilter_Callback(KDualAction_EventFilter_Callback cb) { kdualaction_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKDualAction final : public KDualAction {
     inline void setKDualAction_IsSignalConnected_Callback(KDualAction_IsSignalConnected_Callback cb) { kdualaction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKDualAction_MetaObject_IsBase(bool value) const { kdualaction_metaobject_isbase = value; }
+    inline void setKDualAction_Metacast_IsBase(bool value) const { kdualaction_metacast_isbase = value; }
     inline void setKDualAction_Metacall_IsBase(bool value) const { kdualaction_metacall_isbase = value; }
     inline void setKDualAction_Event_IsBase(bool value) const { kdualaction_event_isbase = value; }
     inline void setKDualAction_EventFilter_IsBase(bool value) const { kdualaction_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKDualAction final : public KDualAction {
     inline void setKDualAction_SenderSignalIndex_IsBase(bool value) const { kdualaction_sendersignalindex_isbase = value; }
     inline void setKDualAction_Receivers_IsBase(bool value) const { kdualaction_receivers_isbase = value; }
     inline void setKDualAction_IsSignalConnected_IsBase(bool value) const { kdualaction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdualaction_metaobject_isbase) {
+            kdualaction_metaobject_isbase = false;
+            return KDualAction::metaObject();
+        } else if (kdualaction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdualaction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDualAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdualaction_metacast_isbase) {
+            kdualaction_metacast_isbase = false;
+            return KDualAction::qt_metacast(param1);
+        } else if (kdualaction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdualaction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDualAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

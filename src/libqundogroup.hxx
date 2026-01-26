@@ -17,6 +17,8 @@ class VirtualQUndoGroup final : public QUndoGroup {
     bool isVirtualQUndoGroup = true;
 
     // Virtual class public types (including callbacks)
+    using QUndoGroup_MetaObject_Callback = QMetaObject* (*)();
+    using QUndoGroup_Metacast_Callback = void* (*)(QUndoGroup*, const char*);
     using QUndoGroup_Metacall_Callback = int (*)(QUndoGroup*, int, int, void**);
     using QUndoGroup_Event_Callback = bool (*)(QUndoGroup*, QEvent*);
     using QUndoGroup_EventFilter_Callback = bool (*)(QUndoGroup*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQUndoGroup final : public QUndoGroup {
 
   protected:
     // Instance callback storage
+    QUndoGroup_MetaObject_Callback qundogroup_metaobject_callback = nullptr;
+    QUndoGroup_Metacast_Callback qundogroup_metacast_callback = nullptr;
     QUndoGroup_Metacall_Callback qundogroup_metacall_callback = nullptr;
     QUndoGroup_Event_Callback qundogroup_event_callback = nullptr;
     QUndoGroup_EventFilter_Callback qundogroup_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQUndoGroup final : public QUndoGroup {
     QUndoGroup_IsSignalConnected_Callback qundogroup_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qundogroup_metaobject_isbase = false;
+    mutable bool qundogroup_metacast_isbase = false;
     mutable bool qundogroup_metacall_isbase = false;
     mutable bool qundogroup_event_isbase = false;
     mutable bool qundogroup_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQUndoGroup final : public QUndoGroup {
     VirtualQUndoGroup(QObject* parent) : QUndoGroup(parent) {};
 
     ~VirtualQUndoGroup() {
+        qundogroup_metaobject_callback = nullptr;
+        qundogroup_metacast_callback = nullptr;
         qundogroup_metacall_callback = nullptr;
         qundogroup_event_callback = nullptr;
         qundogroup_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQUndoGroup final : public QUndoGroup {
     }
 
     // Callback setters
+    inline void setQUndoGroup_MetaObject_Callback(QUndoGroup_MetaObject_Callback cb) { qundogroup_metaobject_callback = cb; }
+    inline void setQUndoGroup_Metacast_Callback(QUndoGroup_Metacast_Callback cb) { qundogroup_metacast_callback = cb; }
     inline void setQUndoGroup_Metacall_Callback(QUndoGroup_Metacall_Callback cb) { qundogroup_metacall_callback = cb; }
     inline void setQUndoGroup_Event_Callback(QUndoGroup_Event_Callback cb) { qundogroup_event_callback = cb; }
     inline void setQUndoGroup_EventFilter_Callback(QUndoGroup_EventFilter_Callback cb) { qundogroup_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQUndoGroup final : public QUndoGroup {
     inline void setQUndoGroup_IsSignalConnected_Callback(QUndoGroup_IsSignalConnected_Callback cb) { qundogroup_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQUndoGroup_MetaObject_IsBase(bool value) const { qundogroup_metaobject_isbase = value; }
+    inline void setQUndoGroup_Metacast_IsBase(bool value) const { qundogroup_metacast_isbase = value; }
     inline void setQUndoGroup_Metacall_IsBase(bool value) const { qundogroup_metacall_isbase = value; }
     inline void setQUndoGroup_Event_IsBase(bool value) const { qundogroup_event_isbase = value; }
     inline void setQUndoGroup_EventFilter_IsBase(bool value) const { qundogroup_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQUndoGroup final : public QUndoGroup {
     inline void setQUndoGroup_SenderSignalIndex_IsBase(bool value) const { qundogroup_sendersignalindex_isbase = value; }
     inline void setQUndoGroup_Receivers_IsBase(bool value) const { qundogroup_receivers_isbase = value; }
     inline void setQUndoGroup_IsSignalConnected_IsBase(bool value) const { qundogroup_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qundogroup_metaobject_isbase) {
+            qundogroup_metaobject_isbase = false;
+            return QUndoGroup::metaObject();
+        } else if (qundogroup_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qundogroup_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QUndoGroup::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qundogroup_metacast_isbase) {
+            qundogroup_metacast_isbase = false;
+            return QUndoGroup::qt_metacast(param1);
+        } else if (qundogroup_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qundogroup_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QUndoGroup::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -106,6 +106,10 @@ bool KPropertiesDialog_ShowDialog24(const KFileItemList* _items, QWidget* parent
 bool KPropertiesDialog_ShowDialog34(const KFileItemList* _items, QWidget* parent, bool modal);
 bool KPropertiesDialog_ShowDialog25(const libqt_list /* of QUrl* */ urls, QWidget* parent);
 bool KPropertiesDialog_ShowDialog35(const libqt_list /* of QUrl* */ urls, QWidget* parent, bool modal);
+void KPropertiesDialog_OnMetaObject(const KPropertiesDialog* self, intptr_t slot);
+QMetaObject* KPropertiesDialog_QBaseMetaObject(const KPropertiesDialog* self);
+void KPropertiesDialog_OnMetacast(KPropertiesDialog* self, intptr_t slot);
+void* KPropertiesDialog_QBaseMetacast(KPropertiesDialog* self, const char* param1);
 void KPropertiesDialog_OnMetacall(KPropertiesDialog* self, intptr_t slot);
 int KPropertiesDialog_QBaseMetacall(KPropertiesDialog* self, int param1, int param2, void** param3);
 void KPropertiesDialog_OnAccept(KPropertiesDialog* self, intptr_t slot);

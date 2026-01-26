@@ -23,11 +23,21 @@ QGeoAreaMonitorSource* QGeoAreaMonitorSource_new(QObject* parent) {
 }
 
 QMetaObject* QGeoAreaMonitorSource_MetaObject(const QGeoAreaMonitorSource* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgeoareamonitorsource = dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self);
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGeoAreaMonitorSource*)self)->metaObject();
+    }
 }
 
 void* QGeoAreaMonitorSource_Metacast(QGeoAreaMonitorSource* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGeoAreaMonitorSource*)self)->qt_metacast(param1);
+    }
 }
 
 int QGeoAreaMonitorSource_Metacall(QGeoAreaMonitorSource* self, int param1, int param2, void** param3) {
@@ -276,6 +286,44 @@ void QGeoAreaMonitorSource_Connect_ErrorOccurred(QGeoAreaMonitorSource* self, in
         int sigval1 = static_cast<int>(errorVal);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGeoAreaMonitorSource_QBaseMetaObject(const QGeoAreaMonitorSource* self) {
+    auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+        vqgeoareamonitorsource->setQGeoAreaMonitorSource_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgeoareamonitorsource->metaObject();
+    } else {
+        return (QMetaObject*)self->QGeoAreaMonitorSource::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoAreaMonitorSource_OnMetaObject(const QGeoAreaMonitorSource* self, intptr_t slot) {
+    auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+        vqgeoareamonitorsource->setQGeoAreaMonitorSource_MetaObject_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGeoAreaMonitorSource_QBaseMetacast(QGeoAreaMonitorSource* self, const char* param1) {
+    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+        vqgeoareamonitorsource->setQGeoAreaMonitorSource_Metacast_IsBase(true);
+        return vqgeoareamonitorsource->qt_metacast(param1);
+    } else {
+        return self->QGeoAreaMonitorSource::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoAreaMonitorSource_OnMetacast(QGeoAreaMonitorSource* self, intptr_t slot) {
+    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+        vqgeoareamonitorsource->setQGeoAreaMonitorSource_Metacast_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -31,11 +31,21 @@ QCommonStyle* QCommonStyle_new() {
 }
 
 QMetaObject* QCommonStyle_MetaObject(const QCommonStyle* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCommonStyle*)self)->metaObject();
+    }
 }
 
 void* QCommonStyle_Metacast(QCommonStyle* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCommonStyle*)self)->qt_metacast(param1);
+    }
 }
 
 int QCommonStyle_Metacall(QCommonStyle* self, int param1, int param2, void** param3) {
@@ -206,6 +216,44 @@ void QCommonStyle_Unpolish2(QCommonStyle* self, QApplication* application) {
         self->unpolish(application);
     } else {
         ((VirtualQCommonStyle*)self)->unpolish(application);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCommonStyle_QBaseMetaObject(const QCommonStyle* self) {
+    auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+        vqcommonstyle->setQCommonStyle_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcommonstyle->metaObject();
+    } else {
+        return (QMetaObject*)self->QCommonStyle::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCommonStyle_OnMetaObject(const QCommonStyle* self, intptr_t slot) {
+    auto* vqcommonstyle = const_cast<VirtualQCommonStyle*>(dynamic_cast<const VirtualQCommonStyle*>(self));
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+        vqcommonstyle->setQCommonStyle_MetaObject_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCommonStyle_QBaseMetacast(QCommonStyle* self, const char* param1) {
+    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+        vqcommonstyle->setQCommonStyle_Metacast_IsBase(true);
+        return vqcommonstyle->qt_metacast(param1);
+    } else {
+        return self->QCommonStyle::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCommonStyle_OnMetacast(QCommonStyle* self, intptr_t slot) {
+    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
+    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
+        vqcommonstyle->setQCommonStyle_Metacast_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Metacast_Callback>(slot));
     }
 }
 

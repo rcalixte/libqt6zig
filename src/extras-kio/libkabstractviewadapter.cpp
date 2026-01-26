@@ -3,6 +3,7 @@
 #include <QChildEvent>
 #include <QEvent>
 #include <QMetaMethod>
+#include <QMetaObject>
 #include <QModelIndex>
 #include <QObject>
 #include <QPalette>
@@ -182,6 +183,64 @@ void KAbstractViewAdapter_OnConnect(KAbstractViewAdapter* self, intptr_t slot) {
     auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
     if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
         vkabstractviewadapter->setKAbstractViewAdapter_Connect_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Connect_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+QMetaObject* KAbstractViewAdapter_MetaObject(const KAbstractViewAdapter* self) {
+    auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+        return (QMetaObject*)vkabstractviewadapter->metaObject();
+    } else {
+        return (QMetaObject*)self->KAbstractViewAdapter::metaObject();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KAbstractViewAdapter_QBaseMetaObject(const KAbstractViewAdapter* self) {
+    auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+        vkabstractviewadapter->setKAbstractViewAdapter_MetaObject_IsBase(true);
+        return (QMetaObject*)vkabstractviewadapter->metaObject();
+    } else {
+        return (QMetaObject*)self->KAbstractViewAdapter::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAbstractViewAdapter_OnMetaObject(const KAbstractViewAdapter* self, intptr_t slot) {
+    auto* vkabstractviewadapter = const_cast<VirtualKAbstractViewAdapter*>(dynamic_cast<const VirtualKAbstractViewAdapter*>(self));
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+        vkabstractviewadapter->setKAbstractViewAdapter_MetaObject_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_MetaObject_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void* KAbstractViewAdapter_Metacast(KAbstractViewAdapter* self, const char* param1) {
+    auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+        return vkabstractviewadapter->qt_metacast(param1);
+    } else {
+        return self->KAbstractViewAdapter::qt_metacast(param1);
+    }
+}
+
+// Base class handler implementation
+void* KAbstractViewAdapter_QBaseMetacast(KAbstractViewAdapter* self, const char* param1) {
+    auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+        vkabstractviewadapter->setKAbstractViewAdapter_Metacast_IsBase(true);
+        return vkabstractviewadapter->qt_metacast(param1);
+    } else {
+        return self->KAbstractViewAdapter::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAbstractViewAdapter_OnMetacast(KAbstractViewAdapter* self, intptr_t slot) {
+    auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
+    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
+        vkabstractviewadapter->setKAbstractViewAdapter_Metacast_Callback(reinterpret_cast<VirtualKAbstractViewAdapter::KAbstractViewAdapter_Metacast_Callback>(slot));
     }
 }
 

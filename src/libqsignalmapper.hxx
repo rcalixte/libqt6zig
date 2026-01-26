@@ -17,6 +17,8 @@ class VirtualQSignalMapper final : public QSignalMapper {
     bool isVirtualQSignalMapper = true;
 
     // Virtual class public types (including callbacks)
+    using QSignalMapper_MetaObject_Callback = QMetaObject* (*)();
+    using QSignalMapper_Metacast_Callback = void* (*)(QSignalMapper*, const char*);
     using QSignalMapper_Metacall_Callback = int (*)(QSignalMapper*, int, int, void**);
     using QSignalMapper_Event_Callback = bool (*)(QSignalMapper*, QEvent*);
     using QSignalMapper_EventFilter_Callback = bool (*)(QSignalMapper*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQSignalMapper final : public QSignalMapper {
 
   protected:
     // Instance callback storage
+    QSignalMapper_MetaObject_Callback qsignalmapper_metaobject_callback = nullptr;
+    QSignalMapper_Metacast_Callback qsignalmapper_metacast_callback = nullptr;
     QSignalMapper_Metacall_Callback qsignalmapper_metacall_callback = nullptr;
     QSignalMapper_Event_Callback qsignalmapper_event_callback = nullptr;
     QSignalMapper_EventFilter_Callback qsignalmapper_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQSignalMapper final : public QSignalMapper {
     QSignalMapper_IsSignalConnected_Callback qsignalmapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsignalmapper_metaobject_isbase = false;
+    mutable bool qsignalmapper_metacast_isbase = false;
     mutable bool qsignalmapper_metacall_isbase = false;
     mutable bool qsignalmapper_event_isbase = false;
     mutable bool qsignalmapper_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQSignalMapper final : public QSignalMapper {
     VirtualQSignalMapper(QObject* parent) : QSignalMapper(parent) {};
 
     ~VirtualQSignalMapper() {
+        qsignalmapper_metaobject_callback = nullptr;
+        qsignalmapper_metacast_callback = nullptr;
         qsignalmapper_metacall_callback = nullptr;
         qsignalmapper_event_callback = nullptr;
         qsignalmapper_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQSignalMapper final : public QSignalMapper {
     }
 
     // Callback setters
+    inline void setQSignalMapper_MetaObject_Callback(QSignalMapper_MetaObject_Callback cb) { qsignalmapper_metaobject_callback = cb; }
+    inline void setQSignalMapper_Metacast_Callback(QSignalMapper_Metacast_Callback cb) { qsignalmapper_metacast_callback = cb; }
     inline void setQSignalMapper_Metacall_Callback(QSignalMapper_Metacall_Callback cb) { qsignalmapper_metacall_callback = cb; }
     inline void setQSignalMapper_Event_Callback(QSignalMapper_Event_Callback cb) { qsignalmapper_event_callback = cb; }
     inline void setQSignalMapper_EventFilter_Callback(QSignalMapper_EventFilter_Callback cb) { qsignalmapper_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQSignalMapper final : public QSignalMapper {
     inline void setQSignalMapper_IsSignalConnected_Callback(QSignalMapper_IsSignalConnected_Callback cb) { qsignalmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSignalMapper_MetaObject_IsBase(bool value) const { qsignalmapper_metaobject_isbase = value; }
+    inline void setQSignalMapper_Metacast_IsBase(bool value) const { qsignalmapper_metacast_isbase = value; }
     inline void setQSignalMapper_Metacall_IsBase(bool value) const { qsignalmapper_metacall_isbase = value; }
     inline void setQSignalMapper_Event_IsBase(bool value) const { qsignalmapper_event_isbase = value; }
     inline void setQSignalMapper_EventFilter_IsBase(bool value) const { qsignalmapper_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQSignalMapper final : public QSignalMapper {
     inline void setQSignalMapper_SenderSignalIndex_IsBase(bool value) const { qsignalmapper_sendersignalindex_isbase = value; }
     inline void setQSignalMapper_Receivers_IsBase(bool value) const { qsignalmapper_receivers_isbase = value; }
     inline void setQSignalMapper_IsSignalConnected_IsBase(bool value) const { qsignalmapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsignalmapper_metaobject_isbase) {
+            qsignalmapper_metaobject_isbase = false;
+            return QSignalMapper::metaObject();
+        } else if (qsignalmapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsignalmapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSignalMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsignalmapper_metacast_isbase) {
+            qsignalmapper_metacast_isbase = false;
+            return QSignalMapper::qt_metacast(param1);
+        } else if (qsignalmapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsignalmapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSignalMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

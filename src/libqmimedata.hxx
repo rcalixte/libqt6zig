@@ -17,6 +17,8 @@ class VirtualQMimeData final : public QMimeData {
     bool isVirtualQMimeData = true;
 
     // Virtual class public types (including callbacks)
+    using QMimeData_MetaObject_Callback = QMetaObject* (*)();
+    using QMimeData_Metacast_Callback = void* (*)(QMimeData*, const char*);
     using QMimeData_Metacall_Callback = int (*)(QMimeData*, int, int, void**);
     using QMimeData_HasFormat_Callback = bool (*)(const QMimeData*, libqt_string);
     using QMimeData_Formats_Callback = const char** (*)();
@@ -35,6 +37,8 @@ class VirtualQMimeData final : public QMimeData {
 
   protected:
     // Instance callback storage
+    QMimeData_MetaObject_Callback qmimedata_metaobject_callback = nullptr;
+    QMimeData_Metacast_Callback qmimedata_metacast_callback = nullptr;
     QMimeData_Metacall_Callback qmimedata_metacall_callback = nullptr;
     QMimeData_HasFormat_Callback qmimedata_hasformat_callback = nullptr;
     QMimeData_Formats_Callback qmimedata_formats_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualQMimeData final : public QMimeData {
     QMimeData_IsSignalConnected_Callback qmimedata_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmimedata_metaobject_isbase = false;
+    mutable bool qmimedata_metacast_isbase = false;
     mutable bool qmimedata_metacall_isbase = false;
     mutable bool qmimedata_hasformat_isbase = false;
     mutable bool qmimedata_formats_isbase = false;
@@ -72,6 +78,8 @@ class VirtualQMimeData final : public QMimeData {
     VirtualQMimeData() : QMimeData() {};
 
     ~VirtualQMimeData() {
+        qmimedata_metaobject_callback = nullptr;
+        qmimedata_metacast_callback = nullptr;
         qmimedata_metacall_callback = nullptr;
         qmimedata_hasformat_callback = nullptr;
         qmimedata_formats_callback = nullptr;
@@ -90,6 +98,8 @@ class VirtualQMimeData final : public QMimeData {
     }
 
     // Callback setters
+    inline void setQMimeData_MetaObject_Callback(QMimeData_MetaObject_Callback cb) { qmimedata_metaobject_callback = cb; }
+    inline void setQMimeData_Metacast_Callback(QMimeData_Metacast_Callback cb) { qmimedata_metacast_callback = cb; }
     inline void setQMimeData_Metacall_Callback(QMimeData_Metacall_Callback cb) { qmimedata_metacall_callback = cb; }
     inline void setQMimeData_HasFormat_Callback(QMimeData_HasFormat_Callback cb) { qmimedata_hasformat_callback = cb; }
     inline void setQMimeData_Formats_Callback(QMimeData_Formats_Callback cb) { qmimedata_formats_callback = cb; }
@@ -107,6 +117,8 @@ class VirtualQMimeData final : public QMimeData {
     inline void setQMimeData_IsSignalConnected_Callback(QMimeData_IsSignalConnected_Callback cb) { qmimedata_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQMimeData_MetaObject_IsBase(bool value) const { qmimedata_metaobject_isbase = value; }
+    inline void setQMimeData_Metacast_IsBase(bool value) const { qmimedata_metacast_isbase = value; }
     inline void setQMimeData_Metacall_IsBase(bool value) const { qmimedata_metacall_isbase = value; }
     inline void setQMimeData_HasFormat_IsBase(bool value) const { qmimedata_hasformat_isbase = value; }
     inline void setQMimeData_Formats_IsBase(bool value) const { qmimedata_formats_isbase = value; }
@@ -122,6 +134,34 @@ class VirtualQMimeData final : public QMimeData {
     inline void setQMimeData_SenderSignalIndex_IsBase(bool value) const { qmimedata_sendersignalindex_isbase = value; }
     inline void setQMimeData_Receivers_IsBase(bool value) const { qmimedata_receivers_isbase = value; }
     inline void setQMimeData_IsSignalConnected_IsBase(bool value) const { qmimedata_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmimedata_metaobject_isbase) {
+            qmimedata_metaobject_isbase = false;
+            return QMimeData::metaObject();
+        } else if (qmimedata_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmimedata_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMimeData::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmimedata_metacast_isbase) {
+            qmimedata_metacast_isbase = false;
+            return QMimeData::qt_metacast(param1);
+        } else if (qmimedata_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmimedata_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMimeData::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

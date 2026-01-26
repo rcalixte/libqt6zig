@@ -24,11 +24,21 @@ QVBarModelMapper* QVBarModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QVBarModelMapper_MetaObject(const QVBarModelMapper* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqvbarmodelmapper = dynamic_cast<const VirtualQVBarModelMapper*>(self);
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQVBarModelMapper*)self)->metaObject();
+    }
 }
 
 void* QVBarModelMapper_Metacast(QVBarModelMapper* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQVBarModelMapper*)self)->qt_metacast(param1);
+    }
 }
 
 int QVBarModelMapper_Metacall(QVBarModelMapper* self, int param1, int param2, void** param3) {
@@ -152,6 +162,44 @@ void QVBarModelMapper_Connect_RowCountChanged(QVBarModelMapper* self, intptr_t s
     QVBarModelMapper::connect(self, &QVBarModelMapper::rowCountChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QVBarModelMapper_QBaseMetaObject(const QVBarModelMapper* self) {
+    auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+        vqvbarmodelmapper->setQVBarModelMapper_MetaObject_IsBase(true);
+        return (QMetaObject*)vqvbarmodelmapper->metaObject();
+    } else {
+        return (QMetaObject*)self->QVBarModelMapper::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVBarModelMapper_OnMetaObject(const QVBarModelMapper* self, intptr_t slot) {
+    auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+        vqvbarmodelmapper->setQVBarModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QVBarModelMapper_QBaseMetacast(QVBarModelMapper* self, const char* param1) {
+    auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+        vqvbarmodelmapper->setQVBarModelMapper_Metacast_IsBase(true);
+        return vqvbarmodelmapper->qt_metacast(param1);
+    } else {
+        return self->QVBarModelMapper::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVBarModelMapper_OnMetacast(QVBarModelMapper* self, intptr_t slot) {
+    auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+        vqvbarmodelmapper->setQVBarModelMapper_Metacast_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

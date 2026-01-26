@@ -213,6 +213,10 @@ void QWebEnginePage_SetWebChannel2(QWebEnginePage* self, QWebChannel* param1, un
 void QWebEnginePage_Save2(const QWebEnginePage* self, const libqt_string filePath, int format);
 void QWebEnginePage_PrintToPdf22(QWebEnginePage* self, const libqt_string filePath, const QPageLayout* layout);
 void QWebEnginePage_PrintToPdf3(QWebEnginePage* self, const libqt_string filePath, const QPageLayout* layout, const QPageRanges* ranges);
+void QWebEnginePage_OnMetaObject(const QWebEnginePage* self, intptr_t slot);
+QMetaObject* QWebEnginePage_QBaseMetaObject(const QWebEnginePage* self);
+void QWebEnginePage_OnMetacast(QWebEnginePage* self, intptr_t slot);
+void* QWebEnginePage_QBaseMetacast(QWebEnginePage* self, const char* param1);
 void QWebEnginePage_OnMetacall(QWebEnginePage* self, intptr_t slot);
 int QWebEnginePage_QBaseMetacall(QWebEnginePage* self, int param1, int param2, void** param3);
 void QWebEnginePage_OnTriggerAction(QWebEnginePage* self, intptr_t slot);

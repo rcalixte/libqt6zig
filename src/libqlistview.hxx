@@ -20,6 +20,8 @@ class VirtualQListView final : public QListView {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using QListView_MetaObject_Callback = QMetaObject* (*)();
+    using QListView_Metacast_Callback = void* (*)(QListView*, const char*);
     using QListView_Metacall_Callback = int (*)(QListView*, int, int, void**);
     using QListView_VisualRect_Callback = QRect* (*)(const QListView*, QModelIndex*);
     using QListView_ScrollTo_Callback = void (*)(QListView*, QModelIndex*, int);
@@ -143,6 +145,8 @@ class VirtualQListView final : public QListView {
 
   protected:
     // Instance callback storage
+    QListView_MetaObject_Callback qlistview_metaobject_callback = nullptr;
+    QListView_Metacast_Callback qlistview_metacast_callback = nullptr;
     QListView_Metacall_Callback qlistview_metacall_callback = nullptr;
     QListView_VisualRect_Callback qlistview_visualrect_callback = nullptr;
     QListView_ScrollTo_Callback qlistview_scrollto_callback = nullptr;
@@ -265,6 +269,8 @@ class VirtualQListView final : public QListView {
     QListView_GetDecodedMetricF_Callback qlistview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlistview_metaobject_isbase = false;
+    mutable bool qlistview_metacast_isbase = false;
     mutable bool qlistview_metacall_isbase = false;
     mutable bool qlistview_visualrect_isbase = false;
     mutable bool qlistview_scrollto_isbase = false;
@@ -391,6 +397,8 @@ class VirtualQListView final : public QListView {
     VirtualQListView() : QListView() {};
 
     ~VirtualQListView() {
+        qlistview_metaobject_callback = nullptr;
+        qlistview_metacast_callback = nullptr;
         qlistview_metacall_callback = nullptr;
         qlistview_visualrect_callback = nullptr;
         qlistview_scrollto_callback = nullptr;
@@ -514,6 +522,8 @@ class VirtualQListView final : public QListView {
     }
 
     // Callback setters
+    inline void setQListView_MetaObject_Callback(QListView_MetaObject_Callback cb) { qlistview_metaobject_callback = cb; }
+    inline void setQListView_Metacast_Callback(QListView_Metacast_Callback cb) { qlistview_metacast_callback = cb; }
     inline void setQListView_Metacall_Callback(QListView_Metacall_Callback cb) { qlistview_metacall_callback = cb; }
     inline void setQListView_VisualRect_Callback(QListView_VisualRect_Callback cb) { qlistview_visualrect_callback = cb; }
     inline void setQListView_ScrollTo_Callback(QListView_ScrollTo_Callback cb) { qlistview_scrollto_callback = cb; }
@@ -636,6 +646,8 @@ class VirtualQListView final : public QListView {
     inline void setQListView_GetDecodedMetricF_Callback(QListView_GetDecodedMetricF_Callback cb) { qlistview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQListView_MetaObject_IsBase(bool value) const { qlistview_metaobject_isbase = value; }
+    inline void setQListView_Metacast_IsBase(bool value) const { qlistview_metacast_isbase = value; }
     inline void setQListView_Metacall_IsBase(bool value) const { qlistview_metacall_isbase = value; }
     inline void setQListView_VisualRect_IsBase(bool value) const { qlistview_visualrect_isbase = value; }
     inline void setQListView_ScrollTo_IsBase(bool value) const { qlistview_scrollto_isbase = value; }
@@ -756,6 +768,34 @@ class VirtualQListView final : public QListView {
     inline void setQListView_Receivers_IsBase(bool value) const { qlistview_receivers_isbase = value; }
     inline void setQListView_IsSignalConnected_IsBase(bool value) const { qlistview_issignalconnected_isbase = value; }
     inline void setQListView_GetDecodedMetricF_IsBase(bool value) const { qlistview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlistview_metaobject_isbase) {
+            qlistview_metaobject_isbase = false;
+            return QListView::metaObject();
+        } else if (qlistview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlistview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QListView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlistview_metacast_isbase) {
+            qlistview_metacast_isbase = false;
+            return QListView::qt_metacast(param1);
+        } else if (qlistview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlistview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QListView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

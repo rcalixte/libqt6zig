@@ -121,6 +121,8 @@ class VirtualQUndoStack final : public QUndoStack {
     bool isVirtualQUndoStack = true;
 
     // Virtual class public types (including callbacks)
+    using QUndoStack_MetaObject_Callback = QMetaObject* (*)();
+    using QUndoStack_Metacast_Callback = void* (*)(QUndoStack*, const char*);
     using QUndoStack_Metacall_Callback = int (*)(QUndoStack*, int, int, void**);
     using QUndoStack_Event_Callback = bool (*)(QUndoStack*, QEvent*);
     using QUndoStack_EventFilter_Callback = bool (*)(QUndoStack*, QObject*, QEvent*);
@@ -136,6 +138,8 @@ class VirtualQUndoStack final : public QUndoStack {
 
   protected:
     // Instance callback storage
+    QUndoStack_MetaObject_Callback qundostack_metaobject_callback = nullptr;
+    QUndoStack_Metacast_Callback qundostack_metacast_callback = nullptr;
     QUndoStack_Metacall_Callback qundostack_metacall_callback = nullptr;
     QUndoStack_Event_Callback qundostack_event_callback = nullptr;
     QUndoStack_EventFilter_Callback qundostack_eventfilter_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQUndoStack final : public QUndoStack {
     QUndoStack_IsSignalConnected_Callback qundostack_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qundostack_metaobject_isbase = false;
+    mutable bool qundostack_metacast_isbase = false;
     mutable bool qundostack_metacall_isbase = false;
     mutable bool qundostack_event_isbase = false;
     mutable bool qundostack_eventfilter_isbase = false;
@@ -168,6 +174,8 @@ class VirtualQUndoStack final : public QUndoStack {
     VirtualQUndoStack(QObject* parent) : QUndoStack(parent) {};
 
     ~VirtualQUndoStack() {
+        qundostack_metaobject_callback = nullptr;
+        qundostack_metacast_callback = nullptr;
         qundostack_metacall_callback = nullptr;
         qundostack_event_callback = nullptr;
         qundostack_eventfilter_callback = nullptr;
@@ -183,6 +191,8 @@ class VirtualQUndoStack final : public QUndoStack {
     }
 
     // Callback setters
+    inline void setQUndoStack_MetaObject_Callback(QUndoStack_MetaObject_Callback cb) { qundostack_metaobject_callback = cb; }
+    inline void setQUndoStack_Metacast_Callback(QUndoStack_Metacast_Callback cb) { qundostack_metacast_callback = cb; }
     inline void setQUndoStack_Metacall_Callback(QUndoStack_Metacall_Callback cb) { qundostack_metacall_callback = cb; }
     inline void setQUndoStack_Event_Callback(QUndoStack_Event_Callback cb) { qundostack_event_callback = cb; }
     inline void setQUndoStack_EventFilter_Callback(QUndoStack_EventFilter_Callback cb) { qundostack_eventfilter_callback = cb; }
@@ -197,6 +207,8 @@ class VirtualQUndoStack final : public QUndoStack {
     inline void setQUndoStack_IsSignalConnected_Callback(QUndoStack_IsSignalConnected_Callback cb) { qundostack_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQUndoStack_MetaObject_IsBase(bool value) const { qundostack_metaobject_isbase = value; }
+    inline void setQUndoStack_Metacast_IsBase(bool value) const { qundostack_metacast_isbase = value; }
     inline void setQUndoStack_Metacall_IsBase(bool value) const { qundostack_metacall_isbase = value; }
     inline void setQUndoStack_Event_IsBase(bool value) const { qundostack_event_isbase = value; }
     inline void setQUndoStack_EventFilter_IsBase(bool value) const { qundostack_eventfilter_isbase = value; }
@@ -209,6 +221,34 @@ class VirtualQUndoStack final : public QUndoStack {
     inline void setQUndoStack_SenderSignalIndex_IsBase(bool value) const { qundostack_sendersignalindex_isbase = value; }
     inline void setQUndoStack_Receivers_IsBase(bool value) const { qundostack_receivers_isbase = value; }
     inline void setQUndoStack_IsSignalConnected_IsBase(bool value) const { qundostack_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qundostack_metaobject_isbase) {
+            qundostack_metaobject_isbase = false;
+            return QUndoStack::metaObject();
+        } else if (qundostack_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qundostack_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QUndoStack::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qundostack_metacast_isbase) {
+            qundostack_metacast_isbase = false;
+            return QUndoStack::qt_metacast(param1);
+        } else if (qundostack_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qundostack_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QUndoStack::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -26,11 +26,21 @@ QGeoCodeReply* QGeoCodeReply_new2(int errorVal, const libqt_string errorString, 
 }
 
 QMetaObject* QGeoCodeReply_MetaObject(const QGeoCodeReply* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgeocodereply = dynamic_cast<const VirtualQGeoCodeReply*>(self);
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGeoCodeReply*)self)->metaObject();
+    }
 }
 
 void* QGeoCodeReply_Metacast(QGeoCodeReply* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGeoCodeReply*)self)->qt_metacast(param1);
+    }
 }
 
 int QGeoCodeReply_Metacall(QGeoCodeReply* self, int param1, int param2, void** param3) {
@@ -149,6 +159,44 @@ void QGeoCodeReply_Connect_ErrorOccurred2(QGeoCodeReply* self, intptr_t slot) {
         slotFunc(self, sigval1, sigval2);
         libqt_free(errorString_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGeoCodeReply_QBaseMetaObject(const QGeoCodeReply* self) {
+    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+        vqgeocodereply->setQGeoCodeReply_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgeocodereply->metaObject();
+    } else {
+        return (QMetaObject*)self->QGeoCodeReply::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoCodeReply_OnMetaObject(const QGeoCodeReply* self, intptr_t slot) {
+    auto* vqgeocodereply = const_cast<VirtualQGeoCodeReply*>(dynamic_cast<const VirtualQGeoCodeReply*>(self));
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+        vqgeocodereply->setQGeoCodeReply_MetaObject_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGeoCodeReply_QBaseMetacast(QGeoCodeReply* self, const char* param1) {
+    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+        vqgeocodereply->setQGeoCodeReply_Metacast_IsBase(true);
+        return vqgeocodereply->qt_metacast(param1);
+    } else {
+        return self->QGeoCodeReply::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoCodeReply_OnMetacast(QGeoCodeReply* self, intptr_t slot) {
+    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
+    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
+        vqgeocodereply->setQGeoCodeReply_Metacast_Callback(reinterpret_cast<VirtualQGeoCodeReply::QGeoCodeReply_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

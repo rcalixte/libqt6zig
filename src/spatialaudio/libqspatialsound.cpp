@@ -21,11 +21,21 @@ QSpatialSound* QSpatialSound_new(QAudioEngine* engine) {
 }
 
 QMetaObject* QSpatialSound_MetaObject(const QSpatialSound* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqspatialsound = dynamic_cast<const VirtualQSpatialSound*>(self);
+    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSpatialSound*)self)->metaObject();
+    }
 }
 
 void* QSpatialSound_Metacast(QSpatialSound* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
+    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSpatialSound*)self)->qt_metacast(param1);
+    }
 }
 
 int QSpatialSound_Metacall(QSpatialSound* self, int param1, int param2, void** param3) {
@@ -317,6 +327,44 @@ void QSpatialSound_Pause(QSpatialSound* self) {
 
 void QSpatialSound_Stop(QSpatialSound* self) {
     self->stop();
+}
+
+// Base class handler implementation
+QMetaObject* QSpatialSound_QBaseMetaObject(const QSpatialSound* self) {
+    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
+    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+        vqspatialsound->setQSpatialSound_MetaObject_IsBase(true);
+        return (QMetaObject*)vqspatialsound->metaObject();
+    } else {
+        return (QMetaObject*)self->QSpatialSound::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSpatialSound_OnMetaObject(const QSpatialSound* self, intptr_t slot) {
+    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
+    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+        vqspatialsound->setQSpatialSound_MetaObject_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSpatialSound_QBaseMetacast(QSpatialSound* self, const char* param1) {
+    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
+    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+        vqspatialsound->setQSpatialSound_Metacast_IsBase(true);
+        return vqspatialsound->qt_metacast(param1);
+    } else {
+        return self->QSpatialSound::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSpatialSound_OnMetacast(QSpatialSound* self, intptr_t slot) {
+    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
+    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+        vqspatialsound->setQSpatialSound_Metacast_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

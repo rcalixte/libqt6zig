@@ -17,6 +17,8 @@ class VirtualKActionCategory final : public KActionCategory {
     bool isVirtualKActionCategory = true;
 
     // Virtual class public types (including callbacks)
+    using KActionCategory_MetaObject_Callback = QMetaObject* (*)();
+    using KActionCategory_Metacast_Callback = void* (*)(KActionCategory*, const char*);
     using KActionCategory_Metacall_Callback = int (*)(KActionCategory*, int, int, void**);
     using KActionCategory_Event_Callback = bool (*)(KActionCategory*, QEvent*);
     using KActionCategory_EventFilter_Callback = bool (*)(KActionCategory*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKActionCategory final : public KActionCategory {
 
   protected:
     // Instance callback storage
+    KActionCategory_MetaObject_Callback kactioncategory_metaobject_callback = nullptr;
+    KActionCategory_Metacast_Callback kactioncategory_metacast_callback = nullptr;
     KActionCategory_Metacall_Callback kactioncategory_metacall_callback = nullptr;
     KActionCategory_Event_Callback kactioncategory_event_callback = nullptr;
     KActionCategory_EventFilter_Callback kactioncategory_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKActionCategory final : public KActionCategory {
     KActionCategory_IsSignalConnected_Callback kactioncategory_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kactioncategory_metaobject_isbase = false;
+    mutable bool kactioncategory_metacast_isbase = false;
     mutable bool kactioncategory_metacall_isbase = false;
     mutable bool kactioncategory_event_isbase = false;
     mutable bool kactioncategory_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKActionCategory final : public KActionCategory {
     VirtualKActionCategory(const QString& text, KActionCollection* parent) : KActionCategory(text, parent) {};
 
     ~VirtualKActionCategory() {
+        kactioncategory_metaobject_callback = nullptr;
+        kactioncategory_metacast_callback = nullptr;
         kactioncategory_metacall_callback = nullptr;
         kactioncategory_event_callback = nullptr;
         kactioncategory_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKActionCategory final : public KActionCategory {
     }
 
     // Callback setters
+    inline void setKActionCategory_MetaObject_Callback(KActionCategory_MetaObject_Callback cb) { kactioncategory_metaobject_callback = cb; }
+    inline void setKActionCategory_Metacast_Callback(KActionCategory_Metacast_Callback cb) { kactioncategory_metacast_callback = cb; }
     inline void setKActionCategory_Metacall_Callback(KActionCategory_Metacall_Callback cb) { kactioncategory_metacall_callback = cb; }
     inline void setKActionCategory_Event_Callback(KActionCategory_Event_Callback cb) { kactioncategory_event_callback = cb; }
     inline void setKActionCategory_EventFilter_Callback(KActionCategory_EventFilter_Callback cb) { kactioncategory_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKActionCategory final : public KActionCategory {
     inline void setKActionCategory_IsSignalConnected_Callback(KActionCategory_IsSignalConnected_Callback cb) { kactioncategory_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKActionCategory_MetaObject_IsBase(bool value) const { kactioncategory_metaobject_isbase = value; }
+    inline void setKActionCategory_Metacast_IsBase(bool value) const { kactioncategory_metacast_isbase = value; }
     inline void setKActionCategory_Metacall_IsBase(bool value) const { kactioncategory_metacall_isbase = value; }
     inline void setKActionCategory_Event_IsBase(bool value) const { kactioncategory_event_isbase = value; }
     inline void setKActionCategory_EventFilter_IsBase(bool value) const { kactioncategory_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKActionCategory final : public KActionCategory {
     inline void setKActionCategory_SenderSignalIndex_IsBase(bool value) const { kactioncategory_sendersignalindex_isbase = value; }
     inline void setKActionCategory_Receivers_IsBase(bool value) const { kactioncategory_receivers_isbase = value; }
     inline void setKActionCategory_IsSignalConnected_IsBase(bool value) const { kactioncategory_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kactioncategory_metaobject_isbase) {
+            kactioncategory_metaobject_isbase = false;
+            return KActionCategory::metaObject();
+        } else if (kactioncategory_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kactioncategory_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KActionCategory::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kactioncategory_metacast_isbase) {
+            kactioncategory_metacast_isbase = false;
+            return KActionCategory::qt_metacast(param1);
+        } else if (kactioncategory_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kactioncategory_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KActionCategory::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

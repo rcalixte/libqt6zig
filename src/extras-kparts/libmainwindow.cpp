@@ -68,11 +68,21 @@ KParts__MainWindow* KParts__MainWindow_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* KParts__MainWindow_MetaObject(const KParts__MainWindow* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkparts__mainwindow = dynamic_cast<const VirtualKPartsMainWindow*>(self);
+    if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPartsMainWindow*)self)->metaObject();
+    }
 }
 
 void* KParts__MainWindow_Metacast(KParts__MainWindow* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkparts__mainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
+    if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPartsMainWindow*)self)->qt_metacast(param1);
+    }
 }
 
 int KParts__MainWindow_Metacall(KParts__MainWindow* self, int param1, int param2, void** param3) {
@@ -112,6 +122,44 @@ void KParts__MainWindow_CreateShellGUI(KParts__MainWindow* self, bool create) {
     auto* vkparts__mainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
         vkparts__mainwindow->createShellGUI(create);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KParts__MainWindow_QBaseMetaObject(const KParts__MainWindow* self) {
+    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
+    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+        vkpartsmainwindow->setKParts__MainWindow_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpartsmainwindow->metaObject();
+    } else {
+        return (QMetaObject*)self->KParts::MainWindow::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__MainWindow_OnMetaObject(const KParts__MainWindow* self, intptr_t slot) {
+    auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
+    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+        vkpartsmainwindow->setKParts__MainWindow_MetaObject_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KParts__MainWindow_QBaseMetacast(KParts__MainWindow* self, const char* param1) {
+    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
+    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+        vkpartsmainwindow->setKParts__MainWindow_Metacast_IsBase(true);
+        return vkpartsmainwindow->qt_metacast(param1);
+    } else {
+        return self->KParts::MainWindow::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__MainWindow_OnMetacast(KParts__MainWindow* self, intptr_t slot) {
+    auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
+    if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
+        vkpartsmainwindow->setKParts__MainWindow_Metacast_Callback(reinterpret_cast<VirtualKPartsMainWindow::KParts__MainWindow_Metacast_Callback>(slot));
     }
 }
 

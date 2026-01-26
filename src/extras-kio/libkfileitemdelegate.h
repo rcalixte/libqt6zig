@@ -74,6 +74,10 @@ void KFileItemDelegate_SetSelectionEmblemRect(KFileItemDelegate* self, QRect* re
 KFileItem* KFileItemDelegate_FileItem(const KFileItemDelegate* self, const QModelIndex* index);
 bool KFileItemDelegate_HelpEvent(KFileItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index);
 QRegion* KFileItemDelegate_Shape(KFileItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index);
+void KFileItemDelegate_OnMetaObject(const KFileItemDelegate* self, intptr_t slot);
+QMetaObject* KFileItemDelegate_QBaseMetaObject(const KFileItemDelegate* self);
+void KFileItemDelegate_OnMetacast(KFileItemDelegate* self, intptr_t slot);
+void* KFileItemDelegate_QBaseMetacast(KFileItemDelegate* self, const char* param1);
 void KFileItemDelegate_OnMetacall(KFileItemDelegate* self, intptr_t slot);
 int KFileItemDelegate_QBaseMetacall(KFileItemDelegate* self, int param1, int param2, void** param3);
 void KFileItemDelegate_OnSizeHint(const KFileItemDelegate* self, intptr_t slot);

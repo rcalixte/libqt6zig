@@ -43,11 +43,21 @@ KHelpMenu* KHelpMenu_new6(QWidget* parent, const libqt_string unused, bool showW
 }
 
 QMetaObject* KHelpMenu_MetaObject(const KHelpMenu* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkhelpmenu = dynamic_cast<const VirtualKHelpMenu*>(self);
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKHelpMenu*)self)->metaObject();
+    }
 }
 
 void* KHelpMenu_Metacast(KHelpMenu* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKHelpMenu*)self)->qt_metacast(param1);
+    }
 }
 
 int KHelpMenu_Metacall(KHelpMenu* self, int param1, int param2, void** param3) {
@@ -108,6 +118,44 @@ void KHelpMenu_Connect_ShowAboutApplication(KHelpMenu* self, intptr_t slot) {
     KHelpMenu::connect(self, &KHelpMenu::showAboutApplication, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KHelpMenu_QBaseMetaObject(const KHelpMenu* self) {
+    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+        vkhelpmenu->setKHelpMenu_MetaObject_IsBase(true);
+        return (QMetaObject*)vkhelpmenu->metaObject();
+    } else {
+        return (QMetaObject*)self->KHelpMenu::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KHelpMenu_OnMetaObject(const KHelpMenu* self, intptr_t slot) {
+    auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+        vkhelpmenu->setKHelpMenu_MetaObject_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KHelpMenu_QBaseMetacast(KHelpMenu* self, const char* param1) {
+    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+        vkhelpmenu->setKHelpMenu_Metacast_IsBase(true);
+        return vkhelpmenu->qt_metacast(param1);
+    } else {
+        return self->KHelpMenu::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KHelpMenu_OnMetacast(KHelpMenu* self, intptr_t slot) {
+    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+        vkhelpmenu->setKHelpMenu_Metacast_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

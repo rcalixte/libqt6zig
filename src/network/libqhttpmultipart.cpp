@@ -80,11 +80,21 @@ QHttpMultiPart* QHttpMultiPart_new4(int contentType, QObject* parent) {
 }
 
 QMetaObject* QHttpMultiPart_MetaObject(const QHttpMultiPart* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqhttpmultipart = dynamic_cast<const VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQHttpMultiPart*)self)->metaObject();
+    }
 }
 
 void* QHttpMultiPart_Metacast(QHttpMultiPart* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQHttpMultiPart*)self)->qt_metacast(param1);
+    }
 }
 
 int QHttpMultiPart_Metacall(QHttpMultiPart* self, int param1, int param2, void** param3) {
@@ -117,6 +127,44 @@ libqt_string QHttpMultiPart_Boundary(const QHttpMultiPart* self) {
 void QHttpMultiPart_SetBoundary(QHttpMultiPart* self, const libqt_string boundary) {
     QByteArray boundary_QByteArray(boundary.data, boundary.len);
     self->setBoundary(boundary_QByteArray);
+}
+
+// Base class handler implementation
+QMetaObject* QHttpMultiPart_QBaseMetaObject(const QHttpMultiPart* self) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
+        vqhttpmultipart->setQHttpMultiPart_MetaObject_IsBase(true);
+        return (QMetaObject*)vqhttpmultipart->metaObject();
+    } else {
+        return (QMetaObject*)self->QHttpMultiPart::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHttpMultiPart_OnMetaObject(const QHttpMultiPart* self, intptr_t slot) {
+    auto* vqhttpmultipart = const_cast<VirtualQHttpMultiPart*>(dynamic_cast<const VirtualQHttpMultiPart*>(self));
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
+        vqhttpmultipart->setQHttpMultiPart_MetaObject_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QHttpMultiPart_QBaseMetacast(QHttpMultiPart* self, const char* param1) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
+        vqhttpmultipart->setQHttpMultiPart_Metacast_IsBase(true);
+        return vqhttpmultipart->qt_metacast(param1);
+    } else {
+        return self->QHttpMultiPart::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHttpMultiPart_OnMetacast(QHttpMultiPart* self, intptr_t slot) {
+    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
+    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
+        vqhttpmultipart->setQHttpMultiPart_Metacast_Callback(reinterpret_cast<VirtualQHttpMultiPart::QHttpMultiPart_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

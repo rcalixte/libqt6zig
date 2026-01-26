@@ -17,6 +17,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
     bool isVirtualQTransposeProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using QTransposeProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using QTransposeProxyModel_Metacast_Callback = void* (*)(QTransposeProxyModel*, const char*);
     using QTransposeProxyModel_Metacall_Callback = int (*)(QTransposeProxyModel*, int, int, void**);
     using QTransposeProxyModel_SetSourceModel_Callback = void (*)(QTransposeProxyModel*, QAbstractItemModel*);
     using QTransposeProxyModel_RowCount_Callback = int (*)(const QTransposeProxyModel*, QModelIndex*);
@@ -95,6 +97,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
 
   protected:
     // Instance callback storage
+    QTransposeProxyModel_MetaObject_Callback qtransposeproxymodel_metaobject_callback = nullptr;
+    QTransposeProxyModel_Metacast_Callback qtransposeproxymodel_metacast_callback = nullptr;
     QTransposeProxyModel_Metacall_Callback qtransposeproxymodel_metacall_callback = nullptr;
     QTransposeProxyModel_SetSourceModel_Callback qtransposeproxymodel_setsourcemodel_callback = nullptr;
     QTransposeProxyModel_RowCount_Callback qtransposeproxymodel_rowcount_callback = nullptr;
@@ -172,6 +176,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
     QTransposeProxyModel_IsSignalConnected_Callback qtransposeproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtransposeproxymodel_metaobject_isbase = false;
+    mutable bool qtransposeproxymodel_metacast_isbase = false;
     mutable bool qtransposeproxymodel_metacall_isbase = false;
     mutable bool qtransposeproxymodel_setsourcemodel_isbase = false;
     mutable bool qtransposeproxymodel_rowcount_isbase = false;
@@ -253,6 +259,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
     VirtualQTransposeProxyModel(QObject* parent) : QTransposeProxyModel(parent) {};
 
     ~VirtualQTransposeProxyModel() {
+        qtransposeproxymodel_metaobject_callback = nullptr;
+        qtransposeproxymodel_metacast_callback = nullptr;
         qtransposeproxymodel_metacall_callback = nullptr;
         qtransposeproxymodel_setsourcemodel_callback = nullptr;
         qtransposeproxymodel_rowcount_callback = nullptr;
@@ -331,6 +339,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
     }
 
     // Callback setters
+    inline void setQTransposeProxyModel_MetaObject_Callback(QTransposeProxyModel_MetaObject_Callback cb) { qtransposeproxymodel_metaobject_callback = cb; }
+    inline void setQTransposeProxyModel_Metacast_Callback(QTransposeProxyModel_Metacast_Callback cb) { qtransposeproxymodel_metacast_callback = cb; }
     inline void setQTransposeProxyModel_Metacall_Callback(QTransposeProxyModel_Metacall_Callback cb) { qtransposeproxymodel_metacall_callback = cb; }
     inline void setQTransposeProxyModel_SetSourceModel_Callback(QTransposeProxyModel_SetSourceModel_Callback cb) { qtransposeproxymodel_setsourcemodel_callback = cb; }
     inline void setQTransposeProxyModel_RowCount_Callback(QTransposeProxyModel_RowCount_Callback cb) { qtransposeproxymodel_rowcount_callback = cb; }
@@ -408,6 +418,8 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
     inline void setQTransposeProxyModel_IsSignalConnected_Callback(QTransposeProxyModel_IsSignalConnected_Callback cb) { qtransposeproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTransposeProxyModel_MetaObject_IsBase(bool value) const { qtransposeproxymodel_metaobject_isbase = value; }
+    inline void setQTransposeProxyModel_Metacast_IsBase(bool value) const { qtransposeproxymodel_metacast_isbase = value; }
     inline void setQTransposeProxyModel_Metacall_IsBase(bool value) const { qtransposeproxymodel_metacall_isbase = value; }
     inline void setQTransposeProxyModel_SetSourceModel_IsBase(bool value) const { qtransposeproxymodel_setsourcemodel_isbase = value; }
     inline void setQTransposeProxyModel_RowCount_IsBase(bool value) const { qtransposeproxymodel_rowcount_isbase = value; }
@@ -483,6 +495,34 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
     inline void setQTransposeProxyModel_SenderSignalIndex_IsBase(bool value) const { qtransposeproxymodel_sendersignalindex_isbase = value; }
     inline void setQTransposeProxyModel_Receivers_IsBase(bool value) const { qtransposeproxymodel_receivers_isbase = value; }
     inline void setQTransposeProxyModel_IsSignalConnected_IsBase(bool value) const { qtransposeproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtransposeproxymodel_metaobject_isbase) {
+            qtransposeproxymodel_metaobject_isbase = false;
+            return QTransposeProxyModel::metaObject();
+        } else if (qtransposeproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtransposeproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTransposeProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtransposeproxymodel_metacast_isbase) {
+            qtransposeproxymodel_metacast_isbase = false;
+            return QTransposeProxyModel::qt_metacast(param1);
+        } else if (qtransposeproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtransposeproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTransposeProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

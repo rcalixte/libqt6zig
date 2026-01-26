@@ -49,11 +49,21 @@ KWindowShadow* KWindowShadow_new2(QObject* parent) {
 }
 
 QMetaObject* KWindowShadow_MetaObject(const KWindowShadow* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkwindowshadow = dynamic_cast<const VirtualKWindowShadow*>(self);
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKWindowShadow*)self)->metaObject();
+    }
 }
 
 void* KWindowShadow_Metacast(KWindowShadow* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKWindowShadow*)self)->qt_metacast(param1);
+    }
 }
 
 int KWindowShadow_Metacall(KWindowShadow* self, int param1, int param2, void** param3) {
@@ -91,6 +101,44 @@ bool KWindowShadow_Create(KWindowShadow* self) {
 
 void KWindowShadow_Destroy(KWindowShadow* self) {
     self->destroy();
+}
+
+// Base class handler implementation
+QMetaObject* KWindowShadow_QBaseMetaObject(const KWindowShadow* self) {
+    auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+        vkwindowshadow->setKWindowShadow_MetaObject_IsBase(true);
+        return (QMetaObject*)vkwindowshadow->metaObject();
+    } else {
+        return (QMetaObject*)self->KWindowShadow::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KWindowShadow_OnMetaObject(const KWindowShadow* self, intptr_t slot) {
+    auto* vkwindowshadow = const_cast<VirtualKWindowShadow*>(dynamic_cast<const VirtualKWindowShadow*>(self));
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+        vkwindowshadow->setKWindowShadow_MetaObject_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KWindowShadow_QBaseMetacast(KWindowShadow* self, const char* param1) {
+    auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+        vkwindowshadow->setKWindowShadow_Metacast_IsBase(true);
+        return vkwindowshadow->qt_metacast(param1);
+    } else {
+        return self->KWindowShadow::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KWindowShadow_OnMetacast(KWindowShadow* self, intptr_t slot) {
+    auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
+    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
+        vkwindowshadow->setKWindowShadow_Metacast_Callback(reinterpret_cast<VirtualKWindowShadow::KWindowShadow_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

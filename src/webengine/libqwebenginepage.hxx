@@ -17,6 +17,8 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     bool isVirtualQWebEnginePage = true;
 
     // Virtual class public types (including callbacks)
+    using QWebEnginePage_MetaObject_Callback = QMetaObject* (*)();
+    using QWebEnginePage_Metacast_Callback = void* (*)(QWebEnginePage*, const char*);
     using QWebEnginePage_Metacall_Callback = int (*)(QWebEnginePage*, int, int, void**);
     using QWebEnginePage_TriggerAction_Callback = void (*)(QWebEnginePage*, int, bool);
     using QWebEnginePage_Event_Callback = bool (*)(QWebEnginePage*, QEvent*);
@@ -39,6 +41,8 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
 
   protected:
     // Instance callback storage
+    QWebEnginePage_MetaObject_Callback qwebenginepage_metaobject_callback = nullptr;
+    QWebEnginePage_Metacast_Callback qwebenginepage_metacast_callback = nullptr;
     QWebEnginePage_Metacall_Callback qwebenginepage_metacall_callback = nullptr;
     QWebEnginePage_TriggerAction_Callback qwebenginepage_triggeraction_callback = nullptr;
     QWebEnginePage_Event_Callback qwebenginepage_event_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     QWebEnginePage_IsSignalConnected_Callback qwebenginepage_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwebenginepage_metaobject_isbase = false;
+    mutable bool qwebenginepage_metacast_isbase = false;
     mutable bool qwebenginepage_metacall_isbase = false;
     mutable bool qwebenginepage_triggeraction_isbase = false;
     mutable bool qwebenginepage_event_isbase = false;
@@ -87,6 +93,8 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     VirtualQWebEnginePage(QWebEngineProfile* profile, QObject* parent) : QWebEnginePage(profile, parent) {};
 
     ~VirtualQWebEnginePage() {
+        qwebenginepage_metaobject_callback = nullptr;
+        qwebenginepage_metacast_callback = nullptr;
         qwebenginepage_metacall_callback = nullptr;
         qwebenginepage_triggeraction_callback = nullptr;
         qwebenginepage_event_callback = nullptr;
@@ -109,6 +117,8 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     }
 
     // Callback setters
+    inline void setQWebEnginePage_MetaObject_Callback(QWebEnginePage_MetaObject_Callback cb) { qwebenginepage_metaobject_callback = cb; }
+    inline void setQWebEnginePage_Metacast_Callback(QWebEnginePage_Metacast_Callback cb) { qwebenginepage_metacast_callback = cb; }
     inline void setQWebEnginePage_Metacall_Callback(QWebEnginePage_Metacall_Callback cb) { qwebenginepage_metacall_callback = cb; }
     inline void setQWebEnginePage_TriggerAction_Callback(QWebEnginePage_TriggerAction_Callback cb) { qwebenginepage_triggeraction_callback = cb; }
     inline void setQWebEnginePage_Event_Callback(QWebEnginePage_Event_Callback cb) { qwebenginepage_event_callback = cb; }
@@ -130,6 +140,8 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     inline void setQWebEnginePage_IsSignalConnected_Callback(QWebEnginePage_IsSignalConnected_Callback cb) { qwebenginepage_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQWebEnginePage_MetaObject_IsBase(bool value) const { qwebenginepage_metaobject_isbase = value; }
+    inline void setQWebEnginePage_Metacast_IsBase(bool value) const { qwebenginepage_metacast_isbase = value; }
     inline void setQWebEnginePage_Metacall_IsBase(bool value) const { qwebenginepage_metacall_isbase = value; }
     inline void setQWebEnginePage_TriggerAction_IsBase(bool value) const { qwebenginepage_triggeraction_isbase = value; }
     inline void setQWebEnginePage_Event_IsBase(bool value) const { qwebenginepage_event_isbase = value; }
@@ -149,6 +161,34 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     inline void setQWebEnginePage_SenderSignalIndex_IsBase(bool value) const { qwebenginepage_sendersignalindex_isbase = value; }
     inline void setQWebEnginePage_Receivers_IsBase(bool value) const { qwebenginepage_receivers_isbase = value; }
     inline void setQWebEnginePage_IsSignalConnected_IsBase(bool value) const { qwebenginepage_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwebenginepage_metaobject_isbase) {
+            qwebenginepage_metaobject_isbase = false;
+            return QWebEnginePage::metaObject();
+        } else if (qwebenginepage_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwebenginepage_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWebEnginePage::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwebenginepage_metacast_isbase) {
+            qwebenginepage_metacast_isbase = false;
+            return QWebEnginePage::qt_metacast(param1);
+        } else if (qwebenginepage_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwebenginepage_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWebEnginePage::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

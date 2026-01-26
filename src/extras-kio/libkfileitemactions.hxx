@@ -17,6 +17,8 @@ class VirtualKFileItemActions final : public KFileItemActions {
     bool isVirtualKFileItemActions = true;
 
     // Virtual class public types (including callbacks)
+    using KFileItemActions_MetaObject_Callback = QMetaObject* (*)();
+    using KFileItemActions_Metacast_Callback = void* (*)(KFileItemActions*, const char*);
     using KFileItemActions_Metacall_Callback = int (*)(KFileItemActions*, int, int, void**);
     using KFileItemActions_Event_Callback = bool (*)(KFileItemActions*, QEvent*);
     using KFileItemActions_EventFilter_Callback = bool (*)(KFileItemActions*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKFileItemActions final : public KFileItemActions {
 
   protected:
     // Instance callback storage
+    KFileItemActions_MetaObject_Callback kfileitemactions_metaobject_callback = nullptr;
+    KFileItemActions_Metacast_Callback kfileitemactions_metacast_callback = nullptr;
     KFileItemActions_Metacall_Callback kfileitemactions_metacall_callback = nullptr;
     KFileItemActions_Event_Callback kfileitemactions_event_callback = nullptr;
     KFileItemActions_EventFilter_Callback kfileitemactions_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKFileItemActions final : public KFileItemActions {
     KFileItemActions_IsSignalConnected_Callback kfileitemactions_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfileitemactions_metaobject_isbase = false;
+    mutable bool kfileitemactions_metacast_isbase = false;
     mutable bool kfileitemactions_metacall_isbase = false;
     mutable bool kfileitemactions_event_isbase = false;
     mutable bool kfileitemactions_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKFileItemActions final : public KFileItemActions {
     VirtualKFileItemActions(QObject* parent) : KFileItemActions(parent) {};
 
     ~VirtualKFileItemActions() {
+        kfileitemactions_metaobject_callback = nullptr;
+        kfileitemactions_metacast_callback = nullptr;
         kfileitemactions_metacall_callback = nullptr;
         kfileitemactions_event_callback = nullptr;
         kfileitemactions_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKFileItemActions final : public KFileItemActions {
     }
 
     // Callback setters
+    inline void setKFileItemActions_MetaObject_Callback(KFileItemActions_MetaObject_Callback cb) { kfileitemactions_metaobject_callback = cb; }
+    inline void setKFileItemActions_Metacast_Callback(KFileItemActions_Metacast_Callback cb) { kfileitemactions_metacast_callback = cb; }
     inline void setKFileItemActions_Metacall_Callback(KFileItemActions_Metacall_Callback cb) { kfileitemactions_metacall_callback = cb; }
     inline void setKFileItemActions_Event_Callback(KFileItemActions_Event_Callback cb) { kfileitemactions_event_callback = cb; }
     inline void setKFileItemActions_EventFilter_Callback(KFileItemActions_EventFilter_Callback cb) { kfileitemactions_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKFileItemActions final : public KFileItemActions {
     inline void setKFileItemActions_IsSignalConnected_Callback(KFileItemActions_IsSignalConnected_Callback cb) { kfileitemactions_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKFileItemActions_MetaObject_IsBase(bool value) const { kfileitemactions_metaobject_isbase = value; }
+    inline void setKFileItemActions_Metacast_IsBase(bool value) const { kfileitemactions_metacast_isbase = value; }
     inline void setKFileItemActions_Metacall_IsBase(bool value) const { kfileitemactions_metacall_isbase = value; }
     inline void setKFileItemActions_Event_IsBase(bool value) const { kfileitemactions_event_isbase = value; }
     inline void setKFileItemActions_EventFilter_IsBase(bool value) const { kfileitemactions_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKFileItemActions final : public KFileItemActions {
     inline void setKFileItemActions_SenderSignalIndex_IsBase(bool value) const { kfileitemactions_sendersignalindex_isbase = value; }
     inline void setKFileItemActions_Receivers_IsBase(bool value) const { kfileitemactions_receivers_isbase = value; }
     inline void setKFileItemActions_IsSignalConnected_IsBase(bool value) const { kfileitemactions_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfileitemactions_metaobject_isbase) {
+            kfileitemactions_metaobject_isbase = false;
+            return KFileItemActions::metaObject();
+        } else if (kfileitemactions_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfileitemactions_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFileItemActions::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfileitemactions_metacast_isbase) {
+            kfileitemactions_metacast_isbase = false;
+            return KFileItemActions::qt_metacast(param1);
+        } else if (kfileitemactions_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfileitemactions_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFileItemActions::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

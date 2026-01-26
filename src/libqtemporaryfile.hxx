@@ -17,6 +17,8 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     bool isVirtualQTemporaryFile = true;
 
     // Virtual class public types (including callbacks)
+    using QTemporaryFile_MetaObject_Callback = QMetaObject* (*)();
+    using QTemporaryFile_Metacast_Callback = void* (*)(QTemporaryFile*, const char*);
     using QTemporaryFile_Metacall_Callback = int (*)(QTemporaryFile*, int, int, void**);
     using QTemporaryFile_FileName_Callback = const char* (*)();
     using QTemporaryFile_Open2_Callback = bool (*)(QTemporaryFile*, int);
@@ -55,6 +57,8 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
 
   protected:
     // Instance callback storage
+    QTemporaryFile_MetaObject_Callback qtemporaryfile_metaobject_callback = nullptr;
+    QTemporaryFile_Metacast_Callback qtemporaryfile_metacast_callback = nullptr;
     QTemporaryFile_Metacall_Callback qtemporaryfile_metacall_callback = nullptr;
     QTemporaryFile_FileName_Callback qtemporaryfile_filename_callback = nullptr;
     QTemporaryFile_Open2_Callback qtemporaryfile_open2_callback = nullptr;
@@ -92,6 +96,8 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     QTemporaryFile_IsSignalConnected_Callback qtemporaryfile_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtemporaryfile_metaobject_isbase = false;
+    mutable bool qtemporaryfile_metacast_isbase = false;
     mutable bool qtemporaryfile_metacall_isbase = false;
     mutable bool qtemporaryfile_filename_isbase = false;
     mutable bool qtemporaryfile_open2_isbase = false;
@@ -135,6 +141,8 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     VirtualQTemporaryFile(const QString& templateName, QObject* parent) : QTemporaryFile(templateName, parent) {};
 
     ~VirtualQTemporaryFile() {
+        qtemporaryfile_metaobject_callback = nullptr;
+        qtemporaryfile_metacast_callback = nullptr;
         qtemporaryfile_metacall_callback = nullptr;
         qtemporaryfile_filename_callback = nullptr;
         qtemporaryfile_open2_callback = nullptr;
@@ -173,6 +181,8 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     }
 
     // Callback setters
+    inline void setQTemporaryFile_MetaObject_Callback(QTemporaryFile_MetaObject_Callback cb) { qtemporaryfile_metaobject_callback = cb; }
+    inline void setQTemporaryFile_Metacast_Callback(QTemporaryFile_Metacast_Callback cb) { qtemporaryfile_metacast_callback = cb; }
     inline void setQTemporaryFile_Metacall_Callback(QTemporaryFile_Metacall_Callback cb) { qtemporaryfile_metacall_callback = cb; }
     inline void setQTemporaryFile_FileName_Callback(QTemporaryFile_FileName_Callback cb) { qtemporaryfile_filename_callback = cb; }
     inline void setQTemporaryFile_Open2_Callback(QTemporaryFile_Open2_Callback cb) { qtemporaryfile_open2_callback = cb; }
@@ -210,6 +220,8 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     inline void setQTemporaryFile_IsSignalConnected_Callback(QTemporaryFile_IsSignalConnected_Callback cb) { qtemporaryfile_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTemporaryFile_MetaObject_IsBase(bool value) const { qtemporaryfile_metaobject_isbase = value; }
+    inline void setQTemporaryFile_Metacast_IsBase(bool value) const { qtemporaryfile_metacast_isbase = value; }
     inline void setQTemporaryFile_Metacall_IsBase(bool value) const { qtemporaryfile_metacall_isbase = value; }
     inline void setQTemporaryFile_FileName_IsBase(bool value) const { qtemporaryfile_filename_isbase = value; }
     inline void setQTemporaryFile_Open2_IsBase(bool value) const { qtemporaryfile_open2_isbase = value; }
@@ -245,6 +257,34 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     inline void setQTemporaryFile_SenderSignalIndex_IsBase(bool value) const { qtemporaryfile_sendersignalindex_isbase = value; }
     inline void setQTemporaryFile_Receivers_IsBase(bool value) const { qtemporaryfile_receivers_isbase = value; }
     inline void setQTemporaryFile_IsSignalConnected_IsBase(bool value) const { qtemporaryfile_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtemporaryfile_metaobject_isbase) {
+            qtemporaryfile_metaobject_isbase = false;
+            return QTemporaryFile::metaObject();
+        } else if (qtemporaryfile_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtemporaryfile_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTemporaryFile::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtemporaryfile_metacast_isbase) {
+            qtemporaryfile_metacast_isbase = false;
+            return QTemporaryFile::qt_metacast(param1);
+        } else if (qtemporaryfile_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtemporaryfile_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTemporaryFile::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

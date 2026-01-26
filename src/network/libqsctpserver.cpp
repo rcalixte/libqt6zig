@@ -24,11 +24,21 @@ QSctpServer* QSctpServer_new2(QObject* parent) {
 }
 
 QMetaObject* QSctpServer_MetaObject(const QSctpServer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsctpserver = dynamic_cast<const VirtualQSctpServer*>(self);
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSctpServer*)self)->metaObject();
+    }
 }
 
 void* QSctpServer_Metacast(QSctpServer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSctpServer*)self)->qt_metacast(param1);
+    }
 }
 
 int QSctpServer_Metacall(QSctpServer* self, int param1, int param2, void** param3) {
@@ -56,6 +66,44 @@ void QSctpServer_IncomingConnection(QSctpServer* self, intptr_t handle) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
     if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
         vqsctpserver->incomingConnection((qintptr)(handle));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QSctpServer_QBaseMetaObject(const QSctpServer* self) {
+    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+        vqsctpserver->setQSctpServer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsctpserver->metaObject();
+    } else {
+        return (QMetaObject*)self->QSctpServer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSctpServer_OnMetaObject(const QSctpServer* self, intptr_t slot) {
+    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+        vqsctpserver->setQSctpServer_MetaObject_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSctpServer_QBaseMetacast(QSctpServer* self, const char* param1) {
+    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+        vqsctpserver->setQSctpServer_Metacast_IsBase(true);
+        return vqsctpserver->qt_metacast(param1);
+    } else {
+        return self->QSctpServer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSctpServer_OnMetacast(QSctpServer* self, intptr_t slot) {
+    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+        vqsctpserver->setQSctpServer_Metacast_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Metacast_Callback>(slot));
     }
 }
 

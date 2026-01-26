@@ -42,6 +42,10 @@ QFont* QsciLexerJavaScript_DefaultFont(const QsciLexerJavaScript* self, int styl
 QColor* QsciLexerJavaScript_DefaultPaper(const QsciLexerJavaScript* self, int style);
 const char* QsciLexerJavaScript_Keywords(const QsciLexerJavaScript* self, int set);
 libqt_string QsciLexerJavaScript_Description(const QsciLexerJavaScript* self, int style);
+void QsciLexerJavaScript_OnMetaObject(const QsciLexerJavaScript* self, intptr_t slot);
+QMetaObject* QsciLexerJavaScript_QBaseMetaObject(const QsciLexerJavaScript* self);
+void QsciLexerJavaScript_OnMetacast(QsciLexerJavaScript* self, intptr_t slot);
+void* QsciLexerJavaScript_QBaseMetacast(QsciLexerJavaScript* self, const char* param1);
 void QsciLexerJavaScript_OnMetacall(QsciLexerJavaScript* self, intptr_t slot);
 int QsciLexerJavaScript_QBaseMetacall(QsciLexerJavaScript* self, int param1, int param2, void** param3);
 void QsciLexerJavaScript_SetFoldAtElse(QsciLexerJavaScript* self, bool fold);

@@ -17,6 +17,8 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
     bool isVirtualKPartsListingFilterExtension = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__ListingFilterExtension_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__ListingFilterExtension_Metacast_Callback = void* (*)(KParts__ListingFilterExtension*, const char*);
     using KParts__ListingFilterExtension_Metacall_Callback = int (*)(KParts__ListingFilterExtension*, int, int, void**);
     using KParts__ListingFilterExtension_SupportedFilterModes_Callback = int (*)();
     using KParts__ListingFilterExtension_SupportsMultipleFilters_Callback = bool (*)(const KParts__ListingFilterExtension*, int);
@@ -36,6 +38,8 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
 
   protected:
     // Instance callback storage
+    KParts__ListingFilterExtension_MetaObject_Callback kparts__listingfilterextension_metaobject_callback = nullptr;
+    KParts__ListingFilterExtension_Metacast_Callback kparts__listingfilterextension_metacast_callback = nullptr;
     KParts__ListingFilterExtension_Metacall_Callback kparts__listingfilterextension_metacall_callback = nullptr;
     KParts__ListingFilterExtension_SupportedFilterModes_Callback kparts__listingfilterextension_supportedfiltermodes_callback = nullptr;
     KParts__ListingFilterExtension_SupportsMultipleFilters_Callback kparts__listingfilterextension_supportsmultiplefilters_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
     KParts__ListingFilterExtension_IsSignalConnected_Callback kparts__listingfilterextension_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__listingfilterextension_metaobject_isbase = false;
+    mutable bool kparts__listingfilterextension_metacast_isbase = false;
     mutable bool kparts__listingfilterextension_metacall_isbase = false;
     mutable bool kparts__listingfilterextension_supportedfiltermodes_isbase = false;
     mutable bool kparts__listingfilterextension_supportsmultiplefilters_isbase = false;
@@ -75,6 +81,8 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
     VirtualKPartsListingFilterExtension(KParts::ReadOnlyPart* parent) : KParts::ListingFilterExtension(parent) {};
 
     ~VirtualKPartsListingFilterExtension() {
+        kparts__listingfilterextension_metaobject_callback = nullptr;
+        kparts__listingfilterextension_metacast_callback = nullptr;
         kparts__listingfilterextension_metacall_callback = nullptr;
         kparts__listingfilterextension_supportedfiltermodes_callback = nullptr;
         kparts__listingfilterextension_supportsmultiplefilters_callback = nullptr;
@@ -94,6 +102,8 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
     }
 
     // Callback setters
+    inline void setKParts__ListingFilterExtension_MetaObject_Callback(KParts__ListingFilterExtension_MetaObject_Callback cb) { kparts__listingfilterextension_metaobject_callback = cb; }
+    inline void setKParts__ListingFilterExtension_Metacast_Callback(KParts__ListingFilterExtension_Metacast_Callback cb) { kparts__listingfilterextension_metacast_callback = cb; }
     inline void setKParts__ListingFilterExtension_Metacall_Callback(KParts__ListingFilterExtension_Metacall_Callback cb) { kparts__listingfilterextension_metacall_callback = cb; }
     inline void setKParts__ListingFilterExtension_SupportedFilterModes_Callback(KParts__ListingFilterExtension_SupportedFilterModes_Callback cb) { kparts__listingfilterextension_supportedfiltermodes_callback = cb; }
     inline void setKParts__ListingFilterExtension_SupportsMultipleFilters_Callback(KParts__ListingFilterExtension_SupportsMultipleFilters_Callback cb) { kparts__listingfilterextension_supportsmultiplefilters_callback = cb; }
@@ -112,6 +122,8 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
     inline void setKParts__ListingFilterExtension_IsSignalConnected_Callback(KParts__ListingFilterExtension_IsSignalConnected_Callback cb) { kparts__listingfilterextension_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__ListingFilterExtension_MetaObject_IsBase(bool value) const { kparts__listingfilterextension_metaobject_isbase = value; }
+    inline void setKParts__ListingFilterExtension_Metacast_IsBase(bool value) const { kparts__listingfilterextension_metacast_isbase = value; }
     inline void setKParts__ListingFilterExtension_Metacall_IsBase(bool value) const { kparts__listingfilterextension_metacall_isbase = value; }
     inline void setKParts__ListingFilterExtension_SupportedFilterModes_IsBase(bool value) const { kparts__listingfilterextension_supportedfiltermodes_isbase = value; }
     inline void setKParts__ListingFilterExtension_SupportsMultipleFilters_IsBase(bool value) const { kparts__listingfilterextension_supportsmultiplefilters_isbase = value; }
@@ -128,6 +140,34 @@ class VirtualKPartsListingFilterExtension : public KParts::ListingFilterExtensio
     inline void setKParts__ListingFilterExtension_SenderSignalIndex_IsBase(bool value) const { kparts__listingfilterextension_sendersignalindex_isbase = value; }
     inline void setKParts__ListingFilterExtension_Receivers_IsBase(bool value) const { kparts__listingfilterextension_receivers_isbase = value; }
     inline void setKParts__ListingFilterExtension_IsSignalConnected_IsBase(bool value) const { kparts__listingfilterextension_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__listingfilterextension_metaobject_isbase) {
+            kparts__listingfilterextension_metaobject_isbase = false;
+            return KParts__ListingFilterExtension::metaObject();
+        } else if (kparts__listingfilterextension_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__listingfilterextension_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__ListingFilterExtension::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__listingfilterextension_metacast_isbase) {
+            kparts__listingfilterextension_metacast_isbase = false;
+            return KParts__ListingFilterExtension::qt_metacast(param1);
+        } else if (kparts__listingfilterextension_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__listingfilterextension_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__ListingFilterExtension::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

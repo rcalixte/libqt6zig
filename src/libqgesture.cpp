@@ -30,11 +30,21 @@ QGesture* QGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QGesture_MetaObject(const QGesture* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgesture = dynamic_cast<const VirtualQGesture*>(self);
+    if (vqgesture && vqgesture->isVirtualQGesture) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGesture*)self)->metaObject();
+    }
 }
 
 void* QGesture_Metacast(QGesture* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
+    if (vqgesture && vqgesture->isVirtualQGesture) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGesture*)self)->qt_metacast(param1);
+    }
 }
 
 int QGesture_Metacall(QGesture* self, int param1, int param2, void** param3) {
@@ -76,6 +86,44 @@ void QGesture_SetGestureCancelPolicy(QGesture* self, int policy) {
 
 int QGesture_GestureCancelPolicy(const QGesture* self) {
     return static_cast<int>(self->gestureCancelPolicy());
+}
+
+// Base class handler implementation
+QMetaObject* QGesture_QBaseMetaObject(const QGesture* self) {
+    auto* vqgesture = const_cast<VirtualQGesture*>(dynamic_cast<const VirtualQGesture*>(self));
+    if (vqgesture && vqgesture->isVirtualQGesture) {
+        vqgesture->setQGesture_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgesture->metaObject();
+    } else {
+        return (QMetaObject*)self->QGesture::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGesture_OnMetaObject(const QGesture* self, intptr_t slot) {
+    auto* vqgesture = const_cast<VirtualQGesture*>(dynamic_cast<const VirtualQGesture*>(self));
+    if (vqgesture && vqgesture->isVirtualQGesture) {
+        vqgesture->setQGesture_MetaObject_Callback(reinterpret_cast<VirtualQGesture::QGesture_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGesture_QBaseMetacast(QGesture* self, const char* param1) {
+    auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
+    if (vqgesture && vqgesture->isVirtualQGesture) {
+        vqgesture->setQGesture_Metacast_IsBase(true);
+        return vqgesture->qt_metacast(param1);
+    } else {
+        return self->QGesture::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGesture_OnMetacast(QGesture* self, intptr_t slot) {
+    auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
+    if (vqgesture && vqgesture->isVirtualQGesture) {
+        vqgesture->setQGesture_Metacast_Callback(reinterpret_cast<VirtualQGesture::QGesture_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -429,11 +477,21 @@ QPanGesture* QPanGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QPanGesture_MetaObject(const QPanGesture* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpangesture = dynamic_cast<const VirtualQPanGesture*>(self);
+    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPanGesture*)self)->metaObject();
+    }
 }
 
 void* QPanGesture_Metacast(QPanGesture* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
+    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPanGesture*)self)->qt_metacast(param1);
+    }
 }
 
 int QPanGesture_Metacall(QPanGesture* self, int param1, int param2, void** param3) {
@@ -471,6 +529,44 @@ void QPanGesture_SetOffset(QPanGesture* self, const QPointF* value) {
 
 void QPanGesture_SetAcceleration(QPanGesture* self, double value) {
     self->setAcceleration(static_cast<qreal>(value));
+}
+
+// Base class handler implementation
+QMetaObject* QPanGesture_QBaseMetaObject(const QPanGesture* self) {
+    auto* vqpangesture = const_cast<VirtualQPanGesture*>(dynamic_cast<const VirtualQPanGesture*>(self));
+    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
+        vqpangesture->setQPanGesture_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpangesture->metaObject();
+    } else {
+        return (QMetaObject*)self->QPanGesture::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPanGesture_OnMetaObject(const QPanGesture* self, intptr_t slot) {
+    auto* vqpangesture = const_cast<VirtualQPanGesture*>(dynamic_cast<const VirtualQPanGesture*>(self));
+    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
+        vqpangesture->setQPanGesture_MetaObject_Callback(reinterpret_cast<VirtualQPanGesture::QPanGesture_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPanGesture_QBaseMetacast(QPanGesture* self, const char* param1) {
+    auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
+    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
+        vqpangesture->setQPanGesture_Metacast_IsBase(true);
+        return vqpangesture->qt_metacast(param1);
+    } else {
+        return self->QPanGesture::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPanGesture_OnMetacast(QPanGesture* self, intptr_t slot) {
+    auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
+    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
+        vqpangesture->setQPanGesture_Metacast_Callback(reinterpret_cast<VirtualQPanGesture::QPanGesture_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -824,11 +920,21 @@ QPinchGesture* QPinchGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QPinchGesture_MetaObject(const QPinchGesture* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpinchgesture = dynamic_cast<const VirtualQPinchGesture*>(self);
+    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPinchGesture*)self)->metaObject();
+    }
 }
 
 void* QPinchGesture_Metacast(QPinchGesture* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
+    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPinchGesture*)self)->qt_metacast(param1);
+    }
 }
 
 int QPinchGesture_Metacall(QPinchGesture* self, int param1, int param2, void** param3) {
@@ -926,6 +1032,44 @@ void QPinchGesture_SetLastRotationAngle(QPinchGesture* self, double value) {
 
 void QPinchGesture_SetRotationAngle(QPinchGesture* self, double value) {
     self->setRotationAngle(static_cast<qreal>(value));
+}
+
+// Base class handler implementation
+QMetaObject* QPinchGesture_QBaseMetaObject(const QPinchGesture* self) {
+    auto* vqpinchgesture = const_cast<VirtualQPinchGesture*>(dynamic_cast<const VirtualQPinchGesture*>(self));
+    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
+        vqpinchgesture->setQPinchGesture_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpinchgesture->metaObject();
+    } else {
+        return (QMetaObject*)self->QPinchGesture::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPinchGesture_OnMetaObject(const QPinchGesture* self, intptr_t slot) {
+    auto* vqpinchgesture = const_cast<VirtualQPinchGesture*>(dynamic_cast<const VirtualQPinchGesture*>(self));
+    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
+        vqpinchgesture->setQPinchGesture_MetaObject_Callback(reinterpret_cast<VirtualQPinchGesture::QPinchGesture_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPinchGesture_QBaseMetacast(QPinchGesture* self, const char* param1) {
+    auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
+    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
+        vqpinchgesture->setQPinchGesture_Metacast_IsBase(true);
+        return vqpinchgesture->qt_metacast(param1);
+    } else {
+        return self->QPinchGesture::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPinchGesture_OnMetacast(QPinchGesture* self, intptr_t slot) {
+    auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
+    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
+        vqpinchgesture->setQPinchGesture_Metacast_Callback(reinterpret_cast<VirtualQPinchGesture::QPinchGesture_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -1279,11 +1423,21 @@ QSwipeGesture* QSwipeGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QSwipeGesture_MetaObject(const QSwipeGesture* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqswipegesture = dynamic_cast<const VirtualQSwipeGesture*>(self);
+    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSwipeGesture*)self)->metaObject();
+    }
 }
 
 void* QSwipeGesture_Metacast(QSwipeGesture* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
+    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSwipeGesture*)self)->qt_metacast(param1);
+    }
 }
 
 int QSwipeGesture_Metacall(QSwipeGesture* self, int param1, int param2, void** param3) {
@@ -1309,6 +1463,44 @@ double QSwipeGesture_SwipeAngle(const QSwipeGesture* self) {
 
 void QSwipeGesture_SetSwipeAngle(QSwipeGesture* self, double value) {
     self->setSwipeAngle(static_cast<qreal>(value));
+}
+
+// Base class handler implementation
+QMetaObject* QSwipeGesture_QBaseMetaObject(const QSwipeGesture* self) {
+    auto* vqswipegesture = const_cast<VirtualQSwipeGesture*>(dynamic_cast<const VirtualQSwipeGesture*>(self));
+    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
+        vqswipegesture->setQSwipeGesture_MetaObject_IsBase(true);
+        return (QMetaObject*)vqswipegesture->metaObject();
+    } else {
+        return (QMetaObject*)self->QSwipeGesture::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSwipeGesture_OnMetaObject(const QSwipeGesture* self, intptr_t slot) {
+    auto* vqswipegesture = const_cast<VirtualQSwipeGesture*>(dynamic_cast<const VirtualQSwipeGesture*>(self));
+    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
+        vqswipegesture->setQSwipeGesture_MetaObject_Callback(reinterpret_cast<VirtualQSwipeGesture::QSwipeGesture_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSwipeGesture_QBaseMetacast(QSwipeGesture* self, const char* param1) {
+    auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
+    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
+        vqswipegesture->setQSwipeGesture_Metacast_IsBase(true);
+        return vqswipegesture->qt_metacast(param1);
+    } else {
+        return self->QSwipeGesture::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSwipeGesture_OnMetacast(QSwipeGesture* self, intptr_t slot) {
+    auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
+    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
+        vqswipegesture->setQSwipeGesture_Metacast_Callback(reinterpret_cast<VirtualQSwipeGesture::QSwipeGesture_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -1662,11 +1854,21 @@ QTapGesture* QTapGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QTapGesture_MetaObject(const QTapGesture* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtapgesture = dynamic_cast<const VirtualQTapGesture*>(self);
+    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTapGesture*)self)->metaObject();
+    }
 }
 
 void* QTapGesture_Metacast(QTapGesture* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
+    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTapGesture*)self)->qt_metacast(param1);
+    }
 }
 
 int QTapGesture_Metacall(QTapGesture* self, int param1, int param2, void** param3) {
@@ -1684,6 +1886,44 @@ QPointF* QTapGesture_Position(const QTapGesture* self) {
 
 void QTapGesture_SetPosition(QTapGesture* self, const QPointF* pos) {
     self->setPosition(*pos);
+}
+
+// Base class handler implementation
+QMetaObject* QTapGesture_QBaseMetaObject(const QTapGesture* self) {
+    auto* vqtapgesture = const_cast<VirtualQTapGesture*>(dynamic_cast<const VirtualQTapGesture*>(self));
+    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
+        vqtapgesture->setQTapGesture_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtapgesture->metaObject();
+    } else {
+        return (QMetaObject*)self->QTapGesture::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTapGesture_OnMetaObject(const QTapGesture* self, intptr_t slot) {
+    auto* vqtapgesture = const_cast<VirtualQTapGesture*>(dynamic_cast<const VirtualQTapGesture*>(self));
+    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
+        vqtapgesture->setQTapGesture_MetaObject_Callback(reinterpret_cast<VirtualQTapGesture::QTapGesture_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTapGesture_QBaseMetacast(QTapGesture* self, const char* param1) {
+    auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
+    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
+        vqtapgesture->setQTapGesture_Metacast_IsBase(true);
+        return vqtapgesture->qt_metacast(param1);
+    } else {
+        return self->QTapGesture::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTapGesture_OnMetacast(QTapGesture* self, intptr_t slot) {
+    auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
+    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
+        vqtapgesture->setQTapGesture_Metacast_Callback(reinterpret_cast<VirtualQTapGesture::QTapGesture_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -2037,11 +2277,21 @@ QTapAndHoldGesture* QTapAndHoldGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QTapAndHoldGesture_MetaObject(const QTapAndHoldGesture* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtapandholdgesture = dynamic_cast<const VirtualQTapAndHoldGesture*>(self);
+    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTapAndHoldGesture*)self)->metaObject();
+    }
 }
 
 void* QTapAndHoldGesture_Metacast(QTapAndHoldGesture* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
+    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTapAndHoldGesture*)self)->qt_metacast(param1);
+    }
 }
 
 int QTapAndHoldGesture_Metacall(QTapAndHoldGesture* self, int param1, int param2, void** param3) {
@@ -2067,6 +2317,44 @@ void QTapAndHoldGesture_SetTimeout(int msecs) {
 
 int QTapAndHoldGesture_Timeout() {
     return QTapAndHoldGesture::timeout();
+}
+
+// Base class handler implementation
+QMetaObject* QTapAndHoldGesture_QBaseMetaObject(const QTapAndHoldGesture* self) {
+    auto* vqtapandholdgesture = const_cast<VirtualQTapAndHoldGesture*>(dynamic_cast<const VirtualQTapAndHoldGesture*>(self));
+    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
+        vqtapandholdgesture->setQTapAndHoldGesture_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtapandholdgesture->metaObject();
+    } else {
+        return (QMetaObject*)self->QTapAndHoldGesture::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTapAndHoldGesture_OnMetaObject(const QTapAndHoldGesture* self, intptr_t slot) {
+    auto* vqtapandholdgesture = const_cast<VirtualQTapAndHoldGesture*>(dynamic_cast<const VirtualQTapAndHoldGesture*>(self));
+    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
+        vqtapandholdgesture->setQTapAndHoldGesture_MetaObject_Callback(reinterpret_cast<VirtualQTapAndHoldGesture::QTapAndHoldGesture_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTapAndHoldGesture_QBaseMetacast(QTapAndHoldGesture* self, const char* param1) {
+    auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
+    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
+        vqtapandholdgesture->setQTapAndHoldGesture_Metacast_IsBase(true);
+        return vqtapandholdgesture->qt_metacast(param1);
+    } else {
+        return self->QTapAndHoldGesture::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTapAndHoldGesture_OnMetacast(QTapAndHoldGesture* self, intptr_t slot) {
+    auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
+    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
+        vqtapandholdgesture->setQTapAndHoldGesture_Metacast_Callback(reinterpret_cast<VirtualQTapAndHoldGesture::QTapAndHoldGesture_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualKJob : public KJob {
     bool isVirtualKJob = true;
 
     // Virtual class public types (including callbacks)
+    using KJob_MetaObject_Callback = QMetaObject* (*)();
+    using KJob_Metacast_Callback = void* (*)(KJob*, const char*);
     using KJob_Metacall_Callback = int (*)(KJob*, int, int, void**);
     using KJob_Start_Callback = void (*)();
     using KJob_DoKill_Callback = bool (*)();
@@ -49,6 +51,8 @@ class VirtualKJob : public KJob {
 
   protected:
     // Instance callback storage
+    KJob_MetaObject_Callback kjob_metaobject_callback = nullptr;
+    KJob_Metacast_Callback kjob_metacast_callback = nullptr;
     KJob_Metacall_Callback kjob_metacall_callback = nullptr;
     KJob_Start_Callback kjob_start_callback = nullptr;
     KJob_DoKill_Callback kjob_dokill_callback = nullptr;
@@ -80,6 +84,8 @@ class VirtualKJob : public KJob {
     KJob_IsSignalConnected_Callback kjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kjob_metaobject_isbase = false;
+    mutable bool kjob_metacast_isbase = false;
     mutable bool kjob_metacall_isbase = false;
     mutable bool kjob_start_isbase = false;
     mutable bool kjob_dokill_isbase = false;
@@ -115,6 +121,8 @@ class VirtualKJob : public KJob {
     VirtualKJob(QObject* parent) : KJob(parent) {};
 
     ~VirtualKJob() {
+        kjob_metaobject_callback = nullptr;
+        kjob_metacast_callback = nullptr;
         kjob_metacall_callback = nullptr;
         kjob_start_callback = nullptr;
         kjob_dokill_callback = nullptr;
@@ -147,6 +155,8 @@ class VirtualKJob : public KJob {
     }
 
     // Callback setters
+    inline void setKJob_MetaObject_Callback(KJob_MetaObject_Callback cb) { kjob_metaobject_callback = cb; }
+    inline void setKJob_Metacast_Callback(KJob_Metacast_Callback cb) { kjob_metacast_callback = cb; }
     inline void setKJob_Metacall_Callback(KJob_Metacall_Callback cb) { kjob_metacall_callback = cb; }
     inline void setKJob_Start_Callback(KJob_Start_Callback cb) { kjob_start_callback = cb; }
     inline void setKJob_DoKill_Callback(KJob_DoKill_Callback cb) { kjob_dokill_callback = cb; }
@@ -178,6 +188,8 @@ class VirtualKJob : public KJob {
     inline void setKJob_IsSignalConnected_Callback(KJob_IsSignalConnected_Callback cb) { kjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKJob_MetaObject_IsBase(bool value) const { kjob_metaobject_isbase = value; }
+    inline void setKJob_Metacast_IsBase(bool value) const { kjob_metacast_isbase = value; }
     inline void setKJob_Metacall_IsBase(bool value) const { kjob_metacall_isbase = value; }
     inline void setKJob_Start_IsBase(bool value) const { kjob_start_isbase = value; }
     inline void setKJob_DoKill_IsBase(bool value) const { kjob_dokill_isbase = value; }
@@ -207,6 +219,34 @@ class VirtualKJob : public KJob {
     inline void setKJob_SenderSignalIndex_IsBase(bool value) const { kjob_sendersignalindex_isbase = value; }
     inline void setKJob_Receivers_IsBase(bool value) const { kjob_receivers_isbase = value; }
     inline void setKJob_IsSignalConnected_IsBase(bool value) const { kjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kjob_metaobject_isbase) {
+            kjob_metaobject_isbase = false;
+            return KJob::metaObject();
+        } else if (kjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kjob_metacast_isbase) {
+            kjob_metacast_isbase = false;
+            return KJob::qt_metacast(param1);
+        } else if (kjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

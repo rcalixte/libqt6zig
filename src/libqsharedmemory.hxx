@@ -17,6 +17,8 @@ class VirtualQSharedMemory final : public QSharedMemory {
     bool isVirtualQSharedMemory = true;
 
     // Virtual class public types (including callbacks)
+    using QSharedMemory_MetaObject_Callback = QMetaObject* (*)();
+    using QSharedMemory_Metacast_Callback = void* (*)(QSharedMemory*, const char*);
     using QSharedMemory_Metacall_Callback = int (*)(QSharedMemory*, int, int, void**);
     using QSharedMemory_Event_Callback = bool (*)(QSharedMemory*, QEvent*);
     using QSharedMemory_EventFilter_Callback = bool (*)(QSharedMemory*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQSharedMemory final : public QSharedMemory {
 
   protected:
     // Instance callback storage
+    QSharedMemory_MetaObject_Callback qsharedmemory_metaobject_callback = nullptr;
+    QSharedMemory_Metacast_Callback qsharedmemory_metacast_callback = nullptr;
     QSharedMemory_Metacall_Callback qsharedmemory_metacall_callback = nullptr;
     QSharedMemory_Event_Callback qsharedmemory_event_callback = nullptr;
     QSharedMemory_EventFilter_Callback qsharedmemory_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQSharedMemory final : public QSharedMemory {
     QSharedMemory_IsSignalConnected_Callback qsharedmemory_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsharedmemory_metaobject_isbase = false;
+    mutable bool qsharedmemory_metacast_isbase = false;
     mutable bool qsharedmemory_metacall_isbase = false;
     mutable bool qsharedmemory_event_isbase = false;
     mutable bool qsharedmemory_eventfilter_isbase = false;
@@ -68,6 +74,8 @@ class VirtualQSharedMemory final : public QSharedMemory {
     VirtualQSharedMemory(const QString& key, QObject* parent) : QSharedMemory(key, parent) {};
 
     ~VirtualQSharedMemory() {
+        qsharedmemory_metaobject_callback = nullptr;
+        qsharedmemory_metacast_callback = nullptr;
         qsharedmemory_metacall_callback = nullptr;
         qsharedmemory_event_callback = nullptr;
         qsharedmemory_eventfilter_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQSharedMemory final : public QSharedMemory {
     }
 
     // Callback setters
+    inline void setQSharedMemory_MetaObject_Callback(QSharedMemory_MetaObject_Callback cb) { qsharedmemory_metaobject_callback = cb; }
+    inline void setQSharedMemory_Metacast_Callback(QSharedMemory_Metacast_Callback cb) { qsharedmemory_metacast_callback = cb; }
     inline void setQSharedMemory_Metacall_Callback(QSharedMemory_Metacall_Callback cb) { qsharedmemory_metacall_callback = cb; }
     inline void setQSharedMemory_Event_Callback(QSharedMemory_Event_Callback cb) { qsharedmemory_event_callback = cb; }
     inline void setQSharedMemory_EventFilter_Callback(QSharedMemory_EventFilter_Callback cb) { qsharedmemory_eventfilter_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualQSharedMemory final : public QSharedMemory {
     inline void setQSharedMemory_IsSignalConnected_Callback(QSharedMemory_IsSignalConnected_Callback cb) { qsharedmemory_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSharedMemory_MetaObject_IsBase(bool value) const { qsharedmemory_metaobject_isbase = value; }
+    inline void setQSharedMemory_Metacast_IsBase(bool value) const { qsharedmemory_metacast_isbase = value; }
     inline void setQSharedMemory_Metacall_IsBase(bool value) const { qsharedmemory_metacall_isbase = value; }
     inline void setQSharedMemory_Event_IsBase(bool value) const { qsharedmemory_event_isbase = value; }
     inline void setQSharedMemory_EventFilter_IsBase(bool value) const { qsharedmemory_eventfilter_isbase = value; }
@@ -109,6 +121,34 @@ class VirtualQSharedMemory final : public QSharedMemory {
     inline void setQSharedMemory_SenderSignalIndex_IsBase(bool value) const { qsharedmemory_sendersignalindex_isbase = value; }
     inline void setQSharedMemory_Receivers_IsBase(bool value) const { qsharedmemory_receivers_isbase = value; }
     inline void setQSharedMemory_IsSignalConnected_IsBase(bool value) const { qsharedmemory_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsharedmemory_metaobject_isbase) {
+            qsharedmemory_metaobject_isbase = false;
+            return QSharedMemory::metaObject();
+        } else if (qsharedmemory_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsharedmemory_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSharedMemory::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsharedmemory_metacast_isbase) {
+            qsharedmemory_metacast_isbase = false;
+            return QSharedMemory::qt_metacast(param1);
+        } else if (qsharedmemory_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsharedmemory_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSharedMemory::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

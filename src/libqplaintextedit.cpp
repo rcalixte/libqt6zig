@@ -83,11 +83,21 @@ QPlainTextEdit* QPlainTextEdit_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* QPlainTextEdit_MetaObject(const QPlainTextEdit* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqplaintextedit = dynamic_cast<const VirtualQPlainTextEdit*>(self);
+    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPlainTextEdit*)self)->metaObject();
+    }
 }
 
 void* QPlainTextEdit_Metacast(QPlainTextEdit* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
+    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPlainTextEdit*)self)->qt_metacast(param1);
+    }
 }
 
 int QPlainTextEdit_Metacall(QPlainTextEdit* self, int param1, int param2, void** param3) {
@@ -755,6 +765,44 @@ void QPlainTextEdit_ZoomIn1(QPlainTextEdit* self, int range) {
 
 void QPlainTextEdit_ZoomOut1(QPlainTextEdit* self, int range) {
     self->zoomOut(static_cast<int>(range));
+}
+
+// Base class handler implementation
+QMetaObject* QPlainTextEdit_QBaseMetaObject(const QPlainTextEdit* self) {
+    auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
+    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
+        vqplaintextedit->setQPlainTextEdit_MetaObject_IsBase(true);
+        return (QMetaObject*)vqplaintextedit->metaObject();
+    } else {
+        return (QMetaObject*)self->QPlainTextEdit::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlainTextEdit_OnMetaObject(const QPlainTextEdit* self, intptr_t slot) {
+    auto* vqplaintextedit = const_cast<VirtualQPlainTextEdit*>(dynamic_cast<const VirtualQPlainTextEdit*>(self));
+    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
+        vqplaintextedit->setQPlainTextEdit_MetaObject_Callback(reinterpret_cast<VirtualQPlainTextEdit::QPlainTextEdit_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPlainTextEdit_QBaseMetacast(QPlainTextEdit* self, const char* param1) {
+    auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
+    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
+        vqplaintextedit->setQPlainTextEdit_Metacast_IsBase(true);
+        return vqplaintextedit->qt_metacast(param1);
+    } else {
+        return self->QPlainTextEdit::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlainTextEdit_OnMetacast(QPlainTextEdit* self, intptr_t slot) {
+    auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
+    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
+        vqplaintextedit->setQPlainTextEdit_Metacast_Callback(reinterpret_cast<VirtualQPlainTextEdit::QPlainTextEdit_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -2687,11 +2735,21 @@ QPlainTextDocumentLayout* QPlainTextDocumentLayout_new(QTextDocument* document) 
 }
 
 QMetaObject* QPlainTextDocumentLayout_MetaObject(const QPlainTextDocumentLayout* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqplaintextdocumentlayout = dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self);
+    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPlainTextDocumentLayout*)self)->metaObject();
+    }
 }
 
 void* QPlainTextDocumentLayout_Metacast(QPlainTextDocumentLayout* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
+    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPlainTextDocumentLayout*)self)->qt_metacast(param1);
+    }
 }
 
 int QPlainTextDocumentLayout_Metacall(QPlainTextDocumentLayout* self, int param1, int param2, void** param3) {
@@ -2777,6 +2835,44 @@ void QPlainTextDocumentLayout_DocumentChanged(QPlainTextDocumentLayout* self, in
     auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
     if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
         vqplaintextdocumentlayout->documentChanged(static_cast<int>(from), static_cast<int>(param2), static_cast<int>(charsAdded));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QPlainTextDocumentLayout_QBaseMetaObject(const QPlainTextDocumentLayout* self) {
+    auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
+    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
+        vqplaintextdocumentlayout->setQPlainTextDocumentLayout_MetaObject_IsBase(true);
+        return (QMetaObject*)vqplaintextdocumentlayout->metaObject();
+    } else {
+        return (QMetaObject*)self->QPlainTextDocumentLayout::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlainTextDocumentLayout_OnMetaObject(const QPlainTextDocumentLayout* self, intptr_t slot) {
+    auto* vqplaintextdocumentlayout = const_cast<VirtualQPlainTextDocumentLayout*>(dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self));
+    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
+        vqplaintextdocumentlayout->setQPlainTextDocumentLayout_MetaObject_Callback(reinterpret_cast<VirtualQPlainTextDocumentLayout::QPlainTextDocumentLayout_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPlainTextDocumentLayout_QBaseMetacast(QPlainTextDocumentLayout* self, const char* param1) {
+    auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
+    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
+        vqplaintextdocumentlayout->setQPlainTextDocumentLayout_Metacast_IsBase(true);
+        return vqplaintextdocumentlayout->qt_metacast(param1);
+    } else {
+        return self->QPlainTextDocumentLayout::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlainTextDocumentLayout_OnMetacast(QPlainTextDocumentLayout* self, intptr_t slot) {
+    auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
+    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
+        vqplaintextdocumentlayout->setQPlainTextDocumentLayout_Metacast_Callback(reinterpret_cast<VirtualQPlainTextDocumentLayout::QPlainTextDocumentLayout_Metacast_Callback>(slot));
     }
 }
 

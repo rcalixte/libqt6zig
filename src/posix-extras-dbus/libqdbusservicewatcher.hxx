@@ -17,6 +17,8 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
     bool isVirtualQDBusServiceWatcher = true;
 
     // Virtual class public types (including callbacks)
+    using QDBusServiceWatcher_MetaObject_Callback = QMetaObject* (*)();
+    using QDBusServiceWatcher_Metacast_Callback = void* (*)(QDBusServiceWatcher*, const char*);
     using QDBusServiceWatcher_Metacall_Callback = int (*)(QDBusServiceWatcher*, int, int, void**);
     using QDBusServiceWatcher_Event_Callback = bool (*)(QDBusServiceWatcher*, QEvent*);
     using QDBusServiceWatcher_EventFilter_Callback = bool (*)(QDBusServiceWatcher*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
 
   protected:
     // Instance callback storage
+    QDBusServiceWatcher_MetaObject_Callback qdbusservicewatcher_metaobject_callback = nullptr;
+    QDBusServiceWatcher_Metacast_Callback qdbusservicewatcher_metacast_callback = nullptr;
     QDBusServiceWatcher_Metacall_Callback qdbusservicewatcher_metacall_callback = nullptr;
     QDBusServiceWatcher_Event_Callback qdbusservicewatcher_event_callback = nullptr;
     QDBusServiceWatcher_EventFilter_Callback qdbusservicewatcher_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
     QDBusServiceWatcher_IsSignalConnected_Callback qdbusservicewatcher_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdbusservicewatcher_metaobject_isbase = false;
+    mutable bool qdbusservicewatcher_metacast_isbase = false;
     mutable bool qdbusservicewatcher_metacall_isbase = false;
     mutable bool qdbusservicewatcher_event_isbase = false;
     mutable bool qdbusservicewatcher_eventfilter_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
     VirtualQDBusServiceWatcher(const QString& service, const QDBusConnection& connection, QDBusServiceWatcher::WatchMode watchMode, QObject* parent) : QDBusServiceWatcher(service, connection, watchMode, parent) {};
 
     ~VirtualQDBusServiceWatcher() {
+        qdbusservicewatcher_metaobject_callback = nullptr;
+        qdbusservicewatcher_metacast_callback = nullptr;
         qdbusservicewatcher_metacall_callback = nullptr;
         qdbusservicewatcher_event_callback = nullptr;
         qdbusservicewatcher_eventfilter_callback = nullptr;
@@ -82,6 +90,8 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
     }
 
     // Callback setters
+    inline void setQDBusServiceWatcher_MetaObject_Callback(QDBusServiceWatcher_MetaObject_Callback cb) { qdbusservicewatcher_metaobject_callback = cb; }
+    inline void setQDBusServiceWatcher_Metacast_Callback(QDBusServiceWatcher_Metacast_Callback cb) { qdbusservicewatcher_metacast_callback = cb; }
     inline void setQDBusServiceWatcher_Metacall_Callback(QDBusServiceWatcher_Metacall_Callback cb) { qdbusservicewatcher_metacall_callback = cb; }
     inline void setQDBusServiceWatcher_Event_Callback(QDBusServiceWatcher_Event_Callback cb) { qdbusservicewatcher_event_callback = cb; }
     inline void setQDBusServiceWatcher_EventFilter_Callback(QDBusServiceWatcher_EventFilter_Callback cb) { qdbusservicewatcher_eventfilter_callback = cb; }
@@ -96,6 +106,8 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
     inline void setQDBusServiceWatcher_IsSignalConnected_Callback(QDBusServiceWatcher_IsSignalConnected_Callback cb) { qdbusservicewatcher_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDBusServiceWatcher_MetaObject_IsBase(bool value) const { qdbusservicewatcher_metaobject_isbase = value; }
+    inline void setQDBusServiceWatcher_Metacast_IsBase(bool value) const { qdbusservicewatcher_metacast_isbase = value; }
     inline void setQDBusServiceWatcher_Metacall_IsBase(bool value) const { qdbusservicewatcher_metacall_isbase = value; }
     inline void setQDBusServiceWatcher_Event_IsBase(bool value) const { qdbusservicewatcher_event_isbase = value; }
     inline void setQDBusServiceWatcher_EventFilter_IsBase(bool value) const { qdbusservicewatcher_eventfilter_isbase = value; }
@@ -108,6 +120,34 @@ class VirtualQDBusServiceWatcher final : public QDBusServiceWatcher {
     inline void setQDBusServiceWatcher_SenderSignalIndex_IsBase(bool value) const { qdbusservicewatcher_sendersignalindex_isbase = value; }
     inline void setQDBusServiceWatcher_Receivers_IsBase(bool value) const { qdbusservicewatcher_receivers_isbase = value; }
     inline void setQDBusServiceWatcher_IsSignalConnected_IsBase(bool value) const { qdbusservicewatcher_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdbusservicewatcher_metaobject_isbase) {
+            qdbusservicewatcher_metaobject_isbase = false;
+            return QDBusServiceWatcher::metaObject();
+        } else if (qdbusservicewatcher_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdbusservicewatcher_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDBusServiceWatcher::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdbusservicewatcher_metacast_isbase) {
+            qdbusservicewatcher_metacast_isbase = false;
+            return QDBusServiceWatcher::qt_metacast(param1);
+        } else if (qdbusservicewatcher_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdbusservicewatcher_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDBusServiceWatcher::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

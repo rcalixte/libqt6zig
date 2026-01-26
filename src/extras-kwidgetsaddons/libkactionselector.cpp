@@ -51,11 +51,21 @@ KActionSelector* KActionSelector_new2() {
 }
 
 QMetaObject* KActionSelector_MetaObject(const KActionSelector* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkactionselector = dynamic_cast<const VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKActionSelector*)self)->metaObject();
+    }
 }
 
 void* KActionSelector_Metacast(KActionSelector* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKActionSelector*)self)->qt_metacast(param1);
+    }
 }
 
 int KActionSelector_Metacall(KActionSelector* self, int param1, int param2, void** param3) {
@@ -233,6 +243,44 @@ bool KActionSelector_EventFilter(KActionSelector* self, QObject* param1, QEvent*
         return vkactionselector->eventFilter(param1, param2);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KActionSelector_QBaseMetaObject(const KActionSelector* self) {
+    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_MetaObject_IsBase(true);
+        return (QMetaObject*)vkactionselector->metaObject();
+    } else {
+        return (QMetaObject*)self->KActionSelector::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionSelector_OnMetaObject(const KActionSelector* self, intptr_t slot) {
+    auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_MetaObject_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KActionSelector_QBaseMetacast(KActionSelector* self, const char* param1) {
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_Metacast_IsBase(true);
+        return vkactionselector->qt_metacast(param1);
+    } else {
+        return self->KActionSelector::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionSelector_OnMetacast(KActionSelector* self, intptr_t slot) {
+    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+        vkactionselector->setKActionSelector_Metacast_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

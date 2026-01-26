@@ -17,6 +17,8 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
     bool isVirtualKCategoryDrawer = true;
 
     // Virtual class public types (including callbacks)
+    using KCategoryDrawer_MetaObject_Callback = QMetaObject* (*)();
+    using KCategoryDrawer_Metacast_Callback = void* (*)(KCategoryDrawer*, const char*);
     using KCategoryDrawer_Metacall_Callback = int (*)(KCategoryDrawer*, int, int, void**);
     using KCategoryDrawer_DrawCategory_Callback = void (*)(const KCategoryDrawer*, QModelIndex*, int, QStyleOption*, QPainter*);
     using KCategoryDrawer_CategoryHeight_Callback = int (*)(const KCategoryDrawer*, QModelIndex*, QStyleOption*);
@@ -41,6 +43,8 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
 
   protected:
     // Instance callback storage
+    KCategoryDrawer_MetaObject_Callback kcategorydrawer_metaobject_callback = nullptr;
+    KCategoryDrawer_Metacast_Callback kcategorydrawer_metacast_callback = nullptr;
     KCategoryDrawer_Metacall_Callback kcategorydrawer_metacall_callback = nullptr;
     KCategoryDrawer_DrawCategory_Callback kcategorydrawer_drawcategory_callback = nullptr;
     KCategoryDrawer_CategoryHeight_Callback kcategorydrawer_categoryheight_callback = nullptr;
@@ -64,6 +68,8 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
     KCategoryDrawer_IsSignalConnected_Callback kcategorydrawer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcategorydrawer_metaobject_isbase = false;
+    mutable bool kcategorydrawer_metacast_isbase = false;
     mutable bool kcategorydrawer_metacall_isbase = false;
     mutable bool kcategorydrawer_drawcategory_isbase = false;
     mutable bool kcategorydrawer_categoryheight_isbase = false;
@@ -90,6 +96,8 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
     VirtualKCategoryDrawer(KCategorizedView* view) : KCategoryDrawer(view) {};
 
     ~VirtualKCategoryDrawer() {
+        kcategorydrawer_metaobject_callback = nullptr;
+        kcategorydrawer_metacast_callback = nullptr;
         kcategorydrawer_metacall_callback = nullptr;
         kcategorydrawer_drawcategory_callback = nullptr;
         kcategorydrawer_categoryheight_callback = nullptr;
@@ -114,6 +122,8 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
     }
 
     // Callback setters
+    inline void setKCategoryDrawer_MetaObject_Callback(KCategoryDrawer_MetaObject_Callback cb) { kcategorydrawer_metaobject_callback = cb; }
+    inline void setKCategoryDrawer_Metacast_Callback(KCategoryDrawer_Metacast_Callback cb) { kcategorydrawer_metacast_callback = cb; }
     inline void setKCategoryDrawer_Metacall_Callback(KCategoryDrawer_Metacall_Callback cb) { kcategorydrawer_metacall_callback = cb; }
     inline void setKCategoryDrawer_DrawCategory_Callback(KCategoryDrawer_DrawCategory_Callback cb) { kcategorydrawer_drawcategory_callback = cb; }
     inline void setKCategoryDrawer_CategoryHeight_Callback(KCategoryDrawer_CategoryHeight_Callback cb) { kcategorydrawer_categoryheight_callback = cb; }
@@ -137,6 +147,8 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
     inline void setKCategoryDrawer_IsSignalConnected_Callback(KCategoryDrawer_IsSignalConnected_Callback cb) { kcategorydrawer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCategoryDrawer_MetaObject_IsBase(bool value) const { kcategorydrawer_metaobject_isbase = value; }
+    inline void setKCategoryDrawer_Metacast_IsBase(bool value) const { kcategorydrawer_metacast_isbase = value; }
     inline void setKCategoryDrawer_Metacall_IsBase(bool value) const { kcategorydrawer_metacall_isbase = value; }
     inline void setKCategoryDrawer_DrawCategory_IsBase(bool value) const { kcategorydrawer_drawcategory_isbase = value; }
     inline void setKCategoryDrawer_CategoryHeight_IsBase(bool value) const { kcategorydrawer_categoryheight_isbase = value; }
@@ -158,6 +170,34 @@ class VirtualKCategoryDrawer final : public KCategoryDrawer {
     inline void setKCategoryDrawer_SenderSignalIndex_IsBase(bool value) const { kcategorydrawer_sendersignalindex_isbase = value; }
     inline void setKCategoryDrawer_Receivers_IsBase(bool value) const { kcategorydrawer_receivers_isbase = value; }
     inline void setKCategoryDrawer_IsSignalConnected_IsBase(bool value) const { kcategorydrawer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcategorydrawer_metaobject_isbase) {
+            kcategorydrawer_metaobject_isbase = false;
+            return KCategoryDrawer::metaObject();
+        } else if (kcategorydrawer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcategorydrawer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCategoryDrawer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcategorydrawer_metacast_isbase) {
+            kcategorydrawer_metacast_isbase = false;
+            return KCategoryDrawer::qt_metacast(param1);
+        } else if (kcategorydrawer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcategorydrawer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCategoryDrawer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -37,6 +37,10 @@ libqt_list /* of QPlaceSearchResult* */ QPlaceSearchReply_Results(const QPlaceSe
 QPlaceSearchRequest* QPlaceSearchReply_Request(const QPlaceSearchReply* self);
 QPlaceSearchRequest* QPlaceSearchReply_PreviousPageRequest(const QPlaceSearchReply* self);
 QPlaceSearchRequest* QPlaceSearchReply_NextPageRequest(const QPlaceSearchReply* self);
+void QPlaceSearchReply_OnMetaObject(const QPlaceSearchReply* self, intptr_t slot);
+QMetaObject* QPlaceSearchReply_QBaseMetaObject(const QPlaceSearchReply* self);
+void QPlaceSearchReply_OnMetacast(QPlaceSearchReply* self, intptr_t slot);
+void* QPlaceSearchReply_QBaseMetacast(QPlaceSearchReply* self, const char* param1);
 void QPlaceSearchReply_OnMetacall(QPlaceSearchReply* self, intptr_t slot);
 int QPlaceSearchReply_QBaseMetacall(QPlaceSearchReply* self, int param1, int param2, void** param3);
 void QPlaceSearchReply_OnType(const QPlaceSearchReply* self, intptr_t slot);

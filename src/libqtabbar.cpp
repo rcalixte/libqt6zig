@@ -52,11 +52,21 @@ QTabBar* QTabBar_new2() {
 }
 
 QMetaObject* QTabBar_MetaObject(const QTabBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtabbar = dynamic_cast<const VirtualQTabBar*>(self);
+    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTabBar*)self)->metaObject();
+    }
 }
 
 void* QTabBar_Metacast(QTabBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
+    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTabBar*)self)->qt_metacast(param1);
+    }
 }
 
 int QTabBar_Metacall(QTabBar* self, int param1, int param2, void** param3) {
@@ -540,6 +550,44 @@ void QTabBar_InitStyleOption(const QTabBar* self, QStyleOptionTab* option, int t
     auto* vqtabbar = dynamic_cast<const VirtualQTabBar*>(self);
     if (vqtabbar && vqtabbar->isVirtualQTabBar) {
         vqtabbar->initStyleOption(option, static_cast<int>(tabIndex));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QTabBar_QBaseMetaObject(const QTabBar* self) {
+    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
+    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+        vqtabbar->setQTabBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtabbar->metaObject();
+    } else {
+        return (QMetaObject*)self->QTabBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTabBar_OnMetaObject(const QTabBar* self, intptr_t slot) {
+    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
+    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+        vqtabbar->setQTabBar_MetaObject_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTabBar_QBaseMetacast(QTabBar* self, const char* param1) {
+    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
+    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+        vqtabbar->setQTabBar_Metacast_IsBase(true);
+        return vqtabbar->qt_metacast(param1);
+    } else {
+        return self->QTabBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTabBar_OnMetacast(QTabBar* self, intptr_t slot) {
+    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
+    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+        vqtabbar->setQTabBar_Metacast_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_Metacast_Callback>(slot));
     }
 }
 

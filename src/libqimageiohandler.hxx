@@ -299,6 +299,8 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
     bool isVirtualQImageIOPlugin = true;
 
     // Virtual class public types (including callbacks)
+    using QImageIOPlugin_MetaObject_Callback = QMetaObject* (*)();
+    using QImageIOPlugin_Metacast_Callback = void* (*)(QImageIOPlugin*, const char*);
     using QImageIOPlugin_Metacall_Callback = int (*)(QImageIOPlugin*, int, int, void**);
     using QImageIOPlugin_Capabilities_Callback = int (*)(const QImageIOPlugin*, QIODevice*, libqt_string);
     using QImageIOPlugin_Create_Callback = QImageIOHandler* (*)(const QImageIOPlugin*, QIODevice*, libqt_string);
@@ -316,6 +318,8 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
 
   protected:
     // Instance callback storage
+    QImageIOPlugin_MetaObject_Callback qimageioplugin_metaobject_callback = nullptr;
+    QImageIOPlugin_Metacast_Callback qimageioplugin_metacast_callback = nullptr;
     QImageIOPlugin_Metacall_Callback qimageioplugin_metacall_callback = nullptr;
     QImageIOPlugin_Capabilities_Callback qimageioplugin_capabilities_callback = nullptr;
     QImageIOPlugin_Create_Callback qimageioplugin_create_callback = nullptr;
@@ -332,6 +336,8 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
     QImageIOPlugin_IsSignalConnected_Callback qimageioplugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qimageioplugin_metaobject_isbase = false;
+    mutable bool qimageioplugin_metacast_isbase = false;
     mutable bool qimageioplugin_metacall_isbase = false;
     mutable bool qimageioplugin_capabilities_isbase = false;
     mutable bool qimageioplugin_create_isbase = false;
@@ -352,6 +358,8 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
     VirtualQImageIOPlugin(QObject* parent) : QImageIOPlugin(parent) {};
 
     ~VirtualQImageIOPlugin() {
+        qimageioplugin_metaobject_callback = nullptr;
+        qimageioplugin_metacast_callback = nullptr;
         qimageioplugin_metacall_callback = nullptr;
         qimageioplugin_capabilities_callback = nullptr;
         qimageioplugin_create_callback = nullptr;
@@ -369,6 +377,8 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
     }
 
     // Callback setters
+    inline void setQImageIOPlugin_MetaObject_Callback(QImageIOPlugin_MetaObject_Callback cb) { qimageioplugin_metaobject_callback = cb; }
+    inline void setQImageIOPlugin_Metacast_Callback(QImageIOPlugin_Metacast_Callback cb) { qimageioplugin_metacast_callback = cb; }
     inline void setQImageIOPlugin_Metacall_Callback(QImageIOPlugin_Metacall_Callback cb) { qimageioplugin_metacall_callback = cb; }
     inline void setQImageIOPlugin_Capabilities_Callback(QImageIOPlugin_Capabilities_Callback cb) { qimageioplugin_capabilities_callback = cb; }
     inline void setQImageIOPlugin_Create_Callback(QImageIOPlugin_Create_Callback cb) { qimageioplugin_create_callback = cb; }
@@ -385,6 +395,8 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
     inline void setQImageIOPlugin_IsSignalConnected_Callback(QImageIOPlugin_IsSignalConnected_Callback cb) { qimageioplugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQImageIOPlugin_MetaObject_IsBase(bool value) const { qimageioplugin_metaobject_isbase = value; }
+    inline void setQImageIOPlugin_Metacast_IsBase(bool value) const { qimageioplugin_metacast_isbase = value; }
     inline void setQImageIOPlugin_Metacall_IsBase(bool value) const { qimageioplugin_metacall_isbase = value; }
     inline void setQImageIOPlugin_Capabilities_IsBase(bool value) const { qimageioplugin_capabilities_isbase = value; }
     inline void setQImageIOPlugin_Create_IsBase(bool value) const { qimageioplugin_create_isbase = value; }
@@ -399,6 +411,34 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
     inline void setQImageIOPlugin_SenderSignalIndex_IsBase(bool value) const { qimageioplugin_sendersignalindex_isbase = value; }
     inline void setQImageIOPlugin_Receivers_IsBase(bool value) const { qimageioplugin_receivers_isbase = value; }
     inline void setQImageIOPlugin_IsSignalConnected_IsBase(bool value) const { qimageioplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qimageioplugin_metaobject_isbase) {
+            qimageioplugin_metaobject_isbase = false;
+            return QImageIOPlugin::metaObject();
+        } else if (qimageioplugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qimageioplugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QImageIOPlugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qimageioplugin_metacast_isbase) {
+            qimageioplugin_metacast_isbase = false;
+            return QImageIOPlugin::qt_metacast(param1);
+        } else if (qimageioplugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qimageioplugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QImageIOPlugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

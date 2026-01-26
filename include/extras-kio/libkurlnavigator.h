@@ -129,6 +129,10 @@ bool KUrlNavigator_EventFilter(KUrlNavigator* self, QObject* watched, QEvent* ev
 void KUrlNavigator_PaintEvent(KUrlNavigator* self, QPaintEvent* event);
 QUrl* KUrlNavigator_LocationUrl1(const KUrlNavigator* self, int historyIndex);
 libqt_string KUrlNavigator_LocationState1(const KUrlNavigator* self, int historyIndex);
+void KUrlNavigator_OnMetaObject(const KUrlNavigator* self, intptr_t slot);
+QMetaObject* KUrlNavigator_QBaseMetaObject(const KUrlNavigator* self);
+void KUrlNavigator_OnMetacast(KUrlNavigator* self, intptr_t slot);
+void* KUrlNavigator_QBaseMetacast(KUrlNavigator* self, const char* param1);
 void KUrlNavigator_OnMetacall(KUrlNavigator* self, intptr_t slot);
 int KUrlNavigator_QBaseMetacall(KUrlNavigator* self, int param1, int param2, void** param3);
 void KUrlNavigator_OnKeyPressEvent(KUrlNavigator* self, intptr_t slot);

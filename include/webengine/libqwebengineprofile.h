@@ -91,6 +91,10 @@ void QWebEngineProfile_DownloadRequested(QWebEngineProfile* self, QWebEngineDown
 void QWebEngineProfile_Connect_DownloadRequested(QWebEngineProfile* self, intptr_t slot);
 void QWebEngineProfile_ClearHttpCacheCompleted(QWebEngineProfile* self);
 void QWebEngineProfile_Connect_ClearHttpCacheCompleted(QWebEngineProfile* self, intptr_t slot);
+void QWebEngineProfile_OnMetaObject(const QWebEngineProfile* self, intptr_t slot);
+QMetaObject* QWebEngineProfile_QBaseMetaObject(const QWebEngineProfile* self);
+void QWebEngineProfile_OnMetacast(QWebEngineProfile* self, intptr_t slot);
+void* QWebEngineProfile_QBaseMetacast(QWebEngineProfile* self, const char* param1);
 void QWebEngineProfile_OnMetacall(QWebEngineProfile* self, intptr_t slot);
 int QWebEngineProfile_QBaseMetacall(QWebEngineProfile* self, int param1, int param2, void** param3);
 bool QWebEngineProfile_Event(QWebEngineProfile* self, QEvent* event);

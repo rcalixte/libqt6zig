@@ -95,6 +95,10 @@ void QColumnView_RowsInserted(QColumnView* self, const QModelIndex* parent, int 
 void QColumnView_CurrentChanged(QColumnView* self, const QModelIndex* current, const QModelIndex* previous);
 void QColumnView_ScrollContentsBy(QColumnView* self, int dx, int dy);
 QAbstractItemView* QColumnView_CreateColumn(QColumnView* self, const QModelIndex* rootIndex);
+void QColumnView_OnMetaObject(const QColumnView* self, intptr_t slot);
+QMetaObject* QColumnView_QBaseMetaObject(const QColumnView* self);
+void QColumnView_OnMetacast(QColumnView* self, intptr_t slot);
+void* QColumnView_QBaseMetacast(QColumnView* self, const char* param1);
 void QColumnView_OnMetacall(QColumnView* self, intptr_t slot);
 int QColumnView_QBaseMetacall(QColumnView* self, int param1, int param2, void** param3);
 void QColumnView_OnIndexAt(const QColumnView* self, intptr_t slot);

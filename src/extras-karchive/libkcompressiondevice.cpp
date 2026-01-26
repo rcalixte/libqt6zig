@@ -31,11 +31,21 @@ KCompressionDevice* KCompressionDevice_new3(const libqt_string fileName) {
 }
 
 QMetaObject* KCompressionDevice_MetaObject(const KCompressionDevice* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcompressiondevice = dynamic_cast<const VirtualKCompressionDevice*>(self);
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCompressionDevice*)self)->metaObject();
+    }
 }
 
 void* KCompressionDevice_Metacast(KCompressionDevice* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCompressionDevice*)self)->qt_metacast(param1);
+    }
 }
 
 int KCompressionDevice_Metacall(KCompressionDevice* self, int param1, int param2, void** param3) {
@@ -123,6 +133,44 @@ long long KCompressionDevice_WriteData(KCompressionDevice* self, const char* dat
         return static_cast<long long>(vkcompressiondevice->writeData(data, static_cast<qint64>(lenVal)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KCompressionDevice_QBaseMetaObject(const KCompressionDevice* self) {
+    auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+        vkcompressiondevice->setKCompressionDevice_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcompressiondevice->metaObject();
+    } else {
+        return (QMetaObject*)self->KCompressionDevice::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCompressionDevice_OnMetaObject(const KCompressionDevice* self, intptr_t slot) {
+    auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+        vkcompressiondevice->setKCompressionDevice_MetaObject_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCompressionDevice_QBaseMetacast(KCompressionDevice* self, const char* param1) {
+    auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+        vkcompressiondevice->setKCompressionDevice_Metacast_IsBase(true);
+        return vkcompressiondevice->qt_metacast(param1);
+    } else {
+        return self->KCompressionDevice::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCompressionDevice_OnMetacast(KCompressionDevice* self, intptr_t slot) {
+    auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+        vkcompressiondevice->setKCompressionDevice_Metacast_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -28,11 +28,21 @@ Accounts__Watch* Accounts__Watch_new2(QObject* parent) {
 }
 
 QMetaObject* Accounts__Watch_MetaObject(const Accounts__Watch* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vaccounts__watch = dynamic_cast<const VirtualAccountsWatch*>(self);
+    if (vaccounts__watch && vaccounts__watch->isVirtualAccountsWatch) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualAccountsWatch*)self)->metaObject();
+    }
 }
 
 void* Accounts__Watch_Metacast(Accounts__Watch* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vaccounts__watch = dynamic_cast<VirtualAccountsWatch*>(self);
+    if (vaccounts__watch && vaccounts__watch->isVirtualAccountsWatch) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualAccountsWatch*)self)->qt_metacast(param1);
+    }
 }
 
 int Accounts__Watch_Metacall(Accounts__Watch* self, int param1, int param2, void** param3) {
@@ -54,6 +64,44 @@ void Accounts__Watch_Connect_Notify(Accounts__Watch* self, intptr_t slot) {
         const char* sigval1 = (const char*)key;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* Accounts__Watch_QBaseMetaObject(const Accounts__Watch* self) {
+    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
+    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
+        vaccountswatch->setAccounts__Watch_MetaObject_IsBase(true);
+        return (QMetaObject*)vaccountswatch->metaObject();
+    } else {
+        return (QMetaObject*)self->Accounts::Watch::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Accounts__Watch_OnMetaObject(const Accounts__Watch* self, intptr_t slot) {
+    auto* vaccountswatch = const_cast<VirtualAccountsWatch*>(dynamic_cast<const VirtualAccountsWatch*>(self));
+    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
+        vaccountswatch->setAccounts__Watch_MetaObject_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Accounts__Watch_QBaseMetacast(Accounts__Watch* self, const char* param1) {
+    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
+    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
+        vaccountswatch->setAccounts__Watch_Metacast_IsBase(true);
+        return vaccountswatch->qt_metacast(param1);
+    } else {
+        return self->Accounts::Watch::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Accounts__Watch_OnMetacast(Accounts__Watch* self, intptr_t slot) {
+    auto* vaccountswatch = dynamic_cast<VirtualAccountsWatch*>(self);
+    if (vaccountswatch && vaccountswatch->isVirtualAccountsWatch) {
+        vaccountswatch->setAccounts__Watch_Metacast_Callback(reinterpret_cast<VirtualAccountsWatch::Accounts__Watch_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -409,11 +457,21 @@ Accounts__Account* Accounts__Account_new2(Accounts__Manager* manager, const libq
 }
 
 QMetaObject* Accounts__Account_MetaObject(const Accounts__Account* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vaccounts__account = dynamic_cast<const VirtualAccountsAccount*>(self);
+    if (vaccounts__account && vaccounts__account->isVirtualAccountsAccount) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualAccountsAccount*)self)->metaObject();
+    }
 }
 
 void* Accounts__Account_Metacast(Accounts__Account* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vaccounts__account = dynamic_cast<VirtualAccountsAccount*>(self);
+    if (vaccounts__account && vaccounts__account->isVirtualAccountsAccount) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualAccountsAccount*)self)->qt_metacast(param1);
+    }
 }
 
 int Accounts__Account_Metacall(Accounts__Account* self, int param1, int param2, void** param3) {
@@ -879,6 +937,44 @@ bool Accounts__Account_ValueAsBool3(const Accounts__Account* self, const libqt_s
 Accounts__Watch* Accounts__Account_WatchKey1(Accounts__Account* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return self->watchKey(key_QString);
+}
+
+// Base class handler implementation
+QMetaObject* Accounts__Account_QBaseMetaObject(const Accounts__Account* self) {
+    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
+    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
+        vaccountsaccount->setAccounts__Account_MetaObject_IsBase(true);
+        return (QMetaObject*)vaccountsaccount->metaObject();
+    } else {
+        return (QMetaObject*)self->Accounts::Account::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Accounts__Account_OnMetaObject(const Accounts__Account* self, intptr_t slot) {
+    auto* vaccountsaccount = const_cast<VirtualAccountsAccount*>(dynamic_cast<const VirtualAccountsAccount*>(self));
+    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
+        vaccountsaccount->setAccounts__Account_MetaObject_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Accounts__Account_QBaseMetacast(Accounts__Account* self, const char* param1) {
+    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
+    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
+        vaccountsaccount->setAccounts__Account_Metacast_IsBase(true);
+        return vaccountsaccount->qt_metacast(param1);
+    } else {
+        return self->Accounts::Account::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Accounts__Account_OnMetacast(Accounts__Account* self, intptr_t slot) {
+    auto* vaccountsaccount = dynamic_cast<VirtualAccountsAccount*>(self);
+    if (vaccountsaccount && vaccountsaccount->isVirtualAccountsAccount) {
+        vaccountsaccount->setAccounts__Account_Metacast_Callback(reinterpret_cast<VirtualAccountsAccount::Accounts__Account_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

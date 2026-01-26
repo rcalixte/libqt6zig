@@ -17,6 +17,8 @@ class VirtualQPointingDevice final : public QPointingDevice {
     bool isVirtualQPointingDevice = true;
 
     // Virtual class public types (including callbacks)
+    using QPointingDevice_MetaObject_Callback = QMetaObject* (*)();
+    using QPointingDevice_Metacast_Callback = void* (*)(QPointingDevice*, const char*);
     using QPointingDevice_Metacall_Callback = int (*)(QPointingDevice*, int, int, void**);
     using QPointingDevice_Event_Callback = bool (*)(QPointingDevice*, QEvent*);
     using QPointingDevice_EventFilter_Callback = bool (*)(QPointingDevice*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQPointingDevice final : public QPointingDevice {
 
   protected:
     // Instance callback storage
+    QPointingDevice_MetaObject_Callback qpointingdevice_metaobject_callback = nullptr;
+    QPointingDevice_Metacast_Callback qpointingdevice_metacast_callback = nullptr;
     QPointingDevice_Metacall_Callback qpointingdevice_metacall_callback = nullptr;
     QPointingDevice_Event_Callback qpointingdevice_event_callback = nullptr;
     QPointingDevice_EventFilter_Callback qpointingdevice_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQPointingDevice final : public QPointingDevice {
     QPointingDevice_IsSignalConnected_Callback qpointingdevice_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qpointingdevice_metaobject_isbase = false;
+    mutable bool qpointingdevice_metacast_isbase = false;
     mutable bool qpointingdevice_metacall_isbase = false;
     mutable bool qpointingdevice_event_isbase = false;
     mutable bool qpointingdevice_eventfilter_isbase = false;
@@ -68,6 +74,8 @@ class VirtualQPointingDevice final : public QPointingDevice {
     VirtualQPointingDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType devType, QPointingDevice::PointerType pType, QFlags<QInputDevice::Capability> caps, int maxPoints, int buttonCount, const QString& seatName, QPointingDeviceUniqueId uniqueId, QObject* parent) : QPointingDevice(name, systemId, devType, pType, caps, maxPoints, buttonCount, seatName, uniqueId, parent) {};
 
     ~VirtualQPointingDevice() {
+        qpointingdevice_metaobject_callback = nullptr;
+        qpointingdevice_metacast_callback = nullptr;
         qpointingdevice_metacall_callback = nullptr;
         qpointingdevice_event_callback = nullptr;
         qpointingdevice_eventfilter_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQPointingDevice final : public QPointingDevice {
     }
 
     // Callback setters
+    inline void setQPointingDevice_MetaObject_Callback(QPointingDevice_MetaObject_Callback cb) { qpointingdevice_metaobject_callback = cb; }
+    inline void setQPointingDevice_Metacast_Callback(QPointingDevice_Metacast_Callback cb) { qpointingdevice_metacast_callback = cb; }
     inline void setQPointingDevice_Metacall_Callback(QPointingDevice_Metacall_Callback cb) { qpointingdevice_metacall_callback = cb; }
     inline void setQPointingDevice_Event_Callback(QPointingDevice_Event_Callback cb) { qpointingdevice_event_callback = cb; }
     inline void setQPointingDevice_EventFilter_Callback(QPointingDevice_EventFilter_Callback cb) { qpointingdevice_eventfilter_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualQPointingDevice final : public QPointingDevice {
     inline void setQPointingDevice_IsSignalConnected_Callback(QPointingDevice_IsSignalConnected_Callback cb) { qpointingdevice_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQPointingDevice_MetaObject_IsBase(bool value) const { qpointingdevice_metaobject_isbase = value; }
+    inline void setQPointingDevice_Metacast_IsBase(bool value) const { qpointingdevice_metacast_isbase = value; }
     inline void setQPointingDevice_Metacall_IsBase(bool value) const { qpointingdevice_metacall_isbase = value; }
     inline void setQPointingDevice_Event_IsBase(bool value) const { qpointingdevice_event_isbase = value; }
     inline void setQPointingDevice_EventFilter_IsBase(bool value) const { qpointingdevice_eventfilter_isbase = value; }
@@ -109,6 +121,34 @@ class VirtualQPointingDevice final : public QPointingDevice {
     inline void setQPointingDevice_SenderSignalIndex_IsBase(bool value) const { qpointingdevice_sendersignalindex_isbase = value; }
     inline void setQPointingDevice_Receivers_IsBase(bool value) const { qpointingdevice_receivers_isbase = value; }
     inline void setQPointingDevice_IsSignalConnected_IsBase(bool value) const { qpointingdevice_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qpointingdevice_metaobject_isbase) {
+            qpointingdevice_metaobject_isbase = false;
+            return QPointingDevice::metaObject();
+        } else if (qpointingdevice_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qpointingdevice_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QPointingDevice::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qpointingdevice_metacast_isbase) {
+            qpointingdevice_metacast_isbase = false;
+            return QPointingDevice::qt_metacast(param1);
+        } else if (qpointingdevice_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qpointingdevice_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QPointingDevice::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

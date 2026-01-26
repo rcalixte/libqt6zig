@@ -32,11 +32,21 @@ QGraphicsEffect* QGraphicsEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsEffect_MetaObject(const QGraphicsEffect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicseffect = dynamic_cast<const VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsEffect*)self)->metaObject();
+    }
 }
 
 void* QGraphicsEffect_Metacast(QGraphicsEffect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsEffect*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsEffect_Metacall(QGraphicsEffect* self, int param1, int param2, void** param3) {
@@ -96,6 +106,44 @@ void QGraphicsEffect_SourceChanged(QGraphicsEffect* self, int flags) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
     if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
         vqgraphicseffect->sourceChanged(static_cast<QGraphicsEffect::ChangeFlags>(flags));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsEffect_QBaseMetaObject(const QGraphicsEffect* self) {
+    auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicseffect->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsEffect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEffect_OnMetaObject(const QGraphicsEffect* self, intptr_t slot) {
+    auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsEffect_QBaseMetacast(QGraphicsEffect* self, const char* param1) {
+    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_Metacast_IsBase(true);
+        return vqgraphicseffect->qt_metacast(param1);
+    } else {
+        return self->QGraphicsEffect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsEffect_OnMetacast(QGraphicsEffect* self, intptr_t slot) {
+    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+        vqgraphicseffect->setQGraphicsEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Metacast_Callback>(slot));
     }
 }
 
@@ -756,11 +804,21 @@ QGraphicsColorizeEffect* QGraphicsColorizeEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsColorizeEffect_MetaObject(const QGraphicsColorizeEffect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicscolorizeeffect = dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self);
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsColorizeEffect*)self)->metaObject();
+    }
 }
 
 void* QGraphicsColorizeEffect_Metacast(QGraphicsColorizeEffect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsColorizeEffect*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsColorizeEffect_Metacall(QGraphicsColorizeEffect* self, int param1, int param2, void** param3) {
@@ -818,6 +876,44 @@ void QGraphicsColorizeEffect_Draw(QGraphicsColorizeEffect* self, QPainter* paint
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
     if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
         vqgraphicscolorizeeffect->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsColorizeEffect_QBaseMetaObject(const QGraphicsColorizeEffect* self) {
+    auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicscolorizeeffect->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsColorizeEffect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsColorizeEffect_OnMetaObject(const QGraphicsColorizeEffect* self, intptr_t slot) {
+    auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsColorizeEffect_QBaseMetacast(QGraphicsColorizeEffect* self, const char* param1) {
+    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Metacast_IsBase(true);
+        return vqgraphicscolorizeeffect->qt_metacast(param1);
+    } else {
+        return self->QGraphicsColorizeEffect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsColorizeEffect_OnMetacast(QGraphicsColorizeEffect* self, intptr_t slot) {
+    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+        vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Metacast_Callback>(slot));
     }
 }
 
@@ -1390,11 +1486,21 @@ QGraphicsBlurEffect* QGraphicsBlurEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsBlurEffect_MetaObject(const QGraphicsBlurEffect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsblureffect = dynamic_cast<const VirtualQGraphicsBlurEffect*>(self);
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsBlurEffect*)self)->metaObject();
+    }
 }
 
 void* QGraphicsBlurEffect_Metacast(QGraphicsBlurEffect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsBlurEffect*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsBlurEffect_Metacall(QGraphicsBlurEffect* self, int param1, int param2, void** param3) {
@@ -1459,6 +1565,44 @@ void QGraphicsBlurEffect_Draw(QGraphicsBlurEffect* self, QPainter* painter) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
     if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
         vqgraphicsblureffect->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsBlurEffect_QBaseMetaObject(const QGraphicsBlurEffect* self) {
+    auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsblureffect->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsBlurEffect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsBlurEffect_OnMetaObject(const QGraphicsBlurEffect* self, intptr_t slot) {
+    auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsBlurEffect_QBaseMetacast(QGraphicsBlurEffect* self, const char* param1) {
+    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_Metacast_IsBase(true);
+        return vqgraphicsblureffect->qt_metacast(param1);
+    } else {
+        return self->QGraphicsBlurEffect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsBlurEffect_OnMetacast(QGraphicsBlurEffect* self, intptr_t slot) {
+    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+        vqgraphicsblureffect->setQGraphicsBlurEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Metacast_Callback>(slot));
     }
 }
 
@@ -2021,11 +2165,21 @@ QGraphicsDropShadowEffect* QGraphicsDropShadowEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsDropShadowEffect_MetaObject(const QGraphicsDropShadowEffect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsdropshadoweffect = dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self);
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsDropShadowEffect*)self)->metaObject();
+    }
 }
 
 void* QGraphicsDropShadowEffect_Metacast(QGraphicsDropShadowEffect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsDropShadowEffect*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsDropShadowEffect_Metacall(QGraphicsDropShadowEffect* self, int param1, int param2, void** param3) {
@@ -2138,6 +2292,44 @@ void QGraphicsDropShadowEffect_Draw(QGraphicsDropShadowEffect* self, QPainter* p
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
     if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
         vqgraphicsdropshadoweffect->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsDropShadowEffect_QBaseMetaObject(const QGraphicsDropShadowEffect* self) {
+    auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsdropshadoweffect->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsDropShadowEffect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsDropShadowEffect_OnMetaObject(const QGraphicsDropShadowEffect* self, intptr_t slot) {
+    auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsDropShadowEffect_QBaseMetacast(QGraphicsDropShadowEffect* self, const char* param1) {
+    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Metacast_IsBase(true);
+        return vqgraphicsdropshadoweffect->qt_metacast(param1);
+    } else {
+        return self->QGraphicsDropShadowEffect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsDropShadowEffect_OnMetacast(QGraphicsDropShadowEffect* self, intptr_t slot) {
+    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+        vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Metacast_Callback>(slot));
     }
 }
 
@@ -2700,11 +2892,21 @@ QGraphicsOpacityEffect* QGraphicsOpacityEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsOpacityEffect_MetaObject(const QGraphicsOpacityEffect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsopacityeffect = dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self);
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsOpacityEffect*)self)->metaObject();
+    }
 }
 
 void* QGraphicsOpacityEffect_Metacast(QGraphicsOpacityEffect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsOpacityEffect*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsOpacityEffect_Metacall(QGraphicsOpacityEffect* self, int param1, int param2, void** param3) {
@@ -2762,6 +2964,44 @@ void QGraphicsOpacityEffect_Draw(QGraphicsOpacityEffect* self, QPainter* painter
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
     if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
         vqgraphicsopacityeffect->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsOpacityEffect_QBaseMetaObject(const QGraphicsOpacityEffect* self) {
+    auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsopacityeffect->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsOpacityEffect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsOpacityEffect_OnMetaObject(const QGraphicsOpacityEffect* self, intptr_t slot) {
+    auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsOpacityEffect_QBaseMetacast(QGraphicsOpacityEffect* self, const char* param1) {
+    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Metacast_IsBase(true);
+        return vqgraphicsopacityeffect->qt_metacast(param1);
+    } else {
+        return self->QGraphicsOpacityEffect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsOpacityEffect_OnMetacast(QGraphicsOpacityEffect* self, intptr_t slot) {
+    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+        vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Metacast_Callback>(slot));
     }
 }
 

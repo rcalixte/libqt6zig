@@ -17,6 +17,8 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
     bool isVirtualKPixmapRegionSelectorWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KPixmapRegionSelectorWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KPixmapRegionSelectorWidget_Metacast_Callback = void* (*)(KPixmapRegionSelectorWidget*, const char*);
     using KPixmapRegionSelectorWidget_Metacall_Callback = int (*)(KPixmapRegionSelectorWidget*, int, int, void**);
     using KPixmapRegionSelectorWidget_CreatePopupMenu_Callback = QMenu* (*)();
     using KPixmapRegionSelectorWidget_EventFilter_Callback = bool (*)(KPixmapRegionSelectorWidget*, QObject*, QEvent*);
@@ -79,6 +81,8 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
 
   protected:
     // Instance callback storage
+    KPixmapRegionSelectorWidget_MetaObject_Callback kpixmapregionselectorwidget_metaobject_callback = nullptr;
+    KPixmapRegionSelectorWidget_Metacast_Callback kpixmapregionselectorwidget_metacast_callback = nullptr;
     KPixmapRegionSelectorWidget_Metacall_Callback kpixmapregionselectorwidget_metacall_callback = nullptr;
     KPixmapRegionSelectorWidget_CreatePopupMenu_Callback kpixmapregionselectorwidget_createpopupmenu_callback = nullptr;
     KPixmapRegionSelectorWidget_EventFilter_Callback kpixmapregionselectorwidget_eventfilter_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
     KPixmapRegionSelectorWidget_GetDecodedMetricF_Callback kpixmapregionselectorwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpixmapregionselectorwidget_metaobject_isbase = false;
+    mutable bool kpixmapregionselectorwidget_metacast_isbase = false;
     mutable bool kpixmapregionselectorwidget_metacall_isbase = false;
     mutable bool kpixmapregionselectorwidget_createpopupmenu_isbase = false;
     mutable bool kpixmapregionselectorwidget_eventfilter_isbase = false;
@@ -205,6 +211,8 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
     VirtualKPixmapRegionSelectorWidget() : KPixmapRegionSelectorWidget() {};
 
     ~VirtualKPixmapRegionSelectorWidget() {
+        kpixmapregionselectorwidget_metaobject_callback = nullptr;
+        kpixmapregionselectorwidget_metacast_callback = nullptr;
         kpixmapregionselectorwidget_metacall_callback = nullptr;
         kpixmapregionselectorwidget_createpopupmenu_callback = nullptr;
         kpixmapregionselectorwidget_eventfilter_callback = nullptr;
@@ -267,6 +275,8 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
     }
 
     // Callback setters
+    inline void setKPixmapRegionSelectorWidget_MetaObject_Callback(KPixmapRegionSelectorWidget_MetaObject_Callback cb) { kpixmapregionselectorwidget_metaobject_callback = cb; }
+    inline void setKPixmapRegionSelectorWidget_Metacast_Callback(KPixmapRegionSelectorWidget_Metacast_Callback cb) { kpixmapregionselectorwidget_metacast_callback = cb; }
     inline void setKPixmapRegionSelectorWidget_Metacall_Callback(KPixmapRegionSelectorWidget_Metacall_Callback cb) { kpixmapregionselectorwidget_metacall_callback = cb; }
     inline void setKPixmapRegionSelectorWidget_CreatePopupMenu_Callback(KPixmapRegionSelectorWidget_CreatePopupMenu_Callback cb) { kpixmapregionselectorwidget_createpopupmenu_callback = cb; }
     inline void setKPixmapRegionSelectorWidget_EventFilter_Callback(KPixmapRegionSelectorWidget_EventFilter_Callback cb) { kpixmapregionselectorwidget_eventfilter_callback = cb; }
@@ -328,6 +338,8 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
     inline void setKPixmapRegionSelectorWidget_GetDecodedMetricF_Callback(KPixmapRegionSelectorWidget_GetDecodedMetricF_Callback cb) { kpixmapregionselectorwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPixmapRegionSelectorWidget_MetaObject_IsBase(bool value) const { kpixmapregionselectorwidget_metaobject_isbase = value; }
+    inline void setKPixmapRegionSelectorWidget_Metacast_IsBase(bool value) const { kpixmapregionselectorwidget_metacast_isbase = value; }
     inline void setKPixmapRegionSelectorWidget_Metacall_IsBase(bool value) const { kpixmapregionselectorwidget_metacall_isbase = value; }
     inline void setKPixmapRegionSelectorWidget_CreatePopupMenu_IsBase(bool value) const { kpixmapregionselectorwidget_createpopupmenu_isbase = value; }
     inline void setKPixmapRegionSelectorWidget_EventFilter_IsBase(bool value) const { kpixmapregionselectorwidget_eventfilter_isbase = value; }
@@ -387,6 +399,34 @@ class VirtualKPixmapRegionSelectorWidget final : public KPixmapRegionSelectorWid
     inline void setKPixmapRegionSelectorWidget_Receivers_IsBase(bool value) const { kpixmapregionselectorwidget_receivers_isbase = value; }
     inline void setKPixmapRegionSelectorWidget_IsSignalConnected_IsBase(bool value) const { kpixmapregionselectorwidget_issignalconnected_isbase = value; }
     inline void setKPixmapRegionSelectorWidget_GetDecodedMetricF_IsBase(bool value) const { kpixmapregionselectorwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpixmapregionselectorwidget_metaobject_isbase) {
+            kpixmapregionselectorwidget_metaobject_isbase = false;
+            return KPixmapRegionSelectorWidget::metaObject();
+        } else if (kpixmapregionselectorwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpixmapregionselectorwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPixmapRegionSelectorWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpixmapregionselectorwidget_metacast_isbase) {
+            kpixmapregionselectorwidget_metacast_isbase = false;
+            return KPixmapRegionSelectorWidget::qt_metacast(param1);
+        } else if (kpixmapregionselectorwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpixmapregionselectorwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPixmapRegionSelectorWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

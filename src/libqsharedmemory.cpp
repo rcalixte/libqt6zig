@@ -40,11 +40,21 @@ QSharedMemory* QSharedMemory_new6(const libqt_string key, QObject* parent) {
 }
 
 QMetaObject* QSharedMemory_MetaObject(const QSharedMemory* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsharedmemory = dynamic_cast<const VirtualQSharedMemory*>(self);
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSharedMemory*)self)->metaObject();
+    }
 }
 
 void* QSharedMemory_Metacast(QSharedMemory* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSharedMemory*)self)->qt_metacast(param1);
+    }
 }
 
 int QSharedMemory_Metacall(QSharedMemory* self, int param1, int param2, void** param3) {
@@ -189,6 +199,44 @@ QNativeIpcKey* QSharedMemory_PlatformSafeKey2(const libqt_string key, uint16_t t
 QNativeIpcKey* QSharedMemory_LegacyNativeKey2(const libqt_string key, uint16_t typeVal) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QNativeIpcKey(QSharedMemory::legacyNativeKey(key_QString, static_cast<QNativeIpcKey::Type>(typeVal)));
+}
+
+// Base class handler implementation
+QMetaObject* QSharedMemory_QBaseMetaObject(const QSharedMemory* self) {
+    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+        vqsharedmemory->setQSharedMemory_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsharedmemory->metaObject();
+    } else {
+        return (QMetaObject*)self->QSharedMemory::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSharedMemory_OnMetaObject(const QSharedMemory* self, intptr_t slot) {
+    auto* vqsharedmemory = const_cast<VirtualQSharedMemory*>(dynamic_cast<const VirtualQSharedMemory*>(self));
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+        vqsharedmemory->setQSharedMemory_MetaObject_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSharedMemory_QBaseMetacast(QSharedMemory* self, const char* param1) {
+    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+        vqsharedmemory->setQSharedMemory_Metacast_IsBase(true);
+        return vqsharedmemory->qt_metacast(param1);
+    } else {
+        return self->QSharedMemory::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSharedMemory_OnMetacast(QSharedMemory* self, intptr_t slot) {
+    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
+    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
+        vqsharedmemory->setQSharedMemory_Metacast_Callback(reinterpret_cast<VirtualQSharedMemory::QSharedMemory_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

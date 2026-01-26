@@ -27,11 +27,21 @@ QImageCapture* QImageCapture_new2(QObject* parent) {
 }
 
 QMetaObject* QImageCapture_MetaObject(const QImageCapture* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqimagecapture = dynamic_cast<const VirtualQImageCapture*>(self);
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQImageCapture*)self)->metaObject();
+    }
 }
 
 void* QImageCapture_Metacast(QImageCapture* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQImageCapture*)self)->qt_metacast(param1);
+    }
 }
 
 int QImageCapture_Metacall(QImageCapture* self, int param1, int param2, void** param3) {
@@ -326,6 +336,44 @@ void QImageCapture_Connect_ImageSaved(QImageCapture* self, intptr_t slot) {
 int QImageCapture_CaptureToFile1(QImageCapture* self, const libqt_string location) {
     QString location_QString = QString::fromUtf8(location.data, location.len);
     return self->captureToFile(location_QString);
+}
+
+// Base class handler implementation
+QMetaObject* QImageCapture_QBaseMetaObject(const QImageCapture* self) {
+    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+        vqimagecapture->setQImageCapture_MetaObject_IsBase(true);
+        return (QMetaObject*)vqimagecapture->metaObject();
+    } else {
+        return (QMetaObject*)self->QImageCapture::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QImageCapture_OnMetaObject(const QImageCapture* self, intptr_t slot) {
+    auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+        vqimagecapture->setQImageCapture_MetaObject_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QImageCapture_QBaseMetacast(QImageCapture* self, const char* param1) {
+    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+        vqimagecapture->setQImageCapture_Metacast_IsBase(true);
+        return vqimagecapture->qt_metacast(param1);
+    } else {
+        return self->QImageCapture::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QImageCapture_OnMetacast(QImageCapture* self, intptr_t slot) {
+    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+        vqimagecapture->setQImageCapture_Metacast_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

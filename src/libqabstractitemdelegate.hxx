@@ -17,6 +17,8 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
     bool isVirtualQAbstractItemDelegate = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractItemDelegate_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractItemDelegate_Metacast_Callback = void* (*)(QAbstractItemDelegate*, const char*);
     using QAbstractItemDelegate_Metacall_Callback = int (*)(QAbstractItemDelegate*, int, int, void**);
     using QAbstractItemDelegate_Paint_Callback = void (*)(const QAbstractItemDelegate*, QPainter*, QStyleOptionViewItem*, QModelIndex*);
     using QAbstractItemDelegate_SizeHint_Callback = QSize* (*)(const QAbstractItemDelegate*, QStyleOptionViewItem*, QModelIndex*);
@@ -42,6 +44,8 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
 
   protected:
     // Instance callback storage
+    QAbstractItemDelegate_MetaObject_Callback qabstractitemdelegate_metaobject_callback = nullptr;
+    QAbstractItemDelegate_Metacast_Callback qabstractitemdelegate_metacast_callback = nullptr;
     QAbstractItemDelegate_Metacall_Callback qabstractitemdelegate_metacall_callback = nullptr;
     QAbstractItemDelegate_Paint_Callback qabstractitemdelegate_paint_callback = nullptr;
     QAbstractItemDelegate_SizeHint_Callback qabstractitemdelegate_sizehint_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
     QAbstractItemDelegate_IsSignalConnected_Callback qabstractitemdelegate_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractitemdelegate_metaobject_isbase = false;
+    mutable bool qabstractitemdelegate_metacast_isbase = false;
     mutable bool qabstractitemdelegate_metacall_isbase = false;
     mutable bool qabstractitemdelegate_paint_isbase = false;
     mutable bool qabstractitemdelegate_sizehint_isbase = false;
@@ -94,6 +100,8 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
     VirtualQAbstractItemDelegate(QObject* parent) : QAbstractItemDelegate(parent) {};
 
     ~VirtualQAbstractItemDelegate() {
+        qabstractitemdelegate_metaobject_callback = nullptr;
+        qabstractitemdelegate_metacast_callback = nullptr;
         qabstractitemdelegate_metacall_callback = nullptr;
         qabstractitemdelegate_paint_callback = nullptr;
         qabstractitemdelegate_sizehint_callback = nullptr;
@@ -119,6 +127,8 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
     }
 
     // Callback setters
+    inline void setQAbstractItemDelegate_MetaObject_Callback(QAbstractItemDelegate_MetaObject_Callback cb) { qabstractitemdelegate_metaobject_callback = cb; }
+    inline void setQAbstractItemDelegate_Metacast_Callback(QAbstractItemDelegate_Metacast_Callback cb) { qabstractitemdelegate_metacast_callback = cb; }
     inline void setQAbstractItemDelegate_Metacall_Callback(QAbstractItemDelegate_Metacall_Callback cb) { qabstractitemdelegate_metacall_callback = cb; }
     inline void setQAbstractItemDelegate_Paint_Callback(QAbstractItemDelegate_Paint_Callback cb) { qabstractitemdelegate_paint_callback = cb; }
     inline void setQAbstractItemDelegate_SizeHint_Callback(QAbstractItemDelegate_SizeHint_Callback cb) { qabstractitemdelegate_sizehint_callback = cb; }
@@ -143,6 +153,8 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
     inline void setQAbstractItemDelegate_IsSignalConnected_Callback(QAbstractItemDelegate_IsSignalConnected_Callback cb) { qabstractitemdelegate_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractItemDelegate_MetaObject_IsBase(bool value) const { qabstractitemdelegate_metaobject_isbase = value; }
+    inline void setQAbstractItemDelegate_Metacast_IsBase(bool value) const { qabstractitemdelegate_metacast_isbase = value; }
     inline void setQAbstractItemDelegate_Metacall_IsBase(bool value) const { qabstractitemdelegate_metacall_isbase = value; }
     inline void setQAbstractItemDelegate_Paint_IsBase(bool value) const { qabstractitemdelegate_paint_isbase = value; }
     inline void setQAbstractItemDelegate_SizeHint_IsBase(bool value) const { qabstractitemdelegate_sizehint_isbase = value; }
@@ -165,6 +177,34 @@ class VirtualQAbstractItemDelegate : public QAbstractItemDelegate {
     inline void setQAbstractItemDelegate_SenderSignalIndex_IsBase(bool value) const { qabstractitemdelegate_sendersignalindex_isbase = value; }
     inline void setQAbstractItemDelegate_Receivers_IsBase(bool value) const { qabstractitemdelegate_receivers_isbase = value; }
     inline void setQAbstractItemDelegate_IsSignalConnected_IsBase(bool value) const { qabstractitemdelegate_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractitemdelegate_metaobject_isbase) {
+            qabstractitemdelegate_metaobject_isbase = false;
+            return QAbstractItemDelegate::metaObject();
+        } else if (qabstractitemdelegate_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractitemdelegate_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractItemDelegate::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractitemdelegate_metacast_isbase) {
+            qabstractitemdelegate_metacast_isbase = false;
+            return QAbstractItemDelegate::qt_metacast(param1);
+        } else if (qabstractitemdelegate_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractitemdelegate_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractItemDelegate::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

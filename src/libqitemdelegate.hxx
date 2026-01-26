@@ -17,6 +17,8 @@ class VirtualQItemDelegate final : public QItemDelegate {
     bool isVirtualQItemDelegate = true;
 
     // Virtual class public types (including callbacks)
+    using QItemDelegate_MetaObject_Callback = QMetaObject* (*)();
+    using QItemDelegate_Metacast_Callback = void* (*)(QItemDelegate*, const char*);
     using QItemDelegate_Metacall_Callback = int (*)(QItemDelegate*, int, int, void**);
     using QItemDelegate_Paint_Callback = void (*)(const QItemDelegate*, QPainter*, QStyleOptionViewItem*, QModelIndex*);
     using QItemDelegate_SizeHint_Callback = QSize* (*)(const QItemDelegate*, QStyleOptionViewItem*, QModelIndex*);
@@ -53,6 +55,8 @@ class VirtualQItemDelegate final : public QItemDelegate {
 
   protected:
     // Instance callback storage
+    QItemDelegate_MetaObject_Callback qitemdelegate_metaobject_callback = nullptr;
+    QItemDelegate_Metacast_Callback qitemdelegate_metacast_callback = nullptr;
     QItemDelegate_Metacall_Callback qitemdelegate_metacall_callback = nullptr;
     QItemDelegate_Paint_Callback qitemdelegate_paint_callback = nullptr;
     QItemDelegate_SizeHint_Callback qitemdelegate_sizehint_callback = nullptr;
@@ -88,6 +92,8 @@ class VirtualQItemDelegate final : public QItemDelegate {
     QItemDelegate_IsSignalConnected_Callback qitemdelegate_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qitemdelegate_metaobject_isbase = false;
+    mutable bool qitemdelegate_metacast_isbase = false;
     mutable bool qitemdelegate_metacall_isbase = false;
     mutable bool qitemdelegate_paint_isbase = false;
     mutable bool qitemdelegate_sizehint_isbase = false;
@@ -127,6 +133,8 @@ class VirtualQItemDelegate final : public QItemDelegate {
     VirtualQItemDelegate(QObject* parent) : QItemDelegate(parent) {};
 
     ~VirtualQItemDelegate() {
+        qitemdelegate_metaobject_callback = nullptr;
+        qitemdelegate_metacast_callback = nullptr;
         qitemdelegate_metacall_callback = nullptr;
         qitemdelegate_paint_callback = nullptr;
         qitemdelegate_sizehint_callback = nullptr;
@@ -163,6 +171,8 @@ class VirtualQItemDelegate final : public QItemDelegate {
     }
 
     // Callback setters
+    inline void setQItemDelegate_MetaObject_Callback(QItemDelegate_MetaObject_Callback cb) { qitemdelegate_metaobject_callback = cb; }
+    inline void setQItemDelegate_Metacast_Callback(QItemDelegate_Metacast_Callback cb) { qitemdelegate_metacast_callback = cb; }
     inline void setQItemDelegate_Metacall_Callback(QItemDelegate_Metacall_Callback cb) { qitemdelegate_metacall_callback = cb; }
     inline void setQItemDelegate_Paint_Callback(QItemDelegate_Paint_Callback cb) { qitemdelegate_paint_callback = cb; }
     inline void setQItemDelegate_SizeHint_Callback(QItemDelegate_SizeHint_Callback cb) { qitemdelegate_sizehint_callback = cb; }
@@ -198,6 +208,8 @@ class VirtualQItemDelegate final : public QItemDelegate {
     inline void setQItemDelegate_IsSignalConnected_Callback(QItemDelegate_IsSignalConnected_Callback cb) { qitemdelegate_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQItemDelegate_MetaObject_IsBase(bool value) const { qitemdelegate_metaobject_isbase = value; }
+    inline void setQItemDelegate_Metacast_IsBase(bool value) const { qitemdelegate_metacast_isbase = value; }
     inline void setQItemDelegate_Metacall_IsBase(bool value) const { qitemdelegate_metacall_isbase = value; }
     inline void setQItemDelegate_Paint_IsBase(bool value) const { qitemdelegate_paint_isbase = value; }
     inline void setQItemDelegate_SizeHint_IsBase(bool value) const { qitemdelegate_sizehint_isbase = value; }
@@ -231,6 +243,34 @@ class VirtualQItemDelegate final : public QItemDelegate {
     inline void setQItemDelegate_SenderSignalIndex_IsBase(bool value) const { qitemdelegate_sendersignalindex_isbase = value; }
     inline void setQItemDelegate_Receivers_IsBase(bool value) const { qitemdelegate_receivers_isbase = value; }
     inline void setQItemDelegate_IsSignalConnected_IsBase(bool value) const { qitemdelegate_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qitemdelegate_metaobject_isbase) {
+            qitemdelegate_metaobject_isbase = false;
+            return QItemDelegate::metaObject();
+        } else if (qitemdelegate_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qitemdelegate_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QItemDelegate::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qitemdelegate_metacast_isbase) {
+            qitemdelegate_metacast_isbase = false;
+            return QItemDelegate::qt_metacast(param1);
+        } else if (qitemdelegate_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qitemdelegate_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QItemDelegate::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

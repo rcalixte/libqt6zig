@@ -66,11 +66,21 @@ KSeparator* KSeparator_new6(int orientation, QWidget* parent, int f) {
 }
 
 QMetaObject* KSeparator_MetaObject(const KSeparator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkseparator = dynamic_cast<const VirtualKSeparator*>(self);
+    if (vkseparator && vkseparator->isVirtualKSeparator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSeparator*)self)->metaObject();
+    }
 }
 
 void* KSeparator_Metacast(KSeparator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
+    if (vkseparator && vkseparator->isVirtualKSeparator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSeparator*)self)->qt_metacast(param1);
+    }
 }
 
 int KSeparator_Metacall(KSeparator* self, int param1, int param2, void** param3) {
@@ -88,6 +98,44 @@ int KSeparator_Orientation(const KSeparator* self) {
 
 void KSeparator_SetOrientation(KSeparator* self, int orientation) {
     self->setOrientation(static_cast<Qt::Orientation>(orientation));
+}
+
+// Base class handler implementation
+QMetaObject* KSeparator_QBaseMetaObject(const KSeparator* self) {
+    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
+    if (vkseparator && vkseparator->isVirtualKSeparator) {
+        vkseparator->setKSeparator_MetaObject_IsBase(true);
+        return (QMetaObject*)vkseparator->metaObject();
+    } else {
+        return (QMetaObject*)self->KSeparator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSeparator_OnMetaObject(const KSeparator* self, intptr_t slot) {
+    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
+    if (vkseparator && vkseparator->isVirtualKSeparator) {
+        vkseparator->setKSeparator_MetaObject_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSeparator_QBaseMetacast(KSeparator* self, const char* param1) {
+    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
+    if (vkseparator && vkseparator->isVirtualKSeparator) {
+        vkseparator->setKSeparator_Metacast_IsBase(true);
+        return vkseparator->qt_metacast(param1);
+    } else {
+        return self->KSeparator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSeparator_OnMetacast(KSeparator* self, intptr_t slot) {
+    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
+    if (vkseparator && vkseparator->isVirtualKSeparator) {
+        vkseparator->setKSeparator_Metacast_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

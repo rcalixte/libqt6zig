@@ -25,11 +25,21 @@ QsciLexerPython* QsciLexerPython_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerPython_MetaObject(const QsciLexerPython* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerpython = dynamic_cast<const VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerPython*)self)->metaObject();
+    }
 }
 
 void* QsciLexerPython_Metacast(QsciLexerPython* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerPython*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerPython_Metacall(QsciLexerPython* self, int param1, int param2, void** param3) {
@@ -216,6 +226,44 @@ void QsciLexerPython_SetIndentationWarning(QsciLexerPython* self, int warn) {
 
 const char* QsciLexerPython_BlockStart1(const QsciLexerPython* self, int* style) {
     return (const char*)self->blockStart(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerPython_QBaseMetaObject(const QsciLexerPython* self) {
+    auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerpython->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerPython*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPython_OnMetaObject(const QsciLexerPython* self, intptr_t slot) {
+    auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerPython_QBaseMetacast(QsciLexerPython* self, const char* param1) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_Metacast_IsBase(true);
+        return vqscilexerpython->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerPython*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerPython_OnMetacast(QsciLexerPython* self, intptr_t slot) {
+    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+        vqscilexerpython->setQsciLexerPython_Metacast_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

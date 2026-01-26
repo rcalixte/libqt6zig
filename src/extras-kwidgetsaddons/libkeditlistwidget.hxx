@@ -17,6 +17,8 @@ class VirtualKEditListWidget final : public KEditListWidget {
     bool isVirtualKEditListWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KEditListWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KEditListWidget_Metacast_Callback = void* (*)(KEditListWidget*, const char*);
     using KEditListWidget_Metacall_Callback = int (*)(KEditListWidget*, int, int, void**);
     using KEditListWidget_EventFilter_Callback = bool (*)(KEditListWidget*, QObject*, QEvent*);
     using KEditListWidget_DevType_Callback = int (*)();
@@ -78,6 +80,8 @@ class VirtualKEditListWidget final : public KEditListWidget {
 
   protected:
     // Instance callback storage
+    KEditListWidget_MetaObject_Callback keditlistwidget_metaobject_callback = nullptr;
+    KEditListWidget_Metacast_Callback keditlistwidget_metacast_callback = nullptr;
     KEditListWidget_Metacall_Callback keditlistwidget_metacall_callback = nullptr;
     KEditListWidget_EventFilter_Callback keditlistwidget_eventfilter_callback = nullptr;
     KEditListWidget_DevType_Callback keditlistwidget_devtype_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKEditListWidget final : public KEditListWidget {
     KEditListWidget_GetDecodedMetricF_Callback keditlistwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool keditlistwidget_metaobject_isbase = false;
+    mutable bool keditlistwidget_metacast_isbase = false;
     mutable bool keditlistwidget_metacall_isbase = false;
     mutable bool keditlistwidget_eventfilter_isbase = false;
     mutable bool keditlistwidget_devtype_isbase = false;
@@ -206,6 +212,8 @@ class VirtualKEditListWidget final : public KEditListWidget {
     VirtualKEditListWidget(const KEditListWidget::CustomEditor& customEditor, QWidget* parent, bool checkAtEntering, KEditListWidget::Buttons buttons) : KEditListWidget(customEditor, parent, checkAtEntering, buttons) {};
 
     ~VirtualKEditListWidget() {
+        keditlistwidget_metaobject_callback = nullptr;
+        keditlistwidget_metacast_callback = nullptr;
         keditlistwidget_metacall_callback = nullptr;
         keditlistwidget_eventfilter_callback = nullptr;
         keditlistwidget_devtype_callback = nullptr;
@@ -267,6 +275,8 @@ class VirtualKEditListWidget final : public KEditListWidget {
     }
 
     // Callback setters
+    inline void setKEditListWidget_MetaObject_Callback(KEditListWidget_MetaObject_Callback cb) { keditlistwidget_metaobject_callback = cb; }
+    inline void setKEditListWidget_Metacast_Callback(KEditListWidget_Metacast_Callback cb) { keditlistwidget_metacast_callback = cb; }
     inline void setKEditListWidget_Metacall_Callback(KEditListWidget_Metacall_Callback cb) { keditlistwidget_metacall_callback = cb; }
     inline void setKEditListWidget_EventFilter_Callback(KEditListWidget_EventFilter_Callback cb) { keditlistwidget_eventfilter_callback = cb; }
     inline void setKEditListWidget_DevType_Callback(KEditListWidget_DevType_Callback cb) { keditlistwidget_devtype_callback = cb; }
@@ -327,6 +337,8 @@ class VirtualKEditListWidget final : public KEditListWidget {
     inline void setKEditListWidget_GetDecodedMetricF_Callback(KEditListWidget_GetDecodedMetricF_Callback cb) { keditlistwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKEditListWidget_MetaObject_IsBase(bool value) const { keditlistwidget_metaobject_isbase = value; }
+    inline void setKEditListWidget_Metacast_IsBase(bool value) const { keditlistwidget_metacast_isbase = value; }
     inline void setKEditListWidget_Metacall_IsBase(bool value) const { keditlistwidget_metacall_isbase = value; }
     inline void setKEditListWidget_EventFilter_IsBase(bool value) const { keditlistwidget_eventfilter_isbase = value; }
     inline void setKEditListWidget_DevType_IsBase(bool value) const { keditlistwidget_devtype_isbase = value; }
@@ -385,6 +397,34 @@ class VirtualKEditListWidget final : public KEditListWidget {
     inline void setKEditListWidget_Receivers_IsBase(bool value) const { keditlistwidget_receivers_isbase = value; }
     inline void setKEditListWidget_IsSignalConnected_IsBase(bool value) const { keditlistwidget_issignalconnected_isbase = value; }
     inline void setKEditListWidget_GetDecodedMetricF_IsBase(bool value) const { keditlistwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (keditlistwidget_metaobject_isbase) {
+            keditlistwidget_metaobject_isbase = false;
+            return KEditListWidget::metaObject();
+        } else if (keditlistwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = keditlistwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KEditListWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (keditlistwidget_metacast_isbase) {
+            keditlistwidget_metacast_isbase = false;
+            return KEditListWidget::qt_metacast(param1);
+        } else if (keditlistwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = keditlistwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KEditListWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

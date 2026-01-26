@@ -17,6 +17,8 @@ class VirtualKIconLoader final : public KIconLoader {
     bool isVirtualKIconLoader = true;
 
     // Virtual class public types (including callbacks)
+    using KIconLoader_MetaObject_Callback = QMetaObject* (*)();
+    using KIconLoader_Metacast_Callback = void* (*)(KIconLoader*, const char*);
     using KIconLoader_Metacall_Callback = int (*)(KIconLoader*, int, int, void**);
     using KIconLoader_Event_Callback = bool (*)(KIconLoader*, QEvent*);
     using KIconLoader_EventFilter_Callback = bool (*)(KIconLoader*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKIconLoader final : public KIconLoader {
 
   protected:
     // Instance callback storage
+    KIconLoader_MetaObject_Callback kiconloader_metaobject_callback = nullptr;
+    KIconLoader_Metacast_Callback kiconloader_metacast_callback = nullptr;
     KIconLoader_Metacall_Callback kiconloader_metacall_callback = nullptr;
     KIconLoader_Event_Callback kiconloader_event_callback = nullptr;
     KIconLoader_EventFilter_Callback kiconloader_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKIconLoader final : public KIconLoader {
     KIconLoader_IsSignalConnected_Callback kiconloader_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kiconloader_metaobject_isbase = false;
+    mutable bool kiconloader_metacast_isbase = false;
     mutable bool kiconloader_metacall_isbase = false;
     mutable bool kiconloader_event_isbase = false;
     mutable bool kiconloader_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualKIconLoader final : public KIconLoader {
     VirtualKIconLoader(const QString& appname, const QList<QString>& extraSearchPaths, QObject* parent) : KIconLoader(appname, extraSearchPaths, parent) {};
 
     ~VirtualKIconLoader() {
+        kiconloader_metaobject_callback = nullptr;
+        kiconloader_metacast_callback = nullptr;
         kiconloader_metacall_callback = nullptr;
         kiconloader_event_callback = nullptr;
         kiconloader_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualKIconLoader final : public KIconLoader {
     }
 
     // Callback setters
+    inline void setKIconLoader_MetaObject_Callback(KIconLoader_MetaObject_Callback cb) { kiconloader_metaobject_callback = cb; }
+    inline void setKIconLoader_Metacast_Callback(KIconLoader_Metacast_Callback cb) { kiconloader_metacast_callback = cb; }
     inline void setKIconLoader_Metacall_Callback(KIconLoader_Metacall_Callback cb) { kiconloader_metacall_callback = cb; }
     inline void setKIconLoader_Event_Callback(KIconLoader_Event_Callback cb) { kiconloader_event_callback = cb; }
     inline void setKIconLoader_EventFilter_Callback(KIconLoader_EventFilter_Callback cb) { kiconloader_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualKIconLoader final : public KIconLoader {
     inline void setKIconLoader_IsSignalConnected_Callback(KIconLoader_IsSignalConnected_Callback cb) { kiconloader_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKIconLoader_MetaObject_IsBase(bool value) const { kiconloader_metaobject_isbase = value; }
+    inline void setKIconLoader_Metacast_IsBase(bool value) const { kiconloader_metacast_isbase = value; }
     inline void setKIconLoader_Metacall_IsBase(bool value) const { kiconloader_metacall_isbase = value; }
     inline void setKIconLoader_Event_IsBase(bool value) const { kiconloader_event_isbase = value; }
     inline void setKIconLoader_EventFilter_IsBase(bool value) const { kiconloader_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualKIconLoader final : public KIconLoader {
     inline void setKIconLoader_SenderSignalIndex_IsBase(bool value) const { kiconloader_sendersignalindex_isbase = value; }
     inline void setKIconLoader_Receivers_IsBase(bool value) const { kiconloader_receivers_isbase = value; }
     inline void setKIconLoader_IsSignalConnected_IsBase(bool value) const { kiconloader_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kiconloader_metaobject_isbase) {
+            kiconloader_metaobject_isbase = false;
+            return KIconLoader::metaObject();
+        } else if (kiconloader_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kiconloader_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIconLoader::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kiconloader_metacast_isbase) {
+            kiconloader_metacast_isbase = false;
+            return KIconLoader::qt_metacast(param1);
+        } else if (kiconloader_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kiconloader_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIconLoader::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

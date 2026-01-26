@@ -17,6 +17,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
     bool isVirtualQSqlQueryModel = true;
 
     // Virtual class public types (including callbacks)
+    using QSqlQueryModel_MetaObject_Callback = QMetaObject* (*)();
+    using QSqlQueryModel_Metacast_Callback = void* (*)(QSqlQueryModel*, const char*);
     using QSqlQueryModel_Metacall_Callback = int (*)(QSqlQueryModel*, int, int, void**);
     using QSqlQueryModel_RowCount_Callback = int (*)(const QSqlQueryModel*, QModelIndex*);
     using QSqlQueryModel_ColumnCount_Callback = int (*)(const QSqlQueryModel*, QModelIndex*);
@@ -91,6 +93,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
 
   protected:
     // Instance callback storage
+    QSqlQueryModel_MetaObject_Callback qsqlquerymodel_metaobject_callback = nullptr;
+    QSqlQueryModel_Metacast_Callback qsqlquerymodel_metacast_callback = nullptr;
     QSqlQueryModel_Metacall_Callback qsqlquerymodel_metacall_callback = nullptr;
     QSqlQueryModel_RowCount_Callback qsqlquerymodel_rowcount_callback = nullptr;
     QSqlQueryModel_ColumnCount_Callback qsqlquerymodel_columncount_callback = nullptr;
@@ -164,6 +168,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
     QSqlQueryModel_IsSignalConnected_Callback qsqlquerymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsqlquerymodel_metaobject_isbase = false;
+    mutable bool qsqlquerymodel_metacast_isbase = false;
     mutable bool qsqlquerymodel_metacall_isbase = false;
     mutable bool qsqlquerymodel_rowcount_isbase = false;
     mutable bool qsqlquerymodel_columncount_isbase = false;
@@ -241,6 +247,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
     VirtualQSqlQueryModel(QObject* parent) : QSqlQueryModel(parent) {};
 
     ~VirtualQSqlQueryModel() {
+        qsqlquerymodel_metaobject_callback = nullptr;
+        qsqlquerymodel_metacast_callback = nullptr;
         qsqlquerymodel_metacall_callback = nullptr;
         qsqlquerymodel_rowcount_callback = nullptr;
         qsqlquerymodel_columncount_callback = nullptr;
@@ -315,6 +323,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
     }
 
     // Callback setters
+    inline void setQSqlQueryModel_MetaObject_Callback(QSqlQueryModel_MetaObject_Callback cb) { qsqlquerymodel_metaobject_callback = cb; }
+    inline void setQSqlQueryModel_Metacast_Callback(QSqlQueryModel_Metacast_Callback cb) { qsqlquerymodel_metacast_callback = cb; }
     inline void setQSqlQueryModel_Metacall_Callback(QSqlQueryModel_Metacall_Callback cb) { qsqlquerymodel_metacall_callback = cb; }
     inline void setQSqlQueryModel_RowCount_Callback(QSqlQueryModel_RowCount_Callback cb) { qsqlquerymodel_rowcount_callback = cb; }
     inline void setQSqlQueryModel_ColumnCount_Callback(QSqlQueryModel_ColumnCount_Callback cb) { qsqlquerymodel_columncount_callback = cb; }
@@ -388,6 +398,8 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
     inline void setQSqlQueryModel_IsSignalConnected_Callback(QSqlQueryModel_IsSignalConnected_Callback cb) { qsqlquerymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSqlQueryModel_MetaObject_IsBase(bool value) const { qsqlquerymodel_metaobject_isbase = value; }
+    inline void setQSqlQueryModel_Metacast_IsBase(bool value) const { qsqlquerymodel_metacast_isbase = value; }
     inline void setQSqlQueryModel_Metacall_IsBase(bool value) const { qsqlquerymodel_metacall_isbase = value; }
     inline void setQSqlQueryModel_RowCount_IsBase(bool value) const { qsqlquerymodel_rowcount_isbase = value; }
     inline void setQSqlQueryModel_ColumnCount_IsBase(bool value) const { qsqlquerymodel_columncount_isbase = value; }
@@ -459,6 +471,34 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
     inline void setQSqlQueryModel_SenderSignalIndex_IsBase(bool value) const { qsqlquerymodel_sendersignalindex_isbase = value; }
     inline void setQSqlQueryModel_Receivers_IsBase(bool value) const { qsqlquerymodel_receivers_isbase = value; }
     inline void setQSqlQueryModel_IsSignalConnected_IsBase(bool value) const { qsqlquerymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsqlquerymodel_metaobject_isbase) {
+            qsqlquerymodel_metaobject_isbase = false;
+            return QSqlQueryModel::metaObject();
+        } else if (qsqlquerymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsqlquerymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSqlQueryModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsqlquerymodel_metacast_isbase) {
+            qsqlquerymodel_metacast_isbase = false;
+            return QSqlQueryModel::qt_metacast(param1);
+        } else if (qsqlquerymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsqlquerymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSqlQueryModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

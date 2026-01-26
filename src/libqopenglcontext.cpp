@@ -63,11 +63,21 @@ QOpenGLContext* QOpenGLContext_new2(QObject* parent) {
 }
 
 QMetaObject* QOpenGLContext_MetaObject(const QOpenGLContext* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqopenglcontext = dynamic_cast<const VirtualQOpenGLContext*>(self);
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQOpenGLContext*)self)->metaObject();
+    }
 }
 
 void* QOpenGLContext_Metacast(QOpenGLContext* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQOpenGLContext*)self)->qt_metacast(param1);
+    }
 }
 
 int QOpenGLContext_Metacall(QOpenGLContext* self, int param1, int param2, void** param3) {
@@ -202,6 +212,44 @@ void QOpenGLContext_Connect_AboutToBeDestroyed(QOpenGLContext* self, intptr_t sl
     QOpenGLContext::connect(self, &QOpenGLContext::aboutToBeDestroyed, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QOpenGLContext_QBaseMetaObject(const QOpenGLContext* self) {
+    auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+        vqopenglcontext->setQOpenGLContext_MetaObject_IsBase(true);
+        return (QMetaObject*)vqopenglcontext->metaObject();
+    } else {
+        return (QMetaObject*)self->QOpenGLContext::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLContext_OnMetaObject(const QOpenGLContext* self, intptr_t slot) {
+    auto* vqopenglcontext = const_cast<VirtualQOpenGLContext*>(dynamic_cast<const VirtualQOpenGLContext*>(self));
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+        vqopenglcontext->setQOpenGLContext_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QOpenGLContext_QBaseMetacast(QOpenGLContext* self, const char* param1) {
+    auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+        vqopenglcontext->setQOpenGLContext_Metacast_IsBase(true);
+        return vqopenglcontext->qt_metacast(param1);
+    } else {
+        return self->QOpenGLContext::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLContext_OnMetacast(QOpenGLContext* self, intptr_t slot) {
+    auto* vqopenglcontext = dynamic_cast<VirtualQOpenGLContext*>(self);
+    if (vqopenglcontext && vqopenglcontext->isVirtualQOpenGLContext) {
+        vqopenglcontext->setQOpenGLContext_Metacast_Callback(reinterpret_cast<VirtualQOpenGLContext::QOpenGLContext_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

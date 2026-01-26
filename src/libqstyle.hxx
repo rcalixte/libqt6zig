@@ -17,6 +17,8 @@ class VirtualQStyle : public QStyle {
     bool isVirtualQStyle = true;
 
     // Virtual class public types (including callbacks)
+    using QStyle_MetaObject_Callback = QMetaObject* (*)();
+    using QStyle_Metacast_Callback = void* (*)(QStyle*, const char*);
     using QStyle_Metacall_Callback = int (*)(QStyle*, int, int, void**);
     using QStyle_Polish_Callback = void (*)(QStyle*, QWidget*);
     using QStyle_Unpolish_Callback = void (*)(QStyle*, QWidget*);
@@ -55,6 +57,8 @@ class VirtualQStyle : public QStyle {
 
   protected:
     // Instance callback storage
+    QStyle_MetaObject_Callback qstyle_metaobject_callback = nullptr;
+    QStyle_Metacast_Callback qstyle_metacast_callback = nullptr;
     QStyle_Metacall_Callback qstyle_metacall_callback = nullptr;
     QStyle_Polish_Callback qstyle_polish_callback = nullptr;
     QStyle_Unpolish_Callback qstyle_unpolish_callback = nullptr;
@@ -92,6 +96,8 @@ class VirtualQStyle : public QStyle {
     QStyle_IsSignalConnected_Callback qstyle_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qstyle_metaobject_isbase = false;
+    mutable bool qstyle_metacast_isbase = false;
     mutable bool qstyle_metacall_isbase = false;
     mutable bool qstyle_polish_isbase = false;
     mutable bool qstyle_unpolish_isbase = false;
@@ -132,6 +138,8 @@ class VirtualQStyle : public QStyle {
     VirtualQStyle() : QStyle() {};
 
     ~VirtualQStyle() {
+        qstyle_metaobject_callback = nullptr;
+        qstyle_metacast_callback = nullptr;
         qstyle_metacall_callback = nullptr;
         qstyle_polish_callback = nullptr;
         qstyle_unpolish_callback = nullptr;
@@ -170,6 +178,8 @@ class VirtualQStyle : public QStyle {
     }
 
     // Callback setters
+    inline void setQStyle_MetaObject_Callback(QStyle_MetaObject_Callback cb) { qstyle_metaobject_callback = cb; }
+    inline void setQStyle_Metacast_Callback(QStyle_Metacast_Callback cb) { qstyle_metacast_callback = cb; }
     inline void setQStyle_Metacall_Callback(QStyle_Metacall_Callback cb) { qstyle_metacall_callback = cb; }
     inline void setQStyle_Polish_Callback(QStyle_Polish_Callback cb) { qstyle_polish_callback = cb; }
     inline void setQStyle_Unpolish_Callback(QStyle_Unpolish_Callback cb) { qstyle_unpolish_callback = cb; }
@@ -207,6 +217,8 @@ class VirtualQStyle : public QStyle {
     inline void setQStyle_IsSignalConnected_Callback(QStyle_IsSignalConnected_Callback cb) { qstyle_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQStyle_MetaObject_IsBase(bool value) const { qstyle_metaobject_isbase = value; }
+    inline void setQStyle_Metacast_IsBase(bool value) const { qstyle_metacast_isbase = value; }
     inline void setQStyle_Metacall_IsBase(bool value) const { qstyle_metacall_isbase = value; }
     inline void setQStyle_Polish_IsBase(bool value) const { qstyle_polish_isbase = value; }
     inline void setQStyle_Unpolish_IsBase(bool value) const { qstyle_unpolish_isbase = value; }
@@ -242,6 +254,34 @@ class VirtualQStyle : public QStyle {
     inline void setQStyle_SenderSignalIndex_IsBase(bool value) const { qstyle_sendersignalindex_isbase = value; }
     inline void setQStyle_Receivers_IsBase(bool value) const { qstyle_receivers_isbase = value; }
     inline void setQStyle_IsSignalConnected_IsBase(bool value) const { qstyle_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qstyle_metaobject_isbase) {
+            qstyle_metaobject_isbase = false;
+            return QStyle::metaObject();
+        } else if (qstyle_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qstyle_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QStyle::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qstyle_metacast_isbase) {
+            qstyle_metacast_isbase = false;
+            return QStyle::qt_metacast(param1);
+        } else if (qstyle_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qstyle_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QStyle::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQTextFrame final : public QTextFrame {
     bool isVirtualQTextFrame = true;
 
     // Virtual class public types (including callbacks)
+    using QTextFrame_MetaObject_Callback = QMetaObject* (*)();
+    using QTextFrame_Metacast_Callback = void* (*)(QTextFrame*, const char*);
     using QTextFrame_Metacall_Callback = int (*)(QTextFrame*, int, int, void**);
     using QTextFrame_Event_Callback = bool (*)(QTextFrame*, QEvent*);
     using QTextFrame_EventFilter_Callback = bool (*)(QTextFrame*, QObject*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQTextFrame final : public QTextFrame {
 
   protected:
     // Instance callback storage
+    QTextFrame_MetaObject_Callback qtextframe_metaobject_callback = nullptr;
+    QTextFrame_Metacast_Callback qtextframe_metacast_callback = nullptr;
     QTextFrame_Metacall_Callback qtextframe_metacall_callback = nullptr;
     QTextFrame_Event_Callback qtextframe_event_callback = nullptr;
     QTextFrame_EventFilter_Callback qtextframe_eventfilter_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQTextFrame final : public QTextFrame {
     QTextFrame_IsSignalConnected_Callback qtextframe_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtextframe_metaobject_isbase = false;
+    mutable bool qtextframe_metacast_isbase = false;
     mutable bool qtextframe_metacall_isbase = false;
     mutable bool qtextframe_event_isbase = false;
     mutable bool qtextframe_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQTextFrame final : public QTextFrame {
     VirtualQTextFrame(QTextDocument* doc) : QTextFrame(doc) {};
 
     ~VirtualQTextFrame() {
+        qtextframe_metaobject_callback = nullptr;
+        qtextframe_metacast_callback = nullptr;
         qtextframe_metacall_callback = nullptr;
         qtextframe_event_callback = nullptr;
         qtextframe_eventfilter_callback = nullptr;
@@ -82,6 +90,8 @@ class VirtualQTextFrame final : public QTextFrame {
     }
 
     // Callback setters
+    inline void setQTextFrame_MetaObject_Callback(QTextFrame_MetaObject_Callback cb) { qtextframe_metaobject_callback = cb; }
+    inline void setQTextFrame_Metacast_Callback(QTextFrame_Metacast_Callback cb) { qtextframe_metacast_callback = cb; }
     inline void setQTextFrame_Metacall_Callback(QTextFrame_Metacall_Callback cb) { qtextframe_metacall_callback = cb; }
     inline void setQTextFrame_Event_Callback(QTextFrame_Event_Callback cb) { qtextframe_event_callback = cb; }
     inline void setQTextFrame_EventFilter_Callback(QTextFrame_EventFilter_Callback cb) { qtextframe_eventfilter_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualQTextFrame final : public QTextFrame {
     inline void setQTextFrame_IsSignalConnected_Callback(QTextFrame_IsSignalConnected_Callback cb) { qtextframe_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTextFrame_MetaObject_IsBase(bool value) const { qtextframe_metaobject_isbase = value; }
+    inline void setQTextFrame_Metacast_IsBase(bool value) const { qtextframe_metacast_isbase = value; }
     inline void setQTextFrame_Metacall_IsBase(bool value) const { qtextframe_metacall_isbase = value; }
     inline void setQTextFrame_Event_IsBase(bool value) const { qtextframe_event_isbase = value; }
     inline void setQTextFrame_EventFilter_IsBase(bool value) const { qtextframe_eventfilter_isbase = value; }
@@ -110,6 +122,34 @@ class VirtualQTextFrame final : public QTextFrame {
     inline void setQTextFrame_SenderSignalIndex_IsBase(bool value) const { qtextframe_sendersignalindex_isbase = value; }
     inline void setQTextFrame_Receivers_IsBase(bool value) const { qtextframe_receivers_isbase = value; }
     inline void setQTextFrame_IsSignalConnected_IsBase(bool value) const { qtextframe_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtextframe_metaobject_isbase) {
+            qtextframe_metaobject_isbase = false;
+            return QTextFrame::metaObject();
+        } else if (qtextframe_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtextframe_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTextFrame::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtextframe_metacast_isbase) {
+            qtextframe_metacast_isbase = false;
+            return QTextFrame::qt_metacast(param1);
+        } else if (qtextframe_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtextframe_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTextFrame::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

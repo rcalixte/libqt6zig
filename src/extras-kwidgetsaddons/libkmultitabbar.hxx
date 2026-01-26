@@ -17,6 +17,8 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
     bool isVirtualKMultiTabBar = true;
 
     // Virtual class public types (including callbacks)
+    using KMultiTabBar_MetaObject_Callback = QMetaObject* (*)();
+    using KMultiTabBar_Metacast_Callback = void* (*)(KMultiTabBar*, const char*);
     using KMultiTabBar_Metacall_Callback = int (*)(KMultiTabBar*, int, int, void**);
     using KMultiTabBar_FontChange_Callback = void (*)(KMultiTabBar*, QFont*);
     using KMultiTabBar_PaintEvent_Callback = void (*)(KMultiTabBar*, QPaintEvent*);
@@ -80,6 +82,8 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
 
   protected:
     // Instance callback storage
+    KMultiTabBar_MetaObject_Callback kmultitabbar_metaobject_callback = nullptr;
+    KMultiTabBar_Metacast_Callback kmultitabbar_metacast_callback = nullptr;
     KMultiTabBar_Metacall_Callback kmultitabbar_metacall_callback = nullptr;
     KMultiTabBar_FontChange_Callback kmultitabbar_fontchange_callback = nullptr;
     KMultiTabBar_PaintEvent_Callback kmultitabbar_paintevent_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
     KMultiTabBar_GetDecodedMetricF_Callback kmultitabbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kmultitabbar_metaobject_isbase = false;
+    mutable bool kmultitabbar_metacast_isbase = false;
     mutable bool kmultitabbar_metacall_isbase = false;
     mutable bool kmultitabbar_fontchange_isbase = false;
     mutable bool kmultitabbar_paintevent_isbase = false;
@@ -210,6 +216,8 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
     VirtualKMultiTabBar(KMultiTabBar::KMultiTabBarPosition pos, QWidget* parent) : KMultiTabBar(pos, parent) {};
 
     ~VirtualKMultiTabBar() {
+        kmultitabbar_metaobject_callback = nullptr;
+        kmultitabbar_metacast_callback = nullptr;
         kmultitabbar_metacall_callback = nullptr;
         kmultitabbar_fontchange_callback = nullptr;
         kmultitabbar_paintevent_callback = nullptr;
@@ -273,6 +281,8 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
     }
 
     // Callback setters
+    inline void setKMultiTabBar_MetaObject_Callback(KMultiTabBar_MetaObject_Callback cb) { kmultitabbar_metaobject_callback = cb; }
+    inline void setKMultiTabBar_Metacast_Callback(KMultiTabBar_Metacast_Callback cb) { kmultitabbar_metacast_callback = cb; }
     inline void setKMultiTabBar_Metacall_Callback(KMultiTabBar_Metacall_Callback cb) { kmultitabbar_metacall_callback = cb; }
     inline void setKMultiTabBar_FontChange_Callback(KMultiTabBar_FontChange_Callback cb) { kmultitabbar_fontchange_callback = cb; }
     inline void setKMultiTabBar_PaintEvent_Callback(KMultiTabBar_PaintEvent_Callback cb) { kmultitabbar_paintevent_callback = cb; }
@@ -335,6 +345,8 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
     inline void setKMultiTabBar_GetDecodedMetricF_Callback(KMultiTabBar_GetDecodedMetricF_Callback cb) { kmultitabbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKMultiTabBar_MetaObject_IsBase(bool value) const { kmultitabbar_metaobject_isbase = value; }
+    inline void setKMultiTabBar_Metacast_IsBase(bool value) const { kmultitabbar_metacast_isbase = value; }
     inline void setKMultiTabBar_Metacall_IsBase(bool value) const { kmultitabbar_metacall_isbase = value; }
     inline void setKMultiTabBar_FontChange_IsBase(bool value) const { kmultitabbar_fontchange_isbase = value; }
     inline void setKMultiTabBar_PaintEvent_IsBase(bool value) const { kmultitabbar_paintevent_isbase = value; }
@@ -395,6 +407,34 @@ class VirtualKMultiTabBar final : public KMultiTabBar {
     inline void setKMultiTabBar_Receivers_IsBase(bool value) const { kmultitabbar_receivers_isbase = value; }
     inline void setKMultiTabBar_IsSignalConnected_IsBase(bool value) const { kmultitabbar_issignalconnected_isbase = value; }
     inline void setKMultiTabBar_GetDecodedMetricF_IsBase(bool value) const { kmultitabbar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kmultitabbar_metaobject_isbase) {
+            kmultitabbar_metaobject_isbase = false;
+            return KMultiTabBar::metaObject();
+        } else if (kmultitabbar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kmultitabbar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KMultiTabBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kmultitabbar_metacast_isbase) {
+            kmultitabbar_metacast_isbase = false;
+            return KMultiTabBar::qt_metacast(param1);
+        } else if (kmultitabbar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kmultitabbar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KMultiTabBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

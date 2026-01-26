@@ -23,11 +23,21 @@ QParallelAnimationGroup* QParallelAnimationGroup_new2(QObject* parent) {
 }
 
 QMetaObject* QParallelAnimationGroup_MetaObject(const QParallelAnimationGroup* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqparallelanimationgroup = dynamic_cast<const VirtualQParallelAnimationGroup*>(self);
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQParallelAnimationGroup*)self)->metaObject();
+    }
 }
 
 void* QParallelAnimationGroup_Metacast(QParallelAnimationGroup* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQParallelAnimationGroup*)self)->qt_metacast(param1);
+    }
 }
 
 int QParallelAnimationGroup_Metacall(QParallelAnimationGroup* self, int param1, int param2, void** param3) {
@@ -74,6 +84,44 @@ void QParallelAnimationGroup_UpdateDirection(QParallelAnimationGroup* self, int 
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
     if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
         vqparallelanimationgroup->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QParallelAnimationGroup_QBaseMetaObject(const QParallelAnimationGroup* self) {
+    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+        vqparallelanimationgroup->setQParallelAnimationGroup_MetaObject_IsBase(true);
+        return (QMetaObject*)vqparallelanimationgroup->metaObject();
+    } else {
+        return (QMetaObject*)self->QParallelAnimationGroup::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QParallelAnimationGroup_OnMetaObject(const QParallelAnimationGroup* self, intptr_t slot) {
+    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+        vqparallelanimationgroup->setQParallelAnimationGroup_MetaObject_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QParallelAnimationGroup_QBaseMetacast(QParallelAnimationGroup* self, const char* param1) {
+    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+        vqparallelanimationgroup->setQParallelAnimationGroup_Metacast_IsBase(true);
+        return vqparallelanimationgroup->qt_metacast(param1);
+    } else {
+        return self->QParallelAnimationGroup::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QParallelAnimationGroup_OnMetacast(QParallelAnimationGroup* self, intptr_t slot) {
+    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+        vqparallelanimationgroup->setQParallelAnimationGroup_Metacast_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Metacast_Callback>(slot));
     }
 }
 

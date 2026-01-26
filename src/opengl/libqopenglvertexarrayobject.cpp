@@ -22,11 +22,21 @@ QOpenGLVertexArrayObject* QOpenGLVertexArrayObject_new2(QObject* parent) {
 }
 
 QMetaObject* QOpenGLVertexArrayObject_MetaObject(const QOpenGLVertexArrayObject* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqopenglvertexarrayobject = dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self);
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQOpenGLVertexArrayObject*)self)->metaObject();
+    }
 }
 
 void* QOpenGLVertexArrayObject_Metacast(QOpenGLVertexArrayObject* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQOpenGLVertexArrayObject*)self)->qt_metacast(param1);
+    }
 }
 
 int QOpenGLVertexArrayObject_Metacall(QOpenGLVertexArrayObject* self, int param1, int param2, void** param3) {
@@ -60,6 +70,44 @@ void QOpenGLVertexArrayObject_Bind(QOpenGLVertexArrayObject* self) {
 
 void QOpenGLVertexArrayObject_Release(QOpenGLVertexArrayObject* self) {
     self->release();
+}
+
+// Base class handler implementation
+QMetaObject* QOpenGLVertexArrayObject_QBaseMetaObject(const QOpenGLVertexArrayObject* self) {
+    auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+        vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_MetaObject_IsBase(true);
+        return (QMetaObject*)vqopenglvertexarrayobject->metaObject();
+    } else {
+        return (QMetaObject*)self->QOpenGLVertexArrayObject::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLVertexArrayObject_OnMetaObject(const QOpenGLVertexArrayObject* self, intptr_t slot) {
+    auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+        vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QOpenGLVertexArrayObject_QBaseMetacast(QOpenGLVertexArrayObject* self, const char* param1) {
+    auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+        vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Metacast_IsBase(true);
+        return vqopenglvertexarrayobject->qt_metacast(param1);
+    } else {
+        return self->QOpenGLVertexArrayObject::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLVertexArrayObject_OnMetacast(QOpenGLVertexArrayObject* self, intptr_t slot) {
+    auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+        vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Metacast_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

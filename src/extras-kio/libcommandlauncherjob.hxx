@@ -18,6 +18,8 @@ class VirtualKIOCommandLauncherJob final : public KIO::CommandLauncherJob {
 
     // Virtual class public types (including callbacks)
     using KIO__CommandLauncherJob_Start_Callback = void (*)();
+    using KIO__CommandLauncherJob_MetaObject_Callback = QMetaObject* (*)();
+    using KIO__CommandLauncherJob_Metacast_Callback = void* (*)(KIO__CommandLauncherJob*, const char*);
     using KIO__CommandLauncherJob_Metacall_Callback = int (*)(KIO__CommandLauncherJob*, int, int, void**);
     using KIO__CommandLauncherJob_DoKill_Callback = bool (*)();
     using KIO__CommandLauncherJob_DoSuspend_Callback = bool (*)();
@@ -50,6 +52,8 @@ class VirtualKIOCommandLauncherJob final : public KIO::CommandLauncherJob {
   protected:
     // Instance callback storage
     KIO__CommandLauncherJob_Start_Callback kio__commandlauncherjob_start_callback = nullptr;
+    KIO__CommandLauncherJob_MetaObject_Callback kio__commandlauncherjob_metaobject_callback = nullptr;
+    KIO__CommandLauncherJob_Metacast_Callback kio__commandlauncherjob_metacast_callback = nullptr;
     KIO__CommandLauncherJob_Metacall_Callback kio__commandlauncherjob_metacall_callback = nullptr;
     KIO__CommandLauncherJob_DoKill_Callback kio__commandlauncherjob_dokill_callback = nullptr;
     KIO__CommandLauncherJob_DoSuspend_Callback kio__commandlauncherjob_dosuspend_callback = nullptr;
@@ -81,6 +85,8 @@ class VirtualKIOCommandLauncherJob final : public KIO::CommandLauncherJob {
 
     // Instance base flags
     mutable bool kio__commandlauncherjob_start_isbase = false;
+    mutable bool kio__commandlauncherjob_metaobject_isbase = false;
+    mutable bool kio__commandlauncherjob_metacast_isbase = false;
     mutable bool kio__commandlauncherjob_metacall_isbase = false;
     mutable bool kio__commandlauncherjob_dokill_isbase = false;
     mutable bool kio__commandlauncherjob_dosuspend_isbase = false;
@@ -118,6 +124,8 @@ class VirtualKIOCommandLauncherJob final : public KIO::CommandLauncherJob {
 
     ~VirtualKIOCommandLauncherJob() {
         kio__commandlauncherjob_start_callback = nullptr;
+        kio__commandlauncherjob_metaobject_callback = nullptr;
+        kio__commandlauncherjob_metacast_callback = nullptr;
         kio__commandlauncherjob_metacall_callback = nullptr;
         kio__commandlauncherjob_dokill_callback = nullptr;
         kio__commandlauncherjob_dosuspend_callback = nullptr;
@@ -150,6 +158,8 @@ class VirtualKIOCommandLauncherJob final : public KIO::CommandLauncherJob {
 
     // Callback setters
     inline void setKIO__CommandLauncherJob_Start_Callback(KIO__CommandLauncherJob_Start_Callback cb) { kio__commandlauncherjob_start_callback = cb; }
+    inline void setKIO__CommandLauncherJob_MetaObject_Callback(KIO__CommandLauncherJob_MetaObject_Callback cb) { kio__commandlauncherjob_metaobject_callback = cb; }
+    inline void setKIO__CommandLauncherJob_Metacast_Callback(KIO__CommandLauncherJob_Metacast_Callback cb) { kio__commandlauncherjob_metacast_callback = cb; }
     inline void setKIO__CommandLauncherJob_Metacall_Callback(KIO__CommandLauncherJob_Metacall_Callback cb) { kio__commandlauncherjob_metacall_callback = cb; }
     inline void setKIO__CommandLauncherJob_DoKill_Callback(KIO__CommandLauncherJob_DoKill_Callback cb) { kio__commandlauncherjob_dokill_callback = cb; }
     inline void setKIO__CommandLauncherJob_DoSuspend_Callback(KIO__CommandLauncherJob_DoSuspend_Callback cb) { kio__commandlauncherjob_dosuspend_callback = cb; }
@@ -181,6 +191,8 @@ class VirtualKIOCommandLauncherJob final : public KIO::CommandLauncherJob {
 
     // Base flag setters
     inline void setKIO__CommandLauncherJob_Start_IsBase(bool value) const { kio__commandlauncherjob_start_isbase = value; }
+    inline void setKIO__CommandLauncherJob_MetaObject_IsBase(bool value) const { kio__commandlauncherjob_metaobject_isbase = value; }
+    inline void setKIO__CommandLauncherJob_Metacast_IsBase(bool value) const { kio__commandlauncherjob_metacast_isbase = value; }
     inline void setKIO__CommandLauncherJob_Metacall_IsBase(bool value) const { kio__commandlauncherjob_metacall_isbase = value; }
     inline void setKIO__CommandLauncherJob_DoKill_IsBase(bool value) const { kio__commandlauncherjob_dokill_isbase = value; }
     inline void setKIO__CommandLauncherJob_DoSuspend_IsBase(bool value) const { kio__commandlauncherjob_dosuspend_isbase = value; }
@@ -219,6 +231,34 @@ class VirtualKIOCommandLauncherJob final : public KIO::CommandLauncherJob {
             kio__commandlauncherjob_start_callback();
         } else {
             KIO__CommandLauncherJob::start();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kio__commandlauncherjob_metaobject_isbase) {
+            kio__commandlauncherjob_metaobject_isbase = false;
+            return KIO__CommandLauncherJob::metaObject();
+        } else if (kio__commandlauncherjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kio__commandlauncherjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KIO__CommandLauncherJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kio__commandlauncherjob_metacast_isbase) {
+            kio__commandlauncherjob_metacast_isbase = false;
+            return KIO__CommandLauncherJob::qt_metacast(param1);
+        } else if (kio__commandlauncherjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kio__commandlauncherjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KIO__CommandLauncherJob::qt_metacast(param1);
         }
     }
 

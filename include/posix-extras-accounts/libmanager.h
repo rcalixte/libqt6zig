@@ -86,6 +86,10 @@ void Accounts__Manager_Connect_EnabledEvent(Accounts__Manager* self, intptr_t sl
 libqt_list /* of unsigned int */ Accounts__Manager_AccountList1(const Accounts__Manager* self, const libqt_string serviceType);
 libqt_list /* of unsigned int */ Accounts__Manager_AccountListEnabled1(const Accounts__Manager* self, const libqt_string serviceType);
 libqt_list /* of Accounts__Service* */ Accounts__Manager_ServiceList1(const Accounts__Manager* self, const libqt_string serviceType);
+void Accounts__Manager_OnMetaObject(const Accounts__Manager* self, intptr_t slot);
+QMetaObject* Accounts__Manager_QBaseMetaObject(const Accounts__Manager* self);
+void Accounts__Manager_OnMetacast(Accounts__Manager* self, intptr_t slot);
+void* Accounts__Manager_QBaseMetacast(Accounts__Manager* self, const char* param1);
 void Accounts__Manager_OnMetacall(Accounts__Manager* self, intptr_t slot);
 int Accounts__Manager_QBaseMetacall(Accounts__Manager* self, int param1, int param2, void** param3);
 bool Accounts__Manager_Event(Accounts__Manager* self, QEvent* event);

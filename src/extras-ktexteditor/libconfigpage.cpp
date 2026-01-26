@@ -45,11 +45,21 @@ KTextEditor__ConfigPage* KTextEditor__ConfigPage_new(QWidget* parent) {
 }
 
 QMetaObject* KTextEditor__ConfigPage_MetaObject(const KTextEditor__ConfigPage* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktexteditor__configpage = dynamic_cast<const VirtualKTextEditorConfigPage*>(self);
+    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTextEditorConfigPage*)self)->metaObject();
+    }
 }
 
 void* KTextEditor__ConfigPage_Metacast(KTextEditor__ConfigPage* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktexteditor__configpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
+    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTextEditorConfigPage*)self)->qt_metacast(param1);
+    }
 }
 
 int KTextEditor__ConfigPage_Metacall(KTextEditor__ConfigPage* self, int param1, int param2, void** param3) {
@@ -156,6 +166,44 @@ void KTextEditor__ConfigPage_Connect_Changed(KTextEditor__ConfigPage* self, intp
     KTextEditor::ConfigPage::connect(self, &KTextEditor::ConfigPage::changed, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KTextEditor__ConfigPage_QBaseMetaObject(const KTextEditor__ConfigPage* self) {
+    auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+        vktexteditorconfigpage->setKTextEditor__ConfigPage_MetaObject_IsBase(true);
+        return (QMetaObject*)vktexteditorconfigpage->metaObject();
+    } else {
+        return (QMetaObject*)self->KTextEditor::ConfigPage::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__ConfigPage_OnMetaObject(const KTextEditor__ConfigPage* self, intptr_t slot) {
+    auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+        vktexteditorconfigpage->setKTextEditor__ConfigPage_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTextEditor__ConfigPage_QBaseMetacast(KTextEditor__ConfigPage* self, const char* param1) {
+    auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+        vktexteditorconfigpage->setKTextEditor__ConfigPage_Metacast_IsBase(true);
+        return vktexteditorconfigpage->qt_metacast(param1);
+    } else {
+        return self->KTextEditor::ConfigPage::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTextEditor__ConfigPage_OnMetacast(KTextEditor__ConfigPage* self, intptr_t slot) {
+    auto* vktexteditorconfigpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
+    if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
+        vktexteditorconfigpage->setKTextEditor__ConfigPage_Metacast_Callback(reinterpret_cast<VirtualKTextEditorConfigPage::KTextEditor__ConfigPage_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

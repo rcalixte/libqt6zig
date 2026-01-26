@@ -17,6 +17,8 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
     bool isVirtualKModifierKeyInfo = true;
 
     // Virtual class public types (including callbacks)
+    using KModifierKeyInfo_MetaObject_Callback = QMetaObject* (*)();
+    using KModifierKeyInfo_Metacast_Callback = void* (*)(KModifierKeyInfo*, const char*);
     using KModifierKeyInfo_Metacall_Callback = int (*)(KModifierKeyInfo*, int, int, void**);
     using KModifierKeyInfo_Event_Callback = bool (*)(KModifierKeyInfo*, QEvent*);
     using KModifierKeyInfo_EventFilter_Callback = bool (*)(KModifierKeyInfo*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
 
   protected:
     // Instance callback storage
+    KModifierKeyInfo_MetaObject_Callback kmodifierkeyinfo_metaobject_callback = nullptr;
+    KModifierKeyInfo_Metacast_Callback kmodifierkeyinfo_metacast_callback = nullptr;
     KModifierKeyInfo_Metacall_Callback kmodifierkeyinfo_metacall_callback = nullptr;
     KModifierKeyInfo_Event_Callback kmodifierkeyinfo_event_callback = nullptr;
     KModifierKeyInfo_EventFilter_Callback kmodifierkeyinfo_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
     KModifierKeyInfo_IsSignalConnected_Callback kmodifierkeyinfo_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kmodifierkeyinfo_metaobject_isbase = false;
+    mutable bool kmodifierkeyinfo_metacast_isbase = false;
     mutable bool kmodifierkeyinfo_metacall_isbase = false;
     mutable bool kmodifierkeyinfo_event_isbase = false;
     mutable bool kmodifierkeyinfo_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
     VirtualKModifierKeyInfo(QObject* parent) : KModifierKeyInfo(parent) {};
 
     ~VirtualKModifierKeyInfo() {
+        kmodifierkeyinfo_metaobject_callback = nullptr;
+        kmodifierkeyinfo_metacast_callback = nullptr;
         kmodifierkeyinfo_metacall_callback = nullptr;
         kmodifierkeyinfo_event_callback = nullptr;
         kmodifierkeyinfo_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
     }
 
     // Callback setters
+    inline void setKModifierKeyInfo_MetaObject_Callback(KModifierKeyInfo_MetaObject_Callback cb) { kmodifierkeyinfo_metaobject_callback = cb; }
+    inline void setKModifierKeyInfo_Metacast_Callback(KModifierKeyInfo_Metacast_Callback cb) { kmodifierkeyinfo_metacast_callback = cb; }
     inline void setKModifierKeyInfo_Metacall_Callback(KModifierKeyInfo_Metacall_Callback cb) { kmodifierkeyinfo_metacall_callback = cb; }
     inline void setKModifierKeyInfo_Event_Callback(KModifierKeyInfo_Event_Callback cb) { kmodifierkeyinfo_event_callback = cb; }
     inline void setKModifierKeyInfo_EventFilter_Callback(KModifierKeyInfo_EventFilter_Callback cb) { kmodifierkeyinfo_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
     inline void setKModifierKeyInfo_IsSignalConnected_Callback(KModifierKeyInfo_IsSignalConnected_Callback cb) { kmodifierkeyinfo_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKModifierKeyInfo_MetaObject_IsBase(bool value) const { kmodifierkeyinfo_metaobject_isbase = value; }
+    inline void setKModifierKeyInfo_Metacast_IsBase(bool value) const { kmodifierkeyinfo_metacast_isbase = value; }
     inline void setKModifierKeyInfo_Metacall_IsBase(bool value) const { kmodifierkeyinfo_metacall_isbase = value; }
     inline void setKModifierKeyInfo_Event_IsBase(bool value) const { kmodifierkeyinfo_event_isbase = value; }
     inline void setKModifierKeyInfo_EventFilter_IsBase(bool value) const { kmodifierkeyinfo_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKModifierKeyInfo final : public KModifierKeyInfo {
     inline void setKModifierKeyInfo_SenderSignalIndex_IsBase(bool value) const { kmodifierkeyinfo_sendersignalindex_isbase = value; }
     inline void setKModifierKeyInfo_Receivers_IsBase(bool value) const { kmodifierkeyinfo_receivers_isbase = value; }
     inline void setKModifierKeyInfo_IsSignalConnected_IsBase(bool value) const { kmodifierkeyinfo_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kmodifierkeyinfo_metaobject_isbase) {
+            kmodifierkeyinfo_metaobject_isbase = false;
+            return KModifierKeyInfo::metaObject();
+        } else if (kmodifierkeyinfo_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kmodifierkeyinfo_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KModifierKeyInfo::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kmodifierkeyinfo_metacast_isbase) {
+            kmodifierkeyinfo_metacast_isbase = false;
+            return KModifierKeyInfo::qt_metacast(param1);
+        } else if (kmodifierkeyinfo_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kmodifierkeyinfo_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KModifierKeyInfo::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

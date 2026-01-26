@@ -52,11 +52,21 @@ KKeySequenceWidget* KKeySequenceWidget_new2() {
 }
 
 QMetaObject* KKeySequenceWidget_MetaObject(const KKeySequenceWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkkeysequencewidget = dynamic_cast<const VirtualKKeySequenceWidget*>(self);
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKKeySequenceWidget*)self)->metaObject();
+    }
 }
 
 void* KKeySequenceWidget_Metacast(KKeySequenceWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKKeySequenceWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KKeySequenceWidget_Metacall(KKeySequenceWidget* self, int param1, int param2, void** param3) {
@@ -197,6 +207,44 @@ void KKeySequenceWidget_ApplyStealShortcut(KKeySequenceWidget* self) {
 
 void KKeySequenceWidget_SetKeySequence2(KKeySequenceWidget* self, const QKeySequence* seq, int val) {
     self->setKeySequence(*seq, static_cast<KKeySequenceWidget::Validation>(val));
+}
+
+// Base class handler implementation
+QMetaObject* KKeySequenceWidget_QBaseMetaObject(const KKeySequenceWidget* self) {
+    auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+        vkkeysequencewidget->setKKeySequenceWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkkeysequencewidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KKeySequenceWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KKeySequenceWidget_OnMetaObject(const KKeySequenceWidget* self, intptr_t slot) {
+    auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+        vkkeysequencewidget->setKKeySequenceWidget_MetaObject_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KKeySequenceWidget_QBaseMetacast(KKeySequenceWidget* self, const char* param1) {
+    auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+        vkkeysequencewidget->setKKeySequenceWidget_Metacast_IsBase(true);
+        return vkkeysequencewidget->qt_metacast(param1);
+    } else {
+        return self->KKeySequenceWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KKeySequenceWidget_OnMetacast(KKeySequenceWidget* self, intptr_t slot) {
+    auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+        vkkeysequencewidget->setKKeySequenceWidget_Metacast_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

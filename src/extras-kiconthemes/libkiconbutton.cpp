@@ -52,11 +52,21 @@ KIconButton* KIconButton_new2() {
 }
 
 QMetaObject* KIconButton_MetaObject(const KIconButton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkiconbutton = dynamic_cast<const VirtualKIconButton*>(self);
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIconButton*)self)->metaObject();
+    }
 }
 
 void* KIconButton_Metacast(KIconButton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIconButton*)self)->qt_metacast(param1);
+    }
 }
 
 int KIconButton_Metacall(KIconButton* self, int param1, int param2, void** param3) {
@@ -143,6 +153,44 @@ void KIconButton_Connect_IconChanged(KIconButton* self, intptr_t slot) {
 
 void KIconButton_SetIconType3(KIconButton* self, int group, int context, bool user) {
     self->setIconType(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), user);
+}
+
+// Base class handler implementation
+QMetaObject* KIconButton_QBaseMetaObject(const KIconButton* self) {
+    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+        vkiconbutton->setKIconButton_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiconbutton->metaObject();
+    } else {
+        return (QMetaObject*)self->KIconButton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIconButton_OnMetaObject(const KIconButton* self, intptr_t slot) {
+    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+        vkiconbutton->setKIconButton_MetaObject_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIconButton_QBaseMetacast(KIconButton* self, const char* param1) {
+    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+        vkiconbutton->setKIconButton_Metacast_IsBase(true);
+        return vkiconbutton->qt_metacast(param1);
+    } else {
+        return self->KIconButton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIconButton_OnMetacast(KIconButton* self, intptr_t slot) {
+    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
+    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+        vkiconbutton->setKIconButton_Metacast_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

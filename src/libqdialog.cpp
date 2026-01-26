@@ -52,11 +52,21 @@ QDialog* QDialog_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* QDialog_MetaObject(const QDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdialog = dynamic_cast<const VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDialog*)self)->metaObject();
+    }
 }
 
 void* QDialog_Metacast(QDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int QDialog_Metacall(QDialog* self, int param1, int param2, void** param3) {
@@ -235,6 +245,44 @@ bool QDialog_EventFilter(QDialog* self, QObject* param1, QEvent* param2) {
         return vqdialog->eventFilter(param1, param2);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QDialog_QBaseMetaObject(const QDialog* self) {
+    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->QDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDialog_OnMetaObject(const QDialog* self, intptr_t slot) {
+    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_MetaObject_Callback(reinterpret_cast<VirtualQDialog::QDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDialog_QBaseMetacast(QDialog* self, const char* param1) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Metacast_IsBase(true);
+        return vqdialog->qt_metacast(param1);
+    } else {
+        return self->QDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDialog_OnMetacast(QDialog* self, intptr_t slot) {
+    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_Metacast_Callback(reinterpret_cast<VirtualQDialog::QDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

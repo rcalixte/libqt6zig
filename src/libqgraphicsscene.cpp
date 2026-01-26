@@ -72,11 +72,21 @@ QGraphicsScene* QGraphicsScene_new6(double x, double y, double width, double hei
 }
 
 QMetaObject* QGraphicsScene_MetaObject(const QGraphicsScene* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsscene = dynamic_cast<const VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsScene*)self)->metaObject();
+    }
 }
 
 void* QGraphicsScene_Metacast(QGraphicsScene* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsScene*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsScene_Metacall(QGraphicsScene* self, int param1, int param2, void** param3) {
@@ -953,6 +963,44 @@ void QGraphicsScene_Invalidate1(QGraphicsScene* self, const QRectF* rect) {
 
 void QGraphicsScene_Invalidate22(QGraphicsScene* self, const QRectF* rect, int layers) {
     self->invalidate(*rect, static_cast<QGraphicsScene::SceneLayers>(layers));
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsScene_QBaseMetaObject(const QGraphicsScene* self) {
+    auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsscene->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsScene::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsScene_OnMetaObject(const QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = const_cast<VirtualQGraphicsScene*>(dynamic_cast<const VirtualQGraphicsScene*>(self));
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsScene_QBaseMetacast(QGraphicsScene* self, const char* param1) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_Metacast_IsBase(true);
+        return vqgraphicsscene->qt_metacast(param1);
+    } else {
+        return self->QGraphicsScene::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsScene_OnMetacast(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_Metacast_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

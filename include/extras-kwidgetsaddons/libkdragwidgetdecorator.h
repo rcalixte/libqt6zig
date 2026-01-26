@@ -36,6 +36,10 @@ bool KDragWidgetDecoratorBase_IsDragEnabled(const KDragWidgetDecoratorBase* self
 QDrag* KDragWidgetDecoratorBase_DragObject(KDragWidgetDecoratorBase* self);
 bool KDragWidgetDecoratorBase_EventFilter(KDragWidgetDecoratorBase* self, QObject* watched, QEvent* event);
 void KDragWidgetDecoratorBase_StartDrag(KDragWidgetDecoratorBase* self);
+void KDragWidgetDecoratorBase_OnMetaObject(const KDragWidgetDecoratorBase* self, intptr_t slot);
+QMetaObject* KDragWidgetDecoratorBase_QBaseMetaObject(const KDragWidgetDecoratorBase* self);
+void KDragWidgetDecoratorBase_OnMetacast(KDragWidgetDecoratorBase* self, intptr_t slot);
+void* KDragWidgetDecoratorBase_QBaseMetacast(KDragWidgetDecoratorBase* self, const char* param1);
 void KDragWidgetDecoratorBase_OnMetacall(KDragWidgetDecoratorBase* self, intptr_t slot);
 int KDragWidgetDecoratorBase_QBaseMetacall(KDragWidgetDecoratorBase* self, int param1, int param2, void** param3);
 void KDragWidgetDecoratorBase_OnDragObject(KDragWidgetDecoratorBase* self, intptr_t slot);

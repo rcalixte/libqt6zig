@@ -92,6 +92,10 @@ void QSpatialSound_Connect_NearFieldGainChanged(QSpatialSound* self, intptr_t sl
 void QSpatialSound_Play(QSpatialSound* self);
 void QSpatialSound_Pause(QSpatialSound* self);
 void QSpatialSound_Stop(QSpatialSound* self);
+void QSpatialSound_OnMetaObject(const QSpatialSound* self, intptr_t slot);
+QMetaObject* QSpatialSound_QBaseMetaObject(const QSpatialSound* self);
+void QSpatialSound_OnMetacast(QSpatialSound* self, intptr_t slot);
+void* QSpatialSound_QBaseMetacast(QSpatialSound* self, const char* param1);
 void QSpatialSound_OnMetacall(QSpatialSound* self, intptr_t slot);
 int QSpatialSound_QBaseMetacall(QSpatialSound* self, int param1, int param2, void** param3);
 bool QSpatialSound_Event(QSpatialSound* self, QEvent* event);

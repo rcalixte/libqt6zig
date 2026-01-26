@@ -17,6 +17,8 @@ class VirtualQsciAPIs final : public QsciAPIs {
     bool isVirtualQsciAPIs = true;
 
     // Virtual class public types (including callbacks)
+    using QsciAPIs_MetaObject_Callback = QMetaObject* (*)();
+    using QsciAPIs_Metacast_Callback = void* (*)(QsciAPIs*, const char*);
     using QsciAPIs_Metacall_Callback = int (*)(QsciAPIs*, int, int, void**);
     using QsciAPIs_UpdateAutoCompletionList_Callback = void (*)(QsciAPIs*, libqt_list /* of libqt_string */, libqt_list /* of libqt_string */);
     using QsciAPIs_AutoCompletionSelected_Callback = void (*)(QsciAPIs*, libqt_string);
@@ -35,6 +37,8 @@ class VirtualQsciAPIs final : public QsciAPIs {
 
   protected:
     // Instance callback storage
+    QsciAPIs_MetaObject_Callback qsciapis_metaobject_callback = nullptr;
+    QsciAPIs_Metacast_Callback qsciapis_metacast_callback = nullptr;
     QsciAPIs_Metacall_Callback qsciapis_metacall_callback = nullptr;
     QsciAPIs_UpdateAutoCompletionList_Callback qsciapis_updateautocompletionlist_callback = nullptr;
     QsciAPIs_AutoCompletionSelected_Callback qsciapis_autocompletionselected_callback = nullptr;
@@ -52,6 +56,8 @@ class VirtualQsciAPIs final : public QsciAPIs {
     QsciAPIs_IsSignalConnected_Callback qsciapis_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsciapis_metaobject_isbase = false;
+    mutable bool qsciapis_metacast_isbase = false;
     mutable bool qsciapis_metacall_isbase = false;
     mutable bool qsciapis_updateautocompletionlist_isbase = false;
     mutable bool qsciapis_autocompletionselected_isbase = false;
@@ -72,6 +78,8 @@ class VirtualQsciAPIs final : public QsciAPIs {
     VirtualQsciAPIs(QsciLexer* lexer) : QsciAPIs(lexer) {};
 
     ~VirtualQsciAPIs() {
+        qsciapis_metaobject_callback = nullptr;
+        qsciapis_metacast_callback = nullptr;
         qsciapis_metacall_callback = nullptr;
         qsciapis_updateautocompletionlist_callback = nullptr;
         qsciapis_autocompletionselected_callback = nullptr;
@@ -90,6 +98,8 @@ class VirtualQsciAPIs final : public QsciAPIs {
     }
 
     // Callback setters
+    inline void setQsciAPIs_MetaObject_Callback(QsciAPIs_MetaObject_Callback cb) { qsciapis_metaobject_callback = cb; }
+    inline void setQsciAPIs_Metacast_Callback(QsciAPIs_Metacast_Callback cb) { qsciapis_metacast_callback = cb; }
     inline void setQsciAPIs_Metacall_Callback(QsciAPIs_Metacall_Callback cb) { qsciapis_metacall_callback = cb; }
     inline void setQsciAPIs_UpdateAutoCompletionList_Callback(QsciAPIs_UpdateAutoCompletionList_Callback cb) { qsciapis_updateautocompletionlist_callback = cb; }
     inline void setQsciAPIs_AutoCompletionSelected_Callback(QsciAPIs_AutoCompletionSelected_Callback cb) { qsciapis_autocompletionselected_callback = cb; }
@@ -107,6 +117,8 @@ class VirtualQsciAPIs final : public QsciAPIs {
     inline void setQsciAPIs_IsSignalConnected_Callback(QsciAPIs_IsSignalConnected_Callback cb) { qsciapis_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciAPIs_MetaObject_IsBase(bool value) const { qsciapis_metaobject_isbase = value; }
+    inline void setQsciAPIs_Metacast_IsBase(bool value) const { qsciapis_metacast_isbase = value; }
     inline void setQsciAPIs_Metacall_IsBase(bool value) const { qsciapis_metacall_isbase = value; }
     inline void setQsciAPIs_UpdateAutoCompletionList_IsBase(bool value) const { qsciapis_updateautocompletionlist_isbase = value; }
     inline void setQsciAPIs_AutoCompletionSelected_IsBase(bool value) const { qsciapis_autocompletionselected_isbase = value; }
@@ -122,6 +134,34 @@ class VirtualQsciAPIs final : public QsciAPIs {
     inline void setQsciAPIs_SenderSignalIndex_IsBase(bool value) const { qsciapis_sendersignalindex_isbase = value; }
     inline void setQsciAPIs_Receivers_IsBase(bool value) const { qsciapis_receivers_isbase = value; }
     inline void setQsciAPIs_IsSignalConnected_IsBase(bool value) const { qsciapis_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsciapis_metaobject_isbase) {
+            qsciapis_metaobject_isbase = false;
+            return QsciAPIs::metaObject();
+        } else if (qsciapis_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsciapis_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciAPIs::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsciapis_metacast_isbase) {
+            qsciapis_metacast_isbase = false;
+            return QsciAPIs::qt_metacast(param1);
+        } else if (qsciapis_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsciapis_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciAPIs::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

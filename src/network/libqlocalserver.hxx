@@ -17,6 +17,8 @@ class VirtualQLocalServer final : public QLocalServer {
     bool isVirtualQLocalServer = true;
 
     // Virtual class public types (including callbacks)
+    using QLocalServer_MetaObject_Callback = QMetaObject* (*)();
+    using QLocalServer_Metacast_Callback = void* (*)(QLocalServer*, const char*);
     using QLocalServer_Metacall_Callback = int (*)(QLocalServer*, int, int, void**);
     using QLocalServer_HasPendingConnections_Callback = bool (*)();
     using QLocalServer_NextPendingConnection_Callback = QLocalSocket* (*)();
@@ -36,6 +38,8 @@ class VirtualQLocalServer final : public QLocalServer {
 
   protected:
     // Instance callback storage
+    QLocalServer_MetaObject_Callback qlocalserver_metaobject_callback = nullptr;
+    QLocalServer_Metacast_Callback qlocalserver_metacast_callback = nullptr;
     QLocalServer_Metacall_Callback qlocalserver_metacall_callback = nullptr;
     QLocalServer_HasPendingConnections_Callback qlocalserver_haspendingconnections_callback = nullptr;
     QLocalServer_NextPendingConnection_Callback qlocalserver_nextpendingconnection_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQLocalServer final : public QLocalServer {
     QLocalServer_IsSignalConnected_Callback qlocalserver_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlocalserver_metaobject_isbase = false;
+    mutable bool qlocalserver_metacast_isbase = false;
     mutable bool qlocalserver_metacall_isbase = false;
     mutable bool qlocalserver_haspendingconnections_isbase = false;
     mutable bool qlocalserver_nextpendingconnection_isbase = false;
@@ -76,6 +82,8 @@ class VirtualQLocalServer final : public QLocalServer {
     VirtualQLocalServer(QObject* parent) : QLocalServer(parent) {};
 
     ~VirtualQLocalServer() {
+        qlocalserver_metaobject_callback = nullptr;
+        qlocalserver_metacast_callback = nullptr;
         qlocalserver_metacall_callback = nullptr;
         qlocalserver_haspendingconnections_callback = nullptr;
         qlocalserver_nextpendingconnection_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualQLocalServer final : public QLocalServer {
     }
 
     // Callback setters
+    inline void setQLocalServer_MetaObject_Callback(QLocalServer_MetaObject_Callback cb) { qlocalserver_metaobject_callback = cb; }
+    inline void setQLocalServer_Metacast_Callback(QLocalServer_Metacast_Callback cb) { qlocalserver_metacast_callback = cb; }
     inline void setQLocalServer_Metacall_Callback(QLocalServer_Metacall_Callback cb) { qlocalserver_metacall_callback = cb; }
     inline void setQLocalServer_HasPendingConnections_Callback(QLocalServer_HasPendingConnections_Callback cb) { qlocalserver_haspendingconnections_callback = cb; }
     inline void setQLocalServer_NextPendingConnection_Callback(QLocalServer_NextPendingConnection_Callback cb) { qlocalserver_nextpendingconnection_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualQLocalServer final : public QLocalServer {
     inline void setQLocalServer_IsSignalConnected_Callback(QLocalServer_IsSignalConnected_Callback cb) { qlocalserver_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQLocalServer_MetaObject_IsBase(bool value) const { qlocalserver_metaobject_isbase = value; }
+    inline void setQLocalServer_Metacast_IsBase(bool value) const { qlocalserver_metacast_isbase = value; }
     inline void setQLocalServer_Metacall_IsBase(bool value) const { qlocalserver_metacall_isbase = value; }
     inline void setQLocalServer_HasPendingConnections_IsBase(bool value) const { qlocalserver_haspendingconnections_isbase = value; }
     inline void setQLocalServer_NextPendingConnection_IsBase(bool value) const { qlocalserver_nextpendingconnection_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualQLocalServer final : public QLocalServer {
     inline void setQLocalServer_SenderSignalIndex_IsBase(bool value) const { qlocalserver_sendersignalindex_isbase = value; }
     inline void setQLocalServer_Receivers_IsBase(bool value) const { qlocalserver_receivers_isbase = value; }
     inline void setQLocalServer_IsSignalConnected_IsBase(bool value) const { qlocalserver_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlocalserver_metaobject_isbase) {
+            qlocalserver_metaobject_isbase = false;
+            return QLocalServer::metaObject();
+        } else if (qlocalserver_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlocalserver_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QLocalServer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlocalserver_metacast_isbase) {
+            qlocalserver_metacast_isbase = false;
+            return QLocalServer::qt_metacast(param1);
+        } else if (qlocalserver_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlocalserver_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QLocalServer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

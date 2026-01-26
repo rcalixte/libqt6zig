@@ -44,6 +44,10 @@ QPersistentModelIndex* KWidgetItemDelegate_FocusedIndex(const KWidgetItemDelegat
 void KWidgetItemDelegate_ResetModel(KWidgetItemDelegate* self);
 libqt_list /* of QWidget* */ KWidgetItemDelegate_CreateItemWidgets(const KWidgetItemDelegate* self, const QModelIndex* index);
 void KWidgetItemDelegate_UpdateItemWidgets(const KWidgetItemDelegate* self, const libqt_list /* of QWidget* */ widgets, const QStyleOptionViewItem* option, const QPersistentModelIndex* index);
+void KWidgetItemDelegate_OnMetaObject(const KWidgetItemDelegate* self, intptr_t slot);
+QMetaObject* KWidgetItemDelegate_QBaseMetaObject(const KWidgetItemDelegate* self);
+void KWidgetItemDelegate_OnMetacast(KWidgetItemDelegate* self, intptr_t slot);
+void* KWidgetItemDelegate_QBaseMetacast(KWidgetItemDelegate* self, const char* param1);
 void KWidgetItemDelegate_OnMetacall(KWidgetItemDelegate* self, intptr_t slot);
 int KWidgetItemDelegate_QBaseMetacall(KWidgetItemDelegate* self, int param1, int param2, void** param3);
 void KWidgetItemDelegate_OnCreateItemWidgets(const KWidgetItemDelegate* self, intptr_t slot);

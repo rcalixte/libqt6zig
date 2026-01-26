@@ -17,6 +17,8 @@ class VirtualQTcpServer final : public QTcpServer {
     bool isVirtualQTcpServer = true;
 
     // Virtual class public types (including callbacks)
+    using QTcpServer_MetaObject_Callback = QMetaObject* (*)();
+    using QTcpServer_Metacast_Callback = void* (*)(QTcpServer*, const char*);
     using QTcpServer_Metacall_Callback = int (*)(QTcpServer*, int, int, void**);
     using QTcpServer_HasPendingConnections_Callback = bool (*)();
     using QTcpServer_NextPendingConnection_Callback = QTcpSocket* (*)();
@@ -36,6 +38,8 @@ class VirtualQTcpServer final : public QTcpServer {
 
   protected:
     // Instance callback storage
+    QTcpServer_MetaObject_Callback qtcpserver_metaobject_callback = nullptr;
+    QTcpServer_Metacast_Callback qtcpserver_metacast_callback = nullptr;
     QTcpServer_Metacall_Callback qtcpserver_metacall_callback = nullptr;
     QTcpServer_HasPendingConnections_Callback qtcpserver_haspendingconnections_callback = nullptr;
     QTcpServer_NextPendingConnection_Callback qtcpserver_nextpendingconnection_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQTcpServer final : public QTcpServer {
     QTcpServer_IsSignalConnected_Callback qtcpserver_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtcpserver_metaobject_isbase = false;
+    mutable bool qtcpserver_metacast_isbase = false;
     mutable bool qtcpserver_metacall_isbase = false;
     mutable bool qtcpserver_haspendingconnections_isbase = false;
     mutable bool qtcpserver_nextpendingconnection_isbase = false;
@@ -76,6 +82,8 @@ class VirtualQTcpServer final : public QTcpServer {
     VirtualQTcpServer(QObject* parent) : QTcpServer(parent) {};
 
     ~VirtualQTcpServer() {
+        qtcpserver_metaobject_callback = nullptr;
+        qtcpserver_metacast_callback = nullptr;
         qtcpserver_metacall_callback = nullptr;
         qtcpserver_haspendingconnections_callback = nullptr;
         qtcpserver_nextpendingconnection_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualQTcpServer final : public QTcpServer {
     }
 
     // Callback setters
+    inline void setQTcpServer_MetaObject_Callback(QTcpServer_MetaObject_Callback cb) { qtcpserver_metaobject_callback = cb; }
+    inline void setQTcpServer_Metacast_Callback(QTcpServer_Metacast_Callback cb) { qtcpserver_metacast_callback = cb; }
     inline void setQTcpServer_Metacall_Callback(QTcpServer_Metacall_Callback cb) { qtcpserver_metacall_callback = cb; }
     inline void setQTcpServer_HasPendingConnections_Callback(QTcpServer_HasPendingConnections_Callback cb) { qtcpserver_haspendingconnections_callback = cb; }
     inline void setQTcpServer_NextPendingConnection_Callback(QTcpServer_NextPendingConnection_Callback cb) { qtcpserver_nextpendingconnection_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualQTcpServer final : public QTcpServer {
     inline void setQTcpServer_IsSignalConnected_Callback(QTcpServer_IsSignalConnected_Callback cb) { qtcpserver_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTcpServer_MetaObject_IsBase(bool value) const { qtcpserver_metaobject_isbase = value; }
+    inline void setQTcpServer_Metacast_IsBase(bool value) const { qtcpserver_metacast_isbase = value; }
     inline void setQTcpServer_Metacall_IsBase(bool value) const { qtcpserver_metacall_isbase = value; }
     inline void setQTcpServer_HasPendingConnections_IsBase(bool value) const { qtcpserver_haspendingconnections_isbase = value; }
     inline void setQTcpServer_NextPendingConnection_IsBase(bool value) const { qtcpserver_nextpendingconnection_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualQTcpServer final : public QTcpServer {
     inline void setQTcpServer_SenderSignalIndex_IsBase(bool value) const { qtcpserver_sendersignalindex_isbase = value; }
     inline void setQTcpServer_Receivers_IsBase(bool value) const { qtcpserver_receivers_isbase = value; }
     inline void setQTcpServer_IsSignalConnected_IsBase(bool value) const { qtcpserver_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtcpserver_metaobject_isbase) {
+            qtcpserver_metaobject_isbase = false;
+            return QTcpServer::metaObject();
+        } else if (qtcpserver_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtcpserver_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTcpServer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtcpserver_metacast_isbase) {
+            qtcpserver_metacast_isbase = false;
+            return QTcpServer::qt_metacast(param1);
+        } else if (qtcpserver_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtcpserver_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTcpServer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

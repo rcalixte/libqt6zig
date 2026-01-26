@@ -17,6 +17,8 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
     bool isVirtualQVideoFrameInput = true;
 
     // Virtual class public types (including callbacks)
+    using QVideoFrameInput_MetaObject_Callback = QMetaObject* (*)();
+    using QVideoFrameInput_Metacast_Callback = void* (*)(QVideoFrameInput*, const char*);
     using QVideoFrameInput_Metacall_Callback = int (*)(QVideoFrameInput*, int, int, void**);
     using QVideoFrameInput_Event_Callback = bool (*)(QVideoFrameInput*, QEvent*);
     using QVideoFrameInput_EventFilter_Callback = bool (*)(QVideoFrameInput*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
 
   protected:
     // Instance callback storage
+    QVideoFrameInput_MetaObject_Callback qvideoframeinput_metaobject_callback = nullptr;
+    QVideoFrameInput_Metacast_Callback qvideoframeinput_metacast_callback = nullptr;
     QVideoFrameInput_Metacall_Callback qvideoframeinput_metacall_callback = nullptr;
     QVideoFrameInput_Event_Callback qvideoframeinput_event_callback = nullptr;
     QVideoFrameInput_EventFilter_Callback qvideoframeinput_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
     QVideoFrameInput_IsSignalConnected_Callback qvideoframeinput_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qvideoframeinput_metaobject_isbase = false;
+    mutable bool qvideoframeinput_metacast_isbase = false;
     mutable bool qvideoframeinput_metacall_isbase = false;
     mutable bool qvideoframeinput_event_isbase = false;
     mutable bool qvideoframeinput_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
     VirtualQVideoFrameInput(const QVideoFrameFormat& format, QObject* parent) : QVideoFrameInput(format, parent) {};
 
     ~VirtualQVideoFrameInput() {
+        qvideoframeinput_metaobject_callback = nullptr;
+        qvideoframeinput_metacast_callback = nullptr;
         qvideoframeinput_metacall_callback = nullptr;
         qvideoframeinput_event_callback = nullptr;
         qvideoframeinput_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
     }
 
     // Callback setters
+    inline void setQVideoFrameInput_MetaObject_Callback(QVideoFrameInput_MetaObject_Callback cb) { qvideoframeinput_metaobject_callback = cb; }
+    inline void setQVideoFrameInput_Metacast_Callback(QVideoFrameInput_Metacast_Callback cb) { qvideoframeinput_metacast_callback = cb; }
     inline void setQVideoFrameInput_Metacall_Callback(QVideoFrameInput_Metacall_Callback cb) { qvideoframeinput_metacall_callback = cb; }
     inline void setQVideoFrameInput_Event_Callback(QVideoFrameInput_Event_Callback cb) { qvideoframeinput_event_callback = cb; }
     inline void setQVideoFrameInput_EventFilter_Callback(QVideoFrameInput_EventFilter_Callback cb) { qvideoframeinput_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
     inline void setQVideoFrameInput_IsSignalConnected_Callback(QVideoFrameInput_IsSignalConnected_Callback cb) { qvideoframeinput_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQVideoFrameInput_MetaObject_IsBase(bool value) const { qvideoframeinput_metaobject_isbase = value; }
+    inline void setQVideoFrameInput_Metacast_IsBase(bool value) const { qvideoframeinput_metacast_isbase = value; }
     inline void setQVideoFrameInput_Metacall_IsBase(bool value) const { qvideoframeinput_metacall_isbase = value; }
     inline void setQVideoFrameInput_Event_IsBase(bool value) const { qvideoframeinput_event_isbase = value; }
     inline void setQVideoFrameInput_EventFilter_IsBase(bool value) const { qvideoframeinput_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQVideoFrameInput final : public QVideoFrameInput {
     inline void setQVideoFrameInput_SenderSignalIndex_IsBase(bool value) const { qvideoframeinput_sendersignalindex_isbase = value; }
     inline void setQVideoFrameInput_Receivers_IsBase(bool value) const { qvideoframeinput_receivers_isbase = value; }
     inline void setQVideoFrameInput_IsSignalConnected_IsBase(bool value) const { qvideoframeinput_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qvideoframeinput_metaobject_isbase) {
+            qvideoframeinput_metaobject_isbase = false;
+            return QVideoFrameInput::metaObject();
+        } else if (qvideoframeinput_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qvideoframeinput_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QVideoFrameInput::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qvideoframeinput_metacast_isbase) {
+            qvideoframeinput_metacast_isbase = false;
+            return QVideoFrameInput::qt_metacast(param1);
+        } else if (qvideoframeinput_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qvideoframeinput_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QVideoFrameInput::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

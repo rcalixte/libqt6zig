@@ -22,11 +22,21 @@ KSyntaxHighlighting__DefinitionDownloader* KSyntaxHighlighting__DefinitionDownlo
 }
 
 QMetaObject* KSyntaxHighlighting__DefinitionDownloader_MetaObject(const KSyntaxHighlighting__DefinitionDownloader* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vksyntaxhighlighting__definitiondownloader = dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
+    if (vksyntaxhighlighting__definitiondownloader && vksyntaxhighlighting__definitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSyntaxHighlightingDefinitionDownloader*)self)->metaObject();
+    }
 }
 
 void* KSyntaxHighlighting__DefinitionDownloader_Metacast(KSyntaxHighlighting__DefinitionDownloader* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vksyntaxhighlighting__definitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
+    if (vksyntaxhighlighting__definitiondownloader && vksyntaxhighlighting__definitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSyntaxHighlightingDefinitionDownloader*)self)->qt_metacast(param1);
+    }
 }
 
 int KSyntaxHighlighting__DefinitionDownloader_Metacall(KSyntaxHighlighting__DefinitionDownloader* self, int param1, int param2, void** param3) {
@@ -71,6 +81,44 @@ void KSyntaxHighlighting__DefinitionDownloader_Connect_Done(KSyntaxHighlighting_
     KSyntaxHighlighting::DefinitionDownloader::connect(self, &KSyntaxHighlighting::DefinitionDownloader::done, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KSyntaxHighlighting__DefinitionDownloader_QBaseMetaObject(const KSyntaxHighlighting__DefinitionDownloader* self) {
+    auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+        vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_MetaObject_IsBase(true);
+        return (QMetaObject*)vksyntaxhighlightingdefinitiondownloader->metaObject();
+    } else {
+        return (QMetaObject*)self->KSyntaxHighlighting::DefinitionDownloader::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSyntaxHighlighting__DefinitionDownloader_OnMetaObject(const KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
+    auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+        vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSyntaxHighlighting__DefinitionDownloader_QBaseMetacast(KSyntaxHighlighting__DefinitionDownloader* self, const char* param1) {
+    auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+        vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Metacast_IsBase(true);
+        return vksyntaxhighlightingdefinitiondownloader->qt_metacast(param1);
+    } else {
+        return self->KSyntaxHighlighting::DefinitionDownloader::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSyntaxHighlighting__DefinitionDownloader_OnMetacast(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
+    auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+        vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Metacast_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

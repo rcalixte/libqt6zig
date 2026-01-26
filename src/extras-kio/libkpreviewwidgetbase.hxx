@@ -17,6 +17,8 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
     bool isVirtualKPreviewWidgetBase = true;
 
     // Virtual class public types (including callbacks)
+    using KPreviewWidgetBase_MetaObject_Callback = QMetaObject* (*)();
+    using KPreviewWidgetBase_Metacast_Callback = void* (*)(KPreviewWidgetBase*, const char*);
     using KPreviewWidgetBase_Metacall_Callback = int (*)(KPreviewWidgetBase*, int, int, void**);
     using KPreviewWidgetBase_ShowPreview_Callback = void (*)(KPreviewWidgetBase*, QUrl*);
     using KPreviewWidgetBase_ClearPreview_Callback = void (*)();
@@ -81,6 +83,8 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
 
   protected:
     // Instance callback storage
+    KPreviewWidgetBase_MetaObject_Callback kpreviewwidgetbase_metaobject_callback = nullptr;
+    KPreviewWidgetBase_Metacast_Callback kpreviewwidgetbase_metacast_callback = nullptr;
     KPreviewWidgetBase_Metacall_Callback kpreviewwidgetbase_metacall_callback = nullptr;
     KPreviewWidgetBase_ShowPreview_Callback kpreviewwidgetbase_showpreview_callback = nullptr;
     KPreviewWidgetBase_ClearPreview_Callback kpreviewwidgetbase_clearpreview_callback = nullptr;
@@ -144,6 +148,8 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
     KPreviewWidgetBase_GetDecodedMetricF_Callback kpreviewwidgetbase_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpreviewwidgetbase_metaobject_isbase = false;
+    mutable bool kpreviewwidgetbase_metacast_isbase = false;
     mutable bool kpreviewwidgetbase_metacall_isbase = false;
     mutable bool kpreviewwidgetbase_showpreview_isbase = false;
     mutable bool kpreviewwidgetbase_clearpreview_isbase = false;
@@ -210,6 +216,8 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
     VirtualKPreviewWidgetBase(QWidget* parent) : KPreviewWidgetBase(parent) {};
 
     ~VirtualKPreviewWidgetBase() {
+        kpreviewwidgetbase_metaobject_callback = nullptr;
+        kpreviewwidgetbase_metacast_callback = nullptr;
         kpreviewwidgetbase_metacall_callback = nullptr;
         kpreviewwidgetbase_showpreview_callback = nullptr;
         kpreviewwidgetbase_clearpreview_callback = nullptr;
@@ -274,6 +282,8 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
     }
 
     // Callback setters
+    inline void setKPreviewWidgetBase_MetaObject_Callback(KPreviewWidgetBase_MetaObject_Callback cb) { kpreviewwidgetbase_metaobject_callback = cb; }
+    inline void setKPreviewWidgetBase_Metacast_Callback(KPreviewWidgetBase_Metacast_Callback cb) { kpreviewwidgetbase_metacast_callback = cb; }
     inline void setKPreviewWidgetBase_Metacall_Callback(KPreviewWidgetBase_Metacall_Callback cb) { kpreviewwidgetbase_metacall_callback = cb; }
     inline void setKPreviewWidgetBase_ShowPreview_Callback(KPreviewWidgetBase_ShowPreview_Callback cb) { kpreviewwidgetbase_showpreview_callback = cb; }
     inline void setKPreviewWidgetBase_ClearPreview_Callback(KPreviewWidgetBase_ClearPreview_Callback cb) { kpreviewwidgetbase_clearpreview_callback = cb; }
@@ -337,6 +347,8 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
     inline void setKPreviewWidgetBase_GetDecodedMetricF_Callback(KPreviewWidgetBase_GetDecodedMetricF_Callback cb) { kpreviewwidgetbase_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPreviewWidgetBase_MetaObject_IsBase(bool value) const { kpreviewwidgetbase_metaobject_isbase = value; }
+    inline void setKPreviewWidgetBase_Metacast_IsBase(bool value) const { kpreviewwidgetbase_metacast_isbase = value; }
     inline void setKPreviewWidgetBase_Metacall_IsBase(bool value) const { kpreviewwidgetbase_metacall_isbase = value; }
     inline void setKPreviewWidgetBase_ShowPreview_IsBase(bool value) const { kpreviewwidgetbase_showpreview_isbase = value; }
     inline void setKPreviewWidgetBase_ClearPreview_IsBase(bool value) const { kpreviewwidgetbase_clearpreview_isbase = value; }
@@ -398,6 +410,34 @@ class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
     inline void setKPreviewWidgetBase_Receivers_IsBase(bool value) const { kpreviewwidgetbase_receivers_isbase = value; }
     inline void setKPreviewWidgetBase_IsSignalConnected_IsBase(bool value) const { kpreviewwidgetbase_issignalconnected_isbase = value; }
     inline void setKPreviewWidgetBase_GetDecodedMetricF_IsBase(bool value) const { kpreviewwidgetbase_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpreviewwidgetbase_metaobject_isbase) {
+            kpreviewwidgetbase_metaobject_isbase = false;
+            return KPreviewWidgetBase::metaObject();
+        } else if (kpreviewwidgetbase_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpreviewwidgetbase_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPreviewWidgetBase::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpreviewwidgetbase_metacast_isbase) {
+            kpreviewwidgetbase_metacast_isbase = false;
+            return KPreviewWidgetBase::qt_metacast(param1);
+        } else if (kpreviewwidgetbase_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpreviewwidgetbase_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPreviewWidgetBase::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

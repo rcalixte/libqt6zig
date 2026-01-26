@@ -20,11 +20,21 @@ QWidgetAction* QWidgetAction_new(QObject* parent) {
 }
 
 QMetaObject* QWidgetAction_MetaObject(const QWidgetAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqwidgetaction = dynamic_cast<const VirtualQWidgetAction*>(self);
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQWidgetAction*)self)->metaObject();
+    }
 }
 
 void* QWidgetAction_Metacast(QWidgetAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQWidgetAction*)self)->qt_metacast(param1);
+    }
 }
 
 int QWidgetAction_Metacall(QWidgetAction* self, int param1, int param2, void** param3) {
@@ -80,6 +90,44 @@ void QWidgetAction_DeleteWidget(QWidgetAction* self, QWidget* widget) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
     if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
         vqwidgetaction->deleteWidget(widget);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QWidgetAction_QBaseMetaObject(const QWidgetAction* self) {
+    auto* vqwidgetaction = const_cast<VirtualQWidgetAction*>(dynamic_cast<const VirtualQWidgetAction*>(self));
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+        vqwidgetaction->setQWidgetAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vqwidgetaction->metaObject();
+    } else {
+        return (QMetaObject*)self->QWidgetAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidgetAction_OnMetaObject(const QWidgetAction* self, intptr_t slot) {
+    auto* vqwidgetaction = const_cast<VirtualQWidgetAction*>(dynamic_cast<const VirtualQWidgetAction*>(self));
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+        vqwidgetaction->setQWidgetAction_MetaObject_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QWidgetAction_QBaseMetacast(QWidgetAction* self, const char* param1) {
+    auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+        vqwidgetaction->setQWidgetAction_Metacast_IsBase(true);
+        return vqwidgetaction->qt_metacast(param1);
+    } else {
+        return self->QWidgetAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWidgetAction_OnMetacast(QWidgetAction* self, intptr_t slot) {
+    auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+        vqwidgetaction->setQWidgetAction_Metacast_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_Metacast_Callback>(slot));
     }
 }
 

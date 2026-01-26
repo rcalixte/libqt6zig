@@ -51,11 +51,21 @@ QTabWidget* QTabWidget_new2() {
 }
 
 QMetaObject* QTabWidget_MetaObject(const QTabWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTabWidget*)self)->metaObject();
+    }
 }
 
 void* QTabWidget_Metacast(QTabWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTabWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QTabWidget_Metacall(QTabWidget* self, int param1, int param2, void** param3) {
@@ -436,6 +446,44 @@ void QTabWidget_SetCornerWidget2(QTabWidget* self, QWidget* w, int corner) {
 
 QWidget* QTabWidget_CornerWidget1(const QTabWidget* self, int corner) {
     return self->cornerWidget(static_cast<Qt::Corner>(corner));
+}
+
+// Base class handler implementation
+QMetaObject* QTabWidget_QBaseMetaObject(const QTabWidget* self) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtabwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QTabWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTabWidget_OnMetaObject(const QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_MetaObject_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTabWidget_QBaseMetacast(QTabWidget* self, const char* param1) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_Metacast_IsBase(true);
+        return vqtabwidget->qt_metacast(param1);
+    } else {
+        return self->QTabWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTabWidget_OnMetacast(QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_Metacast_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

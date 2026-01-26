@@ -77,6 +77,10 @@ void KMessageDialog_SetButtons2(KMessageDialog* self, const KGuiItem* primaryAct
 void KMessageDialog_SetButtons3(KMessageDialog* self, const KGuiItem* primaryAction, const KGuiItem* secondaryAction, const KGuiItem* cancelAction);
 void KMessageDialog_Beep2(int typeVal, const libqt_string text);
 void KMessageDialog_Beep3(int typeVal, const libqt_string text, QWidget* dialog);
+void KMessageDialog_OnMetaObject(const KMessageDialog* self, intptr_t slot);
+QMetaObject* KMessageDialog_QBaseMetaObject(const KMessageDialog* self);
+void KMessageDialog_OnMetacast(KMessageDialog* self, intptr_t slot);
+void* KMessageDialog_QBaseMetacast(KMessageDialog* self, const char* param1);
 void KMessageDialog_OnMetacall(KMessageDialog* self, intptr_t slot);
 int KMessageDialog_QBaseMetacall(KMessageDialog* self, int param1, int param2, void** param3);
 void KMessageDialog_OnShowEvent(KMessageDialog* self, intptr_t slot);

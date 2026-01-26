@@ -31,11 +31,21 @@ QMediaCaptureSession* QMediaCaptureSession_new2(QObject* parent) {
 }
 
 QMetaObject* QMediaCaptureSession_MetaObject(const QMediaCaptureSession* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmediacapturesession = dynamic_cast<const VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMediaCaptureSession*)self)->metaObject();
+    }
 }
 
 void* QMediaCaptureSession_Metacast(QMediaCaptureSession* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMediaCaptureSession*)self)->qt_metacast(param1);
+    }
 }
 
 int QMediaCaptureSession_Metacall(QMediaCaptureSession* self, int param1, int param2, void** param3) {
@@ -243,6 +253,44 @@ void QMediaCaptureSession_Connect_AudioOutputChanged(QMediaCaptureSession* self,
     QMediaCaptureSession::connect(self, &QMediaCaptureSession::audioOutputChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QMediaCaptureSession_QBaseMetaObject(const QMediaCaptureSession* self) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
+        vqmediacapturesession->setQMediaCaptureSession_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmediacapturesession->metaObject();
+    } else {
+        return (QMetaObject*)self->QMediaCaptureSession::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaCaptureSession_OnMetaObject(const QMediaCaptureSession* self, intptr_t slot) {
+    auto* vqmediacapturesession = const_cast<VirtualQMediaCaptureSession*>(dynamic_cast<const VirtualQMediaCaptureSession*>(self));
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
+        vqmediacapturesession->setQMediaCaptureSession_MetaObject_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMediaCaptureSession_QBaseMetacast(QMediaCaptureSession* self, const char* param1) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
+        vqmediacapturesession->setQMediaCaptureSession_Metacast_IsBase(true);
+        return vqmediacapturesession->qt_metacast(param1);
+    } else {
+        return self->QMediaCaptureSession::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaCaptureSession_OnMetacast(QMediaCaptureSession* self, intptr_t slot) {
+    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
+    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
+        vqmediacapturesession->setQMediaCaptureSession_Metacast_Callback(reinterpret_cast<VirtualQMediaCaptureSession::QMediaCaptureSession_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

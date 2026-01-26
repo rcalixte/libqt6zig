@@ -786,11 +786,21 @@ QCPLayer* QCPLayer_new(QCustomPlot* parentPlot, const libqt_string layerName) {
 }
 
 QMetaObject* QCPLayer_MetaObject(const QCPLayer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcplayer = dynamic_cast<const VirtualQCPLayer*>(self);
+    if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPLayer*)self)->metaObject();
+    }
 }
 
 void* QCPLayer_Metacast(QCPLayer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
+    if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPLayer*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPLayer_Metacall(QCPLayer* self, int param1, int param2, void** param3) {
@@ -853,6 +863,44 @@ void QCPLayer_SetMode(QCPLayer* self, int mode) {
 
 void QCPLayer_Replot(QCPLayer* self) {
     self->replot();
+}
+
+// Base class handler implementation
+QMetaObject* QCPLayer_QBaseMetaObject(const QCPLayer* self) {
+    auto* vqcplayer = const_cast<VirtualQCPLayer*>(dynamic_cast<const VirtualQCPLayer*>(self));
+    if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
+        vqcplayer->setQCPLayer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcplayer->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPLayer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayer_OnMetaObject(const QCPLayer* self, intptr_t slot) {
+    auto* vqcplayer = const_cast<VirtualQCPLayer*>(dynamic_cast<const VirtualQCPLayer*>(self));
+    if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
+        vqcplayer->setQCPLayer_MetaObject_Callback(reinterpret_cast<VirtualQCPLayer::QCPLayer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPLayer_QBaseMetacast(QCPLayer* self, const char* param1) {
+    auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
+    if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
+        vqcplayer->setQCPLayer_Metacast_IsBase(true);
+        return vqcplayer->qt_metacast(param1);
+    } else {
+        return self->QCPLayer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayer_OnMetacast(QCPLayer* self, intptr_t slot) {
+    auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
+    if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
+        vqcplayer->setQCPLayer_Metacast_Callback(reinterpret_cast<VirtualQCPLayer::QCPLayer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -1328,11 +1376,21 @@ QCPLayerable* QCPLayerable_new3(QCustomPlot* plot, libqt_string targetLayer, QCP
 }
 
 QMetaObject* QCPLayerable_MetaObject(const QCPLayerable* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcplayerable = dynamic_cast<const VirtualQCPLayerable*>(self);
+    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPLayerable*)self)->metaObject();
+    }
 }
 
 void* QCPLayerable_Metacast(QCPLayerable* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
+    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPLayerable*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPLayerable_Metacall(QCPLayerable* self, int param1, int param2, void** param3) {
@@ -1489,6 +1547,44 @@ void QCPLayerable_WheelEvent(QCPLayerable* self, QWheelEvent* event) {
     auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->wheelEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPLayerable_QBaseMetaObject(const QCPLayerable* self) {
+    auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
+    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
+        vqcplayerable->setQCPLayerable_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcplayerable->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPLayerable::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayerable_OnMetaObject(const QCPLayerable* self, intptr_t slot) {
+    auto* vqcplayerable = const_cast<VirtualQCPLayerable*>(dynamic_cast<const VirtualQCPLayerable*>(self));
+    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
+        vqcplayerable->setQCPLayerable_MetaObject_Callback(reinterpret_cast<VirtualQCPLayerable::QCPLayerable_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPLayerable_QBaseMetacast(QCPLayerable* self, const char* param1) {
+    auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
+    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
+        vqcplayerable->setQCPLayerable_Metacast_IsBase(true);
+        return vqcplayerable->qt_metacast(param1);
+    } else {
+        return self->QCPLayerable::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayerable_OnMetacast(QCPLayerable* self, intptr_t slot) {
+    auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
+    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
+        vqcplayerable->setQCPLayerable_Metacast_Callback(reinterpret_cast<VirtualQCPLayerable::QCPLayerable_Metacast_Callback>(slot));
     }
 }
 
@@ -2550,11 +2646,21 @@ QCPSelectionRect* QCPSelectionRect_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPSelectionRect_MetaObject(const QCPSelectionRect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpselectionrect = dynamic_cast<const VirtualQCPSelectionRect*>(self);
+    if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPSelectionRect*)self)->metaObject();
+    }
 }
 
 void* QCPSelectionRect_Metacast(QCPSelectionRect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
+    if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPSelectionRect*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPSelectionRect_Metacall(QCPSelectionRect* self, int param1, int param2, void** param3) {
@@ -2694,6 +2800,44 @@ void QCPSelectionRect_Draw(QCPSelectionRect* self, QCPPainter* painter) {
     auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPSelectionRect_QBaseMetaObject(const QCPSelectionRect* self) {
+    auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
+    if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
+        vqcpselectionrect->setQCPSelectionRect_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpselectionrect->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPSelectionRect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPSelectionRect_OnMetaObject(const QCPSelectionRect* self, intptr_t slot) {
+    auto* vqcpselectionrect = const_cast<VirtualQCPSelectionRect*>(dynamic_cast<const VirtualQCPSelectionRect*>(self));
+    if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
+        vqcpselectionrect->setQCPSelectionRect_MetaObject_Callback(reinterpret_cast<VirtualQCPSelectionRect::QCPSelectionRect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPSelectionRect_QBaseMetacast(QCPSelectionRect* self, const char* param1) {
+    auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
+    if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
+        vqcpselectionrect->setQCPSelectionRect_Metacast_IsBase(true);
+        return vqcpselectionrect->qt_metacast(param1);
+    } else {
+        return self->QCPSelectionRect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPSelectionRect_OnMetacast(QCPSelectionRect* self, intptr_t slot) {
+    auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
+    if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
+        vqcpselectionrect->setQCPSelectionRect_Metacast_Callback(reinterpret_cast<VirtualQCPSelectionRect::QCPSelectionRect_Metacast_Callback>(slot));
     }
 }
 
@@ -3591,11 +3735,21 @@ QCPMarginGroup* QCPMarginGroup_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPMarginGroup_MetaObject(const QCPMarginGroup* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpmargingroup = dynamic_cast<const VirtualQCPMarginGroup*>(self);
+    if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPMarginGroup*)self)->metaObject();
+    }
 }
 
 void* QCPMarginGroup_Metacast(QCPMarginGroup* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
+    if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPMarginGroup*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPMarginGroup_Metacall(QCPMarginGroup* self, int param1, int param2, void** param3) {
@@ -3634,6 +3788,44 @@ int QCPMarginGroup_CommonMargin(const QCPMarginGroup* self, int side) {
         return vqcpmargingroup->commonMargin(static_cast<QCP::MarginSide>(side));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QCPMarginGroup_QBaseMetaObject(const QCPMarginGroup* self) {
+    auto* vqcpmargingroup = const_cast<VirtualQCPMarginGroup*>(dynamic_cast<const VirtualQCPMarginGroup*>(self));
+    if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
+        vqcpmargingroup->setQCPMarginGroup_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpmargingroup->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPMarginGroup::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPMarginGroup_OnMetaObject(const QCPMarginGroup* self, intptr_t slot) {
+    auto* vqcpmargingroup = const_cast<VirtualQCPMarginGroup*>(dynamic_cast<const VirtualQCPMarginGroup*>(self));
+    if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
+        vqcpmargingroup->setQCPMarginGroup_MetaObject_Callback(reinterpret_cast<VirtualQCPMarginGroup::QCPMarginGroup_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPMarginGroup_QBaseMetacast(QCPMarginGroup* self, const char* param1) {
+    auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
+    if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
+        vqcpmargingroup->setQCPMarginGroup_Metacast_IsBase(true);
+        return vqcpmargingroup->qt_metacast(param1);
+    } else {
+        return self->QCPMarginGroup::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPMarginGroup_OnMetacast(QCPMarginGroup* self, intptr_t slot) {
+    auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
+    if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
+        vqcpmargingroup->setQCPMarginGroup_Metacast_Callback(reinterpret_cast<VirtualQCPMarginGroup::QCPMarginGroup_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -4064,11 +4256,21 @@ QCPLayoutElement* QCPLayoutElement_new2(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPLayoutElement_MetaObject(const QCPLayoutElement* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcplayoutelement = dynamic_cast<const VirtualQCPLayoutElement*>(self);
+    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPLayoutElement*)self)->metaObject();
+    }
 }
 
 void* QCPLayoutElement_Metacast(QCPLayoutElement* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
+    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPLayoutElement*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPLayoutElement_Metacall(QCPLayoutElement* self, int param1, int param2, void** param3) {
@@ -4274,6 +4476,44 @@ void QCPLayoutElement_ParentPlotInitialized(QCPLayoutElement* self, QCustomPlot*
     auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->parentPlotInitialized(parentPlot);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPLayoutElement_QBaseMetaObject(const QCPLayoutElement* self) {
+    auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
+    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
+        vqcplayoutelement->setQCPLayoutElement_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcplayoutelement->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPLayoutElement::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayoutElement_OnMetaObject(const QCPLayoutElement* self, intptr_t slot) {
+    auto* vqcplayoutelement = const_cast<VirtualQCPLayoutElement*>(dynamic_cast<const VirtualQCPLayoutElement*>(self));
+    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
+        vqcplayoutelement->setQCPLayoutElement_MetaObject_Callback(reinterpret_cast<VirtualQCPLayoutElement::QCPLayoutElement_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPLayoutElement_QBaseMetacast(QCPLayoutElement* self, const char* param1) {
+    auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
+    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
+        vqcplayoutelement->setQCPLayoutElement_Metacast_IsBase(true);
+        return vqcplayoutelement->qt_metacast(param1);
+    } else {
+        return self->QCPLayoutElement::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayoutElement_OnMetacast(QCPLayoutElement* self, intptr_t slot) {
+    auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
+    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
+        vqcplayoutelement->setQCPLayoutElement_Metacast_Callback(reinterpret_cast<VirtualQCPLayoutElement::QCPLayoutElement_Metacast_Callback>(slot));
     }
 }
 
@@ -5207,11 +5447,21 @@ QCPLayout* QCPLayout_new() {
 }
 
 QMetaObject* QCPLayout_MetaObject(const QCPLayout* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcplayout = dynamic_cast<const VirtualQCPLayout*>(self);
+    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPLayout*)self)->metaObject();
+    }
 }
 
 void* QCPLayout_Metacast(QCPLayout* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
+    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPLayout*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPLayout_Metacall(QCPLayout* self, int param1, int param2, void** param3) {
@@ -5320,6 +5570,44 @@ void QCPLayout_UpdateLayout(QCPLayout* self) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->updateLayout();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPLayout_QBaseMetaObject(const QCPLayout* self) {
+    auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
+    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
+        vqcplayout->setQCPLayout_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcplayout->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPLayout::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayout_OnMetaObject(const QCPLayout* self, intptr_t slot) {
+    auto* vqcplayout = const_cast<VirtualQCPLayout*>(dynamic_cast<const VirtualQCPLayout*>(self));
+    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
+        vqcplayout->setQCPLayout_MetaObject_Callback(reinterpret_cast<VirtualQCPLayout::QCPLayout_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPLayout_QBaseMetacast(QCPLayout* self, const char* param1) {
+    auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
+    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
+        vqcplayout->setQCPLayout_Metacast_IsBase(true);
+        return vqcplayout->qt_metacast(param1);
+    } else {
+        return self->QCPLayout::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayout_OnMetacast(QCPLayout* self, intptr_t slot) {
+    auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
+    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
+        vqcplayout->setQCPLayout_Metacast_Callback(reinterpret_cast<VirtualQCPLayout::QCPLayout_Metacast_Callback>(slot));
     }
 }
 
@@ -6635,11 +6923,21 @@ QCPLayoutGrid* QCPLayoutGrid_new() {
 }
 
 QMetaObject* QCPLayoutGrid_MetaObject(const QCPLayoutGrid* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcplayoutgrid = dynamic_cast<const VirtualQCPLayoutGrid*>(self);
+    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPLayoutGrid*)self)->metaObject();
+    }
 }
 
 void* QCPLayoutGrid_Metacast(QCPLayoutGrid* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
+    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPLayoutGrid*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPLayoutGrid_Metacall(QCPLayoutGrid* self, int param1, int param2, void** param3) {
@@ -6882,6 +7180,44 @@ void QCPLayoutGrid_IndexToRowCol(const QCPLayoutGrid* self, int index, int* row,
 
 void QCPLayoutGrid_SetFillOrder2(QCPLayoutGrid* self, int order, bool rearrange) {
     self->setFillOrder(static_cast<QCPLayoutGrid::FillOrder>(order), rearrange);
+}
+
+// Base class handler implementation
+QMetaObject* QCPLayoutGrid_QBaseMetaObject(const QCPLayoutGrid* self) {
+    auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
+    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
+        vqcplayoutgrid->setQCPLayoutGrid_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcplayoutgrid->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPLayoutGrid::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayoutGrid_OnMetaObject(const QCPLayoutGrid* self, intptr_t slot) {
+    auto* vqcplayoutgrid = const_cast<VirtualQCPLayoutGrid*>(dynamic_cast<const VirtualQCPLayoutGrid*>(self));
+    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
+        vqcplayoutgrid->setQCPLayoutGrid_MetaObject_Callback(reinterpret_cast<VirtualQCPLayoutGrid::QCPLayoutGrid_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPLayoutGrid_QBaseMetacast(QCPLayoutGrid* self, const char* param1) {
+    auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
+    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
+        vqcplayoutgrid->setQCPLayoutGrid_Metacast_IsBase(true);
+        return vqcplayoutgrid->qt_metacast(param1);
+    } else {
+        return self->QCPLayoutGrid::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayoutGrid_OnMetacast(QCPLayoutGrid* self, intptr_t slot) {
+    auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
+    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
+        vqcplayoutgrid->setQCPLayoutGrid_Metacast_Callback(reinterpret_cast<VirtualQCPLayoutGrid::QCPLayoutGrid_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -8292,11 +8628,21 @@ QCPLayoutInset* QCPLayoutInset_new() {
 }
 
 QMetaObject* QCPLayoutInset_MetaObject(const QCPLayoutInset* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcplayoutinset = dynamic_cast<const VirtualQCPLayoutInset*>(self);
+    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPLayoutInset*)self)->metaObject();
+    }
 }
 
 void* QCPLayoutInset_Metacast(QCPLayoutInset* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
+    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPLayoutInset*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPLayoutInset_Metacall(QCPLayoutInset* self, int param1, int param2, void** param3) {
@@ -8401,6 +8747,44 @@ void QCPLayoutInset_AddElement(QCPLayoutInset* self, QCPLayoutElement* element, 
 
 void QCPLayoutInset_AddElement2(QCPLayoutInset* self, QCPLayoutElement* element, const QRectF* rect) {
     self->addElement(element, *rect);
+}
+
+// Base class handler implementation
+QMetaObject* QCPLayoutInset_QBaseMetaObject(const QCPLayoutInset* self) {
+    auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
+    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
+        vqcplayoutinset->setQCPLayoutInset_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcplayoutinset->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPLayoutInset::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayoutInset_OnMetaObject(const QCPLayoutInset* self, intptr_t slot) {
+    auto* vqcplayoutinset = const_cast<VirtualQCPLayoutInset*>(dynamic_cast<const VirtualQCPLayoutInset*>(self));
+    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
+        vqcplayoutinset->setQCPLayoutInset_MetaObject_Callback(reinterpret_cast<VirtualQCPLayoutInset::QCPLayoutInset_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPLayoutInset_QBaseMetacast(QCPLayoutInset* self, const char* param1) {
+    auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
+    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
+        vqcplayoutinset->setQCPLayoutInset_Metacast_IsBase(true);
+        return vqcplayoutinset->qt_metacast(param1);
+    } else {
+        return self->QCPLayoutInset::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLayoutInset_OnMetacast(QCPLayoutInset* self, intptr_t slot) {
+    auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
+    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
+        vqcplayoutinset->setQCPLayoutInset_Metacast_Callback(reinterpret_cast<VirtualQCPLayoutInset::QCPLayoutInset_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -14392,11 +14776,21 @@ QCPGrid* QCPGrid_new(QCPAxis* parentAxis) {
 }
 
 QMetaObject* QCPGrid_MetaObject(const QCPGrid* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpgrid = dynamic_cast<const VirtualQCPGrid*>(self);
+    if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPGrid*)self)->metaObject();
+    }
 }
 
 void* QCPGrid_Metacast(QCPGrid* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
+    if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPGrid*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPGrid_Metacall(QCPGrid* self, int param1, int param2, void** param3) {
@@ -14467,6 +14861,44 @@ void QCPGrid_Draw(QCPGrid* self, QCPPainter* painter) {
     auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPGrid_QBaseMetaObject(const QCPGrid* self) {
+    auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
+    if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
+        vqcpgrid->setQCPGrid_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpgrid->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPGrid::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPGrid_OnMetaObject(const QCPGrid* self, intptr_t slot) {
+    auto* vqcpgrid = const_cast<VirtualQCPGrid*>(dynamic_cast<const VirtualQCPGrid*>(self));
+    if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
+        vqcpgrid->setQCPGrid_MetaObject_Callback(reinterpret_cast<VirtualQCPGrid::QCPGrid_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPGrid_QBaseMetacast(QCPGrid* self, const char* param1) {
+    auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
+    if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
+        vqcpgrid->setQCPGrid_Metacast_IsBase(true);
+        return vqcpgrid->qt_metacast(param1);
+    } else {
+        return self->QCPGrid::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPGrid_OnMetacast(QCPGrid* self, intptr_t slot) {
+    auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
+    if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
+        vqcpgrid->setQCPGrid_Metacast_Callback(reinterpret_cast<VirtualQCPGrid::QCPGrid_Metacast_Callback>(slot));
     }
 }
 
@@ -15346,11 +15778,21 @@ QCPAxis* QCPAxis_new(QCPAxisRect* parent, int typeVal) {
 }
 
 QMetaObject* QCPAxis_MetaObject(const QCPAxis* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpaxis = dynamic_cast<const VirtualQCPAxis*>(self);
+    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPAxis*)self)->metaObject();
+    }
 }
 
 void* QCPAxis_Metacast(QCPAxis* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
+    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPAxis*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPAxis_Metacall(QCPAxis* self, int param1, int param2, void** param3) {
@@ -15952,6 +16394,44 @@ void QCPAxis_SetScaleRatio2(QCPAxis* self, const QCPAxis* otherAxis, double rati
 
 void QCPAxis_Rescale1(QCPAxis* self, bool onlyVisiblePlottables) {
     self->rescale(onlyVisiblePlottables);
+}
+
+// Base class handler implementation
+QMetaObject* QCPAxis_QBaseMetaObject(const QCPAxis* self) {
+    auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
+    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
+        vqcpaxis->setQCPAxis_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpaxis->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPAxis::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAxis_OnMetaObject(const QCPAxis* self, intptr_t slot) {
+    auto* vqcpaxis = const_cast<VirtualQCPAxis*>(dynamic_cast<const VirtualQCPAxis*>(self));
+    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
+        vqcpaxis->setQCPAxis_MetaObject_Callback(reinterpret_cast<VirtualQCPAxis::QCPAxis_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPAxis_QBaseMetacast(QCPAxis* self, const char* param1) {
+    auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
+    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
+        vqcpaxis->setQCPAxis_Metacast_IsBase(true);
+        return vqcpaxis->qt_metacast(param1);
+    } else {
+        return self->QCPAxis::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAxis_OnMetacast(QCPAxis* self, intptr_t slot) {
+    auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
+    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
+        vqcpaxis->setQCPAxis_Metacast_Callback(reinterpret_cast<VirtualQCPAxis::QCPAxis_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -17192,11 +17672,21 @@ QCPAbstractPlottable* QCPAbstractPlottable_new(QCPAxis* keyAxis, QCPAxis* valueA
 }
 
 QMetaObject* QCPAbstractPlottable_MetaObject(const QCPAbstractPlottable* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpabstractplottable = dynamic_cast<const VirtualQCPAbstractPlottable*>(self);
+    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPAbstractPlottable*)self)->metaObject();
+    }
 }
 
 void* QCPAbstractPlottable_Metacast(QCPAbstractPlottable* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
+    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPAbstractPlottable*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPAbstractPlottable_Metacall(QCPAbstractPlottable* self, int param1, int param2, void** param3) {
@@ -17458,6 +17948,44 @@ void QCPAbstractPlottable_RescaleValueAxis1(const QCPAbstractPlottable* self, bo
 
 void QCPAbstractPlottable_RescaleValueAxis2(const QCPAbstractPlottable* self, bool onlyEnlarge, bool inKeyRange) {
     self->rescaleValueAxis(onlyEnlarge, inKeyRange);
+}
+
+// Base class handler implementation
+QMetaObject* QCPAbstractPlottable_QBaseMetaObject(const QCPAbstractPlottable* self) {
+    auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
+    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
+        vqcpabstractplottable->setQCPAbstractPlottable_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpabstractplottable->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPAbstractPlottable::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAbstractPlottable_OnMetaObject(const QCPAbstractPlottable* self, intptr_t slot) {
+    auto* vqcpabstractplottable = const_cast<VirtualQCPAbstractPlottable*>(dynamic_cast<const VirtualQCPAbstractPlottable*>(self));
+    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
+        vqcpabstractplottable->setQCPAbstractPlottable_MetaObject_Callback(reinterpret_cast<VirtualQCPAbstractPlottable::QCPAbstractPlottable_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPAbstractPlottable_QBaseMetacast(QCPAbstractPlottable* self, const char* param1) {
+    auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
+    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
+        vqcpabstractplottable->setQCPAbstractPlottable_Metacast_IsBase(true);
+        return vqcpabstractplottable->qt_metacast(param1);
+    } else {
+        return self->QCPAbstractPlottable::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAbstractPlottable_OnMetacast(QCPAbstractPlottable* self, intptr_t slot) {
+    auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
+    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
+        vqcpabstractplottable->setQCPAbstractPlottable_Metacast_Callback(reinterpret_cast<VirtualQCPAbstractPlottable::QCPAbstractPlottable_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -18844,11 +19372,21 @@ QCPAbstractItem* QCPAbstractItem_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPAbstractItem_MetaObject(const QCPAbstractItem* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpabstractitem = dynamic_cast<const VirtualQCPAbstractItem*>(self);
+    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPAbstractItem*)self)->metaObject();
+    }
 }
 
 void* QCPAbstractItem_Metacast(QCPAbstractItem* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
+    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPAbstractItem*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPAbstractItem_Metacall(QCPAbstractItem* self, int param1, int param2, void** param3) {
@@ -19016,6 +19554,44 @@ QPointF* QCPAbstractItem_AnchorPixelPosition(const QCPAbstractItem* self, int an
         return new QPointF(vqcpabstractitem->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QCPAbstractItem_QBaseMetaObject(const QCPAbstractItem* self) {
+    auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
+    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
+        vqcpabstractitem->setQCPAbstractItem_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpabstractitem->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPAbstractItem::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAbstractItem_OnMetaObject(const QCPAbstractItem* self, intptr_t slot) {
+    auto* vqcpabstractitem = const_cast<VirtualQCPAbstractItem*>(dynamic_cast<const VirtualQCPAbstractItem*>(self));
+    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
+        vqcpabstractitem->setQCPAbstractItem_MetaObject_Callback(reinterpret_cast<VirtualQCPAbstractItem::QCPAbstractItem_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPAbstractItem_QBaseMetacast(QCPAbstractItem* self, const char* param1) {
+    auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
+    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
+        vqcpabstractitem->setQCPAbstractItem_Metacast_IsBase(true);
+        return vqcpabstractitem->qt_metacast(param1);
+    } else {
+        return self->QCPAbstractItem::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAbstractItem_OnMetacast(QCPAbstractItem* self, intptr_t slot) {
+    auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
+    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
+        vqcpabstractitem->setQCPAbstractItem_Metacast_Callback(reinterpret_cast<VirtualQCPAbstractItem::QCPAbstractItem_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -19900,11 +20476,21 @@ QCustomPlot* QCustomPlot_new2() {
 }
 
 QMetaObject* QCustomPlot_MetaObject(const QCustomPlot* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcustomplot = dynamic_cast<const VirtualQCustomPlot*>(self);
+    if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCustomPlot*)self)->metaObject();
+    }
 }
 
 void* QCustomPlot_Metacast(QCustomPlot* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
+    if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCustomPlot*)self)->qt_metacast(param1);
+    }
 }
 
 int QCustomPlot_Metacall(QCustomPlot* self, int param1, int param2, void** param3) {
@@ -20934,6 +21520,44 @@ void QCustomPlot_Replot1(QCustomPlot* self, int refreshPriority) {
 
 double QCustomPlot_ReplotTime1(const QCustomPlot* self, bool average) {
     return self->replotTime(average);
+}
+
+// Base class handler implementation
+QMetaObject* QCustomPlot_QBaseMetaObject(const QCustomPlot* self) {
+    auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
+    if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
+        vqcustomplot->setQCustomPlot_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcustomplot->metaObject();
+    } else {
+        return (QMetaObject*)self->QCustomPlot::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCustomPlot_OnMetaObject(const QCustomPlot* self, intptr_t slot) {
+    auto* vqcustomplot = const_cast<VirtualQCustomPlot*>(dynamic_cast<const VirtualQCustomPlot*>(self));
+    if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
+        vqcustomplot->setQCustomPlot_MetaObject_Callback(reinterpret_cast<VirtualQCustomPlot::QCustomPlot_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCustomPlot_QBaseMetacast(QCustomPlot* self, const char* param1) {
+    auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
+    if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
+        vqcustomplot->setQCustomPlot_Metacast_IsBase(true);
+        return vqcustomplot->qt_metacast(param1);
+    } else {
+        return self->QCustomPlot::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCustomPlot_OnMetacast(QCustomPlot* self, intptr_t slot) {
+    auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
+    if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
+        vqcustomplot->setQCustomPlot_Metacast_Callback(reinterpret_cast<VirtualQCustomPlot::QCustomPlot_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -23576,11 +24200,21 @@ QCPAxisRect* QCPAxisRect_new2(QCustomPlot* parentPlot, bool setupDefaultAxes) {
 }
 
 QMetaObject* QCPAxisRect_MetaObject(const QCPAxisRect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpaxisrect = dynamic_cast<const VirtualQCPAxisRect*>(self);
+    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPAxisRect*)self)->metaObject();
+    }
 }
 
 void* QCPAxisRect_Metacast(QCPAxisRect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
+    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPAxisRect*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPAxisRect_Metacall(QCPAxisRect* self, int param1, int param2, void** param3) {
@@ -24021,6 +24655,44 @@ QCPAxis* QCPAxisRect_AddAxis2(QCPAxisRect* self, int typeVal, QCPAxis* axis) {
 
 void QCPAxisRect_SetupFullAxesBox1(QCPAxisRect* self, bool connectRanges) {
     self->setupFullAxesBox(connectRanges);
+}
+
+// Base class handler implementation
+QMetaObject* QCPAxisRect_QBaseMetaObject(const QCPAxisRect* self) {
+    auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
+    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
+        vqcpaxisrect->setQCPAxisRect_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpaxisrect->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPAxisRect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAxisRect_OnMetaObject(const QCPAxisRect* self, intptr_t slot) {
+    auto* vqcpaxisrect = const_cast<VirtualQCPAxisRect*>(dynamic_cast<const VirtualQCPAxisRect*>(self));
+    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
+        vqcpaxisrect->setQCPAxisRect_MetaObject_Callback(reinterpret_cast<VirtualQCPAxisRect::QCPAxisRect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPAxisRect_QBaseMetacast(QCPAxisRect* self, const char* param1) {
+    auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
+    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
+        vqcpaxisrect->setQCPAxisRect_Metacast_IsBase(true);
+        return vqcpaxisrect->qt_metacast(param1);
+    } else {
+        return self->QCPAxisRect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAxisRect_OnMetacast(QCPAxisRect* self, intptr_t slot) {
+    auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
+    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
+        vqcpaxisrect->setQCPAxisRect_Metacast_Callback(reinterpret_cast<VirtualQCPAxisRect::QCPAxisRect_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -25011,11 +25683,21 @@ QCPAbstractLegendItem* QCPAbstractLegendItem_new(QCPLegend* parent) {
 }
 
 QMetaObject* QCPAbstractLegendItem_MetaObject(const QCPAbstractLegendItem* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpabstractlegenditem = dynamic_cast<const VirtualQCPAbstractLegendItem*>(self);
+    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPAbstractLegendItem*)self)->metaObject();
+    }
 }
 
 void* QCPAbstractLegendItem_Metacast(QCPAbstractLegendItem* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
+    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPAbstractLegendItem*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPAbstractLegendItem_Metacall(QCPAbstractLegendItem* self, int param1, int param2, void** param3) {
@@ -25153,6 +25835,44 @@ void QCPAbstractLegendItem_DeselectEvent(QCPAbstractLegendItem* self, bool* sele
     auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->deselectEvent(selectionStateChanged);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPAbstractLegendItem_QBaseMetaObject(const QCPAbstractLegendItem* self) {
+    auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
+    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
+        vqcpabstractlegenditem->setQCPAbstractLegendItem_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpabstractlegenditem->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPAbstractLegendItem::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAbstractLegendItem_OnMetaObject(const QCPAbstractLegendItem* self, intptr_t slot) {
+    auto* vqcpabstractlegenditem = const_cast<VirtualQCPAbstractLegendItem*>(dynamic_cast<const VirtualQCPAbstractLegendItem*>(self));
+    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
+        vqcpabstractlegenditem->setQCPAbstractLegendItem_MetaObject_Callback(reinterpret_cast<VirtualQCPAbstractLegendItem::QCPAbstractLegendItem_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPAbstractLegendItem_QBaseMetacast(QCPAbstractLegendItem* self, const char* param1) {
+    auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
+    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
+        vqcpabstractlegenditem->setQCPAbstractLegendItem_Metacast_IsBase(true);
+        return vqcpabstractlegenditem->qt_metacast(param1);
+    } else {
+        return self->QCPAbstractLegendItem::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPAbstractLegendItem_OnMetacast(QCPAbstractLegendItem* self, intptr_t slot) {
+    auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
+    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
+        vqcpabstractlegenditem->setQCPAbstractLegendItem_Metacast_Callback(reinterpret_cast<VirtualQCPAbstractLegendItem::QCPAbstractLegendItem_Metacast_Callback>(slot));
     }
 }
 
@@ -26135,11 +26855,21 @@ QCPPlottableLegendItem* QCPPlottableLegendItem_new(QCPLegend* parent, QCPAbstrac
 }
 
 QMetaObject* QCPPlottableLegendItem_MetaObject(const QCPPlottableLegendItem* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpplottablelegenditem = dynamic_cast<const VirtualQCPPlottableLegendItem*>(self);
+    if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPPlottableLegendItem*)self)->metaObject();
+    }
 }
 
 void* QCPPlottableLegendItem_Metacast(QCPPlottableLegendItem* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
+    if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPPlottableLegendItem*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPPlottableLegendItem_Metacall(QCPPlottableLegendItem* self, int param1, int param2, void** param3) {
@@ -26168,6 +26898,44 @@ QSize* QCPPlottableLegendItem_MinimumOuterSizeHint(const QCPPlottableLegendItem*
         return new QSize(vqcpplottablelegenditem->minimumOuterSizeHint());
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QCPPlottableLegendItem_QBaseMetaObject(const QCPPlottableLegendItem* self) {
+    auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
+    if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
+        vqcpplottablelegenditem->setQCPPlottableLegendItem_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpplottablelegenditem->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPPlottableLegendItem::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPlottableLegendItem_OnMetaObject(const QCPPlottableLegendItem* self, intptr_t slot) {
+    auto* vqcpplottablelegenditem = const_cast<VirtualQCPPlottableLegendItem*>(dynamic_cast<const VirtualQCPPlottableLegendItem*>(self));
+    if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
+        vqcpplottablelegenditem->setQCPPlottableLegendItem_MetaObject_Callback(reinterpret_cast<VirtualQCPPlottableLegendItem::QCPPlottableLegendItem_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPPlottableLegendItem_QBaseMetacast(QCPPlottableLegendItem* self, const char* param1) {
+    auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
+    if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
+        vqcpplottablelegenditem->setQCPPlottableLegendItem_Metacast_IsBase(true);
+        return vqcpplottablelegenditem->qt_metacast(param1);
+    } else {
+        return self->QCPPlottableLegendItem::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPlottableLegendItem_OnMetacast(QCPPlottableLegendItem* self, intptr_t slot) {
+    auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
+    if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
+        vqcpplottablelegenditem->setQCPPlottableLegendItem_Metacast_Callback(reinterpret_cast<VirtualQCPPlottableLegendItem::QCPPlottableLegendItem_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -27278,11 +28046,21 @@ QCPLegend* QCPLegend_new() {
 }
 
 QMetaObject* QCPLegend_MetaObject(const QCPLegend* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcplegend = dynamic_cast<const VirtualQCPLegend*>(self);
+    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPLegend*)self)->metaObject();
+    }
 }
 
 void* QCPLegend_Metacast(QCPLegend* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
+    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPLegend*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPLegend_Metacall(QCPLegend* self, int param1, int param2, void** param3) {
@@ -27532,6 +28310,44 @@ void QCPLegend_DeselectEvent(QCPLegend* self, bool* selectionStateChanged) {
     auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->deselectEvent(selectionStateChanged);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPLegend_QBaseMetaObject(const QCPLegend* self) {
+    auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
+    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
+        vqcplegend->setQCPLegend_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcplegend->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPLegend::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLegend_OnMetaObject(const QCPLegend* self, intptr_t slot) {
+    auto* vqcplegend = const_cast<VirtualQCPLegend*>(dynamic_cast<const VirtualQCPLegend*>(self));
+    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
+        vqcplegend->setQCPLegend_MetaObject_Callback(reinterpret_cast<VirtualQCPLegend::QCPLegend_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPLegend_QBaseMetacast(QCPLegend* self, const char* param1) {
+    auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
+    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
+        vqcplegend->setQCPLegend_Metacast_IsBase(true);
+        return vqcplegend->qt_metacast(param1);
+    } else {
+        return self->QCPLegend::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPLegend_OnMetacast(QCPLegend* self, intptr_t slot) {
+    auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
+    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
+        vqcplegend->setQCPLegend_Metacast_Callback(reinterpret_cast<VirtualQCPLegend::QCPLegend_Metacast_Callback>(slot));
     }
 }
 
@@ -29056,11 +29872,21 @@ QCPTextElement* QCPTextElement_new5(QCustomPlot* parentPlot, const libqt_string 
 }
 
 QMetaObject* QCPTextElement_MetaObject(const QCPTextElement* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcptextelement = dynamic_cast<const VirtualQCPTextElement*>(self);
+    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPTextElement*)self)->metaObject();
+    }
 }
 
 void* QCPTextElement_Metacast(QCPTextElement* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
+    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPTextElement*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPTextElement_Metacall(QCPTextElement* self, int param1, int param2, void** param3) {
@@ -29270,6 +30096,44 @@ void QCPTextElement_DeselectEvent(QCPTextElement* self, bool* selectionStateChan
     auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->deselectEvent(selectionStateChanged);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPTextElement_QBaseMetaObject(const QCPTextElement* self) {
+    auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
+    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
+        vqcptextelement->setQCPTextElement_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcptextelement->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPTextElement::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPTextElement_OnMetaObject(const QCPTextElement* self, intptr_t slot) {
+    auto* vqcptextelement = const_cast<VirtualQCPTextElement*>(dynamic_cast<const VirtualQCPTextElement*>(self));
+    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
+        vqcptextelement->setQCPTextElement_MetaObject_Callback(reinterpret_cast<VirtualQCPTextElement::QCPTextElement_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPTextElement_QBaseMetacast(QCPTextElement* self, const char* param1) {
+    auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
+    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
+        vqcptextelement->setQCPTextElement_Metacast_IsBase(true);
+        return vqcptextelement->qt_metacast(param1);
+    } else {
+        return self->QCPTextElement::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPTextElement_OnMetacast(QCPTextElement* self, intptr_t slot) {
+    auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
+    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
+        vqcptextelement->setQCPTextElement_Metacast_Callback(reinterpret_cast<VirtualQCPTextElement::QCPTextElement_Metacast_Callback>(slot));
     }
 }
 
@@ -30273,11 +31137,21 @@ QCPColorScale* QCPColorScale_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPColorScale_MetaObject(const QCPColorScale* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpcolorscale = dynamic_cast<const VirtualQCPColorScale*>(self);
+    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPColorScale*)self)->metaObject();
+    }
 }
 
 void* QCPColorScale_Metacast(QCPColorScale* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
+    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPColorScale*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPColorScale_Metacall(QCPColorScale* self, int param1, int param2, void** param3) {
@@ -30464,6 +31338,44 @@ void QCPColorScale_WheelEvent(QCPColorScale* self, QWheelEvent* event) {
     auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->wheelEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPColorScale_QBaseMetaObject(const QCPColorScale* self) {
+    auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
+    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
+        vqcpcolorscale->setQCPColorScale_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpcolorscale->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPColorScale::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPColorScale_OnMetaObject(const QCPColorScale* self, intptr_t slot) {
+    auto* vqcpcolorscale = const_cast<VirtualQCPColorScale*>(dynamic_cast<const VirtualQCPColorScale*>(self));
+    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
+        vqcpcolorscale->setQCPColorScale_MetaObject_Callback(reinterpret_cast<VirtualQCPColorScale::QCPColorScale_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPColorScale_QBaseMetacast(QCPColorScale* self, const char* param1) {
+    auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
+    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
+        vqcpcolorscale->setQCPColorScale_Metacast_IsBase(true);
+        return vqcpcolorscale->qt_metacast(param1);
+    } else {
+        return self->QCPColorScale::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPColorScale_OnMetacast(QCPColorScale* self, intptr_t slot) {
+    auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
+    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
+        vqcpcolorscale->setQCPColorScale_Metacast_Callback(reinterpret_cast<VirtualQCPColorScale::QCPColorScale_Metacast_Callback>(slot));
     }
 }
 
@@ -31527,11 +32439,21 @@ QCPGraph* QCPGraph_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPGraph_MetaObject(const QCPGraph* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpgraph = dynamic_cast<const VirtualQCPGraph*>(self);
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPGraph*)self)->metaObject();
+    }
 }
 
 void* QCPGraph_Metacast(QCPGraph* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPGraph*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPGraph_Metacall(QCPGraph* self, int param1, int param2, void** param3) {
@@ -31742,6 +32664,44 @@ void QCPGraph_AddData3(QCPGraph* self, const libqt_list /* of double */ keys, co
         values_QVector.push_back(static_cast<double>(values_arr[i]));
     }
     self->addData(keys_QVector, values_QVector, alreadySorted);
+}
+
+// Base class handler implementation
+QMetaObject* QCPGraph_QBaseMetaObject(const QCPGraph* self) {
+    auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        vqcpgraph->setQCPGraph_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpgraph->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPGraph::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPGraph_OnMetaObject(const QCPGraph* self, intptr_t slot) {
+    auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        vqcpgraph->setQCPGraph_MetaObject_Callback(reinterpret_cast<VirtualQCPGraph::QCPGraph_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPGraph_QBaseMetacast(QCPGraph* self, const char* param1) {
+    auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        vqcpgraph->setQCPGraph_Metacast_IsBase(true);
+        return vqcpgraph->qt_metacast(param1);
+    } else {
+        return self->QCPGraph::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPGraph_OnMetacast(QCPGraph* self, intptr_t slot) {
+    auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        vqcpgraph->setQCPGraph_Metacast_Callback(reinterpret_cast<VirtualQCPGraph::QCPGraph_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -34073,11 +35033,21 @@ QCPCurve* QCPCurve_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPCurve_MetaObject(const QCPCurve* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpcurve = dynamic_cast<const VirtualQCPCurve*>(self);
+    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPCurve*)self)->metaObject();
+    }
 }
 
 void* QCPCurve_Metacast(QCPCurve* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
+    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPCurve*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPCurve_Metacall(QCPCurve* self, int param1, int param2, void** param3) {
@@ -34306,6 +35276,44 @@ void QCPCurve_AddData42(QCPCurve* self, const libqt_list /* of double */ t, cons
         values_QVector.push_back(static_cast<double>(values_arr[i]));
     }
     self->addData(t_QVector, keys_QVector, values_QVector, alreadySorted);
+}
+
+// Base class handler implementation
+QMetaObject* QCPCurve_QBaseMetaObject(const QCPCurve* self) {
+    auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
+    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
+        vqcpcurve->setQCPCurve_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpcurve->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPCurve::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPCurve_OnMetaObject(const QCPCurve* self, intptr_t slot) {
+    auto* vqcpcurve = const_cast<VirtualQCPCurve*>(dynamic_cast<const VirtualQCPCurve*>(self));
+    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
+        vqcpcurve->setQCPCurve_MetaObject_Callback(reinterpret_cast<VirtualQCPCurve::QCPCurve_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPCurve_QBaseMetacast(QCPCurve* self, const char* param1) {
+    auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
+    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
+        vqcpcurve->setQCPCurve_Metacast_IsBase(true);
+        return vqcpcurve->qt_metacast(param1);
+    } else {
+        return self->QCPCurve::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPCurve_OnMetacast(QCPCurve* self, intptr_t slot) {
+    auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
+    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
+        vqcpcurve->setQCPCurve_Metacast_Callback(reinterpret_cast<VirtualQCPCurve::QCPCurve_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -35924,11 +36932,21 @@ QCPBarsGroup* QCPBarsGroup_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPBarsGroup_MetaObject(const QCPBarsGroup* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpbarsgroup = dynamic_cast<const VirtualQCPBarsGroup*>(self);
+    if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPBarsGroup*)self)->metaObject();
+    }
 }
 
 void* QCPBarsGroup_Metacast(QCPBarsGroup* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
+    if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPBarsGroup*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPBarsGroup_Metacall(QCPBarsGroup* self, int param1, int param2, void** param3) {
@@ -35999,6 +37017,44 @@ void QCPBarsGroup_Insert(QCPBarsGroup* self, int i, QCPBars* bars) {
 
 void QCPBarsGroup_Remove(QCPBarsGroup* self, QCPBars* bars) {
     self->remove(bars);
+}
+
+// Base class handler implementation
+QMetaObject* QCPBarsGroup_QBaseMetaObject(const QCPBarsGroup* self) {
+    auto* vqcpbarsgroup = const_cast<VirtualQCPBarsGroup*>(dynamic_cast<const VirtualQCPBarsGroup*>(self));
+    if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
+        vqcpbarsgroup->setQCPBarsGroup_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpbarsgroup->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPBarsGroup::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPBarsGroup_OnMetaObject(const QCPBarsGroup* self, intptr_t slot) {
+    auto* vqcpbarsgroup = const_cast<VirtualQCPBarsGroup*>(dynamic_cast<const VirtualQCPBarsGroup*>(self));
+    if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
+        vqcpbarsgroup->setQCPBarsGroup_MetaObject_Callback(reinterpret_cast<VirtualQCPBarsGroup::QCPBarsGroup_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPBarsGroup_QBaseMetacast(QCPBarsGroup* self, const char* param1) {
+    auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
+    if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
+        vqcpbarsgroup->setQCPBarsGroup_Metacast_IsBase(true);
+        return vqcpbarsgroup->qt_metacast(param1);
+    } else {
+        return self->QCPBarsGroup::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPBarsGroup_OnMetacast(QCPBarsGroup* self, intptr_t slot) {
+    auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
+    if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
+        vqcpbarsgroup->setQCPBarsGroup_Metacast_Callback(reinterpret_cast<VirtualQCPBarsGroup::QCPBarsGroup_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -36536,11 +37592,21 @@ QCPBars* QCPBars_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPBars_MetaObject(const QCPBars* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpbars = dynamic_cast<const VirtualQCPBars*>(self);
+    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPBars*)self)->metaObject();
+    }
 }
 
 void* QCPBars_Metacast(QCPBars* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
+    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPBars*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPBars_Metacall(QCPBars* self, int param1, int param2, void** param3) {
@@ -36733,6 +37799,44 @@ void QCPBars_AddData3(QCPBars* self, const libqt_list /* of double */ keys, cons
         values_QVector.push_back(static_cast<double>(values_arr[i]));
     }
     self->addData(keys_QVector, values_QVector, alreadySorted);
+}
+
+// Base class handler implementation
+QMetaObject* QCPBars_QBaseMetaObject(const QCPBars* self) {
+    auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
+    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
+        vqcpbars->setQCPBars_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpbars->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPBars::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPBars_OnMetaObject(const QCPBars* self, intptr_t slot) {
+    auto* vqcpbars = const_cast<VirtualQCPBars*>(dynamic_cast<const VirtualQCPBars*>(self));
+    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
+        vqcpbars->setQCPBars_MetaObject_Callback(reinterpret_cast<VirtualQCPBars::QCPBars_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPBars_QBaseMetacast(QCPBars* self, const char* param1) {
+    auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
+    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
+        vqcpbars->setQCPBars_Metacast_IsBase(true);
+        return vqcpbars->qt_metacast(param1);
+    } else {
+        return self->QCPBars::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPBars_OnMetacast(QCPBars* self, intptr_t slot) {
+    auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
+    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
+        vqcpbars->setQCPBars_Metacast_Callback(reinterpret_cast<VirtualQCPBars::QCPBars_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -38202,11 +39306,21 @@ QCPStatisticalBox* QCPStatisticalBox_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPStatisticalBox_MetaObject(const QCPStatisticalBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpstatisticalbox = dynamic_cast<const VirtualQCPStatisticalBox*>(self);
+    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPStatisticalBox*)self)->metaObject();
+    }
 }
 
 void* QCPStatisticalBox_Metacast(QCPStatisticalBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
+    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPStatisticalBox*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPStatisticalBox_Metacall(QCPStatisticalBox* self, int param1, int param2, void** param3) {
@@ -38496,6 +39610,44 @@ void QCPStatisticalBox_AddData72(QCPStatisticalBox* self, double key, double min
         outliers_QVector.push_back(static_cast<double>(outliers_arr[i]));
     }
     self->addData(static_cast<double>(key), static_cast<double>(minimum), static_cast<double>(lowerQuartile), static_cast<double>(median), static_cast<double>(upperQuartile), static_cast<double>(maximum), outliers_QVector);
+}
+
+// Base class handler implementation
+QMetaObject* QCPStatisticalBox_QBaseMetaObject(const QCPStatisticalBox* self) {
+    auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
+    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
+        vqcpstatisticalbox->setQCPStatisticalBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpstatisticalbox->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPStatisticalBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPStatisticalBox_OnMetaObject(const QCPStatisticalBox* self, intptr_t slot) {
+    auto* vqcpstatisticalbox = const_cast<VirtualQCPStatisticalBox*>(dynamic_cast<const VirtualQCPStatisticalBox*>(self));
+    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
+        vqcpstatisticalbox->setQCPStatisticalBox_MetaObject_Callback(reinterpret_cast<VirtualQCPStatisticalBox::QCPStatisticalBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPStatisticalBox_QBaseMetacast(QCPStatisticalBox* self, const char* param1) {
+    auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
+    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
+        vqcpstatisticalbox->setQCPStatisticalBox_Metacast_IsBase(true);
+        return vqcpstatisticalbox->qt_metacast(param1);
+    } else {
+        return self->QCPStatisticalBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPStatisticalBox_OnMetacast(QCPStatisticalBox* self, intptr_t slot) {
+    auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
+    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
+        vqcpstatisticalbox->setQCPStatisticalBox_Metacast_Callback(reinterpret_cast<VirtualQCPStatisticalBox::QCPStatisticalBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -39856,11 +41008,21 @@ QCPColorMap* QCPColorMap_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPColorMap_MetaObject(const QCPColorMap* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpcolormap = dynamic_cast<const VirtualQCPColorMap*>(self);
+    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPColorMap*)self)->metaObject();
+    }
 }
 
 void* QCPColorMap_Metacast(QCPColorMap* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
+    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPColorMap*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPColorMap_Metacall(QCPColorMap* self, int param1, int param2, void** param3) {
@@ -40038,6 +41200,44 @@ void QCPColorMap_UpdateLegendIcon1(QCPColorMap* self, int transformMode) {
 
 void QCPColorMap_UpdateLegendIcon2(QCPColorMap* self, int transformMode, const QSize* thumbSize) {
     self->updateLegendIcon(static_cast<Qt::TransformationMode>(transformMode), *thumbSize);
+}
+
+// Base class handler implementation
+QMetaObject* QCPColorMap_QBaseMetaObject(const QCPColorMap* self) {
+    auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
+    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
+        vqcpcolormap->setQCPColorMap_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpcolormap->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPColorMap::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPColorMap_OnMetaObject(const QCPColorMap* self, intptr_t slot) {
+    auto* vqcpcolormap = const_cast<VirtualQCPColorMap*>(dynamic_cast<const VirtualQCPColorMap*>(self));
+    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
+        vqcpcolormap->setQCPColorMap_MetaObject_Callback(reinterpret_cast<VirtualQCPColorMap::QCPColorMap_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPColorMap_QBaseMetacast(QCPColorMap* self, const char* param1) {
+    auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
+    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
+        vqcpcolormap->setQCPColorMap_Metacast_IsBase(true);
+        return vqcpcolormap->qt_metacast(param1);
+    } else {
+        return self->QCPColorMap::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPColorMap_OnMetacast(QCPColorMap* self, intptr_t slot) {
+    auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
+    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
+        vqcpcolormap->setQCPColorMap_Metacast_Callback(reinterpret_cast<VirtualQCPColorMap::QCPColorMap_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -41117,11 +42317,21 @@ QCPFinancial* QCPFinancial_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPFinancial_MetaObject(const QCPFinancial* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpfinancial = dynamic_cast<const VirtualQCPFinancial*>(self);
+    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPFinancial*)self)->metaObject();
+    }
 }
 
 void* QCPFinancial_Metacast(QCPFinancial* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
+    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPFinancial*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPFinancial_Metacall(QCPFinancial* self, int param1, int param2, void** param3) {
@@ -41385,6 +42595,44 @@ void QCPFinancial_AddData6(QCPFinancial* self, const libqt_list /* of double */ 
         close_QVector.push_back(static_cast<double>(close_arr[i]));
     }
     self->addData(keys_QVector, open_QVector, high_QVector, low_QVector, close_QVector, alreadySorted);
+}
+
+// Base class handler implementation
+QMetaObject* QCPFinancial_QBaseMetaObject(const QCPFinancial* self) {
+    auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
+    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
+        vqcpfinancial->setQCPFinancial_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpfinancial->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPFinancial::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPFinancial_OnMetaObject(const QCPFinancial* self, intptr_t slot) {
+    auto* vqcpfinancial = const_cast<VirtualQCPFinancial*>(dynamic_cast<const VirtualQCPFinancial*>(self));
+    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
+        vqcpfinancial->setQCPFinancial_MetaObject_Callback(reinterpret_cast<VirtualQCPFinancial::QCPFinancial_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPFinancial_QBaseMetacast(QCPFinancial* self, const char* param1) {
+    auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
+    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
+        vqcpfinancial->setQCPFinancial_Metacast_IsBase(true);
+        return vqcpfinancial->qt_metacast(param1);
+    } else {
+        return self->QCPFinancial::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPFinancial_OnMetacast(QCPFinancial* self, intptr_t slot) {
+    auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
+    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
+        vqcpfinancial->setQCPFinancial_Metacast_Callback(reinterpret_cast<VirtualQCPFinancial::QCPFinancial_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -42710,11 +43958,21 @@ QCPErrorBars* QCPErrorBars_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPErrorBars_MetaObject(const QCPErrorBars* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
+    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPErrorBars*)self)->metaObject();
+    }
 }
 
 void* QCPErrorBars_Metacast(QCPErrorBars* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
+    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPErrorBars*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPErrorBars_Metacall(QCPErrorBars* self, int param1, int param2, void** param3) {
@@ -42954,6 +44212,44 @@ QCPRange* QCPErrorBars_GetValueRange(const QCPErrorBars* self, bool* foundRange,
         return new QCPRange(vqcperrorbars->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QCPErrorBars_QBaseMetaObject(const QCPErrorBars* self) {
+    auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
+    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
+        vqcperrorbars->setQCPErrorBars_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcperrorbars->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPErrorBars::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPErrorBars_OnMetaObject(const QCPErrorBars* self, intptr_t slot) {
+    auto* vqcperrorbars = const_cast<VirtualQCPErrorBars*>(dynamic_cast<const VirtualQCPErrorBars*>(self));
+    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
+        vqcperrorbars->setQCPErrorBars_MetaObject_Callback(reinterpret_cast<VirtualQCPErrorBars::QCPErrorBars_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPErrorBars_QBaseMetacast(QCPErrorBars* self, const char* param1) {
+    auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
+    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
+        vqcperrorbars->setQCPErrorBars_Metacast_IsBase(true);
+        return vqcperrorbars->qt_metacast(param1);
+    } else {
+        return self->QCPErrorBars::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPErrorBars_OnMetacast(QCPErrorBars* self, intptr_t slot) {
+    auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
+    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
+        vqcperrorbars->setQCPErrorBars_Metacast_Callback(reinterpret_cast<VirtualQCPErrorBars::QCPErrorBars_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -44207,11 +45503,21 @@ QCPItemStraightLine* QCPItemStraightLine_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemStraightLine_MetaObject(const QCPItemStraightLine* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpitemstraightline = dynamic_cast<const VirtualQCPItemStraightLine*>(self);
+    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPItemStraightLine*)self)->metaObject();
+    }
 }
 
 void* QCPItemStraightLine_Metacast(QCPItemStraightLine* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
+    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPItemStraightLine*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPItemStraightLine_Metacall(QCPItemStraightLine* self, int param1, int param2, void** param3) {
@@ -44260,6 +45566,44 @@ void QCPItemStraightLine_Draw(QCPItemStraightLine* self, QCPPainter* painter) {
     auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPItemStraightLine_QBaseMetaObject(const QCPItemStraightLine* self) {
+    auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
+    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
+        vqcpitemstraightline->setQCPItemStraightLine_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpitemstraightline->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPItemStraightLine::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemStraightLine_OnMetaObject(const QCPItemStraightLine* self, intptr_t slot) {
+    auto* vqcpitemstraightline = const_cast<VirtualQCPItemStraightLine*>(dynamic_cast<const VirtualQCPItemStraightLine*>(self));
+    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
+        vqcpitemstraightline->setQCPItemStraightLine_MetaObject_Callback(reinterpret_cast<VirtualQCPItemStraightLine::QCPItemStraightLine_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPItemStraightLine_QBaseMetacast(QCPItemStraightLine* self, const char* param1) {
+    auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
+    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
+        vqcpitemstraightline->setQCPItemStraightLine_Metacast_IsBase(true);
+        return vqcpitemstraightline->qt_metacast(param1);
+    } else {
+        return self->QCPItemStraightLine::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemStraightLine_OnMetacast(QCPItemStraightLine* self, intptr_t slot) {
+    auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
+    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
+        vqcpitemstraightline->setQCPItemStraightLine_Metacast_Callback(reinterpret_cast<VirtualQCPItemStraightLine::QCPItemStraightLine_Metacast_Callback>(slot));
     }
 }
 
@@ -45253,11 +46597,21 @@ QCPItemLine* QCPItemLine_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemLine_MetaObject(const QCPItemLine* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpitemline = dynamic_cast<const VirtualQCPItemLine*>(self);
+    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPItemLine*)self)->metaObject();
+    }
 }
 
 void* QCPItemLine_Metacast(QCPItemLine* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
+    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPItemLine*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPItemLine_Metacall(QCPItemLine* self, int param1, int param2, void** param3) {
@@ -45322,6 +46676,44 @@ void QCPItemLine_Draw(QCPItemLine* self, QCPPainter* painter) {
     auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPItemLine_QBaseMetaObject(const QCPItemLine* self) {
+    auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
+    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
+        vqcpitemline->setQCPItemLine_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpitemline->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPItemLine::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemLine_OnMetaObject(const QCPItemLine* self, intptr_t slot) {
+    auto* vqcpitemline = const_cast<VirtualQCPItemLine*>(dynamic_cast<const VirtualQCPItemLine*>(self));
+    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
+        vqcpitemline->setQCPItemLine_MetaObject_Callback(reinterpret_cast<VirtualQCPItemLine::QCPItemLine_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPItemLine_QBaseMetacast(QCPItemLine* self, const char* param1) {
+    auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
+    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
+        vqcpitemline->setQCPItemLine_Metacast_IsBase(true);
+        return vqcpitemline->qt_metacast(param1);
+    } else {
+        return self->QCPItemLine::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemLine_OnMetacast(QCPItemLine* self, intptr_t slot) {
+    auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
+    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
+        vqcpitemline->setQCPItemLine_Metacast_Callback(reinterpret_cast<VirtualQCPItemLine::QCPItemLine_Metacast_Callback>(slot));
     }
 }
 
@@ -46315,11 +47707,21 @@ QCPItemCurve* QCPItemCurve_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemCurve_MetaObject(const QCPItemCurve* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpitemcurve = dynamic_cast<const VirtualQCPItemCurve*>(self);
+    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPItemCurve*)self)->metaObject();
+    }
 }
 
 void* QCPItemCurve_Metacast(QCPItemCurve* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
+    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPItemCurve*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPItemCurve_Metacall(QCPItemCurve* self, int param1, int param2, void** param3) {
@@ -46392,6 +47794,44 @@ void QCPItemCurve_Draw(QCPItemCurve* self, QCPPainter* painter) {
     auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPItemCurve_QBaseMetaObject(const QCPItemCurve* self) {
+    auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
+    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
+        vqcpitemcurve->setQCPItemCurve_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpitemcurve->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPItemCurve::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemCurve_OnMetaObject(const QCPItemCurve* self, intptr_t slot) {
+    auto* vqcpitemcurve = const_cast<VirtualQCPItemCurve*>(dynamic_cast<const VirtualQCPItemCurve*>(self));
+    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
+        vqcpitemcurve->setQCPItemCurve_MetaObject_Callback(reinterpret_cast<VirtualQCPItemCurve::QCPItemCurve_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPItemCurve_QBaseMetacast(QCPItemCurve* self, const char* param1) {
+    auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
+    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
+        vqcpitemcurve->setQCPItemCurve_Metacast_IsBase(true);
+        return vqcpitemcurve->qt_metacast(param1);
+    } else {
+        return self->QCPItemCurve::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemCurve_OnMetacast(QCPItemCurve* self, intptr_t slot) {
+    auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
+    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
+        vqcpitemcurve->setQCPItemCurve_Metacast_Callback(reinterpret_cast<VirtualQCPItemCurve::QCPItemCurve_Metacast_Callback>(slot));
     }
 }
 
@@ -47358,11 +48798,21 @@ QCPItemRect* QCPItemRect_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemRect_MetaObject(const QCPItemRect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpitemrect = dynamic_cast<const VirtualQCPItemRect*>(self);
+    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPItemRect*)self)->metaObject();
+    }
 }
 
 void* QCPItemRect_Metacast(QCPItemRect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
+    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPItemRect*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPItemRect_Metacall(QCPItemRect* self, int param1, int param2, void** param3) {
@@ -47460,6 +48910,44 @@ QPointF* QCPItemRect_AnchorPixelPosition(const QCPItemRect* self, int anchorId) 
         return new QPointF(vqcpitemrect->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QCPItemRect_QBaseMetaObject(const QCPItemRect* self) {
+    auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
+    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
+        vqcpitemrect->setQCPItemRect_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpitemrect->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPItemRect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemRect_OnMetaObject(const QCPItemRect* self, intptr_t slot) {
+    auto* vqcpitemrect = const_cast<VirtualQCPItemRect*>(dynamic_cast<const VirtualQCPItemRect*>(self));
+    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
+        vqcpitemrect->setQCPItemRect_MetaObject_Callback(reinterpret_cast<VirtualQCPItemRect::QCPItemRect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPItemRect_QBaseMetacast(QCPItemRect* self, const char* param1) {
+    auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
+    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
+        vqcpitemrect->setQCPItemRect_Metacast_IsBase(true);
+        return vqcpitemrect->qt_metacast(param1);
+    } else {
+        return self->QCPItemRect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemRect_OnMetacast(QCPItemRect* self, intptr_t slot) {
+    auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
+    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
+        vqcpitemrect->setQCPItemRect_Metacast_Callback(reinterpret_cast<VirtualQCPItemRect::QCPItemRect_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -48443,11 +49931,21 @@ QCPItemText* QCPItemText_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemText_MetaObject(const QCPItemText* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpitemtext = dynamic_cast<const VirtualQCPItemText*>(self);
+    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPItemText*)self)->metaObject();
+    }
 }
 
 void* QCPItemText_Metacast(QCPItemText* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
+    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPItemText*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPItemText_Metacall(QCPItemText* self, int param1, int param2, void** param3) {
@@ -48630,6 +50128,44 @@ QPointF* QCPItemText_AnchorPixelPosition(const QCPItemText* self, int anchorId) 
         return new QPointF(vqcpitemtext->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QCPItemText_QBaseMetaObject(const QCPItemText* self) {
+    auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
+    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
+        vqcpitemtext->setQCPItemText_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpitemtext->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPItemText::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemText_OnMetaObject(const QCPItemText* self, intptr_t slot) {
+    auto* vqcpitemtext = const_cast<VirtualQCPItemText*>(dynamic_cast<const VirtualQCPItemText*>(self));
+    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
+        vqcpitemtext->setQCPItemText_MetaObject_Callback(reinterpret_cast<VirtualQCPItemText::QCPItemText_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPItemText_QBaseMetacast(QCPItemText* self, const char* param1) {
+    auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
+    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
+        vqcpitemtext->setQCPItemText_Metacast_IsBase(true);
+        return vqcpitemtext->qt_metacast(param1);
+    } else {
+        return self->QCPItemText::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemText_OnMetacast(QCPItemText* self, intptr_t slot) {
+    auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
+    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
+        vqcpitemtext->setQCPItemText_Metacast_Callback(reinterpret_cast<VirtualQCPItemText::QCPItemText_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -49694,11 +51230,21 @@ QCPItemEllipse* QCPItemEllipse_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemEllipse_MetaObject(const QCPItemEllipse* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpitemellipse = dynamic_cast<const VirtualQCPItemEllipse*>(self);
+    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPItemEllipse*)self)->metaObject();
+    }
 }
 
 void* QCPItemEllipse_Metacast(QCPItemEllipse* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
+    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPItemEllipse*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPItemEllipse_Metacall(QCPItemEllipse* self, int param1, int param2, void** param3) {
@@ -49808,6 +51354,44 @@ QPointF* QCPItemEllipse_AnchorPixelPosition(const QCPItemEllipse* self, int anch
         return new QPointF(vqcpitemellipse->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QCPItemEllipse_QBaseMetaObject(const QCPItemEllipse* self) {
+    auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
+    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
+        vqcpitemellipse->setQCPItemEllipse_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpitemellipse->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPItemEllipse::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemEllipse_OnMetaObject(const QCPItemEllipse* self, intptr_t slot) {
+    auto* vqcpitemellipse = const_cast<VirtualQCPItemEllipse*>(dynamic_cast<const VirtualQCPItemEllipse*>(self));
+    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
+        vqcpitemellipse->setQCPItemEllipse_MetaObject_Callback(reinterpret_cast<VirtualQCPItemEllipse::QCPItemEllipse_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPItemEllipse_QBaseMetacast(QCPItemEllipse* self, const char* param1) {
+    auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
+    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
+        vqcpitemellipse->setQCPItemEllipse_Metacast_IsBase(true);
+        return vqcpitemellipse->qt_metacast(param1);
+    } else {
+        return self->QCPItemEllipse::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemEllipse_OnMetacast(QCPItemEllipse* self, intptr_t slot) {
+    auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
+    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
+        vqcpitemellipse->setQCPItemEllipse_Metacast_Callback(reinterpret_cast<VirtualQCPItemEllipse::QCPItemEllipse_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -50791,11 +52375,21 @@ QCPItemPixmap* QCPItemPixmap_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemPixmap_MetaObject(const QCPItemPixmap* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpitempixmap = dynamic_cast<const VirtualQCPItemPixmap*>(self);
+    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPItemPixmap*)self)->metaObject();
+    }
 }
 
 void* QCPItemPixmap_Metacast(QCPItemPixmap* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
+    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPItemPixmap*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPItemPixmap_Metacall(QCPItemPixmap* self, int param1, int param2, void** param3) {
@@ -50909,6 +52503,44 @@ void QCPItemPixmap_SetScaled2(QCPItemPixmap* self, bool scaled, int aspectRatioM
 
 void QCPItemPixmap_SetScaled3(QCPItemPixmap* self, bool scaled, int aspectRatioMode, int transformationMode) {
     self->setScaled(scaled, static_cast<Qt::AspectRatioMode>(aspectRatioMode), static_cast<Qt::TransformationMode>(transformationMode));
+}
+
+// Base class handler implementation
+QMetaObject* QCPItemPixmap_QBaseMetaObject(const QCPItemPixmap* self) {
+    auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
+    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
+        vqcpitempixmap->setQCPItemPixmap_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpitempixmap->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPItemPixmap::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemPixmap_OnMetaObject(const QCPItemPixmap* self, intptr_t slot) {
+    auto* vqcpitempixmap = const_cast<VirtualQCPItemPixmap*>(dynamic_cast<const VirtualQCPItemPixmap*>(self));
+    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
+        vqcpitempixmap->setQCPItemPixmap_MetaObject_Callback(reinterpret_cast<VirtualQCPItemPixmap::QCPItemPixmap_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPItemPixmap_QBaseMetacast(QCPItemPixmap* self, const char* param1) {
+    auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
+    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
+        vqcpitempixmap->setQCPItemPixmap_Metacast_IsBase(true);
+        return vqcpitempixmap->qt_metacast(param1);
+    } else {
+        return self->QCPItemPixmap::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemPixmap_OnMetacast(QCPItemPixmap* self, intptr_t slot) {
+    auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
+    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
+        vqcpitempixmap->setQCPItemPixmap_Metacast_Callback(reinterpret_cast<VirtualQCPItemPixmap::QCPItemPixmap_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -52062,11 +53694,21 @@ QCPItemTracer* QCPItemTracer_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemTracer_MetaObject(const QCPItemTracer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpitemtracer = dynamic_cast<const VirtualQCPItemTracer*>(self);
+    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPItemTracer*)self)->metaObject();
+    }
 }
 
 void* QCPItemTracer_Metacast(QCPItemTracer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
+    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPItemTracer*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPItemTracer_Metacall(QCPItemTracer* self, int param1, int param2, void** param3) {
@@ -52171,6 +53813,44 @@ void QCPItemTracer_Draw(QCPItemTracer* self, QCPPainter* painter) {
     auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPItemTracer_QBaseMetaObject(const QCPItemTracer* self) {
+    auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
+    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
+        vqcpitemtracer->setQCPItemTracer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpitemtracer->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPItemTracer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemTracer_OnMetaObject(const QCPItemTracer* self, intptr_t slot) {
+    auto* vqcpitemtracer = const_cast<VirtualQCPItemTracer*>(dynamic_cast<const VirtualQCPItemTracer*>(self));
+    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
+        vqcpitemtracer->setQCPItemTracer_MetaObject_Callback(reinterpret_cast<VirtualQCPItemTracer::QCPItemTracer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPItemTracer_QBaseMetacast(QCPItemTracer* self, const char* param1) {
+    auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
+    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
+        vqcpitemtracer->setQCPItemTracer_Metacast_IsBase(true);
+        return vqcpitemtracer->qt_metacast(param1);
+    } else {
+        return self->QCPItemTracer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemTracer_OnMetacast(QCPItemTracer* self, intptr_t slot) {
+    auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
+    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
+        vqcpitemtracer->setQCPItemTracer_Metacast_Callback(reinterpret_cast<VirtualQCPItemTracer::QCPItemTracer_Metacast_Callback>(slot));
     }
 }
 
@@ -53164,11 +54844,21 @@ QCPItemBracket* QCPItemBracket_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemBracket_MetaObject(const QCPItemBracket* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcpitembracket = dynamic_cast<const VirtualQCPItemBracket*>(self);
+    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPItemBracket*)self)->metaObject();
+    }
 }
 
 void* QCPItemBracket_Metacast(QCPItemBracket* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
+    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPItemBracket*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPItemBracket_Metacall(QCPItemBracket* self, int param1, int param2, void** param3) {
@@ -53246,6 +54936,44 @@ QPointF* QCPItemBracket_AnchorPixelPosition(const QCPItemBracket* self, int anch
         return new QPointF(vqcpitembracket->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QCPItemBracket_QBaseMetaObject(const QCPItemBracket* self) {
+    auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
+    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
+        vqcpitembracket->setQCPItemBracket_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcpitembracket->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPItemBracket::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemBracket_OnMetaObject(const QCPItemBracket* self, intptr_t slot) {
+    auto* vqcpitembracket = const_cast<VirtualQCPItemBracket*>(dynamic_cast<const VirtualQCPItemBracket*>(self));
+    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
+        vqcpitembracket->setQCPItemBracket_MetaObject_Callback(reinterpret_cast<VirtualQCPItemBracket::QCPItemBracket_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPItemBracket_QBaseMetacast(QCPItemBracket* self, const char* param1) {
+    auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
+    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
+        vqcpitembracket->setQCPItemBracket_Metacast_IsBase(true);
+        return vqcpitembracket->qt_metacast(param1);
+    } else {
+        return self->QCPItemBracket::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPItemBracket_OnMetacast(QCPItemBracket* self, intptr_t slot) {
+    auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
+    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
+        vqcpitembracket->setQCPItemBracket_Metacast_Callback(reinterpret_cast<VirtualQCPItemBracket::QCPItemBracket_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -54202,11 +55930,21 @@ QCPPolarAxisRadial* QCPPolarAxisRadial_new(QCPPolarAxisAngular* parent) {
 }
 
 QMetaObject* QCPPolarAxisRadial_MetaObject(const QCPPolarAxisRadial* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcppolaraxisradial = dynamic_cast<const VirtualQCPPolarAxisRadial*>(self);
+    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPPolarAxisRadial*)self)->metaObject();
+    }
 }
 
 void* QCPPolarAxisRadial_Metacast(QCPPolarAxisRadial* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
+    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPPolarAxisRadial*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPPolarAxisRadial_Metacall(QCPPolarAxisRadial* self, int param1, int param2, void** param3) {
@@ -54754,6 +56492,44 @@ void QCPPolarAxisRadial_SetSubTickLength2(QCPPolarAxisRadial* self, int inside, 
 
 void QCPPolarAxisRadial_Rescale1(QCPPolarAxisRadial* self, bool onlyVisiblePlottables) {
     self->rescale(onlyVisiblePlottables);
+}
+
+// Base class handler implementation
+QMetaObject* QCPPolarAxisRadial_QBaseMetaObject(const QCPPolarAxisRadial* self) {
+    auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
+    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
+        vqcppolaraxisradial->setQCPPolarAxisRadial_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcppolaraxisradial->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPPolarAxisRadial::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarAxisRadial_OnMetaObject(const QCPPolarAxisRadial* self, intptr_t slot) {
+    auto* vqcppolaraxisradial = const_cast<VirtualQCPPolarAxisRadial*>(dynamic_cast<const VirtualQCPPolarAxisRadial*>(self));
+    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
+        vqcppolaraxisradial->setQCPPolarAxisRadial_MetaObject_Callback(reinterpret_cast<VirtualQCPPolarAxisRadial::QCPPolarAxisRadial_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPPolarAxisRadial_QBaseMetacast(QCPPolarAxisRadial* self, const char* param1) {
+    auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
+    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
+        vqcppolaraxisradial->setQCPPolarAxisRadial_Metacast_IsBase(true);
+        return vqcppolaraxisradial->qt_metacast(param1);
+    } else {
+        return self->QCPPolarAxisRadial::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarAxisRadial_OnMetacast(QCPPolarAxisRadial* self, intptr_t slot) {
+    auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
+    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
+        vqcppolaraxisradial->setQCPPolarAxisRadial_Metacast_Callback(reinterpret_cast<VirtualQCPPolarAxisRadial::QCPPolarAxisRadial_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -55741,11 +57517,21 @@ QCPPolarAxisAngular* QCPPolarAxisAngular_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPPolarAxisAngular_MetaObject(const QCPPolarAxisAngular* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcppolaraxisangular = dynamic_cast<const VirtualQCPPolarAxisAngular*>(self);
+    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPPolarAxisAngular*)self)->metaObject();
+    }
 }
 
 void* QCPPolarAxisAngular_Metacast(QCPPolarAxisAngular* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
+    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPPolarAxisAngular*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPPolarAxisAngular_Metacall(QCPPolarAxisAngular* self, int param1, int param2, void** param3) {
@@ -56423,6 +58209,44 @@ QCPPolarAxisRadial* QCPPolarAxisAngular_AddRadialAxis1(QCPPolarAxisAngular* self
 
 void QCPPolarAxisAngular_Rescale1(QCPPolarAxisAngular* self, bool onlyVisiblePlottables) {
     self->rescale(onlyVisiblePlottables);
+}
+
+// Base class handler implementation
+QMetaObject* QCPPolarAxisAngular_QBaseMetaObject(const QCPPolarAxisAngular* self) {
+    auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
+    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
+        vqcppolaraxisangular->setQCPPolarAxisAngular_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcppolaraxisangular->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPPolarAxisAngular::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarAxisAngular_OnMetaObject(const QCPPolarAxisAngular* self, intptr_t slot) {
+    auto* vqcppolaraxisangular = const_cast<VirtualQCPPolarAxisAngular*>(dynamic_cast<const VirtualQCPPolarAxisAngular*>(self));
+    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
+        vqcppolaraxisangular->setQCPPolarAxisAngular_MetaObject_Callback(reinterpret_cast<VirtualQCPPolarAxisAngular::QCPPolarAxisAngular_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPPolarAxisAngular_QBaseMetacast(QCPPolarAxisAngular* self, const char* param1) {
+    auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
+    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
+        vqcppolaraxisangular->setQCPPolarAxisAngular_Metacast_IsBase(true);
+        return vqcppolaraxisangular->qt_metacast(param1);
+    } else {
+        return self->QCPPolarAxisAngular::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarAxisAngular_OnMetacast(QCPPolarAxisAngular* self, intptr_t slot) {
+    auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
+    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
+        vqcppolaraxisangular->setQCPPolarAxisAngular_Metacast_Callback(reinterpret_cast<VirtualQCPPolarAxisAngular::QCPPolarAxisAngular_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -57631,11 +59455,21 @@ QCPPolarGrid* QCPPolarGrid_new(QCPPolarAxisAngular* parentAxis) {
 }
 
 QMetaObject* QCPPolarGrid_MetaObject(const QCPPolarGrid* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcppolargrid = dynamic_cast<const VirtualQCPPolarGrid*>(self);
+    if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPPolarGrid*)self)->metaObject();
+    }
 }
 
 void* QCPPolarGrid_Metacast(QCPPolarGrid* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
+    if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPPolarGrid*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPPolarGrid_Metacall(QCPPolarGrid* self, int param1, int param2, void** param3) {
@@ -57738,6 +59572,44 @@ void QCPPolarGrid_Draw(QCPPolarGrid* self, QCPPainter* painter) {
     auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->draw(painter);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCPPolarGrid_QBaseMetaObject(const QCPPolarGrid* self) {
+    auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
+    if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
+        vqcppolargrid->setQCPPolarGrid_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcppolargrid->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPPolarGrid::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarGrid_OnMetaObject(const QCPPolarGrid* self, intptr_t slot) {
+    auto* vqcppolargrid = const_cast<VirtualQCPPolarGrid*>(dynamic_cast<const VirtualQCPPolarGrid*>(self));
+    if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
+        vqcppolargrid->setQCPPolarGrid_MetaObject_Callback(reinterpret_cast<VirtualQCPPolarGrid::QCPPolarGrid_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPPolarGrid_QBaseMetacast(QCPPolarGrid* self, const char* param1) {
+    auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
+    if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
+        vqcppolargrid->setQCPPolarGrid_Metacast_IsBase(true);
+        return vqcppolargrid->qt_metacast(param1);
+    } else {
+        return self->QCPPolarGrid::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarGrid_OnMetacast(QCPPolarGrid* self, intptr_t slot) {
+    auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
+    if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
+        vqcppolargrid->setQCPPolarGrid_Metacast_Callback(reinterpret_cast<VirtualQCPPolarGrid::QCPPolarGrid_Metacast_Callback>(slot));
     }
 }
 
@@ -58682,11 +60554,21 @@ QCPPolarLegendItem* QCPPolarLegendItem_new(QCPLegend* parent, QCPPolarGraph* gra
 }
 
 QMetaObject* QCPPolarLegendItem_MetaObject(const QCPPolarLegendItem* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcppolarlegenditem = dynamic_cast<const VirtualQCPPolarLegendItem*>(self);
+    if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPPolarLegendItem*)self)->metaObject();
+    }
 }
 
 void* QCPPolarLegendItem_Metacast(QCPPolarLegendItem* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
+    if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPPolarLegendItem*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPPolarLegendItem_Metacall(QCPPolarLegendItem* self, int param1, int param2, void** param3) {
@@ -58715,6 +60597,44 @@ QSize* QCPPolarLegendItem_MinimumOuterSizeHint(const QCPPolarLegendItem* self) {
         return new QSize(vqcppolarlegenditem->minimumOuterSizeHint());
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QCPPolarLegendItem_QBaseMetaObject(const QCPPolarLegendItem* self) {
+    auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
+    if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
+        vqcppolarlegenditem->setQCPPolarLegendItem_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcppolarlegenditem->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPPolarLegendItem::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarLegendItem_OnMetaObject(const QCPPolarLegendItem* self, intptr_t slot) {
+    auto* vqcppolarlegenditem = const_cast<VirtualQCPPolarLegendItem*>(dynamic_cast<const VirtualQCPPolarLegendItem*>(self));
+    if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
+        vqcppolarlegenditem->setQCPPolarLegendItem_MetaObject_Callback(reinterpret_cast<VirtualQCPPolarLegendItem::QCPPolarLegendItem_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPPolarLegendItem_QBaseMetacast(QCPPolarLegendItem* self, const char* param1) {
+    auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
+    if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
+        vqcppolarlegenditem->setQCPPolarLegendItem_Metacast_IsBase(true);
+        return vqcppolarlegenditem->qt_metacast(param1);
+    } else {
+        return self->QCPPolarLegendItem::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarLegendItem_OnMetacast(QCPPolarLegendItem* self, intptr_t slot) {
+    auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
+    if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
+        vqcppolarlegenditem->setQCPPolarLegendItem_Metacast_Callback(reinterpret_cast<VirtualQCPPolarLegendItem::QCPPolarLegendItem_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -59825,11 +61745,21 @@ QCPPolarGraph* QCPPolarGraph_new(QCPPolarAxisAngular* keyAxis, QCPPolarAxisRadia
 }
 
 QMetaObject* QCPPolarGraph_MetaObject(const QCPPolarGraph* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcppolargraph = dynamic_cast<const VirtualQCPPolarGraph*>(self);
+    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCPPolarGraph*)self)->metaObject();
+    }
 }
 
 void* QCPPolarGraph_Metacast(QCPPolarGraph* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
+    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCPPolarGraph*)self)->qt_metacast(param1);
+    }
 }
 
 int QCPPolarGraph_Metacall(QCPPolarGraph* self, int param1, int param2, void** param3) {
@@ -60215,6 +62145,44 @@ void QCPPolarGraph_RescaleValueAxis1(const QCPPolarGraph* self, bool onlyEnlarge
 
 void QCPPolarGraph_RescaleValueAxis2(const QCPPolarGraph* self, bool onlyEnlarge, bool inKeyRange) {
     self->rescaleValueAxis(onlyEnlarge, inKeyRange);
+}
+
+// Base class handler implementation
+QMetaObject* QCPPolarGraph_QBaseMetaObject(const QCPPolarGraph* self) {
+    auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
+    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
+        vqcppolargraph->setQCPPolarGraph_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcppolargraph->metaObject();
+    } else {
+        return (QMetaObject*)self->QCPPolarGraph::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarGraph_OnMetaObject(const QCPPolarGraph* self, intptr_t slot) {
+    auto* vqcppolargraph = const_cast<VirtualQCPPolarGraph*>(dynamic_cast<const VirtualQCPPolarGraph*>(self));
+    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
+        vqcppolargraph->setQCPPolarGraph_MetaObject_Callback(reinterpret_cast<VirtualQCPPolarGraph::QCPPolarGraph_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCPPolarGraph_QBaseMetacast(QCPPolarGraph* self, const char* param1) {
+    auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
+    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
+        vqcppolargraph->setQCPPolarGraph_Metacast_IsBase(true);
+        return vqcppolargraph->qt_metacast(param1);
+    } else {
+        return self->QCPPolarGraph::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPPolarGraph_OnMetacast(QCPPolarGraph* self, intptr_t slot) {
+    auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
+    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
+        vqcppolargraph->setQCPPolarGraph_Metacast_Callback(reinterpret_cast<VirtualQCPPolarGraph::QCPPolarGraph_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

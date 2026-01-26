@@ -44,11 +44,21 @@ QSizeGrip* QSizeGrip_new(QWidget* parent) {
 }
 
 QMetaObject* QSizeGrip_MetaObject(const QSizeGrip* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsizegrip = dynamic_cast<const VirtualQSizeGrip*>(self);
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSizeGrip*)self)->metaObject();
+    }
 }
 
 void* QSizeGrip_Metacast(QSizeGrip* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSizeGrip*)self)->qt_metacast(param1);
+    }
 }
 
 int QSizeGrip_Metacall(QSizeGrip* self, int param1, int param2, void** param3) {
@@ -141,6 +151,44 @@ bool QSizeGrip_Event(QSizeGrip* self, QEvent* param1) {
         return vqsizegrip->event(param1);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QSizeGrip_QBaseMetaObject(const QSizeGrip* self) {
+    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+        vqsizegrip->setQSizeGrip_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsizegrip->metaObject();
+    } else {
+        return (QMetaObject*)self->QSizeGrip::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSizeGrip_OnMetaObject(const QSizeGrip* self, intptr_t slot) {
+    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+        vqsizegrip->setQSizeGrip_MetaObject_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSizeGrip_QBaseMetacast(QSizeGrip* self, const char* param1) {
+    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+        vqsizegrip->setQSizeGrip_Metacast_IsBase(true);
+        return vqsizegrip->qt_metacast(param1);
+    } else {
+        return self->QSizeGrip::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSizeGrip_OnMetacast(QSizeGrip* self, intptr_t slot) {
+    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+        vqsizegrip->setQSizeGrip_Metacast_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

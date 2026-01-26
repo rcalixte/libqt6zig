@@ -17,6 +17,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     bool isVirtualQsciLexerSQL = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerSQL_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerSQL_Metacast_Callback = void* (*)(QsciLexerSQL*, const char*);
     using QsciLexerSQL_Metacall_Callback = int (*)(QsciLexerSQL*, int, int, void**);
     using QsciLexerSQL_SetBackslashEscapes_Callback = void (*)(QsciLexerSQL*, bool);
     using QsciLexerSQL_SetFoldComments_Callback = void (*)(QsciLexerSQL*, bool);
@@ -71,6 +73,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
 
   protected:
     // Instance callback storage
+    QsciLexerSQL_MetaObject_Callback qscilexersql_metaobject_callback = nullptr;
+    QsciLexerSQL_Metacast_Callback qscilexersql_metacast_callback = nullptr;
     QsciLexerSQL_Metacall_Callback qscilexersql_metacall_callback = nullptr;
     QsciLexerSQL_SetBackslashEscapes_Callback qscilexersql_setbackslashescapes_callback = nullptr;
     QsciLexerSQL_SetFoldComments_Callback qscilexersql_setfoldcomments_callback = nullptr;
@@ -124,6 +128,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     QsciLexerSQL_IsSignalConnected_Callback qscilexersql_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexersql_metaobject_isbase = false;
+    mutable bool qscilexersql_metacast_isbase = false;
     mutable bool qscilexersql_metacall_isbase = false;
     mutable bool qscilexersql_setbackslashescapes_isbase = false;
     mutable bool qscilexersql_setfoldcomments_isbase = false;
@@ -181,6 +187,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     VirtualQsciLexerSQL(QObject* parent) : QsciLexerSQL(parent) {};
 
     ~VirtualQsciLexerSQL() {
+        qscilexersql_metaobject_callback = nullptr;
+        qscilexersql_metacast_callback = nullptr;
         qscilexersql_metacall_callback = nullptr;
         qscilexersql_setbackslashescapes_callback = nullptr;
         qscilexersql_setfoldcomments_callback = nullptr;
@@ -235,6 +243,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     }
 
     // Callback setters
+    inline void setQsciLexerSQL_MetaObject_Callback(QsciLexerSQL_MetaObject_Callback cb) { qscilexersql_metaobject_callback = cb; }
+    inline void setQsciLexerSQL_Metacast_Callback(QsciLexerSQL_Metacast_Callback cb) { qscilexersql_metacast_callback = cb; }
     inline void setQsciLexerSQL_Metacall_Callback(QsciLexerSQL_Metacall_Callback cb) { qscilexersql_metacall_callback = cb; }
     inline void setQsciLexerSQL_SetBackslashEscapes_Callback(QsciLexerSQL_SetBackslashEscapes_Callback cb) { qscilexersql_setbackslashescapes_callback = cb; }
     inline void setQsciLexerSQL_SetFoldComments_Callback(QsciLexerSQL_SetFoldComments_Callback cb) { qscilexersql_setfoldcomments_callback = cb; }
@@ -288,6 +298,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     inline void setQsciLexerSQL_IsSignalConnected_Callback(QsciLexerSQL_IsSignalConnected_Callback cb) { qscilexersql_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerSQL_MetaObject_IsBase(bool value) const { qscilexersql_metaobject_isbase = value; }
+    inline void setQsciLexerSQL_Metacast_IsBase(bool value) const { qscilexersql_metacast_isbase = value; }
     inline void setQsciLexerSQL_Metacall_IsBase(bool value) const { qscilexersql_metacall_isbase = value; }
     inline void setQsciLexerSQL_SetBackslashEscapes_IsBase(bool value) const { qscilexersql_setbackslashescapes_isbase = value; }
     inline void setQsciLexerSQL_SetFoldComments_IsBase(bool value) const { qscilexersql_setfoldcomments_isbase = value; }
@@ -339,6 +351,34 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     inline void setQsciLexerSQL_SenderSignalIndex_IsBase(bool value) const { qscilexersql_sendersignalindex_isbase = value; }
     inline void setQsciLexerSQL_Receivers_IsBase(bool value) const { qscilexersql_receivers_isbase = value; }
     inline void setQsciLexerSQL_IsSignalConnected_IsBase(bool value) const { qscilexersql_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexersql_metaobject_isbase) {
+            qscilexersql_metaobject_isbase = false;
+            return QsciLexerSQL::metaObject();
+        } else if (qscilexersql_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexersql_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerSQL::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexersql_metacast_isbase) {
+            qscilexersql_metacast_isbase = false;
+            return QsciLexerSQL::qt_metacast(param1);
+        } else if (qscilexersql_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexersql_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerSQL::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

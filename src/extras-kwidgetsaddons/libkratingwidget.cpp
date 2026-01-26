@@ -52,11 +52,21 @@ KRatingWidget* KRatingWidget_new2() {
 }
 
 QMetaObject* KRatingWidget_MetaObject(const KRatingWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkratingwidget = dynamic_cast<const VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKRatingWidget*)self)->metaObject();
+    }
 }
 
 void* KRatingWidget_Metacast(KRatingWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKRatingWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KRatingWidget_Metacall(KRatingWidget* self, int param1, int param2, void** param3) {
@@ -185,6 +195,44 @@ void KRatingWidget_ResizeEvent(KRatingWidget* self, QResizeEvent* e) {
     auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
     if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
         vkratingwidget->resizeEvent(e);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KRatingWidget_QBaseMetaObject(const KRatingWidget* self) {
+    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkratingwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KRatingWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRatingWidget_OnMetaObject(const KRatingWidget* self, intptr_t slot) {
+    auto* vkratingwidget = const_cast<VirtualKRatingWidget*>(dynamic_cast<const VirtualKRatingWidget*>(self));
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_MetaObject_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KRatingWidget_QBaseMetacast(KRatingWidget* self, const char* param1) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_Metacast_IsBase(true);
+        return vkratingwidget->qt_metacast(param1);
+    } else {
+        return self->KRatingWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRatingWidget_OnMetacast(KRatingWidget* self, intptr_t slot) {
+    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
+    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
+        vkratingwidget->setKRatingWidget_Metacast_Callback(reinterpret_cast<VirtualKRatingWidget::KRatingWidget_Metacast_Callback>(slot));
     }
 }
 

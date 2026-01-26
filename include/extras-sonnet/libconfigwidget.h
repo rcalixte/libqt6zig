@@ -65,6 +65,10 @@ void Sonnet__ConfigWidget_SetBackgroundCheckingButtonShown(Sonnet__ConfigWidget*
 void Sonnet__ConfigWidget_SlotDefault(Sonnet__ConfigWidget* self);
 void Sonnet__ConfigWidget_ConfigChanged(Sonnet__ConfigWidget* self);
 void Sonnet__ConfigWidget_Connect_ConfigChanged(Sonnet__ConfigWidget* self, intptr_t slot);
+void Sonnet__ConfigWidget_OnMetaObject(const Sonnet__ConfigWidget* self, intptr_t slot);
+QMetaObject* Sonnet__ConfigWidget_QBaseMetaObject(const Sonnet__ConfigWidget* self);
+void Sonnet__ConfigWidget_OnMetacast(Sonnet__ConfigWidget* self, intptr_t slot);
+void* Sonnet__ConfigWidget_QBaseMetacast(Sonnet__ConfigWidget* self, const char* param1);
 void Sonnet__ConfigWidget_OnMetacall(Sonnet__ConfigWidget* self, intptr_t slot);
 int Sonnet__ConfigWidget_QBaseMetacall(Sonnet__ConfigWidget* self, int param1, int param2, void** param3);
 int Sonnet__ConfigWidget_DevType(const Sonnet__ConfigWidget* self);

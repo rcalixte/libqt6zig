@@ -48,6 +48,10 @@ bool KCheckableProxyModel_SetData(KCheckableProxyModel* self, const QModelIndex*
 void KCheckableProxyModel_SetSourceModel(KCheckableProxyModel* self, QAbstractItemModel* sourceModel);
 libqt_map /* of int to libqt_string */ KCheckableProxyModel_RoleNames(const KCheckableProxyModel* self);
 bool KCheckableProxyModel_Select(KCheckableProxyModel* self, const QItemSelection* selection, int command);
+void KCheckableProxyModel_OnMetaObject(const KCheckableProxyModel* self, intptr_t slot);
+QMetaObject* KCheckableProxyModel_QBaseMetaObject(const KCheckableProxyModel* self);
+void KCheckableProxyModel_OnMetacast(KCheckableProxyModel* self, intptr_t slot);
+void* KCheckableProxyModel_QBaseMetacast(KCheckableProxyModel* self, const char* param1);
 void KCheckableProxyModel_OnMetacall(KCheckableProxyModel* self, intptr_t slot);
 int KCheckableProxyModel_QBaseMetacall(KCheckableProxyModel* self, int param1, int param2, void** param3);
 void KCheckableProxyModel_OnFlags(const KCheckableProxyModel* self, intptr_t slot);

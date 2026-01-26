@@ -37,11 +37,21 @@ QDesignerFormEditorInterface* QDesignerFormEditorInterface_new2(QObject* parent)
 }
 
 QMetaObject* QDesignerFormEditorInterface_MetaObject(const QDesignerFormEditorInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerformeditorinterface = dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self);
+    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerFormEditorInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerFormEditorInterface_Metacast(QDesignerFormEditorInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
+    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerFormEditorInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerFormEditorInterface_Metacall(QDesignerFormEditorInterface* self, int param1, int param2, void** param3) {
@@ -184,6 +194,44 @@ libqt_list /* of QObject* */ QDesignerFormEditorInterface_PluginInstances(const 
 QIcon* QDesignerFormEditorInterface_CreateIcon(const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return new QIcon(QDesignerFormEditorInterface::createIcon(name_QString));
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerFormEditorInterface_QBaseMetaObject(const QDesignerFormEditorInterface* self) {
+    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
+    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerformeditorinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerFormEditorInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerFormEditorInterface_OnMetaObject(const QDesignerFormEditorInterface* self, intptr_t slot) {
+    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
+    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerFormEditorInterface_QBaseMetacast(QDesignerFormEditorInterface* self, const char* param1) {
+    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
+    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Metacast_IsBase(true);
+        return vqdesignerformeditorinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerFormEditorInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerFormEditorInterface_OnMetacast(QDesignerFormEditorInterface* self, intptr_t slot) {
+    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
+    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

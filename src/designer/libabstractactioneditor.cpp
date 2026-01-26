@@ -51,11 +51,21 @@ QDesignerActionEditorInterface* QDesignerActionEditorInterface_new2(QWidget* par
 }
 
 QMetaObject* QDesignerActionEditorInterface_MetaObject(const QDesignerActionEditorInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesigneractioneditorinterface = dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self);
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerActionEditorInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerActionEditorInterface_Metacast(QDesignerActionEditorInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerActionEditorInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerActionEditorInterface_Metacall(QDesignerActionEditorInterface* self, int param1, int param2, void** param3) {
@@ -100,6 +110,44 @@ void QDesignerActionEditorInterface_SetFormWindow(QDesignerActionEditorInterface
         vqdesigneractioneditorinterface->setFormWindow(formWindow);
     } else {
         ((VirtualQDesignerActionEditorInterface*)self)->setFormWindow(formWindow);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerActionEditorInterface_QBaseMetaObject(const QDesignerActionEditorInterface* self) {
+    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesigneractioneditorinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerActionEditorInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerActionEditorInterface_OnMetaObject(const QDesignerActionEditorInterface* self, intptr_t slot) {
+    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerActionEditorInterface_QBaseMetacast(QDesignerActionEditorInterface* self, const char* param1) {
+    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacast_IsBase(true);
+        return vqdesigneractioneditorinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerActionEditorInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerActionEditorInterface_OnMetacast(QDesignerActionEditorInterface* self, intptr_t slot) {
+    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
+    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metacast_Callback>(slot));
     }
 }
 

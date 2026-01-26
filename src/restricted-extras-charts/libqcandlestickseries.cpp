@@ -27,11 +27,21 @@ QCandlestickSeries* QCandlestickSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QCandlestickSeries_MetaObject(const QCandlestickSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcandlestickseries = dynamic_cast<const VirtualQCandlestickSeries*>(self);
+    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCandlestickSeries*)self)->metaObject();
+    }
 }
 
 void* QCandlestickSeries_Metacast(QCandlestickSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
+    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCandlestickSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QCandlestickSeries_Metacall(QCandlestickSeries* self, int param1, int param2, void** param3) {
@@ -423,6 +433,44 @@ void QCandlestickSeries_Connect_PenChanged(QCandlestickSeries* self, intptr_t sl
     QCandlestickSeries::connect(self, &QCandlestickSeries::penChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QCandlestickSeries_QBaseMetaObject(const QCandlestickSeries* self) {
+    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
+    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+        vqcandlestickseries->setQCandlestickSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcandlestickseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QCandlestickSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCandlestickSeries_OnMetaObject(const QCandlestickSeries* self, intptr_t slot) {
+    auto* vqcandlestickseries = const_cast<VirtualQCandlestickSeries*>(dynamic_cast<const VirtualQCandlestickSeries*>(self));
+    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+        vqcandlestickseries->setQCandlestickSeries_MetaObject_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCandlestickSeries_QBaseMetacast(QCandlestickSeries* self, const char* param1) {
+    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
+    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+        vqcandlestickseries->setQCandlestickSeries_Metacast_IsBase(true);
+        return vqcandlestickseries->qt_metacast(param1);
+    } else {
+        return self->QCandlestickSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCandlestickSeries_OnMetacast(QCandlestickSeries* self, intptr_t slot) {
+    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
+    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
+        vqcandlestickseries->setQCandlestickSeries_Metacast_Callback(reinterpret_cast<VirtualQCandlestickSeries::QCandlestickSeries_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

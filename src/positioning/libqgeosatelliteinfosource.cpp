@@ -21,11 +21,21 @@ QGeoSatelliteInfoSource* QGeoSatelliteInfoSource_new(QObject* parent) {
 }
 
 QMetaObject* QGeoSatelliteInfoSource_MetaObject(const QGeoSatelliteInfoSource* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgeosatelliteinfosource = dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self);
+    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGeoSatelliteInfoSource*)self)->metaObject();
+    }
 }
 
 void* QGeoSatelliteInfoSource_Metacast(QGeoSatelliteInfoSource* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
+    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGeoSatelliteInfoSource*)self)->qt_metacast(param1);
+    }
 }
 
 int QGeoSatelliteInfoSource_Metacall(QGeoSatelliteInfoSource* self, int param1, int param2, void** param3) {
@@ -244,6 +254,44 @@ void QGeoSatelliteInfoSource_Connect_ErrorOccurred(QGeoSatelliteInfoSource* self
         int sigval1 = static_cast<int>(param1);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGeoSatelliteInfoSource_QBaseMetaObject(const QGeoSatelliteInfoSource* self) {
+    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
+    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgeosatelliteinfosource->metaObject();
+    } else {
+        return (QMetaObject*)self->QGeoSatelliteInfoSource::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoSatelliteInfoSource_OnMetaObject(const QGeoSatelliteInfoSource* self, intptr_t slot) {
+    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
+    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_MetaObject_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGeoSatelliteInfoSource_QBaseMetacast(QGeoSatelliteInfoSource* self, const char* param1) {
+    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
+    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Metacast_IsBase(true);
+        return vqgeosatelliteinfosource->qt_metacast(param1);
+    } else {
+        return self->QGeoSatelliteInfoSource::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoSatelliteInfoSource_OnMetacast(QGeoSatelliteInfoSource* self, intptr_t slot) {
+    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
+    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Metacast_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

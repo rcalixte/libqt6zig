@@ -17,6 +17,8 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
     bool isVirtualQDesignerActionEditorInterface = true;
 
     // Virtual class public types (including callbacks)
+    using QDesignerActionEditorInterface_MetaObject_Callback = QMetaObject* (*)();
+    using QDesignerActionEditorInterface_Metacast_Callback = void* (*)(QDesignerActionEditorInterface*, const char*);
     using QDesignerActionEditorInterface_Metacall_Callback = int (*)(QDesignerActionEditorInterface*, int, int, void**);
     using QDesignerActionEditorInterface_Core_Callback = QDesignerFormEditorInterface* (*)();
     using QDesignerActionEditorInterface_ManageAction_Callback = void (*)(QDesignerActionEditorInterface*, QAction*);
@@ -82,6 +84,8 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
 
   protected:
     // Instance callback storage
+    QDesignerActionEditorInterface_MetaObject_Callback qdesigneractioneditorinterface_metaobject_callback = nullptr;
+    QDesignerActionEditorInterface_Metacast_Callback qdesigneractioneditorinterface_metacast_callback = nullptr;
     QDesignerActionEditorInterface_Metacall_Callback qdesigneractioneditorinterface_metacall_callback = nullptr;
     QDesignerActionEditorInterface_Core_Callback qdesigneractioneditorinterface_core_callback = nullptr;
     QDesignerActionEditorInterface_ManageAction_Callback qdesigneractioneditorinterface_manageaction_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
     QDesignerActionEditorInterface_GetDecodedMetricF_Callback qdesigneractioneditorinterface_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdesigneractioneditorinterface_metaobject_isbase = false;
+    mutable bool qdesigneractioneditorinterface_metacast_isbase = false;
     mutable bool qdesigneractioneditorinterface_metacall_isbase = false;
     mutable bool qdesigneractioneditorinterface_core_isbase = false;
     mutable bool qdesigneractioneditorinterface_manageaction_isbase = false;
@@ -214,6 +220,8 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
     VirtualQDesignerActionEditorInterface(QWidget* parent, Qt::WindowFlags flags) : QDesignerActionEditorInterface(parent, flags) {};
 
     ~VirtualQDesignerActionEditorInterface() {
+        qdesigneractioneditorinterface_metaobject_callback = nullptr;
+        qdesigneractioneditorinterface_metacast_callback = nullptr;
         qdesigneractioneditorinterface_metacall_callback = nullptr;
         qdesigneractioneditorinterface_core_callback = nullptr;
         qdesigneractioneditorinterface_manageaction_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
     }
 
     // Callback setters
+    inline void setQDesignerActionEditorInterface_MetaObject_Callback(QDesignerActionEditorInterface_MetaObject_Callback cb) { qdesigneractioneditorinterface_metaobject_callback = cb; }
+    inline void setQDesignerActionEditorInterface_Metacast_Callback(QDesignerActionEditorInterface_Metacast_Callback cb) { qdesigneractioneditorinterface_metacast_callback = cb; }
     inline void setQDesignerActionEditorInterface_Metacall_Callback(QDesignerActionEditorInterface_Metacall_Callback cb) { qdesigneractioneditorinterface_metacall_callback = cb; }
     inline void setQDesignerActionEditorInterface_Core_Callback(QDesignerActionEditorInterface_Core_Callback cb) { qdesigneractioneditorinterface_core_callback = cb; }
     inline void setQDesignerActionEditorInterface_ManageAction_Callback(QDesignerActionEditorInterface_ManageAction_Callback cb) { qdesigneractioneditorinterface_manageaction_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
     inline void setQDesignerActionEditorInterface_GetDecodedMetricF_Callback(QDesignerActionEditorInterface_GetDecodedMetricF_Callback cb) { qdesigneractioneditorinterface_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDesignerActionEditorInterface_MetaObject_IsBase(bool value) const { qdesigneractioneditorinterface_metaobject_isbase = value; }
+    inline void setQDesignerActionEditorInterface_Metacast_IsBase(bool value) const { qdesigneractioneditorinterface_metacast_isbase = value; }
     inline void setQDesignerActionEditorInterface_Metacall_IsBase(bool value) const { qdesigneractioneditorinterface_metacall_isbase = value; }
     inline void setQDesignerActionEditorInterface_Core_IsBase(bool value) const { qdesigneractioneditorinterface_core_isbase = value; }
     inline void setQDesignerActionEditorInterface_ManageAction_IsBase(bool value) const { qdesigneractioneditorinterface_manageaction_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualQDesignerActionEditorInterface : public QDesignerActionEditorInterf
     inline void setQDesignerActionEditorInterface_Receivers_IsBase(bool value) const { qdesigneractioneditorinterface_receivers_isbase = value; }
     inline void setQDesignerActionEditorInterface_IsSignalConnected_IsBase(bool value) const { qdesigneractioneditorinterface_issignalconnected_isbase = value; }
     inline void setQDesignerActionEditorInterface_GetDecodedMetricF_IsBase(bool value) const { qdesigneractioneditorinterface_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdesigneractioneditorinterface_metaobject_isbase) {
+            qdesigneractioneditorinterface_metaobject_isbase = false;
+            return QDesignerActionEditorInterface::metaObject();
+        } else if (qdesigneractioneditorinterface_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdesigneractioneditorinterface_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDesignerActionEditorInterface::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdesigneractioneditorinterface_metacast_isbase) {
+            qdesigneractioneditorinterface_metacast_isbase = false;
+            return QDesignerActionEditorInterface::qt_metacast(param1);
+        } else if (qdesigneractioneditorinterface_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdesigneractioneditorinterface_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDesignerActionEditorInterface::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

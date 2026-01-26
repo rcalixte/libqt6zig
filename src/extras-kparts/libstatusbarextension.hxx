@@ -17,6 +17,8 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
     bool isVirtualKPartsStatusBarExtension = true;
 
     // Virtual class public types (including callbacks)
+    using KParts__StatusBarExtension_MetaObject_Callback = QMetaObject* (*)();
+    using KParts__StatusBarExtension_Metacast_Callback = void* (*)(KParts__StatusBarExtension*, const char*);
     using KParts__StatusBarExtension_Metacall_Callback = int (*)(KParts__StatusBarExtension*, int, int, void**);
     using KParts__StatusBarExtension_EventFilter_Callback = bool (*)(KParts__StatusBarExtension*, QObject*, QEvent*);
     using KParts__StatusBarExtension_Event_Callback = bool (*)(KParts__StatusBarExtension*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
 
   protected:
     // Instance callback storage
+    KParts__StatusBarExtension_MetaObject_Callback kparts__statusbarextension_metaobject_callback = nullptr;
+    KParts__StatusBarExtension_Metacast_Callback kparts__statusbarextension_metacast_callback = nullptr;
     KParts__StatusBarExtension_Metacall_Callback kparts__statusbarextension_metacall_callback = nullptr;
     KParts__StatusBarExtension_EventFilter_Callback kparts__statusbarextension_eventfilter_callback = nullptr;
     KParts__StatusBarExtension_Event_Callback kparts__statusbarextension_event_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
     KParts__StatusBarExtension_IsSignalConnected_Callback kparts__statusbarextension_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kparts__statusbarextension_metaobject_isbase = false;
+    mutable bool kparts__statusbarextension_metacast_isbase = false;
     mutable bool kparts__statusbarextension_metacall_isbase = false;
     mutable bool kparts__statusbarextension_eventfilter_isbase = false;
     mutable bool kparts__statusbarextension_event_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
     VirtualKPartsStatusBarExtension(KParts::ReadOnlyPart* parent) : KParts::StatusBarExtension(parent) {};
 
     ~VirtualKPartsStatusBarExtension() {
+        kparts__statusbarextension_metaobject_callback = nullptr;
+        kparts__statusbarextension_metacast_callback = nullptr;
         kparts__statusbarextension_metacall_callback = nullptr;
         kparts__statusbarextension_eventfilter_callback = nullptr;
         kparts__statusbarextension_event_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
     }
 
     // Callback setters
+    inline void setKParts__StatusBarExtension_MetaObject_Callback(KParts__StatusBarExtension_MetaObject_Callback cb) { kparts__statusbarextension_metaobject_callback = cb; }
+    inline void setKParts__StatusBarExtension_Metacast_Callback(KParts__StatusBarExtension_Metacast_Callback cb) { kparts__statusbarextension_metacast_callback = cb; }
     inline void setKParts__StatusBarExtension_Metacall_Callback(KParts__StatusBarExtension_Metacall_Callback cb) { kparts__statusbarextension_metacall_callback = cb; }
     inline void setKParts__StatusBarExtension_EventFilter_Callback(KParts__StatusBarExtension_EventFilter_Callback cb) { kparts__statusbarextension_eventfilter_callback = cb; }
     inline void setKParts__StatusBarExtension_Event_Callback(KParts__StatusBarExtension_Event_Callback cb) { kparts__statusbarextension_event_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
     inline void setKParts__StatusBarExtension_IsSignalConnected_Callback(KParts__StatusBarExtension_IsSignalConnected_Callback cb) { kparts__statusbarextension_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKParts__StatusBarExtension_MetaObject_IsBase(bool value) const { kparts__statusbarextension_metaobject_isbase = value; }
+    inline void setKParts__StatusBarExtension_Metacast_IsBase(bool value) const { kparts__statusbarextension_metacast_isbase = value; }
     inline void setKParts__StatusBarExtension_Metacall_IsBase(bool value) const { kparts__statusbarextension_metacall_isbase = value; }
     inline void setKParts__StatusBarExtension_EventFilter_IsBase(bool value) const { kparts__statusbarextension_eventfilter_isbase = value; }
     inline void setKParts__StatusBarExtension_Event_IsBase(bool value) const { kparts__statusbarextension_event_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKPartsStatusBarExtension final : public KParts::StatusBarExtension 
     inline void setKParts__StatusBarExtension_SenderSignalIndex_IsBase(bool value) const { kparts__statusbarextension_sendersignalindex_isbase = value; }
     inline void setKParts__StatusBarExtension_Receivers_IsBase(bool value) const { kparts__statusbarextension_receivers_isbase = value; }
     inline void setKParts__StatusBarExtension_IsSignalConnected_IsBase(bool value) const { kparts__statusbarextension_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kparts__statusbarextension_metaobject_isbase) {
+            kparts__statusbarextension_metaobject_isbase = false;
+            return KParts__StatusBarExtension::metaObject();
+        } else if (kparts__statusbarextension_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kparts__statusbarextension_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KParts__StatusBarExtension::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kparts__statusbarextension_metacast_isbase) {
+            kparts__statusbarextension_metacast_isbase = false;
+            return KParts__StatusBarExtension::qt_metacast(param1);
+        } else if (kparts__statusbarextension_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kparts__statusbarextension_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KParts__StatusBarExtension::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -17,6 +17,8 @@ class VirtualQHorizontalStackedBarSeries final : public QHorizontalStackedBarSer
     bool isVirtualQHorizontalStackedBarSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QHorizontalStackedBarSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QHorizontalStackedBarSeries_Metacast_Callback = void* (*)(QHorizontalStackedBarSeries*, const char*);
     using QHorizontalStackedBarSeries_Metacall_Callback = int (*)(QHorizontalStackedBarSeries*, int, int, void**);
     using QHorizontalStackedBarSeries_Type_Callback = int (*)();
     using QHorizontalStackedBarSeries_Event_Callback = bool (*)(QHorizontalStackedBarSeries*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQHorizontalStackedBarSeries final : public QHorizontalStackedBarSer
 
   protected:
     // Instance callback storage
+    QHorizontalStackedBarSeries_MetaObject_Callback qhorizontalstackedbarseries_metaobject_callback = nullptr;
+    QHorizontalStackedBarSeries_Metacast_Callback qhorizontalstackedbarseries_metacast_callback = nullptr;
     QHorizontalStackedBarSeries_Metacall_Callback qhorizontalstackedbarseries_metacall_callback = nullptr;
     QHorizontalStackedBarSeries_Type_Callback qhorizontalstackedbarseries_type_callback = nullptr;
     QHorizontalStackedBarSeries_Event_Callback qhorizontalstackedbarseries_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQHorizontalStackedBarSeries final : public QHorizontalStackedBarSer
     QHorizontalStackedBarSeries_IsSignalConnected_Callback qhorizontalstackedbarseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qhorizontalstackedbarseries_metaobject_isbase = false;
+    mutable bool qhorizontalstackedbarseries_metacast_isbase = false;
     mutable bool qhorizontalstackedbarseries_metacall_isbase = false;
     mutable bool qhorizontalstackedbarseries_type_isbase = false;
     mutable bool qhorizontalstackedbarseries_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQHorizontalStackedBarSeries final : public QHorizontalStackedBarSer
     VirtualQHorizontalStackedBarSeries(QObject* parent) : QHorizontalStackedBarSeries(parent) {};
 
     ~VirtualQHorizontalStackedBarSeries() {
+        qhorizontalstackedbarseries_metaobject_callback = nullptr;
+        qhorizontalstackedbarseries_metacast_callback = nullptr;
         qhorizontalstackedbarseries_metacall_callback = nullptr;
         qhorizontalstackedbarseries_type_callback = nullptr;
         qhorizontalstackedbarseries_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQHorizontalStackedBarSeries final : public QHorizontalStackedBarSer
     }
 
     // Callback setters
+    inline void setQHorizontalStackedBarSeries_MetaObject_Callback(QHorizontalStackedBarSeries_MetaObject_Callback cb) { qhorizontalstackedbarseries_metaobject_callback = cb; }
+    inline void setQHorizontalStackedBarSeries_Metacast_Callback(QHorizontalStackedBarSeries_Metacast_Callback cb) { qhorizontalstackedbarseries_metacast_callback = cb; }
     inline void setQHorizontalStackedBarSeries_Metacall_Callback(QHorizontalStackedBarSeries_Metacall_Callback cb) { qhorizontalstackedbarseries_metacall_callback = cb; }
     inline void setQHorizontalStackedBarSeries_Type_Callback(QHorizontalStackedBarSeries_Type_Callback cb) { qhorizontalstackedbarseries_type_callback = cb; }
     inline void setQHorizontalStackedBarSeries_Event_Callback(QHorizontalStackedBarSeries_Event_Callback cb) { qhorizontalstackedbarseries_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQHorizontalStackedBarSeries final : public QHorizontalStackedBarSer
     inline void setQHorizontalStackedBarSeries_IsSignalConnected_Callback(QHorizontalStackedBarSeries_IsSignalConnected_Callback cb) { qhorizontalstackedbarseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQHorizontalStackedBarSeries_MetaObject_IsBase(bool value) const { qhorizontalstackedbarseries_metaobject_isbase = value; }
+    inline void setQHorizontalStackedBarSeries_Metacast_IsBase(bool value) const { qhorizontalstackedbarseries_metacast_isbase = value; }
     inline void setQHorizontalStackedBarSeries_Metacall_IsBase(bool value) const { qhorizontalstackedbarseries_metacall_isbase = value; }
     inline void setQHorizontalStackedBarSeries_Type_IsBase(bool value) const { qhorizontalstackedbarseries_type_isbase = value; }
     inline void setQHorizontalStackedBarSeries_Event_IsBase(bool value) const { qhorizontalstackedbarseries_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQHorizontalStackedBarSeries final : public QHorizontalStackedBarSer
     inline void setQHorizontalStackedBarSeries_SenderSignalIndex_IsBase(bool value) const { qhorizontalstackedbarseries_sendersignalindex_isbase = value; }
     inline void setQHorizontalStackedBarSeries_Receivers_IsBase(bool value) const { qhorizontalstackedbarseries_receivers_isbase = value; }
     inline void setQHorizontalStackedBarSeries_IsSignalConnected_IsBase(bool value) const { qhorizontalstackedbarseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qhorizontalstackedbarseries_metaobject_isbase) {
+            qhorizontalstackedbarseries_metaobject_isbase = false;
+            return QHorizontalStackedBarSeries::metaObject();
+        } else if (qhorizontalstackedbarseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qhorizontalstackedbarseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHorizontalStackedBarSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qhorizontalstackedbarseries_metacast_isbase) {
+            qhorizontalstackedbarseries_metacast_isbase = false;
+            return QHorizontalStackedBarSeries::qt_metacast(param1);
+        } else if (qhorizontalstackedbarseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qhorizontalstackedbarseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHorizontalStackedBarSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

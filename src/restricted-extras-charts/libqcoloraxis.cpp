@@ -23,11 +23,21 @@ QColorAxis* QColorAxis_new2(QObject* parent) {
 }
 
 QMetaObject* QColorAxis_MetaObject(const QColorAxis* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcoloraxis = dynamic_cast<const VirtualQColorAxis*>(self);
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQColorAxis*)self)->metaObject();
+    }
 }
 
 void* QColorAxis_Metacast(QColorAxis* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQColorAxis*)self)->qt_metacast(param1);
+    }
 }
 
 int QColorAxis_Metacall(QColorAxis* self, int param1, int param2, void** param3) {
@@ -185,6 +195,44 @@ void QColorAxis_Connect_AutoRangeChanged(QColorAxis* self, intptr_t slot) {
         bool sigval1 = autoRange;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QColorAxis_QBaseMetaObject(const QColorAxis* self) {
+    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+        vqcoloraxis->setQColorAxis_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcoloraxis->metaObject();
+    } else {
+        return (QMetaObject*)self->QColorAxis::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColorAxis_OnMetaObject(const QColorAxis* self, intptr_t slot) {
+    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+        vqcoloraxis->setQColorAxis_MetaObject_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QColorAxis_QBaseMetacast(QColorAxis* self, const char* param1) {
+    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+        vqcoloraxis->setQColorAxis_Metacast_IsBase(true);
+        return vqcoloraxis->qt_metacast(param1);
+    } else {
+        return self->QColorAxis::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColorAxis_OnMetacast(QColorAxis* self, intptr_t slot) {
+    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
+    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+        vqcoloraxis->setQColorAxis_Metacast_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

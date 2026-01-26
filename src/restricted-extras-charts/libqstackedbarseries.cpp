@@ -23,11 +23,21 @@ QStackedBarSeries* QStackedBarSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QStackedBarSeries_MetaObject(const QStackedBarSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqstackedbarseries = dynamic_cast<const VirtualQStackedBarSeries*>(self);
+    if (vqstackedbarseries && vqstackedbarseries->isVirtualQStackedBarSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQStackedBarSeries*)self)->metaObject();
+    }
 }
 
 void* QStackedBarSeries_Metacast(QStackedBarSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqstackedbarseries = dynamic_cast<VirtualQStackedBarSeries*>(self);
+    if (vqstackedbarseries && vqstackedbarseries->isVirtualQStackedBarSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQStackedBarSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QStackedBarSeries_Metacall(QStackedBarSeries* self, int param1, int param2, void** param3) {
@@ -45,6 +55,44 @@ int QStackedBarSeries_Type(const QStackedBarSeries* self) {
         return static_cast<int>(self->type());
     } else {
         return static_cast<int>(((VirtualQStackedBarSeries*)self)->type());
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QStackedBarSeries_QBaseMetaObject(const QStackedBarSeries* self) {
+    auto* vqstackedbarseries = const_cast<VirtualQStackedBarSeries*>(dynamic_cast<const VirtualQStackedBarSeries*>(self));
+    if (vqstackedbarseries && vqstackedbarseries->isVirtualQStackedBarSeries) {
+        vqstackedbarseries->setQStackedBarSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqstackedbarseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QStackedBarSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStackedBarSeries_OnMetaObject(const QStackedBarSeries* self, intptr_t slot) {
+    auto* vqstackedbarseries = const_cast<VirtualQStackedBarSeries*>(dynamic_cast<const VirtualQStackedBarSeries*>(self));
+    if (vqstackedbarseries && vqstackedbarseries->isVirtualQStackedBarSeries) {
+        vqstackedbarseries->setQStackedBarSeries_MetaObject_Callback(reinterpret_cast<VirtualQStackedBarSeries::QStackedBarSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QStackedBarSeries_QBaseMetacast(QStackedBarSeries* self, const char* param1) {
+    auto* vqstackedbarseries = dynamic_cast<VirtualQStackedBarSeries*>(self);
+    if (vqstackedbarseries && vqstackedbarseries->isVirtualQStackedBarSeries) {
+        vqstackedbarseries->setQStackedBarSeries_Metacast_IsBase(true);
+        return vqstackedbarseries->qt_metacast(param1);
+    } else {
+        return self->QStackedBarSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStackedBarSeries_OnMetacast(QStackedBarSeries* self, intptr_t slot) {
+    auto* vqstackedbarseries = dynamic_cast<VirtualQStackedBarSeries*>(self);
+    if (vqstackedbarseries && vqstackedbarseries->isVirtualQStackedBarSeries) {
+        vqstackedbarseries->setQStackedBarSeries_Metacast_Callback(reinterpret_cast<VirtualQStackedBarSeries::QStackedBarSeries_Metacast_Callback>(slot));
     }
 }
 

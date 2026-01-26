@@ -23,11 +23,21 @@ QThread* QThread_new2(QObject* parent) {
 }
 
 QMetaObject* QThread_MetaObject(const QThread* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqthread = dynamic_cast<const VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQThread*)self)->metaObject();
+    }
 }
 
 void* QThread_Metacast(QThread* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQThread*)self)->qt_metacast(param1);
+    }
 }
 
 int QThread_Metacall(QThread* self, int param1, int param2, void** param3) {
@@ -173,6 +183,44 @@ void QThread_Exit1(QThread* self, int retcode) {
 
 bool QThread_Wait1(QThread* self, QDeadlineTimer* deadline) {
     return self->wait(*deadline);
+}
+
+// Base class handler implementation
+QMetaObject* QThread_QBaseMetaObject(const QThread* self) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setQThread_MetaObject_IsBase(true);
+        return (QMetaObject*)vqthread->metaObject();
+    } else {
+        return (QMetaObject*)self->QThread::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QThread_OnMetaObject(const QThread* self, intptr_t slot) {
+    auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setQThread_MetaObject_Callback(reinterpret_cast<VirtualQThread::QThread_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QThread_QBaseMetacast(QThread* self, const char* param1) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setQThread_Metacast_IsBase(true);
+        return vqthread->qt_metacast(param1);
+    } else {
+        return self->QThread::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QThread_OnMetacast(QThread* self, intptr_t slot) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setQThread_Metacast_Callback(reinterpret_cast<VirtualQThread::QThread_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

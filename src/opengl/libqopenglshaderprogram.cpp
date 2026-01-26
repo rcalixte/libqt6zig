@@ -35,11 +35,21 @@ QOpenGLShader* QOpenGLShader_new2(int typeVal, QObject* parent) {
 }
 
 QMetaObject* QOpenGLShader_MetaObject(const QOpenGLShader* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqopenglshader = dynamic_cast<const VirtualQOpenGLShader*>(self);
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQOpenGLShader*)self)->metaObject();
+    }
 }
 
 void* QOpenGLShader_Metacast(QOpenGLShader* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQOpenGLShader*)self)->qt_metacast(param1);
+    }
 }
 
 int QOpenGLShader_Metacall(QOpenGLShader* self, int param1, int param2, void** param3) {
@@ -110,6 +120,44 @@ bool QOpenGLShader_HasOpenGLShaders(int typeVal) {
 
 bool QOpenGLShader_HasOpenGLShaders2(int typeVal, QOpenGLContext* context) {
     return QOpenGLShader::hasOpenGLShaders(static_cast<QFlags<QOpenGLShader::ShaderTypeBit>>(typeVal), context);
+}
+
+// Base class handler implementation
+QMetaObject* QOpenGLShader_QBaseMetaObject(const QOpenGLShader* self) {
+    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+        vqopenglshader->setQOpenGLShader_MetaObject_IsBase(true);
+        return (QMetaObject*)vqopenglshader->metaObject();
+    } else {
+        return (QMetaObject*)self->QOpenGLShader::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLShader_OnMetaObject(const QOpenGLShader* self, intptr_t slot) {
+    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+        vqopenglshader->setQOpenGLShader_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QOpenGLShader_QBaseMetacast(QOpenGLShader* self, const char* param1) {
+    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+        vqopenglshader->setQOpenGLShader_Metacast_IsBase(true);
+        return vqopenglshader->qt_metacast(param1);
+    } else {
+        return self->QOpenGLShader::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLShader_OnMetacast(QOpenGLShader* self, intptr_t slot) {
+    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
+    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+        vqopenglshader->setQOpenGLShader_Metacast_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -463,11 +511,21 @@ QOpenGLShaderProgram* QOpenGLShaderProgram_new2(QObject* parent) {
 }
 
 QMetaObject* QOpenGLShaderProgram_MetaObject(const QOpenGLShaderProgram* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqopenglshaderprogram = dynamic_cast<const VirtualQOpenGLShaderProgram*>(self);
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQOpenGLShaderProgram*)self)->metaObject();
+    }
 }
 
 void* QOpenGLShaderProgram_Metacast(QOpenGLShaderProgram* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQOpenGLShaderProgram*)self)->qt_metacast(param1);
+    }
 }
 
 int QOpenGLShaderProgram_Metacall(QOpenGLShaderProgram* self, int param1, int param2, void** param3) {
@@ -1057,6 +1115,44 @@ void QOpenGLShaderProgram_SetAttributeBuffer52(QOpenGLShaderProgram* self, const
 
 bool QOpenGLShaderProgram_HasOpenGLShaderPrograms1(QOpenGLContext* context) {
     return QOpenGLShaderProgram::hasOpenGLShaderPrograms(context);
+}
+
+// Base class handler implementation
+QMetaObject* QOpenGLShaderProgram_QBaseMetaObject(const QOpenGLShaderProgram* self) {
+    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+        vqopenglshaderprogram->setQOpenGLShaderProgram_MetaObject_IsBase(true);
+        return (QMetaObject*)vqopenglshaderprogram->metaObject();
+    } else {
+        return (QMetaObject*)self->QOpenGLShaderProgram::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLShaderProgram_OnMetaObject(const QOpenGLShaderProgram* self, intptr_t slot) {
+    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+        vqopenglshaderprogram->setQOpenGLShaderProgram_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QOpenGLShaderProgram_QBaseMetacast(QOpenGLShaderProgram* self, const char* param1) {
+    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+        vqopenglshaderprogram->setQOpenGLShaderProgram_Metacast_IsBase(true);
+        return vqopenglshaderprogram->qt_metacast(param1);
+    } else {
+        return self->QOpenGLShaderProgram::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLShaderProgram_OnMetacast(QOpenGLShaderProgram* self, intptr_t slot) {
+    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
+    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+        vqopenglshaderprogram->setQOpenGLShaderProgram_Metacast_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

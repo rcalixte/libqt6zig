@@ -66,11 +66,21 @@ QPrintPreviewDialog* QPrintPreviewDialog_new6(QPrinter* printer, QWidget* parent
 }
 
 QMetaObject* QPrintPreviewDialog_MetaObject(const QPrintPreviewDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqprintpreviewdialog = dynamic_cast<const VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPrintPreviewDialog*)self)->metaObject();
+    }
 }
 
 void* QPrintPreviewDialog_Metacast(QPrintPreviewDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPrintPreviewDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int QPrintPreviewDialog_Metacall(QPrintPreviewDialog* self, int param1, int param2, void** param3) {
@@ -114,6 +124,44 @@ void QPrintPreviewDialog_Connect_PaintRequested(QPrintPreviewDialog* self, intpt
         QPrinter* sigval1 = printer;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QPrintPreviewDialog_QBaseMetaObject(const QPrintPreviewDialog* self) {
+    auto* vqprintpreviewdialog = const_cast<VirtualQPrintPreviewDialog*>(dynamic_cast<const VirtualQPrintPreviewDialog*>(self));
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vqprintpreviewdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->QPrintPreviewDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPrintPreviewDialog_OnMetaObject(const QPrintPreviewDialog* self, intptr_t slot) {
+    auto* vqprintpreviewdialog = const_cast<VirtualQPrintPreviewDialog*>(dynamic_cast<const VirtualQPrintPreviewDialog*>(self));
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_MetaObject_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPrintPreviewDialog_QBaseMetacast(QPrintPreviewDialog* self, const char* param1) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_Metacast_IsBase(true);
+        return vqprintpreviewdialog->qt_metacast(param1);
+    } else {
+        return self->QPrintPreviewDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPrintPreviewDialog_OnMetacast(QPrintPreviewDialog* self, intptr_t slot) {
+    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
+    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
+        vqprintpreviewdialog->setQPrintPreviewDialog_Metacast_Callback(reinterpret_cast<VirtualQPrintPreviewDialog::QPrintPreviewDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

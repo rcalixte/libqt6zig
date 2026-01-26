@@ -57,11 +57,21 @@ QTextBrowser* QTextBrowser_new2() {
 }
 
 QMetaObject* QTextBrowser_MetaObject(const QTextBrowser* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtextbrowser = dynamic_cast<const VirtualQTextBrowser*>(self);
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTextBrowser*)self)->metaObject();
+    }
 }
 
 void* QTextBrowser_Metacast(QTextBrowser* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTextBrowser*)self)->qt_metacast(param1);
+    }
 }
 
 int QTextBrowser_Metacall(QTextBrowser* self, int param1, int param2, void** param3) {
@@ -358,6 +368,44 @@ void QTextBrowser_DoSetSource(QTextBrowser* self, const QUrl* name, int typeVal)
 
 void QTextBrowser_SetSource2(QTextBrowser* self, const QUrl* name, int typeVal) {
     self->setSource(*name, static_cast<QTextDocument::ResourceType>(typeVal));
+}
+
+// Base class handler implementation
+QMetaObject* QTextBrowser_QBaseMetaObject(const QTextBrowser* self) {
+    auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+        vqtextbrowser->setQTextBrowser_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtextbrowser->metaObject();
+    } else {
+        return (QMetaObject*)self->QTextBrowser::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextBrowser_OnMetaObject(const QTextBrowser* self, intptr_t slot) {
+    auto* vqtextbrowser = const_cast<VirtualQTextBrowser*>(dynamic_cast<const VirtualQTextBrowser*>(self));
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+        vqtextbrowser->setQTextBrowser_MetaObject_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTextBrowser_QBaseMetacast(QTextBrowser* self, const char* param1) {
+    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+        vqtextbrowser->setQTextBrowser_Metacast_IsBase(true);
+        return vqtextbrowser->qt_metacast(param1);
+    } else {
+        return self->QTextBrowser::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextBrowser_OnMetacast(QTextBrowser* self, intptr_t slot) {
+    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
+    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
+        vqtextbrowser->setQTextBrowser_Metacast_Callback(reinterpret_cast<VirtualQTextBrowser::QTextBrowser_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

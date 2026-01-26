@@ -17,6 +17,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
     bool isVirtualKRatingWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KRatingWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KRatingWidget_Metacast_Callback = void* (*)(KRatingWidget*, const char*);
     using KRatingWidget_Metacall_Callback = int (*)(KRatingWidget*, int, int, void**);
     using KRatingWidget_SizeHint_Callback = QSize* (*)();
     using KRatingWidget_MousePressEvent_Callback = void (*)(KRatingWidget*, QMouseEvent*);
@@ -80,6 +82,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
 
   protected:
     // Instance callback storage
+    KRatingWidget_MetaObject_Callback kratingwidget_metaobject_callback = nullptr;
+    KRatingWidget_Metacast_Callback kratingwidget_metacast_callback = nullptr;
     KRatingWidget_Metacall_Callback kratingwidget_metacall_callback = nullptr;
     KRatingWidget_SizeHint_Callback kratingwidget_sizehint_callback = nullptr;
     KRatingWidget_MousePressEvent_Callback kratingwidget_mousepressevent_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
     KRatingWidget_GetDecodedMetricF_Callback kratingwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kratingwidget_metaobject_isbase = false;
+    mutable bool kratingwidget_metacast_isbase = false;
     mutable bool kratingwidget_metacall_isbase = false;
     mutable bool kratingwidget_sizehint_isbase = false;
     mutable bool kratingwidget_mousepressevent_isbase = false;
@@ -208,6 +214,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
     VirtualKRatingWidget() : KRatingWidget() {};
 
     ~VirtualKRatingWidget() {
+        kratingwidget_metaobject_callback = nullptr;
+        kratingwidget_metacast_callback = nullptr;
         kratingwidget_metacall_callback = nullptr;
         kratingwidget_sizehint_callback = nullptr;
         kratingwidget_mousepressevent_callback = nullptr;
@@ -271,6 +279,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
     }
 
     // Callback setters
+    inline void setKRatingWidget_MetaObject_Callback(KRatingWidget_MetaObject_Callback cb) { kratingwidget_metaobject_callback = cb; }
+    inline void setKRatingWidget_Metacast_Callback(KRatingWidget_Metacast_Callback cb) { kratingwidget_metacast_callback = cb; }
     inline void setKRatingWidget_Metacall_Callback(KRatingWidget_Metacall_Callback cb) { kratingwidget_metacall_callback = cb; }
     inline void setKRatingWidget_SizeHint_Callback(KRatingWidget_SizeHint_Callback cb) { kratingwidget_sizehint_callback = cb; }
     inline void setKRatingWidget_MousePressEvent_Callback(KRatingWidget_MousePressEvent_Callback cb) { kratingwidget_mousepressevent_callback = cb; }
@@ -333,6 +343,8 @@ class VirtualKRatingWidget final : public KRatingWidget {
     inline void setKRatingWidget_GetDecodedMetricF_Callback(KRatingWidget_GetDecodedMetricF_Callback cb) { kratingwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKRatingWidget_MetaObject_IsBase(bool value) const { kratingwidget_metaobject_isbase = value; }
+    inline void setKRatingWidget_Metacast_IsBase(bool value) const { kratingwidget_metacast_isbase = value; }
     inline void setKRatingWidget_Metacall_IsBase(bool value) const { kratingwidget_metacall_isbase = value; }
     inline void setKRatingWidget_SizeHint_IsBase(bool value) const { kratingwidget_sizehint_isbase = value; }
     inline void setKRatingWidget_MousePressEvent_IsBase(bool value) const { kratingwidget_mousepressevent_isbase = value; }
@@ -393,6 +405,34 @@ class VirtualKRatingWidget final : public KRatingWidget {
     inline void setKRatingWidget_Receivers_IsBase(bool value) const { kratingwidget_receivers_isbase = value; }
     inline void setKRatingWidget_IsSignalConnected_IsBase(bool value) const { kratingwidget_issignalconnected_isbase = value; }
     inline void setKRatingWidget_GetDecodedMetricF_IsBase(bool value) const { kratingwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kratingwidget_metaobject_isbase) {
+            kratingwidget_metaobject_isbase = false;
+            return KRatingWidget::metaObject();
+        } else if (kratingwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kratingwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KRatingWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kratingwidget_metacast_isbase) {
+            kratingwidget_metacast_isbase = false;
+            return KRatingWidget::qt_metacast(param1);
+        } else if (kratingwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kratingwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KRatingWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

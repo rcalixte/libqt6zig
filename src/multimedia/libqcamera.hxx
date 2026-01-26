@@ -17,6 +17,8 @@ class VirtualQCamera final : public QCamera {
     bool isVirtualQCamera = true;
 
     // Virtual class public types (including callbacks)
+    using QCamera_MetaObject_Callback = QMetaObject* (*)();
+    using QCamera_Metacast_Callback = void* (*)(QCamera*, const char*);
     using QCamera_Metacall_Callback = int (*)(QCamera*, int, int, void**);
     using QCamera_Event_Callback = bool (*)(QCamera*, QEvent*);
     using QCamera_EventFilter_Callback = bool (*)(QCamera*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQCamera final : public QCamera {
 
   protected:
     // Instance callback storage
+    QCamera_MetaObject_Callback qcamera_metaobject_callback = nullptr;
+    QCamera_Metacast_Callback qcamera_metacast_callback = nullptr;
     QCamera_Metacall_Callback qcamera_metacall_callback = nullptr;
     QCamera_Event_Callback qcamera_event_callback = nullptr;
     QCamera_EventFilter_Callback qcamera_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQCamera final : public QCamera {
     QCamera_IsSignalConnected_Callback qcamera_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcamera_metaobject_isbase = false;
+    mutable bool qcamera_metacast_isbase = false;
     mutable bool qcamera_metacall_isbase = false;
     mutable bool qcamera_event_isbase = false;
     mutable bool qcamera_eventfilter_isbase = false;
@@ -68,6 +74,8 @@ class VirtualQCamera final : public QCamera {
     VirtualQCamera(QCameraDevice::Position position, QObject* parent) : QCamera(position, parent) {};
 
     ~VirtualQCamera() {
+        qcamera_metaobject_callback = nullptr;
+        qcamera_metacast_callback = nullptr;
         qcamera_metacall_callback = nullptr;
         qcamera_event_callback = nullptr;
         qcamera_eventfilter_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQCamera final : public QCamera {
     }
 
     // Callback setters
+    inline void setQCamera_MetaObject_Callback(QCamera_MetaObject_Callback cb) { qcamera_metaobject_callback = cb; }
+    inline void setQCamera_Metacast_Callback(QCamera_Metacast_Callback cb) { qcamera_metacast_callback = cb; }
     inline void setQCamera_Metacall_Callback(QCamera_Metacall_Callback cb) { qcamera_metacall_callback = cb; }
     inline void setQCamera_Event_Callback(QCamera_Event_Callback cb) { qcamera_event_callback = cb; }
     inline void setQCamera_EventFilter_Callback(QCamera_EventFilter_Callback cb) { qcamera_eventfilter_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualQCamera final : public QCamera {
     inline void setQCamera_IsSignalConnected_Callback(QCamera_IsSignalConnected_Callback cb) { qcamera_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCamera_MetaObject_IsBase(bool value) const { qcamera_metaobject_isbase = value; }
+    inline void setQCamera_Metacast_IsBase(bool value) const { qcamera_metacast_isbase = value; }
     inline void setQCamera_Metacall_IsBase(bool value) const { qcamera_metacall_isbase = value; }
     inline void setQCamera_Event_IsBase(bool value) const { qcamera_event_isbase = value; }
     inline void setQCamera_EventFilter_IsBase(bool value) const { qcamera_eventfilter_isbase = value; }
@@ -109,6 +121,34 @@ class VirtualQCamera final : public QCamera {
     inline void setQCamera_SenderSignalIndex_IsBase(bool value) const { qcamera_sendersignalindex_isbase = value; }
     inline void setQCamera_Receivers_IsBase(bool value) const { qcamera_receivers_isbase = value; }
     inline void setQCamera_IsSignalConnected_IsBase(bool value) const { qcamera_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcamera_metaobject_isbase) {
+            qcamera_metaobject_isbase = false;
+            return QCamera::metaObject();
+        } else if (qcamera_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcamera_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCamera::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcamera_metacast_isbase) {
+            qcamera_metacast_isbase = false;
+            return QCamera::qt_metacast(param1);
+        } else if (qcamera_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcamera_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCamera::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

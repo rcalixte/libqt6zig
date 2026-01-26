@@ -21,11 +21,21 @@ KPluginFactory* KPluginFactory_new() {
 }
 
 QMetaObject* KPluginFactory_MetaObject(const KPluginFactory* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpluginfactory = dynamic_cast<const VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPluginFactory*)self)->metaObject();
+    }
 }
 
 void* KPluginFactory_Metacast(KPluginFactory* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPluginFactory*)self)->qt_metacast(param1);
+    }
 }
 
 int KPluginFactory_Metacall(KPluginFactory* self, int param1, int param2, void** param3) {
@@ -57,6 +67,44 @@ QObject* KPluginFactory_Create(KPluginFactory* self, const char* iface, QWidget*
         return vkpluginfactory->create(iface, parentWidget, parent, args_QList);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KPluginFactory_QBaseMetaObject(const KPluginFactory* self) {
+    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpluginfactory->metaObject();
+    } else {
+        return (QMetaObject*)self->KPluginFactory::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPluginFactory_OnMetaObject(const KPluginFactory* self, intptr_t slot) {
+    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_MetaObject_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPluginFactory_QBaseMetacast(KPluginFactory* self, const char* param1) {
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_Metacast_IsBase(true);
+        return vkpluginfactory->qt_metacast(param1);
+    } else {
+        return self->KPluginFactory::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPluginFactory_OnMetacast(KPluginFactory* self, intptr_t slot) {
+    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+        vkpluginfactory->setKPluginFactory_Metacast_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

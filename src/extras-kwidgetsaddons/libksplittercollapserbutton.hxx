@@ -17,6 +17,8 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
     bool isVirtualKSplitterCollapserButton = true;
 
     // Virtual class public types (including callbacks)
+    using KSplitterCollapserButton_MetaObject_Callback = QMetaObject* (*)();
+    using KSplitterCollapserButton_Metacast_Callback = void* (*)(KSplitterCollapserButton*, const char*);
     using KSplitterCollapserButton_Metacall_Callback = int (*)(KSplitterCollapserButton*, int, int, void**);
     using KSplitterCollapserButton_SizeHint_Callback = QSize* (*)();
     using KSplitterCollapserButton_EventFilter_Callback = bool (*)(KSplitterCollapserButton*, QObject*, QEvent*);
@@ -82,6 +84,8 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
 
   protected:
     // Instance callback storage
+    KSplitterCollapserButton_MetaObject_Callback ksplittercollapserbutton_metaobject_callback = nullptr;
+    KSplitterCollapserButton_Metacast_Callback ksplittercollapserbutton_metacast_callback = nullptr;
     KSplitterCollapserButton_Metacall_Callback ksplittercollapserbutton_metacall_callback = nullptr;
     KSplitterCollapserButton_SizeHint_Callback ksplittercollapserbutton_sizehint_callback = nullptr;
     KSplitterCollapserButton_EventFilter_Callback ksplittercollapserbutton_eventfilter_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
     KSplitterCollapserButton_GetDecodedMetricF_Callback ksplittercollapserbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ksplittercollapserbutton_metaobject_isbase = false;
+    mutable bool ksplittercollapserbutton_metacast_isbase = false;
     mutable bool ksplittercollapserbutton_metacall_isbase = false;
     mutable bool ksplittercollapserbutton_sizehint_isbase = false;
     mutable bool ksplittercollapserbutton_eventfilter_isbase = false;
@@ -213,6 +219,8 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
     VirtualKSplitterCollapserButton(QWidget* childWidget, QSplitter* splitter) : KSplitterCollapserButton(childWidget, splitter) {};
 
     ~VirtualKSplitterCollapserButton() {
+        ksplittercollapserbutton_metaobject_callback = nullptr;
+        ksplittercollapserbutton_metacast_callback = nullptr;
         ksplittercollapserbutton_metacall_callback = nullptr;
         ksplittercollapserbutton_sizehint_callback = nullptr;
         ksplittercollapserbutton_eventfilter_callback = nullptr;
@@ -278,6 +286,8 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
     }
 
     // Callback setters
+    inline void setKSplitterCollapserButton_MetaObject_Callback(KSplitterCollapserButton_MetaObject_Callback cb) { ksplittercollapserbutton_metaobject_callback = cb; }
+    inline void setKSplitterCollapserButton_Metacast_Callback(KSplitterCollapserButton_Metacast_Callback cb) { ksplittercollapserbutton_metacast_callback = cb; }
     inline void setKSplitterCollapserButton_Metacall_Callback(KSplitterCollapserButton_Metacall_Callback cb) { ksplittercollapserbutton_metacall_callback = cb; }
     inline void setKSplitterCollapserButton_SizeHint_Callback(KSplitterCollapserButton_SizeHint_Callback cb) { ksplittercollapserbutton_sizehint_callback = cb; }
     inline void setKSplitterCollapserButton_EventFilter_Callback(KSplitterCollapserButton_EventFilter_Callback cb) { ksplittercollapserbutton_eventfilter_callback = cb; }
@@ -342,6 +352,8 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
     inline void setKSplitterCollapserButton_GetDecodedMetricF_Callback(KSplitterCollapserButton_GetDecodedMetricF_Callback cb) { ksplittercollapserbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKSplitterCollapserButton_MetaObject_IsBase(bool value) const { ksplittercollapserbutton_metaobject_isbase = value; }
+    inline void setKSplitterCollapserButton_Metacast_IsBase(bool value) const { ksplittercollapserbutton_metacast_isbase = value; }
     inline void setKSplitterCollapserButton_Metacall_IsBase(bool value) const { ksplittercollapserbutton_metacall_isbase = value; }
     inline void setKSplitterCollapserButton_SizeHint_IsBase(bool value) const { ksplittercollapserbutton_sizehint_isbase = value; }
     inline void setKSplitterCollapserButton_EventFilter_IsBase(bool value) const { ksplittercollapserbutton_eventfilter_isbase = value; }
@@ -404,6 +416,34 @@ class VirtualKSplitterCollapserButton final : public KSplitterCollapserButton {
     inline void setKSplitterCollapserButton_Receivers_IsBase(bool value) const { ksplittercollapserbutton_receivers_isbase = value; }
     inline void setKSplitterCollapserButton_IsSignalConnected_IsBase(bool value) const { ksplittercollapserbutton_issignalconnected_isbase = value; }
     inline void setKSplitterCollapserButton_GetDecodedMetricF_IsBase(bool value) const { ksplittercollapserbutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ksplittercollapserbutton_metaobject_isbase) {
+            ksplittercollapserbutton_metaobject_isbase = false;
+            return KSplitterCollapserButton::metaObject();
+        } else if (ksplittercollapserbutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ksplittercollapserbutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSplitterCollapserButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ksplittercollapserbutton_metacast_isbase) {
+            ksplittercollapserbutton_metacast_isbase = false;
+            return KSplitterCollapserButton::qt_metacast(param1);
+        } else if (ksplittercollapserbutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ksplittercollapserbutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSplitterCollapserButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

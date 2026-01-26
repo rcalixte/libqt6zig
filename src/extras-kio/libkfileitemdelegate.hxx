@@ -17,6 +17,8 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
     bool isVirtualKFileItemDelegate = true;
 
     // Virtual class public types (including callbacks)
+    using KFileItemDelegate_MetaObject_Callback = QMetaObject* (*)();
+    using KFileItemDelegate_Metacast_Callback = void* (*)(KFileItemDelegate*, const char*);
     using KFileItemDelegate_Metacall_Callback = int (*)(KFileItemDelegate*, int, int, void**);
     using KFileItemDelegate_SizeHint_Callback = QSize* (*)(const KFileItemDelegate*, QStyleOptionViewItem*, QModelIndex*);
     using KFileItemDelegate_Paint_Callback = void (*)(const KFileItemDelegate*, QPainter*, QStyleOptionViewItem*, QModelIndex*);
@@ -42,6 +44,8 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
 
   protected:
     // Instance callback storage
+    KFileItemDelegate_MetaObject_Callback kfileitemdelegate_metaobject_callback = nullptr;
+    KFileItemDelegate_Metacast_Callback kfileitemdelegate_metacast_callback = nullptr;
     KFileItemDelegate_Metacall_Callback kfileitemdelegate_metacall_callback = nullptr;
     KFileItemDelegate_SizeHint_Callback kfileitemdelegate_sizehint_callback = nullptr;
     KFileItemDelegate_Paint_Callback kfileitemdelegate_paint_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
     KFileItemDelegate_IsSignalConnected_Callback kfileitemdelegate_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfileitemdelegate_metaobject_isbase = false;
+    mutable bool kfileitemdelegate_metacast_isbase = false;
     mutable bool kfileitemdelegate_metacall_isbase = false;
     mutable bool kfileitemdelegate_sizehint_isbase = false;
     mutable bool kfileitemdelegate_paint_isbase = false;
@@ -94,6 +100,8 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
     VirtualKFileItemDelegate(QObject* parent) : KFileItemDelegate(parent) {};
 
     ~VirtualKFileItemDelegate() {
+        kfileitemdelegate_metaobject_callback = nullptr;
+        kfileitemdelegate_metacast_callback = nullptr;
         kfileitemdelegate_metacall_callback = nullptr;
         kfileitemdelegate_sizehint_callback = nullptr;
         kfileitemdelegate_paint_callback = nullptr;
@@ -119,6 +127,8 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
     }
 
     // Callback setters
+    inline void setKFileItemDelegate_MetaObject_Callback(KFileItemDelegate_MetaObject_Callback cb) { kfileitemdelegate_metaobject_callback = cb; }
+    inline void setKFileItemDelegate_Metacast_Callback(KFileItemDelegate_Metacast_Callback cb) { kfileitemdelegate_metacast_callback = cb; }
     inline void setKFileItemDelegate_Metacall_Callback(KFileItemDelegate_Metacall_Callback cb) { kfileitemdelegate_metacall_callback = cb; }
     inline void setKFileItemDelegate_SizeHint_Callback(KFileItemDelegate_SizeHint_Callback cb) { kfileitemdelegate_sizehint_callback = cb; }
     inline void setKFileItemDelegate_Paint_Callback(KFileItemDelegate_Paint_Callback cb) { kfileitemdelegate_paint_callback = cb; }
@@ -143,6 +153,8 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
     inline void setKFileItemDelegate_IsSignalConnected_Callback(KFileItemDelegate_IsSignalConnected_Callback cb) { kfileitemdelegate_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKFileItemDelegate_MetaObject_IsBase(bool value) const { kfileitemdelegate_metaobject_isbase = value; }
+    inline void setKFileItemDelegate_Metacast_IsBase(bool value) const { kfileitemdelegate_metacast_isbase = value; }
     inline void setKFileItemDelegate_Metacall_IsBase(bool value) const { kfileitemdelegate_metacall_isbase = value; }
     inline void setKFileItemDelegate_SizeHint_IsBase(bool value) const { kfileitemdelegate_sizehint_isbase = value; }
     inline void setKFileItemDelegate_Paint_IsBase(bool value) const { kfileitemdelegate_paint_isbase = value; }
@@ -165,6 +177,34 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
     inline void setKFileItemDelegate_SenderSignalIndex_IsBase(bool value) const { kfileitemdelegate_sendersignalindex_isbase = value; }
     inline void setKFileItemDelegate_Receivers_IsBase(bool value) const { kfileitemdelegate_receivers_isbase = value; }
     inline void setKFileItemDelegate_IsSignalConnected_IsBase(bool value) const { kfileitemdelegate_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfileitemdelegate_metaobject_isbase) {
+            kfileitemdelegate_metaobject_isbase = false;
+            return KFileItemDelegate::metaObject();
+        } else if (kfileitemdelegate_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfileitemdelegate_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFileItemDelegate::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfileitemdelegate_metacast_isbase) {
+            kfileitemdelegate_metacast_isbase = false;
+            return KFileItemDelegate::qt_metacast(param1);
+        } else if (kfileitemdelegate_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfileitemdelegate_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFileItemDelegate::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -55,11 +55,21 @@ KFontRequester* KFontRequester_new3(QWidget* parent, bool onlyFixed) {
 }
 
 QMetaObject* KFontRequester_MetaObject(const KFontRequester* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfontrequester = dynamic_cast<const VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFontRequester*)self)->metaObject();
+    }
 }
 
 void* KFontRequester_Metacast(KFontRequester* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFontRequester*)self)->qt_metacast(param1);
+    }
 }
 
 int KFontRequester_Metacall(KFontRequester* self, int param1, int param2, void** param3) {
@@ -160,6 +170,44 @@ bool KFontRequester_EventFilter(KFontRequester* self, QObject* watched, QEvent* 
         return vkfontrequester->eventFilter(watched, event);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KFontRequester_QBaseMetaObject(const KFontRequester* self) {
+    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfontrequester->metaObject();
+    } else {
+        return (QMetaObject*)self->KFontRequester::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontRequester_OnMetaObject(const KFontRequester* self, intptr_t slot) {
+    auto* vkfontrequester = const_cast<VirtualKFontRequester*>(dynamic_cast<const VirtualKFontRequester*>(self));
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_MetaObject_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFontRequester_QBaseMetacast(KFontRequester* self, const char* param1) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_Metacast_IsBase(true);
+        return vkfontrequester->qt_metacast(param1);
+    } else {
+        return self->KFontRequester::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFontRequester_OnMetacast(KFontRequester* self, intptr_t slot) {
+    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
+    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
+        vkfontrequester->setKFontRequester_Metacast_Callback(reinterpret_cast<VirtualKFontRequester::KFontRequester_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

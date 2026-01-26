@@ -42,6 +42,10 @@ void Sonnet__SpellCheckDecorator_SetHighlighter(Sonnet__SpellCheckDecorator* sel
 Sonnet__Highlighter* Sonnet__SpellCheckDecorator_Highlighter(const Sonnet__SpellCheckDecorator* self);
 bool Sonnet__SpellCheckDecorator_EventFilter(Sonnet__SpellCheckDecorator* self, QObject* obj, QEvent* event);
 bool Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock(const Sonnet__SpellCheckDecorator* self, const libqt_string textBlock);
+void Sonnet__SpellCheckDecorator_OnMetaObject(const Sonnet__SpellCheckDecorator* self, intptr_t slot);
+QMetaObject* Sonnet__SpellCheckDecorator_QBaseMetaObject(const Sonnet__SpellCheckDecorator* self);
+void Sonnet__SpellCheckDecorator_OnMetacast(Sonnet__SpellCheckDecorator* self, intptr_t slot);
+void* Sonnet__SpellCheckDecorator_QBaseMetacast(Sonnet__SpellCheckDecorator* self, const char* param1);
 void Sonnet__SpellCheckDecorator_OnMetacall(Sonnet__SpellCheckDecorator* self, intptr_t slot);
 int Sonnet__SpellCheckDecorator_QBaseMetacall(Sonnet__SpellCheckDecorator* self, int param1, int param2, void** param3);
 void Sonnet__SpellCheckDecorator_OnEventFilter(Sonnet__SpellCheckDecorator* self, intptr_t slot);

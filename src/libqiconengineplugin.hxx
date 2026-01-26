@@ -17,6 +17,8 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     bool isVirtualQIconEnginePlugin = true;
 
     // Virtual class public types (including callbacks)
+    using QIconEnginePlugin_MetaObject_Callback = QMetaObject* (*)();
+    using QIconEnginePlugin_Metacast_Callback = void* (*)(QIconEnginePlugin*, const char*);
     using QIconEnginePlugin_Metacall_Callback = int (*)(QIconEnginePlugin*, int, int, void**);
     using QIconEnginePlugin_Create_Callback = QIconEngine* (*)(QIconEnginePlugin*, libqt_string);
     using QIconEnginePlugin_Event_Callback = bool (*)(QIconEnginePlugin*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
 
   protected:
     // Instance callback storage
+    QIconEnginePlugin_MetaObject_Callback qiconengineplugin_metaobject_callback = nullptr;
+    QIconEnginePlugin_Metacast_Callback qiconengineplugin_metacast_callback = nullptr;
     QIconEnginePlugin_Metacall_Callback qiconengineplugin_metacall_callback = nullptr;
     QIconEnginePlugin_Create_Callback qiconengineplugin_create_callback = nullptr;
     QIconEnginePlugin_Event_Callback qiconengineplugin_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     QIconEnginePlugin_IsSignalConnected_Callback qiconengineplugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qiconengineplugin_metaobject_isbase = false;
+    mutable bool qiconengineplugin_metacast_isbase = false;
     mutable bool qiconengineplugin_metacall_isbase = false;
     mutable bool qiconengineplugin_create_isbase = false;
     mutable bool qiconengineplugin_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     VirtualQIconEnginePlugin(QObject* parent) : QIconEnginePlugin(parent) {};
 
     ~VirtualQIconEnginePlugin() {
+        qiconengineplugin_metaobject_callback = nullptr;
+        qiconengineplugin_metacast_callback = nullptr;
         qiconengineplugin_metacall_callback = nullptr;
         qiconengineplugin_create_callback = nullptr;
         qiconengineplugin_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     }
 
     // Callback setters
+    inline void setQIconEnginePlugin_MetaObject_Callback(QIconEnginePlugin_MetaObject_Callback cb) { qiconengineplugin_metaobject_callback = cb; }
+    inline void setQIconEnginePlugin_Metacast_Callback(QIconEnginePlugin_Metacast_Callback cb) { qiconengineplugin_metacast_callback = cb; }
     inline void setQIconEnginePlugin_Metacall_Callback(QIconEnginePlugin_Metacall_Callback cb) { qiconengineplugin_metacall_callback = cb; }
     inline void setQIconEnginePlugin_Create_Callback(QIconEnginePlugin_Create_Callback cb) { qiconengineplugin_create_callback = cb; }
     inline void setQIconEnginePlugin_Event_Callback(QIconEnginePlugin_Event_Callback cb) { qiconengineplugin_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     inline void setQIconEnginePlugin_IsSignalConnected_Callback(QIconEnginePlugin_IsSignalConnected_Callback cb) { qiconengineplugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQIconEnginePlugin_MetaObject_IsBase(bool value) const { qiconengineplugin_metaobject_isbase = value; }
+    inline void setQIconEnginePlugin_Metacast_IsBase(bool value) const { qiconengineplugin_metacast_isbase = value; }
     inline void setQIconEnginePlugin_Metacall_IsBase(bool value) const { qiconengineplugin_metacall_isbase = value; }
     inline void setQIconEnginePlugin_Create_IsBase(bool value) const { qiconengineplugin_create_isbase = value; }
     inline void setQIconEnginePlugin_Event_IsBase(bool value) const { qiconengineplugin_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     inline void setQIconEnginePlugin_SenderSignalIndex_IsBase(bool value) const { qiconengineplugin_sendersignalindex_isbase = value; }
     inline void setQIconEnginePlugin_Receivers_IsBase(bool value) const { qiconengineplugin_receivers_isbase = value; }
     inline void setQIconEnginePlugin_IsSignalConnected_IsBase(bool value) const { qiconengineplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qiconengineplugin_metaobject_isbase) {
+            qiconengineplugin_metaobject_isbase = false;
+            return QIconEnginePlugin::metaObject();
+        } else if (qiconengineplugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qiconengineplugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QIconEnginePlugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qiconengineplugin_metacast_isbase) {
+            qiconengineplugin_metacast_isbase = false;
+            return QIconEnginePlugin::qt_metacast(param1);
+        } else if (qiconengineplugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qiconengineplugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QIconEnginePlugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

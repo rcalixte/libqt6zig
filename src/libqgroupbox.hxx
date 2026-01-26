@@ -17,6 +17,8 @@ class VirtualQGroupBox final : public QGroupBox {
     bool isVirtualQGroupBox = true;
 
     // Virtual class public types (including callbacks)
+    using QGroupBox_MetaObject_Callback = QMetaObject* (*)();
+    using QGroupBox_Metacast_Callback = void* (*)(QGroupBox*, const char*);
     using QGroupBox_Metacall_Callback = int (*)(QGroupBox*, int, int, void**);
     using QGroupBox_MinimumSizeHint_Callback = QSize* (*)();
     using QGroupBox_Event_Callback = bool (*)(QGroupBox*, QEvent*);
@@ -79,6 +81,8 @@ class VirtualQGroupBox final : public QGroupBox {
 
   protected:
     // Instance callback storage
+    QGroupBox_MetaObject_Callback qgroupbox_metaobject_callback = nullptr;
+    QGroupBox_Metacast_Callback qgroupbox_metacast_callback = nullptr;
     QGroupBox_Metacall_Callback qgroupbox_metacall_callback = nullptr;
     QGroupBox_MinimumSizeHint_Callback qgroupbox_minimumsizehint_callback = nullptr;
     QGroupBox_Event_Callback qgroupbox_event_callback = nullptr;
@@ -140,6 +144,8 @@ class VirtualQGroupBox final : public QGroupBox {
     QGroupBox_GetDecodedMetricF_Callback qgroupbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgroupbox_metaobject_isbase = false;
+    mutable bool qgroupbox_metacast_isbase = false;
     mutable bool qgroupbox_metacall_isbase = false;
     mutable bool qgroupbox_minimumsizehint_isbase = false;
     mutable bool qgroupbox_event_isbase = false;
@@ -207,6 +213,8 @@ class VirtualQGroupBox final : public QGroupBox {
     VirtualQGroupBox(const QString& title, QWidget* parent) : QGroupBox(title, parent) {};
 
     ~VirtualQGroupBox() {
+        qgroupbox_metaobject_callback = nullptr;
+        qgroupbox_metacast_callback = nullptr;
         qgroupbox_metacall_callback = nullptr;
         qgroupbox_minimumsizehint_callback = nullptr;
         qgroupbox_event_callback = nullptr;
@@ -269,6 +277,8 @@ class VirtualQGroupBox final : public QGroupBox {
     }
 
     // Callback setters
+    inline void setQGroupBox_MetaObject_Callback(QGroupBox_MetaObject_Callback cb) { qgroupbox_metaobject_callback = cb; }
+    inline void setQGroupBox_Metacast_Callback(QGroupBox_Metacast_Callback cb) { qgroupbox_metacast_callback = cb; }
     inline void setQGroupBox_Metacall_Callback(QGroupBox_Metacall_Callback cb) { qgroupbox_metacall_callback = cb; }
     inline void setQGroupBox_MinimumSizeHint_Callback(QGroupBox_MinimumSizeHint_Callback cb) { qgroupbox_minimumsizehint_callback = cb; }
     inline void setQGroupBox_Event_Callback(QGroupBox_Event_Callback cb) { qgroupbox_event_callback = cb; }
@@ -330,6 +340,8 @@ class VirtualQGroupBox final : public QGroupBox {
     inline void setQGroupBox_GetDecodedMetricF_Callback(QGroupBox_GetDecodedMetricF_Callback cb) { qgroupbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQGroupBox_MetaObject_IsBase(bool value) const { qgroupbox_metaobject_isbase = value; }
+    inline void setQGroupBox_Metacast_IsBase(bool value) const { qgroupbox_metacast_isbase = value; }
     inline void setQGroupBox_Metacall_IsBase(bool value) const { qgroupbox_metacall_isbase = value; }
     inline void setQGroupBox_MinimumSizeHint_IsBase(bool value) const { qgroupbox_minimumsizehint_isbase = value; }
     inline void setQGroupBox_Event_IsBase(bool value) const { qgroupbox_event_isbase = value; }
@@ -389,6 +401,34 @@ class VirtualQGroupBox final : public QGroupBox {
     inline void setQGroupBox_Receivers_IsBase(bool value) const { qgroupbox_receivers_isbase = value; }
     inline void setQGroupBox_IsSignalConnected_IsBase(bool value) const { qgroupbox_issignalconnected_isbase = value; }
     inline void setQGroupBox_GetDecodedMetricF_IsBase(bool value) const { qgroupbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgroupbox_metaobject_isbase) {
+            qgroupbox_metaobject_isbase = false;
+            return QGroupBox::metaObject();
+        } else if (qgroupbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgroupbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGroupBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgroupbox_metacast_isbase) {
+            qgroupbox_metacast_isbase = false;
+            return QGroupBox::qt_metacast(param1);
+        } else if (qgroupbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgroupbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGroupBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

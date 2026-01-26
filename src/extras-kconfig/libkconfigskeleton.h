@@ -49,6 +49,10 @@ KConfigSkeleton__ItemColor* KConfigSkeleton_AddItemColor3(KConfigSkeleton* self,
 KConfigSkeleton__ItemColor* KConfigSkeleton_AddItemColor4(KConfigSkeleton* self, const libqt_string name, QColor* reference, const QColor* defaultValue, const libqt_string key);
 KConfigSkeleton__ItemFont* KConfigSkeleton_AddItemFont3(KConfigSkeleton* self, const libqt_string name, QFont* reference, const QFont* defaultValue);
 KConfigSkeleton__ItemFont* KConfigSkeleton_AddItemFont4(KConfigSkeleton* self, const libqt_string name, QFont* reference, const QFont* defaultValue, const libqt_string key);
+void KConfigSkeleton_OnMetaObject(const KConfigSkeleton* self, intptr_t slot);
+QMetaObject* KConfigSkeleton_QBaseMetaObject(const KConfigSkeleton* self);
+void KConfigSkeleton_OnMetacast(KConfigSkeleton* self, intptr_t slot);
+void* KConfigSkeleton_QBaseMetacast(KConfigSkeleton* self, const char* param1);
 void KConfigSkeleton_OnMetacall(KConfigSkeleton* self, intptr_t slot);
 int KConfigSkeleton_QBaseMetacall(KConfigSkeleton* self, int param1, int param2, void** param3);
 void KConfigSkeleton_SetDefaults(KConfigSkeleton* self);

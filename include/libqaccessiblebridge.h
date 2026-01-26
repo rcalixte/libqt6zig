@@ -38,6 +38,10 @@ QMetaObject* QAccessibleBridgePlugin_MetaObject(const QAccessibleBridgePlugin* s
 void* QAccessibleBridgePlugin_Metacast(QAccessibleBridgePlugin* self, const char* param1);
 int QAccessibleBridgePlugin_Metacall(QAccessibleBridgePlugin* self, int param1, int param2, void** param3);
 QAccessibleBridge* QAccessibleBridgePlugin_Create(QAccessibleBridgePlugin* self, const libqt_string key);
+void QAccessibleBridgePlugin_OnMetaObject(const QAccessibleBridgePlugin* self, intptr_t slot);
+QMetaObject* QAccessibleBridgePlugin_QBaseMetaObject(const QAccessibleBridgePlugin* self);
+void QAccessibleBridgePlugin_OnMetacast(QAccessibleBridgePlugin* self, intptr_t slot);
+void* QAccessibleBridgePlugin_QBaseMetacast(QAccessibleBridgePlugin* self, const char* param1);
 void QAccessibleBridgePlugin_OnMetacall(QAccessibleBridgePlugin* self, intptr_t slot);
 int QAccessibleBridgePlugin_QBaseMetacall(QAccessibleBridgePlugin* self, int param1, int param2, void** param3);
 void QAccessibleBridgePlugin_OnCreate(QAccessibleBridgePlugin* self, intptr_t slot);

@@ -17,6 +17,8 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
     bool isVirtualKNewPasswordDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KNewPasswordDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KNewPasswordDialog_Metacast_Callback = void* (*)(KNewPasswordDialog*, const char*);
     using KNewPasswordDialog_Metacall_Callback = int (*)(KNewPasswordDialog*, int, int, void**);
     using KNewPasswordDialog_Accept_Callback = void (*)();
     using KNewPasswordDialog_CheckPassword_Callback = bool (*)(KNewPasswordDialog*, libqt_string);
@@ -85,6 +87,8 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
 
   protected:
     // Instance callback storage
+    KNewPasswordDialog_MetaObject_Callback knewpassworddialog_metaobject_callback = nullptr;
+    KNewPasswordDialog_Metacast_Callback knewpassworddialog_metacast_callback = nullptr;
     KNewPasswordDialog_Metacall_Callback knewpassworddialog_metacall_callback = nullptr;
     KNewPasswordDialog_Accept_Callback knewpassworddialog_accept_callback = nullptr;
     KNewPasswordDialog_CheckPassword_Callback knewpassworddialog_checkpassword_callback = nullptr;
@@ -152,6 +156,8 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
     KNewPasswordDialog_GetDecodedMetricF_Callback knewpassworddialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool knewpassworddialog_metaobject_isbase = false;
+    mutable bool knewpassworddialog_metacast_isbase = false;
     mutable bool knewpassworddialog_metacall_isbase = false;
     mutable bool knewpassworddialog_accept_isbase = false;
     mutable bool knewpassworddialog_checkpassword_isbase = false;
@@ -223,6 +229,8 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
     VirtualKNewPasswordDialog() : KNewPasswordDialog() {};
 
     ~VirtualKNewPasswordDialog() {
+        knewpassworddialog_metaobject_callback = nullptr;
+        knewpassworddialog_metacast_callback = nullptr;
         knewpassworddialog_metacall_callback = nullptr;
         knewpassworddialog_accept_callback = nullptr;
         knewpassworddialog_checkpassword_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
     }
 
     // Callback setters
+    inline void setKNewPasswordDialog_MetaObject_Callback(KNewPasswordDialog_MetaObject_Callback cb) { knewpassworddialog_metaobject_callback = cb; }
+    inline void setKNewPasswordDialog_Metacast_Callback(KNewPasswordDialog_Metacast_Callback cb) { knewpassworddialog_metacast_callback = cb; }
     inline void setKNewPasswordDialog_Metacall_Callback(KNewPasswordDialog_Metacall_Callback cb) { knewpassworddialog_metacall_callback = cb; }
     inline void setKNewPasswordDialog_Accept_Callback(KNewPasswordDialog_Accept_Callback cb) { knewpassworddialog_accept_callback = cb; }
     inline void setKNewPasswordDialog_CheckPassword_Callback(KNewPasswordDialog_CheckPassword_Callback cb) { knewpassworddialog_checkpassword_callback = cb; }
@@ -358,6 +368,8 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
     inline void setKNewPasswordDialog_GetDecodedMetricF_Callback(KNewPasswordDialog_GetDecodedMetricF_Callback cb) { knewpassworddialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKNewPasswordDialog_MetaObject_IsBase(bool value) const { knewpassworddialog_metaobject_isbase = value; }
+    inline void setKNewPasswordDialog_Metacast_IsBase(bool value) const { knewpassworddialog_metacast_isbase = value; }
     inline void setKNewPasswordDialog_Metacall_IsBase(bool value) const { knewpassworddialog_metacall_isbase = value; }
     inline void setKNewPasswordDialog_Accept_IsBase(bool value) const { knewpassworddialog_accept_isbase = value; }
     inline void setKNewPasswordDialog_CheckPassword_IsBase(bool value) const { knewpassworddialog_checkpassword_isbase = value; }
@@ -423,6 +435,34 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
     inline void setKNewPasswordDialog_Receivers_IsBase(bool value) const { knewpassworddialog_receivers_isbase = value; }
     inline void setKNewPasswordDialog_IsSignalConnected_IsBase(bool value) const { knewpassworddialog_issignalconnected_isbase = value; }
     inline void setKNewPasswordDialog_GetDecodedMetricF_IsBase(bool value) const { knewpassworddialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knewpassworddialog_metaobject_isbase) {
+            knewpassworddialog_metaobject_isbase = false;
+            return KNewPasswordDialog::metaObject();
+        } else if (knewpassworddialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knewpassworddialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNewPasswordDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knewpassworddialog_metacast_isbase) {
+            knewpassworddialog_metacast_isbase = false;
+            return KNewPasswordDialog::qt_metacast(param1);
+        } else if (knewpassworddialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knewpassworddialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNewPasswordDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -20,11 +20,21 @@ QAudioRoom* QAudioRoom_new(QAudioEngine* engine) {
 }
 
 QMetaObject* QAudioRoom_MetaObject(const QAudioRoom* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqaudioroom = dynamic_cast<const VirtualQAudioRoom*>(self);
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAudioRoom*)self)->metaObject();
+    }
 }
 
 void* QAudioRoom_Metacast(QAudioRoom* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAudioRoom*)self)->qt_metacast(param1);
+    }
 }
 
 int QAudioRoom_Metacall(QAudioRoom* self, int param1, int param2, void** param3) {
@@ -186,6 +196,44 @@ void QAudioRoom_Connect_ReverbBrightnessChanged(QAudioRoom* self, intptr_t slot)
     QAudioRoom::connect(self, &QAudioRoom::reverbBrightnessChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QAudioRoom_QBaseMetaObject(const QAudioRoom* self) {
+    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+        vqaudioroom->setQAudioRoom_MetaObject_IsBase(true);
+        return (QMetaObject*)vqaudioroom->metaObject();
+    } else {
+        return (QMetaObject*)self->QAudioRoom::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioRoom_OnMetaObject(const QAudioRoom* self, intptr_t slot) {
+    auto* vqaudioroom = const_cast<VirtualQAudioRoom*>(dynamic_cast<const VirtualQAudioRoom*>(self));
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+        vqaudioroom->setQAudioRoom_MetaObject_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAudioRoom_QBaseMetacast(QAudioRoom* self, const char* param1) {
+    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+        vqaudioroom->setQAudioRoom_Metacast_IsBase(true);
+        return vqaudioroom->qt_metacast(param1);
+    } else {
+        return self->QAudioRoom::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioRoom_OnMetacast(QAudioRoom* self, intptr_t slot) {
+    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
+    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
+        vqaudioroom->setQAudioRoom_Metacast_Callback(reinterpret_cast<VirtualQAudioRoom::QAudioRoom_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

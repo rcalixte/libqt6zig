@@ -17,6 +17,8 @@ class VirtualQLibrary final : public QLibrary {
     bool isVirtualQLibrary = true;
 
     // Virtual class public types (including callbacks)
+    using QLibrary_MetaObject_Callback = QMetaObject* (*)();
+    using QLibrary_Metacast_Callback = void* (*)(QLibrary*, const char*);
     using QLibrary_Metacall_Callback = int (*)(QLibrary*, int, int, void**);
     using QLibrary_Event_Callback = bool (*)(QLibrary*, QEvent*);
     using QLibrary_EventFilter_Callback = bool (*)(QLibrary*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQLibrary final : public QLibrary {
 
   protected:
     // Instance callback storage
+    QLibrary_MetaObject_Callback qlibrary_metaobject_callback = nullptr;
+    QLibrary_Metacast_Callback qlibrary_metacast_callback = nullptr;
     QLibrary_Metacall_Callback qlibrary_metacall_callback = nullptr;
     QLibrary_Event_Callback qlibrary_event_callback = nullptr;
     QLibrary_EventFilter_Callback qlibrary_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQLibrary final : public QLibrary {
     QLibrary_IsSignalConnected_Callback qlibrary_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlibrary_metaobject_isbase = false;
+    mutable bool qlibrary_metacast_isbase = false;
     mutable bool qlibrary_metacall_isbase = false;
     mutable bool qlibrary_event_isbase = false;
     mutable bool qlibrary_eventfilter_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQLibrary final : public QLibrary {
     VirtualQLibrary(const QString& fileName, const QString& version, QObject* parent) : QLibrary(fileName, version, parent) {};
 
     ~VirtualQLibrary() {
+        qlibrary_metaobject_callback = nullptr;
+        qlibrary_metacast_callback = nullptr;
         qlibrary_metacall_callback = nullptr;
         qlibrary_event_callback = nullptr;
         qlibrary_eventfilter_callback = nullptr;
@@ -85,6 +93,8 @@ class VirtualQLibrary final : public QLibrary {
     }
 
     // Callback setters
+    inline void setQLibrary_MetaObject_Callback(QLibrary_MetaObject_Callback cb) { qlibrary_metaobject_callback = cb; }
+    inline void setQLibrary_Metacast_Callback(QLibrary_Metacast_Callback cb) { qlibrary_metacast_callback = cb; }
     inline void setQLibrary_Metacall_Callback(QLibrary_Metacall_Callback cb) { qlibrary_metacall_callback = cb; }
     inline void setQLibrary_Event_Callback(QLibrary_Event_Callback cb) { qlibrary_event_callback = cb; }
     inline void setQLibrary_EventFilter_Callback(QLibrary_EventFilter_Callback cb) { qlibrary_eventfilter_callback = cb; }
@@ -99,6 +109,8 @@ class VirtualQLibrary final : public QLibrary {
     inline void setQLibrary_IsSignalConnected_Callback(QLibrary_IsSignalConnected_Callback cb) { qlibrary_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQLibrary_MetaObject_IsBase(bool value) const { qlibrary_metaobject_isbase = value; }
+    inline void setQLibrary_Metacast_IsBase(bool value) const { qlibrary_metacast_isbase = value; }
     inline void setQLibrary_Metacall_IsBase(bool value) const { qlibrary_metacall_isbase = value; }
     inline void setQLibrary_Event_IsBase(bool value) const { qlibrary_event_isbase = value; }
     inline void setQLibrary_EventFilter_IsBase(bool value) const { qlibrary_eventfilter_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQLibrary final : public QLibrary {
     inline void setQLibrary_SenderSignalIndex_IsBase(bool value) const { qlibrary_sendersignalindex_isbase = value; }
     inline void setQLibrary_Receivers_IsBase(bool value) const { qlibrary_receivers_isbase = value; }
     inline void setQLibrary_IsSignalConnected_IsBase(bool value) const { qlibrary_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlibrary_metaobject_isbase) {
+            qlibrary_metaobject_isbase = false;
+            return QLibrary::metaObject();
+        } else if (qlibrary_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlibrary_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QLibrary::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlibrary_metacast_isbase) {
+            qlibrary_metacast_isbase = false;
+            return QLibrary::qt_metacast(param1);
+        } else if (qlibrary_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlibrary_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QLibrary::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

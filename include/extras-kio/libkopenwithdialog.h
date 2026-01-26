@@ -74,6 +74,10 @@ void KOpenWithDialog_SlotHighlighted(KOpenWithDialog* self, const libqt_string _
 void KOpenWithDialog_SlotTextChanged(KOpenWithDialog* self);
 void KOpenWithDialog_SlotTerminalToggled(KOpenWithDialog* self, bool param1);
 void KOpenWithDialog_Accept(KOpenWithDialog* self);
+void KOpenWithDialog_OnMetaObject(const KOpenWithDialog* self, intptr_t slot);
+QMetaObject* KOpenWithDialog_QBaseMetaObject(const KOpenWithDialog* self);
+void KOpenWithDialog_OnMetacast(KOpenWithDialog* self, intptr_t slot);
+void* KOpenWithDialog_QBaseMetacast(KOpenWithDialog* self, const char* param1);
 void KOpenWithDialog_OnMetacall(KOpenWithDialog* self, intptr_t slot);
 int KOpenWithDialog_QBaseMetacall(KOpenWithDialog* self, int param1, int param2, void** param3);
 void KOpenWithDialog_OnAccept(KOpenWithDialog* self, intptr_t slot);

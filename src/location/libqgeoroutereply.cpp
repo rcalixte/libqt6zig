@@ -26,11 +26,21 @@ QGeoRouteReply* QGeoRouteReply_new2(int errorVal, const libqt_string errorString
 }
 
 QMetaObject* QGeoRouteReply_MetaObject(const QGeoRouteReply* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgeoroutereply = dynamic_cast<const VirtualQGeoRouteReply*>(self);
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGeoRouteReply*)self)->metaObject();
+    }
 }
 
 void* QGeoRouteReply_Metacast(QGeoRouteReply* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGeoRouteReply*)self)->qt_metacast(param1);
+    }
 }
 
 int QGeoRouteReply_Metacall(QGeoRouteReply* self, int param1, int param2, void** param3) {
@@ -141,6 +151,44 @@ void QGeoRouteReply_Connect_ErrorOccurred2(QGeoRouteReply* self, intptr_t slot) 
         slotFunc(self, sigval1, sigval2);
         libqt_free(errorString_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGeoRouteReply_QBaseMetaObject(const QGeoRouteReply* self) {
+    auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+        vqgeoroutereply->setQGeoRouteReply_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgeoroutereply->metaObject();
+    } else {
+        return (QMetaObject*)self->QGeoRouteReply::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoRouteReply_OnMetaObject(const QGeoRouteReply* self, intptr_t slot) {
+    auto* vqgeoroutereply = const_cast<VirtualQGeoRouteReply*>(dynamic_cast<const VirtualQGeoRouteReply*>(self));
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+        vqgeoroutereply->setQGeoRouteReply_MetaObject_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGeoRouteReply_QBaseMetacast(QGeoRouteReply* self, const char* param1) {
+    auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+        vqgeoroutereply->setQGeoRouteReply_Metacast_IsBase(true);
+        return vqgeoroutereply->qt_metacast(param1);
+    } else {
+        return self->QGeoRouteReply::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGeoRouteReply_OnMetacast(QGeoRouteReply* self, intptr_t slot) {
+    auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
+    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
+        vqgeoroutereply->setQGeoRouteReply_Metacast_Callback(reinterpret_cast<VirtualQGeoRouteReply::QGeoRouteReply_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

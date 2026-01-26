@@ -17,6 +17,8 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
     bool isVirtualQGeoSatelliteInfoSource = true;
 
     // Virtual class public types (including callbacks)
+    using QGeoSatelliteInfoSource_MetaObject_Callback = QMetaObject* (*)();
+    using QGeoSatelliteInfoSource_Metacast_Callback = void* (*)(QGeoSatelliteInfoSource*, const char*);
     using QGeoSatelliteInfoSource_Metacall_Callback = int (*)(QGeoSatelliteInfoSource*, int, int, void**);
     using QGeoSatelliteInfoSource_SetUpdateInterval_Callback = void (*)(QGeoSatelliteInfoSource*, int);
     using QGeoSatelliteInfoSource_MinimumUpdateInterval_Callback = int (*)();
@@ -40,6 +42,8 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
 
   protected:
     // Instance callback storage
+    QGeoSatelliteInfoSource_MetaObject_Callback qgeosatelliteinfosource_metaobject_callback = nullptr;
+    QGeoSatelliteInfoSource_Metacast_Callback qgeosatelliteinfosource_metacast_callback = nullptr;
     QGeoSatelliteInfoSource_Metacall_Callback qgeosatelliteinfosource_metacall_callback = nullptr;
     QGeoSatelliteInfoSource_SetUpdateInterval_Callback qgeosatelliteinfosource_setupdateinterval_callback = nullptr;
     QGeoSatelliteInfoSource_MinimumUpdateInterval_Callback qgeosatelliteinfosource_minimumupdateinterval_callback = nullptr;
@@ -62,6 +66,8 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
     QGeoSatelliteInfoSource_IsSignalConnected_Callback qgeosatelliteinfosource_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgeosatelliteinfosource_metaobject_isbase = false;
+    mutable bool qgeosatelliteinfosource_metacast_isbase = false;
     mutable bool qgeosatelliteinfosource_metacall_isbase = false;
     mutable bool qgeosatelliteinfosource_setupdateinterval_isbase = false;
     mutable bool qgeosatelliteinfosource_minimumupdateinterval_isbase = false;
@@ -87,6 +93,8 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
     VirtualQGeoSatelliteInfoSource(QObject* parent) : QGeoSatelliteInfoSource(parent) {};
 
     ~VirtualQGeoSatelliteInfoSource() {
+        qgeosatelliteinfosource_metaobject_callback = nullptr;
+        qgeosatelliteinfosource_metacast_callback = nullptr;
         qgeosatelliteinfosource_metacall_callback = nullptr;
         qgeosatelliteinfosource_setupdateinterval_callback = nullptr;
         qgeosatelliteinfosource_minimumupdateinterval_callback = nullptr;
@@ -110,6 +118,8 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
     }
 
     // Callback setters
+    inline void setQGeoSatelliteInfoSource_MetaObject_Callback(QGeoSatelliteInfoSource_MetaObject_Callback cb) { qgeosatelliteinfosource_metaobject_callback = cb; }
+    inline void setQGeoSatelliteInfoSource_Metacast_Callback(QGeoSatelliteInfoSource_Metacast_Callback cb) { qgeosatelliteinfosource_metacast_callback = cb; }
     inline void setQGeoSatelliteInfoSource_Metacall_Callback(QGeoSatelliteInfoSource_Metacall_Callback cb) { qgeosatelliteinfosource_metacall_callback = cb; }
     inline void setQGeoSatelliteInfoSource_SetUpdateInterval_Callback(QGeoSatelliteInfoSource_SetUpdateInterval_Callback cb) { qgeosatelliteinfosource_setupdateinterval_callback = cb; }
     inline void setQGeoSatelliteInfoSource_MinimumUpdateInterval_Callback(QGeoSatelliteInfoSource_MinimumUpdateInterval_Callback cb) { qgeosatelliteinfosource_minimumupdateinterval_callback = cb; }
@@ -132,6 +142,8 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
     inline void setQGeoSatelliteInfoSource_IsSignalConnected_Callback(QGeoSatelliteInfoSource_IsSignalConnected_Callback cb) { qgeosatelliteinfosource_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGeoSatelliteInfoSource_MetaObject_IsBase(bool value) const { qgeosatelliteinfosource_metaobject_isbase = value; }
+    inline void setQGeoSatelliteInfoSource_Metacast_IsBase(bool value) const { qgeosatelliteinfosource_metacast_isbase = value; }
     inline void setQGeoSatelliteInfoSource_Metacall_IsBase(bool value) const { qgeosatelliteinfosource_metacall_isbase = value; }
     inline void setQGeoSatelliteInfoSource_SetUpdateInterval_IsBase(bool value) const { qgeosatelliteinfosource_setupdateinterval_isbase = value; }
     inline void setQGeoSatelliteInfoSource_MinimumUpdateInterval_IsBase(bool value) const { qgeosatelliteinfosource_minimumupdateinterval_isbase = value; }
@@ -152,6 +164,34 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
     inline void setQGeoSatelliteInfoSource_SenderSignalIndex_IsBase(bool value) const { qgeosatelliteinfosource_sendersignalindex_isbase = value; }
     inline void setQGeoSatelliteInfoSource_Receivers_IsBase(bool value) const { qgeosatelliteinfosource_receivers_isbase = value; }
     inline void setQGeoSatelliteInfoSource_IsSignalConnected_IsBase(bool value) const { qgeosatelliteinfosource_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgeosatelliteinfosource_metaobject_isbase) {
+            qgeosatelliteinfosource_metaobject_isbase = false;
+            return QGeoSatelliteInfoSource::metaObject();
+        } else if (qgeosatelliteinfosource_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgeosatelliteinfosource_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGeoSatelliteInfoSource::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgeosatelliteinfosource_metacast_isbase) {
+            qgeosatelliteinfosource_metacast_isbase = false;
+            return QGeoSatelliteInfoSource::qt_metacast(param1);
+        } else if (qgeosatelliteinfosource_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgeosatelliteinfosource_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGeoSatelliteInfoSource::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -25,11 +25,21 @@ QsciLexerJavaScript* QsciLexerJavaScript_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerJavaScript_MetaObject(const QsciLexerJavaScript* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerjavascript = dynamic_cast<const VirtualQsciLexerJavaScript*>(self);
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerJavaScript*)self)->metaObject();
+    }
 }
 
 void* QsciLexerJavaScript_Metacast(QsciLexerJavaScript* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerJavaScript*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerJavaScript_Metacall(QsciLexerJavaScript* self, int param1, int param2, void** param3) {
@@ -75,6 +85,44 @@ libqt_string QsciLexerJavaScript_Description(const QsciLexerJavaScript* self, in
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerJavaScript_QBaseMetaObject(const QsciLexerJavaScript* self) {
+    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+        vqscilexerjavascript->setQsciLexerJavaScript_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerjavascript->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerJavaScript*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerJavaScript_OnMetaObject(const QsciLexerJavaScript* self, intptr_t slot) {
+    auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+        vqscilexerjavascript->setQsciLexerJavaScript_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerJavaScript_QBaseMetacast(QsciLexerJavaScript* self, const char* param1) {
+    auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+        vqscilexerjavascript->setQsciLexerJavaScript_Metacast_IsBase(true);
+        return vqscilexerjavascript->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerJavaScript*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerJavaScript_OnMetacast(QsciLexerJavaScript* self, intptr_t slot) {
+    auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+        vqscilexerjavascript->setQsciLexerJavaScript_Metacast_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

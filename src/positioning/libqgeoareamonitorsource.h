@@ -56,6 +56,10 @@ void QGeoAreaMonitorSource_MonitorExpired(QGeoAreaMonitorSource* self, const QGe
 void QGeoAreaMonitorSource_Connect_MonitorExpired(QGeoAreaMonitorSource* self, intptr_t slot);
 void QGeoAreaMonitorSource_ErrorOccurred(QGeoAreaMonitorSource* self, int errorVal);
 void QGeoAreaMonitorSource_Connect_ErrorOccurred(QGeoAreaMonitorSource* self, intptr_t slot);
+void QGeoAreaMonitorSource_OnMetaObject(const QGeoAreaMonitorSource* self, intptr_t slot);
+QMetaObject* QGeoAreaMonitorSource_QBaseMetaObject(const QGeoAreaMonitorSource* self);
+void QGeoAreaMonitorSource_OnMetacast(QGeoAreaMonitorSource* self, intptr_t slot);
+void* QGeoAreaMonitorSource_QBaseMetacast(QGeoAreaMonitorSource* self, const char* param1);
 void QGeoAreaMonitorSource_OnMetacall(QGeoAreaMonitorSource* self, intptr_t slot);
 int QGeoAreaMonitorSource_QBaseMetacall(QGeoAreaMonitorSource* self, int param1, int param2, void** param3);
 void QGeoAreaMonitorSource_OnSetPositionInfoSource(QGeoAreaMonitorSource* self, intptr_t slot);

@@ -25,11 +25,21 @@ QsciLexerMakefile* QsciLexerMakefile_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerMakefile_MetaObject(const QsciLexerMakefile* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexermakefile = dynamic_cast<const VirtualQsciLexerMakefile*>(self);
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerMakefile*)self)->metaObject();
+    }
 }
 
 void* QsciLexerMakefile_Metacast(QsciLexerMakefile* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerMakefile*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerMakefile_Metacall(QsciLexerMakefile* self, int param1, int param2, void** param3) {
@@ -79,6 +89,44 @@ libqt_string QsciLexerMakefile_Description(const QsciLexerMakefile* self, int st
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerMakefile_QBaseMetaObject(const QsciLexerMakefile* self) {
+    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+        vqscilexermakefile->setQsciLexerMakefile_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexermakefile->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerMakefile*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerMakefile_OnMetaObject(const QsciLexerMakefile* self, intptr_t slot) {
+    auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+        vqscilexermakefile->setQsciLexerMakefile_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerMakefile_QBaseMetacast(QsciLexerMakefile* self, const char* param1) {
+    auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+        vqscilexermakefile->setQsciLexerMakefile_Metacast_IsBase(true);
+        return vqscilexermakefile->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerMakefile*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerMakefile_OnMetacast(QsciLexerMakefile* self, intptr_t slot) {
+    auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+        vqscilexermakefile->setQsciLexerMakefile_Metacast_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

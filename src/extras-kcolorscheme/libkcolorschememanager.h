@@ -40,6 +40,10 @@ libqt_string KColorSchemeManager_ActiveSchemeId(const KColorSchemeManager* self)
 libqt_string KColorSchemeManager_ActiveSchemeName(const KColorSchemeManager* self);
 KColorSchemeManager* KColorSchemeManager_Instance();
 void KColorSchemeManager_ActivateScheme(KColorSchemeManager* self, const QModelIndex* index);
+void KColorSchemeManager_OnMetaObject(const KColorSchemeManager* self, intptr_t slot);
+QMetaObject* KColorSchemeManager_QBaseMetaObject(const KColorSchemeManager* self);
+void KColorSchemeManager_OnMetacast(KColorSchemeManager* self, intptr_t slot);
+void* KColorSchemeManager_QBaseMetacast(KColorSchemeManager* self, const char* param1);
 void KColorSchemeManager_OnMetacall(KColorSchemeManager* self, intptr_t slot);
 int KColorSchemeManager_QBaseMetacall(KColorSchemeManager* self, int param1, int param2, void** param3);
 bool KColorSchemeManager_Event(KColorSchemeManager* self, QEvent* event);

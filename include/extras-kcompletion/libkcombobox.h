@@ -108,6 +108,10 @@ void KComboBox_SetCompletedText2(KComboBox* self, const libqt_string text, bool 
 KCompletionBox* KComboBox_CompletionBox1(KComboBox* self, bool create);
 void KComboBox_SetCurrentItem2(KComboBox* self, const libqt_string item, bool insert);
 void KComboBox_SetCurrentItem3(KComboBox* self, const libqt_string item, bool insert, int index);
+void KComboBox_OnMetaObject(const KComboBox* self, intptr_t slot);
+QMetaObject* KComboBox_QBaseMetaObject(const KComboBox* self);
+void KComboBox_OnMetacast(KComboBox* self, intptr_t slot);
+void* KComboBox_QBaseMetacast(KComboBox* self, const char* param1);
 void KComboBox_OnMetacall(KComboBox* self, intptr_t slot);
 int KComboBox_QBaseMetacall(KComboBox* self, int param1, int param2, void** param3);
 void KComboBox_OnSetAutoCompletion(KComboBox* self, intptr_t slot);

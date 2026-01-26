@@ -25,11 +25,21 @@ KProcess* KProcess_new2(QObject* parent) {
 }
 
 QMetaObject* KProcess_MetaObject(const KProcess* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkprocess = dynamic_cast<const VirtualKProcess*>(self);
+    if (vkprocess && vkprocess->isVirtualKProcess) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKProcess*)self)->metaObject();
+    }
 }
 
 void* KProcess_Metacast(KProcess* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
+    if (vkprocess && vkprocess->isVirtualKProcess) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKProcess*)self)->qt_metacast(param1);
+    }
 }
 
 int KProcess_Metacall(KProcess* self, int param1, int param2, void** param3) {
@@ -245,6 +255,44 @@ int KProcess_StartDetached22(const libqt_string exe, const libqt_list /* of libq
         args_QList.push_back(args_arr_i_QString);
     }
     return KProcess::startDetached(exe_QString, args_QList);
+}
+
+// Base class handler implementation
+QMetaObject* KProcess_QBaseMetaObject(const KProcess* self) {
+    auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
+    if (vkprocess && vkprocess->isVirtualKProcess) {
+        vkprocess->setKProcess_MetaObject_IsBase(true);
+        return (QMetaObject*)vkprocess->metaObject();
+    } else {
+        return (QMetaObject*)self->KProcess::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KProcess_OnMetaObject(const KProcess* self, intptr_t slot) {
+    auto* vkprocess = const_cast<VirtualKProcess*>(dynamic_cast<const VirtualKProcess*>(self));
+    if (vkprocess && vkprocess->isVirtualKProcess) {
+        vkprocess->setKProcess_MetaObject_Callback(reinterpret_cast<VirtualKProcess::KProcess_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KProcess_QBaseMetacast(KProcess* self, const char* param1) {
+    auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
+    if (vkprocess && vkprocess->isVirtualKProcess) {
+        vkprocess->setKProcess_Metacast_IsBase(true);
+        return vkprocess->qt_metacast(param1);
+    } else {
+        return self->KProcess::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KProcess_OnMetacast(KProcess* self, intptr_t slot) {
+    auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
+    if (vkprocess && vkprocess->isVirtualKProcess) {
+        vkprocess->setKProcess_Metacast_Callback(reinterpret_cast<VirtualKProcess::KProcess_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

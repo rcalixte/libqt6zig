@@ -17,6 +17,8 @@ class VirtualQChartView final : public QChartView {
     bool isVirtualQChartView = true;
 
     // Virtual class public types (including callbacks)
+    using QChartView_MetaObject_Callback = QMetaObject* (*)();
+    using QChartView_Metacast_Callback = void* (*)(QChartView*, const char*);
     using QChartView_Metacall_Callback = int (*)(QChartView*, int, int, void**);
     using QChartView_ResizeEvent_Callback = void (*)(QChartView*, QResizeEvent*);
     using QChartView_MousePressEvent_Callback = void (*)(QChartView*, QMouseEvent*);
@@ -88,6 +90,8 @@ class VirtualQChartView final : public QChartView {
 
   protected:
     // Instance callback storage
+    QChartView_MetaObject_Callback qchartview_metaobject_callback = nullptr;
+    QChartView_Metacast_Callback qchartview_metacast_callback = nullptr;
     QChartView_Metacall_Callback qchartview_metacall_callback = nullptr;
     QChartView_ResizeEvent_Callback qchartview_resizeevent_callback = nullptr;
     QChartView_MousePressEvent_Callback qchartview_mousepressevent_callback = nullptr;
@@ -158,6 +162,8 @@ class VirtualQChartView final : public QChartView {
     QChartView_GetDecodedMetricF_Callback qchartview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qchartview_metaobject_isbase = false;
+    mutable bool qchartview_metacast_isbase = false;
     mutable bool qchartview_metacall_isbase = false;
     mutable bool qchartview_resizeevent_isbase = false;
     mutable bool qchartview_mousepressevent_isbase = false;
@@ -234,6 +240,8 @@ class VirtualQChartView final : public QChartView {
     VirtualQChartView(QChart* chart, QWidget* parent) : QChartView(chart, parent) {};
 
     ~VirtualQChartView() {
+        qchartview_metaobject_callback = nullptr;
+        qchartview_metacast_callback = nullptr;
         qchartview_metacall_callback = nullptr;
         qchartview_resizeevent_callback = nullptr;
         qchartview_mousepressevent_callback = nullptr;
@@ -305,6 +313,8 @@ class VirtualQChartView final : public QChartView {
     }
 
     // Callback setters
+    inline void setQChartView_MetaObject_Callback(QChartView_MetaObject_Callback cb) { qchartview_metaobject_callback = cb; }
+    inline void setQChartView_Metacast_Callback(QChartView_Metacast_Callback cb) { qchartview_metacast_callback = cb; }
     inline void setQChartView_Metacall_Callback(QChartView_Metacall_Callback cb) { qchartview_metacall_callback = cb; }
     inline void setQChartView_ResizeEvent_Callback(QChartView_ResizeEvent_Callback cb) { qchartview_resizeevent_callback = cb; }
     inline void setQChartView_MousePressEvent_Callback(QChartView_MousePressEvent_Callback cb) { qchartview_mousepressevent_callback = cb; }
@@ -375,6 +385,8 @@ class VirtualQChartView final : public QChartView {
     inline void setQChartView_GetDecodedMetricF_Callback(QChartView_GetDecodedMetricF_Callback cb) { qchartview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQChartView_MetaObject_IsBase(bool value) const { qchartview_metaobject_isbase = value; }
+    inline void setQChartView_Metacast_IsBase(bool value) const { qchartview_metacast_isbase = value; }
     inline void setQChartView_Metacall_IsBase(bool value) const { qchartview_metacall_isbase = value; }
     inline void setQChartView_ResizeEvent_IsBase(bool value) const { qchartview_resizeevent_isbase = value; }
     inline void setQChartView_MousePressEvent_IsBase(bool value) const { qchartview_mousepressevent_isbase = value; }
@@ -443,6 +455,34 @@ class VirtualQChartView final : public QChartView {
     inline void setQChartView_Receivers_IsBase(bool value) const { qchartview_receivers_isbase = value; }
     inline void setQChartView_IsSignalConnected_IsBase(bool value) const { qchartview_issignalconnected_isbase = value; }
     inline void setQChartView_GetDecodedMetricF_IsBase(bool value) const { qchartview_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qchartview_metaobject_isbase) {
+            qchartview_metaobject_isbase = false;
+            return QChartView::metaObject();
+        } else if (qchartview_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qchartview_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QChartView::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qchartview_metacast_isbase) {
+            qchartview_metacast_isbase = false;
+            return QChartView::qt_metacast(param1);
+        } else if (qchartview_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qchartview_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QChartView::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

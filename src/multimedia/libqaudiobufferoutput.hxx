@@ -17,6 +17,8 @@ class VirtualQAudioBufferOutput final : public QAudioBufferOutput {
     bool isVirtualQAudioBufferOutput = true;
 
     // Virtual class public types (including callbacks)
+    using QAudioBufferOutput_MetaObject_Callback = QMetaObject* (*)();
+    using QAudioBufferOutput_Metacast_Callback = void* (*)(QAudioBufferOutput*, const char*);
     using QAudioBufferOutput_Metacall_Callback = int (*)(QAudioBufferOutput*, int, int, void**);
     using QAudioBufferOutput_Event_Callback = bool (*)(QAudioBufferOutput*, QEvent*);
     using QAudioBufferOutput_EventFilter_Callback = bool (*)(QAudioBufferOutput*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQAudioBufferOutput final : public QAudioBufferOutput {
 
   protected:
     // Instance callback storage
+    QAudioBufferOutput_MetaObject_Callback qaudiobufferoutput_metaobject_callback = nullptr;
+    QAudioBufferOutput_Metacast_Callback qaudiobufferoutput_metacast_callback = nullptr;
     QAudioBufferOutput_Metacall_Callback qaudiobufferoutput_metacall_callback = nullptr;
     QAudioBufferOutput_Event_Callback qaudiobufferoutput_event_callback = nullptr;
     QAudioBufferOutput_EventFilter_Callback qaudiobufferoutput_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQAudioBufferOutput final : public QAudioBufferOutput {
     QAudioBufferOutput_IsSignalConnected_Callback qaudiobufferoutput_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qaudiobufferoutput_metaobject_isbase = false;
+    mutable bool qaudiobufferoutput_metacast_isbase = false;
     mutable bool qaudiobufferoutput_metacall_isbase = false;
     mutable bool qaudiobufferoutput_event_isbase = false;
     mutable bool qaudiobufferoutput_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQAudioBufferOutput final : public QAudioBufferOutput {
     VirtualQAudioBufferOutput(const QAudioFormat& format, QObject* parent) : QAudioBufferOutput(format, parent) {};
 
     ~VirtualQAudioBufferOutput() {
+        qaudiobufferoutput_metaobject_callback = nullptr;
+        qaudiobufferoutput_metacast_callback = nullptr;
         qaudiobufferoutput_metacall_callback = nullptr;
         qaudiobufferoutput_event_callback = nullptr;
         qaudiobufferoutput_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQAudioBufferOutput final : public QAudioBufferOutput {
     }
 
     // Callback setters
+    inline void setQAudioBufferOutput_MetaObject_Callback(QAudioBufferOutput_MetaObject_Callback cb) { qaudiobufferoutput_metaobject_callback = cb; }
+    inline void setQAudioBufferOutput_Metacast_Callback(QAudioBufferOutput_Metacast_Callback cb) { qaudiobufferoutput_metacast_callback = cb; }
     inline void setQAudioBufferOutput_Metacall_Callback(QAudioBufferOutput_Metacall_Callback cb) { qaudiobufferoutput_metacall_callback = cb; }
     inline void setQAudioBufferOutput_Event_Callback(QAudioBufferOutput_Event_Callback cb) { qaudiobufferoutput_event_callback = cb; }
     inline void setQAudioBufferOutput_EventFilter_Callback(QAudioBufferOutput_EventFilter_Callback cb) { qaudiobufferoutput_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQAudioBufferOutput final : public QAudioBufferOutput {
     inline void setQAudioBufferOutput_IsSignalConnected_Callback(QAudioBufferOutput_IsSignalConnected_Callback cb) { qaudiobufferoutput_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAudioBufferOutput_MetaObject_IsBase(bool value) const { qaudiobufferoutput_metaobject_isbase = value; }
+    inline void setQAudioBufferOutput_Metacast_IsBase(bool value) const { qaudiobufferoutput_metacast_isbase = value; }
     inline void setQAudioBufferOutput_Metacall_IsBase(bool value) const { qaudiobufferoutput_metacall_isbase = value; }
     inline void setQAudioBufferOutput_Event_IsBase(bool value) const { qaudiobufferoutput_event_isbase = value; }
     inline void setQAudioBufferOutput_EventFilter_IsBase(bool value) const { qaudiobufferoutput_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQAudioBufferOutput final : public QAudioBufferOutput {
     inline void setQAudioBufferOutput_SenderSignalIndex_IsBase(bool value) const { qaudiobufferoutput_sendersignalindex_isbase = value; }
     inline void setQAudioBufferOutput_Receivers_IsBase(bool value) const { qaudiobufferoutput_receivers_isbase = value; }
     inline void setQAudioBufferOutput_IsSignalConnected_IsBase(bool value) const { qaudiobufferoutput_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qaudiobufferoutput_metaobject_isbase) {
+            qaudiobufferoutput_metaobject_isbase = false;
+            return QAudioBufferOutput::metaObject();
+        } else if (qaudiobufferoutput_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qaudiobufferoutput_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAudioBufferOutput::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qaudiobufferoutput_metacast_isbase) {
+            qaudiobufferoutput_metacast_isbase = false;
+            return QAudioBufferOutput::qt_metacast(param1);
+        } else if (qaudiobufferoutput_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qaudiobufferoutput_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAudioBufferOutput::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

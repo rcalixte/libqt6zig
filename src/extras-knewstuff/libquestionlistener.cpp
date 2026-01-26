@@ -22,11 +22,21 @@ KNSCore__QuestionListener* KNSCore__QuestionListener_new2(QObject* parent) {
 }
 
 QMetaObject* KNSCore__QuestionListener_MetaObject(const KNSCore__QuestionListener* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknscore__questionlistener = dynamic_cast<const VirtualKNSCoreQuestionListener*>(self);
+    if (vknscore__questionlistener && vknscore__questionlistener->isVirtualKNSCoreQuestionListener) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNSCoreQuestionListener*)self)->metaObject();
+    }
 }
 
 void* KNSCore__QuestionListener_Metacast(KNSCore__QuestionListener* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknscore__questionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
+    if (vknscore__questionlistener && vknscore__questionlistener->isVirtualKNSCoreQuestionListener) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNSCoreQuestionListener*)self)->qt_metacast(param1);
+    }
 }
 
 int KNSCore__QuestionListener_Metacall(KNSCore__QuestionListener* self, int param1, int param2, void** param3) {
@@ -44,6 +54,44 @@ void KNSCore__QuestionListener_AskQuestion(KNSCore__QuestionListener* self, KNSC
         vknscore__questionlistener->askQuestion(question);
     } else {
         ((VirtualKNSCoreQuestionListener*)self)->askQuestion(question);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KNSCore__QuestionListener_QBaseMetaObject(const KNSCore__QuestionListener* self) {
+    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
+    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
+        vknscorequestionlistener->setKNSCore__QuestionListener_MetaObject_IsBase(true);
+        return (QMetaObject*)vknscorequestionlistener->metaObject();
+    } else {
+        return (QMetaObject*)self->KNSCore::QuestionListener::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__QuestionListener_OnMetaObject(const KNSCore__QuestionListener* self, intptr_t slot) {
+    auto* vknscorequestionlistener = const_cast<VirtualKNSCoreQuestionListener*>(dynamic_cast<const VirtualKNSCoreQuestionListener*>(self));
+    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
+        vknscorequestionlistener->setKNSCore__QuestionListener_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNSCore__QuestionListener_QBaseMetacast(KNSCore__QuestionListener* self, const char* param1) {
+    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
+    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
+        vknscorequestionlistener->setKNSCore__QuestionListener_Metacast_IsBase(true);
+        return vknscorequestionlistener->qt_metacast(param1);
+    } else {
+        return self->KNSCore::QuestionListener::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNSCore__QuestionListener_OnMetacast(KNSCore__QuestionListener* self, intptr_t slot) {
+    auto* vknscorequestionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
+    if (vknscorequestionlistener && vknscorequestionlistener->isVirtualKNSCoreQuestionListener) {
+        vknscorequestionlistener->setKNSCore__QuestionListener_Metacast_Callback(reinterpret_cast<VirtualKNSCoreQuestionListener::KNSCore__QuestionListener_Metacast_Callback>(slot));
     }
 }
 

@@ -27,11 +27,21 @@ QCoreApplication* QCoreApplication_new2(int* argc, char** argv, int param3) {
 }
 
 QMetaObject* QCoreApplication_MetaObject(const QCoreApplication* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcoreapplication = dynamic_cast<const VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCoreApplication*)self)->metaObject();
+    }
 }
 
 void* QCoreApplication_Metacast(QCoreApplication* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCoreApplication*)self)->qt_metacast(param1);
+    }
 }
 
 int QCoreApplication_Metacall(QCoreApplication* self, int param1, int param2, void** param3) {
@@ -445,6 +455,44 @@ libqt_string QCoreApplication_Translate4(const char* context, const char* key, c
 
 void QCoreApplication_Exit1(int retcode) {
     QCoreApplication::exit(static_cast<int>(retcode));
+}
+
+// Base class handler implementation
+QMetaObject* QCoreApplication_QBaseMetaObject(const QCoreApplication* self) {
+    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        vqcoreapplication->setQCoreApplication_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcoreapplication->metaObject();
+    } else {
+        return (QMetaObject*)self->QCoreApplication::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCoreApplication_OnMetaObject(const QCoreApplication* self, intptr_t slot) {
+    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        vqcoreapplication->setQCoreApplication_MetaObject_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCoreApplication_QBaseMetacast(QCoreApplication* self, const char* param1) {
+    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        vqcoreapplication->setQCoreApplication_Metacast_IsBase(true);
+        return vqcoreapplication->qt_metacast(param1);
+    } else {
+        return self->QCoreApplication::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCoreApplication_OnMetacast(QCoreApplication* self, intptr_t slot) {
+    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
+    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+        vqcoreapplication->setQCoreApplication_Metacast_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

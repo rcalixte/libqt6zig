@@ -18,11 +18,21 @@ KParts__FileInfoExtension* KParts__FileInfoExtension_new(KParts__ReadOnlyPart* p
 }
 
 QMetaObject* KParts__FileInfoExtension_MetaObject(const KParts__FileInfoExtension* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkparts__fileinfoextension = dynamic_cast<const VirtualKPartsFileInfoExtension*>(self);
+    if (vkparts__fileinfoextension && vkparts__fileinfoextension->isVirtualKPartsFileInfoExtension) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPartsFileInfoExtension*)self)->metaObject();
+    }
 }
 
 void* KParts__FileInfoExtension_Metacast(KParts__FileInfoExtension* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkparts__fileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
+    if (vkparts__fileinfoextension && vkparts__fileinfoextension->isVirtualKPartsFileInfoExtension) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPartsFileInfoExtension*)self)->qt_metacast(param1);
+    }
 }
 
 int KParts__FileInfoExtension_Metacall(KParts__FileInfoExtension* self, int param1, int param2, void** param3) {
@@ -62,6 +72,44 @@ KFileItemList* KParts__FileInfoExtension_QueryFor(const KParts__FileInfoExtensio
         return new KFileItemList(vkparts__fileinfoextension->queryFor(static_cast<KParts::FileInfoExtension::QueryMode>(mode)));
     } else {
         return new KFileItemList(((VirtualKPartsFileInfoExtension*)self)->queryFor(static_cast<KParts::FileInfoExtension::QueryMode>(mode)));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KParts__FileInfoExtension_QBaseMetaObject(const KParts__FileInfoExtension* self) {
+    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
+    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
+        vkpartsfileinfoextension->setKParts__FileInfoExtension_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpartsfileinfoextension->metaObject();
+    } else {
+        return (QMetaObject*)self->KParts::FileInfoExtension::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__FileInfoExtension_OnMetaObject(const KParts__FileInfoExtension* self, intptr_t slot) {
+    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
+    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
+        vkpartsfileinfoextension->setKParts__FileInfoExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KParts__FileInfoExtension_QBaseMetacast(KParts__FileInfoExtension* self, const char* param1) {
+    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
+    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
+        vkpartsfileinfoextension->setKParts__FileInfoExtension_Metacast_IsBase(true);
+        return vkpartsfileinfoextension->qt_metacast(param1);
+    } else {
+        return self->KParts::FileInfoExtension::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__FileInfoExtension_OnMetacast(KParts__FileInfoExtension* self, intptr_t slot) {
+    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
+    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
+        vkpartsfileinfoextension->setKParts__FileInfoExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_Metacast_Callback>(slot));
     }
 }
 

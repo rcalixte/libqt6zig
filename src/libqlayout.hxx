@@ -17,6 +17,8 @@ class VirtualQLayout : public QLayout {
     bool isVirtualQLayout = true;
 
     // Virtual class public types (including callbacks)
+    using QLayout_MetaObject_Callback = QMetaObject* (*)();
+    using QLayout_Metacast_Callback = void* (*)(QLayout*, const char*);
     using QLayout_Metacall_Callback = int (*)(QLayout*, int, int, void**);
     using QLayout_Spacing_Callback = int (*)();
     using QLayout_SetSpacing_Callback = void (*)(QLayout*, int);
@@ -61,6 +63,8 @@ class VirtualQLayout : public QLayout {
 
   protected:
     // Instance callback storage
+    QLayout_MetaObject_Callback qlayout_metaobject_callback = nullptr;
+    QLayout_Metacast_Callback qlayout_metacast_callback = nullptr;
     QLayout_Metacall_Callback qlayout_metacall_callback = nullptr;
     QLayout_Spacing_Callback qlayout_spacing_callback = nullptr;
     QLayout_SetSpacing_Callback qlayout_setspacing_callback = nullptr;
@@ -104,6 +108,8 @@ class VirtualQLayout : public QLayout {
     QLayout_IsSignalConnected_Callback qlayout_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlayout_metaobject_isbase = false;
+    mutable bool qlayout_metacast_isbase = false;
     mutable bool qlayout_metacall_isbase = false;
     mutable bool qlayout_spacing_isbase = false;
     mutable bool qlayout_setspacing_isbase = false;
@@ -151,6 +157,8 @@ class VirtualQLayout : public QLayout {
     VirtualQLayout() : QLayout() {};
 
     ~VirtualQLayout() {
+        qlayout_metaobject_callback = nullptr;
+        qlayout_metacast_callback = nullptr;
         qlayout_metacall_callback = nullptr;
         qlayout_spacing_callback = nullptr;
         qlayout_setspacing_callback = nullptr;
@@ -195,6 +203,8 @@ class VirtualQLayout : public QLayout {
     }
 
     // Callback setters
+    inline void setQLayout_MetaObject_Callback(QLayout_MetaObject_Callback cb) { qlayout_metaobject_callback = cb; }
+    inline void setQLayout_Metacast_Callback(QLayout_Metacast_Callback cb) { qlayout_metacast_callback = cb; }
     inline void setQLayout_Metacall_Callback(QLayout_Metacall_Callback cb) { qlayout_metacall_callback = cb; }
     inline void setQLayout_Spacing_Callback(QLayout_Spacing_Callback cb) { qlayout_spacing_callback = cb; }
     inline void setQLayout_SetSpacing_Callback(QLayout_SetSpacing_Callback cb) { qlayout_setspacing_callback = cb; }
@@ -238,6 +248,8 @@ class VirtualQLayout : public QLayout {
     inline void setQLayout_IsSignalConnected_Callback(QLayout_IsSignalConnected_Callback cb) { qlayout_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQLayout_MetaObject_IsBase(bool value) const { qlayout_metaobject_isbase = value; }
+    inline void setQLayout_Metacast_IsBase(bool value) const { qlayout_metacast_isbase = value; }
     inline void setQLayout_Metacall_IsBase(bool value) const { qlayout_metacall_isbase = value; }
     inline void setQLayout_Spacing_IsBase(bool value) const { qlayout_spacing_isbase = value; }
     inline void setQLayout_SetSpacing_IsBase(bool value) const { qlayout_setspacing_isbase = value; }
@@ -279,6 +291,34 @@ class VirtualQLayout : public QLayout {
     inline void setQLayout_SenderSignalIndex_IsBase(bool value) const { qlayout_sendersignalindex_isbase = value; }
     inline void setQLayout_Receivers_IsBase(bool value) const { qlayout_receivers_isbase = value; }
     inline void setQLayout_IsSignalConnected_IsBase(bool value) const { qlayout_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlayout_metaobject_isbase) {
+            qlayout_metaobject_isbase = false;
+            return QLayout::metaObject();
+        } else if (qlayout_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlayout_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QLayout::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlayout_metacast_isbase) {
+            qlayout_metacast_isbase = false;
+            return QLayout::qt_metacast(param1);
+        } else if (qlayout_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlayout_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QLayout::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

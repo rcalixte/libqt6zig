@@ -17,6 +17,8 @@ class VirtualKDatePicker final : public KDatePicker {
     bool isVirtualKDatePicker = true;
 
     // Virtual class public types (including callbacks)
+    using KDatePicker_MetaObject_Callback = QMetaObject* (*)();
+    using KDatePicker_Metacast_Callback = void* (*)(KDatePicker*, const char*);
     using KDatePicker_Metacall_Callback = int (*)(KDatePicker*, int, int, void**);
     using KDatePicker_SizeHint_Callback = QSize* (*)();
     using KDatePicker_EventFilter_Callback = bool (*)(KDatePicker*, QObject*, QEvent*);
@@ -92,6 +94,8 @@ class VirtualKDatePicker final : public KDatePicker {
 
   protected:
     // Instance callback storage
+    KDatePicker_MetaObject_Callback kdatepicker_metaobject_callback = nullptr;
+    KDatePicker_Metacast_Callback kdatepicker_metacast_callback = nullptr;
     KDatePicker_Metacall_Callback kdatepicker_metacall_callback = nullptr;
     KDatePicker_SizeHint_Callback kdatepicker_sizehint_callback = nullptr;
     KDatePicker_EventFilter_Callback kdatepicker_eventfilter_callback = nullptr;
@@ -166,6 +170,8 @@ class VirtualKDatePicker final : public KDatePicker {
     KDatePicker_GetDecodedMetricF_Callback kdatepicker_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdatepicker_metaobject_isbase = false;
+    mutable bool kdatepicker_metacast_isbase = false;
     mutable bool kdatepicker_metacall_isbase = false;
     mutable bool kdatepicker_sizehint_isbase = false;
     mutable bool kdatepicker_eventfilter_isbase = false;
@@ -246,6 +252,8 @@ class VirtualKDatePicker final : public KDatePicker {
     VirtualKDatePicker(const QDate& dt, QWidget* parent) : KDatePicker(dt, parent) {};
 
     ~VirtualKDatePicker() {
+        kdatepicker_metaobject_callback = nullptr;
+        kdatepicker_metacast_callback = nullptr;
         kdatepicker_metacall_callback = nullptr;
         kdatepicker_sizehint_callback = nullptr;
         kdatepicker_eventfilter_callback = nullptr;
@@ -321,6 +329,8 @@ class VirtualKDatePicker final : public KDatePicker {
     }
 
     // Callback setters
+    inline void setKDatePicker_MetaObject_Callback(KDatePicker_MetaObject_Callback cb) { kdatepicker_metaobject_callback = cb; }
+    inline void setKDatePicker_Metacast_Callback(KDatePicker_Metacast_Callback cb) { kdatepicker_metacast_callback = cb; }
     inline void setKDatePicker_Metacall_Callback(KDatePicker_Metacall_Callback cb) { kdatepicker_metacall_callback = cb; }
     inline void setKDatePicker_SizeHint_Callback(KDatePicker_SizeHint_Callback cb) { kdatepicker_sizehint_callback = cb; }
     inline void setKDatePicker_EventFilter_Callback(KDatePicker_EventFilter_Callback cb) { kdatepicker_eventfilter_callback = cb; }
@@ -395,6 +405,8 @@ class VirtualKDatePicker final : public KDatePicker {
     inline void setKDatePicker_GetDecodedMetricF_Callback(KDatePicker_GetDecodedMetricF_Callback cb) { kdatepicker_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKDatePicker_MetaObject_IsBase(bool value) const { kdatepicker_metaobject_isbase = value; }
+    inline void setKDatePicker_Metacast_IsBase(bool value) const { kdatepicker_metacast_isbase = value; }
     inline void setKDatePicker_Metacall_IsBase(bool value) const { kdatepicker_metacall_isbase = value; }
     inline void setKDatePicker_SizeHint_IsBase(bool value) const { kdatepicker_sizehint_isbase = value; }
     inline void setKDatePicker_EventFilter_IsBase(bool value) const { kdatepicker_eventfilter_isbase = value; }
@@ -467,6 +479,34 @@ class VirtualKDatePicker final : public KDatePicker {
     inline void setKDatePicker_Receivers_IsBase(bool value) const { kdatepicker_receivers_isbase = value; }
     inline void setKDatePicker_IsSignalConnected_IsBase(bool value) const { kdatepicker_issignalconnected_isbase = value; }
     inline void setKDatePicker_GetDecodedMetricF_IsBase(bool value) const { kdatepicker_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdatepicker_metaobject_isbase) {
+            kdatepicker_metaobject_isbase = false;
+            return KDatePicker::metaObject();
+        } else if (kdatepicker_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdatepicker_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDatePicker::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdatepicker_metacast_isbase) {
+            kdatepicker_metacast_isbase = false;
+            return KDatePicker::qt_metacast(param1);
+        } else if (kdatepicker_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdatepicker_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDatePicker::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

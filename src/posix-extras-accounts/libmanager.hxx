@@ -17,6 +17,8 @@ class VirtualAccountsManager final : public Accounts::Manager {
     bool isVirtualAccountsManager = true;
 
     // Virtual class public types (including callbacks)
+    using Accounts__Manager_MetaObject_Callback = QMetaObject* (*)();
+    using Accounts__Manager_Metacast_Callback = void* (*)(Accounts__Manager*, const char*);
     using Accounts__Manager_Metacall_Callback = int (*)(Accounts__Manager*, int, int, void**);
     using Accounts__Manager_Event_Callback = bool (*)(Accounts__Manager*, QEvent*);
     using Accounts__Manager_EventFilter_Callback = bool (*)(Accounts__Manager*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualAccountsManager final : public Accounts::Manager {
 
   protected:
     // Instance callback storage
+    Accounts__Manager_MetaObject_Callback accounts__manager_metaobject_callback = nullptr;
+    Accounts__Manager_Metacast_Callback accounts__manager_metacast_callback = nullptr;
     Accounts__Manager_Metacall_Callback accounts__manager_metacall_callback = nullptr;
     Accounts__Manager_Event_Callback accounts__manager_event_callback = nullptr;
     Accounts__Manager_EventFilter_Callback accounts__manager_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualAccountsManager final : public Accounts::Manager {
     Accounts__Manager_IsSignalConnected_Callback accounts__manager_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool accounts__manager_metaobject_isbase = false;
+    mutable bool accounts__manager_metacast_isbase = false;
     mutable bool accounts__manager_metacall_isbase = false;
     mutable bool accounts__manager_event_isbase = false;
     mutable bool accounts__manager_eventfilter_isbase = false;
@@ -68,6 +74,8 @@ class VirtualAccountsManager final : public Accounts::Manager {
     VirtualAccountsManager(Accounts::Manager::Options options, QObject* parent) : Accounts::Manager(options, parent) {};
 
     ~VirtualAccountsManager() {
+        accounts__manager_metaobject_callback = nullptr;
+        accounts__manager_metacast_callback = nullptr;
         accounts__manager_metacall_callback = nullptr;
         accounts__manager_event_callback = nullptr;
         accounts__manager_eventfilter_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualAccountsManager final : public Accounts::Manager {
     }
 
     // Callback setters
+    inline void setAccounts__Manager_MetaObject_Callback(Accounts__Manager_MetaObject_Callback cb) { accounts__manager_metaobject_callback = cb; }
+    inline void setAccounts__Manager_Metacast_Callback(Accounts__Manager_Metacast_Callback cb) { accounts__manager_metacast_callback = cb; }
     inline void setAccounts__Manager_Metacall_Callback(Accounts__Manager_Metacall_Callback cb) { accounts__manager_metacall_callback = cb; }
     inline void setAccounts__Manager_Event_Callback(Accounts__Manager_Event_Callback cb) { accounts__manager_event_callback = cb; }
     inline void setAccounts__Manager_EventFilter_Callback(Accounts__Manager_EventFilter_Callback cb) { accounts__manager_eventfilter_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualAccountsManager final : public Accounts::Manager {
     inline void setAccounts__Manager_IsSignalConnected_Callback(Accounts__Manager_IsSignalConnected_Callback cb) { accounts__manager_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setAccounts__Manager_MetaObject_IsBase(bool value) const { accounts__manager_metaobject_isbase = value; }
+    inline void setAccounts__Manager_Metacast_IsBase(bool value) const { accounts__manager_metacast_isbase = value; }
     inline void setAccounts__Manager_Metacall_IsBase(bool value) const { accounts__manager_metacall_isbase = value; }
     inline void setAccounts__Manager_Event_IsBase(bool value) const { accounts__manager_event_isbase = value; }
     inline void setAccounts__Manager_EventFilter_IsBase(bool value) const { accounts__manager_eventfilter_isbase = value; }
@@ -109,6 +121,34 @@ class VirtualAccountsManager final : public Accounts::Manager {
     inline void setAccounts__Manager_SenderSignalIndex_IsBase(bool value) const { accounts__manager_sendersignalindex_isbase = value; }
     inline void setAccounts__Manager_Receivers_IsBase(bool value) const { accounts__manager_receivers_isbase = value; }
     inline void setAccounts__Manager_IsSignalConnected_IsBase(bool value) const { accounts__manager_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (accounts__manager_metaobject_isbase) {
+            accounts__manager_metaobject_isbase = false;
+            return Accounts__Manager::metaObject();
+        } else if (accounts__manager_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = accounts__manager_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Accounts__Manager::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (accounts__manager_metacast_isbase) {
+            accounts__manager_metacast_isbase = false;
+            return Accounts__Manager::qt_metacast(param1);
+        } else if (accounts__manager_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = accounts__manager_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Accounts__Manager::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

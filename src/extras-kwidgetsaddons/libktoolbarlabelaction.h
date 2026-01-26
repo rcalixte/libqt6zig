@@ -39,6 +39,10 @@ void KToolBarLabelAction_TextChanged(KToolBarLabelAction* self, const libqt_stri
 void KToolBarLabelAction_Connect_TextChanged(KToolBarLabelAction* self, intptr_t slot);
 bool KToolBarLabelAction_Event(KToolBarLabelAction* self, QEvent* param1);
 bool KToolBarLabelAction_EventFilter(KToolBarLabelAction* self, QObject* watched, QEvent* event);
+void KToolBarLabelAction_OnMetaObject(const KToolBarLabelAction* self, intptr_t slot);
+QMetaObject* KToolBarLabelAction_QBaseMetaObject(const KToolBarLabelAction* self);
+void KToolBarLabelAction_OnMetacast(KToolBarLabelAction* self, intptr_t slot);
+void* KToolBarLabelAction_QBaseMetacast(KToolBarLabelAction* self, const char* param1);
 void KToolBarLabelAction_OnMetacall(KToolBarLabelAction* self, intptr_t slot);
 int KToolBarLabelAction_QBaseMetacall(KToolBarLabelAction* self, int param1, int param2, void** param3);
 void KToolBarLabelAction_OnCreateWidget(KToolBarLabelAction* self, intptr_t slot);

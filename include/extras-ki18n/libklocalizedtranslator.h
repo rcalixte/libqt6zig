@@ -34,6 +34,10 @@ libqt_string KLocalizedTranslator_Translate(const KLocalizedTranslator* self, co
 void KLocalizedTranslator_SetTranslationDomain(KLocalizedTranslator* self, const libqt_string translationDomain);
 void KLocalizedTranslator_AddContextToMonitor(KLocalizedTranslator* self, const libqt_string context);
 void KLocalizedTranslator_RemoveContextToMonitor(KLocalizedTranslator* self, const libqt_string context);
+void KLocalizedTranslator_OnMetaObject(const KLocalizedTranslator* self, intptr_t slot);
+QMetaObject* KLocalizedTranslator_QBaseMetaObject(const KLocalizedTranslator* self);
+void KLocalizedTranslator_OnMetacast(KLocalizedTranslator* self, intptr_t slot);
+void* KLocalizedTranslator_QBaseMetacast(KLocalizedTranslator* self, const char* param1);
 void KLocalizedTranslator_OnMetacall(KLocalizedTranslator* self, intptr_t slot);
 int KLocalizedTranslator_QBaseMetacall(KLocalizedTranslator* self, int param1, int param2, void** param3);
 void KLocalizedTranslator_OnTranslate(const KLocalizedTranslator* self, intptr_t slot);

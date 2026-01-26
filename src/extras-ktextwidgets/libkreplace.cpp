@@ -34,11 +34,21 @@ KReplace* KReplace_new3(const libqt_string pattern, const libqt_string replaceme
 }
 
 QMetaObject* KReplace_MetaObject(const KReplace* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkreplace = dynamic_cast<const VirtualKReplace*>(self);
+    if (vkreplace && vkreplace->isVirtualKReplace) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKReplace*)self)->metaObject();
+    }
 }
 
 void* KReplace_Metacast(KReplace* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
+    if (vkreplace && vkreplace->isVirtualKReplace) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKReplace*)self)->qt_metacast(param1);
+    }
 }
 
 int KReplace_Metacall(KReplace* self, int param1, int param2, void** param3) {
@@ -125,6 +135,44 @@ void KReplace_Connect_TextReplaced(KReplace* self, intptr_t slot) {
 
 QDialog* KReplace_ReplaceNextDialog1(KReplace* self, bool create) {
     return self->replaceNextDialog(create);
+}
+
+// Base class handler implementation
+QMetaObject* KReplace_QBaseMetaObject(const KReplace* self) {
+    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
+    if (vkreplace && vkreplace->isVirtualKReplace) {
+        vkreplace->setKReplace_MetaObject_IsBase(true);
+        return (QMetaObject*)vkreplace->metaObject();
+    } else {
+        return (QMetaObject*)self->KReplace::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KReplace_OnMetaObject(const KReplace* self, intptr_t slot) {
+    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
+    if (vkreplace && vkreplace->isVirtualKReplace) {
+        vkreplace->setKReplace_MetaObject_Callback(reinterpret_cast<VirtualKReplace::KReplace_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KReplace_QBaseMetacast(KReplace* self, const char* param1) {
+    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
+    if (vkreplace && vkreplace->isVirtualKReplace) {
+        vkreplace->setKReplace_Metacast_IsBase(true);
+        return vkreplace->qt_metacast(param1);
+    } else {
+        return self->KReplace::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KReplace_OnMetacast(KReplace* self, intptr_t slot) {
+    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
+    if (vkreplace && vkreplace->isVirtualKReplace) {
+        vkreplace->setKReplace_Metacast_Callback(reinterpret_cast<VirtualKReplace::KReplace_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

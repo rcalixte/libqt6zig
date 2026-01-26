@@ -36,11 +36,21 @@ QNetworkAccessManager* QNetworkAccessManager_new2(QObject* parent) {
 }
 
 QMetaObject* QNetworkAccessManager_MetaObject(const QNetworkAccessManager* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqnetworkaccessmanager = dynamic_cast<const VirtualQNetworkAccessManager*>(self);
+    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQNetworkAccessManager*)self)->metaObject();
+    }
 }
 
 void* QNetworkAccessManager_Metacast(QNetworkAccessManager* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
+    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQNetworkAccessManager*)self)->qt_metacast(param1);
+    }
 }
 
 int QNetworkAccessManager_Metacall(QNetworkAccessManager* self, int param1, int param2, void** param3) {
@@ -414,6 +424,44 @@ void QNetworkAccessManager_ConnectToHost2(QNetworkAccessManager* self, const lib
 
 void QNetworkAccessManager_SetTransferTimeout1(QNetworkAccessManager* self, int64_t duration) {
     self->setTransferTimeout(static_cast<std::chrono::milliseconds>(duration));
+}
+
+// Base class handler implementation
+QMetaObject* QNetworkAccessManager_QBaseMetaObject(const QNetworkAccessManager* self) {
+    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
+    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+        vqnetworkaccessmanager->setQNetworkAccessManager_MetaObject_IsBase(true);
+        return (QMetaObject*)vqnetworkaccessmanager->metaObject();
+    } else {
+        return (QMetaObject*)self->QNetworkAccessManager::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QNetworkAccessManager_OnMetaObject(const QNetworkAccessManager* self, intptr_t slot) {
+    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
+    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+        vqnetworkaccessmanager->setQNetworkAccessManager_MetaObject_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QNetworkAccessManager_QBaseMetacast(QNetworkAccessManager* self, const char* param1) {
+    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
+    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+        vqnetworkaccessmanager->setQNetworkAccessManager_Metacast_IsBase(true);
+        return vqnetworkaccessmanager->qt_metacast(param1);
+    } else {
+        return self->QNetworkAccessManager::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QNetworkAccessManager_OnMetacast(QNetworkAccessManager* self, intptr_t slot) {
+    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
+    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+        vqnetworkaccessmanager->setQNetworkAccessManager_Metacast_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

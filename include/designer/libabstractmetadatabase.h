@@ -60,6 +60,10 @@ libqt_list /* of QObject* */ QDesignerMetaDataBaseInterface_Objects(const QDesig
 QDesignerFormEditorInterface* QDesignerMetaDataBaseInterface_Core(const QDesignerMetaDataBaseInterface* self);
 void QDesignerMetaDataBaseInterface_Changed(QDesignerMetaDataBaseInterface* self);
 void QDesignerMetaDataBaseInterface_Connect_Changed(QDesignerMetaDataBaseInterface* self, intptr_t slot);
+void QDesignerMetaDataBaseInterface_OnMetaObject(const QDesignerMetaDataBaseInterface* self, intptr_t slot);
+QMetaObject* QDesignerMetaDataBaseInterface_QBaseMetaObject(const QDesignerMetaDataBaseInterface* self);
+void QDesignerMetaDataBaseInterface_OnMetacast(QDesignerMetaDataBaseInterface* self, intptr_t slot);
+void* QDesignerMetaDataBaseInterface_QBaseMetacast(QDesignerMetaDataBaseInterface* self, const char* param1);
 void QDesignerMetaDataBaseInterface_OnMetacall(QDesignerMetaDataBaseInterface* self, intptr_t slot);
 int QDesignerMetaDataBaseInterface_QBaseMetacall(QDesignerMetaDataBaseInterface* self, int param1, int param2, void** param3);
 void QDesignerMetaDataBaseInterface_OnItem(const QDesignerMetaDataBaseInterface* self, intptr_t slot);

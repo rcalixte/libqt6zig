@@ -24,11 +24,21 @@ KNewFileMenu* KNewFileMenu_new(QObject* parent) {
 }
 
 QMetaObject* KNewFileMenu_MetaObject(const KNewFileMenu* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknewfilemenu = dynamic_cast<const VirtualKNewFileMenu*>(self);
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNewFileMenu*)self)->metaObject();
+    }
 }
 
 void* KNewFileMenu_Metacast(KNewFileMenu* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNewFileMenu*)self)->qt_metacast(param1);
+    }
 }
 
 int KNewFileMenu_Metacall(KNewFileMenu* self, int param1, int param2, void** param3) {
@@ -231,6 +241,44 @@ void KNewFileMenu_SlotResult(KNewFileMenu* self, KJob* job) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
     if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
         vknewfilemenu->slotResult(job);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KNewFileMenu_QBaseMetaObject(const KNewFileMenu* self) {
+    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+        vknewfilemenu->setKNewFileMenu_MetaObject_IsBase(true);
+        return (QMetaObject*)vknewfilemenu->metaObject();
+    } else {
+        return (QMetaObject*)self->KNewFileMenu::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNewFileMenu_OnMetaObject(const KNewFileMenu* self, intptr_t slot) {
+    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+        vknewfilemenu->setKNewFileMenu_MetaObject_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNewFileMenu_QBaseMetacast(KNewFileMenu* self, const char* param1) {
+    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+        vknewfilemenu->setKNewFileMenu_Metacast_IsBase(true);
+        return vknewfilemenu->qt_metacast(param1);
+    } else {
+        return self->KNewFileMenu::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNewFileMenu_OnMetacast(KNewFileMenu* self, intptr_t slot) {
+    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
+    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+        vknewfilemenu->setKNewFileMenu_Metacast_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Metacast_Callback>(slot));
     }
 }
 

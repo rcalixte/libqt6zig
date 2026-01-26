@@ -69,11 +69,21 @@ QDockWidget* QDockWidget_new6(QWidget* parent, int flags) {
 }
 
 QMetaObject* QDockWidget_MetaObject(const QDockWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdockwidget = dynamic_cast<const VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDockWidget*)self)->metaObject();
+    }
 }
 
 void* QDockWidget_Metacast(QDockWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDockWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QDockWidget_Metacall(QDockWidget* self, int param1, int param2, void** param3) {
@@ -226,6 +236,44 @@ void QDockWidget_InitStyleOption(const QDockWidget* self, QStyleOptionDockWidget
     auto* vqdockwidget = dynamic_cast<const VirtualQDockWidget*>(self);
     if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
         vqdockwidget->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDockWidget_QBaseMetaObject(const QDockWidget* self) {
+    auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdockwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QDockWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDockWidget_OnMetaObject(const QDockWidget* self, intptr_t slot) {
+    auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_MetaObject_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDockWidget_QBaseMetacast(QDockWidget* self, const char* param1) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_Metacast_IsBase(true);
+        return vqdockwidget->qt_metacast(param1);
+    } else {
+        return self->QDockWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDockWidget_OnMetacast(QDockWidget* self, intptr_t slot) {
+    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_Metacast_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_Metacast_Callback>(slot));
     }
 }
 

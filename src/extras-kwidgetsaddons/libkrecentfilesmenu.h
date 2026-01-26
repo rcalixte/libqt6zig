@@ -74,6 +74,10 @@ void KRecentFilesMenu_Connect_UrlTriggered(KRecentFilesMenu* self, intptr_t slot
 void KRecentFilesMenu_RecentFilesChanged(KRecentFilesMenu* self);
 void KRecentFilesMenu_Connect_RecentFilesChanged(KRecentFilesMenu* self, intptr_t slot);
 void KRecentFilesMenu_AddUrl2(KRecentFilesMenu* self, const QUrl* url, const libqt_string name);
+void KRecentFilesMenu_OnMetaObject(const KRecentFilesMenu* self, intptr_t slot);
+QMetaObject* KRecentFilesMenu_QBaseMetaObject(const KRecentFilesMenu* self);
+void KRecentFilesMenu_OnMetacast(KRecentFilesMenu* self, intptr_t slot);
+void* KRecentFilesMenu_QBaseMetacast(KRecentFilesMenu* self, const char* param1);
 void KRecentFilesMenu_OnMetacall(KRecentFilesMenu* self, intptr_t slot);
 int KRecentFilesMenu_QBaseMetacall(KRecentFilesMenu* self, int param1, int param2, void** param3);
 QSize* KRecentFilesMenu_SizeHint(const KRecentFilesMenu* self);

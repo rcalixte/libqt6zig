@@ -18,6 +18,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
     // Virtual class public types (including callbacks)
     using QGraphicsItem::Extension;
+    using QGraphicsVideoItem_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsVideoItem_Metacast_Callback = void* (*)(QGraphicsVideoItem*, const char*);
     using QGraphicsVideoItem_Metacall_Callback = int (*)(QGraphicsVideoItem*, int, int, void**);
     using QGraphicsVideoItem_BoundingRect_Callback = QRectF* (*)();
     using QGraphicsVideoItem_Paint_Callback = void (*)(QGraphicsVideoItem*, QPainter*, QStyleOptionGraphicsItem*, QWidget*);
@@ -72,6 +74,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 
   protected:
     // Instance callback storage
+    QGraphicsVideoItem_MetaObject_Callback qgraphicsvideoitem_metaobject_callback = nullptr;
+    QGraphicsVideoItem_Metacast_Callback qgraphicsvideoitem_metacast_callback = nullptr;
     QGraphicsVideoItem_Metacall_Callback qgraphicsvideoitem_metacall_callback = nullptr;
     QGraphicsVideoItem_BoundingRect_Callback qgraphicsvideoitem_boundingrect_callback = nullptr;
     QGraphicsVideoItem_Paint_Callback qgraphicsvideoitem_paint_callback = nullptr;
@@ -125,6 +129,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
     QGraphicsVideoItem_PrepareGeometryChange_Callback qgraphicsvideoitem_preparegeometrychange_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsvideoitem_metaobject_isbase = false;
+    mutable bool qgraphicsvideoitem_metacast_isbase = false;
     mutable bool qgraphicsvideoitem_metacall_isbase = false;
     mutable bool qgraphicsvideoitem_boundingrect_isbase = false;
     mutable bool qgraphicsvideoitem_paint_isbase = false;
@@ -182,6 +188,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
     VirtualQGraphicsVideoItem(QGraphicsItem* parent) : QGraphicsVideoItem(parent) {};
 
     ~VirtualQGraphicsVideoItem() {
+        qgraphicsvideoitem_metaobject_callback = nullptr;
+        qgraphicsvideoitem_metacast_callback = nullptr;
         qgraphicsvideoitem_metacall_callback = nullptr;
         qgraphicsvideoitem_boundingrect_callback = nullptr;
         qgraphicsvideoitem_paint_callback = nullptr;
@@ -236,6 +244,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
     }
 
     // Callback setters
+    inline void setQGraphicsVideoItem_MetaObject_Callback(QGraphicsVideoItem_MetaObject_Callback cb) { qgraphicsvideoitem_metaobject_callback = cb; }
+    inline void setQGraphicsVideoItem_Metacast_Callback(QGraphicsVideoItem_Metacast_Callback cb) { qgraphicsvideoitem_metacast_callback = cb; }
     inline void setQGraphicsVideoItem_Metacall_Callback(QGraphicsVideoItem_Metacall_Callback cb) { qgraphicsvideoitem_metacall_callback = cb; }
     inline void setQGraphicsVideoItem_BoundingRect_Callback(QGraphicsVideoItem_BoundingRect_Callback cb) { qgraphicsvideoitem_boundingrect_callback = cb; }
     inline void setQGraphicsVideoItem_Paint_Callback(QGraphicsVideoItem_Paint_Callback cb) { qgraphicsvideoitem_paint_callback = cb; }
@@ -289,6 +299,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
     inline void setQGraphicsVideoItem_PrepareGeometryChange_Callback(QGraphicsVideoItem_PrepareGeometryChange_Callback cb) { qgraphicsvideoitem_preparegeometrychange_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsVideoItem_MetaObject_IsBase(bool value) const { qgraphicsvideoitem_metaobject_isbase = value; }
+    inline void setQGraphicsVideoItem_Metacast_IsBase(bool value) const { qgraphicsvideoitem_metacast_isbase = value; }
     inline void setQGraphicsVideoItem_Metacall_IsBase(bool value) const { qgraphicsvideoitem_metacall_isbase = value; }
     inline void setQGraphicsVideoItem_BoundingRect_IsBase(bool value) const { qgraphicsvideoitem_boundingrect_isbase = value; }
     inline void setQGraphicsVideoItem_Paint_IsBase(bool value) const { qgraphicsvideoitem_paint_isbase = value; }
@@ -340,6 +352,34 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
     inline void setQGraphicsVideoItem_AddToIndex_IsBase(bool value) const { qgraphicsvideoitem_addtoindex_isbase = value; }
     inline void setQGraphicsVideoItem_RemoveFromIndex_IsBase(bool value) const { qgraphicsvideoitem_removefromindex_isbase = value; }
     inline void setQGraphicsVideoItem_PrepareGeometryChange_IsBase(bool value) const { qgraphicsvideoitem_preparegeometrychange_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsvideoitem_metaobject_isbase) {
+            qgraphicsvideoitem_metaobject_isbase = false;
+            return QGraphicsVideoItem::metaObject();
+        } else if (qgraphicsvideoitem_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsvideoitem_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsVideoItem::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsvideoitem_metacast_isbase) {
+            qgraphicsvideoitem_metacast_isbase = false;
+            return QGraphicsVideoItem::qt_metacast(param1);
+        } else if (qgraphicsvideoitem_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsvideoitem_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsVideoItem::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

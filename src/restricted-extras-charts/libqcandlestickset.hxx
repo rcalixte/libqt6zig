@@ -17,6 +17,8 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     bool isVirtualQCandlestickSet = true;
 
     // Virtual class public types (including callbacks)
+    using QCandlestickSet_MetaObject_Callback = QMetaObject* (*)();
+    using QCandlestickSet_Metacast_Callback = void* (*)(QCandlestickSet*, const char*);
     using QCandlestickSet_Metacall_Callback = int (*)(QCandlestickSet*, int, int, void**);
     using QCandlestickSet_Event_Callback = bool (*)(QCandlestickSet*, QEvent*);
     using QCandlestickSet_EventFilter_Callback = bool (*)(QCandlestickSet*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
 
   protected:
     // Instance callback storage
+    QCandlestickSet_MetaObject_Callback qcandlestickset_metaobject_callback = nullptr;
+    QCandlestickSet_Metacast_Callback qcandlestickset_metacast_callback = nullptr;
     QCandlestickSet_Metacall_Callback qcandlestickset_metacall_callback = nullptr;
     QCandlestickSet_Event_Callback qcandlestickset_event_callback = nullptr;
     QCandlestickSet_EventFilter_Callback qcandlestickset_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     QCandlestickSet_IsSignalConnected_Callback qcandlestickset_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcandlestickset_metaobject_isbase = false;
+    mutable bool qcandlestickset_metacast_isbase = false;
     mutable bool qcandlestickset_metacall_isbase = false;
     mutable bool qcandlestickset_event_isbase = false;
     mutable bool qcandlestickset_eventfilter_isbase = false;
@@ -68,6 +74,8 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close, qreal timestamp, QObject* parent) : QCandlestickSet(open, high, low, close, timestamp, parent) {};
 
     ~VirtualQCandlestickSet() {
+        qcandlestickset_metaobject_callback = nullptr;
+        qcandlestickset_metacast_callback = nullptr;
         qcandlestickset_metacall_callback = nullptr;
         qcandlestickset_event_callback = nullptr;
         qcandlestickset_eventfilter_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     }
 
     // Callback setters
+    inline void setQCandlestickSet_MetaObject_Callback(QCandlestickSet_MetaObject_Callback cb) { qcandlestickset_metaobject_callback = cb; }
+    inline void setQCandlestickSet_Metacast_Callback(QCandlestickSet_Metacast_Callback cb) { qcandlestickset_metacast_callback = cb; }
     inline void setQCandlestickSet_Metacall_Callback(QCandlestickSet_Metacall_Callback cb) { qcandlestickset_metacall_callback = cb; }
     inline void setQCandlestickSet_Event_Callback(QCandlestickSet_Event_Callback cb) { qcandlestickset_event_callback = cb; }
     inline void setQCandlestickSet_EventFilter_Callback(QCandlestickSet_EventFilter_Callback cb) { qcandlestickset_eventfilter_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     inline void setQCandlestickSet_IsSignalConnected_Callback(QCandlestickSet_IsSignalConnected_Callback cb) { qcandlestickset_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQCandlestickSet_MetaObject_IsBase(bool value) const { qcandlestickset_metaobject_isbase = value; }
+    inline void setQCandlestickSet_Metacast_IsBase(bool value) const { qcandlestickset_metacast_isbase = value; }
     inline void setQCandlestickSet_Metacall_IsBase(bool value) const { qcandlestickset_metacall_isbase = value; }
     inline void setQCandlestickSet_Event_IsBase(bool value) const { qcandlestickset_event_isbase = value; }
     inline void setQCandlestickSet_EventFilter_IsBase(bool value) const { qcandlestickset_eventfilter_isbase = value; }
@@ -109,6 +121,34 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     inline void setQCandlestickSet_SenderSignalIndex_IsBase(bool value) const { qcandlestickset_sendersignalindex_isbase = value; }
     inline void setQCandlestickSet_Receivers_IsBase(bool value) const { qcandlestickset_receivers_isbase = value; }
     inline void setQCandlestickSet_IsSignalConnected_IsBase(bool value) const { qcandlestickset_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcandlestickset_metaobject_isbase) {
+            qcandlestickset_metaobject_isbase = false;
+            return QCandlestickSet::metaObject();
+        } else if (qcandlestickset_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcandlestickset_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QCandlestickSet::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcandlestickset_metacast_isbase) {
+            qcandlestickset_metacast_isbase = false;
+            return QCandlestickSet::qt_metacast(param1);
+        } else if (qcandlestickset_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcandlestickset_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QCandlestickSet::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

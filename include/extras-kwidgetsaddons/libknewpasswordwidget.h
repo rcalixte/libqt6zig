@@ -78,6 +78,10 @@ void KNewPasswordWidget_SetRevealPasswordAvailable(KNewPasswordWidget* self, boo
 void KNewPasswordWidget_SetRevealPasswordMode(KNewPasswordWidget* self, int revealPasswordMode);
 void KNewPasswordWidget_PasswordStatusChanged(KNewPasswordWidget* self);
 void KNewPasswordWidget_Connect_PasswordStatusChanged(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_OnMetaObject(const KNewPasswordWidget* self, intptr_t slot);
+QMetaObject* KNewPasswordWidget_QBaseMetaObject(const KNewPasswordWidget* self);
+void KNewPasswordWidget_OnMetacast(KNewPasswordWidget* self, intptr_t slot);
+void* KNewPasswordWidget_QBaseMetacast(KNewPasswordWidget* self, const char* param1);
 void KNewPasswordWidget_OnMetacall(KNewPasswordWidget* self, intptr_t slot);
 int KNewPasswordWidget_QBaseMetacall(KNewPasswordWidget* self, int param1, int param2, void** param3);
 int KNewPasswordWidget_DevType(const KNewPasswordWidget* self);

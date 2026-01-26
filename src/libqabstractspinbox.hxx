@@ -17,6 +17,8 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
     bool isVirtualQAbstractSpinBox = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractSpinBox_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractSpinBox_Metacast_Callback = void* (*)(QAbstractSpinBox*, const char*);
     using QAbstractSpinBox_Metacall_Callback = int (*)(QAbstractSpinBox*, int, int, void**);
     using QAbstractSpinBox_SizeHint_Callback = QSize* (*)();
     using QAbstractSpinBox_MinimumSizeHint_Callback = QSize* (*)();
@@ -86,6 +88,8 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
 
   protected:
     // Instance callback storage
+    QAbstractSpinBox_MetaObject_Callback qabstractspinbox_metaobject_callback = nullptr;
+    QAbstractSpinBox_Metacast_Callback qabstractspinbox_metacast_callback = nullptr;
     QAbstractSpinBox_Metacall_Callback qabstractspinbox_metacall_callback = nullptr;
     QAbstractSpinBox_SizeHint_Callback qabstractspinbox_sizehint_callback = nullptr;
     QAbstractSpinBox_MinimumSizeHint_Callback qabstractspinbox_minimumsizehint_callback = nullptr;
@@ -154,6 +158,8 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
     QAbstractSpinBox_GetDecodedMetricF_Callback qabstractspinbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractspinbox_metaobject_isbase = false;
+    mutable bool qabstractspinbox_metacast_isbase = false;
     mutable bool qabstractspinbox_metacall_isbase = false;
     mutable bool qabstractspinbox_sizehint_isbase = false;
     mutable bool qabstractspinbox_minimumsizehint_isbase = false;
@@ -226,6 +232,8 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
     VirtualQAbstractSpinBox() : QAbstractSpinBox() {};
 
     ~VirtualQAbstractSpinBox() {
+        qabstractspinbox_metaobject_callback = nullptr;
+        qabstractspinbox_metacast_callback = nullptr;
         qabstractspinbox_metacall_callback = nullptr;
         qabstractspinbox_sizehint_callback = nullptr;
         qabstractspinbox_minimumsizehint_callback = nullptr;
@@ -295,6 +303,8 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
     }
 
     // Callback setters
+    inline void setQAbstractSpinBox_MetaObject_Callback(QAbstractSpinBox_MetaObject_Callback cb) { qabstractspinbox_metaobject_callback = cb; }
+    inline void setQAbstractSpinBox_Metacast_Callback(QAbstractSpinBox_Metacast_Callback cb) { qabstractspinbox_metacast_callback = cb; }
     inline void setQAbstractSpinBox_Metacall_Callback(QAbstractSpinBox_Metacall_Callback cb) { qabstractspinbox_metacall_callback = cb; }
     inline void setQAbstractSpinBox_SizeHint_Callback(QAbstractSpinBox_SizeHint_Callback cb) { qabstractspinbox_sizehint_callback = cb; }
     inline void setQAbstractSpinBox_MinimumSizeHint_Callback(QAbstractSpinBox_MinimumSizeHint_Callback cb) { qabstractspinbox_minimumsizehint_callback = cb; }
@@ -363,6 +373,8 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
     inline void setQAbstractSpinBox_GetDecodedMetricF_Callback(QAbstractSpinBox_GetDecodedMetricF_Callback cb) { qabstractspinbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractSpinBox_MetaObject_IsBase(bool value) const { qabstractspinbox_metaobject_isbase = value; }
+    inline void setQAbstractSpinBox_Metacast_IsBase(bool value) const { qabstractspinbox_metacast_isbase = value; }
     inline void setQAbstractSpinBox_Metacall_IsBase(bool value) const { qabstractspinbox_metacall_isbase = value; }
     inline void setQAbstractSpinBox_SizeHint_IsBase(bool value) const { qabstractspinbox_sizehint_isbase = value; }
     inline void setQAbstractSpinBox_MinimumSizeHint_IsBase(bool value) const { qabstractspinbox_minimumsizehint_isbase = value; }
@@ -429,6 +441,34 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
     inline void setQAbstractSpinBox_Receivers_IsBase(bool value) const { qabstractspinbox_receivers_isbase = value; }
     inline void setQAbstractSpinBox_IsSignalConnected_IsBase(bool value) const { qabstractspinbox_issignalconnected_isbase = value; }
     inline void setQAbstractSpinBox_GetDecodedMetricF_IsBase(bool value) const { qabstractspinbox_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractspinbox_metaobject_isbase) {
+            qabstractspinbox_metaobject_isbase = false;
+            return QAbstractSpinBox::metaObject();
+        } else if (qabstractspinbox_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractspinbox_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractSpinBox::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractspinbox_metacast_isbase) {
+            qabstractspinbox_metacast_isbase = false;
+            return QAbstractSpinBox::qt_metacast(param1);
+        } else if (qabstractspinbox_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractspinbox_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractSpinBox::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

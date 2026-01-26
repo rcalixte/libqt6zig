@@ -17,6 +17,8 @@ class VirtualQWindow final : public QWindow {
     bool isVirtualQWindow = true;
 
     // Virtual class public types (including callbacks)
+    using QWindow_MetaObject_Callback = QMetaObject* (*)();
+    using QWindow_Metacast_Callback = void* (*)(QWindow*, const char*);
     using QWindow_Metacall_Callback = int (*)(QWindow*, int, int, void**);
     using QWindow_SurfaceType_Callback = int (*)();
     using QWindow_Format_Callback = QSurfaceFormat* (*)();
@@ -57,6 +59,8 @@ class VirtualQWindow final : public QWindow {
 
   protected:
     // Instance callback storage
+    QWindow_MetaObject_Callback qwindow_metaobject_callback = nullptr;
+    QWindow_Metacast_Callback qwindow_metacast_callback = nullptr;
     QWindow_Metacall_Callback qwindow_metacall_callback = nullptr;
     QWindow_SurfaceType_Callback qwindow_surfacetype_callback = nullptr;
     QWindow_Format_Callback qwindow_format_callback = nullptr;
@@ -96,6 +100,8 @@ class VirtualQWindow final : public QWindow {
     QWindow_IsSignalConnected_Callback qwindow_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwindow_metaobject_isbase = false;
+    mutable bool qwindow_metacast_isbase = false;
     mutable bool qwindow_metacall_isbase = false;
     mutable bool qwindow_surfacetype_isbase = false;
     mutable bool qwindow_format_isbase = false;
@@ -140,6 +146,8 @@ class VirtualQWindow final : public QWindow {
     VirtualQWindow(QScreen* screen) : QWindow(screen) {};
 
     ~VirtualQWindow() {
+        qwindow_metaobject_callback = nullptr;
+        qwindow_metacast_callback = nullptr;
         qwindow_metacall_callback = nullptr;
         qwindow_surfacetype_callback = nullptr;
         qwindow_format_callback = nullptr;
@@ -180,6 +188,8 @@ class VirtualQWindow final : public QWindow {
     }
 
     // Callback setters
+    inline void setQWindow_MetaObject_Callback(QWindow_MetaObject_Callback cb) { qwindow_metaobject_callback = cb; }
+    inline void setQWindow_Metacast_Callback(QWindow_Metacast_Callback cb) { qwindow_metacast_callback = cb; }
     inline void setQWindow_Metacall_Callback(QWindow_Metacall_Callback cb) { qwindow_metacall_callback = cb; }
     inline void setQWindow_SurfaceType_Callback(QWindow_SurfaceType_Callback cb) { qwindow_surfacetype_callback = cb; }
     inline void setQWindow_Format_Callback(QWindow_Format_Callback cb) { qwindow_format_callback = cb; }
@@ -219,6 +229,8 @@ class VirtualQWindow final : public QWindow {
     inline void setQWindow_IsSignalConnected_Callback(QWindow_IsSignalConnected_Callback cb) { qwindow_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQWindow_MetaObject_IsBase(bool value) const { qwindow_metaobject_isbase = value; }
+    inline void setQWindow_Metacast_IsBase(bool value) const { qwindow_metacast_isbase = value; }
     inline void setQWindow_Metacall_IsBase(bool value) const { qwindow_metacall_isbase = value; }
     inline void setQWindow_SurfaceType_IsBase(bool value) const { qwindow_surfacetype_isbase = value; }
     inline void setQWindow_Format_IsBase(bool value) const { qwindow_format_isbase = value; }
@@ -256,6 +268,34 @@ class VirtualQWindow final : public QWindow {
     inline void setQWindow_SenderSignalIndex_IsBase(bool value) const { qwindow_sendersignalindex_isbase = value; }
     inline void setQWindow_Receivers_IsBase(bool value) const { qwindow_receivers_isbase = value; }
     inline void setQWindow_IsSignalConnected_IsBase(bool value) const { qwindow_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwindow_metaobject_isbase) {
+            qwindow_metaobject_isbase = false;
+            return QWindow::metaObject();
+        } else if (qwindow_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwindow_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWindow::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwindow_metacast_isbase) {
+            qwindow_metacast_isbase = false;
+            return QWindow::qt_metacast(param1);
+        } else if (qwindow_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwindow_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWindow::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

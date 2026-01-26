@@ -48,11 +48,21 @@ QStatusBar* QStatusBar_new2() {
 }
 
 QMetaObject* QStatusBar_MetaObject(const QStatusBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqstatusbar = dynamic_cast<const VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQStatusBar*)self)->metaObject();
+    }
 }
 
 void* QStatusBar_Metacast(QStatusBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQStatusBar*)self)->qt_metacast(param1);
+    }
 }
 
 int QStatusBar_Metacall(QStatusBar* self, int param1, int param2, void** param3) {
@@ -181,6 +191,44 @@ int QStatusBar_InsertPermanentWidget3(QStatusBar* self, int index, QWidget* widg
 void QStatusBar_ShowMessage2(QStatusBar* self, const libqt_string text, int timeout) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->showMessage(text_QString, static_cast<int>(timeout));
+}
+
+// Base class handler implementation
+QMetaObject* QStatusBar_QBaseMetaObject(const QStatusBar* self) {
+    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vqstatusbar->metaObject();
+    } else {
+        return (QMetaObject*)self->QStatusBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStatusBar_OnMetaObject(const QStatusBar* self, intptr_t slot) {
+    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_MetaObject_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QStatusBar_QBaseMetacast(QStatusBar* self, const char* param1) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_Metacast_IsBase(true);
+        return vqstatusbar->qt_metacast(param1);
+    } else {
+        return self->QStatusBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStatusBar_OnMetacast(QStatusBar* self, intptr_t slot) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+        vqstatusbar->setQStatusBar_Metacast_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

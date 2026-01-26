@@ -69,11 +69,21 @@ KComboBox* KComboBox_new4(bool rw, QWidget* parent) {
 }
 
 QMetaObject* KComboBox_MetaObject(const KComboBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcombobox = dynamic_cast<const VirtualKComboBox*>(self);
+    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKComboBox*)self)->metaObject();
+    }
 }
 
 void* KComboBox_Metacast(KComboBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
+    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKComboBox*)self)->qt_metacast(param1);
+    }
 }
 
 int KComboBox_Metacall(KComboBox* self, int param1, int param2, void** param3) {
@@ -336,6 +346,44 @@ void KComboBox_SetCurrentItem2(KComboBox* self, const libqt_string item, bool in
 void KComboBox_SetCurrentItem3(KComboBox* self, const libqt_string item, bool insert, int index) {
     QString item_QString = QString::fromUtf8(item.data, item.len);
     self->setCurrentItem(item_QString, insert, static_cast<int>(index));
+}
+
+// Base class handler implementation
+QMetaObject* KComboBox_QBaseMetaObject(const KComboBox* self) {
+    auto* vkcombobox = const_cast<VirtualKComboBox*>(dynamic_cast<const VirtualKComboBox*>(self));
+    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
+        vkcombobox->setKComboBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcombobox->metaObject();
+    } else {
+        return (QMetaObject*)self->KComboBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KComboBox_OnMetaObject(const KComboBox* self, intptr_t slot) {
+    auto* vkcombobox = const_cast<VirtualKComboBox*>(dynamic_cast<const VirtualKComboBox*>(self));
+    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
+        vkcombobox->setKComboBox_MetaObject_Callback(reinterpret_cast<VirtualKComboBox::KComboBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KComboBox_QBaseMetacast(KComboBox* self, const char* param1) {
+    auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
+    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
+        vkcombobox->setKComboBox_Metacast_IsBase(true);
+        return vkcombobox->qt_metacast(param1);
+    } else {
+        return self->KComboBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KComboBox_OnMetacast(KComboBox* self, intptr_t slot) {
+    auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
+    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
+        vkcombobox->setKComboBox_Metacast_Callback(reinterpret_cast<VirtualKComboBox::KComboBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

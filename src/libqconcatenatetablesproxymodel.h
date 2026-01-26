@@ -56,6 +56,10 @@ QMimeData* QConcatenateTablesProxyModel_MimeData(const QConcatenateTablesProxyMo
 bool QConcatenateTablesProxyModel_CanDropMimeData(const QConcatenateTablesProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
 bool QConcatenateTablesProxyModel_DropMimeData(QConcatenateTablesProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
 QSize* QConcatenateTablesProxyModel_Span(const QConcatenateTablesProxyModel* self, const QModelIndex* index);
+void QConcatenateTablesProxyModel_OnMetaObject(const QConcatenateTablesProxyModel* self, intptr_t slot);
+QMetaObject* QConcatenateTablesProxyModel_QBaseMetaObject(const QConcatenateTablesProxyModel* self);
+void QConcatenateTablesProxyModel_OnMetacast(QConcatenateTablesProxyModel* self, intptr_t slot);
+void* QConcatenateTablesProxyModel_QBaseMetacast(QConcatenateTablesProxyModel* self, const char* param1);
 void QConcatenateTablesProxyModel_OnMetacall(QConcatenateTablesProxyModel* self, intptr_t slot);
 int QConcatenateTablesProxyModel_QBaseMetacall(QConcatenateTablesProxyModel* self, int param1, int param2, void** param3);
 void QConcatenateTablesProxyModel_OnData(const QConcatenateTablesProxyModel* self, intptr_t slot);

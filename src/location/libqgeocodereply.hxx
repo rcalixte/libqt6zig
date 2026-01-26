@@ -17,6 +17,8 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
     bool isVirtualQGeoCodeReply = true;
 
     // Virtual class public types (including callbacks)
+    using QGeoCodeReply_MetaObject_Callback = QMetaObject* (*)();
+    using QGeoCodeReply_Metacast_Callback = void* (*)(QGeoCodeReply*, const char*);
     using QGeoCodeReply_Metacall_Callback = int (*)(QGeoCodeReply*, int, int, void**);
     using QGeoCodeReply_Abort_Callback = void (*)();
     using QGeoCodeReply_Event_Callback = bool (*)(QGeoCodeReply*, QEvent*);
@@ -40,6 +42,8 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
 
   protected:
     // Instance callback storage
+    QGeoCodeReply_MetaObject_Callback qgeocodereply_metaobject_callback = nullptr;
+    QGeoCodeReply_Metacast_Callback qgeocodereply_metacast_callback = nullptr;
     QGeoCodeReply_Metacall_Callback qgeocodereply_metacall_callback = nullptr;
     QGeoCodeReply_Abort_Callback qgeocodereply_abort_callback = nullptr;
     QGeoCodeReply_Event_Callback qgeocodereply_event_callback = nullptr;
@@ -62,6 +66,8 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
     QGeoCodeReply_IsSignalConnected_Callback qgeocodereply_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgeocodereply_metaobject_isbase = false;
+    mutable bool qgeocodereply_metacast_isbase = false;
     mutable bool qgeocodereply_metacall_isbase = false;
     mutable bool qgeocodereply_abort_isbase = false;
     mutable bool qgeocodereply_event_isbase = false;
@@ -88,6 +94,8 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
     VirtualQGeoCodeReply(QGeoCodeReply::Error errorVal, const QString& errorString, QObject* parent) : QGeoCodeReply(errorVal, errorString, parent) {};
 
     ~VirtualQGeoCodeReply() {
+        qgeocodereply_metaobject_callback = nullptr;
+        qgeocodereply_metacast_callback = nullptr;
         qgeocodereply_metacall_callback = nullptr;
         qgeocodereply_abort_callback = nullptr;
         qgeocodereply_event_callback = nullptr;
@@ -111,6 +119,8 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
     }
 
     // Callback setters
+    inline void setQGeoCodeReply_MetaObject_Callback(QGeoCodeReply_MetaObject_Callback cb) { qgeocodereply_metaobject_callback = cb; }
+    inline void setQGeoCodeReply_Metacast_Callback(QGeoCodeReply_Metacast_Callback cb) { qgeocodereply_metacast_callback = cb; }
     inline void setQGeoCodeReply_Metacall_Callback(QGeoCodeReply_Metacall_Callback cb) { qgeocodereply_metacall_callback = cb; }
     inline void setQGeoCodeReply_Abort_Callback(QGeoCodeReply_Abort_Callback cb) { qgeocodereply_abort_callback = cb; }
     inline void setQGeoCodeReply_Event_Callback(QGeoCodeReply_Event_Callback cb) { qgeocodereply_event_callback = cb; }
@@ -133,6 +143,8 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
     inline void setQGeoCodeReply_IsSignalConnected_Callback(QGeoCodeReply_IsSignalConnected_Callback cb) { qgeocodereply_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGeoCodeReply_MetaObject_IsBase(bool value) const { qgeocodereply_metaobject_isbase = value; }
+    inline void setQGeoCodeReply_Metacast_IsBase(bool value) const { qgeocodereply_metacast_isbase = value; }
     inline void setQGeoCodeReply_Metacall_IsBase(bool value) const { qgeocodereply_metacall_isbase = value; }
     inline void setQGeoCodeReply_Abort_IsBase(bool value) const { qgeocodereply_abort_isbase = value; }
     inline void setQGeoCodeReply_Event_IsBase(bool value) const { qgeocodereply_event_isbase = value; }
@@ -153,6 +165,34 @@ class VirtualQGeoCodeReply final : public QGeoCodeReply {
     inline void setQGeoCodeReply_SenderSignalIndex_IsBase(bool value) const { qgeocodereply_sendersignalindex_isbase = value; }
     inline void setQGeoCodeReply_Receivers_IsBase(bool value) const { qgeocodereply_receivers_isbase = value; }
     inline void setQGeoCodeReply_IsSignalConnected_IsBase(bool value) const { qgeocodereply_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgeocodereply_metaobject_isbase) {
+            qgeocodereply_metaobject_isbase = false;
+            return QGeoCodeReply::metaObject();
+        } else if (qgeocodereply_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgeocodereply_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGeoCodeReply::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgeocodereply_metacast_isbase) {
+            qgeocodereply_metacast_isbase = false;
+            return QGeoCodeReply::qt_metacast(param1);
+        } else if (qgeocodereply_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgeocodereply_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGeoCodeReply::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

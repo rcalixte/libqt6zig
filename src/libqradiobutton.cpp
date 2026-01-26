@@ -60,11 +60,21 @@ QRadioButton* QRadioButton_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* QRadioButton_MetaObject(const QRadioButton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQRadioButton*)self)->metaObject();
+    }
 }
 
 void* QRadioButton_Metacast(QRadioButton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQRadioButton*)self)->qt_metacast(param1);
+    }
 }
 
 int QRadioButton_Metacall(QRadioButton* self, int param1, int param2, void** param3) {
@@ -128,6 +138,44 @@ void QRadioButton_InitStyleOption(const QRadioButton* self, QStyleOptionButton* 
     auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
     if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
         vqradiobutton->initStyleOption(button);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QRadioButton_QBaseMetaObject(const QRadioButton* self) {
+    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_MetaObject_IsBase(true);
+        return (QMetaObject*)vqradiobutton->metaObject();
+    } else {
+        return (QMetaObject*)self->QRadioButton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRadioButton_OnMetaObject(const QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_MetaObject_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QRadioButton_QBaseMetacast(QRadioButton* self, const char* param1) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_Metacast_IsBase(true);
+        return vqradiobutton->qt_metacast(param1);
+    } else {
+        return self->QRadioButton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRadioButton_OnMetacast(QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_Metacast_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_Metacast_Callback>(slot));
     }
 }
 

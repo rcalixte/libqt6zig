@@ -53,11 +53,21 @@ KAdjustingScrollArea* KAdjustingScrollArea_new2() {
 }
 
 QMetaObject* KAdjustingScrollArea_MetaObject(const KAdjustingScrollArea* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkadjustingscrollarea = dynamic_cast<const VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKAdjustingScrollArea*)self)->metaObject();
+    }
 }
 
 void* KAdjustingScrollArea_Metacast(KAdjustingScrollArea* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKAdjustingScrollArea*)self)->qt_metacast(param1);
+    }
 }
 
 int KAdjustingScrollArea_Metacall(KAdjustingScrollArea* self, int param1, int param2, void** param3) {
@@ -93,6 +103,44 @@ bool KAdjustingScrollArea_Event(KAdjustingScrollArea* self, QEvent* event) {
         return self->event(event);
     } else {
         return ((VirtualKAdjustingScrollArea*)self)->event(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KAdjustingScrollArea_QBaseMetaObject(const KAdjustingScrollArea* self) {
+    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_MetaObject_IsBase(true);
+        return (QMetaObject*)vkadjustingscrollarea->metaObject();
+    } else {
+        return (QMetaObject*)self->KAdjustingScrollArea::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAdjustingScrollArea_OnMetaObject(const KAdjustingScrollArea* self, intptr_t slot) {
+    auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_MetaObject_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KAdjustingScrollArea_QBaseMetacast(KAdjustingScrollArea* self, const char* param1) {
+    auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_Metacast_IsBase(true);
+        return vkadjustingscrollarea->qt_metacast(param1);
+    } else {
+        return self->KAdjustingScrollArea::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAdjustingScrollArea_OnMetacast(KAdjustingScrollArea* self, intptr_t slot) {
+    auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+        vkadjustingscrollarea->setKAdjustingScrollArea_Metacast_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Metacast_Callback>(slot));
     }
 }
 

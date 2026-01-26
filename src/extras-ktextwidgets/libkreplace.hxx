@@ -17,6 +17,8 @@ class VirtualKReplace final : public KReplace {
     bool isVirtualKReplace = true;
 
     // Virtual class public types (including callbacks)
+    using KReplace_MetaObject_Callback = QMetaObject* (*)();
+    using KReplace_Metacast_Callback = void* (*)(KReplace*, const char*);
     using KReplace_Metacall_Callback = int (*)(KReplace*, int, int, void**);
     using KReplace_ResetCounts_Callback = void (*)();
     using KReplace_ShouldRestart_Callback = bool (*)(const KReplace*, bool, bool);
@@ -39,6 +41,8 @@ class VirtualKReplace final : public KReplace {
 
   protected:
     // Instance callback storage
+    KReplace_MetaObject_Callback kreplace_metaobject_callback = nullptr;
+    KReplace_Metacast_Callback kreplace_metacast_callback = nullptr;
     KReplace_Metacall_Callback kreplace_metacall_callback = nullptr;
     KReplace_ResetCounts_Callback kreplace_resetcounts_callback = nullptr;
     KReplace_ShouldRestart_Callback kreplace_shouldrestart_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualKReplace final : public KReplace {
     KReplace_IsSignalConnected_Callback kreplace_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kreplace_metaobject_isbase = false;
+    mutable bool kreplace_metacast_isbase = false;
     mutable bool kreplace_metacall_isbase = false;
     mutable bool kreplace_resetcounts_isbase = false;
     mutable bool kreplace_shouldrestart_isbase = false;
@@ -86,6 +92,8 @@ class VirtualKReplace final : public KReplace {
     VirtualKReplace(const QString& pattern, const QString& replacement, long options, QWidget* parent) : KReplace(pattern, replacement, options, parent) {};
 
     ~VirtualKReplace() {
+        kreplace_metaobject_callback = nullptr;
+        kreplace_metacast_callback = nullptr;
         kreplace_metacall_callback = nullptr;
         kreplace_resetcounts_callback = nullptr;
         kreplace_shouldrestart_callback = nullptr;
@@ -108,6 +116,8 @@ class VirtualKReplace final : public KReplace {
     }
 
     // Callback setters
+    inline void setKReplace_MetaObject_Callback(KReplace_MetaObject_Callback cb) { kreplace_metaobject_callback = cb; }
+    inline void setKReplace_Metacast_Callback(KReplace_Metacast_Callback cb) { kreplace_metacast_callback = cb; }
     inline void setKReplace_Metacall_Callback(KReplace_Metacall_Callback cb) { kreplace_metacall_callback = cb; }
     inline void setKReplace_ResetCounts_Callback(KReplace_ResetCounts_Callback cb) { kreplace_resetcounts_callback = cb; }
     inline void setKReplace_ShouldRestart_Callback(KReplace_ShouldRestart_Callback cb) { kreplace_shouldrestart_callback = cb; }
@@ -129,6 +139,8 @@ class VirtualKReplace final : public KReplace {
     inline void setKReplace_IsSignalConnected_Callback(KReplace_IsSignalConnected_Callback cb) { kreplace_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKReplace_MetaObject_IsBase(bool value) const { kreplace_metaobject_isbase = value; }
+    inline void setKReplace_Metacast_IsBase(bool value) const { kreplace_metacast_isbase = value; }
     inline void setKReplace_Metacall_IsBase(bool value) const { kreplace_metacall_isbase = value; }
     inline void setKReplace_ResetCounts_IsBase(bool value) const { kreplace_resetcounts_isbase = value; }
     inline void setKReplace_ShouldRestart_IsBase(bool value) const { kreplace_shouldrestart_isbase = value; }
@@ -148,6 +160,34 @@ class VirtualKReplace final : public KReplace {
     inline void setKReplace_SenderSignalIndex_IsBase(bool value) const { kreplace_sendersignalindex_isbase = value; }
     inline void setKReplace_Receivers_IsBase(bool value) const { kreplace_receivers_isbase = value; }
     inline void setKReplace_IsSignalConnected_IsBase(bool value) const { kreplace_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kreplace_metaobject_isbase) {
+            kreplace_metaobject_isbase = false;
+            return KReplace::metaObject();
+        } else if (kreplace_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kreplace_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KReplace::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kreplace_metacast_isbase) {
+            kreplace_metacast_isbase = false;
+            return KReplace::qt_metacast(param1);
+        } else if (kreplace_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kreplace_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KReplace::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

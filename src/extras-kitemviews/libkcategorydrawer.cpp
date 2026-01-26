@@ -23,11 +23,21 @@ KCategoryDrawer* KCategoryDrawer_new(KCategorizedView* view) {
 }
 
 QMetaObject* KCategoryDrawer_MetaObject(const KCategoryDrawer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcategorydrawer = dynamic_cast<const VirtualKCategoryDrawer*>(self);
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCategoryDrawer*)self)->metaObject();
+    }
 }
 
 void* KCategoryDrawer_Metacast(KCategoryDrawer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCategoryDrawer*)self)->qt_metacast(param1);
+    }
 }
 
 int KCategoryDrawer_Metacall(KCategoryDrawer* self, int param1, int param2, void** param3) {
@@ -140,6 +150,44 @@ void KCategoryDrawer_MouseLeft(KCategoryDrawer* self, const QModelIndex* index, 
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
     if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
         vkcategorydrawer->mouseLeft(*index, *blockRect);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KCategoryDrawer_QBaseMetaObject(const KCategoryDrawer* self) {
+    auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+        vkcategorydrawer->setKCategoryDrawer_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcategorydrawer->metaObject();
+    } else {
+        return (QMetaObject*)self->KCategoryDrawer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCategoryDrawer_OnMetaObject(const KCategoryDrawer* self, intptr_t slot) {
+    auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+        vkcategorydrawer->setKCategoryDrawer_MetaObject_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCategoryDrawer_QBaseMetacast(KCategoryDrawer* self, const char* param1) {
+    auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+        vkcategorydrawer->setKCategoryDrawer_Metacast_IsBase(true);
+        return vkcategorydrawer->qt_metacast(param1);
+    } else {
+        return self->KCategoryDrawer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCategoryDrawer_OnMetacast(KCategoryDrawer* self, intptr_t slot) {
+    auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+        vkcategorydrawer->setKCategoryDrawer_Metacast_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_Metacast_Callback>(slot));
     }
 }
 

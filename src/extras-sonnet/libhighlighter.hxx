@@ -17,6 +17,8 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
     bool isVirtualSonnetHighlighter = true;
 
     // Virtual class public types (including callbacks)
+    using Sonnet__Highlighter_MetaObject_Callback = QMetaObject* (*)();
+    using Sonnet__Highlighter_Metacast_Callback = void* (*)(Sonnet__Highlighter*, const char*);
     using Sonnet__Highlighter_Metacall_Callback = int (*)(Sonnet__Highlighter*, int, int, void**);
     using Sonnet__Highlighter_HighlightBlock_Callback = void (*)(Sonnet__Highlighter*, libqt_string);
     using Sonnet__Highlighter_SetMisspelled_Callback = void (*)(Sonnet__Highlighter*, int, int);
@@ -45,6 +47,8 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
   protected:
     // Instance callback storage
+    Sonnet__Highlighter_MetaObject_Callback sonnet__highlighter_metaobject_callback = nullptr;
+    Sonnet__Highlighter_Metacast_Callback sonnet__highlighter_metacast_callback = nullptr;
     Sonnet__Highlighter_Metacall_Callback sonnet__highlighter_metacall_callback = nullptr;
     Sonnet__Highlighter_HighlightBlock_Callback sonnet__highlighter_highlightblock_callback = nullptr;
     Sonnet__Highlighter_SetMisspelled_Callback sonnet__highlighter_setmisspelled_callback = nullptr;
@@ -72,6 +76,8 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
     Sonnet__Highlighter_IsSignalConnected_Callback sonnet__highlighter_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool sonnet__highlighter_metaobject_isbase = false;
+    mutable bool sonnet__highlighter_metacast_isbase = false;
     mutable bool sonnet__highlighter_metacall_isbase = false;
     mutable bool sonnet__highlighter_highlightblock_isbase = false;
     mutable bool sonnet__highlighter_setmisspelled_isbase = false;
@@ -105,6 +111,8 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
     VirtualSonnetHighlighter(QPlainTextEdit* textEdit, const QColor& col) : Sonnet::Highlighter(textEdit, col) {};
 
     ~VirtualSonnetHighlighter() {
+        sonnet__highlighter_metaobject_callback = nullptr;
+        sonnet__highlighter_metacast_callback = nullptr;
         sonnet__highlighter_metacall_callback = nullptr;
         sonnet__highlighter_highlightblock_callback = nullptr;
         sonnet__highlighter_setmisspelled_callback = nullptr;
@@ -133,6 +141,8 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
     }
 
     // Callback setters
+    inline void setSonnet__Highlighter_MetaObject_Callback(Sonnet__Highlighter_MetaObject_Callback cb) { sonnet__highlighter_metaobject_callback = cb; }
+    inline void setSonnet__Highlighter_Metacast_Callback(Sonnet__Highlighter_Metacast_Callback cb) { sonnet__highlighter_metacast_callback = cb; }
     inline void setSonnet__Highlighter_Metacall_Callback(Sonnet__Highlighter_Metacall_Callback cb) { sonnet__highlighter_metacall_callback = cb; }
     inline void setSonnet__Highlighter_HighlightBlock_Callback(Sonnet__Highlighter_HighlightBlock_Callback cb) { sonnet__highlighter_highlightblock_callback = cb; }
     inline void setSonnet__Highlighter_SetMisspelled_Callback(Sonnet__Highlighter_SetMisspelled_Callback cb) { sonnet__highlighter_setmisspelled_callback = cb; }
@@ -160,6 +170,8 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
     inline void setSonnet__Highlighter_IsSignalConnected_Callback(Sonnet__Highlighter_IsSignalConnected_Callback cb) { sonnet__highlighter_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setSonnet__Highlighter_MetaObject_IsBase(bool value) const { sonnet__highlighter_metaobject_isbase = value; }
+    inline void setSonnet__Highlighter_Metacast_IsBase(bool value) const { sonnet__highlighter_metacast_isbase = value; }
     inline void setSonnet__Highlighter_Metacall_IsBase(bool value) const { sonnet__highlighter_metacall_isbase = value; }
     inline void setSonnet__Highlighter_HighlightBlock_IsBase(bool value) const { sonnet__highlighter_highlightblock_isbase = value; }
     inline void setSonnet__Highlighter_SetMisspelled_IsBase(bool value) const { sonnet__highlighter_setmisspelled_isbase = value; }
@@ -185,6 +197,34 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
     inline void setSonnet__Highlighter_SenderSignalIndex_IsBase(bool value) const { sonnet__highlighter_sendersignalindex_isbase = value; }
     inline void setSonnet__Highlighter_Receivers_IsBase(bool value) const { sonnet__highlighter_receivers_isbase = value; }
     inline void setSonnet__Highlighter_IsSignalConnected_IsBase(bool value) const { sonnet__highlighter_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (sonnet__highlighter_metaobject_isbase) {
+            sonnet__highlighter_metaobject_isbase = false;
+            return Sonnet__Highlighter::metaObject();
+        } else if (sonnet__highlighter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = sonnet__highlighter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return Sonnet__Highlighter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (sonnet__highlighter_metacast_isbase) {
+            sonnet__highlighter_metacast_isbase = false;
+            return Sonnet__Highlighter::qt_metacast(param1);
+        } else if (sonnet__highlighter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = sonnet__highlighter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return Sonnet__Highlighter::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

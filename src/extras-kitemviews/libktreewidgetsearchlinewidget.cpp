@@ -54,11 +54,21 @@ KTreeWidgetSearchLineWidget* KTreeWidgetSearchLineWidget_new3(QWidget* parent, Q
 }
 
 QMetaObject* KTreeWidgetSearchLineWidget_MetaObject(const KTreeWidgetSearchLineWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktreewidgetsearchlinewidget = dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self);
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTreeWidgetSearchLineWidget*)self)->metaObject();
+    }
 }
 
 void* KTreeWidgetSearchLineWidget_Metacast(KTreeWidgetSearchLineWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTreeWidgetSearchLineWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KTreeWidgetSearchLineWidget_Metacall(KTreeWidgetSearchLineWidget* self, int param1, int param2, void** param3) {
@@ -87,6 +97,44 @@ KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_CreateSearchLine(const KTreeW
         return vktreewidgetsearchlinewidget->createSearchLine(treeWidget);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KTreeWidgetSearchLineWidget_QBaseMetaObject(const KTreeWidgetSearchLineWidget* self) {
+    auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vktreewidgetsearchlinewidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KTreeWidgetSearchLineWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTreeWidgetSearchLineWidget_OnMetaObject(const KTreeWidgetSearchLineWidget* self, intptr_t slot) {
+    auto* vktreewidgetsearchlinewidget = const_cast<VirtualKTreeWidgetSearchLineWidget*>(dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self));
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_MetaObject_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLineWidget::KTreeWidgetSearchLineWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTreeWidgetSearchLineWidget_QBaseMetacast(KTreeWidgetSearchLineWidget* self, const char* param1) {
+    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Metacast_IsBase(true);
+        return vktreewidgetsearchlinewidget->qt_metacast(param1);
+    } else {
+        return self->KTreeWidgetSearchLineWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTreeWidgetSearchLineWidget_OnMetacast(KTreeWidgetSearchLineWidget* self, intptr_t slot) {
+    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
+    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
+        vktreewidgetsearchlinewidget->setKTreeWidgetSearchLineWidget_Metacast_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLineWidget::KTreeWidgetSearchLineWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

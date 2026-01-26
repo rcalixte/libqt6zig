@@ -49,6 +49,10 @@ bool KIO__OpenUrlJob_IsExecutableFile(const QUrl* url, const libqt_string mimety
 void KIO__OpenUrlJob_MimeTypeFound(KIO__OpenUrlJob* self, const libqt_string mimeType);
 void KIO__OpenUrlJob_Connect_MimeTypeFound(KIO__OpenUrlJob* self, intptr_t slot);
 bool KIO__OpenUrlJob_DoKill(KIO__OpenUrlJob* self);
+void KIO__OpenUrlJob_OnMetaObject(const KIO__OpenUrlJob* self, intptr_t slot);
+QMetaObject* KIO__OpenUrlJob_QBaseMetaObject(const KIO__OpenUrlJob* self);
+void KIO__OpenUrlJob_OnMetacast(KIO__OpenUrlJob* self, intptr_t slot);
+void* KIO__OpenUrlJob_QBaseMetacast(KIO__OpenUrlJob* self, const char* param1);
 void KIO__OpenUrlJob_OnMetacall(KIO__OpenUrlJob* self, intptr_t slot);
 int KIO__OpenUrlJob_QBaseMetacall(KIO__OpenUrlJob* self, int param1, int param2, void** param3);
 void KIO__OpenUrlJob_OnStart(KIO__OpenUrlJob* self, intptr_t slot);

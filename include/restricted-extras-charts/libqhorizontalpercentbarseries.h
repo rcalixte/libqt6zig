@@ -32,6 +32,10 @@ QMetaObject* QHorizontalPercentBarSeries_MetaObject(const QHorizontalPercentBarS
 void* QHorizontalPercentBarSeries_Metacast(QHorizontalPercentBarSeries* self, const char* param1);
 int QHorizontalPercentBarSeries_Metacall(QHorizontalPercentBarSeries* self, int param1, int param2, void** param3);
 int QHorizontalPercentBarSeries_Type(const QHorizontalPercentBarSeries* self);
+void QHorizontalPercentBarSeries_OnMetaObject(const QHorizontalPercentBarSeries* self, intptr_t slot);
+QMetaObject* QHorizontalPercentBarSeries_QBaseMetaObject(const QHorizontalPercentBarSeries* self);
+void QHorizontalPercentBarSeries_OnMetacast(QHorizontalPercentBarSeries* self, intptr_t slot);
+void* QHorizontalPercentBarSeries_QBaseMetacast(QHorizontalPercentBarSeries* self, const char* param1);
 void QHorizontalPercentBarSeries_OnMetacall(QHorizontalPercentBarSeries* self, intptr_t slot);
 int QHorizontalPercentBarSeries_QBaseMetacall(QHorizontalPercentBarSeries* self, int param1, int param2, void** param3);
 void QHorizontalPercentBarSeries_OnType(const QHorizontalPercentBarSeries* self, intptr_t slot);

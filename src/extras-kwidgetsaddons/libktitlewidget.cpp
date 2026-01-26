@@ -49,11 +49,21 @@ KTitleWidget* KTitleWidget_new2() {
 }
 
 QMetaObject* KTitleWidget_MetaObject(const KTitleWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktitlewidget = dynamic_cast<const VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTitleWidget*)self)->metaObject();
+    }
 }
 
 void* KTitleWidget_Metacast(KTitleWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTitleWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KTitleWidget_Metacall(KTitleWidget* self, int param1, int param2, void** param3) {
@@ -186,6 +196,44 @@ void KTitleWidget_SetIcon22(KTitleWidget* self, const QIcon* icon, int alignment
 
 void KTitleWidget_SetIcon23(KTitleWidget* self, int typeVal, int alignment) {
     self->setIcon(static_cast<KTitleWidget::MessageType>(typeVal), static_cast<KTitleWidget::ImageAlignment>(alignment));
+}
+
+// Base class handler implementation
+QMetaObject* KTitleWidget_QBaseMetaObject(const KTitleWidget* self) {
+    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vktitlewidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KTitleWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTitleWidget_OnMetaObject(const KTitleWidget* self, intptr_t slot) {
+    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_MetaObject_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTitleWidget_QBaseMetacast(KTitleWidget* self, const char* param1) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_Metacast_IsBase(true);
+        return vktitlewidget->qt_metacast(param1);
+    } else {
+        return self->KTitleWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTitleWidget_OnMetacast(KTitleWidget* self, intptr_t slot) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+        vktitlewidget->setKTitleWidget_Metacast_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

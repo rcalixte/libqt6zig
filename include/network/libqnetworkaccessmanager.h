@@ -103,6 +103,10 @@ void QNetworkAccessManager_ConnectToHostEncrypted22(QNetworkAccessManager* self,
 void QNetworkAccessManager_ConnectToHostEncrypted3(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port, const QSslConfiguration* sslConfiguration);
 void QNetworkAccessManager_ConnectToHost2(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port);
 void QNetworkAccessManager_SetTransferTimeout1(QNetworkAccessManager* self, int64_t duration);
+void QNetworkAccessManager_OnMetaObject(const QNetworkAccessManager* self, intptr_t slot);
+QMetaObject* QNetworkAccessManager_QBaseMetaObject(const QNetworkAccessManager* self);
+void QNetworkAccessManager_OnMetacast(QNetworkAccessManager* self, intptr_t slot);
+void* QNetworkAccessManager_QBaseMetacast(QNetworkAccessManager* self, const char* param1);
 void QNetworkAccessManager_OnMetacall(QNetworkAccessManager* self, intptr_t slot);
 int QNetworkAccessManager_QBaseMetacall(QNetworkAccessManager* self, int param1, int param2, void** param3);
 void QNetworkAccessManager_OnSupportedSchemes(const QNetworkAccessManager* self, intptr_t slot);

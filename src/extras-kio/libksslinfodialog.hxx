@@ -17,6 +17,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
     bool isVirtualKSslInfoDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KSslInfoDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KSslInfoDialog_Metacast_Callback = void* (*)(KSslInfoDialog*, const char*);
     using KSslInfoDialog_Metacall_Callback = int (*)(KSslInfoDialog*, int, int, void**);
     using KSslInfoDialog_SetVisible_Callback = void (*)(KSslInfoDialog*, bool);
     using KSslInfoDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
 
   protected:
     // Instance callback storage
+    KSslInfoDialog_MetaObject_Callback ksslinfodialog_metaobject_callback = nullptr;
+    KSslInfoDialog_Metacast_Callback ksslinfodialog_metacast_callback = nullptr;
     KSslInfoDialog_Metacall_Callback ksslinfodialog_metacall_callback = nullptr;
     KSslInfoDialog_SetVisible_Callback ksslinfodialog_setvisible_callback = nullptr;
     KSslInfoDialog_SizeHint_Callback ksslinfodialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
     KSslInfoDialog_GetDecodedMetricF_Callback ksslinfodialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool ksslinfodialog_metaobject_isbase = false;
+    mutable bool ksslinfodialog_metacast_isbase = false;
     mutable bool ksslinfodialog_metacall_isbase = false;
     mutable bool ksslinfodialog_setvisible_isbase = false;
     mutable bool ksslinfodialog_sizehint_isbase = false;
@@ -220,6 +226,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
     VirtualKSslInfoDialog() : KSslInfoDialog() {};
 
     ~VirtualKSslInfoDialog() {
+        ksslinfodialog_metaobject_callback = nullptr;
+        ksslinfodialog_metacast_callback = nullptr;
         ksslinfodialog_metacall_callback = nullptr;
         ksslinfodialog_setvisible_callback = nullptr;
         ksslinfodialog_sizehint_callback = nullptr;
@@ -287,6 +295,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
     }
 
     // Callback setters
+    inline void setKSslInfoDialog_MetaObject_Callback(KSslInfoDialog_MetaObject_Callback cb) { ksslinfodialog_metaobject_callback = cb; }
+    inline void setKSslInfoDialog_Metacast_Callback(KSslInfoDialog_Metacast_Callback cb) { ksslinfodialog_metacast_callback = cb; }
     inline void setKSslInfoDialog_Metacall_Callback(KSslInfoDialog_Metacall_Callback cb) { ksslinfodialog_metacall_callback = cb; }
     inline void setKSslInfoDialog_SetVisible_Callback(KSslInfoDialog_SetVisible_Callback cb) { ksslinfodialog_setvisible_callback = cb; }
     inline void setKSslInfoDialog_SizeHint_Callback(KSslInfoDialog_SizeHint_Callback cb) { ksslinfodialog_sizehint_callback = cb; }
@@ -353,6 +363,8 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
     inline void setKSslInfoDialog_GetDecodedMetricF_Callback(KSslInfoDialog_GetDecodedMetricF_Callback cb) { ksslinfodialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKSslInfoDialog_MetaObject_IsBase(bool value) const { ksslinfodialog_metaobject_isbase = value; }
+    inline void setKSslInfoDialog_Metacast_IsBase(bool value) const { ksslinfodialog_metacast_isbase = value; }
     inline void setKSslInfoDialog_Metacall_IsBase(bool value) const { ksslinfodialog_metacall_isbase = value; }
     inline void setKSslInfoDialog_SetVisible_IsBase(bool value) const { ksslinfodialog_setvisible_isbase = value; }
     inline void setKSslInfoDialog_SizeHint_IsBase(bool value) const { ksslinfodialog_sizehint_isbase = value; }
@@ -417,6 +429,34 @@ class VirtualKSslInfoDialog final : public KSslInfoDialog {
     inline void setKSslInfoDialog_Receivers_IsBase(bool value) const { ksslinfodialog_receivers_isbase = value; }
     inline void setKSslInfoDialog_IsSignalConnected_IsBase(bool value) const { ksslinfodialog_issignalconnected_isbase = value; }
     inline void setKSslInfoDialog_GetDecodedMetricF_IsBase(bool value) const { ksslinfodialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ksslinfodialog_metaobject_isbase) {
+            ksslinfodialog_metaobject_isbase = false;
+            return KSslInfoDialog::metaObject();
+        } else if (ksslinfodialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ksslinfodialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KSslInfoDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ksslinfodialog_metacast_isbase) {
+            ksslinfodialog_metacast_isbase = false;
+            return KSslInfoDialog::qt_metacast(param1);
+        } else if (ksslinfodialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ksslinfodialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KSslInfoDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

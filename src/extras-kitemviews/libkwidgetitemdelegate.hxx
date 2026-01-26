@@ -17,6 +17,8 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     bool isVirtualKWidgetItemDelegate = true;
 
     // Virtual class public types (including callbacks)
+    using KWidgetItemDelegate_MetaObject_Callback = QMetaObject* (*)();
+    using KWidgetItemDelegate_Metacast_Callback = void* (*)(KWidgetItemDelegate*, const char*);
     using KWidgetItemDelegate_Metacall_Callback = int (*)(KWidgetItemDelegate*, int, int, void**);
     using KWidgetItemDelegate_CreateItemWidgets_Callback = QWidget** (*)(const KWidgetItemDelegate*, QModelIndex*);
     using KWidgetItemDelegate_UpdateItemWidgets_Callback = void (*)(const KWidgetItemDelegate*, libqt_list /* of QWidget* */, QStyleOptionViewItem*, QPersistentModelIndex*);
@@ -46,6 +48,8 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
 
   protected:
     // Instance callback storage
+    KWidgetItemDelegate_MetaObject_Callback kwidgetitemdelegate_metaobject_callback = nullptr;
+    KWidgetItemDelegate_Metacast_Callback kwidgetitemdelegate_metacast_callback = nullptr;
     KWidgetItemDelegate_Metacall_Callback kwidgetitemdelegate_metacall_callback = nullptr;
     KWidgetItemDelegate_CreateItemWidgets_Callback kwidgetitemdelegate_createitemwidgets_callback = nullptr;
     KWidgetItemDelegate_UpdateItemWidgets_Callback kwidgetitemdelegate_updateitemwidgets_callback = nullptr;
@@ -74,6 +78,8 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     KWidgetItemDelegate_IsSignalConnected_Callback kwidgetitemdelegate_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kwidgetitemdelegate_metaobject_isbase = false;
+    mutable bool kwidgetitemdelegate_metacast_isbase = false;
     mutable bool kwidgetitemdelegate_metacall_isbase = false;
     mutable bool kwidgetitemdelegate_createitemwidgets_isbase = false;
     mutable bool kwidgetitemdelegate_updateitemwidgets_isbase = false;
@@ -106,6 +112,8 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     VirtualKWidgetItemDelegate(QAbstractItemView* itemView, QObject* parent) : KWidgetItemDelegate(itemView, parent) {};
 
     ~VirtualKWidgetItemDelegate() {
+        kwidgetitemdelegate_metaobject_callback = nullptr;
+        kwidgetitemdelegate_metacast_callback = nullptr;
         kwidgetitemdelegate_metacall_callback = nullptr;
         kwidgetitemdelegate_createitemwidgets_callback = nullptr;
         kwidgetitemdelegate_updateitemwidgets_callback = nullptr;
@@ -135,6 +143,8 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     }
 
     // Callback setters
+    inline void setKWidgetItemDelegate_MetaObject_Callback(KWidgetItemDelegate_MetaObject_Callback cb) { kwidgetitemdelegate_metaobject_callback = cb; }
+    inline void setKWidgetItemDelegate_Metacast_Callback(KWidgetItemDelegate_Metacast_Callback cb) { kwidgetitemdelegate_metacast_callback = cb; }
     inline void setKWidgetItemDelegate_Metacall_Callback(KWidgetItemDelegate_Metacall_Callback cb) { kwidgetitemdelegate_metacall_callback = cb; }
     inline void setKWidgetItemDelegate_CreateItemWidgets_Callback(KWidgetItemDelegate_CreateItemWidgets_Callback cb) { kwidgetitemdelegate_createitemwidgets_callback = cb; }
     inline void setKWidgetItemDelegate_UpdateItemWidgets_Callback(KWidgetItemDelegate_UpdateItemWidgets_Callback cb) { kwidgetitemdelegate_updateitemwidgets_callback = cb; }
@@ -163,6 +173,8 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     inline void setKWidgetItemDelegate_IsSignalConnected_Callback(KWidgetItemDelegate_IsSignalConnected_Callback cb) { kwidgetitemdelegate_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKWidgetItemDelegate_MetaObject_IsBase(bool value) const { kwidgetitemdelegate_metaobject_isbase = value; }
+    inline void setKWidgetItemDelegate_Metacast_IsBase(bool value) const { kwidgetitemdelegate_metacast_isbase = value; }
     inline void setKWidgetItemDelegate_Metacall_IsBase(bool value) const { kwidgetitemdelegate_metacall_isbase = value; }
     inline void setKWidgetItemDelegate_CreateItemWidgets_IsBase(bool value) const { kwidgetitemdelegate_createitemwidgets_isbase = value; }
     inline void setKWidgetItemDelegate_UpdateItemWidgets_IsBase(bool value) const { kwidgetitemdelegate_updateitemwidgets_isbase = value; }
@@ -189,6 +201,34 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     inline void setKWidgetItemDelegate_SenderSignalIndex_IsBase(bool value) const { kwidgetitemdelegate_sendersignalindex_isbase = value; }
     inline void setKWidgetItemDelegate_Receivers_IsBase(bool value) const { kwidgetitemdelegate_receivers_isbase = value; }
     inline void setKWidgetItemDelegate_IsSignalConnected_IsBase(bool value) const { kwidgetitemdelegate_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kwidgetitemdelegate_metaobject_isbase) {
+            kwidgetitemdelegate_metaobject_isbase = false;
+            return KWidgetItemDelegate::metaObject();
+        } else if (kwidgetitemdelegate_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kwidgetitemdelegate_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KWidgetItemDelegate::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kwidgetitemdelegate_metacast_isbase) {
+            kwidgetitemdelegate_metacast_isbase = false;
+            return KWidgetItemDelegate::qt_metacast(param1);
+        } else if (kwidgetitemdelegate_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kwidgetitemdelegate_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KWidgetItemDelegate::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

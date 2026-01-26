@@ -50,11 +50,21 @@ QAbstractSpinBox* QAbstractSpinBox_new2() {
 }
 
 QMetaObject* QAbstractSpinBox_MetaObject(const QAbstractSpinBox* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAbstractSpinBox*)self)->metaObject();
+    }
 }
 
 void* QAbstractSpinBox_Metacast(QAbstractSpinBox* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAbstractSpinBox*)self)->qt_metacast(param1);
+    }
 }
 
 int QAbstractSpinBox_Metacall(QAbstractSpinBox* self, int param1, int param2, void** param3) {
@@ -397,6 +407,44 @@ void QAbstractSpinBox_Connect_EditingFinished(QAbstractSpinBox* self, intptr_t s
     QAbstractSpinBox::connect(self, &QAbstractSpinBox::editingFinished, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QAbstractSpinBox_QBaseMetaObject(const QAbstractSpinBox* self) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MetaObject_IsBase(true);
+        return (QMetaObject*)vqabstractspinbox->metaObject();
+    } else {
+        return (QMetaObject*)self->QAbstractSpinBox::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractSpinBox_OnMetaObject(const QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_MetaObject_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAbstractSpinBox_QBaseMetacast(QAbstractSpinBox* self, const char* param1) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Metacast_IsBase(true);
+        return vqabstractspinbox->qt_metacast(param1);
+    } else {
+        return self->QAbstractSpinBox::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractSpinBox_OnMetacast(QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_Metacast_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

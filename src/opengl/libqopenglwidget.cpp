@@ -55,11 +55,21 @@ QOpenGLWidget* QOpenGLWidget_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* QOpenGLWidget_MetaObject(const QOpenGLWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqopenglwidget = dynamic_cast<const VirtualQOpenGLWidget*>(self);
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQOpenGLWidget*)self)->metaObject();
+    }
 }
 
 void* QOpenGLWidget_Metacast(QOpenGLWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQOpenGLWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QOpenGLWidget_Metacall(QOpenGLWidget* self, int param1, int param2, void** param3) {
@@ -240,6 +250,44 @@ QPaintEngine* QOpenGLWidget_PaintEngine(const QOpenGLWidget* self) {
         return vqopenglwidget->paintEngine();
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QOpenGLWidget_QBaseMetaObject(const QOpenGLWidget* self) {
+    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+        vqopenglwidget->setQOpenGLWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqopenglwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QOpenGLWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLWidget_OnMetaObject(const QOpenGLWidget* self, intptr_t slot) {
+    auto* vqopenglwidget = const_cast<VirtualQOpenGLWidget*>(dynamic_cast<const VirtualQOpenGLWidget*>(self));
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+        vqopenglwidget->setQOpenGLWidget_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QOpenGLWidget_QBaseMetacast(QOpenGLWidget* self, const char* param1) {
+    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+        vqopenglwidget->setQOpenGLWidget_Metacast_IsBase(true);
+        return vqopenglwidget->qt_metacast(param1);
+    } else {
+        return self->QOpenGLWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QOpenGLWidget_OnMetacast(QOpenGLWidget* self, intptr_t slot) {
+    auto* vqopenglwidget = dynamic_cast<VirtualQOpenGLWidget*>(self);
+    if (vqopenglwidget && vqopenglwidget->isVirtualQOpenGLWidget) {
+        vqopenglwidget->setQOpenGLWidget_Metacast_Callback(reinterpret_cast<VirtualQOpenGLWidget::QOpenGLWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

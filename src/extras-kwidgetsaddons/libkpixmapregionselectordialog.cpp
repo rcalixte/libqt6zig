@@ -53,11 +53,21 @@ KPixmapRegionSelectorDialog* KPixmapRegionSelectorDialog_new2() {
 }
 
 QMetaObject* KPixmapRegionSelectorDialog_MetaObject(const KPixmapRegionSelectorDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpixmapregionselectordialog = dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self);
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPixmapRegionSelectorDialog*)self)->metaObject();
+    }
 }
 
 void* KPixmapRegionSelectorDialog_Metacast(KPixmapRegionSelectorDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPixmapRegionSelectorDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KPixmapRegionSelectorDialog_Metacall(KPixmapRegionSelectorDialog* self, int param1, int param2, void** param3) {
@@ -107,6 +117,44 @@ QImage* KPixmapRegionSelectorDialog_GetSelectedImage22(const QPixmap* pixmap, QW
 
 QImage* KPixmapRegionSelectorDialog_GetSelectedImage4(const QPixmap* pixmap, int aspectRatioWidth, int aspectRatioHeight, QWidget* parent) {
     return new QImage(KPixmapRegionSelectorDialog::getSelectedImage(*pixmap, static_cast<int>(aspectRatioWidth), static_cast<int>(aspectRatioHeight), parent));
+}
+
+// Base class handler implementation
+QMetaObject* KPixmapRegionSelectorDialog_QBaseMetaObject(const KPixmapRegionSelectorDialog* self) {
+    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpixmapregionselectordialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KPixmapRegionSelectorDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapRegionSelectorDialog_OnMetaObject(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MetaObject_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPixmapRegionSelectorDialog_QBaseMetacast(KPixmapRegionSelectorDialog* self, const char* param1) {
+    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacast_IsBase(true);
+        return vkpixmapregionselectordialog->qt_metacast(param1);
+    } else {
+        return self->KPixmapRegionSelectorDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPixmapRegionSelectorDialog_OnMetacast(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
+    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacast_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

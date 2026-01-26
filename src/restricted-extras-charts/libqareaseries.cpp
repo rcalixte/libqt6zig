@@ -36,11 +36,21 @@ QAreaSeries* QAreaSeries_new4(QLineSeries* upperSeries, QLineSeries* lowerSeries
 }
 
 QMetaObject* QAreaSeries_MetaObject(const QAreaSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqareaseries = dynamic_cast<const VirtualQAreaSeries*>(self);
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAreaSeries*)self)->metaObject();
+    }
 }
 
 void* QAreaSeries_Metacast(QAreaSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAreaSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QAreaSeries_Metacall(QAreaSeries* self, int param1, int param2, void** param3) {
@@ -354,6 +364,44 @@ void QAreaSeries_SetPointLabelsVisible1(QAreaSeries* self, bool visible) {
 
 void QAreaSeries_SetPointLabelsClipping1(QAreaSeries* self, bool enabled) {
     self->setPointLabelsClipping(enabled);
+}
+
+// Base class handler implementation
+QMetaObject* QAreaSeries_QBaseMetaObject(const QAreaSeries* self) {
+    auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqareaseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QAreaSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAreaSeries_OnMetaObject(const QAreaSeries* self, intptr_t slot) {
+    auto* vqareaseries = const_cast<VirtualQAreaSeries*>(dynamic_cast<const VirtualQAreaSeries*>(self));
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_MetaObject_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAreaSeries_QBaseMetacast(QAreaSeries* self, const char* param1) {
+    auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_Metacast_IsBase(true);
+        return vqareaseries->qt_metacast(param1);
+    } else {
+        return self->QAreaSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAreaSeries_OnMetacast(QAreaSeries* self, intptr_t slot) {
+    auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
+    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
+        vqareaseries->setQAreaSeries_Metacast_Callback(reinterpret_cast<VirtualQAreaSeries::QAreaSeries_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

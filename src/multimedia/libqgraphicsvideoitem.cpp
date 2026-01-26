@@ -40,11 +40,21 @@ QGraphicsVideoItem* QGraphicsVideoItem_new2(QGraphicsItem* parent) {
 }
 
 QMetaObject* QGraphicsVideoItem_MetaObject(const QGraphicsVideoItem* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsvideoitem = dynamic_cast<const VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsVideoItem*)self)->metaObject();
+    }
 }
 
 void* QGraphicsVideoItem_Metacast(QGraphicsVideoItem* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsVideoItem*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsVideoItem_Metacall(QGraphicsVideoItem* self, int param1, int param2, void** param3) {
@@ -142,6 +152,44 @@ QVariant* QGraphicsVideoItem_ItemChange(QGraphicsVideoItem* self, int change, co
         return new QVariant(vqgraphicsvideoitem->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsVideoItem_QBaseMetaObject(const QGraphicsVideoItem* self) {
+    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsvideoitem->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsVideoItem::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsVideoItem_OnMetaObject(const QGraphicsVideoItem* self, intptr_t slot) {
+    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsVideoItem_QBaseMetacast(QGraphicsVideoItem* self, const char* param1) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacast_IsBase(true);
+        return vqgraphicsvideoitem->qt_metacast(param1);
+    } else {
+        return self->QGraphicsVideoItem::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsVideoItem_OnMetacast(QGraphicsVideoItem* self, intptr_t slot) {
+    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
+    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacast_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

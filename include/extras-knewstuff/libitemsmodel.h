@@ -59,6 +59,10 @@ void KNSCore__ItemsModel_SlotEntryChanged(KNSCore__ItemsModel* self, const KNSCo
 void KNSCore__ItemsModel_SlotEntriesLoaded(KNSCore__ItemsModel* self, const libqt_list /* of KNSCore__Entry* */ entries);
 void KNSCore__ItemsModel_ClearEntries(KNSCore__ItemsModel* self);
 void KNSCore__ItemsModel_SlotEntryPreviewLoaded(KNSCore__ItemsModel* self, const KNSCore__Entry* entry, int typeVal);
+void KNSCore__ItemsModel_OnMetaObject(const KNSCore__ItemsModel* self, intptr_t slot);
+QMetaObject* KNSCore__ItemsModel_QBaseMetaObject(const KNSCore__ItemsModel* self);
+void KNSCore__ItemsModel_OnMetacast(KNSCore__ItemsModel* self, intptr_t slot);
+void* KNSCore__ItemsModel_QBaseMetacast(KNSCore__ItemsModel* self, const char* param1);
 void KNSCore__ItemsModel_OnMetacall(KNSCore__ItemsModel* self, intptr_t slot);
 int KNSCore__ItemsModel_QBaseMetacall(KNSCore__ItemsModel* self, int param1, int param2, void** param3);
 void KNSCore__ItemsModel_OnRowCount(const KNSCore__ItemsModel* self, intptr_t slot);

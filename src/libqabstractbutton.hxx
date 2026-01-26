@@ -17,6 +17,8 @@ class VirtualQAbstractButton : public QAbstractButton {
     bool isVirtualQAbstractButton = true;
 
     // Virtual class public types (including callbacks)
+    using QAbstractButton_MetaObject_Callback = QMetaObject* (*)();
+    using QAbstractButton_Metacast_Callback = void* (*)(QAbstractButton*, const char*);
     using QAbstractButton_Metacall_Callback = int (*)(QAbstractButton*, int, int, void**);
     using QAbstractButton_PaintEvent_Callback = void (*)(QAbstractButton*, QPaintEvent*);
     using QAbstractButton_HitButton_Callback = bool (*)(const QAbstractButton*, QPoint*);
@@ -81,6 +83,8 @@ class VirtualQAbstractButton : public QAbstractButton {
 
   protected:
     // Instance callback storage
+    QAbstractButton_MetaObject_Callback qabstractbutton_metaobject_callback = nullptr;
+    QAbstractButton_Metacast_Callback qabstractbutton_metacast_callback = nullptr;
     QAbstractButton_Metacall_Callback qabstractbutton_metacall_callback = nullptr;
     QAbstractButton_PaintEvent_Callback qabstractbutton_paintevent_callback = nullptr;
     QAbstractButton_HitButton_Callback qabstractbutton_hitbutton_callback = nullptr;
@@ -144,6 +148,8 @@ class VirtualQAbstractButton : public QAbstractButton {
     QAbstractButton_GetDecodedMetricF_Callback qabstractbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qabstractbutton_metaobject_isbase = false;
+    mutable bool qabstractbutton_metacast_isbase = false;
     mutable bool qabstractbutton_metacall_isbase = false;
     mutable bool qabstractbutton_paintevent_isbase = false;
     mutable bool qabstractbutton_hitbutton_isbase = false;
@@ -211,6 +217,8 @@ class VirtualQAbstractButton : public QAbstractButton {
     VirtualQAbstractButton() : QAbstractButton() {};
 
     ~VirtualQAbstractButton() {
+        qabstractbutton_metaobject_callback = nullptr;
+        qabstractbutton_metacast_callback = nullptr;
         qabstractbutton_metacall_callback = nullptr;
         qabstractbutton_paintevent_callback = nullptr;
         qabstractbutton_hitbutton_callback = nullptr;
@@ -275,6 +283,8 @@ class VirtualQAbstractButton : public QAbstractButton {
     }
 
     // Callback setters
+    inline void setQAbstractButton_MetaObject_Callback(QAbstractButton_MetaObject_Callback cb) { qabstractbutton_metaobject_callback = cb; }
+    inline void setQAbstractButton_Metacast_Callback(QAbstractButton_Metacast_Callback cb) { qabstractbutton_metacast_callback = cb; }
     inline void setQAbstractButton_Metacall_Callback(QAbstractButton_Metacall_Callback cb) { qabstractbutton_metacall_callback = cb; }
     inline void setQAbstractButton_PaintEvent_Callback(QAbstractButton_PaintEvent_Callback cb) { qabstractbutton_paintevent_callback = cb; }
     inline void setQAbstractButton_HitButton_Callback(QAbstractButton_HitButton_Callback cb) { qabstractbutton_hitbutton_callback = cb; }
@@ -338,6 +348,8 @@ class VirtualQAbstractButton : public QAbstractButton {
     inline void setQAbstractButton_GetDecodedMetricF_Callback(QAbstractButton_GetDecodedMetricF_Callback cb) { qabstractbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQAbstractButton_MetaObject_IsBase(bool value) const { qabstractbutton_metaobject_isbase = value; }
+    inline void setQAbstractButton_Metacast_IsBase(bool value) const { qabstractbutton_metacast_isbase = value; }
     inline void setQAbstractButton_Metacall_IsBase(bool value) const { qabstractbutton_metacall_isbase = value; }
     inline void setQAbstractButton_PaintEvent_IsBase(bool value) const { qabstractbutton_paintevent_isbase = value; }
     inline void setQAbstractButton_HitButton_IsBase(bool value) const { qabstractbutton_hitbutton_isbase = value; }
@@ -399,6 +411,34 @@ class VirtualQAbstractButton : public QAbstractButton {
     inline void setQAbstractButton_Receivers_IsBase(bool value) const { qabstractbutton_receivers_isbase = value; }
     inline void setQAbstractButton_IsSignalConnected_IsBase(bool value) const { qabstractbutton_issignalconnected_isbase = value; }
     inline void setQAbstractButton_GetDecodedMetricF_IsBase(bool value) const { qabstractbutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qabstractbutton_metaobject_isbase) {
+            qabstractbutton_metaobject_isbase = false;
+            return QAbstractButton::metaObject();
+        } else if (qabstractbutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qabstractbutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAbstractButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qabstractbutton_metacast_isbase) {
+            qabstractbutton_metacast_isbase = false;
+            return QAbstractButton::qt_metacast(param1);
+        } else if (qabstractbutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qabstractbutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAbstractButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

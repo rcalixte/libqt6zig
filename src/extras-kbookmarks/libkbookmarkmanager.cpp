@@ -25,11 +25,21 @@ KBookmarkManager* KBookmarkManager_new2(const libqt_string bookmarksFile, QObjec
 }
 
 QMetaObject* KBookmarkManager_MetaObject(const KBookmarkManager* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkbookmarkmanager = dynamic_cast<const VirtualKBookmarkManager*>(self);
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKBookmarkManager*)self)->metaObject();
+    }
 }
 
 void* KBookmarkManager_Metacast(KBookmarkManager* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKBookmarkManager*)self)->qt_metacast(param1);
+    }
 }
 
 int KBookmarkManager_Metacall(KBookmarkManager* self, int param1, int param2, void** param3) {
@@ -139,6 +149,44 @@ bool KBookmarkManager_SaveAs2(const KBookmarkManager* self, const libqt_string f
 
 bool KBookmarkManager_Save1(const KBookmarkManager* self, bool toolbarCache) {
     return self->save(toolbarCache);
+}
+
+// Base class handler implementation
+QMetaObject* KBookmarkManager_QBaseMetaObject(const KBookmarkManager* self) {
+    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+        vkbookmarkmanager->setKBookmarkManager_MetaObject_IsBase(true);
+        return (QMetaObject*)vkbookmarkmanager->metaObject();
+    } else {
+        return (QMetaObject*)self->KBookmarkManager::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBookmarkManager_OnMetaObject(const KBookmarkManager* self, intptr_t slot) {
+    auto* vkbookmarkmanager = const_cast<VirtualKBookmarkManager*>(dynamic_cast<const VirtualKBookmarkManager*>(self));
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+        vkbookmarkmanager->setKBookmarkManager_MetaObject_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KBookmarkManager_QBaseMetacast(KBookmarkManager* self, const char* param1) {
+    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+        vkbookmarkmanager->setKBookmarkManager_Metacast_IsBase(true);
+        return vkbookmarkmanager->qt_metacast(param1);
+    } else {
+        return self->KBookmarkManager::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBookmarkManager_OnMetacast(KBookmarkManager* self, intptr_t slot) {
+    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
+    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
+        vkbookmarkmanager->setKBookmarkManager_Metacast_Callback(reinterpret_cast<VirtualKBookmarkManager::KBookmarkManager_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -36,6 +36,10 @@ int QAudioBufferOutput_Metacall(QAudioBufferOutput* self, int param1, int param2
 QAudioFormat* QAudioBufferOutput_Format(const QAudioBufferOutput* self);
 void QAudioBufferOutput_AudioBufferReceived(QAudioBufferOutput* self, const QAudioBuffer* buffer);
 void QAudioBufferOutput_Connect_AudioBufferReceived(QAudioBufferOutput* self, intptr_t slot);
+void QAudioBufferOutput_OnMetaObject(const QAudioBufferOutput* self, intptr_t slot);
+QMetaObject* QAudioBufferOutput_QBaseMetaObject(const QAudioBufferOutput* self);
+void QAudioBufferOutput_OnMetacast(QAudioBufferOutput* self, intptr_t slot);
+void* QAudioBufferOutput_QBaseMetacast(QAudioBufferOutput* self, const char* param1);
 void QAudioBufferOutput_OnMetacall(QAudioBufferOutput* self, intptr_t slot);
 int QAudioBufferOutput_QBaseMetacall(QAudioBufferOutput* self, int param1, int param2, void** param3);
 bool QAudioBufferOutput_Event(QAudioBufferOutput* self, QEvent* event);

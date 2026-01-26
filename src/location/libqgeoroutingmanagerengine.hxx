@@ -17,6 +17,8 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
     bool isVirtualQGeoRoutingManagerEngine = true;
 
     // Virtual class public types (including callbacks)
+    using QGeoRoutingManagerEngine_MetaObject_Callback = QMetaObject* (*)();
+    using QGeoRoutingManagerEngine_Metacast_Callback = void* (*)(QGeoRoutingManagerEngine*, const char*);
     using QGeoRoutingManagerEngine_Metacall_Callback = int (*)(QGeoRoutingManagerEngine*, int, int, void**);
     using QGeoRoutingManagerEngine_CalculateRoute_Callback = QGeoRouteReply* (*)(QGeoRoutingManagerEngine*, QGeoRouteRequest*);
     using QGeoRoutingManagerEngine_UpdateRoute_Callback = QGeoRouteReply* (*)(QGeoRoutingManagerEngine*, QGeoRoute*, QGeoCoordinate*);
@@ -40,6 +42,8 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
 
   protected:
     // Instance callback storage
+    QGeoRoutingManagerEngine_MetaObject_Callback qgeoroutingmanagerengine_metaobject_callback = nullptr;
+    QGeoRoutingManagerEngine_Metacast_Callback qgeoroutingmanagerengine_metacast_callback = nullptr;
     QGeoRoutingManagerEngine_Metacall_Callback qgeoroutingmanagerengine_metacall_callback = nullptr;
     QGeoRoutingManagerEngine_CalculateRoute_Callback qgeoroutingmanagerengine_calculateroute_callback = nullptr;
     QGeoRoutingManagerEngine_UpdateRoute_Callback qgeoroutingmanagerengine_updateroute_callback = nullptr;
@@ -62,6 +66,8 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
     QGeoRoutingManagerEngine_IsSignalConnected_Callback qgeoroutingmanagerengine_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgeoroutingmanagerengine_metaobject_isbase = false;
+    mutable bool qgeoroutingmanagerengine_metacast_isbase = false;
     mutable bool qgeoroutingmanagerengine_metacall_isbase = false;
     mutable bool qgeoroutingmanagerengine_calculateroute_isbase = false;
     mutable bool qgeoroutingmanagerengine_updateroute_isbase = false;
@@ -88,6 +94,8 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
     VirtualQGeoRoutingManagerEngine(const QMap<QString, QVariant>& parameters, QObject* parent) : QGeoRoutingManagerEngine(parameters, parent) {};
 
     ~VirtualQGeoRoutingManagerEngine() {
+        qgeoroutingmanagerengine_metaobject_callback = nullptr;
+        qgeoroutingmanagerengine_metacast_callback = nullptr;
         qgeoroutingmanagerengine_metacall_callback = nullptr;
         qgeoroutingmanagerengine_calculateroute_callback = nullptr;
         qgeoroutingmanagerengine_updateroute_callback = nullptr;
@@ -111,6 +119,8 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
     }
 
     // Callback setters
+    inline void setQGeoRoutingManagerEngine_MetaObject_Callback(QGeoRoutingManagerEngine_MetaObject_Callback cb) { qgeoroutingmanagerengine_metaobject_callback = cb; }
+    inline void setQGeoRoutingManagerEngine_Metacast_Callback(QGeoRoutingManagerEngine_Metacast_Callback cb) { qgeoroutingmanagerengine_metacast_callback = cb; }
     inline void setQGeoRoutingManagerEngine_Metacall_Callback(QGeoRoutingManagerEngine_Metacall_Callback cb) { qgeoroutingmanagerengine_metacall_callback = cb; }
     inline void setQGeoRoutingManagerEngine_CalculateRoute_Callback(QGeoRoutingManagerEngine_CalculateRoute_Callback cb) { qgeoroutingmanagerengine_calculateroute_callback = cb; }
     inline void setQGeoRoutingManagerEngine_UpdateRoute_Callback(QGeoRoutingManagerEngine_UpdateRoute_Callback cb) { qgeoroutingmanagerengine_updateroute_callback = cb; }
@@ -133,6 +143,8 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
     inline void setQGeoRoutingManagerEngine_IsSignalConnected_Callback(QGeoRoutingManagerEngine_IsSignalConnected_Callback cb) { qgeoroutingmanagerengine_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGeoRoutingManagerEngine_MetaObject_IsBase(bool value) const { qgeoroutingmanagerengine_metaobject_isbase = value; }
+    inline void setQGeoRoutingManagerEngine_Metacast_IsBase(bool value) const { qgeoroutingmanagerengine_metacast_isbase = value; }
     inline void setQGeoRoutingManagerEngine_Metacall_IsBase(bool value) const { qgeoroutingmanagerengine_metacall_isbase = value; }
     inline void setQGeoRoutingManagerEngine_CalculateRoute_IsBase(bool value) const { qgeoroutingmanagerengine_calculateroute_isbase = value; }
     inline void setQGeoRoutingManagerEngine_UpdateRoute_IsBase(bool value) const { qgeoroutingmanagerengine_updateroute_isbase = value; }
@@ -153,6 +165,34 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
     inline void setQGeoRoutingManagerEngine_SenderSignalIndex_IsBase(bool value) const { qgeoroutingmanagerengine_sendersignalindex_isbase = value; }
     inline void setQGeoRoutingManagerEngine_Receivers_IsBase(bool value) const { qgeoroutingmanagerengine_receivers_isbase = value; }
     inline void setQGeoRoutingManagerEngine_IsSignalConnected_IsBase(bool value) const { qgeoroutingmanagerengine_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgeoroutingmanagerengine_metaobject_isbase) {
+            qgeoroutingmanagerengine_metaobject_isbase = false;
+            return QGeoRoutingManagerEngine::metaObject();
+        } else if (qgeoroutingmanagerengine_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgeoroutingmanagerengine_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGeoRoutingManagerEngine::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgeoroutingmanagerengine_metacast_isbase) {
+            qgeoroutingmanagerengine_metacast_isbase = false;
+            return QGeoRoutingManagerEngine::qt_metacast(param1);
+        } else if (qgeoroutingmanagerengine_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgeoroutingmanagerengine_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGeoRoutingManagerEngine::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

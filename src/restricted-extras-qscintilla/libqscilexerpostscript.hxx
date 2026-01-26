@@ -17,6 +17,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     bool isVirtualQsciLexerPostScript = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerPostScript_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerPostScript_Metacast_Callback = void* (*)(QsciLexerPostScript*, const char*);
     using QsciLexerPostScript_Metacall_Callback = int (*)(QsciLexerPostScript*, int, int, void**);
     using QsciLexerPostScript_SetTokenize_Callback = void (*)(QsciLexerPostScript*, bool);
     using QsciLexerPostScript_SetLevel_Callback = void (*)(QsciLexerPostScript*, int);
@@ -72,6 +74,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
 
   protected:
     // Instance callback storage
+    QsciLexerPostScript_MetaObject_Callback qscilexerpostscript_metaobject_callback = nullptr;
+    QsciLexerPostScript_Metacast_Callback qscilexerpostscript_metacast_callback = nullptr;
     QsciLexerPostScript_Metacall_Callback qscilexerpostscript_metacall_callback = nullptr;
     QsciLexerPostScript_SetTokenize_Callback qscilexerpostscript_settokenize_callback = nullptr;
     QsciLexerPostScript_SetLevel_Callback qscilexerpostscript_setlevel_callback = nullptr;
@@ -126,6 +130,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     QsciLexerPostScript_IsSignalConnected_Callback qscilexerpostscript_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexerpostscript_metaobject_isbase = false;
+    mutable bool qscilexerpostscript_metacast_isbase = false;
     mutable bool qscilexerpostscript_metacall_isbase = false;
     mutable bool qscilexerpostscript_settokenize_isbase = false;
     mutable bool qscilexerpostscript_setlevel_isbase = false;
@@ -184,6 +190,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     VirtualQsciLexerPostScript(QObject* parent) : QsciLexerPostScript(parent) {};
 
     ~VirtualQsciLexerPostScript() {
+        qscilexerpostscript_metaobject_callback = nullptr;
+        qscilexerpostscript_metacast_callback = nullptr;
         qscilexerpostscript_metacall_callback = nullptr;
         qscilexerpostscript_settokenize_callback = nullptr;
         qscilexerpostscript_setlevel_callback = nullptr;
@@ -239,6 +247,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     }
 
     // Callback setters
+    inline void setQsciLexerPostScript_MetaObject_Callback(QsciLexerPostScript_MetaObject_Callback cb) { qscilexerpostscript_metaobject_callback = cb; }
+    inline void setQsciLexerPostScript_Metacast_Callback(QsciLexerPostScript_Metacast_Callback cb) { qscilexerpostscript_metacast_callback = cb; }
     inline void setQsciLexerPostScript_Metacall_Callback(QsciLexerPostScript_Metacall_Callback cb) { qscilexerpostscript_metacall_callback = cb; }
     inline void setQsciLexerPostScript_SetTokenize_Callback(QsciLexerPostScript_SetTokenize_Callback cb) { qscilexerpostscript_settokenize_callback = cb; }
     inline void setQsciLexerPostScript_SetLevel_Callback(QsciLexerPostScript_SetLevel_Callback cb) { qscilexerpostscript_setlevel_callback = cb; }
@@ -293,6 +303,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     inline void setQsciLexerPostScript_IsSignalConnected_Callback(QsciLexerPostScript_IsSignalConnected_Callback cb) { qscilexerpostscript_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerPostScript_MetaObject_IsBase(bool value) const { qscilexerpostscript_metaobject_isbase = value; }
+    inline void setQsciLexerPostScript_Metacast_IsBase(bool value) const { qscilexerpostscript_metacast_isbase = value; }
     inline void setQsciLexerPostScript_Metacall_IsBase(bool value) const { qscilexerpostscript_metacall_isbase = value; }
     inline void setQsciLexerPostScript_SetTokenize_IsBase(bool value) const { qscilexerpostscript_settokenize_isbase = value; }
     inline void setQsciLexerPostScript_SetLevel_IsBase(bool value) const { qscilexerpostscript_setlevel_isbase = value; }
@@ -345,6 +357,34 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     inline void setQsciLexerPostScript_SenderSignalIndex_IsBase(bool value) const { qscilexerpostscript_sendersignalindex_isbase = value; }
     inline void setQsciLexerPostScript_Receivers_IsBase(bool value) const { qscilexerpostscript_receivers_isbase = value; }
     inline void setQsciLexerPostScript_IsSignalConnected_IsBase(bool value) const { qscilexerpostscript_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexerpostscript_metaobject_isbase) {
+            qscilexerpostscript_metaobject_isbase = false;
+            return QsciLexerPostScript::metaObject();
+        } else if (qscilexerpostscript_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexerpostscript_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerPostScript::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexerpostscript_metacast_isbase) {
+            qscilexerpostscript_metacast_isbase = false;
+            return QsciLexerPostScript::qt_metacast(param1);
+        } else if (qscilexerpostscript_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexerpostscript_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerPostScript::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

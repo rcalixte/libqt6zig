@@ -23,11 +23,21 @@ KColumnResizer* KColumnResizer_new2(QObject* parent) {
 }
 
 QMetaObject* KColumnResizer_MetaObject(const KColumnResizer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcolumnresizer = dynamic_cast<const VirtualKColumnResizer*>(self);
+    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKColumnResizer*)self)->metaObject();
+    }
 }
 
 void* KColumnResizer_Metacast(KColumnResizer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
+    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKColumnResizer*)self)->qt_metacast(param1);
+    }
 }
 
 int KColumnResizer_Metacall(KColumnResizer* self, int param1, int param2, void** param3) {
@@ -61,6 +71,44 @@ bool KColumnResizer_EventFilter(KColumnResizer* self, QObject* param1, QEvent* e
 
 void KColumnResizer_AddWidgetsFromLayout2(KColumnResizer* self, QLayout* layout, int column) {
     self->addWidgetsFromLayout(layout, static_cast<int>(column));
+}
+
+// Base class handler implementation
+QMetaObject* KColumnResizer_QBaseMetaObject(const KColumnResizer* self) {
+    auto* vkcolumnresizer = const_cast<VirtualKColumnResizer*>(dynamic_cast<const VirtualKColumnResizer*>(self));
+    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
+        vkcolumnresizer->setKColumnResizer_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcolumnresizer->metaObject();
+    } else {
+        return (QMetaObject*)self->KColumnResizer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColumnResizer_OnMetaObject(const KColumnResizer* self, intptr_t slot) {
+    auto* vkcolumnresizer = const_cast<VirtualKColumnResizer*>(dynamic_cast<const VirtualKColumnResizer*>(self));
+    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
+        vkcolumnresizer->setKColumnResizer_MetaObject_Callback(reinterpret_cast<VirtualKColumnResizer::KColumnResizer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KColumnResizer_QBaseMetacast(KColumnResizer* self, const char* param1) {
+    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
+    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
+        vkcolumnresizer->setKColumnResizer_Metacast_IsBase(true);
+        return vkcolumnresizer->qt_metacast(param1);
+    } else {
+        return self->KColumnResizer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColumnResizer_OnMetacast(KColumnResizer* self, intptr_t slot) {
+    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
+    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
+        vkcolumnresizer->setKColumnResizer_Metacast_Callback(reinterpret_cast<VirtualKColumnResizer::KColumnResizer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

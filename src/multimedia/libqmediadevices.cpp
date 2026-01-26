@@ -24,11 +24,21 @@ QMediaDevices* QMediaDevices_new2(QObject* parent) {
 }
 
 QMetaObject* QMediaDevices_MetaObject(const QMediaDevices* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmediadevices = dynamic_cast<const VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMediaDevices*)self)->metaObject();
+    }
 }
 
 void* QMediaDevices_Metacast(QMediaDevices* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMediaDevices*)self)->qt_metacast(param1);
+    }
 }
 
 int QMediaDevices_Metacall(QMediaDevices* self, int param1, int param2, void** param3) {
@@ -128,6 +138,44 @@ void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal)
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->connectNotify(*signal);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QMediaDevices_QBaseMetaObject(const QMediaDevices* self) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->setQMediaDevices_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmediadevices->metaObject();
+    } else {
+        return (QMetaObject*)self->QMediaDevices::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaDevices_OnMetaObject(const QMediaDevices* self, intptr_t slot) {
+    auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->setQMediaDevices_MetaObject_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMediaDevices_QBaseMetacast(QMediaDevices* self, const char* param1) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->setQMediaDevices_Metacast_IsBase(true);
+        return vqmediadevices->qt_metacast(param1);
+    } else {
+        return self->QMediaDevices::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaDevices_OnMetacast(QMediaDevices* self, intptr_t slot) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->setQMediaDevices_Metacast_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Metacast_Callback>(slot));
     }
 }
 

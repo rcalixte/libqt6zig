@@ -51,11 +51,21 @@ QShortcut* QShortcut_new9(int key, QObject* parent, const char* member, const ch
 }
 
 QMetaObject* QShortcut_MetaObject(const QShortcut* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqshortcut = dynamic_cast<const VirtualQShortcut*>(self);
+    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQShortcut*)self)->metaObject();
+    }
 }
 
 void* QShortcut_Metacast(QShortcut* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
+    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQShortcut*)self)->qt_metacast(param1);
+    }
 }
 
 int QShortcut_Metacall(QShortcut* self, int param1, int param2, void** param3) {
@@ -175,6 +185,44 @@ bool QShortcut_Event(QShortcut* self, QEvent* e) {
         return vqshortcut->event(e);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QShortcut_QBaseMetaObject(const QShortcut* self) {
+    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
+    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+        vqshortcut->setQShortcut_MetaObject_IsBase(true);
+        return (QMetaObject*)vqshortcut->metaObject();
+    } else {
+        return (QMetaObject*)self->QShortcut::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QShortcut_OnMetaObject(const QShortcut* self, intptr_t slot) {
+    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
+    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+        vqshortcut->setQShortcut_MetaObject_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QShortcut_QBaseMetacast(QShortcut* self, const char* param1) {
+    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
+    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+        vqshortcut->setQShortcut_Metacast_IsBase(true);
+        return vqshortcut->qt_metacast(param1);
+    } else {
+        return self->QShortcut::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QShortcut_OnMetacast(QShortcut* self, intptr_t slot) {
+    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
+    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+        vqshortcut->setQShortcut_Metacast_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
     bool isVirtualKTextEditorCommand = true;
 
     // Virtual class public types (including callbacks)
+    using KTextEditor__Command_MetaObject_Callback = QMetaObject* (*)();
+    using KTextEditor__Command_Metacast_Callback = void* (*)(KTextEditor__Command*, const char*);
     using KTextEditor__Command_Metacall_Callback = int (*)(KTextEditor__Command*, int, int, void**);
     using KTextEditor__Command_SupportsRange_Callback = bool (*)(KTextEditor__Command*, libqt_string);
     using KTextEditor__Command_Exec_Callback = bool (*)(KTextEditor__Command*, KTextEditor__View*, libqt_string, libqt_string, KTextEditor__Range*);
@@ -38,6 +40,8 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
 
   protected:
     // Instance callback storage
+    KTextEditor__Command_MetaObject_Callback ktexteditor__command_metaobject_callback = nullptr;
+    KTextEditor__Command_Metacast_Callback ktexteditor__command_metacast_callback = nullptr;
     KTextEditor__Command_Metacall_Callback ktexteditor__command_metacall_callback = nullptr;
     KTextEditor__Command_SupportsRange_Callback ktexteditor__command_supportsrange_callback = nullptr;
     KTextEditor__Command_Exec_Callback ktexteditor__command_exec_callback = nullptr;
@@ -58,6 +62,8 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
     KTextEditor__Command_IsSignalConnected_Callback ktexteditor__command_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool ktexteditor__command_metaobject_isbase = false;
+    mutable bool ktexteditor__command_metacast_isbase = false;
     mutable bool ktexteditor__command_metacall_isbase = false;
     mutable bool ktexteditor__command_supportsrange_isbase = false;
     mutable bool ktexteditor__command_exec_isbase = false;
@@ -82,6 +88,8 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
     VirtualKTextEditorCommand(const QList<QString>& cmds, QObject* parent) : KTextEditor::Command(cmds, parent) {};
 
     ~VirtualKTextEditorCommand() {
+        ktexteditor__command_metaobject_callback = nullptr;
+        ktexteditor__command_metacast_callback = nullptr;
         ktexteditor__command_metacall_callback = nullptr;
         ktexteditor__command_supportsrange_callback = nullptr;
         ktexteditor__command_exec_callback = nullptr;
@@ -103,6 +111,8 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
     }
 
     // Callback setters
+    inline void setKTextEditor__Command_MetaObject_Callback(KTextEditor__Command_MetaObject_Callback cb) { ktexteditor__command_metaobject_callback = cb; }
+    inline void setKTextEditor__Command_Metacast_Callback(KTextEditor__Command_Metacast_Callback cb) { ktexteditor__command_metacast_callback = cb; }
     inline void setKTextEditor__Command_Metacall_Callback(KTextEditor__Command_Metacall_Callback cb) { ktexteditor__command_metacall_callback = cb; }
     inline void setKTextEditor__Command_SupportsRange_Callback(KTextEditor__Command_SupportsRange_Callback cb) { ktexteditor__command_supportsrange_callback = cb; }
     inline void setKTextEditor__Command_Exec_Callback(KTextEditor__Command_Exec_Callback cb) { ktexteditor__command_exec_callback = cb; }
@@ -123,6 +133,8 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
     inline void setKTextEditor__Command_IsSignalConnected_Callback(KTextEditor__Command_IsSignalConnected_Callback cb) { ktexteditor__command_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKTextEditor__Command_MetaObject_IsBase(bool value) const { ktexteditor__command_metaobject_isbase = value; }
+    inline void setKTextEditor__Command_Metacast_IsBase(bool value) const { ktexteditor__command_metacast_isbase = value; }
     inline void setKTextEditor__Command_Metacall_IsBase(bool value) const { ktexteditor__command_metacall_isbase = value; }
     inline void setKTextEditor__Command_SupportsRange_IsBase(bool value) const { ktexteditor__command_supportsrange_isbase = value; }
     inline void setKTextEditor__Command_Exec_IsBase(bool value) const { ktexteditor__command_exec_isbase = value; }
@@ -141,6 +153,34 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
     inline void setKTextEditor__Command_SenderSignalIndex_IsBase(bool value) const { ktexteditor__command_sendersignalindex_isbase = value; }
     inline void setKTextEditor__Command_Receivers_IsBase(bool value) const { ktexteditor__command_receivers_isbase = value; }
     inline void setKTextEditor__Command_IsSignalConnected_IsBase(bool value) const { ktexteditor__command_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (ktexteditor__command_metaobject_isbase) {
+            ktexteditor__command_metaobject_isbase = false;
+            return KTextEditor__Command::metaObject();
+        } else if (ktexteditor__command_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = ktexteditor__command_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KTextEditor__Command::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (ktexteditor__command_metacast_isbase) {
+            ktexteditor__command_metacast_isbase = false;
+            return KTextEditor__Command::qt_metacast(param1);
+        } else if (ktexteditor__command_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = ktexteditor__command_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KTextEditor__Command::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

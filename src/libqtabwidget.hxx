@@ -17,6 +17,8 @@ class VirtualQTabWidget final : public QTabWidget {
     bool isVirtualQTabWidget = true;
 
     // Virtual class public types (including callbacks)
+    using QTabWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QTabWidget_Metacast_Callback = void* (*)(QTabWidget*, const char*);
     using QTabWidget_Metacall_Callback = int (*)(QTabWidget*, int, int, void**);
     using QTabWidget_SizeHint_Callback = QSize* (*)();
     using QTabWidget_MinimumSizeHint_Callback = QSize* (*)();
@@ -82,6 +84,8 @@ class VirtualQTabWidget final : public QTabWidget {
 
   protected:
     // Instance callback storage
+    QTabWidget_MetaObject_Callback qtabwidget_metaobject_callback = nullptr;
+    QTabWidget_Metacast_Callback qtabwidget_metacast_callback = nullptr;
     QTabWidget_Metacall_Callback qtabwidget_metacall_callback = nullptr;
     QTabWidget_SizeHint_Callback qtabwidget_sizehint_callback = nullptr;
     QTabWidget_MinimumSizeHint_Callback qtabwidget_minimumsizehint_callback = nullptr;
@@ -146,6 +150,8 @@ class VirtualQTabWidget final : public QTabWidget {
     QTabWidget_GetDecodedMetricF_Callback qtabwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtabwidget_metaobject_isbase = false;
+    mutable bool qtabwidget_metacast_isbase = false;
     mutable bool qtabwidget_metacall_isbase = false;
     mutable bool qtabwidget_sizehint_isbase = false;
     mutable bool qtabwidget_minimumsizehint_isbase = false;
@@ -214,6 +220,8 @@ class VirtualQTabWidget final : public QTabWidget {
     VirtualQTabWidget() : QTabWidget() {};
 
     ~VirtualQTabWidget() {
+        qtabwidget_metaobject_callback = nullptr;
+        qtabwidget_metacast_callback = nullptr;
         qtabwidget_metacall_callback = nullptr;
         qtabwidget_sizehint_callback = nullptr;
         qtabwidget_minimumsizehint_callback = nullptr;
@@ -279,6 +287,8 @@ class VirtualQTabWidget final : public QTabWidget {
     }
 
     // Callback setters
+    inline void setQTabWidget_MetaObject_Callback(QTabWidget_MetaObject_Callback cb) { qtabwidget_metaobject_callback = cb; }
+    inline void setQTabWidget_Metacast_Callback(QTabWidget_Metacast_Callback cb) { qtabwidget_metacast_callback = cb; }
     inline void setQTabWidget_Metacall_Callback(QTabWidget_Metacall_Callback cb) { qtabwidget_metacall_callback = cb; }
     inline void setQTabWidget_SizeHint_Callback(QTabWidget_SizeHint_Callback cb) { qtabwidget_sizehint_callback = cb; }
     inline void setQTabWidget_MinimumSizeHint_Callback(QTabWidget_MinimumSizeHint_Callback cb) { qtabwidget_minimumsizehint_callback = cb; }
@@ -343,6 +353,8 @@ class VirtualQTabWidget final : public QTabWidget {
     inline void setQTabWidget_GetDecodedMetricF_Callback(QTabWidget_GetDecodedMetricF_Callback cb) { qtabwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQTabWidget_MetaObject_IsBase(bool value) const { qtabwidget_metaobject_isbase = value; }
+    inline void setQTabWidget_Metacast_IsBase(bool value) const { qtabwidget_metacast_isbase = value; }
     inline void setQTabWidget_Metacall_IsBase(bool value) const { qtabwidget_metacall_isbase = value; }
     inline void setQTabWidget_SizeHint_IsBase(bool value) const { qtabwidget_sizehint_isbase = value; }
     inline void setQTabWidget_MinimumSizeHint_IsBase(bool value) const { qtabwidget_minimumsizehint_isbase = value; }
@@ -405,6 +417,34 @@ class VirtualQTabWidget final : public QTabWidget {
     inline void setQTabWidget_Receivers_IsBase(bool value) const { qtabwidget_receivers_isbase = value; }
     inline void setQTabWidget_IsSignalConnected_IsBase(bool value) const { qtabwidget_issignalconnected_isbase = value; }
     inline void setQTabWidget_GetDecodedMetricF_IsBase(bool value) const { qtabwidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtabwidget_metaobject_isbase) {
+            qtabwidget_metaobject_isbase = false;
+            return QTabWidget::metaObject();
+        } else if (qtabwidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtabwidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTabWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtabwidget_metacast_isbase) {
+            qtabwidget_metacast_isbase = false;
+            return QTabWidget::qt_metacast(param1);
+        } else if (qtabwidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtabwidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTabWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

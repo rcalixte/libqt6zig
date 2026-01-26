@@ -246,21 +246,11 @@ func AllowSignal(mm CppMethod) bool {
 		return false
 	}
 
-	switch mm.MethodName {
-	case "metaObject", "qt_metacast",
-		"clone": // Qt 6 - qcoreevent.h
-		return false
-	default:
-		return true
-	}
+	return true
 }
 
 func AllowVirtual(mm CppMethod) bool {
-	if mm.MethodName == "metaObject" || mm.MethodName == "qt_metacast" {
-		return false
-	}
-
-	return true // AllowSignal(mm)
+	return true
 }
 
 func AllowVirtualForClass(className string) bool {

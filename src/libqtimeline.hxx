@@ -17,6 +17,8 @@ class VirtualQTimeLine final : public QTimeLine {
     bool isVirtualQTimeLine = true;
 
     // Virtual class public types (including callbacks)
+    using QTimeLine_MetaObject_Callback = QMetaObject* (*)();
+    using QTimeLine_Metacast_Callback = void* (*)(QTimeLine*, const char*);
     using QTimeLine_Metacall_Callback = int (*)(QTimeLine*, int, int, void**);
     using QTimeLine_ValueForTime_Callback = double (*)(const QTimeLine*, int);
     using QTimeLine_TimerEvent_Callback = void (*)(QTimeLine*, QTimerEvent*);
@@ -33,6 +35,8 @@ class VirtualQTimeLine final : public QTimeLine {
 
   protected:
     // Instance callback storage
+    QTimeLine_MetaObject_Callback qtimeline_metaobject_callback = nullptr;
+    QTimeLine_Metacast_Callback qtimeline_metacast_callback = nullptr;
     QTimeLine_Metacall_Callback qtimeline_metacall_callback = nullptr;
     QTimeLine_ValueForTime_Callback qtimeline_valuefortime_callback = nullptr;
     QTimeLine_TimerEvent_Callback qtimeline_timerevent_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQTimeLine final : public QTimeLine {
     QTimeLine_IsSignalConnected_Callback qtimeline_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtimeline_metaobject_isbase = false;
+    mutable bool qtimeline_metacast_isbase = false;
     mutable bool qtimeline_metacall_isbase = false;
     mutable bool qtimeline_valuefortime_isbase = false;
     mutable bool qtimeline_timerevent_isbase = false;
@@ -68,6 +74,8 @@ class VirtualQTimeLine final : public QTimeLine {
     VirtualQTimeLine(int duration, QObject* parent) : QTimeLine(duration, parent) {};
 
     ~VirtualQTimeLine() {
+        qtimeline_metaobject_callback = nullptr;
+        qtimeline_metacast_callback = nullptr;
         qtimeline_metacall_callback = nullptr;
         qtimeline_valuefortime_callback = nullptr;
         qtimeline_timerevent_callback = nullptr;
@@ -84,6 +92,8 @@ class VirtualQTimeLine final : public QTimeLine {
     }
 
     // Callback setters
+    inline void setQTimeLine_MetaObject_Callback(QTimeLine_MetaObject_Callback cb) { qtimeline_metaobject_callback = cb; }
+    inline void setQTimeLine_Metacast_Callback(QTimeLine_Metacast_Callback cb) { qtimeline_metacast_callback = cb; }
     inline void setQTimeLine_Metacall_Callback(QTimeLine_Metacall_Callback cb) { qtimeline_metacall_callback = cb; }
     inline void setQTimeLine_ValueForTime_Callback(QTimeLine_ValueForTime_Callback cb) { qtimeline_valuefortime_callback = cb; }
     inline void setQTimeLine_TimerEvent_Callback(QTimeLine_TimerEvent_Callback cb) { qtimeline_timerevent_callback = cb; }
@@ -99,6 +109,8 @@ class VirtualQTimeLine final : public QTimeLine {
     inline void setQTimeLine_IsSignalConnected_Callback(QTimeLine_IsSignalConnected_Callback cb) { qtimeline_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTimeLine_MetaObject_IsBase(bool value) const { qtimeline_metaobject_isbase = value; }
+    inline void setQTimeLine_Metacast_IsBase(bool value) const { qtimeline_metacast_isbase = value; }
     inline void setQTimeLine_Metacall_IsBase(bool value) const { qtimeline_metacall_isbase = value; }
     inline void setQTimeLine_ValueForTime_IsBase(bool value) const { qtimeline_valuefortime_isbase = value; }
     inline void setQTimeLine_TimerEvent_IsBase(bool value) const { qtimeline_timerevent_isbase = value; }
@@ -112,6 +124,34 @@ class VirtualQTimeLine final : public QTimeLine {
     inline void setQTimeLine_SenderSignalIndex_IsBase(bool value) const { qtimeline_sendersignalindex_isbase = value; }
     inline void setQTimeLine_Receivers_IsBase(bool value) const { qtimeline_receivers_isbase = value; }
     inline void setQTimeLine_IsSignalConnected_IsBase(bool value) const { qtimeline_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtimeline_metaobject_isbase) {
+            qtimeline_metaobject_isbase = false;
+            return QTimeLine::metaObject();
+        } else if (qtimeline_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtimeline_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTimeLine::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtimeline_metacast_isbase) {
+            qtimeline_metacast_isbase = false;
+            return QTimeLine::qt_metacast(param1);
+        } else if (qtimeline_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtimeline_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTimeLine::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

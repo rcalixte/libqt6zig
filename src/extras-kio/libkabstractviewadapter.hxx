@@ -23,6 +23,8 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
     using KAbstractViewAdapter_VisibleArea_Callback = QRect* (*)();
     using KAbstractViewAdapter_VisualRect_Callback = QRect* (*)(const KAbstractViewAdapter*, QModelIndex*);
     using KAbstractViewAdapter_Connect_Callback = void (*)(KAbstractViewAdapter*, int, QObject*, const char*);
+    using KAbstractViewAdapter_MetaObject_Callback = QMetaObject* (*)();
+    using KAbstractViewAdapter_Metacast_Callback = void* (*)(KAbstractViewAdapter*, const char*);
     using KAbstractViewAdapter_Metacall_Callback = int (*)(KAbstractViewAdapter*, int, int, void**);
     using KAbstractViewAdapter_Event_Callback = bool (*)(KAbstractViewAdapter*, QEvent*);
     using KAbstractViewAdapter_EventFilter_Callback = bool (*)(KAbstractViewAdapter*, QObject*, QEvent*);
@@ -44,6 +46,8 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
     KAbstractViewAdapter_VisibleArea_Callback kabstractviewadapter_visiblearea_callback = nullptr;
     KAbstractViewAdapter_VisualRect_Callback kabstractviewadapter_visualrect_callback = nullptr;
     KAbstractViewAdapter_Connect_Callback kabstractviewadapter_connect_callback = nullptr;
+    KAbstractViewAdapter_MetaObject_Callback kabstractviewadapter_metaobject_callback = nullptr;
+    KAbstractViewAdapter_Metacast_Callback kabstractviewadapter_metacast_callback = nullptr;
     KAbstractViewAdapter_Metacall_Callback kabstractviewadapter_metacall_callback = nullptr;
     KAbstractViewAdapter_Event_Callback kabstractviewadapter_event_callback = nullptr;
     KAbstractViewAdapter_EventFilter_Callback kabstractviewadapter_eventfilter_callback = nullptr;
@@ -64,6 +68,8 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
     mutable bool kabstractviewadapter_visiblearea_isbase = false;
     mutable bool kabstractviewadapter_visualrect_isbase = false;
     mutable bool kabstractviewadapter_connect_isbase = false;
+    mutable bool kabstractviewadapter_metaobject_isbase = false;
+    mutable bool kabstractviewadapter_metacast_isbase = false;
     mutable bool kabstractviewadapter_metacall_isbase = false;
     mutable bool kabstractviewadapter_event_isbase = false;
     mutable bool kabstractviewadapter_eventfilter_isbase = false;
@@ -87,6 +93,8 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         kabstractviewadapter_visiblearea_callback = nullptr;
         kabstractviewadapter_visualrect_callback = nullptr;
         kabstractviewadapter_connect_callback = nullptr;
+        kabstractviewadapter_metaobject_callback = nullptr;
+        kabstractviewadapter_metacast_callback = nullptr;
         kabstractviewadapter_metacall_callback = nullptr;
         kabstractviewadapter_event_callback = nullptr;
         kabstractviewadapter_eventfilter_callback = nullptr;
@@ -108,6 +116,8 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
     inline void setKAbstractViewAdapter_VisibleArea_Callback(KAbstractViewAdapter_VisibleArea_Callback cb) { kabstractviewadapter_visiblearea_callback = cb; }
     inline void setKAbstractViewAdapter_VisualRect_Callback(KAbstractViewAdapter_VisualRect_Callback cb) { kabstractviewadapter_visualrect_callback = cb; }
     inline void setKAbstractViewAdapter_Connect_Callback(KAbstractViewAdapter_Connect_Callback cb) { kabstractviewadapter_connect_callback = cb; }
+    inline void setKAbstractViewAdapter_MetaObject_Callback(KAbstractViewAdapter_MetaObject_Callback cb) { kabstractviewadapter_metaobject_callback = cb; }
+    inline void setKAbstractViewAdapter_Metacast_Callback(KAbstractViewAdapter_Metacast_Callback cb) { kabstractviewadapter_metacast_callback = cb; }
     inline void setKAbstractViewAdapter_Metacall_Callback(KAbstractViewAdapter_Metacall_Callback cb) { kabstractviewadapter_metacall_callback = cb; }
     inline void setKAbstractViewAdapter_Event_Callback(KAbstractViewAdapter_Event_Callback cb) { kabstractviewadapter_event_callback = cb; }
     inline void setKAbstractViewAdapter_EventFilter_Callback(KAbstractViewAdapter_EventFilter_Callback cb) { kabstractviewadapter_eventfilter_callback = cb; }
@@ -128,6 +138,8 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
     inline void setKAbstractViewAdapter_VisibleArea_IsBase(bool value) const { kabstractviewadapter_visiblearea_isbase = value; }
     inline void setKAbstractViewAdapter_VisualRect_IsBase(bool value) const { kabstractviewadapter_visualrect_isbase = value; }
     inline void setKAbstractViewAdapter_Connect_IsBase(bool value) const { kabstractviewadapter_connect_isbase = value; }
+    inline void setKAbstractViewAdapter_MetaObject_IsBase(bool value) const { kabstractviewadapter_metaobject_isbase = value; }
+    inline void setKAbstractViewAdapter_Metacast_IsBase(bool value) const { kabstractviewadapter_metacast_isbase = value; }
     inline void setKAbstractViewAdapter_Metacall_IsBase(bool value) const { kabstractviewadapter_metacall_isbase = value; }
     inline void setKAbstractViewAdapter_Event_IsBase(bool value) const { kabstractviewadapter_event_isbase = value; }
     inline void setKAbstractViewAdapter_EventFilter_IsBase(bool value) const { kabstractviewadapter_eventfilter_isbase = value; }
@@ -203,6 +215,34 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
             const char* cbval3 = (const char*)slot;
 
             kabstractviewadapter_connect_callback(this, cbval1, cbval2, cbval3);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kabstractviewadapter_metaobject_isbase) {
+            kabstractviewadapter_metaobject_isbase = false;
+            return KAbstractViewAdapter::metaObject();
+        } else if (kabstractviewadapter_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kabstractviewadapter_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KAbstractViewAdapter::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kabstractviewadapter_metacast_isbase) {
+            kabstractviewadapter_metacast_isbase = false;
+            return KAbstractViewAdapter::qt_metacast(param1);
+        } else if (kabstractviewadapter_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kabstractviewadapter_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KAbstractViewAdapter::qt_metacast(param1);
         }
     }
 

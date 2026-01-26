@@ -17,6 +17,8 @@ class VirtualQProgressBar final : public QProgressBar {
     bool isVirtualQProgressBar = true;
 
     // Virtual class public types (including callbacks)
+    using QProgressBar_MetaObject_Callback = QMetaObject* (*)();
+    using QProgressBar_Metacast_Callback = void* (*)(QProgressBar*, const char*);
     using QProgressBar_Metacall_Callback = int (*)(QProgressBar*, int, int, void**);
     using QProgressBar_Text_Callback = const char* (*)();
     using QProgressBar_SizeHint_Callback = QSize* (*)();
@@ -80,6 +82,8 @@ class VirtualQProgressBar final : public QProgressBar {
 
   protected:
     // Instance callback storage
+    QProgressBar_MetaObject_Callback qprogressbar_metaobject_callback = nullptr;
+    QProgressBar_Metacast_Callback qprogressbar_metacast_callback = nullptr;
     QProgressBar_Metacall_Callback qprogressbar_metacall_callback = nullptr;
     QProgressBar_Text_Callback qprogressbar_text_callback = nullptr;
     QProgressBar_SizeHint_Callback qprogressbar_sizehint_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualQProgressBar final : public QProgressBar {
     QProgressBar_GetDecodedMetricF_Callback qprogressbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qprogressbar_metaobject_isbase = false;
+    mutable bool qprogressbar_metacast_isbase = false;
     mutable bool qprogressbar_metacall_isbase = false;
     mutable bool qprogressbar_text_isbase = false;
     mutable bool qprogressbar_sizehint_isbase = false;
@@ -208,6 +214,8 @@ class VirtualQProgressBar final : public QProgressBar {
     VirtualQProgressBar() : QProgressBar() {};
 
     ~VirtualQProgressBar() {
+        qprogressbar_metaobject_callback = nullptr;
+        qprogressbar_metacast_callback = nullptr;
         qprogressbar_metacall_callback = nullptr;
         qprogressbar_text_callback = nullptr;
         qprogressbar_sizehint_callback = nullptr;
@@ -271,6 +279,8 @@ class VirtualQProgressBar final : public QProgressBar {
     }
 
     // Callback setters
+    inline void setQProgressBar_MetaObject_Callback(QProgressBar_MetaObject_Callback cb) { qprogressbar_metaobject_callback = cb; }
+    inline void setQProgressBar_Metacast_Callback(QProgressBar_Metacast_Callback cb) { qprogressbar_metacast_callback = cb; }
     inline void setQProgressBar_Metacall_Callback(QProgressBar_Metacall_Callback cb) { qprogressbar_metacall_callback = cb; }
     inline void setQProgressBar_Text_Callback(QProgressBar_Text_Callback cb) { qprogressbar_text_callback = cb; }
     inline void setQProgressBar_SizeHint_Callback(QProgressBar_SizeHint_Callback cb) { qprogressbar_sizehint_callback = cb; }
@@ -333,6 +343,8 @@ class VirtualQProgressBar final : public QProgressBar {
     inline void setQProgressBar_GetDecodedMetricF_Callback(QProgressBar_GetDecodedMetricF_Callback cb) { qprogressbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQProgressBar_MetaObject_IsBase(bool value) const { qprogressbar_metaobject_isbase = value; }
+    inline void setQProgressBar_Metacast_IsBase(bool value) const { qprogressbar_metacast_isbase = value; }
     inline void setQProgressBar_Metacall_IsBase(bool value) const { qprogressbar_metacall_isbase = value; }
     inline void setQProgressBar_Text_IsBase(bool value) const { qprogressbar_text_isbase = value; }
     inline void setQProgressBar_SizeHint_IsBase(bool value) const { qprogressbar_sizehint_isbase = value; }
@@ -393,6 +405,34 @@ class VirtualQProgressBar final : public QProgressBar {
     inline void setQProgressBar_Receivers_IsBase(bool value) const { qprogressbar_receivers_isbase = value; }
     inline void setQProgressBar_IsSignalConnected_IsBase(bool value) const { qprogressbar_issignalconnected_isbase = value; }
     inline void setQProgressBar_GetDecodedMetricF_IsBase(bool value) const { qprogressbar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qprogressbar_metaobject_isbase) {
+            qprogressbar_metaobject_isbase = false;
+            return QProgressBar::metaObject();
+        } else if (qprogressbar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qprogressbar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QProgressBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qprogressbar_metacast_isbase) {
+            qprogressbar_metacast_isbase = false;
+            return QProgressBar::qt_metacast(param1);
+        } else if (qprogressbar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qprogressbar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QProgressBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -47,6 +47,10 @@ bool QInputDevice_OperatorEqual(const QInputDevice* self, const QInputDevice* ot
 void QInputDevice_AvailableVirtualGeometryChanged(QInputDevice* self, QRect* area);
 void QInputDevice_Connect_AvailableVirtualGeometryChanged(QInputDevice* self, intptr_t slot);
 QInputDevice* QInputDevice_PrimaryKeyboard1(const libqt_string seatName);
+void QInputDevice_OnMetaObject(const QInputDevice* self, intptr_t slot);
+QMetaObject* QInputDevice_QBaseMetaObject(const QInputDevice* self);
+void QInputDevice_OnMetacast(QInputDevice* self, intptr_t slot);
+void* QInputDevice_QBaseMetacast(QInputDevice* self, const char* param1);
 void QInputDevice_OnMetacall(QInputDevice* self, intptr_t slot);
 int QInputDevice_QBaseMetacall(QInputDevice* self, int param1, int param2, void** param3);
 bool QInputDevice_Event(QInputDevice* self, QEvent* event);

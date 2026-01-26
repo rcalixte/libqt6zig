@@ -25,11 +25,21 @@ QsciLexerLua* QsciLexerLua_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerLua_MetaObject(const QsciLexerLua* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerlua = dynamic_cast<const VirtualQsciLexerLua*>(self);
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerLua*)self)->metaObject();
+    }
 }
 
 void* QsciLexerLua_Metacast(QsciLexerLua* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerLua*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerLua_Metacall(QsciLexerLua* self, int param1, int param2, void** param3) {
@@ -129,6 +139,44 @@ void QsciLexerLua_SetFoldCompact(QsciLexerLua* self, bool fold) {
 
 const char* QsciLexerLua_BlockStart1(const QsciLexerLua* self, int* style) {
     return (const char*)self->blockStart(static_cast<int*>(style));
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerLua_QBaseMetaObject(const QsciLexerLua* self) {
+    auto* vqscilexerlua = const_cast<VirtualQsciLexerLua*>(dynamic_cast<const VirtualQsciLexerLua*>(self));
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        vqscilexerlua->setQsciLexerLua_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerlua->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerLua*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerLua_OnMetaObject(const QsciLexerLua* self, intptr_t slot) {
+    auto* vqscilexerlua = const_cast<VirtualQsciLexerLua*>(dynamic_cast<const VirtualQsciLexerLua*>(self));
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        vqscilexerlua->setQsciLexerLua_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerLua::QsciLexerLua_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerLua_QBaseMetacast(QsciLexerLua* self, const char* param1) {
+    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        vqscilexerlua->setQsciLexerLua_Metacast_IsBase(true);
+        return vqscilexerlua->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerLua*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerLua_OnMetacast(QsciLexerLua* self, intptr_t slot) {
+    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
+    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
+        vqscilexerlua->setQsciLexerLua_Metacast_Callback(reinterpret_cast<VirtualQsciLexerLua::QsciLexerLua_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

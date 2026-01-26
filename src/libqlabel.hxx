@@ -17,6 +17,8 @@ class VirtualQLabel final : public QLabel {
     bool isVirtualQLabel = true;
 
     // Virtual class public types (including callbacks)
+    using QLabel_MetaObject_Callback = QMetaObject* (*)();
+    using QLabel_Metacast_Callback = void* (*)(QLabel*, const char*);
     using QLabel_Metacall_Callback = int (*)(QLabel*, int, int, void**);
     using QLabel_SizeHint_Callback = QSize* (*)();
     using QLabel_MinimumSizeHint_Callback = QSize* (*)();
@@ -80,6 +82,8 @@ class VirtualQLabel final : public QLabel {
 
   protected:
     // Instance callback storage
+    QLabel_MetaObject_Callback qlabel_metaobject_callback = nullptr;
+    QLabel_Metacast_Callback qlabel_metacast_callback = nullptr;
     QLabel_Metacall_Callback qlabel_metacall_callback = nullptr;
     QLabel_SizeHint_Callback qlabel_sizehint_callback = nullptr;
     QLabel_MinimumSizeHint_Callback qlabel_minimumsizehint_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualQLabel final : public QLabel {
     QLabel_GetDecodedMetricF_Callback qlabel_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlabel_metaobject_isbase = false;
+    mutable bool qlabel_metacast_isbase = false;
     mutable bool qlabel_metacall_isbase = false;
     mutable bool qlabel_sizehint_isbase = false;
     mutable bool qlabel_minimumsizehint_isbase = false;
@@ -212,6 +218,8 @@ class VirtualQLabel final : public QLabel {
     VirtualQLabel(const QString& text, QWidget* parent, Qt::WindowFlags f) : QLabel(text, parent, f) {};
 
     ~VirtualQLabel() {
+        qlabel_metaobject_callback = nullptr;
+        qlabel_metacast_callback = nullptr;
         qlabel_metacall_callback = nullptr;
         qlabel_sizehint_callback = nullptr;
         qlabel_minimumsizehint_callback = nullptr;
@@ -275,6 +283,8 @@ class VirtualQLabel final : public QLabel {
     }
 
     // Callback setters
+    inline void setQLabel_MetaObject_Callback(QLabel_MetaObject_Callback cb) { qlabel_metaobject_callback = cb; }
+    inline void setQLabel_Metacast_Callback(QLabel_Metacast_Callback cb) { qlabel_metacast_callback = cb; }
     inline void setQLabel_Metacall_Callback(QLabel_Metacall_Callback cb) { qlabel_metacall_callback = cb; }
     inline void setQLabel_SizeHint_Callback(QLabel_SizeHint_Callback cb) { qlabel_sizehint_callback = cb; }
     inline void setQLabel_MinimumSizeHint_Callback(QLabel_MinimumSizeHint_Callback cb) { qlabel_minimumsizehint_callback = cb; }
@@ -337,6 +347,8 @@ class VirtualQLabel final : public QLabel {
     inline void setQLabel_GetDecodedMetricF_Callback(QLabel_GetDecodedMetricF_Callback cb) { qlabel_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQLabel_MetaObject_IsBase(bool value) const { qlabel_metaobject_isbase = value; }
+    inline void setQLabel_Metacast_IsBase(bool value) const { qlabel_metacast_isbase = value; }
     inline void setQLabel_Metacall_IsBase(bool value) const { qlabel_metacall_isbase = value; }
     inline void setQLabel_SizeHint_IsBase(bool value) const { qlabel_sizehint_isbase = value; }
     inline void setQLabel_MinimumSizeHint_IsBase(bool value) const { qlabel_minimumsizehint_isbase = value; }
@@ -397,6 +409,34 @@ class VirtualQLabel final : public QLabel {
     inline void setQLabel_Receivers_IsBase(bool value) const { qlabel_receivers_isbase = value; }
     inline void setQLabel_IsSignalConnected_IsBase(bool value) const { qlabel_issignalconnected_isbase = value; }
     inline void setQLabel_GetDecodedMetricF_IsBase(bool value) const { qlabel_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlabel_metaobject_isbase) {
+            qlabel_metaobject_isbase = false;
+            return QLabel::metaObject();
+        } else if (qlabel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlabel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QLabel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlabel_metacast_isbase) {
+            qlabel_metacast_isbase = false;
+            return QLabel::qt_metacast(param1);
+        } else if (qlabel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlabel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QLabel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

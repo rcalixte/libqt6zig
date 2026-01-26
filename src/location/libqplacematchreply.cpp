@@ -25,11 +25,21 @@ QPlaceMatchReply* QPlaceMatchReply_new2(QObject* parent) {
 }
 
 QMetaObject* QPlaceMatchReply_MetaObject(const QPlaceMatchReply* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqplacematchreply = dynamic_cast<const VirtualQPlaceMatchReply*>(self);
+    if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPlaceMatchReply*)self)->metaObject();
+    }
 }
 
 void* QPlaceMatchReply_Metacast(QPlaceMatchReply* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
+    if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPlaceMatchReply*)self)->qt_metacast(param1);
+    }
 }
 
 int QPlaceMatchReply_Metacall(QPlaceMatchReply* self, int param1, int param2, void** param3) {
@@ -65,6 +75,44 @@ libqt_list /* of QPlace* */ QPlaceMatchReply_Places(const QPlaceMatchReply* self
 
 QPlaceMatchRequest* QPlaceMatchReply_Request(const QPlaceMatchReply* self) {
     return new QPlaceMatchRequest(self->request());
+}
+
+// Base class handler implementation
+QMetaObject* QPlaceMatchReply_QBaseMetaObject(const QPlaceMatchReply* self) {
+    auto* vqplacematchreply = const_cast<VirtualQPlaceMatchReply*>(dynamic_cast<const VirtualQPlaceMatchReply*>(self));
+    if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
+        vqplacematchreply->setQPlaceMatchReply_MetaObject_IsBase(true);
+        return (QMetaObject*)vqplacematchreply->metaObject();
+    } else {
+        return (QMetaObject*)self->QPlaceMatchReply::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlaceMatchReply_OnMetaObject(const QPlaceMatchReply* self, intptr_t slot) {
+    auto* vqplacematchreply = const_cast<VirtualQPlaceMatchReply*>(dynamic_cast<const VirtualQPlaceMatchReply*>(self));
+    if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
+        vqplacematchreply->setQPlaceMatchReply_MetaObject_Callback(reinterpret_cast<VirtualQPlaceMatchReply::QPlaceMatchReply_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPlaceMatchReply_QBaseMetacast(QPlaceMatchReply* self, const char* param1) {
+    auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
+    if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
+        vqplacematchreply->setQPlaceMatchReply_Metacast_IsBase(true);
+        return vqplacematchreply->qt_metacast(param1);
+    } else {
+        return self->QPlaceMatchReply::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlaceMatchReply_OnMetacast(QPlaceMatchReply* self, intptr_t slot) {
+    auto* vqplacematchreply = dynamic_cast<VirtualQPlaceMatchReply*>(self);
+    if (vqplacematchreply && vqplacematchreply->isVirtualQPlaceMatchReply) {
+        vqplacematchreply->setQPlaceMatchReply_Metacast_Callback(reinterpret_cast<VirtualQPlaceMatchReply::QPlaceMatchReply_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

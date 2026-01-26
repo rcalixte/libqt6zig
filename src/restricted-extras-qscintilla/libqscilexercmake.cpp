@@ -25,11 +25,21 @@ QsciLexerCMake* QsciLexerCMake_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerCMake_MetaObject(const QsciLexerCMake* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexercmake = dynamic_cast<const VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerCMake*)self)->metaObject();
+    }
 }
 
 void* QsciLexerCMake_Metacast(QsciLexerCMake* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerCMake*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerCMake_Metacall(QsciLexerCMake* self, int param1, int param2, void** param3) {
@@ -91,6 +101,44 @@ void QsciLexerCMake_SetFoldAtElse(QsciLexerCMake* self, bool fold) {
         self->setFoldAtElse(fold);
     } else {
         ((VirtualQsciLexerCMake*)self)->setFoldAtElse(fold);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerCMake_QBaseMetaObject(const QsciLexerCMake* self) {
+    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexercmake->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerCMake*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerCMake_OnMetaObject(const QsciLexerCMake* self, intptr_t slot) {
+    auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerCMake_QBaseMetacast(QsciLexerCMake* self, const char* param1) {
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_Metacast_IsBase(true);
+        return vqscilexercmake->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerCMake*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerCMake_OnMetacast(QsciLexerCMake* self, intptr_t slot) {
+    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
+    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
+        vqscilexercmake->setQsciLexerCMake_Metacast_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_Metacast_Callback>(slot));
     }
 }
 

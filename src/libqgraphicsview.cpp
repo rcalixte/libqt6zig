@@ -69,11 +69,21 @@ QGraphicsView* QGraphicsView_new4(QGraphicsScene* scene, QWidget* parent) {
 }
 
 QMetaObject* QGraphicsView_MetaObject(const QGraphicsView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsview = dynamic_cast<const VirtualQGraphicsView*>(self);
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsView*)self)->metaObject();
+    }
 }
 
 void* QGraphicsView_Metacast(QGraphicsView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsView*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsView_Metacall(QGraphicsView* self, int param1, int param2, void** param3) {
@@ -736,6 +746,44 @@ void QGraphicsView_InvalidateScene1(QGraphicsView* self, const QRectF* rect) {
 
 void QGraphicsView_InvalidateScene2(QGraphicsView* self, const QRectF* rect, int layers) {
     self->invalidateScene(*rect, static_cast<QGraphicsScene::SceneLayers>(layers));
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsView_QBaseMetaObject(const QGraphicsView* self) {
+    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+        vqgraphicsview->setQGraphicsView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsview->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsView_OnMetaObject(const QGraphicsView* self, intptr_t slot) {
+    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+        vqgraphicsview->setQGraphicsView_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsView_QBaseMetacast(QGraphicsView* self, const char* param1) {
+    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+        vqgraphicsview->setQGraphicsView_Metacast_IsBase(true);
+        return vqgraphicsview->qt_metacast(param1);
+    } else {
+        return self->QGraphicsView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsView_OnMetacast(QGraphicsView* self, intptr_t slot) {
+    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+        vqgraphicsview->setQGraphicsView_Metacast_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

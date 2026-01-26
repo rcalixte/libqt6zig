@@ -17,6 +17,8 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
     bool isVirtualKPixmapSequenceWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KPixmapSequenceWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KPixmapSequenceWidget_Metacast_Callback = void* (*)(KPixmapSequenceWidget*, const char*);
     using KPixmapSequenceWidget_Metacall_Callback = int (*)(KPixmapSequenceWidget*, int, int, void**);
     using KPixmapSequenceWidget_SizeHint_Callback = QSize* (*)();
     using KPixmapSequenceWidget_DevType_Callback = int (*)();
@@ -78,6 +80,8 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
 
   protected:
     // Instance callback storage
+    KPixmapSequenceWidget_MetaObject_Callback kpixmapsequencewidget_metaobject_callback = nullptr;
+    KPixmapSequenceWidget_Metacast_Callback kpixmapsequencewidget_metacast_callback = nullptr;
     KPixmapSequenceWidget_Metacall_Callback kpixmapsequencewidget_metacall_callback = nullptr;
     KPixmapSequenceWidget_SizeHint_Callback kpixmapsequencewidget_sizehint_callback = nullptr;
     KPixmapSequenceWidget_DevType_Callback kpixmapsequencewidget_devtype_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
     KPixmapSequenceWidget_GetDecodedMetricF_Callback kpixmapsequencewidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kpixmapsequencewidget_metaobject_isbase = false;
+    mutable bool kpixmapsequencewidget_metacast_isbase = false;
     mutable bool kpixmapsequencewidget_metacall_isbase = false;
     mutable bool kpixmapsequencewidget_sizehint_isbase = false;
     mutable bool kpixmapsequencewidget_devtype_isbase = false;
@@ -204,6 +210,8 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
     VirtualKPixmapSequenceWidget(const KPixmapSequence& seq, QWidget* parent) : KPixmapSequenceWidget(seq, parent) {};
 
     ~VirtualKPixmapSequenceWidget() {
+        kpixmapsequencewidget_metaobject_callback = nullptr;
+        kpixmapsequencewidget_metacast_callback = nullptr;
         kpixmapsequencewidget_metacall_callback = nullptr;
         kpixmapsequencewidget_sizehint_callback = nullptr;
         kpixmapsequencewidget_devtype_callback = nullptr;
@@ -265,6 +273,8 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
     }
 
     // Callback setters
+    inline void setKPixmapSequenceWidget_MetaObject_Callback(KPixmapSequenceWidget_MetaObject_Callback cb) { kpixmapsequencewidget_metaobject_callback = cb; }
+    inline void setKPixmapSequenceWidget_Metacast_Callback(KPixmapSequenceWidget_Metacast_Callback cb) { kpixmapsequencewidget_metacast_callback = cb; }
     inline void setKPixmapSequenceWidget_Metacall_Callback(KPixmapSequenceWidget_Metacall_Callback cb) { kpixmapsequencewidget_metacall_callback = cb; }
     inline void setKPixmapSequenceWidget_SizeHint_Callback(KPixmapSequenceWidget_SizeHint_Callback cb) { kpixmapsequencewidget_sizehint_callback = cb; }
     inline void setKPixmapSequenceWidget_DevType_Callback(KPixmapSequenceWidget_DevType_Callback cb) { kpixmapsequencewidget_devtype_callback = cb; }
@@ -325,6 +335,8 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
     inline void setKPixmapSequenceWidget_GetDecodedMetricF_Callback(KPixmapSequenceWidget_GetDecodedMetricF_Callback cb) { kpixmapsequencewidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKPixmapSequenceWidget_MetaObject_IsBase(bool value) const { kpixmapsequencewidget_metaobject_isbase = value; }
+    inline void setKPixmapSequenceWidget_Metacast_IsBase(bool value) const { kpixmapsequencewidget_metacast_isbase = value; }
     inline void setKPixmapSequenceWidget_Metacall_IsBase(bool value) const { kpixmapsequencewidget_metacall_isbase = value; }
     inline void setKPixmapSequenceWidget_SizeHint_IsBase(bool value) const { kpixmapsequencewidget_sizehint_isbase = value; }
     inline void setKPixmapSequenceWidget_DevType_IsBase(bool value) const { kpixmapsequencewidget_devtype_isbase = value; }
@@ -383,6 +395,34 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
     inline void setKPixmapSequenceWidget_Receivers_IsBase(bool value) const { kpixmapsequencewidget_receivers_isbase = value; }
     inline void setKPixmapSequenceWidget_IsSignalConnected_IsBase(bool value) const { kpixmapsequencewidget_issignalconnected_isbase = value; }
     inline void setKPixmapSequenceWidget_GetDecodedMetricF_IsBase(bool value) const { kpixmapsequencewidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kpixmapsequencewidget_metaobject_isbase) {
+            kpixmapsequencewidget_metaobject_isbase = false;
+            return KPixmapSequenceWidget::metaObject();
+        } else if (kpixmapsequencewidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kpixmapsequencewidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KPixmapSequenceWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kpixmapsequencewidget_metacast_isbase) {
+            kpixmapsequencewidget_metacast_isbase = false;
+            return KPixmapSequenceWidget::qt_metacast(param1);
+        } else if (kpixmapsequencewidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kpixmapsequencewidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KPixmapSequenceWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

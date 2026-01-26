@@ -17,6 +17,8 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
     bool isVirtualQConcatenateTablesProxyModel = true;
 
     // Virtual class public types (including callbacks)
+    using QConcatenateTablesProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    using QConcatenateTablesProxyModel_Metacast_Callback = void* (*)(QConcatenateTablesProxyModel*, const char*);
     using QConcatenateTablesProxyModel_Metacall_Callback = int (*)(QConcatenateTablesProxyModel*, int, int, void**);
     using QConcatenateTablesProxyModel_Data_Callback = QVariant* (*)(const QConcatenateTablesProxyModel*, QModelIndex*, int);
     using QConcatenateTablesProxyModel_SetData_Callback = bool (*)(QConcatenateTablesProxyModel*, QModelIndex*, QVariant*, int);
@@ -89,6 +91,8 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
 
   protected:
     // Instance callback storage
+    QConcatenateTablesProxyModel_MetaObject_Callback qconcatenatetablesproxymodel_metaobject_callback = nullptr;
+    QConcatenateTablesProxyModel_Metacast_Callback qconcatenatetablesproxymodel_metacast_callback = nullptr;
     QConcatenateTablesProxyModel_Metacall_Callback qconcatenatetablesproxymodel_metacall_callback = nullptr;
     QConcatenateTablesProxyModel_Data_Callback qconcatenatetablesproxymodel_data_callback = nullptr;
     QConcatenateTablesProxyModel_SetData_Callback qconcatenatetablesproxymodel_setdata_callback = nullptr;
@@ -160,6 +164,8 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
     QConcatenateTablesProxyModel_IsSignalConnected_Callback qconcatenatetablesproxymodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qconcatenatetablesproxymodel_metaobject_isbase = false;
+    mutable bool qconcatenatetablesproxymodel_metacast_isbase = false;
     mutable bool qconcatenatetablesproxymodel_metacall_isbase = false;
     mutable bool qconcatenatetablesproxymodel_data_isbase = false;
     mutable bool qconcatenatetablesproxymodel_setdata_isbase = false;
@@ -235,6 +241,8 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
     VirtualQConcatenateTablesProxyModel(QObject* parent) : QConcatenateTablesProxyModel(parent) {};
 
     ~VirtualQConcatenateTablesProxyModel() {
+        qconcatenatetablesproxymodel_metaobject_callback = nullptr;
+        qconcatenatetablesproxymodel_metacast_callback = nullptr;
         qconcatenatetablesproxymodel_metacall_callback = nullptr;
         qconcatenatetablesproxymodel_data_callback = nullptr;
         qconcatenatetablesproxymodel_setdata_callback = nullptr;
@@ -307,6 +315,8 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
     }
 
     // Callback setters
+    inline void setQConcatenateTablesProxyModel_MetaObject_Callback(QConcatenateTablesProxyModel_MetaObject_Callback cb) { qconcatenatetablesproxymodel_metaobject_callback = cb; }
+    inline void setQConcatenateTablesProxyModel_Metacast_Callback(QConcatenateTablesProxyModel_Metacast_Callback cb) { qconcatenatetablesproxymodel_metacast_callback = cb; }
     inline void setQConcatenateTablesProxyModel_Metacall_Callback(QConcatenateTablesProxyModel_Metacall_Callback cb) { qconcatenatetablesproxymodel_metacall_callback = cb; }
     inline void setQConcatenateTablesProxyModel_Data_Callback(QConcatenateTablesProxyModel_Data_Callback cb) { qconcatenatetablesproxymodel_data_callback = cb; }
     inline void setQConcatenateTablesProxyModel_SetData_Callback(QConcatenateTablesProxyModel_SetData_Callback cb) { qconcatenatetablesproxymodel_setdata_callback = cb; }
@@ -378,6 +388,8 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
     inline void setQConcatenateTablesProxyModel_IsSignalConnected_Callback(QConcatenateTablesProxyModel_IsSignalConnected_Callback cb) { qconcatenatetablesproxymodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQConcatenateTablesProxyModel_MetaObject_IsBase(bool value) const { qconcatenatetablesproxymodel_metaobject_isbase = value; }
+    inline void setQConcatenateTablesProxyModel_Metacast_IsBase(bool value) const { qconcatenatetablesproxymodel_metacast_isbase = value; }
     inline void setQConcatenateTablesProxyModel_Metacall_IsBase(bool value) const { qconcatenatetablesproxymodel_metacall_isbase = value; }
     inline void setQConcatenateTablesProxyModel_Data_IsBase(bool value) const { qconcatenatetablesproxymodel_data_isbase = value; }
     inline void setQConcatenateTablesProxyModel_SetData_IsBase(bool value) const { qconcatenatetablesproxymodel_setdata_isbase = value; }
@@ -447,6 +459,34 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
     inline void setQConcatenateTablesProxyModel_SenderSignalIndex_IsBase(bool value) const { qconcatenatetablesproxymodel_sendersignalindex_isbase = value; }
     inline void setQConcatenateTablesProxyModel_Receivers_IsBase(bool value) const { qconcatenatetablesproxymodel_receivers_isbase = value; }
     inline void setQConcatenateTablesProxyModel_IsSignalConnected_IsBase(bool value) const { qconcatenatetablesproxymodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qconcatenatetablesproxymodel_metaobject_isbase) {
+            qconcatenatetablesproxymodel_metaobject_isbase = false;
+            return QConcatenateTablesProxyModel::metaObject();
+        } else if (qconcatenatetablesproxymodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qconcatenatetablesproxymodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QConcatenateTablesProxyModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qconcatenatetablesproxymodel_metacast_isbase) {
+            qconcatenatetablesproxymodel_metacast_isbase = false;
+            return QConcatenateTablesProxyModel::qt_metacast(param1);
+        } else if (qconcatenatetablesproxymodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qconcatenatetablesproxymodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QConcatenateTablesProxyModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

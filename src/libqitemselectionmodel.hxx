@@ -17,6 +17,8 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
     bool isVirtualQItemSelectionModel = true;
 
     // Virtual class public types (including callbacks)
+    using QItemSelectionModel_MetaObject_Callback = QMetaObject* (*)();
+    using QItemSelectionModel_Metacast_Callback = void* (*)(QItemSelectionModel*, const char*);
     using QItemSelectionModel_Metacall_Callback = int (*)(QItemSelectionModel*, int, int, void**);
     using QItemSelectionModel_SetCurrentIndex_Callback = void (*)(QItemSelectionModel*, QModelIndex*, int);
     using QItemSelectionModel_Select_Callback = void (*)(QItemSelectionModel*, QModelIndex*, int);
@@ -39,6 +41,8 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
 
   protected:
     // Instance callback storage
+    QItemSelectionModel_MetaObject_Callback qitemselectionmodel_metaobject_callback = nullptr;
+    QItemSelectionModel_Metacast_Callback qitemselectionmodel_metacast_callback = nullptr;
     QItemSelectionModel_Metacall_Callback qitemselectionmodel_metacall_callback = nullptr;
     QItemSelectionModel_SetCurrentIndex_Callback qitemselectionmodel_setcurrentindex_callback = nullptr;
     QItemSelectionModel_Select_Callback qitemselectionmodel_select_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
     QItemSelectionModel_IsSignalConnected_Callback qitemselectionmodel_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qitemselectionmodel_metaobject_isbase = false;
+    mutable bool qitemselectionmodel_metacast_isbase = false;
     mutable bool qitemselectionmodel_metacall_isbase = false;
     mutable bool qitemselectionmodel_setcurrentindex_isbase = false;
     mutable bool qitemselectionmodel_select_isbase = false;
@@ -86,6 +92,8 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
     VirtualQItemSelectionModel(QAbstractItemModel* model) : QItemSelectionModel(model) {};
 
     ~VirtualQItemSelectionModel() {
+        qitemselectionmodel_metaobject_callback = nullptr;
+        qitemselectionmodel_metacast_callback = nullptr;
         qitemselectionmodel_metacall_callback = nullptr;
         qitemselectionmodel_setcurrentindex_callback = nullptr;
         qitemselectionmodel_select_callback = nullptr;
@@ -108,6 +116,8 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
     }
 
     // Callback setters
+    inline void setQItemSelectionModel_MetaObject_Callback(QItemSelectionModel_MetaObject_Callback cb) { qitemselectionmodel_metaobject_callback = cb; }
+    inline void setQItemSelectionModel_Metacast_Callback(QItemSelectionModel_Metacast_Callback cb) { qitemselectionmodel_metacast_callback = cb; }
     inline void setQItemSelectionModel_Metacall_Callback(QItemSelectionModel_Metacall_Callback cb) { qitemselectionmodel_metacall_callback = cb; }
     inline void setQItemSelectionModel_SetCurrentIndex_Callback(QItemSelectionModel_SetCurrentIndex_Callback cb) { qitemselectionmodel_setcurrentindex_callback = cb; }
     inline void setQItemSelectionModel_Select_Callback(QItemSelectionModel_Select_Callback cb) { qitemselectionmodel_select_callback = cb; }
@@ -129,6 +139,8 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
     inline void setQItemSelectionModel_IsSignalConnected_Callback(QItemSelectionModel_IsSignalConnected_Callback cb) { qitemselectionmodel_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQItemSelectionModel_MetaObject_IsBase(bool value) const { qitemselectionmodel_metaobject_isbase = value; }
+    inline void setQItemSelectionModel_Metacast_IsBase(bool value) const { qitemselectionmodel_metacast_isbase = value; }
     inline void setQItemSelectionModel_Metacall_IsBase(bool value) const { qitemselectionmodel_metacall_isbase = value; }
     inline void setQItemSelectionModel_SetCurrentIndex_IsBase(bool value) const { qitemselectionmodel_setcurrentindex_isbase = value; }
     inline void setQItemSelectionModel_Select_IsBase(bool value) const { qitemselectionmodel_select_isbase = value; }
@@ -148,6 +160,34 @@ class VirtualQItemSelectionModel final : public QItemSelectionModel {
     inline void setQItemSelectionModel_SenderSignalIndex_IsBase(bool value) const { qitemselectionmodel_sendersignalindex_isbase = value; }
     inline void setQItemSelectionModel_Receivers_IsBase(bool value) const { qitemselectionmodel_receivers_isbase = value; }
     inline void setQItemSelectionModel_IsSignalConnected_IsBase(bool value) const { qitemselectionmodel_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qitemselectionmodel_metaobject_isbase) {
+            qitemselectionmodel_metaobject_isbase = false;
+            return QItemSelectionModel::metaObject();
+        } else if (qitemselectionmodel_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qitemselectionmodel_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QItemSelectionModel::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qitemselectionmodel_metacast_isbase) {
+            qitemselectionmodel_metacast_isbase = false;
+            return QItemSelectionModel::qt_metacast(param1);
+        } else if (qitemselectionmodel_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qitemselectionmodel_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QItemSelectionModel::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

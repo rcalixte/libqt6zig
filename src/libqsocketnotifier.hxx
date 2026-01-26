@@ -17,6 +17,8 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
     bool isVirtualQSocketNotifier = true;
 
     // Virtual class public types (including callbacks)
+    using QSocketNotifier_MetaObject_Callback = QMetaObject* (*)();
+    using QSocketNotifier_Metacast_Callback = void* (*)(QSocketNotifier*, const char*);
     using QSocketNotifier_Metacall_Callback = int (*)(QSocketNotifier*, int, int, void**);
     using QSocketNotifier_Event_Callback = bool (*)(QSocketNotifier*, QEvent*);
     using QSocketNotifier_EventFilter_Callback = bool (*)(QSocketNotifier*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
 
   protected:
     // Instance callback storage
+    QSocketNotifier_MetaObject_Callback qsocketnotifier_metaobject_callback = nullptr;
+    QSocketNotifier_Metacast_Callback qsocketnotifier_metacast_callback = nullptr;
     QSocketNotifier_Metacall_Callback qsocketnotifier_metacall_callback = nullptr;
     QSocketNotifier_Event_Callback qsocketnotifier_event_callback = nullptr;
     QSocketNotifier_EventFilter_Callback qsocketnotifier_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
     QSocketNotifier_IsSignalConnected_Callback qsocketnotifier_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsocketnotifier_metaobject_isbase = false;
+    mutable bool qsocketnotifier_metacast_isbase = false;
     mutable bool qsocketnotifier_metacall_isbase = false;
     mutable bool qsocketnotifier_event_isbase = false;
     mutable bool qsocketnotifier_eventfilter_isbase = false;
@@ -66,6 +72,8 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
     VirtualQSocketNotifier(qintptr socket, QSocketNotifier::Type param2, QObject* parent) : QSocketNotifier(socket, param2, parent) {};
 
     ~VirtualQSocketNotifier() {
+        qsocketnotifier_metaobject_callback = nullptr;
+        qsocketnotifier_metacast_callback = nullptr;
         qsocketnotifier_metacall_callback = nullptr;
         qsocketnotifier_event_callback = nullptr;
         qsocketnotifier_eventfilter_callback = nullptr;
@@ -81,6 +89,8 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
     }
 
     // Callback setters
+    inline void setQSocketNotifier_MetaObject_Callback(QSocketNotifier_MetaObject_Callback cb) { qsocketnotifier_metaobject_callback = cb; }
+    inline void setQSocketNotifier_Metacast_Callback(QSocketNotifier_Metacast_Callback cb) { qsocketnotifier_metacast_callback = cb; }
     inline void setQSocketNotifier_Metacall_Callback(QSocketNotifier_Metacall_Callback cb) { qsocketnotifier_metacall_callback = cb; }
     inline void setQSocketNotifier_Event_Callback(QSocketNotifier_Event_Callback cb) { qsocketnotifier_event_callback = cb; }
     inline void setQSocketNotifier_EventFilter_Callback(QSocketNotifier_EventFilter_Callback cb) { qsocketnotifier_eventfilter_callback = cb; }
@@ -95,6 +105,8 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
     inline void setQSocketNotifier_IsSignalConnected_Callback(QSocketNotifier_IsSignalConnected_Callback cb) { qsocketnotifier_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSocketNotifier_MetaObject_IsBase(bool value) const { qsocketnotifier_metaobject_isbase = value; }
+    inline void setQSocketNotifier_Metacast_IsBase(bool value) const { qsocketnotifier_metacast_isbase = value; }
     inline void setQSocketNotifier_Metacall_IsBase(bool value) const { qsocketnotifier_metacall_isbase = value; }
     inline void setQSocketNotifier_Event_IsBase(bool value) const { qsocketnotifier_event_isbase = value; }
     inline void setQSocketNotifier_EventFilter_IsBase(bool value) const { qsocketnotifier_eventfilter_isbase = value; }
@@ -107,6 +119,34 @@ class VirtualQSocketNotifier final : public QSocketNotifier {
     inline void setQSocketNotifier_SenderSignalIndex_IsBase(bool value) const { qsocketnotifier_sendersignalindex_isbase = value; }
     inline void setQSocketNotifier_Receivers_IsBase(bool value) const { qsocketnotifier_receivers_isbase = value; }
     inline void setQSocketNotifier_IsSignalConnected_IsBase(bool value) const { qsocketnotifier_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsocketnotifier_metaobject_isbase) {
+            qsocketnotifier_metaobject_isbase = false;
+            return QSocketNotifier::metaObject();
+        } else if (qsocketnotifier_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsocketnotifier_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSocketNotifier::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsocketnotifier_metacast_isbase) {
+            qsocketnotifier_metacast_isbase = false;
+            return QSocketNotifier::qt_metacast(param1);
+        } else if (qsocketnotifier_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsocketnotifier_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSocketNotifier::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

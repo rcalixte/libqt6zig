@@ -32,11 +32,21 @@ KPageModel* KPageModel_new2(QObject* parent) {
 }
 
 QMetaObject* KPageModel_MetaObject(const KPageModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpagemodel = dynamic_cast<const VirtualKPageModel*>(self);
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPageModel*)self)->metaObject();
+    }
 }
 
 void* KPageModel_Metacast(KPageModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPageModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KPageModel_Metacall(KPageModel* self, int param1, int param2, void** param3) {
@@ -45,6 +55,44 @@ int KPageModel_Metacall(KPageModel* self, int param1, int param2, void** param3)
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
         return ((VirtualKPageModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KPageModel_QBaseMetaObject(const KPageModel* self) {
+    auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+        vkpagemodel->setKPageModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpagemodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KPageModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageModel_OnMetaObject(const KPageModel* self, intptr_t slot) {
+    auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+        vkpagemodel->setKPageModel_MetaObject_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPageModel_QBaseMetacast(KPageModel* self, const char* param1) {
+    auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+        vkpagemodel->setKPageModel_Metacast_IsBase(true);
+        return vkpagemodel->qt_metacast(param1);
+    } else {
+        return self->KPageModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageModel_OnMetacast(KPageModel* self, intptr_t slot) {
+    auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+        vkpagemodel->setKPageModel_Metacast_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Metacast_Callback>(slot));
     }
 }
 

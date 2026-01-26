@@ -51,11 +51,21 @@ KNewPasswordDialog* KNewPasswordDialog_new2() {
 }
 
 QMetaObject* KNewPasswordDialog_MetaObject(const KNewPasswordDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknewpassworddialog = dynamic_cast<const VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNewPasswordDialog*)self)->metaObject();
+    }
 }
 
 void* KNewPasswordDialog_Metacast(KNewPasswordDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNewPasswordDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KNewPasswordDialog_Metacall(KNewPasswordDialog* self, int param1, int param2, void** param3) {
@@ -204,6 +214,44 @@ void KNewPasswordDialog_Connect_NewPassword(KNewPasswordDialog* self, intptr_t s
         slotFunc(self, sigval1);
         libqt_free(password_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KNewPasswordDialog_QBaseMetaObject(const KNewPasswordDialog* self) {
+    auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        vknewpassworddialog->setKNewPasswordDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vknewpassworddialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KNewPasswordDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNewPasswordDialog_OnMetaObject(const KNewPasswordDialog* self, intptr_t slot) {
+    auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        vknewpassworddialog->setKNewPasswordDialog_MetaObject_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNewPasswordDialog_QBaseMetacast(KNewPasswordDialog* self, const char* param1) {
+    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        vknewpassworddialog->setKNewPasswordDialog_Metacast_IsBase(true);
+        return vknewpassworddialog->qt_metacast(param1);
+    } else {
+        return self->KNewPasswordDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNewPasswordDialog_OnMetacast(KNewPasswordDialog* self, intptr_t slot) {
+    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+        vknewpassworddialog->setKNewPasswordDialog_Metacast_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

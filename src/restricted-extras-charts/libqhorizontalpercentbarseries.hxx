@@ -17,6 +17,8 @@ class VirtualQHorizontalPercentBarSeries final : public QHorizontalPercentBarSer
     bool isVirtualQHorizontalPercentBarSeries = true;
 
     // Virtual class public types (including callbacks)
+    using QHorizontalPercentBarSeries_MetaObject_Callback = QMetaObject* (*)();
+    using QHorizontalPercentBarSeries_Metacast_Callback = void* (*)(QHorizontalPercentBarSeries*, const char*);
     using QHorizontalPercentBarSeries_Metacall_Callback = int (*)(QHorizontalPercentBarSeries*, int, int, void**);
     using QHorizontalPercentBarSeries_Type_Callback = int (*)();
     using QHorizontalPercentBarSeries_Event_Callback = bool (*)(QHorizontalPercentBarSeries*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQHorizontalPercentBarSeries final : public QHorizontalPercentBarSer
 
   protected:
     // Instance callback storage
+    QHorizontalPercentBarSeries_MetaObject_Callback qhorizontalpercentbarseries_metaobject_callback = nullptr;
+    QHorizontalPercentBarSeries_Metacast_Callback qhorizontalpercentbarseries_metacast_callback = nullptr;
     QHorizontalPercentBarSeries_Metacall_Callback qhorizontalpercentbarseries_metacall_callback = nullptr;
     QHorizontalPercentBarSeries_Type_Callback qhorizontalpercentbarseries_type_callback = nullptr;
     QHorizontalPercentBarSeries_Event_Callback qhorizontalpercentbarseries_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQHorizontalPercentBarSeries final : public QHorizontalPercentBarSer
     QHorizontalPercentBarSeries_IsSignalConnected_Callback qhorizontalpercentbarseries_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qhorizontalpercentbarseries_metaobject_isbase = false;
+    mutable bool qhorizontalpercentbarseries_metacast_isbase = false;
     mutable bool qhorizontalpercentbarseries_metacall_isbase = false;
     mutable bool qhorizontalpercentbarseries_type_isbase = false;
     mutable bool qhorizontalpercentbarseries_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQHorizontalPercentBarSeries final : public QHorizontalPercentBarSer
     VirtualQHorizontalPercentBarSeries(QObject* parent) : QHorizontalPercentBarSeries(parent) {};
 
     ~VirtualQHorizontalPercentBarSeries() {
+        qhorizontalpercentbarseries_metaobject_callback = nullptr;
+        qhorizontalpercentbarseries_metacast_callback = nullptr;
         qhorizontalpercentbarseries_metacall_callback = nullptr;
         qhorizontalpercentbarseries_type_callback = nullptr;
         qhorizontalpercentbarseries_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQHorizontalPercentBarSeries final : public QHorizontalPercentBarSer
     }
 
     // Callback setters
+    inline void setQHorizontalPercentBarSeries_MetaObject_Callback(QHorizontalPercentBarSeries_MetaObject_Callback cb) { qhorizontalpercentbarseries_metaobject_callback = cb; }
+    inline void setQHorizontalPercentBarSeries_Metacast_Callback(QHorizontalPercentBarSeries_Metacast_Callback cb) { qhorizontalpercentbarseries_metacast_callback = cb; }
     inline void setQHorizontalPercentBarSeries_Metacall_Callback(QHorizontalPercentBarSeries_Metacall_Callback cb) { qhorizontalpercentbarseries_metacall_callback = cb; }
     inline void setQHorizontalPercentBarSeries_Type_Callback(QHorizontalPercentBarSeries_Type_Callback cb) { qhorizontalpercentbarseries_type_callback = cb; }
     inline void setQHorizontalPercentBarSeries_Event_Callback(QHorizontalPercentBarSeries_Event_Callback cb) { qhorizontalpercentbarseries_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQHorizontalPercentBarSeries final : public QHorizontalPercentBarSer
     inline void setQHorizontalPercentBarSeries_IsSignalConnected_Callback(QHorizontalPercentBarSeries_IsSignalConnected_Callback cb) { qhorizontalpercentbarseries_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQHorizontalPercentBarSeries_MetaObject_IsBase(bool value) const { qhorizontalpercentbarseries_metaobject_isbase = value; }
+    inline void setQHorizontalPercentBarSeries_Metacast_IsBase(bool value) const { qhorizontalpercentbarseries_metacast_isbase = value; }
     inline void setQHorizontalPercentBarSeries_Metacall_IsBase(bool value) const { qhorizontalpercentbarseries_metacall_isbase = value; }
     inline void setQHorizontalPercentBarSeries_Type_IsBase(bool value) const { qhorizontalpercentbarseries_type_isbase = value; }
     inline void setQHorizontalPercentBarSeries_Event_IsBase(bool value) const { qhorizontalpercentbarseries_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQHorizontalPercentBarSeries final : public QHorizontalPercentBarSer
     inline void setQHorizontalPercentBarSeries_SenderSignalIndex_IsBase(bool value) const { qhorizontalpercentbarseries_sendersignalindex_isbase = value; }
     inline void setQHorizontalPercentBarSeries_Receivers_IsBase(bool value) const { qhorizontalpercentbarseries_receivers_isbase = value; }
     inline void setQHorizontalPercentBarSeries_IsSignalConnected_IsBase(bool value) const { qhorizontalpercentbarseries_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qhorizontalpercentbarseries_metaobject_isbase) {
+            qhorizontalpercentbarseries_metaobject_isbase = false;
+            return QHorizontalPercentBarSeries::metaObject();
+        } else if (qhorizontalpercentbarseries_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qhorizontalpercentbarseries_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHorizontalPercentBarSeries::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qhorizontalpercentbarseries_metacast_isbase) {
+            qhorizontalpercentbarseries_metacast_isbase = false;
+            return QHorizontalPercentBarSeries::qt_metacast(param1);
+        } else if (qhorizontalpercentbarseries_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qhorizontalpercentbarseries_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHorizontalPercentBarSeries::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

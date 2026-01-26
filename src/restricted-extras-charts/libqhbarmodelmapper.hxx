@@ -17,6 +17,8 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
     bool isVirtualQHBarModelMapper = true;
 
     // Virtual class public types (including callbacks)
+    using QHBarModelMapper_MetaObject_Callback = QMetaObject* (*)();
+    using QHBarModelMapper_Metacast_Callback = void* (*)(QHBarModelMapper*, const char*);
     using QHBarModelMapper_Metacall_Callback = int (*)(QHBarModelMapper*, int, int, void**);
     using QHBarModelMapper_Event_Callback = bool (*)(QHBarModelMapper*, QEvent*);
     using QHBarModelMapper_EventFilter_Callback = bool (*)(QHBarModelMapper*, QObject*, QEvent*);
@@ -42,6 +44,8 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
 
   protected:
     // Instance callback storage
+    QHBarModelMapper_MetaObject_Callback qhbarmodelmapper_metaobject_callback = nullptr;
+    QHBarModelMapper_Metacast_Callback qhbarmodelmapper_metacast_callback = nullptr;
     QHBarModelMapper_Metacall_Callback qhbarmodelmapper_metacall_callback = nullptr;
     QHBarModelMapper_Event_Callback qhbarmodelmapper_event_callback = nullptr;
     QHBarModelMapper_EventFilter_Callback qhbarmodelmapper_eventfilter_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
     QHBarModelMapper_IsSignalConnected_Callback qhbarmodelmapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qhbarmodelmapper_metaobject_isbase = false;
+    mutable bool qhbarmodelmapper_metacast_isbase = false;
     mutable bool qhbarmodelmapper_metacall_isbase = false;
     mutable bool qhbarmodelmapper_event_isbase = false;
     mutable bool qhbarmodelmapper_eventfilter_isbase = false;
@@ -94,6 +100,8 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
     VirtualQHBarModelMapper(QObject* parent) : QHBarModelMapper(parent) {};
 
     ~VirtualQHBarModelMapper() {
+        qhbarmodelmapper_metaobject_callback = nullptr;
+        qhbarmodelmapper_metacast_callback = nullptr;
         qhbarmodelmapper_metacall_callback = nullptr;
         qhbarmodelmapper_event_callback = nullptr;
         qhbarmodelmapper_eventfilter_callback = nullptr;
@@ -119,6 +127,8 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
     }
 
     // Callback setters
+    inline void setQHBarModelMapper_MetaObject_Callback(QHBarModelMapper_MetaObject_Callback cb) { qhbarmodelmapper_metaobject_callback = cb; }
+    inline void setQHBarModelMapper_Metacast_Callback(QHBarModelMapper_Metacast_Callback cb) { qhbarmodelmapper_metacast_callback = cb; }
     inline void setQHBarModelMapper_Metacall_Callback(QHBarModelMapper_Metacall_Callback cb) { qhbarmodelmapper_metacall_callback = cb; }
     inline void setQHBarModelMapper_Event_Callback(QHBarModelMapper_Event_Callback cb) { qhbarmodelmapper_event_callback = cb; }
     inline void setQHBarModelMapper_EventFilter_Callback(QHBarModelMapper_EventFilter_Callback cb) { qhbarmodelmapper_eventfilter_callback = cb; }
@@ -143,6 +153,8 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
     inline void setQHBarModelMapper_IsSignalConnected_Callback(QHBarModelMapper_IsSignalConnected_Callback cb) { qhbarmodelmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQHBarModelMapper_MetaObject_IsBase(bool value) const { qhbarmodelmapper_metaobject_isbase = value; }
+    inline void setQHBarModelMapper_Metacast_IsBase(bool value) const { qhbarmodelmapper_metacast_isbase = value; }
     inline void setQHBarModelMapper_Metacall_IsBase(bool value) const { qhbarmodelmapper_metacall_isbase = value; }
     inline void setQHBarModelMapper_Event_IsBase(bool value) const { qhbarmodelmapper_event_isbase = value; }
     inline void setQHBarModelMapper_EventFilter_IsBase(bool value) const { qhbarmodelmapper_eventfilter_isbase = value; }
@@ -165,6 +177,34 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
     inline void setQHBarModelMapper_SenderSignalIndex_IsBase(bool value) const { qhbarmodelmapper_sendersignalindex_isbase = value; }
     inline void setQHBarModelMapper_Receivers_IsBase(bool value) const { qhbarmodelmapper_receivers_isbase = value; }
     inline void setQHBarModelMapper_IsSignalConnected_IsBase(bool value) const { qhbarmodelmapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qhbarmodelmapper_metaobject_isbase) {
+            qhbarmodelmapper_metaobject_isbase = false;
+            return QHBarModelMapper::metaObject();
+        } else if (qhbarmodelmapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qhbarmodelmapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QHBarModelMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qhbarmodelmapper_metacast_isbase) {
+            qhbarmodelmapper_metacast_isbase = false;
+            return QHBarModelMapper::qt_metacast(param1);
+        } else if (qhbarmodelmapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qhbarmodelmapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QHBarModelMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

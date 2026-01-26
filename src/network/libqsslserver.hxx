@@ -17,6 +17,8 @@ class VirtualQSslServer final : public QSslServer {
     bool isVirtualQSslServer = true;
 
     // Virtual class public types (including callbacks)
+    using QSslServer_MetaObject_Callback = QMetaObject* (*)();
+    using QSslServer_Metacast_Callback = void* (*)(QSslServer*, const char*);
     using QSslServer_Metacall_Callback = int (*)(QSslServer*, int, int, void**);
     using QSslServer_IncomingConnection_Callback = void (*)(QSslServer*, intptr_t);
     using QSslServer_HasPendingConnections_Callback = bool (*)();
@@ -36,6 +38,8 @@ class VirtualQSslServer final : public QSslServer {
 
   protected:
     // Instance callback storage
+    QSslServer_MetaObject_Callback qsslserver_metaobject_callback = nullptr;
+    QSslServer_Metacast_Callback qsslserver_metacast_callback = nullptr;
     QSslServer_Metacall_Callback qsslserver_metacall_callback = nullptr;
     QSslServer_IncomingConnection_Callback qsslserver_incomingconnection_callback = nullptr;
     QSslServer_HasPendingConnections_Callback qsslserver_haspendingconnections_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQSslServer final : public QSslServer {
     QSslServer_IsSignalConnected_Callback qsslserver_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsslserver_metaobject_isbase = false;
+    mutable bool qsslserver_metacast_isbase = false;
     mutable bool qsslserver_metacall_isbase = false;
     mutable bool qsslserver_incomingconnection_isbase = false;
     mutable bool qsslserver_haspendingconnections_isbase = false;
@@ -76,6 +82,8 @@ class VirtualQSslServer final : public QSslServer {
     VirtualQSslServer(QObject* parent) : QSslServer(parent) {};
 
     ~VirtualQSslServer() {
+        qsslserver_metaobject_callback = nullptr;
+        qsslserver_metacast_callback = nullptr;
         qsslserver_metacall_callback = nullptr;
         qsslserver_incomingconnection_callback = nullptr;
         qsslserver_haspendingconnections_callback = nullptr;
@@ -95,6 +103,8 @@ class VirtualQSslServer final : public QSslServer {
     }
 
     // Callback setters
+    inline void setQSslServer_MetaObject_Callback(QSslServer_MetaObject_Callback cb) { qsslserver_metaobject_callback = cb; }
+    inline void setQSslServer_Metacast_Callback(QSslServer_Metacast_Callback cb) { qsslserver_metacast_callback = cb; }
     inline void setQSslServer_Metacall_Callback(QSslServer_Metacall_Callback cb) { qsslserver_metacall_callback = cb; }
     inline void setQSslServer_IncomingConnection_Callback(QSslServer_IncomingConnection_Callback cb) { qsslserver_incomingconnection_callback = cb; }
     inline void setQSslServer_HasPendingConnections_Callback(QSslServer_HasPendingConnections_Callback cb) { qsslserver_haspendingconnections_callback = cb; }
@@ -113,6 +123,8 @@ class VirtualQSslServer final : public QSslServer {
     inline void setQSslServer_IsSignalConnected_Callback(QSslServer_IsSignalConnected_Callback cb) { qsslserver_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSslServer_MetaObject_IsBase(bool value) const { qsslserver_metaobject_isbase = value; }
+    inline void setQSslServer_Metacast_IsBase(bool value) const { qsslserver_metacast_isbase = value; }
     inline void setQSslServer_Metacall_IsBase(bool value) const { qsslserver_metacall_isbase = value; }
     inline void setQSslServer_IncomingConnection_IsBase(bool value) const { qsslserver_incomingconnection_isbase = value; }
     inline void setQSslServer_HasPendingConnections_IsBase(bool value) const { qsslserver_haspendingconnections_isbase = value; }
@@ -129,6 +141,34 @@ class VirtualQSslServer final : public QSslServer {
     inline void setQSslServer_SenderSignalIndex_IsBase(bool value) const { qsslserver_sendersignalindex_isbase = value; }
     inline void setQSslServer_Receivers_IsBase(bool value) const { qsslserver_receivers_isbase = value; }
     inline void setQSslServer_IsSignalConnected_IsBase(bool value) const { qsslserver_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsslserver_metaobject_isbase) {
+            qsslserver_metaobject_isbase = false;
+            return QSslServer::metaObject();
+        } else if (qsslserver_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsslserver_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSslServer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsslserver_metacast_isbase) {
+            qsslserver_metacast_isbase = false;
+            return QSslServer::qt_metacast(param1);
+        } else if (qsslserver_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsslserver_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSslServer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

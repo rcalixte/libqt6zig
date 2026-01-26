@@ -24,11 +24,21 @@ QCandlestickLegendMarker* QCandlestickLegendMarker_new2(QCandlestickSeries* seri
 }
 
 QMetaObject* QCandlestickLegendMarker_MetaObject(const QCandlestickLegendMarker* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqcandlesticklegendmarker = dynamic_cast<const VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQCandlestickLegendMarker*)self)->metaObject();
+    }
 }
 
 void* QCandlestickLegendMarker_Metacast(QCandlestickLegendMarker* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQCandlestickLegendMarker*)self)->qt_metacast(param1);
+    }
 }
 
 int QCandlestickLegendMarker_Metacall(QCandlestickLegendMarker* self, int param1, int param2, void** param3) {
@@ -55,6 +65,44 @@ QCandlestickSeries* QCandlestickLegendMarker_Series(QCandlestickLegendMarker* se
         return self->series();
     } else {
         return ((VirtualQCandlestickLegendMarker*)self)->series();
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QCandlestickLegendMarker_QBaseMetaObject(const QCandlestickLegendMarker* self) {
+    auto* vqcandlesticklegendmarker = const_cast<VirtualQCandlestickLegendMarker*>(dynamic_cast<const VirtualQCandlestickLegendMarker*>(self));
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_MetaObject_IsBase(true);
+        return (QMetaObject*)vqcandlesticklegendmarker->metaObject();
+    } else {
+        return (QMetaObject*)self->QCandlestickLegendMarker::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCandlestickLegendMarker_OnMetaObject(const QCandlestickLegendMarker* self, intptr_t slot) {
+    auto* vqcandlesticklegendmarker = const_cast<VirtualQCandlestickLegendMarker*>(dynamic_cast<const VirtualQCandlestickLegendMarker*>(self));
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQCandlestickLegendMarker::QCandlestickLegendMarker_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QCandlestickLegendMarker_QBaseMetacast(QCandlestickLegendMarker* self, const char* param1) {
+    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Metacast_IsBase(true);
+        return vqcandlesticklegendmarker->qt_metacast(param1);
+    } else {
+        return self->QCandlestickLegendMarker::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCandlestickLegendMarker_OnMetacast(QCandlestickLegendMarker* self, intptr_t slot) {
+    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
+    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
+        vqcandlesticklegendmarker->setQCandlestickLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQCandlestickLegendMarker::QCandlestickLegendMarker_Metacast_Callback>(slot));
     }
 }
 

@@ -37,6 +37,10 @@ bool QNetworkCookieJar_InsertCookie(QNetworkCookieJar* self, const QNetworkCooki
 bool QNetworkCookieJar_UpdateCookie(QNetworkCookieJar* self, const QNetworkCookie* cookie);
 bool QNetworkCookieJar_DeleteCookie(QNetworkCookieJar* self, const QNetworkCookie* cookie);
 bool QNetworkCookieJar_ValidateCookie(const QNetworkCookieJar* self, const QNetworkCookie* cookie, const QUrl* url);
+void QNetworkCookieJar_OnMetaObject(const QNetworkCookieJar* self, intptr_t slot);
+QMetaObject* QNetworkCookieJar_QBaseMetaObject(const QNetworkCookieJar* self);
+void QNetworkCookieJar_OnMetacast(QNetworkCookieJar* self, intptr_t slot);
+void* QNetworkCookieJar_QBaseMetacast(QNetworkCookieJar* self, const char* param1);
 void QNetworkCookieJar_OnMetacall(QNetworkCookieJar* self, intptr_t slot);
 int QNetworkCookieJar_QBaseMetacall(QNetworkCookieJar* self, int param1, int param2, void** param3);
 void QNetworkCookieJar_OnCookiesForUrl(const QNetworkCookieJar* self, intptr_t slot);

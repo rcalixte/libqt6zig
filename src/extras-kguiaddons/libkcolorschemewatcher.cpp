@@ -21,11 +21,21 @@ KColorSchemeWatcher* KColorSchemeWatcher_new2(QObject* parent) {
 }
 
 QMetaObject* KColorSchemeWatcher_MetaObject(const KColorSchemeWatcher* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcolorschemewatcher = dynamic_cast<const VirtualKColorSchemeWatcher*>(self);
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKColorSchemeWatcher*)self)->metaObject();
+    }
 }
 
 void* KColorSchemeWatcher_Metacast(KColorSchemeWatcher* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKColorSchemeWatcher*)self)->qt_metacast(param1);
+    }
 }
 
 int KColorSchemeWatcher_Metacall(KColorSchemeWatcher* self, int param1, int param2, void** param3) {
@@ -50,6 +60,44 @@ void KColorSchemeWatcher_Connect_SystemPreferenceChanged(KColorSchemeWatcher* se
     KColorSchemeWatcher::connect(self, &KColorSchemeWatcher::systemPreferenceChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KColorSchemeWatcher_QBaseMetaObject(const KColorSchemeWatcher* self) {
+    auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+        vkcolorschemewatcher->setKColorSchemeWatcher_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcolorschemewatcher->metaObject();
+    } else {
+        return (QMetaObject*)self->KColorSchemeWatcher::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorSchemeWatcher_OnMetaObject(const KColorSchemeWatcher* self, intptr_t slot) {
+    auto* vkcolorschemewatcher = const_cast<VirtualKColorSchemeWatcher*>(dynamic_cast<const VirtualKColorSchemeWatcher*>(self));
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+        vkcolorschemewatcher->setKColorSchemeWatcher_MetaObject_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KColorSchemeWatcher_QBaseMetacast(KColorSchemeWatcher* self, const char* param1) {
+    auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+        vkcolorschemewatcher->setKColorSchemeWatcher_Metacast_IsBase(true);
+        return vkcolorschemewatcher->qt_metacast(param1);
+    } else {
+        return self->KColorSchemeWatcher::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KColorSchemeWatcher_OnMetacast(KColorSchemeWatcher* self, intptr_t slot) {
+    auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
+    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
+        vkcolorschemewatcher->setKColorSchemeWatcher_Metacast_Callback(reinterpret_cast<VirtualKColorSchemeWatcher::KColorSchemeWatcher_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

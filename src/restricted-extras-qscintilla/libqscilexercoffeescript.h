@@ -60,6 +60,10 @@ void QsciLexerCoffeeScript_SetStylePreprocessor(QsciLexerCoffeeScript* self, boo
 const char* QsciLexerCoffeeScript_BlockEnd1(const QsciLexerCoffeeScript* self, int* style);
 const char* QsciLexerCoffeeScript_BlockStart1(const QsciLexerCoffeeScript* self, int* style);
 const char* QsciLexerCoffeeScript_BlockStartKeyword1(const QsciLexerCoffeeScript* self, int* style);
+void QsciLexerCoffeeScript_OnMetaObject(const QsciLexerCoffeeScript* self, intptr_t slot);
+QMetaObject* QsciLexerCoffeeScript_QBaseMetaObject(const QsciLexerCoffeeScript* self);
+void QsciLexerCoffeeScript_OnMetacast(QsciLexerCoffeeScript* self, intptr_t slot);
+void* QsciLexerCoffeeScript_QBaseMetacast(QsciLexerCoffeeScript* self, const char* param1);
 void QsciLexerCoffeeScript_OnMetacall(QsciLexerCoffeeScript* self, intptr_t slot);
 int QsciLexerCoffeeScript_QBaseMetacall(QsciLexerCoffeeScript* self, int param1, int param2, void** param3);
 int QsciLexerCoffeeScript_LexerId(const QsciLexerCoffeeScript* self);

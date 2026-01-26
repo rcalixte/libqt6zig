@@ -17,6 +17,8 @@ class VirtualQActionGroup final : public QActionGroup {
     bool isVirtualQActionGroup = true;
 
     // Virtual class public types (including callbacks)
+    using QActionGroup_MetaObject_Callback = QMetaObject* (*)();
+    using QActionGroup_Metacast_Callback = void* (*)(QActionGroup*, const char*);
     using QActionGroup_Metacall_Callback = int (*)(QActionGroup*, int, int, void**);
     using QActionGroup_Event_Callback = bool (*)(QActionGroup*, QEvent*);
     using QActionGroup_EventFilter_Callback = bool (*)(QActionGroup*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQActionGroup final : public QActionGroup {
 
   protected:
     // Instance callback storage
+    QActionGroup_MetaObject_Callback qactiongroup_metaobject_callback = nullptr;
+    QActionGroup_Metacast_Callback qactiongroup_metacast_callback = nullptr;
     QActionGroup_Metacall_Callback qactiongroup_metacall_callback = nullptr;
     QActionGroup_Event_Callback qactiongroup_event_callback = nullptr;
     QActionGroup_EventFilter_Callback qactiongroup_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQActionGroup final : public QActionGroup {
     QActionGroup_IsSignalConnected_Callback qactiongroup_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qactiongroup_metaobject_isbase = false;
+    mutable bool qactiongroup_metacast_isbase = false;
     mutable bool qactiongroup_metacall_isbase = false;
     mutable bool qactiongroup_event_isbase = false;
     mutable bool qactiongroup_eventfilter_isbase = false;
@@ -63,6 +69,8 @@ class VirtualQActionGroup final : public QActionGroup {
     VirtualQActionGroup(QObject* parent) : QActionGroup(parent) {};
 
     ~VirtualQActionGroup() {
+        qactiongroup_metaobject_callback = nullptr;
+        qactiongroup_metacast_callback = nullptr;
         qactiongroup_metacall_callback = nullptr;
         qactiongroup_event_callback = nullptr;
         qactiongroup_eventfilter_callback = nullptr;
@@ -78,6 +86,8 @@ class VirtualQActionGroup final : public QActionGroup {
     }
 
     // Callback setters
+    inline void setQActionGroup_MetaObject_Callback(QActionGroup_MetaObject_Callback cb) { qactiongroup_metaobject_callback = cb; }
+    inline void setQActionGroup_Metacast_Callback(QActionGroup_Metacast_Callback cb) { qactiongroup_metacast_callback = cb; }
     inline void setQActionGroup_Metacall_Callback(QActionGroup_Metacall_Callback cb) { qactiongroup_metacall_callback = cb; }
     inline void setQActionGroup_Event_Callback(QActionGroup_Event_Callback cb) { qactiongroup_event_callback = cb; }
     inline void setQActionGroup_EventFilter_Callback(QActionGroup_EventFilter_Callback cb) { qactiongroup_eventfilter_callback = cb; }
@@ -92,6 +102,8 @@ class VirtualQActionGroup final : public QActionGroup {
     inline void setQActionGroup_IsSignalConnected_Callback(QActionGroup_IsSignalConnected_Callback cb) { qactiongroup_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQActionGroup_MetaObject_IsBase(bool value) const { qactiongroup_metaobject_isbase = value; }
+    inline void setQActionGroup_Metacast_IsBase(bool value) const { qactiongroup_metacast_isbase = value; }
     inline void setQActionGroup_Metacall_IsBase(bool value) const { qactiongroup_metacall_isbase = value; }
     inline void setQActionGroup_Event_IsBase(bool value) const { qactiongroup_event_isbase = value; }
     inline void setQActionGroup_EventFilter_IsBase(bool value) const { qactiongroup_eventfilter_isbase = value; }
@@ -104,6 +116,34 @@ class VirtualQActionGroup final : public QActionGroup {
     inline void setQActionGroup_SenderSignalIndex_IsBase(bool value) const { qactiongroup_sendersignalindex_isbase = value; }
     inline void setQActionGroup_Receivers_IsBase(bool value) const { qactiongroup_receivers_isbase = value; }
     inline void setQActionGroup_IsSignalConnected_IsBase(bool value) const { qactiongroup_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qactiongroup_metaobject_isbase) {
+            qactiongroup_metaobject_isbase = false;
+            return QActionGroup::metaObject();
+        } else if (qactiongroup_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qactiongroup_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QActionGroup::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qactiongroup_metacast_isbase) {
+            qactiongroup_metacast_isbase = false;
+            return QActionGroup::qt_metacast(param1);
+        } else if (qactiongroup_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qactiongroup_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QActionGroup::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

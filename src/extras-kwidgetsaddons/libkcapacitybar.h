@@ -77,6 +77,10 @@ void KCapacityBar_DrawCapacityBar2(const KCapacityBar* self, QPainter* p, const 
 QSize* KCapacityBar_MinimumSizeHint(const KCapacityBar* self);
 void KCapacityBar_PaintEvent(KCapacityBar* self, QPaintEvent* event);
 void KCapacityBar_ChangeEvent(KCapacityBar* self, QEvent* event);
+void KCapacityBar_OnMetaObject(const KCapacityBar* self, intptr_t slot);
+QMetaObject* KCapacityBar_QBaseMetaObject(const KCapacityBar* self);
+void KCapacityBar_OnMetacast(KCapacityBar* self, intptr_t slot);
+void* KCapacityBar_QBaseMetacast(KCapacityBar* self, const char* param1);
 void KCapacityBar_OnMetacall(KCapacityBar* self, intptr_t slot);
 int KCapacityBar_QBaseMetacall(KCapacityBar* self, int param1, int param2, void** param3);
 void KCapacityBar_OnMinimumSizeHint(const KCapacityBar* self, intptr_t slot);

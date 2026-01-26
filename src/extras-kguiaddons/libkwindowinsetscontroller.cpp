@@ -22,11 +22,21 @@ KWindowInsetsController* KWindowInsetsController_new2(QObject* parent) {
 }
 
 QMetaObject* KWindowInsetsController_MetaObject(const KWindowInsetsController* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkwindowinsetscontroller = dynamic_cast<const VirtualKWindowInsetsController*>(self);
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKWindowInsetsController*)self)->metaObject();
+    }
 }
 
 void* KWindowInsetsController_Metacast(KWindowInsetsController* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKWindowInsetsController*)self)->qt_metacast(param1);
+    }
 }
 
 int KWindowInsetsController_Metacall(KWindowInsetsController* self, int param1, int param2, void** param3) {
@@ -74,6 +84,44 @@ void KWindowInsetsController_Connect_NavigationBarBackgroundColorChanged(KWindow
     KWindowInsetsController::connect(self, &KWindowInsetsController::navigationBarBackgroundColorChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KWindowInsetsController_QBaseMetaObject(const KWindowInsetsController* self) {
+    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+        vkwindowinsetscontroller->setKWindowInsetsController_MetaObject_IsBase(true);
+        return (QMetaObject*)vkwindowinsetscontroller->metaObject();
+    } else {
+        return (QMetaObject*)self->KWindowInsetsController::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KWindowInsetsController_OnMetaObject(const KWindowInsetsController* self, intptr_t slot) {
+    auto* vkwindowinsetscontroller = const_cast<VirtualKWindowInsetsController*>(dynamic_cast<const VirtualKWindowInsetsController*>(self));
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+        vkwindowinsetscontroller->setKWindowInsetsController_MetaObject_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KWindowInsetsController_QBaseMetacast(KWindowInsetsController* self, const char* param1) {
+    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+        vkwindowinsetscontroller->setKWindowInsetsController_Metacast_IsBase(true);
+        return vkwindowinsetscontroller->qt_metacast(param1);
+    } else {
+        return self->KWindowInsetsController::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KWindowInsetsController_OnMetacast(KWindowInsetsController* self, intptr_t slot) {
+    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
+    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
+        vkwindowinsetscontroller->setKWindowInsetsController_Metacast_Callback(reinterpret_cast<VirtualKWindowInsetsController::KWindowInsetsController_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

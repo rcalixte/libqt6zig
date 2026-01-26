@@ -37,6 +37,10 @@ QMetaObject* KNSCore__QuestionListener_MetaObject(const KNSCore__QuestionListene
 void* KNSCore__QuestionListener_Metacast(KNSCore__QuestionListener* self, const char* param1);
 int KNSCore__QuestionListener_Metacall(KNSCore__QuestionListener* self, int param1, int param2, void** param3);
 void KNSCore__QuestionListener_AskQuestion(KNSCore__QuestionListener* self, KNSCore__Question* question);
+void KNSCore__QuestionListener_OnMetaObject(const KNSCore__QuestionListener* self, intptr_t slot);
+QMetaObject* KNSCore__QuestionListener_QBaseMetaObject(const KNSCore__QuestionListener* self);
+void KNSCore__QuestionListener_OnMetacast(KNSCore__QuestionListener* self, intptr_t slot);
+void* KNSCore__QuestionListener_QBaseMetacast(KNSCore__QuestionListener* self, const char* param1);
 void KNSCore__QuestionListener_OnMetacall(KNSCore__QuestionListener* self, intptr_t slot);
 int KNSCore__QuestionListener_QBaseMetacall(KNSCore__QuestionListener* self, int param1, int param2, void** param3);
 void KNSCore__QuestionListener_OnAskQuestion(KNSCore__QuestionListener* self, intptr_t slot);

@@ -54,11 +54,21 @@ QMdiSubWindow* QMdiSubWindow_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* QMdiSubWindow_MetaObject(const QMdiSubWindow* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqmdisubwindow = dynamic_cast<const VirtualQMdiSubWindow*>(self);
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQMdiSubWindow*)self)->metaObject();
+    }
 }
 
 void* QMdiSubWindow_Metacast(QMdiSubWindow* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQMdiSubWindow*)self)->qt_metacast(param1);
+    }
 }
 
 int QMdiSubWindow_Metacall(QMdiSubWindow* self, int param1, int param2, void** param3) {
@@ -320,6 +330,44 @@ void QMdiSubWindow_ChildEvent(QMdiSubWindow* self, QChildEvent* childEvent) {
 
 void QMdiSubWindow_SetOption2(QMdiSubWindow* self, int option, bool on) {
     self->setOption(static_cast<QMdiSubWindow::SubWindowOption>(option), on);
+}
+
+// Base class handler implementation
+QMetaObject* QMdiSubWindow_QBaseMetaObject(const QMdiSubWindow* self) {
+    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+        vqmdisubwindow->setQMdiSubWindow_MetaObject_IsBase(true);
+        return (QMetaObject*)vqmdisubwindow->metaObject();
+    } else {
+        return (QMetaObject*)self->QMdiSubWindow::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMdiSubWindow_OnMetaObject(const QMdiSubWindow* self, intptr_t slot) {
+    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+        vqmdisubwindow->setQMdiSubWindow_MetaObject_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QMdiSubWindow_QBaseMetacast(QMdiSubWindow* self, const char* param1) {
+    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+        vqmdisubwindow->setQMdiSubWindow_Metacast_IsBase(true);
+        return vqmdisubwindow->qt_metacast(param1);
+    } else {
+        return self->QMdiSubWindow::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMdiSubWindow_OnMetacast(QMdiSubWindow* self, intptr_t slot) {
+    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+        vqmdisubwindow->setQMdiSubWindow_Metacast_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

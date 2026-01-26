@@ -65,11 +65,21 @@ KShortcutsEditor* KShortcutsEditor_new6(QWidget* parent, int actionTypes, int al
 }
 
 QMetaObject* KShortcutsEditor_MetaObject(const KShortcutsEditor* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkshortcutseditor = dynamic_cast<const VirtualKShortcutsEditor*>(self);
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKShortcutsEditor*)self)->metaObject();
+    }
 }
 
 void* KShortcutsEditor_Metacast(KShortcutsEditor* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKShortcutsEditor*)self)->qt_metacast(param1);
+    }
 }
 
 int KShortcutsEditor_Metacall(KShortcutsEditor* self, int param1, int param2, void** param3) {
@@ -127,6 +137,44 @@ void KShortcutsEditor_AllDefault(KShortcutsEditor* self) {
 void KShortcutsEditor_AddCollection2(KShortcutsEditor* self, KActionCollection* param1, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     self->addCollection(param1, title_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KShortcutsEditor_QBaseMetaObject(const KShortcutsEditor* self) {
+    auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+        vkshortcutseditor->setKShortcutsEditor_MetaObject_IsBase(true);
+        return (QMetaObject*)vkshortcutseditor->metaObject();
+    } else {
+        return (QMetaObject*)self->KShortcutsEditor::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KShortcutsEditor_OnMetaObject(const KShortcutsEditor* self, intptr_t slot) {
+    auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+        vkshortcutseditor->setKShortcutsEditor_MetaObject_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KShortcutsEditor_QBaseMetacast(KShortcutsEditor* self, const char* param1) {
+    auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+        vkshortcutseditor->setKShortcutsEditor_Metacast_IsBase(true);
+        return vkshortcutseditor->qt_metacast(param1);
+    } else {
+        return self->KShortcutsEditor::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KShortcutsEditor_OnMetacast(KShortcutsEditor* self, intptr_t slot) {
+    auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+        vkshortcutseditor->setKShortcutsEditor_Metacast_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualKFontRequester final : public KFontRequester {
     bool isVirtualKFontRequester = true;
 
     // Virtual class public types (including callbacks)
+    using KFontRequester_MetaObject_Callback = QMetaObject* (*)();
+    using KFontRequester_Metacast_Callback = void* (*)(KFontRequester*, const char*);
     using KFontRequester_Metacall_Callback = int (*)(KFontRequester*, int, int, void**);
     using KFontRequester_SetFont_Callback = void (*)(KFontRequester*, QFont*, bool);
     using KFontRequester_SetSampleText_Callback = void (*)(KFontRequester*, libqt_string);
@@ -81,6 +83,8 @@ class VirtualKFontRequester final : public KFontRequester {
 
   protected:
     // Instance callback storage
+    KFontRequester_MetaObject_Callback kfontrequester_metaobject_callback = nullptr;
+    KFontRequester_Metacast_Callback kfontrequester_metacast_callback = nullptr;
     KFontRequester_Metacall_Callback kfontrequester_metacall_callback = nullptr;
     KFontRequester_SetFont_Callback kfontrequester_setfont_callback = nullptr;
     KFontRequester_SetSampleText_Callback kfontrequester_setsampletext_callback = nullptr;
@@ -144,6 +148,8 @@ class VirtualKFontRequester final : public KFontRequester {
     KFontRequester_GetDecodedMetricF_Callback kfontrequester_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfontrequester_metaobject_isbase = false;
+    mutable bool kfontrequester_metacast_isbase = false;
     mutable bool kfontrequester_metacall_isbase = false;
     mutable bool kfontrequester_setfont_isbase = false;
     mutable bool kfontrequester_setsampletext_isbase = false;
@@ -212,6 +218,8 @@ class VirtualKFontRequester final : public KFontRequester {
     VirtualKFontRequester(QWidget* parent, bool onlyFixed) : KFontRequester(parent, onlyFixed) {};
 
     ~VirtualKFontRequester() {
+        kfontrequester_metaobject_callback = nullptr;
+        kfontrequester_metacast_callback = nullptr;
         kfontrequester_metacall_callback = nullptr;
         kfontrequester_setfont_callback = nullptr;
         kfontrequester_setsampletext_callback = nullptr;
@@ -276,6 +284,8 @@ class VirtualKFontRequester final : public KFontRequester {
     }
 
     // Callback setters
+    inline void setKFontRequester_MetaObject_Callback(KFontRequester_MetaObject_Callback cb) { kfontrequester_metaobject_callback = cb; }
+    inline void setKFontRequester_Metacast_Callback(KFontRequester_Metacast_Callback cb) { kfontrequester_metacast_callback = cb; }
     inline void setKFontRequester_Metacall_Callback(KFontRequester_Metacall_Callback cb) { kfontrequester_metacall_callback = cb; }
     inline void setKFontRequester_SetFont_Callback(KFontRequester_SetFont_Callback cb) { kfontrequester_setfont_callback = cb; }
     inline void setKFontRequester_SetSampleText_Callback(KFontRequester_SetSampleText_Callback cb) { kfontrequester_setsampletext_callback = cb; }
@@ -339,6 +349,8 @@ class VirtualKFontRequester final : public KFontRequester {
     inline void setKFontRequester_GetDecodedMetricF_Callback(KFontRequester_GetDecodedMetricF_Callback cb) { kfontrequester_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKFontRequester_MetaObject_IsBase(bool value) const { kfontrequester_metaobject_isbase = value; }
+    inline void setKFontRequester_Metacast_IsBase(bool value) const { kfontrequester_metacast_isbase = value; }
     inline void setKFontRequester_Metacall_IsBase(bool value) const { kfontrequester_metacall_isbase = value; }
     inline void setKFontRequester_SetFont_IsBase(bool value) const { kfontrequester_setfont_isbase = value; }
     inline void setKFontRequester_SetSampleText_IsBase(bool value) const { kfontrequester_setsampletext_isbase = value; }
@@ -400,6 +412,34 @@ class VirtualKFontRequester final : public KFontRequester {
     inline void setKFontRequester_Receivers_IsBase(bool value) const { kfontrequester_receivers_isbase = value; }
     inline void setKFontRequester_IsSignalConnected_IsBase(bool value) const { kfontrequester_issignalconnected_isbase = value; }
     inline void setKFontRequester_GetDecodedMetricF_IsBase(bool value) const { kfontrequester_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfontrequester_metaobject_isbase) {
+            kfontrequester_metaobject_isbase = false;
+            return KFontRequester::metaObject();
+        } else if (kfontrequester_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfontrequester_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFontRequester::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfontrequester_metacast_isbase) {
+            kfontrequester_metacast_isbase = false;
+            return KFontRequester::qt_metacast(param1);
+        } else if (kfontrequester_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfontrequester_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFontRequester::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

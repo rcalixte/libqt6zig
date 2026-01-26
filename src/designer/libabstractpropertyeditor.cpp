@@ -49,11 +49,21 @@ QDesignerPropertyEditorInterface* QDesignerPropertyEditorInterface_new2(QWidget*
 }
 
 QMetaObject* QDesignerPropertyEditorInterface_MetaObject(const QDesignerPropertyEditorInterface* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdesignerpropertyeditorinterface = dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self);
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDesignerPropertyEditorInterface*)self)->metaObject();
+    }
 }
 
 void* QDesignerPropertyEditorInterface_Metacast(QDesignerPropertyEditorInterface* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDesignerPropertyEditorInterface*)self)->qt_metacast(param1);
+    }
 }
 
 int QDesignerPropertyEditorInterface_Metacall(QDesignerPropertyEditorInterface* self, int param1, int param2, void** param3) {
@@ -165,6 +175,44 @@ void QDesignerPropertyEditorInterface_SetReadOnly(QDesignerPropertyEditorInterfa
         vqdesignerpropertyeditorinterface->setReadOnly(readOnly);
     } else {
         ((VirtualQDesignerPropertyEditorInterface*)self)->setReadOnly(readOnly);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QDesignerPropertyEditorInterface_QBaseMetaObject(const QDesignerPropertyEditorInterface* self) {
+    auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+        vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdesignerpropertyeditorinterface->metaObject();
+    } else {
+        return (QMetaObject*)self->QDesignerPropertyEditorInterface::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerPropertyEditorInterface_OnMetaObject(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
+    auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+        vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDesignerPropertyEditorInterface_QBaseMetacast(QDesignerPropertyEditorInterface* self, const char* param1) {
+    auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+        vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Metacast_IsBase(true);
+        return vqdesignerpropertyeditorinterface->qt_metacast(param1);
+    } else {
+        return self->QDesignerPropertyEditorInterface::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDesignerPropertyEditorInterface_OnMetacast(QDesignerPropertyEditorInterface* self, intptr_t slot) {
+    auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+        vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Metacast_Callback>(slot));
     }
 }
 

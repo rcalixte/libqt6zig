@@ -107,11 +107,21 @@ QSqlRelationalTableModel* QSqlRelationalTableModel_new3(QObject* parent, const Q
 }
 
 QMetaObject* QSqlRelationalTableModel_MetaObject(const QSqlRelationalTableModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSqlRelationalTableModel*)self)->metaObject();
+    }
 }
 
 void* QSqlRelationalTableModel_Metacast(QSqlRelationalTableModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSqlRelationalTableModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QSqlRelationalTableModel_Metacall(QSqlRelationalTableModel* self, int param1, int param2, void** param3) {
@@ -259,6 +269,44 @@ libqt_string QSqlRelationalTableModel_OrderByClause(const QSqlRelationalTableMod
         return _str;
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QSqlRelationalTableModel_QBaseMetaObject(const QSqlRelationalTableModel* self) {
+    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsqlrelationaltablemodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QSqlRelationalTableModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlRelationalTableModel_OnMetaObject(const QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_MetaObject_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSqlRelationalTableModel_QBaseMetacast(QSqlRelationalTableModel* self, const char* param1) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Metacast_IsBase(true);
+        return vqsqlrelationaltablemodel->qt_metacast(param1);
+    } else {
+        return self->QSqlRelationalTableModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSqlRelationalTableModel_OnMetacast(QSqlRelationalTableModel* self, intptr_t slot) {
+    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
+    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
+        vqsqlrelationaltablemodel->setQSqlRelationalTableModel_Metacast_Callback(reinterpret_cast<VirtualQSqlRelationalTableModel::QSqlRelationalTableModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

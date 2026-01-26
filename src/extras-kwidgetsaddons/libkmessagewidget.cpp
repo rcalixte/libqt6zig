@@ -62,11 +62,21 @@ KMessageWidget* KMessageWidget_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* KMessageWidget_MetaObject(const KMessageWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKMessageWidget*)self)->metaObject();
+    }
 }
 
 void* KMessageWidget_Metacast(KMessageWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKMessageWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KMessageWidget_Metacall(KMessageWidget* self, int param1, int param2, void** param3) {
@@ -279,6 +289,44 @@ void KMessageWidget_ResizeEvent(KMessageWidget* self, QResizeEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
         vkmessagewidget->resizeEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KMessageWidget_QBaseMetaObject(const KMessageWidget* self) {
+    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkmessagewidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KMessageWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageWidget_OnMetaObject(const KMessageWidget* self, intptr_t slot) {
+    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_MetaObject_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KMessageWidget_QBaseMetacast(KMessageWidget* self, const char* param1) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_Metacast_IsBase(true);
+        return vkmessagewidget->qt_metacast(param1);
+    } else {
+        return self->KMessageWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageWidget_OnMetacast(KMessageWidget* self, intptr_t slot) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+        vkmessagewidget->setKMessageWidget_Metacast_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metacast_Callback>(slot));
     }
 }
 

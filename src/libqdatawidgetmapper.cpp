@@ -26,11 +26,21 @@ QDataWidgetMapper* QDataWidgetMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QDataWidgetMapper_MetaObject(const QDataWidgetMapper* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdatawidgetmapper = dynamic_cast<const VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDataWidgetMapper*)self)->metaObject();
+    }
 }
 
 void* QDataWidgetMapper_Metacast(QDataWidgetMapper* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDataWidgetMapper*)self)->qt_metacast(param1);
+    }
 }
 
 int QDataWidgetMapper_Metacall(QDataWidgetMapper* self, int param1, int param2, void** param3) {
@@ -168,6 +178,44 @@ void QDataWidgetMapper_Connect_CurrentIndexChanged(QDataWidgetMapper* self, intp
         int sigval1 = index;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QDataWidgetMapper_QBaseMetaObject(const QDataWidgetMapper* self) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        vqdatawidgetmapper->setQDataWidgetMapper_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdatawidgetmapper->metaObject();
+    } else {
+        return (QMetaObject*)self->QDataWidgetMapper::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDataWidgetMapper_OnMetaObject(const QDataWidgetMapper* self, intptr_t slot) {
+    auto* vqdatawidgetmapper = const_cast<VirtualQDataWidgetMapper*>(dynamic_cast<const VirtualQDataWidgetMapper*>(self));
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        vqdatawidgetmapper->setQDataWidgetMapper_MetaObject_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDataWidgetMapper_QBaseMetacast(QDataWidgetMapper* self, const char* param1) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        vqdatawidgetmapper->setQDataWidgetMapper_Metacast_IsBase(true);
+        return vqdatawidgetmapper->qt_metacast(param1);
+    } else {
+        return self->QDataWidgetMapper::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDataWidgetMapper_OnMetacast(QDataWidgetMapper* self, intptr_t slot) {
+    auto* vqdatawidgetmapper = dynamic_cast<VirtualQDataWidgetMapper*>(self);
+    if (vqdatawidgetmapper && vqdatawidgetmapper->isVirtualQDataWidgetMapper) {
+        vqdatawidgetmapper->setQDataWidgetMapper_Metacast_Callback(reinterpret_cast<VirtualQDataWidgetMapper::QDataWidgetMapper_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

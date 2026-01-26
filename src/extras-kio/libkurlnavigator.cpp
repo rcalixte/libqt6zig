@@ -56,11 +56,21 @@ KUrlNavigator* KUrlNavigator_new3(KFilePlacesModel* placesModel, const QUrl* url
 }
 
 QMetaObject* KUrlNavigator_MetaObject(const KUrlNavigator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkurlnavigator = dynamic_cast<const VirtualKUrlNavigator*>(self);
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKUrlNavigator*)self)->metaObject();
+    }
 }
 
 void* KUrlNavigator_Metacast(KUrlNavigator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKUrlNavigator*)self)->qt_metacast(param1);
+    }
 }
 
 int KUrlNavigator_Metacall(KUrlNavigator* self, int param1, int param2, void** param3) {
@@ -474,6 +484,44 @@ libqt_string KUrlNavigator_LocationState1(const KUrlNavigator* self, int history
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Base class handler implementation
+QMetaObject* KUrlNavigator_QBaseMetaObject(const KUrlNavigator* self) {
+    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+        vkurlnavigator->setKUrlNavigator_MetaObject_IsBase(true);
+        return (QMetaObject*)vkurlnavigator->metaObject();
+    } else {
+        return (QMetaObject*)self->KUrlNavigator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlNavigator_OnMetaObject(const KUrlNavigator* self, intptr_t slot) {
+    auto* vkurlnavigator = const_cast<VirtualKUrlNavigator*>(dynamic_cast<const VirtualKUrlNavigator*>(self));
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+        vkurlnavigator->setKUrlNavigator_MetaObject_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KUrlNavigator_QBaseMetacast(KUrlNavigator* self, const char* param1) {
+    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+        vkurlnavigator->setKUrlNavigator_Metacast_IsBase(true);
+        return vkurlnavigator->qt_metacast(param1);
+    } else {
+        return self->KUrlNavigator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlNavigator_OnMetacast(KUrlNavigator* self, intptr_t slot) {
+    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
+    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
+        vkurlnavigator->setKUrlNavigator_Metacast_Callback(reinterpret_cast<VirtualKUrlNavigator::KUrlNavigator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

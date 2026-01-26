@@ -49,11 +49,21 @@ QFocusFrame* QFocusFrame_new2() {
 }
 
 QMetaObject* QFocusFrame_MetaObject(const QFocusFrame* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqfocusframe = dynamic_cast<const VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFocusFrame*)self)->metaObject();
+    }
 }
 
 void* QFocusFrame_Metacast(QFocusFrame* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFocusFrame*)self)->qt_metacast(param1);
+    }
 }
 
 int QFocusFrame_Metacall(QFocusFrame* self, int param1, int param2, void** param3) {
@@ -100,6 +110,44 @@ void QFocusFrame_InitStyleOption(const QFocusFrame* self, QStyleOption* option) 
     auto* vqfocusframe = dynamic_cast<const VirtualQFocusFrame*>(self);
     if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
         vqfocusframe->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QFocusFrame_QBaseMetaObject(const QFocusFrame* self) {
+    auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_MetaObject_IsBase(true);
+        return (QMetaObject*)vqfocusframe->metaObject();
+    } else {
+        return (QMetaObject*)self->QFocusFrame::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFocusFrame_OnMetaObject(const QFocusFrame* self, intptr_t slot) {
+    auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_MetaObject_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFocusFrame_QBaseMetacast(QFocusFrame* self, const char* param1) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_Metacast_IsBase(true);
+        return vqfocusframe->qt_metacast(param1);
+    } else {
+        return self->QFocusFrame::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFocusFrame_OnMetacast(QFocusFrame* self, intptr_t slot) {
+    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+        vqfocusframe->setQFocusFrame_Metacast_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Metacast_Callback>(slot));
     }
 }
 

@@ -34,11 +34,21 @@ QIdentityProxyModel* QIdentityProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* QIdentityProxyModel_MetaObject(const QIdentityProxyModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQIdentityProxyModel*)self)->metaObject();
+    }
 }
 
 void* QIdentityProxyModel_Metacast(QIdentityProxyModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQIdentityProxyModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QIdentityProxyModel_Metacall(QIdentityProxyModel* self, int param1, int param2, void** param3) {
@@ -245,6 +255,44 @@ bool QIdentityProxyModel_HandleSourceLayoutChanges(const QIdentityProxyModel* se
 
 bool QIdentityProxyModel_HandleSourceDataChanges(const QIdentityProxyModel* self) {
     return self->handleSourceDataChanges();
+}
+
+// Base class handler implementation
+QMetaObject* QIdentityProxyModel_QBaseMetaObject(const QIdentityProxyModel* self) {
+    auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+        vqidentityproxymodel->setQIdentityProxyModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqidentityproxymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QIdentityProxyModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIdentityProxyModel_OnMetaObject(const QIdentityProxyModel* self, intptr_t slot) {
+    auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+        vqidentityproxymodel->setQIdentityProxyModel_MetaObject_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QIdentityProxyModel_QBaseMetacast(QIdentityProxyModel* self, const char* param1) {
+    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+        vqidentityproxymodel->setQIdentityProxyModel_Metacast_IsBase(true);
+        return vqidentityproxymodel->qt_metacast(param1);
+    } else {
+        return self->QIdentityProxyModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIdentityProxyModel_OnMetacast(QIdentityProxyModel* self, intptr_t slot) {
+    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+        vqidentityproxymodel->setQIdentityProxyModel_Metacast_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

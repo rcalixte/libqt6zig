@@ -24,11 +24,21 @@ KTwoFingerTap* KTwoFingerTap_new2(QObject* parent) {
 }
 
 QMetaObject* KTwoFingerTap_MetaObject(const KTwoFingerTap* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktwofingertap = dynamic_cast<const VirtualKTwoFingerTap*>(self);
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTwoFingerTap*)self)->metaObject();
+    }
 }
 
 void* KTwoFingerTap_Metacast(KTwoFingerTap* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTwoFingerTap*)self)->qt_metacast(param1);
+    }
 }
 
 int KTwoFingerTap_Metacall(KTwoFingerTap* self, int param1, int param2, void** param3) {
@@ -62,6 +72,44 @@ QPointF* KTwoFingerTap_ScenePos(const KTwoFingerTap* self) {
 
 void KTwoFingerTap_SetScenePos(KTwoFingerTap* self, QPointF* scenePos) {
     self->setScenePos(*scenePos);
+}
+
+// Base class handler implementation
+QMetaObject* KTwoFingerTap_QBaseMetaObject(const KTwoFingerTap* self) {
+    auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+        vktwofingertap->setKTwoFingerTap_MetaObject_IsBase(true);
+        return (QMetaObject*)vktwofingertap->metaObject();
+    } else {
+        return (QMetaObject*)self->KTwoFingerTap::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTwoFingerTap_OnMetaObject(const KTwoFingerTap* self, intptr_t slot) {
+    auto* vktwofingertap = const_cast<VirtualKTwoFingerTap*>(dynamic_cast<const VirtualKTwoFingerTap*>(self));
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+        vktwofingertap->setKTwoFingerTap_MetaObject_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTwoFingerTap_QBaseMetacast(KTwoFingerTap* self, const char* param1) {
+    auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+        vktwofingertap->setKTwoFingerTap_Metacast_IsBase(true);
+        return vktwofingertap->qt_metacast(param1);
+    } else {
+        return self->KTwoFingerTap::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTwoFingerTap_OnMetacast(KTwoFingerTap* self, intptr_t slot) {
+    auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
+    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
+        vktwofingertap->setKTwoFingerTap_Metacast_Callback(reinterpret_cast<VirtualKTwoFingerTap::KTwoFingerTap_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

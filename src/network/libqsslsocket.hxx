@@ -17,6 +17,8 @@ class VirtualQSslSocket final : public QSslSocket {
     bool isVirtualQSslSocket = true;
 
     // Virtual class public types (including callbacks)
+    using QSslSocket_MetaObject_Callback = QMetaObject* (*)();
+    using QSslSocket_Metacast_Callback = void* (*)(QSslSocket*, const char*);
     using QSslSocket_Metacall_Callback = int (*)(QSslSocket*, int, int, void**);
     using QSslSocket_Resume_Callback = void (*)();
     using QSslSocket_SetSocketDescriptor_Callback = bool (*)(QSslSocket*, intptr_t, int, int);
@@ -69,6 +71,8 @@ class VirtualQSslSocket final : public QSslSocket {
 
   protected:
     // Instance callback storage
+    QSslSocket_MetaObject_Callback qsslsocket_metaobject_callback = nullptr;
+    QSslSocket_Metacast_Callback qsslsocket_metacast_callback = nullptr;
     QSslSocket_Metacall_Callback qsslsocket_metacall_callback = nullptr;
     QSslSocket_Resume_Callback qsslsocket_resume_callback = nullptr;
     QSslSocket_SetSocketDescriptor_Callback qsslsocket_setsocketdescriptor_callback = nullptr;
@@ -120,6 +124,8 @@ class VirtualQSslSocket final : public QSslSocket {
     QSslSocket_IsSignalConnected_Callback qsslsocket_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsslsocket_metaobject_isbase = false;
+    mutable bool qsslsocket_metacast_isbase = false;
     mutable bool qsslsocket_metacall_isbase = false;
     mutable bool qsslsocket_resume_isbase = false;
     mutable bool qsslsocket_setsocketdescriptor_isbase = false;
@@ -175,6 +181,8 @@ class VirtualQSslSocket final : public QSslSocket {
     VirtualQSslSocket(QObject* parent) : QSslSocket(parent) {};
 
     ~VirtualQSslSocket() {
+        qsslsocket_metaobject_callback = nullptr;
+        qsslsocket_metacast_callback = nullptr;
         qsslsocket_metacall_callback = nullptr;
         qsslsocket_resume_callback = nullptr;
         qsslsocket_setsocketdescriptor_callback = nullptr;
@@ -227,6 +235,8 @@ class VirtualQSslSocket final : public QSslSocket {
     }
 
     // Callback setters
+    inline void setQSslSocket_MetaObject_Callback(QSslSocket_MetaObject_Callback cb) { qsslsocket_metaobject_callback = cb; }
+    inline void setQSslSocket_Metacast_Callback(QSslSocket_Metacast_Callback cb) { qsslsocket_metacast_callback = cb; }
     inline void setQSslSocket_Metacall_Callback(QSslSocket_Metacall_Callback cb) { qsslsocket_metacall_callback = cb; }
     inline void setQSslSocket_Resume_Callback(QSslSocket_Resume_Callback cb) { qsslsocket_resume_callback = cb; }
     inline void setQSslSocket_SetSocketDescriptor_Callback(QSslSocket_SetSocketDescriptor_Callback cb) { qsslsocket_setsocketdescriptor_callback = cb; }
@@ -278,6 +288,8 @@ class VirtualQSslSocket final : public QSslSocket {
     inline void setQSslSocket_IsSignalConnected_Callback(QSslSocket_IsSignalConnected_Callback cb) { qsslsocket_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSslSocket_MetaObject_IsBase(bool value) const { qsslsocket_metaobject_isbase = value; }
+    inline void setQSslSocket_Metacast_IsBase(bool value) const { qsslsocket_metacast_isbase = value; }
     inline void setQSslSocket_Metacall_IsBase(bool value) const { qsslsocket_metacall_isbase = value; }
     inline void setQSslSocket_Resume_IsBase(bool value) const { qsslsocket_resume_isbase = value; }
     inline void setQSslSocket_SetSocketDescriptor_IsBase(bool value) const { qsslsocket_setsocketdescriptor_isbase = value; }
@@ -327,6 +339,34 @@ class VirtualQSslSocket final : public QSslSocket {
     inline void setQSslSocket_SenderSignalIndex_IsBase(bool value) const { qsslsocket_sendersignalindex_isbase = value; }
     inline void setQSslSocket_Receivers_IsBase(bool value) const { qsslsocket_receivers_isbase = value; }
     inline void setQSslSocket_IsSignalConnected_IsBase(bool value) const { qsslsocket_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsslsocket_metaobject_isbase) {
+            qsslsocket_metaobject_isbase = false;
+            return QSslSocket::metaObject();
+        } else if (qsslsocket_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsslsocket_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSslSocket::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsslsocket_metacast_isbase) {
+            qsslsocket_metacast_isbase = false;
+            return QSslSocket::qt_metacast(param1);
+        } else if (qsslsocket_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsslsocket_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSslSocket::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

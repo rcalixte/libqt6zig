@@ -25,11 +25,21 @@ QGraphicsTransform* QGraphicsTransform_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsTransform_MetaObject(const QGraphicsTransform* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicstransform = dynamic_cast<const VirtualQGraphicsTransform*>(self);
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsTransform*)self)->metaObject();
+    }
 }
 
 void* QGraphicsTransform_Metacast(QGraphicsTransform* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsTransform*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsTransform_Metacall(QGraphicsTransform* self, int param1, int param2, void** param3) {
@@ -47,6 +57,44 @@ void QGraphicsTransform_ApplyTo(const QGraphicsTransform* self, QMatrix4x4* matr
         vqgraphicstransform->applyTo(matrix);
     } else {
         ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsTransform_QBaseMetaObject(const QGraphicsTransform* self) {
+    auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicstransform->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsTransform::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTransform_OnMetaObject(const QGraphicsTransform* self, intptr_t slot) {
+    auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsTransform_QBaseMetacast(QGraphicsTransform* self, const char* param1) {
+    auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_Metacast_IsBase(true);
+        return vqgraphicstransform->qt_metacast(param1);
+    } else {
+        return self->QGraphicsTransform::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsTransform_OnMetacast(QGraphicsTransform* self, intptr_t slot) {
+    auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+        vqgraphicstransform->setQGraphicsTransform_Metacast_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_Metacast_Callback>(slot));
     }
 }
 
@@ -449,11 +497,21 @@ QGraphicsScale* QGraphicsScale_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsScale_MetaObject(const QGraphicsScale* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsscale = dynamic_cast<const VirtualQGraphicsScale*>(self);
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsScale*)self)->metaObject();
+    }
 }
 
 void* QGraphicsScale_Metacast(QGraphicsScale* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsScale*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsScale_Metacall(QGraphicsScale* self, int param1, int param2, void** param3) {
@@ -559,6 +617,44 @@ void QGraphicsScale_Connect_ScaleChanged(QGraphicsScale* self, intptr_t slot) {
     QGraphicsScale::connect(self, &QGraphicsScale::scaleChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsScale_QBaseMetaObject(const QGraphicsScale* self) {
+    auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsscale->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsScale::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsScale_OnMetaObject(const QGraphicsScale* self, intptr_t slot) {
+    auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsScale_QBaseMetacast(QGraphicsScale* self, const char* param1) {
+    auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_Metacast_IsBase(true);
+        return vqgraphicsscale->qt_metacast(param1);
+    } else {
+        return self->QGraphicsScale::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsScale_OnMetacast(QGraphicsScale* self, intptr_t slot) {
+    auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+        vqgraphicsscale->setQGraphicsScale_Metacast_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -960,11 +1056,21 @@ QGraphicsRotation* QGraphicsRotation_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsRotation_MetaObject(const QGraphicsRotation* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgraphicsrotation = dynamic_cast<const VirtualQGraphicsRotation*>(self);
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGraphicsRotation*)self)->metaObject();
+    }
 }
 
 void* QGraphicsRotation_Metacast(QGraphicsRotation* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGraphicsRotation*)self)->qt_metacast(param1);
+    }
 }
 
 int QGraphicsRotation_Metacall(QGraphicsRotation* self, int param1, int param2, void** param3) {
@@ -1044,6 +1150,44 @@ void QGraphicsRotation_Connect_AxisChanged(QGraphicsRotation* self, intptr_t slo
     QGraphicsRotation::connect(self, &QGraphicsRotation::axisChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QGraphicsRotation_QBaseMetaObject(const QGraphicsRotation* self) {
+    auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgraphicsrotation->metaObject();
+    } else {
+        return (QMetaObject*)self->QGraphicsRotation::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRotation_OnMetaObject(const QGraphicsRotation* self, intptr_t slot) {
+    auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGraphicsRotation_QBaseMetacast(QGraphicsRotation* self, const char* param1) {
+    auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_Metacast_IsBase(true);
+        return vqgraphicsrotation->qt_metacast(param1);
+    } else {
+        return self->QGraphicsRotation::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsRotation_OnMetacast(QGraphicsRotation* self, intptr_t slot) {
+    auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+        vqgraphicsrotation->setQGraphicsRotation_Metacast_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -33,11 +33,21 @@ KNumberModel* KNumberModel_new2(QObject* parent) {
 }
 
 QMetaObject* KNumberModel_MetaObject(const KNumberModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vknumbermodel = dynamic_cast<const VirtualKNumberModel*>(self);
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKNumberModel*)self)->metaObject();
+    }
 }
 
 void* KNumberModel_Metacast(KNumberModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKNumberModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KNumberModel_Metacall(KNumberModel* self, int param1, int param2, void** param3) {
@@ -194,6 +204,44 @@ void KNumberModel_Connect_FormattingOptionsChanged(KNumberModel* self, intptr_t 
     KNumberModel::connect(self, &KNumberModel::formattingOptionsChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KNumberModel_QBaseMetaObject(const KNumberModel* self) {
+    auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+        vknumbermodel->setKNumberModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vknumbermodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KNumberModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNumberModel_OnMetaObject(const KNumberModel* self, intptr_t slot) {
+    auto* vknumbermodel = const_cast<VirtualKNumberModel*>(dynamic_cast<const VirtualKNumberModel*>(self));
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+        vknumbermodel->setKNumberModel_MetaObject_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KNumberModel_QBaseMetacast(KNumberModel* self, const char* param1) {
+    auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+        vknumbermodel->setKNumberModel_Metacast_IsBase(true);
+        return vknumbermodel->qt_metacast(param1);
+    } else {
+        return self->KNumberModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KNumberModel_OnMetacast(KNumberModel* self, intptr_t slot) {
+    auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
+    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
+        vknumbermodel->setKNumberModel_Metacast_Callback(reinterpret_cast<VirtualKNumberModel::KNumberModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

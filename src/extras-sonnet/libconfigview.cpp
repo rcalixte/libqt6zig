@@ -49,11 +49,21 @@ Sonnet__ConfigView* Sonnet__ConfigView_new2() {
 }
 
 QMetaObject* Sonnet__ConfigView_MetaObject(const Sonnet__ConfigView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vsonnet__configview = dynamic_cast<const VirtualSonnetConfigView*>(self);
+    if (vsonnet__configview && vsonnet__configview->isVirtualSonnetConfigView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualSonnetConfigView*)self)->metaObject();
+    }
 }
 
 void* Sonnet__ConfigView_Metacast(Sonnet__ConfigView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vsonnet__configview = dynamic_cast<VirtualSonnetConfigView*>(self);
+    if (vsonnet__configview && vsonnet__configview->isVirtualSonnetConfigView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualSonnetConfigView*)self)->qt_metacast(param1);
+    }
 }
 
 int Sonnet__ConfigView_Metacall(Sonnet__ConfigView* self, int param1, int param2, void** param3) {
@@ -171,6 +181,44 @@ void Sonnet__ConfigView_Connect_ConfigChanged(Sonnet__ConfigView* self, intptr_t
     Sonnet::ConfigView::connect(self, &Sonnet::ConfigView::configChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* Sonnet__ConfigView_QBaseMetaObject(const Sonnet__ConfigView* self) {
+    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
+    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+        vsonnetconfigview->setSonnet__ConfigView_MetaObject_IsBase(true);
+        return (QMetaObject*)vsonnetconfigview->metaObject();
+    } else {
+        return (QMetaObject*)self->Sonnet::ConfigView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__ConfigView_OnMetaObject(const Sonnet__ConfigView* self, intptr_t slot) {
+    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
+    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+        vsonnetconfigview->setSonnet__ConfigView_MetaObject_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* Sonnet__ConfigView_QBaseMetacast(Sonnet__ConfigView* self, const char* param1) {
+    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
+    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+        vsonnetconfigview->setSonnet__ConfigView_Metacast_IsBase(true);
+        return vsonnetconfigview->qt_metacast(param1);
+    } else {
+        return self->Sonnet::ConfigView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void Sonnet__ConfigView_OnMetacast(Sonnet__ConfigView* self, intptr_t slot) {
+    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
+    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+        vsonnetconfigview->setSonnet__ConfigView_Metacast_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

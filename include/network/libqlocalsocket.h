@@ -76,6 +76,10 @@ bool QLocalSocket_SetSocketDescriptor2(QLocalSocket* self, intptr_t socketDescri
 bool QLocalSocket_SetSocketDescriptor3(QLocalSocket* self, intptr_t socketDescriptor, int socketState, int openMode);
 bool QLocalSocket_WaitForConnected1(QLocalSocket* self, int msecs);
 bool QLocalSocket_WaitForDisconnected1(QLocalSocket* self, int msecs);
+void QLocalSocket_OnMetaObject(const QLocalSocket* self, intptr_t slot);
+QMetaObject* QLocalSocket_QBaseMetaObject(const QLocalSocket* self);
+void QLocalSocket_OnMetacast(QLocalSocket* self, intptr_t slot);
+void* QLocalSocket_QBaseMetacast(QLocalSocket* self, const char* param1);
 void QLocalSocket_OnMetacall(QLocalSocket* self, intptr_t slot);
 int QLocalSocket_QBaseMetacall(QLocalSocket* self, int param1, int param2, void** param3);
 void QLocalSocket_OnIsSequential(const QLocalSocket* self, intptr_t slot);

@@ -50,11 +50,21 @@ QStackedWidget* QStackedWidget_new2() {
 }
 
 QMetaObject* QStackedWidget_MetaObject(const QStackedWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqstackedwidget = dynamic_cast<const VirtualQStackedWidget*>(self);
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQStackedWidget*)self)->metaObject();
+    }
 }
 
 void* QStackedWidget_Metacast(QStackedWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQStackedWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QStackedWidget_Metacall(QStackedWidget* self, int param1, int param2, void** param3) {
@@ -136,6 +146,44 @@ bool QStackedWidget_Event(QStackedWidget* self, QEvent* e) {
         return vqstackedwidget->event(e);
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* QStackedWidget_QBaseMetaObject(const QStackedWidget* self) {
+    auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqstackedwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QStackedWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStackedWidget_OnMetaObject(const QStackedWidget* self, intptr_t slot) {
+    auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_MetaObject_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QStackedWidget_QBaseMetacast(QStackedWidget* self, const char* param1) {
+    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_Metacast_IsBase(true);
+        return vqstackedwidget->qt_metacast(param1);
+    } else {
+        return self->QStackedWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStackedWidget_OnMetacast(QStackedWidget* self, intptr_t slot) {
+    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_Metacast_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

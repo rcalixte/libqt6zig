@@ -18,6 +18,8 @@ class VirtualQSlider final : public QSlider {
 
     // Virtual class public types (including callbacks)
     using QAbstractSlider::SliderChange;
+    using QSlider_MetaObject_Callback = QMetaObject* (*)();
+    using QSlider_Metacast_Callback = void* (*)(QSlider*, const char*);
     using QSlider_Metacall_Callback = int (*)(QSlider*, int, int, void**);
     using QSlider_SizeHint_Callback = QSize* (*)();
     using QSlider_MinimumSizeHint_Callback = QSize* (*)();
@@ -83,6 +85,8 @@ class VirtualQSlider final : public QSlider {
 
   protected:
     // Instance callback storage
+    QSlider_MetaObject_Callback qslider_metaobject_callback = nullptr;
+    QSlider_Metacast_Callback qslider_metacast_callback = nullptr;
     QSlider_Metacall_Callback qslider_metacall_callback = nullptr;
     QSlider_SizeHint_Callback qslider_sizehint_callback = nullptr;
     QSlider_MinimumSizeHint_Callback qslider_minimumsizehint_callback = nullptr;
@@ -147,6 +151,8 @@ class VirtualQSlider final : public QSlider {
     QSlider_GetDecodedMetricF_Callback qslider_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qslider_metaobject_isbase = false;
+    mutable bool qslider_metacast_isbase = false;
     mutable bool qslider_metacall_isbase = false;
     mutable bool qslider_sizehint_isbase = false;
     mutable bool qslider_minimumsizehint_isbase = false;
@@ -217,6 +223,8 @@ class VirtualQSlider final : public QSlider {
     VirtualQSlider(Qt::Orientation orientation, QWidget* parent) : QSlider(orientation, parent) {};
 
     ~VirtualQSlider() {
+        qslider_metaobject_callback = nullptr;
+        qslider_metacast_callback = nullptr;
         qslider_metacall_callback = nullptr;
         qslider_sizehint_callback = nullptr;
         qslider_minimumsizehint_callback = nullptr;
@@ -282,6 +290,8 @@ class VirtualQSlider final : public QSlider {
     }
 
     // Callback setters
+    inline void setQSlider_MetaObject_Callback(QSlider_MetaObject_Callback cb) { qslider_metaobject_callback = cb; }
+    inline void setQSlider_Metacast_Callback(QSlider_Metacast_Callback cb) { qslider_metacast_callback = cb; }
     inline void setQSlider_Metacall_Callback(QSlider_Metacall_Callback cb) { qslider_metacall_callback = cb; }
     inline void setQSlider_SizeHint_Callback(QSlider_SizeHint_Callback cb) { qslider_sizehint_callback = cb; }
     inline void setQSlider_MinimumSizeHint_Callback(QSlider_MinimumSizeHint_Callback cb) { qslider_minimumsizehint_callback = cb; }
@@ -346,6 +356,8 @@ class VirtualQSlider final : public QSlider {
     inline void setQSlider_GetDecodedMetricF_Callback(QSlider_GetDecodedMetricF_Callback cb) { qslider_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQSlider_MetaObject_IsBase(bool value) const { qslider_metaobject_isbase = value; }
+    inline void setQSlider_Metacast_IsBase(bool value) const { qslider_metacast_isbase = value; }
     inline void setQSlider_Metacall_IsBase(bool value) const { qslider_metacall_isbase = value; }
     inline void setQSlider_SizeHint_IsBase(bool value) const { qslider_sizehint_isbase = value; }
     inline void setQSlider_MinimumSizeHint_IsBase(bool value) const { qslider_minimumsizehint_isbase = value; }
@@ -408,6 +420,34 @@ class VirtualQSlider final : public QSlider {
     inline void setQSlider_Receivers_IsBase(bool value) const { qslider_receivers_isbase = value; }
     inline void setQSlider_IsSignalConnected_IsBase(bool value) const { qslider_issignalconnected_isbase = value; }
     inline void setQSlider_GetDecodedMetricF_IsBase(bool value) const { qslider_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qslider_metaobject_isbase) {
+            qslider_metaobject_isbase = false;
+            return QSlider::metaObject();
+        } else if (qslider_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qslider_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSlider::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qslider_metacast_isbase) {
+            qslider_metacast_isbase = false;
+            return QSlider::qt_metacast(param1);
+        } else if (qslider_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qslider_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSlider::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

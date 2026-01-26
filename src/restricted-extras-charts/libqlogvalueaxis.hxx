@@ -17,6 +17,8 @@ class VirtualQLogValueAxis final : public QLogValueAxis {
     bool isVirtualQLogValueAxis = true;
 
     // Virtual class public types (including callbacks)
+    using QLogValueAxis_MetaObject_Callback = QMetaObject* (*)();
+    using QLogValueAxis_Metacast_Callback = void* (*)(QLogValueAxis*, const char*);
     using QLogValueAxis_Metacall_Callback = int (*)(QLogValueAxis*, int, int, void**);
     using QLogValueAxis_Type_Callback = int (*)();
     using QLogValueAxis_Event_Callback = bool (*)(QLogValueAxis*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQLogValueAxis final : public QLogValueAxis {
 
   protected:
     // Instance callback storage
+    QLogValueAxis_MetaObject_Callback qlogvalueaxis_metaobject_callback = nullptr;
+    QLogValueAxis_Metacast_Callback qlogvalueaxis_metacast_callback = nullptr;
     QLogValueAxis_Metacall_Callback qlogvalueaxis_metacall_callback = nullptr;
     QLogValueAxis_Type_Callback qlogvalueaxis_type_callback = nullptr;
     QLogValueAxis_Event_Callback qlogvalueaxis_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQLogValueAxis final : public QLogValueAxis {
     QLogValueAxis_IsSignalConnected_Callback qlogvalueaxis_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qlogvalueaxis_metaobject_isbase = false;
+    mutable bool qlogvalueaxis_metacast_isbase = false;
     mutable bool qlogvalueaxis_metacall_isbase = false;
     mutable bool qlogvalueaxis_type_isbase = false;
     mutable bool qlogvalueaxis_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQLogValueAxis final : public QLogValueAxis {
     VirtualQLogValueAxis(QObject* parent) : QLogValueAxis(parent) {};
 
     ~VirtualQLogValueAxis() {
+        qlogvalueaxis_metaobject_callback = nullptr;
+        qlogvalueaxis_metacast_callback = nullptr;
         qlogvalueaxis_metacall_callback = nullptr;
         qlogvalueaxis_type_callback = nullptr;
         qlogvalueaxis_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQLogValueAxis final : public QLogValueAxis {
     }
 
     // Callback setters
+    inline void setQLogValueAxis_MetaObject_Callback(QLogValueAxis_MetaObject_Callback cb) { qlogvalueaxis_metaobject_callback = cb; }
+    inline void setQLogValueAxis_Metacast_Callback(QLogValueAxis_Metacast_Callback cb) { qlogvalueaxis_metacast_callback = cb; }
     inline void setQLogValueAxis_Metacall_Callback(QLogValueAxis_Metacall_Callback cb) { qlogvalueaxis_metacall_callback = cb; }
     inline void setQLogValueAxis_Type_Callback(QLogValueAxis_Type_Callback cb) { qlogvalueaxis_type_callback = cb; }
     inline void setQLogValueAxis_Event_Callback(QLogValueAxis_Event_Callback cb) { qlogvalueaxis_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQLogValueAxis final : public QLogValueAxis {
     inline void setQLogValueAxis_IsSignalConnected_Callback(QLogValueAxis_IsSignalConnected_Callback cb) { qlogvalueaxis_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQLogValueAxis_MetaObject_IsBase(bool value) const { qlogvalueaxis_metaobject_isbase = value; }
+    inline void setQLogValueAxis_Metacast_IsBase(bool value) const { qlogvalueaxis_metacast_isbase = value; }
     inline void setQLogValueAxis_Metacall_IsBase(bool value) const { qlogvalueaxis_metacall_isbase = value; }
     inline void setQLogValueAxis_Type_IsBase(bool value) const { qlogvalueaxis_type_isbase = value; }
     inline void setQLogValueAxis_Event_IsBase(bool value) const { qlogvalueaxis_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQLogValueAxis final : public QLogValueAxis {
     inline void setQLogValueAxis_SenderSignalIndex_IsBase(bool value) const { qlogvalueaxis_sendersignalindex_isbase = value; }
     inline void setQLogValueAxis_Receivers_IsBase(bool value) const { qlogvalueaxis_receivers_isbase = value; }
     inline void setQLogValueAxis_IsSignalConnected_IsBase(bool value) const { qlogvalueaxis_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qlogvalueaxis_metaobject_isbase) {
+            qlogvalueaxis_metaobject_isbase = false;
+            return QLogValueAxis::metaObject();
+        } else if (qlogvalueaxis_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qlogvalueaxis_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QLogValueAxis::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qlogvalueaxis_metacast_isbase) {
+            qlogvalueaxis_metacast_isbase = false;
+            return QLogValueAxis::qt_metacast(param1);
+        } else if (qlogvalueaxis_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qlogvalueaxis_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QLogValueAxis::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

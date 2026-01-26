@@ -56,6 +56,10 @@ void QSslServer_Connect_HandshakeInterruptedOnError(QSslServer* self, intptr_t s
 void QSslServer_StartedEncryptionHandshake(QSslServer* self, QSslSocket* socket);
 void QSslServer_Connect_StartedEncryptionHandshake(QSslServer* self, intptr_t slot);
 void QSslServer_IncomingConnection(QSslServer* self, intptr_t socket);
+void QSslServer_OnMetaObject(const QSslServer* self, intptr_t slot);
+QMetaObject* QSslServer_QBaseMetaObject(const QSslServer* self);
+void QSslServer_OnMetacast(QSslServer* self, intptr_t slot);
+void* QSslServer_QBaseMetacast(QSslServer* self, const char* param1);
 void QSslServer_OnMetacall(QSslServer* self, intptr_t slot);
 int QSslServer_QBaseMetacall(QSslServer* self, int param1, int param2, void** param3);
 void QSslServer_OnIncomingConnection(QSslServer* self, intptr_t slot);

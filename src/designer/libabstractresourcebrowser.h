@@ -61,6 +61,10 @@ void QDesignerResourceBrowserInterface_CurrentPathChanged(QDesignerResourceBrows
 void QDesignerResourceBrowserInterface_Connect_CurrentPathChanged(QDesignerResourceBrowserInterface* self, intptr_t slot);
 void QDesignerResourceBrowserInterface_PathActivated(QDesignerResourceBrowserInterface* self, const libqt_string filePath);
 void QDesignerResourceBrowserInterface_Connect_PathActivated(QDesignerResourceBrowserInterface* self, intptr_t slot);
+void QDesignerResourceBrowserInterface_OnMetaObject(const QDesignerResourceBrowserInterface* self, intptr_t slot);
+QMetaObject* QDesignerResourceBrowserInterface_QBaseMetaObject(const QDesignerResourceBrowserInterface* self);
+void QDesignerResourceBrowserInterface_OnMetacast(QDesignerResourceBrowserInterface* self, intptr_t slot);
+void* QDesignerResourceBrowserInterface_QBaseMetacast(QDesignerResourceBrowserInterface* self, const char* param1);
 void QDesignerResourceBrowserInterface_OnMetacall(QDesignerResourceBrowserInterface* self, intptr_t slot);
 int QDesignerResourceBrowserInterface_QBaseMetacall(QDesignerResourceBrowserInterface* self, int param1, int param2, void** param3);
 void QDesignerResourceBrowserInterface_OnSetCurrentPath(QDesignerResourceBrowserInterface* self, intptr_t slot);

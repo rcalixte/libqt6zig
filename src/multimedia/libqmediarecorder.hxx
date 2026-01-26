@@ -17,6 +17,8 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
     bool isVirtualQMediaRecorder = true;
 
     // Virtual class public types (including callbacks)
+    using QMediaRecorder_MetaObject_Callback = QMetaObject* (*)();
+    using QMediaRecorder_Metacast_Callback = void* (*)(QMediaRecorder*, const char*);
     using QMediaRecorder_Metacall_Callback = int (*)(QMediaRecorder*, int, int, void**);
     using QMediaRecorder_Event_Callback = bool (*)(QMediaRecorder*, QEvent*);
     using QMediaRecorder_EventFilter_Callback = bool (*)(QMediaRecorder*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
 
   protected:
     // Instance callback storage
+    QMediaRecorder_MetaObject_Callback qmediarecorder_metaobject_callback = nullptr;
+    QMediaRecorder_Metacast_Callback qmediarecorder_metacast_callback = nullptr;
     QMediaRecorder_Metacall_Callback qmediarecorder_metacall_callback = nullptr;
     QMediaRecorder_Event_Callback qmediarecorder_event_callback = nullptr;
     QMediaRecorder_EventFilter_Callback qmediarecorder_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
     QMediaRecorder_IsSignalConnected_Callback qmediarecorder_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qmediarecorder_metaobject_isbase = false;
+    mutable bool qmediarecorder_metacast_isbase = false;
     mutable bool qmediarecorder_metacall_isbase = false;
     mutable bool qmediarecorder_event_isbase = false;
     mutable bool qmediarecorder_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
     VirtualQMediaRecorder(QObject* parent) : QMediaRecorder(parent) {};
 
     ~VirtualQMediaRecorder() {
+        qmediarecorder_metaobject_callback = nullptr;
+        qmediarecorder_metacast_callback = nullptr;
         qmediarecorder_metacall_callback = nullptr;
         qmediarecorder_event_callback = nullptr;
         qmediarecorder_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
     }
 
     // Callback setters
+    inline void setQMediaRecorder_MetaObject_Callback(QMediaRecorder_MetaObject_Callback cb) { qmediarecorder_metaobject_callback = cb; }
+    inline void setQMediaRecorder_Metacast_Callback(QMediaRecorder_Metacast_Callback cb) { qmediarecorder_metacast_callback = cb; }
     inline void setQMediaRecorder_Metacall_Callback(QMediaRecorder_Metacall_Callback cb) { qmediarecorder_metacall_callback = cb; }
     inline void setQMediaRecorder_Event_Callback(QMediaRecorder_Event_Callback cb) { qmediarecorder_event_callback = cb; }
     inline void setQMediaRecorder_EventFilter_Callback(QMediaRecorder_EventFilter_Callback cb) { qmediarecorder_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
     inline void setQMediaRecorder_IsSignalConnected_Callback(QMediaRecorder_IsSignalConnected_Callback cb) { qmediarecorder_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQMediaRecorder_MetaObject_IsBase(bool value) const { qmediarecorder_metaobject_isbase = value; }
+    inline void setQMediaRecorder_Metacast_IsBase(bool value) const { qmediarecorder_metacast_isbase = value; }
     inline void setQMediaRecorder_Metacall_IsBase(bool value) const { qmediarecorder_metacall_isbase = value; }
     inline void setQMediaRecorder_Event_IsBase(bool value) const { qmediarecorder_event_isbase = value; }
     inline void setQMediaRecorder_EventFilter_IsBase(bool value) const { qmediarecorder_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
     inline void setQMediaRecorder_SenderSignalIndex_IsBase(bool value) const { qmediarecorder_sendersignalindex_isbase = value; }
     inline void setQMediaRecorder_Receivers_IsBase(bool value) const { qmediarecorder_receivers_isbase = value; }
     inline void setQMediaRecorder_IsSignalConnected_IsBase(bool value) const { qmediarecorder_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qmediarecorder_metaobject_isbase) {
+            qmediarecorder_metaobject_isbase = false;
+            return QMediaRecorder::metaObject();
+        } else if (qmediarecorder_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qmediarecorder_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QMediaRecorder::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qmediarecorder_metacast_isbase) {
+            qmediarecorder_metacast_isbase = false;
+            return QMediaRecorder::qt_metacast(param1);
+        } else if (qmediarecorder_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qmediarecorder_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QMediaRecorder::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

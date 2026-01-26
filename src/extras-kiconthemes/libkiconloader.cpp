@@ -54,11 +54,21 @@ KIconLoader* KIconLoader_new4(const libqt_string appname, const libqt_list /* of
 }
 
 QMetaObject* KIconLoader_MetaObject(const KIconLoader* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkiconloader = dynamic_cast<const VirtualKIconLoader*>(self);
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIconLoader*)self)->metaObject();
+    }
 }
 
 void* KIconLoader_Metacast(KIconLoader* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIconLoader*)self)->qt_metacast(param1);
+    }
 }
 
 int KIconLoader_Metacall(KIconLoader* self, int param1, int param2, void** param3) {
@@ -520,6 +530,44 @@ void KIconLoader_DrawOverlays4(const KIconLoader* self, const libqt_list /* of l
         overlays_QList.push_back(overlays_arr_i_QString);
     }
     self->drawOverlays(overlays_QList, *pixmap, static_cast<KIconLoader::Group>(group), static_cast<int>(state));
+}
+
+// Base class handler implementation
+QMetaObject* KIconLoader_QBaseMetaObject(const KIconLoader* self) {
+    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+        vkiconloader->setKIconLoader_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiconloader->metaObject();
+    } else {
+        return (QMetaObject*)self->KIconLoader::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIconLoader_OnMetaObject(const KIconLoader* self, intptr_t slot) {
+    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+        vkiconloader->setKIconLoader_MetaObject_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIconLoader_QBaseMetacast(KIconLoader* self, const char* param1) {
+    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+        vkiconloader->setKIconLoader_Metacast_IsBase(true);
+        return vkiconloader->qt_metacast(param1);
+    } else {
+        return self->KIconLoader::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIconLoader_OnMetacast(KIconLoader* self, intptr_t slot) {
+    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
+    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+        vkiconloader->setKIconLoader_Metacast_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

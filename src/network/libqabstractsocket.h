@@ -90,6 +90,10 @@ long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, lon
 bool QAbstractSocket_Bind1(QAbstractSocket* self, uint16_t port);
 bool QAbstractSocket_Bind22(QAbstractSocket* self, uint16_t port, int mode);
 void QAbstractSocket_ConnectToHost3(QAbstractSocket* self, const QHostAddress* address, uint16_t port, int mode);
+void QAbstractSocket_OnMetaObject(const QAbstractSocket* self, intptr_t slot);
+QMetaObject* QAbstractSocket_QBaseMetaObject(const QAbstractSocket* self);
+void QAbstractSocket_OnMetacast(QAbstractSocket* self, intptr_t slot);
+void* QAbstractSocket_QBaseMetacast(QAbstractSocket* self, const char* param1);
 void QAbstractSocket_OnMetacall(QAbstractSocket* self, intptr_t slot);
 int QAbstractSocket_QBaseMetacall(QAbstractSocket* self, int param1, int param2, void** param3);
 void QAbstractSocket_OnResume(QAbstractSocket* self, intptr_t slot);

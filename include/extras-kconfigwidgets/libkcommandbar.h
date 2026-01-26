@@ -64,6 +64,10 @@ int KCommandBar_Metacall(KCommandBar* self, int param1, int param2, void** param
 void KCommandBar_SetActions(KCommandBar* self, const libqt_list /* of KCommandBar__ActionGroup* */ actions);
 void KCommandBar_Show(KCommandBar* self);
 bool KCommandBar_EventFilter(KCommandBar* self, QObject* obj, QEvent* event);
+void KCommandBar_OnMetaObject(const KCommandBar* self, intptr_t slot);
+QMetaObject* KCommandBar_QBaseMetaObject(const KCommandBar* self);
+void KCommandBar_OnMetacast(KCommandBar* self, intptr_t slot);
+void* KCommandBar_QBaseMetacast(KCommandBar* self, const char* param1);
 void KCommandBar_OnMetacall(KCommandBar* self, intptr_t slot);
 int KCommandBar_QBaseMetacall(KCommandBar* self, int param1, int param2, void** param3);
 void KCommandBar_OnEventFilter(KCommandBar* self, intptr_t slot);

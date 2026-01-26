@@ -48,6 +48,10 @@ void KBookmarkManager_Error(KBookmarkManager* self, const libqt_string errorMess
 void KBookmarkManager_Connect_Error(KBookmarkManager* self, intptr_t slot);
 bool KBookmarkManager_SaveAs2(const KBookmarkManager* self, const libqt_string filename, bool toolbarCache);
 bool KBookmarkManager_Save1(const KBookmarkManager* self, bool toolbarCache);
+void KBookmarkManager_OnMetaObject(const KBookmarkManager* self, intptr_t slot);
+QMetaObject* KBookmarkManager_QBaseMetaObject(const KBookmarkManager* self);
+void KBookmarkManager_OnMetacast(KBookmarkManager* self, intptr_t slot);
+void* KBookmarkManager_QBaseMetacast(KBookmarkManager* self, const char* param1);
 void KBookmarkManager_OnMetacall(KBookmarkManager* self, intptr_t slot);
 int KBookmarkManager_QBaseMetacall(KBookmarkManager* self, int param1, int param2, void** param3);
 bool KBookmarkManager_Event(KBookmarkManager* self, QEvent* event);

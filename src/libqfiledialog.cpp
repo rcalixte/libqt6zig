@@ -77,11 +77,21 @@ QFileDialog* QFileDialog_new6(QWidget* parent, const libqt_string caption, const
 }
 
 QMetaObject* QFileDialog_MetaObject(const QFileDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqfiledialog = dynamic_cast<const VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFileDialog*)self)->metaObject();
+    }
 }
 
 void* QFileDialog_Metacast(QFileDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFileDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int QFileDialog_Metacall(QFileDialog* self, int param1, int param2, void** param3) {
@@ -1153,6 +1163,44 @@ void QFileDialog_SaveFileContent3(const libqt_string fileContent, const libqt_st
     QByteArray fileContent_QByteArray(fileContent.data, fileContent.len);
     QString fileNameHint_QString = QString::fromUtf8(fileNameHint.data, fileNameHint.len);
     QFileDialog::saveFileContent(fileContent_QByteArray, fileNameHint_QString, parent);
+}
+
+// Base class handler implementation
+QMetaObject* QFileDialog_QBaseMetaObject(const QFileDialog* self) {
+    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vqfiledialog->metaObject();
+    } else {
+        return (QMetaObject*)self->QFileDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileDialog_OnMetaObject(const QFileDialog* self, intptr_t slot) {
+    auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_MetaObject_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFileDialog_QBaseMetacast(QFileDialog* self, const char* param1) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_Metacast_IsBase(true);
+        return vqfiledialog->qt_metacast(param1);
+    } else {
+        return self->QFileDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFileDialog_OnMetacast(QFileDialog* self, intptr_t slot) {
+    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+        vqfiledialog->setQFileDialog_Metacast_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

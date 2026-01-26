@@ -83,6 +83,10 @@ void QGridLayout_AddLayout6(QGridLayout* self, QLayout* param1, int row, int col
 void QGridLayout_AddItem4(QGridLayout* self, QLayoutItem* item, int row, int column, int rowSpan);
 void QGridLayout_AddItem5(QGridLayout* self, QLayoutItem* item, int row, int column, int rowSpan, int columnSpan);
 void QGridLayout_AddItem6(QGridLayout* self, QLayoutItem* item, int row, int column, int rowSpan, int columnSpan, int param6);
+void QGridLayout_OnMetaObject(const QGridLayout* self, intptr_t slot);
+QMetaObject* QGridLayout_QBaseMetaObject(const QGridLayout* self);
+void QGridLayout_OnMetacast(QGridLayout* self, intptr_t slot);
+void* QGridLayout_QBaseMetacast(QGridLayout* self, const char* param1);
 void QGridLayout_OnMetacall(QGridLayout* self, intptr_t slot);
 int QGridLayout_QBaseMetacall(QGridLayout* self, int param1, int param2, void** param3);
 void QGridLayout_OnSizeHint(const QGridLayout* self, intptr_t slot);

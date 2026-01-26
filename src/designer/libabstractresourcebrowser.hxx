@@ -17,6 +17,8 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     bool isVirtualQDesignerResourceBrowserInterface = true;
 
     // Virtual class public types (including callbacks)
+    using QDesignerResourceBrowserInterface_MetaObject_Callback = QMetaObject* (*)();
+    using QDesignerResourceBrowserInterface_Metacast_Callback = void* (*)(QDesignerResourceBrowserInterface*, const char*);
     using QDesignerResourceBrowserInterface_Metacall_Callback = int (*)(QDesignerResourceBrowserInterface*, int, int, void**);
     using QDesignerResourceBrowserInterface_SetCurrentPath_Callback = void (*)(QDesignerResourceBrowserInterface*, libqt_string);
     using QDesignerResourceBrowserInterface_CurrentPath_Callback = const char* (*)();
@@ -80,6 +82,8 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
 
   protected:
     // Instance callback storage
+    QDesignerResourceBrowserInterface_MetaObject_Callback qdesignerresourcebrowserinterface_metaobject_callback = nullptr;
+    QDesignerResourceBrowserInterface_Metacast_Callback qdesignerresourcebrowserinterface_metacast_callback = nullptr;
     QDesignerResourceBrowserInterface_Metacall_Callback qdesignerresourcebrowserinterface_metacall_callback = nullptr;
     QDesignerResourceBrowserInterface_SetCurrentPath_Callback qdesignerresourcebrowserinterface_setcurrentpath_callback = nullptr;
     QDesignerResourceBrowserInterface_CurrentPath_Callback qdesignerresourcebrowserinterface_currentpath_callback = nullptr;
@@ -142,6 +146,8 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     QDesignerResourceBrowserInterface_GetDecodedMetricF_Callback qdesignerresourcebrowserinterface_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdesignerresourcebrowserinterface_metaobject_isbase = false;
+    mutable bool qdesignerresourcebrowserinterface_metacast_isbase = false;
     mutable bool qdesignerresourcebrowserinterface_metacall_isbase = false;
     mutable bool qdesignerresourcebrowserinterface_setcurrentpath_isbase = false;
     mutable bool qdesignerresourcebrowserinterface_currentpath_isbase = false;
@@ -208,6 +214,8 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     VirtualQDesignerResourceBrowserInterface() : QDesignerResourceBrowserInterface() {};
 
     ~VirtualQDesignerResourceBrowserInterface() {
+        qdesignerresourcebrowserinterface_metaobject_callback = nullptr;
+        qdesignerresourcebrowserinterface_metacast_callback = nullptr;
         qdesignerresourcebrowserinterface_metacall_callback = nullptr;
         qdesignerresourcebrowserinterface_setcurrentpath_callback = nullptr;
         qdesignerresourcebrowserinterface_currentpath_callback = nullptr;
@@ -271,6 +279,8 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     }
 
     // Callback setters
+    inline void setQDesignerResourceBrowserInterface_MetaObject_Callback(QDesignerResourceBrowserInterface_MetaObject_Callback cb) { qdesignerresourcebrowserinterface_metaobject_callback = cb; }
+    inline void setQDesignerResourceBrowserInterface_Metacast_Callback(QDesignerResourceBrowserInterface_Metacast_Callback cb) { qdesignerresourcebrowserinterface_metacast_callback = cb; }
     inline void setQDesignerResourceBrowserInterface_Metacall_Callback(QDesignerResourceBrowserInterface_Metacall_Callback cb) { qdesignerresourcebrowserinterface_metacall_callback = cb; }
     inline void setQDesignerResourceBrowserInterface_SetCurrentPath_Callback(QDesignerResourceBrowserInterface_SetCurrentPath_Callback cb) { qdesignerresourcebrowserinterface_setcurrentpath_callback = cb; }
     inline void setQDesignerResourceBrowserInterface_CurrentPath_Callback(QDesignerResourceBrowserInterface_CurrentPath_Callback cb) { qdesignerresourcebrowserinterface_currentpath_callback = cb; }
@@ -333,6 +343,8 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     inline void setQDesignerResourceBrowserInterface_GetDecodedMetricF_Callback(QDesignerResourceBrowserInterface_GetDecodedMetricF_Callback cb) { qdesignerresourcebrowserinterface_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDesignerResourceBrowserInterface_MetaObject_IsBase(bool value) const { qdesignerresourcebrowserinterface_metaobject_isbase = value; }
+    inline void setQDesignerResourceBrowserInterface_Metacast_IsBase(bool value) const { qdesignerresourcebrowserinterface_metacast_isbase = value; }
     inline void setQDesignerResourceBrowserInterface_Metacall_IsBase(bool value) const { qdesignerresourcebrowserinterface_metacall_isbase = value; }
     inline void setQDesignerResourceBrowserInterface_SetCurrentPath_IsBase(bool value) const { qdesignerresourcebrowserinterface_setcurrentpath_isbase = value; }
     inline void setQDesignerResourceBrowserInterface_CurrentPath_IsBase(bool value) const { qdesignerresourcebrowserinterface_currentpath_isbase = value; }
@@ -393,6 +405,34 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     inline void setQDesignerResourceBrowserInterface_Receivers_IsBase(bool value) const { qdesignerresourcebrowserinterface_receivers_isbase = value; }
     inline void setQDesignerResourceBrowserInterface_IsSignalConnected_IsBase(bool value) const { qdesignerresourcebrowserinterface_issignalconnected_isbase = value; }
     inline void setQDesignerResourceBrowserInterface_GetDecodedMetricF_IsBase(bool value) const { qdesignerresourcebrowserinterface_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdesignerresourcebrowserinterface_metaobject_isbase) {
+            qdesignerresourcebrowserinterface_metaobject_isbase = false;
+            return QDesignerResourceBrowserInterface::metaObject();
+        } else if (qdesignerresourcebrowserinterface_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdesignerresourcebrowserinterface_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDesignerResourceBrowserInterface::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdesignerresourcebrowserinterface_metacast_isbase) {
+            qdesignerresourcebrowserinterface_metacast_isbase = false;
+            return QDesignerResourceBrowserInterface::qt_metacast(param1);
+        } else if (qdesignerresourcebrowserinterface_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdesignerresourcebrowserinterface_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDesignerResourceBrowserInterface::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

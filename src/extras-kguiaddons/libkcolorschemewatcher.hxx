@@ -17,6 +17,8 @@ class VirtualKColorSchemeWatcher final : public KColorSchemeWatcher {
     bool isVirtualKColorSchemeWatcher = true;
 
     // Virtual class public types (including callbacks)
+    using KColorSchemeWatcher_MetaObject_Callback = QMetaObject* (*)();
+    using KColorSchemeWatcher_Metacast_Callback = void* (*)(KColorSchemeWatcher*, const char*);
     using KColorSchemeWatcher_Metacall_Callback = int (*)(KColorSchemeWatcher*, int, int, void**);
     using KColorSchemeWatcher_Event_Callback = bool (*)(KColorSchemeWatcher*, QEvent*);
     using KColorSchemeWatcher_EventFilter_Callback = bool (*)(KColorSchemeWatcher*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKColorSchemeWatcher final : public KColorSchemeWatcher {
 
   protected:
     // Instance callback storage
+    KColorSchemeWatcher_MetaObject_Callback kcolorschemewatcher_metaobject_callback = nullptr;
+    KColorSchemeWatcher_Metacast_Callback kcolorschemewatcher_metacast_callback = nullptr;
     KColorSchemeWatcher_Metacall_Callback kcolorschemewatcher_metacall_callback = nullptr;
     KColorSchemeWatcher_Event_Callback kcolorschemewatcher_event_callback = nullptr;
     KColorSchemeWatcher_EventFilter_Callback kcolorschemewatcher_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKColorSchemeWatcher final : public KColorSchemeWatcher {
     KColorSchemeWatcher_IsSignalConnected_Callback kcolorschemewatcher_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcolorschemewatcher_metaobject_isbase = false;
+    mutable bool kcolorschemewatcher_metacast_isbase = false;
     mutable bool kcolorschemewatcher_metacall_isbase = false;
     mutable bool kcolorschemewatcher_event_isbase = false;
     mutable bool kcolorschemewatcher_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKColorSchemeWatcher final : public KColorSchemeWatcher {
     VirtualKColorSchemeWatcher(QObject* parent) : KColorSchemeWatcher(parent) {};
 
     ~VirtualKColorSchemeWatcher() {
+        kcolorschemewatcher_metaobject_callback = nullptr;
+        kcolorschemewatcher_metacast_callback = nullptr;
         kcolorschemewatcher_metacall_callback = nullptr;
         kcolorschemewatcher_event_callback = nullptr;
         kcolorschemewatcher_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKColorSchemeWatcher final : public KColorSchemeWatcher {
     }
 
     // Callback setters
+    inline void setKColorSchemeWatcher_MetaObject_Callback(KColorSchemeWatcher_MetaObject_Callback cb) { kcolorschemewatcher_metaobject_callback = cb; }
+    inline void setKColorSchemeWatcher_Metacast_Callback(KColorSchemeWatcher_Metacast_Callback cb) { kcolorschemewatcher_metacast_callback = cb; }
     inline void setKColorSchemeWatcher_Metacall_Callback(KColorSchemeWatcher_Metacall_Callback cb) { kcolorschemewatcher_metacall_callback = cb; }
     inline void setKColorSchemeWatcher_Event_Callback(KColorSchemeWatcher_Event_Callback cb) { kcolorschemewatcher_event_callback = cb; }
     inline void setKColorSchemeWatcher_EventFilter_Callback(KColorSchemeWatcher_EventFilter_Callback cb) { kcolorschemewatcher_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKColorSchemeWatcher final : public KColorSchemeWatcher {
     inline void setKColorSchemeWatcher_IsSignalConnected_Callback(KColorSchemeWatcher_IsSignalConnected_Callback cb) { kcolorschemewatcher_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKColorSchemeWatcher_MetaObject_IsBase(bool value) const { kcolorschemewatcher_metaobject_isbase = value; }
+    inline void setKColorSchemeWatcher_Metacast_IsBase(bool value) const { kcolorschemewatcher_metacast_isbase = value; }
     inline void setKColorSchemeWatcher_Metacall_IsBase(bool value) const { kcolorschemewatcher_metacall_isbase = value; }
     inline void setKColorSchemeWatcher_Event_IsBase(bool value) const { kcolorschemewatcher_event_isbase = value; }
     inline void setKColorSchemeWatcher_EventFilter_IsBase(bool value) const { kcolorschemewatcher_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKColorSchemeWatcher final : public KColorSchemeWatcher {
     inline void setKColorSchemeWatcher_SenderSignalIndex_IsBase(bool value) const { kcolorschemewatcher_sendersignalindex_isbase = value; }
     inline void setKColorSchemeWatcher_Receivers_IsBase(bool value) const { kcolorschemewatcher_receivers_isbase = value; }
     inline void setKColorSchemeWatcher_IsSignalConnected_IsBase(bool value) const { kcolorschemewatcher_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcolorschemewatcher_metaobject_isbase) {
+            kcolorschemewatcher_metaobject_isbase = false;
+            return KColorSchemeWatcher::metaObject();
+        } else if (kcolorschemewatcher_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcolorschemewatcher_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KColorSchemeWatcher::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcolorschemewatcher_metacast_isbase) {
+            kcolorschemewatcher_metacast_isbase = false;
+            return KColorSchemeWatcher::qt_metacast(param1);
+        } else if (kcolorschemewatcher_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcolorschemewatcher_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KColorSchemeWatcher::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

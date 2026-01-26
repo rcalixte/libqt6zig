@@ -78,11 +78,21 @@ KIO__RenameDialog* KIO__RenameDialog_new7(QWidget* parent, const libqt_string ti
 }
 
 QMetaObject* KIO__RenameDialog_MetaObject(const KIO__RenameDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__renamedialog = dynamic_cast<const VirtualKIORenameDialog*>(self);
+    if (vkio__renamedialog && vkio__renamedialog->isVirtualKIORenameDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIORenameDialog*)self)->metaObject();
+    }
 }
 
 void* KIO__RenameDialog_Metacast(KIO__RenameDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__renamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
+    if (vkio__renamedialog && vkio__renamedialog->isVirtualKIORenameDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIORenameDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__RenameDialog_Metacall(KIO__RenameDialog* self, int param1, int param2, void** param3) {
@@ -136,6 +146,44 @@ void KIO__RenameDialog_ResumeAllPressed(KIO__RenameDialog* self) {
 
 void KIO__RenameDialog_SuggestNewNamePressed(KIO__RenameDialog* self) {
     self->suggestNewNamePressed();
+}
+
+// Base class handler implementation
+QMetaObject* KIO__RenameDialog_QBaseMetaObject(const KIO__RenameDialog* self) {
+    auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+        vkiorenamedialog->setKIO__RenameDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiorenamedialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::RenameDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__RenameDialog_OnMetaObject(const KIO__RenameDialog* self, intptr_t slot) {
+    auto* vkiorenamedialog = const_cast<VirtualKIORenameDialog*>(dynamic_cast<const VirtualKIORenameDialog*>(self));
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+        vkiorenamedialog->setKIO__RenameDialog_MetaObject_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__RenameDialog_QBaseMetacast(KIO__RenameDialog* self, const char* param1) {
+    auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+        vkiorenamedialog->setKIO__RenameDialog_Metacast_IsBase(true);
+        return vkiorenamedialog->qt_metacast(param1);
+    } else {
+        return self->KIO::RenameDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__RenameDialog_OnMetacast(KIO__RenameDialog* self, intptr_t slot) {
+    auto* vkiorenamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
+    if (vkiorenamedialog && vkiorenamedialog->isVirtualKIORenameDialog) {
+        vkiorenamedialog->setKIO__RenameDialog_Metacast_Callback(reinterpret_cast<VirtualKIORenameDialog::KIO__RenameDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

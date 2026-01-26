@@ -17,6 +17,8 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
     bool isVirtualQRestAccessManager = true;
 
     // Virtual class public types (including callbacks)
+    using QRestAccessManager_MetaObject_Callback = QMetaObject* (*)();
+    using QRestAccessManager_Metacast_Callback = void* (*)(QRestAccessManager*, const char*);
     using QRestAccessManager_Metacall_Callback = int (*)(QRestAccessManager*, int, int, void**);
     using QRestAccessManager_Event_Callback = bool (*)(QRestAccessManager*, QEvent*);
     using QRestAccessManager_EventFilter_Callback = bool (*)(QRestAccessManager*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
 
   protected:
     // Instance callback storage
+    QRestAccessManager_MetaObject_Callback qrestaccessmanager_metaobject_callback = nullptr;
+    QRestAccessManager_Metacast_Callback qrestaccessmanager_metacast_callback = nullptr;
     QRestAccessManager_Metacall_Callback qrestaccessmanager_metacall_callback = nullptr;
     QRestAccessManager_Event_Callback qrestaccessmanager_event_callback = nullptr;
     QRestAccessManager_EventFilter_Callback qrestaccessmanager_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
     QRestAccessManager_IsSignalConnected_Callback qrestaccessmanager_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qrestaccessmanager_metaobject_isbase = false;
+    mutable bool qrestaccessmanager_metacast_isbase = false;
     mutable bool qrestaccessmanager_metacall_isbase = false;
     mutable bool qrestaccessmanager_event_isbase = false;
     mutable bool qrestaccessmanager_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
     VirtualQRestAccessManager(QNetworkAccessManager* manager, QObject* parent) : QRestAccessManager(manager, parent) {};
 
     ~VirtualQRestAccessManager() {
+        qrestaccessmanager_metaobject_callback = nullptr;
+        qrestaccessmanager_metacast_callback = nullptr;
         qrestaccessmanager_metacall_callback = nullptr;
         qrestaccessmanager_event_callback = nullptr;
         qrestaccessmanager_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
     }
 
     // Callback setters
+    inline void setQRestAccessManager_MetaObject_Callback(QRestAccessManager_MetaObject_Callback cb) { qrestaccessmanager_metaobject_callback = cb; }
+    inline void setQRestAccessManager_Metacast_Callback(QRestAccessManager_Metacast_Callback cb) { qrestaccessmanager_metacast_callback = cb; }
     inline void setQRestAccessManager_Metacall_Callback(QRestAccessManager_Metacall_Callback cb) { qrestaccessmanager_metacall_callback = cb; }
     inline void setQRestAccessManager_Event_Callback(QRestAccessManager_Event_Callback cb) { qrestaccessmanager_event_callback = cb; }
     inline void setQRestAccessManager_EventFilter_Callback(QRestAccessManager_EventFilter_Callback cb) { qrestaccessmanager_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
     inline void setQRestAccessManager_IsSignalConnected_Callback(QRestAccessManager_IsSignalConnected_Callback cb) { qrestaccessmanager_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQRestAccessManager_MetaObject_IsBase(bool value) const { qrestaccessmanager_metaobject_isbase = value; }
+    inline void setQRestAccessManager_Metacast_IsBase(bool value) const { qrestaccessmanager_metacast_isbase = value; }
     inline void setQRestAccessManager_Metacall_IsBase(bool value) const { qrestaccessmanager_metacall_isbase = value; }
     inline void setQRestAccessManager_Event_IsBase(bool value) const { qrestaccessmanager_event_isbase = value; }
     inline void setQRestAccessManager_EventFilter_IsBase(bool value) const { qrestaccessmanager_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualQRestAccessManager final : public QRestAccessManager {
     inline void setQRestAccessManager_SenderSignalIndex_IsBase(bool value) const { qrestaccessmanager_sendersignalindex_isbase = value; }
     inline void setQRestAccessManager_Receivers_IsBase(bool value) const { qrestaccessmanager_receivers_isbase = value; }
     inline void setQRestAccessManager_IsSignalConnected_IsBase(bool value) const { qrestaccessmanager_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qrestaccessmanager_metaobject_isbase) {
+            qrestaccessmanager_metaobject_isbase = false;
+            return QRestAccessManager::metaObject();
+        } else if (qrestaccessmanager_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qrestaccessmanager_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QRestAccessManager::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qrestaccessmanager_metacast_isbase) {
+            qrestaccessmanager_metacast_isbase = false;
+            return QRestAccessManager::qt_metacast(param1);
+        } else if (qrestaccessmanager_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qrestaccessmanager_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QRestAccessManager::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

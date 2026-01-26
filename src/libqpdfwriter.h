@@ -62,6 +62,10 @@ void QPdfWriter_SetOutputIntent(QPdfWriter* self, const QPdfOutputIntent* intent
 QPaintEngine* QPdfWriter_PaintEngine(const QPdfWriter* self);
 int QPdfWriter_Metric(const QPdfWriter* self, int id);
 void QPdfWriter_AddFileAttachment3(QPdfWriter* self, const libqt_string fileName, const libqt_string data, const libqt_string mimeType);
+void QPdfWriter_OnMetaObject(const QPdfWriter* self, intptr_t slot);
+QMetaObject* QPdfWriter_QBaseMetaObject(const QPdfWriter* self);
+void QPdfWriter_OnMetacast(QPdfWriter* self, intptr_t slot);
+void* QPdfWriter_QBaseMetacast(QPdfWriter* self, const char* param1);
 void QPdfWriter_OnMetacall(QPdfWriter* self, intptr_t slot);
 int QPdfWriter_QBaseMetacall(QPdfWriter* self, int param1, int param2, void** param3);
 void QPdfWriter_OnNewPage(QPdfWriter* self, intptr_t slot);

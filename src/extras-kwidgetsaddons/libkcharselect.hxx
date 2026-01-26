@@ -17,6 +17,8 @@ class VirtualKCharSelect final : public KCharSelect {
     bool isVirtualKCharSelect = true;
 
     // Virtual class public types (including callbacks)
+    using KCharSelect_MetaObject_Callback = QMetaObject* (*)();
+    using KCharSelect_Metacast_Callback = void* (*)(KCharSelect*, const char*);
     using KCharSelect_Metacall_Callback = int (*)(KCharSelect*, int, int, void**);
     using KCharSelect_SizeHint_Callback = QSize* (*)();
     using KCharSelect_DevType_Callback = int (*)();
@@ -78,6 +80,8 @@ class VirtualKCharSelect final : public KCharSelect {
 
   protected:
     // Instance callback storage
+    KCharSelect_MetaObject_Callback kcharselect_metaobject_callback = nullptr;
+    KCharSelect_Metacast_Callback kcharselect_metacast_callback = nullptr;
     KCharSelect_Metacall_Callback kcharselect_metacall_callback = nullptr;
     KCharSelect_SizeHint_Callback kcharselect_sizehint_callback = nullptr;
     KCharSelect_DevType_Callback kcharselect_devtype_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKCharSelect final : public KCharSelect {
     KCharSelect_GetDecodedMetricF_Callback kcharselect_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcharselect_metaobject_isbase = false;
+    mutable bool kcharselect_metacast_isbase = false;
     mutable bool kcharselect_metacall_isbase = false;
     mutable bool kcharselect_sizehint_isbase = false;
     mutable bool kcharselect_devtype_isbase = false;
@@ -204,6 +210,8 @@ class VirtualKCharSelect final : public KCharSelect {
     VirtualKCharSelect(QWidget* parent, QObject* actionParent, const KCharSelect::Controls controls) : KCharSelect(parent, actionParent, controls) {};
 
     ~VirtualKCharSelect() {
+        kcharselect_metaobject_callback = nullptr;
+        kcharselect_metacast_callback = nullptr;
         kcharselect_metacall_callback = nullptr;
         kcharselect_sizehint_callback = nullptr;
         kcharselect_devtype_callback = nullptr;
@@ -265,6 +273,8 @@ class VirtualKCharSelect final : public KCharSelect {
     }
 
     // Callback setters
+    inline void setKCharSelect_MetaObject_Callback(KCharSelect_MetaObject_Callback cb) { kcharselect_metaobject_callback = cb; }
+    inline void setKCharSelect_Metacast_Callback(KCharSelect_Metacast_Callback cb) { kcharselect_metacast_callback = cb; }
     inline void setKCharSelect_Metacall_Callback(KCharSelect_Metacall_Callback cb) { kcharselect_metacall_callback = cb; }
     inline void setKCharSelect_SizeHint_Callback(KCharSelect_SizeHint_Callback cb) { kcharselect_sizehint_callback = cb; }
     inline void setKCharSelect_DevType_Callback(KCharSelect_DevType_Callback cb) { kcharselect_devtype_callback = cb; }
@@ -325,6 +335,8 @@ class VirtualKCharSelect final : public KCharSelect {
     inline void setKCharSelect_GetDecodedMetricF_Callback(KCharSelect_GetDecodedMetricF_Callback cb) { kcharselect_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKCharSelect_MetaObject_IsBase(bool value) const { kcharselect_metaobject_isbase = value; }
+    inline void setKCharSelect_Metacast_IsBase(bool value) const { kcharselect_metacast_isbase = value; }
     inline void setKCharSelect_Metacall_IsBase(bool value) const { kcharselect_metacall_isbase = value; }
     inline void setKCharSelect_SizeHint_IsBase(bool value) const { kcharselect_sizehint_isbase = value; }
     inline void setKCharSelect_DevType_IsBase(bool value) const { kcharselect_devtype_isbase = value; }
@@ -383,6 +395,34 @@ class VirtualKCharSelect final : public KCharSelect {
     inline void setKCharSelect_Receivers_IsBase(bool value) const { kcharselect_receivers_isbase = value; }
     inline void setKCharSelect_IsSignalConnected_IsBase(bool value) const { kcharselect_issignalconnected_isbase = value; }
     inline void setKCharSelect_GetDecodedMetricF_IsBase(bool value) const { kcharselect_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcharselect_metaobject_isbase) {
+            kcharselect_metaobject_isbase = false;
+            return KCharSelect::metaObject();
+        } else if (kcharselect_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcharselect_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCharSelect::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcharselect_metacast_isbase) {
+            kcharselect_metacast_isbase = false;
+            return KCharSelect::qt_metacast(param1);
+        } else if (kcharselect_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcharselect_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCharSelect::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

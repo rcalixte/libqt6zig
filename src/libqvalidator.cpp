@@ -26,11 +26,21 @@ QValidator* QValidator_new2(QObject* parent) {
 }
 
 QMetaObject* QValidator_MetaObject(const QValidator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqvalidator = dynamic_cast<const VirtualQValidator*>(self);
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQValidator*)self)->metaObject();
+    }
 }
 
 void* QValidator_Metacast(QValidator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQValidator*)self)->qt_metacast(param1);
+    }
 }
 
 int QValidator_Metacall(QValidator* self, int param1, int param2, void** param3) {
@@ -79,6 +89,44 @@ void QValidator_Connect_Changed(QValidator* self, intptr_t slot) {
     QValidator::connect(self, &QValidator::changed, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QValidator_QBaseMetaObject(const QValidator* self) {
+    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_MetaObject_IsBase(true);
+        return (QMetaObject*)vqvalidator->metaObject();
+    } else {
+        return (QMetaObject*)self->QValidator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QValidator_OnMetaObject(const QValidator* self, intptr_t slot) {
+    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_MetaObject_Callback(reinterpret_cast<VirtualQValidator::QValidator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QValidator_QBaseMetacast(QValidator* self, const char* param1) {
+    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_Metacast_IsBase(true);
+        return vqvalidator->qt_metacast(param1);
+    } else {
+        return self->QValidator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QValidator_OnMetacast(QValidator* self, intptr_t slot) {
+    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
+    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+        vqvalidator->setQValidator_Metacast_Callback(reinterpret_cast<VirtualQValidator::QValidator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -480,11 +528,21 @@ QIntValidator* QIntValidator_new4(int bottom, int top, QObject* parent) {
 }
 
 QMetaObject* QIntValidator_MetaObject(const QIntValidator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqintvalidator = dynamic_cast<const VirtualQIntValidator*>(self);
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQIntValidator*)self)->metaObject();
+    }
 }
 
 void* QIntValidator_Metacast(QIntValidator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQIntValidator*)self)->qt_metacast(param1);
+    }
 }
 
 int QIntValidator_Metacall(QIntValidator* self, int param1, int param2, void** param3) {
@@ -558,6 +616,44 @@ void QIntValidator_Connect_TopChanged(QIntValidator* self, intptr_t slot) {
         int sigval1 = top;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QIntValidator_QBaseMetaObject(const QIntValidator* self) {
+    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_MetaObject_IsBase(true);
+        return (QMetaObject*)vqintvalidator->metaObject();
+    } else {
+        return (QMetaObject*)self->QIntValidator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIntValidator_OnMetaObject(const QIntValidator* self, intptr_t slot) {
+    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_MetaObject_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QIntValidator_QBaseMetacast(QIntValidator* self, const char* param1) {
+    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_Metacast_IsBase(true);
+        return vqintvalidator->qt_metacast(param1);
+    } else {
+        return self->QIntValidator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QIntValidator_OnMetacast(QIntValidator* self, intptr_t slot) {
+    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
+    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+        vqintvalidator->setQIntValidator_Metacast_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -959,11 +1055,21 @@ QDoubleValidator* QDoubleValidator_new4(double bottom, double top, int decimals,
 }
 
 QMetaObject* QDoubleValidator_MetaObject(const QDoubleValidator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqdoublevalidator = dynamic_cast<const VirtualQDoubleValidator*>(self);
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQDoubleValidator*)self)->metaObject();
+    }
 }
 
 void* QDoubleValidator_Metacast(QDoubleValidator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQDoubleValidator*)self)->qt_metacast(param1);
+    }
 }
 
 int QDoubleValidator_Metacall(QDoubleValidator* self, int param1, int param2, void** param3) {
@@ -1081,6 +1187,44 @@ void QDoubleValidator_Connect_NotationChanged(QDoubleValidator* self, intptr_t s
         int sigval1 = static_cast<int>(notation);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QDoubleValidator_QBaseMetaObject(const QDoubleValidator* self) {
+    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_MetaObject_IsBase(true);
+        return (QMetaObject*)vqdoublevalidator->metaObject();
+    } else {
+        return (QMetaObject*)self->QDoubleValidator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDoubleValidator_OnMetaObject(const QDoubleValidator* self, intptr_t slot) {
+    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_MetaObject_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QDoubleValidator_QBaseMetacast(QDoubleValidator* self, const char* param1) {
+    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_Metacast_IsBase(true);
+        return vqdoublevalidator->qt_metacast(param1);
+    } else {
+        return self->QDoubleValidator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDoubleValidator_OnMetacast(QDoubleValidator* self, intptr_t slot) {
+    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
+    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+        vqdoublevalidator->setQDoubleValidator_Metacast_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation
@@ -1482,11 +1626,21 @@ QRegularExpressionValidator* QRegularExpressionValidator_new4(const QRegularExpr
 }
 
 QMetaObject* QRegularExpressionValidator_MetaObject(const QRegularExpressionValidator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqregularexpressionvalidator = dynamic_cast<const VirtualQRegularExpressionValidator*>(self);
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQRegularExpressionValidator*)self)->metaObject();
+    }
 }
 
 void* QRegularExpressionValidator_Metacast(QRegularExpressionValidator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQRegularExpressionValidator*)self)->qt_metacast(param1);
+    }
 }
 
 int QRegularExpressionValidator_Metacall(QRegularExpressionValidator* self, int param1, int param2, void** param3) {
@@ -1528,6 +1682,44 @@ void QRegularExpressionValidator_Connect_RegularExpressionChanged(QRegularExpres
         QRegularExpression* sigval1 = const_cast<QRegularExpression*>(&re_ret);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QRegularExpressionValidator_QBaseMetaObject(const QRegularExpressionValidator* self) {
+    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        vqregularexpressionvalidator->setQRegularExpressionValidator_MetaObject_IsBase(true);
+        return (QMetaObject*)vqregularexpressionvalidator->metaObject();
+    } else {
+        return (QMetaObject*)self->QRegularExpressionValidator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRegularExpressionValidator_OnMetaObject(const QRegularExpressionValidator* self, intptr_t slot) {
+    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        vqregularexpressionvalidator->setQRegularExpressionValidator_MetaObject_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QRegularExpressionValidator_QBaseMetacast(QRegularExpressionValidator* self, const char* param1) {
+    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacast_IsBase(true);
+        return vqregularexpressionvalidator->qt_metacast(param1);
+    } else {
+        return self->QRegularExpressionValidator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRegularExpressionValidator_OnMetacast(QRegularExpressionValidator* self, intptr_t slot) {
+    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
+    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacast_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

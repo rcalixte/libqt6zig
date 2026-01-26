@@ -47,6 +47,10 @@ void QCategoryAxis_Connect_CategoriesChanged(QCategoryAxis* self, intptr_t slot)
 void QCategoryAxis_LabelsPositionChanged(QCategoryAxis* self, int position);
 void QCategoryAxis_Connect_LabelsPositionChanged(QCategoryAxis* self, intptr_t slot);
 double QCategoryAxis_StartValue1(const QCategoryAxis* self, const libqt_string categoryLabel);
+void QCategoryAxis_OnMetaObject(const QCategoryAxis* self, intptr_t slot);
+QMetaObject* QCategoryAxis_QBaseMetaObject(const QCategoryAxis* self);
+void QCategoryAxis_OnMetacast(QCategoryAxis* self, intptr_t slot);
+void* QCategoryAxis_QBaseMetacast(QCategoryAxis* self, const char* param1);
 void QCategoryAxis_OnMetacall(QCategoryAxis* self, intptr_t slot);
 int QCategoryAxis_QBaseMetacall(QCategoryAxis* self, int param1, int param2, void** param3);
 void QCategoryAxis_OnType(const QCategoryAxis* self, intptr_t slot);

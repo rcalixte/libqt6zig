@@ -61,11 +61,21 @@ QTermWidget* QTermWidget_new4(int startnow, QWidget* parent) {
 }
 
 QMetaObject* QTermWidget_MetaObject(const QTermWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTermWidget*)self)->metaObject();
+    }
 }
 
 void* QTermWidget_Metacast(QTermWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTermWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int QTermWidget_Metacall(QTermWidget* self, int param1, int param2, void** param3) {
@@ -1096,6 +1106,44 @@ void QTermWidget_ResizeEvent(QTermWidget* self, QResizeEvent* param1) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->resizeEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QTermWidget_QBaseMetaObject(const QTermWidget* self) {
+    auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+        vqtermwidget->setQTermWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtermwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->QTermWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTermWidget_OnMetaObject(const QTermWidget* self, intptr_t slot) {
+    auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+        vqtermwidget->setQTermWidget_MetaObject_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTermWidget_QBaseMetacast(QTermWidget* self, const char* param1) {
+    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+        vqtermwidget->setQTermWidget_Metacast_IsBase(true);
+        return vqtermwidget->qt_metacast(param1);
+    } else {
+        return self->QTermWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTermWidget_OnMetacast(QTermWidget* self, intptr_t slot) {
+    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
+    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
+        vqtermwidget->setQTermWidget_Metacast_Callback(reinterpret_cast<VirtualQTermWidget::QTermWidget_Metacast_Callback>(slot));
     }
 }
 

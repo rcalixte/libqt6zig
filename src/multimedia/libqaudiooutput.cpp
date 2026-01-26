@@ -30,11 +30,21 @@ QAudioOutput* QAudioOutput_new4(const QAudioDevice* device, QObject* parent) {
 }
 
 QMetaObject* QAudioOutput_MetaObject(const QAudioOutput* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqaudiooutput = dynamic_cast<const VirtualQAudioOutput*>(self);
+    if (vqaudiooutput && vqaudiooutput->isVirtualQAudioOutput) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAudioOutput*)self)->metaObject();
+    }
 }
 
 void* QAudioOutput_Metacast(QAudioOutput* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqaudiooutput = dynamic_cast<VirtualQAudioOutput*>(self);
+    if (vqaudiooutput && vqaudiooutput->isVirtualQAudioOutput) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAudioOutput*)self)->qt_metacast(param1);
+    }
 }
 
 int QAudioOutput_Metacall(QAudioOutput* self, int param1, int param2, void** param3) {
@@ -103,6 +113,44 @@ void QAudioOutput_Connect_MutedChanged(QAudioOutput* self, intptr_t slot) {
         bool sigval1 = muted;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QAudioOutput_QBaseMetaObject(const QAudioOutput* self) {
+    auto* vqaudiooutput = const_cast<VirtualQAudioOutput*>(dynamic_cast<const VirtualQAudioOutput*>(self));
+    if (vqaudiooutput && vqaudiooutput->isVirtualQAudioOutput) {
+        vqaudiooutput->setQAudioOutput_MetaObject_IsBase(true);
+        return (QMetaObject*)vqaudiooutput->metaObject();
+    } else {
+        return (QMetaObject*)self->QAudioOutput::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioOutput_OnMetaObject(const QAudioOutput* self, intptr_t slot) {
+    auto* vqaudiooutput = const_cast<VirtualQAudioOutput*>(dynamic_cast<const VirtualQAudioOutput*>(self));
+    if (vqaudiooutput && vqaudiooutput->isVirtualQAudioOutput) {
+        vqaudiooutput->setQAudioOutput_MetaObject_Callback(reinterpret_cast<VirtualQAudioOutput::QAudioOutput_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAudioOutput_QBaseMetacast(QAudioOutput* self, const char* param1) {
+    auto* vqaudiooutput = dynamic_cast<VirtualQAudioOutput*>(self);
+    if (vqaudiooutput && vqaudiooutput->isVirtualQAudioOutput) {
+        vqaudiooutput->setQAudioOutput_Metacast_IsBase(true);
+        return vqaudiooutput->qt_metacast(param1);
+    } else {
+        return self->QAudioOutput::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioOutput_OnMetacast(QAudioOutput* self, intptr_t slot) {
+    auto* vqaudiooutput = dynamic_cast<VirtualQAudioOutput*>(self);
+    if (vqaudiooutput && vqaudiooutput->isVirtualQAudioOutput) {
+        vqaudiooutput->setQAudioOutput_Metacast_Callback(reinterpret_cast<VirtualQAudioOutput::QAudioOutput_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

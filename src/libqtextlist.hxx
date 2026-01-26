@@ -17,6 +17,8 @@ class VirtualQTextList final : public QTextList {
     bool isVirtualQTextList = true;
 
     // Virtual class public types (including callbacks)
+    using QTextList_MetaObject_Callback = QMetaObject* (*)();
+    using QTextList_Metacast_Callback = void* (*)(QTextList*, const char*);
     using QTextList_Metacall_Callback = int (*)(QTextList*, int, int, void**);
     using QTextList_BlockInserted_Callback = void (*)(QTextList*, QTextBlock*);
     using QTextList_BlockRemoved_Callback = void (*)(QTextList*, QTextBlock*);
@@ -36,6 +38,8 @@ class VirtualQTextList final : public QTextList {
 
   protected:
     // Instance callback storage
+    QTextList_MetaObject_Callback qtextlist_metaobject_callback = nullptr;
+    QTextList_Metacast_Callback qtextlist_metacast_callback = nullptr;
     QTextList_Metacall_Callback qtextlist_metacall_callback = nullptr;
     QTextList_BlockInserted_Callback qtextlist_blockinserted_callback = nullptr;
     QTextList_BlockRemoved_Callback qtextlist_blockremoved_callback = nullptr;
@@ -54,6 +58,8 @@ class VirtualQTextList final : public QTextList {
     QTextList_IsSignalConnected_Callback qtextlist_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtextlist_metaobject_isbase = false;
+    mutable bool qtextlist_metacast_isbase = false;
     mutable bool qtextlist_metacall_isbase = false;
     mutable bool qtextlist_blockinserted_isbase = false;
     mutable bool qtextlist_blockremoved_isbase = false;
@@ -75,6 +81,8 @@ class VirtualQTextList final : public QTextList {
     VirtualQTextList(QTextDocument* doc) : QTextList(doc) {};
 
     ~VirtualQTextList() {
+        qtextlist_metaobject_callback = nullptr;
+        qtextlist_metacast_callback = nullptr;
         qtextlist_metacall_callback = nullptr;
         qtextlist_blockinserted_callback = nullptr;
         qtextlist_blockremoved_callback = nullptr;
@@ -94,6 +102,8 @@ class VirtualQTextList final : public QTextList {
     }
 
     // Callback setters
+    inline void setQTextList_MetaObject_Callback(QTextList_MetaObject_Callback cb) { qtextlist_metaobject_callback = cb; }
+    inline void setQTextList_Metacast_Callback(QTextList_Metacast_Callback cb) { qtextlist_metacast_callback = cb; }
     inline void setQTextList_Metacall_Callback(QTextList_Metacall_Callback cb) { qtextlist_metacall_callback = cb; }
     inline void setQTextList_BlockInserted_Callback(QTextList_BlockInserted_Callback cb) { qtextlist_blockinserted_callback = cb; }
     inline void setQTextList_BlockRemoved_Callback(QTextList_BlockRemoved_Callback cb) { qtextlist_blockremoved_callback = cb; }
@@ -112,6 +122,8 @@ class VirtualQTextList final : public QTextList {
     inline void setQTextList_IsSignalConnected_Callback(QTextList_IsSignalConnected_Callback cb) { qtextlist_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQTextList_MetaObject_IsBase(bool value) const { qtextlist_metaobject_isbase = value; }
+    inline void setQTextList_Metacast_IsBase(bool value) const { qtextlist_metacast_isbase = value; }
     inline void setQTextList_Metacall_IsBase(bool value) const { qtextlist_metacall_isbase = value; }
     inline void setQTextList_BlockInserted_IsBase(bool value) const { qtextlist_blockinserted_isbase = value; }
     inline void setQTextList_BlockRemoved_IsBase(bool value) const { qtextlist_blockremoved_isbase = value; }
@@ -128,6 +140,34 @@ class VirtualQTextList final : public QTextList {
     inline void setQTextList_SenderSignalIndex_IsBase(bool value) const { qtextlist_sendersignalindex_isbase = value; }
     inline void setQTextList_Receivers_IsBase(bool value) const { qtextlist_receivers_isbase = value; }
     inline void setQTextList_IsSignalConnected_IsBase(bool value) const { qtextlist_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtextlist_metaobject_isbase) {
+            qtextlist_metaobject_isbase = false;
+            return QTextList::metaObject();
+        } else if (qtextlist_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtextlist_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTextList::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtextlist_metacast_isbase) {
+            qtextlist_metacast_isbase = false;
+            return QTextList::qt_metacast(param1);
+        } else if (qtextlist_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtextlist_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTextList::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

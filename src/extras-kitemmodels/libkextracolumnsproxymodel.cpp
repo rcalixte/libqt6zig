@@ -35,11 +35,21 @@ KExtraColumnsProxyModel* KExtraColumnsProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* KExtraColumnsProxyModel_MetaObject(const KExtraColumnsProxyModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKExtraColumnsProxyModel*)self)->metaObject();
+    }
 }
 
 void* KExtraColumnsProxyModel_Metacast(KExtraColumnsProxyModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKExtraColumnsProxyModel*)self)->qt_metacast(param1);
+    }
 }
 
 int KExtraColumnsProxyModel_Metacall(KExtraColumnsProxyModel* self, int param1, int param2, void** param3) {
@@ -215,6 +225,44 @@ QModelIndex* KExtraColumnsProxyModel_Parent(const KExtraColumnsProxyModel* self,
 void KExtraColumnsProxyModel_AppendColumn1(KExtraColumnsProxyModel* self, const libqt_string header) {
     QString header_QString = QString::fromUtf8(header.data, header.len);
     self->appendColumn(header_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KExtraColumnsProxyModel_QBaseMetaObject(const KExtraColumnsProxyModel* self) {
+    auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+        vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vkextracolumnsproxymodel->metaObject();
+    } else {
+        return (QMetaObject*)self->KExtraColumnsProxyModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KExtraColumnsProxyModel_OnMetaObject(const KExtraColumnsProxyModel* self, intptr_t slot) {
+    auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+        vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KExtraColumnsProxyModel_QBaseMetacast(KExtraColumnsProxyModel* self, const char* param1) {
+    auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+        vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Metacast_IsBase(true);
+        return vkextracolumnsproxymodel->qt_metacast(param1);
+    } else {
+        return self->KExtraColumnsProxyModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KExtraColumnsProxyModel_OnMetacast(KExtraColumnsProxyModel* self, intptr_t slot) {
+    auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+        vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Metacast_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

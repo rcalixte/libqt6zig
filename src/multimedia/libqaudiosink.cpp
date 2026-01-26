@@ -40,11 +40,21 @@ QAudioSink* QAudioSink_new6(const QAudioDevice* audioDeviceInfo, const QAudioFor
 }
 
 QMetaObject* QAudioSink_MetaObject(const QAudioSink* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqaudiosink = dynamic_cast<const VirtualQAudioSink*>(self);
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAudioSink*)self)->metaObject();
+    }
 }
 
 void* QAudioSink_Metacast(QAudioSink* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAudioSink*)self)->qt_metacast(param1);
+    }
 }
 
 int QAudioSink_Metacall(QAudioSink* self, int param1, int param2, void** param3) {
@@ -134,6 +144,44 @@ void QAudioSink_Connect_StateChanged(QAudioSink* self, intptr_t slot) {
         int sigval1 = static_cast<int>(state);
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QAudioSink_QBaseMetaObject(const QAudioSink* self) {
+    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+        vqaudiosink->setQAudioSink_MetaObject_IsBase(true);
+        return (QMetaObject*)vqaudiosink->metaObject();
+    } else {
+        return (QMetaObject*)self->QAudioSink::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioSink_OnMetaObject(const QAudioSink* self, intptr_t slot) {
+    auto* vqaudiosink = const_cast<VirtualQAudioSink*>(dynamic_cast<const VirtualQAudioSink*>(self));
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+        vqaudiosink->setQAudioSink_MetaObject_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAudioSink_QBaseMetacast(QAudioSink* self, const char* param1) {
+    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+        vqaudiosink->setQAudioSink_Metacast_IsBase(true);
+        return vqaudiosink->qt_metacast(param1);
+    } else {
+        return self->QAudioSink::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioSink_OnMetacast(QAudioSink* self, intptr_t slot) {
+    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
+    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
+        vqaudiosink->setQAudioSink_Metacast_Callback(reinterpret_cast<VirtualQAudioSink::QAudioSink_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

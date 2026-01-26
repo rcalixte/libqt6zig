@@ -17,6 +17,8 @@ class VirtualKDirWatch final : public KDirWatch {
     bool isVirtualKDirWatch = true;
 
     // Virtual class public types (including callbacks)
+    using KDirWatch_MetaObject_Callback = QMetaObject* (*)();
+    using KDirWatch_Metacast_Callback = void* (*)(KDirWatch*, const char*);
     using KDirWatch_Metacall_Callback = int (*)(KDirWatch*, int, int, void**);
     using KDirWatch_Event_Callback = bool (*)(KDirWatch*, QEvent*);
     using KDirWatch_EventFilter_Callback = bool (*)(KDirWatch*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKDirWatch final : public KDirWatch {
 
   protected:
     // Instance callback storage
+    KDirWatch_MetaObject_Callback kdirwatch_metaobject_callback = nullptr;
+    KDirWatch_Metacast_Callback kdirwatch_metacast_callback = nullptr;
     KDirWatch_Metacall_Callback kdirwatch_metacall_callback = nullptr;
     KDirWatch_Event_Callback kdirwatch_event_callback = nullptr;
     KDirWatch_EventFilter_Callback kdirwatch_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKDirWatch final : public KDirWatch {
     KDirWatch_IsSignalConnected_Callback kdirwatch_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kdirwatch_metaobject_isbase = false;
+    mutable bool kdirwatch_metacast_isbase = false;
     mutable bool kdirwatch_metacall_isbase = false;
     mutable bool kdirwatch_event_isbase = false;
     mutable bool kdirwatch_eventfilter_isbase = false;
@@ -64,6 +70,8 @@ class VirtualKDirWatch final : public KDirWatch {
     VirtualKDirWatch(QObject* parent) : KDirWatch(parent) {};
 
     ~VirtualKDirWatch() {
+        kdirwatch_metaobject_callback = nullptr;
+        kdirwatch_metacast_callback = nullptr;
         kdirwatch_metacall_callback = nullptr;
         kdirwatch_event_callback = nullptr;
         kdirwatch_eventfilter_callback = nullptr;
@@ -79,6 +87,8 @@ class VirtualKDirWatch final : public KDirWatch {
     }
 
     // Callback setters
+    inline void setKDirWatch_MetaObject_Callback(KDirWatch_MetaObject_Callback cb) { kdirwatch_metaobject_callback = cb; }
+    inline void setKDirWatch_Metacast_Callback(KDirWatch_Metacast_Callback cb) { kdirwatch_metacast_callback = cb; }
     inline void setKDirWatch_Metacall_Callback(KDirWatch_Metacall_Callback cb) { kdirwatch_metacall_callback = cb; }
     inline void setKDirWatch_Event_Callback(KDirWatch_Event_Callback cb) { kdirwatch_event_callback = cb; }
     inline void setKDirWatch_EventFilter_Callback(KDirWatch_EventFilter_Callback cb) { kdirwatch_eventfilter_callback = cb; }
@@ -93,6 +103,8 @@ class VirtualKDirWatch final : public KDirWatch {
     inline void setKDirWatch_IsSignalConnected_Callback(KDirWatch_IsSignalConnected_Callback cb) { kdirwatch_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKDirWatch_MetaObject_IsBase(bool value) const { kdirwatch_metaobject_isbase = value; }
+    inline void setKDirWatch_Metacast_IsBase(bool value) const { kdirwatch_metacast_isbase = value; }
     inline void setKDirWatch_Metacall_IsBase(bool value) const { kdirwatch_metacall_isbase = value; }
     inline void setKDirWatch_Event_IsBase(bool value) const { kdirwatch_event_isbase = value; }
     inline void setKDirWatch_EventFilter_IsBase(bool value) const { kdirwatch_eventfilter_isbase = value; }
@@ -105,6 +117,34 @@ class VirtualKDirWatch final : public KDirWatch {
     inline void setKDirWatch_SenderSignalIndex_IsBase(bool value) const { kdirwatch_sendersignalindex_isbase = value; }
     inline void setKDirWatch_Receivers_IsBase(bool value) const { kdirwatch_receivers_isbase = value; }
     inline void setKDirWatch_IsSignalConnected_IsBase(bool value) const { kdirwatch_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kdirwatch_metaobject_isbase) {
+            kdirwatch_metaobject_isbase = false;
+            return KDirWatch::metaObject();
+        } else if (kdirwatch_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kdirwatch_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KDirWatch::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kdirwatch_metacast_isbase) {
+            kdirwatch_metacast_isbase = false;
+            return KDirWatch::qt_metacast(param1);
+        } else if (kdirwatch_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kdirwatch_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KDirWatch::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

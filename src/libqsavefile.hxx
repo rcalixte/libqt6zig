@@ -17,6 +17,8 @@ class VirtualQSaveFile final : public QSaveFile {
     bool isVirtualQSaveFile = true;
 
     // Virtual class public types (including callbacks)
+    using QSaveFile_MetaObject_Callback = QMetaObject* (*)();
+    using QSaveFile_Metacast_Callback = void* (*)(QSaveFile*, const char*);
     using QSaveFile_Metacall_Callback = int (*)(QSaveFile*, int, int, void**);
     using QSaveFile_FileName_Callback = const char* (*)();
     using QSaveFile_Open_Callback = bool (*)(QSaveFile*, int);
@@ -54,6 +56,8 @@ class VirtualQSaveFile final : public QSaveFile {
 
   protected:
     // Instance callback storage
+    QSaveFile_MetaObject_Callback qsavefile_metaobject_callback = nullptr;
+    QSaveFile_Metacast_Callback qsavefile_metacast_callback = nullptr;
     QSaveFile_Metacall_Callback qsavefile_metacall_callback = nullptr;
     QSaveFile_FileName_Callback qsavefile_filename_callback = nullptr;
     QSaveFile_Open_Callback qsavefile_open_callback = nullptr;
@@ -90,6 +94,8 @@ class VirtualQSaveFile final : public QSaveFile {
     QSaveFile_IsSignalConnected_Callback qsavefile_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsavefile_metaobject_isbase = false;
+    mutable bool qsavefile_metacast_isbase = false;
     mutable bool qsavefile_metacall_isbase = false;
     mutable bool qsavefile_filename_isbase = false;
     mutable bool qsavefile_open_isbase = false;
@@ -132,6 +138,8 @@ class VirtualQSaveFile final : public QSaveFile {
     VirtualQSaveFile(QObject* parent) : QSaveFile(parent) {};
 
     ~VirtualQSaveFile() {
+        qsavefile_metaobject_callback = nullptr;
+        qsavefile_metacast_callback = nullptr;
         qsavefile_metacall_callback = nullptr;
         qsavefile_filename_callback = nullptr;
         qsavefile_open_callback = nullptr;
@@ -169,6 +177,8 @@ class VirtualQSaveFile final : public QSaveFile {
     }
 
     // Callback setters
+    inline void setQSaveFile_MetaObject_Callback(QSaveFile_MetaObject_Callback cb) { qsavefile_metaobject_callback = cb; }
+    inline void setQSaveFile_Metacast_Callback(QSaveFile_Metacast_Callback cb) { qsavefile_metacast_callback = cb; }
     inline void setQSaveFile_Metacall_Callback(QSaveFile_Metacall_Callback cb) { qsavefile_metacall_callback = cb; }
     inline void setQSaveFile_FileName_Callback(QSaveFile_FileName_Callback cb) { qsavefile_filename_callback = cb; }
     inline void setQSaveFile_Open_Callback(QSaveFile_Open_Callback cb) { qsavefile_open_callback = cb; }
@@ -205,6 +215,8 @@ class VirtualQSaveFile final : public QSaveFile {
     inline void setQSaveFile_IsSignalConnected_Callback(QSaveFile_IsSignalConnected_Callback cb) { qsavefile_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSaveFile_MetaObject_IsBase(bool value) const { qsavefile_metaobject_isbase = value; }
+    inline void setQSaveFile_Metacast_IsBase(bool value) const { qsavefile_metacast_isbase = value; }
     inline void setQSaveFile_Metacall_IsBase(bool value) const { qsavefile_metacall_isbase = value; }
     inline void setQSaveFile_FileName_IsBase(bool value) const { qsavefile_filename_isbase = value; }
     inline void setQSaveFile_Open_IsBase(bool value) const { qsavefile_open_isbase = value; }
@@ -239,6 +251,34 @@ class VirtualQSaveFile final : public QSaveFile {
     inline void setQSaveFile_SenderSignalIndex_IsBase(bool value) const { qsavefile_sendersignalindex_isbase = value; }
     inline void setQSaveFile_Receivers_IsBase(bool value) const { qsavefile_receivers_isbase = value; }
     inline void setQSaveFile_IsSignalConnected_IsBase(bool value) const { qsavefile_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsavefile_metaobject_isbase) {
+            qsavefile_metaobject_isbase = false;
+            return QSaveFile::metaObject();
+        } else if (qsavefile_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsavefile_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSaveFile::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsavefile_metacast_isbase) {
+            qsavefile_metacast_isbase = false;
+            return QSaveFile::qt_metacast(param1);
+        } else if (qsavefile_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsavefile_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSaveFile::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

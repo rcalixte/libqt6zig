@@ -26,11 +26,21 @@ QBoxPlotSeries* QBoxPlotSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QBoxPlotSeries_MetaObject(const QBoxPlotSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqboxplotseries = dynamic_cast<const VirtualQBoxPlotSeries*>(self);
+    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQBoxPlotSeries*)self)->metaObject();
+    }
 }
 
 void* QBoxPlotSeries_Metacast(QBoxPlotSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
+    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQBoxPlotSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QBoxPlotSeries_Metacall(QBoxPlotSeries* self, int param1, int param2, void** param3) {
@@ -298,6 +308,44 @@ void QBoxPlotSeries_Connect_BoxsetsRemoved(QBoxPlotSeries* self, intptr_t slot) 
         slotFunc(self, sigval1);
         free(sets_arr);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QBoxPlotSeries_QBaseMetaObject(const QBoxPlotSeries* self) {
+    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
+    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+        vqboxplotseries->setQBoxPlotSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqboxplotseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QBoxPlotSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBoxPlotSeries_OnMetaObject(const QBoxPlotSeries* self, intptr_t slot) {
+    auto* vqboxplotseries = const_cast<VirtualQBoxPlotSeries*>(dynamic_cast<const VirtualQBoxPlotSeries*>(self));
+    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+        vqboxplotseries->setQBoxPlotSeries_MetaObject_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QBoxPlotSeries_QBaseMetacast(QBoxPlotSeries* self, const char* param1) {
+    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
+    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+        vqboxplotseries->setQBoxPlotSeries_Metacast_IsBase(true);
+        return vqboxplotseries->qt_metacast(param1);
+    } else {
+        return self->QBoxPlotSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBoxPlotSeries_OnMetacast(QBoxPlotSeries* self, intptr_t slot) {
+    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
+    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
+        vqboxplotseries->setQBoxPlotSeries_Metacast_Callback(reinterpret_cast<VirtualQBoxPlotSeries::QBoxPlotSeries_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

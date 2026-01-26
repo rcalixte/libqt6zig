@@ -21,11 +21,21 @@ QTimer* QTimer_new2(QObject* parent) {
 }
 
 QMetaObject* QTimer_MetaObject(const QTimer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtimer = dynamic_cast<const VirtualQTimer*>(self);
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTimer*)self)->metaObject();
+    }
 }
 
 void* QTimer_Metacast(QTimer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTimer*)self)->qt_metacast(param1);
+    }
 }
 
 int QTimer_Metacall(QTimer* self, int param1, int param2, void** param3) {
@@ -111,6 +121,44 @@ void QTimer_TimerEvent(QTimer* self, QTimerEvent* param1) {
     auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->timerEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QTimer_QBaseMetaObject(const QTimer* self) {
+    auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        vqtimer->setQTimer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtimer->metaObject();
+    } else {
+        return (QMetaObject*)self->QTimer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTimer_OnMetaObject(const QTimer* self, intptr_t slot) {
+    auto* vqtimer = const_cast<VirtualQTimer*>(dynamic_cast<const VirtualQTimer*>(self));
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        vqtimer->setQTimer_MetaObject_Callback(reinterpret_cast<VirtualQTimer::QTimer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTimer_QBaseMetacast(QTimer* self, const char* param1) {
+    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        vqtimer->setQTimer_Metacast_IsBase(true);
+        return vqtimer->qt_metacast(param1);
+    } else {
+        return self->QTimer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTimer_OnMetacast(QTimer* self, intptr_t slot) {
+    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
+    if (vqtimer && vqtimer->isVirtualQTimer) {
+        vqtimer->setQTimer_Metacast_Callback(reinterpret_cast<VirtualQTimer::QTimer_Metacast_Callback>(slot));
     }
 }
 

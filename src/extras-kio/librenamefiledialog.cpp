@@ -48,11 +48,21 @@ KIO__RenameFileDialog* KIO__RenameFileDialog_new(const KFileItemList* items, QWi
 }
 
 QMetaObject* KIO__RenameFileDialog_MetaObject(const KIO__RenameFileDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__renamefiledialog = dynamic_cast<const VirtualKIORenameFileDialog*>(self);
+    if (vkio__renamefiledialog && vkio__renamefiledialog->isVirtualKIORenameFileDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIORenameFileDialog*)self)->metaObject();
+    }
 }
 
 void* KIO__RenameFileDialog_Metacast(KIO__RenameFileDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__renamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
+    if (vkio__renamefiledialog && vkio__renamefiledialog->isVirtualKIORenameFileDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIORenameFileDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__RenameFileDialog_Metacall(KIO__RenameFileDialog* self, int param1, int param2, void** param3) {
@@ -101,6 +111,44 @@ void KIO__RenameFileDialog_Connect_Error(KIO__RenameFileDialog* self, intptr_t s
         KJob* sigval1 = errorVal;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KIO__RenameFileDialog_QBaseMetaObject(const KIO__RenameFileDialog* self) {
+    auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+        vkiorenamefiledialog->setKIO__RenameFileDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkiorenamefiledialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::RenameFileDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__RenameFileDialog_OnMetaObject(const KIO__RenameFileDialog* self, intptr_t slot) {
+    auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+        vkiorenamefiledialog->setKIO__RenameFileDialog_MetaObject_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__RenameFileDialog_QBaseMetacast(KIO__RenameFileDialog* self, const char* param1) {
+    auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+        vkiorenamefiledialog->setKIO__RenameFileDialog_Metacast_IsBase(true);
+        return vkiorenamefiledialog->qt_metacast(param1);
+    } else {
+        return self->KIO::RenameFileDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__RenameFileDialog_OnMetacast(KIO__RenameFileDialog* self, intptr_t slot) {
+    auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+        vkiorenamefiledialog->setKIO__RenameFileDialog_Metacast_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

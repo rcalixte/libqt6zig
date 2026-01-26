@@ -26,11 +26,21 @@ KCoreDirLister* KCoreDirLister_new2(QObject* parent) {
 }
 
 QMetaObject* KCoreDirLister_MetaObject(const KCoreDirLister* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkcoredirlister = dynamic_cast<const VirtualKCoreDirLister*>(self);
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKCoreDirLister*)self)->metaObject();
+    }
 }
 
 void* KCoreDirLister_Metacast(KCoreDirLister* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKCoreDirLister*)self)->qt_metacast(param1);
+    }
 }
 
 int KCoreDirLister_Metacall(KCoreDirLister* self, int param1, int param2, void** param3) {
@@ -486,6 +496,44 @@ KFileItemList* KCoreDirLister_Items1(const KCoreDirLister* self, int which) {
 
 KFileItemList* KCoreDirLister_ItemsForDir2(const KCoreDirLister* self, const QUrl* dirUrl, int which) {
     return new KFileItemList(self->itemsForDir(*dirUrl, static_cast<KCoreDirLister::WhichItems>(which)));
+}
+
+// Base class handler implementation
+QMetaObject* KCoreDirLister_QBaseMetaObject(const KCoreDirLister* self) {
+    auto* vkcoredirlister = const_cast<VirtualKCoreDirLister*>(dynamic_cast<const VirtualKCoreDirLister*>(self));
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+        vkcoredirlister->setKCoreDirLister_MetaObject_IsBase(true);
+        return (QMetaObject*)vkcoredirlister->metaObject();
+    } else {
+        return (QMetaObject*)self->KCoreDirLister::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreDirLister_OnMetaObject(const KCoreDirLister* self, intptr_t slot) {
+    auto* vkcoredirlister = const_cast<VirtualKCoreDirLister*>(dynamic_cast<const VirtualKCoreDirLister*>(self));
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+        vkcoredirlister->setKCoreDirLister_MetaObject_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KCoreDirLister_QBaseMetacast(KCoreDirLister* self, const char* param1) {
+    auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+        vkcoredirlister->setKCoreDirLister_Metacast_IsBase(true);
+        return vkcoredirlister->qt_metacast(param1);
+    } else {
+        return self->KCoreDirLister::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreDirLister_OnMetacast(KCoreDirLister* self, intptr_t slot) {
+    auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+        vkcoredirlister->setKCoreDirLister_Metacast_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

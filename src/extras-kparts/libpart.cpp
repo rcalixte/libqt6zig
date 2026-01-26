@@ -37,11 +37,21 @@ KParts__Part* KParts__Part_new3(QObject* parent, const KPluginMetaData* data) {
 }
 
 QMetaObject* KParts__Part_MetaObject(const KParts__Part* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkparts__part = dynamic_cast<const VirtualKPartsPart*>(self);
+    if (vkparts__part && vkparts__part->isVirtualKPartsPart) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPartsPart*)self)->metaObject();
+    }
 }
 
 void* KParts__Part_Metacast(KParts__Part* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkparts__part = dynamic_cast<VirtualKPartsPart*>(self);
+    if (vkparts__part && vkparts__part->isVirtualKPartsPart) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPartsPart*)self)->qt_metacast(param1);
+    }
 }
 
 int KParts__Part_Metacall(KParts__Part* self, int param1, int param2, void** param3) {
@@ -161,6 +171,44 @@ void KParts__Part_GuiActivateEvent(KParts__Part* self, KParts__GUIActivateEvent*
     auto* vkparts__part = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkparts__part && vkparts__part->isVirtualKPartsPart) {
         vkparts__part->guiActivateEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KParts__Part_QBaseMetaObject(const KParts__Part* self) {
+    auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
+    if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
+        vkpartspart->setKParts__Part_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpartspart->metaObject();
+    } else {
+        return (QMetaObject*)self->KParts::Part::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__Part_OnMetaObject(const KParts__Part* self, intptr_t slot) {
+    auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
+    if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
+        vkpartspart->setKParts__Part_MetaObject_Callback(reinterpret_cast<VirtualKPartsPart::KParts__Part_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KParts__Part_QBaseMetacast(KParts__Part* self, const char* param1) {
+    auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
+    if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
+        vkpartspart->setKParts__Part_Metacast_IsBase(true);
+        return vkpartspart->qt_metacast(param1);
+    } else {
+        return self->KParts::Part::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KParts__Part_OnMetacast(KParts__Part* self, intptr_t slot) {
+    auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
+    if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
+        vkpartspart->setKParts__Part_Metacast_Callback(reinterpret_cast<VirtualKPartsPart::KParts__Part_Metacast_Callback>(slot));
     }
 }
 

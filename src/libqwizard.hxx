@@ -17,6 +17,8 @@ class VirtualQWizard final : public QWizard {
     bool isVirtualQWizard = true;
 
     // Virtual class public types (including callbacks)
+    using QWizard_MetaObject_Callback = QMetaObject* (*)();
+    using QWizard_Metacast_Callback = void* (*)(QWizard*, const char*);
     using QWizard_Metacall_Callback = int (*)(QWizard*, int, int, void**);
     using QWizard_ValidateCurrentPage_Callback = bool (*)();
     using QWizard_NextId_Callback = int (*)();
@@ -88,6 +90,8 @@ class VirtualQWizard final : public QWizard {
 
   protected:
     // Instance callback storage
+    QWizard_MetaObject_Callback qwizard_metaobject_callback = nullptr;
+    QWizard_Metacast_Callback qwizard_metacast_callback = nullptr;
     QWizard_Metacall_Callback qwizard_metacall_callback = nullptr;
     QWizard_ValidateCurrentPage_Callback qwizard_validatecurrentpage_callback = nullptr;
     QWizard_NextId_Callback qwizard_nextid_callback = nullptr;
@@ -158,6 +162,8 @@ class VirtualQWizard final : public QWizard {
     QWizard_GetDecodedMetricF_Callback qwizard_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwizard_metaobject_isbase = false;
+    mutable bool qwizard_metacast_isbase = false;
     mutable bool qwizard_metacall_isbase = false;
     mutable bool qwizard_validatecurrentpage_isbase = false;
     mutable bool qwizard_nextid_isbase = false;
@@ -233,6 +239,8 @@ class VirtualQWizard final : public QWizard {
     VirtualQWizard(QWidget* parent, Qt::WindowFlags flags) : QWizard(parent, flags) {};
 
     ~VirtualQWizard() {
+        qwizard_metaobject_callback = nullptr;
+        qwizard_metacast_callback = nullptr;
         qwizard_metacall_callback = nullptr;
         qwizard_validatecurrentpage_callback = nullptr;
         qwizard_nextid_callback = nullptr;
@@ -304,6 +312,8 @@ class VirtualQWizard final : public QWizard {
     }
 
     // Callback setters
+    inline void setQWizard_MetaObject_Callback(QWizard_MetaObject_Callback cb) { qwizard_metaobject_callback = cb; }
+    inline void setQWizard_Metacast_Callback(QWizard_Metacast_Callback cb) { qwizard_metacast_callback = cb; }
     inline void setQWizard_Metacall_Callback(QWizard_Metacall_Callback cb) { qwizard_metacall_callback = cb; }
     inline void setQWizard_ValidateCurrentPage_Callback(QWizard_ValidateCurrentPage_Callback cb) { qwizard_validatecurrentpage_callback = cb; }
     inline void setQWizard_NextId_Callback(QWizard_NextId_Callback cb) { qwizard_nextid_callback = cb; }
@@ -374,6 +384,8 @@ class VirtualQWizard final : public QWizard {
     inline void setQWizard_GetDecodedMetricF_Callback(QWizard_GetDecodedMetricF_Callback cb) { qwizard_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQWizard_MetaObject_IsBase(bool value) const { qwizard_metaobject_isbase = value; }
+    inline void setQWizard_Metacast_IsBase(bool value) const { qwizard_metacast_isbase = value; }
     inline void setQWizard_Metacall_IsBase(bool value) const { qwizard_metacall_isbase = value; }
     inline void setQWizard_ValidateCurrentPage_IsBase(bool value) const { qwizard_validatecurrentpage_isbase = value; }
     inline void setQWizard_NextId_IsBase(bool value) const { qwizard_nextid_isbase = value; }
@@ -442,6 +454,34 @@ class VirtualQWizard final : public QWizard {
     inline void setQWizard_Receivers_IsBase(bool value) const { qwizard_receivers_isbase = value; }
     inline void setQWizard_IsSignalConnected_IsBase(bool value) const { qwizard_issignalconnected_isbase = value; }
     inline void setQWizard_GetDecodedMetricF_IsBase(bool value) const { qwizard_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwizard_metaobject_isbase) {
+            qwizard_metaobject_isbase = false;
+            return QWizard::metaObject();
+        } else if (qwizard_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwizard_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWizard::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwizard_metacast_isbase) {
+            qwizard_metacast_isbase = false;
+            return QWizard::qt_metacast(param1);
+        } else if (qwizard_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwizard_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWizard::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1518,6 +1558,8 @@ class VirtualQWizardPage final : public QWizardPage {
     bool isVirtualQWizardPage = true;
 
     // Virtual class public types (including callbacks)
+    using QWizardPage_MetaObject_Callback = QMetaObject* (*)();
+    using QWizardPage_Metacast_Callback = void* (*)(QWizardPage*, const char*);
     using QWizardPage_Metacall_Callback = int (*)(QWizardPage*, int, int, void**);
     using QWizardPage_InitializePage_Callback = void (*)();
     using QWizardPage_CleanupPage_Callback = void (*)();
@@ -1590,6 +1632,8 @@ class VirtualQWizardPage final : public QWizardPage {
 
   protected:
     // Instance callback storage
+    QWizardPage_MetaObject_Callback qwizardpage_metaobject_callback = nullptr;
+    QWizardPage_Metacast_Callback qwizardpage_metacast_callback = nullptr;
     QWizardPage_Metacall_Callback qwizardpage_metacall_callback = nullptr;
     QWizardPage_InitializePage_Callback qwizardpage_initializepage_callback = nullptr;
     QWizardPage_CleanupPage_Callback qwizardpage_cleanuppage_callback = nullptr;
@@ -1661,6 +1705,8 @@ class VirtualQWizardPage final : public QWizardPage {
     QWizardPage_GetDecodedMetricF_Callback qwizardpage_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qwizardpage_metaobject_isbase = false;
+    mutable bool qwizardpage_metacast_isbase = false;
     mutable bool qwizardpage_metacall_isbase = false;
     mutable bool qwizardpage_initializepage_isbase = false;
     mutable bool qwizardpage_cleanuppage_isbase = false;
@@ -1736,6 +1782,8 @@ class VirtualQWizardPage final : public QWizardPage {
     VirtualQWizardPage() : QWizardPage() {};
 
     ~VirtualQWizardPage() {
+        qwizardpage_metaobject_callback = nullptr;
+        qwizardpage_metacast_callback = nullptr;
         qwizardpage_metacall_callback = nullptr;
         qwizardpage_initializepage_callback = nullptr;
         qwizardpage_cleanuppage_callback = nullptr;
@@ -1808,6 +1856,8 @@ class VirtualQWizardPage final : public QWizardPage {
     }
 
     // Callback setters
+    inline void setQWizardPage_MetaObject_Callback(QWizardPage_MetaObject_Callback cb) { qwizardpage_metaobject_callback = cb; }
+    inline void setQWizardPage_Metacast_Callback(QWizardPage_Metacast_Callback cb) { qwizardpage_metacast_callback = cb; }
     inline void setQWizardPage_Metacall_Callback(QWizardPage_Metacall_Callback cb) { qwizardpage_metacall_callback = cb; }
     inline void setQWizardPage_InitializePage_Callback(QWizardPage_InitializePage_Callback cb) { qwizardpage_initializepage_callback = cb; }
     inline void setQWizardPage_CleanupPage_Callback(QWizardPage_CleanupPage_Callback cb) { qwizardpage_cleanuppage_callback = cb; }
@@ -1879,6 +1929,8 @@ class VirtualQWizardPage final : public QWizardPage {
     inline void setQWizardPage_GetDecodedMetricF_Callback(QWizardPage_GetDecodedMetricF_Callback cb) { qwizardpage_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQWizardPage_MetaObject_IsBase(bool value) const { qwizardpage_metaobject_isbase = value; }
+    inline void setQWizardPage_Metacast_IsBase(bool value) const { qwizardpage_metacast_isbase = value; }
     inline void setQWizardPage_Metacall_IsBase(bool value) const { qwizardpage_metacall_isbase = value; }
     inline void setQWizardPage_InitializePage_IsBase(bool value) const { qwizardpage_initializepage_isbase = value; }
     inline void setQWizardPage_CleanupPage_IsBase(bool value) const { qwizardpage_cleanuppage_isbase = value; }
@@ -1948,6 +2000,34 @@ class VirtualQWizardPage final : public QWizardPage {
     inline void setQWizardPage_Receivers_IsBase(bool value) const { qwizardpage_receivers_isbase = value; }
     inline void setQWizardPage_IsSignalConnected_IsBase(bool value) const { qwizardpage_issignalconnected_isbase = value; }
     inline void setQWizardPage_GetDecodedMetricF_IsBase(bool value) const { qwizardpage_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qwizardpage_metaobject_isbase) {
+            qwizardpage_metaobject_isbase = false;
+            return QWizardPage::metaObject();
+        } else if (qwizardpage_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qwizardpage_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QWizardPage::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qwizardpage_metacast_isbase) {
+            qwizardpage_metacast_isbase = false;
+            return QWizardPage::qt_metacast(param1);
+        } else if (qwizardpage_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qwizardpage_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QWizardPage::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

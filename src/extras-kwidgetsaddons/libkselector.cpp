@@ -62,11 +62,21 @@ KSelector* KSelector_new4(int o, QWidget* parent) {
 }
 
 QMetaObject* KSelector_MetaObject(const KSelector* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkselector = dynamic_cast<const VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSelector*)self)->metaObject();
+    }
 }
 
 void* KSelector_Metacast(KSelector* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSelector*)self)->qt_metacast(param1);
+    }
 }
 
 int KSelector_Metacall(KSelector* self, int param1, int param2, void** param3) {
@@ -144,6 +154,44 @@ void KSelector_WheelEvent(KSelector* self, QWheelEvent* param1) {
     auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
     if (vkselector && vkselector->isVirtualKSelector) {
         vkselector->wheelEvent(param1);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KSelector_QBaseMetaObject(const KSelector* self) {
+    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_MetaObject_IsBase(true);
+        return (QMetaObject*)vkselector->metaObject();
+    } else {
+        return (QMetaObject*)self->KSelector::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelector_OnMetaObject(const KSelector* self, intptr_t slot) {
+    auto* vkselector = const_cast<VirtualKSelector*>(dynamic_cast<const VirtualKSelector*>(self));
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_MetaObject_Callback(reinterpret_cast<VirtualKSelector::KSelector_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSelector_QBaseMetacast(KSelector* self, const char* param1) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_Metacast_IsBase(true);
+        return vkselector->qt_metacast(param1);
+    } else {
+        return self->KSelector::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelector_OnMetacast(KSelector* self, intptr_t slot) {
+    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
+    if (vkselector && vkselector->isVirtualKSelector) {
+        vkselector->setKSelector_Metacast_Callback(reinterpret_cast<VirtualKSelector::KSelector_Metacast_Callback>(slot));
     }
 }
 
@@ -1917,11 +1965,21 @@ KGradientSelector* KGradientSelector_new4(int o, QWidget* parent) {
 }
 
 QMetaObject* KGradientSelector_MetaObject(const KGradientSelector* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkgradientselector = dynamic_cast<const VirtualKGradientSelector*>(self);
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKGradientSelector*)self)->metaObject();
+    }
 }
 
 void* KGradientSelector_Metacast(KGradientSelector* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKGradientSelector*)self)->qt_metacast(param1);
+    }
 }
 
 int KGradientSelector_Metacall(KGradientSelector* self, int param1, int param2, void** param3) {
@@ -2037,6 +2095,44 @@ QSize* KGradientSelector_MinimumSize(const KGradientSelector* self) {
         return new QSize(vkgradientselector->minimumSize());
     }
     return {};
+}
+
+// Base class handler implementation
+QMetaObject* KGradientSelector_QBaseMetaObject(const KGradientSelector* self) {
+    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        vkgradientselector->setKGradientSelector_MetaObject_IsBase(true);
+        return (QMetaObject*)vkgradientselector->metaObject();
+    } else {
+        return (QMetaObject*)self->KGradientSelector::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KGradientSelector_OnMetaObject(const KGradientSelector* self, intptr_t slot) {
+    auto* vkgradientselector = const_cast<VirtualKGradientSelector*>(dynamic_cast<const VirtualKGradientSelector*>(self));
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        vkgradientselector->setKGradientSelector_MetaObject_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KGradientSelector_QBaseMetacast(KGradientSelector* self, const char* param1) {
+    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        vkgradientselector->setKGradientSelector_Metacast_IsBase(true);
+        return vkgradientselector->qt_metacast(param1);
+    } else {
+        return self->KGradientSelector::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KGradientSelector_OnMetacast(KGradientSelector* self, intptr_t slot) {
+    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
+    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
+        vkgradientselector->setKGradientSelector_Metacast_Callback(reinterpret_cast<VirtualKGradientSelector::KGradientSelector_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

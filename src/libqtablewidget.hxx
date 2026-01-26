@@ -181,6 +181,8 @@ class VirtualQTableWidget final : public QTableWidget {
     using QAbstractItemView::CursorAction;
     using QAbstractItemView::DropIndicatorPosition;
     using QAbstractItemView::State;
+    using QTableWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QTableWidget_Metacast_Callback = void* (*)(QTableWidget*, const char*);
     using QTableWidget_Metacall_Callback = int (*)(QTableWidget*, int, int, void**);
     using QTableWidget_Event_Callback = bool (*)(QTableWidget*, QEvent*);
     using QTableWidget_MimeTypes_Callback = const char** (*)();
@@ -309,6 +311,8 @@ class VirtualQTableWidget final : public QTableWidget {
 
   protected:
     // Instance callback storage
+    QTableWidget_MetaObject_Callback qtablewidget_metaobject_callback = nullptr;
+    QTableWidget_Metacast_Callback qtablewidget_metacast_callback = nullptr;
     QTableWidget_Metacall_Callback qtablewidget_metacall_callback = nullptr;
     QTableWidget_Event_Callback qtablewidget_event_callback = nullptr;
     QTableWidget_MimeTypes_Callback qtablewidget_mimetypes_callback = nullptr;
@@ -436,6 +440,8 @@ class VirtualQTableWidget final : public QTableWidget {
     QTableWidget_GetDecodedMetricF_Callback qtablewidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtablewidget_metaobject_isbase = false;
+    mutable bool qtablewidget_metacast_isbase = false;
     mutable bool qtablewidget_metacall_isbase = false;
     mutable bool qtablewidget_event_isbase = false;
     mutable bool qtablewidget_mimetypes_isbase = false;
@@ -569,6 +575,8 @@ class VirtualQTableWidget final : public QTableWidget {
     VirtualQTableWidget(int rows, int columns, QWidget* parent) : QTableWidget(rows, columns, parent) {};
 
     ~VirtualQTableWidget() {
+        qtablewidget_metaobject_callback = nullptr;
+        qtablewidget_metacast_callback = nullptr;
         qtablewidget_metacall_callback = nullptr;
         qtablewidget_event_callback = nullptr;
         qtablewidget_mimetypes_callback = nullptr;
@@ -697,6 +705,8 @@ class VirtualQTableWidget final : public QTableWidget {
     }
 
     // Callback setters
+    inline void setQTableWidget_MetaObject_Callback(QTableWidget_MetaObject_Callback cb) { qtablewidget_metaobject_callback = cb; }
+    inline void setQTableWidget_Metacast_Callback(QTableWidget_Metacast_Callback cb) { qtablewidget_metacast_callback = cb; }
     inline void setQTableWidget_Metacall_Callback(QTableWidget_Metacall_Callback cb) { qtablewidget_metacall_callback = cb; }
     inline void setQTableWidget_Event_Callback(QTableWidget_Event_Callback cb) { qtablewidget_event_callback = cb; }
     inline void setQTableWidget_MimeTypes_Callback(QTableWidget_MimeTypes_Callback cb) { qtablewidget_mimetypes_callback = cb; }
@@ -824,6 +834,8 @@ class VirtualQTableWidget final : public QTableWidget {
     inline void setQTableWidget_GetDecodedMetricF_Callback(QTableWidget_GetDecodedMetricF_Callback cb) { qtablewidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQTableWidget_MetaObject_IsBase(bool value) const { qtablewidget_metaobject_isbase = value; }
+    inline void setQTableWidget_Metacast_IsBase(bool value) const { qtablewidget_metacast_isbase = value; }
     inline void setQTableWidget_Metacall_IsBase(bool value) const { qtablewidget_metacall_isbase = value; }
     inline void setQTableWidget_Event_IsBase(bool value) const { qtablewidget_event_isbase = value; }
     inline void setQTableWidget_MimeTypes_IsBase(bool value) const { qtablewidget_mimetypes_isbase = value; }
@@ -949,6 +961,34 @@ class VirtualQTableWidget final : public QTableWidget {
     inline void setQTableWidget_Receivers_IsBase(bool value) const { qtablewidget_receivers_isbase = value; }
     inline void setQTableWidget_IsSignalConnected_IsBase(bool value) const { qtablewidget_issignalconnected_isbase = value; }
     inline void setQTableWidget_GetDecodedMetricF_IsBase(bool value) const { qtablewidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtablewidget_metaobject_isbase) {
+            qtablewidget_metaobject_isbase = false;
+            return QTableWidget::metaObject();
+        } else if (qtablewidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtablewidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTableWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtablewidget_metacast_isbase) {
+            qtablewidget_metacast_isbase = false;
+            return QTableWidget::qt_metacast(param1);
+        } else if (qtablewidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtablewidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTableWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

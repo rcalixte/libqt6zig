@@ -30,11 +30,21 @@ QRestAccessManager* QRestAccessManager_new2(QNetworkAccessManager* manager, QObj
 }
 
 QMetaObject* QRestAccessManager_MetaObject(const QRestAccessManager* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqrestaccessmanager = dynamic_cast<const VirtualQRestAccessManager*>(self);
+    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQRestAccessManager*)self)->metaObject();
+    }
 }
 
 void* QRestAccessManager_Metacast(QRestAccessManager* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
+    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQRestAccessManager*)self)->qt_metacast(param1);
+    }
 }
 
 int QRestAccessManager_Metacall(QRestAccessManager* self, int param1, int param2, void** param3) {
@@ -169,6 +179,44 @@ QNetworkReply* QRestAccessManager_SendCustomRequest2(QRestAccessManager* self, c
 QNetworkReply* QRestAccessManager_SendCustomRequest3(QRestAccessManager* self, const QNetworkRequest* request, const libqt_string method, QHttpMultiPart* data) {
     QByteArray method_QByteArray(method.data, method.len);
     return self->sendCustomRequest(*request, method_QByteArray, data);
+}
+
+// Base class handler implementation
+QMetaObject* QRestAccessManager_QBaseMetaObject(const QRestAccessManager* self) {
+    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
+    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+        vqrestaccessmanager->setQRestAccessManager_MetaObject_IsBase(true);
+        return (QMetaObject*)vqrestaccessmanager->metaObject();
+    } else {
+        return (QMetaObject*)self->QRestAccessManager::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRestAccessManager_OnMetaObject(const QRestAccessManager* self, intptr_t slot) {
+    auto* vqrestaccessmanager = const_cast<VirtualQRestAccessManager*>(dynamic_cast<const VirtualQRestAccessManager*>(self));
+    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+        vqrestaccessmanager->setQRestAccessManager_MetaObject_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QRestAccessManager_QBaseMetacast(QRestAccessManager* self, const char* param1) {
+    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
+    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+        vqrestaccessmanager->setQRestAccessManager_Metacast_IsBase(true);
+        return vqrestaccessmanager->qt_metacast(param1);
+    } else {
+        return self->QRestAccessManager::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRestAccessManager_OnMetacast(QRestAccessManager* self, intptr_t slot) {
+    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
+    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
+        vqrestaccessmanager->setQRestAccessManager_Metacast_Callback(reinterpret_cast<VirtualQRestAccessManager::QRestAccessManager_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

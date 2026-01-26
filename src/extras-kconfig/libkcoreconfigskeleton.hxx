@@ -481,6 +481,8 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
     bool isVirtualKCoreConfigSkeleton = true;
 
     // Virtual class public types (including callbacks)
+    using KCoreConfigSkeleton_MetaObject_Callback = QMetaObject* (*)();
+    using KCoreConfigSkeleton_Metacast_Callback = void* (*)(KCoreConfigSkeleton*, const char*);
     using KCoreConfigSkeleton_Metacall_Callback = int (*)(KCoreConfigSkeleton*, int, int, void**);
     using KCoreConfigSkeleton_SetDefaults_Callback = void (*)();
     using KCoreConfigSkeleton_UseDefaults_Callback = bool (*)(KCoreConfigSkeleton*, bool);
@@ -502,6 +504,8 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
 
   protected:
     // Instance callback storage
+    KCoreConfigSkeleton_MetaObject_Callback kcoreconfigskeleton_metaobject_callback = nullptr;
+    KCoreConfigSkeleton_Metacast_Callback kcoreconfigskeleton_metacast_callback = nullptr;
     KCoreConfigSkeleton_Metacall_Callback kcoreconfigskeleton_metacall_callback = nullptr;
     KCoreConfigSkeleton_SetDefaults_Callback kcoreconfigskeleton_setdefaults_callback = nullptr;
     KCoreConfigSkeleton_UseDefaults_Callback kcoreconfigskeleton_usedefaults_callback = nullptr;
@@ -522,6 +526,8 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
     KCoreConfigSkeleton_IsSignalConnected_Callback kcoreconfigskeleton_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcoreconfigskeleton_metaobject_isbase = false;
+    mutable bool kcoreconfigskeleton_metacast_isbase = false;
     mutable bool kcoreconfigskeleton_metacall_isbase = false;
     mutable bool kcoreconfigskeleton_setdefaults_isbase = false;
     mutable bool kcoreconfigskeleton_usedefaults_isbase = false;
@@ -547,6 +553,8 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
     VirtualKCoreConfigSkeleton(const QString& configname, QObject* parent) : KCoreConfigSkeleton(configname, parent) {};
 
     ~VirtualKCoreConfigSkeleton() {
+        kcoreconfigskeleton_metaobject_callback = nullptr;
+        kcoreconfigskeleton_metacast_callback = nullptr;
         kcoreconfigskeleton_metacall_callback = nullptr;
         kcoreconfigskeleton_setdefaults_callback = nullptr;
         kcoreconfigskeleton_usedefaults_callback = nullptr;
@@ -568,6 +576,8 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
     }
 
     // Callback setters
+    inline void setKCoreConfigSkeleton_MetaObject_Callback(KCoreConfigSkeleton_MetaObject_Callback cb) { kcoreconfigskeleton_metaobject_callback = cb; }
+    inline void setKCoreConfigSkeleton_Metacast_Callback(KCoreConfigSkeleton_Metacast_Callback cb) { kcoreconfigskeleton_metacast_callback = cb; }
     inline void setKCoreConfigSkeleton_Metacall_Callback(KCoreConfigSkeleton_Metacall_Callback cb) { kcoreconfigskeleton_metacall_callback = cb; }
     inline void setKCoreConfigSkeleton_SetDefaults_Callback(KCoreConfigSkeleton_SetDefaults_Callback cb) { kcoreconfigskeleton_setdefaults_callback = cb; }
     inline void setKCoreConfigSkeleton_UseDefaults_Callback(KCoreConfigSkeleton_UseDefaults_Callback cb) { kcoreconfigskeleton_usedefaults_callback = cb; }
@@ -588,6 +598,8 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
     inline void setKCoreConfigSkeleton_IsSignalConnected_Callback(KCoreConfigSkeleton_IsSignalConnected_Callback cb) { kcoreconfigskeleton_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCoreConfigSkeleton_MetaObject_IsBase(bool value) const { kcoreconfigskeleton_metaobject_isbase = value; }
+    inline void setKCoreConfigSkeleton_Metacast_IsBase(bool value) const { kcoreconfigskeleton_metacast_isbase = value; }
     inline void setKCoreConfigSkeleton_Metacall_IsBase(bool value) const { kcoreconfigskeleton_metacall_isbase = value; }
     inline void setKCoreConfigSkeleton_SetDefaults_IsBase(bool value) const { kcoreconfigskeleton_setdefaults_isbase = value; }
     inline void setKCoreConfigSkeleton_UseDefaults_IsBase(bool value) const { kcoreconfigskeleton_usedefaults_isbase = value; }
@@ -606,6 +618,34 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
     inline void setKCoreConfigSkeleton_SenderSignalIndex_IsBase(bool value) const { kcoreconfigskeleton_sendersignalindex_isbase = value; }
     inline void setKCoreConfigSkeleton_Receivers_IsBase(bool value) const { kcoreconfigskeleton_receivers_isbase = value; }
     inline void setKCoreConfigSkeleton_IsSignalConnected_IsBase(bool value) const { kcoreconfigskeleton_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcoreconfigskeleton_metaobject_isbase) {
+            kcoreconfigskeleton_metaobject_isbase = false;
+            return KCoreConfigSkeleton::metaObject();
+        } else if (kcoreconfigskeleton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcoreconfigskeleton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCoreConfigSkeleton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcoreconfigskeleton_metacast_isbase) {
+            kcoreconfigskeleton_metacast_isbase = false;
+            return KCoreConfigSkeleton::qt_metacast(param1);
+        } else if (kcoreconfigskeleton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcoreconfigskeleton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCoreConfigSkeleton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

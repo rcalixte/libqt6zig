@@ -25,11 +25,21 @@ KFilePreviewGenerator* KFilePreviewGenerator_new2(KAbstractViewAdapter* parent, 
 }
 
 QMetaObject* KFilePreviewGenerator_MetaObject(const KFilePreviewGenerator* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkfilepreviewgenerator = dynamic_cast<const VirtualKFilePreviewGenerator*>(self);
+    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKFilePreviewGenerator*)self)->metaObject();
+    }
 }
 
 void* KFilePreviewGenerator_Metacast(KFilePreviewGenerator* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
+    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKFilePreviewGenerator*)self)->qt_metacast(param1);
+    }
 }
 
 int KFilePreviewGenerator_Metacall(KFilePreviewGenerator* self, int param1, int param2, void** param3) {
@@ -87,6 +97,44 @@ void KFilePreviewGenerator_UpdateIcons(KFilePreviewGenerator* self) {
 
 void KFilePreviewGenerator_CancelPreviews(KFilePreviewGenerator* self) {
     self->cancelPreviews();
+}
+
+// Base class handler implementation
+QMetaObject* KFilePreviewGenerator_QBaseMetaObject(const KFilePreviewGenerator* self) {
+    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
+    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+        vkfilepreviewgenerator->setKFilePreviewGenerator_MetaObject_IsBase(true);
+        return (QMetaObject*)vkfilepreviewgenerator->metaObject();
+    } else {
+        return (QMetaObject*)self->KFilePreviewGenerator::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFilePreviewGenerator_OnMetaObject(const KFilePreviewGenerator* self, intptr_t slot) {
+    auto* vkfilepreviewgenerator = const_cast<VirtualKFilePreviewGenerator*>(dynamic_cast<const VirtualKFilePreviewGenerator*>(self));
+    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+        vkfilepreviewgenerator->setKFilePreviewGenerator_MetaObject_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KFilePreviewGenerator_QBaseMetacast(KFilePreviewGenerator* self, const char* param1) {
+    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
+    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+        vkfilepreviewgenerator->setKFilePreviewGenerator_Metacast_IsBase(true);
+        return vkfilepreviewgenerator->qt_metacast(param1);
+    } else {
+        return self->KFilePreviewGenerator::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KFilePreviewGenerator_OnMetacast(KFilePreviewGenerator* self, intptr_t slot) {
+    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
+    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
+        vkfilepreviewgenerator->setKFilePreviewGenerator_Metacast_Callback(reinterpret_cast<VirtualKFilePreviewGenerator::KFilePreviewGenerator_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

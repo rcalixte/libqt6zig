@@ -18,6 +18,8 @@ class VirtualQScrollBar final : public QScrollBar {
 
     // Virtual class public types (including callbacks)
     using QAbstractSlider::SliderChange;
+    using QScrollBar_MetaObject_Callback = QMetaObject* (*)();
+    using QScrollBar_Metacast_Callback = void* (*)(QScrollBar*, const char*);
     using QScrollBar_Metacall_Callback = int (*)(QScrollBar*, int, int, void**);
     using QScrollBar_SizeHint_Callback = QSize* (*)();
     using QScrollBar_Event_Callback = bool (*)(QScrollBar*, QEvent*);
@@ -83,6 +85,8 @@ class VirtualQScrollBar final : public QScrollBar {
 
   protected:
     // Instance callback storage
+    QScrollBar_MetaObject_Callback qscrollbar_metaobject_callback = nullptr;
+    QScrollBar_Metacast_Callback qscrollbar_metacast_callback = nullptr;
     QScrollBar_Metacall_Callback qscrollbar_metacall_callback = nullptr;
     QScrollBar_SizeHint_Callback qscrollbar_sizehint_callback = nullptr;
     QScrollBar_Event_Callback qscrollbar_event_callback = nullptr;
@@ -147,6 +151,8 @@ class VirtualQScrollBar final : public QScrollBar {
     QScrollBar_GetDecodedMetricF_Callback qscrollbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscrollbar_metaobject_isbase = false;
+    mutable bool qscrollbar_metacast_isbase = false;
     mutable bool qscrollbar_metacall_isbase = false;
     mutable bool qscrollbar_sizehint_isbase = false;
     mutable bool qscrollbar_event_isbase = false;
@@ -217,6 +223,8 @@ class VirtualQScrollBar final : public QScrollBar {
     VirtualQScrollBar(Qt::Orientation param1, QWidget* parent) : QScrollBar(param1, parent) {};
 
     ~VirtualQScrollBar() {
+        qscrollbar_metaobject_callback = nullptr;
+        qscrollbar_metacast_callback = nullptr;
         qscrollbar_metacall_callback = nullptr;
         qscrollbar_sizehint_callback = nullptr;
         qscrollbar_event_callback = nullptr;
@@ -282,6 +290,8 @@ class VirtualQScrollBar final : public QScrollBar {
     }
 
     // Callback setters
+    inline void setQScrollBar_MetaObject_Callback(QScrollBar_MetaObject_Callback cb) { qscrollbar_metaobject_callback = cb; }
+    inline void setQScrollBar_Metacast_Callback(QScrollBar_Metacast_Callback cb) { qscrollbar_metacast_callback = cb; }
     inline void setQScrollBar_Metacall_Callback(QScrollBar_Metacall_Callback cb) { qscrollbar_metacall_callback = cb; }
     inline void setQScrollBar_SizeHint_Callback(QScrollBar_SizeHint_Callback cb) { qscrollbar_sizehint_callback = cb; }
     inline void setQScrollBar_Event_Callback(QScrollBar_Event_Callback cb) { qscrollbar_event_callback = cb; }
@@ -346,6 +356,8 @@ class VirtualQScrollBar final : public QScrollBar {
     inline void setQScrollBar_GetDecodedMetricF_Callback(QScrollBar_GetDecodedMetricF_Callback cb) { qscrollbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQScrollBar_MetaObject_IsBase(bool value) const { qscrollbar_metaobject_isbase = value; }
+    inline void setQScrollBar_Metacast_IsBase(bool value) const { qscrollbar_metacast_isbase = value; }
     inline void setQScrollBar_Metacall_IsBase(bool value) const { qscrollbar_metacall_isbase = value; }
     inline void setQScrollBar_SizeHint_IsBase(bool value) const { qscrollbar_sizehint_isbase = value; }
     inline void setQScrollBar_Event_IsBase(bool value) const { qscrollbar_event_isbase = value; }
@@ -408,6 +420,34 @@ class VirtualQScrollBar final : public QScrollBar {
     inline void setQScrollBar_Receivers_IsBase(bool value) const { qscrollbar_receivers_isbase = value; }
     inline void setQScrollBar_IsSignalConnected_IsBase(bool value) const { qscrollbar_issignalconnected_isbase = value; }
     inline void setQScrollBar_GetDecodedMetricF_IsBase(bool value) const { qscrollbar_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscrollbar_metaobject_isbase) {
+            qscrollbar_metaobject_isbase = false;
+            return QScrollBar::metaObject();
+        } else if (qscrollbar_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscrollbar_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QScrollBar::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscrollbar_metacast_isbase) {
+            qscrollbar_metacast_isbase = false;
+            return QScrollBar::qt_metacast(param1);
+        } else if (qscrollbar_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscrollbar_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QScrollBar::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

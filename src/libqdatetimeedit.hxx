@@ -17,6 +17,8 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
     bool isVirtualQDateTimeEdit = true;
 
     // Virtual class public types (including callbacks)
+    using QDateTimeEdit_MetaObject_Callback = QMetaObject* (*)();
+    using QDateTimeEdit_Metacast_Callback = void* (*)(QDateTimeEdit*, const char*);
     using QDateTimeEdit_Metacall_Callback = int (*)(QDateTimeEdit*, int, int, void**);
     using QDateTimeEdit_SizeHint_Callback = QSize* (*)();
     using QDateTimeEdit_Clear_Callback = void (*)();
@@ -88,6 +90,8 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
 
   protected:
     // Instance callback storage
+    QDateTimeEdit_MetaObject_Callback qdatetimeedit_metaobject_callback = nullptr;
+    QDateTimeEdit_Metacast_Callback qdatetimeedit_metacast_callback = nullptr;
     QDateTimeEdit_Metacall_Callback qdatetimeedit_metacall_callback = nullptr;
     QDateTimeEdit_SizeHint_Callback qdatetimeedit_sizehint_callback = nullptr;
     QDateTimeEdit_Clear_Callback qdatetimeedit_clear_callback = nullptr;
@@ -158,6 +162,8 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
     QDateTimeEdit_GetDecodedMetricF_Callback qdatetimeedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdatetimeedit_metaobject_isbase = false;
+    mutable bool qdatetimeedit_metacast_isbase = false;
     mutable bool qdatetimeedit_metacall_isbase = false;
     mutable bool qdatetimeedit_sizehint_isbase = false;
     mutable bool qdatetimeedit_clear_isbase = false;
@@ -238,6 +244,8 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
     VirtualQDateTimeEdit(QTime t, QWidget* parent) : QDateTimeEdit(t, parent) {};
 
     ~VirtualQDateTimeEdit() {
+        qdatetimeedit_metaobject_callback = nullptr;
+        qdatetimeedit_metacast_callback = nullptr;
         qdatetimeedit_metacall_callback = nullptr;
         qdatetimeedit_sizehint_callback = nullptr;
         qdatetimeedit_clear_callback = nullptr;
@@ -309,6 +317,8 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
     }
 
     // Callback setters
+    inline void setQDateTimeEdit_MetaObject_Callback(QDateTimeEdit_MetaObject_Callback cb) { qdatetimeedit_metaobject_callback = cb; }
+    inline void setQDateTimeEdit_Metacast_Callback(QDateTimeEdit_Metacast_Callback cb) { qdatetimeedit_metacast_callback = cb; }
     inline void setQDateTimeEdit_Metacall_Callback(QDateTimeEdit_Metacall_Callback cb) { qdatetimeedit_metacall_callback = cb; }
     inline void setQDateTimeEdit_SizeHint_Callback(QDateTimeEdit_SizeHint_Callback cb) { qdatetimeedit_sizehint_callback = cb; }
     inline void setQDateTimeEdit_Clear_Callback(QDateTimeEdit_Clear_Callback cb) { qdatetimeedit_clear_callback = cb; }
@@ -379,6 +389,8 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
     inline void setQDateTimeEdit_GetDecodedMetricF_Callback(QDateTimeEdit_GetDecodedMetricF_Callback cb) { qdatetimeedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDateTimeEdit_MetaObject_IsBase(bool value) const { qdatetimeedit_metaobject_isbase = value; }
+    inline void setQDateTimeEdit_Metacast_IsBase(bool value) const { qdatetimeedit_metacast_isbase = value; }
     inline void setQDateTimeEdit_Metacall_IsBase(bool value) const { qdatetimeedit_metacall_isbase = value; }
     inline void setQDateTimeEdit_SizeHint_IsBase(bool value) const { qdatetimeedit_sizehint_isbase = value; }
     inline void setQDateTimeEdit_Clear_IsBase(bool value) const { qdatetimeedit_clear_isbase = value; }
@@ -447,6 +459,34 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
     inline void setQDateTimeEdit_Receivers_IsBase(bool value) const { qdatetimeedit_receivers_isbase = value; }
     inline void setQDateTimeEdit_IsSignalConnected_IsBase(bool value) const { qdatetimeedit_issignalconnected_isbase = value; }
     inline void setQDateTimeEdit_GetDecodedMetricF_IsBase(bool value) const { qdatetimeedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdatetimeedit_metaobject_isbase) {
+            qdatetimeedit_metaobject_isbase = false;
+            return QDateTimeEdit::metaObject();
+        } else if (qdatetimeedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdatetimeedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDateTimeEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdatetimeedit_metacast_isbase) {
+            qdatetimeedit_metacast_isbase = false;
+            return QDateTimeEdit::qt_metacast(param1);
+        } else if (qdatetimeedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdatetimeedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDateTimeEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1563,6 +1603,8 @@ class VirtualQTimeEdit final : public QTimeEdit {
     bool isVirtualQTimeEdit = true;
 
     // Virtual class public types (including callbacks)
+    using QTimeEdit_MetaObject_Callback = QMetaObject* (*)();
+    using QTimeEdit_Metacast_Callback = void* (*)(QTimeEdit*, const char*);
     using QTimeEdit_Metacall_Callback = int (*)(QTimeEdit*, int, int, void**);
     using QTimeEdit_SizeHint_Callback = QSize* (*)();
     using QTimeEdit_Clear_Callback = void (*)();
@@ -1634,6 +1676,8 @@ class VirtualQTimeEdit final : public QTimeEdit {
 
   protected:
     // Instance callback storage
+    QTimeEdit_MetaObject_Callback qtimeedit_metaobject_callback = nullptr;
+    QTimeEdit_Metacast_Callback qtimeedit_metacast_callback = nullptr;
     QTimeEdit_Metacall_Callback qtimeedit_metacall_callback = nullptr;
     QTimeEdit_SizeHint_Callback qtimeedit_sizehint_callback = nullptr;
     QTimeEdit_Clear_Callback qtimeedit_clear_callback = nullptr;
@@ -1704,6 +1748,8 @@ class VirtualQTimeEdit final : public QTimeEdit {
     QTimeEdit_GetDecodedMetricF_Callback qtimeedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qtimeedit_metaobject_isbase = false;
+    mutable bool qtimeedit_metacast_isbase = false;
     mutable bool qtimeedit_metacall_isbase = false;
     mutable bool qtimeedit_sizehint_isbase = false;
     mutable bool qtimeedit_clear_isbase = false;
@@ -1780,6 +1826,8 @@ class VirtualQTimeEdit final : public QTimeEdit {
     VirtualQTimeEdit(QTime time, QWidget* parent) : QTimeEdit(time, parent) {};
 
     ~VirtualQTimeEdit() {
+        qtimeedit_metaobject_callback = nullptr;
+        qtimeedit_metacast_callback = nullptr;
         qtimeedit_metacall_callback = nullptr;
         qtimeedit_sizehint_callback = nullptr;
         qtimeedit_clear_callback = nullptr;
@@ -1851,6 +1899,8 @@ class VirtualQTimeEdit final : public QTimeEdit {
     }
 
     // Callback setters
+    inline void setQTimeEdit_MetaObject_Callback(QTimeEdit_MetaObject_Callback cb) { qtimeedit_metaobject_callback = cb; }
+    inline void setQTimeEdit_Metacast_Callback(QTimeEdit_Metacast_Callback cb) { qtimeedit_metacast_callback = cb; }
     inline void setQTimeEdit_Metacall_Callback(QTimeEdit_Metacall_Callback cb) { qtimeedit_metacall_callback = cb; }
     inline void setQTimeEdit_SizeHint_Callback(QTimeEdit_SizeHint_Callback cb) { qtimeedit_sizehint_callback = cb; }
     inline void setQTimeEdit_Clear_Callback(QTimeEdit_Clear_Callback cb) { qtimeedit_clear_callback = cb; }
@@ -1921,6 +1971,8 @@ class VirtualQTimeEdit final : public QTimeEdit {
     inline void setQTimeEdit_GetDecodedMetricF_Callback(QTimeEdit_GetDecodedMetricF_Callback cb) { qtimeedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQTimeEdit_MetaObject_IsBase(bool value) const { qtimeedit_metaobject_isbase = value; }
+    inline void setQTimeEdit_Metacast_IsBase(bool value) const { qtimeedit_metacast_isbase = value; }
     inline void setQTimeEdit_Metacall_IsBase(bool value) const { qtimeedit_metacall_isbase = value; }
     inline void setQTimeEdit_SizeHint_IsBase(bool value) const { qtimeedit_sizehint_isbase = value; }
     inline void setQTimeEdit_Clear_IsBase(bool value) const { qtimeedit_clear_isbase = value; }
@@ -1989,6 +2041,34 @@ class VirtualQTimeEdit final : public QTimeEdit {
     inline void setQTimeEdit_Receivers_IsBase(bool value) const { qtimeedit_receivers_isbase = value; }
     inline void setQTimeEdit_IsSignalConnected_IsBase(bool value) const { qtimeedit_issignalconnected_isbase = value; }
     inline void setQTimeEdit_GetDecodedMetricF_IsBase(bool value) const { qtimeedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qtimeedit_metaobject_isbase) {
+            qtimeedit_metaobject_isbase = false;
+            return QTimeEdit::metaObject();
+        } else if (qtimeedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qtimeedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QTimeEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qtimeedit_metacast_isbase) {
+            qtimeedit_metacast_isbase = false;
+            return QTimeEdit::qt_metacast(param1);
+        } else if (qtimeedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qtimeedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QTimeEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -3105,6 +3185,8 @@ class VirtualQDateEdit final : public QDateEdit {
     bool isVirtualQDateEdit = true;
 
     // Virtual class public types (including callbacks)
+    using QDateEdit_MetaObject_Callback = QMetaObject* (*)();
+    using QDateEdit_Metacast_Callback = void* (*)(QDateEdit*, const char*);
     using QDateEdit_Metacall_Callback = int (*)(QDateEdit*, int, int, void**);
     using QDateEdit_SizeHint_Callback = QSize* (*)();
     using QDateEdit_Clear_Callback = void (*)();
@@ -3176,6 +3258,8 @@ class VirtualQDateEdit final : public QDateEdit {
 
   protected:
     // Instance callback storage
+    QDateEdit_MetaObject_Callback qdateedit_metaobject_callback = nullptr;
+    QDateEdit_Metacast_Callback qdateedit_metacast_callback = nullptr;
     QDateEdit_Metacall_Callback qdateedit_metacall_callback = nullptr;
     QDateEdit_SizeHint_Callback qdateedit_sizehint_callback = nullptr;
     QDateEdit_Clear_Callback qdateedit_clear_callback = nullptr;
@@ -3246,6 +3330,8 @@ class VirtualQDateEdit final : public QDateEdit {
     QDateEdit_GetDecodedMetricF_Callback qdateedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdateedit_metaobject_isbase = false;
+    mutable bool qdateedit_metacast_isbase = false;
     mutable bool qdateedit_metacall_isbase = false;
     mutable bool qdateedit_sizehint_isbase = false;
     mutable bool qdateedit_clear_isbase = false;
@@ -3322,6 +3408,8 @@ class VirtualQDateEdit final : public QDateEdit {
     VirtualQDateEdit(QDate date, QWidget* parent) : QDateEdit(date, parent) {};
 
     ~VirtualQDateEdit() {
+        qdateedit_metaobject_callback = nullptr;
+        qdateedit_metacast_callback = nullptr;
         qdateedit_metacall_callback = nullptr;
         qdateedit_sizehint_callback = nullptr;
         qdateedit_clear_callback = nullptr;
@@ -3393,6 +3481,8 @@ class VirtualQDateEdit final : public QDateEdit {
     }
 
     // Callback setters
+    inline void setQDateEdit_MetaObject_Callback(QDateEdit_MetaObject_Callback cb) { qdateedit_metaobject_callback = cb; }
+    inline void setQDateEdit_Metacast_Callback(QDateEdit_Metacast_Callback cb) { qdateedit_metacast_callback = cb; }
     inline void setQDateEdit_Metacall_Callback(QDateEdit_Metacall_Callback cb) { qdateedit_metacall_callback = cb; }
     inline void setQDateEdit_SizeHint_Callback(QDateEdit_SizeHint_Callback cb) { qdateedit_sizehint_callback = cb; }
     inline void setQDateEdit_Clear_Callback(QDateEdit_Clear_Callback cb) { qdateedit_clear_callback = cb; }
@@ -3463,6 +3553,8 @@ class VirtualQDateEdit final : public QDateEdit {
     inline void setQDateEdit_GetDecodedMetricF_Callback(QDateEdit_GetDecodedMetricF_Callback cb) { qdateedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDateEdit_MetaObject_IsBase(bool value) const { qdateedit_metaobject_isbase = value; }
+    inline void setQDateEdit_Metacast_IsBase(bool value) const { qdateedit_metacast_isbase = value; }
     inline void setQDateEdit_Metacall_IsBase(bool value) const { qdateedit_metacall_isbase = value; }
     inline void setQDateEdit_SizeHint_IsBase(bool value) const { qdateedit_sizehint_isbase = value; }
     inline void setQDateEdit_Clear_IsBase(bool value) const { qdateedit_clear_isbase = value; }
@@ -3531,6 +3623,34 @@ class VirtualQDateEdit final : public QDateEdit {
     inline void setQDateEdit_Receivers_IsBase(bool value) const { qdateedit_receivers_isbase = value; }
     inline void setQDateEdit_IsSignalConnected_IsBase(bool value) const { qdateedit_issignalconnected_isbase = value; }
     inline void setQDateEdit_GetDecodedMetricF_IsBase(bool value) const { qdateedit_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdateedit_metaobject_isbase) {
+            qdateedit_metaobject_isbase = false;
+            return QDateEdit::metaObject();
+        } else if (qdateedit_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdateedit_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDateEdit::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdateedit_metacast_isbase) {
+            qdateedit_metacast_isbase = false;
+            return QDateEdit::qt_metacast(param1);
+        } else if (qdateedit_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdateedit_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDateEdit::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

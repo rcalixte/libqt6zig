@@ -25,11 +25,21 @@ QAudioDecoder* QAudioDecoder_new2(QObject* parent) {
 }
 
 QMetaObject* QAudioDecoder_MetaObject(const QAudioDecoder* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqaudiodecoder = dynamic_cast<const VirtualQAudioDecoder*>(self);
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAudioDecoder*)self)->metaObject();
+    }
 }
 
 void* QAudioDecoder_Metacast(QAudioDecoder* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAudioDecoder*)self)->qt_metacast(param1);
+    }
 }
 
 int QAudioDecoder_Metacall(QAudioDecoder* self, int param1, int param2, void** param3) {
@@ -147,6 +157,44 @@ void QAudioDecoder_PositionChanged(QAudioDecoder* self, long long position) {
 
 void QAudioDecoder_DurationChanged(QAudioDecoder* self, long long duration) {
     self->durationChanged(static_cast<qint64>(duration));
+}
+
+// Base class handler implementation
+QMetaObject* QAudioDecoder_QBaseMetaObject(const QAudioDecoder* self) {
+    auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+        vqaudiodecoder->setQAudioDecoder_MetaObject_IsBase(true);
+        return (QMetaObject*)vqaudiodecoder->metaObject();
+    } else {
+        return (QMetaObject*)self->QAudioDecoder::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioDecoder_OnMetaObject(const QAudioDecoder* self, intptr_t slot) {
+    auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+        vqaudiodecoder->setQAudioDecoder_MetaObject_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAudioDecoder_QBaseMetacast(QAudioDecoder* self, const char* param1) {
+    auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+        vqaudiodecoder->setQAudioDecoder_Metacast_IsBase(true);
+        return vqaudiodecoder->qt_metacast(param1);
+    } else {
+        return self->QAudioDecoder::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAudioDecoder_OnMetacast(QAudioDecoder* self, intptr_t slot) {
+    auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+        vqaudiodecoder->setQAudioDecoder_Metacast_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

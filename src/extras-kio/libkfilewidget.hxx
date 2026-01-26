@@ -17,6 +17,8 @@ class VirtualKFileWidget final : public KFileWidget {
     bool isVirtualKFileWidget = true;
 
     // Virtual class public types (including callbacks)
+    using KFileWidget_MetaObject_Callback = QMetaObject* (*)();
+    using KFileWidget_Metacast_Callback = void* (*)(KFileWidget*, const char*);
     using KFileWidget_Metacall_Callback = int (*)(KFileWidget*, int, int, void**);
     using KFileWidget_SizeHint_Callback = QSize* (*)();
     using KFileWidget_ResizeEvent_Callback = void (*)(KFileWidget*, QResizeEvent*);
@@ -78,6 +80,8 @@ class VirtualKFileWidget final : public KFileWidget {
 
   protected:
     // Instance callback storage
+    KFileWidget_MetaObject_Callback kfilewidget_metaobject_callback = nullptr;
+    KFileWidget_Metacast_Callback kfilewidget_metacast_callback = nullptr;
     KFileWidget_Metacall_Callback kfilewidget_metacall_callback = nullptr;
     KFileWidget_SizeHint_Callback kfilewidget_sizehint_callback = nullptr;
     KFileWidget_ResizeEvent_Callback kfilewidget_resizeevent_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKFileWidget final : public KFileWidget {
     KFileWidget_GetDecodedMetricF_Callback kfilewidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool kfilewidget_metaobject_isbase = false;
+    mutable bool kfilewidget_metacast_isbase = false;
     mutable bool kfilewidget_metacall_isbase = false;
     mutable bool kfilewidget_sizehint_isbase = false;
     mutable bool kfilewidget_resizeevent_isbase = false;
@@ -202,6 +208,8 @@ class VirtualKFileWidget final : public KFileWidget {
     VirtualKFileWidget(const QUrl& startDir, QWidget* parent) : KFileWidget(startDir, parent) {};
 
     ~VirtualKFileWidget() {
+        kfilewidget_metaobject_callback = nullptr;
+        kfilewidget_metacast_callback = nullptr;
         kfilewidget_metacall_callback = nullptr;
         kfilewidget_sizehint_callback = nullptr;
         kfilewidget_resizeevent_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualKFileWidget final : public KFileWidget {
     }
 
     // Callback setters
+    inline void setKFileWidget_MetaObject_Callback(KFileWidget_MetaObject_Callback cb) { kfilewidget_metaobject_callback = cb; }
+    inline void setKFileWidget_Metacast_Callback(KFileWidget_Metacast_Callback cb) { kfilewidget_metacast_callback = cb; }
     inline void setKFileWidget_Metacall_Callback(KFileWidget_Metacall_Callback cb) { kfilewidget_metacall_callback = cb; }
     inline void setKFileWidget_SizeHint_Callback(KFileWidget_SizeHint_Callback cb) { kfilewidget_sizehint_callback = cb; }
     inline void setKFileWidget_ResizeEvent_Callback(KFileWidget_ResizeEvent_Callback cb) { kfilewidget_resizeevent_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualKFileWidget final : public KFileWidget {
     inline void setKFileWidget_GetDecodedMetricF_Callback(KFileWidget_GetDecodedMetricF_Callback cb) { kfilewidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKFileWidget_MetaObject_IsBase(bool value) const { kfilewidget_metaobject_isbase = value; }
+    inline void setKFileWidget_Metacast_IsBase(bool value) const { kfilewidget_metacast_isbase = value; }
     inline void setKFileWidget_Metacall_IsBase(bool value) const { kfilewidget_metacall_isbase = value; }
     inline void setKFileWidget_SizeHint_IsBase(bool value) const { kfilewidget_sizehint_isbase = value; }
     inline void setKFileWidget_ResizeEvent_IsBase(bool value) const { kfilewidget_resizeevent_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualKFileWidget final : public KFileWidget {
     inline void setKFileWidget_Receivers_IsBase(bool value) const { kfilewidget_receivers_isbase = value; }
     inline void setKFileWidget_IsSignalConnected_IsBase(bool value) const { kfilewidget_issignalconnected_isbase = value; }
     inline void setKFileWidget_GetDecodedMetricF_IsBase(bool value) const { kfilewidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kfilewidget_metaobject_isbase) {
+            kfilewidget_metaobject_isbase = false;
+            return KFileWidget::metaObject();
+        } else if (kfilewidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kfilewidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KFileWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kfilewidget_metacast_isbase) {
+            kfilewidget_metacast_isbase = false;
+            return KFileWidget::qt_metacast(param1);
+        } else if (kfilewidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kfilewidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KFileWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

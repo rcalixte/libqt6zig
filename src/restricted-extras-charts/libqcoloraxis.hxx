@@ -17,6 +17,8 @@ class VirtualQColorAxis final : public QColorAxis {
     bool isVirtualQColorAxis = true;
 
     // Virtual class public types (including callbacks)
+    using QColorAxis_MetaObject_Callback = QMetaObject* (*)();
+    using QColorAxis_Metacast_Callback = void* (*)(QColorAxis*, const char*);
     using QColorAxis_Metacall_Callback = int (*)(QColorAxis*, int, int, void**);
     using QColorAxis_Type_Callback = int (*)();
     using QColorAxis_Event_Callback = bool (*)(QColorAxis*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQColorAxis final : public QColorAxis {
 
   protected:
     // Instance callback storage
+    QColorAxis_MetaObject_Callback qcoloraxis_metaobject_callback = nullptr;
+    QColorAxis_Metacast_Callback qcoloraxis_metacast_callback = nullptr;
     QColorAxis_Metacall_Callback qcoloraxis_metacall_callback = nullptr;
     QColorAxis_Type_Callback qcoloraxis_type_callback = nullptr;
     QColorAxis_Event_Callback qcoloraxis_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQColorAxis final : public QColorAxis {
     QColorAxis_IsSignalConnected_Callback qcoloraxis_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qcoloraxis_metaobject_isbase = false;
+    mutable bool qcoloraxis_metacast_isbase = false;
     mutable bool qcoloraxis_metacall_isbase = false;
     mutable bool qcoloraxis_type_isbase = false;
     mutable bool qcoloraxis_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQColorAxis final : public QColorAxis {
     VirtualQColorAxis(QObject* parent) : QColorAxis(parent) {};
 
     ~VirtualQColorAxis() {
+        qcoloraxis_metaobject_callback = nullptr;
+        qcoloraxis_metacast_callback = nullptr;
         qcoloraxis_metacall_callback = nullptr;
         qcoloraxis_type_callback = nullptr;
         qcoloraxis_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQColorAxis final : public QColorAxis {
     }
 
     // Callback setters
+    inline void setQColorAxis_MetaObject_Callback(QColorAxis_MetaObject_Callback cb) { qcoloraxis_metaobject_callback = cb; }
+    inline void setQColorAxis_Metacast_Callback(QColorAxis_Metacast_Callback cb) { qcoloraxis_metacast_callback = cb; }
     inline void setQColorAxis_Metacall_Callback(QColorAxis_Metacall_Callback cb) { qcoloraxis_metacall_callback = cb; }
     inline void setQColorAxis_Type_Callback(QColorAxis_Type_Callback cb) { qcoloraxis_type_callback = cb; }
     inline void setQColorAxis_Event_Callback(QColorAxis_Event_Callback cb) { qcoloraxis_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQColorAxis final : public QColorAxis {
     inline void setQColorAxis_IsSignalConnected_Callback(QColorAxis_IsSignalConnected_Callback cb) { qcoloraxis_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQColorAxis_MetaObject_IsBase(bool value) const { qcoloraxis_metaobject_isbase = value; }
+    inline void setQColorAxis_Metacast_IsBase(bool value) const { qcoloraxis_metacast_isbase = value; }
     inline void setQColorAxis_Metacall_IsBase(bool value) const { qcoloraxis_metacall_isbase = value; }
     inline void setQColorAxis_Type_IsBase(bool value) const { qcoloraxis_type_isbase = value; }
     inline void setQColorAxis_Event_IsBase(bool value) const { qcoloraxis_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQColorAxis final : public QColorAxis {
     inline void setQColorAxis_SenderSignalIndex_IsBase(bool value) const { qcoloraxis_sendersignalindex_isbase = value; }
     inline void setQColorAxis_Receivers_IsBase(bool value) const { qcoloraxis_receivers_isbase = value; }
     inline void setQColorAxis_IsSignalConnected_IsBase(bool value) const { qcoloraxis_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qcoloraxis_metaobject_isbase) {
+            qcoloraxis_metaobject_isbase = false;
+            return QColorAxis::metaObject();
+        } else if (qcoloraxis_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qcoloraxis_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QColorAxis::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qcoloraxis_metacast_isbase) {
+            qcoloraxis_metacast_isbase = false;
+            return QColorAxis::qt_metacast(param1);
+        } else if (qcoloraxis_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qcoloraxis_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QColorAxis::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -32,11 +32,21 @@ QSoundEffect* QSoundEffect_new4(const QAudioDevice* audioDevice, QObject* parent
 }
 
 QMetaObject* QSoundEffect_MetaObject(const QSoundEffect* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsoundeffect = dynamic_cast<const VirtualQSoundEffect*>(self);
+    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSoundEffect*)self)->metaObject();
+    }
 }
 
 void* QSoundEffect_Metacast(QSoundEffect* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
+    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSoundEffect*)self)->qt_metacast(param1);
+    }
 }
 
 int QSoundEffect_Metacall(QSoundEffect* self, int param1, int param2, void** param3) {
@@ -230,6 +240,44 @@ void QSoundEffect_Play(QSoundEffect* self) {
 
 void QSoundEffect_Stop(QSoundEffect* self) {
     self->stop();
+}
+
+// Base class handler implementation
+QMetaObject* QSoundEffect_QBaseMetaObject(const QSoundEffect* self) {
+    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
+    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+        vqsoundeffect->setQSoundEffect_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsoundeffect->metaObject();
+    } else {
+        return (QMetaObject*)self->QSoundEffect::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSoundEffect_OnMetaObject(const QSoundEffect* self, intptr_t slot) {
+    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
+    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+        vqsoundeffect->setQSoundEffect_MetaObject_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSoundEffect_QBaseMetacast(QSoundEffect* self, const char* param1) {
+    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
+    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+        vqsoundeffect->setQSoundEffect_Metacast_IsBase(true);
+        return vqsoundeffect->qt_metacast(param1);
+    } else {
+        return self->QSoundEffect::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSoundEffect_OnMetacast(QSoundEffect* self, intptr_t slot) {
+    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
+    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+        vqsoundeffect->setQSoundEffect_Metacast_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -30,11 +30,21 @@ QPdfDocument* QPdfDocument_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfDocument_MetaObject(const QPdfDocument* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpdfdocument = dynamic_cast<const VirtualQPdfDocument*>(self);
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPdfDocument*)self)->metaObject();
+    }
 }
 
 void* QPdfDocument_Metacast(QPdfDocument* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPdfDocument*)self)->qt_metacast(param1);
+    }
 }
 
 int QPdfDocument_Metacall(QPdfDocument* self, int param1, int param2, void** param3) {
@@ -192,6 +202,44 @@ void QPdfDocument_Connect_PageModelChanged(QPdfDocument* self, intptr_t slot) {
 
 QImage* QPdfDocument_Render3(QPdfDocument* self, int page, QSize* imageSize, QPdfDocumentRenderOptions* options) {
     return new QImage(self->render(static_cast<int>(page), *imageSize, *options));
+}
+
+// Base class handler implementation
+QMetaObject* QPdfDocument_QBaseMetaObject(const QPdfDocument* self) {
+    auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+        vqpdfdocument->setQPdfDocument_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpdfdocument->metaObject();
+    } else {
+        return (QMetaObject*)self->QPdfDocument::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfDocument_OnMetaObject(const QPdfDocument* self, intptr_t slot) {
+    auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+        vqpdfdocument->setQPdfDocument_MetaObject_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPdfDocument_QBaseMetacast(QPdfDocument* self, const char* param1) {
+    auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+        vqpdfdocument->setQPdfDocument_Metacast_IsBase(true);
+        return vqpdfdocument->qt_metacast(param1);
+    } else {
+        return self->QPdfDocument::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfDocument_OnMetacast(QPdfDocument* self, intptr_t slot) {
+    auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+        vqpdfdocument->setQPdfDocument_Metacast_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

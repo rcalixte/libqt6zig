@@ -98,6 +98,10 @@ void KSvg__Svg_Paint32(KSvg__Svg* self, QPainter* painter, const QPointF* point,
 void KSvg__Svg_Paint42(KSvg__Svg* self, QPainter* painter, int x, int y, const libqt_string elementID);
 void KSvg__Svg_Paint33(KSvg__Svg* self, QPainter* painter, const QRectF* rect, const libqt_string elementID);
 void KSvg__Svg_Paint6(KSvg__Svg* self, QPainter* painter, int x, int y, int width, int height, const libqt_string elementID);
+void KSvg__Svg_OnMetaObject(const KSvg__Svg* self, intptr_t slot);
+QMetaObject* KSvg__Svg_QBaseMetaObject(const KSvg__Svg* self);
+void KSvg__Svg_OnMetacast(KSvg__Svg* self, intptr_t slot);
+void* KSvg__Svg_QBaseMetacast(KSvg__Svg* self, const char* param1);
 void KSvg__Svg_OnMetacall(KSvg__Svg* self, intptr_t slot);
 int KSvg__Svg_QBaseMetacall(KSvg__Svg* self, int param1, int param2, void** param3);
 void KSvg__Svg_OnSetImagePath(KSvg__Svg* self, intptr_t slot);

@@ -17,6 +17,8 @@ class VirtualKCodecAction final : public KCodecAction {
     bool isVirtualKCodecAction = true;
 
     // Virtual class public types (including callbacks)
+    using KCodecAction_MetaObject_Callback = QMetaObject* (*)();
+    using KCodecAction_Metacast_Callback = void* (*)(KCodecAction*, const char*);
     using KCodecAction_Metacall_Callback = int (*)(KCodecAction*, int, int, void**);
     using KCodecAction_SlotActionTriggered_Callback = void (*)(KCodecAction*, QAction*);
     using KCodecAction_RemoveAction_Callback = QAction* (*)(KCodecAction*, QAction*);
@@ -39,6 +41,8 @@ class VirtualKCodecAction final : public KCodecAction {
 
   protected:
     // Instance callback storage
+    KCodecAction_MetaObject_Callback kcodecaction_metaobject_callback = nullptr;
+    KCodecAction_Metacast_Callback kcodecaction_metacast_callback = nullptr;
     KCodecAction_Metacall_Callback kcodecaction_metacall_callback = nullptr;
     KCodecAction_SlotActionTriggered_Callback kcodecaction_slotactiontriggered_callback = nullptr;
     KCodecAction_RemoveAction_Callback kcodecaction_removeaction_callback = nullptr;
@@ -60,6 +64,8 @@ class VirtualKCodecAction final : public KCodecAction {
     KCodecAction_IsSignalConnected_Callback kcodecaction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcodecaction_metaobject_isbase = false;
+    mutable bool kcodecaction_metacast_isbase = false;
     mutable bool kcodecaction_metacall_isbase = false;
     mutable bool kcodecaction_slotactiontriggered_isbase = false;
     mutable bool kcodecaction_removeaction_isbase = false;
@@ -89,6 +95,8 @@ class VirtualKCodecAction final : public KCodecAction {
     VirtualKCodecAction(const QIcon& icon, const QString& text, QObject* parent, bool showAutoOptions) : KCodecAction(icon, text, parent, showAutoOptions) {};
 
     ~VirtualKCodecAction() {
+        kcodecaction_metaobject_callback = nullptr;
+        kcodecaction_metacast_callback = nullptr;
         kcodecaction_metacall_callback = nullptr;
         kcodecaction_slotactiontriggered_callback = nullptr;
         kcodecaction_removeaction_callback = nullptr;
@@ -111,6 +119,8 @@ class VirtualKCodecAction final : public KCodecAction {
     }
 
     // Callback setters
+    inline void setKCodecAction_MetaObject_Callback(KCodecAction_MetaObject_Callback cb) { kcodecaction_metaobject_callback = cb; }
+    inline void setKCodecAction_Metacast_Callback(KCodecAction_Metacast_Callback cb) { kcodecaction_metacast_callback = cb; }
     inline void setKCodecAction_Metacall_Callback(KCodecAction_Metacall_Callback cb) { kcodecaction_metacall_callback = cb; }
     inline void setKCodecAction_SlotActionTriggered_Callback(KCodecAction_SlotActionTriggered_Callback cb) { kcodecaction_slotactiontriggered_callback = cb; }
     inline void setKCodecAction_RemoveAction_Callback(KCodecAction_RemoveAction_Callback cb) { kcodecaction_removeaction_callback = cb; }
@@ -132,6 +142,8 @@ class VirtualKCodecAction final : public KCodecAction {
     inline void setKCodecAction_IsSignalConnected_Callback(KCodecAction_IsSignalConnected_Callback cb) { kcodecaction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCodecAction_MetaObject_IsBase(bool value) const { kcodecaction_metaobject_isbase = value; }
+    inline void setKCodecAction_Metacast_IsBase(bool value) const { kcodecaction_metacast_isbase = value; }
     inline void setKCodecAction_Metacall_IsBase(bool value) const { kcodecaction_metacall_isbase = value; }
     inline void setKCodecAction_SlotActionTriggered_IsBase(bool value) const { kcodecaction_slotactiontriggered_isbase = value; }
     inline void setKCodecAction_RemoveAction_IsBase(bool value) const { kcodecaction_removeaction_isbase = value; }
@@ -151,6 +163,34 @@ class VirtualKCodecAction final : public KCodecAction {
     inline void setKCodecAction_SenderSignalIndex_IsBase(bool value) const { kcodecaction_sendersignalindex_isbase = value; }
     inline void setKCodecAction_Receivers_IsBase(bool value) const { kcodecaction_receivers_isbase = value; }
     inline void setKCodecAction_IsSignalConnected_IsBase(bool value) const { kcodecaction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcodecaction_metaobject_isbase) {
+            kcodecaction_metaobject_isbase = false;
+            return KCodecAction::metaObject();
+        } else if (kcodecaction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcodecaction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCodecAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcodecaction_metacast_isbase) {
+            kcodecaction_metacast_isbase = false;
+            return KCodecAction::qt_metacast(param1);
+        } else if (kcodecaction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcodecaction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCodecAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

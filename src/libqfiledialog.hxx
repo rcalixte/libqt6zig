@@ -17,6 +17,8 @@ class VirtualQFileDialog final : public QFileDialog {
     bool isVirtualQFileDialog = true;
 
     // Virtual class public types (including callbacks)
+    using QFileDialog_MetaObject_Callback = QMetaObject* (*)();
+    using QFileDialog_Metacast_Callback = void* (*)(QFileDialog*, const char*);
     using QFileDialog_Metacall_Callback = int (*)(QFileDialog*, int, int, void**);
     using QFileDialog_SetVisible_Callback = void (*)(QFileDialog*, bool);
     using QFileDialog_Done_Callback = void (*)(QFileDialog*, int);
@@ -84,6 +86,8 @@ class VirtualQFileDialog final : public QFileDialog {
 
   protected:
     // Instance callback storage
+    QFileDialog_MetaObject_Callback qfiledialog_metaobject_callback = nullptr;
+    QFileDialog_Metacast_Callback qfiledialog_metacast_callback = nullptr;
     QFileDialog_Metacall_Callback qfiledialog_metacall_callback = nullptr;
     QFileDialog_SetVisible_Callback qfiledialog_setvisible_callback = nullptr;
     QFileDialog_Done_Callback qfiledialog_done_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualQFileDialog final : public QFileDialog {
     QFileDialog_GetDecodedMetricF_Callback qfiledialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qfiledialog_metaobject_isbase = false;
+    mutable bool qfiledialog_metacast_isbase = false;
     mutable bool qfiledialog_metacall_isbase = false;
     mutable bool qfiledialog_setvisible_isbase = false;
     mutable bool qfiledialog_done_isbase = false;
@@ -224,6 +230,8 @@ class VirtualQFileDialog final : public QFileDialog {
     VirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory, const QString& filter) : QFileDialog(parent, caption, directory, filter) {};
 
     ~VirtualQFileDialog() {
+        qfiledialog_metaobject_callback = nullptr;
+        qfiledialog_metacast_callback = nullptr;
         qfiledialog_metacall_callback = nullptr;
         qfiledialog_setvisible_callback = nullptr;
         qfiledialog_done_callback = nullptr;
@@ -291,6 +299,8 @@ class VirtualQFileDialog final : public QFileDialog {
     }
 
     // Callback setters
+    inline void setQFileDialog_MetaObject_Callback(QFileDialog_MetaObject_Callback cb) { qfiledialog_metaobject_callback = cb; }
+    inline void setQFileDialog_Metacast_Callback(QFileDialog_Metacast_Callback cb) { qfiledialog_metacast_callback = cb; }
     inline void setQFileDialog_Metacall_Callback(QFileDialog_Metacall_Callback cb) { qfiledialog_metacall_callback = cb; }
     inline void setQFileDialog_SetVisible_Callback(QFileDialog_SetVisible_Callback cb) { qfiledialog_setvisible_callback = cb; }
     inline void setQFileDialog_Done_Callback(QFileDialog_Done_Callback cb) { qfiledialog_done_callback = cb; }
@@ -357,6 +367,8 @@ class VirtualQFileDialog final : public QFileDialog {
     inline void setQFileDialog_GetDecodedMetricF_Callback(QFileDialog_GetDecodedMetricF_Callback cb) { qfiledialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQFileDialog_MetaObject_IsBase(bool value) const { qfiledialog_metaobject_isbase = value; }
+    inline void setQFileDialog_Metacast_IsBase(bool value) const { qfiledialog_metacast_isbase = value; }
     inline void setQFileDialog_Metacall_IsBase(bool value) const { qfiledialog_metacall_isbase = value; }
     inline void setQFileDialog_SetVisible_IsBase(bool value) const { qfiledialog_setvisible_isbase = value; }
     inline void setQFileDialog_Done_IsBase(bool value) const { qfiledialog_done_isbase = value; }
@@ -421,6 +433,34 @@ class VirtualQFileDialog final : public QFileDialog {
     inline void setQFileDialog_Receivers_IsBase(bool value) const { qfiledialog_receivers_isbase = value; }
     inline void setQFileDialog_IsSignalConnected_IsBase(bool value) const { qfiledialog_issignalconnected_isbase = value; }
     inline void setQFileDialog_GetDecodedMetricF_IsBase(bool value) const { qfiledialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qfiledialog_metaobject_isbase) {
+            qfiledialog_metaobject_isbase = false;
+            return QFileDialog::metaObject();
+        } else if (qfiledialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qfiledialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QFileDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qfiledialog_metacast_isbase) {
+            qfiledialog_metacast_isbase = false;
+            return QFileDialog::qt_metacast(param1);
+        } else if (qfiledialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qfiledialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QFileDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

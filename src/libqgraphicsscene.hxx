@@ -17,6 +17,8 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     bool isVirtualQGraphicsScene = true;
 
     // Virtual class public types (including callbacks)
+    using QGraphicsScene_MetaObject_Callback = QMetaObject* (*)();
+    using QGraphicsScene_Metacast_Callback = void* (*)(QGraphicsScene*, const char*);
     using QGraphicsScene_Metacall_Callback = int (*)(QGraphicsScene*, int, int, void**);
     using QGraphicsScene_InputMethodQuery_Callback = QVariant* (*)(const QGraphicsScene*, int);
     using QGraphicsScene_Event_Callback = bool (*)(QGraphicsScene*, QEvent*);
@@ -52,6 +54,8 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
 
   protected:
     // Instance callback storage
+    QGraphicsScene_MetaObject_Callback qgraphicsscene_metaobject_callback = nullptr;
+    QGraphicsScene_Metacast_Callback qgraphicsscene_metacast_callback = nullptr;
     QGraphicsScene_Metacall_Callback qgraphicsscene_metacall_callback = nullptr;
     QGraphicsScene_InputMethodQuery_Callback qgraphicsscene_inputmethodquery_callback = nullptr;
     QGraphicsScene_Event_Callback qgraphicsscene_event_callback = nullptr;
@@ -86,6 +90,8 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     QGraphicsScene_IsSignalConnected_Callback qgraphicsscene_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qgraphicsscene_metaobject_isbase = false;
+    mutable bool qgraphicsscene_metacast_isbase = false;
     mutable bool qgraphicsscene_metacall_isbase = false;
     mutable bool qgraphicsscene_inputmethodquery_isbase = false;
     mutable bool qgraphicsscene_event_isbase = false;
@@ -128,6 +134,8 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     VirtualQGraphicsScene(qreal x, qreal y, qreal width, qreal height, QObject* parent) : QGraphicsScene(x, y, width, height, parent) {};
 
     ~VirtualQGraphicsScene() {
+        qgraphicsscene_metaobject_callback = nullptr;
+        qgraphicsscene_metacast_callback = nullptr;
         qgraphicsscene_metacall_callback = nullptr;
         qgraphicsscene_inputmethodquery_callback = nullptr;
         qgraphicsscene_event_callback = nullptr;
@@ -163,6 +171,8 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     }
 
     // Callback setters
+    inline void setQGraphicsScene_MetaObject_Callback(QGraphicsScene_MetaObject_Callback cb) { qgraphicsscene_metaobject_callback = cb; }
+    inline void setQGraphicsScene_Metacast_Callback(QGraphicsScene_Metacast_Callback cb) { qgraphicsscene_metacast_callback = cb; }
     inline void setQGraphicsScene_Metacall_Callback(QGraphicsScene_Metacall_Callback cb) { qgraphicsscene_metacall_callback = cb; }
     inline void setQGraphicsScene_InputMethodQuery_Callback(QGraphicsScene_InputMethodQuery_Callback cb) { qgraphicsscene_inputmethodquery_callback = cb; }
     inline void setQGraphicsScene_Event_Callback(QGraphicsScene_Event_Callback cb) { qgraphicsscene_event_callback = cb; }
@@ -197,6 +207,8 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     inline void setQGraphicsScene_IsSignalConnected_Callback(QGraphicsScene_IsSignalConnected_Callback cb) { qgraphicsscene_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQGraphicsScene_MetaObject_IsBase(bool value) const { qgraphicsscene_metaobject_isbase = value; }
+    inline void setQGraphicsScene_Metacast_IsBase(bool value) const { qgraphicsscene_metacast_isbase = value; }
     inline void setQGraphicsScene_Metacall_IsBase(bool value) const { qgraphicsscene_metacall_isbase = value; }
     inline void setQGraphicsScene_InputMethodQuery_IsBase(bool value) const { qgraphicsscene_inputmethodquery_isbase = value; }
     inline void setQGraphicsScene_Event_IsBase(bool value) const { qgraphicsscene_event_isbase = value; }
@@ -229,6 +241,34 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     inline void setQGraphicsScene_SenderSignalIndex_IsBase(bool value) const { qgraphicsscene_sendersignalindex_isbase = value; }
     inline void setQGraphicsScene_Receivers_IsBase(bool value) const { qgraphicsscene_receivers_isbase = value; }
     inline void setQGraphicsScene_IsSignalConnected_IsBase(bool value) const { qgraphicsscene_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qgraphicsscene_metaobject_isbase) {
+            qgraphicsscene_metaobject_isbase = false;
+            return QGraphicsScene::metaObject();
+        } else if (qgraphicsscene_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qgraphicsscene_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QGraphicsScene::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qgraphicsscene_metacast_isbase) {
+            qgraphicsscene_metacast_isbase = false;
+            return QGraphicsScene::qt_metacast(param1);
+        } else if (qgraphicsscene_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qgraphicsscene_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QGraphicsScene::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

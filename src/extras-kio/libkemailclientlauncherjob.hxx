@@ -17,6 +17,8 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
     bool isVirtualKEMailClientLauncherJob = true;
 
     // Virtual class public types (including callbacks)
+    using KEMailClientLauncherJob_MetaObject_Callback = QMetaObject* (*)();
+    using KEMailClientLauncherJob_Metacast_Callback = void* (*)(KEMailClientLauncherJob*, const char*);
     using KEMailClientLauncherJob_Metacall_Callback = int (*)(KEMailClientLauncherJob*, int, int, void**);
     using KEMailClientLauncherJob_Start_Callback = void (*)();
     using KEMailClientLauncherJob_DoKill_Callback = bool (*)();
@@ -49,6 +51,8 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
 
   protected:
     // Instance callback storage
+    KEMailClientLauncherJob_MetaObject_Callback kemailclientlauncherjob_metaobject_callback = nullptr;
+    KEMailClientLauncherJob_Metacast_Callback kemailclientlauncherjob_metacast_callback = nullptr;
     KEMailClientLauncherJob_Metacall_Callback kemailclientlauncherjob_metacall_callback = nullptr;
     KEMailClientLauncherJob_Start_Callback kemailclientlauncherjob_start_callback = nullptr;
     KEMailClientLauncherJob_DoKill_Callback kemailclientlauncherjob_dokill_callback = nullptr;
@@ -80,6 +84,8 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
     KEMailClientLauncherJob_IsSignalConnected_Callback kemailclientlauncherjob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kemailclientlauncherjob_metaobject_isbase = false;
+    mutable bool kemailclientlauncherjob_metacast_isbase = false;
     mutable bool kemailclientlauncherjob_metacall_isbase = false;
     mutable bool kemailclientlauncherjob_start_isbase = false;
     mutable bool kemailclientlauncherjob_dokill_isbase = false;
@@ -115,6 +121,8 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
     VirtualKEMailClientLauncherJob(QObject* parent) : KEMailClientLauncherJob(parent) {};
 
     ~VirtualKEMailClientLauncherJob() {
+        kemailclientlauncherjob_metaobject_callback = nullptr;
+        kemailclientlauncherjob_metacast_callback = nullptr;
         kemailclientlauncherjob_metacall_callback = nullptr;
         kemailclientlauncherjob_start_callback = nullptr;
         kemailclientlauncherjob_dokill_callback = nullptr;
@@ -147,6 +155,8 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
     }
 
     // Callback setters
+    inline void setKEMailClientLauncherJob_MetaObject_Callback(KEMailClientLauncherJob_MetaObject_Callback cb) { kemailclientlauncherjob_metaobject_callback = cb; }
+    inline void setKEMailClientLauncherJob_Metacast_Callback(KEMailClientLauncherJob_Metacast_Callback cb) { kemailclientlauncherjob_metacast_callback = cb; }
     inline void setKEMailClientLauncherJob_Metacall_Callback(KEMailClientLauncherJob_Metacall_Callback cb) { kemailclientlauncherjob_metacall_callback = cb; }
     inline void setKEMailClientLauncherJob_Start_Callback(KEMailClientLauncherJob_Start_Callback cb) { kemailclientlauncherjob_start_callback = cb; }
     inline void setKEMailClientLauncherJob_DoKill_Callback(KEMailClientLauncherJob_DoKill_Callback cb) { kemailclientlauncherjob_dokill_callback = cb; }
@@ -178,6 +188,8 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
     inline void setKEMailClientLauncherJob_IsSignalConnected_Callback(KEMailClientLauncherJob_IsSignalConnected_Callback cb) { kemailclientlauncherjob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKEMailClientLauncherJob_MetaObject_IsBase(bool value) const { kemailclientlauncherjob_metaobject_isbase = value; }
+    inline void setKEMailClientLauncherJob_Metacast_IsBase(bool value) const { kemailclientlauncherjob_metacast_isbase = value; }
     inline void setKEMailClientLauncherJob_Metacall_IsBase(bool value) const { kemailclientlauncherjob_metacall_isbase = value; }
     inline void setKEMailClientLauncherJob_Start_IsBase(bool value) const { kemailclientlauncherjob_start_isbase = value; }
     inline void setKEMailClientLauncherJob_DoKill_IsBase(bool value) const { kemailclientlauncherjob_dokill_isbase = value; }
@@ -207,6 +219,34 @@ class VirtualKEMailClientLauncherJob final : public KEMailClientLauncherJob {
     inline void setKEMailClientLauncherJob_SenderSignalIndex_IsBase(bool value) const { kemailclientlauncherjob_sendersignalindex_isbase = value; }
     inline void setKEMailClientLauncherJob_Receivers_IsBase(bool value) const { kemailclientlauncherjob_receivers_isbase = value; }
     inline void setKEMailClientLauncherJob_IsSignalConnected_IsBase(bool value) const { kemailclientlauncherjob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kemailclientlauncherjob_metaobject_isbase) {
+            kemailclientlauncherjob_metaobject_isbase = false;
+            return KEMailClientLauncherJob::metaObject();
+        } else if (kemailclientlauncherjob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kemailclientlauncherjob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KEMailClientLauncherJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kemailclientlauncherjob_metacast_isbase) {
+            kemailclientlauncherjob_metacast_isbase = false;
+            return KEMailClientLauncherJob::qt_metacast(param1);
+        } else if (kemailclientlauncherjob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kemailclientlauncherjob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KEMailClientLauncherJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

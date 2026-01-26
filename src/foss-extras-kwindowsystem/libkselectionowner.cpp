@@ -25,11 +25,21 @@ KSelectionOwner* KSelectionOwner_new3(const char* selection, int screen, QObject
 }
 
 QMetaObject* KSelectionOwner_MetaObject(const KSelectionOwner* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkselectionowner = dynamic_cast<const VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSelectionOwner*)self)->metaObject();
+    }
 }
 
 void* KSelectionOwner_Metacast(KSelectionOwner* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSelectionOwner*)self)->qt_metacast(param1);
+    }
 }
 
 int KSelectionOwner_Metacall(KSelectionOwner* self, int param1, int param2, void** param3) {
@@ -104,6 +114,44 @@ void KSelectionOwner_GetAtoms(KSelectionOwner* self) {
 
 void KSelectionOwner_Claim2(KSelectionOwner* self, bool force, bool force_kill) {
     self->claim(force, force_kill);
+}
+
+// Base class handler implementation
+QMetaObject* KSelectionOwner_QBaseMetaObject(const KSelectionOwner* self) {
+    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        vkselectionowner->setKSelectionOwner_MetaObject_IsBase(true);
+        return (QMetaObject*)vkselectionowner->metaObject();
+    } else {
+        return (QMetaObject*)self->KSelectionOwner::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectionOwner_OnMetaObject(const KSelectionOwner* self, intptr_t slot) {
+    auto* vkselectionowner = const_cast<VirtualKSelectionOwner*>(dynamic_cast<const VirtualKSelectionOwner*>(self));
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        vkselectionowner->setKSelectionOwner_MetaObject_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSelectionOwner_QBaseMetacast(KSelectionOwner* self, const char* param1) {
+    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        vkselectionowner->setKSelectionOwner_Metacast_IsBase(true);
+        return vkselectionowner->qt_metacast(param1);
+    } else {
+        return self->KSelectionOwner::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSelectionOwner_OnMetacast(KSelectionOwner* self, intptr_t slot) {
+    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
+    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
+        vkselectionowner->setKSelectionOwner_Metacast_Callback(reinterpret_cast<VirtualKSelectionOwner::KSelectionOwner_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

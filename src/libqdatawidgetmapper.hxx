@@ -17,6 +17,8 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
     bool isVirtualQDataWidgetMapper = true;
 
     // Virtual class public types (including callbacks)
+    using QDataWidgetMapper_MetaObject_Callback = QMetaObject* (*)();
+    using QDataWidgetMapper_Metacast_Callback = void* (*)(QDataWidgetMapper*, const char*);
     using QDataWidgetMapper_Metacall_Callback = int (*)(QDataWidgetMapper*, int, int, void**);
     using QDataWidgetMapper_SetCurrentIndex_Callback = void (*)(QDataWidgetMapper*, int);
     using QDataWidgetMapper_Event_Callback = bool (*)(QDataWidgetMapper*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
 
   protected:
     // Instance callback storage
+    QDataWidgetMapper_MetaObject_Callback qdatawidgetmapper_metaobject_callback = nullptr;
+    QDataWidgetMapper_Metacast_Callback qdatawidgetmapper_metacast_callback = nullptr;
     QDataWidgetMapper_Metacall_Callback qdatawidgetmapper_metacall_callback = nullptr;
     QDataWidgetMapper_SetCurrentIndex_Callback qdatawidgetmapper_setcurrentindex_callback = nullptr;
     QDataWidgetMapper_Event_Callback qdatawidgetmapper_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
     QDataWidgetMapper_IsSignalConnected_Callback qdatawidgetmapper_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdatawidgetmapper_metaobject_isbase = false;
+    mutable bool qdatawidgetmapper_metacast_isbase = false;
     mutable bool qdatawidgetmapper_metacall_isbase = false;
     mutable bool qdatawidgetmapper_setcurrentindex_isbase = false;
     mutable bool qdatawidgetmapper_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
     VirtualQDataWidgetMapper(QObject* parent) : QDataWidgetMapper(parent) {};
 
     ~VirtualQDataWidgetMapper() {
+        qdatawidgetmapper_metaobject_callback = nullptr;
+        qdatawidgetmapper_metacast_callback = nullptr;
         qdatawidgetmapper_metacall_callback = nullptr;
         qdatawidgetmapper_setcurrentindex_callback = nullptr;
         qdatawidgetmapper_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
     }
 
     // Callback setters
+    inline void setQDataWidgetMapper_MetaObject_Callback(QDataWidgetMapper_MetaObject_Callback cb) { qdatawidgetmapper_metaobject_callback = cb; }
+    inline void setQDataWidgetMapper_Metacast_Callback(QDataWidgetMapper_Metacast_Callback cb) { qdatawidgetmapper_metacast_callback = cb; }
     inline void setQDataWidgetMapper_Metacall_Callback(QDataWidgetMapper_Metacall_Callback cb) { qdatawidgetmapper_metacall_callback = cb; }
     inline void setQDataWidgetMapper_SetCurrentIndex_Callback(QDataWidgetMapper_SetCurrentIndex_Callback cb) { qdatawidgetmapper_setcurrentindex_callback = cb; }
     inline void setQDataWidgetMapper_Event_Callback(QDataWidgetMapper_Event_Callback cb) { qdatawidgetmapper_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
     inline void setQDataWidgetMapper_IsSignalConnected_Callback(QDataWidgetMapper_IsSignalConnected_Callback cb) { qdatawidgetmapper_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDataWidgetMapper_MetaObject_IsBase(bool value) const { qdatawidgetmapper_metaobject_isbase = value; }
+    inline void setQDataWidgetMapper_Metacast_IsBase(bool value) const { qdatawidgetmapper_metacast_isbase = value; }
     inline void setQDataWidgetMapper_Metacall_IsBase(bool value) const { qdatawidgetmapper_metacall_isbase = value; }
     inline void setQDataWidgetMapper_SetCurrentIndex_IsBase(bool value) const { qdatawidgetmapper_setcurrentindex_isbase = value; }
     inline void setQDataWidgetMapper_Event_IsBase(bool value) const { qdatawidgetmapper_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQDataWidgetMapper final : public QDataWidgetMapper {
     inline void setQDataWidgetMapper_SenderSignalIndex_IsBase(bool value) const { qdatawidgetmapper_sendersignalindex_isbase = value; }
     inline void setQDataWidgetMapper_Receivers_IsBase(bool value) const { qdatawidgetmapper_receivers_isbase = value; }
     inline void setQDataWidgetMapper_IsSignalConnected_IsBase(bool value) const { qdatawidgetmapper_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdatawidgetmapper_metaobject_isbase) {
+            qdatawidgetmapper_metaobject_isbase = false;
+            return QDataWidgetMapper::metaObject();
+        } else if (qdatawidgetmapper_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdatawidgetmapper_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDataWidgetMapper::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdatawidgetmapper_metacast_isbase) {
+            qdatawidgetmapper_metacast_isbase = false;
+            return QDataWidgetMapper::qt_metacast(param1);
+        } else if (qdatawidgetmapper_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdatawidgetmapper_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDataWidgetMapper::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

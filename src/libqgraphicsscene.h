@@ -210,6 +210,10 @@ void QGraphicsScene_Invalidate5(QGraphicsScene* self, double x, double y, double
 void QGraphicsScene_Update1(QGraphicsScene* self, const QRectF* rect);
 void QGraphicsScene_Invalidate1(QGraphicsScene* self, const QRectF* rect);
 void QGraphicsScene_Invalidate22(QGraphicsScene* self, const QRectF* rect, int layers);
+void QGraphicsScene_OnMetaObject(const QGraphicsScene* self, intptr_t slot);
+QMetaObject* QGraphicsScene_QBaseMetaObject(const QGraphicsScene* self);
+void QGraphicsScene_OnMetacast(QGraphicsScene* self, intptr_t slot);
+void* QGraphicsScene_QBaseMetacast(QGraphicsScene* self, const char* param1);
 void QGraphicsScene_OnMetacall(QGraphicsScene* self, intptr_t slot);
 int QGraphicsScene_QBaseMetacall(QGraphicsScene* self, int param1, int param2, void** param3);
 void QGraphicsScene_OnInputMethodQuery(const QGraphicsScene* self, intptr_t slot);

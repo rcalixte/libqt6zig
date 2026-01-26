@@ -61,11 +61,21 @@ QToolBar* QToolBar_new4(const libqt_string title, QWidget* parent) {
 }
 
 QMetaObject* QToolBar_MetaObject(const QToolBar* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtoolbar = dynamic_cast<const VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQToolBar*)self)->metaObject();
+    }
 }
 
 void* QToolBar_Metacast(QToolBar* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQToolBar*)self)->qt_metacast(param1);
+    }
 }
 
 int QToolBar_Metacall(QToolBar* self, int param1, int param2, void** param3) {
@@ -304,6 +314,44 @@ void QToolBar_InitStyleOption(const QToolBar* self, QStyleOptionToolBar* option)
     auto* vqtoolbar = dynamic_cast<const VirtualQToolBar*>(self);
     if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
         vqtoolbar->initStyleOption(option);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QToolBar_QBaseMetaObject(const QToolBar* self) {
+    auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtoolbar->metaObject();
+    } else {
+        return (QMetaObject*)self->QToolBar::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QToolBar_OnMetaObject(const QToolBar* self, intptr_t slot) {
+    auto* vqtoolbar = const_cast<VirtualQToolBar*>(dynamic_cast<const VirtualQToolBar*>(self));
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_MetaObject_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QToolBar_QBaseMetacast(QToolBar* self, const char* param1) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_Metacast_IsBase(true);
+        return vqtoolbar->qt_metacast(param1);
+    } else {
+        return self->QToolBar::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QToolBar_OnMetacast(QToolBar* self, intptr_t slot) {
+    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
+    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
+        vqtoolbar->setQToolBar_Metacast_Callback(reinterpret_cast<VirtualQToolBar::QToolBar_Metacast_Callback>(slot));
     }
 }
 

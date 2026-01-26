@@ -159,6 +159,8 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
     bool isVirtualQDesignerMetaDataBaseInterface = true;
 
     // Virtual class public types (including callbacks)
+    using QDesignerMetaDataBaseInterface_MetaObject_Callback = QMetaObject* (*)();
+    using QDesignerMetaDataBaseInterface_Metacast_Callback = void* (*)(QDesignerMetaDataBaseInterface*, const char*);
     using QDesignerMetaDataBaseInterface_Metacall_Callback = int (*)(QDesignerMetaDataBaseInterface*, int, int, void**);
     using QDesignerMetaDataBaseInterface_Item_Callback = QDesignerMetaDataBaseItemInterface* (*)(const QDesignerMetaDataBaseInterface*, QObject*);
     using QDesignerMetaDataBaseInterface_Add_Callback = void (*)(QDesignerMetaDataBaseInterface*, QObject*);
@@ -179,6 +181,8 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
 
   protected:
     // Instance callback storage
+    QDesignerMetaDataBaseInterface_MetaObject_Callback qdesignermetadatabaseinterface_metaobject_callback = nullptr;
+    QDesignerMetaDataBaseInterface_Metacast_Callback qdesignermetadatabaseinterface_metacast_callback = nullptr;
     QDesignerMetaDataBaseInterface_Metacall_Callback qdesignermetadatabaseinterface_metacall_callback = nullptr;
     QDesignerMetaDataBaseInterface_Item_Callback qdesignermetadatabaseinterface_item_callback = nullptr;
     QDesignerMetaDataBaseInterface_Add_Callback qdesignermetadatabaseinterface_add_callback = nullptr;
@@ -198,6 +202,8 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
     QDesignerMetaDataBaseInterface_IsSignalConnected_Callback qdesignermetadatabaseinterface_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdesignermetadatabaseinterface_metaobject_isbase = false;
+    mutable bool qdesignermetadatabaseinterface_metacast_isbase = false;
     mutable bool qdesignermetadatabaseinterface_metacall_isbase = false;
     mutable bool qdesignermetadatabaseinterface_item_isbase = false;
     mutable bool qdesignermetadatabaseinterface_add_isbase = false;
@@ -221,6 +227,8 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
     VirtualQDesignerMetaDataBaseInterface(QObject* parent) : QDesignerMetaDataBaseInterface(parent) {};
 
     ~VirtualQDesignerMetaDataBaseInterface() {
+        qdesignermetadatabaseinterface_metaobject_callback = nullptr;
+        qdesignermetadatabaseinterface_metacast_callback = nullptr;
         qdesignermetadatabaseinterface_metacall_callback = nullptr;
         qdesignermetadatabaseinterface_item_callback = nullptr;
         qdesignermetadatabaseinterface_add_callback = nullptr;
@@ -241,6 +249,8 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
     }
 
     // Callback setters
+    inline void setQDesignerMetaDataBaseInterface_MetaObject_Callback(QDesignerMetaDataBaseInterface_MetaObject_Callback cb) { qdesignermetadatabaseinterface_metaobject_callback = cb; }
+    inline void setQDesignerMetaDataBaseInterface_Metacast_Callback(QDesignerMetaDataBaseInterface_Metacast_Callback cb) { qdesignermetadatabaseinterface_metacast_callback = cb; }
     inline void setQDesignerMetaDataBaseInterface_Metacall_Callback(QDesignerMetaDataBaseInterface_Metacall_Callback cb) { qdesignermetadatabaseinterface_metacall_callback = cb; }
     inline void setQDesignerMetaDataBaseInterface_Item_Callback(QDesignerMetaDataBaseInterface_Item_Callback cb) { qdesignermetadatabaseinterface_item_callback = cb; }
     inline void setQDesignerMetaDataBaseInterface_Add_Callback(QDesignerMetaDataBaseInterface_Add_Callback cb) { qdesignermetadatabaseinterface_add_callback = cb; }
@@ -260,6 +270,8 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
     inline void setQDesignerMetaDataBaseInterface_IsSignalConnected_Callback(QDesignerMetaDataBaseInterface_IsSignalConnected_Callback cb) { qdesignermetadatabaseinterface_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQDesignerMetaDataBaseInterface_MetaObject_IsBase(bool value) const { qdesignermetadatabaseinterface_metaobject_isbase = value; }
+    inline void setQDesignerMetaDataBaseInterface_Metacast_IsBase(bool value) const { qdesignermetadatabaseinterface_metacast_isbase = value; }
     inline void setQDesignerMetaDataBaseInterface_Metacall_IsBase(bool value) const { qdesignermetadatabaseinterface_metacall_isbase = value; }
     inline void setQDesignerMetaDataBaseInterface_Item_IsBase(bool value) const { qdesignermetadatabaseinterface_item_isbase = value; }
     inline void setQDesignerMetaDataBaseInterface_Add_IsBase(bool value) const { qdesignermetadatabaseinterface_add_isbase = value; }
@@ -277,6 +289,34 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
     inline void setQDesignerMetaDataBaseInterface_SenderSignalIndex_IsBase(bool value) const { qdesignermetadatabaseinterface_sendersignalindex_isbase = value; }
     inline void setQDesignerMetaDataBaseInterface_Receivers_IsBase(bool value) const { qdesignermetadatabaseinterface_receivers_isbase = value; }
     inline void setQDesignerMetaDataBaseInterface_IsSignalConnected_IsBase(bool value) const { qdesignermetadatabaseinterface_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdesignermetadatabaseinterface_metaobject_isbase) {
+            qdesignermetadatabaseinterface_metaobject_isbase = false;
+            return QDesignerMetaDataBaseInterface::metaObject();
+        } else if (qdesignermetadatabaseinterface_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdesignermetadatabaseinterface_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDesignerMetaDataBaseInterface::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdesignermetadatabaseinterface_metacast_isbase) {
+            qdesignermetadatabaseinterface_metacast_isbase = false;
+            return QDesignerMetaDataBaseInterface::qt_metacast(param1);
+        } else if (qdesignermetadatabaseinterface_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdesignermetadatabaseinterface_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDesignerMetaDataBaseInterface::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

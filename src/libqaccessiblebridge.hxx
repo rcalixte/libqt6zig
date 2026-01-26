@@ -17,6 +17,8 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
     bool isVirtualQAccessibleBridgePlugin = true;
 
     // Virtual class public types (including callbacks)
+    using QAccessibleBridgePlugin_MetaObject_Callback = QMetaObject* (*)();
+    using QAccessibleBridgePlugin_Metacast_Callback = void* (*)(QAccessibleBridgePlugin*, const char*);
     using QAccessibleBridgePlugin_Metacall_Callback = int (*)(QAccessibleBridgePlugin*, int, int, void**);
     using QAccessibleBridgePlugin_Create_Callback = QAccessibleBridge* (*)(QAccessibleBridgePlugin*, libqt_string);
     using QAccessibleBridgePlugin_Event_Callback = bool (*)(QAccessibleBridgePlugin*, QEvent*);
@@ -33,6 +35,8 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
 
   protected:
     // Instance callback storage
+    QAccessibleBridgePlugin_MetaObject_Callback qaccessiblebridgeplugin_metaobject_callback = nullptr;
+    QAccessibleBridgePlugin_Metacast_Callback qaccessiblebridgeplugin_metacast_callback = nullptr;
     QAccessibleBridgePlugin_Metacall_Callback qaccessiblebridgeplugin_metacall_callback = nullptr;
     QAccessibleBridgePlugin_Create_Callback qaccessiblebridgeplugin_create_callback = nullptr;
     QAccessibleBridgePlugin_Event_Callback qaccessiblebridgeplugin_event_callback = nullptr;
@@ -48,6 +52,8 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
     QAccessibleBridgePlugin_IsSignalConnected_Callback qaccessiblebridgeplugin_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qaccessiblebridgeplugin_metaobject_isbase = false;
+    mutable bool qaccessiblebridgeplugin_metacast_isbase = false;
     mutable bool qaccessiblebridgeplugin_metacall_isbase = false;
     mutable bool qaccessiblebridgeplugin_create_isbase = false;
     mutable bool qaccessiblebridgeplugin_event_isbase = false;
@@ -67,6 +73,8 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
     VirtualQAccessibleBridgePlugin(QObject* parent) : QAccessibleBridgePlugin(parent) {};
 
     ~VirtualQAccessibleBridgePlugin() {
+        qaccessiblebridgeplugin_metaobject_callback = nullptr;
+        qaccessiblebridgeplugin_metacast_callback = nullptr;
         qaccessiblebridgeplugin_metacall_callback = nullptr;
         qaccessiblebridgeplugin_create_callback = nullptr;
         qaccessiblebridgeplugin_event_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
     }
 
     // Callback setters
+    inline void setQAccessibleBridgePlugin_MetaObject_Callback(QAccessibleBridgePlugin_MetaObject_Callback cb) { qaccessiblebridgeplugin_metaobject_callback = cb; }
+    inline void setQAccessibleBridgePlugin_Metacast_Callback(QAccessibleBridgePlugin_Metacast_Callback cb) { qaccessiblebridgeplugin_metacast_callback = cb; }
     inline void setQAccessibleBridgePlugin_Metacall_Callback(QAccessibleBridgePlugin_Metacall_Callback cb) { qaccessiblebridgeplugin_metacall_callback = cb; }
     inline void setQAccessibleBridgePlugin_Create_Callback(QAccessibleBridgePlugin_Create_Callback cb) { qaccessiblebridgeplugin_create_callback = cb; }
     inline void setQAccessibleBridgePlugin_Event_Callback(QAccessibleBridgePlugin_Event_Callback cb) { qaccessiblebridgeplugin_event_callback = cb; }
@@ -98,6 +108,8 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
     inline void setQAccessibleBridgePlugin_IsSignalConnected_Callback(QAccessibleBridgePlugin_IsSignalConnected_Callback cb) { qaccessiblebridgeplugin_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAccessibleBridgePlugin_MetaObject_IsBase(bool value) const { qaccessiblebridgeplugin_metaobject_isbase = value; }
+    inline void setQAccessibleBridgePlugin_Metacast_IsBase(bool value) const { qaccessiblebridgeplugin_metacast_isbase = value; }
     inline void setQAccessibleBridgePlugin_Metacall_IsBase(bool value) const { qaccessiblebridgeplugin_metacall_isbase = value; }
     inline void setQAccessibleBridgePlugin_Create_IsBase(bool value) const { qaccessiblebridgeplugin_create_isbase = value; }
     inline void setQAccessibleBridgePlugin_Event_IsBase(bool value) const { qaccessiblebridgeplugin_event_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
     inline void setQAccessibleBridgePlugin_SenderSignalIndex_IsBase(bool value) const { qaccessiblebridgeplugin_sendersignalindex_isbase = value; }
     inline void setQAccessibleBridgePlugin_Receivers_IsBase(bool value) const { qaccessiblebridgeplugin_receivers_isbase = value; }
     inline void setQAccessibleBridgePlugin_IsSignalConnected_IsBase(bool value) const { qaccessiblebridgeplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qaccessiblebridgeplugin_metaobject_isbase) {
+            qaccessiblebridgeplugin_metaobject_isbase = false;
+            return QAccessibleBridgePlugin::metaObject();
+        } else if (qaccessiblebridgeplugin_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qaccessiblebridgeplugin_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAccessibleBridgePlugin::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qaccessiblebridgeplugin_metacast_isbase) {
+            qaccessiblebridgeplugin_metacast_isbase = false;
+            return QAccessibleBridgePlugin::qt_metacast(param1);
+        } else if (qaccessiblebridgeplugin_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qaccessiblebridgeplugin_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAccessibleBridgePlugin::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

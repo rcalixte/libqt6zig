@@ -36,6 +36,10 @@ void KToggleFullScreenAction_SetWindow(KToggleFullScreenAction* self, QWidget* w
 void KToggleFullScreenAction_SetFullScreen(QWidget* window, bool set);
 bool KToggleFullScreenAction_EventFilter(KToggleFullScreenAction* self, QObject* object, QEvent* event);
 void KToggleFullScreenAction_SlotToggled(KToggleFullScreenAction* self, bool checked);
+void KToggleFullScreenAction_OnMetaObject(const KToggleFullScreenAction* self, intptr_t slot);
+QMetaObject* KToggleFullScreenAction_QBaseMetaObject(const KToggleFullScreenAction* self);
+void KToggleFullScreenAction_OnMetacast(KToggleFullScreenAction* self, intptr_t slot);
+void* KToggleFullScreenAction_QBaseMetacast(KToggleFullScreenAction* self, const char* param1);
 void KToggleFullScreenAction_OnMetacall(KToggleFullScreenAction* self, intptr_t slot);
 int KToggleFullScreenAction_QBaseMetacall(KToggleFullScreenAction* self, int param1, int param2, void** param3);
 void KToggleFullScreenAction_OnEventFilter(KToggleFullScreenAction* self, intptr_t slot);

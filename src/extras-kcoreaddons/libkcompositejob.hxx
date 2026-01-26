@@ -17,6 +17,8 @@ class VirtualKCompositeJob : public KCompositeJob {
     bool isVirtualKCompositeJob = true;
 
     // Virtual class public types (including callbacks)
+    using KCompositeJob_MetaObject_Callback = QMetaObject* (*)();
+    using KCompositeJob_Metacast_Callback = void* (*)(KCompositeJob*, const char*);
     using KCompositeJob_Metacall_Callback = int (*)(KCompositeJob*, int, int, void**);
     using KCompositeJob_AddSubjob_Callback = bool (*)(KCompositeJob*, KJob*);
     using KCompositeJob_RemoveSubjob_Callback = bool (*)(KCompositeJob*, KJob*);
@@ -56,6 +58,8 @@ class VirtualKCompositeJob : public KCompositeJob {
 
   protected:
     // Instance callback storage
+    KCompositeJob_MetaObject_Callback kcompositejob_metaobject_callback = nullptr;
+    KCompositeJob_Metacast_Callback kcompositejob_metacast_callback = nullptr;
     KCompositeJob_Metacall_Callback kcompositejob_metacall_callback = nullptr;
     KCompositeJob_AddSubjob_Callback kcompositejob_addsubjob_callback = nullptr;
     KCompositeJob_RemoveSubjob_Callback kcompositejob_removesubjob_callback = nullptr;
@@ -94,6 +98,8 @@ class VirtualKCompositeJob : public KCompositeJob {
     KCompositeJob_IsSignalConnected_Callback kcompositejob_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcompositejob_metaobject_isbase = false;
+    mutable bool kcompositejob_metacast_isbase = false;
     mutable bool kcompositejob_metacall_isbase = false;
     mutable bool kcompositejob_addsubjob_isbase = false;
     mutable bool kcompositejob_removesubjob_isbase = false;
@@ -136,6 +142,8 @@ class VirtualKCompositeJob : public KCompositeJob {
     VirtualKCompositeJob(QObject* parent) : KCompositeJob(parent) {};
 
     ~VirtualKCompositeJob() {
+        kcompositejob_metaobject_callback = nullptr;
+        kcompositejob_metacast_callback = nullptr;
         kcompositejob_metacall_callback = nullptr;
         kcompositejob_addsubjob_callback = nullptr;
         kcompositejob_removesubjob_callback = nullptr;
@@ -175,6 +183,8 @@ class VirtualKCompositeJob : public KCompositeJob {
     }
 
     // Callback setters
+    inline void setKCompositeJob_MetaObject_Callback(KCompositeJob_MetaObject_Callback cb) { kcompositejob_metaobject_callback = cb; }
+    inline void setKCompositeJob_Metacast_Callback(KCompositeJob_Metacast_Callback cb) { kcompositejob_metacast_callback = cb; }
     inline void setKCompositeJob_Metacall_Callback(KCompositeJob_Metacall_Callback cb) { kcompositejob_metacall_callback = cb; }
     inline void setKCompositeJob_AddSubjob_Callback(KCompositeJob_AddSubjob_Callback cb) { kcompositejob_addsubjob_callback = cb; }
     inline void setKCompositeJob_RemoveSubjob_Callback(KCompositeJob_RemoveSubjob_Callback cb) { kcompositejob_removesubjob_callback = cb; }
@@ -213,6 +223,8 @@ class VirtualKCompositeJob : public KCompositeJob {
     inline void setKCompositeJob_IsSignalConnected_Callback(KCompositeJob_IsSignalConnected_Callback cb) { kcompositejob_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCompositeJob_MetaObject_IsBase(bool value) const { kcompositejob_metaobject_isbase = value; }
+    inline void setKCompositeJob_Metacast_IsBase(bool value) const { kcompositejob_metacast_isbase = value; }
     inline void setKCompositeJob_Metacall_IsBase(bool value) const { kcompositejob_metacall_isbase = value; }
     inline void setKCompositeJob_AddSubjob_IsBase(bool value) const { kcompositejob_addsubjob_isbase = value; }
     inline void setKCompositeJob_RemoveSubjob_IsBase(bool value) const { kcompositejob_removesubjob_isbase = value; }
@@ -249,6 +261,34 @@ class VirtualKCompositeJob : public KCompositeJob {
     inline void setKCompositeJob_SenderSignalIndex_IsBase(bool value) const { kcompositejob_sendersignalindex_isbase = value; }
     inline void setKCompositeJob_Receivers_IsBase(bool value) const { kcompositejob_receivers_isbase = value; }
     inline void setKCompositeJob_IsSignalConnected_IsBase(bool value) const { kcompositejob_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcompositejob_metaobject_isbase) {
+            kcompositejob_metaobject_isbase = false;
+            return KCompositeJob::metaObject();
+        } else if (kcompositejob_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcompositejob_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCompositeJob::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcompositejob_metacast_isbase) {
+            kcompositejob_metacast_isbase = false;
+            return KCompositeJob::qt_metacast(param1);
+        } else if (kcompositejob_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcompositejob_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCompositeJob::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

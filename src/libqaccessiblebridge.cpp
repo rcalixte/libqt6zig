@@ -40,11 +40,21 @@ QAccessibleBridgePlugin* QAccessibleBridgePlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QAccessibleBridgePlugin_MetaObject(const QAccessibleBridgePlugin* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqaccessiblebridgeplugin = dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self);
+    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQAccessibleBridgePlugin*)self)->metaObject();
+    }
 }
 
 void* QAccessibleBridgePlugin_Metacast(QAccessibleBridgePlugin* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
+    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQAccessibleBridgePlugin*)self)->qt_metacast(param1);
+    }
 }
 
 int QAccessibleBridgePlugin_Metacall(QAccessibleBridgePlugin* self, int param1, int param2, void** param3) {
@@ -63,6 +73,44 @@ QAccessibleBridge* QAccessibleBridgePlugin_Create(QAccessibleBridgePlugin* self,
         return vqaccessiblebridgeplugin->create(key_QString);
     } else {
         return ((VirtualQAccessibleBridgePlugin*)self)->create(key_QString);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QAccessibleBridgePlugin_QBaseMetaObject(const QAccessibleBridgePlugin* self) {
+    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
+    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_MetaObject_IsBase(true);
+        return (QMetaObject*)vqaccessiblebridgeplugin->metaObject();
+    } else {
+        return (QMetaObject*)self->QAccessibleBridgePlugin::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAccessibleBridgePlugin_OnMetaObject(const QAccessibleBridgePlugin* self, intptr_t slot) {
+    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
+    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_MetaObject_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QAccessibleBridgePlugin_QBaseMetacast(QAccessibleBridgePlugin* self, const char* param1) {
+    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
+    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Metacast_IsBase(true);
+        return vqaccessiblebridgeplugin->qt_metacast(param1);
+    } else {
+        return self->QAccessibleBridgePlugin::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAccessibleBridgePlugin_OnMetacast(QAccessibleBridgePlugin* self, intptr_t slot) {
+    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
+    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Metacast_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Metacast_Callback>(slot));
     }
 }
 

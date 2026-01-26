@@ -25,11 +25,21 @@ QsciLexerFortran77* QsciLexerFortran77_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerFortran77_MetaObject(const QsciLexerFortran77* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqscilexerfortran77 = dynamic_cast<const VirtualQsciLexerFortran77*>(self);
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerFortran77*)self)->metaObject();
+    }
 }
 
 void* QsciLexerFortran77_Metacast(QsciLexerFortran77* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerFortran77*)self)->qt_metacast(param1);
+    }
 }
 
 int QsciLexerFortran77_Metacall(QsciLexerFortran77* self, int param1, int param2, void** param3) {
@@ -99,6 +109,44 @@ void QsciLexerFortran77_SetFoldCompact(QsciLexerFortran77* self, bool fold) {
         self->setFoldCompact(fold);
     } else {
         ((VirtualQsciLexerFortran77*)self)->setFoldCompact(fold);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QsciLexerFortran77_QBaseMetaObject(const QsciLexerFortran77* self) {
+    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        vqscilexerfortran77->setQsciLexerFortran77_MetaObject_IsBase(true);
+        return (QMetaObject*)vqscilexerfortran77->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQsciLexerFortran77*)self)->metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerFortran77_OnMetaObject(const QsciLexerFortran77* self, intptr_t slot) {
+    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        vqscilexerfortran77->setQsciLexerFortran77_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QsciLexerFortran77_QBaseMetacast(QsciLexerFortran77* self, const char* param1) {
+    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        vqscilexerfortran77->setQsciLexerFortran77_Metacast_IsBase(true);
+        return vqscilexerfortran77->qt_metacast(param1);
+    } else {
+        return ((VirtualQsciLexerFortran77*)self)->qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciLexerFortran77_OnMetacast(QsciLexerFortran77* self, intptr_t slot) {
+    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
+    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+        vqscilexerfortran77->setQsciLexerFortran77_Metacast_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Metacast_Callback>(slot));
     }
 }
 

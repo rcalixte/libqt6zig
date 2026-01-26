@@ -21,11 +21,21 @@ KBookmarkAction* KBookmarkAction_new(const KBookmark* bk, KBookmarkOwner* owner,
 }
 
 QMetaObject* KBookmarkAction_MetaObject(const KBookmarkAction* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkbookmarkaction = dynamic_cast<const VirtualKBookmarkAction*>(self);
+    if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKBookmarkAction*)self)->metaObject();
+    }
 }
 
 void* KBookmarkAction_Metacast(KBookmarkAction* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
+    if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKBookmarkAction*)self)->qt_metacast(param1);
+    }
 }
 
 int KBookmarkAction_Metacall(KBookmarkAction* self, int param1, int param2, void** param3) {
@@ -39,6 +49,44 @@ int KBookmarkAction_Metacall(KBookmarkAction* self, int param1, int param2, void
 
 void KBookmarkAction_SlotSelected(KBookmarkAction* self, int mb, int km) {
     self->slotSelected(static_cast<Qt::MouseButtons>(mb), static_cast<Qt::KeyboardModifiers>(km));
+}
+
+// Base class handler implementation
+QMetaObject* KBookmarkAction_QBaseMetaObject(const KBookmarkAction* self) {
+    auto* vkbookmarkaction = const_cast<VirtualKBookmarkAction*>(dynamic_cast<const VirtualKBookmarkAction*>(self));
+    if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
+        vkbookmarkaction->setKBookmarkAction_MetaObject_IsBase(true);
+        return (QMetaObject*)vkbookmarkaction->metaObject();
+    } else {
+        return (QMetaObject*)self->KBookmarkAction::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBookmarkAction_OnMetaObject(const KBookmarkAction* self, intptr_t slot) {
+    auto* vkbookmarkaction = const_cast<VirtualKBookmarkAction*>(dynamic_cast<const VirtualKBookmarkAction*>(self));
+    if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
+        vkbookmarkaction->setKBookmarkAction_MetaObject_Callback(reinterpret_cast<VirtualKBookmarkAction::KBookmarkAction_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KBookmarkAction_QBaseMetacast(KBookmarkAction* self, const char* param1) {
+    auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
+    if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
+        vkbookmarkaction->setKBookmarkAction_Metacast_IsBase(true);
+        return vkbookmarkaction->qt_metacast(param1);
+    } else {
+        return self->KBookmarkAction::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KBookmarkAction_OnMetacast(KBookmarkAction* self, intptr_t slot) {
+    auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
+    if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
+        vkbookmarkaction->setKBookmarkAction_Metacast_Callback(reinterpret_cast<VirtualKBookmarkAction::KBookmarkAction_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

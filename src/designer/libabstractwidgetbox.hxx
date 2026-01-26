@@ -17,6 +17,8 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
     bool isVirtualQDesignerWidgetBoxInterface = true;
 
     // Virtual class public types (including callbacks)
+    using QDesignerWidgetBoxInterface_MetaObject_Callback = QMetaObject* (*)();
+    using QDesignerWidgetBoxInterface_Metacast_Callback = void* (*)(QDesignerWidgetBoxInterface*, const char*);
     using QDesignerWidgetBoxInterface_Metacall_Callback = int (*)(QDesignerWidgetBoxInterface*, int, int, void**);
     using QDesignerWidgetBoxInterface_CategoryCount_Callback = int (*)();
     using QDesignerWidgetBoxInterface_Category_Callback = QDesignerWidgetBoxInterface__Category* (*)(const QDesignerWidgetBoxInterface*, int);
@@ -91,6 +93,8 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
 
   protected:
     // Instance callback storage
+    QDesignerWidgetBoxInterface_MetaObject_Callback qdesignerwidgetboxinterface_metaobject_callback = nullptr;
+    QDesignerWidgetBoxInterface_Metacast_Callback qdesignerwidgetboxinterface_metacast_callback = nullptr;
     QDesignerWidgetBoxInterface_Metacall_Callback qdesignerwidgetboxinterface_metacall_callback = nullptr;
     QDesignerWidgetBoxInterface_CategoryCount_Callback qdesignerwidgetboxinterface_categorycount_callback = nullptr;
     QDesignerWidgetBoxInterface_Category_Callback qdesignerwidgetboxinterface_category_callback = nullptr;
@@ -164,6 +168,8 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
     QDesignerWidgetBoxInterface_GetDecodedMetricF_Callback qdesignerwidgetboxinterface_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qdesignerwidgetboxinterface_metaobject_isbase = false;
+    mutable bool qdesignerwidgetboxinterface_metacast_isbase = false;
     mutable bool qdesignerwidgetboxinterface_metacall_isbase = false;
     mutable bool qdesignerwidgetboxinterface_categorycount_isbase = false;
     mutable bool qdesignerwidgetboxinterface_category_isbase = false;
@@ -242,6 +248,8 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
     VirtualQDesignerWidgetBoxInterface(QWidget* parent, Qt::WindowFlags flags) : QDesignerWidgetBoxInterface(parent, flags) {};
 
     ~VirtualQDesignerWidgetBoxInterface() {
+        qdesignerwidgetboxinterface_metaobject_callback = nullptr;
+        qdesignerwidgetboxinterface_metacast_callback = nullptr;
         qdesignerwidgetboxinterface_metacall_callback = nullptr;
         qdesignerwidgetboxinterface_categorycount_callback = nullptr;
         qdesignerwidgetboxinterface_category_callback = nullptr;
@@ -316,6 +324,8 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
     }
 
     // Callback setters
+    inline void setQDesignerWidgetBoxInterface_MetaObject_Callback(QDesignerWidgetBoxInterface_MetaObject_Callback cb) { qdesignerwidgetboxinterface_metaobject_callback = cb; }
+    inline void setQDesignerWidgetBoxInterface_Metacast_Callback(QDesignerWidgetBoxInterface_Metacast_Callback cb) { qdesignerwidgetboxinterface_metacast_callback = cb; }
     inline void setQDesignerWidgetBoxInterface_Metacall_Callback(QDesignerWidgetBoxInterface_Metacall_Callback cb) { qdesignerwidgetboxinterface_metacall_callback = cb; }
     inline void setQDesignerWidgetBoxInterface_CategoryCount_Callback(QDesignerWidgetBoxInterface_CategoryCount_Callback cb) { qdesignerwidgetboxinterface_categorycount_callback = cb; }
     inline void setQDesignerWidgetBoxInterface_Category_Callback(QDesignerWidgetBoxInterface_Category_Callback cb) { qdesignerwidgetboxinterface_category_callback = cb; }
@@ -389,6 +399,8 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
     inline void setQDesignerWidgetBoxInterface_GetDecodedMetricF_Callback(QDesignerWidgetBoxInterface_GetDecodedMetricF_Callback cb) { qdesignerwidgetboxinterface_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQDesignerWidgetBoxInterface_MetaObject_IsBase(bool value) const { qdesignerwidgetboxinterface_metaobject_isbase = value; }
+    inline void setQDesignerWidgetBoxInterface_Metacast_IsBase(bool value) const { qdesignerwidgetboxinterface_metacast_isbase = value; }
     inline void setQDesignerWidgetBoxInterface_Metacall_IsBase(bool value) const { qdesignerwidgetboxinterface_metacall_isbase = value; }
     inline void setQDesignerWidgetBoxInterface_CategoryCount_IsBase(bool value) const { qdesignerwidgetboxinterface_categorycount_isbase = value; }
     inline void setQDesignerWidgetBoxInterface_Category_IsBase(bool value) const { qdesignerwidgetboxinterface_category_isbase = value; }
@@ -460,6 +472,34 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
     inline void setQDesignerWidgetBoxInterface_Receivers_IsBase(bool value) const { qdesignerwidgetboxinterface_receivers_isbase = value; }
     inline void setQDesignerWidgetBoxInterface_IsSignalConnected_IsBase(bool value) const { qdesignerwidgetboxinterface_issignalconnected_isbase = value; }
     inline void setQDesignerWidgetBoxInterface_GetDecodedMetricF_IsBase(bool value) const { qdesignerwidgetboxinterface_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qdesignerwidgetboxinterface_metaobject_isbase) {
+            qdesignerwidgetboxinterface_metaobject_isbase = false;
+            return QDesignerWidgetBoxInterface::metaObject();
+        } else if (qdesignerwidgetboxinterface_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qdesignerwidgetboxinterface_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QDesignerWidgetBoxInterface::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qdesignerwidgetboxinterface_metacast_isbase) {
+            qdesignerwidgetboxinterface_metacast_isbase = false;
+            return QDesignerWidgetBoxInterface::qt_metacast(param1);
+        } else if (qdesignerwidgetboxinterface_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qdesignerwidgetboxinterface_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QDesignerWidgetBoxInterface::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

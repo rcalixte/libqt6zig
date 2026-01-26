@@ -48,6 +48,10 @@ QStatusBar* KParts__StatusBarExtension_StatusBar(const KParts__StatusBarExtensio
 void KParts__StatusBarExtension_SetStatusBar(KParts__StatusBarExtension* self, QStatusBar* status);
 KParts__StatusBarExtension* KParts__StatusBarExtension_ChildObject(QObject* obj);
 bool KParts__StatusBarExtension_EventFilter(KParts__StatusBarExtension* self, QObject* watched, QEvent* ev);
+void KParts__StatusBarExtension_OnMetaObject(const KParts__StatusBarExtension* self, intptr_t slot);
+QMetaObject* KParts__StatusBarExtension_QBaseMetaObject(const KParts__StatusBarExtension* self);
+void KParts__StatusBarExtension_OnMetacast(KParts__StatusBarExtension* self, intptr_t slot);
+void* KParts__StatusBarExtension_QBaseMetacast(KParts__StatusBarExtension* self, const char* param1);
 void KParts__StatusBarExtension_OnMetacall(KParts__StatusBarExtension* self, intptr_t slot);
 int KParts__StatusBarExtension_QBaseMetacall(KParts__StatusBarExtension* self, int param1, int param2, void** param3);
 void KParts__StatusBarExtension_OnEventFilter(KParts__StatusBarExtension* self, intptr_t slot);

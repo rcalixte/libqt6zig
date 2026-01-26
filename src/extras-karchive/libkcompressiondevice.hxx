@@ -17,6 +17,8 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     bool isVirtualKCompressionDevice = true;
 
     // Virtual class public types (including callbacks)
+    using KCompressionDevice_MetaObject_Callback = QMetaObject* (*)();
+    using KCompressionDevice_Metacast_Callback = void* (*)(KCompressionDevice*, const char*);
     using KCompressionDevice_Metacall_Callback = int (*)(KCompressionDevice*, int, int, void**);
     using KCompressionDevice_Open_Callback = bool (*)(KCompressionDevice*, int);
     using KCompressionDevice_Close_Callback = void (*)();
@@ -52,6 +54,8 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
 
   protected:
     // Instance callback storage
+    KCompressionDevice_MetaObject_Callback kcompressiondevice_metaobject_callback = nullptr;
+    KCompressionDevice_Metacast_Callback kcompressiondevice_metacast_callback = nullptr;
     KCompressionDevice_Metacall_Callback kcompressiondevice_metacall_callback = nullptr;
     KCompressionDevice_Open_Callback kcompressiondevice_open_callback = nullptr;
     KCompressionDevice_Close_Callback kcompressiondevice_close_callback = nullptr;
@@ -86,6 +90,8 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     KCompressionDevice_IsSignalConnected_Callback kcompressiondevice_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool kcompressiondevice_metaobject_isbase = false;
+    mutable bool kcompressiondevice_metacast_isbase = false;
     mutable bool kcompressiondevice_metacall_isbase = false;
     mutable bool kcompressiondevice_open_isbase = false;
     mutable bool kcompressiondevice_close_isbase = false;
@@ -125,6 +131,8 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     VirtualKCompressionDevice(const QString& fileName) : KCompressionDevice(fileName) {};
 
     ~VirtualKCompressionDevice() {
+        kcompressiondevice_metaobject_callback = nullptr;
+        kcompressiondevice_metacast_callback = nullptr;
         kcompressiondevice_metacall_callback = nullptr;
         kcompressiondevice_open_callback = nullptr;
         kcompressiondevice_close_callback = nullptr;
@@ -160,6 +168,8 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     }
 
     // Callback setters
+    inline void setKCompressionDevice_MetaObject_Callback(KCompressionDevice_MetaObject_Callback cb) { kcompressiondevice_metaobject_callback = cb; }
+    inline void setKCompressionDevice_Metacast_Callback(KCompressionDevice_Metacast_Callback cb) { kcompressiondevice_metacast_callback = cb; }
     inline void setKCompressionDevice_Metacall_Callback(KCompressionDevice_Metacall_Callback cb) { kcompressiondevice_metacall_callback = cb; }
     inline void setKCompressionDevice_Open_Callback(KCompressionDevice_Open_Callback cb) { kcompressiondevice_open_callback = cb; }
     inline void setKCompressionDevice_Close_Callback(KCompressionDevice_Close_Callback cb) { kcompressiondevice_close_callback = cb; }
@@ -194,6 +204,8 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     inline void setKCompressionDevice_IsSignalConnected_Callback(KCompressionDevice_IsSignalConnected_Callback cb) { kcompressiondevice_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKCompressionDevice_MetaObject_IsBase(bool value) const { kcompressiondevice_metaobject_isbase = value; }
+    inline void setKCompressionDevice_Metacast_IsBase(bool value) const { kcompressiondevice_metacast_isbase = value; }
     inline void setKCompressionDevice_Metacall_IsBase(bool value) const { kcompressiondevice_metacall_isbase = value; }
     inline void setKCompressionDevice_Open_IsBase(bool value) const { kcompressiondevice_open_isbase = value; }
     inline void setKCompressionDevice_Close_IsBase(bool value) const { kcompressiondevice_close_isbase = value; }
@@ -226,6 +238,34 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     inline void setKCompressionDevice_SenderSignalIndex_IsBase(bool value) const { kcompressiondevice_sendersignalindex_isbase = value; }
     inline void setKCompressionDevice_Receivers_IsBase(bool value) const { kcompressiondevice_receivers_isbase = value; }
     inline void setKCompressionDevice_IsSignalConnected_IsBase(bool value) const { kcompressiondevice_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (kcompressiondevice_metaobject_isbase) {
+            kcompressiondevice_metaobject_isbase = false;
+            return KCompressionDevice::metaObject();
+        } else if (kcompressiondevice_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = kcompressiondevice_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KCompressionDevice::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (kcompressiondevice_metacast_isbase) {
+            kcompressiondevice_metacast_isbase = false;
+            return KCompressionDevice::qt_metacast(param1);
+        } else if (kcompressiondevice_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = kcompressiondevice_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KCompressionDevice::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

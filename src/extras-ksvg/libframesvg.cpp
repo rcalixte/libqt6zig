@@ -28,11 +28,21 @@ KSvg__FrameSvg* KSvg__FrameSvg_new2(QObject* parent) {
 }
 
 QMetaObject* KSvg__FrameSvg_MetaObject(const KSvg__FrameSvg* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vksvg__framesvg = dynamic_cast<const VirtualKSvgFrameSvg*>(self);
+    if (vksvg__framesvg && vksvg__framesvg->isVirtualKSvgFrameSvg) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKSvgFrameSvg*)self)->metaObject();
+    }
 }
 
 void* KSvg__FrameSvg_Metacast(KSvg__FrameSvg* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vksvg__framesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
+    if (vksvg__framesvg && vksvg__framesvg->isVirtualKSvgFrameSvg) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKSvgFrameSvg*)self)->qt_metacast(param1);
+    }
 }
 
 int KSvg__FrameSvg_Metacall(KSvg__FrameSvg* self, int param1, int param2, void** param3) {
@@ -194,6 +204,44 @@ void KSvg__FrameSvg_PaintFrame3(KSvg__FrameSvg* self, QPainter* painter, const Q
 
 void KSvg__FrameSvg_PaintFrame22(KSvg__FrameSvg* self, QPainter* painter, const QPointF* pos) {
     self->paintFrame(painter, *pos);
+}
+
+// Base class handler implementation
+QMetaObject* KSvg__FrameSvg_QBaseMetaObject(const KSvg__FrameSvg* self) {
+    auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+        vksvgframesvg->setKSvg__FrameSvg_MetaObject_IsBase(true);
+        return (QMetaObject*)vksvgframesvg->metaObject();
+    } else {
+        return (QMetaObject*)self->KSvg::FrameSvg::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSvg__FrameSvg_OnMetaObject(const KSvg__FrameSvg* self, intptr_t slot) {
+    auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+        vksvgframesvg->setKSvg__FrameSvg_MetaObject_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KSvg__FrameSvg_QBaseMetacast(KSvg__FrameSvg* self, const char* param1) {
+    auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+        vksvgframesvg->setKSvg__FrameSvg_Metacast_IsBase(true);
+        return vksvgframesvg->qt_metacast(param1);
+    } else {
+        return self->KSvg::FrameSvg::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSvg__FrameSvg_OnMetacast(KSvg__FrameSvg* self, intptr_t slot) {
+    auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+        vksvgframesvg->setKSvg__FrameSvg_Metacast_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

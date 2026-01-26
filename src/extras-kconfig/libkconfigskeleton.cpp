@@ -34,11 +34,21 @@ KConfigSkeleton* KConfigSkeleton_new3(const libqt_string configname, QObject* pa
 }
 
 QMetaObject* KConfigSkeleton_MetaObject(const KConfigSkeleton* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkconfigskeleton = dynamic_cast<const VirtualKConfigSkeleton*>(self);
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKConfigSkeleton*)self)->metaObject();
+    }
 }
 
 void* KConfigSkeleton_Metacast(KConfigSkeleton* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKConfigSkeleton*)self)->qt_metacast(param1);
+    }
 }
 
 int KConfigSkeleton_Metacall(KConfigSkeleton* self, int param1, int param2, void** param3) {
@@ -80,6 +90,44 @@ KConfigSkeleton__ItemFont* KConfigSkeleton_AddItemFont4(KConfigSkeleton* self, c
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return self->addItemFont(name_QString, *reference, *defaultValue, key_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KConfigSkeleton_QBaseMetaObject(const KConfigSkeleton* self) {
+    auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+        vkconfigskeleton->setKConfigSkeleton_MetaObject_IsBase(true);
+        return (QMetaObject*)vkconfigskeleton->metaObject();
+    } else {
+        return (QMetaObject*)self->KConfigSkeleton::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton_OnMetaObject(const KConfigSkeleton* self, intptr_t slot) {
+    auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+        vkconfigskeleton->setKConfigSkeleton_MetaObject_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KConfigSkeleton_QBaseMetacast(KConfigSkeleton* self, const char* param1) {
+    auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+        vkconfigskeleton->setKConfigSkeleton_Metacast_IsBase(true);
+        return vkconfigskeleton->qt_metacast(param1);
+    } else {
+        return self->KConfigSkeleton::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton_OnMetacast(KConfigSkeleton* self, intptr_t slot) {
+    auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+        vkconfigskeleton->setKConfigSkeleton_Metacast_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

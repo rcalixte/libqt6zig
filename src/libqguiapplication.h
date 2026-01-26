@@ -120,6 +120,10 @@ void QGuiApplication_Connect_PaletteChanged(QGuiApplication* self, intptr_t slot
 void QGuiApplication_FontChanged(QGuiApplication* self, const QFont* font);
 void QGuiApplication_Connect_FontChanged(QGuiApplication* self, intptr_t slot);
 bool QGuiApplication_Event(QGuiApplication* self, QEvent* param1);
+void QGuiApplication_OnMetaObject(const QGuiApplication* self, intptr_t slot);
+QMetaObject* QGuiApplication_QBaseMetaObject(const QGuiApplication* self);
+void QGuiApplication_OnMetacast(QGuiApplication* self, intptr_t slot);
+void* QGuiApplication_QBaseMetacast(QGuiApplication* self, const char* param1);
 void QGuiApplication_OnMetacall(QGuiApplication* self, intptr_t slot);
 int QGuiApplication_QBaseMetacall(QGuiApplication* self, int param1, int param2, void** param3);
 void QGuiApplication_OnNotify(QGuiApplication* self, intptr_t slot);

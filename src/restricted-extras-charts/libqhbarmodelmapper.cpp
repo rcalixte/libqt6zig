@@ -24,11 +24,21 @@ QHBarModelMapper* QHBarModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QHBarModelMapper_MetaObject(const QHBarModelMapper* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqhbarmodelmapper = dynamic_cast<const VirtualQHBarModelMapper*>(self);
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQHBarModelMapper*)self)->metaObject();
+    }
 }
 
 void* QHBarModelMapper_Metacast(QHBarModelMapper* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQHBarModelMapper*)self)->qt_metacast(param1);
+    }
 }
 
 int QHBarModelMapper_Metacall(QHBarModelMapper* self, int param1, int param2, void** param3) {
@@ -152,6 +162,44 @@ void QHBarModelMapper_Connect_ColumnCountChanged(QHBarModelMapper* self, intptr_
     QHBarModelMapper::connect(self, &QHBarModelMapper::columnCountChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QHBarModelMapper_QBaseMetaObject(const QHBarModelMapper* self) {
+    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+        vqhbarmodelmapper->setQHBarModelMapper_MetaObject_IsBase(true);
+        return (QMetaObject*)vqhbarmodelmapper->metaObject();
+    } else {
+        return (QMetaObject*)self->QHBarModelMapper::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHBarModelMapper_OnMetaObject(const QHBarModelMapper* self, intptr_t slot) {
+    auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+        vqhbarmodelmapper->setQHBarModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QHBarModelMapper_QBaseMetacast(QHBarModelMapper* self, const char* param1) {
+    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+        vqhbarmodelmapper->setQHBarModelMapper_Metacast_IsBase(true);
+        return vqhbarmodelmapper->qt_metacast(param1);
+    } else {
+        return self->QHBarModelMapper::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHBarModelMapper_OnMetacast(QHBarModelMapper* self, intptr_t slot) {
+    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+        vqhbarmodelmapper->setQHBarModelMapper_Metacast_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

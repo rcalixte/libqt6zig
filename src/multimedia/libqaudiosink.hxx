@@ -17,6 +17,8 @@ class VirtualQAudioSink final : public QAudioSink {
     bool isVirtualQAudioSink = true;
 
     // Virtual class public types (including callbacks)
+    using QAudioSink_MetaObject_Callback = QMetaObject* (*)();
+    using QAudioSink_Metacast_Callback = void* (*)(QAudioSink*, const char*);
     using QAudioSink_Metacall_Callback = int (*)(QAudioSink*, int, int, void**);
     using QAudioSink_Event_Callback = bool (*)(QAudioSink*, QEvent*);
     using QAudioSink_EventFilter_Callback = bool (*)(QAudioSink*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQAudioSink final : public QAudioSink {
 
   protected:
     // Instance callback storage
+    QAudioSink_MetaObject_Callback qaudiosink_metaobject_callback = nullptr;
+    QAudioSink_Metacast_Callback qaudiosink_metacast_callback = nullptr;
     QAudioSink_Metacall_Callback qaudiosink_metacall_callback = nullptr;
     QAudioSink_Event_Callback qaudiosink_event_callback = nullptr;
     QAudioSink_EventFilter_Callback qaudiosink_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQAudioSink final : public QAudioSink {
     QAudioSink_IsSignalConnected_Callback qaudiosink_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qaudiosink_metaobject_isbase = false;
+    mutable bool qaudiosink_metacast_isbase = false;
     mutable bool qaudiosink_metacall_isbase = false;
     mutable bool qaudiosink_event_isbase = false;
     mutable bool qaudiosink_eventfilter_isbase = false;
@@ -68,6 +74,8 @@ class VirtualQAudioSink final : public QAudioSink {
     VirtualQAudioSink(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format, QObject* parent) : QAudioSink(audioDeviceInfo, format, parent) {};
 
     ~VirtualQAudioSink() {
+        qaudiosink_metaobject_callback = nullptr;
+        qaudiosink_metacast_callback = nullptr;
         qaudiosink_metacall_callback = nullptr;
         qaudiosink_event_callback = nullptr;
         qaudiosink_eventfilter_callback = nullptr;
@@ -83,6 +91,8 @@ class VirtualQAudioSink final : public QAudioSink {
     }
 
     // Callback setters
+    inline void setQAudioSink_MetaObject_Callback(QAudioSink_MetaObject_Callback cb) { qaudiosink_metaobject_callback = cb; }
+    inline void setQAudioSink_Metacast_Callback(QAudioSink_Metacast_Callback cb) { qaudiosink_metacast_callback = cb; }
     inline void setQAudioSink_Metacall_Callback(QAudioSink_Metacall_Callback cb) { qaudiosink_metacall_callback = cb; }
     inline void setQAudioSink_Event_Callback(QAudioSink_Event_Callback cb) { qaudiosink_event_callback = cb; }
     inline void setQAudioSink_EventFilter_Callback(QAudioSink_EventFilter_Callback cb) { qaudiosink_eventfilter_callback = cb; }
@@ -97,6 +107,8 @@ class VirtualQAudioSink final : public QAudioSink {
     inline void setQAudioSink_IsSignalConnected_Callback(QAudioSink_IsSignalConnected_Callback cb) { qaudiosink_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQAudioSink_MetaObject_IsBase(bool value) const { qaudiosink_metaobject_isbase = value; }
+    inline void setQAudioSink_Metacast_IsBase(bool value) const { qaudiosink_metacast_isbase = value; }
     inline void setQAudioSink_Metacall_IsBase(bool value) const { qaudiosink_metacall_isbase = value; }
     inline void setQAudioSink_Event_IsBase(bool value) const { qaudiosink_event_isbase = value; }
     inline void setQAudioSink_EventFilter_IsBase(bool value) const { qaudiosink_eventfilter_isbase = value; }
@@ -109,6 +121,34 @@ class VirtualQAudioSink final : public QAudioSink {
     inline void setQAudioSink_SenderSignalIndex_IsBase(bool value) const { qaudiosink_sendersignalindex_isbase = value; }
     inline void setQAudioSink_Receivers_IsBase(bool value) const { qaudiosink_receivers_isbase = value; }
     inline void setQAudioSink_IsSignalConnected_IsBase(bool value) const { qaudiosink_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qaudiosink_metaobject_isbase) {
+            qaudiosink_metaobject_isbase = false;
+            return QAudioSink::metaObject();
+        } else if (qaudiosink_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qaudiosink_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QAudioSink::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qaudiosink_metacast_isbase) {
+            qaudiosink_metacast_isbase = false;
+            return QAudioSink::qt_metacast(param1);
+        } else if (qaudiosink_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qaudiosink_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QAudioSink::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

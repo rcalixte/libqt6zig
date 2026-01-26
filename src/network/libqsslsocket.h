@@ -146,6 +146,10 @@ libqt_list /* of int */ QSslSocket_ImplementedClasses1(const libqt_string backen
 bool QSslSocket_IsClassImplemented2(int cl, const libqt_string backendName);
 libqt_list /* of int */ QSslSocket_SupportedFeatures1(const libqt_string backendName);
 bool QSslSocket_IsFeatureSupported2(int feat, const libqt_string backendName);
+void QSslSocket_OnMetaObject(const QSslSocket* self, intptr_t slot);
+QMetaObject* QSslSocket_QBaseMetaObject(const QSslSocket* self);
+void QSslSocket_OnMetacast(QSslSocket* self, intptr_t slot);
+void* QSslSocket_QBaseMetacast(QSslSocket* self, const char* param1);
 void QSslSocket_OnMetacall(QSslSocket* self, intptr_t slot);
 int QSslSocket_QBaseMetacall(QSslSocket* self, int param1, int param2, void** param3);
 void QSslSocket_OnResume(QSslSocket* self, intptr_t slot);

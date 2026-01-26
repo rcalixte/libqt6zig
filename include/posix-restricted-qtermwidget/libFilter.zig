@@ -213,31 +213,6 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Konsole__Filter `
-    ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QObject_MetaObject(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Konsole__Filter `
-    ///
-    /// ` param1: [:0]const u8 `
-    ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
-        const param1_Cstring = param1.ptr;
-        return qtc.QObject_Metacast(@ptrCast(self), param1_Cstring);
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -900,6 +875,100 @@ pub const konsole__filter = struct {
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__Filter_MetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__Filter_QBaseMetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.Konsole__Filter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.Konsole__Filter_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__Filter `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.Konsole__Filter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__Filter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__Filter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.Konsole__Filter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1659,31 +1728,6 @@ pub const konsole__regexpfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Konsole__RegExpFilter `
-    ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QObject_MetaObject(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Konsole__RegExpFilter `
-    ///
-    /// ` param1: [:0]const u8 `
-    ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
-        const param1_Cstring = param1.ptr;
-        return qtc.QObject_Metacast(@ptrCast(self), param1_Cstring);
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -2346,6 +2390,100 @@ pub const konsole__regexpfilter = struct {
     ///
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__RegExpFilter_MetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__RegExpFilter_QBaseMetaObject(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.Konsole__RegExpFilter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.Konsole__RegExpFilter_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.Konsole__RegExpFilter_QBaseMetacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_metacast)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__RegExpFilter`
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.Konsole__RegExpFilter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3137,6 +3275,32 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.Konsole__UrlFilter_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__UrlFilter_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.Konsole__UrlFilter `
@@ -3146,6 +3310,31 @@ pub const konsole__urlfilter = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Konsole__UrlFilter_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__UrlFilter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.Konsole__UrlFilter_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__UrlFilter `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.Konsole__UrlFilter_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -4763,6 +4952,32 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_MetaObject(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    ///
+    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
+        qtc.Konsole__FilterObject_OnMetaObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    pub fn QBaseMetaObject(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.Konsole__FilterObject_QBaseMetaObject(@ptrCast(self));
+    }
+
     /// ## Parameter(s):
     ///
     /// ` self: QtC.Konsole__FilterObject `
@@ -4772,6 +4987,31 @@ pub const konsole__filterobject = struct {
     pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Konsole__FilterObject_Metacast(@ptrCast(self), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` callback: *const fn (self: QtC.Konsole__FilterObject, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.Konsole__FilterObject_OnMetacast(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.Konsole__FilterObject `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn QBaseMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.Konsole__FilterObject_QBaseMetacast(@ptrCast(self), param1_Cstring);
     }
 
     /// ## Parameter(s):

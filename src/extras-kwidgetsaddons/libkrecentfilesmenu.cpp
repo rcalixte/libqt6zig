@@ -63,11 +63,21 @@ KRecentFilesMenu* KRecentFilesMenu_new4(const libqt_string title, QWidget* paren
 }
 
 QMetaObject* KRecentFilesMenu_MetaObject(const KRecentFilesMenu* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkrecentfilesmenu = dynamic_cast<const VirtualKRecentFilesMenu*>(self);
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKRecentFilesMenu*)self)->metaObject();
+    }
 }
 
 void* KRecentFilesMenu_Metacast(KRecentFilesMenu* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKRecentFilesMenu*)self)->qt_metacast(param1);
+    }
 }
 
 int KRecentFilesMenu_Metacall(KRecentFilesMenu* self, int param1, int param2, void** param3) {
@@ -157,6 +167,44 @@ void KRecentFilesMenu_Connect_RecentFilesChanged(KRecentFilesMenu* self, intptr_
 void KRecentFilesMenu_AddUrl2(KRecentFilesMenu* self, const QUrl* url, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->addUrl(*url, name_QString);
+}
+
+// Base class handler implementation
+QMetaObject* KRecentFilesMenu_QBaseMetaObject(const KRecentFilesMenu* self) {
+    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+        vkrecentfilesmenu->setKRecentFilesMenu_MetaObject_IsBase(true);
+        return (QMetaObject*)vkrecentfilesmenu->metaObject();
+    } else {
+        return (QMetaObject*)self->KRecentFilesMenu::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRecentFilesMenu_OnMetaObject(const KRecentFilesMenu* self, intptr_t slot) {
+    auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+        vkrecentfilesmenu->setKRecentFilesMenu_MetaObject_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KRecentFilesMenu_QBaseMetacast(KRecentFilesMenu* self, const char* param1) {
+    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+        vkrecentfilesmenu->setKRecentFilesMenu_Metacast_IsBase(true);
+        return vkrecentfilesmenu->qt_metacast(param1);
+    } else {
+        return self->KRecentFilesMenu::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KRecentFilesMenu_OnMetacast(KRecentFilesMenu* self, intptr_t slot) {
+    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+        vkrecentfilesmenu->setKRecentFilesMenu_Metacast_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

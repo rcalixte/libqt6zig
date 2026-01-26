@@ -17,6 +17,8 @@ class VirtualKNotificationAction final : public KNotificationAction {
     bool isVirtualKNotificationAction = true;
 
     // Virtual class public types (including callbacks)
+    using KNotificationAction_MetaObject_Callback = QMetaObject* (*)();
+    using KNotificationAction_Metacast_Callback = void* (*)(KNotificationAction*, const char*);
     using KNotificationAction_Metacall_Callback = int (*)(KNotificationAction*, int, int, void**);
     using KNotificationAction_Event_Callback = bool (*)(KNotificationAction*, QEvent*);
     using KNotificationAction_EventFilter_Callback = bool (*)(KNotificationAction*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualKNotificationAction final : public KNotificationAction {
 
   protected:
     // Instance callback storage
+    KNotificationAction_MetaObject_Callback knotificationaction_metaobject_callback = nullptr;
+    KNotificationAction_Metacast_Callback knotificationaction_metacast_callback = nullptr;
     KNotificationAction_Metacall_Callback knotificationaction_metacall_callback = nullptr;
     KNotificationAction_Event_Callback knotificationaction_event_callback = nullptr;
     KNotificationAction_EventFilter_Callback knotificationaction_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualKNotificationAction final : public KNotificationAction {
     KNotificationAction_IsSignalConnected_Callback knotificationaction_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool knotificationaction_metaobject_isbase = false;
+    mutable bool knotificationaction_metacast_isbase = false;
     mutable bool knotificationaction_metacall_isbase = false;
     mutable bool knotificationaction_event_isbase = false;
     mutable bool knotificationaction_eventfilter_isbase = false;
@@ -65,6 +71,8 @@ class VirtualKNotificationAction final : public KNotificationAction {
     VirtualKNotificationAction(QObject* parent) : KNotificationAction(parent) {};
 
     ~VirtualKNotificationAction() {
+        knotificationaction_metaobject_callback = nullptr;
+        knotificationaction_metacast_callback = nullptr;
         knotificationaction_metacall_callback = nullptr;
         knotificationaction_event_callback = nullptr;
         knotificationaction_eventfilter_callback = nullptr;
@@ -80,6 +88,8 @@ class VirtualKNotificationAction final : public KNotificationAction {
     }
 
     // Callback setters
+    inline void setKNotificationAction_MetaObject_Callback(KNotificationAction_MetaObject_Callback cb) { knotificationaction_metaobject_callback = cb; }
+    inline void setKNotificationAction_Metacast_Callback(KNotificationAction_Metacast_Callback cb) { knotificationaction_metacast_callback = cb; }
     inline void setKNotificationAction_Metacall_Callback(KNotificationAction_Metacall_Callback cb) { knotificationaction_metacall_callback = cb; }
     inline void setKNotificationAction_Event_Callback(KNotificationAction_Event_Callback cb) { knotificationaction_event_callback = cb; }
     inline void setKNotificationAction_EventFilter_Callback(KNotificationAction_EventFilter_Callback cb) { knotificationaction_eventfilter_callback = cb; }
@@ -94,6 +104,8 @@ class VirtualKNotificationAction final : public KNotificationAction {
     inline void setKNotificationAction_IsSignalConnected_Callback(KNotificationAction_IsSignalConnected_Callback cb) { knotificationaction_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKNotificationAction_MetaObject_IsBase(bool value) const { knotificationaction_metaobject_isbase = value; }
+    inline void setKNotificationAction_Metacast_IsBase(bool value) const { knotificationaction_metacast_isbase = value; }
     inline void setKNotificationAction_Metacall_IsBase(bool value) const { knotificationaction_metacall_isbase = value; }
     inline void setKNotificationAction_Event_IsBase(bool value) const { knotificationaction_event_isbase = value; }
     inline void setKNotificationAction_EventFilter_IsBase(bool value) const { knotificationaction_eventfilter_isbase = value; }
@@ -106,6 +118,34 @@ class VirtualKNotificationAction final : public KNotificationAction {
     inline void setKNotificationAction_SenderSignalIndex_IsBase(bool value) const { knotificationaction_sendersignalindex_isbase = value; }
     inline void setKNotificationAction_Receivers_IsBase(bool value) const { knotificationaction_receivers_isbase = value; }
     inline void setKNotificationAction_IsSignalConnected_IsBase(bool value) const { knotificationaction_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knotificationaction_metaobject_isbase) {
+            knotificationaction_metaobject_isbase = false;
+            return KNotificationAction::metaObject();
+        } else if (knotificationaction_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knotificationaction_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNotificationAction::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knotificationaction_metacast_isbase) {
+            knotificationaction_metacast_isbase = false;
+            return KNotificationAction::qt_metacast(param1);
+        } else if (knotificationaction_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knotificationaction_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNotificationAction::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -316,6 +356,8 @@ class VirtualKNotification final : public KNotification {
     bool isVirtualKNotification = true;
 
     // Virtual class public types (including callbacks)
+    using KNotification_MetaObject_Callback = QMetaObject* (*)();
+    using KNotification_Metacast_Callback = void* (*)(KNotification*, const char*);
     using KNotification_Metacall_Callback = int (*)(KNotification*, int, int, void**);
     using KNotification_Event_Callback = bool (*)(KNotification*, QEvent*);
     using KNotification_EventFilter_Callback = bool (*)(KNotification*, QObject*, QEvent*);
@@ -331,6 +373,8 @@ class VirtualKNotification final : public KNotification {
 
   protected:
     // Instance callback storage
+    KNotification_MetaObject_Callback knotification_metaobject_callback = nullptr;
+    KNotification_Metacast_Callback knotification_metacast_callback = nullptr;
     KNotification_Metacall_Callback knotification_metacall_callback = nullptr;
     KNotification_Event_Callback knotification_event_callback = nullptr;
     KNotification_EventFilter_Callback knotification_eventfilter_callback = nullptr;
@@ -345,6 +389,8 @@ class VirtualKNotification final : public KNotification {
     KNotification_IsSignalConnected_Callback knotification_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool knotification_metaobject_isbase = false;
+    mutable bool knotification_metacast_isbase = false;
     mutable bool knotification_metacall_isbase = false;
     mutable bool knotification_event_isbase = false;
     mutable bool knotification_eventfilter_isbase = false;
@@ -364,6 +410,8 @@ class VirtualKNotification final : public KNotification {
     VirtualKNotification(const QString& eventId, KNotification::NotificationFlags flags, QObject* parent) : KNotification(eventId, flags, parent) {};
 
     ~VirtualKNotification() {
+        knotification_metaobject_callback = nullptr;
+        knotification_metacast_callback = nullptr;
         knotification_metacall_callback = nullptr;
         knotification_event_callback = nullptr;
         knotification_eventfilter_callback = nullptr;
@@ -379,6 +427,8 @@ class VirtualKNotification final : public KNotification {
     }
 
     // Callback setters
+    inline void setKNotification_MetaObject_Callback(KNotification_MetaObject_Callback cb) { knotification_metaobject_callback = cb; }
+    inline void setKNotification_Metacast_Callback(KNotification_Metacast_Callback cb) { knotification_metacast_callback = cb; }
     inline void setKNotification_Metacall_Callback(KNotification_Metacall_Callback cb) { knotification_metacall_callback = cb; }
     inline void setKNotification_Event_Callback(KNotification_Event_Callback cb) { knotification_event_callback = cb; }
     inline void setKNotification_EventFilter_Callback(KNotification_EventFilter_Callback cb) { knotification_eventfilter_callback = cb; }
@@ -393,6 +443,8 @@ class VirtualKNotification final : public KNotification {
     inline void setKNotification_IsSignalConnected_Callback(KNotification_IsSignalConnected_Callback cb) { knotification_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setKNotification_MetaObject_IsBase(bool value) const { knotification_metaobject_isbase = value; }
+    inline void setKNotification_Metacast_IsBase(bool value) const { knotification_metacast_isbase = value; }
     inline void setKNotification_Metacall_IsBase(bool value) const { knotification_metacall_isbase = value; }
     inline void setKNotification_Event_IsBase(bool value) const { knotification_event_isbase = value; }
     inline void setKNotification_EventFilter_IsBase(bool value) const { knotification_eventfilter_isbase = value; }
@@ -405,6 +457,34 @@ class VirtualKNotification final : public KNotification {
     inline void setKNotification_SenderSignalIndex_IsBase(bool value) const { knotification_sendersignalindex_isbase = value; }
     inline void setKNotification_Receivers_IsBase(bool value) const { knotification_receivers_isbase = value; }
     inline void setKNotification_IsSignalConnected_IsBase(bool value) const { knotification_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knotification_metaobject_isbase) {
+            knotification_metaobject_isbase = false;
+            return KNotification::metaObject();
+        } else if (knotification_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knotification_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNotification::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knotification_metacast_isbase) {
+            knotification_metacast_isbase = false;
+            return KNotification::qt_metacast(param1);
+        } else if (knotification_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knotification_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNotification::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

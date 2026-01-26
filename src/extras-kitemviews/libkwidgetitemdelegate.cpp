@@ -32,11 +32,21 @@ KWidgetItemDelegate* KWidgetItemDelegate_new2(QAbstractItemView* itemView, QObje
 }
 
 QMetaObject* KWidgetItemDelegate_MetaObject(const KWidgetItemDelegate* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkwidgetitemdelegate = dynamic_cast<const VirtualKWidgetItemDelegate*>(self);
+    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKWidgetItemDelegate*)self)->metaObject();
+    }
 }
 
 void* KWidgetItemDelegate_Metacast(KWidgetItemDelegate* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
+    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKWidgetItemDelegate*)self)->qt_metacast(param1);
+    }
 }
 
 int KWidgetItemDelegate_Metacall(KWidgetItemDelegate* self, int param1, int param2, void** param3) {
@@ -87,6 +97,44 @@ void KWidgetItemDelegate_UpdateItemWidgets(const KWidgetItemDelegate* self, cons
     auto* vkwidgetitemdelegate = dynamic_cast<const VirtualKWidgetItemDelegate*>(self);
     if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
         vkwidgetitemdelegate->updateItemWidgets(widgets_QList, *option, *index);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KWidgetItemDelegate_QBaseMetaObject(const KWidgetItemDelegate* self) {
+    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
+    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+        vkwidgetitemdelegate->setKWidgetItemDelegate_MetaObject_IsBase(true);
+        return (QMetaObject*)vkwidgetitemdelegate->metaObject();
+    } else {
+        return (QMetaObject*)self->KWidgetItemDelegate::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KWidgetItemDelegate_OnMetaObject(const KWidgetItemDelegate* self, intptr_t slot) {
+    auto* vkwidgetitemdelegate = const_cast<VirtualKWidgetItemDelegate*>(dynamic_cast<const VirtualKWidgetItemDelegate*>(self));
+    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+        vkwidgetitemdelegate->setKWidgetItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KWidgetItemDelegate_QBaseMetacast(KWidgetItemDelegate* self, const char* param1) {
+    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
+    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+        vkwidgetitemdelegate->setKWidgetItemDelegate_Metacast_IsBase(true);
+        return vkwidgetitemdelegate->qt_metacast(param1);
+    } else {
+        return self->KWidgetItemDelegate::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KWidgetItemDelegate_OnMetacast(KWidgetItemDelegate* self, intptr_t slot) {
+    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
+    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
+        vkwidgetitemdelegate->setKWidgetItemDelegate_Metacast_Callback(reinterpret_cast<VirtualKWidgetItemDelegate::KWidgetItemDelegate_Metacast_Callback>(slot));
     }
 }
 

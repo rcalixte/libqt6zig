@@ -17,6 +17,8 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
     bool isVirtualQSvgRenderer = true;
 
     // Virtual class public types (including callbacks)
+    using QSvgRenderer_MetaObject_Callback = QMetaObject* (*)();
+    using QSvgRenderer_Metacast_Callback = void* (*)(QSvgRenderer*, const char*);
     using QSvgRenderer_Metacall_Callback = int (*)(QSvgRenderer*, int, int, void**);
     using QSvgRenderer_Event_Callback = bool (*)(QSvgRenderer*, QEvent*);
     using QSvgRenderer_EventFilter_Callback = bool (*)(QSvgRenderer*, QObject*, QEvent*);
@@ -32,6 +34,8 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
 
   protected:
     // Instance callback storage
+    QSvgRenderer_MetaObject_Callback qsvgrenderer_metaobject_callback = nullptr;
+    QSvgRenderer_Metacast_Callback qsvgrenderer_metacast_callback = nullptr;
     QSvgRenderer_Metacall_Callback qsvgrenderer_metacall_callback = nullptr;
     QSvgRenderer_Event_Callback qsvgrenderer_event_callback = nullptr;
     QSvgRenderer_EventFilter_Callback qsvgrenderer_eventfilter_callback = nullptr;
@@ -46,6 +50,8 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
     QSvgRenderer_IsSignalConnected_Callback qsvgrenderer_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qsvgrenderer_metaobject_isbase = false;
+    mutable bool qsvgrenderer_metacast_isbase = false;
     mutable bool qsvgrenderer_metacall_isbase = false;
     mutable bool qsvgrenderer_event_isbase = false;
     mutable bool qsvgrenderer_eventfilter_isbase = false;
@@ -70,6 +76,8 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
     VirtualQSvgRenderer(QXmlStreamReader* contents, QObject* parent) : QSvgRenderer(contents, parent) {};
 
     ~VirtualQSvgRenderer() {
+        qsvgrenderer_metaobject_callback = nullptr;
+        qsvgrenderer_metacast_callback = nullptr;
         qsvgrenderer_metacall_callback = nullptr;
         qsvgrenderer_event_callback = nullptr;
         qsvgrenderer_eventfilter_callback = nullptr;
@@ -85,6 +93,8 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
     }
 
     // Callback setters
+    inline void setQSvgRenderer_MetaObject_Callback(QSvgRenderer_MetaObject_Callback cb) { qsvgrenderer_metaobject_callback = cb; }
+    inline void setQSvgRenderer_Metacast_Callback(QSvgRenderer_Metacast_Callback cb) { qsvgrenderer_metacast_callback = cb; }
     inline void setQSvgRenderer_Metacall_Callback(QSvgRenderer_Metacall_Callback cb) { qsvgrenderer_metacall_callback = cb; }
     inline void setQSvgRenderer_Event_Callback(QSvgRenderer_Event_Callback cb) { qsvgrenderer_event_callback = cb; }
     inline void setQSvgRenderer_EventFilter_Callback(QSvgRenderer_EventFilter_Callback cb) { qsvgrenderer_eventfilter_callback = cb; }
@@ -99,6 +109,8 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
     inline void setQSvgRenderer_IsSignalConnected_Callback(QSvgRenderer_IsSignalConnected_Callback cb) { qsvgrenderer_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQSvgRenderer_MetaObject_IsBase(bool value) const { qsvgrenderer_metaobject_isbase = value; }
+    inline void setQSvgRenderer_Metacast_IsBase(bool value) const { qsvgrenderer_metacast_isbase = value; }
     inline void setQSvgRenderer_Metacall_IsBase(bool value) const { qsvgrenderer_metacall_isbase = value; }
     inline void setQSvgRenderer_Event_IsBase(bool value) const { qsvgrenderer_event_isbase = value; }
     inline void setQSvgRenderer_EventFilter_IsBase(bool value) const { qsvgrenderer_eventfilter_isbase = value; }
@@ -111,6 +123,34 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
     inline void setQSvgRenderer_SenderSignalIndex_IsBase(bool value) const { qsvgrenderer_sendersignalindex_isbase = value; }
     inline void setQSvgRenderer_Receivers_IsBase(bool value) const { qsvgrenderer_receivers_isbase = value; }
     inline void setQSvgRenderer_IsSignalConnected_IsBase(bool value) const { qsvgrenderer_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qsvgrenderer_metaobject_isbase) {
+            qsvgrenderer_metaobject_isbase = false;
+            return QSvgRenderer::metaObject();
+        } else if (qsvgrenderer_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qsvgrenderer_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QSvgRenderer::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qsvgrenderer_metacast_isbase) {
+            qsvgrenderer_metacast_isbase = false;
+            return QSvgRenderer::qt_metacast(param1);
+        } else if (qsvgrenderer_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qsvgrenderer_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QSvgRenderer::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

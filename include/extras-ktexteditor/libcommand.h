@@ -48,6 +48,10 @@ bool KTextEditor__Command_Help(KTextEditor__Command* self, KTextEditor__View* vi
 KCompletion* KTextEditor__Command_CompletionObject(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmdname);
 bool KTextEditor__Command_WantsToProcessText(KTextEditor__Command* self, const libqt_string cmdname);
 void KTextEditor__Command_ProcessText(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string text);
+void KTextEditor__Command_OnMetaObject(const KTextEditor__Command* self, intptr_t slot);
+QMetaObject* KTextEditor__Command_QBaseMetaObject(const KTextEditor__Command* self);
+void KTextEditor__Command_OnMetacast(KTextEditor__Command* self, intptr_t slot);
+void* KTextEditor__Command_QBaseMetacast(KTextEditor__Command* self, const char* param1);
 void KTextEditor__Command_OnMetacall(KTextEditor__Command* self, intptr_t slot);
 int KTextEditor__Command_QBaseMetacall(KTextEditor__Command* self, int param1, int param2, void** param3);
 void KTextEditor__Command_OnSupportsRange(KTextEditor__Command* self, intptr_t slot);

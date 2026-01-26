@@ -32,11 +32,21 @@ QSystemTrayIcon* QSystemTrayIcon_new4(const QIcon* icon, QObject* parent) {
 }
 
 QMetaObject* QSystemTrayIcon_MetaObject(const QSystemTrayIcon* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsystemtrayicon = dynamic_cast<const VirtualQSystemTrayIcon*>(self);
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSystemTrayIcon*)self)->metaObject();
+    }
 }
 
 void* QSystemTrayIcon_Metacast(QSystemTrayIcon* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSystemTrayIcon*)self)->qt_metacast(param1);
+    }
 }
 
 int QSystemTrayIcon_Metacall(QSystemTrayIcon* self, int param1, int param2, void** param3) {
@@ -168,6 +178,44 @@ void QSystemTrayIcon_ShowMessage42(QSystemTrayIcon* self, const libqt_string tit
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
     self->showMessage(title_QString, msg_QString, static_cast<QSystemTrayIcon::MessageIcon>(icon), static_cast<int>(msecs));
+}
+
+// Base class handler implementation
+QMetaObject* QSystemTrayIcon_QBaseMetaObject(const QSystemTrayIcon* self) {
+    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        vqsystemtrayicon->setQSystemTrayIcon_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsystemtrayicon->metaObject();
+    } else {
+        return (QMetaObject*)self->QSystemTrayIcon::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSystemTrayIcon_OnMetaObject(const QSystemTrayIcon* self, intptr_t slot) {
+    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        vqsystemtrayicon->setQSystemTrayIcon_MetaObject_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSystemTrayIcon_QBaseMetacast(QSystemTrayIcon* self, const char* param1) {
+    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        vqsystemtrayicon->setQSystemTrayIcon_Metacast_IsBase(true);
+        return vqsystemtrayicon->qt_metacast(param1);
+    } else {
+        return self->QSystemTrayIcon::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSystemTrayIcon_OnMetacast(QSystemTrayIcon* self, intptr_t slot) {
+    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
+    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+        vqsystemtrayicon->setQSystemTrayIcon_Metacast_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

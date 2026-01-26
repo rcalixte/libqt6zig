@@ -33,6 +33,10 @@ int QWebChannelAbstractTransport_Metacall(QWebChannelAbstractTransport* self, in
 void QWebChannelAbstractTransport_SendMessage(QWebChannelAbstractTransport* self, const QJsonObject* message);
 void QWebChannelAbstractTransport_MessageReceived(QWebChannelAbstractTransport* self, const QJsonObject* message, QWebChannelAbstractTransport* transport);
 void QWebChannelAbstractTransport_Connect_MessageReceived(QWebChannelAbstractTransport* self, intptr_t slot);
+void QWebChannelAbstractTransport_OnMetaObject(const QWebChannelAbstractTransport* self, intptr_t slot);
+QMetaObject* QWebChannelAbstractTransport_QBaseMetaObject(const QWebChannelAbstractTransport* self);
+void QWebChannelAbstractTransport_OnMetacast(QWebChannelAbstractTransport* self, intptr_t slot);
+void* QWebChannelAbstractTransport_QBaseMetacast(QWebChannelAbstractTransport* self, const char* param1);
 void QWebChannelAbstractTransport_OnMetacall(QWebChannelAbstractTransport* self, intptr_t slot);
 int QWebChannelAbstractTransport_QBaseMetacall(QWebChannelAbstractTransport* self, int param1, int param2, void** param3);
 void QWebChannelAbstractTransport_OnSendMessage(QWebChannelAbstractTransport* self, intptr_t slot);

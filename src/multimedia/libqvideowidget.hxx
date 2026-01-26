@@ -17,6 +17,8 @@ class VirtualQVideoWidget final : public QVideoWidget {
     bool isVirtualQVideoWidget = true;
 
     // Virtual class public types (including callbacks)
+    using QVideoWidget_MetaObject_Callback = QMetaObject* (*)();
+    using QVideoWidget_Metacast_Callback = void* (*)(QVideoWidget*, const char*);
     using QVideoWidget_Metacall_Callback = int (*)(QVideoWidget*, int, int, void**);
     using QVideoWidget_SizeHint_Callback = QSize* (*)();
     using QVideoWidget_Event_Callback = bool (*)(QVideoWidget*, QEvent*);
@@ -78,6 +80,8 @@ class VirtualQVideoWidget final : public QVideoWidget {
 
   protected:
     // Instance callback storage
+    QVideoWidget_MetaObject_Callback qvideowidget_metaobject_callback = nullptr;
+    QVideoWidget_Metacast_Callback qvideowidget_metacast_callback = nullptr;
     QVideoWidget_Metacall_Callback qvideowidget_metacall_callback = nullptr;
     QVideoWidget_SizeHint_Callback qvideowidget_sizehint_callback = nullptr;
     QVideoWidget_Event_Callback qvideowidget_event_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualQVideoWidget final : public QVideoWidget {
     QVideoWidget_GetDecodedMetricF_Callback qvideowidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool qvideowidget_metaobject_isbase = false;
+    mutable bool qvideowidget_metacast_isbase = false;
     mutable bool qvideowidget_metacall_isbase = false;
     mutable bool qvideowidget_sizehint_isbase = false;
     mutable bool qvideowidget_event_isbase = false;
@@ -202,6 +208,8 @@ class VirtualQVideoWidget final : public QVideoWidget {
     VirtualQVideoWidget() : QVideoWidget() {};
 
     ~VirtualQVideoWidget() {
+        qvideowidget_metaobject_callback = nullptr;
+        qvideowidget_metacast_callback = nullptr;
         qvideowidget_metacall_callback = nullptr;
         qvideowidget_sizehint_callback = nullptr;
         qvideowidget_event_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualQVideoWidget final : public QVideoWidget {
     }
 
     // Callback setters
+    inline void setQVideoWidget_MetaObject_Callback(QVideoWidget_MetaObject_Callback cb) { qvideowidget_metaobject_callback = cb; }
+    inline void setQVideoWidget_Metacast_Callback(QVideoWidget_Metacast_Callback cb) { qvideowidget_metacast_callback = cb; }
     inline void setQVideoWidget_Metacall_Callback(QVideoWidget_Metacall_Callback cb) { qvideowidget_metacall_callback = cb; }
     inline void setQVideoWidget_SizeHint_Callback(QVideoWidget_SizeHint_Callback cb) { qvideowidget_sizehint_callback = cb; }
     inline void setQVideoWidget_Event_Callback(QVideoWidget_Event_Callback cb) { qvideowidget_event_callback = cb; }
@@ -323,6 +333,8 @@ class VirtualQVideoWidget final : public QVideoWidget {
     inline void setQVideoWidget_GetDecodedMetricF_Callback(QVideoWidget_GetDecodedMetricF_Callback cb) { qvideowidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setQVideoWidget_MetaObject_IsBase(bool value) const { qvideowidget_metaobject_isbase = value; }
+    inline void setQVideoWidget_Metacast_IsBase(bool value) const { qvideowidget_metacast_isbase = value; }
     inline void setQVideoWidget_Metacall_IsBase(bool value) const { qvideowidget_metacall_isbase = value; }
     inline void setQVideoWidget_SizeHint_IsBase(bool value) const { qvideowidget_sizehint_isbase = value; }
     inline void setQVideoWidget_Event_IsBase(bool value) const { qvideowidget_event_isbase = value; }
@@ -381,6 +393,34 @@ class VirtualQVideoWidget final : public QVideoWidget {
     inline void setQVideoWidget_Receivers_IsBase(bool value) const { qvideowidget_receivers_isbase = value; }
     inline void setQVideoWidget_IsSignalConnected_IsBase(bool value) const { qvideowidget_issignalconnected_isbase = value; }
     inline void setQVideoWidget_GetDecodedMetricF_IsBase(bool value) const { qvideowidget_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qvideowidget_metaobject_isbase) {
+            qvideowidget_metaobject_isbase = false;
+            return QVideoWidget::metaObject();
+        } else if (qvideowidget_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qvideowidget_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QVideoWidget::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qvideowidget_metacast_isbase) {
+            qvideowidget_metacast_isbase = false;
+            return QVideoWidget::qt_metacast(param1);
+        } else if (qvideowidget_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qvideowidget_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QVideoWidget::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

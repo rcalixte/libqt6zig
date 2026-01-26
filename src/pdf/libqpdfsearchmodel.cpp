@@ -35,11 +35,21 @@ QPdfSearchModel* QPdfSearchModel_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfSearchModel_MetaObject(const QPdfSearchModel* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpdfsearchmodel = dynamic_cast<const VirtualQPdfSearchModel*>(self);
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPdfSearchModel*)self)->metaObject();
+    }
 }
 
 void* QPdfSearchModel_Metacast(QPdfSearchModel* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPdfSearchModel*)self)->qt_metacast(param1);
+    }
 }
 
 int QPdfSearchModel_Metacall(QPdfSearchModel* self, int param1, int param2, void** param3) {
@@ -201,6 +211,44 @@ void QPdfSearchModel_TimerEvent(QPdfSearchModel* self, QTimerEvent* event) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->timerEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QPdfSearchModel_QBaseMetaObject(const QPdfSearchModel* self) {
+    auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+        vqpdfsearchmodel->setQPdfSearchModel_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpdfsearchmodel->metaObject();
+    } else {
+        return (QMetaObject*)self->QPdfSearchModel::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfSearchModel_OnMetaObject(const QPdfSearchModel* self, intptr_t slot) {
+    auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+        vqpdfsearchmodel->setQPdfSearchModel_MetaObject_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPdfSearchModel_QBaseMetacast(QPdfSearchModel* self, const char* param1) {
+    auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+        vqpdfsearchmodel->setQPdfSearchModel_Metacast_IsBase(true);
+        return vqpdfsearchmodel->qt_metacast(param1);
+    } else {
+        return self->QPdfSearchModel::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPdfSearchModel_OnMetacast(QPdfSearchModel* self, intptr_t slot) {
+    auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
+    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
+        vqpdfsearchmodel->setQPdfSearchModel_Metacast_Callback(reinterpret_cast<VirtualQPdfSearchModel::QPdfSearchModel_Metacast_Callback>(slot));
     }
 }
 

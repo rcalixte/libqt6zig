@@ -63,11 +63,21 @@ QChartView* QChartView_new4(QChart* chart, QWidget* parent) {
 }
 
 QMetaObject* QChartView_MetaObject(const QChartView* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqchartview = dynamic_cast<const VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQChartView*)self)->metaObject();
+    }
 }
 
 void* QChartView_Metacast(QChartView* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQChartView*)self)->qt_metacast(param1);
+    }
 }
 
 int QChartView_Metacall(QChartView* self, int param1, int param2, void** param3) {
@@ -120,6 +130,44 @@ void QChartView_MouseReleaseEvent(QChartView* self, QMouseEvent* event) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->mouseReleaseEvent(event);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QChartView_QBaseMetaObject(const QChartView* self) {
+    auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_MetaObject_IsBase(true);
+        return (QMetaObject*)vqchartview->metaObject();
+    } else {
+        return (QMetaObject*)self->QChartView::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChartView_OnMetaObject(const QChartView* self, intptr_t slot) {
+    auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_MetaObject_Callback(reinterpret_cast<VirtualQChartView::QChartView_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QChartView_QBaseMetacast(QChartView* self, const char* param1) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_Metacast_IsBase(true);
+        return vqchartview->qt_metacast(param1);
+    } else {
+        return self->QChartView::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChartView_OnMetacast(QChartView* self, intptr_t slot) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_Metacast_Callback(reinterpret_cast<VirtualQChartView::QChartView_Metacast_Callback>(slot));
     }
 }
 

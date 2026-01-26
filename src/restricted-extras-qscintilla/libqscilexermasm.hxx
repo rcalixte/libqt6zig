@@ -17,6 +17,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
     bool isVirtualQsciLexerMASM = true;
 
     // Virtual class public types (including callbacks)
+    using QsciLexerMASM_MetaObject_Callback = QMetaObject* (*)();
+    using QsciLexerMASM_Metacast_Callback = void* (*)(QsciLexerMASM*, const char*);
     using QsciLexerMASM_Metacall_Callback = int (*)(QsciLexerMASM*, int, int, void**);
     using QsciLexerMASM_SetFoldComments_Callback = void (*)(QsciLexerMASM*, bool);
     using QsciLexerMASM_SetFoldCompact_Callback = void (*)(QsciLexerMASM*, bool);
@@ -72,6 +74,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
 
   protected:
     // Instance callback storage
+    QsciLexerMASM_MetaObject_Callback qscilexermasm_metaobject_callback = nullptr;
+    QsciLexerMASM_Metacast_Callback qscilexermasm_metacast_callback = nullptr;
     QsciLexerMASM_Metacall_Callback qscilexermasm_metacall_callback = nullptr;
     QsciLexerMASM_SetFoldComments_Callback qscilexermasm_setfoldcomments_callback = nullptr;
     QsciLexerMASM_SetFoldCompact_Callback qscilexermasm_setfoldcompact_callback = nullptr;
@@ -126,6 +130,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
     QsciLexerMASM_IsSignalConnected_Callback qscilexermasm_issignalconnected_callback = nullptr;
 
     // Instance base flags
+    mutable bool qscilexermasm_metaobject_isbase = false;
+    mutable bool qscilexermasm_metacast_isbase = false;
     mutable bool qscilexermasm_metacall_isbase = false;
     mutable bool qscilexermasm_setfoldcomments_isbase = false;
     mutable bool qscilexermasm_setfoldcompact_isbase = false;
@@ -184,6 +190,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
     VirtualQsciLexerMASM(QObject* parent) : QsciLexerMASM(parent) {};
 
     ~VirtualQsciLexerMASM() {
+        qscilexermasm_metaobject_callback = nullptr;
+        qscilexermasm_metacast_callback = nullptr;
         qscilexermasm_metacall_callback = nullptr;
         qscilexermasm_setfoldcomments_callback = nullptr;
         qscilexermasm_setfoldcompact_callback = nullptr;
@@ -239,6 +247,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
     }
 
     // Callback setters
+    inline void setQsciLexerMASM_MetaObject_Callback(QsciLexerMASM_MetaObject_Callback cb) { qscilexermasm_metaobject_callback = cb; }
+    inline void setQsciLexerMASM_Metacast_Callback(QsciLexerMASM_Metacast_Callback cb) { qscilexermasm_metacast_callback = cb; }
     inline void setQsciLexerMASM_Metacall_Callback(QsciLexerMASM_Metacall_Callback cb) { qscilexermasm_metacall_callback = cb; }
     inline void setQsciLexerMASM_SetFoldComments_Callback(QsciLexerMASM_SetFoldComments_Callback cb) { qscilexermasm_setfoldcomments_callback = cb; }
     inline void setQsciLexerMASM_SetFoldCompact_Callback(QsciLexerMASM_SetFoldCompact_Callback cb) { qscilexermasm_setfoldcompact_callback = cb; }
@@ -293,6 +303,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
     inline void setQsciLexerMASM_IsSignalConnected_Callback(QsciLexerMASM_IsSignalConnected_Callback cb) { qscilexermasm_issignalconnected_callback = cb; }
 
     // Base flag setters
+    inline void setQsciLexerMASM_MetaObject_IsBase(bool value) const { qscilexermasm_metaobject_isbase = value; }
+    inline void setQsciLexerMASM_Metacast_IsBase(bool value) const { qscilexermasm_metacast_isbase = value; }
     inline void setQsciLexerMASM_Metacall_IsBase(bool value) const { qscilexermasm_metacall_isbase = value; }
     inline void setQsciLexerMASM_SetFoldComments_IsBase(bool value) const { qscilexermasm_setfoldcomments_isbase = value; }
     inline void setQsciLexerMASM_SetFoldCompact_IsBase(bool value) const { qscilexermasm_setfoldcompact_isbase = value; }
@@ -345,6 +357,34 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
     inline void setQsciLexerMASM_SenderSignalIndex_IsBase(bool value) const { qscilexermasm_sendersignalindex_isbase = value; }
     inline void setQsciLexerMASM_Receivers_IsBase(bool value) const { qscilexermasm_receivers_isbase = value; }
     inline void setQsciLexerMASM_IsSignalConnected_IsBase(bool value) const { qscilexermasm_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (qscilexermasm_metaobject_isbase) {
+            qscilexermasm_metaobject_isbase = false;
+            return QsciLexerMASM::metaObject();
+        } else if (qscilexermasm_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = qscilexermasm_metaobject_callback();
+            return callback_ret;
+        } else {
+            return QsciLexerMASM::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (qscilexermasm_metacast_isbase) {
+            qscilexermasm_metacast_isbase = false;
+            return QsciLexerMASM::qt_metacast(param1);
+        } else if (qscilexermasm_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = qscilexermasm_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QsciLexerMASM::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -28,11 +28,21 @@ QUiLoader* QUiLoader_new2(QObject* parent) {
 }
 
 QMetaObject* QUiLoader_MetaObject(const QUiLoader* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vquiloader = dynamic_cast<const VirtualQUiLoader*>(self);
+    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQUiLoader*)self)->metaObject();
+    }
 }
 
 void* QUiLoader_Metacast(QUiLoader* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
+    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQUiLoader*)self)->qt_metacast(param1);
+    }
 }
 
 int QUiLoader_Metacall(QUiLoader* self, int param1, int param2, void** param3) {
@@ -200,6 +210,44 @@ libqt_string QUiLoader_ErrorString(const QUiLoader* self) {
 
 QWidget* QUiLoader_Load2(QUiLoader* self, QIODevice* device, QWidget* parentWidget) {
     return self->load(device, parentWidget);
+}
+
+// Base class handler implementation
+QMetaObject* QUiLoader_QBaseMetaObject(const QUiLoader* self) {
+    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
+    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+        vquiloader->setQUiLoader_MetaObject_IsBase(true);
+        return (QMetaObject*)vquiloader->metaObject();
+    } else {
+        return (QMetaObject*)self->QUiLoader::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QUiLoader_OnMetaObject(const QUiLoader* self, intptr_t slot) {
+    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
+    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+        vquiloader->setQUiLoader_MetaObject_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QUiLoader_QBaseMetacast(QUiLoader* self, const char* param1) {
+    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
+    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+        vquiloader->setQUiLoader_Metacast_IsBase(true);
+        return vquiloader->qt_metacast(param1);
+    } else {
+        return self->QUiLoader::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QUiLoader_OnMetacast(QUiLoader* self, intptr_t slot) {
+    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
+    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+        vquiloader->setQUiLoader_Metacast_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

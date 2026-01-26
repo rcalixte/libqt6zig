@@ -35,11 +35,21 @@ QPropertyAnimation* QPropertyAnimation_new4(QObject* target, const libqt_string 
 }
 
 QMetaObject* QPropertyAnimation_MetaObject(const QPropertyAnimation* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpropertyanimation = dynamic_cast<const VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPropertyAnimation*)self)->metaObject();
+    }
 }
 
 void* QPropertyAnimation_Metacast(QPropertyAnimation* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPropertyAnimation*)self)->qt_metacast(param1);
+    }
 }
 
 int QPropertyAnimation_Metacall(QPropertyAnimation* self, int param1, int param2, void** param3) {
@@ -93,6 +103,44 @@ void QPropertyAnimation_UpdateState(QPropertyAnimation* self, int newState, int 
     auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
     if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
         vqpropertyanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QPropertyAnimation_QBaseMetaObject(const QPropertyAnimation* self) {
+    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpropertyanimation->metaObject();
+    } else {
+        return (QMetaObject*)self->QPropertyAnimation::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPropertyAnimation_OnMetaObject(const QPropertyAnimation* self, intptr_t slot) {
+    auto* vqpropertyanimation = const_cast<VirtualQPropertyAnimation*>(dynamic_cast<const VirtualQPropertyAnimation*>(self));
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_MetaObject_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPropertyAnimation_QBaseMetacast(QPropertyAnimation* self, const char* param1) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_Metacast_IsBase(true);
+        return vqpropertyanimation->qt_metacast(param1);
+    } else {
+        return self->QPropertyAnimation::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPropertyAnimation_OnMetacast(QPropertyAnimation* self, intptr_t slot) {
+    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
+    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
+        vqpropertyanimation->setQPropertyAnimation_Metacast_Callback(reinterpret_cast<VirtualQPropertyAnimation::QPropertyAnimation_Metacast_Callback>(slot));
     }
 }
 

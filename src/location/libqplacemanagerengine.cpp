@@ -55,11 +55,21 @@ QPlaceManagerEngine* QPlaceManagerEngine_new2(const libqt_map /* of libqt_string
 }
 
 QMetaObject* QPlaceManagerEngine_MetaObject(const QPlaceManagerEngine* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqplacemanagerengine = dynamic_cast<const VirtualQPlaceManagerEngine*>(self);
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPlaceManagerEngine*)self)->metaObject();
+    }
 }
 
 void* QPlaceManagerEngine_Metacast(QPlaceManagerEngine* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPlaceManagerEngine*)self)->qt_metacast(param1);
+    }
 }
 
 int QPlaceManagerEngine_Metacall(QPlaceManagerEngine* self, int param1, int param2, void** param3) {
@@ -540,6 +550,44 @@ void QPlaceManagerEngine_Connect_ErrorOccurred3(QPlaceManagerEngine* self, intpt
         slotFunc(self, sigval1, sigval2, sigval3);
         libqt_free(errorString_str);
     });
+}
+
+// Base class handler implementation
+QMetaObject* QPlaceManagerEngine_QBaseMetaObject(const QPlaceManagerEngine* self) {
+    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+        vqplacemanagerengine->setQPlaceManagerEngine_MetaObject_IsBase(true);
+        return (QMetaObject*)vqplacemanagerengine->metaObject();
+    } else {
+        return (QMetaObject*)self->QPlaceManagerEngine::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlaceManagerEngine_OnMetaObject(const QPlaceManagerEngine* self, intptr_t slot) {
+    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+        vqplacemanagerengine->setQPlaceManagerEngine_MetaObject_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPlaceManagerEngine_QBaseMetacast(QPlaceManagerEngine* self, const char* param1) {
+    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+        vqplacemanagerengine->setQPlaceManagerEngine_Metacast_IsBase(true);
+        return vqplacemanagerengine->qt_metacast(param1);
+    } else {
+        return self->QPlaceManagerEngine::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPlaceManagerEngine_OnMetacast(QPlaceManagerEngine* self, intptr_t slot) {
+    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
+    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+        vqplacemanagerengine->setQPlaceManagerEngine_Metacast_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -17,6 +17,8 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
     bool isVirtualKNameAndUrlInputDialog = true;
 
     // Virtual class public types (including callbacks)
+    using KNameAndUrlInputDialog_MetaObject_Callback = QMetaObject* (*)();
+    using KNameAndUrlInputDialog_Metacast_Callback = void* (*)(KNameAndUrlInputDialog*, const char*);
     using KNameAndUrlInputDialog_Metacall_Callback = int (*)(KNameAndUrlInputDialog*, int, int, void**);
     using KNameAndUrlInputDialog_SetVisible_Callback = void (*)(KNameAndUrlInputDialog*, bool);
     using KNameAndUrlInputDialog_SizeHint_Callback = QSize* (*)();
@@ -84,6 +86,8 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
 
   protected:
     // Instance callback storage
+    KNameAndUrlInputDialog_MetaObject_Callback knameandurlinputdialog_metaobject_callback = nullptr;
+    KNameAndUrlInputDialog_Metacast_Callback knameandurlinputdialog_metacast_callback = nullptr;
     KNameAndUrlInputDialog_Metacall_Callback knameandurlinputdialog_metacall_callback = nullptr;
     KNameAndUrlInputDialog_SetVisible_Callback knameandurlinputdialog_setvisible_callback = nullptr;
     KNameAndUrlInputDialog_SizeHint_Callback knameandurlinputdialog_sizehint_callback = nullptr;
@@ -150,6 +154,8 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
     KNameAndUrlInputDialog_GetDecodedMetricF_Callback knameandurlinputdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool knameandurlinputdialog_metaobject_isbase = false;
+    mutable bool knameandurlinputdialog_metacast_isbase = false;
     mutable bool knameandurlinputdialog_metacall_isbase = false;
     mutable bool knameandurlinputdialog_setvisible_isbase = false;
     mutable bool knameandurlinputdialog_sizehint_isbase = false;
@@ -219,6 +225,8 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
     VirtualKNameAndUrlInputDialog(const QString& nameLabel, const QString& urlLabel, const QUrl& startDir, QWidget* parent) : KNameAndUrlInputDialog(nameLabel, urlLabel, startDir, parent) {};
 
     ~VirtualKNameAndUrlInputDialog() {
+        knameandurlinputdialog_metaobject_callback = nullptr;
+        knameandurlinputdialog_metacast_callback = nullptr;
         knameandurlinputdialog_metacall_callback = nullptr;
         knameandurlinputdialog_setvisible_callback = nullptr;
         knameandurlinputdialog_sizehint_callback = nullptr;
@@ -286,6 +294,8 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
     }
 
     // Callback setters
+    inline void setKNameAndUrlInputDialog_MetaObject_Callback(KNameAndUrlInputDialog_MetaObject_Callback cb) { knameandurlinputdialog_metaobject_callback = cb; }
+    inline void setKNameAndUrlInputDialog_Metacast_Callback(KNameAndUrlInputDialog_Metacast_Callback cb) { knameandurlinputdialog_metacast_callback = cb; }
     inline void setKNameAndUrlInputDialog_Metacall_Callback(KNameAndUrlInputDialog_Metacall_Callback cb) { knameandurlinputdialog_metacall_callback = cb; }
     inline void setKNameAndUrlInputDialog_SetVisible_Callback(KNameAndUrlInputDialog_SetVisible_Callback cb) { knameandurlinputdialog_setvisible_callback = cb; }
     inline void setKNameAndUrlInputDialog_SizeHint_Callback(KNameAndUrlInputDialog_SizeHint_Callback cb) { knameandurlinputdialog_sizehint_callback = cb; }
@@ -352,6 +362,8 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
     inline void setKNameAndUrlInputDialog_GetDecodedMetricF_Callback(KNameAndUrlInputDialog_GetDecodedMetricF_Callback cb) { knameandurlinputdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKNameAndUrlInputDialog_MetaObject_IsBase(bool value) const { knameandurlinputdialog_metaobject_isbase = value; }
+    inline void setKNameAndUrlInputDialog_Metacast_IsBase(bool value) const { knameandurlinputdialog_metacast_isbase = value; }
     inline void setKNameAndUrlInputDialog_Metacall_IsBase(bool value) const { knameandurlinputdialog_metacall_isbase = value; }
     inline void setKNameAndUrlInputDialog_SetVisible_IsBase(bool value) const { knameandurlinputdialog_setvisible_isbase = value; }
     inline void setKNameAndUrlInputDialog_SizeHint_IsBase(bool value) const { knameandurlinputdialog_sizehint_isbase = value; }
@@ -416,6 +428,34 @@ class VirtualKNameAndUrlInputDialog final : public KNameAndUrlInputDialog {
     inline void setKNameAndUrlInputDialog_Receivers_IsBase(bool value) const { knameandurlinputdialog_receivers_isbase = value; }
     inline void setKNameAndUrlInputDialog_IsSignalConnected_IsBase(bool value) const { knameandurlinputdialog_issignalconnected_isbase = value; }
     inline void setKNameAndUrlInputDialog_GetDecodedMetricF_IsBase(bool value) const { knameandurlinputdialog_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (knameandurlinputdialog_metaobject_isbase) {
+            knameandurlinputdialog_metaobject_isbase = false;
+            return KNameAndUrlInputDialog::metaObject();
+        } else if (knameandurlinputdialog_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = knameandurlinputdialog_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KNameAndUrlInputDialog::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (knameandurlinputdialog_metacast_isbase) {
+            knameandurlinputdialog_metacast_isbase = false;
+            return KNameAndUrlInputDialog::qt_metacast(param1);
+        } else if (knameandurlinputdialog_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = knameandurlinputdialog_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KNameAndUrlInputDialog::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

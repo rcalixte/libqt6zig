@@ -27,11 +27,21 @@ QGridLayout* QGridLayout_new2() {
 }
 
 QMetaObject* QGridLayout_MetaObject(const QGridLayout* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqgridlayout = dynamic_cast<const VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQGridLayout*)self)->metaObject();
+    }
 }
 
 void* QGridLayout_Metacast(QGridLayout* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQGridLayout*)self)->qt_metacast(param1);
+    }
 }
 
 int QGridLayout_Metacall(QGridLayout* self, int param1, int param2, void** param3) {
@@ -306,6 +316,44 @@ void QGridLayout_AddItem5(QGridLayout* self, QLayoutItem* item, int row, int col
 
 void QGridLayout_AddItem6(QGridLayout* self, QLayoutItem* item, int row, int column, int rowSpan, int columnSpan, int param6) {
     self->addItem(item, static_cast<int>(row), static_cast<int>(column), static_cast<int>(rowSpan), static_cast<int>(columnSpan), static_cast<QFlags<Qt::AlignmentFlag>>(param6));
+}
+
+// Base class handler implementation
+QMetaObject* QGridLayout_QBaseMetaObject(const QGridLayout* self) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_MetaObject_IsBase(true);
+        return (QMetaObject*)vqgridlayout->metaObject();
+    } else {
+        return (QMetaObject*)self->QGridLayout::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnMetaObject(const QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = const_cast<VirtualQGridLayout*>(dynamic_cast<const VirtualQGridLayout*>(self));
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_MetaObject_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QGridLayout_QBaseMetacast(QGridLayout* self, const char* param1) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Metacast_IsBase(true);
+        return vqgridlayout->qt_metacast(param1);
+    } else {
+        return self->QGridLayout::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGridLayout_OnMetacast(QGridLayout* self, intptr_t slot) {
+    auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
+    if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
+        vqgridlayout->setQGridLayout_Metacast_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -58,11 +58,21 @@ KAboutApplicationDialog* KAboutApplicationDialog_new4(const KAboutData* aboutDat
 }
 
 QMetaObject* KAboutApplicationDialog_MetaObject(const KAboutApplicationDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkaboutapplicationdialog = dynamic_cast<const VirtualKAboutApplicationDialog*>(self);
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKAboutApplicationDialog*)self)->metaObject();
+    }
 }
 
 void* KAboutApplicationDialog_Metacast(KAboutApplicationDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKAboutApplicationDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KAboutApplicationDialog_Metacall(KAboutApplicationDialog* self, int param1, int param2, void** param3) {
@@ -71,6 +81,44 @@ int KAboutApplicationDialog_Metacall(KAboutApplicationDialog* self, int param1, 
         return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     } else {
         return ((VirtualKAboutApplicationDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KAboutApplicationDialog_QBaseMetaObject(const KAboutApplicationDialog* self) {
+    auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+        vkaboutapplicationdialog->setKAboutApplicationDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkaboutapplicationdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KAboutApplicationDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAboutApplicationDialog_OnMetaObject(const KAboutApplicationDialog* self, intptr_t slot) {
+    auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+        vkaboutapplicationdialog->setKAboutApplicationDialog_MetaObject_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KAboutApplicationDialog_QBaseMetacast(KAboutApplicationDialog* self, const char* param1) {
+    auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+        vkaboutapplicationdialog->setKAboutApplicationDialog_Metacast_IsBase(true);
+        return vkaboutapplicationdialog->qt_metacast(param1);
+    } else {
+        return self->KAboutApplicationDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KAboutApplicationDialog_OnMetacast(KAboutApplicationDialog* self, intptr_t slot) {
+    auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+        vkaboutapplicationdialog->setKAboutApplicationDialog_Metacast_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Metacast_Callback>(slot));
     }
 }
 

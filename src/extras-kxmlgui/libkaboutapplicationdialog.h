@@ -59,6 +59,10 @@ KAboutApplicationDialog* KAboutApplicationDialog_new4(const KAboutData* aboutDat
 QMetaObject* KAboutApplicationDialog_MetaObject(const KAboutApplicationDialog* self);
 void* KAboutApplicationDialog_Metacast(KAboutApplicationDialog* self, const char* param1);
 int KAboutApplicationDialog_Metacall(KAboutApplicationDialog* self, int param1, int param2, void** param3);
+void KAboutApplicationDialog_OnMetaObject(const KAboutApplicationDialog* self, intptr_t slot);
+QMetaObject* KAboutApplicationDialog_QBaseMetaObject(const KAboutApplicationDialog* self);
+void KAboutApplicationDialog_OnMetacast(KAboutApplicationDialog* self, intptr_t slot);
+void* KAboutApplicationDialog_QBaseMetacast(KAboutApplicationDialog* self, const char* param1);
 void KAboutApplicationDialog_OnMetacall(KAboutApplicationDialog* self, intptr_t slot);
 int KAboutApplicationDialog_QBaseMetacall(KAboutApplicationDialog* self, int param1, int param2, void** param3);
 void KAboutApplicationDialog_SetVisible(KAboutApplicationDialog* self, bool visible);

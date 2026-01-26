@@ -58,11 +58,21 @@ QPageSetupDialog* QPageSetupDialog_new4(QPrinter* printer, QWidget* parent) {
 }
 
 QMetaObject* QPageSetupDialog_MetaObject(const QPageSetupDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpagesetupdialog = dynamic_cast<const VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPageSetupDialog*)self)->metaObject();
+    }
 }
 
 void* QPageSetupDialog_Metacast(QPageSetupDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPageSetupDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int QPageSetupDialog_Metacall(QPageSetupDialog* self, int param1, int param2, void** param3) {
@@ -94,6 +104,44 @@ void QPageSetupDialog_Done(QPageSetupDialog* self, int result) {
 
 QPrinter* QPageSetupDialog_Printer(QPageSetupDialog* self) {
     return self->printer();
+}
+
+// Base class handler implementation
+QMetaObject* QPageSetupDialog_QBaseMetaObject(const QPageSetupDialog* self) {
+    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpagesetupdialog->metaObject();
+    } else {
+        return (QMetaObject*)self->QPageSetupDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPageSetupDialog_OnMetaObject(const QPageSetupDialog* self, intptr_t slot) {
+    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_MetaObject_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPageSetupDialog_QBaseMetacast(QPageSetupDialog* self, const char* param1) {
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_Metacast_IsBase(true);
+        return vqpagesetupdialog->qt_metacast(param1);
+    } else {
+        return self->QPageSetupDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPageSetupDialog_OnMetacast(QPageSetupDialog* self, intptr_t slot) {
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_Metacast_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

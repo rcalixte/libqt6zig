@@ -23,11 +23,21 @@ QButtonGroup* QButtonGroup_new2(QObject* parent) {
 }
 
 QMetaObject* QButtonGroup_MetaObject(const QButtonGroup* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqbuttongroup = dynamic_cast<const VirtualQButtonGroup*>(self);
+    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQButtonGroup*)self)->metaObject();
+    }
 }
 
 void* QButtonGroup_Metacast(QButtonGroup* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
+    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQButtonGroup*)self)->qt_metacast(param1);
+    }
 }
 
 int QButtonGroup_Metacall(QButtonGroup* self, int param1, int param2, void** param3) {
@@ -188,6 +198,44 @@ void QButtonGroup_Connect_IdToggled(QButtonGroup* self, intptr_t slot) {
 
 void QButtonGroup_AddButton2(QButtonGroup* self, QAbstractButton* param1, int id) {
     self->addButton(param1, static_cast<int>(id));
+}
+
+// Base class handler implementation
+QMetaObject* QButtonGroup_QBaseMetaObject(const QButtonGroup* self) {
+    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
+    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+        vqbuttongroup->setQButtonGroup_MetaObject_IsBase(true);
+        return (QMetaObject*)vqbuttongroup->metaObject();
+    } else {
+        return (QMetaObject*)self->QButtonGroup::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QButtonGroup_OnMetaObject(const QButtonGroup* self, intptr_t slot) {
+    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
+    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+        vqbuttongroup->setQButtonGroup_MetaObject_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QButtonGroup_QBaseMetacast(QButtonGroup* self, const char* param1) {
+    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
+    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+        vqbuttongroup->setQButtonGroup_Metacast_IsBase(true);
+        return vqbuttongroup->qt_metacast(param1);
+    } else {
+        return self->QButtonGroup::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QButtonGroup_OnMetacast(QButtonGroup* self, intptr_t slot) {
+    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
+    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+        vqbuttongroup->setQButtonGroup_Metacast_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -23,11 +23,21 @@ QTextList* QTextList_new(QTextDocument* doc) {
 }
 
 QMetaObject* QTextList_MetaObject(const QTextList* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqtextlist = dynamic_cast<const VirtualQTextList*>(self);
+    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQTextList*)self)->metaObject();
+    }
 }
 
 void* QTextList_Metacast(QTextList* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
+    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQTextList*)self)->qt_metacast(param1);
+    }
 }
 
 int QTextList_Metacall(QTextList* self, int param1, int param2, void** param3) {
@@ -81,6 +91,44 @@ void QTextList_SetFormat(QTextList* self, const QTextListFormat* format) {
 
 QTextListFormat* QTextList_Format(const QTextList* self) {
     return new QTextListFormat(self->format());
+}
+
+// Base class handler implementation
+QMetaObject* QTextList_QBaseMetaObject(const QTextList* self) {
+    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
+    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+        vqtextlist->setQTextList_MetaObject_IsBase(true);
+        return (QMetaObject*)vqtextlist->metaObject();
+    } else {
+        return (QMetaObject*)self->QTextList::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextList_OnMetaObject(const QTextList* self, intptr_t slot) {
+    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
+    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+        vqtextlist->setQTextList_MetaObject_Callback(reinterpret_cast<VirtualQTextList::QTextList_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QTextList_QBaseMetacast(QTextList* self, const char* param1) {
+    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
+    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+        vqtextlist->setQTextList_Metacast_IsBase(true);
+        return vqtextlist->qt_metacast(param1);
+    } else {
+        return self->QTextList::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTextList_OnMetacast(QTextList* self, intptr_t slot) {
+    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
+    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+        vqtextlist->setQTextList_Metacast_Callback(reinterpret_cast<VirtualQTextList::QTextList_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

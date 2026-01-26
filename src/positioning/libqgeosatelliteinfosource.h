@@ -51,6 +51,10 @@ void QGeoSatelliteInfoSource_SatellitesInUseUpdated(QGeoSatelliteInfoSource* sel
 void QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(QGeoSatelliteInfoSource* self, intptr_t slot);
 void QGeoSatelliteInfoSource_ErrorOccurred(QGeoSatelliteInfoSource* self, int param1);
 void QGeoSatelliteInfoSource_Connect_ErrorOccurred(QGeoSatelliteInfoSource* self, intptr_t slot);
+void QGeoSatelliteInfoSource_OnMetaObject(const QGeoSatelliteInfoSource* self, intptr_t slot);
+QMetaObject* QGeoSatelliteInfoSource_QBaseMetaObject(const QGeoSatelliteInfoSource* self);
+void QGeoSatelliteInfoSource_OnMetacast(QGeoSatelliteInfoSource* self, intptr_t slot);
+void* QGeoSatelliteInfoSource_QBaseMetacast(QGeoSatelliteInfoSource* self, const char* param1);
 void QGeoSatelliteInfoSource_OnMetacall(QGeoSatelliteInfoSource* self, intptr_t slot);
 int QGeoSatelliteInfoSource_QBaseMetacall(QGeoSatelliteInfoSource* self, int param1, int param2, void** param3);
 void QGeoSatelliteInfoSource_OnSetUpdateInterval(QGeoSatelliteInfoSource* self, intptr_t slot);

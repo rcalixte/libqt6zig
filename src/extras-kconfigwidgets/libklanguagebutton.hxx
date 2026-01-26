@@ -17,6 +17,8 @@ class VirtualKLanguageButton final : public KLanguageButton {
     bool isVirtualKLanguageButton = true;
 
     // Virtual class public types (including callbacks)
+    using KLanguageButton_MetaObject_Callback = QMetaObject* (*)();
+    using KLanguageButton_Metacast_Callback = void* (*)(KLanguageButton*, const char*);
     using KLanguageButton_Metacall_Callback = int (*)(KLanguageButton*, int, int, void**);
     using KLanguageButton_DevType_Callback = int (*)();
     using KLanguageButton_SetVisible_Callback = void (*)(KLanguageButton*, bool);
@@ -78,6 +80,8 @@ class VirtualKLanguageButton final : public KLanguageButton {
 
   protected:
     // Instance callback storage
+    KLanguageButton_MetaObject_Callback klanguagebutton_metaobject_callback = nullptr;
+    KLanguageButton_Metacast_Callback klanguagebutton_metacast_callback = nullptr;
     KLanguageButton_Metacall_Callback klanguagebutton_metacall_callback = nullptr;
     KLanguageButton_DevType_Callback klanguagebutton_devtype_callback = nullptr;
     KLanguageButton_SetVisible_Callback klanguagebutton_setvisible_callback = nullptr;
@@ -138,6 +142,8 @@ class VirtualKLanguageButton final : public KLanguageButton {
     KLanguageButton_GetDecodedMetricF_Callback klanguagebutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
+    mutable bool klanguagebutton_metaobject_isbase = false;
+    mutable bool klanguagebutton_metacast_isbase = false;
     mutable bool klanguagebutton_metacall_isbase = false;
     mutable bool klanguagebutton_devtype_isbase = false;
     mutable bool klanguagebutton_setvisible_isbase = false;
@@ -204,6 +210,8 @@ class VirtualKLanguageButton final : public KLanguageButton {
     VirtualKLanguageButton(const QString& text, QWidget* parent) : KLanguageButton(text, parent) {};
 
     ~VirtualKLanguageButton() {
+        klanguagebutton_metaobject_callback = nullptr;
+        klanguagebutton_metacast_callback = nullptr;
         klanguagebutton_metacall_callback = nullptr;
         klanguagebutton_devtype_callback = nullptr;
         klanguagebutton_setvisible_callback = nullptr;
@@ -265,6 +273,8 @@ class VirtualKLanguageButton final : public KLanguageButton {
     }
 
     // Callback setters
+    inline void setKLanguageButton_MetaObject_Callback(KLanguageButton_MetaObject_Callback cb) { klanguagebutton_metaobject_callback = cb; }
+    inline void setKLanguageButton_Metacast_Callback(KLanguageButton_Metacast_Callback cb) { klanguagebutton_metacast_callback = cb; }
     inline void setKLanguageButton_Metacall_Callback(KLanguageButton_Metacall_Callback cb) { klanguagebutton_metacall_callback = cb; }
     inline void setKLanguageButton_DevType_Callback(KLanguageButton_DevType_Callback cb) { klanguagebutton_devtype_callback = cb; }
     inline void setKLanguageButton_SetVisible_Callback(KLanguageButton_SetVisible_Callback cb) { klanguagebutton_setvisible_callback = cb; }
@@ -325,6 +335,8 @@ class VirtualKLanguageButton final : public KLanguageButton {
     inline void setKLanguageButton_GetDecodedMetricF_Callback(KLanguageButton_GetDecodedMetricF_Callback cb) { klanguagebutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
+    inline void setKLanguageButton_MetaObject_IsBase(bool value) const { klanguagebutton_metaobject_isbase = value; }
+    inline void setKLanguageButton_Metacast_IsBase(bool value) const { klanguagebutton_metacast_isbase = value; }
     inline void setKLanguageButton_Metacall_IsBase(bool value) const { klanguagebutton_metacall_isbase = value; }
     inline void setKLanguageButton_DevType_IsBase(bool value) const { klanguagebutton_devtype_isbase = value; }
     inline void setKLanguageButton_SetVisible_IsBase(bool value) const { klanguagebutton_setvisible_isbase = value; }
@@ -383,6 +395,34 @@ class VirtualKLanguageButton final : public KLanguageButton {
     inline void setKLanguageButton_Receivers_IsBase(bool value) const { klanguagebutton_receivers_isbase = value; }
     inline void setKLanguageButton_IsSignalConnected_IsBase(bool value) const { klanguagebutton_issignalconnected_isbase = value; }
     inline void setKLanguageButton_GetDecodedMetricF_IsBase(bool value) const { klanguagebutton_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (klanguagebutton_metaobject_isbase) {
+            klanguagebutton_metaobject_isbase = false;
+            return KLanguageButton::metaObject();
+        } else if (klanguagebutton_metaobject_callback != nullptr) {
+            QMetaObject* callback_ret = klanguagebutton_metaobject_callback();
+            return callback_ret;
+        } else {
+            return KLanguageButton::metaObject();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (klanguagebutton_metacast_isbase) {
+            klanguagebutton_metacast_isbase = false;
+            return KLanguageButton::qt_metacast(param1);
+        } else if (klanguagebutton_metacast_callback != nullptr) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = klanguagebutton_metacast_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KLanguageButton::qt_metacast(param1);
+        }
+    }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {

@@ -82,6 +82,10 @@ libqt_string KIconDialog_GetIcon4(int group, int context, bool strictIconSize, i
 libqt_string KIconDialog_GetIcon5(int group, int context, bool strictIconSize, int iconSize, bool user);
 libqt_string KIconDialog_GetIcon6(int group, int context, bool strictIconSize, int iconSize, bool user, QWidget* parent);
 libqt_string KIconDialog_GetIcon7(int group, int context, bool strictIconSize, int iconSize, bool user, QWidget* parent, const libqt_string title);
+void KIconDialog_OnMetaObject(const KIconDialog* self, intptr_t slot);
+QMetaObject* KIconDialog_QBaseMetaObject(const KIconDialog* self);
+void KIconDialog_OnMetacast(KIconDialog* self, intptr_t slot);
+void* KIconDialog_QBaseMetacast(KIconDialog* self, const char* param1);
 void KIconDialog_OnMetacall(KIconDialog* self, intptr_t slot);
 int KIconDialog_QBaseMetacall(KIconDialog* self, int param1, int param2, void** param3);
 void KIconDialog_OnShowEvent(KIconDialog* self, intptr_t slot);

@@ -34,6 +34,10 @@ int KPluginFactory_Metacall(KPluginFactory* self, int param1, int param2, void**
 KPluginMetaData* KPluginFactory_MetaData(const KPluginFactory* self);
 void KPluginFactory_SetMetaData(KPluginFactory* self, const KPluginMetaData* metaData);
 QObject* KPluginFactory_Create(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args);
+void KPluginFactory_OnMetaObject(const KPluginFactory* self, intptr_t slot);
+QMetaObject* KPluginFactory_QBaseMetaObject(const KPluginFactory* self);
+void KPluginFactory_OnMetacast(KPluginFactory* self, intptr_t slot);
+void* KPluginFactory_QBaseMetacast(KPluginFactory* self, const char* param1);
 void KPluginFactory_OnMetacall(KPluginFactory* self, intptr_t slot);
 int KPluginFactory_QBaseMetacall(KPluginFactory* self, int param1, int param2, void** param3);
 void KPluginFactory_OnCreate(KPluginFactory* self, intptr_t slot);

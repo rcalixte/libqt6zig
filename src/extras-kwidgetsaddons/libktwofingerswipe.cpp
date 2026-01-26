@@ -24,11 +24,21 @@ KTwoFingerSwipe* KTwoFingerSwipe_new2(QObject* parent) {
 }
 
 QMetaObject* KTwoFingerSwipe_MetaObject(const KTwoFingerSwipe* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vktwofingerswipe = dynamic_cast<const VirtualKTwoFingerSwipe*>(self);
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKTwoFingerSwipe*)self)->metaObject();
+    }
 }
 
 void* KTwoFingerSwipe_Metacast(KTwoFingerSwipe* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKTwoFingerSwipe*)self)->qt_metacast(param1);
+    }
 }
 
 int KTwoFingerSwipe_Metacall(KTwoFingerSwipe* self, int param1, int param2, void** param3) {
@@ -70,6 +80,44 @@ double KTwoFingerSwipe_SwipeAngle(const KTwoFingerSwipe* self) {
 
 void KTwoFingerSwipe_SetSwipeAngle(KTwoFingerSwipe* self, double swipeAngle) {
     self->setSwipeAngle(static_cast<qreal>(swipeAngle));
+}
+
+// Base class handler implementation
+QMetaObject* KTwoFingerSwipe_QBaseMetaObject(const KTwoFingerSwipe* self) {
+    auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+        vktwofingerswipe->setKTwoFingerSwipe_MetaObject_IsBase(true);
+        return (QMetaObject*)vktwofingerswipe->metaObject();
+    } else {
+        return (QMetaObject*)self->KTwoFingerSwipe::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTwoFingerSwipe_OnMetaObject(const KTwoFingerSwipe* self, intptr_t slot) {
+    auto* vktwofingerswipe = const_cast<VirtualKTwoFingerSwipe*>(dynamic_cast<const VirtualKTwoFingerSwipe*>(self));
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+        vktwofingerswipe->setKTwoFingerSwipe_MetaObject_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KTwoFingerSwipe_QBaseMetacast(KTwoFingerSwipe* self, const char* param1) {
+    auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+        vktwofingerswipe->setKTwoFingerSwipe_Metacast_IsBase(true);
+        return vktwofingerswipe->qt_metacast(param1);
+    } else {
+        return self->KTwoFingerSwipe::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KTwoFingerSwipe_OnMetacast(KTwoFingerSwipe* self, intptr_t slot) {
+    auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
+    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
+        vktwofingerswipe->setKTwoFingerSwipe_Metacast_Callback(reinterpret_cast<VirtualKTwoFingerSwipe::KTwoFingerSwipe_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

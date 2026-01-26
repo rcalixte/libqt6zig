@@ -56,11 +56,21 @@ QSvgRenderer* QSvgRenderer_new8(QXmlStreamReader* contents, QObject* parent) {
 }
 
 QMetaObject* QSvgRenderer_MetaObject(const QSvgRenderer* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsvgrenderer = dynamic_cast<const VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSvgRenderer*)self)->metaObject();
+    }
 }
 
 void* QSvgRenderer_Metacast(QSvgRenderer* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSvgRenderer*)self)->qt_metacast(param1);
+    }
 }
 
 int QSvgRenderer_Metacall(QSvgRenderer* self, int param1, int param2, void** param3) {
@@ -204,6 +214,44 @@ void QSvgRenderer_Connect_RepaintNeeded(QSvgRenderer* self, intptr_t slot) {
 void QSvgRenderer_Render32(QSvgRenderer* self, QPainter* p, const libqt_string elementId, const QRectF* bounds) {
     QString elementId_QString = QString::fromUtf8(elementId.data, elementId.len);
     self->render(p, elementId_QString, *bounds);
+}
+
+// Base class handler implementation
+QMetaObject* QSvgRenderer_QBaseMetaObject(const QSvgRenderer* self) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
+        vqsvgrenderer->setQSvgRenderer_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsvgrenderer->metaObject();
+    } else {
+        return (QMetaObject*)self->QSvgRenderer::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSvgRenderer_OnMetaObject(const QSvgRenderer* self, intptr_t slot) {
+    auto* vqsvgrenderer = const_cast<VirtualQSvgRenderer*>(dynamic_cast<const VirtualQSvgRenderer*>(self));
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
+        vqsvgrenderer->setQSvgRenderer_MetaObject_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSvgRenderer_QBaseMetacast(QSvgRenderer* self, const char* param1) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
+        vqsvgrenderer->setQSvgRenderer_Metacast_IsBase(true);
+        return vqsvgrenderer->qt_metacast(param1);
+    } else {
+        return self->QSvgRenderer::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSvgRenderer_OnMetacast(QSvgRenderer* self, intptr_t slot) {
+    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
+    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
+        vqsvgrenderer->setQSvgRenderer_Metacast_Callback(reinterpret_cast<VirtualQSvgRenderer::QSvgRenderer_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

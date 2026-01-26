@@ -70,11 +70,21 @@ KEditListWidget* KEditListWidget_new6(const KEditListWidget__CustomEditor* custo
 }
 
 QMetaObject* KEditListWidget_MetaObject(const KEditListWidget* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkeditlistwidget = dynamic_cast<const VirtualKEditListWidget*>(self);
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKEditListWidget*)self)->metaObject();
+    }
 }
 
 void* KEditListWidget_Metacast(KEditListWidget* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKEditListWidget*)self)->qt_metacast(param1);
+    }
 }
 
 int KEditListWidget_Metacall(KEditListWidget* self, int param1, int param2, void** param3) {
@@ -288,6 +298,44 @@ void KEditListWidget_InsertStringList2(KEditListWidget* self, const libqt_list /
 void KEditListWidget_InsertItem2(KEditListWidget* self, const libqt_string text, int index) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->insertItem(text_QString, static_cast<int>(index));
+}
+
+// Base class handler implementation
+QMetaObject* KEditListWidget_QBaseMetaObject(const KEditListWidget* self) {
+    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        vkeditlistwidget->setKEditListWidget_MetaObject_IsBase(true);
+        return (QMetaObject*)vkeditlistwidget->metaObject();
+    } else {
+        return (QMetaObject*)self->KEditListWidget::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEditListWidget_OnMetaObject(const KEditListWidget* self, intptr_t slot) {
+    auto* vkeditlistwidget = const_cast<VirtualKEditListWidget*>(dynamic_cast<const VirtualKEditListWidget*>(self));
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        vkeditlistwidget->setKEditListWidget_MetaObject_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KEditListWidget_QBaseMetacast(KEditListWidget* self, const char* param1) {
+    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        vkeditlistwidget->setKEditListWidget_Metacast_IsBase(true);
+        return vkeditlistwidget->qt_metacast(param1);
+    } else {
+        return self->KEditListWidget::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KEditListWidget_OnMetacast(KEditListWidget* self, intptr_t slot) {
+    auto* vkeditlistwidget = dynamic_cast<VirtualKEditListWidget*>(self);
+    if (vkeditlistwidget && vkeditlistwidget->isVirtualKEditListWidget) {
+        vkeditlistwidget->setKEditListWidget_Metacast_Callback(reinterpret_cast<VirtualKEditListWidget::KEditListWidget_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -24,11 +24,21 @@ QSequentialAnimationGroup* QSequentialAnimationGroup_new2(QObject* parent) {
 }
 
 QMetaObject* QSequentialAnimationGroup_MetaObject(const QSequentialAnimationGroup* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsequentialanimationgroup = dynamic_cast<const VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSequentialAnimationGroup*)self)->metaObject();
+    }
 }
 
 void* QSequentialAnimationGroup_Metacast(QSequentialAnimationGroup* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSequentialAnimationGroup*)self)->qt_metacast(param1);
+    }
 }
 
 int QSequentialAnimationGroup_Metacall(QSequentialAnimationGroup* self, int param1, int param2, void** param3) {
@@ -99,6 +109,44 @@ void QSequentialAnimationGroup_UpdateDirection(QSequentialAnimationGroup* self, 
     auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
     if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* QSequentialAnimationGroup_QBaseMetaObject(const QSequentialAnimationGroup* self) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
+        vqsequentialanimationgroup->setQSequentialAnimationGroup_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsequentialanimationgroup->metaObject();
+    } else {
+        return (QMetaObject*)self->QSequentialAnimationGroup::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSequentialAnimationGroup_OnMetaObject(const QSequentialAnimationGroup* self, intptr_t slot) {
+    auto* vqsequentialanimationgroup = const_cast<VirtualQSequentialAnimationGroup*>(dynamic_cast<const VirtualQSequentialAnimationGroup*>(self));
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
+        vqsequentialanimationgroup->setQSequentialAnimationGroup_MetaObject_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSequentialAnimationGroup_QBaseMetacast(QSequentialAnimationGroup* self, const char* param1) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
+        vqsequentialanimationgroup->setQSequentialAnimationGroup_Metacast_IsBase(true);
+        return vqsequentialanimationgroup->qt_metacast(param1);
+    } else {
+        return self->QSequentialAnimationGroup::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSequentialAnimationGroup_OnMetacast(QSequentialAnimationGroup* self, intptr_t slot) {
+    auto* vqsequentialanimationgroup = dynamic_cast<VirtualQSequentialAnimationGroup*>(self);
+    if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
+        vqsequentialanimationgroup->setQSequentialAnimationGroup_Metacast_Callback(reinterpret_cast<VirtualQSequentialAnimationGroup::QSequentialAnimationGroup_Metacast_Callback>(slot));
     }
 }
 

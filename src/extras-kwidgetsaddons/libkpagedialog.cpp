@@ -58,11 +58,21 @@ KPageDialog* KPageDialog_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* KPageDialog_MetaObject(const KPageDialog* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkpagedialog = dynamic_cast<const VirtualKPageDialog*>(self);
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKPageDialog*)self)->metaObject();
+    }
 }
 
 void* KPageDialog_Metacast(KPageDialog* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKPageDialog*)self)->qt_metacast(param1);
+    }
 }
 
 int KPageDialog_Metacall(KPageDialog* self, int param1, int param2, void** param3) {
@@ -152,6 +162,44 @@ void KPageDialog_Connect_PageRemoved(KPageDialog* self, intptr_t slot) {
         KPageWidgetItem* sigval1 = page;
         slotFunc(self, sigval1);
     });
+}
+
+// Base class handler implementation
+QMetaObject* KPageDialog_QBaseMetaObject(const KPageDialog* self) {
+    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+        vkpagedialog->setKPageDialog_MetaObject_IsBase(true);
+        return (QMetaObject*)vkpagedialog->metaObject();
+    } else {
+        return (QMetaObject*)self->KPageDialog::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageDialog_OnMetaObject(const KPageDialog* self, intptr_t slot) {
+    auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+        vkpagedialog->setKPageDialog_MetaObject_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KPageDialog_QBaseMetacast(KPageDialog* self, const char* param1) {
+    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+        vkpagedialog->setKPageDialog_Metacast_IsBase(true);
+        return vkpagedialog->qt_metacast(param1);
+    } else {
+        return self->KPageDialog::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KPageDialog_OnMetacast(KPageDialog* self, intptr_t slot) {
+    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+        vkpagedialog->setKPageDialog_Metacast_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

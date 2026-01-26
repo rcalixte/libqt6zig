@@ -35,11 +35,21 @@ QFile* QFile_new4(const libqt_string name, QObject* parent) {
 }
 
 QMetaObject* QFile_MetaObject(const QFile* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQFile*)self)->metaObject();
+    }
 }
 
 void* QFile_Metacast(QFile* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQFile*)self)->qt_metacast(param1);
+    }
 }
 
 int QFile_Metacall(QFile* self, int param1, int param2, void** param3) {
@@ -272,6 +282,44 @@ bool QFile_SetPermissions2(const libqt_string filename, int permissionSpec) {
 
 bool QFile_Open33(QFile* self, int fd, int ioFlags, int handleFlags) {
     return self->open(static_cast<int>(fd), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(ioFlags), static_cast<QFileDevice::FileHandleFlags>(handleFlags));
+}
+
+// Base class handler implementation
+QMetaObject* QFile_QBaseMetaObject(const QFile* self) {
+    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_MetaObject_IsBase(true);
+        return (QMetaObject*)vqfile->metaObject();
+    } else {
+        return (QMetaObject*)self->QFile::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFile_OnMetaObject(const QFile* self, intptr_t slot) {
+    auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_MetaObject_Callback(reinterpret_cast<VirtualQFile::QFile_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QFile_QBaseMetacast(QFile* self, const char* param1) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Metacast_IsBase(true);
+        return vqfile->qt_metacast(param1);
+    } else {
+        return self->QFile::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFile_OnMetacast(QFile* self, intptr_t slot) {
+    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
+    if (vqfile && vqfile->isVirtualQFile) {
+        vqfile->setQFile_Metacast_Callback(reinterpret_cast<VirtualQFile::QFile_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -36,11 +36,21 @@ QPieSlice* QPieSlice_new4(libqt_string label, double value, QObject* parent) {
 }
 
 QMetaObject* QPieSlice_MetaObject(const QPieSlice* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpieslice = dynamic_cast<const VirtualQPieSlice*>(self);
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPieSlice*)self)->metaObject();
+    }
 }
 
 void* QPieSlice_Metacast(QPieSlice* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPieSlice*)self)->qt_metacast(param1);
+    }
 }
 
 int QPieSlice_Metacall(QPieSlice* self, int param1, int param2, void** param3) {
@@ -413,6 +423,44 @@ void QPieSlice_SetLabelVisible1(QPieSlice* self, bool visible) {
 
 void QPieSlice_SetExploded1(QPieSlice* self, bool exploded) {
     self->setExploded(exploded);
+}
+
+// Base class handler implementation
+QMetaObject* QPieSlice_QBaseMetaObject(const QPieSlice* self) {
+    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+        vqpieslice->setQPieSlice_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpieslice->metaObject();
+    } else {
+        return (QMetaObject*)self->QPieSlice::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPieSlice_OnMetaObject(const QPieSlice* self, intptr_t slot) {
+    auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+        vqpieslice->setQPieSlice_MetaObject_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPieSlice_QBaseMetacast(QPieSlice* self, const char* param1) {
+    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+        vqpieslice->setQPieSlice_Metacast_IsBase(true);
+        return vqpieslice->qt_metacast(param1);
+    } else {
+        return self->QPieSlice::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPieSlice_OnMetacast(QPieSlice* self, intptr_t slot) {
+    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+        vqpieslice->setQPieSlice_Metacast_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

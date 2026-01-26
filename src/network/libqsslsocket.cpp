@@ -36,11 +36,21 @@ QSslSocket* QSslSocket_new2(QObject* parent) {
 }
 
 QMetaObject* QSslSocket_MetaObject(const QSslSocket* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqsslsocket = dynamic_cast<const VirtualQSslSocket*>(self);
+    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQSslSocket*)self)->metaObject();
+    }
 }
 
 void* QSslSocket_Metacast(QSslSocket* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
+    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQSslSocket*)self)->qt_metacast(param1);
+    }
 }
 
 int QSslSocket_Metacall(QSslSocket* self, int param1, int param2, void** param3) {
@@ -811,6 +821,44 @@ libqt_list /* of int */ QSslSocket_SupportedFeatures1(const libqt_string backend
 bool QSslSocket_IsFeatureSupported2(int feat, const libqt_string backendName) {
     QString backendName_QString = QString::fromUtf8(backendName.data, backendName.len);
     return QSslSocket::isFeatureSupported(static_cast<QSsl::SupportedFeature>(feat), backendName_QString);
+}
+
+// Base class handler implementation
+QMetaObject* QSslSocket_QBaseMetaObject(const QSslSocket* self) {
+    auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
+    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
+        vqsslsocket->setQSslSocket_MetaObject_IsBase(true);
+        return (QMetaObject*)vqsslsocket->metaObject();
+    } else {
+        return (QMetaObject*)self->QSslSocket::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSslSocket_OnMetaObject(const QSslSocket* self, intptr_t slot) {
+    auto* vqsslsocket = const_cast<VirtualQSslSocket*>(dynamic_cast<const VirtualQSslSocket*>(self));
+    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
+        vqsslsocket->setQSslSocket_MetaObject_Callback(reinterpret_cast<VirtualQSslSocket::QSslSocket_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QSslSocket_QBaseMetacast(QSslSocket* self, const char* param1) {
+    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
+    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
+        vqsslsocket->setQSslSocket_Metacast_IsBase(true);
+        return vqsslsocket->qt_metacast(param1);
+    } else {
+        return self->QSslSocket::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSslSocket_OnMetacast(QSslSocket* self, intptr_t slot) {
+    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
+    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
+        vqsslsocket->setQSslSocket_Metacast_Callback(reinterpret_cast<VirtualQSslSocket::QSslSocket_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

@@ -24,11 +24,21 @@ QPieSeries* QPieSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QPieSeries_MetaObject(const QPieSeries* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vqpieseries = dynamic_cast<const VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualQPieSeries*)self)->metaObject();
+    }
 }
 
 void* QPieSeries_Metacast(QPieSeries* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualQPieSeries*)self)->qt_metacast(param1);
+    }
 }
 
 int QPieSeries_Metacall(QPieSeries* self, int param1, int param2, void** param3) {
@@ -310,6 +320,44 @@ void QPieSeries_Connect_SumChanged(QPieSeries* self, intptr_t slot) {
 
 void QPieSeries_SetLabelsVisible1(QPieSeries* self, bool visible) {
     self->setLabelsVisible(visible);
+}
+
+// Base class handler implementation
+QMetaObject* QPieSeries_QBaseMetaObject(const QPieSeries* self) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_MetaObject_IsBase(true);
+        return (QMetaObject*)vqpieseries->metaObject();
+    } else {
+        return (QMetaObject*)self->QPieSeries::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPieSeries_OnMetaObject(const QPieSeries* self, intptr_t slot) {
+    auto* vqpieseries = const_cast<VirtualQPieSeries*>(dynamic_cast<const VirtualQPieSeries*>(self));
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_MetaObject_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* QPieSeries_QBaseMetacast(QPieSeries* self, const char* param1) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_Metacast_IsBase(true);
+        return vqpieseries->qt_metacast(param1);
+    } else {
+        return self->QPieSeries::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPieSeries_OnMetacast(QPieSeries* self, intptr_t slot) {
+    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
+    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
+        vqpieseries->setQPieSeries_Metacast_Callback(reinterpret_cast<VirtualQPieSeries::QPieSeries_Metacast_Callback>(slot));
+    }
 }
 
 // Base class handler implementation

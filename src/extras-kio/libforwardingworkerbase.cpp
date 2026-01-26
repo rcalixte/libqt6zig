@@ -26,11 +26,21 @@ KIO__ForwardingWorkerBase* KIO__ForwardingWorkerBase_new(const libqt_string prot
 }
 
 QMetaObject* KIO__ForwardingWorkerBase_MetaObject(const KIO__ForwardingWorkerBase* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkio__forwardingworkerbase = dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self);
+    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKIOForwardingWorkerBase*)self)->metaObject();
+    }
 }
 
 void* KIO__ForwardingWorkerBase_Metacast(KIO__ForwardingWorkerBase* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
+    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKIOForwardingWorkerBase*)self)->qt_metacast(param1);
+    }
 }
 
 int KIO__ForwardingWorkerBase_Metacall(KIO__ForwardingWorkerBase* self, int param1, int param2, void** param3) {
@@ -163,6 +173,44 @@ void KIO__ForwardingWorkerBase_AdjustUDSEntry(const KIO__ForwardingWorkerBase* s
     auto* vkio__forwardingworkerbase = dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self);
     if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkio__forwardingworkerbase->adjustUDSEntry(*entry, static_cast<VirtualKIOForwardingWorkerBase::UDSEntryCreationMode>(creationMode));
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KIO__ForwardingWorkerBase_QBaseMetaObject(const KIO__ForwardingWorkerBase* self) {
+    auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+        vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_MetaObject_IsBase(true);
+        return (QMetaObject*)vkioforwardingworkerbase->metaObject();
+    } else {
+        return (QMetaObject*)self->KIO::ForwardingWorkerBase::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__ForwardingWorkerBase_OnMetaObject(const KIO__ForwardingWorkerBase* self, intptr_t slot) {
+    auto* vkioforwardingworkerbase = const_cast<VirtualKIOForwardingWorkerBase*>(dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self));
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+        vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_MetaObject_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KIO__ForwardingWorkerBase_QBaseMetacast(KIO__ForwardingWorkerBase* self, const char* param1) {
+    auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+        vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Metacast_IsBase(true);
+        return vkioforwardingworkerbase->qt_metacast(param1);
+    } else {
+        return self->KIO::ForwardingWorkerBase::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KIO__ForwardingWorkerBase_OnMetacast(KIO__ForwardingWorkerBase* self, intptr_t slot) {
+    auto* vkioforwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
+    if (vkioforwardingworkerbase && vkioforwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
+        vkioforwardingworkerbase->setKIO__ForwardingWorkerBase_Metacast_Callback(reinterpret_cast<VirtualKIOForwardingWorkerBase::KIO__ForwardingWorkerBase_Metacast_Callback>(slot));
     }
 }
 

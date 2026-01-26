@@ -32,11 +32,21 @@ KActionMenu* KActionMenu_new3(const QIcon* icon, const libqt_string text, QObjec
 }
 
 QMetaObject* KActionMenu_MetaObject(const KActionMenu* self) {
-    return (QMetaObject*)self->metaObject();
+    auto* vkactionmenu = dynamic_cast<const VirtualKActionMenu*>(self);
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        return (QMetaObject*)self->metaObject();
+    } else {
+        return (QMetaObject*)((VirtualKActionMenu*)self)->metaObject();
+    }
 }
 
 void* KActionMenu_Metacast(KActionMenu* self, const char* param1) {
-    return self->qt_metacast(param1);
+    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        return self->qt_metacast(param1);
+    } else {
+        return ((VirtualKActionMenu*)self)->qt_metacast(param1);
+    }
 }
 
 int KActionMenu_Metacall(KActionMenu* self, int param1, int param2, void** param3) {
@@ -82,6 +92,44 @@ QWidget* KActionMenu_CreateWidget(KActionMenu* self, QWidget* parent) {
         return self->createWidget(parent);
     } else {
         return ((VirtualKActionMenu*)self)->createWidget(parent);
+    }
+}
+
+// Base class handler implementation
+QMetaObject* KActionMenu_QBaseMetaObject(const KActionMenu* self) {
+    auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        vkactionmenu->setKActionMenu_MetaObject_IsBase(true);
+        return (QMetaObject*)vkactionmenu->metaObject();
+    } else {
+        return (QMetaObject*)self->KActionMenu::metaObject();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionMenu_OnMetaObject(const KActionMenu* self, intptr_t slot) {
+    auto* vkactionmenu = const_cast<VirtualKActionMenu*>(dynamic_cast<const VirtualKActionMenu*>(self));
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        vkactionmenu->setKActionMenu_MetaObject_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_MetaObject_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void* KActionMenu_QBaseMetacast(KActionMenu* self, const char* param1) {
+    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        vkactionmenu->setKActionMenu_Metacast_IsBase(true);
+        return vkactionmenu->qt_metacast(param1);
+    } else {
+        return self->KActionMenu::qt_metacast(param1);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KActionMenu_OnMetacast(KActionMenu* self, intptr_t slot) {
+    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
+    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
+        vkactionmenu->setKActionMenu_Metacast_Callback(reinterpret_cast<VirtualKActionMenu::KActionMenu_Metacast_Callback>(slot));
     }
 }
 
