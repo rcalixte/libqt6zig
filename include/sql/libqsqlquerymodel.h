@@ -14,11 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t)
-typedef Qt::Disambiguated_t Disambiguated_t;
-#endif
 #else
-typedef struct Disambiguated_t Disambiguated_t;
 typedef struct QAbstractItemModel QAbstractItemModel;
 typedef struct QAbstractTableModel QAbstractTableModel;
 typedef struct QChildEvent QChildEvent;
@@ -65,7 +61,6 @@ libqt_map /* of int to libqt_string */ QSqlQueryModel_RoleNames(const QSqlQueryM
 void QSqlQueryModel_QueryChange(QSqlQueryModel* self);
 QModelIndex* QSqlQueryModel_IndexInQuery(const QSqlQueryModel* self, const QModelIndex* item);
 void QSqlQueryModel_SetQuery22(QSqlQueryModel* self, const libqt_string query, const QSqlDatabase* db);
-QSqlQuery* QSqlQueryModel_Query1(const QSqlQueryModel* self, Disambiguated_t* param1);
 void QSqlQueryModel_OnMetaObject(const QSqlQueryModel* self, intptr_t slot);
 QMetaObject* QSqlQueryModel_QBaseMetaObject(const QSqlQueryModel* self);
 void QSqlQueryModel_OnMetacast(QSqlQueryModel* self, intptr_t slot);

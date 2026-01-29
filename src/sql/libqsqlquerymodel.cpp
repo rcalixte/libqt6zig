@@ -24,7 +24,6 @@
 #include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t
 #include <qsqlquerymodel.h>
 #include "libqsqlquerymodel.h"
 #include "libqsqlquerymodel.hxx"
@@ -248,12 +247,6 @@ QModelIndex* QSqlQueryModel_IndexInQuery(const QSqlQueryModel* self, const QMode
 void QSqlQueryModel_SetQuery22(QSqlQueryModel* self, const libqt_string query, const QSqlDatabase* db) {
     QString query_QString = QString::fromUtf8(query.data, query.len);
     self->setQuery(query_QString, *db);
-}
-
-QSqlQuery* QSqlQueryModel_Query1(const QSqlQueryModel* self, Disambiguated_t* param1) {
-    const QSqlQuery& _ret = self->query(*param1);
-    // Cast returned reference into pointer
-    return const_cast<QSqlQuery*>(&_ret);
 }
 
 // Base class handler implementation

@@ -14,11 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t)
-typedef Qt::Disambiguated_t Disambiguated_t;
-#endif
 #else
-typedef struct Disambiguated_t Disambiguated_t;
 typedef struct QSqlDriver QSqlDriver;
 typedef struct QSqlError QSqlError;
 typedef struct QSqlRecord QSqlRecord;

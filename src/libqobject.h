@@ -24,11 +24,7 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
 typedef QMetaObject::Connection QMetaObject__Connection;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t)
-typedef Qt::Disambiguated_t Disambiguated_t;
-#endif
 #else
-typedef struct Disambiguated_t Disambiguated_t;
 typedef struct QAnyStringView QAnyStringView;
 typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
@@ -91,7 +87,6 @@ void QObject_ConnectNotify(QObject* self, const QMetaMethod* signal);
 void QObject_DisconnectNotify(QObject* self, const QMetaMethod* signal);
 libqt_string QObject_Tr2(const char* s, const char* c);
 libqt_string QObject_Tr3(const char* s, const char* c, int n);
-bool QObject_MoveToThread2(QObject* self, QThread* thread, Disambiguated_t* param2);
 int QObject_StartTimer22(QObject* self, int interval, int timerType);
 int QObject_StartTimer23(QObject* self, int64_t time, int timerType);
 QMetaObject__Connection* QObject_Connect5(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method, int typeVal);

@@ -14,11 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t)
-typedef Qt::Disambiguated_t Disambiguated_t;
-#endif
 #else
-typedef struct Disambiguated_t Disambiguated_t;
 typedef struct QChar QChar;
 typedef struct QDir QDir;
 typedef struct QFileInfo QFileInfo;
@@ -94,7 +90,6 @@ bool QDir_Match(const libqt_list /* of libqt_string */ filters, const libqt_stri
 bool QDir_Match2(const libqt_string filter, const libqt_string fileName);
 libqt_string QDir_CleanPath(const libqt_string path);
 void QDir_Refresh(const QDir* self);
-ptrdiff_t QDir_Count1(const QDir* self, Disambiguated_t* param1);
 bool QDir_IsEmpty1(const QDir* self, int filters);
 libqt_list /* of libqt_string */ QDir_EntryList1(const QDir* self, int filters);
 libqt_list /* of libqt_string */ QDir_EntryList22(const QDir* self, int filters, int sort);

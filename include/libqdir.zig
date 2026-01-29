@@ -1148,18 +1148,6 @@ pub const qdir = struct {
         qtc.QDir_Refresh(@ptrCast(self));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#count)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QDir `
-    ///
-    /// ` param1: QtC.Disambiguated_t `
-    ///
-    pub fn Count1(self: ?*anyopaque, param1: QtC.Disambiguated_t) i64 {
-        return qtc.QDir_Count1(@ptrCast(self), @ptrCast(param1));
-    }
-
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#isEmpty)
     ///
     /// ## Parameter(s):
