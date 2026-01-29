@@ -1223,22 +1223,6 @@ pub const qgraphicseffect = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QGraphicsEffect `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ## Parameter(s):
@@ -2776,22 +2760,6 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QGraphicsColorizeEffect `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -4697,22 +4665,6 @@ pub const qgraphicsblureffect = struct {
     ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QGraphicsBlurEffect `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -6686,22 +6638,6 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QGraphicsDropShadowEffect `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ## Parameter(s):
@@ -8511,22 +8447,6 @@ pub const qgraphicsopacityeffect = struct {
     ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QGraphicsOpacityEffect `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

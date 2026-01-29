@@ -5,7 +5,6 @@
 #include <QString>
 #include <QByteArray>
 #include <cstring>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t
 #include <qdir.h>
 #include "libqdir.h"
 #include "libqdir.hxx"
@@ -590,10 +589,6 @@ libqt_string QDir_CleanPath(const libqt_string path) {
 
 void QDir_Refresh(const QDir* self) {
     self->refresh();
-}
-
-ptrdiff_t QDir_Count1(const QDir* self, Disambiguated_t* param1) {
-    return static_cast<ptrdiff_t>(self->count(*param1));
 }
 
 bool QDir_IsEmpty1(const QDir* self, int filters) {

@@ -1326,20 +1326,6 @@ pub const qsqlrelationaltablemodel = struct {
         qtc.QSqlQueryModel_SetQuery22(@ptrCast(self), query_str, @ptrCast(db));
     }
 
-    /// Inherited from QSqlQueryModel
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquerymodel.html#query)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QSqlRelationalTableModel `
-    ///
-    /// ` param1: QtC.Disambiguated_t `
-    ///
-    pub fn Query1(self: ?*anyopaque, param1: QtC.Disambiguated_t) QtC.QSqlQuery {
-        return qtc.QSqlQueryModel_Query1(@ptrCast(self), @ptrCast(param1));
-    }
-
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#hasIndex)
@@ -2407,22 +2393,6 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QSqlRelationalTableModel `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

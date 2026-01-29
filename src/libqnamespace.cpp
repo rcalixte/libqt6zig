@@ -1,61 +1,7 @@
-#include <QInternal>
 #include <QKeyCombination>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t
 #include <qnamespace.h>
 #include "libqnamespace.h"
 #include "libqnamespace.hxx"
-
-Disambiguated_t* Disambiguated_t_new(const Disambiguated_t* other) {
-    return new Qt::Disambiguated_t(*other);
-}
-
-Disambiguated_t* Disambiguated_t_new2(Disambiguated_t* other) {
-    return new Qt::Disambiguated_t(std::move(*other));
-}
-
-Disambiguated_t* Disambiguated_t_new3() {
-    return new Qt::Disambiguated_t();
-}
-
-Disambiguated_t* Disambiguated_t_new4(const Disambiguated_t* param1) {
-    return new Qt::Disambiguated_t(*param1);
-}
-
-void Disambiguated_t_CopyAssign(Disambiguated_t* self, Disambiguated_t* other) {
-    *self = *other;
-}
-
-void Disambiguated_t_MoveAssign(Disambiguated_t* self, Disambiguated_t* other) {
-    *self = std::move(*other);
-}
-
-void Disambiguated_t_Delete(Disambiguated_t* self) {
-    delete self;
-}
-
-QInternal* QInternal_new(const QInternal* other) {
-    return new QInternal(*other);
-}
-
-QInternal* QInternal_new2(QInternal* other) {
-    return new QInternal(std::move(*other));
-}
-
-void QInternal_CopyAssign(QInternal* self, QInternal* other) {
-    *self = *other;
-}
-
-void QInternal_MoveAssign(QInternal* self, QInternal* other) {
-    *self = std::move(*other);
-}
-
-bool QInternal_ActivateCallbacks(int param1, void** param2) {
-    return QInternal::activateCallbacks(static_cast<QInternal::Callback>(param1), param2);
-}
-
-void QInternal_Delete(QInternal* self) {
-    delete self;
-}
 
 QKeyCombination* QKeyCombination_new(const QKeyCombination* other) {
     return new QKeyCombination(*other);

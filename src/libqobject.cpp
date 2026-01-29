@@ -15,7 +15,6 @@
 #include <QThread>
 #include <QTimerEvent>
 #include <QVariant>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t
 #include <qobject.h>
 #include "libqobject.h"
 #include "libqobject.hxx"
@@ -310,10 +309,6 @@ libqt_string QObject_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
-}
-
-bool QObject_MoveToThread2(QObject* self, QThread* thread, Disambiguated_t* param2) {
-    return self->moveToThread(thread, *param2);
 }
 
 int QObject_StartTimer22(QObject* self, int interval, int timerType) {

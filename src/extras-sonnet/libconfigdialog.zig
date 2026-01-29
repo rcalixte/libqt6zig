@@ -4809,22 +4809,6 @@ pub const sonnet__configdialog = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Sonnet__ConfigDialog `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ## Parameter(s):

@@ -7,7 +7,6 @@
 #include <QByteArray>
 #include <cstring>
 #include <QVariant>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t
 #include <qsqlresult.h>
 #include "libqsqlresult.h"
 #include "libqsqlresult.hxx"

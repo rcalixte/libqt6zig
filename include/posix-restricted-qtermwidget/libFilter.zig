@@ -761,22 +761,6 @@ pub const konsole__filter = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Konsole__Filter `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ## Parameter(s):
@@ -2272,22 +2256,6 @@ pub const konsole__regexpfilter = struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__regexpfilter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Konsole__RegExpFilter `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -4055,22 +4023,6 @@ pub const konsole__urlfilter = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Konsole__UrlFilter `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ## Parameter(s):
@@ -5646,22 +5598,6 @@ pub const konsole__filterobject = struct {
     ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Konsole__FilterObject `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

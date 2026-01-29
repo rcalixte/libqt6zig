@@ -778,22 +778,6 @@ pub const qgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QGesture `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ## Parameter(s):
@@ -2309,22 +2293,6 @@ pub const qpangesture = struct {
     ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QPanGesture `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -4022,22 +3990,6 @@ pub const qpinchgesture = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QPinchGesture `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ## Parameter(s):
@@ -5531,22 +5483,6 @@ pub const qswipegesture = struct {
 
     /// Inherited from QObject
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QSwipeGesture `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
-    }
-
-    /// Inherited from QObject
-    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ## Parameter(s):
@@ -7008,22 +6944,6 @@ pub const qtapgesture = struct {
     ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QTapGesture `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -8505,22 +8425,6 @@ pub const qtapandholdgesture = struct {
     ///
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#moveToThread)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QTapAndHoldGesture `
-    ///
-    /// ` thread: QtC.QThread `
-    ///
-    /// ` param2: QtC.Disambiguated_t `
-    ///
-    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
-        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

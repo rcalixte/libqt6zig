@@ -14,29 +14,9 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t)
-typedef Qt::Disambiguated_t Disambiguated_t;
-#endif
 #else
-typedef struct Disambiguated_t Disambiguated_t;
-typedef struct QInternal QInternal;
 typedef struct QKeyCombination QKeyCombination;
 #endif
-
-Disambiguated_t* Disambiguated_t_new(const Disambiguated_t* other);
-Disambiguated_t* Disambiguated_t_new2(Disambiguated_t* other);
-Disambiguated_t* Disambiguated_t_new3();
-Disambiguated_t* Disambiguated_t_new4(const Disambiguated_t* param1);
-void Disambiguated_t_CopyAssign(Disambiguated_t* self, Disambiguated_t* other);
-void Disambiguated_t_MoveAssign(Disambiguated_t* self, Disambiguated_t* other);
-void Disambiguated_t_Delete(Disambiguated_t* self);
-
-QInternal* QInternal_new(const QInternal* other);
-QInternal* QInternal_new2(QInternal* other);
-void QInternal_CopyAssign(QInternal* self, QInternal* other);
-void QInternal_MoveAssign(QInternal* self, QInternal* other);
-bool QInternal_ActivateCallbacks(int param1, void** param2);
-void QInternal_Delete(QInternal* self);
 
 QKeyCombination* QKeyCombination_new(const QKeyCombination* other);
 QKeyCombination* QKeyCombination_new2(QKeyCombination* other);
