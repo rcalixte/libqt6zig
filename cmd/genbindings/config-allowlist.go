@@ -207,6 +207,8 @@ func AllowClass(className string) bool {
 		"QThreadStorageData",             // internal Qt classes that should not be projected
 		"QWidgetData",                    // internal Qt classes that should not be projected
 		"QDBusPendingReplyBase",          // internal Qt classes that should not be projected
+		"Qt::Disambiguated_t",            // internal Qt classes that should not be projected
+		"QInternal",                      // internal Qt classes that should not be projected
 		"QTextStreamManipulator",         // Only seems to contain garbage methods
 		"QException",                     // Extends std::exception, too hard
 		"QGenericRunnable",               // Qt 6, Unavailable class header in Qt 6.8
