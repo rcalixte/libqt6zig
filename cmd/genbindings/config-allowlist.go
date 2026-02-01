@@ -307,7 +307,7 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex // Skipping method with weird QGADGET behaviour
 	}
 
-	if mm.IsReceiverMethod() {
+	if mm.IsReceiverMethod() && className[0] != 'K' {
 		// Non-projectable receiver pattern parameters
 		return ErrTooComplex
 	}
@@ -562,6 +562,9 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	}
 	if strings.HasPrefix(p.ParameterType, "QBindable<") {
 		return ErrTooComplex // e.g. Qt 6 qabstractanimation.h
+	}
+	if strings.HasPrefix(p.ParameterType, "QFuture<") {
+		return ErrTooComplex // e.g. qfuture.h
 	}
 	if strings.HasPrefix(p.ParameterType, "QRgbaFloat<") {
 		return ErrTooComplex // e.g. Qt 6 qcolortransform.h
