@@ -352,7 +352,7 @@ pub const qgeorouterequest = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeorouterequest.html#public-types)
 pub const enums = struct {
-    pub const TravelMode = enum {
+    pub const TravelMode = enum(i32) {
         pub const CarTravel: i32 = 1;
         pub const PedestrianTravel: i32 = 2;
         pub const BicycleTravel: i32 = 4;
@@ -360,7 +360,7 @@ pub const enums = struct {
         pub const TruckTravel: i32 = 16;
     };
 
-    pub const FeatureType = enum {
+    pub const FeatureType = enum(i32) {
         pub const NoFeature: i32 = 0;
         pub const TollFeature: i32 = 1;
         pub const HighwayFeature: i32 = 2;
@@ -373,7 +373,7 @@ pub const enums = struct {
         pub const TrafficFeature: i32 = 256;
     };
 
-    pub const FeatureWeight = enum {
+    pub const FeatureWeight = enum(i32) {
         pub const NeutralFeatureWeight: i32 = 0;
         pub const PreferFeatureWeight: i32 = 1;
         pub const RequireFeatureWeight: i32 = 2;
@@ -381,19 +381,19 @@ pub const enums = struct {
         pub const DisallowFeatureWeight: i32 = 8;
     };
 
-    pub const RouteOptimization = enum {
+    pub const RouteOptimization = enum(i32) {
         pub const ShortestRoute: i32 = 1;
         pub const FastestRoute: i32 = 2;
         pub const MostEconomicRoute: i32 = 4;
         pub const MostScenicRoute: i32 = 8;
     };
 
-    pub const SegmentDetail = enum {
+    pub const SegmentDetail = enum(i32) {
         pub const NoSegmentData: i32 = 0;
         pub const BasicSegmentData: i32 = 1;
     };
 
-    pub const ManeuverDetail = enum {
+    pub const ManeuverDetail = enum(i32) {
         pub const NoManeuvers: i32 = 0;
         pub const BasicManeuvers: i32 = 1;
     };

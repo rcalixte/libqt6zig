@@ -1103,7 +1103,7 @@ pub const qaccessible__activationobserver = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-base.html#public-types)
 pub const enums = struct {
-    pub const Event = enum {
+    pub const Event = enum(i32) {
         pub const SoundPlayed: i32 = 1;
         pub const Alert: i32 = 2;
         pub const ForegroundChanged: i32 = 3;
@@ -1177,7 +1177,7 @@ pub const enums = struct {
         pub const InvalidEvent: i32 = 32961;
     };
 
-    pub const Role = enum {
+    pub const Role = enum(i32) {
         pub const NoRole: i32 = 0;
         pub const TitleBar: i32 = 1;
         pub const MenuBar: i32 = 2;
@@ -1257,7 +1257,7 @@ pub const enums = struct {
         pub const UserRole: i32 = 65535;
     };
 
-    pub const Text = enum {
+    pub const Text = enum(i32) {
         pub const Name: i32 = 0;
         pub const Description: i32 = 1;
         pub const Value: i32 = 2;
@@ -1268,7 +1268,7 @@ pub const enums = struct {
         pub const UserText: i32 = 65535;
     };
 
-    pub const RelationFlag = enum {
+    pub const RelationFlag = enum(i32) {
         pub const Label: i32 = 1;
         pub const Labelled: i32 = 2;
         pub const Controller: i32 = 4;
@@ -1280,7 +1280,7 @@ pub const enums = struct {
         pub const AllRelations: i32 = -1;
     };
 
-    pub const InterfaceType = enum {
+    pub const InterfaceType = enum(i32) {
         pub const TextInterface: i32 = 0;
         pub const EditableTextInterface: i32 = 1;
         pub const ValueInterface: i32 = 2;
@@ -1293,7 +1293,7 @@ pub const enums = struct {
         pub const AttributesInterface: i32 = 9;
     };
 
-    pub const TextBoundaryType = enum {
+    pub const TextBoundaryType = enum(i32) {
         pub const CharBoundary: i32 = 0;
         pub const WordBoundary: i32 = 1;
         pub const SentenceBoundary: i32 = 2;
@@ -1302,12 +1302,12 @@ pub const enums = struct {
         pub const NoBoundary: i32 = 5;
     };
 
-    pub const Attribute = enum {
+    pub const Attribute = enum(i32) {
         pub const Custom: i32 = 0;
         pub const Level: i32 = 1;
     };
 
-    pub const AnnouncementPoliteness = enum {
+    pub const AnnouncementPoliteness = enum(i32) {
         pub const Polite: i32 = 0;
         pub const Assertive: i32 = 1;
     };

@@ -170,19 +170,35 @@ void QObject_RemoveEventFilter(QObject* self, QObject* obj) {
     self->removeEventFilter(obj);
 }
 
-QMetaObject__Connection* QObject_Connect(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method) {
+QMetaObject__Connection* QObject_Connect(const QObject* sender, const char* signal, const QObject* receiver, const char* member) {
+    return new QMetaObject::Connection(QObject::connect(sender, signal, receiver, member));
+}
+
+QMetaObject__Connection* QObject_Connect2(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method) {
     return new QMetaObject::Connection(QObject::connect(sender, *signal, receiver, *method));
 }
 
-QMetaObject__Connection* QObject_Connect2(const QObject* self, const QObject* sender, const char* signal, const char* member) {
+QMetaObject__Connection* QObject_Connect3(const QObject* self, const QObject* sender, const char* signal, const char* member) {
     return new QMetaObject::Connection(self->connect(sender, signal, member));
 }
 
-bool QObject_Disconnect(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* member) {
+bool QObject_Disconnect(const QObject* sender, const char* signal, const QObject* receiver, const char* member) {
+    return QObject::disconnect(sender, signal, receiver, member);
+}
+
+bool QObject_Disconnect2(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* member) {
     return QObject::disconnect(sender, *signal, receiver, *member);
 }
 
-bool QObject_Disconnect2(const QMetaObject__Connection* param1) {
+bool QObject_Disconnect3(const QObject* self) {
+    return self->disconnect();
+}
+
+bool QObject_Disconnect4(const QObject* self, const QObject* receiver) {
+    return self->disconnect(receiver);
+}
+
+bool QObject_Disconnect5(const QMetaObject__Connection* param1) {
     return QObject::disconnect(*param1);
 }
 
@@ -319,12 +335,32 @@ int QObject_StartTimer23(QObject* self, int64_t time, int timerType) {
     return self->startTimer(static_cast<std::chrono::nanoseconds>(time), static_cast<Qt::TimerType>(timerType));
 }
 
-QMetaObject__Connection* QObject_Connect5(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method, int typeVal) {
+QMetaObject__Connection* QObject_Connect5(const QObject* sender, const char* signal, const QObject* receiver, const char* member, int param5) {
+    return new QMetaObject::Connection(QObject::connect(sender, signal, receiver, member, static_cast<Qt::ConnectionType>(param5)));
+}
+
+QMetaObject__Connection* QObject_Connect52(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method, int typeVal) {
     return new QMetaObject::Connection(QObject::connect(sender, *signal, receiver, *method, static_cast<Qt::ConnectionType>(typeVal)));
 }
 
 QMetaObject__Connection* QObject_Connect4(const QObject* self, const QObject* sender, const char* signal, const char* member, int typeVal) {
     return new QMetaObject::Connection(self->connect(sender, signal, member, static_cast<Qt::ConnectionType>(typeVal)));
+}
+
+bool QObject_Disconnect1(const QObject* self, const char* signal) {
+    return self->disconnect(signal);
+}
+
+bool QObject_Disconnect22(const QObject* self, const char* signal, const QObject* receiver) {
+    return self->disconnect(signal, receiver);
+}
+
+bool QObject_Disconnect32(const QObject* self, const char* signal, const QObject* receiver, const char* member) {
+    return self->disconnect(signal, receiver, member);
+}
+
+bool QObject_Disconnect23(const QObject* self, const QObject* receiver, const char* member) {
+    return self->disconnect(receiver, member);
 }
 
 void QObject_Destroyed1(QObject* self, QObject* param1) {

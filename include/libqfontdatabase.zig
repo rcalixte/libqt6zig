@@ -764,7 +764,7 @@ pub const qfontdatabase = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdatabase.html#public-types)
 pub const enums = struct {
-    pub const WritingSystem = enum {
+    pub const WritingSystem = enum(i32) {
         pub const Any: i32 = 0;
         pub const Latin: i32 = 1;
         pub const Greek: i32 = 2;
@@ -803,7 +803,7 @@ pub const enums = struct {
         pub const WritingSystemsCount: i32 = 34;
     };
 
-    pub const SystemFont = enum {
+    pub const SystemFont = enum(i32) {
         pub const GeneralFont: i32 = 0;
         pub const FixedFont: i32 = 1;
         pub const TitleFont: i32 = 2;

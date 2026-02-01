@@ -559,7 +559,7 @@ pub const kbookmarkowner__futurebookmark = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kbookmarkowner.html#public-types)
 pub const enums = struct {
-    pub const BookmarkOption = enum {
+    pub const BookmarkOption = enum(i32) {
         pub const ShowAddBookmark: i32 = 0;
         pub const ShowEditBookmark: i32 = 1;
     };

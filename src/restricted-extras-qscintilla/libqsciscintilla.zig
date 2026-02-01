@@ -12005,14 +12005,34 @@ pub const qsciscintilla = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
     ///
     /// ` method: QtC.QMetaMethod `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
@@ -12029,10 +12049,30 @@ pub const qsciscintilla = struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -12049,8 +12089,34 @@ pub const qsciscintilla = struct {
     ///
     /// ` member: QtC.QMetaMethod `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciScintilla `
+    ///
+    pub fn Disconnect3(self: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciScintilla `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
     }
 
     /// Inherited from QObject
@@ -12061,8 +12127,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` param1: QtC.QMetaObject__Connection `
     ///
-    pub fn Disconnect2(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(param1));
+    pub fn Disconnect5(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect5(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -12279,6 +12345,28 @@ pub const qsciscintilla = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` param5: qnamespace_enums.ConnectionType `
+    ///
+    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
@@ -12287,8 +12375,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -12311,6 +12399,75 @@ pub const qsciscintilla = struct {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciScintilla `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciScintilla `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciScintilla `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QsciScintilla `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -15705,7 +15862,7 @@ pub const qsciscintilla = struct {
 };
 
 pub const enums = struct {
-    pub const QsciScintilla = enum {
+    pub const QsciScintilla = enum(i32) {
         pub const AiMaintain: i32 = 1;
         pub const AiOpening: i32 = 2;
         pub const AiClosing: i32 = 4;
@@ -15713,58 +15870,58 @@ pub const enums = struct {
         pub const MoSublineSelect: i32 = 1;
     };
 
-    pub const AnnotationDisplay = enum {
+    pub const AnnotationDisplay = enum(i32) {
         pub const AnnotationHidden: i32 = 0;
         pub const AnnotationStandard: i32 = 1;
         pub const AnnotationBoxed: i32 = 2;
         pub const AnnotationIndented: i32 = 3;
     };
 
-    pub const AutoCompletionUseSingle = enum {
+    pub const AutoCompletionUseSingle = enum(i32) {
         pub const AcusNever: i32 = 0;
         pub const AcusExplicit: i32 = 1;
         pub const AcusAlways: i32 = 2;
     };
 
-    pub const AutoCompletionSource = enum {
+    pub const AutoCompletionSource = enum(i32) {
         pub const AcsNone: i32 = 0;
         pub const AcsAll: i32 = 1;
         pub const AcsDocument: i32 = 2;
         pub const AcsAPIs: i32 = 3;
     };
 
-    pub const BraceMatch = enum {
+    pub const BraceMatch = enum(i32) {
         pub const NoBraceMatch: i32 = 0;
         pub const StrictBraceMatch: i32 = 1;
         pub const SloppyBraceMatch: i32 = 2;
     };
 
-    pub const CallTipsPosition = enum {
+    pub const CallTipsPosition = enum(i32) {
         pub const CallTipsBelowText: i32 = 0;
         pub const CallTipsAboveText: i32 = 1;
     };
 
-    pub const CallTipsStyle = enum {
+    pub const CallTipsStyle = enum(i32) {
         pub const CallTipsNone: i32 = 0;
         pub const CallTipsNoContext: i32 = 1;
         pub const CallTipsNoAutoCompletionContext: i32 = 2;
         pub const CallTipsContext: i32 = 3;
     };
 
-    pub const EdgeMode = enum {
+    pub const EdgeMode = enum(i32) {
         pub const EdgeNone: i32 = 0;
         pub const EdgeLine: i32 = 1;
         pub const EdgeBackground: i32 = 2;
         pub const EdgeMultipleLines: i32 = 3;
     };
 
-    pub const EolMode = enum {
+    pub const EolMode = enum(i32) {
         pub const EolWindows: i32 = 0;
         pub const EolUnix: i32 = 2;
         pub const EolMac: i32 = 1;
     };
 
-    pub const FoldStyle = enum {
+    pub const FoldStyle = enum(i32) {
         pub const NoFoldStyle: i32 = 0;
         pub const PlainFoldStyle: i32 = 1;
         pub const CircledFoldStyle: i32 = 2;
@@ -15773,7 +15930,7 @@ pub const enums = struct {
         pub const BoxedTreeFoldStyle: i32 = 5;
     };
 
-    pub const IndicatorStyle = enum {
+    pub const IndicatorStyle = enum(i32) {
         pub const PlainIndicator: i32 = 0;
         pub const SquiggleIndicator: i32 = 1;
         pub const TTIndicator: i32 = 2;
@@ -15798,7 +15955,7 @@ pub const enums = struct {
         pub const CentreGradientIndicator: i32 = 21;
     };
 
-    pub const MarginType = enum {
+    pub const MarginType = enum(i32) {
         pub const SymbolMargin: i32 = 0;
         pub const SymbolMarginDefaultForegroundColor: i32 = 3;
         pub const SymbolMarginDefaultBackgroundColor: i32 = 2;
@@ -15808,7 +15965,7 @@ pub const enums = struct {
         pub const SymbolMarginColor: i32 = 6;
     };
 
-    pub const MarkerSymbol = enum {
+    pub const MarkerSymbol = enum(i32) {
         pub const Circle: i32 = 0;
         pub const Rectangle: i32 = 1;
         pub const RightTriangle: i32 = 2;
@@ -15840,33 +15997,33 @@ pub const enums = struct {
         pub const Bookmark: i32 = 31;
     };
 
-    pub const TabDrawMode = enum {
+    pub const TabDrawMode = enum(i32) {
         pub const TabLongArrow: i32 = 0;
         pub const TabStrikeOut: i32 = 1;
     };
 
-    pub const WhitespaceVisibility = enum {
+    pub const WhitespaceVisibility = enum(i32) {
         pub const WsInvisible: i32 = 0;
         pub const WsVisible: i32 = 1;
         pub const WsVisibleAfterIndent: i32 = 2;
         pub const WsVisibleOnlyInIndent: i32 = 3;
     };
 
-    pub const WrapMode = enum {
+    pub const WrapMode = enum(i32) {
         pub const WrapNone: i32 = 0;
         pub const WrapWord: i32 = 1;
         pub const WrapCharacter: i32 = 2;
         pub const WrapWhitespace: i32 = 3;
     };
 
-    pub const WrapVisualFlag = enum {
+    pub const WrapVisualFlag = enum(i32) {
         pub const WrapFlagNone: i32 = 0;
         pub const WrapFlagByText: i32 = 1;
         pub const WrapFlagByBorder: i32 = 2;
         pub const WrapFlagInMargin: i32 = 3;
     };
 
-    pub const WrapIndentMode = enum {
+    pub const WrapIndentMode = enum(i32) {
         pub const WrapIndentFixed: i32 = 0;
         pub const WrapIndentSame: i32 = 1;
         pub const WrapIndentIndented: i32 = 2;

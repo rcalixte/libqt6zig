@@ -347,13 +347,13 @@ pub const ktexteditor__movingrange = struct {
 
 /// ### [Upstream resources](https://api.kde.org/movingrange.html#public-types)
 pub const enums = struct {
-    pub const InsertBehavior = enum {
+    pub const InsertBehavior = enum(i32) {
         pub const DoNotExpand: i32 = 0;
         pub const ExpandLeft: i32 = 1;
         pub const ExpandRight: i32 = 2;
     };
 
-    pub const EmptyBehavior = enum {
+    pub const EmptyBehavior = enum(i32) {
         pub const AllowEmpty: i32 = 0;
         pub const InvalidateIfEmpty: i32 = 1;
     };

@@ -540,7 +540,7 @@ pub const qvideoframeformat = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframeformat.html#public-types)
 pub const enums = struct {
-    pub const PixelFormat = enum {
+    pub const PixelFormat = enum(i32) {
         pub const Format_Invalid: i32 = 0;
         pub const Format_ARGB8888: i32 = 1;
         pub const Format_ARGB8888_Premultiplied: i32 = 2;
@@ -575,12 +575,12 @@ pub const enums = struct {
         pub const Format_YUV420P10: i32 = 31;
     };
 
-    pub const Direction = enum {
+    pub const Direction = enum(i32) {
         pub const TopToBottom: i32 = 0;
         pub const BottomToTop: i32 = 1;
     };
 
-    pub const YCbCrColorSpace = enum {
+    pub const YCbCrColorSpace = enum(i32) {
         pub const YCbCr_Undefined: i32 = 0;
         pub const YCbCr_BT601: i32 = 1;
         pub const YCbCr_BT709: i32 = 2;
@@ -590,7 +590,7 @@ pub const enums = struct {
         pub const YCbCr_BT2020: i32 = 6;
     };
 
-    pub const ColorSpace = enum {
+    pub const ColorSpace = enum(i32) {
         pub const ColorSpace_Undefined: i32 = 0;
         pub const ColorSpace_BT601: i32 = 1;
         pub const ColorSpace_BT709: i32 = 2;
@@ -598,7 +598,7 @@ pub const enums = struct {
         pub const ColorSpace_BT2020: i32 = 6;
     };
 
-    pub const ColorTransfer = enum {
+    pub const ColorTransfer = enum(i32) {
         pub const ColorTransfer_Unknown: i32 = 0;
         pub const ColorTransfer_BT709: i32 = 1;
         pub const ColorTransfer_BT601: i32 = 2;
@@ -609,7 +609,7 @@ pub const enums = struct {
         pub const ColorTransfer_STD_B67: i32 = 7;
     };
 
-    pub const ColorRange = enum {
+    pub const ColorRange = enum(i32) {
         pub const ColorRange_Unknown: i32 = 0;
         pub const ColorRange_Video: i32 = 1;
         pub const ColorRange_Full: i32 = 2;

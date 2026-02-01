@@ -2122,13 +2122,13 @@ pub const kzip = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kzip.html#public-types)
 pub const enums = struct {
-    pub const ExtraField = enum {
+    pub const ExtraField = enum(i32) {
         pub const NoExtraField: i32 = 0;
         pub const ModificationTime: i32 = 1;
         pub const DefaultExtraField: i32 = 1;
     };
 
-    pub const Compression = enum {
+    pub const Compression = enum(i32) {
         pub const NoCompression: i32 = 0;
         pub const DeflateCompression: i32 = 1;
     };

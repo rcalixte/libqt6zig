@@ -356,7 +356,7 @@ pub const kcolorcollection = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcolorcollection.html#public-types)
 pub const enums = struct {
-    pub const Editable = enum {
+    pub const Editable = enum(i32) {
         pub const Yes: i32 = 0;
         pub const No: i32 = 1;
         pub const Ask: i32 = 2;

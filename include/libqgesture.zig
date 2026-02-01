@@ -542,14 +542,34 @@ pub const qgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
     ///
     /// ` method: QtC.QMetaMethod `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
@@ -566,10 +586,30 @@ pub const qgesture = struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -586,8 +626,34 @@ pub const qgesture = struct {
     ///
     /// ` member: QtC.QMetaMethod `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGesture `
+    ///
+    pub fn Disconnect3(self: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
     }
 
     /// Inherited from QObject
@@ -598,8 +664,8 @@ pub const qgesture = struct {
     ///
     /// ` param1: QtC.QMetaObject__Connection `
     ///
-    pub fn Disconnect2(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(param1));
+    pub fn Disconnect5(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect5(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -816,6 +882,28 @@ pub const qgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` param5: qnamespace_enums.ConnectionType `
+    ///
+    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
@@ -824,8 +912,8 @@ pub const qgesture = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -848,6 +936,75 @@ pub const qgesture = struct {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2061,14 +2218,34 @@ pub const qpangesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
     ///
     /// ` method: QtC.QMetaMethod `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
@@ -2085,10 +2262,30 @@ pub const qpangesture = struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2105,8 +2302,34 @@ pub const qpangesture = struct {
     ///
     /// ` member: QtC.QMetaMethod `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPanGesture `
+    ///
+    pub fn Disconnect3(self: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPanGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
     }
 
     /// Inherited from QObject
@@ -2117,8 +2340,8 @@ pub const qpangesture = struct {
     ///
     /// ` param1: QtC.QMetaObject__Connection `
     ///
-    pub fn Disconnect2(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(param1));
+    pub fn Disconnect5(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect5(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -2335,6 +2558,28 @@ pub const qpangesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` param5: qnamespace_enums.ConnectionType `
+    ///
+    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
@@ -2343,8 +2588,8 @@ pub const qpangesture = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -2367,6 +2612,75 @@ pub const qpangesture = struct {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPanGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPanGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPanGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPanGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3754,14 +4068,34 @@ pub const qpinchgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
     ///
     /// ` method: QtC.QMetaMethod `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
@@ -3778,10 +4112,30 @@ pub const qpinchgesture = struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3798,8 +4152,34 @@ pub const qpinchgesture = struct {
     ///
     /// ` member: QtC.QMetaMethod `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPinchGesture `
+    ///
+    pub fn Disconnect3(self: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPinchGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
     }
 
     /// Inherited from QObject
@@ -3810,8 +4190,8 @@ pub const qpinchgesture = struct {
     ///
     /// ` param1: QtC.QMetaObject__Connection `
     ///
-    pub fn Disconnect2(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(param1));
+    pub fn Disconnect5(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect5(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -4028,6 +4408,28 @@ pub const qpinchgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` param5: qnamespace_enums.ConnectionType `
+    ///
+    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
@@ -4036,8 +4438,8 @@ pub const qpinchgesture = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -4060,6 +4462,75 @@ pub const qpinchgesture = struct {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPinchGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPinchGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPinchGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPinchGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5247,14 +5718,34 @@ pub const qswipegesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
     ///
     /// ` method: QtC.QMetaMethod `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
@@ -5271,10 +5762,30 @@ pub const qswipegesture = struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5291,8 +5802,34 @@ pub const qswipegesture = struct {
     ///
     /// ` member: QtC.QMetaMethod `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSwipeGesture `
+    ///
+    pub fn Disconnect3(self: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSwipeGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
     }
 
     /// Inherited from QObject
@@ -5303,8 +5840,8 @@ pub const qswipegesture = struct {
     ///
     /// ` param1: QtC.QMetaObject__Connection `
     ///
-    pub fn Disconnect2(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(param1));
+    pub fn Disconnect5(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect5(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -5521,6 +6058,28 @@ pub const qswipegesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` param5: qnamespace_enums.ConnectionType `
+    ///
+    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
@@ -5529,8 +6088,8 @@ pub const qswipegesture = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -5553,6 +6112,75 @@ pub const qswipegesture = struct {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSwipeGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSwipeGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSwipeGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QSwipeGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6712,14 +7340,34 @@ pub const qtapgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
     ///
     /// ` method: QtC.QMetaMethod `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
@@ -6736,10 +7384,30 @@ pub const qtapgesture = struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6756,8 +7424,34 @@ pub const qtapgesture = struct {
     ///
     /// ` member: QtC.QMetaMethod `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapGesture `
+    ///
+    pub fn Disconnect3(self: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
     }
 
     /// Inherited from QObject
@@ -6768,8 +7462,8 @@ pub const qtapgesture = struct {
     ///
     /// ` param1: QtC.QMetaObject__Connection `
     ///
-    pub fn Disconnect2(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(param1));
+    pub fn Disconnect5(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect5(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -6986,6 +7680,28 @@ pub const qtapgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` param5: qnamespace_enums.ConnectionType `
+    ///
+    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
@@ -6994,8 +7710,8 @@ pub const qtapgesture = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -7018,6 +7734,75 @@ pub const qtapgesture = struct {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -8193,14 +8978,34 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
     ///
     /// ` method: QtC.QMetaMethod `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
@@ -8217,10 +9022,30 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -8237,8 +9062,34 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` member: QtC.QMetaMethod `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapAndHoldGesture `
+    ///
+    pub fn Disconnect3(self: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapAndHoldGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
     }
 
     /// Inherited from QObject
@@ -8249,8 +9100,8 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` param1: QtC.QMetaObject__Connection `
     ///
-    pub fn Disconnect2(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(param1));
+    pub fn Disconnect5(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect5(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -8467,6 +9318,28 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` param5: qnamespace_enums.ConnectionType `
+    ///
+    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
@@ -8475,8 +9348,8 @@ pub const qtapandholdgesture = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -8499,6 +9372,75 @@ pub const qtapandholdgesture = struct {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapAndHoldGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapAndHoldGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapAndHoldGesture `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QTapAndHoldGesture `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -9451,18 +10393,18 @@ pub const qgestureevent = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#public-types)
 pub const enums = struct {
-    pub const GestureCancelPolicy = enum {
+    pub const GestureCancelPolicy = enum(i32) {
         pub const CancelNone: i32 = 0;
         pub const CancelAllInContext: i32 = 1;
     };
 
-    pub const ChangeFlag = enum {
+    pub const ChangeFlag = enum(i32) {
         pub const ScaleFactorChanged: i32 = 1;
         pub const RotationAngleChanged: i32 = 2;
         pub const CenterPointChanged: i32 = 4;
     };
 
-    pub const SwipeDirection = enum {
+    pub const SwipeDirection = enum(i32) {
         pub const NoDirection: i32 = 0;
         pub const Left: i32 = 1;
         pub const Right: i32 = 2;

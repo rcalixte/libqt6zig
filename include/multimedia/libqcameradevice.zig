@@ -309,7 +309,7 @@ pub const qcameradevice = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#public-types)
 pub const enums = struct {
-    pub const Position = enum {
+    pub const Position = enum(i32) {
         pub const UnspecifiedPosition: i32 = 0;
         pub const BackFace: i32 = 1;
         pub const FrontFace: i32 = 2;

@@ -566,17 +566,17 @@ pub const kcodecs__encoder = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcodecs.html#public-types)
 pub const enums = struct {
-    pub const CharsetOption = enum {
+    pub const CharsetOption = enum(i32) {
         pub const NoOption: i32 = 0;
         pub const ForceDefaultCharset: i32 = 1;
     };
 
-    pub const NewlineType = enum {
+    pub const NewlineType = enum(i32) {
         pub const NewlineLF: i32 = 0;
         pub const NewlineCRLF: i32 = 1;
     };
 
-    pub const KCodecs__Encoder = enum {
+    pub const KCodecs__Encoder = enum(i32) {
         pub const MaxBufferedChars: i32 = 8;
     };
 };

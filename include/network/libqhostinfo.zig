@@ -200,6 +200,25 @@ pub const qhostinfo = struct {
         return qtc.QHostInfo_LookupId(@ptrCast(self));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#lookupHost)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn LookupHost(name: []const u8, receiver: ?*anyopaque, member: [:0]const u8) i32 {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const member_Cstring = member.ptr;
+        return qtc.QHostInfo_LookupHost(name_str, @ptrCast(receiver), member_Cstring);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#abortHostLookup)
     ///
     /// ## Parameter(s):
@@ -267,7 +286,7 @@ pub const qhostinfo = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#public-types)
 pub const enums = struct {
-    pub const HostInfoError = enum {
+    pub const HostInfoError = enum(i32) {
         pub const NoError: i32 = 0;
         pub const HostNotFound: i32 = 1;
         pub const UnknownError: i32 = 2;

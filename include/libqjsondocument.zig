@@ -399,7 +399,7 @@ pub const qjsondocument = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#public-types)
 pub const enums = struct {
-    pub const ParseError = enum {
+    pub const ParseError = enum(i32) {
         pub const NoError: i32 = 0;
         pub const UnterminatedObject: i32 = 1;
         pub const MissingNameSeparator: i32 = 2;
@@ -417,7 +417,7 @@ pub const enums = struct {
         pub const GarbageAtEnd: i32 = 14;
     };
 
-    pub const JsonFormat = enum {
+    pub const JsonFormat = enum(i32) {
         pub const Indented: i32 = 0;
         pub const Compact: i32 = 1;
     };

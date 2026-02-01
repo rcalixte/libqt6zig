@@ -631,7 +631,7 @@ pub const qdatastream = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#public-types)
 pub const enums = struct {
-    pub const Version = enum {
+    pub const Version = enum(i32) {
         pub const Qt_1_0: i32 = 1;
         pub const Qt_2_0: i32 = 2;
         pub const Qt_2_1: i32 = 3;
@@ -676,12 +676,12 @@ pub const enums = struct {
         pub const Qt_DefaultCompiledVersion: i32 = 22;
     };
 
-    pub const ByteOrder = enum {
+    pub const ByteOrder = enum(i32) {
         pub const BigEndian: i32 = 0;
         pub const LittleEndian: i32 = 1;
     };
 
-    pub const Status = enum {
+    pub const Status = enum(i32) {
         pub const Ok: i32 = 0;
         pub const ReadPastEnd: i32 = 1;
         pub const ReadCorruptData: i32 = 2;
@@ -689,7 +689,7 @@ pub const enums = struct {
         pub const SizeLimitExceeded: i32 = 4;
     };
 
-    pub const FloatingPointPrecision = enum {
+    pub const FloatingPointPrecision = enum(i32) {
         pub const SinglePrecision: i32 = 0;
         pub const DoublePrecision: i32 = 1;
     };

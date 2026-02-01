@@ -113,20 +113,20 @@ pub const qscrollerproperties = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#public-types)
 pub const enums = struct {
-    pub const OvershootPolicy = enum {
+    pub const OvershootPolicy = enum(i32) {
         pub const OvershootWhenScrollable: i32 = 0;
         pub const OvershootAlwaysOff: i32 = 1;
         pub const OvershootAlwaysOn: i32 = 2;
     };
 
-    pub const FrameRates = enum {
+    pub const FrameRates = enum(i32) {
         pub const Standard: i32 = 0;
         pub const Fps60: i32 = 1;
         pub const Fps30: i32 = 2;
         pub const Fps20: i32 = 3;
     };
 
-    pub const ScrollMetric = enum {
+    pub const ScrollMetric = enum(i32) {
         pub const MousePressEventDelay: i32 = 0;
         pub const DragStartDistance: i32 = 1;
         pub const DragVelocitySmoothingFactor: i32 = 2;

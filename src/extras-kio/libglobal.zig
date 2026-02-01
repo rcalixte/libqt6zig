@@ -241,7 +241,7 @@ pub const kio = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-global.html#public-types)
 pub const enums = struct {
-    pub const Error = enum {
+    pub const Error = enum(i32) {
         pub const ERR_CANNOT_OPEN_FOR_READING: i32 = 101;
         pub const ERR_CANNOT_OPEN_FOR_WRITING: i32 = 102;
         pub const ERR_CANNOT_LAUNCH_PROCESS: i32 = 103;
@@ -321,7 +321,7 @@ pub const enums = struct {
         pub const ERR_TRASH_FILE_TOO_LARGE: i32 = 179;
     };
 
-    pub const CacheControl = enum {
+    pub const CacheControl = enum(i32) {
         pub const CC_CacheOnly: i32 = 0;
         pub const CC_Cache: i32 = 1;
         pub const CC_Verify: i32 = 2;
@@ -329,13 +329,13 @@ pub const enums = struct {
         pub const CC_Reload: i32 = 4;
     };
 
-    pub const PrivilegeOperationStatus = enum {
+    pub const PrivilegeOperationStatus = enum(i32) {
         pub const OperationAllowed: i32 = 1;
         pub const OperationCanceled: i32 = 2;
         pub const OperationNotAllowed: i32 = 3;
     };
 
-    pub const StatDetail = enum {
+    pub const StatDetail = enum(i32) {
         pub const StatNoDetails: i32 = 0;
         pub const StatBasic: i32 = 1;
         pub const StatUser: i32 = 2;

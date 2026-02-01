@@ -371,7 +371,7 @@ pub const qmediaformat = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaformat.html#public-types)
 pub const enums = struct {
-    pub const FileFormat = enum {
+    pub const FileFormat = enum(i32) {
         pub const UnspecifiedFormat: i32 = -1;
         pub const WMV: i32 = 0;
         pub const AVI: i32 = 1;
@@ -389,7 +389,7 @@ pub const enums = struct {
         pub const LastFileFormat: i32 = 12;
     };
 
-    pub const AudioCodec = enum {
+    pub const AudioCodec = enum(i32) {
         pub const Unspecified: i32 = -1;
         pub const MP3: i32 = 0;
         pub const AAC: i32 = 1;
@@ -405,7 +405,7 @@ pub const enums = struct {
         pub const LastAudioCodec: i32 = 10;
     };
 
-    pub const VideoCodec = enum {
+    pub const VideoCodec = enum(i32) {
         pub const Unspecified: i32 = -1;
         pub const MPEG1: i32 = 0;
         pub const MPEG2: i32 = 1;
@@ -421,12 +421,12 @@ pub const enums = struct {
         pub const LastVideoCodec: i32 = 10;
     };
 
-    pub const ConversionMode = enum {
+    pub const ConversionMode = enum(i32) {
         pub const Encode: i32 = 0;
         pub const Decode: i32 = 1;
     };
 
-    pub const ResolveFlags = enum {
+    pub const ResolveFlags = enum(i32) {
         pub const NoFlags: i32 = 0;
         pub const RequiresVideo: i32 = 1;
     };

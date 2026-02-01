@@ -685,7 +685,7 @@ pub const qchar = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qchar.html#public-types)
 pub const enums = struct {
-    pub const SpecialCharacter = enum {
+    pub const SpecialCharacter = enum(i32) {
         pub const Null: i32 = 0;
         pub const Tabulation: i32 = 9;
         pub const LineFeed: i32 = 10;
@@ -704,7 +704,7 @@ pub const enums = struct {
         pub const LastValidCodePoint: i32 = 1114111;
     };
 
-    pub const Category = enum {
+    pub const Category = enum(i32) {
         pub const Mark_NonSpacing: i32 = 0;
         pub const Mark_SpacingCombining: i32 = 1;
         pub const Mark_Enclosing: i32 = 2;
@@ -737,7 +737,7 @@ pub const enums = struct {
         pub const Symbol_Other: i32 = 29;
     };
 
-    pub const Script = enum {
+    pub const Script = enum(i32) {
         pub const Script_Unknown: i32 = 0;
         pub const Script_Inherited: i32 = 1;
         pub const Script_Common: i32 = 2;
@@ -905,7 +905,7 @@ pub const enums = struct {
         pub const ScriptCount: i32 = 164;
     };
 
-    pub const Direction = enum {
+    pub const Direction = enum(i32) {
         pub const DirL: i32 = 0;
         pub const DirR: i32 = 1;
         pub const DirEN: i32 = 2;
@@ -931,7 +931,7 @@ pub const enums = struct {
         pub const DirPDI: i32 = 22;
     };
 
-    pub const Decomposition = enum {
+    pub const Decomposition = enum(i32) {
         pub const NoDecomposition: i32 = 0;
         pub const Canonical: i32 = 1;
         pub const Font: i32 = 2;
@@ -952,7 +952,7 @@ pub const enums = struct {
         pub const Fraction: i32 = 17;
     };
 
-    pub const JoiningType = enum {
+    pub const JoiningType = enum(i32) {
         pub const Joining_None: i32 = 0;
         pub const Joining_Causing: i32 = 1;
         pub const Joining_Dual: i32 = 2;
@@ -961,7 +961,7 @@ pub const enums = struct {
         pub const Joining_Transparent: i32 = 5;
     };
 
-    pub const CombiningClass = enum {
+    pub const CombiningClass = enum(i32) {
         pub const Combining_BelowLeftAttached: i32 = 200;
         pub const Combining_BelowAttached: i32 = 202;
         pub const Combining_BelowRightAttached: i32 = 204;
@@ -983,7 +983,7 @@ pub const enums = struct {
         pub const Combining_IotaSubscript: i32 = 240;
     };
 
-    pub const UnicodeVersion = enum {
+    pub const UnicodeVersion = enum(i32) {
         pub const Unicode_Unassigned: i32 = 0;
         pub const Unicode_1_1: i32 = 1;
         pub const Unicode_2_0: i32 = 2;

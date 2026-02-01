@@ -1657,32 +1657,32 @@ pub const qgradient__qgradientdata = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const LinearGradient: i32 = 0;
         pub const RadialGradient: i32 = 1;
         pub const ConicalGradient: i32 = 2;
         pub const NoGradient: i32 = 3;
     };
 
-    pub const Spread = enum {
+    pub const Spread = enum(i32) {
         pub const PadSpread: i32 = 0;
         pub const ReflectSpread: i32 = 1;
         pub const RepeatSpread: i32 = 2;
     };
 
-    pub const CoordinateMode = enum {
+    pub const CoordinateMode = enum(i32) {
         pub const LogicalMode: i32 = 0;
         pub const StretchToDeviceMode: i32 = 1;
         pub const ObjectBoundingMode: i32 = 2;
         pub const ObjectMode: i32 = 3;
     };
 
-    pub const InterpolationMode = enum {
+    pub const InterpolationMode = enum(i32) {
         pub const ColorInterpolation: i32 = 0;
         pub const ComponentInterpolation: i32 = 1;
     };
 
-    pub const Preset = enum {
+    pub const Preset = enum(i32) {
         pub const WarmFlame: i32 = 1;
         pub const NightFade: i32 = 2;
         pub const SpringWarmth: i32 = 3;

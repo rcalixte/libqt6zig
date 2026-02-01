@@ -640,20 +640,20 @@ pub const quntypedbindable = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qproperty.html#public-types)
 pub const enums = struct {
-    pub const Reason = enum {
+    pub const Reason = enum(i32) {
         pub const InvalidInterface: i32 = 0;
         pub const NonBindableInterface: i32 = 1;
         pub const ReadOnlyInterface: i32 = 2;
     };
 
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const NoError: i32 = 0;
         pub const BindingLoop: i32 = 1;
         pub const EvaluationError: i32 = 2;
         pub const UnknownError: i32 = 3;
     };
 
-    pub const ObserverTag = enum {
+    pub const ObserverTag = enum(i32) {
         pub const ObserverNotifiesBinding: i32 = 0;
         pub const ObserverNotifiesChangeHandler: i32 = 1;
         pub const ObserverIsPlaceholder: i32 = 2;

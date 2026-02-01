@@ -1672,7 +1672,7 @@ pub const qopenglfunctions = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: [][:0]const u8, length: []const i32, allocator: std.mem.Allocator) void {
-        var stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglfunctions.GlShaderSource: Memory allocation failed");
+        const stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglfunctions.GlShaderSource: Memory allocation failed");
         defer allocator.free(stringVal_chararr);
         for (stringVal, 0..stringVal.len) |str, i| {
             stringVal_chararr[i] = @ptrCast(str.ptr);
@@ -2233,7 +2233,7 @@ pub const qopenglfunctions = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions.html#public-types)
 pub const enums = struct {
-    pub const OpenGLFeature = enum {
+    pub const OpenGLFeature = enum(i32) {
         pub const Multitexture: i32 = 1;
         pub const Shaders: i32 = 2;
         pub const Buffers: i32 = 4;

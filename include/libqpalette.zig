@@ -636,7 +636,7 @@ pub const qpalette = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#public-types)
 pub const enums = struct {
-    pub const ColorGroup = enum {
+    pub const ColorGroup = enum(i32) {
         pub const Active: i32 = 0;
         pub const Disabled: i32 = 1;
         pub const Inactive: i32 = 2;
@@ -646,7 +646,7 @@ pub const enums = struct {
         pub const Normal: i32 = 0;
     };
 
-    pub const ColorRole = enum {
+    pub const ColorRole = enum(i32) {
         pub const WindowText: i32 = 0;
         pub const Button: i32 = 1;
         pub const Light: i32 = 2;

@@ -1578,7 +1578,7 @@ pub const qpaintenginestate = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#public-types)
 pub const enums = struct {
-    pub const RenderFlag = enum {
+    pub const RenderFlag = enum(i32) {
         pub const RightToLeft: i32 = 1;
         pub const Overline: i32 = 16;
         pub const Underline: i32 = 32;
@@ -1586,7 +1586,7 @@ pub const enums = struct {
         pub const Dummy: i32 = -1;
     };
 
-    pub const PaintEngineFeature = enum {
+    pub const PaintEngineFeature = enum(i32) {
         pub const PrimitiveTransform: i32 = 1;
         pub const PatternTransform: i32 = 2;
         pub const PixmapTransform: i32 = 4;
@@ -1609,7 +1609,7 @@ pub const enums = struct {
         pub const AllFeatures: i32 = -1;
     };
 
-    pub const DirtyFlag = enum {
+    pub const DirtyFlag = enum(i32) {
         pub const DirtyPen: i32 = 1;
         pub const DirtyBrush: i32 = 2;
         pub const DirtyBrushOrigin: i32 = 4;
@@ -1626,14 +1626,14 @@ pub const enums = struct {
         pub const AllDirty: i32 = 65535;
     };
 
-    pub const PolygonDrawMode = enum {
+    pub const PolygonDrawMode = enum(i32) {
         pub const OddEvenMode: i32 = 0;
         pub const WindingMode: i32 = 1;
         pub const ConvexMode: i32 = 2;
         pub const PolylineMode: i32 = 3;
     };
 
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const X11: i32 = 0;
         pub const Windows: i32 = 1;
         pub const QuickDraw: i32 = 2;

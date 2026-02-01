@@ -2868,7 +2868,7 @@ pub const qcborvalueref = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#public-types)
 pub const enums = struct {
-    pub const EncodingOption = enum {
+    pub const EncodingOption = enum(i32) {
         pub const SortKeysInMaps: i32 = 1;
         pub const UseFloat: i32 = 2;
         pub const UseFloat16: i32 = 6;
@@ -2876,13 +2876,13 @@ pub const enums = struct {
         pub const NoTransformation: i32 = 0;
     };
 
-    pub const DiagnosticNotationOption = enum {
+    pub const DiagnosticNotationOption = enum(i32) {
         pub const Compact: i32 = 0;
         pub const LineWrapped: i32 = 1;
         pub const ExtendedFormat: i32 = 2;
     };
 
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const Integer: i32 = 0;
         pub const ByteArray: i32 = 64;
         pub const String: i32 = 96;

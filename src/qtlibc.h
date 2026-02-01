@@ -2,9 +2,9 @@
 #ifndef QT6C_LIBQT_H
 #define QT6C_LIBQT_H
 
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
 
 #ifdef _WIN32
 typedef int pid_t;
@@ -20,43 +20,32 @@ typedef unsigned short mode_t;
 extern "C" {
 #endif
 
-// Forward declarations
-struct libqt_string;
-struct libqt_list;
-struct libqt_map;
-struct libqt_pair;
-
-typedef struct libqt_string libqt_string;
-typedef struct libqt_list libqt_list;
-typedef struct libqt_map libqt_map;
-typedef struct libqt_pair libqt_pair;
-
 // Structs representing Qt-allocated memory
 
 // QString
-struct libqt_string {
+typedef struct {
     size_t len;
     const char* data;
-};
+} libqt_string;
 
 // QList
-struct libqt_list {
+typedef struct {
     size_t len;
     void* data;
-};
+} libqt_list;
 
 // QMap
-struct libqt_map {
+typedef struct {
     size_t len;
     void* keys;
     void* values;
-};
+} libqt_map;
 
 // QPair
-struct libqt_pair {
+typedef struct {
     void* first;
     void* second;
-};
+} libqt_pair;
 
 // Generic function to free Qt-allocated memory
 static inline void libqt_free(const void* ptr) { free((void*)ptr); }

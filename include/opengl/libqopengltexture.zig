@@ -1862,7 +1862,7 @@ pub const qopengltexture = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#public-types)
 pub const enums = struct {
-    pub const Target = enum {
+    pub const Target = enum(i32) {
         pub const Target1D: i32 = 3552;
         pub const Target1DArray: i32 = 35864;
         pub const Target2D: i32 = 3553;
@@ -1876,7 +1876,7 @@ pub const enums = struct {
         pub const TargetBuffer: i32 = 35882;
     };
 
-    pub const BindingTarget = enum {
+    pub const BindingTarget = enum(i32) {
         pub const BindingTarget1D: i32 = 32872;
         pub const BindingTarget1DArray: i32 = 35868;
         pub const BindingTarget2D: i32 = 32873;
@@ -1890,17 +1890,17 @@ pub const enums = struct {
         pub const BindingTargetBuffer: i32 = 35884;
     };
 
-    pub const MipMapGeneration = enum {
+    pub const MipMapGeneration = enum(i32) {
         pub const GenerateMipMaps: i32 = 0;
         pub const DontGenerateMipMaps: i32 = 1;
     };
 
-    pub const TextureUnitReset = enum {
+    pub const TextureUnitReset = enum(i32) {
         pub const ResetTextureUnit: i32 = 0;
         pub const DontResetTextureUnit: i32 = 1;
     };
 
-    pub const TextureFormat = enum {
+    pub const TextureFormat = enum(i32) {
         pub const NoFormat: i32 = 0;
         pub const R8_UNorm: i32 = 33321;
         pub const RG8_UNorm: i32 = 33323;
@@ -2029,7 +2029,7 @@ pub const enums = struct {
         pub const LuminanceAlphaFormat: i32 = 6410;
     };
 
-    pub const TextureFormatClass = enum {
+    pub const TextureFormatClass = enum(i32) {
         pub const NoFormatClass: i32 = 0;
         pub const FormatClass_128Bit: i32 = 1;
         pub const FormatClass_96Bit: i32 = 2;
@@ -2050,7 +2050,7 @@ pub const enums = struct {
         pub const FormatClass_Unique: i32 = 17;
     };
 
-    pub const CubeMapFace = enum {
+    pub const CubeMapFace = enum(i32) {
         pub const CubeMapPositiveX: i32 = 34069;
         pub const CubeMapNegativeX: i32 = 34070;
         pub const CubeMapPositiveY: i32 = 34071;
@@ -2059,7 +2059,7 @@ pub const enums = struct {
         pub const CubeMapNegativeZ: i32 = 34074;
     };
 
-    pub const PixelFormat = enum {
+    pub const PixelFormat = enum(i32) {
         pub const NoSourceFormat: i32 = 0;
         pub const Red: i32 = 6403;
         pub const RG: i32 = 33319;
@@ -2081,7 +2081,7 @@ pub const enums = struct {
         pub const LuminanceAlpha: i32 = 6410;
     };
 
-    pub const PixelType = enum {
+    pub const PixelType = enum(i32) {
         pub const NoPixelType: i32 = 0;
         pub const Int8: i32 = 5120;
         pub const UInt8: i32 = 5121;
@@ -2110,14 +2110,14 @@ pub const enums = struct {
         pub const Float32_D32_UInt32_S8_X24: i32 = 36269;
     };
 
-    pub const SwizzleComponent = enum {
+    pub const SwizzleComponent = enum(i32) {
         pub const SwizzleRed: i32 = 36418;
         pub const SwizzleGreen: i32 = 36419;
         pub const SwizzleBlue: i32 = 36420;
         pub const SwizzleAlpha: i32 = 36421;
     };
 
-    pub const SwizzleValue = enum {
+    pub const SwizzleValue = enum(i32) {
         pub const RedValue: i32 = 6403;
         pub const GreenValue: i32 = 6404;
         pub const BlueValue: i32 = 6405;
@@ -2126,20 +2126,20 @@ pub const enums = struct {
         pub const OneValue: i32 = 1;
     };
 
-    pub const WrapMode = enum {
+    pub const WrapMode = enum(i32) {
         pub const Repeat: i32 = 10497;
         pub const MirroredRepeat: i32 = 33648;
         pub const ClampToEdge: i32 = 33071;
         pub const ClampToBorder: i32 = 33069;
     };
 
-    pub const CoordinateDirection = enum {
+    pub const CoordinateDirection = enum(i32) {
         pub const DirectionS: i32 = 10242;
         pub const DirectionT: i32 = 10243;
         pub const DirectionR: i32 = 32882;
     };
 
-    pub const Feature = enum {
+    pub const Feature = enum(i32) {
         pub const ImmutableStorage: i32 = 1;
         pub const ImmutableMultisampleStorage: i32 = 2;
         pub const TextureRectangle: i32 = 4;
@@ -2159,12 +2159,12 @@ pub const enums = struct {
         pub const MaxFeatureFlag: i32 = 65536;
     };
 
-    pub const DepthStencilMode = enum {
+    pub const DepthStencilMode = enum(i32) {
         pub const DepthMode: i32 = 6402;
         pub const StencilMode: i32 = 6401;
     };
 
-    pub const ComparisonFunction = enum {
+    pub const ComparisonFunction = enum(i32) {
         pub const CompareLessEqual: i32 = 515;
         pub const CompareGreaterEqual: i32 = 518;
         pub const CompareLess: i32 = 513;
@@ -2176,12 +2176,12 @@ pub const enums = struct {
         pub const CommpareNotEqual: i32 = 517;
     };
 
-    pub const ComparisonMode = enum {
+    pub const ComparisonMode = enum(i32) {
         pub const CompareRefToTexture: i32 = 34894;
         pub const CompareNone: i32 = 0;
     };
 
-    pub const Filter = enum {
+    pub const Filter = enum(i32) {
         pub const Nearest: i32 = 9728;
         pub const Linear: i32 = 9729;
         pub const NearestMipMapNearest: i32 = 9984;

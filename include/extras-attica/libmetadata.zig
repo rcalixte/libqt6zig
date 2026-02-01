@@ -305,7 +305,7 @@ pub const attica__metadata = struct {
 
 /// ### [Upstream resources](https://api.kde.org/attica-metadata.html#public-types)
 pub const enums = struct {
-    pub const Error = enum {
+    pub const Error = enum(i32) {
         pub const NoError: i32 = 0;
         pub const NetworkError: i32 = 1;
         pub const OcsError: i32 = 2;

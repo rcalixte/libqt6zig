@@ -240,13 +240,13 @@ pub const qwebenginescript = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginescript.html#public-types)
 pub const enums = struct {
-    pub const InjectionPoint = enum {
+    pub const InjectionPoint = enum(i32) {
         pub const Deferred: i32 = 0;
         pub const DocumentReady: i32 = 1;
         pub const DocumentCreation: i32 = 2;
     };
 
-    pub const ScriptWorldId = enum {
+    pub const ScriptWorldId = enum(i32) {
         pub const MainWorld: i32 = 0;
         pub const ApplicationWorld: i32 = 1;
         pub const UserWorld: i32 = 2;

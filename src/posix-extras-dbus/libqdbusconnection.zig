@@ -921,20 +921,20 @@ pub const qdbusconnection = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#public-types)
 pub const enums = struct {
-    pub const CallMode = enum {
+    pub const CallMode = enum(i32) {
         pub const NoBlock: i32 = 0;
         pub const Block: i32 = 1;
         pub const BlockWithGui: i32 = 2;
         pub const AutoDetect: i32 = 3;
     };
 
-    pub const BusType = enum {
+    pub const BusType = enum(i32) {
         pub const SessionBus: i32 = 0;
         pub const SystemBus: i32 = 1;
         pub const ActivationBus: i32 = 2;
     };
 
-    pub const RegisterOption = enum {
+    pub const RegisterOption = enum(i32) {
         pub const ExportAdaptors: i32 = 1;
         pub const ExportScriptableSlots: i32 = 16;
         pub const ExportScriptableSignals: i32 = 32;
@@ -955,17 +955,17 @@ pub const enums = struct {
         pub const ExportChildObjects: i32 = 4096;
     };
 
-    pub const UnregisterMode = enum {
+    pub const UnregisterMode = enum(i32) {
         pub const UnregisterNode: i32 = 0;
         pub const UnregisterTree: i32 = 1;
     };
 
-    pub const VirtualObjectRegisterOption = enum {
+    pub const VirtualObjectRegisterOption = enum(i32) {
         pub const SingleNode: i32 = 0;
         pub const SubPath: i32 = 1;
     };
 
-    pub const ConnectionCapability = enum {
+    pub const ConnectionCapability = enum(i32) {
         pub const UnixFileDescriptorPassing: i32 = 1;
     };
 };

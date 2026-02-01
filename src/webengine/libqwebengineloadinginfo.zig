@@ -163,14 +163,14 @@ pub const qwebengineloadinginfo = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#public-types)
 pub const enums = struct {
-    pub const LoadStatus = enum {
+    pub const LoadStatus = enum(i32) {
         pub const LoadStartedStatus: i32 = 0;
         pub const LoadStoppedStatus: i32 = 1;
         pub const LoadSucceededStatus: i32 = 2;
         pub const LoadFailedStatus: i32 = 3;
     };
 
-    pub const ErrorDomain = enum {
+    pub const ErrorDomain = enum(i32) {
         pub const NoErrorDomain: i32 = 0;
         pub const InternalErrorDomain: i32 = 1;
         pub const ConnectionErrorDomain: i32 = 2;

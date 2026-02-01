@@ -298,7 +298,7 @@ pub const qplacesearchrequest = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#public-types)
 pub const enums = struct {
-    pub const RelevanceHint = enum {
+    pub const RelevanceHint = enum(i32) {
         pub const UnspecifiedHint: i32 = 0;
         pub const DistanceHint: i32 = 1;
         pub const LexicalPlaceNameHint: i32 = 2;

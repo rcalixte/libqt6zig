@@ -958,7 +958,7 @@ pub const qregularexpressionmatchiterator = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#public-types)
 pub const enums = struct {
-    pub const PatternOption = enum {
+    pub const PatternOption = enum(i32) {
         pub const NoPatternOption: i32 = 0;
         pub const CaseInsensitiveOption: i32 = 1;
         pub const DotMatchesEverythingOption: i32 = 2;
@@ -969,21 +969,21 @@ pub const enums = struct {
         pub const UseUnicodePropertiesOption: i32 = 64;
     };
 
-    pub const MatchType = enum {
+    pub const MatchType = enum(i32) {
         pub const NormalMatch: i32 = 0;
         pub const PartialPreferCompleteMatch: i32 = 1;
         pub const PartialPreferFirstMatch: i32 = 2;
         pub const NoMatch: i32 = 3;
     };
 
-    pub const MatchOption = enum {
+    pub const MatchOption = enum(i32) {
         pub const NoMatchOption: i32 = 0;
         pub const AnchorAtOffsetMatchOption: i32 = 1;
         pub const AnchoredMatchOption: i32 = 1;
         pub const DontCheckSubjectStringMatchOption: i32 = 2;
     };
 
-    pub const WildcardConversionOption = enum {
+    pub const WildcardConversionOption = enum(i32) {
         pub const DefaultWildcardConversion: i32 = 0;
         pub const UnanchoredWildcardConversion: i32 = 1;
         pub const NonPathWildcardConversion: i32 = 2;

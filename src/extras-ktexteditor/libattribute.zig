@@ -2062,7 +2062,7 @@ pub const ktexteditor__attributeblock = struct {
 
 /// ### [Upstream resources](https://api.kde.org/attribute.html#public-types)
 pub const enums = struct {
-    pub const ActivationType = enum {
+    pub const ActivationType = enum(i32) {
         pub const ActivateMouseIn: i32 = 0;
         pub const ActivateCaretIn: i32 = 1;
     };

@@ -100,7 +100,7 @@ pub const knscore__searchpreset = struct {
 
 /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const NoPresetType: i32 = 0;
         pub const GoBack: i32 = 1;
         pub const Root: i32 = 2;

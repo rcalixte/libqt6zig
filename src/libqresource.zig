@@ -328,7 +328,7 @@ pub const qresource = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qresource.html#public-types)
 pub const enums = struct {
-    pub const Compression = enum {
+    pub const Compression = enum(i32) {
         pub const NoCompression: i32 = 0;
         pub const ZlibCompression: i32 = 1;
         pub const ZstdCompression: i32 = 2;

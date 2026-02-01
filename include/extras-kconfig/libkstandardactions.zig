@@ -70,7 +70,7 @@ pub const kstandardactions = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#public-types)
 pub const enums = struct {
-    pub const StandardAction = enum {
+    pub const StandardAction = enum(i32) {
         pub const ActionNone: i32 = 0;
         pub const New: i32 = 1;
         pub const Open: i32 = 2;

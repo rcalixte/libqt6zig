@@ -783,13 +783,13 @@ pub const qopenglframebufferobjectformat = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglframebufferobject.html#public-types)
 pub const enums = struct {
-    pub const Attachment = enum {
+    pub const Attachment = enum(i32) {
         pub const NoAttachment: i32 = 0;
         pub const CombinedDepthStencil: i32 = 1;
         pub const Depth: i32 = 2;
     };
 
-    pub const FramebufferRestorePolicy = enum {
+    pub const FramebufferRestorePolicy = enum(i32) {
         pub const DontRestoreFramebufferBinding: i32 = 0;
         pub const RestoreFramebufferBindingToDefault: i32 = 1;
         pub const RestoreFrameBufferBinding: i32 = 2;

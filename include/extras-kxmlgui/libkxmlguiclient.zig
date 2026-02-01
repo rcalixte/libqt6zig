@@ -1190,7 +1190,7 @@ pub const kxmlguiclient__statechange = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#public-types)
 pub const enums = struct {
-    pub const ReverseStateChange = enum {
+    pub const ReverseStateChange = enum(i32) {
         pub const StateNoReverse: i32 = 0;
         pub const StateReverse: i32 = 1;
     };

@@ -17257,22 +17257,22 @@ pub const qinputmethodevent__attribute = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#public-types)
 pub const enums = struct {
-    pub const QWheelEvent = enum {
+    pub const QWheelEvent = enum(i32) {
         pub const DefaultDeltasPerStep: i32 = 120;
     };
 
-    pub const SurfaceEventType = enum {
+    pub const SurfaceEventType = enum(i32) {
         pub const SurfaceCreated: i32 = 0;
         pub const SurfaceAboutToBeDestroyed: i32 = 1;
     };
 
-    pub const Reason = enum {
+    pub const Reason = enum(i32) {
         pub const Mouse: i32 = 0;
         pub const Keyboard: i32 = 1;
         pub const Other: i32 = 2;
     };
 
-    pub const AttributeType = enum {
+    pub const AttributeType = enum(i32) {
         pub const TextFormat: i32 = 0;
         pub const Cursor: i32 = 1;
         pub const Language: i32 = 2;
@@ -17280,7 +17280,7 @@ pub const enums = struct {
         pub const Selection: i32 = 4;
     };
 
-    pub const ScrollState = enum {
+    pub const ScrollState = enum(i32) {
         pub const ScrollStarted: i32 = 0;
         pub const ScrollUpdated: i32 = 1;
         pub const ScrollFinished: i32 = 2;

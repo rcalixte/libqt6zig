@@ -204,7 +204,7 @@ pub const kfile = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfile.html#public-types)
 pub const enums = struct {
-    pub const Mode = enum {
+    pub const Mode = enum(i32) {
         pub const File: i32 = 1;
         pub const Directory: i32 = 2;
         pub const Files: i32 = 4;
@@ -213,7 +213,7 @@ pub const enums = struct {
         pub const ModeMax: i32 = 65536;
     };
 
-    pub const FileView = enum {
+    pub const FileView = enum(i32) {
         pub const Default: i32 = 0;
         pub const Simple: i32 = 1;
         pub const Detail: i32 = 2;
@@ -225,7 +225,7 @@ pub const enums = struct {
         pub const FileViewMax: i32 = 65536;
     };
 
-    pub const SelectionMode = enum {
+    pub const SelectionMode = enum(i32) {
         pub const Single: i32 = 1;
         pub const Multi: i32 = 2;
         pub const Extended: i32 = 4;

@@ -443,7 +443,7 @@ pub const signon__sessiondata = struct {
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Sessiondata.html)
 pub const enums = struct {
-    pub const SignonUiPolicy = enum {
+    pub const SignonUiPolicy = enum(i32) {
         pub const DefaultPolicy: i32 = 0;
         pub const RequestPasswordPolicy: i32 = 1;
         pub const NoUserInteractionPolicy: i32 = 2;

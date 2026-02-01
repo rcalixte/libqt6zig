@@ -264,13 +264,13 @@ pub const qgeocoordinate = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#public-types)
 pub const enums = struct {
-    pub const CoordinateType = enum {
+    pub const CoordinateType = enum(i32) {
         pub const InvalidCoordinate: i32 = 0;
         pub const Coordinate2D: i32 = 1;
         pub const Coordinate3D: i32 = 2;
     };
 
-    pub const CoordinateFormat = enum {
+    pub const CoordinateFormat = enum(i32) {
         pub const Degrees: i32 = 0;
         pub const DegreesWithHemisphere: i32 = 1;
         pub const DegreesMinutes: i32 = 2;

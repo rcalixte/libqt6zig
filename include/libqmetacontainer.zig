@@ -1838,21 +1838,21 @@ pub const qmetaassociation = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetacontainer.html#public-types)
 pub const enums = struct {
-    pub const IteratorCapability = enum {
+    pub const IteratorCapability = enum(u8) {
         pub const InputCapability: u8 = 1;
         pub const ForwardCapability: u8 = 2;
         pub const BiDirectionalCapability: u8 = 4;
         pub const RandomAccessCapability: u8 = 8;
     };
 
-    pub const AddRemoveCapability = enum {
+    pub const AddRemoveCapability = enum(u8) {
         pub const CanAddAtBegin: u8 = 1;
         pub const CanRemoveAtBegin: u8 = 2;
         pub const CanAddAtEnd: u8 = 4;
         pub const CanRemoveAtEnd: u8 = 8;
     };
 
-    pub const Position = enum {
+    pub const Position = enum(u8) {
         pub const AtBegin: u8 = 0;
         pub const AtEnd: u8 = 1;
         pub const Unspecified: u8 = 2;

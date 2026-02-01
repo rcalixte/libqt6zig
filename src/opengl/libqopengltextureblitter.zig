@@ -159,7 +159,7 @@ pub const qopengltextureblitter = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#public-types)
 pub const enums = struct {
-    pub const Origin = enum {
+    pub const Origin = enum(i32) {
         pub const OriginBottomLeft: i32 = 0;
         pub const OriginTopLeft: i32 = 1;
     };

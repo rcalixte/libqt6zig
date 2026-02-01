@@ -527,7 +527,7 @@ pub const qkeysequence = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#public-types)
 pub const enums = struct {
-    pub const StandardKey = enum {
+    pub const StandardKey = enum(i32) {
         pub const UnknownKey: i32 = 0;
         pub const HelpContents: i32 = 1;
         pub const WhatsThis: i32 = 2;
@@ -601,12 +601,12 @@ pub const enums = struct {
         pub const Cancel: i32 = 70;
     };
 
-    pub const SequenceFormat = enum {
+    pub const SequenceFormat = enum(i32) {
         pub const NativeText: i32 = 0;
         pub const PortableText: i32 = 1;
     };
 
-    pub const SequenceMatch = enum {
+    pub const SequenceMatch = enum(i32) {
         pub const NoMatch: i32 = 0;
         pub const PartialMatch: i32 = 1;
         pub const ExactMatch: i32 = 2;

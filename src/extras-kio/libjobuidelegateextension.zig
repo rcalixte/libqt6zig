@@ -61,7 +61,7 @@ pub const kio = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#public-types)
 pub const enums = struct {
-    pub const RenameDialog_Option = enum {
+    pub const RenameDialog_Option = enum(i32) {
         pub const RenameDialog_Overwrite: i32 = 1;
         pub const RenameDialog_OverwriteItself: i32 = 2;
         pub const RenameDialog_Skip: i32 = 4;
@@ -72,13 +72,13 @@ pub const enums = struct {
         pub const RenameDialog_SourceIsDirectory: i32 = 256;
     };
 
-    pub const SkipDialog_Option = enum {
+    pub const SkipDialog_Option = enum(i32) {
         pub const SkipDialog_MultipleItems: i32 = 8;
         pub const SkipDialog_Replace_Invalid_Chars: i32 = 16;
         pub const SkipDialog_Hide_Retry: i32 = 32;
     };
 
-    pub const RenameDialog_Result = enum {
+    pub const RenameDialog_Result = enum(i32) {
         pub const Result_Cancel: i32 = 0;
         pub const Result_Rename: i32 = 1;
         pub const Result_Skip: i32 = 2;
@@ -94,18 +94,18 @@ pub const enums = struct {
         pub const Result_ReplaceAllInvalidChars: i32 = 12;
     };
 
-    pub const DeletionType = enum {
+    pub const DeletionType = enum(i32) {
         pub const Delete: i32 = 0;
         pub const Trash: i32 = 1;
         pub const EmptyTrash: i32 = 2;
     };
 
-    pub const ConfirmationType = enum {
+    pub const ConfirmationType = enum(i32) {
         pub const DefaultConfirmation: i32 = 0;
         pub const ForceConfirmation: i32 = 1;
     };
 
-    pub const ClipboardUpdaterMode = enum {
+    pub const ClipboardUpdaterMode = enum(i32) {
         pub const UpdateContent: i32 = 0;
         pub const OverwriteContent: i32 = 1;
         pub const RemoveContent: i32 = 2;

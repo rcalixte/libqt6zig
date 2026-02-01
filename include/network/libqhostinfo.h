@@ -17,6 +17,7 @@ extern "C" {
 #else
 typedef struct QHostAddress QHostAddress;
 typedef struct QHostInfo QHostInfo;
+typedef struct QObject QObject;
 #endif
 
 QHostInfo* QHostInfo_new();
@@ -34,6 +35,7 @@ libqt_string QHostInfo_ErrorString(const QHostInfo* self);
 void QHostInfo_SetErrorString(QHostInfo* self, const libqt_string errorString);
 void QHostInfo_SetLookupId(QHostInfo* self, int id);
 int QHostInfo_LookupId(const QHostInfo* self);
+int QHostInfo_LookupHost(const libqt_string name, const QObject* receiver, const char* member);
 void QHostInfo_AbortHostLookup(int lookupId);
 QHostInfo* QHostInfo_FromName(const libqt_string name);
 libqt_string QHostInfo_LocalHostName();

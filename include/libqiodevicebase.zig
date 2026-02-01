@@ -28,7 +28,7 @@ pub const qiodevicebase = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevicebase.html#public-types)
 pub const enums = struct {
-    pub const OpenModeFlag = enum {
+    pub const OpenModeFlag = enum(i32) {
         pub const NotOpen: i32 = 0;
         pub const ReadOnly: i32 = 1;
         pub const WriteOnly: i32 = 2;

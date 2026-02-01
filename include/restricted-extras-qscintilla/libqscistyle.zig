@@ -349,7 +349,7 @@ pub const qscistyle = struct {
 };
 
 pub const enums = struct {
-    pub const TextCase = enum {
+    pub const TextCase = enum(i32) {
         pub const OriginalCase: i32 = 0;
         pub const UpperCase: i32 = 1;
         pub const LowerCase: i32 = 2;

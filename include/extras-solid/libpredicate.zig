@@ -371,12 +371,12 @@ pub const solid__predicate = struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-predicate.html#public-types)
 pub const enums = struct {
-    pub const ComparisonOperator = enum {
+    pub const ComparisonOperator = enum(i32) {
         pub const Equals: i32 = 0;
         pub const Mask: i32 = 1;
     };
 
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const PropertyCheck: i32 = 0;
         pub const Conjunction: i32 = 1;
         pub const Disjunction: i32 = 2;

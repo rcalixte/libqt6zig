@@ -456,14 +456,14 @@ pub const qtextoption__tab = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextoption.html#public-types)
 pub const enums = struct {
-    pub const TabType = enum {
+    pub const TabType = enum(i32) {
         pub const LeftTab: i32 = 0;
         pub const RightTab: i32 = 1;
         pub const CenterTab: i32 = 2;
         pub const DelimiterTab: i32 = 3;
     };
 
-    pub const WrapMode = enum {
+    pub const WrapMode = enum(i32) {
         pub const NoWrap: i32 = 0;
         pub const WordWrap: i32 = 1;
         pub const ManualWrap: i32 = 2;
@@ -471,7 +471,7 @@ pub const enums = struct {
         pub const WrapAtWordBoundaryOrAnywhere: i32 = 4;
     };
 
-    pub const Flag = enum {
+    pub const Flag = enum(i32) {
         pub const ShowTabsAndSpaces: i32 = 1;
         pub const ShowLineAndParagraphSeparators: i32 = 2;
         pub const AddSpaceForLineAndParagraphSeparators: i32 = 4;

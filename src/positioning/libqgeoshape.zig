@@ -130,7 +130,7 @@ pub const qgeoshape = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#public-types)
 pub const enums = struct {
-    pub const ShapeType = enum {
+    pub const ShapeType = enum(i32) {
         pub const UnknownType: i32 = 0;
         pub const RectangleType: i32 = 1;
         pub const CircleType: i32 = 2;

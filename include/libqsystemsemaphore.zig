@@ -497,12 +497,12 @@ pub const qsystemsemaphore = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemsemaphore.html#public-types)
 pub const enums = struct {
-    pub const AccessMode = enum {
+    pub const AccessMode = enum(i32) {
         pub const Open: i32 = 0;
         pub const Create: i32 = 1;
     };
 
-    pub const SystemSemaphoreError = enum {
+    pub const SystemSemaphoreError = enum(i32) {
         pub const NoError: i32 = 0;
         pub const PermissionDenied: i32 = 1;
         pub const KeyError: i32 = 2;

@@ -2111,7 +2111,7 @@ pub const qdatetime = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#public-types)
 pub const enums = struct {
-    pub const TransitionResolution = enum {
+    pub const TransitionResolution = enum(i32) {
         pub const Reject: i32 = 0;
         pub const RelativeToBefore: i32 = 1;
         pub const RelativeToAfter: i32 = 2;
@@ -2122,7 +2122,7 @@ pub const enums = struct {
         pub const LegacyBehavior: i32 = 1;
     };
 
-    pub const YearRange = enum {
+    pub const YearRange = enum(i32) {
         pub const First: i32 = -292275056;
         pub const Last: i32 = 292278994;
     };

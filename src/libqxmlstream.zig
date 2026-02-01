@@ -1614,7 +1614,7 @@ pub const qxmlstreamwriter = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstream.html#public-types)
 pub const enums = struct {
-    pub const TokenType = enum {
+    pub const TokenType = enum(i32) {
         pub const NoToken: i32 = 0;
         pub const Invalid: i32 = 1;
         pub const StartDocument: i32 = 2;
@@ -1628,13 +1628,13 @@ pub const enums = struct {
         pub const ProcessingInstruction: i32 = 10;
     };
 
-    pub const ReadElementTextBehaviour = enum {
+    pub const ReadElementTextBehaviour = enum(i32) {
         pub const ErrorOnUnexpectedElement: i32 = 0;
         pub const IncludeChildElements: i32 = 1;
         pub const SkipChildElements: i32 = 2;
     };
 
-    pub const Error = enum {
+    pub const Error = enum(i32) {
         pub const NoError: i32 = 0;
         pub const UnexpectedElementError: i32 = 1;
         pub const CustomError: i32 = 2;

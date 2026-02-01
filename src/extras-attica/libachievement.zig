@@ -594,14 +594,14 @@ pub const attica__achievement = struct {
 
 /// ### [Upstream resources](https://api.kde.org/attica-achievement.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const FlowingAchievement: i32 = 0;
         pub const SteppedAchievement: i32 = 1;
         pub const NamedstepsAchievement: i32 = 2;
         pub const SetAchievement: i32 = 3;
     };
 
-    pub const Visibility = enum {
+    pub const Visibility = enum(i32) {
         pub const VisibleAchievement: i32 = 0;
         pub const DependentsAchievement: i32 = 1;
         pub const SecretAchievement: i32 = 2;

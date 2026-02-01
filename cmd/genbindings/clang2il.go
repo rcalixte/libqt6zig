@@ -1105,6 +1105,11 @@ func parseMethod(node map[string]interface{}, mm *CppMethod, className string) e
 				// for actually using the 'virtual' keyword
 				mm.IsVirtual = true
 
+			case "FinalAttr":
+				// int remainingTime(int timerId) final;
+				// This identifies methods that are final and cannot be overridden
+				mm.IsFinal = true
+
 			case "FullComment":
 				// Safe to ignore
 

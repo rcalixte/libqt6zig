@@ -429,12 +429,12 @@ pub const qnetworkcookie = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookie.html#public-types)
 pub const enums = struct {
-    pub const RawForm = enum {
+    pub const RawForm = enum(i32) {
         pub const NameAndValueOnly: i32 = 0;
         pub const Full: i32 = 1;
     };
 
-    pub const SameSite = enum {
+    pub const SameSite = enum(i32) {
         pub const Default: i32 = 0;
         pub const None: i32 = 1;
         pub const Lax: i32 = 2;

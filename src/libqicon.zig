@@ -1067,19 +1067,19 @@ pub const qicon = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#public-types)
 pub const enums = struct {
-    pub const Mode = enum {
+    pub const Mode = enum(i32) {
         pub const Normal: i32 = 0;
         pub const Disabled: i32 = 1;
         pub const Active: i32 = 2;
         pub const Selected: i32 = 3;
     };
 
-    pub const State = enum {
+    pub const State = enum(i32) {
         pub const On: i32 = 0;
         pub const Off: i32 = 1;
     };
 
-    pub const ThemeIcon = enum {
+    pub const ThemeIcon = enum(i32) {
         pub const AddressBookNew: i32 = 0;
         pub const ApplicationExit: i32 = 1;
         pub const AppointmentNew: i32 = 2;

@@ -608,7 +608,7 @@ pub const qfutureinterfacebase = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterface.html#public-types)
 pub const enums = struct {
-    pub const State = enum {
+    pub const State = enum(i32) {
         pub const NoState: i32 = 0;
         pub const Running: i32 = 1;
         pub const Started: i32 = 2;
@@ -620,7 +620,7 @@ pub const enums = struct {
         pub const Pending: i32 = 128;
     };
 
-    pub const CancelMode = enum {
+    pub const CancelMode = enum(i32) {
         pub const CancelOnly: i32 = 0;
         pub const CancelAndFinish: i32 = 1;
     };

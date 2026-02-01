@@ -42,7 +42,7 @@ pub const kfilesystemtype = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const Unknown: i32 = 0;
         pub const Nfs: i32 = 1;
         pub const Smb: i32 = 2;

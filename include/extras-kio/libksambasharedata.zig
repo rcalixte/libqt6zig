@@ -288,12 +288,12 @@ pub const ksambasharedata = struct {
 
 /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#public-types)
 pub const enums = struct {
-    pub const GuestPermission = enum {
+    pub const GuestPermission = enum(i32) {
         pub const GuestsNotAllowed: i32 = 0;
         pub const GuestsAllowed: i32 = 1;
     };
 
-    pub const UserShareError = enum {
+    pub const UserShareError = enum(i32) {
         pub const UserShareOk: i32 = 0;
         pub const UserShareExceedMaxShares: i32 = 1;
         pub const UserShareNameOk: i32 = 2;

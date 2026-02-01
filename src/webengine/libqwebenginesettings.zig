@@ -248,7 +248,7 @@ pub const qwebenginesettings = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginesettings.html#public-types)
 pub const enums = struct {
-    pub const FontFamily = enum {
+    pub const FontFamily = enum(i32) {
         pub const StandardFont: i32 = 0;
         pub const FixedFont: i32 = 1;
         pub const SerifFont: i32 = 2;
@@ -258,7 +258,7 @@ pub const enums = struct {
         pub const PictographFont: i32 = 6;
     };
 
-    pub const WebAttribute = enum {
+    pub const WebAttribute = enum(i32) {
         pub const AutoLoadImages: i32 = 0;
         pub const JavascriptEnabled: i32 = 1;
         pub const JavascriptCanOpenWindows: i32 = 2;
@@ -295,21 +295,21 @@ pub const enums = struct {
         pub const ForceDarkMode: i32 = 33;
     };
 
-    pub const FontSize = enum {
+    pub const FontSize = enum(i32) {
         pub const MinimumFontSize: i32 = 0;
         pub const MinimumLogicalFontSize: i32 = 1;
         pub const DefaultFontSize: i32 = 2;
         pub const DefaultFixedFontSize: i32 = 3;
     };
 
-    pub const UnknownUrlSchemePolicy = enum {
+    pub const UnknownUrlSchemePolicy = enum(i32) {
         pub const InheritedUnknownUrlSchemePolicy: i32 = 0;
         pub const DisallowUnknownUrlSchemes: i32 = 1;
         pub const AllowUnknownUrlSchemesFromUserInteraction: i32 = 2;
         pub const AllowAllUnknownUrlSchemes: i32 = 3;
     };
 
-    pub const ImageAnimationPolicy = enum {
+    pub const ImageAnimationPolicy = enum(u8) {
         pub const Inherited: u8 = 0;
         pub const Allow: u8 = 1;
         pub const AnimateOnce: u8 = 2;

@@ -226,7 +226,7 @@ pub const qstringconverterbase__state = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter-base.html#public-types)
 pub const enums = struct {
-    pub const Flag = enum {
+    pub const Flag = enum(i32) {
         pub const Default: i32 = 0;
         pub const Stateless: i32 = 1;
         pub const ConvertInvalidToNull: i32 = 2;
@@ -235,7 +235,7 @@ pub const enums = struct {
         pub const UsesIcu: i32 = 16;
     };
 
-    pub const Encoding = enum {
+    pub const Encoding = enum(i32) {
         pub const Utf8: i32 = 0;
         pub const Utf16: i32 = 1;
         pub const Utf16LE: i32 = 2;

@@ -105,7 +105,7 @@ pub const accounts__error = struct {
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
 pub const enums = struct {
-    pub const ErrorType = enum {
+    pub const ErrorType = enum(i32) {
         pub const NoError: i32 = 0;
         pub const Unknown: i32 = 1;
         pub const Database: i32 = 2;

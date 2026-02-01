@@ -608,7 +608,7 @@ pub const ksyntaxhighlighting__definition = struct {
 
 /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#public-types)
 pub const enums = struct {
-    pub const CommentPosition = enum {
+    pub const CommentPosition = enum(i32) {
         pub const StartOfLine: i32 = 0;
         pub const AfterWhitespace: i32 = 1;
     };

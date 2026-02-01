@@ -249,12 +249,12 @@ pub const ktexteditor__movingcursor = struct {
 
 /// ### [Upstream resources](https://api.kde.org/movingcursor.html#public-types)
 pub const enums = struct {
-    pub const InsertBehavior = enum {
+    pub const InsertBehavior = enum(i32) {
         pub const StayOnInsert: i32 = 0;
         pub const MoveOnInsert: i32 = 1;
     };
 
-    pub const WrapBehavior = enum {
+    pub const WrapBehavior = enum(i32) {
         pub const Wrap: i32 = 0;
         pub const NoWrap: i32 = 1;
     };

@@ -169,7 +169,7 @@ pub const qssldiffiehellmanparameters = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#public-types)
 pub const enums = struct {
-    pub const Error = enum {
+    pub const Error = enum(i32) {
         pub const NoError: i32 = 0;
         pub const InvalidInputDataError: i32 = 1;
         pub const UnsafeParametersError: i32 = 2;

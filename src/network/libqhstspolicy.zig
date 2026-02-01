@@ -223,7 +223,7 @@ pub const qhstspolicy = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhstspolicy.html#public-types)
 pub const enums = struct {
-    pub const PolicyFlag = enum {
+    pub const PolicyFlag = enum(i32) {
         pub const IncludeSubDomains: i32 = 1;
     };
 };

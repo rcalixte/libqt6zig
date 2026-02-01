@@ -321,7 +321,21 @@ QAction* KActionCollection_TakeAction(KActionCollection* self, QAction* action) 
 }
 
 QAction* KActionCollection_AddAction2(KActionCollection* self, int actionType) {
+    return self->addAction(static_cast<KStandardAction::StandardAction>(actionType));
+}
+
+QAction* KActionCollection_AddAction3(KActionCollection* self, int actionType, const libqt_string name) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addAction(static_cast<KStandardAction::StandardAction>(actionType), name_QString);
+}
+
+QAction* KActionCollection_AddAction4(KActionCollection* self, int actionType) {
     return self->addAction(static_cast<KStandardActions::StandardAction>(actionType));
+}
+
+QAction* KActionCollection_AddAction5(KActionCollection* self, const libqt_string name) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addAction(name_QString);
 }
 
 QKeySequence* KActionCollection_DefaultShortcut(QAction* action) {
@@ -381,6 +395,34 @@ void KActionCollection_WriteSettings2(const KActionCollection* self, KConfigGrou
 
 void KActionCollection_WriteSettings3(const KActionCollection* self, KConfigGroup* config, bool writeDefaults, QAction* oneAction) {
     self->writeSettings(config, writeDefaults, oneAction);
+}
+
+QAction* KActionCollection_AddAction22(KActionCollection* self, int actionType, const QObject* receiver) {
+    return self->addAction(static_cast<KStandardAction::StandardAction>(actionType), receiver);
+}
+
+QAction* KActionCollection_AddAction32(KActionCollection* self, int actionType, const QObject* receiver, const char* member) {
+    return self->addAction(static_cast<KStandardAction::StandardAction>(actionType), receiver, member);
+}
+
+QAction* KActionCollection_AddAction33(KActionCollection* self, int actionType, const libqt_string name, const QObject* receiver) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addAction(static_cast<KStandardAction::StandardAction>(actionType), name_QString, receiver);
+}
+
+QAction* KActionCollection_AddAction42(KActionCollection* self, int actionType, const libqt_string name, const QObject* receiver, const char* member) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addAction(static_cast<KStandardAction::StandardAction>(actionType), name_QString, receiver, member);
+}
+
+QAction* KActionCollection_AddAction23(KActionCollection* self, const libqt_string name, const QObject* receiver) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addAction(name_QString, receiver);
+}
+
+QAction* KActionCollection_AddAction34(KActionCollection* self, const libqt_string name, const QObject* receiver, const char* member) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addAction(name_QString, receiver, member);
 }
 
 // Base class handler implementation

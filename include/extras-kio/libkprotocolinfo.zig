@@ -524,14 +524,14 @@ pub const kprotocolinfo__extrafield = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const T_STREAM: i32 = 0;
         pub const T_FILESYSTEM: i32 = 1;
         pub const T_NONE: i32 = 2;
         pub const T_ERROR: i32 = 3;
     };
 
-    pub const KProtocolInfo = enum {
+    pub const KProtocolInfo = enum(i32) {
         pub const Name: i32 = 0;
         pub const FromUrl: i32 = 1;
         pub const DisplayName: i32 = 2;

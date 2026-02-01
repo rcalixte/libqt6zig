@@ -225,7 +225,7 @@ pub const qeasingcurve = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qeasingcurve.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const Linear: i32 = 0;
         pub const InQuad: i32 = 1;
         pub const OutQuad: i32 = 2;

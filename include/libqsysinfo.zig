@@ -217,11 +217,11 @@ pub const qsysinfo = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#public-types)
 pub const enums = struct {
-    pub const Sizes = enum {
+    pub const Sizes = enum(i32) {
         pub const WordSize: i32 = 64;
     };
 
-    pub const Endian = enum {
+    pub const Endian = enum(i32) {
         pub const BigEndian: i32 = 0;
         pub const LittleEndian: i32 = 1;
         pub const ByteOrder: i32 = 1;

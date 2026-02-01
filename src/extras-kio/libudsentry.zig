@@ -234,13 +234,13 @@ pub const kio__udsentry = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-udsentry.html#public-types)
 pub const enums = struct {
-    pub const ItemTypes = enum {
+    pub const ItemTypes = enum(i32) {
         pub const UDS_STRING: i32 = 16777216;
         pub const UDS_NUMBER: i32 = 33554432;
         pub const UDS_TIME: i32 = 100663296;
     };
 
-    pub const StandardFieldTypes = enum {
+    pub const StandardFieldTypes = enum(i32) {
         pub const UDS_SIZE: i32 = 33554433;
         pub const UDS_SIZE_LARGE: i32 = 33554434;
         pub const UDS_USER: i32 = 16777219;

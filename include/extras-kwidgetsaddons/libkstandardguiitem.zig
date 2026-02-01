@@ -248,12 +248,12 @@ pub const kstandardguiitem = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#public-types)
 pub const enums = struct {
-    pub const BidiMode = enum {
+    pub const BidiMode = enum(i32) {
         pub const UseRTL: i32 = 0;
         pub const IgnoreRTL: i32 = 1;
     };
 
-    pub const StandardItem = enum {
+    pub const StandardItem = enum(i32) {
         pub const Ok: i32 = 1;
         pub const Cancel: i32 = 2;
         pub const Discard: i32 = 3;

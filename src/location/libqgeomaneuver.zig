@@ -283,7 +283,7 @@ pub const qgeomaneuver = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeomaneuver.html#public-types)
 pub const enums = struct {
-    pub const InstructionDirection = enum {
+    pub const InstructionDirection = enum(i32) {
         pub const NoDirection: i32 = 0;
         pub const DirectionForward: i32 = 1;
         pub const DirectionBearRight: i32 = 2;

@@ -2758,14 +2758,34 @@ pub const qprocess = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
     ///
     /// ` method: QtC.QMetaMethod `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
@@ -2782,10 +2802,30 @@ pub const qprocess = struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2802,8 +2842,34 @@ pub const qprocess = struct {
     ///
     /// ` member: QtC.QMetaMethod `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QProcess `
+    ///
+    pub fn Disconnect3(self: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QProcess `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
     }
 
     /// Inherited from QObject
@@ -2814,8 +2880,8 @@ pub const qprocess = struct {
     ///
     /// ` param1: QtC.QMetaObject__Connection `
     ///
-    pub fn Disconnect2(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(param1));
+    pub fn Disconnect5(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect5(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -3032,6 +3098,28 @@ pub const qprocess = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` param5: qnamespace_enums.ConnectionType `
+    ///
+    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
@@ -3040,8 +3128,8 @@ pub const qprocess = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -3064,6 +3152,75 @@ pub const qprocess = struct {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QProcess `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QProcess `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QProcess `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QProcess `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4330,11 +4487,11 @@ pub const qprocess__unixprocessparameters = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#public-types)
 pub const enums = struct {
-    pub const Initialization = enum {
+    pub const Initialization = enum(i32) {
         pub const InheritFromParent: i32 = 0;
     };
 
-    pub const ProcessError = enum {
+    pub const ProcessError = enum(i32) {
         pub const FailedToStart: i32 = 0;
         pub const Crashed: i32 = 1;
         pub const Timedout: i32 = 2;
@@ -4343,18 +4500,18 @@ pub const enums = struct {
         pub const UnknownError: i32 = 5;
     };
 
-    pub const ProcessState = enum {
+    pub const ProcessState = enum(i32) {
         pub const NotRunning: i32 = 0;
         pub const Starting: i32 = 1;
         pub const Running: i32 = 2;
     };
 
-    pub const ProcessChannel = enum {
+    pub const ProcessChannel = enum(i32) {
         pub const StandardOutput: i32 = 0;
         pub const StandardError: i32 = 1;
     };
 
-    pub const ProcessChannelMode = enum {
+    pub const ProcessChannelMode = enum(i32) {
         pub const SeparateChannels: i32 = 0;
         pub const MergedChannels: i32 = 1;
         pub const ForwardedChannels: i32 = 2;
@@ -4362,17 +4519,17 @@ pub const enums = struct {
         pub const ForwardedErrorChannel: i32 = 4;
     };
 
-    pub const InputChannelMode = enum {
+    pub const InputChannelMode = enum(i32) {
         pub const ManagedInputChannel: i32 = 0;
         pub const ForwardedInputChannel: i32 = 1;
     };
 
-    pub const ExitStatus = enum {
+    pub const ExitStatus = enum(i32) {
         pub const NormalExit: i32 = 0;
         pub const CrashExit: i32 = 1;
     };
 
-    pub const UnixProcessFlag = enum {
+    pub const UnixProcessFlag = enum(u32) {
         pub const ResetSignalHandlers: u32 = 1;
         pub const IgnoreSigPipe: u32 = 2;
         pub const CloseFileDescriptors: u32 = 16;

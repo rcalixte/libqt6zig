@@ -227,7 +227,7 @@ pub const qformdatabuilder = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#public-types)
 pub const enums = struct {
-    pub const Option = enum {
+    pub const Option = enum(i32) {
         pub const Default: i32 = 0;
         pub const OmitRfc8187EncodedFilename: i32 = 1;
         pub const UseRfc7578PercentEncodedFilename: i32 = 2;

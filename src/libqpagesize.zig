@@ -516,7 +516,7 @@ pub const qpagesize = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagesize.html#public-types)
 pub const enums = struct {
-    pub const PageSizeId = enum {
+    pub const PageSizeId = enum(i32) {
         pub const Letter: i32 = 0;
         pub const Legal: i32 = 1;
         pub const Executive: i32 = 2;
@@ -644,7 +644,7 @@ pub const enums = struct {
         pub const Envelope10: i32 = 26;
     };
 
-    pub const Unit = enum {
+    pub const Unit = enum(i32) {
         pub const Millimeter: i32 = 0;
         pub const Point: i32 = 1;
         pub const Inch: i32 = 2;
@@ -653,7 +653,7 @@ pub const enums = struct {
         pub const Cicero: i32 = 5;
     };
 
-    pub const SizeMatchPolicy = enum {
+    pub const SizeMatchPolicy = enum(i32) {
         pub const FuzzyMatch: i32 = 0;
         pub const FuzzyOrientationMatch: i32 = 1;
         pub const ExactMatch: i32 = 2;

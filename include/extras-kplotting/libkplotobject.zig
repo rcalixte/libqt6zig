@@ -479,14 +479,14 @@ pub const kplotobject = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kplotobject.html#public-types)
 pub const enums = struct {
-    pub const PlotType = enum {
+    pub const PlotType = enum(i32) {
         pub const UnknownType: i32 = 0;
         pub const Points: i32 = 1;
         pub const Lines: i32 = 2;
         pub const Bars: i32 = 4;
     };
 
-    pub const PointStyle = enum {
+    pub const PointStyle = enum(i32) {
         pub const NoPoints: i32 = 0;
         pub const Circle: i32 = 1;
         pub const Letter: i32 = 2;

@@ -649,7 +649,7 @@ pub const qdesignerlayoutdecorationextension = struct {
 
 /// ### [Upstream resources](https://api.kde.org/layoutdecoration.html#public-types)
 pub const enums = struct {
-    pub const InsertMode = enum {
+    pub const InsertMode = enum(i32) {
         pub const InsertWidgetMode: i32 = 0;
         pub const InsertRowMode: i32 = 1;
         pub const InsertColumnMode: i32 = 2;

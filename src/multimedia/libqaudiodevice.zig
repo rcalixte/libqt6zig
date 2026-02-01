@@ -248,7 +248,7 @@ pub const qaudiodevice = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudiodevice.html#public-types)
 pub const enums = struct {
-    pub const Mode = enum {
+    pub const Mode = enum(i32) {
         pub const Null: i32 = 0;
         pub const Input: i32 = 1;
         pub const Output: i32 = 2;
