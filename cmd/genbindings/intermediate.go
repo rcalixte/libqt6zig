@@ -321,6 +321,7 @@ type CppMethod struct {
 	IsVirtual          bool
 	IsPureVirtual      bool           // Virtual method was declared with = 0 i.e. there is no base method here to call
 	IsProtected        bool           // If true, we can't call this method but we may still be able to overload it
+	IsFinal            bool           // If true, this method cannot be overridden
 	HiddenParams       []CppParameter // Populated if there is an overload with more parameters
 	InheritedFrom      string
 	InheritedInClass   string
@@ -375,9 +376,12 @@ func IsReceiverMethod(params []CppParameter, pos int) bool {
 
 func (nm CppMethod) IsReceiverMethod() bool {
 	// Returns true if any of the parameters use the receiver-method pattern
+	// Restricted to addAction and open
 	for i := 0; i < len(nm.Parameters); i++ {
 		if IsReceiverMethod(nm.Parameters, i) {
-			return true
+			if nm.MethodName == "addAction" || nm.MethodName == "open" {
+				return true
+			}
 		}
 	}
 	return false
