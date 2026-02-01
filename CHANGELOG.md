@@ -1,4 +1,12 @@
 
+### 6.8.2 rev55 (1 February 2026)
+
+* **BREAKING CHANGES:**
+  * Extend support for receiver methods and add support for `final` keyword projection (#111)
+  * Remove additional Qt classes which should not be projected (#110)
+  * Project additional overrides for Qt introspection (#109)
+  * Project some chrono-based types (#108)
+
 ### 6.8.2 rev54 (19 January 2026)
 
 * **BREAKING CHANGES:**
