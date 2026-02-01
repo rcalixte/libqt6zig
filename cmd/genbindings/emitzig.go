@@ -6,6 +6,7 @@ import (
 	"math"
 	"path/filepath"
 	"reflect"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -1278,7 +1279,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			// Single char** argument
 			zfs.imports["std"] = struct{}{}
 
-			preamble += "var " + nameprefix + "_chararr = allocator.alloc([*c]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_chararr = allocator.alloc([*c]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			if p.Const {
 				preamble += "defer allocator.free(" + nameprefix + "_chararr);\n"
 			}
@@ -1582,13 +1583,22 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += assignExpr + " " + namePrefix + "_ret;"
 			return shouldReturn + " " + rvalue + ";\n" + afterword
 
-		} else if t.IsKnownEnum() {
+		} else if t.IsKnownEnum() || IsKnownClass(t.ParameterType) {
 			zfs.imports["std"] = struct{}{}
-			e := KnownEnums[t.ParameterType]
+			var setType, setValue string
+
+			if t.IsKnownEnum() {
+				setType = KnownEnums[t.ParameterType].EnumTypeZig
+				setValue = setType
+			} else {
+				setType = t.RenderTypeMapZig(zfs, false)
+				setValue = t.RenderTypeZig(zfs, true, true)
+			}
+
 			shouldReturn = "const " + namePrefix + "_set: qtc.libqt_list = "
 
-			afterword += "var " + namePrefix + "_ret: set_" + e.EnumTypeZig + " = .empty;\n"
-			afterword += "const " + namePrefix + "_data: [*]" + e.EnumTypeZig + " = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
+			afterword += "var " + namePrefix + "_ret: set_" + setType + " = .empty;\n"
+			afterword += "const " + namePrefix + "_data: [*]" + setValue + " = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
 			afterword += "for (0.." + namePrefix + "_set.len) |i| {\n"
 			afterword += "    " + namePrefix + "_ret.put(allocator, " + namePrefix + "_data[i], {}) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Set insertion failed\");\n"
 			afterword += "}\n"
@@ -2339,6 +2349,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				}
 			}
 
+			if m.IsFinal {
+				continue
+			}
+
 			// We need to brute force these for now
 			if _, ok := skipFunction[cmdStructName+"_"+mSafeMethodName]; ok {
 				continue
@@ -2488,7 +2502,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				"\n    pub fn " + mSafeMethodName + "(self: ?*anyopaque" + commaParams + zfsParams + allocatorParam + ") " + returnTypeDecl + " {\n" +
 				preamble + returnFunc + "\n}\n")
 
-			if !AllowVirtual(m) {
+			if !AllowVirtual(m) || m.IsFinal {
 				continue
 			}
 
@@ -2599,7 +2613,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		}
 	}
 
-	closeEnums := false
+	var closeEnums string
 	if len(src.Enums) > 0 {
 		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + `_enums = @import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").enums;`
 		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
@@ -2619,9 +2633,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		pageName := maybeUrlPrefix + getPageName(zfs.currentHeaderName) + maybeCharts
 		pageUrl := getPageUrl(EnumPage, pageName, "", zfs.currentHeaderName)
 		ret.WriteString(pageUrl + "\npub const enums = struct {\n")
-		closeEnums = true
+		closeEnums = "};\n"
 	}
-	seenEnums := map[string]struct{}{}
+
+	seenEnums := make([]string, 0, len(src.Enums))
 	for _, e := range src.Enums {
 		if e.EnumName == "" {
 			continue // Removed by transformRedundant AST pass
@@ -2636,37 +2651,33 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		}
 		zigEnumName = strings.TrimSuffix(zigEnumName, "__")
 
-		if len(e.Entries) > 0 {
-			if _, ok := seenEnums[zigEnumName]; !ok {
-				seenEnums[zigEnumName] = struct{}{}
-			} else {
-				continue
-			}
-			ret.WriteString("    pub const " + zigEnumName + " = enum {\n")
+		if slices.Contains(seenEnums, zigEnumName) {
+			continue
+		}
+		seenEnums = append(seenEnums, zigEnumName)
 
-			for _, ee := range e.Entries {
-				enumType := e.UnderlyingType.RenderTypeZig(&zfs, false, false)
-				entry := ee.EntryValue
-				num, err := strconv.Atoi(ee.EntryValue)
-				if err == nil {
-					if float64(num) > math.MaxInt32 || float64(num) < math.MinInt32 {
-						// if needed, store wraparound value as opposed to overflow
-						if enumType[0] != 'u' {
-							entry = strconv.Itoa(int(int32(num)))
-						}
+		enumType := e.UnderlyingType.RenderTypeZig(&zfs, false, false)
+
+		ret.WriteString("pub const " + zigEnumName + " = enum(" + enumType + ") {\n")
+
+		for _, ee := range e.Entries {
+			entry := ee.EntryValue
+			if num, err := strconv.Atoi(ee.EntryValue); err == nil {
+				if float64(num) > math.MaxInt32 || float64(num) < math.MinInt32 {
+					// if needed, store wraparound value as opposed to overflow
+					if enumType[0] != 'u' {
+						entry = strconv.Itoa(int(int32(num)))
 					}
 				}
-				ret.WriteString("        pub const " + titleCase(cabiClassName(ee.EntryName)) + ": " + enumType + " = " + entry + ";\n")
 			}
 
-		} else {
-			ret.WriteString("    pub const " + zigEnumName + " = enum(" + e.UnderlyingType.RenderTypeZig(&zfs, false, false) + ") {\n")
+			ret.WriteString("pub const " + titleCase(cabiClassName(ee.EntryName)) + ": " + enumType + " = " + entry + ";\n")
 		}
-		ret.WriteString("    };\n\n")
+
+		ret.WriteString("};\n\n")
 	}
-	if closeEnums {
-		ret.WriteString("};\n")
-	}
+
+	ret.WriteString(closeEnums)
 
 	zigSrc := ret.String()
 
@@ -2674,82 +2685,90 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 	if len(zfs.imports) > 0 {
 		allImports := make([]string, 0, len(zfs.imports))
 		structDef := make([]string, 0, len(zfs.imports))
-		seenEnumClasses := map[string]struct{}{}
+		seenEnumClasses := make([]string, 0, len(zfs.imports))
+
 		for k := range zfs.imports {
 			switch k {
 			case "std":
 				allImports = append(allImports, `const std = @import("std");`)
 			case "builtin":
 				allImports = append(allImports, `const builtin = @import("builtin");`)
-			}
+			default:
+				if strings.Contains(k, ",") && strings.Count(k, ",") >= 2 {
+					kSplit := strings.Split(k, ",")
+					mapType := kSplit[0]
+					keyType := kSplit[1]
+					valueType := kSplit[2]
 
-			if strings.Contains(k, ",") && strings.Count(k, ",") >= 2 {
-				kSplit := strings.Split(k, ",")
-				mapType := kSplit[0]
-				keyType := kSplit[1]
-				valueType := kSplit[2]
+					switch mapType {
+					case "StringHashMap":
+						key := "map_" + keyType + "_" + mapParamToString(valueType)
+						value := "std.StringHashMapUnmanaged(" + valueType + ")"
+						structDef = append(structDef, "const "+key+" = "+value+";")
+						zigTypes[key] = strings.ReplaceAll(value, "QtC.", "C.")
+					case "AutoHashMap":
+						autoKeyType := keyType
+						keyType = mapParamToString(strings.ToLower(keyType))
+						key := "map_" + keyType + "_" + mapParamToString(valueType)
+						value := "std.AutoHashMapUnmanaged(" + autoKeyType + ", " + valueType + ")"
+						structDef = append(structDef, "const "+key+" = "+value+";")
+						zigTypes[key] = strings.ReplaceAll(value, "QtC.", "C.")
+					}
 
-				switch mapType {
-				case "StringHashMap":
-					key := "map_" + keyType + "_" + mapParamToString(valueType)
-					value := "std.StringHashMapUnmanaged(" + valueType + ")"
-					structDef = append(structDef, "const "+key+" = "+value+";")
-					zigTypes[key] = strings.ReplaceAll(value, "QtC.", "C.")
-				case "AutoHashMap":
-					autoKeyType := keyType
-					keyType = mapParamToString(strings.ToLower(keyType))
-					key := "map_" + keyType + "_" + mapParamToString(valueType)
-					value := "std.AutoHashMapUnmanaged(" + autoKeyType + ", " + valueType + ")"
-					structDef = append(structDef, "const "+key+" = "+value+";")
-					zigTypes[key] = strings.ReplaceAll(value, "QtC.", "C.")
-				}
-			}
-			if strings.HasPrefix(k, "struct_") {
-				kSplit := strings.Split(k, "_")
-				keyType := kSplit[1]
-				valueType := kSplit[2]
-				if mapParamToString(keyType) != "anyopaque" {
-					maybeExtern := ifv(keyType == "[]u8" || keyType == "[]const u8" || valueType == "[]u8" || valueType == "[]const u8", "", "extern ")
-					typeName := "struct_" + mapParamToString(keyType) + "_" + mapParamToString(valueType)
-					typeDef := maybeExtern + "struct { first: " + keyType + ", second: " + valueType + " }"
-					structDef = append(structDef, "const "+typeName+" = "+typeDef+";")
-					zigTypes[typeName] = strings.ReplaceAll(typeDef, "QtC.", "C.")
-				}
-			}
-			if strings.HasSuffix(k, "_enums") {
-				var enumPrefix string
-				if strings.Contains(k, "/") {
-					enumPrefix = filepath.Dir(k) + "/"
-					k = filepath.Base(k)
-				}
-				enumClass := strings.Split(k, "_enums")[0]
+				} else if strings.HasPrefix(k, "struct_") {
+					kSplit := strings.Split(k, "_")
+					keyType := kSplit[1]
+					valueType := kSplit[2]
+					if mapParamToString(keyType) != "anyopaque" {
+						maybeExtern := ifv(keyType == "[]u8" || keyType == "[]const u8" || valueType == "[]u8" || valueType == "[]const u8", "", "extern ")
+						typeName := "struct_" + mapParamToString(keyType) + "_" + mapParamToString(valueType)
+						typeDef := maybeExtern + "struct { first: " + keyType + ", second: " + valueType + " }"
+						structDef = append(structDef, "const "+typeName+" = "+typeDef+";")
+						zigTypes[typeName] = strings.ReplaceAll(typeDef, "QtC.", "C.")
+					}
 
-				if _, ok := seenEnumClasses[enumClass]; ok {
-					continue
-				}
-				seenEnumClasses[enumClass] = struct{}{}
-				// TODO Remove this suffix hack once we have a better way to automate it
-				if enumClass == zfs.currentHeaderName || enumClass == strings.TrimSuffix(zfs.currentHeaderName, "_1") {
-					allImports = append(allImports, "const "+enumClass+"_enums = enums;")
-				} else {
-					enumFileName := ifv(enumClass == "transaction" && strings.Contains(src.Filename, "PackageKit"), enumClass+"_1", enumClass)
-					allImports = append(allImports, "const "+enumClass+`_enums = @import("`+enumPrefix+"lib"+enumFileName+`.zig").enums;`)
-				}
-			}
-			if strings.HasPrefix(k, "set_") {
-				kSplit := strings.Split(k, "_")
-				keyType := kSplit[1]
-				setName := "set_" + mapParamToString(keyType)
-				if mapParamToString(keyType) == "i32" {
-					setDef := "std.AutoHashMapUnmanaged(i32, void)"
-					structDef = append(structDef, "const "+setName+" = "+setDef+";")
-					zigTypes[setName] = setDef
-				} else if mapParamToString(keyType) != "anyopaque" {
-					setDef := "std.StringHashMapUnmanaged(void)"
-					structDef = append(structDef, "const "+setName+" = "+setDef+";")
-					zigTypes[setName] = setDef
-				} else {
-					panic("UNHANDLED SET TYPE: " + keyType)
+				} else if strings.HasSuffix(k, "_enums") {
+					var enumPrefix string
+					if strings.Contains(k, "/") {
+						enumPrefix = filepath.Dir(k) + "/"
+						k = filepath.Base(k)
+					}
+					enumClass := strings.Split(k, "_enums")[0]
+
+					if slices.Contains(seenEnumClasses, enumClass) {
+						continue
+					}
+					seenEnumClasses = append(seenEnumClasses, enumClass)
+
+					// TODO Remove this suffix hack once we have a better way to automate it
+					if enumClass == zfs.currentHeaderName || enumClass == strings.TrimSuffix(zfs.currentHeaderName, "_1") {
+						allImports = append(allImports, "const "+enumClass+"_enums = enums;")
+					} else {
+						enumFileName := ifv(enumClass == "transaction" && strings.Contains(src.Filename, "PackageKit"), enumClass+"_1", enumClass)
+						allImports = append(allImports, "const "+enumClass+`_enums = @import("`+enumPrefix+"lib"+enumFileName+`.zig").enums;`)
+					}
+
+				} else if strings.HasPrefix(k, "set_") {
+					kSplit := strings.Split(k, "_")
+					keyType := kSplit[1]
+					mapString := mapParamToString(keyType)
+					setName := "set_" + mapString
+					if mapString == "i32" {
+						setDef := "std.AutoHashMapUnmanaged(i32, void)"
+						structDef = append(structDef, "const "+setName+" = "+setDef+";")
+						zigTypes[setName] = setDef
+					} else if strings.HasPrefix(mapString, "qtc") {
+						setDef := "std.AutoHashMapUnmanaged(" + keyType + ", void)"
+						structDef = append(structDef, "const "+setName+" = "+setDef+";")
+						setDef = "std.AutoHashMapUnmanaged(" + keyType[2:] + ", void)"
+						zigTypes[setName] = setDef
+					} else if strings.HasSuffix(mapString, "u8") {
+						setDef := "std.StringHashMapUnmanaged(void)"
+						structDef = append(structDef, "const "+setName+" = "+setDef+";")
+						zigTypes[setName] = setDef
+					} else {
+						panic("UNHANDLED SET TYPE: " + keyType)
+					}
 				}
 			}
 		}
