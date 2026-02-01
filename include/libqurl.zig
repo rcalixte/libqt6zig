@@ -1430,13 +1430,13 @@ pub const qurl = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qurl.html#public-types)
 pub const enums = struct {
-    pub const ParsingMode = enum {
+    pub const ParsingMode = enum(i32) {
         pub const TolerantMode: i32 = 0;
         pub const StrictMode: i32 = 1;
         pub const DecodedMode: i32 = 2;
     };
 
-    pub const UrlFormattingOption = enum {
+    pub const UrlFormattingOption = enum(u32) {
         pub const None: u32 = 0;
         pub const RemoveScheme: u32 = 1;
         pub const RemovePassword: u32 = 2;
@@ -1452,7 +1452,7 @@ pub const enums = struct {
         pub const NormalizePathSegments: u32 = 4096;
     };
 
-    pub const ComponentFormattingOption = enum {
+    pub const ComponentFormattingOption = enum(u32) {
         pub const PrettyDecoded: u32 = 0;
         pub const EncodeSpaces: u32 = 1048576;
         pub const EncodeUnicode: u32 = 2097152;
@@ -1463,12 +1463,12 @@ pub const enums = struct {
         pub const FullyDecoded: u32 = 133169152;
     };
 
-    pub const UserInputResolutionOption = enum {
+    pub const UserInputResolutionOption = enum(i32) {
         pub const DefaultResolution: i32 = 0;
         pub const AssumeLocalFile: i32 = 1;
     };
 
-    pub const AceProcessingOption = enum {
+    pub const AceProcessingOption = enum(u32) {
         pub const IgnoreIDNWhitelist: u32 = 1;
         pub const AceTransitionalProcessing: u32 = 2;
     };

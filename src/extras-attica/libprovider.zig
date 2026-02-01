@@ -1191,7 +1191,7 @@ pub const attica__provider = struct {
 
 /// ### [Upstream resources](https://api.kde.org/attica-provider.html#public-types)
 pub const enums = struct {
-    pub const SortMode = enum {
+    pub const SortMode = enum(i32) {
         pub const Newest: i32 = 0;
         pub const Alphabetical: i32 = 1;
         pub const Rating: i32 = 2;

@@ -121,12 +121,12 @@ pub const qwebenginefilesystemaccessrequest = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#public-types)
 pub const enums = struct {
-    pub const HandleType = enum {
+    pub const HandleType = enum(i32) {
         pub const File: i32 = 0;
         pub const Directory: i32 = 1;
     };
 
-    pub const AccessFlag = enum {
+    pub const AccessFlag = enum(i32) {
         pub const Read: i32 = 1;
         pub const Write: i32 = 2;
     };

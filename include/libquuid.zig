@@ -491,7 +491,7 @@ pub const quuid__id128bytes = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#public-types)
 pub const enums = struct {
-    pub const Variant = enum {
+    pub const Variant = enum(i32) {
         pub const VarUnknown: i32 = -1;
         pub const NCS: i32 = 0;
         pub const DCE: i32 = 2;
@@ -499,7 +499,7 @@ pub const enums = struct {
         pub const Reserved: i32 = 7;
     };
 
-    pub const Version = enum {
+    pub const Version = enum(i32) {
         pub const VerUnknown: i32 = -1;
         pub const Time: i32 = 1;
         pub const EmbeddedPOSIX: i32 = 2;
@@ -509,7 +509,7 @@ pub const enums = struct {
         pub const Sha1: i32 = 5;
     };
 
-    pub const StringFormat = enum {
+    pub const StringFormat = enum(i32) {
         pub const WithBraces: i32 = 0;
         pub const WithoutBraces: i32 = 1;
         pub const Id128: i32 = 3;

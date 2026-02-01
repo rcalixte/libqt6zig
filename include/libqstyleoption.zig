@@ -11328,7 +11328,7 @@ pub const qstylehintreturnvariant = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#public-types)
 pub const enums = struct {
-    pub const QStyleOption__OptionType = enum {
+    pub const QStyleOption__OptionType = enum(i32) {
         pub const SO_Default: i32 = 0;
         pub const SO_FocusRect: i32 = 1;
         pub const SO_Button: i32 = 2;
@@ -11357,97 +11357,97 @@ pub const enums = struct {
         pub const SO_ComplexCustomBase: i32 = 251658240;
     };
 
-    pub const QStyleOption__StyleOptionType = enum {
+    pub const QStyleOption__StyleOptionType = enum(i32) {
         pub const Type: i32 = 0;
     };
 
-    pub const QStyleOption__StyleOptionVersion = enum {
+    pub const QStyleOption__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionFocusRect__StyleOptionType = enum {
+    pub const QStyleOptionFocusRect__StyleOptionType = enum(i32) {
         pub const Type: i32 = 1;
     };
 
-    pub const QStyleOptionFocusRect__StyleOptionVersion = enum {
+    pub const QStyleOptionFocusRect__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionFrame__StyleOptionType = enum {
+    pub const QStyleOptionFrame__StyleOptionType = enum(i32) {
         pub const Type: i32 = 5;
     };
 
-    pub const QStyleOptionFrame__StyleOptionVersion = enum {
+    pub const QStyleOptionFrame__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionFrame__FrameFeature = enum {
+    pub const QStyleOptionFrame__FrameFeature = enum(i32) {
         pub const None: i32 = 0;
         pub const Flat: i32 = 1;
         pub const Rounded: i32 = 2;
     };
 
-    pub const QStyleOptionTabWidgetFrame__StyleOptionType = enum {
+    pub const QStyleOptionTabWidgetFrame__StyleOptionType = enum(i32) {
         pub const Type: i32 = 11;
     };
 
-    pub const QStyleOptionTabWidgetFrame__StyleOptionVersion = enum {
+    pub const QStyleOptionTabWidgetFrame__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionTabBarBase__StyleOptionType = enum {
+    pub const QStyleOptionTabBarBase__StyleOptionType = enum(i32) {
         pub const Type: i32 = 12;
     };
 
-    pub const QStyleOptionTabBarBase__StyleOptionVersion = enum {
+    pub const QStyleOptionTabBarBase__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionHeader__StyleOptionType = enum {
+    pub const QStyleOptionHeader__StyleOptionType = enum(i32) {
         pub const Type: i32 = 8;
     };
 
-    pub const QStyleOptionHeader__StyleOptionVersion = enum {
+    pub const QStyleOptionHeader__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionHeader__SectionPosition = enum {
+    pub const QStyleOptionHeader__SectionPosition = enum(i32) {
         pub const Beginning: i32 = 0;
         pub const Middle: i32 = 1;
         pub const End: i32 = 2;
         pub const OnlyOneSection: i32 = 3;
     };
 
-    pub const QStyleOptionHeader__SelectedPosition = enum {
+    pub const QStyleOptionHeader__SelectedPosition = enum(i32) {
         pub const NotAdjacent: i32 = 0;
         pub const NextIsSelected: i32 = 1;
         pub const PreviousIsSelected: i32 = 2;
         pub const NextAndPreviousAreSelected: i32 = 3;
     };
 
-    pub const QStyleOptionHeader__SortIndicator = enum {
+    pub const QStyleOptionHeader__SortIndicator = enum(i32) {
         pub const None: i32 = 0;
         pub const SortUp: i32 = 1;
         pub const SortDown: i32 = 2;
     };
 
-    pub const QStyleOptionHeaderV2__StyleOptionType = enum {
+    pub const QStyleOptionHeaderV2__StyleOptionType = enum(i32) {
         pub const Type: i32 = 8;
     };
 
-    pub const QStyleOptionHeaderV2__StyleOptionVersion = enum {
+    pub const QStyleOptionHeaderV2__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 2;
     };
 
-    pub const QStyleOptionButton__StyleOptionType = enum {
+    pub const QStyleOptionButton__StyleOptionType = enum(i32) {
         pub const Type: i32 = 2;
     };
 
-    pub const QStyleOptionButton__StyleOptionVersion = enum {
+    pub const QStyleOptionButton__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionButton__ButtonFeature = enum {
+    pub const QStyleOptionButton__ButtonFeature = enum(i32) {
         pub const None: i32 = 0;
         pub const Flat: i32 = 1;
         pub const HasMenu: i32 = 2;
@@ -11456,15 +11456,15 @@ pub const enums = struct {
         pub const CommandLinkButton: i32 = 16;
     };
 
-    pub const QStyleOptionTab__StyleOptionType = enum {
+    pub const QStyleOptionTab__StyleOptionType = enum(i32) {
         pub const Type: i32 = 3;
     };
 
-    pub const QStyleOptionTab__StyleOptionVersion = enum {
+    pub const QStyleOptionTab__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionTab__TabPosition = enum {
+    pub const QStyleOptionTab__TabPosition = enum(i32) {
         pub const Beginning: i32 = 0;
         pub const Middle: i32 = 1;
         pub const End: i32 = 2;
@@ -11472,60 +11472,60 @@ pub const enums = struct {
         pub const Moving: i32 = 4;
     };
 
-    pub const QStyleOptionTab__SelectedPosition = enum {
+    pub const QStyleOptionTab__SelectedPosition = enum(i32) {
         pub const NotAdjacent: i32 = 0;
         pub const NextIsSelected: i32 = 1;
         pub const PreviousIsSelected: i32 = 2;
     };
 
-    pub const QStyleOptionTab__CornerWidget = enum {
+    pub const QStyleOptionTab__CornerWidget = enum(i32) {
         pub const NoCornerWidgets: i32 = 0;
         pub const LeftCornerWidget: i32 = 1;
         pub const RightCornerWidget: i32 = 2;
     };
 
-    pub const QStyleOptionTab__TabFeature = enum {
+    pub const QStyleOptionTab__TabFeature = enum(i32) {
         pub const None: i32 = 0;
         pub const HasFrame: i32 = 1;
     };
 
-    pub const QStyleOptionToolBar__StyleOptionType = enum {
+    pub const QStyleOptionToolBar__StyleOptionType = enum(i32) {
         pub const Type: i32 = 14;
     };
 
-    pub const QStyleOptionToolBar__StyleOptionVersion = enum {
+    pub const QStyleOptionToolBar__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionToolBar__ToolBarPosition = enum {
+    pub const QStyleOptionToolBar__ToolBarPosition = enum(i32) {
         pub const Beginning: i32 = 0;
         pub const Middle: i32 = 1;
         pub const End: i32 = 2;
         pub const OnlyOne: i32 = 3;
     };
 
-    pub const QStyleOptionToolBar__ToolBarFeature = enum {
+    pub const QStyleOptionToolBar__ToolBarFeature = enum(i32) {
         pub const None: i32 = 0;
         pub const Movable: i32 = 1;
     };
 
-    pub const QStyleOptionProgressBar__StyleOptionType = enum {
+    pub const QStyleOptionProgressBar__StyleOptionType = enum(i32) {
         pub const Type: i32 = 6;
     };
 
-    pub const QStyleOptionProgressBar__StyleOptionVersion = enum {
+    pub const QStyleOptionProgressBar__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionMenuItem__StyleOptionType = enum {
+    pub const QStyleOptionMenuItem__StyleOptionType = enum(i32) {
         pub const Type: i32 = 4;
     };
 
-    pub const QStyleOptionMenuItem__StyleOptionVersion = enum {
+    pub const QStyleOptionMenuItem__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionMenuItem__MenuItemType = enum {
+    pub const QStyleOptionMenuItem__MenuItemType = enum(i32) {
         pub const Normal: i32 = 0;
         pub const DefaultItem: i32 = 1;
         pub const Separator: i32 = 2;
@@ -11536,36 +11536,36 @@ pub const enums = struct {
         pub const EmptyArea: i32 = 7;
     };
 
-    pub const QStyleOptionMenuItem__CheckType = enum {
+    pub const QStyleOptionMenuItem__CheckType = enum(i32) {
         pub const NotCheckable: i32 = 0;
         pub const Exclusive: i32 = 1;
         pub const NonExclusive: i32 = 2;
     };
 
-    pub const QStyleOptionDockWidget__StyleOptionType = enum {
+    pub const QStyleOptionDockWidget__StyleOptionType = enum(i32) {
         pub const Type: i32 = 9;
     };
 
-    pub const QStyleOptionDockWidget__StyleOptionVersion = enum {
+    pub const QStyleOptionDockWidget__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionViewItem__StyleOptionType = enum {
+    pub const QStyleOptionViewItem__StyleOptionType = enum(i32) {
         pub const Type: i32 = 10;
     };
 
-    pub const QStyleOptionViewItem__StyleOptionVersion = enum {
+    pub const QStyleOptionViewItem__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionViewItem__Position = enum {
+    pub const QStyleOptionViewItem__Position = enum(i32) {
         pub const Left: i32 = 0;
         pub const Right: i32 = 1;
         pub const Top: i32 = 2;
         pub const Bottom: i32 = 3;
     };
 
-    pub const QStyleOptionViewItem__ViewItemFeature = enum {
+    pub const QStyleOptionViewItem__ViewItemFeature = enum(i32) {
         pub const None: i32 = 0;
         pub const WrapText: i32 = 1;
         pub const Alternate: i32 = 2;
@@ -11574,7 +11574,7 @@ pub const enums = struct {
         pub const HasDecoration: i32 = 16;
     };
 
-    pub const QStyleOptionViewItem__ViewItemPosition = enum {
+    pub const QStyleOptionViewItem__ViewItemPosition = enum(i32) {
         pub const Invalid: i32 = 0;
         pub const Beginning: i32 = 1;
         pub const Middle: i32 = 2;
@@ -11582,68 +11582,68 @@ pub const enums = struct {
         pub const OnlyOne: i32 = 4;
     };
 
-    pub const QStyleOptionToolBox__StyleOptionType = enum {
+    pub const QStyleOptionToolBox__StyleOptionType = enum(i32) {
         pub const Type: i32 = 7;
     };
 
-    pub const QStyleOptionToolBox__StyleOptionVersion = enum {
+    pub const QStyleOptionToolBox__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionToolBox__TabPosition = enum {
+    pub const QStyleOptionToolBox__TabPosition = enum(i32) {
         pub const Beginning: i32 = 0;
         pub const Middle: i32 = 1;
         pub const End: i32 = 2;
         pub const OnlyOneTab: i32 = 3;
     };
 
-    pub const QStyleOptionToolBox__SelectedPosition = enum {
+    pub const QStyleOptionToolBox__SelectedPosition = enum(i32) {
         pub const NotAdjacent: i32 = 0;
         pub const NextIsSelected: i32 = 1;
         pub const PreviousIsSelected: i32 = 2;
     };
 
-    pub const QStyleOptionRubberBand__StyleOptionType = enum {
+    pub const QStyleOptionRubberBand__StyleOptionType = enum(i32) {
         pub const Type: i32 = 13;
     };
 
-    pub const QStyleOptionRubberBand__StyleOptionVersion = enum {
+    pub const QStyleOptionRubberBand__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionComplex__StyleOptionType = enum {
+    pub const QStyleOptionComplex__StyleOptionType = enum(i32) {
         pub const Type: i32 = 983040;
     };
 
-    pub const QStyleOptionComplex__StyleOptionVersion = enum {
+    pub const QStyleOptionComplex__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionSlider__StyleOptionType = enum {
+    pub const QStyleOptionSlider__StyleOptionType = enum(i32) {
         pub const Type: i32 = 983041;
     };
 
-    pub const QStyleOptionSlider__StyleOptionVersion = enum {
+    pub const QStyleOptionSlider__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionSpinBox__StyleOptionType = enum {
+    pub const QStyleOptionSpinBox__StyleOptionType = enum(i32) {
         pub const Type: i32 = 983042;
     };
 
-    pub const QStyleOptionSpinBox__StyleOptionVersion = enum {
+    pub const QStyleOptionSpinBox__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionToolButton__StyleOptionType = enum {
+    pub const QStyleOptionToolButton__StyleOptionType = enum(i32) {
         pub const Type: i32 = 983043;
     };
 
-    pub const QStyleOptionToolButton__StyleOptionVersion = enum {
+    pub const QStyleOptionToolButton__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionToolButton__ToolButtonFeature = enum {
+    pub const QStyleOptionToolButton__ToolButtonFeature = enum(i32) {
         pub const None: i32 = 0;
         pub const Arrow: i32 = 1;
         pub const Menu: i32 = 4;
@@ -11652,73 +11652,73 @@ pub const enums = struct {
         pub const HasMenu: i32 = 16;
     };
 
-    pub const QStyleOptionComboBox__StyleOptionType = enum {
+    pub const QStyleOptionComboBox__StyleOptionType = enum(i32) {
         pub const Type: i32 = 983044;
     };
 
-    pub const QStyleOptionComboBox__StyleOptionVersion = enum {
+    pub const QStyleOptionComboBox__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionTitleBar__StyleOptionType = enum {
+    pub const QStyleOptionTitleBar__StyleOptionType = enum(i32) {
         pub const Type: i32 = 983045;
     };
 
-    pub const QStyleOptionTitleBar__StyleOptionVersion = enum {
+    pub const QStyleOptionTitleBar__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionGroupBox__StyleOptionType = enum {
+    pub const QStyleOptionGroupBox__StyleOptionType = enum(i32) {
         pub const Type: i32 = 983046;
     };
 
-    pub const QStyleOptionGroupBox__StyleOptionVersion = enum {
+    pub const QStyleOptionGroupBox__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionSizeGrip__StyleOptionType = enum {
+    pub const QStyleOptionSizeGrip__StyleOptionType = enum(i32) {
         pub const Type: i32 = 983047;
     };
 
-    pub const QStyleOptionSizeGrip__StyleOptionVersion = enum {
+    pub const QStyleOptionSizeGrip__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleOptionGraphicsItem__StyleOptionType = enum {
+    pub const QStyleOptionGraphicsItem__StyleOptionType = enum(i32) {
         pub const Type: i32 = 15;
     };
 
-    pub const QStyleOptionGraphicsItem__StyleOptionVersion = enum {
+    pub const QStyleOptionGraphicsItem__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleHintReturn__HintReturnType = enum {
+    pub const QStyleHintReturn__HintReturnType = enum(i32) {
         pub const SH_Default: i32 = 61440;
         pub const SH_Mask: i32 = 61441;
         pub const SH_Variant: i32 = 61442;
     };
 
-    pub const QStyleHintReturn__StyleOptionType = enum {
+    pub const QStyleHintReturn__StyleOptionType = enum(i32) {
         pub const Type: i32 = 61440;
     };
 
-    pub const QStyleHintReturn__StyleOptionVersion = enum {
+    pub const QStyleHintReturn__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleHintReturnMask__StyleOptionType = enum {
+    pub const QStyleHintReturnMask__StyleOptionType = enum(i32) {
         pub const Type: i32 = 61441;
     };
 
-    pub const QStyleHintReturnMask__StyleOptionVersion = enum {
+    pub const QStyleHintReturnMask__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 
-    pub const QStyleHintReturnVariant__StyleOptionType = enum {
+    pub const QStyleHintReturnVariant__StyleOptionType = enum(i32) {
         pub const Type: i32 = 61442;
     };
 
-    pub const QStyleHintReturnVariant__StyleOptionVersion = enum {
+    pub const QStyleHintReturnVariant__StyleOptionVersion = enum(i32) {
         pub const Version: i32 = 1;
     };
 };

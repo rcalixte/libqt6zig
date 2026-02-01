@@ -243,7 +243,7 @@ pub const qwritelocker = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qreadwritelock.html#public-types)
 pub const enums = struct {
-    pub const RecursionMode = enum {
+    pub const RecursionMode = enum(i32) {
         pub const NonRecursive: i32 = 0;
         pub const Recursive: i32 = 1;
     };

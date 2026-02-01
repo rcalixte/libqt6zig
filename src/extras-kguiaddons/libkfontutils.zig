@@ -57,7 +57,7 @@ pub const kfontutils = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfontutils.html#public-types)
 pub const enums = struct {
-    pub const AdaptFontSizeOption = enum {
+    pub const AdaptFontSizeOption = enum(i32) {
         pub const NoFlags: i32 = 1;
         pub const DoNotAllowWordWrap: i32 = 2;
     };

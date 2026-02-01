@@ -619,7 +619,7 @@ pub const qnodebug = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#public-types)
 pub const enums = struct {
-    pub const VerbosityLevel = enum {
+    pub const VerbosityLevel = enum(i32) {
         pub const MinimumVerbosity: i32 = 0;
         pub const DefaultVerbosity: i32 = 2;
         pub const MaximumVerbosity: i32 = 7;

@@ -239,14 +239,14 @@ pub const qtextboundaryfinder = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextboundaryfinder.html#public-types)
 pub const enums = struct {
-    pub const BoundaryType = enum {
+    pub const BoundaryType = enum(i32) {
         pub const Grapheme: i32 = 0;
         pub const Word: i32 = 1;
         pub const Sentence: i32 = 2;
         pub const Line: i32 = 3;
     };
 
-    pub const BoundaryReason = enum {
+    pub const BoundaryReason = enum(i32) {
         pub const NotAtBoundary: i32 = 0;
         pub const BreakOpportunity: i32 = 31;
         pub const StartOfItem: i32 = 32;

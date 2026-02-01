@@ -2540,7 +2540,7 @@ pub const qmetaobject__data = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdefs.html#public-types)
 pub const enums = struct {
-    pub const Call = enum {
+    pub const Call = enum(i32) {
         pub const InvokeMetaMethod: i32 = 0;
         pub const ReadProperty: i32 = 1;
         pub const WriteProperty: i32 = 2;

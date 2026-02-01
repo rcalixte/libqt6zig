@@ -591,7 +591,7 @@ pub const kemailaddress = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kemailaddress.html#public-types)
 pub const enums = struct {
-    pub const EmailParseResult = enum {
+    pub const EmailParseResult = enum(i32) {
         pub const AddressOk: i32 = 0;
         pub const AddressEmpty: i32 = 1;
         pub const UnexpectedEnd: i32 = 2;

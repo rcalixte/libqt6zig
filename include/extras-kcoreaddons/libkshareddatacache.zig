@@ -185,7 +185,7 @@ pub const kshareddatacache = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kshareddatacache.html#public-types)
 pub const enums = struct {
-    pub const EvictionPolicy = enum {
+    pub const EvictionPolicy = enum(i32) {
         pub const NoEvictionPreference: i32 = 0;
         pub const EvictLeastRecentlyUsed: i32 = 1;
         pub const EvictLeastOftenUsed: i32 = 2;

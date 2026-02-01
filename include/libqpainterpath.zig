@@ -1382,7 +1382,7 @@ pub const qpainterpath__element = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#public-types)
 pub const enums = struct {
-    pub const ElementType = enum {
+    pub const ElementType = enum(i32) {
         pub const MoveToElement: i32 = 0;
         pub const LineToElement: i32 = 1;
         pub const CurveToElement: i32 = 2;

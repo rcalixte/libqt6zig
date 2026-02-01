@@ -217,18 +217,18 @@ pub const qwebengineurlscheme = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#public-types)
 pub const enums = struct {
-    pub const Syntax = enum {
+    pub const Syntax = enum(i32) {
         pub const HostPortAndUserInformation: i32 = 0;
         pub const HostAndPort: i32 = 1;
         pub const Host: i32 = 2;
         pub const Path: i32 = 3;
     };
 
-    pub const SpecialPort = enum {
+    pub const SpecialPort = enum(i32) {
         pub const PortUnspecified: i32 = -1;
     };
 
-    pub const Flag = enum {
+    pub const Flag = enum(i32) {
         pub const SecureScheme: i32 = 1;
         pub const LocalScheme: i32 = 2;
         pub const LocalAccessAllowed: i32 = 4;

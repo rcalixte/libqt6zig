@@ -149,7 +149,7 @@ pub const kurlmimedata = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kurlmimedata.html#public-types)
 pub const enums = struct {
-    pub const DecodeOption = enum {
+    pub const DecodeOption = enum(i32) {
         pub const PreferKdeUrls: i32 = 0;
         pub const PreferLocalUrls: i32 = 1;
     };

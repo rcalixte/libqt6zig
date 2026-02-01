@@ -244,7 +244,7 @@ pub const qmimedatabase = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#public-types)
 pub const enums = struct {
-    pub const MatchMode = enum {
+    pub const MatchMode = enum(i32) {
         pub const MatchDefault: i32 = 0;
         pub const MatchExtension: i32 = 1;
         pub const MatchContent: i32 = 2;

@@ -536,7 +536,7 @@ pub const qsqlfield = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#public-types)
 pub const enums = struct {
-    pub const RequiredStatus = enum {
+    pub const RequiredStatus = enum(i32) {
         pub const Unknown: i32 = -1;
         pub const Optional: i32 = 0;
         pub const Required: i32 = 1;

@@ -274,7 +274,7 @@ pub const qstatictext = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#public-types)
 pub const enums = struct {
-    pub const PerformanceHint = enum {
+    pub const PerformanceHint = enum(i32) {
         pub const ModerateCaching: i32 = 0;
         pub const AggressiveCaching: i32 = 1;
     };

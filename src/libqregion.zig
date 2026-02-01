@@ -627,7 +627,7 @@ pub const qregion = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qregion.html#public-types)
 pub const enums = struct {
-    pub const RegionType = enum {
+    pub const RegionType = enum(i32) {
         pub const Rectangle: i32 = 0;
         pub const Ellipse: i32 = 1;
     };

@@ -77,12 +77,12 @@ pub const qsurface = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#public-types)
 pub const enums = struct {
-    pub const SurfaceClass = enum {
+    pub const SurfaceClass = enum(i32) {
         pub const Window: i32 = 0;
         pub const Offscreen: i32 = 1;
     };
 
-    pub const SurfaceType = enum {
+    pub const SurfaceType = enum(i32) {
         pub const RasterSurface: i32 = 0;
         pub const OpenGLSurface: i32 = 1;
         pub const RasterGLSurface: i32 = 2;

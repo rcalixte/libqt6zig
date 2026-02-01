@@ -691,13 +691,13 @@ pub const kfilterbase = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#public-types)
 pub const enums = struct {
-    pub const Result = enum {
+    pub const Result = enum(i32) {
         pub const Ok: i32 = 0;
         pub const End: i32 = 1;
         pub const Error: i32 = 2;
     };
 
-    pub const FilterFlags = enum {
+    pub const FilterFlags = enum(i32) {
         pub const NoHeaders: i32 = 0;
         pub const WithHeaders: i32 = 1;
         pub const ZlibHeaders: i32 = 2;

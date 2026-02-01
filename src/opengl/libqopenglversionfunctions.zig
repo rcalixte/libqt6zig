@@ -976,13 +976,13 @@ pub const qopenglfunctions_4_5_deprecatedbackend = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctions.html#public-types)
 pub const enums = struct {
-    pub const OpenGLStatus = enum {
+    pub const OpenGLStatus = enum(i32) {
         pub const CoreStatus: i32 = 0;
         pub const DeprecatedStatus: i32 = 1;
         pub const InvalidStatus: i32 = 2;
     };
 
-    pub const Version = enum {
+    pub const Version = enum(i32) {
         pub const OpenGL_1_0_Core: i32 = 0;
         pub const OpenGL_1_1_Core: i32 = 1;
         pub const OpenGL_1_2_Core: i32 = 2;

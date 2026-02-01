@@ -314,7 +314,7 @@ pub const qpagedpaintdevice = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagedpaintdevice.html#public-types)
 pub const enums = struct {
-    pub const PdfVersion = enum {
+    pub const PdfVersion = enum(i32) {
         pub const PdfVersion_1_4: i32 = 0;
         pub const PdfVersion_A1b: i32 = 1;
         pub const PdfVersion_1_6: i32 = 2;

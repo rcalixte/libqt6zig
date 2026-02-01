@@ -530,7 +530,7 @@ pub const sonnet__speller = struct {
 
 /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#public-types)
 pub const enums = struct {
-    pub const Attribute = enum {
+    pub const Attribute = enum(i32) {
         pub const CheckUppercase: i32 = 0;
         pub const SkipRunTogether: i32 = 1;
         pub const AutoDetectLanguage: i32 = 2;

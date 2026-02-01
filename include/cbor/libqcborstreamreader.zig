@@ -715,7 +715,7 @@ pub const qcborstreamreader = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(u8) {
         pub const UnsignedInteger: u8 = 0;
         pub const NegativeInteger: u8 = 32;
         pub const ByteString: u8 = 64;
@@ -733,7 +733,7 @@ pub const enums = struct {
         pub const Invalid: u8 = 255;
     };
 
-    pub const StringResultCode = enum {
+    pub const StringResultCode = enum(i32) {
         pub const EndOfString: i32 = 0;
         pub const Ok: i32 = 1;
         pub const Error: i32 = -1;

@@ -221,7 +221,7 @@ pub const kwordwrap = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kwordwrap.html#public-types)
 pub const enums = struct {
-    pub const KWordWrap = enum {
+    pub const KWordWrap = enum(i32) {
         pub const FadeOut: i32 = 268435456;
         pub const Truncate: i32 = 536870912;
     };

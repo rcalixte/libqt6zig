@@ -1454,7 +1454,7 @@ pub const qfont__tag = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#public-types)
 pub const enums = struct {
-    pub const StyleHint = enum {
+    pub const StyleHint = enum(i32) {
         pub const Helvetica: i32 = 0;
         pub const SansSerif: i32 = 0;
         pub const Times: i32 = 1;
@@ -1470,7 +1470,7 @@ pub const enums = struct {
         pub const Fantasy: i32 = 8;
     };
 
-    pub const StyleStrategy = enum {
+    pub const StyleStrategy = enum(i32) {
         pub const PreferDefault: i32 = 1;
         pub const PreferBitmap: i32 = 2;
         pub const PreferDevice: i32 = 4;
@@ -1487,14 +1487,14 @@ pub const enums = struct {
         pub const NoFontMerging: i32 = 32768;
     };
 
-    pub const HintingPreference = enum {
+    pub const HintingPreference = enum(i32) {
         pub const PreferDefaultHinting: i32 = 0;
         pub const PreferNoHinting: i32 = 1;
         pub const PreferVerticalHinting: i32 = 2;
         pub const PreferFullHinting: i32 = 3;
     };
 
-    pub const Weight = enum {
+    pub const Weight = enum(i32) {
         pub const Thin: i32 = 100;
         pub const ExtraLight: i32 = 200;
         pub const Light: i32 = 300;
@@ -1506,13 +1506,13 @@ pub const enums = struct {
         pub const Black: i32 = 900;
     };
 
-    pub const Style = enum {
+    pub const Style = enum(i32) {
         pub const StyleNormal: i32 = 0;
         pub const StyleItalic: i32 = 1;
         pub const StyleOblique: i32 = 2;
     };
 
-    pub const Stretch = enum {
+    pub const Stretch = enum(i32) {
         pub const AnyStretch: i32 = 0;
         pub const UltraCondensed: i32 = 50;
         pub const ExtraCondensed: i32 = 62;
@@ -1525,7 +1525,7 @@ pub const enums = struct {
         pub const UltraExpanded: i32 = 200;
     };
 
-    pub const Capitalization = enum {
+    pub const Capitalization = enum(i32) {
         pub const MixedCase: i32 = 0;
         pub const AllUppercase: i32 = 1;
         pub const AllLowercase: i32 = 2;
@@ -1533,12 +1533,12 @@ pub const enums = struct {
         pub const Capitalize: i32 = 4;
     };
 
-    pub const SpacingType = enum {
+    pub const SpacingType = enum(i32) {
         pub const PercentageSpacing: i32 = 0;
         pub const AbsoluteSpacing: i32 = 1;
     };
 
-    pub const ResolveProperties = enum {
+    pub const ResolveProperties = enum(i32) {
         pub const NoPropertiesResolved: i32 = 0;
         pub const FamilyResolved: i32 = 1;
         pub const SizeResolved: i32 = 2;

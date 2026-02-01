@@ -161,7 +161,7 @@ pub const qmediametadata = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#public-types)
 pub const enums = struct {
-    pub const Key = enum {
+    pub const Key = enum(i32) {
         pub const Title: i32 = 0;
         pub const Author: i32 = 1;
         pub const Comment: i32 = 2;

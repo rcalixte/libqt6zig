@@ -260,7 +260,7 @@ pub const qsqlerror = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlerror.html#public-types)
 pub const enums = struct {
-    pub const ErrorType = enum {
+    pub const ErrorType = enum(i32) {
         pub const NoError: i32 = 0;
         pub const ConnectionError: i32 = 1;
         pub const StatementError: i32 = 2;

@@ -29,7 +29,7 @@ pub const knscore__errorcode = struct {
 
 /// ### [Upstream resources](https://api.kde.org/knscore-errorcode.html#public-types)
 pub const enums = struct {
-    pub const ErrorCode = enum {
+    pub const ErrorCode = enum(i32) {
         pub const UnknownError: i32 = 0;
         pub const NetworkError: i32 = 1;
         pub const OcsError: i32 = 2;

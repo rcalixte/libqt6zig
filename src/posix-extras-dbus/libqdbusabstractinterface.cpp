@@ -121,6 +121,28 @@ QDBusMessage* QDBusAbstractInterface_CallWithArgumentList(QDBusAbstractInterface
     return new QDBusMessage(self->callWithArgumentList(static_cast<QDBus::CallMode>(mode), method_QString, args_QList));
 }
 
+bool QDBusAbstractInterface_CallWithCallback(QDBusAbstractInterface* self, const libqt_string method, const libqt_list /* of QVariant* */ args, QObject* receiver, const char* member, const char* errorSlot) {
+    QString method_QString = QString::fromUtf8(method.data, method.len);
+    QList<QVariant> args_QList;
+    args_QList.reserve(args.len);
+    QVariant** args_arr = static_cast<QVariant**>(args.data);
+    for (size_t i = 0; i < args.len; ++i) {
+        args_QList.push_back(*(args_arr[i]));
+    }
+    return self->callWithCallback(method_QString, args_QList, receiver, member, errorSlot);
+}
+
+bool QDBusAbstractInterface_CallWithCallback2(QDBusAbstractInterface* self, const libqt_string method, const libqt_list /* of QVariant* */ args, QObject* receiver, const char* member) {
+    QString method_QString = QString::fromUtf8(method.data, method.len);
+    QList<QVariant> args_QList;
+    args_QList.reserve(args.len);
+    QVariant** args_arr = static_cast<QVariant**>(args.data);
+    for (size_t i = 0; i < args.len; ++i) {
+        args_QList.push_back(*(args_arr[i]));
+    }
+    return self->callWithCallback(method_QString, args_QList, receiver, member);
+}
+
 QDBusPendingCall* QDBusAbstractInterface_AsyncCall(QDBusAbstractInterface* self, const libqt_string method) {
     QString method_QString = QString::fromUtf8(method.data, method.len);
     return new QDBusPendingCall(self->asyncCall(method_QString));

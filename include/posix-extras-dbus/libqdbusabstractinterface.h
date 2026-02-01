@@ -46,6 +46,8 @@ bool QDBusAbstractInterface_IsInteractiveAuthorizationAllowed(const QDBusAbstrac
 QDBusMessage* QDBusAbstractInterface_Call(QDBusAbstractInterface* self, const libqt_string method);
 QDBusMessage* QDBusAbstractInterface_Call2(QDBusAbstractInterface* self, int mode, const libqt_string method);
 QDBusMessage* QDBusAbstractInterface_CallWithArgumentList(QDBusAbstractInterface* self, int mode, const libqt_string method, const libqt_list /* of QVariant* */ args);
+bool QDBusAbstractInterface_CallWithCallback(QDBusAbstractInterface* self, const libqt_string method, const libqt_list /* of QVariant* */ args, QObject* receiver, const char* member, const char* errorSlot);
+bool QDBusAbstractInterface_CallWithCallback2(QDBusAbstractInterface* self, const libqt_string method, const libqt_list /* of QVariant* */ args, QObject* receiver, const char* member);
 QDBusPendingCall* QDBusAbstractInterface_AsyncCall(QDBusAbstractInterface* self, const libqt_string method);
 QDBusPendingCall* QDBusAbstractInterface_AsyncCallWithArgumentList(QDBusAbstractInterface* self, const libqt_string method, const libqt_list /* of QVariant* */ args);
 void QDBusAbstractInterface_Delete(QDBusAbstractInterface* self);

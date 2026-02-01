@@ -10664,13 +10664,13 @@ pub const qtexttablecellformat = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const VariableLength: i32 = 0;
         pub const FixedLength: i32 = 1;
         pub const PercentageLength: i32 = 2;
     };
 
-    pub const FormatType = enum {
+    pub const FormatType = enum(i32) {
         pub const InvalidFormat: i32 = -1;
         pub const BlockFormat: i32 = 1;
         pub const CharFormat: i32 = 2;
@@ -10679,7 +10679,7 @@ pub const enums = struct {
         pub const UserFormat: i32 = 100;
     };
 
-    pub const Property = enum {
+    pub const Property = enum(i32) {
         pub const ObjectIndex: i32 = 0;
         pub const CssFloat: i32 = 2048;
         pub const LayoutDirection: i32 = 2049;
@@ -10796,7 +10796,7 @@ pub const enums = struct {
         pub const UserProperty: i32 = 1048576;
     };
 
-    pub const ObjectTypes = enum {
+    pub const ObjectTypes = enum(i32) {
         pub const NoObject: i32 = 0;
         pub const ImageObject: i32 = 1;
         pub const TableObject: i32 = 2;
@@ -10804,13 +10804,13 @@ pub const enums = struct {
         pub const UserObject: i32 = 4096;
     };
 
-    pub const PageBreakFlag = enum {
+    pub const PageBreakFlag = enum(i32) {
         pub const PageBreak_Auto: i32 = 0;
         pub const PageBreak_AlwaysBefore: i32 = 1;
         pub const PageBreak_AlwaysAfter: i32 = 16;
     };
 
-    pub const VerticalAlignment = enum {
+    pub const VerticalAlignment = enum(i32) {
         pub const AlignNormal: i32 = 0;
         pub const AlignSuperScript: i32 = 1;
         pub const AlignSubScript: i32 = 2;
@@ -10820,7 +10820,7 @@ pub const enums = struct {
         pub const AlignBaseline: i32 = 6;
     };
 
-    pub const UnderlineStyle = enum {
+    pub const UnderlineStyle = enum(i32) {
         pub const NoUnderline: i32 = 0;
         pub const SingleUnderline: i32 = 1;
         pub const DashUnderline: i32 = 2;
@@ -10831,12 +10831,12 @@ pub const enums = struct {
         pub const SpellCheckUnderline: i32 = 7;
     };
 
-    pub const FontPropertiesInheritanceBehavior = enum {
+    pub const FontPropertiesInheritanceBehavior = enum(i32) {
         pub const FontPropertiesSpecifiedOnly: i32 = 0;
         pub const FontPropertiesAll: i32 = 1;
     };
 
-    pub const LineHeightTypes = enum {
+    pub const LineHeightTypes = enum(i32) {
         pub const SingleHeight: i32 = 0;
         pub const ProportionalHeight: i32 = 1;
         pub const FixedHeight: i32 = 2;
@@ -10844,13 +10844,13 @@ pub const enums = struct {
         pub const LineDistanceHeight: i32 = 4;
     };
 
-    pub const MarkerType = enum {
+    pub const MarkerType = enum(i32) {
         pub const NoMarker: i32 = 0;
         pub const Unchecked: i32 = 1;
         pub const Checked: i32 = 2;
     };
 
-    pub const Style = enum {
+    pub const Style = enum(i32) {
         pub const ListDisc: i32 = -1;
         pub const ListCircle: i32 = -2;
         pub const ListSquare: i32 = -3;
@@ -10862,13 +10862,13 @@ pub const enums = struct {
         pub const ListStyleUndefined: i32 = 0;
     };
 
-    pub const Position = enum {
+    pub const Position = enum(i32) {
         pub const InFlow: i32 = 0;
         pub const FloatLeft: i32 = 1;
         pub const FloatRight: i32 = 2;
     };
 
-    pub const BorderStyle = enum {
+    pub const BorderStyle = enum(i32) {
         pub const BorderStyle_None: i32 = 0;
         pub const BorderStyle_Dotted: i32 = 1;
         pub const BorderStyle_Dashed: i32 = 2;

@@ -2374,7 +2374,7 @@ pub const kaboutdata = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kaboutdata.html#public-types)
 pub const enums = struct {
-    pub const LicenseKey = enum {
+    pub const LicenseKey = enum(i32) {
         pub const Custom: i32 = -2;
         pub const File: i32 = -1;
         pub const Unknown: i32 = 0;
@@ -2398,12 +2398,12 @@ pub const enums = struct {
         pub const MPL_V2: i32 = 15;
     };
 
-    pub const NameFormat = enum {
+    pub const NameFormat = enum(i32) {
         pub const ShortName: i32 = 0;
         pub const FullName: i32 = 1;
     };
 
-    pub const VersionRestriction = enum {
+    pub const VersionRestriction = enum(i32) {
         pub const OnlyThisVersion: i32 = 0;
         pub const OrLaterVersions: i32 = 1;
     };

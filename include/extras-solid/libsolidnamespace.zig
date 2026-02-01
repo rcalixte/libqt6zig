@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://api.kde.org/solid-solidnamespace.html#public-types)
 pub const enums = struct {
-    pub const ErrorType = enum {
+    pub const ErrorType = enum(i32) {
         pub const NoError: i32 = 0;
         pub const UnauthorizedOperation: i32 = 1;
         pub const DeviceBusy: i32 = 2;

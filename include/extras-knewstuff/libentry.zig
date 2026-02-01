@@ -1409,7 +1409,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
 
 /// ### [Upstream resources](https://api.kde.org/knscore-entry.html#public-types)
 pub const enums = struct {
-    pub const Status = enum {
+    pub const Status = enum(i32) {
         pub const Invalid: i32 = 0;
         pub const Downloadable: i32 = 1;
         pub const Installed: i32 = 2;
@@ -1419,13 +1419,13 @@ pub const enums = struct {
         pub const Updating: i32 = 6;
     };
 
-    pub const Source = enum {
+    pub const Source = enum(i32) {
         pub const Cache: i32 = 0;
         pub const Online: i32 = 1;
         pub const Registry: i32 = 2;
     };
 
-    pub const PreviewType = enum {
+    pub const PreviewType = enum(i32) {
         pub const PreviewSmall1: i32 = 0;
         pub const PreviewSmall2: i32 = 1;
         pub const PreviewSmall3: i32 = 2;
@@ -1434,14 +1434,14 @@ pub const enums = struct {
         pub const PreviewBig3: i32 = 5;
     };
 
-    pub const EntryEvent = enum {
+    pub const EntryEvent = enum(i32) {
         pub const UnknownEvent: i32 = 0;
         pub const StatusChangedEvent: i32 = 1;
         pub const AdoptedEvent: i32 = 2;
         pub const DetailsLoadedEvent: i32 = 3;
     };
 
-    pub const EntryType = enum {
+    pub const EntryType = enum(i32) {
         pub const CatalogEntry: i32 = 0;
         pub const GroupEntry: i32 = 1;
     };

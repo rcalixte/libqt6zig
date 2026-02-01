@@ -1091,7 +1091,7 @@ pub const kconfig = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kconfig.html#public-types)
 pub const enums = struct {
-    pub const OpenFlag = enum {
+    pub const OpenFlag = enum(i32) {
         pub const IncludeGlobals: i32 = 1;
         pub const CascadeConfig: i32 = 2;
         pub const SimpleConfig: i32 = 0;

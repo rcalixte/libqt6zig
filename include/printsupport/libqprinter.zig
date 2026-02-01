@@ -1504,23 +1504,23 @@ pub const qprinter = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#public-types)
 pub const enums = struct {
-    pub const PrinterMode = enum {
+    pub const PrinterMode = enum(i32) {
         pub const ScreenResolution: i32 = 0;
         pub const PrinterResolution: i32 = 1;
         pub const HighResolution: i32 = 2;
     };
 
-    pub const PageOrder = enum {
+    pub const PageOrder = enum(i32) {
         pub const FirstPageFirst: i32 = 0;
         pub const LastPageFirst: i32 = 1;
     };
 
-    pub const ColorMode = enum {
+    pub const ColorMode = enum(i32) {
         pub const GrayScale: i32 = 0;
         pub const Color: i32 = 1;
     };
 
-    pub const PaperSource = enum {
+    pub const PaperSource = enum(i32) {
         pub const OnlyOne: i32 = 0;
         pub const Lower: i32 = 1;
         pub const Middle: i32 = 2;
@@ -1540,26 +1540,26 @@ pub const enums = struct {
         pub const Upper: i32 = 0;
     };
 
-    pub const PrinterState = enum {
+    pub const PrinterState = enum(i32) {
         pub const Idle: i32 = 0;
         pub const Active: i32 = 1;
         pub const Aborted: i32 = 2;
         pub const Error: i32 = 3;
     };
 
-    pub const OutputFormat = enum {
+    pub const OutputFormat = enum(i32) {
         pub const NativeFormat: i32 = 0;
         pub const PdfFormat: i32 = 1;
     };
 
-    pub const PrintRange = enum {
+    pub const PrintRange = enum(i32) {
         pub const AllPages: i32 = 0;
         pub const Selection: i32 = 1;
         pub const PageRange: i32 = 2;
         pub const CurrentPage: i32 = 3;
     };
 
-    pub const Unit = enum {
+    pub const Unit = enum(i32) {
         pub const Millimeter: i32 = 0;
         pub const Point: i32 = 1;
         pub const Inch: i32 = 2;
@@ -1569,7 +1569,7 @@ pub const enums = struct {
         pub const DevicePixel: i32 = 6;
     };
 
-    pub const DuplexMode = enum {
+    pub const DuplexMode = enum(i32) {
         pub const DuplexNone: i32 = 0;
         pub const DuplexAuto: i32 = 1;
         pub const DuplexLongSide: i32 = 2;

@@ -315,7 +315,7 @@ pub const qaudioformat = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioformat.html#public-types)
 pub const enums = struct {
-    pub const SampleFormat = enum {
+    pub const SampleFormat = enum(u16) {
         pub const Unknown: u16 = 0;
         pub const UInt8: u16 = 1;
         pub const Int16: u16 = 2;
@@ -324,7 +324,7 @@ pub const enums = struct {
         pub const NSampleFormats: u16 = 5;
     };
 
-    pub const AudioChannelPosition = enum {
+    pub const AudioChannelPosition = enum(i32) {
         pub const UnknownPosition: i32 = 0;
         pub const FrontLeft: i32 = 1;
         pub const FrontRight: i32 = 2;
@@ -352,7 +352,7 @@ pub const enums = struct {
         pub const BottomFrontRight: i32 = 24;
     };
 
-    pub const ChannelConfig = enum {
+    pub const ChannelConfig = enum(u32) {
         pub const ChannelConfigUnknown: u32 = 0;
         pub const ChannelConfigMono: u32 = 8;
         pub const ChannelConfigStereo: u32 = 6;

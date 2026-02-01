@@ -527,7 +527,7 @@ pub const qeventpoint = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#public-types)
 pub const enums = struct {
-    pub const State = enum {
+    pub const State = enum(u8) {
         pub const Unknown: u8 = 0;
         pub const Stationary: u8 = 4;
         pub const Pressed: u8 = 1;

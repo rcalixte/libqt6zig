@@ -198,7 +198,7 @@ pub const qgesturerecognizer = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#public-types)
 pub const enums = struct {
-    pub const ResultFlag = enum {
+    pub const ResultFlag = enum(i32) {
         pub const Ignore: i32 = 1;
         pub const MayBeGesture: i32 = 2;
         pub const TriggerGesture: i32 = 4;

@@ -747,7 +747,7 @@ pub const qsvggenerator = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsvggenerator.html#public-types)
 pub const enums = struct {
-    pub const SvgVersion = enum {
+    pub const SvgVersion = enum(i32) {
         pub const SvgTiny12: i32 = 0;
         pub const Svg11: i32 = 1;
     };

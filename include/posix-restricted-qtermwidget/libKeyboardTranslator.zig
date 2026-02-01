@@ -865,7 +865,7 @@ pub const konsole__keyboardtranslator__entry = struct {
 
 /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const enums = struct {
-    pub const State = enum {
+    pub const State = enum(i32) {
         pub const NoState: i32 = 0;
         pub const NewLineState: i32 = 1;
         pub const AnsiState: i32 = 2;
@@ -875,7 +875,7 @@ pub const enums = struct {
         pub const ApplicationKeypadState: i32 = 32;
     };
 
-    pub const Command = enum {
+    pub const Command = enum(i32) {
         pub const NoCommand: i32 = 0;
         pub const SendCommand: i32 = 1;
         pub const ScrollPageUpCommand: i32 = 2;

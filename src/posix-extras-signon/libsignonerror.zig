@@ -128,7 +128,7 @@ pub const signon__error = struct {
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Signonerror.html)
 pub const enums = struct {
-    pub const ErrorType = enum {
+    pub const ErrorType = enum(i32) {
         pub const Unknown: i32 = 1;
         pub const InternalServer: i32 = 2;
         pub const InternalCommunication: i32 = 3;

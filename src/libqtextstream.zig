@@ -933,27 +933,27 @@ pub const qtextstream = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#public-types)
 pub const enums = struct {
-    pub const RealNumberNotation = enum {
+    pub const RealNumberNotation = enum(i32) {
         pub const SmartNotation: i32 = 0;
         pub const FixedNotation: i32 = 1;
         pub const ScientificNotation: i32 = 2;
     };
 
-    pub const FieldAlignment = enum {
+    pub const FieldAlignment = enum(i32) {
         pub const AlignLeft: i32 = 0;
         pub const AlignRight: i32 = 1;
         pub const AlignCenter: i32 = 2;
         pub const AlignAccountingStyle: i32 = 3;
     };
 
-    pub const Status = enum {
+    pub const Status = enum(i32) {
         pub const Ok: i32 = 0;
         pub const ReadPastEnd: i32 = 1;
         pub const ReadCorruptData: i32 = 2;
         pub const WriteFailed: i32 = 3;
     };
 
-    pub const NumberFlag = enum {
+    pub const NumberFlag = enum(i32) {
         pub const ShowBase: i32 = 1;
         pub const ForcePoint: i32 = 2;
         pub const ForceSign: i32 = 4;

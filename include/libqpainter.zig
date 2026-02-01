@@ -3649,7 +3649,7 @@ pub const qpainter__pixmapfragment = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#public-types)
 pub const enums = struct {
-    pub const RenderHint = enum {
+    pub const RenderHint = enum(i32) {
         pub const Antialiasing: i32 = 1;
         pub const TextAntialiasing: i32 = 2;
         pub const SmoothPixmapTransform: i32 = 4;
@@ -3658,11 +3658,11 @@ pub const enums = struct {
         pub const NonCosmeticBrushPatterns: i32 = 128;
     };
 
-    pub const PixmapFragmentHint = enum {
+    pub const PixmapFragmentHint = enum(i32) {
         pub const OpaqueHint: i32 = 1;
     };
 
-    pub const CompositionMode = enum {
+    pub const CompositionMode = enum(i32) {
         pub const CompositionMode_SourceOver: i32 = 0;
         pub const CompositionMode_DestinationOver: i32 = 1;
         pub const CompositionMode_Clear: i32 = 2;

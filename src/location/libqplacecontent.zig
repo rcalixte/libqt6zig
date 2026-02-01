@@ -241,7 +241,7 @@ pub const qplacecontent = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const NoType: i32 = 0;
         pub const ImageType: i32 = 1;
         pub const ReviewType: i32 = 2;
@@ -249,7 +249,7 @@ pub const enums = struct {
         pub const CustomType: i32 = 256;
     };
 
-    pub const DataTag = enum {
+    pub const DataTag = enum(i32) {
         pub const ContentSupplier: i32 = 0;
         pub const ContentUser: i32 = 1;
         pub const ContentAttribution: i32 = 2;

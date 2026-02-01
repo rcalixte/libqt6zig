@@ -21,7 +21,7 @@ pub const qaudio = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudio.html#public-types)
 pub const enums = struct {
-    pub const Error = enum {
+    pub const Error = enum(i32) {
         pub const NoError: i32 = 0;
         pub const OpenError: i32 = 1;
         pub const IOError: i32 = 2;
@@ -29,14 +29,14 @@ pub const enums = struct {
         pub const FatalError: i32 = 4;
     };
 
-    pub const State = enum {
+    pub const State = enum(i32) {
         pub const ActiveState: i32 = 0;
         pub const SuspendedState: i32 = 1;
         pub const StoppedState: i32 = 2;
         pub const IdleState: i32 = 3;
     };
 
-    pub const VolumeScale = enum {
+    pub const VolumeScale = enum(i32) {
         pub const LinearVolumeScale: i32 = 0;
         pub const CubicVolumeScale: i32 = 1;
         pub const LogarithmicVolumeScale: i32 = 2;

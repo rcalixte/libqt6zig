@@ -146,7 +146,7 @@ pub const qsslerror = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#public-types)
 pub const enums = struct {
-    pub const SslError = enum {
+    pub const SslError = enum(i32) {
         pub const NoError: i32 = 0;
         pub const UnableToGetIssuerCertificate: i32 = 1;
         pub const UnableToDecryptCertificateSignature: i32 = 2;

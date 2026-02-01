@@ -595,7 +595,7 @@ pub const signon__identityinfo = struct {
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identityinfo.html)
 pub const enums = struct {
-    pub const CredentialsType = enum {
+    pub const CredentialsType = enum(i32) {
         pub const Other: i32 = 0;
         pub const Application: i32 = 1;
         pub const Web: i32 = 2;

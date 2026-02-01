@@ -4846,14 +4846,34 @@ pub const qfontdialog = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
     ///
     /// ` method: QtC.QMetaMethod `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
     }
 
     /// Inherited from QObject
@@ -4870,10 +4890,30 @@ pub const qfontdialog = struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4890,8 +4930,34 @@ pub const qfontdialog = struct {
     ///
     /// ` member: QtC.QMetaMethod `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFontDialog `
+    ///
+    pub fn Disconnect3(self: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFontDialog `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
     }
 
     /// Inherited from QObject
@@ -4902,8 +4968,8 @@ pub const qfontdialog = struct {
     ///
     /// ` param1: QtC.QMetaObject__Connection `
     ///
-    pub fn Disconnect2(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(param1));
+    pub fn Disconnect5(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect5(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -5120,6 +5186,28 @@ pub const qfontdialog = struct {
     ///
     /// ` sender: QtC.QObject `
     ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    /// ` param5: qnamespace_enums.ConnectionType `
+    ///
+    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @intCast(param5));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` sender: QtC.QObject `
+    ///
     /// ` signal: QtC.QMetaMethod `
     ///
     /// ` receiver: QtC.QObject `
@@ -5128,8 +5216,8 @@ pub const qfontdialog = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
+    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
+        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -5152,6 +5240,75 @@ pub const qfontdialog = struct {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFontDialog `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFontDialog `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+        const signal_Cstring = signal.ptr;
+        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFontDialog `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFontDialog `
+    ///
+    /// ` receiver: QtC.QObject `
+    ///
+    /// ` member: [:0]const u8 `
+    ///
+    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+        const member_Cstring = member.ptr;
+        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -8153,7 +8310,7 @@ pub const qfontdialog = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#public-types)
 pub const enums = struct {
-    pub const FontDialogOption = enum {
+    pub const FontDialogOption = enum(i32) {
         pub const NoButtons: i32 = 1;
         pub const DontUseNativeDialog: i32 = 2;
         pub const ScalableFonts: i32 = 4;

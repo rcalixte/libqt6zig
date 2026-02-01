@@ -244,13 +244,13 @@ pub const kencodingprober = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#public-types)
 pub const enums = struct {
-    pub const ProberState = enum {
+    pub const ProberState = enum(i32) {
         pub const FoundIt: i32 = 0;
         pub const NotMe: i32 = 1;
         pub const Probing: i32 = 2;
     };
 
-    pub const ProberType = enum {
+    pub const ProberType = enum(i32) {
         pub const None: i32 = 0;
         pub const Universal: i32 = 1;
         pub const Arabic: i32 = 2;

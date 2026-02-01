@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://api.kde.org/ksycocatype.html#public-types)
 pub const enums = struct {
-    pub const KSycocaType = enum {
+    pub const KSycocaType = enum(i32) {
         pub const KST_KSycocaEntry: i32 = 0;
         pub const KST_KService: i32 = 1;
         pub const KST_KServiceType: i32 = 2;
@@ -14,7 +14,7 @@ pub const enums = struct {
         pub const KST_KCustom: i32 = 1000;
     };
 
-    pub const KSycocaFactoryId = enum {
+    pub const KSycocaFactoryId = enum(i32) {
         pub const KST_KServiceFactory: i32 = 1;
         pub const KST_KServiceTypeFactory: i32 = 2;
         pub const KST_KServiceGroupFactory: i32 = 3;

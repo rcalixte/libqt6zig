@@ -660,26 +660,26 @@ pub const qvideoframe__paintoptions = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvideoframe.html#public-types)
 pub const enums = struct {
-    pub const HandleType = enum {
+    pub const HandleType = enum(i32) {
         pub const NoHandle: i32 = 0;
         pub const RhiTextureHandle: i32 = 1;
     };
 
-    pub const MapMode = enum {
+    pub const MapMode = enum(i32) {
         pub const NotMapped: i32 = 0;
         pub const ReadOnly: i32 = 1;
         pub const WriteOnly: i32 = 2;
         pub const ReadWrite: i32 = 3;
     };
 
-    pub const RotationAngle = enum {
+    pub const RotationAngle = enum(i32) {
         pub const Rotation0: i32 = 0;
         pub const Rotation90: i32 = 90;
         pub const Rotation180: i32 = 180;
         pub const Rotation270: i32 = 270;
     };
 
-    pub const PaintFlag = enum {
+    pub const PaintFlag = enum(i32) {
         pub const DontDrawSubtitles: i32 = 1;
     };
 };

@@ -515,7 +515,7 @@ pub const kformat = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kformat.html#public-types)
 pub const enums = struct {
-    pub const BinarySizeUnits = enum {
+    pub const BinarySizeUnits = enum(i32) {
         pub const DefaultBinaryUnits: i32 = -1;
         pub const UnitByte: i32 = 0;
         pub const UnitKiloByte: i32 = 1;
@@ -529,7 +529,7 @@ pub const enums = struct {
         pub const UnitLastUnit: i32 = 8;
     };
 
-    pub const Unit = enum {
+    pub const Unit = enum(i32) {
         pub const Other: i32 = 0;
         pub const Bit: i32 = 1;
         pub const Byte: i32 = 2;
@@ -537,7 +537,7 @@ pub const enums = struct {
         pub const Hertz: i32 = 4;
     };
 
-    pub const UnitPrefix = enum {
+    pub const UnitPrefix = enum(i32) {
         pub const AutoAdjust: i32 = -128;
         pub const Yocto: i32 = 0;
         pub const Zepto: i32 = 1;
@@ -562,7 +562,7 @@ pub const enums = struct {
         pub const Yotta: i32 = 20;
     };
 
-    pub const BinaryUnitDialect = enum {
+    pub const BinaryUnitDialect = enum(i32) {
         pub const DefaultBinaryDialect: i32 = -1;
         pub const IECBinaryDialect: i32 = 0;
         pub const JEDECBinaryDialect: i32 = 1;
@@ -570,7 +570,7 @@ pub const enums = struct {
         pub const LastBinaryDialect: i32 = 2;
     };
 
-    pub const DurationFormatOption = enum {
+    pub const DurationFormatOption = enum(i32) {
         pub const DefaultDuration: i32 = 0;
         pub const InitialDuration: i32 = 1;
         pub const ShowMilliseconds: i32 = 2;
@@ -579,7 +579,7 @@ pub const enums = struct {
         pub const AbbreviatedDuration: i32 = 16;
     };
 
-    pub const DistanceFormatOption = enum {
+    pub const DistanceFormatOption = enum(i32) {
         pub const LocaleDistanceUnits: i32 = 0;
         pub const MetricDistanceUnits: i32 = 1;
     };

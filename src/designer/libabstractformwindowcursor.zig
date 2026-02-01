@@ -581,7 +581,7 @@ pub const qdesignerformwindowcursorinterface = struct {
 
 /// ### [Upstream resources](https://api.kde.org/abstractformwindowcursor.html#public-types)
 pub const enums = struct {
-    pub const MoveOperation = enum {
+    pub const MoveOperation = enum(i32) {
         pub const NoMove: i32 = 0;
         pub const Start: i32 = 1;
         pub const End: i32 = 2;
@@ -593,7 +593,7 @@ pub const enums = struct {
         pub const Down: i32 = 8;
     };
 
-    pub const MoveMode = enum {
+    pub const MoveMode = enum(i32) {
         pub const MoveAnchor: i32 = 0;
         pub const KeepAnchor: i32 = 1;
     };

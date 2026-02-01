@@ -1060,7 +1060,7 @@ pub const qnetworkproxyfactory = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxy.html#public-types)
 pub const enums = struct {
-    pub const QueryType = enum {
+    pub const QueryType = enum(i32) {
         pub const TcpSocket: i32 = 0;
         pub const UdpSocket: i32 = 1;
         pub const SctpSocket: i32 = 2;
@@ -1069,7 +1069,7 @@ pub const enums = struct {
         pub const SctpServer: i32 = 102;
     };
 
-    pub const ProxyType = enum {
+    pub const ProxyType = enum(i32) {
         pub const DefaultProxy: i32 = 0;
         pub const Socks5Proxy: i32 = 1;
         pub const NoProxy: i32 = 2;
@@ -1078,7 +1078,7 @@ pub const enums = struct {
         pub const FtpCachingProxy: i32 = 5;
     };
 
-    pub const Capability = enum {
+    pub const Capability = enum(i32) {
         pub const TunnelingCapability: i32 = 1;
         pub const ListeningCapability: i32 = 2;
         pub const UdpTunnelingCapability: i32 = 4;

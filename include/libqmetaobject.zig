@@ -2742,20 +2742,20 @@ pub const qmetaclassinfo = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject.html#public-types)
 pub const enums = struct {
-    pub const Access = enum {
+    pub const Access = enum(i32) {
         pub const Private: i32 = 0;
         pub const Protected: i32 = 1;
         pub const Public: i32 = 2;
     };
 
-    pub const MethodType = enum {
+    pub const MethodType = enum(i32) {
         pub const Method: i32 = 0;
         pub const Signal: i32 = 1;
         pub const Slot: i32 = 2;
         pub const Constructor: i32 = 3;
     };
 
-    pub const Attributes = enum {
+    pub const Attributes = enum(i32) {
         pub const Compatibility: i32 = 1;
         pub const Cloned: i32 = 2;
         pub const Scriptable: i32 = 4;

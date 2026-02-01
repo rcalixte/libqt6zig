@@ -3861,7 +3861,7 @@ pub const qgraphicsscenemoveevent = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#public-types)
 pub const enums = struct {
-    pub const Reason = enum {
+    pub const Reason = enum(i32) {
         pub const Mouse: i32 = 0;
         pub const Keyboard: i32 = 1;
         pub const Other: i32 = 2;

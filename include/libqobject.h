@@ -13,13 +13,6 @@
 extern "C" {
 #endif
 
-// Based on the macro from Qt (LGPLv3), see https://www.qt.io/qt-licensing/
-// Macro is trivial and used here under fair use
-// Usage does not imply derivation
-#ifndef QT_VERSION_CHECK
-#define QT_VERSION_CHECK(major, minor, patch) ((major << 16) | (minor << 8) | (patch))
-#endif
-
 #ifdef __cplusplus
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
 typedef QMetaObject::Connection QMetaObject__Connection;
@@ -64,10 +57,14 @@ libqt_list /* of QObject* */ QObject_Children(const QObject* self);
 void QObject_SetParent(QObject* self, QObject* parent);
 void QObject_InstallEventFilter(QObject* self, QObject* filterObj);
 void QObject_RemoveEventFilter(QObject* self, QObject* obj);
-QMetaObject__Connection* QObject_Connect(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method);
-QMetaObject__Connection* QObject_Connect2(const QObject* self, const QObject* sender, const char* signal, const char* member);
-bool QObject_Disconnect(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* member);
-bool QObject_Disconnect2(const QMetaObject__Connection* param1);
+QMetaObject__Connection* QObject_Connect(const QObject* sender, const char* signal, const QObject* receiver, const char* member);
+QMetaObject__Connection* QObject_Connect2(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method);
+QMetaObject__Connection* QObject_Connect3(const QObject* self, const QObject* sender, const char* signal, const char* member);
+bool QObject_Disconnect(const QObject* sender, const char* signal, const QObject* receiver, const char* member);
+bool QObject_Disconnect2(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* member);
+bool QObject_Disconnect3(const QObject* self);
+bool QObject_Disconnect4(const QObject* self, const QObject* receiver);
+bool QObject_Disconnect5(const QMetaObject__Connection* param1);
 void QObject_DumpObjectTree(const QObject* self);
 void QObject_DumpObjectInfo(const QObject* self);
 bool QObject_SetProperty(QObject* self, const char* name, const QVariant* value);
@@ -89,8 +86,13 @@ libqt_string QObject_Tr2(const char* s, const char* c);
 libqt_string QObject_Tr3(const char* s, const char* c, int n);
 int QObject_StartTimer22(QObject* self, int interval, int timerType);
 int QObject_StartTimer23(QObject* self, int64_t time, int timerType);
-QMetaObject__Connection* QObject_Connect5(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method, int typeVal);
+QMetaObject__Connection* QObject_Connect5(const QObject* sender, const char* signal, const QObject* receiver, const char* member, int param5);
+QMetaObject__Connection* QObject_Connect52(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method, int typeVal);
 QMetaObject__Connection* QObject_Connect4(const QObject* self, const QObject* sender, const char* signal, const char* member, int typeVal);
+bool QObject_Disconnect1(const QObject* self, const char* signal);
+bool QObject_Disconnect22(const QObject* self, const char* signal, const QObject* receiver);
+bool QObject_Disconnect32(const QObject* self, const char* signal, const QObject* receiver, const char* member);
+bool QObject_Disconnect23(const QObject* self, const QObject* receiver, const char* member);
 void QObject_Destroyed1(QObject* self, QObject* param1);
 void QObject_Connect_Destroyed1(QObject* self, intptr_t slot);
 void QObject_OnMetaObject(const QObject* self, intptr_t slot);

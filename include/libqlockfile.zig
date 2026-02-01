@@ -187,7 +187,7 @@ pub const qlockfile = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#public-types)
 pub const enums = struct {
-    pub const LockError = enum {
+    pub const LockError = enum(i32) {
         pub const NoError: i32 = 0;
         pub const LockFailedError: i32 = 1;
         pub const PermissionError: i32 = 2;

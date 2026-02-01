@@ -2819,12 +2819,12 @@ pub const qimage = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#public-types)
 pub const enums = struct {
-    pub const InvertMode = enum {
+    pub const InvertMode = enum(i32) {
         pub const InvertRgb: i32 = 0;
         pub const InvertRgba: i32 = 1;
     };
 
-    pub const Format = enum {
+    pub const Format = enum(i32) {
         pub const Format_Invalid: i32 = 0;
         pub const Format_Mono: i32 = 1;
         pub const Format_MonoLSB: i32 = 2;

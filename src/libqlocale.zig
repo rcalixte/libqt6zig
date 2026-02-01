@@ -2935,7 +2935,7 @@ pub const qlocale = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#public-types)
 pub const enums = struct {
-    pub const Language = enum {
+    pub const Language = enum(u16) {
         pub const AnyLanguage: u16 = 0;
         pub const C: u16 = 1;
         pub const Abkhazian: u16 = 2;
@@ -3305,7 +3305,7 @@ pub const enums = struct {
         pub const LastLanguage: u16 = 346;
     };
 
-    pub const Script = enum {
+    pub const Script = enum(u16) {
         pub const AnyScript: u16 = 0;
         pub const AdlamScript: u16 = 1;
         pub const AhomScript: u16 = 2;
@@ -3457,7 +3457,7 @@ pub const enums = struct {
         pub const LastScript: u16 = 142;
     };
 
-    pub const Country = enum {
+    pub const Country = enum(u16) {
         pub const AnyTerritory: u16 = 0;
         pub const Afghanistan: u16 = 1;
         pub const AlandIslands: u16 = 2;
@@ -3748,20 +3748,20 @@ pub const enums = struct {
         pub const LastCountry: u16 = 261;
     };
 
-    pub const MeasurementSystem = enum {
+    pub const MeasurementSystem = enum(i32) {
         pub const MetricSystem: i32 = 0;
         pub const ImperialUSSystem: i32 = 1;
         pub const ImperialUKSystem: i32 = 2;
         pub const ImperialSystem: i32 = 1;
     };
 
-    pub const FormatType = enum {
+    pub const FormatType = enum(i32) {
         pub const LongFormat: i32 = 0;
         pub const ShortFormat: i32 = 1;
         pub const NarrowFormat: i32 = 2;
     };
 
-    pub const NumberOption = enum {
+    pub const NumberOption = enum(i32) {
         pub const DefaultNumberOptions: i32 = 0;
         pub const OmitGroupSeparator: i32 = 1;
         pub const RejectGroupSeparator: i32 = 2;
@@ -3771,22 +3771,22 @@ pub const enums = struct {
         pub const RejectTrailingZeroesAfterDot: i32 = 32;
     };
 
-    pub const FloatingPointPrecisionOption = enum {
+    pub const FloatingPointPrecisionOption = enum(i32) {
         pub const FloatingPointShortest: i32 = -128;
     };
 
-    pub const TagSeparator = enum {
+    pub const TagSeparator = enum(u8) {
         pub const Dash: u8 = 45;
         pub const Underscore: u8 = 95;
     };
 
-    pub const CurrencySymbolFormat = enum {
+    pub const CurrencySymbolFormat = enum(i32) {
         pub const CurrencyIsoCode: i32 = 0;
         pub const CurrencySymbol: i32 = 1;
         pub const CurrencyDisplayName: i32 = 2;
     };
 
-    pub const DataSizeFormat = enum {
+    pub const DataSizeFormat = enum(i32) {
         pub const DataSizeBase1000: i32 = 1;
         pub const DataSizeSIQuantifiers: i32 = 2;
         pub const DataSizeIecFormat: i32 = 0;
@@ -3794,7 +3794,7 @@ pub const enums = struct {
         pub const DataSizeSIFormat: i32 = 3;
     };
 
-    pub const LanguageCodeType = enum {
+    pub const LanguageCodeType = enum(i32) {
         pub const ISO639Part1: i32 = 1;
         pub const ISO639Part2B: i32 = 2;
         pub const ISO639Part2T: i32 = 4;
@@ -3807,7 +3807,7 @@ pub const enums = struct {
         pub const AnyLanguageCode: i32 = -1;
     };
 
-    pub const QuotationStyle = enum {
+    pub const QuotationStyle = enum(i32) {
         pub const StandardQuotation: i32 = 0;
         pub const AlternateQuotation: i32 = 1;
     };

@@ -295,7 +295,7 @@ pub const qcryptographichash = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcryptographichash.html#public-types)
 pub const enums = struct {
-    pub const Algorithm = enum {
+    pub const Algorithm = enum(i32) {
         pub const Md4: i32 = 0;
         pub const Md5: i32 = 1;
         pub const Sha1: i32 = 2;

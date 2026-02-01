@@ -77,6 +77,9 @@ void KActionCollection_AddActions(KActionCollection* self, const libqt_list /* o
 void KActionCollection_RemoveAction(KActionCollection* self, QAction* action);
 QAction* KActionCollection_TakeAction(KActionCollection* self, QAction* action);
 QAction* KActionCollection_AddAction2(KActionCollection* self, int actionType);
+QAction* KActionCollection_AddAction3(KActionCollection* self, int actionType, const libqt_string name);
+QAction* KActionCollection_AddAction4(KActionCollection* self, int actionType);
+QAction* KActionCollection_AddAction5(KActionCollection* self, const libqt_string name);
 QKeySequence* KActionCollection_DefaultShortcut(QAction* action);
 libqt_list /* of QKeySequence* */ KActionCollection_DefaultShortcuts(QAction* action);
 void KActionCollection_SetDefaultShortcut(QAction* action, const QKeySequence* shortcut);
@@ -88,6 +91,12 @@ void KActionCollection_ExportGlobalShortcuts2(const KActionCollection* self, KCo
 void KActionCollection_WriteSettings1(const KActionCollection* self, KConfigGroup* config);
 void KActionCollection_WriteSettings2(const KActionCollection* self, KConfigGroup* config, bool writeDefaults);
 void KActionCollection_WriteSettings3(const KActionCollection* self, KConfigGroup* config, bool writeDefaults, QAction* oneAction);
+QAction* KActionCollection_AddAction22(KActionCollection* self, int actionType, const QObject* receiver);
+QAction* KActionCollection_AddAction32(KActionCollection* self, int actionType, const QObject* receiver, const char* member);
+QAction* KActionCollection_AddAction33(KActionCollection* self, int actionType, const libqt_string name, const QObject* receiver);
+QAction* KActionCollection_AddAction42(KActionCollection* self, int actionType, const libqt_string name, const QObject* receiver, const char* member);
+QAction* KActionCollection_AddAction23(KActionCollection* self, const libqt_string name, const QObject* receiver);
+QAction* KActionCollection_AddAction34(KActionCollection* self, const libqt_string name, const QObject* receiver, const char* member);
 void KActionCollection_OnMetaObject(const KActionCollection* self, intptr_t slot);
 QMetaObject* KActionCollection_QBaseMetaObject(const KActionCollection* self);
 void KActionCollection_OnMetacast(KActionCollection* self, intptr_t slot);

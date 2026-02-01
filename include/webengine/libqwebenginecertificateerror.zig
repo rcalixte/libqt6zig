@@ -149,7 +149,7 @@ pub const qwebenginecertificateerror = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#public-types)
 pub const enums = struct {
-    pub const Type = enum {
+    pub const Type = enum(i32) {
         pub const SslPinnedKeyNotInCertificateChain: i32 = -150;
         pub const CertificateCommonNameInvalid: i32 = -200;
         pub const CertificateDateInvalid: i32 = -201;

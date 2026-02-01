@@ -17886,13 +17886,13 @@ pub const qdomdocument__parseresult = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdom.html#public-types)
 pub const enums = struct {
-    pub const InvalidDataPolicy = enum {
+    pub const InvalidDataPolicy = enum(i32) {
         pub const AcceptInvalidChars: i32 = 0;
         pub const DropInvalidChars: i32 = 1;
         pub const ReturnNullNode: i32 = 2;
     };
 
-    pub const NodeType = enum {
+    pub const NodeType = enum(i32) {
         pub const ElementNode: i32 = 1;
         pub const AttributeNode: i32 = 2;
         pub const TextNode: i32 = 3;
@@ -17909,12 +17909,12 @@ pub const enums = struct {
         pub const CharacterDataNode: i32 = 22;
     };
 
-    pub const EncodingPolicy = enum {
+    pub const EncodingPolicy = enum(i32) {
         pub const EncodingFromDocument: i32 = 1;
         pub const EncodingFromTextStream: i32 = 2;
     };
 
-    pub const ParseOption = enum {
+    pub const ParseOption = enum(i32) {
         pub const Default: i32 = 0;
         pub const UseNamespaceProcessing: i32 = 1;
         pub const PreserveSpacingOnlyNodes: i32 = 2;

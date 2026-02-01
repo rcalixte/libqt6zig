@@ -281,7 +281,7 @@ pub const ktexteditor__documentcursor = struct {
 
 /// ### [Upstream resources](https://api.kde.org/documentcursor.html#public-types)
 pub const enums = struct {
-    pub const WrapBehavior = enum {
+    pub const WrapBehavior = enum(i32) {
         pub const Wrap: i32 = 0;
         pub const NoWrap: i32 = 1;
     };

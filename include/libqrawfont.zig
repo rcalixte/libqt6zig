@@ -693,12 +693,12 @@ pub const qrawfont = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#public-types)
 pub const enums = struct {
-    pub const AntialiasingType = enum {
+    pub const AntialiasingType = enum(i32) {
         pub const PixelAntialiasing: i32 = 0;
         pub const SubPixelAntialiasing: i32 = 1;
     };
 
-    pub const LayoutFlag = enum {
+    pub const LayoutFlag = enum(i32) {
         pub const SeparateAdvances: i32 = 0;
         pub const KernedAdvances: i32 = 1;
         pub const UseDesignMetrics: i32 = 2;

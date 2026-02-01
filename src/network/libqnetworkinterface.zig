@@ -534,13 +534,13 @@ pub const qnetworkinterface = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#public-types)
 pub const enums = struct {
-    pub const DnsEligibilityStatus = enum {
+    pub const DnsEligibilityStatus = enum(i8) {
         pub const DnsEligibilityUnknown: i8 = -1;
         pub const DnsIneligible: i8 = 0;
         pub const DnsEligible: i8 = 1;
     };
 
-    pub const InterfaceFlag = enum {
+    pub const InterfaceFlag = enum(i32) {
         pub const IsUp: i32 = 1;
         pub const IsRunning: i32 = 2;
         pub const CanBroadcast: i32 = 4;
@@ -549,7 +549,7 @@ pub const enums = struct {
         pub const CanMulticast: i32 = 32;
     };
 
-    pub const InterfaceType = enum {
+    pub const InterfaceType = enum(i32) {
         pub const Loopback: i32 = 1;
         pub const Virtual: i32 = 2;
         pub const Ethernet: i32 = 3;

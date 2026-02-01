@@ -971,7 +971,7 @@ pub const qsslconfiguration = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#public-types)
 pub const enums = struct {
-    pub const NextProtocolNegotiationStatus = enum {
+    pub const NextProtocolNegotiationStatus = enum(i32) {
         pub const NextProtocolNegotiationNone: i32 = 0;
         pub const NextProtocolNegotiationNegotiated: i32 = 1;
         pub const NextProtocolNegotiationUnsupported: i32 = 2;

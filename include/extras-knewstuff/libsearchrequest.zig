@@ -332,14 +332,14 @@ pub const knscore__searchrequest = struct {
 
 /// ### [Upstream resources](https://api.kde.org/knscore-searchrequest.html#public-types)
 pub const enums = struct {
-    pub const SortMode = enum {
+    pub const SortMode = enum(i32) {
         pub const Newest: i32 = 0;
         pub const Alphabetical: i32 = 1;
         pub const Rating: i32 = 2;
         pub const Downloads: i32 = 3;
     };
 
-    pub const Filter = enum {
+    pub const Filter = enum(i32) {
         pub const None: i32 = 0;
         pub const Installed: i32 = 1;
         pub const Updates: i32 = 2;

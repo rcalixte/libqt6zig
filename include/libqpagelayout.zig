@@ -537,7 +537,7 @@ pub const qpagelayout = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpagelayout.html#public-types)
 pub const enums = struct {
-    pub const Unit = enum {
+    pub const Unit = enum(i32) {
         pub const Millimeter: i32 = 0;
         pub const Point: i32 = 1;
         pub const Inch: i32 = 2;
@@ -546,17 +546,17 @@ pub const enums = struct {
         pub const Cicero: i32 = 5;
     };
 
-    pub const Orientation = enum {
+    pub const Orientation = enum(i32) {
         pub const Portrait: i32 = 0;
         pub const Landscape: i32 = 1;
     };
 
-    pub const Mode = enum {
+    pub const Mode = enum(i32) {
         pub const StandardMode: i32 = 0;
         pub const FullPageMode: i32 = 1;
     };
 
-    pub const OutOfBoundsPolicy = enum {
+    pub const OutOfBoundsPolicy = enum(i32) {
         pub const Reject: i32 = 0;
         pub const Clamp: i32 = 1;
     };

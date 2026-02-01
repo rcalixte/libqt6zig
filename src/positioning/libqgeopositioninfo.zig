@@ -185,7 +185,7 @@ pub const qgeopositioninfo = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html#public-types)
 pub const enums = struct {
-    pub const Attribute = enum {
+    pub const Attribute = enum(i32) {
         pub const Direction: i32 = 0;
         pub const GroundSpeed: i32 = 1;
         pub const VerticalSpeed: i32 = 2;

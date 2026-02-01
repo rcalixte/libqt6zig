@@ -1,6 +1,7 @@
 #include <QHostAddress>
 #include <QHostInfo>
 #include <QList>
+#include <QObject>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
@@ -99,6 +100,11 @@ void QHostInfo_SetLookupId(QHostInfo* self, int id) {
 
 int QHostInfo_LookupId(const QHostInfo* self) {
     return self->lookupId();
+}
+
+int QHostInfo_LookupHost(const libqt_string name, const QObject* receiver, const char* member) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return QHostInfo::lookupHost(name_QString, receiver, member);
 }
 
 void QHostInfo_AbortHostLookup(int lookupId) {

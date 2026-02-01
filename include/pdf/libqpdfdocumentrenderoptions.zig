@@ -175,14 +175,14 @@ pub const qpdfdocumentrenderoptions = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#public-types)
 pub const enums = struct {
-    pub const Rotation = enum {
+    pub const Rotation = enum(i32) {
         pub const None: i32 = 0;
         pub const Clockwise90: i32 = 1;
         pub const Clockwise180: i32 = 2;
         pub const Clockwise270: i32 = 3;
     };
 
-    pub const RenderFlag = enum {
+    pub const RenderFlag = enum(i32) {
         pub const None: i32 = 0;
         pub const Annotations: i32 = 1;
         pub const OptimizedForLcd: i32 = 2;

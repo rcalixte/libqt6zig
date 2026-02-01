@@ -992,7 +992,7 @@ pub const kstandardshortcut = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#public-types)
 pub const enums = struct {
-    pub const StandardShortcut = enum {
+    pub const StandardShortcut = enum(i32) {
         pub const AccelNone: i32 = 0;
         pub const Open: i32 = 1;
         pub const New: i32 = 2;
@@ -1081,7 +1081,7 @@ pub const enums = struct {
         pub const StandardShortcutCount: i32 = 85;
     };
 
-    pub const Category = enum {
+    pub const Category = enum(i32) {
         pub const InvalidCategory: i32 = -1;
         pub const File: i32 = 0;
         pub const Edit: i32 = 1;

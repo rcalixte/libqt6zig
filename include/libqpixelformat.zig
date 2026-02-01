@@ -423,7 +423,7 @@ pub const qpixelformat = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#public-types)
 pub const enums = struct {
-    pub const ColorModel = enum {
+    pub const ColorModel = enum(i32) {
         pub const RGB: i32 = 0;
         pub const BGR: i32 = 1;
         pub const Indexed: i32 = 2;
@@ -435,29 +435,29 @@ pub const enums = struct {
         pub const Alpha: i32 = 8;
     };
 
-    pub const AlphaUsage = enum {
+    pub const AlphaUsage = enum(i32) {
         pub const UsesAlpha: i32 = 0;
         pub const IgnoresAlpha: i32 = 1;
     };
 
-    pub const AlphaPosition = enum {
+    pub const AlphaPosition = enum(i32) {
         pub const AtBeginning: i32 = 0;
         pub const AtEnd: i32 = 1;
     };
 
-    pub const AlphaPremultiplied = enum {
+    pub const AlphaPremultiplied = enum(i32) {
         pub const NotPremultiplied: i32 = 0;
         pub const Premultiplied: i32 = 1;
     };
 
-    pub const TypeInterpretation = enum {
+    pub const TypeInterpretation = enum(i32) {
         pub const UnsignedInteger: i32 = 0;
         pub const UnsignedShort: i32 = 1;
         pub const UnsignedByte: i32 = 2;
         pub const FloatingPoint: i32 = 3;
     };
 
-    pub const YUVLayout = enum {
+    pub const YUVLayout = enum(i32) {
         pub const YUV444: i32 = 0;
         pub const YUV422: i32 = 1;
         pub const YUV411: i32 = 2;
@@ -476,7 +476,7 @@ pub const enums = struct {
         pub const Y16: i32 = 15;
     };
 
-    pub const ByteOrder = enum {
+    pub const ByteOrder = enum(i32) {
         pub const LittleEndian: i32 = 0;
         pub const BigEndian: i32 = 1;
         pub const CurrentSystemEndian: i32 = 2;

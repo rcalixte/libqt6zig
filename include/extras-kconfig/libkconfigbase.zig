@@ -189,7 +189,7 @@ pub const kconfigbase = struct {
 
 /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#public-types)
 pub const enums = struct {
-    pub const WriteConfigFlag = enum {
+    pub const WriteConfigFlag = enum(i32) {
         pub const Persistent: i32 = 1;
         pub const Global: i32 = 2;
         pub const Localized: i32 = 4;
@@ -197,7 +197,7 @@ pub const enums = struct {
         pub const Normal: i32 = 1;
     };
 
-    pub const AccessMode = enum {
+    pub const AccessMode = enum(i32) {
         pub const NoAccess: i32 = 0;
         pub const ReadOnly: i32 = 1;
         pub const ReadWrite: i32 = 2;

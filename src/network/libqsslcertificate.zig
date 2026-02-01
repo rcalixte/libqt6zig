@@ -865,7 +865,7 @@ pub const qsslcertificate = struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html#public-types)
 pub const enums = struct {
-    pub const SubjectInfo = enum {
+    pub const SubjectInfo = enum(i32) {
         pub const Organization: i32 = 0;
         pub const CommonName: i32 = 1;
         pub const LocalityName: i32 = 2;
@@ -877,7 +877,7 @@ pub const enums = struct {
         pub const EmailAddress: i32 = 8;
     };
 
-    pub const PatternSyntax = enum {
+    pub const PatternSyntax = enum(i32) {
         pub const RegularExpression: i32 = 0;
         pub const Wildcard: i32 = 1;
         pub const FixedString: i32 = 2;
