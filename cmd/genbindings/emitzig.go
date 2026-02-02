@@ -1955,7 +1955,7 @@ func emitZig(src *CppParsedHeader, headerName, packageName string) (string, map[
 		return "", nil, nil, nil
 	}
 
-	ret := strings.Builder{}
+	ret.Reset()
 
 	srcFilename := filepath.Base(src.Filename)
 	zigIncs := map[string]string{}
@@ -2334,7 +2334,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				if _, ok := noQtConnect[cmdStructName]; ok {
 					addConnect = false
 				}
-				if _, ok := skipQtConnect[cmdStructName+"_"+m.MethodName]; ok {
+				if slices.Contains(unmatchedQtConnect, cmdStructName+"_"+mSafeMethodName) {
 					addConnect = false
 				}
 

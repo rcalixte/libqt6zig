@@ -260,6 +260,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebEngineWidgets"),
 		},
 
+		// Qt 6 WebSockets
+		// Depends on Qt Core
+		{
+			path: "websockets",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebSockets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebSockets"),
+		},
+
 		// extras
 
 		// KArchive
