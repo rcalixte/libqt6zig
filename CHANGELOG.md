@@ -1,4 +1,8 @@
 
+### 6.8.2 rev56 (2 February 2026)
+
+* Add [Qt WebSockets](https://doc.qt.io/qt-6/qtwebsockets-index.html) (#112)
+
 ### 6.8.2 rev55 (1 February 2026)
 
 * **BREAKING CHANGES:**
