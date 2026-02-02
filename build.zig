@@ -340,6 +340,8 @@ const qt_modules = &.{
     // Qt 6 WebEngine
     "QtWebEngineCore",
     "QtWebEngineWidgets",
+    // Qt 6 WebSockets
+    "QtWebSockets",
     // Qt 6 XML
     "QtXml",
     // Qt 6 KArchive
