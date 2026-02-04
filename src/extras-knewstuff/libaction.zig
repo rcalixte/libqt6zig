@@ -184,9 +184,9 @@ pub const knswidgets__action = struct {
     ///
     /// ` self: QtC.KNSWidgets__Action `
     ///
-    /// ` callback: *const fn (self: QtC.KNSWidgets__Action, changedEntries: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSWidgets__Action, changedEntries: qtc.libqt_list ([]QtC.KNSCore__Entry)) callconv(.c) void `
     ///
-    pub fn OnDialogFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
+    pub fn OnDialogFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KNSWidgets__Action_Connect_DialogFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

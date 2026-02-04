@@ -189,11 +189,11 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHistoryItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetHistoryItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("khistorycombobox.SetHistoryItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -215,13 +215,13 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` setCompletionList: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHistoryItems2(self: ?*anyopaque, items: [][]const u8, setCompletionList: bool, allocator: std.mem.Allocator) void {
+    pub fn SetHistoryItems2(self: ?*anyopaque, items: []const []const u8, setCompletionList: bool, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("khistorycombobox.SetHistoryItems2: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -245,7 +245,7 @@ pub const khistorycombobox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HistoryItems(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn HistoryItems(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KHistoryComboBox_HistoryItems(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -424,11 +424,11 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn InsertItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("khistorycombobox.InsertItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -452,9 +452,9 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBox, items: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, items: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnInsertItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnInsertItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KHistoryComboBox_OnInsertItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -466,11 +466,11 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseInsertItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn QBaseInsertItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("khistorycombobox.InsertItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -1660,11 +1660,11 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` texts: [][]const u8 `
+    /// ` texts: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItems(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn AddItems(self: ?*anyopaque, texts: []const []const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("khistorycombobox.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
@@ -7438,13 +7438,13 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` autoSuggest: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn SetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("khistorycombobox.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -7470,13 +7470,13 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` autoSuggest: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("khistorycombobox.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -7502,9 +7502,9 @@ pub const khistorycombobox = struct {
     ///
     /// ` self: QtC.KHistoryComboBox`
     ///
-    /// ` callback: *const fn (self: QtC.KHistoryComboBox, items: [*][*:0]const u8, autoSuggest: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KHistoryComboBox, items: ?[*:null]?[*:0]const u8, autoSuggest: bool) callconv(.c) void `
     ///
-    pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8, bool) callconv(.c) void) void {
+    pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
         qtc.KHistoryComboBox_OnSetCompletedItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

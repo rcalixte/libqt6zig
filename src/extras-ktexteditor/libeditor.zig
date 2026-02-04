@@ -322,7 +322,7 @@ pub const ktexteditor__editor = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CommandList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn CommandList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Editor_CommandList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -471,11 +471,11 @@ pub const ktexteditor__editor = struct {
     ///
     /// ` widgets: []QtC.QWidget `
     ///
-    /// ` variables: [][]const u8 `
+    /// ` variables: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddVariableExpansion2(self: ?*anyopaque, widgets: []?*anyopaque, variables: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn AddVariableExpansion2(self: ?*anyopaque, widgets: []?*anyopaque, variables: []const []const u8, allocator: std.mem.Allocator) void {
         const widgets_list = qtc.libqt_list{
             .len = widgets.len,
             .data = @ptrCast(widgets.ptr),

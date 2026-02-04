@@ -274,11 +274,11 @@ pub const knscore__question = struct {
     ///
     /// ` self: QtC.KNSCore__Question `
     ///
-    /// ` newList: [][]const u8 `
+    /// ` newList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetList(self: ?*anyopaque, newList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetList(self: ?*anyopaque, newList: []const []const u8, allocator: std.mem.Allocator) void {
         var newList_arr = allocator.alloc(qtc.libqt_string, newList.len) catch @panic("knscore__question.SetList: Memory allocation failed");
         defer allocator.free(newList_arr);
         for (newList, 0..newList.len) |item, i| {
@@ -302,7 +302,7 @@ pub const knscore__question = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn List(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn List(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Question_List(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

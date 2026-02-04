@@ -66,11 +66,11 @@ pub const klocalizedstring = struct {
     ///
     /// ` self: QtC.KLocalizedString `
     ///
-    /// ` languages: [][]const u8 `
+    /// ` languages: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString2(self: ?*anyopaque, languages: [][]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString2(self: ?*anyopaque, languages: []const []const u8, allocator: std.mem.Allocator) []const u8 {
         var languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("klocalizedstring.ToString2: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i| {
@@ -133,11 +133,11 @@ pub const klocalizedstring = struct {
     ///
     /// ` self: QtC.KLocalizedString `
     ///
-    /// ` languages: [][]const u8 `
+    /// ` languages: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WithLanguages(self: ?*anyopaque, languages: [][]const u8, allocator: std.mem.Allocator) QtC.KLocalizedString {
+    pub fn WithLanguages(self: ?*anyopaque, languages: []const []const u8, allocator: std.mem.Allocator) QtC.KLocalizedString {
         var languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("klocalizedstring.WithLanguages: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i| {
@@ -394,7 +394,7 @@ pub const klocalizedstring = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Languages(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Languages(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KLocalizedString_Languages();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -417,11 +417,11 @@ pub const klocalizedstring = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` languages: [][]const u8 `
+    /// ` languages: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetLanguages(languages: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetLanguages(languages: []const []const u8, allocator: std.mem.Allocator) void {
         var languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("klocalizedstring.SetLanguages: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i| {

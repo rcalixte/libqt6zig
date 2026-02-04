@@ -240,7 +240,7 @@ pub const qgeoserviceprovider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableServiceProviders(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableServiceProviders(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QGeoServiceProvider_AvailableServiceProviders();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

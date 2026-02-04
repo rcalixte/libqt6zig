@@ -212,11 +212,11 @@ pub const knewfilemenu = struct {
     ///
     /// ` self: QtC.KNewFileMenu `
     ///
-    /// ` mime: [][]const u8 `
+    /// ` mime: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSupportedMimeTypes(self: ?*anyopaque, mime: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetSupportedMimeTypes(self: ?*anyopaque, mime: []const []const u8, allocator: std.mem.Allocator) void {
         var mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("knewfilemenu.SetSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mime_arr);
         for (mime, 0..mime.len) |item, i| {
@@ -240,7 +240,7 @@ pub const knewfilemenu = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNewFileMenu_SupportedMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2993,9 +2993,13 @@ pub const knewfilemenu = struct {
     ///
     /// ` self: QtC.KNewFileMenu`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QWidget `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QWidget) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QWidget `
+    ///
+    pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KNewFileMenu_OnCreatedWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

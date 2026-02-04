@@ -1325,11 +1325,11 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` labels: [][]const u8 `
+    /// ` labels: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetVerticalHeaderLabels(self: ?*anyopaque, labels: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetVerticalHeaderLabels(self: ?*anyopaque, labels: []const []const u8, allocator: std.mem.Allocator) void {
         var labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qtablewidget.SetVerticalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i| {
@@ -1351,11 +1351,11 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` labels: [][]const u8 `
+    /// ` labels: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHorizontalHeaderLabels(self: ?*anyopaque, labels: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetHorizontalHeaderLabels(self: ?*anyopaque, labels: []const []const u8, allocator: std.mem.Allocator) void {
         var labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qtablewidget.SetHorizontalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i| {
@@ -2246,7 +2246,7 @@ pub const qtablewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTableWidget_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2291,7 +2291,7 @@ pub const qtablewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTableWidget_QBaseMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2334,9 +2334,9 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, items: [*]QtC.QTableWidgetItem) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: QtC.QTableWidget, items: qtc.libqt_list ([]QtC.QTableWidgetItem)) callconv(.c) QtC.QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) QtC.QMimeData) void {
+    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
         qtc.QTableWidget_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -10010,9 +10010,13 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QTableWidget_OnSelectedIndexes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -10746,9 +10750,9 @@ pub const qtablewidget = struct {
     ///
     /// ` self: QtC.QTableWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTableWidget, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTableWidget, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QTableWidget_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

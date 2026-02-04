@@ -619,11 +619,11 @@ pub const qwebengineprofile = struct {
     ///
     /// ` self: QtC.QWebEngineProfile `
     ///
-    /// ` languages: [][]const u8 `
+    /// ` languages: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSpellCheckLanguages(self: ?*anyopaque, languages: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetSpellCheckLanguages(self: ?*anyopaque, languages: []const []const u8, allocator: std.mem.Allocator) void {
         var languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("qwebengineprofile.SetSpellCheckLanguages: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i| {
@@ -647,7 +647,7 @@ pub const qwebengineprofile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SpellCheckLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SpellCheckLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QWebEngineProfile_SpellCheckLanguages(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

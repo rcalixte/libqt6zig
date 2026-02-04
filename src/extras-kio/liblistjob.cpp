@@ -49,7 +49,7 @@ void KIO__ListJob_Entries(KIO__ListJob* self, KIO__Job* job, const libqt_list /*
 }
 
 void KIO__ListJob_Connect_Entries(KIO__ListJob* self, intptr_t slot) {
-    void (*slotFunc)(KIO__ListJob*, KIO__Job*, KIO__UDSEntry**) = reinterpret_cast<void (*)(KIO__ListJob*, KIO__Job*, KIO__UDSEntry**)>(slot);
+    void (*slotFunc)(KIO__ListJob*, KIO__Job*, libqt_list /* of KIO__UDSEntry* */) = reinterpret_cast<void (*)(KIO__ListJob*, KIO__Job*, libqt_list /* of KIO__UDSEntry* */)>(slot);
     KIO::ListJob::connect(self, &KIO::ListJob::entries, [self, slotFunc](KIO::Job* job, const QList<KIO::UDSEntry>& list) {
         KIO__Job* sigval1 = job;
         const QList<KIO::UDSEntry>& list_ret = list;
@@ -58,9 +58,10 @@ void KIO__ListJob_Connect_Entries(KIO__ListJob* self, intptr_t slot) {
         for (qsizetype i = 0; i < list_ret.size(); ++i) {
             list_arr[i] = new KIO::UDSEntry(list_ret[i]);
         }
-        // Append sentinel value to the list
-        list_arr[list_ret.size()] = nullptr;
-        KIO__UDSEntry** sigval2 = list_arr;
+        libqt_list list_out;
+        list_out.len = list_ret.size();
+        list_out.data = static_cast<void*>(list_arr);
+        libqt_list /* of KIO__UDSEntry* */ sigval2 = list_out;
         slotFunc(self, sigval1, sigval2);
         free(list_arr);
     });

@@ -154,7 +154,7 @@ pub const kcompletion = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubstringCompletion(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SubstringCompletion(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
@@ -235,7 +235,7 @@ pub const kcompletion = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletion_Items(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -440,7 +440,7 @@ pub const kcompletion = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllMatches(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllMatches(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -469,7 +469,7 @@ pub const kcompletion = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllMatches2(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllMatches2(self: ?*anyopaque, stringVal: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
@@ -678,11 +678,11 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn InsertItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletion.InsertItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -704,11 +704,11 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` itemList: [][]const u8 `
+    /// ` itemList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItems(self: ?*anyopaque, itemList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetItems(self: ?*anyopaque, itemList: []const []const u8, allocator: std.mem.Allocator) void {
         var itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("kcompletion.SetItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
         for (itemList, 0..itemList.len) |item, i| {
@@ -732,9 +732,9 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KCompletion, itemList: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletion, itemList: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnSetItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_OnSetItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -746,11 +746,11 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` itemList: [][]const u8 `
+    /// ` itemList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetItems(self: ?*anyopaque, itemList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetItems(self: ?*anyopaque, itemList: []const []const u8, allocator: std.mem.Allocator) void {
         var itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("kcompletion.SetItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
         for (itemList, 0..itemList.len) |item, i| {
@@ -886,11 +886,11 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` matchlist: [][]const u8 `
+    /// ` matchlist: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Matches(self: ?*anyopaque, matchlist: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn Matches(self: ?*anyopaque, matchlist: []const []const u8, allocator: std.mem.Allocator) void {
         var matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("kcompletion.Matches: Memory allocation failed");
         defer allocator.free(matchlist_arr);
         for (matchlist, 0..matchlist.len) |item, i| {
@@ -912,9 +912,9 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KCompletion, matchlist: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletion, matchlist: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_Connect_Matches(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -946,11 +946,11 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` matchList: [][]const u8 `
+    /// ` matchList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PostProcessMatches(self: ?*anyopaque, matchList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn PostProcessMatches(self: ?*anyopaque, matchList: []const []const u8, allocator: std.mem.Allocator) void {
         var matchList_arr = allocator.alloc(qtc.libqt_string, matchList.len) catch @panic("kcompletion.PostProcessMatches: Memory allocation failed");
         defer allocator.free(matchList_arr);
         for (matchList, 0..matchList.len) |item, i| {
@@ -974,9 +974,9 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` callback: *const fn (self: QtC.KCompletion, matchList: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletion, matchList: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPostProcessMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnPostProcessMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KCompletion_OnPostProcessMatches(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -988,11 +988,11 @@ pub const kcompletion = struct {
     ///
     /// ` self: QtC.KCompletion `
     ///
-    /// ` matchList: [][]const u8 `
+    /// ` matchList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBasePostProcessMatches(self: ?*anyopaque, matchList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn QBasePostProcessMatches(self: ?*anyopaque, matchList: []const []const u8, allocator: std.mem.Allocator) void {
         var matchList_arr = allocator.alloc(qtc.libqt_string, matchList.len) catch @panic("kcompletion.PostProcessMatches: Memory allocation failed");
         defer allocator.free(matchList_arr);
         for (matchList, 0..matchList.len) |item, i| {

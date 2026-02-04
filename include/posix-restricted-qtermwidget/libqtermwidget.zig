@@ -695,11 +695,11 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` environment: [][]const u8 `
+    /// ` environment: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetEnvironment(self: ?*anyopaque, environment: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetEnvironment(self: ?*anyopaque, environment: []const []const u8, allocator: std.mem.Allocator) void {
         var environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qtermwidget.SetEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
         for (environment, 0..environment.len) |item, i| {
@@ -723,9 +723,9 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidget, environment: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, environment: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetEnvironment(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnSetEnvironment(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSetEnvironment(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -737,11 +737,11 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` environment: [][]const u8 `
+    /// ` environment: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetEnvironment(self: ?*anyopaque, environment: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetEnvironment(self: ?*anyopaque, environment: []const []const u8, allocator: std.mem.Allocator) void {
         var environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qtermwidget.SetEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
         for (environment, 0..environment.len) |item, i| {
@@ -909,11 +909,11 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` args: [][]const u8 `
+    /// ` args: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetArgs(self: ?*anyopaque, args: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetArgs(self: ?*anyopaque, args: []const []const u8, allocator: std.mem.Allocator) void {
         var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("qtermwidget.SetArgs: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
@@ -937,9 +937,9 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidget, args: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTermWidget, args: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetArgs(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnSetArgs(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.QTermWidget_OnSetArgs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -951,11 +951,11 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` args: [][]const u8 `
+    /// ` args: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetArgs(self: ?*anyopaque, args: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetArgs(self: ?*anyopaque, args: []const []const u8, allocator: std.mem.Allocator) void {
         var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("qtermwidget.SetArgs: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
@@ -1027,7 +1027,7 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidget_GetAvailableColorSchemes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1072,7 +1072,7 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseGetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseGetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidget_QBaseGetAvailableColorSchemes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1097,7 +1097,7 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableColorSchemes(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableColorSchemes(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidget_AvailableColorSchemes();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1492,7 +1492,7 @@ pub const qtermwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableKeyBindings(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableKeyBindings(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidget_AvailableKeyBindings();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2114,9 +2114,13 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidget, position: QtC.QPoint) callconv(.c) [*:null]QtC.QAction `
+    /// ` callback: *const fn (self: QtC.QTermWidget, position: QtC.QPoint) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnFilterActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QAction) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QAction `
+    ///
+    pub fn OnFilterActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.QTermWidget_OnFilterActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -88,7 +88,7 @@ pub const ksambashare = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SharedDirectories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SharedDirectories(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSambaShare_SharedDirectories(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -131,7 +131,7 @@ pub const ksambashare = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ShareNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ShareNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSambaShare_ShareNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

@@ -20,7 +20,7 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
     using KIO__DndPopupMenuPlugin_MetaObject_Callback = QMetaObject* (*)();
     using KIO__DndPopupMenuPlugin_Metacast_Callback = void* (*)(KIO__DndPopupMenuPlugin*, const char*);
     using KIO__DndPopupMenuPlugin_Metacall_Callback = int (*)(KIO__DndPopupMenuPlugin*, int, int, void**);
-    using KIO__DndPopupMenuPlugin_Setup_Callback = QAction** (*)(KIO__DndPopupMenuPlugin*, KFileItemListProperties*, QUrl*);
+    using KIO__DndPopupMenuPlugin_Setup_Callback = libqt_list /* of QAction* */ (*)(KIO__DndPopupMenuPlugin*, KFileItemListProperties*, QUrl*);
     using KIO__DndPopupMenuPlugin_Event_Callback = bool (*)(KIO__DndPopupMenuPlugin*, QEvent*);
     using KIO__DndPopupMenuPlugin_EventFilter_Callback = bool (*)(KIO__DndPopupMenuPlugin*, QObject*, QEvent*);
     using KIO__DndPopupMenuPlugin_TimerEvent_Callback = void (*)(KIO__DndPopupMenuPlugin*, QTimerEvent*);
@@ -178,13 +178,14 @@ class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&destination_ret);
 
-            QAction** callback_ret = kio__dndpopupmenuplugin_setup_callback(this, cbval1, cbval2);
+            libqt_list /* of QAction* */ callback_ret = kio__dndpopupmenuplugin_setup_callback(this, cbval1, cbval2);
             QList<QAction*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QAction** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};

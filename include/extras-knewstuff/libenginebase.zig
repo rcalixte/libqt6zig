@@ -161,7 +161,7 @@ pub const knscore__enginebase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableConfigFiles(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableConfigFiles(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_AvailableConfigFiles();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -298,7 +298,7 @@ pub const knscore__enginebase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_Categories(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -408,11 +408,11 @@ pub const knscore__enginebase = struct {
     ///
     /// ` self: QtC.KNSCore__EngineBase `
     ///
-    /// ` filter: [][]const u8 `
+    /// ` filter: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetTagFilter(self: ?*anyopaque, filter: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetTagFilter(self: ?*anyopaque, filter: []const []const u8, allocator: std.mem.Allocator) void {
         var filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("knscore__enginebase.SetTagFilter: Memory allocation failed");
         defer allocator.free(filter_arr);
         for (filter, 0..filter.len) |item, i| {
@@ -436,7 +436,7 @@ pub const knscore__enginebase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn TagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_TagFilter(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -477,11 +477,11 @@ pub const knscore__enginebase = struct {
     ///
     /// ` self: QtC.KNSCore__EngineBase `
     ///
-    /// ` filter: [][]const u8 `
+    /// ` filter: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetDownloadTagFilter(self: ?*anyopaque, filter: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetDownloadTagFilter(self: ?*anyopaque, filter: []const []const u8, allocator: std.mem.Allocator) void {
         var filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("knscore__enginebase.SetDownloadTagFilter: Memory allocation failed");
         defer allocator.free(filter_arr);
         for (filter, 0..filter.len) |item, i| {
@@ -505,7 +505,7 @@ pub const knscore__enginebase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DownloadTagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DownloadTagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_DownloadTagFilter(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -598,7 +598,7 @@ pub const knscore__enginebase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProviderIDs(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ProviderIDs(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_ProviderIDs(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

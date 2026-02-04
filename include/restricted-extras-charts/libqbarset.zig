@@ -1062,9 +1062,9 @@ pub const qbarset = struct {
     ///
     /// ` self: QtC.QBarSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBarSet, indexes: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBarSet, indexes: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnSelectedBarsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnSelectedBarsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QBarSet_Connect_SelectedBarsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -440,7 +440,7 @@ pub const kpluginmetadata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KPluginMetaData_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -483,7 +483,7 @@ pub const kpluginmetadata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FormFactors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn FormFactors(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KPluginMetaData_FormFactors(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -578,11 +578,11 @@ pub const kpluginmetadata = struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` defaultValue: [][]const u8 `
+    /// ` defaultValue: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value8(self: ?*anyopaque, key: []const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Value8(self: ?*anyopaque, key: []const u8, defaultValue: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

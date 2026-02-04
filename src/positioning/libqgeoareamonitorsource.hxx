@@ -27,8 +27,8 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
     using QGeoAreaMonitorSource_StartMonitoring_Callback = bool (*)(QGeoAreaMonitorSource*, QGeoAreaMonitorInfo*);
     using QGeoAreaMonitorSource_StopMonitoring_Callback = bool (*)(QGeoAreaMonitorSource*, QGeoAreaMonitorInfo*);
     using QGeoAreaMonitorSource_RequestUpdate_Callback = bool (*)(QGeoAreaMonitorSource*, QGeoAreaMonitorInfo*, const char*);
-    using QGeoAreaMonitorSource_ActiveMonitors_Callback = QGeoAreaMonitorInfo** (*)();
-    using QGeoAreaMonitorSource_ActiveMonitors2_Callback = QGeoAreaMonitorInfo** (*)(const QGeoAreaMonitorSource*, QGeoShape*);
+    using QGeoAreaMonitorSource_ActiveMonitors_Callback = libqt_list /* of QGeoAreaMonitorInfo* */ (*)();
+    using QGeoAreaMonitorSource_ActiveMonitors2_Callback = libqt_list /* of QGeoAreaMonitorInfo* */ (*)(const QGeoAreaMonitorSource*, QGeoShape*);
     using QGeoAreaMonitorSource_SetBackendProperty_Callback = bool (*)(QGeoAreaMonitorSource*, libqt_string, QVariant*);
     using QGeoAreaMonitorSource_BackendProperty_Callback = QVariant* (*)(const QGeoAreaMonitorSource*, libqt_string);
     using QGeoAreaMonitorSource_Event_Callback = bool (*)(QGeoAreaMonitorSource*, QEvent*);
@@ -321,13 +321,14 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
     // Virtual method for C ABI access and custom callback
     virtual QList<QGeoAreaMonitorInfo> activeMonitors() const override {
         if (qgeoareamonitorsource_activemonitors_callback != nullptr) {
-            QGeoAreaMonitorInfo** callback_ret = qgeoareamonitorsource_activemonitors_callback();
+            libqt_list /* of QGeoAreaMonitorInfo* */ callback_ret = qgeoareamonitorsource_activemonitors_callback();
             QList<QGeoAreaMonitorInfo> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QGeoAreaMonitorInfo** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QGeoAreaMonitorInfo** callback_ret_arr = static_cast<QGeoAreaMonitorInfo**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};
@@ -341,13 +342,14 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             // Cast returned reference into pointer
             QGeoShape* cbval1 = const_cast<QGeoShape*>(&lookupArea_ret);
 
-            QGeoAreaMonitorInfo** callback_ret = qgeoareamonitorsource_activemonitors2_callback(this, cbval1);
+            libqt_list /* of QGeoAreaMonitorInfo* */ callback_ret = qgeoareamonitorsource_activemonitors2_callback(this, cbval1);
             QList<QGeoAreaMonitorInfo> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QGeoAreaMonitorInfo** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QGeoAreaMonitorInfo** callback_ret_arr = static_cast<QGeoAreaMonitorInfo**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};

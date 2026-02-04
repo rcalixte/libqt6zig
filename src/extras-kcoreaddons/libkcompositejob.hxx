@@ -37,7 +37,7 @@ class VirtualKCompositeJob : public KCompositeJob {
     using KCompositeJob_ConnectNotify_Callback = void (*)(KCompositeJob*, QMetaMethod*);
     using KCompositeJob_DisconnectNotify_Callback = void (*)(KCompositeJob*, QMetaMethod*);
     using KCompositeJob_HasSubjobs_Callback = bool (*)();
-    using KCompositeJob_Subjobs_Callback = KJob** (*)();
+    using KCompositeJob_Subjobs_Callback = libqt_list /* of KJob* */ (*)();
     using KCompositeJob_ClearSubjobs_Callback = void (*)();
     using KCompositeJob_SetCapabilities_Callback = void (*)(KCompositeJob*, int);
     using KCompositeJob_IsFinished_Callback = bool (*)();
@@ -558,14 +558,14 @@ class VirtualKCompositeJob : public KCompositeJob {
             kcompositejob_subjobs_isbase = false;
             return KCompositeJob::subjobs();
         } else if (kcompositejob_subjobs_callback != nullptr) {
-            KJob** callback_ret = kcompositejob_subjobs_callback();
+            libqt_list /* of KJob* */ callback_ret = kcompositejob_subjobs_callback();
             QList<KJob*>* callback_ret_QList;
-            callback_ret_QList = new QList<KJob*>;
-            // Iterate until null pointer sentinel
-            for (KJob** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList->push_back(*ptridx);
+            callback_ret_QList->reserve(callback_ret.len);
+            KJob** callback_ret_arr = static_cast<KJob**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList->push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return *callback_ret_QList;
         } else {
             return KCompositeJob::subjobs();

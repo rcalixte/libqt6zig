@@ -52,7 +52,7 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
     using KTextEditor__CodeCompletionModel_Flags_Callback = int (*)(const KTextEditor__CodeCompletionModel*, QModelIndex*);
     using KTextEditor__CodeCompletionModel_Sort_Callback = void (*)(KTextEditor__CodeCompletionModel*, int, int);
     using KTextEditor__CodeCompletionModel_Buddy_Callback = QModelIndex* (*)(const KTextEditor__CodeCompletionModel*, QModelIndex*);
-    using KTextEditor__CodeCompletionModel_Match_Callback = QModelIndex** (*)(const KTextEditor__CodeCompletionModel*, QModelIndex*, int, QVariant*, int, int);
+    using KTextEditor__CodeCompletionModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KTextEditor__CodeCompletionModel*, QModelIndex*, int, QVariant*, int, int);
     using KTextEditor__CodeCompletionModel_Span_Callback = QSize* (*)(const KTextEditor__CodeCompletionModel*, QModelIndex*);
     using KTextEditor__CodeCompletionModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
     using KTextEditor__CodeCompletionModel_MultiData_Callback = void (*)(const KTextEditor__CodeCompletionModel*, QModelIndex*, QModelRoleDataSpan*);
@@ -86,7 +86,7 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
     using KTextEditor__CodeCompletionModel_EndResetModel_Callback = void (*)();
     using KTextEditor__CodeCompletionModel_ChangePersistentIndex_Callback = void (*)(KTextEditor__CodeCompletionModel*, QModelIndex*, QModelIndex*);
     using KTextEditor__CodeCompletionModel_ChangePersistentIndexList_Callback = void (*)(KTextEditor__CodeCompletionModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KTextEditor__CodeCompletionModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KTextEditor__CodeCompletionModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KTextEditor__CodeCompletionModel_Sender_Callback = QObject* (*)();
     using KTextEditor__CodeCompletionModel_SenderSignalIndex_Callback = int (*)();
     using KTextEditor__CodeCompletionModel_Receivers_Callback = int (*)(const KTextEditor__CodeCompletionModel*, const char*);
@@ -826,7 +826,7 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KTextEditor__CodeCompletionModel::mimeTypes();
@@ -1145,13 +1145,14 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = ktexteditor__codecompletionmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = ktexteditor__codecompletionmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KTextEditor__CodeCompletionModel::match(start, role, value, hits, flags);
@@ -1705,13 +1706,14 @@ class VirtualKTextEditorCodeCompletionModel : public KTextEditor::CodeCompletion
             ktexteditor__codecompletionmodel_persistentindexlist_isbase = false;
             return KTextEditor__CodeCompletionModel::persistentIndexList();
         } else if (ktexteditor__codecompletionmodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = ktexteditor__codecompletionmodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = ktexteditor__codecompletionmodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KTextEditor__CodeCompletionModel::persistentIndexList();

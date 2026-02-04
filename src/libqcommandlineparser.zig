@@ -170,11 +170,11 @@ pub const qcommandlineparser = struct {
     ///
     /// ` self: QtC.QCommandLineParser `
     ///
-    /// ` arguments: [][]const u8 `
+    /// ` arguments: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Process(self: ?*anyopaque, arguments: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn Process(self: ?*anyopaque, arguments: []const []const u8, allocator: std.mem.Allocator) void {
         var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Process: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
@@ -208,11 +208,11 @@ pub const qcommandlineparser = struct {
     ///
     /// ` self: QtC.QCommandLineParser `
     ///
-    /// ` arguments: [][]const u8 `
+    /// ` arguments: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Parse(self: ?*anyopaque, arguments: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn Parse(self: ?*anyopaque, arguments: []const []const u8, allocator: std.mem.Allocator) bool {
         var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Parse: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
@@ -292,7 +292,7 @@ pub const qcommandlineparser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Values(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Values(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -355,7 +355,7 @@ pub const qcommandlineparser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Values2(self: ?*anyopaque, option: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Values2(self: ?*anyopaque, option: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QCommandLineParser_Values2(@ptrCast(self), @ptrCast(option));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -382,7 +382,7 @@ pub const qcommandlineparser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PositionalArguments(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PositionalArguments(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QCommandLineParser_PositionalArguments(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -409,7 +409,7 @@ pub const qcommandlineparser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OptionNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn OptionNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QCommandLineParser_OptionNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -436,7 +436,7 @@ pub const qcommandlineparser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UnknownOptionNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn UnknownOptionNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QCommandLineParser_UnknownOptionNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

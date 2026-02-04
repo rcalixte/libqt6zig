@@ -121,7 +121,7 @@ pub const qfontdatabase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Families(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Families(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_Families();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -148,7 +148,7 @@ pub const qfontdatabase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Styles(family: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Styles(family: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -485,7 +485,7 @@ pub const qfontdatabase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ApplicationFontFamilies(id: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ApplicationFontFamilies(id: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_ApplicationFontFamilies(@intCast(id));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -558,11 +558,11 @@ pub const qfontdatabase = struct {
     ///
     /// ` param1: qchar_enums.Script `
     ///
-    /// ` familyNames: [][]const u8 `
+    /// ` familyNames: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetApplicationFallbackFontFamilies(param1: i32, familyNames: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetApplicationFallbackFontFamilies(param1: i32, familyNames: []const []const u8, allocator: std.mem.Allocator) void {
         var familyNames_arr = allocator.alloc(qtc.libqt_string, familyNames.len) catch @panic("qfontdatabase.SetApplicationFallbackFontFamilies: Memory allocation failed");
         defer allocator.free(familyNames_arr);
         for (familyNames, 0..familyNames.len) |item, i| {
@@ -586,7 +586,7 @@ pub const qfontdatabase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ApplicationFallbackFontFamilies(script: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ApplicationFallbackFontFamilies(script: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_ApplicationFallbackFontFamilies(@intCast(script));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -623,7 +623,7 @@ pub const qfontdatabase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Families1(writingSystem: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Families1(writingSystem: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_Families1(@intCast(writingSystem));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

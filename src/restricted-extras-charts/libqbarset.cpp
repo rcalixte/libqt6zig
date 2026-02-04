@@ -465,7 +465,7 @@ void QBarSet_SelectedBarsChanged(QBarSet* self, const libqt_list /* of int */ in
 }
 
 void QBarSet_Connect_SelectedBarsChanged(QBarSet* self, intptr_t slot) {
-    void (*slotFunc)(QBarSet*, int*) = reinterpret_cast<void (*)(QBarSet*, int*)>(slot);
+    void (*slotFunc)(QBarSet*, libqt_list /* of int */) = reinterpret_cast<void (*)(QBarSet*, libqt_list /* of int */)>(slot);
     QBarSet::connect(self, &QBarSet::selectedBarsChanged, [self, slotFunc](const QList<int>& indexes) {
         const QList<int>& indexes_ret = indexes;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -473,9 +473,10 @@ void QBarSet_Connect_SelectedBarsChanged(QBarSet* self, intptr_t slot) {
         for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
             indexes_arr[i] = indexes_ret[i];
         }
-        // Append sentinel value to the list
-        indexes_arr[indexes_ret.size()] = -1;
-        int* sigval1 = indexes_arr;
+        libqt_list indexes_out;
+        indexes_out.len = indexes_ret.size();
+        indexes_out.data = static_cast<void*>(indexes_arr);
+        libqt_list /* of int */ sigval1 = indexes_out;
         slotFunc(self, sigval1);
         free(indexes_arr);
     });

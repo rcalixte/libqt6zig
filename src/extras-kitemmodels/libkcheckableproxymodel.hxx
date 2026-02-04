@@ -37,7 +37,7 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
     using KCheckableProxyModel_Sibling_Callback = QModelIndex* (*)(const KCheckableProxyModel*, int, int, QModelIndex*);
     using KCheckableProxyModel_MapSelectionFromSource_Callback = QItemSelection* (*)(const KCheckableProxyModel*, QItemSelection*);
     using KCheckableProxyModel_MapSelectionToSource_Callback = QItemSelection* (*)(const KCheckableProxyModel*, QItemSelection*);
-    using KCheckableProxyModel_Match_Callback = QModelIndex** (*)(const KCheckableProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using KCheckableProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KCheckableProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using KCheckableProxyModel_InsertColumns_Callback = bool (*)(KCheckableProxyModel*, int, int, QModelIndex*);
     using KCheckableProxyModel_InsertRows_Callback = bool (*)(KCheckableProxyModel*, int, int, QModelIndex*);
     using KCheckableProxyModel_RemoveColumns_Callback = bool (*)(KCheckableProxyModel*, int, int, QModelIndex*);
@@ -92,7 +92,7 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
     using KCheckableProxyModel_EndResetModel_Callback = void (*)();
     using KCheckableProxyModel_ChangePersistentIndex_Callback = void (*)(KCheckableProxyModel*, QModelIndex*, QModelIndex*);
     using KCheckableProxyModel_ChangePersistentIndexList_Callback = void (*)(KCheckableProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KCheckableProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KCheckableProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KCheckableProxyModel_Sender_Callback = QObject* (*)();
     using KCheckableProxyModel_SenderSignalIndex_Callback = int (*)();
     using KCheckableProxyModel_Receivers_Callback = int (*)(const KCheckableProxyModel*, const char*);
@@ -879,13 +879,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kcheckableproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kcheckableproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KCheckableProxyModel::match(start, role, value, hits, flags);
@@ -1290,7 +1291,7 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KCheckableProxyModel::mimeTypes();
@@ -1838,13 +1839,14 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             kcheckableproxymodel_persistentindexlist_isbase = false;
             return KCheckableProxyModel::persistentIndexList();
         } else if (kcheckableproxymodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kcheckableproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kcheckableproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KCheckableProxyModel::persistentIndexList();

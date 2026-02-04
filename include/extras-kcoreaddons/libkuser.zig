@@ -213,7 +213,7 @@ pub const kuser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GroupNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_GroupNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -265,7 +265,7 @@ pub const kuser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllUserNames(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllUserNames(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_AllUserNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -313,7 +313,7 @@ pub const kuser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GroupNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_GroupNames1(@ptrCast(self), @intCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -357,7 +357,7 @@ pub const kuser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllUserNames1(maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllUserNames1(maxCount: u32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_AllUserNames1(@intCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -541,7 +541,7 @@ pub const kusergroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UserNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn UserNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -581,7 +581,7 @@ pub const kusergroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllGroupNames(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllGroupNames(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -629,7 +629,7 @@ pub const kusergroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UserNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn UserNames1(self: ?*anyopaque, maxCount: u32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames1(@ptrCast(self), @intCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -673,7 +673,7 @@ pub const kusergroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllGroupNames1(maxCount: u32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllGroupNames1(maxCount: u32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames1(@intCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

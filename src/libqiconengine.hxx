@@ -26,7 +26,7 @@ class VirtualQIconEngine : public QIconEngine {
     using QIconEngine_Clone_Callback = QIconEngine* (*)();
     using QIconEngine_Read_Callback = bool (*)(QIconEngine*, QDataStream*);
     using QIconEngine_Write_Callback = bool (*)(const QIconEngine*, QDataStream*);
-    using QIconEngine_AvailableSizes_Callback = QSize** (*)(QIconEngine*, int, int);
+    using QIconEngine_AvailableSizes_Callback = libqt_list /* of QSize* */ (*)(QIconEngine*, int, int);
     using QIconEngine_IconName_Callback = const char* (*)();
     using QIconEngine_IsNull_Callback = bool (*)();
     using QIconEngine_ScaledPixmap_Callback = QPixmap* (*)(QIconEngine*, QSize*, int, int, double);
@@ -281,13 +281,14 @@ class VirtualQIconEngine : public QIconEngine {
             int cbval1 = static_cast<int>(mode);
             int cbval2 = static_cast<int>(state);
 
-            QSize** callback_ret = qiconengine_availablesizes_callback(this, cbval1, cbval2);
+            libqt_list /* of QSize* */ callback_ret = qiconengine_availablesizes_callback(this, cbval1, cbval2);
             QList<QSize> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QSize** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QSize** callback_ret_arr = static_cast<QSize**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QIconEngine::availableSizes(mode, state);

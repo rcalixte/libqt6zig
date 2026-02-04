@@ -57,7 +57,7 @@ pub const kstandardaction = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StdNames(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn StdNames(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KStandardAction_StdNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

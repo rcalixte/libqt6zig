@@ -33,7 +33,7 @@ class VirtualKSelectAction final : public KSelectAction {
     using KSelectAction_ConnectNotify_Callback = void (*)(KSelectAction*, QMetaMethod*);
     using KSelectAction_DisconnectNotify_Callback = void (*)(KSelectAction*, QMetaMethod*);
     using KSelectAction_SlotToggled_Callback = void (*)(KSelectAction*, bool);
-    using KSelectAction_CreatedWidgets_Callback = QWidget** (*)();
+    using KSelectAction_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
     using KSelectAction_Sender_Callback = QObject* (*)();
     using KSelectAction_SenderSignalIndex_Callback = int (*)();
     using KSelectAction_Receivers_Callback = int (*)(const KSelectAction*, const char*);
@@ -404,13 +404,14 @@ class VirtualKSelectAction final : public KSelectAction {
             kselectaction_createdwidgets_isbase = false;
             return KSelectAction::createdWidgets();
         } else if (kselectaction_createdwidgets_callback != nullptr) {
-            QWidget** callback_ret = kselectaction_createdwidgets_callback();
+            libqt_list /* of QWidget* */ callback_ret = kselectaction_createdwidgets_callback();
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KSelectAction::createdWidgets();

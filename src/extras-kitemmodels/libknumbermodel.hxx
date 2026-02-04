@@ -48,7 +48,7 @@ class VirtualKNumberModel final : public KNumberModel {
     using KNumberModel_CanFetchMore_Callback = bool (*)(const KNumberModel*, QModelIndex*);
     using KNumberModel_Sort_Callback = void (*)(KNumberModel*, int, int);
     using KNumberModel_Buddy_Callback = QModelIndex* (*)(const KNumberModel*, QModelIndex*);
-    using KNumberModel_Match_Callback = QModelIndex** (*)(const KNumberModel*, QModelIndex*, int, QVariant*, int, int);
+    using KNumberModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KNumberModel*, QModelIndex*, int, QVariant*, int, int);
     using KNumberModel_Span_Callback = QSize* (*)(const KNumberModel*, QModelIndex*);
     using KNumberModel_MultiData_Callback = void (*)(const KNumberModel*, QModelIndex*, QModelRoleDataSpan*);
     using KNumberModel_Submit_Callback = bool (*)();
@@ -80,7 +80,7 @@ class VirtualKNumberModel final : public KNumberModel {
     using KNumberModel_EndResetModel_Callback = void (*)();
     using KNumberModel_ChangePersistentIndex_Callback = void (*)(KNumberModel*, QModelIndex*, QModelIndex*);
     using KNumberModel_ChangePersistentIndexList_Callback = void (*)(KNumberModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KNumberModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KNumberModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KNumberModel_Sender_Callback = QObject* (*)();
     using KNumberModel_SenderSignalIndex_Callback = int (*)();
     using KNumberModel_Receivers_Callback = int (*)(const KNumberModel*, const char*);
@@ -764,7 +764,7 @@ class VirtualKNumberModel final : public KNumberModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KNumberModel::mimeTypes();
@@ -1045,13 +1045,14 @@ class VirtualKNumberModel final : public KNumberModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = knumbermodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = knumbermodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KNumberModel::match(start, role, value, hits, flags);
@@ -1570,13 +1571,14 @@ class VirtualKNumberModel final : public KNumberModel {
             knumbermodel_persistentindexlist_isbase = false;
             return KNumberModel::persistentIndexList();
         } else if (knumbermodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = knumbermodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = knumbermodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KNumberModel::persistentIndexList();

@@ -154,8 +154,8 @@ void QPointingDevice_GrabChanged(const QPointingDevice* self, QObject* grabber, 
     self->grabChanged(grabber, static_cast<QPointingDevice::GrabTransition>(transition), event, *point);
 }
 
-void QPointingDevice_Connect_GrabChanged(QPointingDevice* self, intptr_t slot) {
-    void (*slotFunc)(QPointingDevice*, QObject*, int, QPointerEvent*, QEventPoint*) = reinterpret_cast<void (*)(QPointingDevice*, QObject*, int, QPointerEvent*, QEventPoint*)>(slot);
+void QPointingDevice_Connect_GrabChanged(const QPointingDevice* self, intptr_t slot) {
+    void (*slotFunc)(const QPointingDevice*, QObject*, int, QPointerEvent*, QEventPoint*) = reinterpret_cast<void (*)(const QPointingDevice*, QObject*, int, QPointerEvent*, QEventPoint*)>(slot);
     QPointingDevice::connect(self, &QPointingDevice::grabChanged, [self, slotFunc](QObject* grabber, QPointingDevice::GrabTransition transition, const QPointerEvent* event, const QEventPoint& point) {
         QObject* sigval1 = grabber;
         int sigval2 = static_cast<int>(transition);

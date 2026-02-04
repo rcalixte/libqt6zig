@@ -71,7 +71,7 @@ pub const kcharsets = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableEncodingNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableEncodingNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCharsets_AvailableEncodingNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -98,7 +98,7 @@ pub const kcharsets = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DescriptiveEncodingNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DescriptiveEncodingNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCharsets_DescriptiveEncodingNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -125,7 +125,7 @@ pub const kcharsets = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EncodingsByScript(self: ?*anyopaque, allocator: std.mem.Allocator) [][][]const u8 {
+    pub fn EncodingsByScript(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCharsets_EncodingsByScript(@ptrCast(self));
         const _str: [*]qtc.libqt_list = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -138,7 +138,7 @@ pub const kcharsets = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([][]const u8, _arr.len) catch @panic("kcharsets.EncodingsByScript: Memory allocation failed");
+        const _ret = allocator.alloc([]const []const u8, _arr.len) catch @panic("kcharsets.EncodingsByScript: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
             const _strlist = allocator.alloc([]const u8, _data.len) catch @panic("kcharsets.EncodingsByScript: Memory allocation failed");

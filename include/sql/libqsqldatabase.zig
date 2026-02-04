@@ -140,7 +140,7 @@ pub const qsqldatabase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tables(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Tables(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDatabase_Tables(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -609,7 +609,7 @@ pub const qsqldatabase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Drivers(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Drivers(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDatabase_Drivers();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -634,7 +634,7 @@ pub const qsqldatabase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ConnectionNames(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ConnectionNames(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDatabase_ConnectionNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -693,7 +693,7 @@ pub const qsqldatabase = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tables1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Tables1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDatabase_Tables1(@ptrCast(self), @intCast(typeVal));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

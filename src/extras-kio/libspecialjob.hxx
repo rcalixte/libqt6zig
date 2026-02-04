@@ -45,7 +45,7 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
     using KIO__SpecialJob_ConnectNotify_Callback = void (*)(KIO__SpecialJob*, QMetaMethod*);
     using KIO__SpecialJob_DisconnectNotify_Callback = void (*)(KIO__SpecialJob*, QMetaMethod*);
     using KIO__SpecialJob_HasSubjobs_Callback = bool (*)();
-    using KIO__SpecialJob_Subjobs_Callback = KJob** (*)();
+    using KIO__SpecialJob_Subjobs_Callback = libqt_list /* of KJob* */ (*)();
     using KIO__SpecialJob_ClearSubjobs_Callback = void (*)();
     using KIO__SpecialJob_SetCapabilities_Callback = void (*)(KIO__SpecialJob*, int);
     using KIO__SpecialJob_IsFinished_Callback = bool (*)();
@@ -743,14 +743,14 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             kio__specialjob_subjobs_isbase = false;
             return KIO__SpecialJob::subjobs();
         } else if (kio__specialjob_subjobs_callback != nullptr) {
-            KJob** callback_ret = kio__specialjob_subjobs_callback();
+            libqt_list /* of KJob* */ callback_ret = kio__specialjob_subjobs_callback();
             QList<KJob*>* callback_ret_QList;
-            callback_ret_QList = new QList<KJob*>;
-            // Iterate until null pointer sentinel
-            for (KJob** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList->push_back(*ptridx);
+            callback_ret_QList->reserve(callback_ret.len);
+            KJob** callback_ret_arr = static_cast<KJob**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList->push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return *callback_ret_QList;
         } else {
             return KIO__SpecialJob::subjobs();

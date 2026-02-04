@@ -233,7 +233,7 @@ pub const qplacemanager = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildCategoryIds(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ChildCategoryIds(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QPlaceManager_ChildCategoryIds(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -674,7 +674,7 @@ pub const qplacemanager = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildCategoryIds1(self: ?*anyopaque, parentId: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ChildCategoryIds1(self: ?*anyopaque, parentId: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const parentId_str = qtc.libqt_string{
             .len = parentId.len,
             .data = parentId.ptr,

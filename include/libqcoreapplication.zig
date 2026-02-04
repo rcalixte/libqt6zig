@@ -176,7 +176,7 @@ pub const qcoreapplication = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Arguments(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Arguments(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QCoreApplication_Arguments();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -551,11 +551,11 @@ pub const qcoreapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` libraryPaths: [][]const u8 `
+    /// ` libraryPaths: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetLibraryPaths(libraryPaths: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetLibraryPaths(libraryPaths: []const []const u8, allocator: std.mem.Allocator) void {
         var libraryPaths_arr = allocator.alloc(qtc.libqt_string, libraryPaths.len) catch @panic("qcoreapplication.SetLibraryPaths: Memory allocation failed");
         defer allocator.free(libraryPaths_arr);
         for (libraryPaths, 0..libraryPaths.len) |item, i| {
@@ -577,7 +577,7 @@ pub const qcoreapplication = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LibraryPaths(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn LibraryPaths(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QCoreApplication_LibraryPaths();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

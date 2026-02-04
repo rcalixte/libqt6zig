@@ -33,7 +33,7 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
     using KFontSizeAction_ConnectNotify_Callback = void (*)(KFontSizeAction*, QMetaMethod*);
     using KFontSizeAction_DisconnectNotify_Callback = void (*)(KFontSizeAction*, QMetaMethod*);
     using KFontSizeAction_SlotToggled_Callback = void (*)(KFontSizeAction*, bool);
-    using KFontSizeAction_CreatedWidgets_Callback = QWidget** (*)();
+    using KFontSizeAction_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
     using KFontSizeAction_Sender_Callback = QObject* (*)();
     using KFontSizeAction_SenderSignalIndex_Callback = int (*)();
     using KFontSizeAction_Receivers_Callback = int (*)(const KFontSizeAction*, const char*);
@@ -404,13 +404,14 @@ class VirtualKFontSizeAction final : public KFontSizeAction {
             kfontsizeaction_createdwidgets_isbase = false;
             return KFontSizeAction::createdWidgets();
         } else if (kfontsizeaction_createdwidgets_callback != nullptr) {
-            QWidget** callback_ret = kfontsizeaction_createdwidgets_callback();
+            libqt_list /* of QWidget* */ callback_ret = kfontsizeaction_createdwidgets_callback();
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KFontSizeAction::createdWidgets();

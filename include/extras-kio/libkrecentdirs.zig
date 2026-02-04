@@ -12,7 +12,7 @@ pub const krecentdirs = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn List(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn List(param1: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

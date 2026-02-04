@@ -46,11 +46,11 @@ pub const kreplacedialog = struct {
     ///
     /// ` options: i64 `
     ///
-    /// ` findStrings: [][]const u8 `
+    /// ` findStrings: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(parent: ?*anyopaque, options: i64, findStrings: [][]const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
+    pub fn New4(parent: ?*anyopaque, options: i64, findStrings: []const []const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
         var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New4: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
@@ -75,13 +75,13 @@ pub const kreplacedialog = struct {
     ///
     /// ` options: i64 `
     ///
-    /// ` findStrings: [][]const u8 `
+    /// ` findStrings: []const []const u8 `
     ///
-    /// ` replaceStrings: [][]const u8 `
+    /// ` replaceStrings: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New5(parent: ?*anyopaque, options: i64, findStrings: [][]const u8, replaceStrings: [][]const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
+    pub fn New5(parent: ?*anyopaque, options: i64, findStrings: []const []const u8, replaceStrings: []const []const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
         var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New5: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
@@ -118,15 +118,15 @@ pub const kreplacedialog = struct {
     ///
     /// ` options: i64 `
     ///
-    /// ` findStrings: [][]const u8 `
+    /// ` findStrings: []const []const u8 `
     ///
-    /// ` replaceStrings: [][]const u8 `
+    /// ` replaceStrings: []const []const u8 `
     ///
     /// ` hasSelection: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New6(parent: ?*anyopaque, options: i64, findStrings: [][]const u8, replaceStrings: [][]const u8, hasSelection: bool, allocator: std.mem.Allocator) QtC.KReplaceDialog {
+    pub fn New6(parent: ?*anyopaque, options: i64, findStrings: []const []const u8, replaceStrings: []const []const u8, hasSelection: bool, allocator: std.mem.Allocator) QtC.KReplaceDialog {
         var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New6: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
@@ -292,11 +292,11 @@ pub const kreplacedialog = struct {
     ///
     /// ` self: QtC.KReplaceDialog `
     ///
-    /// ` history: [][]const u8 `
+    /// ` history: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetReplacementHistory(self: ?*anyopaque, history: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetReplacementHistory(self: ?*anyopaque, history: []const []const u8, allocator: std.mem.Allocator) void {
         var history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("kreplacedialog.SetReplacementHistory: Memory allocation failed");
         defer allocator.free(history_arr);
         for (history, 0..history.len) |item, i| {
@@ -320,7 +320,7 @@ pub const kreplacedialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReplacementHistory(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReplacementHistory(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KReplaceDialog_ReplacementHistory(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -477,11 +477,11 @@ pub const kreplacedialog = struct {
     ///
     /// ` self: QtC.KReplaceDialog `
     ///
-    /// ` history: [][]const u8 `
+    /// ` history: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetFindHistory(self: ?*anyopaque, history: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetFindHistory(self: ?*anyopaque, history: []const []const u8, allocator: std.mem.Allocator) void {
         var history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("kreplacedialog.SetFindHistory: Memory allocation failed");
         defer allocator.free(history_arr);
         for (history, 0..history.len) |item, i| {
@@ -507,7 +507,7 @@ pub const kreplacedialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindHistory(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn FindHistory(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KFindDialog_FindHistory(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

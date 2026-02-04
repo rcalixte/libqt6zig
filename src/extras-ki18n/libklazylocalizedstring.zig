@@ -108,11 +108,11 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` languages: [][]const u8 `
+    /// ` languages: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString2(self: ?*anyopaque, languages: [][]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString2(self: ?*anyopaque, languages: []const []const u8, allocator: std.mem.Allocator) []const u8 {
         var languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("klazylocalizedstring.ToString2: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i| {
@@ -175,11 +175,11 @@ pub const klazylocalizedstring = struct {
     ///
     /// ` self: QtC.KLazyLocalizedString `
     ///
-    /// ` languages: [][]const u8 `
+    /// ` languages: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WithLanguages(self: ?*anyopaque, languages: [][]const u8, allocator: std.mem.Allocator) QtC.KLocalizedString {
+    pub fn WithLanguages(self: ?*anyopaque, languages: []const []const u8, allocator: std.mem.Allocator) QtC.KLocalizedString {
         var languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("klazylocalizedstring.WithLanguages: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i| {

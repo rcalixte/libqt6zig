@@ -166,7 +166,7 @@ void SignOn__AuthService_Identities(SignOn__AuthService* self, const libqt_list 
 }
 
 void SignOn__AuthService_Connect_Identities(SignOn__AuthService* self, intptr_t slot) {
-    void (*slotFunc)(SignOn__AuthService*, SignOn__IdentityInfo**) = reinterpret_cast<void (*)(SignOn__AuthService*, SignOn__IdentityInfo**)>(slot);
+    void (*slotFunc)(SignOn__AuthService*, libqt_list /* of SignOn__IdentityInfo* */) = reinterpret_cast<void (*)(SignOn__AuthService*, libqt_list /* of SignOn__IdentityInfo* */)>(slot);
     SignOn::AuthService::connect(self, &SignOn::AuthService::identities, [self, slotFunc](const QList<SignOn::IdentityInfo>& identityList) {
         const QList<SignOn::IdentityInfo>& identityList_ret = identityList;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -174,9 +174,10 @@ void SignOn__AuthService_Connect_Identities(SignOn__AuthService* self, intptr_t 
         for (qsizetype i = 0; i < identityList_ret.size(); ++i) {
             identityList_arr[i] = new SignOn::IdentityInfo(identityList_ret[i]);
         }
-        // Append sentinel value to the list
-        identityList_arr[identityList_ret.size()] = nullptr;
-        SignOn__IdentityInfo** sigval1 = identityList_arr;
+        libqt_list identityList_out;
+        identityList_out.len = identityList_ret.size();
+        identityList_out.data = static_cast<void*>(identityList_arr);
+        libqt_list /* of SignOn__IdentityInfo* */ sigval1 = identityList_out;
         slotFunc(self, sigval1);
         free(identityList_arr);
     });

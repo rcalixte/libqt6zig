@@ -2277,9 +2277,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ` self: QtC.KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.KJob `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.KJob) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.KJob `
+    ///
+    pub fn OnSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KIO__NameFinderJob_OnSubjobs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

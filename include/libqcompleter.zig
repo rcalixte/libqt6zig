@@ -27,11 +27,11 @@ pub const qcompleter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` completions: [][]const u8 `
+    /// ` completions: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(completions: [][]const u8, allocator: std.mem.Allocator) QtC.QCompleter {
+    pub fn New3(completions: []const []const u8, allocator: std.mem.Allocator) QtC.QCompleter {
         var completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("qcompleter.New3: Memory allocation failed");
         defer allocator.free(completions_arr);
         for (completions, 0..completions.len) |item, i| {
@@ -74,13 +74,13 @@ pub const qcompleter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` completions: [][]const u8 `
+    /// ` completions: []const []const u8 `
     ///
     /// ` parent: QtC.QObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New6(completions: [][]const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QCompleter {
+    pub fn New6(completions: []const []const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QCompleter {
         var completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("qcompleter.New6: Memory allocation failed");
         defer allocator.free(completions_arr);
         for (completions, 0..completions.len) |item, i| {
@@ -660,7 +660,7 @@ pub const qcompleter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -711,7 +711,7 @@ pub const qcompleter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseSplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,

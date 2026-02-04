@@ -219,7 +219,7 @@ pub const qdbusservicewatcher = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WatchedServices(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn WatchedServices(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDBusServiceWatcher_WatchedServices(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -244,11 +244,11 @@ pub const qdbusservicewatcher = struct {
     ///
     /// ` self: QtC.QDBusServiceWatcher `
     ///
-    /// ` services: [][]const u8 `
+    /// ` services: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetWatchedServices(self: ?*anyopaque, services: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetWatchedServices(self: ?*anyopaque, services: []const []const u8, allocator: std.mem.Allocator) void {
         var services_arr = allocator.alloc(qtc.libqt_string, services.len) catch @panic("qdbusservicewatcher.SetWatchedServices: Memory allocation failed");
         defer allocator.free(services_arr);
         for (services, 0..services.len) |item, i| {

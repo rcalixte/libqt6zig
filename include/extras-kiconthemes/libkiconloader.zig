@@ -34,11 +34,11 @@ pub const kiconloader = struct {
     ///
     /// ` appname: []const u8 `
     ///
-    /// ` extraSearchPaths: [][]const u8 `
+    /// ` extraSearchPaths: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(appname: []const u8, extraSearchPaths: [][]const u8, allocator: std.mem.Allocator) QtC.KIconLoader {
+    pub fn New3(appname: []const u8, extraSearchPaths: []const []const u8, allocator: std.mem.Allocator) QtC.KIconLoader {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
@@ -65,13 +65,13 @@ pub const kiconloader = struct {
     ///
     /// ` appname: []const u8 `
     ///
-    /// ` extraSearchPaths: [][]const u8 `
+    /// ` extraSearchPaths: []const []const u8 `
     ///
     /// ` parent: QtC.QObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(appname: []const u8, extraSearchPaths: [][]const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KIconLoader {
+    pub fn New4(appname: []const u8, extraSearchPaths: []const []const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KIconLoader {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
@@ -387,7 +387,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LoadAnimated(self: ?*anyopaque, name: []const u8, group: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn LoadAnimated(self: ?*anyopaque, name: []const u8, group: i32, allocator: std.mem.Allocator) []const []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -418,7 +418,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIcons(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIcons(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIcons(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -447,7 +447,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIcons2(self: ?*anyopaque, group_or_size: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIcons2(self: ?*anyopaque, group_or_size: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIcons2(@ptrCast(self), @intCast(group_or_size));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -476,7 +476,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIconsByContext(self: ?*anyopaque, group_or_size: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIconsByContext(self: ?*anyopaque, group_or_size: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIconsByContext(@ptrCast(self), @intCast(group_or_size));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -517,7 +517,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIconsByDir(self: ?*anyopaque, iconsDir: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIconsByDir(self: ?*anyopaque, iconsDir: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const iconsDir_str = qtc.libqt_string{
             .len = iconsDir.len,
             .data = iconsDir.ptr,
@@ -548,7 +548,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchPaths(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SearchPaths(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_SearchPaths(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -627,7 +627,7 @@ pub const kiconloader = struct {
     ///
     /// ` self: QtC.KIconLoader `
     ///
-    /// ` overlays: [][]const u8 `
+    /// ` overlays: []const []const u8 `
     ///
     /// ` pixmap: QtC.QPixmap `
     ///
@@ -635,7 +635,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DrawOverlays(self: ?*anyopaque, overlays: [][]const u8, pixmap: ?*anyopaque, group: i32, allocator: std.mem.Allocator) void {
+    pub fn DrawOverlays(self: ?*anyopaque, overlays: []const []const u8, pixmap: ?*anyopaque, group: i32, allocator: std.mem.Allocator) void {
         var overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconloader.DrawOverlays: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i| {
@@ -895,11 +895,11 @@ pub const kiconloader = struct {
     ///
     /// ` state: i32 `
     ///
-    /// ` overlays: [][]const u8 `
+    /// ` overlays: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LoadIcon5(self: ?*anyopaque, name: []const u8, group: i32, size: i32, state: i32, overlays: [][]const u8, allocator: std.mem.Allocator) QtC.QPixmap {
+    pub fn LoadIcon5(self: ?*anyopaque, name: []const u8, group: i32, size: i32, state: i32, overlays: []const []const u8, allocator: std.mem.Allocator) QtC.QPixmap {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -975,11 +975,11 @@ pub const kiconloader = struct {
     ///
     /// ` state: i32 `
     ///
-    /// ` overlays: [][]const u8 `
+    /// ` overlays: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LoadMimeTypeIcon5(self: ?*anyopaque, iconName: []const u8, group: i32, size: i32, state: i32, overlays: [][]const u8, allocator: std.mem.Allocator) QtC.QPixmap {
+    pub fn LoadMimeTypeIcon5(self: ?*anyopaque, iconName: []const u8, group: i32, size: i32, state: i32, overlays: []const []const u8, allocator: std.mem.Allocator) QtC.QPixmap {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
@@ -1107,7 +1107,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LoadAnimated3(self: ?*anyopaque, name: []const u8, group: i32, size: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn LoadAnimated3(self: ?*anyopaque, name: []const u8, group: i32, size: i32, allocator: std.mem.Allocator) []const []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1142,7 +1142,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIcons22(self: ?*anyopaque, group_or_size: i32, context: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIcons22(self: ?*anyopaque, group_or_size: i32, context: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIcons22(@ptrCast(self), @intCast(group_or_size), @intCast(context));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1173,7 +1173,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIconsByContext2(self: ?*anyopaque, group_or_size: i32, context: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIconsByContext2(self: ?*anyopaque, group_or_size: i32, context: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconLoader_QueryIconsByContext2(@ptrCast(self), @intCast(group_or_size), @intCast(context));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1200,11 +1200,11 @@ pub const kiconloader = struct {
     ///
     /// ` appname: []const u8 `
     ///
-    /// ` extraSearchPaths: [][]const u8 `
+    /// ` extraSearchPaths: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Reconfigure2(self: ?*anyopaque, appname: []const u8, extraSearchPaths: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn Reconfigure2(self: ?*anyopaque, appname: []const u8, extraSearchPaths: []const []const u8, allocator: std.mem.Allocator) void {
         const appname_str = qtc.libqt_string{
             .len = appname.len,
             .data = appname.ptr,
@@ -1230,7 +1230,7 @@ pub const kiconloader = struct {
     ///
     /// ` self: QtC.KIconLoader `
     ///
-    /// ` overlays: [][]const u8 `
+    /// ` overlays: []const []const u8 `
     ///
     /// ` pixmap: QtC.QPixmap `
     ///
@@ -1240,7 +1240,7 @@ pub const kiconloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DrawOverlays4(self: ?*anyopaque, overlays: [][]const u8, pixmap: ?*anyopaque, group: i32, state: i32, allocator: std.mem.Allocator) void {
+    pub fn DrawOverlays4(self: ?*anyopaque, overlays: []const []const u8, pixmap: ?*anyopaque, group: i32, state: i32, allocator: std.mem.Allocator) void {
         var overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconloader.DrawOverlays4: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i| {
@@ -2595,13 +2595,13 @@ pub const kde = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    /// ` param2: [][]const u8 `
+    /// ` param2: []const []const u8 `
     ///
     /// ` param3: QtC.KIconLoader `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Icon3(param1: []const u8, param2: [][]const u8, param3: ?*anyopaque, allocator: std.mem.Allocator) QtC.QIcon {
+    pub fn Icon3(param1: []const u8, param2: []const []const u8, param3: ?*anyopaque, allocator: std.mem.Allocator) QtC.QIcon {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

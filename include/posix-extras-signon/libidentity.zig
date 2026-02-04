@@ -255,11 +255,11 @@ pub const signon__identity = struct {
     ///
     /// ` self: QtC.SignOn__Identity `
     ///
-    /// ` methods: [][]const u8 `
+    /// ` methods: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MethodsAvailable(self: ?*anyopaque, methods: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn MethodsAvailable(self: ?*anyopaque, methods: []const []const u8, allocator: std.mem.Allocator) void {
         var methods_arr = allocator.alloc(qtc.libqt_string, methods.len) catch @panic("signon__identity.MethodsAvailable: Memory allocation failed");
         defer allocator.free(methods_arr);
         for (methods, 0..methods.len) |item, i| {
@@ -281,9 +281,9 @@ pub const signon__identity = struct {
     ///
     /// ` self: QtC.SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity, methods: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__Identity, methods: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMethodsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnMethodsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.SignOn__Identity_Connect_MethodsAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

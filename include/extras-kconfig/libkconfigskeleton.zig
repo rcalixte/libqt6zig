@@ -805,11 +805,11 @@ pub const kconfigskeleton = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItemStringList(self: ?*anyopaque, name: []const u8, reference: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+    pub fn AddItemStringList(self: ?*anyopaque, name: []const u8, reference: []const []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1928,13 +1928,13 @@ pub const kconfigskeleton = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
-    /// ` defaultValue: [][]const u8 `
+    /// ` defaultValue: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItemStringList3(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+    pub fn AddItemStringList3(self: ?*anyopaque, name: []const u8, reference: []const []const u8, defaultValue: []const []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1976,15 +1976,15 @@ pub const kconfigskeleton = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
-    /// ` defaultValue: [][]const u8 `
+    /// ` defaultValue: []const []const u8 `
     ///
     /// ` key: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItemStringList4(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, key: []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+    pub fn AddItemStringList4(self: ?*anyopaque, name: []const u8, reference: []const []const u8, defaultValue: []const []const u8, key: []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,

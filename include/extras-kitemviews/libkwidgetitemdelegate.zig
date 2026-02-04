@@ -220,9 +220,13 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, index: QtC.QModelIndex) callconv(.c) [*:null]QtC.QWidget `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, index: QtC.QModelIndex) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnCreateItemWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QWidget) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QWidget `
+    ///
+    pub fn OnCreateItemWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.KWidgetItemDelegate_OnCreateItemWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -275,9 +279,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, widgets: [*]QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, widgets: qtc.libqt_list ([]QtC.QWidget), option: QtC.QStyleOptionViewItem, index: QtC.QPersistentModelIndex) callconv(.c) void `
     ///
-    pub fn OnUpdateItemWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnUpdateItemWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KWidgetItemDelegate_OnUpdateItemWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -329,9 +333,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, widget: QtC.QWidget, types: []qcoreevent_enums.Type) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, widget: QtC.QWidget, types: qtc.libqt_list ([]qcoreevent_enums.Type)) callconv(.c) void `
     ///
-    pub fn OnSetBlockedEventTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnSetBlockedEventTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KWidgetItemDelegate_OnSetBlockedEventTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -388,9 +392,13 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, widget: QtC.QWidget) callconv(.c) [*:-1]i32 `
+    /// ` callback: *const fn (self: QtC.KWidgetItemDelegate, widget: QtC.QWidget) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnBlockedEventTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:-1]i32) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []i32 `
+    ///
+    pub fn OnBlockedEventTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.KWidgetItemDelegate_OnBlockedEventTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1871,9 +1879,13 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// ` self: QtC.KWidgetItemDelegate`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:-1]i32 `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:-1]i32) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []i32 `
+    ///
+    pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KWidgetItemDelegate_OnPaintingRoles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

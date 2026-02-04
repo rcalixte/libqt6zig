@@ -83,9 +83,9 @@ pub const kstandardshortcut__standardshortcutwatcher = struct {
     ///
     /// ` self: QtC.KStandardShortcut__StandardShortcutWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.KStandardShortcut__StandardShortcutWatcher, id: kstandardshortcut_enums.StandardShortcut, shortcut: [*]QtC.QKeySequence) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KStandardShortcut__StandardShortcutWatcher, id: kstandardshortcut_enums.StandardShortcut, shortcut: qtc.libqt_list ([]QtC.QKeySequence)) callconv(.c) void `
     ///
-    pub fn OnShortcutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*]QtC.QKeySequence) callconv(.c) void) void {
+    pub fn OnShortcutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, qtc.libqt_list) callconv(.c) void) void {
         qtc.KStandardShortcut__StandardShortcutWatcher_Connect_ShortcutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

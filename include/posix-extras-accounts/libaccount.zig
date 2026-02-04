@@ -1909,7 +1909,7 @@ pub const accounts__account = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Accounts__Account_AllKeys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1952,7 +1952,7 @@ pub const accounts__account = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildGroups(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ChildGroups(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Accounts__Account_ChildGroups(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1979,7 +1979,7 @@ pub const accounts__account = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ChildKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Accounts__Account_ChildKeys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2269,11 +2269,11 @@ pub const accounts__account = struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` token: [][:0]const u8 `
+    /// ` token: []const [:0]const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Verify(self: ?*anyopaque, key: []const u8, token: [][:0]const u8, allocator: std.mem.Allocator) bool {
+    pub fn Verify(self: ?*anyopaque, key: []const u8, token: []const [:0]const u8, allocator: std.mem.Allocator) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

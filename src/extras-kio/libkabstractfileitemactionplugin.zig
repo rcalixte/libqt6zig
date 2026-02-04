@@ -178,9 +178,13 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// ` self: QtC.KAbstractFileItemActionPlugin `
     ///
-    /// ` callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, fileItemInfos: QtC.KFileItemListProperties, parentWidget: QtC.QWidget) callconv(.c) [*:null]QtC.QAction `
+    /// ` callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, fileItemInfos: QtC.KFileItemListProperties, parentWidget: QtC.QWidget) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QAction) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QAction `
+    ///
+    pub fn OnActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.KAbstractFileItemActionPlugin_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

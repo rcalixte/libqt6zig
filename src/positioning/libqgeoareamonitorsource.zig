@@ -180,7 +180,7 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableSources(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableSources(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QGeoAreaMonitorSource_AvailableSources();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -532,9 +532,13 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` self: QtC.QGeoAreaMonitorSource `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QGeoAreaMonitorInfo `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnActiveMonitors(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QGeoAreaMonitorInfo) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QGeoAreaMonitorInfo `
+    ///
+    pub fn OnActiveMonitors(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QGeoAreaMonitorSource_OnActiveMonitors(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -586,9 +590,13 @@ pub const qgeoareamonitorsource = struct {
     ///
     /// ` self: QtC.QGeoAreaMonitorSource `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoAreaMonitorSource, lookupArea: QtC.QGeoShape) callconv(.c) [*:null]QtC.QGeoAreaMonitorInfo `
+    /// ` callback: *const fn (self: QtC.QGeoAreaMonitorSource, lookupArea: QtC.QGeoShape) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnActiveMonitors2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QGeoAreaMonitorInfo) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QGeoAreaMonitorInfo `
+    ///
+    pub fn OnActiveMonitors2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.QGeoAreaMonitorSource_OnActiveMonitors2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -1552,7 +1552,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QAbstractItemModel_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1597,7 +1597,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QAbstractItemModel_QBaseMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1640,9 +1640,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, indexes: [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData) void {
+    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
         qtc.QAbstractItemModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2501,9 +2501,13 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.QAbstractItemModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3040,9 +3044,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, indexes: [*]QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3784,9 +3788,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, from: [*]QtC.QModelIndex, to: [*]QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, [*]QtC.QModelIndex) callconv(.c) void) void {
+    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3841,9 +3845,13 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QAbstractItemModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4020,9 +4028,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4048,9 +4056,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4078,9 +4086,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4106,9 +4114,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4136,9 +4144,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// ` self: QtC.QAbstractItemModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractItemModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -6522,9 +6530,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -6554,9 +6562,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -6588,9 +6596,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -6620,9 +6628,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -6654,9 +6662,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -7944,7 +7952,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QAbstractTableModel_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7975,7 +7983,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QAbstractTableModel_QBaseMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -8062,9 +8070,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, indexes: [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData) void {
+    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
         qtc.QAbstractTableModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -8858,9 +8866,13 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.QAbstractTableModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -9634,9 +9646,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, indexes: [*]QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractTableModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -10518,9 +10530,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractTableModel, from: [*]QtC.QModelIndex, to: [*]QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractTableModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, [*]QtC.QModelIndex) callconv(.c) void) void {
+    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractTableModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -10578,9 +10590,13 @@ pub const qabstracttablemodel = struct {
     ///
     /// ` self: QtC.QAbstractTableModel`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QAbstractTableModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -11920,9 +11936,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -11952,9 +11968,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -11986,9 +12002,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -12018,9 +12034,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -12052,9 +12068,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -13294,7 +13310,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QAbstractListModel_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -13325,7 +13341,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QAbstractListModel_QBaseMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -13412,9 +13428,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, indexes: [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData) void {
+    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
         qtc.QAbstractListModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -14208,9 +14224,13 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.QAbstractListModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -14984,9 +15004,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, indexes: [*]QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractListModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -15868,9 +15888,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractListModel, from: [*]QtC.QModelIndex, to: [*]QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QAbstractListModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, [*]QtC.QModelIndex) callconv(.c) void) void {
+    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractListModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -15928,9 +15948,13 @@ pub const qabstractlistmodel = struct {
     ///
     /// ` self: QtC.QAbstractListModel`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QAbstractListModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

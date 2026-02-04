@@ -17,7 +17,7 @@ pub const kshell = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SplitArgs(param1: []const u8, param2: i32, param3: *i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SplitArgs(param1: []const u8, param2: i32, param3: *i32, allocator: std.mem.Allocator) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -44,11 +44,11 @@ pub const kshell = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: [][]const u8 `
+    /// ` param1: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn JoinArgs(param1: [][]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn JoinArgs(param1: []const []const u8, allocator: std.mem.Allocator) []const u8 {
         var param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
         defer allocator.free(param1_arr);
         for (param1, 0..param1.len) |item, i| {

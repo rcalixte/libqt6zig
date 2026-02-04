@@ -117,11 +117,11 @@ pub const knscore__searchrequest = struct {
     ///
     /// ` searchTerm_: []const u8 `
     ///
-    /// ` categories_: [][]const u8 `
+    /// ` categories_: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New6(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: [][]const u8, allocator: std.mem.Allocator) QtC.KNSCore__SearchRequest {
+    pub fn New6(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: []const []const u8, allocator: std.mem.Allocator) QtC.KNSCore__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
             .data = searchTerm_.ptr,
@@ -152,13 +152,13 @@ pub const knscore__searchrequest = struct {
     ///
     /// ` searchTerm_: []const u8 `
     ///
-    /// ` categories_: [][]const u8 `
+    /// ` categories_: []const []const u8 `
     ///
     /// ` page_: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New7(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: [][]const u8, page_: i32, allocator: std.mem.Allocator) QtC.KNSCore__SearchRequest {
+    pub fn New7(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: []const []const u8, page_: i32, allocator: std.mem.Allocator) QtC.KNSCore__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
             .data = searchTerm_.ptr,
@@ -189,7 +189,7 @@ pub const knscore__searchrequest = struct {
     ///
     /// ` searchTerm_: []const u8 `
     ///
-    /// ` categories_: [][]const u8 `
+    /// ` categories_: []const []const u8 `
     ///
     /// ` page_: i32 `
     ///
@@ -197,7 +197,7 @@ pub const knscore__searchrequest = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New8(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: [][]const u8, page_: i32, pageSize_: i32, allocator: std.mem.Allocator) QtC.KNSCore__SearchRequest {
+    pub fn New8(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: []const []const u8, page_: i32, pageSize_: i32, allocator: std.mem.Allocator) QtC.KNSCore__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
             .data = searchTerm_.ptr,
@@ -270,7 +270,7 @@ pub const knscore__searchrequest = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__SearchRequest_Categories(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

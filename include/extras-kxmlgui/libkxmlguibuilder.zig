@@ -54,7 +54,7 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KXMLGUIBuilder_ContainerTags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -99,7 +99,7 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KXMLGUIBuilder_QBaseContainerTags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -230,7 +230,7 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn CustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KXMLGUIBuilder_CustomTags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -275,7 +275,7 @@ pub const kxmlguibuilder = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseCustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseCustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KXMLGUIBuilder_QBaseCustomTags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

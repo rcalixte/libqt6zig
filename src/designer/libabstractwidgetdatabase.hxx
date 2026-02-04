@@ -42,7 +42,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     using QDesignerWidgetDataBaseItemInterface_Extends_Callback = const char* (*)();
     using QDesignerWidgetDataBaseItemInterface_SetExtends_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_string);
     using QDesignerWidgetDataBaseItemInterface_SetDefaultPropertyValues_Callback = void (*)(QDesignerWidgetDataBaseItemInterface*, libqt_list /* of QVariant* */);
-    using QDesignerWidgetDataBaseItemInterface_DefaultPropertyValues_Callback = QVariant** (*)();
+    using QDesignerWidgetDataBaseItemInterface_DefaultPropertyValues_Callback = libqt_list /* of QVariant* */ (*)();
 
   protected:
     // Instance callback storage
@@ -503,13 +503,14 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     // Virtual method for C ABI access and custom callback
     virtual QList<QVariant> defaultPropertyValues() const override {
         if (qdesignerwidgetdatabaseiteminterface_defaultpropertyvalues_callback != nullptr) {
-            QVariant** callback_ret = qdesignerwidgetdatabaseiteminterface_defaultpropertyvalues_callback();
+            libqt_list /* of QVariant* */ callback_ret = qdesignerwidgetdatabaseiteminterface_defaultpropertyvalues_callback();
             QList<QVariant> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QVariant** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QVariant** callback_ret_arr = static_cast<QVariant**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};

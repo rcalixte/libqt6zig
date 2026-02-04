@@ -20,7 +20,7 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     using KRichTextWidget_MetaObject_Callback = QMetaObject* (*)();
     using KRichTextWidget_Metacast_Callback = void* (*)(KRichTextWidget*, const char*);
     using KRichTextWidget_Metacall_Callback = int (*)(KRichTextWidget*, int, int, void**);
-    using KRichTextWidget_CreateActions_Callback = QAction** (*)();
+    using KRichTextWidget_CreateActions_Callback = libqt_list /* of QAction* */ (*)();
     using KRichTextWidget_MouseReleaseEvent_Callback = void (*)(KRichTextWidget*, QMouseEvent*);
     using KRichTextWidget_KeyPressEvent_Callback = void (*)(KRichTextWidget*, QKeyEvent*);
     using KRichTextWidget_SetReadOnly_Callback = void (*)(KRichTextWidget*, bool);
@@ -632,13 +632,14 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
             krichtextwidget_createactions_isbase = false;
             return KRichTextWidget::createActions();
         } else if (krichtextwidget_createactions_callback != nullptr) {
-            QAction** callback_ret = krichtextwidget_createactions_callback();
+            libqt_list /* of QAction* */ callback_ret = krichtextwidget_createactions_callback();
             QList<QAction*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QAction** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KRichTextWidget::createActions();

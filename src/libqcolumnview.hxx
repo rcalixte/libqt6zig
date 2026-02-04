@@ -62,7 +62,7 @@ class VirtualQColumnView final : public QColumnView {
     using QColumnView_CloseEditor_Callback = void (*)(QColumnView*, QWidget*, int);
     using QColumnView_CommitData_Callback = void (*)(QColumnView*, QWidget*);
     using QColumnView_EditorDestroyed_Callback = void (*)(QColumnView*, QObject*);
-    using QColumnView_SelectedIndexes_Callback = QModelIndex** (*)();
+    using QColumnView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QColumnView_Edit2_Callback = bool (*)(QColumnView*, QModelIndex*, int, QEvent*);
     using QColumnView_SelectionCommand_Callback = int (*)(const QColumnView*, QModelIndex*, QEvent*);
     using QColumnView_StartDrag_Callback = void (*)(QColumnView*, int);
@@ -1413,13 +1413,14 @@ class VirtualQColumnView final : public QColumnView {
             qcolumnview_selectedindexes_isbase = false;
             return QColumnView::selectedIndexes();
         } else if (qcolumnview_selectedindexes_callback != nullptr) {
-            QModelIndex** callback_ret = qcolumnview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qcolumnview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QColumnView::selectedIndexes();

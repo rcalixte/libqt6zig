@@ -5789,7 +5789,7 @@ pub const kencodingfiledialog__result = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn FileNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const fileNames_arr: qtc.libqt_list = qtc.KEncodingFileDialog__Result_FileNames(@ptrCast(self));
         var fileNames_str: [*]qtc.libqt_string = @ptrCast(@alignCast(fileNames_arr.data));
         defer {
@@ -5814,11 +5814,11 @@ pub const kencodingfiledialog__result = struct {
     ///
     /// ` self: QtC.KEncodingFileDialog__Result `
     ///
-    /// ` fileNames: [][]const u8 `
+    /// ` fileNames: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetFileNames(self: ?*anyopaque, fileNames: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetFileNames(self: ?*anyopaque, fileNames: []const []const u8, allocator: std.mem.Allocator) void {
         var fileNames_arr = allocator.alloc(qtc.libqt_string, fileNames.len) catch @panic("kencodingfiledialog__result.SetFileNames: Memory allocation failed");
         defer allocator.free(fileNames_arr);
         for (fileNames, 0..fileNames.len) |item, i| {

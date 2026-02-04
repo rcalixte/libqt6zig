@@ -109,7 +109,7 @@ pub const ksyntaxhighlighting__definition = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AlternativeNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AlternativeNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_AlternativeNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -184,7 +184,7 @@ pub const ksyntaxhighlighting__definition = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -211,7 +211,7 @@ pub const ksyntaxhighlighting__definition = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Extensions(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Extensions(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_Extensions(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -376,7 +376,7 @@ pub const ksyntaxhighlighting__definition = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FoldingIgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn FoldingIgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_FoldingIgnoreList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -403,7 +403,7 @@ pub const ksyntaxhighlighting__definition = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeywordLists(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn KeywordLists(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_KeywordLists(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -432,7 +432,7 @@ pub const ksyntaxhighlighting__definition = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeywordList(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn KeywordList(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -463,11 +463,11 @@ pub const ksyntaxhighlighting__definition = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` content: [][]const u8 `
+    /// ` content: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetKeywordList(self: ?*anyopaque, name: []const u8, content: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn SetKeywordList(self: ?*anyopaque, name: []const u8, content: []const []const u8, allocator: std.mem.Allocator) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,

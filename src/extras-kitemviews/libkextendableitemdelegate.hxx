@@ -33,7 +33,7 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
     using KExtendableItemDelegate_EditorEvent_Callback = bool (*)(KExtendableItemDelegate*, QEvent*, QAbstractItemModel*, QStyleOptionViewItem*, QModelIndex*);
     using KExtendableItemDelegate_DestroyEditor_Callback = void (*)(const KExtendableItemDelegate*, QWidget*, QModelIndex*);
     using KExtendableItemDelegate_HelpEvent_Callback = bool (*)(KExtendableItemDelegate*, QHelpEvent*, QAbstractItemView*, QStyleOptionViewItem*, QModelIndex*);
-    using KExtendableItemDelegate_PaintingRoles_Callback = int* (*)();
+    using KExtendableItemDelegate_PaintingRoles_Callback = libqt_list /* of int */ (*)();
     using KExtendableItemDelegate_Event_Callback = bool (*)(KExtendableItemDelegate*, QEvent*);
     using KExtendableItemDelegate_TimerEvent_Callback = void (*)(KExtendableItemDelegate*, QTimerEvent*);
     using KExtendableItemDelegate_ChildEvent_Callback = void (*)(KExtendableItemDelegate*, QChildEvent*);
@@ -527,12 +527,14 @@ class VirtualKExtendableItemDelegate final : public KExtendableItemDelegate {
             kextendableitemdelegate_paintingroles_isbase = false;
             return KExtendableItemDelegate::paintingRoles();
         } else if (kextendableitemdelegate_paintingroles_callback != nullptr) {
-            int* callback_ret = kextendableitemdelegate_paintingroles_callback();
+            libqt_list /* of int */ callback_ret = kextendableitemdelegate_paintingroles_callback();
             QList<int> callback_ret_QList;
-            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
-                callback_ret_QList.push_back(*ptr);
+            callback_ret_QList.reserve(callback_ret.len);
+            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(static_cast<int>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KExtendableItemDelegate::paintingRoles();

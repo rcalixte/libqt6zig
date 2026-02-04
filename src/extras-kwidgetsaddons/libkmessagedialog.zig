@@ -231,11 +231,11 @@ pub const kmessagedialog = struct {
     ///
     /// ` self: QtC.KMessageDialog `
     ///
-    /// ` strlist: [][]const u8 `
+    /// ` strlist: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetListWidgetItems(self: ?*anyopaque, strlist: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetListWidgetItems(self: ?*anyopaque, strlist: []const []const u8, allocator: std.mem.Allocator) void {
         var strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagedialog.SetListWidgetItems: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i| {

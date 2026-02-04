@@ -70,7 +70,7 @@ class VirtualKPlotWidget final : public KPlotWidget {
     using KPlotWidget_ConnectNotify_Callback = void (*)(KPlotWidget*, QMetaMethod*);
     using KPlotWidget_DisconnectNotify_Callback = void (*)(KPlotWidget*, QMetaMethod*);
     using KPlotWidget_SetPixRect_Callback = void (*)();
-    using KPlotWidget_PointsUnderPoint_Callback = KPlotPoint** (*)(const KPlotWidget*, QPoint*);
+    using KPlotWidget_PointsUnderPoint_Callback = libqt_list /* of KPlotPoint* */ (*)(const KPlotWidget*, QPoint*);
     using KPlotWidget_DrawFrame_Callback = void (*)(KPlotWidget*, QPainter*);
     using KPlotWidget_UpdateMicroFocus_Callback = void (*)();
     using KPlotWidget_Create_Callback = void (*)();
@@ -1193,13 +1193,14 @@ class VirtualKPlotWidget final : public KPlotWidget {
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
 
-            KPlotPoint** callback_ret = kplotwidget_pointsunderpoint_callback(this, cbval1);
+            libqt_list /* of KPlotPoint* */ callback_ret = kplotwidget_pointsunderpoint_callback(this, cbval1);
             QList<KPlotPoint*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (KPlotPoint** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            KPlotPoint** callback_ret_arr = static_cast<KPlotPoint**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KPlotWidget::pointsUnderPoint(p);

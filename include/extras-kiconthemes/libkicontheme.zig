@@ -172,7 +172,7 @@ pub const kicontheme = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Inherits(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Inherits(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_Inherits(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -260,7 +260,7 @@ pub const kicontheme = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIcons(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIcons(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIcons(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -289,7 +289,7 @@ pub const kicontheme = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIcons2(self: ?*anyopaque, size: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIcons2(self: ?*anyopaque, size: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIcons2(@ptrCast(self), @intCast(size));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -318,7 +318,7 @@ pub const kicontheme = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIconsByContext(self: ?*anyopaque, size: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIconsByContext(self: ?*anyopaque, size: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIconsByContext(@ptrCast(self), @intCast(size));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -473,7 +473,7 @@ pub const kicontheme = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn List(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn List(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_List();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -558,7 +558,7 @@ pub const kicontheme = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIcons22(self: ?*anyopaque, size: i32, context: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIcons22(self: ?*anyopaque, size: i32, context: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIcons22(@ptrCast(self), @intCast(size), @intCast(context));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -589,7 +589,7 @@ pub const kicontheme = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryIconsByContext2(self: ?*anyopaque, size: i32, context: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QueryIconsByContext2(self: ?*anyopaque, size: i32, context: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QueryIconsByContext2(@ptrCast(self), @intCast(size), @intCast(context));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

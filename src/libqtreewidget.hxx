@@ -243,7 +243,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
     using QTreeWidget_VerticalOffset_Callback = int (*)();
     using QTreeWidget_SetSelection_Callback = void (*)(QTreeWidget*, QRect*, int);
     using QTreeWidget_VisualRegionForSelection_Callback = QRegion* (*)(const QTreeWidget*, QItemSelection*);
-    using QTreeWidget_SelectedIndexes_Callback = QModelIndex** (*)();
+    using QTreeWidget_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QTreeWidget_ChangeEvent_Callback = void (*)(QTreeWidget*, QEvent*);
     using QTreeWidget_TimerEvent_Callback = void (*)(QTreeWidget*, QTimerEvent*);
     using QTreeWidget_PaintEvent_Callback = void (*)(QTreeWidget*, QPaintEvent*);
@@ -1107,7 +1107,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return QTreeWidget::mimeTypes();
@@ -1484,13 +1484,14 @@ class VirtualQTreeWidget final : public QTreeWidget {
             qtreewidget_selectedindexes_isbase = false;
             return QTreeWidget::selectedIndexes();
         } else if (qtreewidget_selectedindexes_callback != nullptr) {
-            QModelIndex** callback_ret = qtreewidget_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qtreewidget_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QTreeWidget::selectedIndexes();

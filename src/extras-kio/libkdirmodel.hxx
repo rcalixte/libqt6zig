@@ -47,7 +47,7 @@ class VirtualKDirModel final : public KDirModel {
     using KDirModel_MoveRows_Callback = bool (*)(KDirModel*, QModelIndex*, int, int, QModelIndex*, int);
     using KDirModel_MoveColumns_Callback = bool (*)(KDirModel*, QModelIndex*, int, int, QModelIndex*, int);
     using KDirModel_Buddy_Callback = QModelIndex* (*)(const KDirModel*, QModelIndex*);
-    using KDirModel_Match_Callback = QModelIndex** (*)(const KDirModel*, QModelIndex*, int, QVariant*, int, int);
+    using KDirModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KDirModel*, QModelIndex*, int, QVariant*, int, int);
     using KDirModel_Span_Callback = QSize* (*)(const KDirModel*, QModelIndex*);
     using KDirModel_MultiData_Callback = void (*)(const KDirModel*, QModelIndex*, QModelRoleDataSpan*);
     using KDirModel_Submit_Callback = bool (*)();
@@ -79,7 +79,7 @@ class VirtualKDirModel final : public KDirModel {
     using KDirModel_EndResetModel_Callback = void (*)();
     using KDirModel_ChangePersistentIndex_Callback = void (*)(KDirModel*, QModelIndex*, QModelIndex*);
     using KDirModel_ChangePersistentIndexList_Callback = void (*)(KDirModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KDirModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KDirModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KDirModel_Sender_Callback = QObject* (*)();
     using KDirModel_SenderSignalIndex_Callback = int (*)();
     using KDirModel_Receivers_Callback = int (*)(const KDirModel*, const char*);
@@ -679,7 +679,7 @@ class VirtualKDirModel final : public KDirModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KDirModel::mimeTypes();
@@ -1014,13 +1014,14 @@ class VirtualKDirModel final : public KDirModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kdirmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kdirmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KDirModel::match(start, role, value, hits, flags);
@@ -1539,13 +1540,14 @@ class VirtualKDirModel final : public KDirModel {
             kdirmodel_persistentindexlist_isbase = false;
             return KDirModel::persistentIndexList();
         } else if (kdirmodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kdirmodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kdirmodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KDirModel::persistentIndexList();

@@ -499,11 +499,11 @@ pub const qwebsocketserver = struct {
     ///
     /// ` self: QtC.QWebSocketServer `
     ///
-    /// ` protocols: [][]const u8 `
+    /// ` protocols: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSupportedSubprotocols(self: ?*anyopaque, protocols: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetSupportedSubprotocols(self: ?*anyopaque, protocols: []const []const u8, allocator: std.mem.Allocator) void {
         var protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qwebsocketserver.SetSupportedSubprotocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
         for (protocols, 0..protocols.len) |item, i| {
@@ -527,7 +527,7 @@ pub const qwebsocketserver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedSubprotocols(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedSubprotocols(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QWebSocketServer_SupportedSubprotocols(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -763,9 +763,9 @@ pub const qwebsocketserver = struct {
     ///
     /// ` self: QtC.QWebSocketServer `
     ///
-    /// ` callback: *const fn (self: QtC.QWebSocketServer, errors: [*]QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebSocketServer, errors: qtc.libqt_list ([]QtC.QSslError)) callconv(.c) void `
     ///
-    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
+    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QWebSocketServer_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

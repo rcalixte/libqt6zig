@@ -212,9 +212,9 @@ pub const knswidgets__button = struct {
     ///
     /// ` self: QtC.KNSWidgets__Button `
     ///
-    /// ` callback: *const fn (self: QtC.KNSWidgets__Button, changedEntries: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSWidgets__Button, changedEntries: qtc.libqt_list ([]QtC.KNSCore__Entry)) callconv(.c) void `
     ///
-    pub fn OnDialogFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
+    pub fn OnDialogFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KNSWidgets__Button_Connect_DialogFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

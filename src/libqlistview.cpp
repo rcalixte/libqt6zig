@@ -277,7 +277,7 @@ void QListView_IndexesMoved(QListView* self, const libqt_list /* of QModelIndex*
 }
 
 void QListView_Connect_IndexesMoved(QListView* self, intptr_t slot) {
-    void (*slotFunc)(QListView*, QModelIndex**) = reinterpret_cast<void (*)(QListView*, QModelIndex**)>(slot);
+    void (*slotFunc)(QListView*, libqt_list /* of QModelIndex* */) = reinterpret_cast<void (*)(QListView*, libqt_list /* of QModelIndex* */)>(slot);
     QListView::connect(self, &QListView::indexesMoved, [self, slotFunc](const QList<QModelIndex>& indexes) {
         const QList<QModelIndex>& indexes_ret = indexes;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -285,9 +285,10 @@ void QListView_Connect_IndexesMoved(QListView* self, intptr_t slot) {
         for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
             indexes_arr[i] = new QModelIndex(indexes_ret[i]);
         }
-        // Append sentinel value to the list
-        indexes_arr[indexes_ret.size()] = nullptr;
-        QModelIndex** sigval1 = indexes_arr;
+        libqt_list indexes_out;
+        indexes_out.len = indexes_ret.size();
+        indexes_out.data = static_cast<void*>(indexes_arr);
+        libqt_list /* of QModelIndex* */ sigval1 = indexes_out;
         slotFunc(self, sigval1);
         free(indexes_arr);
     });

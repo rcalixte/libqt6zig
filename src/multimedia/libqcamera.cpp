@@ -562,8 +562,8 @@ void QCamera_WhiteBalanceModeChanged(const QCamera* self) {
     self->whiteBalanceModeChanged();
 }
 
-void QCamera_Connect_WhiteBalanceModeChanged(QCamera* self, intptr_t slot) {
-    void (*slotFunc)(QCamera*) = reinterpret_cast<void (*)(QCamera*)>(slot);
+void QCamera_Connect_WhiteBalanceModeChanged(const QCamera* self, intptr_t slot) {
+    void (*slotFunc)(const QCamera*) = reinterpret_cast<void (*)(const QCamera*)>(slot);
     QCamera::connect(self, &QCamera::whiteBalanceModeChanged, [self, slotFunc]() {
         slotFunc(self);
     });
@@ -573,8 +573,8 @@ void QCamera_ColorTemperatureChanged(const QCamera* self) {
     self->colorTemperatureChanged();
 }
 
-void QCamera_Connect_ColorTemperatureChanged(QCamera* self, intptr_t slot) {
-    void (*slotFunc)(QCamera*) = reinterpret_cast<void (*)(QCamera*)>(slot);
+void QCamera_Connect_ColorTemperatureChanged(const QCamera* self, intptr_t slot) {
+    void (*slotFunc)(const QCamera*) = reinterpret_cast<void (*)(const QCamera*)>(slot);
     QCamera::connect(self, &QCamera::colorTemperatureChanged, [self, slotFunc]() {
         slotFunc(self);
     });

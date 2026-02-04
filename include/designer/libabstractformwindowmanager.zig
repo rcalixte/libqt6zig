@@ -630,9 +630,9 @@ pub const qdesignerformwindowmanagerinterface = struct {
     ///
     /// ` self: QtC.QDesignerFormWindowManagerInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, item_list: [*]QtC.QDesignerDnDItemInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDesignerFormWindowManagerInterface, item_list: qtc.libqt_list ([]QtC.QDesignerDnDItemInterface)) callconv(.c) void `
     ///
-    pub fn OnDragItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnDragItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QDesignerFormWindowManagerInterface_OnDragItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

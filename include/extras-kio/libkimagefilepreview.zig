@@ -533,7 +533,7 @@ pub const kimagefilepreview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KPreviewWidgetBase_SupportedMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7449,11 +7449,11 @@ pub const kimagefilepreview = struct {
     ///
     /// ` self: QtC.KImageFilePreview `
     ///
-    /// ` mimeTypes: [][]const u8 `
+    /// ` mimeTypes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSupportedMimeTypes(self: ?*anyopaque, mimeTypes: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetSupportedMimeTypes(self: ?*anyopaque, mimeTypes: []const []const u8, allocator: std.mem.Allocator) void {
         var mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kimagefilepreview.SetSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i| {
@@ -7479,11 +7479,11 @@ pub const kimagefilepreview = struct {
     ///
     /// ` self: QtC.KImageFilePreview `
     ///
-    /// ` mimeTypes: [][]const u8 `
+    /// ` mimeTypes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetSupportedMimeTypes(self: ?*anyopaque, mimeTypes: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetSupportedMimeTypes(self: ?*anyopaque, mimeTypes: []const []const u8, allocator: std.mem.Allocator) void {
         var mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kimagefilepreview.SetSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i| {
@@ -7509,9 +7509,9 @@ pub const kimagefilepreview = struct {
     ///
     /// ` self: QtC.KImageFilePreview`
     ///
-    /// ` callback: *const fn (self: QtC.KImageFilePreview, mimeTypes: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KImageFilePreview, mimeTypes: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetSupportedMimeTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnSetSupportedMimeTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KImageFilePreview_OnSetSupportedMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

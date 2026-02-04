@@ -62,7 +62,7 @@ class VirtualQTermWidget final : public QTermWidget {
     using QTermWidget_SetMonitorActivity_Callback = void (*)(QTermWidget*, bool);
     using QTermWidget_SetMonitorSilence_Callback = void (*)(QTermWidget*, bool);
     using QTermWidget_SetSilenceTimeout_Callback = void (*)(QTermWidget*, int);
-    using QTermWidget_FilterActions_Callback = QAction** (*)(QTermWidget*, QPoint*);
+    using QTermWidget_FilterActions_Callback = libqt_list /* of QAction* */ (*)(QTermWidget*, QPoint*);
     using QTermWidget_GetPtySlaveFd_Callback = int (*)();
     using QTermWidget_SetBlinkingCursor_Callback = void (*)(QTermWidget*, bool);
     using QTermWidget_SetBidiEnabled_Callback = void (*)(QTermWidget*, bool);
@@ -1173,7 +1173,7 @@ class VirtualQTermWidget final : public QTermWidget {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return QTermWidget::getAvailableColorSchemes();
@@ -1505,13 +1505,14 @@ class VirtualQTermWidget final : public QTermWidget {
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&position_ret);
 
-            QAction** callback_ret = qtermwidget_filteractions_callback(this, cbval1);
+            libqt_list /* of QAction* */ callback_ret = qtermwidget_filteractions_callback(this, cbval1);
             QList<QAction*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QAction** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QTermWidget::filterActions(position);

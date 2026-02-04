@@ -423,7 +423,7 @@ pub const qcalendar = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableCalendars(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableCalendars(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QCalendar_AvailableCalendars();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

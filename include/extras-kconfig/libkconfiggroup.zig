@@ -319,7 +319,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfigGroup_GroupList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -364,7 +364,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfigGroup_QBaseGroupList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -391,7 +391,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn KeyList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfigGroup_KeyList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -610,11 +610,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` aDefault: [][]const u8 `
+    /// ` aDefault: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntry9(self: ?*anyopaque, key: []const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadEntry9(self: ?*anyopaque, key: []const u8, aDefault: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -657,11 +657,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` aDefault: [][]const u8 `
+    /// ` aDefault: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadEntry10(self: ?*anyopaque, key: [:0]const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadEntry10(self: ?*anyopaque, key: [:0]const u8, aDefault: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_Cstring = key.ptr;
         var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadEntry10: Memory allocation failed");
         defer allocator.free(aDefault_arr);
@@ -703,7 +703,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadXdgListEntry(self: ?*anyopaque, pKey: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadXdgListEntry(self: ?*anyopaque, pKey: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -736,7 +736,7 @@ pub const kconfiggroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadXdgListEntry2(self: ?*anyopaque, key: [:0]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadXdgListEntry2(self: ?*anyopaque, key: [:0]const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_Cstring = key.ptr;
         const _arr: qtc.libqt_list = qtc.KConfigGroup_ReadXdgListEntry2(@ptrCast(self), key_Cstring);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -817,11 +817,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` pKey: []const u8 `
     ///
-    /// ` aDefault: [][]const u8 `
+    /// ` aDefault: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadPathEntry3(self: ?*anyopaque, pKey: []const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadPathEntry3(self: ?*anyopaque, pKey: []const u8, aDefault: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -864,11 +864,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` aDefault: [][]const u8 `
+    /// ` aDefault: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadPathEntry4(self: ?*anyopaque, key: [:0]const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadPathEntry4(self: ?*anyopaque, key: [:0]const u8, aDefault: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_Cstring = key.ptr;
         var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadPathEntry4: Memory allocation failed");
         defer allocator.free(aDefault_arr);
@@ -1099,11 +1099,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteEntry9(self: ?*anyopaque, key: []const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn WriteEntry9(self: ?*anyopaque, key: []const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1131,11 +1131,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteEntry10(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn WriteEntry10(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry10: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -1201,11 +1201,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` pKey: []const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteXdgListEntry(self: ?*anyopaque, pKey: []const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn WriteXdgListEntry(self: ?*anyopaque, pKey: []const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -1233,11 +1233,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteXdgListEntry2(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn WriteXdgListEntry2(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry2: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -1303,11 +1303,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` pKey: []const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WritePathEntry3(self: ?*anyopaque, pKey: []const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn WritePathEntry3(self: ?*anyopaque, pKey: []const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -1335,11 +1335,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WritePathEntry4(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn WritePathEntry4(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry4: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -1953,11 +1953,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` pKey: []const u8 `
     ///
-    /// ` aDefault: [][]const u8 `
+    /// ` aDefault: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadXdgListEntry22(self: ?*anyopaque, pKey: []const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadXdgListEntry22(self: ?*anyopaque, pKey: []const u8, aDefault: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -2000,11 +2000,11 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` aDefault: [][]const u8 `
+    /// ` aDefault: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadXdgListEntry23(self: ?*anyopaque, key: [:0]const u8, aDefault: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadXdgListEntry23(self: ?*anyopaque, key: [:0]const u8, aDefault: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_Cstring = key.ptr;
         var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadXdgListEntry23: Memory allocation failed");
         defer allocator.free(aDefault_arr);
@@ -2263,13 +2263,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteEntry310(self: ?*anyopaque, key: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
+    pub fn WriteEntry310(self: ?*anyopaque, key: []const u8, value: []const []const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -2297,13 +2297,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteEntry311(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
+    pub fn WriteEntry311(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry311: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -2373,13 +2373,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` pKey: []const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteXdgListEntry3(self: ?*anyopaque, pKey: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
+    pub fn WriteXdgListEntry3(self: ?*anyopaque, pKey: []const u8, value: []const []const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -2407,13 +2407,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WriteXdgListEntry32(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
+    pub fn WriteXdgListEntry32(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry32: Memory allocation failed");
         defer allocator.free(value_arr);
@@ -2483,13 +2483,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` pKey: []const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WritePathEntry34(self: ?*anyopaque, pKey: []const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
+    pub fn WritePathEntry34(self: ?*anyopaque, pKey: []const u8, value: []const []const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const pKey_str = qtc.libqt_string{
             .len = pKey.len,
             .data = pKey.ptr,
@@ -2517,13 +2517,13 @@ pub const kconfiggroup = struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WritePathEntry35(self: ?*anyopaque, key: [:0]const u8, value: [][]const u8, pFlags: i32, allocator: std.mem.Allocator) void {
+    pub fn WritePathEntry35(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
         var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry35: Memory allocation failed");
         defer allocator.free(value_arr);

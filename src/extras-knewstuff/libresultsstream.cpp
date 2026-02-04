@@ -42,7 +42,7 @@ void KNSCore__ResultsStream_EntriesFound(KNSCore__ResultsStream* self, const lib
 }
 
 void KNSCore__ResultsStream_Connect_EntriesFound(KNSCore__ResultsStream* self, intptr_t slot) {
-    void (*slotFunc)(KNSCore__ResultsStream*, KNSCore__Entry**) = reinterpret_cast<void (*)(KNSCore__ResultsStream*, KNSCore__Entry**)>(slot);
+    void (*slotFunc)(KNSCore__ResultsStream*, libqt_list /* of KNSCore__Entry* */) = reinterpret_cast<void (*)(KNSCore__ResultsStream*, libqt_list /* of KNSCore__Entry* */)>(slot);
     KNSCore::ResultsStream::connect(self, &KNSCore::ResultsStream::entriesFound, [self, slotFunc](const QList<KNSCore::Entry>& entries) {
         const QList<KNSCore::Entry>& entries_ret = entries;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -50,9 +50,10 @@ void KNSCore__ResultsStream_Connect_EntriesFound(KNSCore__ResultsStream* self, i
         for (qsizetype i = 0; i < entries_ret.size(); ++i) {
             entries_arr[i] = new KNSCore::Entry(entries_ret[i]);
         }
-        // Append sentinel value to the list
-        entries_arr[entries_ret.size()] = nullptr;
-        KNSCore__Entry** sigval1 = entries_arr;
+        libqt_list entries_out;
+        entries_out.len = entries_ret.size();
+        entries_out.data = static_cast<void*>(entries_arr);
+        libqt_list /* of KNSCore__Entry* */ sigval1 = entries_out;
         slotFunc(self, sigval1);
         free(entries_arr);
     });

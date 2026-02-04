@@ -92,9 +92,9 @@ pub const kconfigwatcher = struct {
     ///
     /// ` self: QtC.KConfigWatcher `
     ///
-    /// ` callback: *const fn (self: QtC.KConfigWatcher, group: QtC.KConfigGroup, names: [*][*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KConfigWatcher, group: QtC.KConfigGroup, names: ?[*:null]?[*:0]u8) callconv(.c) void `
     ///
-    pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*][*:0]u8) callconv(.c) void) void {
+    pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?[*:null]?[*:0]u8) callconv(.c) void) void {
         qtc.KConfigWatcher_Connect_ConfigChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

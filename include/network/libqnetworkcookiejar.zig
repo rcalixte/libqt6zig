@@ -182,9 +182,13 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` self: QtC.QNetworkCookieJar `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkCookieJar, url: QtC.QUrl) callconv(.c) [*:null]QtC.QNetworkCookie `
+    /// ` callback: *const fn (self: QtC.QNetworkCookieJar, url: QtC.QUrl) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnCookiesForUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QNetworkCookie) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QNetworkCookie `
+    ///
+    pub fn OnCookiesForUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.QNetworkCookieJar_OnCookiesForUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -235,9 +239,9 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` self: QtC.QNetworkCookieJar `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkCookieJar, cookieList: [*]QtC.QNetworkCookie, url: QtC.QUrl) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QNetworkCookieJar, cookieList: qtc.libqt_list ([]QtC.QNetworkCookie), url: QtC.QUrl) callconv(.c) bool `
     ///
-    pub fn OnSetCookiesFromUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QNetworkCookie, ?*anyopaque) callconv(.c) bool) void {
+    pub fn OnSetCookiesFromUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) bool) void {
         qtc.QNetworkCookieJar_OnSetCookiesFromUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -408,9 +412,13 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` self: QtC.QNetworkCookieJar `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QNetworkCookie `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnAllCookies(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QNetworkCookie) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QNetworkCookie `
+    ///
+    pub fn OnAllCookies(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QNetworkCookieJar_OnAllCookies(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -457,9 +465,9 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ` self: QtC.QNetworkCookieJar `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkCookieJar, cookieList: [*]QtC.QNetworkCookie) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNetworkCookieJar, cookieList: qtc.libqt_list ([]QtC.QNetworkCookie)) callconv(.c) void `
     ///
-    pub fn OnSetAllCookies(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QNetworkCookie) callconv(.c) void) void {
+    pub fn OnSetAllCookies(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QNetworkCookieJar_OnSetAllCookies(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

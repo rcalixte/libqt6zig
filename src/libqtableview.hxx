@@ -40,7 +40,7 @@ class VirtualQTableView final : public QTableView {
     using QTableView_MoveCursor_Callback = QModelIndex* (*)(QTableView*, int, int);
     using QTableView_SetSelection_Callback = void (*)(QTableView*, QRect*, int);
     using QTableView_VisualRegionForSelection_Callback = QRegion* (*)(const QTableView*, QItemSelection*);
-    using QTableView_SelectedIndexes_Callback = QModelIndex** (*)();
+    using QTableView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QTableView_UpdateGeometries_Callback = void (*)();
     using QTableView_ViewportSizeHint_Callback = QSize* (*)();
     using QTableView_SizeHintForRow_Callback = int (*)(const QTableView*, int);
@@ -1086,13 +1086,14 @@ class VirtualQTableView final : public QTableView {
             qtableview_selectedindexes_isbase = false;
             return QTableView::selectedIndexes();
         } else if (qtableview_selectedindexes_callback != nullptr) {
-            QModelIndex** callback_ret = qtableview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qtableview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QTableView::selectedIndexes();

@@ -163,11 +163,11 @@ pub const qsessionmanager = struct {
     ///
     /// ` self: QtC.QSessionManager `
     ///
-    /// ` restartCommand: [][]const u8 `
+    /// ` restartCommand: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetRestartCommand(self: ?*anyopaque, restartCommand: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetRestartCommand(self: ?*anyopaque, restartCommand: []const []const u8, allocator: std.mem.Allocator) void {
         var restartCommand_arr = allocator.alloc(qtc.libqt_string, restartCommand.len) catch @panic("qsessionmanager.SetRestartCommand: Memory allocation failed");
         defer allocator.free(restartCommand_arr);
         for (restartCommand, 0..restartCommand.len) |item, i| {
@@ -191,7 +191,7 @@ pub const qsessionmanager = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RestartCommand(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn RestartCommand(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSessionManager_RestartCommand(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -216,11 +216,11 @@ pub const qsessionmanager = struct {
     ///
     /// ` self: QtC.QSessionManager `
     ///
-    /// ` discardCommand: [][]const u8 `
+    /// ` discardCommand: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetDiscardCommand(self: ?*anyopaque, discardCommand: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetDiscardCommand(self: ?*anyopaque, discardCommand: []const []const u8, allocator: std.mem.Allocator) void {
         var discardCommand_arr = allocator.alloc(qtc.libqt_string, discardCommand.len) catch @panic("qsessionmanager.SetDiscardCommand: Memory allocation failed");
         defer allocator.free(discardCommand_arr);
         for (discardCommand, 0..discardCommand.len) |item, i| {
@@ -244,7 +244,7 @@ pub const qsessionmanager = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DiscardCommand(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DiscardCommand(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSessionManager_DiscardCommand(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -293,11 +293,11 @@ pub const qsessionmanager = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: [][]const u8 `
+    /// ` value: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetManagerProperty2(self: ?*anyopaque, name: []const u8, value: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetManagerProperty2(self: ?*anyopaque, name: []const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,

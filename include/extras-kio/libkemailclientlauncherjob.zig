@@ -160,11 +160,11 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` to: [][]const u8 `
+    /// ` to: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetTo(self: ?*anyopaque, to: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetTo(self: ?*anyopaque, to: []const []const u8, allocator: std.mem.Allocator) void {
         var to_arr = allocator.alloc(qtc.libqt_string, to.len) catch @panic("kemailclientlauncherjob.SetTo: Memory allocation failed");
         defer allocator.free(to_arr);
         for (to, 0..to.len) |item, i| {
@@ -186,11 +186,11 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` cc: [][]const u8 `
+    /// ` cc: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetCc(self: ?*anyopaque, cc: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetCc(self: ?*anyopaque, cc: []const []const u8, allocator: std.mem.Allocator) void {
         var cc_arr = allocator.alloc(qtc.libqt_string, cc.len) catch @panic("kemailclientlauncherjob.SetCc: Memory allocation failed");
         defer allocator.free(cc_arr);
         for (cc, 0..cc.len) |item, i| {
@@ -212,11 +212,11 @@ pub const kemailclientlauncherjob = struct {
     ///
     /// ` self: QtC.KEMailClientLauncherJob `
     ///
-    /// ` bcc: [][]const u8 `
+    /// ` bcc: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetBcc(self: ?*anyopaque, bcc: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetBcc(self: ?*anyopaque, bcc: []const []const u8, allocator: std.mem.Allocator) void {
         var bcc_arr = allocator.alloc(qtc.libqt_string, bcc.len) catch @panic("kemailclientlauncherjob.SetBcc: Memory allocation failed");
         defer allocator.free(bcc_arr);
         for (bcc, 0..bcc.len) |item, i| {

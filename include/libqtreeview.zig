@@ -1036,9 +1036,9 @@ pub const qtreeview = struct {
     ///
     /// ` self: QtC.QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QTreeView_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1885,9 +1885,13 @@ pub const qtreeview = struct {
     ///
     /// ` self: QtC.QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QTreeView_OnSelectedIndexes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

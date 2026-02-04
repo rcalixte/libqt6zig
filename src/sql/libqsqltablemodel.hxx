@@ -66,7 +66,7 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     using QSqlTableModel_MoveRows_Callback = bool (*)(QSqlTableModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QSqlTableModel_MoveColumns_Callback = bool (*)(QSqlTableModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QSqlTableModel_Buddy_Callback = QModelIndex* (*)(const QSqlTableModel*, QModelIndex*);
-    using QSqlTableModel_Match_Callback = QModelIndex** (*)(const QSqlTableModel*, QModelIndex*, int, QVariant*, int, int);
+    using QSqlTableModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QSqlTableModel*, QModelIndex*, int, QVariant*, int, int);
     using QSqlTableModel_Span_Callback = QSize* (*)(const QSqlTableModel*, QModelIndex*);
     using QSqlTableModel_MultiData_Callback = void (*)(const QSqlTableModel*, QModelIndex*, QModelRoleDataSpan*);
     using QSqlTableModel_ResetInternalData_Callback = void (*)();
@@ -99,7 +99,7 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
     using QSqlTableModel_EndMoveColumns_Callback = void (*)();
     using QSqlTableModel_ChangePersistentIndex_Callback = void (*)(QSqlTableModel*, QModelIndex*, QModelIndex*);
     using QSqlTableModel_ChangePersistentIndexList_Callback = void (*)(QSqlTableModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QSqlTableModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using QSqlTableModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QSqlTableModel_Sender_Callback = QObject* (*)();
     using QSqlTableModel_SenderSignalIndex_Callback = int (*)();
     using QSqlTableModel_Receivers_Callback = int (*)(const QSqlTableModel*, const char*);
@@ -1279,7 +1279,7 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return QSqlTableModel::mimeTypes();
@@ -1436,13 +1436,14 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = qsqltablemodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = qsqltablemodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QSqlTableModel::match(start, role, value, hits, flags);
@@ -1983,13 +1984,14 @@ class VirtualQSqlTableModel final : public QSqlTableModel {
             qsqltablemodel_persistentindexlist_isbase = false;
             return QSqlTableModel::persistentIndexList();
         } else if (qsqltablemodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = qsqltablemodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qsqltablemodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QSqlTableModel::persistentIndexList();

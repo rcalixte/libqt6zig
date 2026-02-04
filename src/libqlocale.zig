@@ -1524,7 +1524,7 @@ pub const qlocale = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UiLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn UiLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QLocale_UiLanguages(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1789,11 +1789,11 @@ pub const qlocale = struct {
     ///
     /// ` self: QtC.QLocale `
     ///
-    /// ` strl: [][]const u8 `
+    /// ` strl: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreateSeparatedList(self: ?*anyopaque, strl: [][]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn CreateSeparatedList(self: ?*anyopaque, strl: []const []const u8, allocator: std.mem.Allocator) []const u8 {
         var strl_arr = allocator.alloc(qtc.libqt_string, strl.len) catch @panic("qlocale.CreateSeparatedList: Memory allocation failed");
         defer allocator.free(strl_arr);
         for (strl, 0..strl.len) |item, i| {
@@ -2859,7 +2859,7 @@ pub const qlocale = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UiLanguages1(self: ?*anyopaque, separator: i8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn UiLanguages1(self: ?*anyopaque, separator: i8, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QLocale_UiLanguages1(@ptrCast(self), @intCast(separator));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

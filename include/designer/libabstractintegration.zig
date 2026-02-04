@@ -650,11 +650,11 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` signalSignature: []const u8 `
     ///
-    /// ` parameterNames: [][]const u8 `
+    /// ` parameterNames: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EmitNavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn EmitNavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8, allocator: std.mem.Allocator) void {
         const objectName_str = qtc.libqt_string{
             .len = objectName.len,
             .data = objectName.ptr,
@@ -794,11 +794,11 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` signalSignature: []const u8 `
     ///
-    /// ` parameterNames: [][]const u8 `
+    /// ` parameterNames: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn NavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8, allocator: std.mem.Allocator) void {
         const objectName_str = qtc.libqt_string{
             .len = objectName.len,
             .data = objectName.ptr,
@@ -3762,11 +3762,11 @@ pub const qdesignerintegration = struct {
     ///
     /// ` signalSignature: []const u8 `
     ///
-    /// ` parameterNames: [][]const u8 `
+    /// ` parameterNames: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EmitNavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn EmitNavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8, allocator: std.mem.Allocator) void {
         const objectName_str = qtc.libqt_string{
             .len = objectName.len,
             .data = objectName.ptr,
@@ -3918,11 +3918,11 @@ pub const qdesignerintegration = struct {
     ///
     /// ` signalSignature: []const u8 `
     ///
-    /// ` parameterNames: [][]const u8 `
+    /// ` parameterNames: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn NavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8, allocator: std.mem.Allocator) void {
         const objectName_str = qtc.libqt_string{
             .len = objectName.len,
             .data = objectName.ptr,

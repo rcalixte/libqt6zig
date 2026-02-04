@@ -21,7 +21,7 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
     using KBookmarkOwner_CurrentUrl_Callback = QUrl* (*)();
     using KBookmarkOwner_CurrentIcon_Callback = const char* (*)();
     using KBookmarkOwner_SupportsTabs_Callback = bool (*)();
-    using KBookmarkOwner_CurrentBookmarkList_Callback = KBookmarkOwner__FutureBookmark** (*)();
+    using KBookmarkOwner_CurrentBookmarkList_Callback = libqt_list /* of KBookmarkOwner__FutureBookmark* */ (*)();
     using KBookmarkOwner_EnableOption_Callback = bool (*)(const KBookmarkOwner*, int);
     using KBookmarkOwner_OpenBookmark_Callback = void (*)(KBookmarkOwner*, KBookmark*, int, int);
     using KBookmarkOwner_OpenFolderinTabs_Callback = void (*)(KBookmarkOwner*, KBookmarkGroup*);
@@ -153,13 +153,14 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
             kbookmarkowner_currentbookmarklist_isbase = false;
             return KBookmarkOwner::currentBookmarkList();
         } else if (kbookmarkowner_currentbookmarklist_callback != nullptr) {
-            KBookmarkOwner__FutureBookmark** callback_ret = kbookmarkowner_currentbookmarklist_callback();
+            libqt_list /* of KBookmarkOwner__FutureBookmark* */ callback_ret = kbookmarkowner_currentbookmarklist_callback();
             QList<KBookmarkOwner::FutureBookmark> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (KBookmarkOwner__FutureBookmark** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            KBookmarkOwner__FutureBookmark** callback_ret_arr = static_cast<KBookmarkOwner__FutureBookmark**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KBookmarkOwner::currentBookmarkList();

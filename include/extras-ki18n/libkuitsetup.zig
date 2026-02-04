@@ -30,7 +30,7 @@ pub const kuitsetup = struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` attribNames: [][]const u8 `
+    /// ` attribNames: []const []const u8 `
     ///
     /// ` format: kuitsetup_enums.VisualFormat `
     ///
@@ -38,7 +38,7 @@ pub const kuitsetup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetTagPattern(self: ?*anyopaque, tagName: []const u8, attribNames: [][]const u8, format: i32, pattern: ?*anyopaque, allocator: std.mem.Allocator) void {
+    pub fn SetTagPattern(self: ?*anyopaque, tagName: []const u8, attribNames: []const []const u8, format: i32, pattern: ?*anyopaque, allocator: std.mem.Allocator) void {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,

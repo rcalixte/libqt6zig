@@ -72,7 +72,7 @@ class VirtualQHeaderView final : public QHeaderView {
     using QHeaderView_CloseEditor_Callback = void (*)(QHeaderView*, QWidget*, int);
     using QHeaderView_CommitData_Callback = void (*)(QHeaderView*, QWidget*);
     using QHeaderView_EditorDestroyed_Callback = void (*)(QHeaderView*, QObject*);
-    using QHeaderView_SelectedIndexes_Callback = QModelIndex** (*)();
+    using QHeaderView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QHeaderView_Edit2_Callback = bool (*)(QHeaderView*, QModelIndex*, int, QEvent*);
     using QHeaderView_SelectionCommand_Callback = int (*)(const QHeaderView*, QModelIndex*, QEvent*);
     using QHeaderView_StartDrag_Callback = void (*)(QHeaderView*, int);
@@ -1606,13 +1606,14 @@ class VirtualQHeaderView final : public QHeaderView {
             qheaderview_selectedindexes_isbase = false;
             return QHeaderView::selectedIndexes();
         } else if (qheaderview_selectedindexes_callback != nullptr) {
-            QModelIndex** callback_ret = qheaderview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qheaderview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QHeaderView::selectedIndexes();

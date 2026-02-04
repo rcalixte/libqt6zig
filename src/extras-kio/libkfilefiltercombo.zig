@@ -1470,11 +1470,11 @@ pub const kfilefiltercombo = struct {
     ///
     /// ` self: QtC.KFileFilterCombo `
     ///
-    /// ` texts: [][]const u8 `
+    /// ` texts: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItems(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn AddItems(self: ?*anyopaque, texts: []const []const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kfilefiltercombo.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
@@ -1542,11 +1542,11 @@ pub const kfilefiltercombo = struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` texts: [][]const u8 `
+    /// ` texts: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertItems(self: ?*anyopaque, index: i32, texts: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn InsertItems(self: ?*anyopaque, index: i32, texts: []const []const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kfilefiltercombo.InsertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
@@ -7278,13 +7278,13 @@ pub const kfilefiltercombo = struct {
     ///
     /// ` self: QtC.KFileFilterCombo `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` autoSuggest: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn SetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kfilefiltercombo.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -7310,13 +7310,13 @@ pub const kfilefiltercombo = struct {
     ///
     /// ` self: QtC.KFileFilterCombo `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` autoSuggest: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kfilefiltercombo.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -7342,9 +7342,9 @@ pub const kfilefiltercombo = struct {
     ///
     /// ` self: QtC.KFileFilterCombo`
     ///
-    /// ` callback: *const fn (self: QtC.KFileFilterCombo, items: [*][*:0]const u8, autoSuggest: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFileFilterCombo, items: ?[*:null]?[*:0]const u8, autoSuggest: bool) callconv(.c) void `
     ///
-    pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8, bool) callconv(.c) void) void {
+    pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
         qtc.KFileFilterCombo_OnSetCompletedItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -34,7 +34,7 @@ pub const klibexec = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PathCandidates(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PathCandidates(param1: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -85,7 +85,7 @@ pub const klibexec = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KdeFrameworksPaths(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn KdeFrameworksPaths(param1: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

@@ -681,9 +681,9 @@ pub const qcandlestickseries = struct {
     ///
     /// ` self: QtC.QCandlestickSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, sets: qtc.libqt_list ([]QtC.QCandlestickSet)) callconv(.c) void `
     ///
-    pub fn OnCandlestickSetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnCandlestickSetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_CandlestickSetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -709,9 +709,9 @@ pub const qcandlestickseries = struct {
     ///
     /// ` self: QtC.QCandlestickSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QCandlestickSeries, sets: qtc.libqt_list ([]QtC.QCandlestickSet)) callconv(.c) void `
     ///
-    pub fn OnCandlestickSetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnCandlestickSetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_CandlestickSetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

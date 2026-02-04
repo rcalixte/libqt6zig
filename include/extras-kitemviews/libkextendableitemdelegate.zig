@@ -2128,9 +2128,13 @@ pub const kextendableitemdelegate = struct {
     ///
     /// ` self: QtC.KExtendableItemDelegate`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:-1]i32 `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:-1]i32) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []i32 `
+    ///
+    pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KExtendableItemDelegate_OnPaintingRoles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

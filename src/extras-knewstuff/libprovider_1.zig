@@ -295,9 +295,9 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Provider, cachedEntries: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, cachedEntries: qtc.libqt_list ([]QtC.KNSCore__Entry)) callconv(.c) void `
     ///
-    pub fn OnSetCachedEntries(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
+    pub fn OnSetCachedEntries(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KNSCore__Provider_OnSetCachedEntries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -953,11 +953,11 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` tagFilter: [][]const u8 `
+    /// ` tagFilter: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetTagFilter(self: ?*anyopaque, tagFilter: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetTagFilter(self: ?*anyopaque, tagFilter: []const []const u8, allocator: std.mem.Allocator) void {
         var tagFilter_arr = allocator.alloc(qtc.libqt_string, tagFilter.len) catch @panic("knscore__provider.SetTagFilter: Memory allocation failed");
         defer allocator.free(tagFilter_arr);
         for (tagFilter, 0..tagFilter.len) |item, i| {
@@ -981,7 +981,7 @@ pub const knscore__provider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn TagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Provider_TagFilter(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1006,11 +1006,11 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` downloadTagFilter: [][]const u8 `
+    /// ` downloadTagFilter: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetDownloadTagFilter(self: ?*anyopaque, downloadTagFilter: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetDownloadTagFilter(self: ?*anyopaque, downloadTagFilter: []const []const u8, allocator: std.mem.Allocator) void {
         var downloadTagFilter_arr = allocator.alloc(qtc.libqt_string, downloadTagFilter.len) catch @panic("knscore__provider.SetDownloadTagFilter: Memory allocation failed");
         defer allocator.free(downloadTagFilter_arr);
         for (downloadTagFilter, 0..downloadTagFilter.len) |item, i| {
@@ -1034,7 +1034,7 @@ pub const knscore__provider = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DownloadTagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DownloadTagFilter(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Provider_DownloadTagFilter(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1101,9 +1101,9 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider__SearchRequest, param2: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, param1: QtC.KNSCore__Provider__SearchRequest, param2: qtc.libqt_list ([]QtC.KNSCore__Entry)) callconv(.c) void `
     ///
-    pub fn OnLoadingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
+    pub fn OnLoadingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_LoadingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1223,9 +1223,9 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Provider, presets: [*]QtC.KNSCore__Provider__SearchPreset) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, presets: qtc.libqt_list ([]QtC.KNSCore__Provider__SearchPreset)) callconv(.c) void `
     ///
-    pub fn OnSearchPresetsLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Provider__SearchPreset) callconv(.c) void) void {
+    pub fn OnSearchPresetsLoaded(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_SearchPresetsLoaded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1339,9 +1339,9 @@ pub const knscore__provider = struct {
     ///
     /// ` self: QtC.KNSCore__Provider `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__Provider, categories: [*]QtC.KNSCore__Provider__CategoryMetadata) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__Provider, categories: qtc.libqt_list ([]QtC.KNSCore__Provider__CategoryMetadata)) callconv(.c) void `
     ///
-    pub fn OnCategoriesMetadataLoded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Provider__CategoryMetadata) callconv(.c) void) void {
+    pub fn OnCategoriesMetadataLoded(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KNSCore__Provider_Connect_CategoriesMetadataLoded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2883,11 +2883,11 @@ pub const knscore__provider__searchrequest = struct {
     ///
     /// ` searchTerm_: []const u8 `
     ///
-    /// ` categories_: [][]const u8 `
+    /// ` categories_: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New6(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: [][]const u8, allocator: std.mem.Allocator) QtC.KNSCore__Provider__SearchRequest {
+    pub fn New6(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: []const []const u8, allocator: std.mem.Allocator) QtC.KNSCore__Provider__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
             .data = searchTerm_.ptr,
@@ -2918,13 +2918,13 @@ pub const knscore__provider__searchrequest = struct {
     ///
     /// ` searchTerm_: []const u8 `
     ///
-    /// ` categories_: [][]const u8 `
+    /// ` categories_: []const []const u8 `
     ///
     /// ` page_: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New7(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: [][]const u8, page_: i32, allocator: std.mem.Allocator) QtC.KNSCore__Provider__SearchRequest {
+    pub fn New7(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: []const []const u8, page_: i32, allocator: std.mem.Allocator) QtC.KNSCore__Provider__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
             .data = searchTerm_.ptr,
@@ -2955,7 +2955,7 @@ pub const knscore__provider__searchrequest = struct {
     ///
     /// ` searchTerm_: []const u8 `
     ///
-    /// ` categories_: [][]const u8 `
+    /// ` categories_: []const []const u8 `
     ///
     /// ` page_: i32 `
     ///
@@ -2963,7 +2963,7 @@ pub const knscore__provider__searchrequest = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New8(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: [][]const u8, page_: i32, pageSize_: i32, allocator: std.mem.Allocator) QtC.KNSCore__Provider__SearchRequest {
+    pub fn New8(sortMode_: i32, filter_: i32, searchTerm_: []const u8, categories_: []const []const u8, page_: i32, pageSize_: i32, allocator: std.mem.Allocator) QtC.KNSCore__Provider__SearchRequest {
         const searchTerm__str = qtc.libqt_string{
             .len = searchTerm_.len,
             .data = searchTerm_.ptr,
@@ -3076,7 +3076,7 @@ pub const knscore__provider__searchrequest = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const categories_arr: qtc.libqt_list = qtc.KNSCore__Provider__SearchRequest_Categories(@ptrCast(self));
         var categories_str: [*]qtc.libqt_string = @ptrCast(@alignCast(categories_arr.data));
         defer {
@@ -3101,11 +3101,11 @@ pub const knscore__provider__searchrequest = struct {
     ///
     /// ` self: QtC.KNSCore__Provider__SearchRequest `
     ///
-    /// ` categories: [][]const u8 `
+    /// ` categories: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetCategories(self: ?*anyopaque, categories: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetCategories(self: ?*anyopaque, categories: []const []const u8, allocator: std.mem.Allocator) void {
         var categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("knscore__provider__searchrequest.SetCategories: Memory allocation failed");
         defer allocator.free(categories_arr);
         for (categories, 0..categories.len) |item, i| {

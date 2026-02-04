@@ -16,11 +16,11 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` paths: [][]const u8 `
+    /// ` paths: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(paths: [][]const u8, allocator: std.mem.Allocator) QtC.QFileSystemWatcher {
+    pub fn New2(paths: []const []const u8, allocator: std.mem.Allocator) QtC.QFileSystemWatcher {
         var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qfilesystemwatcher.New2: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
@@ -51,13 +51,13 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` paths: [][]const u8 `
+    /// ` paths: []const []const u8 `
     ///
     /// ` parent: QtC.QObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(paths: [][]const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QFileSystemWatcher {
+    pub fn New4(paths: []const []const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QFileSystemWatcher {
         var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qfilesystemwatcher.New4: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
@@ -227,11 +227,11 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ` self: QtC.QFileSystemWatcher `
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddPaths(self: ?*anyopaque, files: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AddPaths(self: ?*anyopaque, files: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("qfilesystemwatcher.AddPaths: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
@@ -284,11 +284,11 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ` self: QtC.QFileSystemWatcher `
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RemovePaths(self: ?*anyopaque, files: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn RemovePaths(self: ?*anyopaque, files: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("qfilesystemwatcher.RemovePaths: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
@@ -327,7 +327,7 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Files(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Files(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileSystemWatcher_Files(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -354,7 +354,7 @@ pub const qfilesystemwatcher = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Directories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Directories(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileSystemWatcher_Directories(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

@@ -468,13 +468,13 @@ pub const kxmlguiclient = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` doc: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn FindMostRecentXMLFile(files: []const []const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kxmlguiclient.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
@@ -1079,7 +1079,7 @@ pub const kxmlguiclient__statechange = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActionsToEnable(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ActionsToEnable(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const actionsToEnable_arr: qtc.libqt_list = qtc.KXMLGUIClient__StateChange_ActionsToEnable(@ptrCast(self));
         var actionsToEnable_str: [*]qtc.libqt_string = @ptrCast(@alignCast(actionsToEnable_arr.data));
         defer {
@@ -1104,11 +1104,11 @@ pub const kxmlguiclient__statechange = struct {
     ///
     /// ` self: QtC.KXMLGUIClient__StateChange `
     ///
-    /// ` actionsToEnable: [][]const u8 `
+    /// ` actionsToEnable: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetActionsToEnable(self: ?*anyopaque, actionsToEnable: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetActionsToEnable(self: ?*anyopaque, actionsToEnable: []const []const u8, allocator: std.mem.Allocator) void {
         var actionsToEnable_arr = allocator.alloc(qtc.libqt_string, actionsToEnable.len) catch @panic("kxmlguiclient__statechange.SetActionsToEnable: Memory allocation failed");
         defer allocator.free(actionsToEnable_arr);
         for (actionsToEnable, 0..actionsToEnable.len) |item, i| {
@@ -1132,7 +1132,7 @@ pub const kxmlguiclient__statechange = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActionsToDisable(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ActionsToDisable(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const actionsToDisable_arr: qtc.libqt_list = qtc.KXMLGUIClient__StateChange_ActionsToDisable(@ptrCast(self));
         var actionsToDisable_str: [*]qtc.libqt_string = @ptrCast(@alignCast(actionsToDisable_arr.data));
         defer {
@@ -1157,11 +1157,11 @@ pub const kxmlguiclient__statechange = struct {
     ///
     /// ` self: QtC.KXMLGUIClient__StateChange `
     ///
-    /// ` actionsToDisable: [][]const u8 `
+    /// ` actionsToDisable: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetActionsToDisable(self: ?*anyopaque, actionsToDisable: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetActionsToDisable(self: ?*anyopaque, actionsToDisable: []const []const u8, allocator: std.mem.Allocator) void {
         var actionsToDisable_arr = allocator.alloc(qtc.libqt_string, actionsToDisable.len) catch @panic("kxmlguiclient__statechange.SetActionsToDisable: Memory allocation failed");
         defer allocator.free(actionsToDisable_arr);
         for (actionsToDisable, 0..actionsToDisable.len) |item, i| {

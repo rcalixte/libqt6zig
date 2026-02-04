@@ -218,7 +218,7 @@ pub const kdesktopfile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadActions(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadActions(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_ReadActions(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -245,7 +245,7 @@ pub const kdesktopfile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ReadMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_ReadMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -547,11 +547,11 @@ pub const kdesktopfile = struct {
     ///
     /// ` self: QtC.KDesktopFile `
     ///
-    /// ` sources: [][]const u8 `
+    /// ` sources: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddConfigSources(self: ?*anyopaque, sources: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn AddConfigSources(self: ?*anyopaque, sources: []const []const u8, allocator: std.mem.Allocator) void {
         var sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("kdesktopfile.AddConfigSources: Memory allocation failed");
         defer allocator.free(sources_arr);
         for (sources, 0..sources.len) |item, i| {
@@ -577,7 +577,7 @@ pub const kdesktopfile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AdditionalConfigSources(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AdditionalConfigSources(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_AdditionalConfigSources(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1098,7 +1098,7 @@ pub const kdesktopfile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GroupList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_GroupList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1129,7 +1129,7 @@ pub const kdesktopfile = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseGroupList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_QBaseGroupList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

@@ -37,7 +37,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     using KSelectionProxyModel_Index_Callback = QModelIndex* (*)(const KSelectionProxyModel*, int, int, QModelIndex*);
     using KSelectionProxyModel_Parent_Callback = QModelIndex* (*)(const KSelectionProxyModel*, QModelIndex*);
     using KSelectionProxyModel_ColumnCount_Callback = int (*)(const KSelectionProxyModel*, QModelIndex*);
-    using KSelectionProxyModel_Match_Callback = QModelIndex** (*)(const KSelectionProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using KSelectionProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KSelectionProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using KSelectionProxyModel_Submit_Callback = bool (*)();
     using KSelectionProxyModel_Revert_Callback = void (*)();
     using KSelectionProxyModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const KSelectionProxyModel*, QModelIndex*);
@@ -69,7 +69,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     using KSelectionProxyModel_CustomEvent_Callback = void (*)(KSelectionProxyModel*, QEvent*);
     using KSelectionProxyModel_ConnectNotify_Callback = void (*)(KSelectionProxyModel*, QMetaMethod*);
     using KSelectionProxyModel_DisconnectNotify_Callback = void (*)(KSelectionProxyModel*, QMetaMethod*);
-    using KSelectionProxyModel_SourceRootIndexes_Callback = QPersistentModelIndex** (*)();
+    using KSelectionProxyModel_SourceRootIndexes_Callback = libqt_list /* of QPersistentModelIndex* */ (*)();
     using KSelectionProxyModel_CreateSourceIndex_Callback = QModelIndex* (*)(const KSelectionProxyModel*, int, int, void*);
     using KSelectionProxyModel_CreateIndex_Callback = QModelIndex* (*)(const KSelectionProxyModel*, int, int);
     using KSelectionProxyModel_EncodeData_Callback = void (*)(const KSelectionProxyModel*, libqt_list /* of QModelIndex* */, QDataStream*);
@@ -90,7 +90,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     using KSelectionProxyModel_EndResetModel_Callback = void (*)();
     using KSelectionProxyModel_ChangePersistentIndex_Callback = void (*)(KSelectionProxyModel*, QModelIndex*, QModelIndex*);
     using KSelectionProxyModel_ChangePersistentIndexList_Callback = void (*)(KSelectionProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KSelectionProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KSelectionProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KSelectionProxyModel_Sender_Callback = QObject* (*)();
     using KSelectionProxyModel_SenderSignalIndex_Callback = int (*)();
     using KSelectionProxyModel_Receivers_Callback = int (*)(const KSelectionProxyModel*, const char*);
@@ -738,7 +738,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KSelectionProxyModel::mimeTypes();
@@ -865,13 +865,14 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kselectionproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kselectionproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KSelectionProxyModel::match(start, role, value, hits, flags);
@@ -1434,13 +1435,14 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             kselectionproxymodel_sourcerootindexes_isbase = false;
             return KSelectionProxyModel::sourceRootIndexes();
         } else if (kselectionproxymodel_sourcerootindexes_callback != nullptr) {
-            QPersistentModelIndex** callback_ret = kselectionproxymodel_sourcerootindexes_callback();
+            libqt_list /* of QPersistentModelIndex* */ callback_ret = kselectionproxymodel_sourcerootindexes_callback();
             QList<QPersistentModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QPersistentModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QPersistentModelIndex** callback_ret_arr = static_cast<QPersistentModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KSelectionProxyModel::sourceRootIndexes();
@@ -1800,13 +1802,14 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             kselectionproxymodel_persistentindexlist_isbase = false;
             return KSelectionProxyModel::persistentIndexList();
         } else if (kselectionproxymodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kselectionproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kselectionproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KSelectionProxyModel::persistentIndexList();

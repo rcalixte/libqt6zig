@@ -69,7 +69,7 @@ QColor* kColorPicker__KColorPicker_Color(const kColorPicker__KColorPicker* self)
 void kColorPicker__KColorPicker_ResetColors(kColorPicker__KColorPicker* self);
 void kColorPicker__KColorPicker_SetColor(kColorPicker__KColorPicker* self, const QColor* color);
 void kColorPicker__KColorPicker_ColorChanged(const kColorPicker__KColorPicker* self, const QColor* color);
-void kColorPicker__KColorPicker_Connect_ColorChanged(kColorPicker__KColorPicker* self, intptr_t slot);
+void kColorPicker__KColorPicker_Connect_ColorChanged(const kColorPicker__KColorPicker* self, intptr_t slot);
 void kColorPicker__KColorPicker_ResetColors1(kColorPicker__KColorPicker* self, bool showAlphaChannel);
 void kColorPicker__KColorPicker_OnMetaObject(const kColorPicker__KColorPicker* self, intptr_t slot);
 QMetaObject* kColorPicker__KColorPicker_QBaseMetaObject(const kColorPicker__KColorPicker* self);

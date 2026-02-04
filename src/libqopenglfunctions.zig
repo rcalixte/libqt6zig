@@ -1665,13 +1665,13 @@ pub const qopenglfunctions = struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` stringVal: [][:0]const u8 `
+    /// ` stringVal: []const [:0]const u8 `
     ///
     /// ` length: []const i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: [][:0]const u8, length: []const i32, allocator: std.mem.Allocator) void {
+    pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: []const [:0]const u8, length: []const i32, allocator: std.mem.Allocator) void {
         const stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglfunctions.GlShaderSource: Memory allocation failed");
         defer allocator.free(stringVal_chararr);
         for (stringVal, 0..stringVal.len) |str, i| {

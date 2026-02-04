@@ -303,7 +303,7 @@ pub const qurlquery = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllQueryItemValues(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllQueryItemValues(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -450,7 +450,7 @@ pub const qurlquery = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllQueryItemValues2(self: ?*anyopaque, key: []const u8, encoding: u32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllQueryItemValues2(self: ?*anyopaque, key: []const u8, encoding: u32, allocator: std.mem.Allocator) []const []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

@@ -229,11 +229,11 @@ pub const signon__authservice = struct {
     ///
     /// ` self: QtC.SignOn__AuthService `
     ///
-    /// ` methods: [][]const u8 `
+    /// ` methods: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MethodsAvailable(self: ?*anyopaque, methods: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn MethodsAvailable(self: ?*anyopaque, methods: []const []const u8, allocator: std.mem.Allocator) void {
         var methods_arr = allocator.alloc(qtc.libqt_string, methods.len) catch @panic("signon__authservice.MethodsAvailable: Memory allocation failed");
         defer allocator.free(methods_arr);
         for (methods, 0..methods.len) |item, i| {
@@ -255,9 +255,9 @@ pub const signon__authservice = struct {
     ///
     /// ` self: QtC.SignOn__AuthService `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthService, methods: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthService, methods: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMethodsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnMethodsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.SignOn__AuthService_Connect_MethodsAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -269,11 +269,11 @@ pub const signon__authservice = struct {
     ///
     /// ` method: []const u8 `
     ///
-    /// ` mechanisms: [][]const u8 `
+    /// ` mechanisms: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MechanismsAvailable(self: ?*anyopaque, method: []const u8, mechanisms: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn MechanismsAvailable(self: ?*anyopaque, method: []const u8, mechanisms: []const []const u8, allocator: std.mem.Allocator) void {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
@@ -299,9 +299,9 @@ pub const signon__authservice = struct {
     ///
     /// ` self: QtC.SignOn__AuthService `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthService, method: [*:0]const u8, mechanisms: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthService, method: [*:0]const u8, mechanisms: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMechanismsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnMechanismsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.SignOn__AuthService_Connect_MechanismsAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -327,9 +327,9 @@ pub const signon__authservice = struct {
     ///
     /// ` self: QtC.SignOn__AuthService `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthService, identityList: [*]QtC.SignOn__IdentityInfo) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthService, identityList: qtc.libqt_list ([]QtC.SignOn__IdentityInfo)) callconv(.c) void `
     ///
-    pub fn OnIdentities(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.SignOn__IdentityInfo) callconv(.c) void) void {
+    pub fn OnIdentities(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.SignOn__AuthService_Connect_Identities(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

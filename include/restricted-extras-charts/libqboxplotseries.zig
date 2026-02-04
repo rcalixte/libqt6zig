@@ -643,9 +643,9 @@ pub const qboxplotseries = struct {
     ///
     /// ` self: QtC.QBoxPlotSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxPlotSeries, sets: [*]QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxPlotSeries, sets: qtc.libqt_list ([]QtC.QBoxSet)) callconv(.c) void `
     ///
-    pub fn OnBoxsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnBoxsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QBoxPlotSeries_Connect_BoxsetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -671,9 +671,9 @@ pub const qboxplotseries = struct {
     ///
     /// ` self: QtC.QBoxPlotSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxPlotSeries, sets: [*]QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QBoxPlotSeries, sets: qtc.libqt_list ([]QtC.QBoxSet)) callconv(.c) void `
     ///
-    pub fn OnBoxsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnBoxsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QBoxPlotSeries_Connect_BoxsetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -271,7 +271,7 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Suggest(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Suggest(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,

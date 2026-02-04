@@ -311,11 +311,11 @@ pub const attica__achievement = struct {
     ///
     /// ` self: QtC.Attica__Achievement `
     ///
-    /// ` dependencies: [][]const u8 `
+    /// ` dependencies: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetDependencies(self: ?*anyopaque, dependencies: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetDependencies(self: ?*anyopaque, dependencies: []const []const u8, allocator: std.mem.Allocator) void {
         var dependencies_arr = allocator.alloc(qtc.libqt_string, dependencies.len) catch @panic("attica__achievement.SetDependencies: Memory allocation failed");
         defer allocator.free(dependencies_arr);
         for (dependencies, 0..dependencies.len) |item, i| {
@@ -371,7 +371,7 @@ pub const attica__achievement = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Dependencies(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Dependencies(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Achievement_Dependencies(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -448,11 +448,11 @@ pub const attica__achievement = struct {
     ///
     /// ` self: QtC.Attica__Achievement `
     ///
-    /// ` options: [][]const u8 `
+    /// ` options: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetOptions(self: ?*anyopaque, options: []const []const u8, allocator: std.mem.Allocator) void {
         var options_arr = allocator.alloc(qtc.libqt_string, options.len) catch @panic("attica__achievement.SetOptions: Memory allocation failed");
         defer allocator.free(options_arr);
         for (options, 0..options.len) |item, i| {
@@ -508,7 +508,7 @@ pub const attica__achievement = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Options(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Options(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Achievement_Options(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

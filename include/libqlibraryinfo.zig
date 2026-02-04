@@ -98,7 +98,7 @@ pub const qlibraryinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Paths(p: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Paths(p: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QLibraryInfo_Paths(@intCast(p));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -141,7 +141,7 @@ pub const qlibraryinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlatformPluginArguments(platformName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PlatformPluginArguments(platformName: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const platformName_str = qtc.libqt_string{
             .len = platformName.len,
             .data = platformName.ptr,

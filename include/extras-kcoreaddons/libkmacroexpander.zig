@@ -2,9 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
-const map_constu8_sliceconstu8 = std.StringHashMapUnmanaged([][]const u8);
+const map_constu8_sliceconstconstu8 = std.StringHashMapUnmanaged([]const []const u8);
 const map_qtcqchar_constu8 = std.AutoHashMapUnmanaged(QtC.QChar, []const u8);
-const map_qtcqchar_sliceconstu8 = std.AutoHashMapUnmanaged(QtC.QChar, [][]const u8);
+const map_qtcqchar_sliceconstconstu8 = std.AutoHashMapUnmanaged(QtC.QChar, []const []const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kmacroexpanderbase.html)
 pub const kmacroexpanderbase = struct {
@@ -106,11 +106,11 @@ pub const kmacroexpanderbase = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn ExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -138,9 +138,9 @@ pub const kmacroexpanderbase = struct {
     ///
     /// ` self: QtC.KMacroExpanderBase `
     ///
-    /// ` callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+    pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
         qtc.KMacroExpanderBase_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -156,11 +156,11 @@ pub const kmacroexpanderbase = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn QBaseExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -190,11 +190,11 @@ pub const kmacroexpanderbase = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn ExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -222,9 +222,9 @@ pub const kmacroexpanderbase = struct {
     ///
     /// ` self: QtC.KMacroExpanderBase `
     ///
-    /// ` callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+    pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
         qtc.KMacroExpanderBase_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -240,11 +240,11 @@ pub const kmacroexpanderbase = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn QBaseExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -305,11 +305,11 @@ pub const kwordmacroexpander = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn ExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -337,9 +337,9 @@ pub const kwordmacroexpander = struct {
     ///
     /// ` self: QtC.KWordMacroExpander `
     ///
-    /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+    pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
         qtc.KWordMacroExpander_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -355,11 +355,11 @@ pub const kwordmacroexpander = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn QBaseExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -389,11 +389,11 @@ pub const kwordmacroexpander = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn ExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -421,9 +421,9 @@ pub const kwordmacroexpander = struct {
     ///
     /// ` self: QtC.KWordMacroExpander `
     ///
-    /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+    pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
         qtc.KWordMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -439,11 +439,11 @@ pub const kwordmacroexpander = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn QBaseExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -471,11 +471,11 @@ pub const kwordmacroexpander = struct {
     ///
     /// ` str: []const u8 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandMacro(self: ?*anyopaque, str: []const u8, retVal: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn ExpandMacro(self: ?*anyopaque, str: []const u8, retVal: []const []const u8, allocator: std.mem.Allocator) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -503,9 +503,9 @@ pub const kwordmacroexpander = struct {
     ///
     /// ` self: QtC.KWordMacroExpander `
     ///
-    /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, retVal: [*][*:0]const u8) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, retVal: ?[*:null]?[*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8) callconv(.c) bool) void {
+    pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) bool) void {
         qtc.KWordMacroExpander_OnExpandMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -519,11 +519,11 @@ pub const kwordmacroexpander = struct {
     ///
     /// ` str: []const u8 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseExpandMacro(self: ?*anyopaque, str: []const u8, retVal: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn QBaseExpandMacro(self: ?*anyopaque, str: []const u8, retVal: []const []const u8, allocator: std.mem.Allocator) bool {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -666,11 +666,11 @@ pub const kcharmacroexpander = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn ExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -698,9 +698,9 @@ pub const kcharmacroexpander = struct {
     ///
     /// ` self: QtC.KCharMacroExpander `
     ///
-    /// ` callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+    pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
         qtc.KCharMacroExpander_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -716,11 +716,11 @@ pub const kcharmacroexpander = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn QBaseExpandPlainMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -750,11 +750,11 @@ pub const kcharmacroexpander = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn ExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -782,9 +782,9 @@ pub const kcharmacroexpander = struct {
     ///
     /// ` self: QtC.KCharMacroExpander `
     ///
-    /// ` callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: ?[*:null]?[*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+    pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?[*:null]?[*:0]const u8) callconv(.c) i32) void {
         qtc.KCharMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -800,11 +800,11 @@ pub const kcharmacroexpander = struct {
     ///
     /// ` pos: i32 `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn QBaseExpandEscapedMacro(self: ?*anyopaque, str: []const u8, pos: i32, retVal: []const []const u8, allocator: std.mem.Allocator) i32 {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -832,11 +832,11 @@ pub const kcharmacroexpander = struct {
     ///
     /// ` chr: QtC.QChar `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandMacro(self: ?*anyopaque, chr: QtC.QChar, retVal: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn ExpandMacro(self: ?*anyopaque, chr: QtC.QChar, retVal: []const []const u8, allocator: std.mem.Allocator) bool {
         var retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i| {
@@ -860,9 +860,9 @@ pub const kcharmacroexpander = struct {
     ///
     /// ` self: QtC.KCharMacroExpander `
     ///
-    /// ` callback: *const fn (self: QtC.KCharMacroExpander, chr: QtC.QChar, retVal: [*][*:0]const u8) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KCharMacroExpander, chr: QtC.QChar, retVal: ?[*:null]?[*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QChar, [*][*:0]const u8) callconv(.c) bool) void {
+    pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QChar, ?[*:null]?[*:0]const u8) callconv(.c) bool) void {
         qtc.KCharMacroExpander_OnExpandMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -876,11 +876,11 @@ pub const kcharmacroexpander = struct {
     ///
     /// ` chr: QtC.QChar `
     ///
-    /// ` retVal: [][]const u8 `
+    /// ` retVal: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseExpandMacro(self: ?*anyopaque, chr: QtC.QChar, retVal: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn QBaseExpandMacro(self: ?*anyopaque, chr: QtC.QChar, retVal: []const []const u8, allocator: std.mem.Allocator) bool {
         var retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i| {
@@ -1185,13 +1185,13 @@ pub const kmacroexpander = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    /// ` param2: map_qtcqchar_sliceconstu8 `
+    /// ` param2: map_qtcqchar_sliceconstconstu8 `
     ///
     /// ` param3: QtC.QChar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandMacros3(param1: []const u8, param2: map_qtcqchar_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
+    pub fn ExpandMacros3(param1: []const u8, param2: map_qtcqchar_sliceconstconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1242,13 +1242,13 @@ pub const kmacroexpander = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    /// ` param2: map_constu8_sliceconstu8 `
+    /// ` param2: map_constu8_sliceconstconstu8 `
     ///
     /// ` param3: QtC.QChar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandMacros4(param1: []const u8, param2: map_constu8_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
+    pub fn ExpandMacros4(param1: []const u8, param2: map_constu8_sliceconstconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1302,13 +1302,13 @@ pub const kmacroexpander = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    /// ` param2: map_qtcqchar_sliceconstu8 `
+    /// ` param2: map_qtcqchar_sliceconstconstu8 `
     ///
     /// ` param3: QtC.QChar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandMacrosShellQuote3(param1: []const u8, param2: map_qtcqchar_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
+    pub fn ExpandMacrosShellQuote3(param1: []const u8, param2: map_qtcqchar_sliceconstconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1359,13 +1359,13 @@ pub const kmacroexpander = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    /// ` param2: map_constu8_sliceconstu8 `
+    /// ` param2: map_constu8_sliceconstconstu8 `
     ///
     /// ` param3: QtC.QChar `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpandMacrosShellQuote4(param1: []const u8, param2: map_constu8_sliceconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
+    pub fn ExpandMacrosShellQuote4(param1: []const u8, param2: map_constu8_sliceconstconstu8, param3: QtC.QChar, allocator: std.mem.Allocator) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

@@ -187,11 +187,11 @@ pub const kfilepreviewgenerator = struct {
     ///
     /// ` self: QtC.KFilePreviewGenerator `
     ///
-    /// ` list: [][]const u8 `
+    /// ` list: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetEnabledPlugins(self: ?*anyopaque, list: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetEnabledPlugins(self: ?*anyopaque, list: []const []const u8, allocator: std.mem.Allocator) void {
         var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("kfilepreviewgenerator.SetEnabledPlugins: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
@@ -215,7 +215,7 @@ pub const kfilepreviewgenerator = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EnabledPlugins(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn EnabledPlugins(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KFilePreviewGenerator_EnabledPlugins(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

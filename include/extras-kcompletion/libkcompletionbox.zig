@@ -217,7 +217,7 @@ pub const kcompletionbox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionBox_Items(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -268,11 +268,11 @@ pub const kcompletionbox = struct {
     ///
     /// ` self: QtC.KCompletionBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn InsertItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbox.InsertItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -294,11 +294,11 @@ pub const kcompletionbox = struct {
     ///
     /// ` self: QtC.KCompletionBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbox.SetItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -786,13 +786,13 @@ pub const kcompletionbox = struct {
     ///
     /// ` self: QtC.KCompletionBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` index: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertItems2(self: ?*anyopaque, items: [][]const u8, index: i32, allocator: std.mem.Allocator) void {
+    pub fn InsertItems2(self: ?*anyopaque, items: []const []const u8, index: i32, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbox.InsertItems2: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -912,11 +912,11 @@ pub const kcompletionbox = struct {
     ///
     /// ` self: QtC.KCompletionBox `
     ///
-    /// ` labels: [][]const u8 `
+    /// ` labels: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItems(self: ?*anyopaque, labels: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn AddItems(self: ?*anyopaque, labels: []const []const u8, allocator: std.mem.Allocator) void {
         var labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("kcompletionbox.AddItems: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i| {
@@ -2094,9 +2094,9 @@ pub const kcompletionbox = struct {
     ///
     /// ` self: QtC.KCompletionBox `
     ///
-    /// ` callback: *const fn (self: QtC.KCompletionBox, indexes: [*]QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletionBox, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) void) void {
+    pub fn OnIndexesMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QListView_Connect_IndexesMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -8372,7 +8372,7 @@ pub const kcompletionbox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionBox_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -8403,7 +8403,7 @@ pub const kcompletionbox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionBox_QBaseMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -8490,9 +8490,9 @@ pub const kcompletionbox = struct {
     ///
     /// ` self: QtC.KCompletionBox`
     ///
-    /// ` callback: *const fn (self: QtC.KCompletionBox, items: [*]QtC.QListWidgetItem) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: QtC.KCompletionBox, items: qtc.libqt_list ([]QtC.QListWidgetItem)) callconv(.c) QtC.QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) QtC.QMimeData) void {
+    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
         qtc.KCompletionBox_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -8998,9 +8998,9 @@ pub const kcompletionbox = struct {
     ///
     /// ` self: QtC.KCompletionBox`
     ///
-    /// ` callback: *const fn (self: QtC.KCompletionBox, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletionBox, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KCompletionBox_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -9890,9 +9890,13 @@ pub const kcompletionbox = struct {
     ///
     /// ` self: QtC.KCompletionBox`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KCompletionBox_OnSelectedIndexes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -78,13 +78,13 @@ pub const qdesignercomponents = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` pluginPaths: [][]const u8 `
+    /// ` pluginPaths: []const []const u8 `
     ///
     /// ` parent: QtC.QObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreateFormEditorWithPluginPaths(pluginPaths: [][]const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QDesignerFormEditorInterface {
+    pub fn CreateFormEditorWithPluginPaths(pluginPaths: []const []const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QDesignerFormEditorInterface {
         var pluginPaths_arr = allocator.alloc(qtc.libqt_string, pluginPaths.len) catch @panic("qdesignercomponents.CreateFormEditorWithPluginPaths: Memory allocation failed");
         defer allocator.free(pluginPaths_arr);
         for (pluginPaths, 0..pluginPaths.len) |item, i| {
@@ -190,7 +190,7 @@ pub const qdesignercomponents = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultPluginPaths(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DefaultPluginPaths(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerComponents_DefaultPluginPaths();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

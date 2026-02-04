@@ -10,7 +10,7 @@ pub const kruntimeplatform = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RuntimePlatform(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn RuntimePlatform(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KRuntimePlatform_RuntimePlatform();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

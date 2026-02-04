@@ -2218,9 +2218,13 @@ pub const kio__deleteortrashjob = struct {
     ///
     /// ` self: QtC.KIO__DeleteOrTrashJob`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.KJob `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.KJob) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.KJob `
+    ///
+    pub fn OnSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KIO__DeleteOrTrashJob_OnSubjobs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

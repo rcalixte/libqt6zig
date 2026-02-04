@@ -93,7 +93,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -111,7 +111,7 @@ pub const kmessagebox = struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn QuestionTwoActionsList(param1: ?*anyopaque, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
+    pub fn QuestionTwoActionsList(param1: ?*anyopaque, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -185,7 +185,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -203,7 +203,7 @@ pub const kmessagebox = struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsList(param1: ?*anyopaque, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
+    pub fn WarningTwoActionsList(param1: ?*anyopaque, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -321,7 +321,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -339,7 +339,7 @@ pub const kmessagebox = struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningContinueCancelList(param1: ?*anyopaque, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
+    pub fn WarningContinueCancelList(param1: ?*anyopaque, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -415,7 +415,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -435,7 +435,7 @@ pub const kmessagebox = struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsCancelList(param1: ?*anyopaque, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: []const u8, param9: i32, allocator: std.mem.Allocator) i32 {
+    pub fn WarningTwoActionsCancelList(param1: ?*anyopaque, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: []const u8, param9: i32, allocator: std.mem.Allocator) i32 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -521,7 +521,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -529,7 +529,7 @@ pub const kmessagebox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorList(param1: ?*anyopaque, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: i32, allocator: std.mem.Allocator) void {
+    pub fn ErrorList(param1: ?*anyopaque, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: i32, allocator: std.mem.Allocator) void {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -653,7 +653,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -663,7 +663,7 @@ pub const kmessagebox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InformationList(param1: ?*anyopaque, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: []const u8, param6: i32, allocator: std.mem.Allocator) void {
+    pub fn InformationList(param1: ?*anyopaque, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: []const u8, param6: i32, allocator: std.mem.Allocator) void {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -855,7 +855,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param4: []const u8 `
     ///
-    /// ` param5: [][]const u8 `
+    /// ` param5: []const []const u8 `
     ///
     /// ` param6: []const u8 `
     ///
@@ -871,7 +871,7 @@ pub const kmessagebox = struct {
     ///
     /// ` qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn CreateKMessageBox(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32, param4: []const u8, param5: [][]const u8, param6: []const u8, param7: *bool, param8: i32, param9: []const u8, allocator: std.mem.Allocator) i32 {
+    pub fn CreateKMessageBox(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32, param4: []const u8, param5: []const []const u8, param6: []const u8, param7: *bool, param8: i32, param9: []const u8, allocator: std.mem.Allocator) i32 {
         const param4_str = qtc.libqt_string{
             .len = param4.len,
             .data = param4.ptr,
@@ -911,7 +911,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param4: []const u8 `
     ///
-    /// ` param5: [][]const u8 `
+    /// ` param5: []const []const u8 `
     ///
     /// ` param6: []const u8 `
     ///
@@ -929,7 +929,7 @@ pub const kmessagebox = struct {
     ///
     /// ` qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn CreateKMessageBox2(param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: []const u8, param5: [][]const u8, param6: []const u8, param7: *bool, param8: i32, param9: []const u8, param10: i32, allocator: std.mem.Allocator) i32 {
+    pub fn CreateKMessageBox2(param1: ?*anyopaque, param2: ?*anyopaque, param3: ?*anyopaque, param4: []const u8, param5: []const []const u8, param6: []const u8, param7: *bool, param8: i32, param9: []const u8, param10: i32, allocator: std.mem.Allocator) i32 {
         const param4_str = qtc.libqt_string{
             .len = param4.len,
             .data = param4.ptr,
@@ -1043,7 +1043,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -1061,7 +1061,7 @@ pub const kmessagebox = struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn QuestionTwoActionsListWId(param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
+    pub fn QuestionTwoActionsListWId(param1: usize, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -1135,7 +1135,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -1153,7 +1153,7 @@ pub const kmessagebox = struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsListWId(param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
+    pub fn WarningTwoActionsListWId(param1: usize, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -1227,7 +1227,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -1245,7 +1245,7 @@ pub const kmessagebox = struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningContinueCancelListWId(param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
+    pub fn WarningContinueCancelListWId(param1: usize, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: []const u8, param8: i32, allocator: std.mem.Allocator) i32 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -1321,7 +1321,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -1341,7 +1341,7 @@ pub const kmessagebox = struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsCancelListWId(param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: []const u8, param9: i32, allocator: std.mem.Allocator) i32 {
+    pub fn WarningTwoActionsCancelListWId(param1: usize, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: ?*anyopaque, param6: ?*anyopaque, param7: ?*anyopaque, param8: []const u8, param9: i32, allocator: std.mem.Allocator) i32 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -1401,7 +1401,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -1409,7 +1409,7 @@ pub const kmessagebox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorListWId(param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: i32, allocator: std.mem.Allocator) void {
+    pub fn ErrorListWId(param1: usize, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: i32, allocator: std.mem.Allocator) void {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -1533,7 +1533,7 @@ pub const kmessagebox = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` param4: []const u8 `
     ///
@@ -1543,7 +1543,7 @@ pub const kmessagebox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InformationListWId(param1: usize, param2: []const u8, param3: [][]const u8, param4: []const u8, param5: []const u8, param6: i32, allocator: std.mem.Allocator) void {
+    pub fn InformationListWId(param1: usize, param2: []const u8, param3: []const []const u8, param4: []const u8, param5: []const u8, param6: i32, allocator: std.mem.Allocator) void {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,

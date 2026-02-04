@@ -19,7 +19,7 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
     // Virtual class public types (including callbacks)
     using QDesignerMetaDataBaseItemInterface_Name_Callback = const char* (*)();
     using QDesignerMetaDataBaseItemInterface_SetName_Callback = void (*)(QDesignerMetaDataBaseItemInterface*, libqt_string);
-    using QDesignerMetaDataBaseItemInterface_TabOrder_Callback = QWidget** (*)();
+    using QDesignerMetaDataBaseItemInterface_TabOrder_Callback = libqt_list /* of QWidget* */ (*)();
     using QDesignerMetaDataBaseItemInterface_SetTabOrder_Callback = void (*)(QDesignerMetaDataBaseItemInterface*, libqt_list /* of QWidget* */);
     using QDesignerMetaDataBaseItemInterface_Enabled_Callback = bool (*)();
     using QDesignerMetaDataBaseItemInterface_SetEnabled_Callback = void (*)(QDesignerMetaDataBaseItemInterface*, bool);
@@ -100,13 +100,14 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
     // Virtual method for C ABI access and custom callback
     virtual QList<QWidget*> tabOrder() const override {
         if (qdesignermetadatabaseiteminterface_taborder_callback != nullptr) {
-            QWidget** callback_ret = qdesignermetadatabaseiteminterface_taborder_callback();
+            libqt_list /* of QWidget* */ callback_ret = qdesignermetadatabaseiteminterface_taborder_callback();
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};
@@ -165,7 +166,7 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
     using QDesignerMetaDataBaseInterface_Item_Callback = QDesignerMetaDataBaseItemInterface* (*)(const QDesignerMetaDataBaseInterface*, QObject*);
     using QDesignerMetaDataBaseInterface_Add_Callback = void (*)(QDesignerMetaDataBaseInterface*, QObject*);
     using QDesignerMetaDataBaseInterface_Remove_Callback = void (*)(QDesignerMetaDataBaseInterface*, QObject*);
-    using QDesignerMetaDataBaseInterface_Objects_Callback = QObject** (*)();
+    using QDesignerMetaDataBaseInterface_Objects_Callback = libqt_list /* of QObject* */ (*)();
     using QDesignerMetaDataBaseInterface_Core_Callback = QDesignerFormEditorInterface* (*)();
     using QDesignerMetaDataBaseInterface_Event_Callback = bool (*)(QDesignerMetaDataBaseInterface*, QEvent*);
     using QDesignerMetaDataBaseInterface_EventFilter_Callback = bool (*)(QDesignerMetaDataBaseInterface*, QObject*, QEvent*);
@@ -368,13 +369,14 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
     // Virtual method for C ABI access and custom callback
     virtual QList<QObject*> objects() const override {
         if (qdesignermetadatabaseinterface_objects_callback != nullptr) {
-            QObject** callback_ret = qdesignermetadatabaseinterface_objects_callback();
+            libqt_list /* of QObject* */ callback_ret = qdesignermetadatabaseinterface_objects_callback();
             QList<QObject*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QObject** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QObject** callback_ret_arr = static_cast<QObject**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};

@@ -85,7 +85,7 @@ void KIO__RenameFileDialog_RenamingFinished(KIO__RenameFileDialog* self, const l
 }
 
 void KIO__RenameFileDialog_Connect_RenamingFinished(KIO__RenameFileDialog* self, intptr_t slot) {
-    void (*slotFunc)(KIO__RenameFileDialog*, QUrl**) = reinterpret_cast<void (*)(KIO__RenameFileDialog*, QUrl**)>(slot);
+    void (*slotFunc)(KIO__RenameFileDialog*, libqt_list /* of QUrl* */) = reinterpret_cast<void (*)(KIO__RenameFileDialog*, libqt_list /* of QUrl* */)>(slot);
     KIO::RenameFileDialog::connect(self, &KIO::RenameFileDialog::renamingFinished, [self, slotFunc](const QList<QUrl>& urls) {
         const QList<QUrl>& urls_ret = urls;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -93,9 +93,10 @@ void KIO__RenameFileDialog_Connect_RenamingFinished(KIO__RenameFileDialog* self,
         for (qsizetype i = 0; i < urls_ret.size(); ++i) {
             urls_arr[i] = new QUrl(urls_ret[i]);
         }
-        // Append sentinel value to the list
-        urls_arr[urls_ret.size()] = nullptr;
-        QUrl** sigval1 = urls_arr;
+        libqt_list urls_out;
+        urls_out.len = urls_ret.size();
+        urls_out.data = static_cast<void*>(urls_arr);
+        libqt_list /* of QUrl* */ sigval1 = urls_out;
         slotFunc(self, sigval1);
         free(urls_arr);
     });

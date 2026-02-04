@@ -148,7 +148,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.PackageKit__Daemon_MimeTypes();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -213,11 +213,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` hints: [][]const u8 `
+    /// ` hints: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHints(hints: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetHints(hints: []const []const u8, allocator: std.mem.Allocator) void {
         var hints_arr = allocator.alloc(qtc.libqt_string, hints.len) catch @panic("packagekit__daemon.SetHints: Memory allocation failed");
         defer allocator.free(hints_arr);
         for (hints, 0..hints.len) |item, i| {
@@ -253,7 +253,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Hints(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Hints(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.PackageKit__Daemon_Hints();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -420,11 +420,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DownloadPackages(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn DownloadPackages(packageIDs: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.DownloadPackages: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -464,11 +464,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DependsOn(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn DependsOn(packageIDs: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.DependsOn: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -502,11 +502,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetDetails(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn GetDetails(packageIDs: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.GetDetails: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -540,11 +540,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetDetailsLocal(files: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn GetDetailsLocal(files: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("packagekit__daemon.GetDetailsLocal: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
@@ -578,11 +578,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetFiles(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn GetFiles(packageIDs: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.GetFiles: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -616,11 +616,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetFilesLocal(files: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn GetFilesLocal(files: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("packagekit__daemon.GetFilesLocal: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
@@ -676,11 +676,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RequiredBy(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn RequiredBy(packageIDs: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.RequiredBy: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -714,11 +714,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetUpdatesDetails(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn GetUpdatesDetails(packageIDs: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.GetUpdatesDetails: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -780,11 +780,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InstallFiles(files: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn InstallFiles(files: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("packagekit__daemon.InstallFiles: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
@@ -818,11 +818,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InstallPackages(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn InstallPackages(packageIDs: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.InstallPackages: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -888,11 +888,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RemovePackages(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn RemovePackages(packageIDs: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.RemovePackages: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -988,11 +988,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageNames: [][]const u8 `
+    /// ` packageNames: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Resolve(packageNames: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn Resolve(packageNames: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageNames_arr = allocator.alloc(qtc.libqt_string, packageNames.len) catch @panic("packagekit__daemon.Resolve: Memory allocation failed");
         defer allocator.free(packageNames_arr);
         for (packageNames, 0..packageNames.len) |item, i| {
@@ -1026,11 +1026,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` search: [][]const u8 `
+    /// ` search: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchFiles(search: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn SearchFiles(search: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var search_arr = allocator.alloc(qtc.libqt_string, search.len) catch @panic("packagekit__daemon.SearchFiles: Memory allocation failed");
         defer allocator.free(search_arr);
         for (search, 0..search.len) |item, i| {
@@ -1064,11 +1064,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` search: [][]const u8 `
+    /// ` search: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchDetails(search: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn SearchDetails(search: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var search_arr = allocator.alloc(qtc.libqt_string, search.len) catch @panic("packagekit__daemon.SearchDetails: Memory allocation failed");
         defer allocator.free(search_arr);
         for (search, 0..search.len) |item, i| {
@@ -1102,11 +1102,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` groups: [][]const u8 `
+    /// ` groups: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchGroups(groups: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn SearchGroups(groups: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var groups_arr = allocator.alloc(qtc.libqt_string, groups.len) catch @panic("packagekit__daemon.SearchGroups: Memory allocation failed");
         defer allocator.free(groups_arr);
         for (groups, 0..groups.len) |item, i| {
@@ -1160,11 +1160,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` search: [][]const u8 `
+    /// ` search: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchNames(search: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn SearchNames(search: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var search_arr = allocator.alloc(qtc.libqt_string, search.len) catch @panic("packagekit__daemon.SearchNames: Memory allocation failed");
         defer allocator.free(search_arr);
         for (search, 0..search.len) |item, i| {
@@ -1198,11 +1198,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UpdatePackages(packageIDs: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn UpdatePackages(packageIDs: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.UpdatePackages: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -1236,11 +1236,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` search: [][]const u8 `
+    /// ` search: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatProvides(search: [][]const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn WhatProvides(search: []const []const u8, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var search_arr = allocator.alloc(qtc.libqt_string, search.len) catch @panic("packagekit__daemon.WhatProvides: Memory allocation failed");
         defer allocator.free(search_arr);
         for (search, 0..search.len) |item, i| {
@@ -1386,11 +1386,11 @@ pub const packagekit__daemon = struct {
     ///
     /// ` self: QtC.PackageKit__Daemon `
     ///
-    /// ` tids: [][]const u8 `
+    /// ` tids: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TransactionListChanged(self: ?*anyopaque, tids: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn TransactionListChanged(self: ?*anyopaque, tids: []const []const u8, allocator: std.mem.Allocator) void {
         var tids_arr = allocator.alloc(qtc.libqt_string, tids.len) catch @panic("packagekit__daemon.TransactionListChanged: Memory allocation failed");
         defer allocator.free(tids_arr);
         for (tids, 0..tids.len) |item, i| {
@@ -1412,9 +1412,9 @@ pub const packagekit__daemon = struct {
     ///
     /// ` self: QtC.PackageKit__Daemon `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Daemon, tids: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Daemon, tids: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTransactionListChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnTransactionListChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Daemon_Connect_TransactionListChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1508,13 +1508,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` storeInCache: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DownloadPackages2(packageIDs: [][]const u8, storeInCache: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn DownloadPackages2(packageIDs: []const []const u8, storeInCache: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.DownloadPackages2: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -1550,13 +1550,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DependsOn22(packageIDs: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn DependsOn22(packageIDs: []const []const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.DependsOn22: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -1576,7 +1576,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
@@ -1584,7 +1584,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DependsOn3(packageIDs: [][]const u8, filters: i32, recursive: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn DependsOn3(packageIDs: []const []const u8, filters: i32, recursive: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.DependsOn3: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -1658,13 +1658,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RequiredBy22(packageIDs: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn RequiredBy22(packageIDs: []const []const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.RequiredBy22: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -1684,7 +1684,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
@@ -1692,7 +1692,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RequiredBy3(packageIDs: [][]const u8, filters: i32, recursive: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn RequiredBy3(packageIDs: []const []const u8, filters: i32, recursive: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.RequiredBy3: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -1774,13 +1774,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` flags: flag of transaction_enums.TransactionFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InstallFiles2(files: [][]const u8, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn InstallFiles2(files: []const []const u8, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("packagekit__daemon.InstallFiles2: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
@@ -1816,13 +1816,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` flags: flag of transaction_enums.TransactionFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InstallPackages2(packageIDs: [][]const u8, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn InstallPackages2(packageIDs: []const []const u8, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.InstallPackages2: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -1858,13 +1858,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allowDeps: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RemovePackages2(packageIDs: [][]const u8, allowDeps: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn RemovePackages2(packageIDs: []const []const u8, allowDeps: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.RemovePackages2: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -1884,7 +1884,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allowDeps: bool `
     ///
@@ -1892,7 +1892,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RemovePackages3(packageIDs: [][]const u8, allowDeps: bool, autoRemove: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn RemovePackages3(packageIDs: []const []const u8, allowDeps: bool, autoRemove: bool, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.RemovePackages3: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -1912,7 +1912,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` allowDeps: bool `
     ///
@@ -1922,7 +1922,7 @@ pub const packagekit__daemon = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RemovePackages4(packageIDs: [][]const u8, allowDeps: bool, autoRemove: bool, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn RemovePackages4(packageIDs: []const []const u8, allowDeps: bool, autoRemove: bool, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.RemovePackages4: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -2040,13 +2040,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageNames: [][]const u8 `
+    /// ` packageNames: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Resolve22(packageNames: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn Resolve22(packageNames: []const []const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageNames_arr = allocator.alloc(qtc.libqt_string, packageNames.len) catch @panic("packagekit__daemon.Resolve22: Memory allocation failed");
         defer allocator.free(packageNames_arr);
         for (packageNames, 0..packageNames.len) |item, i| {
@@ -2082,13 +2082,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` search: [][]const u8 `
+    /// ` search: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchFiles22(search: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn SearchFiles22(search: []const []const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var search_arr = allocator.alloc(qtc.libqt_string, search.len) catch @panic("packagekit__daemon.SearchFiles22: Memory allocation failed");
         defer allocator.free(search_arr);
         for (search, 0..search.len) |item, i| {
@@ -2124,13 +2124,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` search: [][]const u8 `
+    /// ` search: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchDetails22(search: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn SearchDetails22(search: []const []const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var search_arr = allocator.alloc(qtc.libqt_string, search.len) catch @panic("packagekit__daemon.SearchDetails22: Memory allocation failed");
         defer allocator.free(search_arr);
         for (search, 0..search.len) |item, i| {
@@ -2166,13 +2166,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` groups: [][]const u8 `
+    /// ` groups: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchGroups22(groups: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn SearchGroups22(groups: []const []const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var groups_arr = allocator.alloc(qtc.libqt_string, groups.len) catch @panic("packagekit__daemon.SearchGroups22: Memory allocation failed");
         defer allocator.free(groups_arr);
         for (groups, 0..groups.len) |item, i| {
@@ -2232,13 +2232,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` search: [][]const u8 `
+    /// ` search: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchNames22(search: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn SearchNames22(search: []const []const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var search_arr = allocator.alloc(qtc.libqt_string, search.len) catch @panic("packagekit__daemon.SearchNames22: Memory allocation failed");
         defer allocator.free(search_arr);
         for (search, 0..search.len) |item, i| {
@@ -2274,13 +2274,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` packageIDs: [][]const u8 `
+    /// ` packageIDs: []const []const u8 `
     ///
     /// ` flags: flag of transaction_enums.TransactionFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UpdatePackages2(packageIDs: [][]const u8, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn UpdatePackages2(packageIDs: []const []const u8, flags: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var packageIDs_arr = allocator.alloc(qtc.libqt_string, packageIDs.len) catch @panic("packagekit__daemon.UpdatePackages2: Memory allocation failed");
         defer allocator.free(packageIDs_arr);
         for (packageIDs, 0..packageIDs.len) |item, i| {
@@ -2316,13 +2316,13 @@ pub const packagekit__daemon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` search: [][]const u8 `
+    /// ` search: []const []const u8 `
     ///
     /// ` filters: flag of transaction_enums.Filter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatProvides22(search: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
+    pub fn WhatProvides22(search: []const []const u8, filters: i32, allocator: std.mem.Allocator) QtC.PackageKit__Transaction {
         var search_arr = allocator.alloc(qtc.libqt_string, search.len) catch @panic("packagekit__daemon.WhatProvides22: Memory allocation failed");
         defer allocator.free(search_arr);
         for (search, 0..search.len) |item, i| {

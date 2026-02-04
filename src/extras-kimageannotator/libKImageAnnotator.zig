@@ -494,13 +494,13 @@ pub const kimageannotator__kimageannotator = struct {
     ///
     /// ` self: QtC.kImageAnnotator__KImageAnnotator `
     ///
-    /// ` stickerPaths: [][]const u8 `
+    /// ` stickerPaths: []const []const u8 `
     ///
     /// ` keepDefault: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetStickers(self: ?*anyopaque, stickerPaths: [][]const u8, keepDefault: bool, allocator: std.mem.Allocator) void {
+    pub fn SetStickers(self: ?*anyopaque, stickerPaths: []const []const u8, keepDefault: bool, allocator: std.mem.Allocator) void {
         var stickerPaths_arr = allocator.alloc(qtc.libqt_string, stickerPaths.len) catch @panic("kimageannotator__kimageannotator.SetStickers: Memory allocation failed");
         defer allocator.free(stickerPaths_arr);
         for (stickerPaths, 0..stickerPaths.len) |item, i| {

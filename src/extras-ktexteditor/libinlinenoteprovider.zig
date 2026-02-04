@@ -172,9 +172,13 @@ pub const ktexteditor__inlinenoteprovider = struct {
     ///
     /// ` self: QtC.KTextEditor__InlineNoteProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, line: i32) callconv(.c) [*:-1]i32 `
+    /// ` callback: *const fn (self: QtC.KTextEditor__InlineNoteProvider, line: i32) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnInlineNotes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:-1]i32) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []i32 `
+    ///
+    pub fn OnInlineNotes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) qtc.libqt_list) void {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNotes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

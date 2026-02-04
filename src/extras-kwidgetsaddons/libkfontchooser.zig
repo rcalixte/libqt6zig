@@ -326,7 +326,7 @@ pub const kfontchooser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreateFontList(fontListCriteria: u32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn CreateFontList(fontListCriteria: u32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KFontChooser_CreateFontList(@intCast(fontListCriteria));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -351,11 +351,11 @@ pub const kfontchooser = struct {
     ///
     /// ` self: QtC.KFontChooser `
     ///
-    /// ` fontList: [][]const u8 `
+    /// ` fontList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetFontListItems(self: ?*anyopaque, fontList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetFontListItems(self: ?*anyopaque, fontList: []const []const u8, allocator: std.mem.Allocator) void {
         var fontList_arr = allocator.alloc(qtc.libqt_string, fontList.len) catch @panic("kfontchooser.SetFontListItems: Memory allocation failed");
         defer allocator.free(fontList_arr);
         for (fontList, 0..fontList.len) |item, i| {

@@ -163,7 +163,7 @@ pub const koverlayiconplugin = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOverlays(self: ?*anyopaque, item: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GetOverlays(self: ?*anyopaque, item: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KOverlayIconPlugin_GetOverlays(@ptrCast(self), @ptrCast(item));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -210,7 +210,7 @@ pub const koverlayiconplugin = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseGetOverlays(self: ?*anyopaque, item: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseGetOverlays(self: ?*anyopaque, item: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KOverlayIconPlugin_QBaseGetOverlays(@ptrCast(self), @ptrCast(item));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -237,11 +237,11 @@ pub const koverlayiconplugin = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    /// ` overlays: [][]const u8 `
+    /// ` overlays: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OverlaysChanged(self: ?*anyopaque, url: ?*anyopaque, overlays: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn OverlaysChanged(self: ?*anyopaque, url: ?*anyopaque, overlays: []const []const u8, allocator: std.mem.Allocator) void {
         var overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("koverlayiconplugin.OverlaysChanged: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i| {
@@ -263,9 +263,9 @@ pub const koverlayiconplugin = struct {
     ///
     /// ` self: QtC.KOverlayIconPlugin `
     ///
-    /// ` callback: *const fn (self: QtC.KOverlayIconPlugin, url: QtC.QUrl, overlays: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KOverlayIconPlugin, url: QtC.QUrl, overlays: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnOverlaysChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnOverlaysChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KOverlayIconPlugin_Connect_OverlaysChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

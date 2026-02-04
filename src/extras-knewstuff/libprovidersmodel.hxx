@@ -48,7 +48,7 @@ class VirtualKNSCoreProvidersModel final : public KNSCore::ProvidersModel {
     using KNSCore__ProvidersModel_CanFetchMore_Callback = bool (*)(const KNSCore__ProvidersModel*, QModelIndex*);
     using KNSCore__ProvidersModel_Sort_Callback = void (*)(KNSCore__ProvidersModel*, int, int);
     using KNSCore__ProvidersModel_Buddy_Callback = QModelIndex* (*)(const KNSCore__ProvidersModel*, QModelIndex*);
-    using KNSCore__ProvidersModel_Match_Callback = QModelIndex** (*)(const KNSCore__ProvidersModel*, QModelIndex*, int, QVariant*, int, int);
+    using KNSCore__ProvidersModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KNSCore__ProvidersModel*, QModelIndex*, int, QVariant*, int, int);
     using KNSCore__ProvidersModel_Span_Callback = QSize* (*)(const KNSCore__ProvidersModel*, QModelIndex*);
     using KNSCore__ProvidersModel_MultiData_Callback = void (*)(const KNSCore__ProvidersModel*, QModelIndex*, QModelRoleDataSpan*);
     using KNSCore__ProvidersModel_Submit_Callback = bool (*)();
@@ -80,7 +80,7 @@ class VirtualKNSCoreProvidersModel final : public KNSCore::ProvidersModel {
     using KNSCore__ProvidersModel_EndResetModel_Callback = void (*)();
     using KNSCore__ProvidersModel_ChangePersistentIndex_Callback = void (*)(KNSCore__ProvidersModel*, QModelIndex*, QModelIndex*);
     using KNSCore__ProvidersModel_ChangePersistentIndexList_Callback = void (*)(KNSCore__ProvidersModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KNSCore__ProvidersModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KNSCore__ProvidersModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KNSCore__ProvidersModel_Sender_Callback = QObject* (*)();
     using KNSCore__ProvidersModel_SenderSignalIndex_Callback = int (*)();
     using KNSCore__ProvidersModel_Receivers_Callback = int (*)(const KNSCore__ProvidersModel*, const char*);
@@ -764,7 +764,7 @@ class VirtualKNSCoreProvidersModel final : public KNSCore::ProvidersModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KNSCore__ProvidersModel::mimeTypes();
@@ -1045,13 +1045,14 @@ class VirtualKNSCoreProvidersModel final : public KNSCore::ProvidersModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = knscore__providersmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = knscore__providersmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KNSCore__ProvidersModel::match(start, role, value, hits, flags);
@@ -1570,13 +1571,14 @@ class VirtualKNSCoreProvidersModel final : public KNSCore::ProvidersModel {
             knscore__providersmodel_persistentindexlist_isbase = false;
             return KNSCore__ProvidersModel::persistentIndexList();
         } else if (knscore__providersmodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = knscore__providersmodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = knscore__providersmodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KNSCore__ProvidersModel::persistentIndexList();

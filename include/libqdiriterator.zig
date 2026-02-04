@@ -54,11 +54,11 @@ pub const qdiriterator = struct {
     ///
     /// ` path: []const u8 `
     ///
-    /// ` nameFilters: [][]const u8 `
+    /// ` nameFilters: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(path: []const u8, nameFilters: [][]const u8, allocator: std.mem.Allocator) QtC.QDirIterator {
+    pub fn New4(path: []const u8, nameFilters: []const []const u8, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -133,13 +133,13 @@ pub const qdiriterator = struct {
     ///
     /// ` path: []const u8 `
     ///
-    /// ` nameFilters: [][]const u8 `
+    /// ` nameFilters: []const []const u8 `
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New8(path: []const u8, nameFilters: [][]const u8, filters: i32, allocator: std.mem.Allocator) QtC.QDirIterator {
+    pub fn New8(path: []const u8, nameFilters: []const []const u8, filters: i32, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -166,7 +166,7 @@ pub const qdiriterator = struct {
     ///
     /// ` path: []const u8 `
     ///
-    /// ` nameFilters: [][]const u8 `
+    /// ` nameFilters: []const []const u8 `
     ///
     /// ` filters: flag of qdir_enums.Filter `
     ///
@@ -174,7 +174,7 @@ pub const qdiriterator = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New9(path: []const u8, nameFilters: [][]const u8, filters: i32, flags: i32, allocator: std.mem.Allocator) QtC.QDirIterator {
+    pub fn New9(path: []const u8, nameFilters: []const []const u8, filters: i32, flags: i32, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,

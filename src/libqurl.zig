@@ -785,7 +785,7 @@ pub const qurl = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IdnWhitelist(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn IdnWhitelist(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QUrl_IdnWhitelist();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -812,7 +812,7 @@ pub const qurl = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToStringList(uris: []QtC.QUrl, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ToStringList(uris: []QtC.QUrl, allocator: std.mem.Allocator) []const []const u8 {
         const uris_list = qtc.libqt_list{
             .len = uris.len,
             .data = @ptrCast(uris.ptr),
@@ -839,11 +839,11 @@ pub const qurl = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` uris: [][]const u8 `
+    /// ` uris: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FromStringList(uris: [][]const u8, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn FromStringList(uris: []const []const u8, allocator: std.mem.Allocator) []QtC.QUrl {
         var uris_arr = allocator.alloc(qtc.libqt_string, uris.len) catch @panic("qurl.FromStringList: Memory allocation failed");
         defer allocator.free(uris_arr);
         for (uris, 0..uris.len) |item, i| {
@@ -868,11 +868,11 @@ pub const qurl = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` idnWhitelist: [][]const u8 `
+    /// ` idnWhitelist: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetIdnWhitelist(idnWhitelist: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetIdnWhitelist(idnWhitelist: []const []const u8, allocator: std.mem.Allocator) void {
         var idnWhitelist_arr = allocator.alloc(qtc.libqt_string, idnWhitelist.len) catch @panic("qurl.SetIdnWhitelist: Memory allocation failed");
         defer allocator.free(idnWhitelist_arr);
         for (idnWhitelist, 0..idnWhitelist.len) |item, i| {
@@ -1388,13 +1388,13 @@ pub const qurl = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` uris: [][]const u8 `
+    /// ` uris: []const []const u8 `
     ///
     /// ` mode: qurl_enums.ParsingMode `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FromStringList2(uris: [][]const u8, mode: i32, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn FromStringList2(uris: []const []const u8, mode: i32, allocator: std.mem.Allocator) []QtC.QUrl {
         var uris_arr = allocator.alloc(qtc.libqt_string, uris.len) catch @panic("qurl.FromStringList2: Memory allocation failed");
         defer allocator.free(uris_arr);
         for (uris, 0..uris.len) |item, i| {

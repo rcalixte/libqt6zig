@@ -54,7 +54,7 @@ pub const kcompletionmatches = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn List(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn List(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionMatches_List(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -93,7 +93,7 @@ pub const kcompletionmatches = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn List1(self: ?*anyopaque, sort: bool, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn List1(self: ?*anyopaque, sort: bool, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KCompletionMatches_List1(@ptrCast(self), sort);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

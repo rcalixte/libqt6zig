@@ -39,7 +39,7 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
     using KExtraColumnsProxyModel_RowCount_Callback = int (*)(const KExtraColumnsProxyModel*, QModelIndex*);
     using KExtraColumnsProxyModel_DropMimeData_Callback = bool (*)(KExtraColumnsProxyModel*, QMimeData*, int, int, int, QModelIndex*);
     using KExtraColumnsProxyModel_MapSelectionFromSource_Callback = QItemSelection* (*)(const KExtraColumnsProxyModel*, QItemSelection*);
-    using KExtraColumnsProxyModel_Match_Callback = QModelIndex** (*)(const KExtraColumnsProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using KExtraColumnsProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KExtraColumnsProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using KExtraColumnsProxyModel_InsertColumns_Callback = bool (*)(KExtraColumnsProxyModel*, int, int, QModelIndex*);
     using KExtraColumnsProxyModel_InsertRows_Callback = bool (*)(KExtraColumnsProxyModel*, int, int, QModelIndex*);
     using KExtraColumnsProxyModel_RemoveColumns_Callback = bool (*)(KExtraColumnsProxyModel*, int, int, QModelIndex*);
@@ -93,7 +93,7 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
     using KExtraColumnsProxyModel_EndResetModel_Callback = void (*)();
     using KExtraColumnsProxyModel_ChangePersistentIndex_Callback = void (*)(KExtraColumnsProxyModel*, QModelIndex*, QModelIndex*);
     using KExtraColumnsProxyModel_ChangePersistentIndexList_Callback = void (*)(KExtraColumnsProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KExtraColumnsProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KExtraColumnsProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KExtraColumnsProxyModel_Sender_Callback = QObject* (*)();
     using KExtraColumnsProxyModel_SenderSignalIndex_Callback = int (*)();
     using KExtraColumnsProxyModel_Receivers_Callback = int (*)(const KExtraColumnsProxyModel*, const char*);
@@ -920,13 +920,14 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kextracolumnsproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kextracolumnsproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KExtraColumnsProxyModel::match(start, role, value, hits, flags);
@@ -1297,7 +1298,7 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KExtraColumnsProxyModel::mimeTypes();
@@ -1866,13 +1867,14 @@ class VirtualKExtraColumnsProxyModel : public KExtraColumnsProxyModel {
             kextracolumnsproxymodel_persistentindexlist_isbase = false;
             return KExtraColumnsProxyModel::persistentIndexList();
         } else if (kextracolumnsproxymodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kextracolumnsproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kextracolumnsproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KExtraColumnsProxyModel::persistentIndexList();

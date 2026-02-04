@@ -36,7 +36,7 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
     using KIO__FavIconRequestJob_ConnectNotify_Callback = void (*)(KIO__FavIconRequestJob*, QMetaMethod*);
     using KIO__FavIconRequestJob_DisconnectNotify_Callback = void (*)(KIO__FavIconRequestJob*, QMetaMethod*);
     using KIO__FavIconRequestJob_HasSubjobs_Callback = bool (*)();
-    using KIO__FavIconRequestJob_Subjobs_Callback = KJob** (*)();
+    using KIO__FavIconRequestJob_Subjobs_Callback = libqt_list /* of KJob* */ (*)();
     using KIO__FavIconRequestJob_ClearSubjobs_Callback = void (*)();
     using KIO__FavIconRequestJob_SetCapabilities_Callback = void (*)(KIO__FavIconRequestJob*, int);
     using KIO__FavIconRequestJob_IsFinished_Callback = bool (*)();
@@ -544,14 +544,14 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
             kio__faviconrequestjob_subjobs_isbase = false;
             return KIO__FavIconRequestJob::subjobs();
         } else if (kio__faviconrequestjob_subjobs_callback != nullptr) {
-            KJob** callback_ret = kio__faviconrequestjob_subjobs_callback();
+            libqt_list /* of KJob* */ callback_ret = kio__faviconrequestjob_subjobs_callback();
             QList<KJob*>* callback_ret_QList;
-            callback_ret_QList = new QList<KJob*>;
-            // Iterate until null pointer sentinel
-            for (KJob** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList->push_back(*ptridx);
+            callback_ret_QList->reserve(callback_ret.len);
+            KJob** callback_ret_arr = static_cast<KJob**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList->push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return *callback_ret_QList;
         } else {
             return KIO__FavIconRequestJob::subjobs();

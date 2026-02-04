@@ -56,7 +56,7 @@ pub const klanguagename = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllLanguageCodes(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllLanguageCodes(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KLanguageName_AllLanguageCodes();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

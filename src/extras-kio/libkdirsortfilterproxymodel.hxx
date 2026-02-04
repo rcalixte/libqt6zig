@@ -51,7 +51,7 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
     using KDirSortFilterProxyModel_FetchMore_Callback = void (*)(KDirSortFilterProxyModel*, QModelIndex*);
     using KDirSortFilterProxyModel_Flags_Callback = int (*)(const KDirSortFilterProxyModel*, QModelIndex*);
     using KDirSortFilterProxyModel_Buddy_Callback = QModelIndex* (*)(const KDirSortFilterProxyModel*, QModelIndex*);
-    using KDirSortFilterProxyModel_Match_Callback = QModelIndex** (*)(const KDirSortFilterProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using KDirSortFilterProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KDirSortFilterProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using KDirSortFilterProxyModel_Span_Callback = QSize* (*)(const KDirSortFilterProxyModel*, QModelIndex*);
     using KDirSortFilterProxyModel_MimeTypes_Callback = const char** (*)();
     using KDirSortFilterProxyModel_SupportedDropActions_Callback = int (*)();
@@ -97,7 +97,7 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
     using KDirSortFilterProxyModel_EndResetModel_Callback = void (*)();
     using KDirSortFilterProxyModel_ChangePersistentIndex_Callback = void (*)(KDirSortFilterProxyModel*, QModelIndex*, QModelIndex*);
     using KDirSortFilterProxyModel_ChangePersistentIndexList_Callback = void (*)(KDirSortFilterProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KDirSortFilterProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KDirSortFilterProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KDirSortFilterProxyModel_Sender_Callback = QObject* (*)();
     using KDirSortFilterProxyModel_SenderSignalIndex_Callback = int (*)();
     using KDirSortFilterProxyModel_Receivers_Callback = int (*)(const KDirSortFilterProxyModel*, const char*);
@@ -1168,13 +1168,14 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kdirsortfilterproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kdirsortfilterproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KDirSortFilterProxyModel::match(start, role, value, hits, flags);
@@ -1213,7 +1214,7 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KDirSortFilterProxyModel::mimeTypes();
@@ -1954,13 +1955,14 @@ class VirtualKDirSortFilterProxyModel final : public KDirSortFilterProxyModel {
             kdirsortfilterproxymodel_persistentindexlist_isbase = false;
             return KDirSortFilterProxyModel::persistentIndexList();
         } else if (kdirsortfilterproxymodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kdirsortfilterproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kdirsortfilterproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KDirSortFilterProxyModel::persistentIndexList();

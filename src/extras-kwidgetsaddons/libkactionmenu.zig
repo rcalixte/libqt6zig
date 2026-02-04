@@ -2588,9 +2588,13 @@ pub const kactionmenu = struct {
     ///
     /// ` self: QtC.KActionMenu`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QWidget `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QWidget) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QWidget `
+    ///
+    pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KActionMenu_OnCreatedWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

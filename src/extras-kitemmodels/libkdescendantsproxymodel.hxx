@@ -35,7 +35,7 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
     using KDescendantsProxyModel_ColumnCount_Callback = int (*)(const KDescendantsProxyModel*, QModelIndex*);
     using KDescendantsProxyModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
     using KDescendantsProxyModel_SupportedDropActions_Callback = int (*)();
-    using KDescendantsProxyModel_Match_Callback = QModelIndex** (*)(const KDescendantsProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using KDescendantsProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KDescendantsProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using KDescendantsProxyModel_MapSelectionToSource_Callback = QItemSelection* (*)(const KDescendantsProxyModel*, QItemSelection*);
     using KDescendantsProxyModel_MapSelectionFromSource_Callback = QItemSelection* (*)(const KDescendantsProxyModel*, QItemSelection*);
     using KDescendantsProxyModel_Submit_Callback = bool (*)();
@@ -89,7 +89,7 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
     using KDescendantsProxyModel_EndResetModel_Callback = void (*)();
     using KDescendantsProxyModel_ChangePersistentIndex_Callback = void (*)(KDescendantsProxyModel*, QModelIndex*, QModelIndex*);
     using KDescendantsProxyModel_ChangePersistentIndexList_Callback = void (*)(KDescendantsProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KDescendantsProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KDescendantsProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KDescendantsProxyModel_Sender_Callback = QObject* (*)();
     using KDescendantsProxyModel_SenderSignalIndex_Callback = int (*)();
     using KDescendantsProxyModel_Receivers_Callback = int (*)(const KDescendantsProxyModel*, const char*);
@@ -697,7 +697,7 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KDescendantsProxyModel::mimeTypes();
@@ -824,13 +824,14 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kdescendantsproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kdescendantsproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KDescendantsProxyModel::match(start, role, value, hits, flags);
@@ -1774,13 +1775,14 @@ class VirtualKDescendantsProxyModel final : public KDescendantsProxyModel {
             kdescendantsproxymodel_persistentindexlist_isbase = false;
             return KDescendantsProxyModel::persistentIndexList();
         } else if (kdescendantsproxymodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kdescendantsproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kdescendantsproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KDescendantsProxyModel::persistentIndexList();

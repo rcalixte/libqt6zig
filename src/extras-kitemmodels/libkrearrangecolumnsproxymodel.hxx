@@ -32,7 +32,7 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
     using KRearrangeColumnsProxyModel_DropMimeData_Callback = bool (*)(KRearrangeColumnsProxyModel*, QMimeData*, int, int, int, QModelIndex*);
     using KRearrangeColumnsProxyModel_MapSelectionFromSource_Callback = QItemSelection* (*)(const KRearrangeColumnsProxyModel*, QItemSelection*);
     using KRearrangeColumnsProxyModel_MapSelectionToSource_Callback = QItemSelection* (*)(const KRearrangeColumnsProxyModel*, QItemSelection*);
-    using KRearrangeColumnsProxyModel_Match_Callback = QModelIndex** (*)(const KRearrangeColumnsProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using KRearrangeColumnsProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KRearrangeColumnsProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using KRearrangeColumnsProxyModel_SetSourceModel_Callback = void (*)(KRearrangeColumnsProxyModel*, QAbstractItemModel*);
     using KRearrangeColumnsProxyModel_InsertColumns_Callback = bool (*)(KRearrangeColumnsProxyModel*, int, int, QModelIndex*);
     using KRearrangeColumnsProxyModel_InsertRows_Callback = bool (*)(KRearrangeColumnsProxyModel*, int, int, QModelIndex*);
@@ -91,7 +91,7 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
     using KRearrangeColumnsProxyModel_EndResetModel_Callback = void (*)();
     using KRearrangeColumnsProxyModel_ChangePersistentIndex_Callback = void (*)(KRearrangeColumnsProxyModel*, QModelIndex*, QModelIndex*);
     using KRearrangeColumnsProxyModel_ChangePersistentIndexList_Callback = void (*)(KRearrangeColumnsProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KRearrangeColumnsProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KRearrangeColumnsProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KRearrangeColumnsProxyModel_Sender_Callback = QObject* (*)();
     using KRearrangeColumnsProxyModel_SenderSignalIndex_Callback = int (*)();
     using KRearrangeColumnsProxyModel_Receivers_Callback = int (*)(const KRearrangeColumnsProxyModel*, const char*);
@@ -781,13 +781,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = krearrangecolumnsproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = krearrangecolumnsproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KRearrangeColumnsProxyModel::match(start, role, value, hits, flags);
@@ -1245,7 +1246,7 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KRearrangeColumnsProxyModel::mimeTypes();
@@ -1814,13 +1815,14 @@ class VirtualKRearrangeColumnsProxyModel final : public KRearrangeColumnsProxyMo
             krearrangecolumnsproxymodel_persistentindexlist_isbase = false;
             return KRearrangeColumnsProxyModel::persistentIndexList();
         } else if (krearrangecolumnsproxymodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = krearrangecolumnsproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = krearrangecolumnsproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KRearrangeColumnsProxyModel::persistentIndexList();

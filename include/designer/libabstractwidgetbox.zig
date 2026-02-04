@@ -540,9 +540,9 @@ pub const qdesignerwidgetboxinterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetBoxInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerWidgetBoxInterface, item_list: [*]QtC.QDesignerDnDItemInterface, global_mouse_pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDesignerWidgetBoxInterface, item_list: qtc.libqt_list ([]QtC.QDesignerDnDItemInterface), global_mouse_pos: QtC.QPoint) callconv(.c) void `
     ///
-    pub fn OnDropWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnDropWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnDropWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

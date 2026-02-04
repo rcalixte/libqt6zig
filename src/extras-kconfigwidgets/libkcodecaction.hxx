@@ -33,7 +33,7 @@ class VirtualKCodecAction final : public KCodecAction {
     using KCodecAction_ConnectNotify_Callback = void (*)(KCodecAction*, QMetaMethod*);
     using KCodecAction_DisconnectNotify_Callback = void (*)(KCodecAction*, QMetaMethod*);
     using KCodecAction_SlotToggled_Callback = void (*)(KCodecAction*, bool);
-    using KCodecAction_CreatedWidgets_Callback = QWidget** (*)();
+    using KCodecAction_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
     using KCodecAction_Sender_Callback = QObject* (*)();
     using KCodecAction_SenderSignalIndex_Callback = int (*)();
     using KCodecAction_Receivers_Callback = int (*)(const KCodecAction*, const char*);
@@ -407,13 +407,14 @@ class VirtualKCodecAction final : public KCodecAction {
             kcodecaction_createdwidgets_isbase = false;
             return KCodecAction::createdWidgets();
         } else if (kcodecaction_createdwidgets_callback != nullptr) {
-            QWidget** callback_ret = kcodecaction_createdwidgets_callback();
+            libqt_list /* of QWidget* */ callback_ret = kcodecaction_createdwidgets_callback();
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KCodecAction::createdWidgets();

@@ -570,11 +570,11 @@ pub const knscore__entry = struct {
     ///
     /// ` self: QtC.KNSCore__Entry `
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetInstalledFiles(self: ?*anyopaque, files: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetInstalledFiles(self: ?*anyopaque, files: []const []const u8, allocator: std.mem.Allocator) void {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("knscore__entry.SetInstalledFiles: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
@@ -598,7 +598,7 @@ pub const knscore__entry = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InstalledFiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn InstalledFiles(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Entry_InstalledFiles(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -625,7 +625,7 @@ pub const knscore__entry = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UninstalledFiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn UninstalledFiles(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Entry_UninstalledFiles(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -875,7 +875,7 @@ pub const knscore__entry = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__Entry_Tags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -900,11 +900,11 @@ pub const knscore__entry = struct {
     ///
     /// ` self: QtC.KNSCore__Entry `
     ///
-    /// ` tags: [][]const u8 `
+    /// ` tags: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetTags(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetTags(self: ?*anyopaque, tags: []const []const u8, allocator: std.mem.Allocator) void {
         var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("knscore__entry.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i| {
@@ -1339,7 +1339,7 @@ pub const knscore__entry__downloadlinkinformation = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const tags_arr: qtc.libqt_list = qtc.KNSCore__Entry__DownloadLinkInformation_Tags(@ptrCast(self));
         var tags_str: [*]qtc.libqt_string = @ptrCast(@alignCast(tags_arr.data));
         defer {
@@ -1364,11 +1364,11 @@ pub const knscore__entry__downloadlinkinformation = struct {
     ///
     /// ` self: QtC.KNSCore__Entry__DownloadLinkInformation `
     ///
-    /// ` tags: [][]const u8 `
+    /// ` tags: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetTags(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetTags(self: ?*anyopaque, tags: []const []const u8, allocator: std.mem.Allocator) void {
         var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("knscore__entry__downloadlinkinformation.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i| {

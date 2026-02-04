@@ -50,7 +50,7 @@ class VirtualQUndoView final : public QUndoView {
     using QUndoView_MoveCursor_Callback = QModelIndex* (*)(QUndoView*, int, int);
     using QUndoView_SetSelection_Callback = void (*)(QUndoView*, QRect*, int);
     using QUndoView_VisualRegionForSelection_Callback = QRegion* (*)(const QUndoView*, QItemSelection*);
-    using QUndoView_SelectedIndexes_Callback = QModelIndex** (*)();
+    using QUndoView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QUndoView_UpdateGeometries_Callback = void (*)();
     using QUndoView_IsIndexHidden_Callback = bool (*)(const QUndoView*, QModelIndex*);
     using QUndoView_SelectionChanged_Callback = void (*)(QUndoView*, QItemSelection*, QItemSelection*);
@@ -1240,13 +1240,14 @@ class VirtualQUndoView final : public QUndoView {
             qundoview_selectedindexes_isbase = false;
             return QUndoView::selectedIndexes();
         } else if (qundoview_selectedindexes_callback != nullptr) {
-            QModelIndex** callback_ret = qundoview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qundoview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QUndoView::selectedIndexes();

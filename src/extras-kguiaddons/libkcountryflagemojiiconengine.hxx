@@ -28,7 +28,7 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
     using KCountryFlagEmojiIconEngine_AddFile_Callback = void (*)(KCountryFlagEmojiIconEngine*, libqt_string, QSize*, int, int);
     using KCountryFlagEmojiIconEngine_Read_Callback = bool (*)(KCountryFlagEmojiIconEngine*, QDataStream*);
     using KCountryFlagEmojiIconEngine_Write_Callback = bool (*)(const KCountryFlagEmojiIconEngine*, QDataStream*);
-    using KCountryFlagEmojiIconEngine_AvailableSizes_Callback = QSize** (*)(KCountryFlagEmojiIconEngine*, int, int);
+    using KCountryFlagEmojiIconEngine_AvailableSizes_Callback = libqt_list /* of QSize* */ (*)(KCountryFlagEmojiIconEngine*, int, int);
     using KCountryFlagEmojiIconEngine_IconName_Callback = const char* (*)();
     using KCountryFlagEmojiIconEngine_VirtualHook_Callback = void (*)(KCountryFlagEmojiIconEngine*, int, void*);
 
@@ -322,13 +322,14 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             int cbval1 = static_cast<int>(mode);
             int cbval2 = static_cast<int>(state);
 
-            QSize** callback_ret = kcountryflagemojiiconengine_availablesizes_callback(this, cbval1, cbval2);
+            libqt_list /* of QSize* */ callback_ret = kcountryflagemojiiconengine_availablesizes_callback(this, cbval1, cbval2);
             QList<QSize> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QSize** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QSize** callback_ret_arr = static_cast<QSize**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KCountryFlagEmojiIconEngine::availableSizes(mode, state);

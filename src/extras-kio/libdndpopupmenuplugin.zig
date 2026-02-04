@@ -178,9 +178,13 @@ pub const kio__dndpopupmenuplugin = struct {
     ///
     /// ` self: QtC.KIO__DndPopupMenuPlugin `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__DndPopupMenuPlugin, popupMenuInfo: QtC.KFileItemListProperties, destination: QtC.QUrl) callconv(.c) [*:null]QtC.QAction `
+    /// ` callback: *const fn (self: QtC.KIO__DndPopupMenuPlugin, popupMenuInfo: QtC.KFileItemListProperties, destination: QtC.QUrl) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnSetup(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QAction) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QAction `
+    ///
+    pub fn OnSetup(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.KIO__DndPopupMenuPlugin_OnSetup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

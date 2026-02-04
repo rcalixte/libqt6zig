@@ -47,7 +47,7 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
     using KColorSchemeModel_CanFetchMore_Callback = bool (*)(const KColorSchemeModel*, QModelIndex*);
     using KColorSchemeModel_Sort_Callback = void (*)(KColorSchemeModel*, int, int);
     using KColorSchemeModel_Buddy_Callback = QModelIndex* (*)(const KColorSchemeModel*, QModelIndex*);
-    using KColorSchemeModel_Match_Callback = QModelIndex** (*)(const KColorSchemeModel*, QModelIndex*, int, QVariant*, int, int);
+    using KColorSchemeModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KColorSchemeModel*, QModelIndex*, int, QVariant*, int, int);
     using KColorSchemeModel_Span_Callback = QSize* (*)(const KColorSchemeModel*, QModelIndex*);
     using KColorSchemeModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
     using KColorSchemeModel_MultiData_Callback = void (*)(const KColorSchemeModel*, QModelIndex*, QModelRoleDataSpan*);
@@ -80,7 +80,7 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
     using KColorSchemeModel_EndResetModel_Callback = void (*)();
     using KColorSchemeModel_ChangePersistentIndex_Callback = void (*)(KColorSchemeModel*, QModelIndex*, QModelIndex*);
     using KColorSchemeModel_ChangePersistentIndexList_Callback = void (*)(KColorSchemeModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KColorSchemeModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KColorSchemeModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KColorSchemeModel_Sender_Callback = QObject* (*)();
     using KColorSchemeModel_SenderSignalIndex_Callback = int (*)();
     using KColorSchemeModel_Receivers_Callback = int (*)(const KColorSchemeModel*, const char*);
@@ -743,7 +743,7 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KColorSchemeModel::mimeTypes();
@@ -1024,13 +1024,14 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kcolorschememodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kcolorschememodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KColorSchemeModel::match(start, role, value, hits, flags);
@@ -1570,13 +1571,14 @@ class VirtualKColorSchemeModel final : public KColorSchemeModel {
             kcolorschememodel_persistentindexlist_isbase = false;
             return KColorSchemeModel::persistentIndexList();
         } else if (kcolorschememodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kcolorschememodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kcolorschememodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KColorSchemeModel::persistentIndexList();

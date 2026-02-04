@@ -263,11 +263,11 @@ pub const attica__project = struct {
     ///
     /// ` self: QtC.Attica__Project `
     ///
-    /// ` developers: [][]const u8 `
+    /// ` developers: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetDevelopers(self: ?*anyopaque, developers: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetDevelopers(self: ?*anyopaque, developers: []const []const u8, allocator: std.mem.Allocator) void {
         var developers_arr = allocator.alloc(qtc.libqt_string, developers.len) catch @panic("attica__project.SetDevelopers: Memory allocation failed");
         defer allocator.free(developers_arr);
         for (developers, 0..developers.len) |item, i| {
@@ -291,7 +291,7 @@ pub const attica__project = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Developers(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Developers(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__Project_Developers(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

@@ -106,8 +106,8 @@ void kColorPicker__KColorPicker_ColorChanged(const kColorPicker__KColorPicker* s
     self->colorChanged(*color);
 }
 
-void kColorPicker__KColorPicker_Connect_ColorChanged(kColorPicker__KColorPicker* self, intptr_t slot) {
-    void (*slotFunc)(kColorPicker__KColorPicker*, QColor*) = reinterpret_cast<void (*)(kColorPicker__KColorPicker*, QColor*)>(slot);
+void kColorPicker__KColorPicker_Connect_ColorChanged(const kColorPicker__KColorPicker* self, intptr_t slot) {
+    void (*slotFunc)(const kColorPicker__KColorPicker*, QColor*) = reinterpret_cast<void (*)(const kColorPicker__KColorPicker*, QColor*)>(slot);
     kColorPicker::KColorPicker::connect(self, &kColorPicker::KColorPicker::colorChanged, [self, slotFunc](const QColor& color) {
         const QColor& color_ret = color;
         // Cast returned reference into pointer

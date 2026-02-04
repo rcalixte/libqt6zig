@@ -269,9 +269,9 @@ pub const qplacesearchreply = struct {
     ///
     /// ` self: QtC.QPlaceSearchReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchReply, results: [*]QtC.QPlaceSearchResult) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPlaceSearchReply, results: qtc.libqt_list ([]QtC.QPlaceSearchResult)) callconv(.c) void `
     ///
-    pub fn OnSetResults(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPlaceSearchResult) callconv(.c) void) void {
+    pub fn OnSetResults(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QPlaceSearchReply_OnSetResults(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

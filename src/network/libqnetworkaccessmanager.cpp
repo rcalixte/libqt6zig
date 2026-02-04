@@ -359,7 +359,7 @@ void QNetworkAccessManager_SslErrors(QNetworkAccessManager* self, QNetworkReply*
 }
 
 void QNetworkAccessManager_Connect_SslErrors(QNetworkAccessManager* self, intptr_t slot) {
-    void (*slotFunc)(QNetworkAccessManager*, QNetworkReply*, QSslError**) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkReply*, QSslError**)>(slot);
+    void (*slotFunc)(QNetworkAccessManager*, QNetworkReply*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkReply*, libqt_list /* of QSslError* */)>(slot);
     QNetworkAccessManager::connect(self, &QNetworkAccessManager::sslErrors, [self, slotFunc](QNetworkReply* reply, const QList<QSslError>& errors) {
         QNetworkReply* sigval1 = reply;
         const QList<QSslError>& errors_ret = errors;
@@ -368,9 +368,10 @@ void QNetworkAccessManager_Connect_SslErrors(QNetworkAccessManager* self, intptr
         for (qsizetype i = 0; i < errors_ret.size(); ++i) {
             errors_arr[i] = new QSslError(errors_ret[i]);
         }
-        // Append sentinel value to the list
-        errors_arr[errors_ret.size()] = nullptr;
-        QSslError** sigval2 = errors_arr;
+        libqt_list errors_out;
+        errors_out.len = errors_ret.size();
+        errors_out.data = static_cast<void*>(errors_arr);
+        libqt_list /* of QSslError* */ sigval2 = errors_out;
         slotFunc(self, sigval1, sigval2);
         free(errors_arr);
     });

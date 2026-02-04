@@ -939,9 +939,13 @@ pub const kplotwidget = struct {
     ///
     /// ` self: QtC.KPlotWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KPlotWidget, p: QtC.QPoint) callconv(.c) [*:null]QtC.KPlotPoint `
+    /// ` callback: *const fn (self: QtC.KPlotWidget, p: QtC.QPoint) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnPointsUnderPoint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.KPlotPoint) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.KPlotPoint `
+    ///
+    pub fn OnPointsUnderPoint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.KPlotWidget_OnPointsUnderPoint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

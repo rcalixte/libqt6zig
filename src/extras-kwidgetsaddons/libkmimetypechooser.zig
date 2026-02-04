@@ -37,11 +37,11 @@ pub const kmimetypechooser = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(text: []const u8, selectedMimeTypes: [][]const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
+    pub fn New3(text: []const u8, selectedMimeTypes: []const []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -68,13 +68,13 @@ pub const kmimetypechooser = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
+    pub fn New4(text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -105,15 +105,15 @@ pub const kmimetypechooser = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    /// ` groupsToShow: [][]const u8 `
+    /// ` groupsToShow: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New5(text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, groupsToShow: [][]const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
+    pub fn New5(text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -156,17 +156,17 @@ pub const kmimetypechooser = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    /// ` groupsToShow: [][]const u8 `
+    /// ` groupsToShow: []const []const u8 `
     ///
     /// ` visuals: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New6(text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, groupsToShow: [][]const u8, visuals: i32, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
+    pub fn New6(text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -209,11 +209,11 @@ pub const kmimetypechooser = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    /// ` groupsToShow: [][]const u8 `
+    /// ` groupsToShow: []const []const u8 `
     ///
     /// ` visuals: i32 `
     ///
@@ -221,7 +221,7 @@ pub const kmimetypechooser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New7(text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, groupsToShow: [][]const u8, visuals: i32, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
+    pub fn New7(text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -397,7 +397,7 @@ pub const kmimetypechooser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KMimeTypeChooser_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -424,7 +424,7 @@ pub const kmimetypechooser = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Patterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Patterns(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KMimeTypeChooser_Patterns(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7967,13 +7967,13 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(title: []const u8, text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
+    pub fn New2(title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8046,11 +8046,11 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New5(title: []const u8, text: []const u8, selectedMimeTypes: [][]const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
+    pub fn New5(title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8083,13 +8083,13 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New6(title: []const u8, text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
+    pub fn New6(title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8126,15 +8126,15 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    /// ` groupsToShow: [][]const u8 `
+    /// ` groupsToShow: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New7(title: []const u8, text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, groupsToShow: [][]const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
+    pub fn New7(title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8183,17 +8183,17 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    /// ` groupsToShow: [][]const u8 `
+    /// ` groupsToShow: []const []const u8 `
     ///
     /// ` visuals: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New8(title: []const u8, text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, groupsToShow: [][]const u8, visuals: i32, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
+    pub fn New8(title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8242,11 +8242,11 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    /// ` groupsToShow: [][]const u8 `
+    /// ` groupsToShow: []const []const u8 `
     ///
     /// ` visuals: i32 `
     ///
@@ -8254,7 +8254,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New9(title: []const u8, text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, groupsToShow: [][]const u8, visuals: i32, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
+    pub fn New9(title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8303,7 +8303,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` selectedMimeTypes: [][]const u8 `
+    /// ` selectedMimeTypes: []const []const u8 `
     ///
     /// ` defaultGroup: []const u8 `
     ///
@@ -8311,7 +8311,7 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New10(title: []const u8, text: []const u8, selectedMimeTypes: [][]const u8, defaultGroup: []const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
+    pub fn New10(title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,

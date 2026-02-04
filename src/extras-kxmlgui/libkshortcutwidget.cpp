@@ -123,7 +123,7 @@ void KShortcutWidget_ShortcutChanged(KShortcutWidget* self, const libqt_list /* 
 }
 
 void KShortcutWidget_Connect_ShortcutChanged(KShortcutWidget* self, intptr_t slot) {
-    void (*slotFunc)(KShortcutWidget*, QKeySequence**) = reinterpret_cast<void (*)(KShortcutWidget*, QKeySequence**)>(slot);
+    void (*slotFunc)(KShortcutWidget*, libqt_list /* of QKeySequence* */) = reinterpret_cast<void (*)(KShortcutWidget*, libqt_list /* of QKeySequence* */)>(slot);
     KShortcutWidget::connect(self, &KShortcutWidget::shortcutChanged, [self, slotFunc](const QList<QKeySequence>& cut) {
         const QList<QKeySequence>& cut_ret = cut;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -131,9 +131,10 @@ void KShortcutWidget_Connect_ShortcutChanged(KShortcutWidget* self, intptr_t slo
         for (qsizetype i = 0; i < cut_ret.size(); ++i) {
             cut_arr[i] = new QKeySequence(cut_ret[i]);
         }
-        // Append sentinel value to the list
-        cut_arr[cut_ret.size()] = nullptr;
-        QKeySequence** sigval1 = cut_arr;
+        libqt_list cut_out;
+        cut_out.len = cut_ret.size();
+        cut_out.data = static_cast<void*>(cut_arr);
+        libqt_list /* of QKeySequence* */ sigval1 = cut_out;
         slotFunc(self, sigval1);
         free(cut_arr);
     });
