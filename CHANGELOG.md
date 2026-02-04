@@ -1,4 +1,8 @@
 
+### 6.8.2 rev57 (4 February 2026)
+
+* **BREAKING CHANGE:** Update some container-based callbacks and extend const correctness (#113)
+
 ### 6.8.2 rev56 (2 February 2026)
 
 * Add [Qt WebSockets](https://doc.qt.io/qt-6/qtwebsockets-index.html) (#112)
