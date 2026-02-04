@@ -48,7 +48,7 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
     using KColumnHeadersModel_CanFetchMore_Callback = bool (*)(const KColumnHeadersModel*, QModelIndex*);
     using KColumnHeadersModel_Sort_Callback = void (*)(KColumnHeadersModel*, int, int);
     using KColumnHeadersModel_Buddy_Callback = QModelIndex* (*)(const KColumnHeadersModel*, QModelIndex*);
-    using KColumnHeadersModel_Match_Callback = QModelIndex** (*)(const KColumnHeadersModel*, QModelIndex*, int, QVariant*, int, int);
+    using KColumnHeadersModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KColumnHeadersModel*, QModelIndex*, int, QVariant*, int, int);
     using KColumnHeadersModel_Span_Callback = QSize* (*)(const KColumnHeadersModel*, QModelIndex*);
     using KColumnHeadersModel_MultiData_Callback = void (*)(const KColumnHeadersModel*, QModelIndex*, QModelRoleDataSpan*);
     using KColumnHeadersModel_Submit_Callback = bool (*)();
@@ -80,7 +80,7 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
     using KColumnHeadersModel_EndResetModel_Callback = void (*)();
     using KColumnHeadersModel_ChangePersistentIndex_Callback = void (*)(KColumnHeadersModel*, QModelIndex*, QModelIndex*);
     using KColumnHeadersModel_ChangePersistentIndexList_Callback = void (*)(KColumnHeadersModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KColumnHeadersModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KColumnHeadersModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KColumnHeadersModel_Sender_Callback = QObject* (*)();
     using KColumnHeadersModel_SenderSignalIndex_Callback = int (*)();
     using KColumnHeadersModel_Receivers_Callback = int (*)(const KColumnHeadersModel*, const char*);
@@ -764,7 +764,7 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KColumnHeadersModel::mimeTypes();
@@ -1045,13 +1045,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kcolumnheadersmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kcolumnheadersmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KColumnHeadersModel::match(start, role, value, hits, flags);
@@ -1570,13 +1571,14 @@ class VirtualKColumnHeadersModel final : public KColumnHeadersModel {
             kcolumnheadersmodel_persistentindexlist_isbase = false;
             return KColumnHeadersModel::persistentIndexList();
         } else if (kcolumnheadersmodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kcolumnheadersmodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kcolumnheadersmodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KColumnHeadersModel::persistentIndexList();

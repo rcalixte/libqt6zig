@@ -29,7 +29,7 @@ class VirtualKBookmarkActionMenu final : public KBookmarkActionMenu {
     using KBookmarkActionMenu_CustomEvent_Callback = void (*)(KBookmarkActionMenu*, QEvent*);
     using KBookmarkActionMenu_ConnectNotify_Callback = void (*)(KBookmarkActionMenu*, QMetaMethod*);
     using KBookmarkActionMenu_DisconnectNotify_Callback = void (*)(KBookmarkActionMenu*, QMetaMethod*);
-    using KBookmarkActionMenu_CreatedWidgets_Callback = QWidget** (*)();
+    using KBookmarkActionMenu_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
     using KBookmarkActionMenu_Sender_Callback = QObject* (*)();
     using KBookmarkActionMenu_SenderSignalIndex_Callback = int (*)();
     using KBookmarkActionMenu_Receivers_Callback = int (*)(const KBookmarkActionMenu*, const char*);
@@ -321,13 +321,14 @@ class VirtualKBookmarkActionMenu final : public KBookmarkActionMenu {
             kbookmarkactionmenu_createdwidgets_isbase = false;
             return KBookmarkActionMenu::createdWidgets();
         } else if (kbookmarkactionmenu_createdwidgets_callback != nullptr) {
-            QWidget** callback_ret = kbookmarkactionmenu_createdwidgets_callback();
+            libqt_list /* of QWidget* */ callback_ret = kbookmarkactionmenu_createdwidgets_callback();
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KBookmarkActionMenu::createdWidgets();

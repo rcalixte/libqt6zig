@@ -307,11 +307,11 @@ pub const qvariant = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringlist: [][]const u8 `
+    /// ` stringlist: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New25(stringlist: [][]const u8, allocator: std.mem.Allocator) QtC.QVariant {
+    pub fn New25(stringlist: []const []const u8, allocator: std.mem.Allocator) QtC.QVariant {
         var stringlist_arr = allocator.alloc(qtc.libqt_string, stringlist.len) catch @panic("qvariant.New25: Memory allocation failed");
         defer allocator.free(stringlist_arr);
         for (stringlist, 0..stringlist.len) |item, i| {
@@ -817,7 +817,7 @@ pub const qvariant = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QVariant_ToStringList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

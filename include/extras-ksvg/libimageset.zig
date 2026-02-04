@@ -250,11 +250,11 @@ pub const ksvg__imageset = struct {
     ///
     /// ` self: QtC.KSvg__ImageSet `
     ///
-    /// ` selectors: [][]const u8 `
+    /// ` selectors: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSelectors(self: ?*anyopaque, selectors: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetSelectors(self: ?*anyopaque, selectors: []const []const u8, allocator: std.mem.Allocator) void {
         var selectors_arr = allocator.alloc(qtc.libqt_string, selectors.len) catch @panic("ksvg__imageset.SetSelectors: Memory allocation failed");
         defer allocator.free(selectors_arr);
         for (selectors, 0..selectors.len) |item, i| {
@@ -278,7 +278,7 @@ pub const ksvg__imageset = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Selectors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Selectors(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSvg__ImageSet_Selectors(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

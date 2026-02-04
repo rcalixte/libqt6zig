@@ -111,7 +111,7 @@ void KIO__AskUserActionInterface_AskUserDeleteResult(KIO__AskUserActionInterface
 }
 
 void KIO__AskUserActionInterface_Connect_AskUserDeleteResult(KIO__AskUserActionInterface* self, intptr_t slot) {
-    void (*slotFunc)(KIO__AskUserActionInterface*, bool, QUrl**, int, QWidget*) = reinterpret_cast<void (*)(KIO__AskUserActionInterface*, bool, QUrl**, int, QWidget*)>(slot);
+    void (*slotFunc)(KIO__AskUserActionInterface*, bool, libqt_list /* of QUrl* */, int, QWidget*) = reinterpret_cast<void (*)(KIO__AskUserActionInterface*, bool, libqt_list /* of QUrl* */, int, QWidget*)>(slot);
     KIO::AskUserActionInterface::connect(self, &KIO::AskUserActionInterface::askUserDeleteResult, [self, slotFunc](bool allowDelete, const QList<QUrl>& urls, KIO::AskUserActionInterface::DeletionType deletionType, QWidget* parent) {
         bool sigval1 = allowDelete;
         const QList<QUrl>& urls_ret = urls;
@@ -120,9 +120,10 @@ void KIO__AskUserActionInterface_Connect_AskUserDeleteResult(KIO__AskUserActionI
         for (qsizetype i = 0; i < urls_ret.size(); ++i) {
             urls_arr[i] = new QUrl(urls_ret[i]);
         }
-        // Append sentinel value to the list
-        urls_arr[urls_ret.size()] = nullptr;
-        QUrl** sigval2 = urls_arr;
+        libqt_list urls_out;
+        urls_out.len = urls_ret.size();
+        urls_out.data = static_cast<void*>(urls_arr);
+        libqt_list /* of QUrl* */ sigval2 = urls_out;
         int sigval3 = static_cast<int>(deletionType);
         QWidget* sigval4 = parent;
         slotFunc(self, sigval1, sigval2, sigval3, sigval4);

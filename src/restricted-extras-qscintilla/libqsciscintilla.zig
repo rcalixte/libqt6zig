@@ -175,7 +175,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QsciScintilla_ApiContext(@ptrCast(self), @intCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -226,7 +226,7 @@ pub const qsciscintilla = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QsciScintilla_QBaseApiContext(@ptrCast(self), @intCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1792,11 +1792,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` self: QtC.QsciScintilla `
     ///
-    /// ` separators: [][]const u8 `
+    /// ` separators: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetAutoCompletionWordSeparators(self: ?*anyopaque, separators: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetAutoCompletionWordSeparators(self: ?*anyopaque, separators: []const []const u8, allocator: std.mem.Allocator) void {
         var separators_arr = allocator.alloc(qtc.libqt_string, separators.len) catch @panic("qsciscintilla.SetAutoCompletionWordSeparators: Memory allocation failed");
         defer allocator.free(separators_arr);
         for (separators, 0..separators.len) |item, i| {
@@ -2502,11 +2502,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` id: i32 `
     ///
-    /// ` list: [][]const u8 `
+    /// ` list: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ShowUserList(self: ?*anyopaque, id: i32, list: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn ShowUserList(self: ?*anyopaque, id: i32, list: []const []const u8, allocator: std.mem.Allocator) void {
         var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciscintilla.ShowUserList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {

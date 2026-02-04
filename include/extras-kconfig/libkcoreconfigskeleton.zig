@@ -2616,11 +2616,11 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItemStringList(self: ?*anyopaque, name: []const u8, reference: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+    pub fn AddItemStringList(self: ?*anyopaque, name: []const u8, reference: []const []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -3875,13 +3875,13 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
-    /// ` defaultValue: [][]const u8 `
+    /// ` defaultValue: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItemStringList3(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+    pub fn AddItemStringList3(self: ?*anyopaque, name: []const u8, reference: []const []const u8, defaultValue: []const []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -3921,15 +3921,15 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
-    /// ` defaultValue: [][]const u8 `
+    /// ` defaultValue: []const []const u8 `
     ///
     /// ` key: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItemStringList4(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, key: []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+    pub fn AddItemStringList4(self: ?*anyopaque, name: []const u8, reference: []const []const u8, defaultValue: []const []const u8, key: []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -10650,11 +10650,11 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
     ///
     /// ` _key: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New(_group: []const u8, _key: []const u8, reference: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+    pub fn New(_group: []const u8, _key: []const u8, reference: []const []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const _group_str = qtc.libqt_string{
             .len = _group.len,
             .data = _group.ptr,
@@ -10687,13 +10687,13 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
     ///
     /// ` _key: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
-    /// ` defaultValue: [][]const u8 `
+    /// ` defaultValue: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(_group: []const u8, _key: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+    pub fn New2(_group: []const u8, _key: []const u8, reference: []const []const u8, defaultValue: []const []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
         const _group_str = qtc.libqt_string{
             .len = _group.len,
             .data = _group.ptr,
@@ -10907,11 +10907,11 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     ///
     /// ` _key: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New(_group: []const u8, _key: []const u8, reference: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemPathList {
+    pub fn New(_group: []const u8, _key: []const u8, reference: []const []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemPathList {
         const _group_str = qtc.libqt_string{
             .len = _group.len,
             .data = _group.ptr,
@@ -10944,13 +10944,13 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     ///
     /// ` _key: []const u8 `
     ///
-    /// ` reference: [][]const u8 `
+    /// ` reference: []const []const u8 `
     ///
-    /// ` defaultValue: [][]const u8 `
+    /// ` defaultValue: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(_group: []const u8, _key: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemPathList {
+    pub fn New2(_group: []const u8, _key: []const u8, reference: []const []const u8, defaultValue: []const []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemPathList {
         const _group_str = qtc.libqt_string{
             .len = _group.len,
             .data = _group.ptr,

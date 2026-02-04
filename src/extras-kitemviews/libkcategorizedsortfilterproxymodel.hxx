@@ -51,7 +51,7 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
     using KCategorizedSortFilterProxyModel_CanFetchMore_Callback = bool (*)(const KCategorizedSortFilterProxyModel*, QModelIndex*);
     using KCategorizedSortFilterProxyModel_Flags_Callback = int (*)(const KCategorizedSortFilterProxyModel*, QModelIndex*);
     using KCategorizedSortFilterProxyModel_Buddy_Callback = QModelIndex* (*)(const KCategorizedSortFilterProxyModel*, QModelIndex*);
-    using KCategorizedSortFilterProxyModel_Match_Callback = QModelIndex** (*)(const KCategorizedSortFilterProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using KCategorizedSortFilterProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KCategorizedSortFilterProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using KCategorizedSortFilterProxyModel_Span_Callback = QSize* (*)(const KCategorizedSortFilterProxyModel*, QModelIndex*);
     using KCategorizedSortFilterProxyModel_MimeTypes_Callback = const char** (*)();
     using KCategorizedSortFilterProxyModel_SupportedDropActions_Callback = int (*)();
@@ -97,7 +97,7 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
     using KCategorizedSortFilterProxyModel_EndResetModel_Callback = void (*)();
     using KCategorizedSortFilterProxyModel_ChangePersistentIndex_Callback = void (*)(KCategorizedSortFilterProxyModel*, QModelIndex*, QModelIndex*);
     using KCategorizedSortFilterProxyModel_ChangePersistentIndexList_Callback = void (*)(KCategorizedSortFilterProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KCategorizedSortFilterProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KCategorizedSortFilterProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KCategorizedSortFilterProxyModel_Sender_Callback = QObject* (*)();
     using KCategorizedSortFilterProxyModel_SenderSignalIndex_Callback = int (*)();
     using KCategorizedSortFilterProxyModel_Receivers_Callback = int (*)(const KCategorizedSortFilterProxyModel*, const char*);
@@ -1168,13 +1168,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kcategorizedsortfilterproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kcategorizedsortfilterproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KCategorizedSortFilterProxyModel::match(start, role, value, hits, flags);
@@ -1213,7 +1214,7 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KCategorizedSortFilterProxyModel::mimeTypes();
@@ -1954,13 +1955,14 @@ class VirtualKCategorizedSortFilterProxyModel final : public KCategorizedSortFil
             kcategorizedsortfilterproxymodel_persistentindexlist_isbase = false;
             return KCategorizedSortFilterProxyModel::persistentIndexList();
         } else if (kcategorizedsortfilterproxymodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kcategorizedsortfilterproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kcategorizedsortfilterproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KCategorizedSortFilterProxyModel::persistentIndexList();

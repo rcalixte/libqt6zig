@@ -319,7 +319,7 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tables(self: ?*anyopaque, tableType: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Tables(self: ?*anyopaque, tableType: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDriver_Tables(@ptrCast(self), @intCast(tableType));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -366,7 +366,7 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseTables(self: ?*anyopaque, tableType: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseTables(self: ?*anyopaque, tableType: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDriver_QBaseTables(@ptrCast(self), @intCast(tableType));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1041,7 +1041,7 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubscribedToNotifications(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SubscribedToNotifications(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDriver_SubscribedToNotifications(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1086,7 +1086,7 @@ pub const qsqldriver = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSubscribedToNotifications(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseSubscribedToNotifications(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSqlDriver_QBaseSubscribedToNotifications(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

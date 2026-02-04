@@ -201,7 +201,7 @@ void QGeoSatelliteInfoSource_SatellitesInViewUpdated(QGeoSatelliteInfoSource* se
 }
 
 void QGeoSatelliteInfoSource_Connect_SatellitesInViewUpdated(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    void (*slotFunc)(QGeoSatelliteInfoSource*, QGeoSatelliteInfo**) = reinterpret_cast<void (*)(QGeoSatelliteInfoSource*, QGeoSatelliteInfo**)>(slot);
+    void (*slotFunc)(QGeoSatelliteInfoSource*, libqt_list /* of QGeoSatelliteInfo* */) = reinterpret_cast<void (*)(QGeoSatelliteInfoSource*, libqt_list /* of QGeoSatelliteInfo* */)>(slot);
     QGeoSatelliteInfoSource::connect(self, &QGeoSatelliteInfoSource::satellitesInViewUpdated, [self, slotFunc](const QList<QGeoSatelliteInfo>& satellites) {
         const QList<QGeoSatelliteInfo>& satellites_ret = satellites;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -209,9 +209,10 @@ void QGeoSatelliteInfoSource_Connect_SatellitesInViewUpdated(QGeoSatelliteInfoSo
         for (qsizetype i = 0; i < satellites_ret.size(); ++i) {
             satellites_arr[i] = new QGeoSatelliteInfo(satellites_ret[i]);
         }
-        // Append sentinel value to the list
-        satellites_arr[satellites_ret.size()] = nullptr;
-        QGeoSatelliteInfo** sigval1 = satellites_arr;
+        libqt_list satellites_out;
+        satellites_out.len = satellites_ret.size();
+        satellites_out.data = static_cast<void*>(satellites_arr);
+        libqt_list /* of QGeoSatelliteInfo* */ sigval1 = satellites_out;
         slotFunc(self, sigval1);
         free(satellites_arr);
     });
@@ -228,7 +229,7 @@ void QGeoSatelliteInfoSource_SatellitesInUseUpdated(QGeoSatelliteInfoSource* sel
 }
 
 void QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    void (*slotFunc)(QGeoSatelliteInfoSource*, QGeoSatelliteInfo**) = reinterpret_cast<void (*)(QGeoSatelliteInfoSource*, QGeoSatelliteInfo**)>(slot);
+    void (*slotFunc)(QGeoSatelliteInfoSource*, libqt_list /* of QGeoSatelliteInfo* */) = reinterpret_cast<void (*)(QGeoSatelliteInfoSource*, libqt_list /* of QGeoSatelliteInfo* */)>(slot);
     QGeoSatelliteInfoSource::connect(self, &QGeoSatelliteInfoSource::satellitesInUseUpdated, [self, slotFunc](const QList<QGeoSatelliteInfo>& satellites) {
         const QList<QGeoSatelliteInfo>& satellites_ret = satellites;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -236,9 +237,10 @@ void QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(QGeoSatelliteInfoSou
         for (qsizetype i = 0; i < satellites_ret.size(); ++i) {
             satellites_arr[i] = new QGeoSatelliteInfo(satellites_ret[i]);
         }
-        // Append sentinel value to the list
-        satellites_arr[satellites_ret.size()] = nullptr;
-        QGeoSatelliteInfo** sigval1 = satellites_arr;
+        libqt_list satellites_out;
+        satellites_out.len = satellites_ret.size();
+        satellites_out.data = static_cast<void*>(satellites_arr);
+        libqt_list /* of QGeoSatelliteInfo* */ sigval1 = satellites_out;
         slotFunc(self, sigval1);
         free(satellites_arr);
     });

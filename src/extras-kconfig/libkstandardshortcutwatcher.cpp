@@ -35,7 +35,7 @@ void KStandardShortcut__StandardShortcutWatcher_ShortcutChanged(KStandardShortcu
 }
 
 void KStandardShortcut__StandardShortcutWatcher_Connect_ShortcutChanged(KStandardShortcut__StandardShortcutWatcher* self, intptr_t slot) {
-    void (*slotFunc)(KStandardShortcut__StandardShortcutWatcher*, int, QKeySequence**) = reinterpret_cast<void (*)(KStandardShortcut__StandardShortcutWatcher*, int, QKeySequence**)>(slot);
+    void (*slotFunc)(KStandardShortcut__StandardShortcutWatcher*, int, libqt_list /* of QKeySequence* */) = reinterpret_cast<void (*)(KStandardShortcut__StandardShortcutWatcher*, int, libqt_list /* of QKeySequence* */)>(slot);
     KStandardShortcut::StandardShortcutWatcher::connect(self, &KStandardShortcut::StandardShortcutWatcher::shortcutChanged, [self, slotFunc](KStandardShortcut::StandardShortcut id, const QList<QKeySequence>& shortcut) {
         int sigval1 = static_cast<int>(id);
         const QList<QKeySequence>& shortcut_ret = shortcut;
@@ -44,9 +44,10 @@ void KStandardShortcut__StandardShortcutWatcher_Connect_ShortcutChanged(KStandar
         for (qsizetype i = 0; i < shortcut_ret.size(); ++i) {
             shortcut_arr[i] = new QKeySequence(shortcut_ret[i]);
         }
-        // Append sentinel value to the list
-        shortcut_arr[shortcut_ret.size()] = nullptr;
-        QKeySequence** sigval2 = shortcut_arr;
+        libqt_list shortcut_out;
+        shortcut_out.len = shortcut_ret.size();
+        shortcut_out.data = static_cast<void*>(shortcut_arr);
+        libqt_list /* of QKeySequence* */ sigval2 = shortcut_out;
         slotFunc(self, sigval1, sigval2);
         free(shortcut_arr);
     });

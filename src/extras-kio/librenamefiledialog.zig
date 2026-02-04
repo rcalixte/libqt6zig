@@ -175,9 +175,9 @@ pub const kio__renamefiledialog = struct {
     ///
     /// ` self: QtC.KIO__RenameFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, urls: [*]QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__RenameFileDialog, urls: qtc.libqt_list ([]QtC.QUrl)) callconv(.c) void `
     ///
-    pub fn OnRenamingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
+    pub fn OnRenamingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KIO__RenameFileDialog_Connect_RenamingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

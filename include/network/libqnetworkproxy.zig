@@ -931,9 +931,13 @@ pub const qnetworkproxyfactory = struct {
     ///
     /// ` self: QtC.QNetworkProxyFactory `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery) callconv(.c) [*:null]QtC.QNetworkProxy `
+    /// ` callback: *const fn (self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnQueryProxy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QNetworkProxy) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QNetworkProxy `
+    ///
+    pub fn OnQueryProxy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.QNetworkProxyFactory_OnQueryProxy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

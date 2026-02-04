@@ -1671,7 +1671,7 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
 
     // Virtual class public types (including callbacks)
     using Konsole__Filter__HotSpot_Activate_Callback = void (*)(Konsole__Filter__HotSpot*, libqt_string);
-    using Konsole__Filter__HotSpot_Actions_Callback = QAction** (*)();
+    using Konsole__Filter__HotSpot_Actions_Callback = libqt_list /* of QAction* */ (*)();
     using Konsole__Filter__HotSpot_SetType_Callback = void (*)(Konsole__Filter__HotSpot*, int);
 
   protected:
@@ -1728,13 +1728,14 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
             konsole__filter__hotspot_actions_isbase = false;
             return Konsole__Filter__HotSpot::actions();
         } else if (konsole__filter__hotspot_actions_callback != nullptr) {
-            QAction** callback_ret = konsole__filter__hotspot_actions_callback();
+            libqt_list /* of QAction* */ callback_ret = konsole__filter__hotspot_actions_callback();
             QList<QAction*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QAction** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return Konsole__Filter__HotSpot::actions();
@@ -1769,7 +1770,7 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
 
     // Virtual class public types (including callbacks)
     using Konsole__RegExpFilter__HotSpot_Activate_Callback = void (*)(Konsole__RegExpFilter__HotSpot*, libqt_string);
-    using Konsole__RegExpFilter__HotSpot_Actions_Callback = QAction** (*)();
+    using Konsole__RegExpFilter__HotSpot_Actions_Callback = libqt_list /* of QAction* */ (*)();
     using Konsole__RegExpFilter__HotSpot_SetType_Callback = void (*)(Konsole__RegExpFilter__HotSpot*, int);
 
   protected:
@@ -1831,13 +1832,14 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
             konsole__regexpfilter__hotspot_actions_isbase = false;
             return Konsole__RegExpFilter__HotSpot::actions();
         } else if (konsole__regexpfilter__hotspot_actions_callback != nullptr) {
-            QAction** callback_ret = konsole__regexpfilter__hotspot_actions_callback();
+            libqt_list /* of QAction* */ callback_ret = konsole__regexpfilter__hotspot_actions_callback();
             QList<QAction*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QAction** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return Konsole__RegExpFilter__HotSpot::actions();
@@ -1871,7 +1873,7 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
     bool isVirtualKonsoleUrlFilterHotSpot = true;
 
     // Virtual class public types (including callbacks)
-    using Konsole__UrlFilter__HotSpot_Actions_Callback = QAction** (*)();
+    using Konsole__UrlFilter__HotSpot_Actions_Callback = libqt_list /* of QAction* */ (*)();
     using Konsole__UrlFilter__HotSpot_Activate_Callback = void (*)(Konsole__UrlFilter__HotSpot*, libqt_string);
     using Konsole__UrlFilter__HotSpot_SetType_Callback = void (*)(Konsole__UrlFilter__HotSpot*, int);
 
@@ -1911,13 +1913,14 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
             konsole__urlfilter__hotspot_actions_isbase = false;
             return Konsole__UrlFilter__HotSpot::actions();
         } else if (konsole__urlfilter__hotspot_actions_callback != nullptr) {
-            QAction** callback_ret = konsole__urlfilter__hotspot_actions_callback();
+            libqt_list /* of QAction* */ callback_ret = konsole__urlfilter__hotspot_actions_callback();
             QList<QAction*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QAction** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return Konsole__UrlFilter__HotSpot::actions();

@@ -1469,7 +1469,7 @@ pub const qscilexerbatch = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QsciLexerBatch_AutoCompletionWordSeparators(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1500,7 +1500,7 @@ pub const qscilexerbatch = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseAutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseAutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QsciLexerBatch_QBaseAutoCompletionWordSeparators(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

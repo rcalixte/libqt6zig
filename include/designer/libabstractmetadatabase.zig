@@ -137,9 +137,13 @@ pub const qdesignermetadatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerMetaDataBaseItemInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QWidget `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnTabOrder(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QWidget) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QWidget `
+    ///
+    pub fn OnTabOrder(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QDesignerMetaDataBaseItemInterface_OnTabOrder(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -186,9 +190,9 @@ pub const qdesignermetadatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerMetaDataBaseItemInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerMetaDataBaseItemInterface, tabOrder: [*]QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDesignerMetaDataBaseItemInterface, tabOrder: qtc.libqt_list ([]QtC.QWidget)) callconv(.c) void `
     ///
-    pub fn OnSetTabOrder(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetTabOrder(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseItemInterface_OnSetTabOrder(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -595,9 +599,13 @@ pub const qdesignermetadatabaseinterface = struct {
     ///
     /// ` self: QtC.QDesignerMetaDataBaseInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnObjects(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QObject) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QObject `
+    ///
+    pub fn OnObjects(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QDesignerMetaDataBaseInterface_OnObjects(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

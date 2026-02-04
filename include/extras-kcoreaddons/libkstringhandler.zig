@@ -28,11 +28,11 @@ pub const kstringhandler = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: [][]const u8 `
+    /// ` param1: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Capwords2(param1: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Capwords2(param1: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         var param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kstringhandler.Capwords2: Memory allocation failed");
         defer allocator.free(param1_arr);
         for (param1, 0..param1.len) |item, i| {
@@ -141,7 +141,7 @@ pub const kstringhandler = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PerlSplit2(param1: []const u8, param2: []const u8, param3: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PerlSplit2(param1: []const u8, param2: []const u8, param3: i32, allocator: std.mem.Allocator) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -180,7 +180,7 @@ pub const kstringhandler = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PerlSplit3(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PerlSplit3(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) []const []const u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -215,7 +215,7 @@ pub const kstringhandler = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PerlSplit4(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PerlSplit4(param1: ?*anyopaque, param2: []const u8, param3: i32, allocator: std.mem.Allocator) []const []const u8 {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,

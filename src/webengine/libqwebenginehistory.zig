@@ -565,7 +565,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QAbstractItemModel_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1265,9 +1265,9 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ` self: QtC.QWebEngineHistoryModel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1297,9 +1297,9 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ` self: QtC.QWebEngineHistoryModel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1331,9 +1331,9 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ` self: QtC.QWebEngineHistoryModel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1363,9 +1363,9 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ` self: QtC.QWebEngineHistoryModel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1397,9 +1397,9 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ` self: QtC.QWebEngineHistoryModel `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebEngineHistoryModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

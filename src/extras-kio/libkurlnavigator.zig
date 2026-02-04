@@ -409,11 +409,11 @@ pub const kurlnavigator = struct {
     ///
     /// ` self: QtC.KUrlNavigator `
     ///
-    /// ` schemes: [][]const u8 `
+    /// ` schemes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: []const []const u8, allocator: std.mem.Allocator) void {
         var schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("kurlnavigator.SetSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
         for (schemes, 0..schemes.len) |item, i| {
@@ -437,7 +437,7 @@ pub const kurlnavigator = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlNavigator_SupportedSchemes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

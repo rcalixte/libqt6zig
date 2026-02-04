@@ -218,9 +218,13 @@ pub const krichtextwidget = struct {
     ///
     /// ` self: QtC.KRichTextWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QAction `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnCreateActions(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QAction) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QAction `
+    ///
+    pub fn OnCreateActions(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KRichTextWidget_OnCreateActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

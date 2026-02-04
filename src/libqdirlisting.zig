@@ -27,11 +27,11 @@ pub const qdirlisting = struct {
     ///
     /// ` path: []const u8 `
     ///
-    /// ` nameFilters: [][]const u8 `
+    /// ` nameFilters: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(path: []const u8, nameFilters: [][]const u8, allocator: std.mem.Allocator) QtC.QDirListing {
+    pub fn New2(path: []const u8, nameFilters: []const []const u8, allocator: std.mem.Allocator) QtC.QDirListing {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -75,13 +75,13 @@ pub const qdirlisting = struct {
     ///
     /// ` path: []const u8 `
     ///
-    /// ` nameFilters: [][]const u8 `
+    /// ` nameFilters: []const []const u8 `
     ///
     /// ` flags: flag of qdirlisting_enums.IteratorFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(path: []const u8, nameFilters: [][]const u8, flags: i32, allocator: std.mem.Allocator) QtC.QDirListing {
+    pub fn New4(path: []const u8, nameFilters: []const []const u8, flags: i32, allocator: std.mem.Allocator) QtC.QDirListing {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -152,7 +152,7 @@ pub const qdirlisting = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDirListing_NameFilters(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

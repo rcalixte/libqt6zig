@@ -567,7 +567,7 @@ pub const qsettings = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSettings_AllKeys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -594,7 +594,7 @@ pub const qsettings = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ChildKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSettings_ChildKeys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -621,7 +621,7 @@ pub const qsettings = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildGroups(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ChildGroups(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSettings_ChildGroups(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

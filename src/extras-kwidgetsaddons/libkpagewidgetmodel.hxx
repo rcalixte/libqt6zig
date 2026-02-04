@@ -388,7 +388,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
     using KPageWidgetModel_CanFetchMore_Callback = bool (*)(const KPageWidgetModel*, QModelIndex*);
     using KPageWidgetModel_Sort_Callback = void (*)(KPageWidgetModel*, int, int);
     using KPageWidgetModel_Buddy_Callback = QModelIndex* (*)(const KPageWidgetModel*, QModelIndex*);
-    using KPageWidgetModel_Match_Callback = QModelIndex** (*)(const KPageWidgetModel*, QModelIndex*, int, QVariant*, int, int);
+    using KPageWidgetModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KPageWidgetModel*, QModelIndex*, int, QVariant*, int, int);
     using KPageWidgetModel_Span_Callback = QSize* (*)(const KPageWidgetModel*, QModelIndex*);
     using KPageWidgetModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
     using KPageWidgetModel_MultiData_Callback = void (*)(const KPageWidgetModel*, QModelIndex*, QModelRoleDataSpan*);
@@ -421,7 +421,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
     using KPageWidgetModel_EndResetModel_Callback = void (*)();
     using KPageWidgetModel_ChangePersistentIndex_Callback = void (*)(KPageWidgetModel*, QModelIndex*, QModelIndex*);
     using KPageWidgetModel_ChangePersistentIndexList_Callback = void (*)(KPageWidgetModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KPageWidgetModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KPageWidgetModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KPageWidgetModel_Sender_Callback = QObject* (*)();
     using KPageWidgetModel_SenderSignalIndex_Callback = int (*)();
     using KPageWidgetModel_Receivers_Callback = int (*)(const KPageWidgetModel*, const char*);
@@ -1129,7 +1129,7 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KPageWidgetModel::mimeTypes();
@@ -1431,13 +1431,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kpagewidgetmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kpagewidgetmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KPageWidgetModel::match(start, role, value, hits, flags);
@@ -1977,13 +1978,14 @@ class VirtualKPageWidgetModel final : public KPageWidgetModel {
             kpagewidgetmodel_persistentindexlist_isbase = false;
             return KPageWidgetModel::persistentIndexList();
         } else if (kpagewidgetmodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kpagewidgetmodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kpagewidgetmodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KPageWidgetModel::persistentIndexList();

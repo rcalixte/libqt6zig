@@ -82,8 +82,8 @@ void QVideoSink_VideoFrameChanged(const QVideoSink* self, const QVideoFrame* fra
     self->videoFrameChanged(*frame);
 }
 
-void QVideoSink_Connect_VideoFrameChanged(QVideoSink* self, intptr_t slot) {
-    void (*slotFunc)(QVideoSink*, QVideoFrame*) = reinterpret_cast<void (*)(QVideoSink*, QVideoFrame*)>(slot);
+void QVideoSink_Connect_VideoFrameChanged(const QVideoSink* self, intptr_t slot) {
+    void (*slotFunc)(const QVideoSink*, QVideoFrame*) = reinterpret_cast<void (*)(const QVideoSink*, QVideoFrame*)>(slot);
     QVideoSink::connect(self, &QVideoSink::videoFrameChanged, [self, slotFunc](const QVideoFrame& frame) {
         const QVideoFrame& frame_ret = frame;
         // Cast returned reference into pointer
@@ -97,8 +97,8 @@ void QVideoSink_SubtitleTextChanged(const QVideoSink* self, const libqt_string s
     self->subtitleTextChanged(subtitleText_QString);
 }
 
-void QVideoSink_Connect_SubtitleTextChanged(QVideoSink* self, intptr_t slot) {
-    void (*slotFunc)(QVideoSink*, const char*) = reinterpret_cast<void (*)(QVideoSink*, const char*)>(slot);
+void QVideoSink_Connect_SubtitleTextChanged(const QVideoSink* self, intptr_t slot) {
+    void (*slotFunc)(const QVideoSink*, const char*) = reinterpret_cast<void (*)(const QVideoSink*, const char*)>(slot);
     QVideoSink::connect(self, &QVideoSink::subtitleTextChanged, [self, slotFunc](const QString& subtitleText) {
         const QString subtitleText_ret = subtitleText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory

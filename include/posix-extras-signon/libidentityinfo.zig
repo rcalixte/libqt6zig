@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const identityinfo_enums = enums;
 const std = @import("std");
-const map_constu8_sliceconstu8 = std.StringHashMapUnmanaged([][]const u8);
+const map_constu8_sliceconstconstu8 = std.StringHashMapUnmanaged([]const []const u8);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1IdentityInfo.html)
 pub const signon__identityinfo = struct {
@@ -30,11 +30,11 @@ pub const signon__identityinfo = struct {
     ///
     /// ` userName: []const u8 `
     ///
-    /// ` methods: map_constu8_sliceconstu8 `
+    /// ` methods: map_constu8_sliceconstconstu8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(caption: []const u8, userName: []const u8, methods: map_constu8_sliceconstu8, allocator: std.mem.Allocator) QtC.SignOn__IdentityInfo {
+    pub fn New3(caption: []const u8, userName: []const u8, methods: map_constu8_sliceconstconstu8, allocator: std.mem.Allocator) QtC.SignOn__IdentityInfo {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -241,11 +241,11 @@ pub const signon__identityinfo = struct {
     ///
     /// ` self: QtC.SignOn__IdentityInfo `
     ///
-    /// ` realms: [][]const u8 `
+    /// ` realms: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetRealms(self: ?*anyopaque, realms: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetRealms(self: ?*anyopaque, realms: []const []const u8, allocator: std.mem.Allocator) void {
         var realms_arr = allocator.alloc(qtc.libqt_string, realms.len) catch @panic("signon__identityinfo.SetRealms: Memory allocation failed");
         defer allocator.free(realms_arr);
         for (realms, 0..realms.len) |item, i| {
@@ -269,7 +269,7 @@ pub const signon__identityinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Realms(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Realms(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__IdentityInfo_Realms(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -326,11 +326,11 @@ pub const signon__identityinfo = struct {
     ///
     /// ` self: QtC.SignOn__IdentityInfo `
     ///
-    /// ` accessControlList: [][]const u8 `
+    /// ` accessControlList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetAccessControlList(self: ?*anyopaque, accessControlList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetAccessControlList(self: ?*anyopaque, accessControlList: []const []const u8, allocator: std.mem.Allocator) void {
         var accessControlList_arr = allocator.alloc(qtc.libqt_string, accessControlList.len) catch @panic("signon__identityinfo.SetAccessControlList: Memory allocation failed");
         defer allocator.free(accessControlList_arr);
         for (accessControlList, 0..accessControlList.len) |item, i| {
@@ -370,7 +370,7 @@ pub const signon__identityinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessControlList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AccessControlList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__IdentityInfo_AccessControlList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -414,11 +414,11 @@ pub const signon__identityinfo = struct {
     ///
     /// ` method: []const u8 `
     ///
-    /// ` mechanismsList: [][]const u8 `
+    /// ` mechanismsList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetMethod(self: ?*anyopaque, method: []const u8, mechanismsList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetMethod(self: ?*anyopaque, method: []const u8, mechanismsList: []const []const u8, allocator: std.mem.Allocator) void {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
@@ -488,7 +488,7 @@ pub const signon__identityinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Methods(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Methods(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__IdentityInfo_Methods(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -517,7 +517,7 @@ pub const signon__identityinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Mechanisms(self: ?*anyopaque, method: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Mechanisms(self: ?*anyopaque, method: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,

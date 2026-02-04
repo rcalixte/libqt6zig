@@ -39,7 +39,7 @@ pub const qwebengineglobalsettings__dnsmode = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServerTemplates(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ServerTemplates(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const serverTemplates_arr: qtc.libqt_list = qtc.QWebEngineGlobalSettings__DnsMode_ServerTemplates(@ptrCast(self));
         var serverTemplates_str: [*]qtc.libqt_string = @ptrCast(@alignCast(serverTemplates_arr.data));
         defer {
@@ -64,11 +64,11 @@ pub const qwebengineglobalsettings__dnsmode = struct {
     ///
     /// ` self: QtC.QWebEngineGlobalSettings__DnsMode `
     ///
-    /// ` serverTemplates: [][]const u8 `
+    /// ` serverTemplates: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetServerTemplates(self: ?*anyopaque, serverTemplates: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetServerTemplates(self: ?*anyopaque, serverTemplates: []const []const u8, allocator: std.mem.Allocator) void {
         var serverTemplates_arr = allocator.alloc(qtc.libqt_string, serverTemplates.len) catch @panic("qwebengineglobalsettings__dnsmode.SetServerTemplates: Memory allocation failed");
         defer allocator.free(serverTemplates_arr);
         for (serverTemplates, 0..serverTemplates.len) |item, i| {

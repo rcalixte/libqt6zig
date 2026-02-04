@@ -701,9 +701,9 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, indexes: [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: QtC.KDirModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData) void {
+    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
         qtc.KDirModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -733,7 +733,7 @@ pub const kdirmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDirModel_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -778,7 +778,7 @@ pub const kdirmodel = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDirModel_QBaseMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1892,9 +1892,9 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1924,9 +1924,9 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1958,9 +1958,9 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1990,9 +1990,9 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2024,9 +2024,9 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3408,9 +3408,13 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn (self: QtC.KDirModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.KDirModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4092,9 +4096,9 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, indexes: [*]QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
         qtc.KDirModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -4976,9 +4980,9 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, from: [*]QtC.QModelIndex, to: [*]QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, [*]QtC.QModelIndex) callconv(.c) void) void {
+    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
         qtc.KDirModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -5036,9 +5040,13 @@ pub const kdirmodel = struct {
     ///
     /// ` self: QtC.KDirModel`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KDirModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

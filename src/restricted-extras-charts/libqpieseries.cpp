@@ -192,7 +192,7 @@ void QPieSeries_Added(QPieSeries* self, const libqt_list /* of QPieSlice* */ sli
 }
 
 void QPieSeries_Connect_Added(QPieSeries* self, intptr_t slot) {
-    void (*slotFunc)(QPieSeries*, QPieSlice**) = reinterpret_cast<void (*)(QPieSeries*, QPieSlice**)>(slot);
+    void (*slotFunc)(QPieSeries*, libqt_list /* of QPieSlice* */) = reinterpret_cast<void (*)(QPieSeries*, libqt_list /* of QPieSlice* */)>(slot);
     QPieSeries::connect(self, &QPieSeries::added, [self, slotFunc](const QList<QPieSlice*>& slices) {
         const QList<QPieSlice*>& slices_ret = slices;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -200,9 +200,10 @@ void QPieSeries_Connect_Added(QPieSeries* self, intptr_t slot) {
         for (qsizetype i = 0; i < slices_ret.size(); ++i) {
             slices_arr[i] = slices_ret[i];
         }
-        // Append sentinel value to the list
-        slices_arr[slices_ret.size()] = nullptr;
-        QPieSlice** sigval1 = slices_arr;
+        libqt_list slices_out;
+        slices_out.len = slices_ret.size();
+        slices_out.data = static_cast<void*>(slices_arr);
+        libqt_list /* of QPieSlice* */ sigval1 = slices_out;
         slotFunc(self, sigval1);
         free(slices_arr);
     });
@@ -219,7 +220,7 @@ void QPieSeries_Removed(QPieSeries* self, const libqt_list /* of QPieSlice* */ s
 }
 
 void QPieSeries_Connect_Removed(QPieSeries* self, intptr_t slot) {
-    void (*slotFunc)(QPieSeries*, QPieSlice**) = reinterpret_cast<void (*)(QPieSeries*, QPieSlice**)>(slot);
+    void (*slotFunc)(QPieSeries*, libqt_list /* of QPieSlice* */) = reinterpret_cast<void (*)(QPieSeries*, libqt_list /* of QPieSlice* */)>(slot);
     QPieSeries::connect(self, &QPieSeries::removed, [self, slotFunc](const QList<QPieSlice*>& slices) {
         const QList<QPieSlice*>& slices_ret = slices;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -227,9 +228,10 @@ void QPieSeries_Connect_Removed(QPieSeries* self, intptr_t slot) {
         for (qsizetype i = 0; i < slices_ret.size(); ++i) {
             slices_arr[i] = slices_ret[i];
         }
-        // Append sentinel value to the list
-        slices_arr[slices_ret.size()] = nullptr;
-        QPieSlice** sigval1 = slices_arr;
+        libqt_list slices_out;
+        slices_out.len = slices_ret.size();
+        slices_out.data = static_cast<void*>(slices_arr);
+        libqt_list /* of QPieSlice* */ sigval1 = slices_out;
         slotFunc(self, sigval1);
         free(slices_arr);
     });

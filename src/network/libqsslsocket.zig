@@ -1272,7 +1272,7 @@ pub const qsslsocket = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableBackends(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableBackends(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSslSocket_AvailableBackends();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1530,9 +1530,9 @@ pub const qsslsocket = struct {
     ///
     /// ` self: QtC.QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslSocket, errors: qtc.libqt_list ([]QtC.QSslError)) callconv(.c) void `
     ///
-    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
+    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QSslSocket_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

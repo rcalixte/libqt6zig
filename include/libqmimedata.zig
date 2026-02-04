@@ -450,7 +450,7 @@ pub const qmimedata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Formats(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Formats(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QMimeData_Formats(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -495,7 +495,7 @@ pub const qmimedata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseFormats(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QMimeData_QBaseFormats(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

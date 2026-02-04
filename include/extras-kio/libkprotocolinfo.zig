@@ -11,7 +11,7 @@ pub const kprotocolinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Protocols(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Protocols(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_Protocols();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -303,7 +303,7 @@ pub const kprotocolinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Capabilities(protocol: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Capabilities(protocol: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -334,7 +334,7 @@ pub const kprotocolinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ArchiveMimetypes(protocol: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ArchiveMimetypes(protocol: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,

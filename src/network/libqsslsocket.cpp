@@ -574,7 +574,7 @@ void QSslSocket_SslErrors(QSslSocket* self, const libqt_list /* of QSslError* */
 }
 
 void QSslSocket_Connect_SslErrors(QSslSocket* self, intptr_t slot) {
-    void (*slotFunc)(QSslSocket*, QSslError**) = reinterpret_cast<void (*)(QSslSocket*, QSslError**)>(slot);
+    void (*slotFunc)(QSslSocket*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QSslSocket*, libqt_list /* of QSslError* */)>(slot);
     QSslSocket::connect(self, &QSslSocket::sslErrors, [self, slotFunc](const QList<QSslError>& errors) {
         const QList<QSslError>& errors_ret = errors;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -582,9 +582,10 @@ void QSslSocket_Connect_SslErrors(QSslSocket* self, intptr_t slot) {
         for (qsizetype i = 0; i < errors_ret.size(); ++i) {
             errors_arr[i] = new QSslError(errors_ret[i]);
         }
-        // Append sentinel value to the list
-        errors_arr[errors_ret.size()] = nullptr;
-        QSslError** sigval1 = errors_arr;
+        libqt_list errors_out;
+        errors_out.len = errors_ret.size();
+        errors_out.data = static_cast<void*>(errors_arr);
+        libqt_list /* of QSslError* */ sigval1 = errors_out;
         slotFunc(self, sigval1);
         free(errors_arr);
     });

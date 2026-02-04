@@ -20,7 +20,7 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     using KWidgetItemDelegate_MetaObject_Callback = QMetaObject* (*)();
     using KWidgetItemDelegate_Metacast_Callback = void* (*)(KWidgetItemDelegate*, const char*);
     using KWidgetItemDelegate_Metacall_Callback = int (*)(KWidgetItemDelegate*, int, int, void**);
-    using KWidgetItemDelegate_CreateItemWidgets_Callback = QWidget** (*)(const KWidgetItemDelegate*, QModelIndex*);
+    using KWidgetItemDelegate_CreateItemWidgets_Callback = libqt_list /* of QWidget* */ (*)(const KWidgetItemDelegate*, QModelIndex*);
     using KWidgetItemDelegate_UpdateItemWidgets_Callback = void (*)(const KWidgetItemDelegate*, libqt_list /* of QWidget* */, QStyleOptionViewItem*, QPersistentModelIndex*);
     using KWidgetItemDelegate_Paint_Callback = void (*)(const KWidgetItemDelegate*, QPainter*, QStyleOptionViewItem*, QModelIndex*);
     using KWidgetItemDelegate_SizeHint_Callback = QSize* (*)(const KWidgetItemDelegate*, QStyleOptionViewItem*, QModelIndex*);
@@ -31,7 +31,7 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     using KWidgetItemDelegate_UpdateEditorGeometry_Callback = void (*)(const KWidgetItemDelegate*, QWidget*, QStyleOptionViewItem*, QModelIndex*);
     using KWidgetItemDelegate_EditorEvent_Callback = bool (*)(KWidgetItemDelegate*, QEvent*, QAbstractItemModel*, QStyleOptionViewItem*, QModelIndex*);
     using KWidgetItemDelegate_HelpEvent_Callback = bool (*)(KWidgetItemDelegate*, QHelpEvent*, QAbstractItemView*, QStyleOptionViewItem*, QModelIndex*);
-    using KWidgetItemDelegate_PaintingRoles_Callback = int* (*)();
+    using KWidgetItemDelegate_PaintingRoles_Callback = libqt_list /* of int */ (*)();
     using KWidgetItemDelegate_Event_Callback = bool (*)(KWidgetItemDelegate*, QEvent*);
     using KWidgetItemDelegate_EventFilter_Callback = bool (*)(KWidgetItemDelegate*, QObject*, QEvent*);
     using KWidgetItemDelegate_TimerEvent_Callback = void (*)(KWidgetItemDelegate*, QTimerEvent*);
@@ -40,7 +40,7 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
     using KWidgetItemDelegate_ConnectNotify_Callback = void (*)(KWidgetItemDelegate*, QMetaMethod*);
     using KWidgetItemDelegate_DisconnectNotify_Callback = void (*)(KWidgetItemDelegate*, QMetaMethod*);
     using KWidgetItemDelegate_SetBlockedEventTypes_Callback = void (*)(const KWidgetItemDelegate*, QWidget*, libqt_list /* of int */);
-    using KWidgetItemDelegate_BlockedEventTypes_Callback = int* (*)(const KWidgetItemDelegate*, QWidget*);
+    using KWidgetItemDelegate_BlockedEventTypes_Callback = libqt_list /* of int */ (*)(const KWidgetItemDelegate*, QWidget*);
     using KWidgetItemDelegate_Sender_Callback = QObject* (*)();
     using KWidgetItemDelegate_SenderSignalIndex_Callback = int (*)();
     using KWidgetItemDelegate_Receivers_Callback = int (*)(const KWidgetItemDelegate*, const char*);
@@ -254,13 +254,14 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
 
-            QWidget** callback_ret = kwidgetitemdelegate_createitemwidgets_callback(this, cbval1);
+            libqt_list /* of QWidget* */ callback_ret = kwidgetitemdelegate_createitemwidgets_callback(this, cbval1);
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};
@@ -466,12 +467,14 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
             kwidgetitemdelegate_paintingroles_isbase = false;
             return KWidgetItemDelegate::paintingRoles();
         } else if (kwidgetitemdelegate_paintingroles_callback != nullptr) {
-            int* callback_ret = kwidgetitemdelegate_paintingroles_callback();
+            libqt_list /* of int */ callback_ret = kwidgetitemdelegate_paintingroles_callback();
             QList<int> callback_ret_QList;
-            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
-                callback_ret_QList.push_back(*ptr);
+            callback_ret_QList.reserve(callback_ret.len);
+            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(static_cast<int>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KWidgetItemDelegate::paintingRoles();
@@ -615,12 +618,14 @@ class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
         } else if (kwidgetitemdelegate_blockedeventtypes_callback != nullptr) {
             QWidget* cbval1 = widget;
 
-            int* callback_ret = kwidgetitemdelegate_blockedeventtypes_callback(this, cbval1);
+            libqt_list /* of int */ callback_ret = kwidgetitemdelegate_blockedeventtypes_callback(this, cbval1);
             QList<QEvent::Type> callback_ret_QList;
-            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
-                callback_ret_QList.push_back(static_cast<QEvent::Type>(*ptr));
+            callback_ret_QList.reserve(callback_ret.len);
+            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(static_cast<QEvent::Type>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KWidgetItemDelegate::blockedEventTypes(widget);

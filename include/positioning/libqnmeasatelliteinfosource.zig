@@ -564,9 +564,9 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, size: i32, pnrsInUse: [*:-1]i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, size: i32, pnrsInUse: qtc.libqt_list ([]i32)) callconv(.c) i32 `
     ///
-    pub fn OnParseSatellitesInUseFromNmea(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*:-1]i32) callconv(.c) i32) void {
+    pub fn OnParseSatellitesInUseFromNmea(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, qtc.libqt_list) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatellitesInUseFromNmea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -631,9 +631,9 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, pnrsInUse: [*:-1]i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, pnrsInUse: qtc.libqt_list ([]i32)) callconv(.c) i32 `
     ///
-    pub fn OnParseSatellitesInUseFromNmea2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:-1]i32) callconv(.c) i32) void {
+    pub fn OnParseSatellitesInUseFromNmea2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, qtc.libqt_list) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatellitesInUseFromNmea2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -700,9 +700,9 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, size: i32, infos: [*]QtC.QGeoSatelliteInfo, system: *qgeosatelliteinfo_enums.SatelliteSystem) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, size: i32, infos: qtc.libqt_list ([]QtC.QGeoSatelliteInfo), system: *qgeosatelliteinfo_enums.SatelliteSystem) callconv(.c) i32 `
     ///
-    pub fn OnParseSatelliteInfoFromNmea(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*]QtC.QGeoSatelliteInfo, *i32) callconv(.c) i32) void {
+    pub fn OnParseSatelliteInfoFromNmea(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, qtc.libqt_list, *i32) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatelliteInfoFromNmea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -771,9 +771,9 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, infos: [*]QtC.QGeoSatelliteInfo, system: *qgeosatelliteinfo_enums.SatelliteSystem) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, infos: qtc.libqt_list ([]QtC.QGeoSatelliteInfo), system: *qgeosatelliteinfo_enums.SatelliteSystem) callconv(.c) i32 `
     ///
-    pub fn OnParseSatelliteInfoFromNmea2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*]QtC.QGeoSatelliteInfo, *i32) callconv(.c) i32) void {
+    pub fn OnParseSatelliteInfoFromNmea2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, qtc.libqt_list, *i32) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatelliteInfoFromNmea2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1005,7 +1005,7 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableSources(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableSources(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QGeoSatelliteInfoSource_AvailableSources();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1080,9 +1080,9 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, satellites: [*]QtC.QGeoSatelliteInfo) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, satellites: qtc.libqt_list ([]QtC.QGeoSatelliteInfo)) callconv(.c) void `
     ///
-    pub fn OnSatellitesInViewUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QGeoSatelliteInfo) callconv(.c) void) void {
+    pub fn OnSatellitesInViewUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_Connect_SatellitesInViewUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1112,9 +1112,9 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, satellites: [*]QtC.QGeoSatelliteInfo) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, satellites: qtc.libqt_list ([]QtC.QGeoSatelliteInfo)) callconv(.c) void `
     ///
-    pub fn OnSatellitesInUseUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QGeoSatelliteInfo) callconv(.c) void) void {
+    pub fn OnSatellitesInUseUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

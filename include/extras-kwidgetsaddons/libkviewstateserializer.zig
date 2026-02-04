@@ -206,7 +206,7 @@ pub const kviewstateserializer = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectionKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SelectionKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KViewStateSerializer_SelectionKeys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -233,7 +233,7 @@ pub const kviewstateserializer = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExpansionKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ExpansionKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KViewStateSerializer_ExpansionKeys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -285,11 +285,11 @@ pub const kviewstateserializer = struct {
     ///
     /// ` self: QtC.KViewStateSerializer `
     ///
-    /// ` indexStrings: [][]const u8 `
+    /// ` indexStrings: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RestoreSelection(self: ?*anyopaque, indexStrings: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn RestoreSelection(self: ?*anyopaque, indexStrings: []const []const u8, allocator: std.mem.Allocator) void {
         var indexStrings_arr = allocator.alloc(qtc.libqt_string, indexStrings.len) catch @panic("kviewstateserializer.RestoreSelection: Memory allocation failed");
         defer allocator.free(indexStrings_arr);
         for (indexStrings, 0..indexStrings.len) |item, i| {
@@ -327,11 +327,11 @@ pub const kviewstateserializer = struct {
     ///
     /// ` self: QtC.KViewStateSerializer `
     ///
-    /// ` indexStrings: [][]const u8 `
+    /// ` indexStrings: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RestoreExpanded(self: ?*anyopaque, indexStrings: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn RestoreExpanded(self: ?*anyopaque, indexStrings: []const []const u8, allocator: std.mem.Allocator) void {
         var indexStrings_arr = allocator.alloc(qtc.libqt_string, indexStrings.len) catch @panic("kviewstateserializer.RestoreExpanded: Memory allocation failed");
         defer allocator.free(indexStrings_arr);
         for (indexStrings, 0..indexStrings.len) |item, i| {

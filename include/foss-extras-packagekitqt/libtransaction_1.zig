@@ -980,11 +980,11 @@ pub const packagekit__transaction = struct {
     ///
     /// ` packageID: []const u8 `
     ///
-    /// ` filenames: [][]const u8 `
+    /// ` filenames: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Files(self: ?*anyopaque, packageID: []const u8, filenames: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn Files(self: ?*anyopaque, packageID: []const u8, filenames: []const []const u8, allocator: std.mem.Allocator) void {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
@@ -1010,9 +1010,9 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, filenames: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, filenames: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_Files(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1110,15 +1110,15 @@ pub const packagekit__transaction = struct {
     ///
     /// ` packageID: []const u8 `
     ///
-    /// ` updates: [][]const u8 `
+    /// ` updates: []const []const u8 `
     ///
-    /// ` obsoletes: [][]const u8 `
+    /// ` obsoletes: []const []const u8 `
     ///
-    /// ` vendorUrls: [][]const u8 `
+    /// ` vendorUrls: []const []const u8 `
     ///
-    /// ` bugzillaUrls: [][]const u8 `
+    /// ` bugzillaUrls: []const []const u8 `
     ///
-    /// ` cveUrls: [][]const u8 `
+    /// ` cveUrls: []const []const u8 `
     ///
     /// ` restart: transaction_enums.Restart `
     ///
@@ -1134,7 +1134,7 @@ pub const packagekit__transaction = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UpdateDetail(self: ?*anyopaque, packageID: []const u8, updates: [][]const u8, obsoletes: [][]const u8, vendorUrls: [][]const u8, bugzillaUrls: [][]const u8, cveUrls: [][]const u8, restart: i32, updateText: []const u8, changelog: []const u8, state: i32, issued: ?*anyopaque, updated: ?*anyopaque, allocator: std.mem.Allocator) void {
+    pub fn UpdateDetail(self: ?*anyopaque, packageID: []const u8, updates: []const []const u8, obsoletes: []const []const u8, vendorUrls: []const []const u8, bugzillaUrls: []const []const u8, cveUrls: []const []const u8, restart: i32, updateText: []const u8, changelog: []const u8, state: i32, issued: ?*anyopaque, updated: ?*anyopaque, allocator: std.mem.Allocator) void {
         const packageID_str = qtc.libqt_string{
             .len = packageID.len,
             .data = packageID.ptr,
@@ -1216,9 +1216,9 @@ pub const packagekit__transaction = struct {
     ///
     /// ` self: QtC.PackageKit__Transaction `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, updates: [*][*:0]const u8, obsoletes: [*][*:0]const u8, vendorUrls: [*][*:0]const u8, bugzillaUrls: [*][*:0]const u8, cveUrls: [*][*:0]const u8, restart: transaction_enums.Restart, updateText: [*:0]const u8, changelog: [*:0]const u8, state: transaction_enums.UpdateState, issued: QtC.QDateTime, updated: QtC.QDateTime) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Transaction, packageID: [*:0]const u8, updates: ?[*:null]?[*:0]const u8, obsoletes: ?[*:null]?[*:0]const u8, vendorUrls: ?[*:null]?[*:0]const u8, bugzillaUrls: ?[*:null]?[*:0]const u8, cveUrls: ?[*:null]?[*:0]const u8, restart: transaction_enums.Restart, updateText: [*:0]const u8, changelog: [*:0]const u8, state: transaction_enums.UpdateState, issued: QtC.QDateTime, updated: QtC.QDateTime) callconv(.c) void `
     ///
-    pub fn OnUpdateDetail(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, [*][*:0]const u8, i32, [*:0]const u8, [*:0]const u8, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnUpdateDetail(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8, i32, [*:0]const u8, [*:0]const u8, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.PackageKit__Transaction_Connect_UpdateDetail(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

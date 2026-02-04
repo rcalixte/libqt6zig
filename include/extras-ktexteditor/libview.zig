@@ -1042,7 +1042,7 @@ pub const ktexteditor__view = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ConfigKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ConfigKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_ConfigKeys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6712,13 +6712,13 @@ pub const ktexteditor__view = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` doc: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn FindMostRecentXMLFile(files: []const []const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("ktexteditor__view.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {

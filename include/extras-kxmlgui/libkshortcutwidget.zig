@@ -246,9 +246,9 @@ pub const kshortcutwidget = struct {
     ///
     /// ` self: QtC.KShortcutWidget `
     ///
-    /// ` callback: *const fn (self: QtC.KShortcutWidget, cut: [*]QtC.QKeySequence) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KShortcutWidget, cut: qtc.libqt_list ([]QtC.QKeySequence)) callconv(.c) void `
     ///
-    pub fn OnShortcutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QKeySequence) callconv(.c) void) void {
+    pub fn OnShortcutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KShortcutWidget_Connect_ShortcutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

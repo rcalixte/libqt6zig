@@ -29,7 +29,7 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
     using KHamburgerMenu_CustomEvent_Callback = void (*)(KHamburgerMenu*, QEvent*);
     using KHamburgerMenu_ConnectNotify_Callback = void (*)(KHamburgerMenu*, QMetaMethod*);
     using KHamburgerMenu_DisconnectNotify_Callback = void (*)(KHamburgerMenu*, QMetaMethod*);
-    using KHamburgerMenu_CreatedWidgets_Callback = QWidget** (*)();
+    using KHamburgerMenu_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
     using KHamburgerMenu_Sender_Callback = QObject* (*)();
     using KHamburgerMenu_SenderSignalIndex_Callback = int (*)();
     using KHamburgerMenu_Receivers_Callback = int (*)(const KHamburgerMenu*, const char*);
@@ -320,13 +320,14 @@ class VirtualKHamburgerMenu final : public KHamburgerMenu {
             khamburgermenu_createdwidgets_isbase = false;
             return KHamburgerMenu::createdWidgets();
         } else if (khamburgermenu_createdwidgets_callback != nullptr) {
-            QWidget** callback_ret = khamburgermenu_createdwidgets_callback();
+            libqt_list /* of QWidget* */ callback_ret = khamburgermenu_createdwidgets_callback();
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KHamburgerMenu::createdWidgets();

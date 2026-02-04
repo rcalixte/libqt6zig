@@ -223,9 +223,9 @@ pub const qsslserver = struct {
     ///
     /// ` self: QtC.QSslServer `
     ///
-    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errors: qtc.libqt_list ([]QtC.QSslError)) callconv(.c) void `
     ///
-    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
+    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QSslServer_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

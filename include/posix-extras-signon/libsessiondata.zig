@@ -86,7 +86,7 @@ pub const signon__sessiondata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__SessionData_PropertyNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -129,7 +129,7 @@ pub const signon__sessiondata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetAccessControlTokens(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GetAccessControlTokens(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.SignOn__SessionData_GetAccessControlTokens(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

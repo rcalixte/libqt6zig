@@ -1925,13 +1925,13 @@ pub const qwebenginepage = struct {
     ///
     /// ` mode: qwebenginepage_enums.FileSelectionMode `
     ///
-    /// ` oldFiles: [][]const u8 `
+    /// ` oldFiles: []const []const u8 `
     ///
-    /// ` acceptedMimeTypes: [][]const u8 `
+    /// ` acceptedMimeTypes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: []const []const u8, acceptedMimeTypes: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
         for (oldFiles, 0..oldFiles.len) |item, i| {
@@ -1984,9 +1984,9 @@ pub const qwebenginepage = struct {
     ///
     /// ` self: QtC.QWebEnginePage `
     ///
-    /// ` callback: *const fn (self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [*][*:0]const u8, acceptedMimeTypes: [*][*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: ?[*:null]?[*:0]const u8, acceptedMimeTypes: ?[*:null]?[*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnChooseFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*][*:0]const u8, [*][*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn OnChooseFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QWebEnginePage_OnChooseFiles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2000,13 +2000,13 @@ pub const qwebenginepage = struct {
     ///
     /// ` mode: qwebenginepage_enums.FileSelectionMode `
     ///
-    /// ` oldFiles: [][]const u8 `
+    /// ` oldFiles: []const []const u8 `
     ///
-    /// ` acceptedMimeTypes: [][]const u8 `
+    /// ` acceptedMimeTypes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: []const []const u8, acceptedMimeTypes: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
         for (oldFiles, 0..oldFiles.len) |item, i| {

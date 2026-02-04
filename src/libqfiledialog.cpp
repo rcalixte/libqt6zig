@@ -604,7 +604,7 @@ void QFileDialog_UrlsSelected(QFileDialog* self, const libqt_list /* of QUrl* */
 }
 
 void QFileDialog_Connect_UrlsSelected(QFileDialog* self, intptr_t slot) {
-    void (*slotFunc)(QFileDialog*, QUrl**) = reinterpret_cast<void (*)(QFileDialog*, QUrl**)>(slot);
+    void (*slotFunc)(QFileDialog*, libqt_list /* of QUrl* */) = reinterpret_cast<void (*)(QFileDialog*, libqt_list /* of QUrl* */)>(slot);
     QFileDialog::connect(self, &QFileDialog::urlsSelected, [self, slotFunc](const QList<QUrl>& urls) {
         const QList<QUrl>& urls_ret = urls;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -612,9 +612,10 @@ void QFileDialog_Connect_UrlsSelected(QFileDialog* self, intptr_t slot) {
         for (qsizetype i = 0; i < urls_ret.size(); ++i) {
             urls_arr[i] = new QUrl(urls_ret[i]);
         }
-        // Append sentinel value to the list
-        urls_arr[urls_ret.size()] = nullptr;
-        QUrl** sigval1 = urls_arr;
+        libqt_list urls_out;
+        urls_out.len = urls_ret.size();
+        urls_out.data = static_cast<void*>(urls_arr);
+        libqt_list /* of QUrl* */ sigval1 = urls_out;
         slotFunc(self, sigval1);
         free(urls_arr);
     });

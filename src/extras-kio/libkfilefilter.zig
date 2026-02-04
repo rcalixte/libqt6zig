@@ -16,13 +16,13 @@ pub const kfilefilter = struct {
     ///
     /// ` label: []const u8 `
     ///
-    /// ` filePatterns: [][]const u8 `
+    /// ` filePatterns: []const []const u8 `
     ///
-    /// ` mimePatterns: [][]const u8 `
+    /// ` mimePatterns: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(label: []const u8, filePatterns: [][]const u8, mimePatterns: [][]const u8, allocator: std.mem.Allocator) QtC.KFileFilter {
+    pub fn New2(label: []const u8, filePatterns: []const []const u8, mimePatterns: []const []const u8, allocator: std.mem.Allocator) QtC.KFileFilter {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
@@ -113,7 +113,7 @@ pub const kfilefilter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn FilePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KFileFilter_FilePatterns(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -140,7 +140,7 @@ pub const kfilefilter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KFileFilter_MimePatterns(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -213,11 +213,11 @@ pub const kfilefilter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` mimeTypes: [][]const u8 `
+    /// ` mimeTypes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FromMimeTypes(mimeTypes: [][]const u8, allocator: std.mem.Allocator) []QtC.KFileFilter {
+    pub fn FromMimeTypes(mimeTypes: []const []const u8, allocator: std.mem.Allocator) []QtC.KFileFilter {
         var mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kfilefilter.FromMimeTypes: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i| {

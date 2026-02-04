@@ -324,7 +324,7 @@ pub const kservice = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Keywords(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Keywords(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_Keywords(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -351,7 +351,7 @@ pub const kservice = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_Categories(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -378,7 +378,7 @@ pub const kservice = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -405,7 +405,7 @@ pub const kservice = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SchemeHandlers(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SchemeHandlers(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_SchemeHandlers(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -432,7 +432,7 @@ pub const kservice = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedProtocols(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedProtocols(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KService_SupportedProtocols(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

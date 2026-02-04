@@ -2078,9 +2078,9 @@ pub const qgraphicsscene = struct {
     ///
     /// ` self: QtC.QGraphicsScene `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsScene, region: [*]QtC.QRectF) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGraphicsScene, region: qtc.libqt_list ([]QtC.QRectF)) callconv(.c) void `
     ///
-    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QRectF) callconv(.c) void) void {
+    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGraphicsScene_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

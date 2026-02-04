@@ -54,11 +54,11 @@ pub const sonnet__guesslanguage = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` suggestions: [][]const u8 `
+    /// ` suggestions: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Identify2(self: ?*anyopaque, text: []const u8, suggestions: [][]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Identify2(self: ?*anyopaque, text: []const u8, suggestions: []const []const u8, allocator: std.mem.Allocator) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,

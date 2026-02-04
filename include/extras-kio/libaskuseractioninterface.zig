@@ -319,9 +319,9 @@ pub const kio__askuseractioninterface = struct {
     ///
     /// ` self: QtC.KIO__AskUserActionInterface `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, allowDelete: bool, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__AskUserActionInterface, allowDelete: bool, urls: qtc.libqt_list ([]QtC.QUrl), deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void `
     ///
-    pub fn OnAskUserDeleteResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*]QtC.QUrl, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnAskUserDeleteResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, qtc.libqt_list, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__AskUserActionInterface_Connect_AskUserDeleteResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

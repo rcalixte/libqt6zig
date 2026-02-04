@@ -29,7 +29,7 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
     using KToolBarLabelAction_CustomEvent_Callback = void (*)(KToolBarLabelAction*, QEvent*);
     using KToolBarLabelAction_ConnectNotify_Callback = void (*)(KToolBarLabelAction*, QMetaMethod*);
     using KToolBarLabelAction_DisconnectNotify_Callback = void (*)(KToolBarLabelAction*, QMetaMethod*);
-    using KToolBarLabelAction_CreatedWidgets_Callback = QWidget** (*)();
+    using KToolBarLabelAction_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
     using KToolBarLabelAction_Sender_Callback = QObject* (*)();
     using KToolBarLabelAction_SenderSignalIndex_Callback = int (*)();
     using KToolBarLabelAction_Receivers_Callback = int (*)(const KToolBarLabelAction*, const char*);
@@ -321,13 +321,14 @@ class VirtualKToolBarLabelAction final : public KToolBarLabelAction {
             ktoolbarlabelaction_createdwidgets_isbase = false;
             return KToolBarLabelAction::createdWidgets();
         } else if (ktoolbarlabelaction_createdwidgets_callback != nullptr) {
-            QWidget** callback_ret = ktoolbarlabelaction_createdwidgets_callback();
+            libqt_list /* of QWidget* */ callback_ret = ktoolbarlabelaction_createdwidgets_callback();
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KToolBarLabelAction::createdWidgets();

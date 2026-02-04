@@ -18,7 +18,7 @@ class VirtualQDesignerTaskMenuExtension : public QDesignerTaskMenuExtension {
 
     // Virtual class public types (including callbacks)
     using QDesignerTaskMenuExtension_PreferredEditAction_Callback = QAction* (*)();
-    using QDesignerTaskMenuExtension_TaskActions_Callback = QAction** (*)();
+    using QDesignerTaskMenuExtension_TaskActions_Callback = libqt_list /* of QAction* */ (*)();
 
   protected:
     // Instance callback storage
@@ -61,13 +61,14 @@ class VirtualQDesignerTaskMenuExtension : public QDesignerTaskMenuExtension {
     // Virtual method for C ABI access and custom callback
     virtual QList<QAction*> taskActions() const override {
         if (qdesignertaskmenuextension_taskactions_callback != nullptr) {
-            QAction** callback_ret = qdesignertaskmenuextension_taskactions_callback();
+            libqt_list /* of QAction* */ callback_ret = qdesignertaskmenuextension_taskactions_callback();
             QList<QAction*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QAction** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};

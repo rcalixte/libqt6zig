@@ -22,7 +22,7 @@ class VirtualKIconEngine final : public KIconEngine {
     using KIconEngine_Pixmap_Callback = QPixmap* (*)(KIconEngine*, QSize*, int, int);
     using KIconEngine_ScaledPixmap_Callback = QPixmap* (*)(KIconEngine*, QSize*, int, int, double);
     using KIconEngine_IconName_Callback = const char* (*)();
-    using KIconEngine_AvailableSizes_Callback = QSize** (*)(KIconEngine*, int, int);
+    using KIconEngine_AvailableSizes_Callback = libqt_list /* of QSize* */ (*)(KIconEngine*, int, int);
     using KIconEngine_IsNull_Callback = bool (*)();
     using KIconEngine_Key_Callback = const char* (*)();
     using KIconEngine_Clone_Callback = QIconEngine* (*)();
@@ -221,13 +221,14 @@ class VirtualKIconEngine final : public KIconEngine {
             int cbval1 = static_cast<int>(mode);
             int cbval2 = static_cast<int>(state);
 
-            QSize** callback_ret = kiconengine_availablesizes_callback(this, cbval1, cbval2);
+            libqt_list /* of QSize* */ callback_ret = kiconengine_availablesizes_callback(this, cbval1, cbval2);
             QList<QSize> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QSize** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QSize** callback_ret_arr = static_cast<QSize**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KIconEngine::availableSizes(mode, state);

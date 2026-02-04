@@ -200,7 +200,7 @@ pub const kwindowinfo = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Activities(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Activities(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KWindowInfo_Activities(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

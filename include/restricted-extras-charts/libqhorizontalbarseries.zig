@@ -874,9 +874,9 @@ pub const qhorizontalbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalBarSeries, sets: qtc.libqt_list ([]QtC.QBarSet)) callconv(.c) void `
     ///
-    pub fn OnBarsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnBarsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -906,9 +906,9 @@ pub const qhorizontalbarseries = struct {
     ///
     /// ` self: QtC.QHorizontalBarSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QHorizontalBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QHorizontalBarSeries, sets: qtc.libqt_list ([]QtC.QBarSet)) callconv(.c) void `
     ///
-    pub fn OnBarsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnBarsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

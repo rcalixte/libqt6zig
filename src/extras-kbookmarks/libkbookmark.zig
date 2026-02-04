@@ -1416,7 +1416,7 @@ pub const kbookmark__list = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeDataTypes(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeDataTypes(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KBookmark__List_MimeDataTypes();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

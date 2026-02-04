@@ -365,11 +365,11 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetComboBoxItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetComboBoxItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.SetComboBoxItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -393,7 +393,7 @@ pub const qinputdialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ComboBoxItems(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ComboBoxItems(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QInputDialog_ComboBoxItems(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -858,11 +858,11 @@ pub const qinputdialog = struct {
     ///
     /// ` label: []const u8 `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetItem(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1548,13 +1548,13 @@ pub const qinputdialog = struct {
     ///
     /// ` label: []const u8 `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` current: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetItem5(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem5(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1592,7 +1592,7 @@ pub const qinputdialog = struct {
     ///
     /// ` label: []const u8 `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` current: i32 `
     ///
@@ -1600,7 +1600,7 @@ pub const qinputdialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetItem6(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem6(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1638,7 +1638,7 @@ pub const qinputdialog = struct {
     ///
     /// ` label: []const u8 `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` current: i32 `
     ///
@@ -1648,7 +1648,7 @@ pub const qinputdialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetItem7(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem7(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, ok: *bool, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1686,7 +1686,7 @@ pub const qinputdialog = struct {
     ///
     /// ` label: []const u8 `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` current: i32 `
     ///
@@ -1698,7 +1698,7 @@ pub const qinputdialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetItem8(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, flags: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem8(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, ok: *bool, flags: i32, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1736,7 +1736,7 @@ pub const qinputdialog = struct {
     ///
     /// ` label: []const u8 `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` current: i32 `
     ///
@@ -1750,7 +1750,7 @@ pub const qinputdialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetItem9(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, flags: i32, inputMethodHints: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem9(parent: ?*anyopaque, title: []const u8, label: []const u8, items: []const []const u8, current: i32, editable: bool, ok: *bool, flags: i32, inputMethodHints: i32, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,

@@ -918,7 +918,7 @@ void QAbstractItemModel_DataChanged3(QAbstractItemModel* self, const QModelIndex
 }
 
 void QAbstractItemModel_Connect_DataChanged3(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, QModelIndex*, QModelIndex*, int*) = reinterpret_cast<void (*)(QAbstractItemModel*, QModelIndex*, QModelIndex*, int*)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, QModelIndex*, QModelIndex*, libqt_list /* of int */) = reinterpret_cast<void (*)(QAbstractItemModel*, QModelIndex*, QModelIndex*, libqt_list /* of int */)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::dataChanged, [self, slotFunc](const QModelIndex& topLeft, const QModelIndex& bottomRight, const QList<int>& roles) {
         const QModelIndex& topLeft_ret = topLeft;
         // Cast returned reference into pointer
@@ -932,9 +932,10 @@ void QAbstractItemModel_Connect_DataChanged3(QAbstractItemModel* self, intptr_t 
         for (qsizetype i = 0; i < roles_ret.size(); ++i) {
             roles_arr[i] = roles_ret[i];
         }
-        // Append sentinel value to the list
-        roles_arr[roles_ret.size()] = -1;
-        int* sigval3 = roles_arr;
+        libqt_list roles_out;
+        roles_out.len = roles_ret.size();
+        roles_out.data = static_cast<void*>(roles_arr);
+        libqt_list /* of int */ sigval3 = roles_out;
         slotFunc(self, sigval1, sigval2, sigval3);
         free(roles_arr);
     });
@@ -951,7 +952,7 @@ void QAbstractItemModel_LayoutChanged1(QAbstractItemModel* self, const libqt_lis
 }
 
 void QAbstractItemModel_Connect_LayoutChanged1(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, QPersistentModelIndex**) = reinterpret_cast<void (*)(QAbstractItemModel*, QPersistentModelIndex**)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -959,9 +960,10 @@ void QAbstractItemModel_Connect_LayoutChanged1(QAbstractItemModel* self, intptr_
         for (qsizetype i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
         }
-        // Append sentinel value to the list
-        parents_arr[parents_ret.size()] = nullptr;
-        QPersistentModelIndex** sigval1 = parents_arr;
+        libqt_list parents_out;
+        parents_out.len = parents_ret.size();
+        parents_out.data = static_cast<void*>(parents_arr);
+        libqt_list /* of QPersistentModelIndex* */ sigval1 = parents_out;
         slotFunc(self, sigval1);
         free(parents_arr);
     });
@@ -978,7 +980,7 @@ void QAbstractItemModel_LayoutChanged2(QAbstractItemModel* self, const libqt_lis
 }
 
 void QAbstractItemModel_Connect_LayoutChanged2(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, QPersistentModelIndex**, int) = reinterpret_cast<void (*)(QAbstractItemModel*, QPersistentModelIndex**, int)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents, QAbstractItemModel::LayoutChangeHint hint) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -986,9 +988,10 @@ void QAbstractItemModel_Connect_LayoutChanged2(QAbstractItemModel* self, intptr_
         for (qsizetype i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
         }
-        // Append sentinel value to the list
-        parents_arr[parents_ret.size()] = nullptr;
-        QPersistentModelIndex** sigval1 = parents_arr;
+        libqt_list parents_out;
+        parents_out.len = parents_ret.size();
+        parents_out.data = static_cast<void*>(parents_arr);
+        libqt_list /* of QPersistentModelIndex* */ sigval1 = parents_out;
         int sigval2 = static_cast<int>(hint);
         slotFunc(self, sigval1, sigval2);
         free(parents_arr);
@@ -1006,7 +1009,7 @@ void QAbstractItemModel_LayoutAboutToBeChanged1(QAbstractItemModel* self, const 
 }
 
 void QAbstractItemModel_Connect_LayoutAboutToBeChanged1(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, QPersistentModelIndex**) = reinterpret_cast<void (*)(QAbstractItemModel*, QPersistentModelIndex**)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutAboutToBeChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -1014,9 +1017,10 @@ void QAbstractItemModel_Connect_LayoutAboutToBeChanged1(QAbstractItemModel* self
         for (qsizetype i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
         }
-        // Append sentinel value to the list
-        parents_arr[parents_ret.size()] = nullptr;
-        QPersistentModelIndex** sigval1 = parents_arr;
+        libqt_list parents_out;
+        parents_out.len = parents_ret.size();
+        parents_out.data = static_cast<void*>(parents_arr);
+        libqt_list /* of QPersistentModelIndex* */ sigval1 = parents_out;
         slotFunc(self, sigval1);
         free(parents_arr);
     });
@@ -1033,7 +1037,7 @@ void QAbstractItemModel_LayoutAboutToBeChanged2(QAbstractItemModel* self, const 
 }
 
 void QAbstractItemModel_Connect_LayoutAboutToBeChanged2(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, QPersistentModelIndex**, int) = reinterpret_cast<void (*)(QAbstractItemModel*, QPersistentModelIndex**, int)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutAboutToBeChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents, QAbstractItemModel::LayoutChangeHint hint) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -1041,9 +1045,10 @@ void QAbstractItemModel_Connect_LayoutAboutToBeChanged2(QAbstractItemModel* self
         for (qsizetype i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
         }
-        // Append sentinel value to the list
-        parents_arr[parents_ret.size()] = nullptr;
-        QPersistentModelIndex** sigval1 = parents_arr;
+        libqt_list parents_out;
+        parents_out.len = parents_ret.size();
+        parents_out.data = static_cast<void*>(parents_arr);
+        libqt_list /* of QPersistentModelIndex* */ sigval1 = parents_out;
         int sigval2 = static_cast<int>(hint);
         slotFunc(self, sigval1, sigval2);
         free(parents_arr);

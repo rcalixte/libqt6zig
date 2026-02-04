@@ -58,7 +58,7 @@ class VirtualQAbstractItemView : public QAbstractItemView {
     using QAbstractItemView_IsIndexHidden_Callback = bool (*)(const QAbstractItemView*, QModelIndex*);
     using QAbstractItemView_SetSelection_Callback = void (*)(QAbstractItemView*, QRect*, int);
     using QAbstractItemView_VisualRegionForSelection_Callback = QRegion* (*)(const QAbstractItemView*, QItemSelection*);
-    using QAbstractItemView_SelectedIndexes_Callback = QModelIndex** (*)();
+    using QAbstractItemView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QAbstractItemView_Edit2_Callback = bool (*)(QAbstractItemView*, QModelIndex*, int, QEvent*);
     using QAbstractItemView_SelectionCommand_Callback = int (*)(const QAbstractItemView*, QModelIndex*, QEvent*);
     using QAbstractItemView_StartDrag_Callback = void (*)(QAbstractItemView*, int);
@@ -1311,13 +1311,14 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             qabstractitemview_selectedindexes_isbase = false;
             return QAbstractItemView::selectedIndexes();
         } else if (qabstractitemview_selectedindexes_callback != nullptr) {
-            QModelIndex** callback_ret = qabstractitemview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qabstractitemview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QAbstractItemView::selectedIndexes();

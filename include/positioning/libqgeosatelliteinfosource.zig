@@ -255,7 +255,7 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableSources(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableSources(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QGeoSatelliteInfoSource_AvailableSources();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -654,9 +654,9 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, satellites: [*]QtC.QGeoSatelliteInfo) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, satellites: qtc.libqt_list ([]QtC.QGeoSatelliteInfo)) callconv(.c) void `
     ///
-    pub fn OnSatellitesInViewUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QGeoSatelliteInfo) callconv(.c) void) void {
+    pub fn OnSatellitesInViewUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_Connect_SatellitesInViewUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -682,9 +682,9 @@ pub const qgeosatelliteinfosource = struct {
     ///
     /// ` self: QtC.QGeoSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, satellites: [*]QtC.QGeoSatelliteInfo) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGeoSatelliteInfoSource, satellites: qtc.libqt_list ([]QtC.QGeoSatelliteInfo)) callconv(.c) void `
     ///
-    pub fn OnSatellitesInUseUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QGeoSatelliteInfo) callconv(.c) void) void {
+    pub fn OnSatellitesInUseUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

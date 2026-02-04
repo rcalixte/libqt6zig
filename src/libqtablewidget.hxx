@@ -205,7 +205,7 @@ class VirtualQTableWidget final : public QTableWidget {
     using QTableWidget_MoveCursor_Callback = QModelIndex* (*)(QTableWidget*, int, int);
     using QTableWidget_SetSelection_Callback = void (*)(QTableWidget*, QRect*, int);
     using QTableWidget_VisualRegionForSelection_Callback = QRegion* (*)(const QTableWidget*, QItemSelection*);
-    using QTableWidget_SelectedIndexes_Callback = QModelIndex** (*)();
+    using QTableWidget_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QTableWidget_UpdateGeometries_Callback = void (*)();
     using QTableWidget_ViewportSizeHint_Callback = QSize* (*)();
     using QTableWidget_SizeHintForRow_Callback = int (*)(const QTableWidget*, int);
@@ -1037,7 +1037,7 @@ class VirtualQTableWidget final : public QTableWidget {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return QTableWidget::mimeTypes();
@@ -1345,13 +1345,14 @@ class VirtualQTableWidget final : public QTableWidget {
             qtablewidget_selectedindexes_isbase = false;
             return QTableWidget::selectedIndexes();
         } else if (qtablewidget_selectedindexes_callback != nullptr) {
-            QModelIndex** callback_ret = qtablewidget_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qtablewidget_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QTableWidget::selectedIndexes();

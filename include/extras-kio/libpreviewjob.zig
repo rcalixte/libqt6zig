@@ -29,11 +29,11 @@ pub const kio__previewjob = struct {
     ///
     /// ` size: QtC.QSize `
     ///
-    /// ` enabledPlugins: [][]const u8 `
+    /// ` enabledPlugins: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(items: ?*anyopaque, size: ?*anyopaque, enabledPlugins: [][]const u8, allocator: std.mem.Allocator) QtC.KIO__PreviewJob {
+    pub fn New2(items: ?*anyopaque, size: ?*anyopaque, enabledPlugins: []const []const u8, allocator: std.mem.Allocator) QtC.KIO__PreviewJob {
         var enabledPlugins_arr = allocator.alloc(qtc.libqt_string, enabledPlugins.len) catch @panic("kio__previewjob.New2: Memory allocation failed");
         defer allocator.free(enabledPlugins_arr);
         for (enabledPlugins, 0..enabledPlugins.len) |item, i| {
@@ -289,7 +289,7 @@ pub const kio__previewjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailablePlugins(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailablePlugins(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIO__PreviewJob_AvailablePlugins();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -329,7 +329,7 @@ pub const kio__previewjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultPlugins(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DefaultPlugins(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIO__PreviewJob_DefaultPlugins();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -354,7 +354,7 @@ pub const kio__previewjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedMimeTypes(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedMimeTypes(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIO__PreviewJob_SupportedMimeTypes();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -563,7 +563,7 @@ pub const kio__previewjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DetailedErrorStrings(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DetailedErrorStrings(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -814,7 +814,7 @@ pub const kio__previewjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DetailedErrorStrings1(self: ?*anyopaque, reqUrl: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DetailedErrorStrings1(self: ?*anyopaque, reqUrl: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings1(@ptrCast(self), @ptrCast(reqUrl));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -847,7 +847,7 @@ pub const kio__previewjob = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DetailedErrorStrings2(self: ?*anyopaque, reqUrl: ?*anyopaque, method: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DetailedErrorStrings2(self: ?*anyopaque, reqUrl: ?*anyopaque, method: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings2(@ptrCast(self), @ptrCast(reqUrl), @intCast(method));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2868,9 +2868,13 @@ pub const kio__previewjob = struct {
     ///
     /// ` self: QtC.KIO__PreviewJob`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.KJob `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.KJob) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.KJob `
+    ///
+    pub fn OnSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KIO__PreviewJob_OnSubjobs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3837,11 +3841,11 @@ pub const kio = struct {
     ///
     /// ` param2: QtC.QSize `
     ///
-    /// ` param3: [][]const u8 `
+    /// ` param3: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilePreview(param1: ?*anyopaque, param2: ?*anyopaque, param3: [][]const u8, allocator: std.mem.Allocator) QtC.KIO__PreviewJob {
+    pub fn FilePreview(param1: ?*anyopaque, param2: ?*anyopaque, param3: []const []const u8, allocator: std.mem.Allocator) QtC.KIO__PreviewJob {
         var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kio.FilePreview: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {

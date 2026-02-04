@@ -324,7 +324,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedFiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SelectedFiles(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileDialog_SelectedFiles(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -394,11 +394,11 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` filters: [][]const u8 `
+    /// ` filters: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetNameFilters(self: ?*anyopaque, filters: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetNameFilters(self: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) void {
         var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
@@ -422,7 +422,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileDialog_NameFilters(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -495,11 +495,11 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` filters: [][]const u8 `
+    /// ` filters: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetMimeTypeFilters(self: ?*anyopaque, filters: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetMimeTypeFilters(self: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) void {
         var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
@@ -523,7 +523,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypeFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypeFilters(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileDialog_MimeTypeFilters(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -765,11 +765,11 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` paths: [][]const u8 `
+    /// ` paths: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHistory(self: ?*anyopaque, paths: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetHistory(self: ?*anyopaque, paths: []const []const u8, allocator: std.mem.Allocator) void {
         var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qfiledialog.SetHistory: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
@@ -793,7 +793,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn History(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn History(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileDialog_History(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -898,11 +898,11 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` schemes: [][]const u8 `
+    /// ` schemes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: []const []const u8, allocator: std.mem.Allocator) void {
         var schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("qfiledialog.SetSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
         for (schemes, 0..schemes.len) |item, i| {
@@ -926,7 +926,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileDialog_SupportedSchemes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1091,11 +1091,11 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilesSelected(self: ?*anyopaque, files: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn FilesSelected(self: ?*anyopaque, files: []const []const u8, allocator: std.mem.Allocator) void {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("qfiledialog.FilesSelected: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
@@ -1117,9 +1117,9 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, files: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, files: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFilesSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnFilesSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_FilesSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1225,9 +1225,9 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, urls: [*]QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QFileDialog, urls: qtc.libqt_list ([]QtC.QUrl)) callconv(.c) void `
     ///
-    pub fn OnUrlsSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
+    pub fn OnUrlsSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QFileDialog_Connect_UrlsSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1373,7 +1373,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOpenFileNames(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GetOpenFileNames(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2107,11 +2107,11 @@ pub const qfiledialog = struct {
     ///
     /// ` options: flag of qfiledialog_enums.Option `
     ///
-    /// ` supportedSchemes: [][]const u8 `
+    /// ` supportedSchemes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetExistingDirectoryUrl5(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i32, supportedSchemes: [][]const u8, allocator: std.mem.Allocator) QtC.QUrl {
+    pub fn GetExistingDirectoryUrl5(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i32, supportedSchemes: []const []const u8, allocator: std.mem.Allocator) QtC.QUrl {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -2139,7 +2139,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOpenFileNames1(parent: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GetOpenFileNames1(parent: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames1(@ptrCast(parent));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2168,7 +2168,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOpenFileNames2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GetOpenFileNames2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -2203,7 +2203,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOpenFileNames3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GetOpenFileNames3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
@@ -2244,7 +2244,7 @@ pub const qfiledialog = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetOpenFileNames4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GetOpenFileNames4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,

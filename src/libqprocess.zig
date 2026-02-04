@@ -172,7 +172,7 @@ pub const qprocessenvironment = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QProcessEnvironment_ToStringList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -199,7 +199,7 @@ pub const qprocessenvironment = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QProcessEnvironment_Keys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -558,7 +558,7 @@ pub const qprocess = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Arguments(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Arguments(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QProcess_Arguments(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -583,11 +583,11 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` arguments: [][]const u8 `
+    /// ` arguments: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetArguments(self: ?*anyopaque, arguments: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetArguments(self: ?*anyopaque, arguments: []const []const u8, allocator: std.mem.Allocator) void {
         var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qprocess.SetArguments: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
@@ -848,11 +848,11 @@ pub const qprocess = struct {
     ///
     /// ` self: QtC.QProcess `
     ///
-    /// ` environment: [][]const u8 `
+    /// ` environment: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetEnvironment(self: ?*anyopaque, environment: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetEnvironment(self: ?*anyopaque, environment: []const []const u8, allocator: std.mem.Allocator) void {
         var environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qprocess.SetEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
         for (environment, 0..environment.len) |item, i| {
@@ -876,7 +876,7 @@ pub const qprocess = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Environment(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Environment(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QProcess_Environment(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1253,7 +1253,7 @@ pub const qprocess = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SystemEnvironment(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SystemEnvironment(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QProcess_SystemEnvironment();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1536,11 +1536,11 @@ pub const qprocess = struct {
     ///
     /// ` program: []const u8 `
     ///
-    /// ` arguments: [][]const u8 `
+    /// ` arguments: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Start22(self: ?*anyopaque, program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn Start22(self: ?*anyopaque, program: []const u8, arguments: []const []const u8, allocator: std.mem.Allocator) void {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
@@ -1568,13 +1568,13 @@ pub const qprocess = struct {
     ///
     /// ` program: []const u8 `
     ///
-    /// ` arguments: [][]const u8 `
+    /// ` arguments: []const []const u8 `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Start3(self: ?*anyopaque, program: []const u8, arguments: [][]const u8, mode: i32, allocator: std.mem.Allocator) void {
+    pub fn Start3(self: ?*anyopaque, program: []const u8, arguments: []const []const u8, mode: i32, allocator: std.mem.Allocator) void {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
@@ -1717,11 +1717,11 @@ pub const qprocess = struct {
     ///
     /// ` program: []const u8 `
     ///
-    /// ` arguments: [][]const u8 `
+    /// ` arguments: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Execute2(program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) i32 {
+    pub fn Execute2(program: []const u8, arguments: []const []const u8, allocator: std.mem.Allocator) i32 {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
@@ -1747,11 +1747,11 @@ pub const qprocess = struct {
     ///
     /// ` program: []const u8 `
     ///
-    /// ` arguments: [][]const u8 `
+    /// ` arguments: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StartDetached22(program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn StartDetached22(program: []const u8, arguments: []const []const u8, allocator: std.mem.Allocator) bool {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
@@ -1777,13 +1777,13 @@ pub const qprocess = struct {
     ///
     /// ` program: []const u8 `
     ///
-    /// ` arguments: [][]const u8 `
+    /// ` arguments: []const []const u8 `
     ///
     /// ` workingDirectory: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StartDetached3(program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, allocator: std.mem.Allocator) bool {
+    pub fn StartDetached3(program: []const u8, arguments: []const []const u8, workingDirectory: []const u8, allocator: std.mem.Allocator) bool {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
@@ -1813,7 +1813,7 @@ pub const qprocess = struct {
     ///
     /// ` program: []const u8 `
     ///
-    /// ` arguments: [][]const u8 `
+    /// ` arguments: []const []const u8 `
     ///
     /// ` workingDirectory: []const u8 `
     ///
@@ -1821,7 +1821,7 @@ pub const qprocess = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StartDetached4(program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, pid: *i64, allocator: std.mem.Allocator) bool {
+    pub fn StartDetached4(program: []const u8, arguments: []const []const u8, workingDirectory: []const u8, pid: *i64, allocator: std.mem.Allocator) bool {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,

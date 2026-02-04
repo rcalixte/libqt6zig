@@ -162,11 +162,11 @@ pub const packagekit__offline = struct {
     ///
     /// ` self: QtC.PackageKit__Offline `
     ///
-    /// ` updates: [][]const u8 `
+    /// ` updates: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreparedUpdates(self: ?*anyopaque, updates: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn PreparedUpdates(self: ?*anyopaque, updates: []const []const u8, allocator: std.mem.Allocator) void {
         var updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("packagekit__offline.PreparedUpdates: Memory allocation failed");
         defer allocator.free(updates_arr);
         for (updates, 0..updates.len) |item, i| {
@@ -188,9 +188,9 @@ pub const packagekit__offline = struct {
     ///
     /// ` self: QtC.PackageKit__Offline `
     ///
-    /// ` callback: *const fn (self: QtC.PackageKit__Offline, updates: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.PackageKit__Offline, updates: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPreparedUpdates(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnPreparedUpdates(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.PackageKit__Offline_Connect_PreparedUpdates(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

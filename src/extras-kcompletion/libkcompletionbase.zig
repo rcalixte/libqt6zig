@@ -328,13 +328,13 @@ pub const kcompletionbase = struct {
     ///
     /// ` self: QtC.KCompletionBase `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` autoSuggest: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn SetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbase.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -358,9 +358,9 @@ pub const kcompletionbase = struct {
     ///
     /// ` self: QtC.KCompletionBase `
     ///
-    /// ` callback: *const fn (self: QtC.KCompletionBase, items: [*][*:0]const u8, autoSuggest: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCompletionBase, items: ?[*:null]?[*:0]const u8, autoSuggest: bool) callconv(.c) void `
     ///
-    pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8, bool) callconv(.c) void) void {
+    pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
         qtc.KCompletionBase_OnSetCompletedItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -372,13 +372,13 @@ pub const kcompletionbase = struct {
     ///
     /// ` self: QtC.KCompletionBase `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` autoSuggest: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbase.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {

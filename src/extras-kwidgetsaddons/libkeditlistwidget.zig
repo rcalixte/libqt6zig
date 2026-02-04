@@ -286,11 +286,11 @@ pub const keditlistwidget = struct {
     ///
     /// ` self: QtC.KEditListWidget `
     ///
-    /// ` list: [][]const u8 `
+    /// ` list: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertStringList(self: ?*anyopaque, list: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn InsertStringList(self: ?*anyopaque, list: []const []const u8, allocator: std.mem.Allocator) void {
         var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("keditlistwidget.InsertStringList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
@@ -384,7 +384,7 @@ pub const keditlistwidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KEditListWidget_Items(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -409,11 +409,11 @@ pub const keditlistwidget = struct {
     ///
     /// ` self: QtC.KEditListWidget `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItems(self: ?*anyopaque, items: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("keditlistwidget.SetItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -659,13 +659,13 @@ pub const keditlistwidget = struct {
     ///
     /// ` self: QtC.KEditListWidget `
     ///
-    /// ` list: [][]const u8 `
+    /// ` list: []const []const u8 `
     ///
     /// ` index: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertStringList2(self: ?*anyopaque, list: [][]const u8, index: i32, allocator: std.mem.Allocator) void {
+    pub fn InsertStringList2(self: ?*anyopaque, list: []const []const u8, index: i32, allocator: std.mem.Allocator) void {
         var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("keditlistwidget.InsertStringList2: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {

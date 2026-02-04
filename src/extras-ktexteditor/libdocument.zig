@@ -628,7 +628,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TextLines(self: ?*anyopaque, range: QtC.KTextEditor__Range, block: bool, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn TextLines(self: ?*anyopaque, range: QtC.KTextEditor__Range, block: bool, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_TextLines(@ptrCast(self), @ptrCast(range), block);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -797,11 +797,11 @@ pub const ktexteditor__document = struct {
     ///
     /// ` self: QtC.KTextEditor__Document `
     ///
-    /// ` text: [][]const u8 `
+    /// ` text: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetText2(self: ?*anyopaque, text: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn SetText2(self: ?*anyopaque, text: []const []const u8, allocator: std.mem.Allocator) bool {
         var text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("ktexteditor__document.SetText2: Memory allocation failed");
         defer allocator.free(text_arr);
         for (text, 0..text.len) |item, i| {
@@ -855,13 +855,13 @@ pub const ktexteditor__document = struct {
     ///
     /// ` position: QtC.KTextEditor__Cursor `
     ///
-    /// ` text: [][]const u8 `
+    /// ` text: []const []const u8 `
     ///
     /// ` block: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertText2(self: ?*anyopaque, position: QtC.KTextEditor__Cursor, text: [][]const u8, block: bool, allocator: std.mem.Allocator) bool {
+    pub fn InsertText2(self: ?*anyopaque, position: QtC.KTextEditor__Cursor, text: []const []const u8, block: bool, allocator: std.mem.Allocator) bool {
         var text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("ktexteditor__document.InsertText2: Memory allocation failed");
         defer allocator.free(text_arr);
         for (text, 0..text.len) |item, i| {
@@ -905,13 +905,13 @@ pub const ktexteditor__document = struct {
     ///
     /// ` range: QtC.KTextEditor__Range `
     ///
-    /// ` text: [][]const u8 `
+    /// ` text: []const []const u8 `
     ///
     /// ` block: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReplaceText2(self: ?*anyopaque, range: QtC.KTextEditor__Range, text: [][]const u8, block: bool, allocator: std.mem.Allocator) bool {
+    pub fn ReplaceText2(self: ?*anyopaque, range: QtC.KTextEditor__Range, text: []const []const u8, block: bool, allocator: std.mem.Allocator) bool {
         var text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("ktexteditor__document.ReplaceText2: Memory allocation failed");
         defer allocator.free(text_arr);
         for (text, 0..text.len) |item, i| {
@@ -967,11 +967,11 @@ pub const ktexteditor__document = struct {
     ///
     /// ` line: i32 `
     ///
-    /// ` text: [][]const u8 `
+    /// ` text: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertLines(self: ?*anyopaque, line: i32, text: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn InsertLines(self: ?*anyopaque, line: i32, text: []const []const u8, allocator: std.mem.Allocator) bool {
         var text_arr = allocator.alloc(qtc.libqt_string, text.len) catch @panic("ktexteditor__document.InsertLines: Memory allocation failed");
         defer allocator.free(text_arr);
         for (text, 0..text.len) |item, i| {
@@ -1292,7 +1292,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EmbeddedHighlightingModes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn EmbeddedHighlightingModes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_EmbeddedHighlightingModes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1337,7 +1337,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Modes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Modes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_Modes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1364,7 +1364,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HighlightingModes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn HighlightingModes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_HighlightingModes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1835,7 +1835,7 @@ pub const ktexteditor__document = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ConfigKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ConfigKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KTextEditor__Document_ConfigKeys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4076,13 +4076,13 @@ pub const ktexteditor__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` files: [][]const u8 `
+    /// ` files: []const []const u8 `
     ///
     /// ` doc: []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindMostRecentXMLFile(files: [][]const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn FindMostRecentXMLFile(files: []const []const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
         var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("ktexteditor__document.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {

@@ -258,6 +258,7 @@ class VirtualQAccessibleObject : public QAccessibleObject {
                 callback_ret_arr_i_QPair.second = static_cast<QFlags<QAccessible::RelationFlag>>(callback_ret_arr[i].second);
                 callback_ret_QList.push_back(callback_ret_arr_i_QPair);
             }
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QAccessibleObject::relations(match);
@@ -769,6 +770,7 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
                 callback_ret_arr_i_QPair.second = static_cast<QFlags<QAccessible::RelationFlag>>(callback_ret_arr[i].second);
                 callback_ret_QList.push_back(callback_ret_arr_i_QPair);
             }
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QAccessibleApplication::relations(match);

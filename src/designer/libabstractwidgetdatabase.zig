@@ -1102,9 +1102,9 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, list: [*]QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QDesignerWidgetDataBaseItemInterface, list: qtc.libqt_list ([]QtC.QVariant)) callconv(.c) void `
     ///
-    pub fn OnSetDefaultPropertyValues(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QVariant) callconv(.c) void) void {
+    pub fn OnSetDefaultPropertyValues(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QDesignerWidgetDataBaseItemInterface_OnSetDefaultPropertyValues(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1153,9 +1153,13 @@ pub const qdesignerwidgetdatabaseiteminterface = struct {
     ///
     /// ` self: QtC.QDesignerWidgetDataBaseItemInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QVariant `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnDefaultPropertyValues(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QVariant) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QVariant `
+    ///
+    pub fn OnDefaultPropertyValues(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QDesignerWidgetDataBaseItemInterface_OnDefaultPropertyValues(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

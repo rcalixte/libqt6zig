@@ -271,11 +271,11 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` mimetypes: [][]const u8 `
+    /// ` mimetypes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetMimeFilter(self: ?*anyopaque, mimetypes: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetMimeFilter(self: ?*anyopaque, mimetypes: []const []const u8, allocator: std.mem.Allocator) void {
         var mimetypes_arr = allocator.alloc(qtc.libqt_string, mimetypes.len) catch @panic("kdiroperator.SetMimeFilter: Memory allocation failed");
         defer allocator.free(mimetypes_arr);
         for (mimetypes, 0..mimetypes.len) |item, i| {
@@ -299,7 +299,7 @@ pub const kdiroperator = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeFilter(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeFilter(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDirOperator_MimeFilter(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -324,11 +324,11 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` mime: [][]const u8 `
+    /// ` mime: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetNewFileMenuSupportedMimeTypes(self: ?*anyopaque, mime: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetNewFileMenuSupportedMimeTypes(self: ?*anyopaque, mime: []const []const u8, allocator: std.mem.Allocator) void {
         var mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("kdiroperator.SetNewFileMenuSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mime_arr);
         for (mime, 0..mime.len) |item, i| {
@@ -352,7 +352,7 @@ pub const kdiroperator = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NewFileMenuSupportedMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn NewFileMenuSupportedMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDirOperator_NewFileMenuSupportedMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1346,7 +1346,7 @@ pub const kdiroperator = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDirOperator_SupportedSchemes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2235,11 +2235,11 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` schemes: [][]const u8 `
+    /// ` schemes: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: []const []const u8, allocator: std.mem.Allocator) void {
         var schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("kdiroperator.SetSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
         for (schemes, 0..schemes.len) |item, i| {
@@ -2969,9 +2969,9 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem, event: QtC.QDropEvent, urls: [*]QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem, event: QtC.QDropEvent, urls: qtc.libqt_list ([]QtC.QUrl)) callconv(.c) void `
     ///
-    pub fn OnDropped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
+    pub fn OnDropped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KDirOperator_Connect_Dropped(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3069,9 +3069,9 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator `
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperator, urls: [*]QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KDirOperator, urls: qtc.libqt_list ([]QtC.QUrl)) callconv(.c) void `
     ///
-    pub fn OnRenamingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
+    pub fn OnRenamingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KDirOperator_Connect_RenamingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

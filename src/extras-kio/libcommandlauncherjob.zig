@@ -28,11 +28,11 @@ pub const kio__commandlauncherjob = struct {
     ///
     /// ` executable: []const u8 `
     ///
-    /// ` args: [][]const u8 `
+    /// ` args: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(executable: []const u8, args: [][]const u8, allocator: std.mem.Allocator) QtC.KIO__CommandLauncherJob {
+    pub fn New2(executable: []const u8, args: []const []const u8, allocator: std.mem.Allocator) QtC.KIO__CommandLauncherJob {
         const executable_str = qtc.libqt_string{
             .len = executable.len,
             .data = executable.ptr,
@@ -76,13 +76,13 @@ pub const kio__commandlauncherjob = struct {
     ///
     /// ` executable: []const u8 `
     ///
-    /// ` args: [][]const u8 `
+    /// ` args: []const []const u8 `
     ///
     /// ` parent: QtC.QObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(executable: []const u8, args: [][]const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KIO__CommandLauncherJob {
+    pub fn New4(executable: []const u8, args: []const []const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KIO__CommandLauncherJob {
         const executable_str = qtc.libqt_string{
             .len = executable.len,
             .data = executable.ptr,

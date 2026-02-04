@@ -61,7 +61,7 @@ class VirtualKCompletionBox final : public KCompletionBox {
     using KCompletionBox_MoveCursor_Callback = QModelIndex* (*)(KCompletionBox*, int, int);
     using KCompletionBox_SetSelection_Callback = void (*)(KCompletionBox*, QRect*, int);
     using KCompletionBox_VisualRegionForSelection_Callback = QRegion* (*)(const KCompletionBox*, QItemSelection*);
-    using KCompletionBox_SelectedIndexes_Callback = QModelIndex** (*)();
+    using KCompletionBox_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KCompletionBox_UpdateGeometries_Callback = void (*)();
     using KCompletionBox_IsIndexHidden_Callback = bool (*)(const KCompletionBox*, QModelIndex*);
     using KCompletionBox_SelectionChanged_Callback = void (*)(KCompletionBox*, QItemSelection*, QItemSelection*);
@@ -1002,7 +1002,7 @@ class VirtualKCompletionBox final : public KCompletionBox {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KCompletionBox::mimeTypes();
@@ -1456,13 +1456,14 @@ class VirtualKCompletionBox final : public KCompletionBox {
             kcompletionbox_selectedindexes_isbase = false;
             return KCompletionBox::selectedIndexes();
         } else if (kcompletionbox_selectedindexes_callback != nullptr) {
-            QModelIndex** callback_ret = kcompletionbox_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kcompletionbox_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KCompletionBox::selectedIndexes();

@@ -289,7 +289,7 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
                 QByteArray callback_ret_arr_i_QByteArray(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QByteArray);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return {};
@@ -310,7 +310,7 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
                 QByteArray callback_ret_arr_i_QByteArray(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QByteArray);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return {};

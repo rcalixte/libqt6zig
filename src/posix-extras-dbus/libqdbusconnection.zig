@@ -291,7 +291,7 @@ pub const qdbusconnection = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` argumentMatch: [][]const u8 `
+    /// ` argumentMatch: []const []const u8 `
     ///
     /// ` signature: []const u8 `
     ///
@@ -301,7 +301,7 @@ pub const qdbusconnection = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Connect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: [][]const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8, allocator: std.mem.Allocator) bool {
+    pub fn Connect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: []const []const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8, allocator: std.mem.Allocator) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -436,7 +436,7 @@ pub const qdbusconnection = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` argumentMatch: [][]const u8 `
+    /// ` argumentMatch: []const []const u8 `
     ///
     /// ` signature: []const u8 `
     ///
@@ -446,7 +446,7 @@ pub const qdbusconnection = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Disconnect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: [][]const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8, allocator: std.mem.Allocator) bool {
+    pub fn Disconnect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: []const []const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8, allocator: std.mem.Allocator) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,

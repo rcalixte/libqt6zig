@@ -1100,11 +1100,11 @@ pub const qfontcombobox = struct {
     ///
     /// ` self: QtC.QFontComboBox `
     ///
-    /// ` texts: [][]const u8 `
+    /// ` texts: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItems(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn AddItems(self: ?*anyopaque, texts: []const []const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("qfontcombobox.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
@@ -1172,11 +1172,11 @@ pub const qfontcombobox = struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` texts: [][]const u8 `
+    /// ` texts: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertItems(self: ?*anyopaque, index: i32, texts: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn InsertItems(self: ?*anyopaque, index: i32, texts: []const []const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("qfontcombobox.InsertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {

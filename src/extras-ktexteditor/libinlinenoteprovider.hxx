@@ -20,7 +20,7 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
     using KTextEditor__InlineNoteProvider_MetaObject_Callback = QMetaObject* (*)();
     using KTextEditor__InlineNoteProvider_Metacast_Callback = void* (*)(KTextEditor__InlineNoteProvider*, const char*);
     using KTextEditor__InlineNoteProvider_Metacall_Callback = int (*)(KTextEditor__InlineNoteProvider*, int, int, void**);
-    using KTextEditor__InlineNoteProvider_InlineNotes_Callback = int* (*)(const KTextEditor__InlineNoteProvider*, int);
+    using KTextEditor__InlineNoteProvider_InlineNotes_Callback = libqt_list /* of int */ (*)(const KTextEditor__InlineNoteProvider*, int);
     using KTextEditor__InlineNoteProvider_InlineNoteSize_Callback = QSize* (*)(const KTextEditor__InlineNoteProvider*, KTextEditor__InlineNote*);
     using KTextEditor__InlineNoteProvider_PaintInlineNote_Callback = void (*)(const KTextEditor__InlineNoteProvider*, KTextEditor__InlineNote*, QPainter*, int);
     using KTextEditor__InlineNoteProvider_InlineNoteActivated_Callback = void (*)(KTextEditor__InlineNoteProvider*, KTextEditor__InlineNote*, int, QPoint*);
@@ -209,12 +209,14 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (ktexteditor__inlinenoteprovider_inlinenotes_callback != nullptr) {
             int cbval1 = line;
 
-            int* callback_ret = ktexteditor__inlinenoteprovider_inlinenotes_callback(this, cbval1);
+            libqt_list /* of int */ callback_ret = ktexteditor__inlinenoteprovider_inlinenotes_callback(this, cbval1);
             QList<int> callback_ret_QList;
-            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
-                callback_ret_QList.push_back(*ptr);
+            callback_ret_QList.reserve(callback_ret.len);
+            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(static_cast<int>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};

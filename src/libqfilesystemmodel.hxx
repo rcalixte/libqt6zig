@@ -53,7 +53,7 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
     using QFileSystemModel_MoveRows_Callback = bool (*)(QFileSystemModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QFileSystemModel_MoveColumns_Callback = bool (*)(QFileSystemModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QFileSystemModel_Buddy_Callback = QModelIndex* (*)(const QFileSystemModel*, QModelIndex*);
-    using QFileSystemModel_Match_Callback = QModelIndex** (*)(const QFileSystemModel*, QModelIndex*, int, QVariant*, int, int);
+    using QFileSystemModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QFileSystemModel*, QModelIndex*, int, QVariant*, int, int);
     using QFileSystemModel_Span_Callback = QSize* (*)(const QFileSystemModel*, QModelIndex*);
     using QFileSystemModel_MultiData_Callback = void (*)(const QFileSystemModel*, QModelIndex*, QModelRoleDataSpan*);
     using QFileSystemModel_Submit_Callback = bool (*)();
@@ -83,7 +83,7 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
     using QFileSystemModel_EndResetModel_Callback = void (*)();
     using QFileSystemModel_ChangePersistentIndex_Callback = void (*)(QFileSystemModel*, QModelIndex*, QModelIndex*);
     using QFileSystemModel_ChangePersistentIndexList_Callback = void (*)(QFileSystemModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QFileSystemModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using QFileSystemModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QFileSystemModel_Sender_Callback = QObject* (*)();
     using QFileSystemModel_SenderSignalIndex_Callback = int (*)();
     using QFileSystemModel_Receivers_Callback = int (*)(const QFileSystemModel*, const char*);
@@ -747,7 +747,7 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return QFileSystemModel::mimeTypes();
@@ -1143,13 +1143,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = qfilesystemmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = qfilesystemmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QFileSystemModel::match(start, role, value, hits, flags);
@@ -1639,13 +1640,14 @@ class VirtualQFileSystemModel final : public QFileSystemModel {
             qfilesystemmodel_persistentindexlist_isbase = false;
             return QFileSystemModel::persistentIndexList();
         } else if (qfilesystemmodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = qfilesystemmodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qfilesystemmodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QFileSystemModel::persistentIndexList();

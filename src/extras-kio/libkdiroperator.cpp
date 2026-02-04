@@ -808,7 +808,7 @@ void KDirOperator_Dropped(KDirOperator* self, const KFileItem* item, QDropEvent*
 }
 
 void KDirOperator_Connect_Dropped(KDirOperator* self, intptr_t slot) {
-    void (*slotFunc)(KDirOperator*, KFileItem*, QDropEvent*, QUrl**) = reinterpret_cast<void (*)(KDirOperator*, KFileItem*, QDropEvent*, QUrl**)>(slot);
+    void (*slotFunc)(KDirOperator*, KFileItem*, QDropEvent*, libqt_list /* of QUrl* */) = reinterpret_cast<void (*)(KDirOperator*, KFileItem*, QDropEvent*, libqt_list /* of QUrl* */)>(slot);
     KDirOperator::connect(self, &KDirOperator::dropped, [self, slotFunc](const KFileItem& item, QDropEvent* event, const QList<QUrl>& urls) {
         const KFileItem& item_ret = item;
         // Cast returned reference into pointer
@@ -820,9 +820,10 @@ void KDirOperator_Connect_Dropped(KDirOperator* self, intptr_t slot) {
         for (qsizetype i = 0; i < urls_ret.size(); ++i) {
             urls_arr[i] = new QUrl(urls_ret[i]);
         }
-        // Append sentinel value to the list
-        urls_arr[urls_ret.size()] = nullptr;
-        QUrl** sigval3 = urls_arr;
+        libqt_list urls_out;
+        urls_out.len = urls_ret.size();
+        urls_out.data = static_cast<void*>(urls_arr);
+        libqt_list /* of QUrl* */ sigval3 = urls_out;
         slotFunc(self, sigval1, sigval2, sigval3);
         free(urls_arr);
     });
@@ -877,7 +878,7 @@ void KDirOperator_RenamingFinished(KDirOperator* self, const libqt_list /* of QU
 }
 
 void KDirOperator_Connect_RenamingFinished(KDirOperator* self, intptr_t slot) {
-    void (*slotFunc)(KDirOperator*, QUrl**) = reinterpret_cast<void (*)(KDirOperator*, QUrl**)>(slot);
+    void (*slotFunc)(KDirOperator*, libqt_list /* of QUrl* */) = reinterpret_cast<void (*)(KDirOperator*, libqt_list /* of QUrl* */)>(slot);
     KDirOperator::connect(self, &KDirOperator::renamingFinished, [self, slotFunc](const QList<QUrl>& urls) {
         const QList<QUrl>& urls_ret = urls;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -885,9 +886,10 @@ void KDirOperator_Connect_RenamingFinished(KDirOperator* self, intptr_t slot) {
         for (qsizetype i = 0; i < urls_ret.size(); ++i) {
             urls_arr[i] = new QUrl(urls_ret[i]);
         }
-        // Append sentinel value to the list
-        urls_arr[urls_ret.size()] = nullptr;
-        QUrl** sigval1 = urls_arr;
+        libqt_list urls_out;
+        urls_out.len = urls_ret.size();
+        urls_out.data = static_cast<void*>(urls_arr);
+        libqt_list /* of QUrl* */ sigval1 = urls_out;
         slotFunc(self, sigval1);
         free(urls_arr);
     });

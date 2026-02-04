@@ -697,7 +697,7 @@ pub const qplacemanagerengine = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildCategoryIds(self: ?*anyopaque, categoryId: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ChildCategoryIds(self: ?*anyopaque, categoryId: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
@@ -748,7 +748,7 @@ pub const qplacemanagerengine = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseChildCategoryIds(self: ?*anyopaque, categoryId: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseChildCategoryIds(self: ?*anyopaque, categoryId: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
@@ -852,9 +852,13 @@ pub const qplacemanagerengine = struct {
     ///
     /// ` self: QtC.QPlaceManagerEngine `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, parentId: [*:0]const u8) callconv(.c) [*:null]QtC.QPlaceCategory `
+    /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, parentId: [*:0]const u8) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnChildCategories(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:null]QtC.QPlaceCategory) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QPlaceCategory `
+    ///
+    pub fn OnChildCategories(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) qtc.libqt_list) void {
         qtc.QPlaceManagerEngine_OnChildCategories(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -910,9 +914,13 @@ pub const qplacemanagerengine = struct {
     ///
     /// ` self: QtC.QPlaceManagerEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QLocale `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnLocales(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QLocale) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QLocale `
+    ///
+    pub fn OnLocales(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QPlaceManagerEngine_OnLocales(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -959,9 +967,9 @@ pub const qplacemanagerengine = struct {
     ///
     /// ` self: QtC.QPlaceManagerEngine `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, locales: [*]QtC.QLocale) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPlaceManagerEngine, locales: qtc.libqt_list ([]QtC.QLocale)) callconv(.c) void `
     ///
-    pub fn OnSetLocales(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QLocale) callconv(.c) void) void {
+    pub fn OnSetLocales(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_OnSetLocales(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

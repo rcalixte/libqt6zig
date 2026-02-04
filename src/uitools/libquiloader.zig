@@ -161,7 +161,7 @@ pub const quiloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PluginPaths(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PluginPaths(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QUiLoader_PluginPaths(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -226,7 +226,7 @@ pub const quiloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QUiLoader_AvailableWidgets(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -253,7 +253,7 @@ pub const quiloader = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableLayouts(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableLayouts(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QUiLoader_AvailableLayouts(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

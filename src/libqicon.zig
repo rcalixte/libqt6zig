@@ -422,7 +422,7 @@ pub const qicon = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ThemeSearchPaths(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ThemeSearchPaths(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QIcon_ThemeSearchPaths();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -445,11 +445,11 @@ pub const qicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` searchpath: [][]const u8 `
+    /// ` searchpath: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetThemeSearchPaths(searchpath: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetThemeSearchPaths(searchpath: []const []const u8, allocator: std.mem.Allocator) void {
         var searchpath_arr = allocator.alloc(qtc.libqt_string, searchpath.len) catch @panic("qicon.SetThemeSearchPaths: Memory allocation failed");
         defer allocator.free(searchpath_arr);
         for (searchpath, 0..searchpath.len) |item, i| {
@@ -471,7 +471,7 @@ pub const qicon = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FallbackSearchPaths(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn FallbackSearchPaths(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QIcon_FallbackSearchPaths();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -494,11 +494,11 @@ pub const qicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` paths: [][]const u8 `
+    /// ` paths: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetFallbackSearchPaths(paths: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetFallbackSearchPaths(paths: []const []const u8, allocator: std.mem.Allocator) void {
         var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qicon.SetFallbackSearchPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {

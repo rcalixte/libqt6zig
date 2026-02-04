@@ -461,9 +461,9 @@ pub const qgeoroutereply = struct {
     ///
     /// ` self: QtC.QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, routes: [*]QtC.QGeoRoute) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGeoRouteReply, routes: qtc.libqt_list ([]QtC.QGeoRoute)) callconv(.c) void `
     ///
-    pub fn OnSetRoutes(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QGeoRoute) callconv(.c) void) void {
+    pub fn OnSetRoutes(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGeoRouteReply_OnSetRoutes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -509,9 +509,9 @@ pub const qgeoroutereply = struct {
     ///
     /// ` self: QtC.QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, routes: [*]QtC.QGeoRoute) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGeoRouteReply, routes: qtc.libqt_list ([]QtC.QGeoRoute)) callconv(.c) void `
     ///
-    pub fn OnAddRoutes(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QGeoRoute) callconv(.c) void) void {
+    pub fn OnAddRoutes(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGeoRouteReply_OnAddRoutes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

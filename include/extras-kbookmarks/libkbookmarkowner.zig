@@ -211,9 +211,13 @@ pub const kbookmarkowner = struct {
     ///
     /// ` self: QtC.KBookmarkOwner `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.KBookmarkOwner__FutureBookmark `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnCurrentBookmarkList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.KBookmarkOwner__FutureBookmark) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.KBookmarkOwner__FutureBookmark `
+    ///
+    pub fn OnCurrentBookmarkList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KBookmarkOwner_OnCurrentBookmarkList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -443,7 +443,7 @@ class VirtualQsciLexerDiff final : public QsciLexerDiff {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return QsciLexerDiff::autoCompletionWordSeparators();

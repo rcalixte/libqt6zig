@@ -210,7 +210,7 @@ pub const ksycoca = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllResourceDirs(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllResourceDirs(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSycoca_AllResourceDirs(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

@@ -570,7 +570,7 @@ void QWebSocket_SslErrors(QWebSocket* self, const libqt_list /* of QSslError* */
 }
 
 void QWebSocket_Connect_SslErrors(QWebSocket* self, intptr_t slot) {
-    void (*slotFunc)(QWebSocket*, QSslError**) = reinterpret_cast<void (*)(QWebSocket*, QSslError**)>(slot);
+    void (*slotFunc)(QWebSocket*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QWebSocket*, libqt_list /* of QSslError* */)>(slot);
     QWebSocket::connect(self, &QWebSocket::sslErrors, [self, slotFunc](const QList<QSslError>& errors) {
         const QList<QSslError>& errors_ret = errors;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -578,9 +578,10 @@ void QWebSocket_Connect_SslErrors(QWebSocket* self, intptr_t slot) {
         for (qsizetype i = 0; i < errors_ret.size(); ++i) {
             errors_arr[i] = new QSslError(errors_ret[i]);
         }
-        // Append sentinel value to the list
-        errors_arr[errors_ret.size()] = nullptr;
-        QSslError** sigval1 = errors_arr;
+        libqt_list errors_out;
+        errors_out.len = errors_ret.size();
+        errors_out.data = static_cast<void*>(errors_arr);
+        libqt_list /* of QSslError* */ sigval1 = errors_out;
         slotFunc(self, sigval1);
         free(errors_arr);
     });

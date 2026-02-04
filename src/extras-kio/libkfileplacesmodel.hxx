@@ -51,7 +51,7 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
     using KFilePlacesModel_CanFetchMore_Callback = bool (*)(const KFilePlacesModel*, QModelIndex*);
     using KFilePlacesModel_Sort_Callback = void (*)(KFilePlacesModel*, int, int);
     using KFilePlacesModel_Buddy_Callback = QModelIndex* (*)(const KFilePlacesModel*, QModelIndex*);
-    using KFilePlacesModel_Match_Callback = QModelIndex** (*)(const KFilePlacesModel*, QModelIndex*, int, QVariant*, int, int);
+    using KFilePlacesModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KFilePlacesModel*, QModelIndex*, int, QVariant*, int, int);
     using KFilePlacesModel_Span_Callback = QSize* (*)(const KFilePlacesModel*, QModelIndex*);
     using KFilePlacesModel_MultiData_Callback = void (*)(const KFilePlacesModel*, QModelIndex*, QModelRoleDataSpan*);
     using KFilePlacesModel_Submit_Callback = bool (*)();
@@ -83,7 +83,7 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
     using KFilePlacesModel_EndResetModel_Callback = void (*)();
     using KFilePlacesModel_ChangePersistentIndex_Callback = void (*)(KFilePlacesModel*, QModelIndex*, QModelIndex*);
     using KFilePlacesModel_ChangePersistentIndexList_Callback = void (*)(KFilePlacesModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KFilePlacesModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using KFilePlacesModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KFilePlacesModel_Sender_Callback = QObject* (*)();
     using KFilePlacesModel_SenderSignalIndex_Callback = int (*)();
     using KFilePlacesModel_Receivers_Callback = int (*)(const KFilePlacesModel*, const char*);
@@ -659,7 +659,7 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return KFilePlacesModel::mimeTypes();
@@ -1114,13 +1114,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = kfileplacesmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kfileplacesmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KFilePlacesModel::match(start, role, value, hits, flags);
@@ -1639,13 +1640,14 @@ class VirtualKFilePlacesModel final : public KFilePlacesModel {
             kfileplacesmodel_persistentindexlist_isbase = false;
             return KFilePlacesModel::persistentIndexList();
         } else if (kfileplacesmodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = kfileplacesmodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kfileplacesmodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KFilePlacesModel::persistentIndexList();

@@ -196,9 +196,9 @@ pub const kpluginfactory = struct {
     ///
     /// ` self: QtC.KPluginFactory `
     ///
-    /// ` callback: *const fn (self: QtC.KPluginFactory, iface: [*:0]const u8, parentWidget: QtC.QWidget, parent: QtC.QObject, args: [*]QtC.QVariant) callconv(.c) QtC.QObject `
+    /// ` callback: *const fn (self: QtC.KPluginFactory, iface: [*:0]const u8, parentWidget: QtC.QWidget, parent: QtC.QObject, args: qtc.libqt_list ([]QtC.QVariant)) callconv(.c) QtC.QObject `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, ?*anyopaque, [*]QtC.QVariant) callconv(.c) QtC.QObject) void {
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QObject) void {
         qtc.KPluginFactory_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -344,7 +344,7 @@ pub const ksyntaxhighlighting__repository = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CustomSearchPaths(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn CustomSearchPaths(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Repository_CustomSearchPaths(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

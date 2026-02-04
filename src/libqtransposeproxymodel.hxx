@@ -59,7 +59,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
     using QTransposeProxyModel_SupportedDragActions_Callback = int (*)();
     using QTransposeProxyModel_SupportedDropActions_Callback = int (*)();
     using QTransposeProxyModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
-    using QTransposeProxyModel_Match_Callback = QModelIndex** (*)(const QTransposeProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using QTransposeProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QTransposeProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using QTransposeProxyModel_MultiData_Callback = void (*)(const QTransposeProxyModel*, QModelIndex*, QModelRoleDataSpan*);
     using QTransposeProxyModel_ResetInternalData_Callback = void (*)();
     using QTransposeProxyModel_Event_Callback = bool (*)(QTransposeProxyModel*, QEvent*);
@@ -89,7 +89,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
     using QTransposeProxyModel_EndResetModel_Callback = void (*)();
     using QTransposeProxyModel_ChangePersistentIndex_Callback = void (*)(QTransposeProxyModel*, QModelIndex*, QModelIndex*);
     using QTransposeProxyModel_ChangePersistentIndexList_Callback = void (*)(QTransposeProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QTransposeProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using QTransposeProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QTransposeProxyModel_Sender_Callback = QObject* (*)();
     using QTransposeProxyModel_SenderSignalIndex_Callback = int (*)();
     using QTransposeProxyModel_Receivers_Callback = int (*)(const QTransposeProxyModel*, const char*);
@@ -1204,7 +1204,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return QTransposeProxyModel::mimeTypes();
@@ -1274,13 +1274,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = qtransposeproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = qtransposeproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QTransposeProxyModel::match(start, role, value, hits, flags);
@@ -1774,13 +1775,14 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             qtransposeproxymodel_persistentindexlist_isbase = false;
             return QTransposeProxyModel::persistentIndexList();
         } else if (qtransposeproxymodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = qtransposeproxymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qtransposeproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QTransposeProxyModel::persistentIndexList();

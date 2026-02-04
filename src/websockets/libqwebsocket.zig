@@ -1221,9 +1221,9 @@ pub const qwebsocket = struct {
     ///
     /// ` self: QtC.QWebSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QWebSocket, errors: [*]QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebSocket, errors: qtc.libqt_list ([]QtC.QSslError)) callconv(.c) void `
     ///
-    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
+    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QWebSocket_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

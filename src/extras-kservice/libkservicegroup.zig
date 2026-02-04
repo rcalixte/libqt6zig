@@ -243,7 +243,7 @@ pub const kservicegroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuppressGenericNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SuppressGenericNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KServiceGroup_SuppressGenericNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -268,11 +268,11 @@ pub const kservicegroup = struct {
     ///
     /// ` self: QtC.KServiceGroup `
     ///
-    /// ` layout: [][]const u8 `
+    /// ` layout: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetLayoutInfo(self: ?*anyopaque, layout: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetLayoutInfo(self: ?*anyopaque, layout: []const []const u8, allocator: std.mem.Allocator) void {
         var layout_arr = allocator.alloc(qtc.libqt_string, layout.len) catch @panic("kservicegroup.SetLayoutInfo: Memory allocation failed");
         defer allocator.free(layout_arr);
         for (layout, 0..layout.len) |item, i| {
@@ -296,7 +296,7 @@ pub const kservicegroup = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LayoutInfo(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn LayoutInfo(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KServiceGroup_LayoutInfo(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

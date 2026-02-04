@@ -1615,9 +1615,13 @@ pub const qtextlist = struct {
     ///
     /// ` self: QtC.QTextList`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QTextBlock `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnBlockList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QTextBlock) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QTextBlock `
+    ///
+    pub fn OnBlockList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QTextList_OnBlockList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

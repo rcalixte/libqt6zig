@@ -32,8 +32,8 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
     using QPlaceManagerEngine_ParentCategoryId_Callback = const char* (*)(const QPlaceManagerEngine*, libqt_string);
     using QPlaceManagerEngine_ChildCategoryIds_Callback = const char** (*)(const QPlaceManagerEngine*, libqt_string);
     using QPlaceManagerEngine_Category_Callback = QPlaceCategory* (*)(const QPlaceManagerEngine*, libqt_string);
-    using QPlaceManagerEngine_ChildCategories_Callback = QPlaceCategory** (*)(const QPlaceManagerEngine*, libqt_string);
-    using QPlaceManagerEngine_Locales_Callback = QLocale** (*)();
+    using QPlaceManagerEngine_ChildCategories_Callback = libqt_list /* of QPlaceCategory* */ (*)(const QPlaceManagerEngine*, libqt_string);
+    using QPlaceManagerEngine_Locales_Callback = libqt_list /* of QLocale* */ (*)();
     using QPlaceManagerEngine_SetLocales_Callback = void (*)(QPlaceManagerEngine*, libqt_list /* of QLocale* */);
     using QPlaceManagerEngine_ConstructIconUrl_Callback = QUrl* (*)(const QPlaceManagerEngine*, QPlaceIcon*, QSize*);
     using QPlaceManagerEngine_CompatiblePlace_Callback = QPlace* (*)(const QPlaceManagerEngine*, QPlace*);
@@ -502,7 +502,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return QPlaceManagerEngine::childCategoryIds(categoryId);
@@ -548,13 +548,14 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             ((char*)parentId_str.data)[parentId_str.len] = '\0';
             libqt_string cbval1 = parentId_str;
 
-            QPlaceCategory** callback_ret = qplacemanagerengine_childcategories_callback(this, cbval1);
+            libqt_list /* of QPlaceCategory* */ callback_ret = qplacemanagerengine_childcategories_callback(this, cbval1);
             QList<QPlaceCategory> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QPlaceCategory** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QPlaceCategory** callback_ret_arr = static_cast<QPlaceCategory**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QPlaceManagerEngine::childCategories(parentId);
@@ -567,13 +568,14 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             qplacemanagerengine_locales_isbase = false;
             return QPlaceManagerEngine::locales();
         } else if (qplacemanagerengine_locales_callback != nullptr) {
-            QLocale** callback_ret = qplacemanagerengine_locales_callback();
+            libqt_list /* of QLocale* */ callback_ret = qplacemanagerengine_locales_callback();
             QList<QLocale> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QLocale** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QLocale** callback_ret_arr = static_cast<QLocale**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QPlaceManagerEngine::locales();

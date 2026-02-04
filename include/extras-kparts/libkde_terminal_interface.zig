@@ -12,11 +12,11 @@ pub const terminalinterface = struct {
     ///
     /// ` program: []const u8 `
     ///
-    /// ` args: [][]const u8 `
+    /// ` args: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StartProgram(self: ?*anyopaque, program: []const u8, args: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn StartProgram(self: ?*anyopaque, program: []const u8, args: []const []const u8, allocator: std.mem.Allocator) void {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
@@ -128,7 +128,7 @@ pub const terminalinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableProfiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableProfiles(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.TerminalInterface_AvailableProfiles(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

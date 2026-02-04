@@ -73,9 +73,13 @@ pub const qdesignertaskmenuextension = struct {
     ///
     /// ` self: QtC.QDesignerTaskMenuExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QAction `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnTaskActions(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QAction) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QAction `
+    ///
+    pub fn OnTaskActions(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QDesignerTaskMenuExtension_OnTaskActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

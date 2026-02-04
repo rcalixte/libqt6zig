@@ -26,11 +26,11 @@ pub const qtreewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` strings: [][]const u8 `
+    /// ` strings: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New2(strings: [][]const u8, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
+    pub fn New2(strings: []const []const u8, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
         var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New2: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i| {
@@ -63,11 +63,11 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` treeview: QtC.QTreeWidget `
     ///
-    /// ` strings: [][]const u8 `
+    /// ` strings: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(treeview: ?*anyopaque, strings: [][]const u8, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
+    pub fn New4(treeview: ?*anyopaque, strings: []const []const u8, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
         var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New4: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i| {
@@ -112,11 +112,11 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` parent: QtC.QTreeWidgetItem `
     ///
-    /// ` strings: [][]const u8 `
+    /// ` strings: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New7(parent: ?*anyopaque, strings: [][]const u8, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
+    pub fn New7(parent: ?*anyopaque, strings: []const []const u8, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
         var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New7: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i| {
@@ -169,13 +169,13 @@ pub const qtreewidgetitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` strings: [][]const u8 `
+    /// ` strings: []const []const u8 `
     ///
     /// ` typeVal: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New11(strings: [][]const u8, typeVal: i32, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
+    pub fn New11(strings: []const []const u8, typeVal: i32, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
         var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New11: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i| {
@@ -210,13 +210,13 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` treeview: QtC.QTreeWidget `
     ///
-    /// ` strings: [][]const u8 `
+    /// ` strings: []const []const u8 `
     ///
     /// ` typeVal: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New13(treeview: ?*anyopaque, strings: [][]const u8, typeVal: i32, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
+    pub fn New13(treeview: ?*anyopaque, strings: []const []const u8, typeVal: i32, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
         var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New13: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i| {
@@ -265,13 +265,13 @@ pub const qtreewidgetitem = struct {
     ///
     /// ` parent: QtC.QTreeWidgetItem `
     ///
-    /// ` strings: [][]const u8 `
+    /// ` strings: []const []const u8 `
     ///
     /// ` typeVal: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New16(parent: ?*anyopaque, strings: [][]const u8, typeVal: i32, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
+    pub fn New16(parent: ?*anyopaque, strings: []const []const u8, typeVal: i32, allocator: std.mem.Allocator) QtC.QTreeWidgetItem {
         var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New16: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i| {
@@ -1635,11 +1635,11 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` labels: [][]const u8 `
+    /// ` labels: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetHeaderLabels(self: ?*anyopaque, labels: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetHeaderLabels(self: ?*anyopaque, labels: []const []const u8, allocator: std.mem.Allocator) void {
         var labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qtreewidget.SetHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i| {
@@ -2363,7 +2363,7 @@ pub const qtreewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTreeWidget_MimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2408,7 +2408,7 @@ pub const qtreewidget = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTreeWidget_QBaseMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2451,9 +2451,9 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidget, items: [*]QtC.QTreeWidgetItem) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, items: qtc.libqt_list ([]QtC.QTreeWidgetItem)) callconv(.c) QtC.QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) QtC.QMimeData) void {
+    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
         qtc.QTreeWidget_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -10052,9 +10052,9 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeWidget, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QTreeWidget, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QTreeWidget_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -10608,9 +10608,13 @@ pub const qtreewidget = struct {
     ///
     /// ` self: QtC.QTreeWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QModelIndex `
+    ///
+    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QTreeWidget_OnSelectedIndexes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

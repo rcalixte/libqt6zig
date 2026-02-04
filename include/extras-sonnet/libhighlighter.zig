@@ -315,7 +315,7 @@ pub const sonnet__highlighter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuggestionsForWord(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SuggestionsForWord(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
@@ -350,7 +350,7 @@ pub const sonnet__highlighter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuggestionsForWord2(self: ?*anyopaque, word: []const u8, cursor: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SuggestionsForWord2(self: ?*anyopaque, word: []const u8, cursor: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
@@ -797,7 +797,7 @@ pub const sonnet__highlighter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuggestionsForWord22(self: ?*anyopaque, word: []const u8, max: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SuggestionsForWord22(self: ?*anyopaque, word: []const u8, max: i32, allocator: std.mem.Allocator) []const []const u8 {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
@@ -834,7 +834,7 @@ pub const sonnet__highlighter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuggestionsForWord3(self: ?*anyopaque, word: []const u8, cursor: ?*anyopaque, max: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SuggestionsForWord3(self: ?*anyopaque, word: []const u8, cursor: ?*anyopaque, max: i32, allocator: std.mem.Allocator) []const []const u8 {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,

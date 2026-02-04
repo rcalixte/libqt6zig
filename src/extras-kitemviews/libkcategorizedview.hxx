@@ -57,7 +57,7 @@ class VirtualKCategorizedView final : public KCategorizedView {
     using KCategorizedView_HorizontalOffset_Callback = int (*)();
     using KCategorizedView_VerticalOffset_Callback = int (*)();
     using KCategorizedView_VisualRegionForSelection_Callback = QRegion* (*)(const KCategorizedView*, QItemSelection*);
-    using KCategorizedView_SelectedIndexes_Callback = QModelIndex** (*)();
+    using KCategorizedView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
     using KCategorizedView_IsIndexHidden_Callback = bool (*)(const KCategorizedView*, QModelIndex*);
     using KCategorizedView_SelectionChanged_Callback = void (*)(KCategorizedView*, QItemSelection*, QItemSelection*);
     using KCategorizedView_ViewportSizeHint_Callback = QSize* (*)();
@@ -1341,13 +1341,14 @@ class VirtualKCategorizedView final : public KCategorizedView {
             kcategorizedview_selectedindexes_isbase = false;
             return KCategorizedView::selectedIndexes();
         } else if (kcategorizedview_selectedindexes_callback != nullptr) {
-            QModelIndex** callback_ret = kcategorizedview_selectedindexes_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = kcategorizedview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KCategorizedView::selectedIndexes();

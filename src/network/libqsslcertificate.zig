@@ -4,7 +4,7 @@ const qcryptographichash_enums = @import("../libqcryptographichash.zig").enums;
 const qssl_enums = @import("libqssl.zig").enums;
 const qsslcertificate_enums = enums;
 const std = @import("std");
-const map_i32_sliceconstu8 = std.AutoHashMapUnmanaged(i32, [][]const u8);
+const map_i32_sliceconstconstu8 = std.AutoHashMapUnmanaged(i32, []const []const u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html)
 pub const qsslcertificate = struct {
@@ -224,7 +224,7 @@ pub const qsslcertificate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IssuerInfo(self: ?*anyopaque, info: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn IssuerInfo(self: ?*anyopaque, info: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_IssuerInfo(@ptrCast(self), @intCast(info));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -253,7 +253,7 @@ pub const qsslcertificate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IssuerInfo2(self: ?*anyopaque, attribute: []u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn IssuerInfo2(self: ?*anyopaque, attribute: []u8, allocator: std.mem.Allocator) []const []const u8 {
         const attribute_str = qtc.libqt_string{
             .len = attribute.len,
             .data = attribute.ptr,
@@ -286,7 +286,7 @@ pub const qsslcertificate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubjectInfo(self: ?*anyopaque, info: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SubjectInfo(self: ?*anyopaque, info: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_SubjectInfo(@ptrCast(self), @intCast(info));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -315,7 +315,7 @@ pub const qsslcertificate = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubjectInfo2(self: ?*anyopaque, attribute: []u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SubjectInfo2(self: ?*anyopaque, attribute: []u8, allocator: std.mem.Allocator) []const []const u8 {
         const attribute_str = qtc.libqt_string{
             .len = attribute.len,
             .data = attribute.ptr,
@@ -434,11 +434,11 @@ pub const qsslcertificate = struct {
     ///
     /// ## Returns:
     ///
-    /// ` map_i32_sliceconstu8 (key: qssl_enums.AlternativeNameEntryType) `
+    /// ` map_i32_sliceconstconstu8 (key: qssl_enums.AlternativeNameEntryType) `
     ///
-    pub fn SubjectAlternativeNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_sliceconstu8 {
+    pub fn SubjectAlternativeNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_sliceconstconstu8 {
         const _map: qtc.libqt_map = qtc.QSslCertificate_SubjectAlternativeNames(@ptrCast(self));
-        var _ret: map_i32_sliceconstu8 = .empty;
+        var _ret: map_i32_sliceconstconstu8 = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {

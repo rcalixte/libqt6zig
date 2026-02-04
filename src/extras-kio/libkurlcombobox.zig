@@ -212,11 +212,11 @@ pub const kurlcombobox = struct {
     ///
     /// ` self: QtC.KUrlComboBox `
     ///
-    /// ` urls: [][]const u8 `
+    /// ` urls: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetUrls(self: ?*anyopaque, urls: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetUrls(self: ?*anyopaque, urls: []const []const u8, allocator: std.mem.Allocator) void {
         var urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("kurlcombobox.SetUrls: Memory allocation failed");
         defer allocator.free(urls_arr);
         for (urls, 0..urls.len) |item, i| {
@@ -238,13 +238,13 @@ pub const kurlcombobox = struct {
     ///
     /// ` self: QtC.KUrlComboBox `
     ///
-    /// ` urls: [][]const u8 `
+    /// ` urls: []const []const u8 `
     ///
     /// ` remove: kurlcombobox_enums.OverLoadResolving `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetUrls2(self: ?*anyopaque, urls: [][]const u8, remove: i32, allocator: std.mem.Allocator) void {
+    pub fn SetUrls2(self: ?*anyopaque, urls: []const []const u8, remove: i32, allocator: std.mem.Allocator) void {
         var urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("kurlcombobox.SetUrls2: Memory allocation failed");
         defer allocator.free(urls_arr);
         for (urls, 0..urls.len) |item, i| {
@@ -268,7 +268,7 @@ pub const kurlcombobox = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Urls(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Urls(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUrlComboBox_Urls(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1695,11 +1695,11 @@ pub const kurlcombobox = struct {
     ///
     /// ` self: QtC.KUrlComboBox `
     ///
-    /// ` texts: [][]const u8 `
+    /// ` texts: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddItems(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn AddItems(self: ?*anyopaque, texts: []const []const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kurlcombobox.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
@@ -1767,11 +1767,11 @@ pub const kurlcombobox = struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` texts: [][]const u8 `
+    /// ` texts: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertItems(self: ?*anyopaque, index: i32, texts: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn InsertItems(self: ?*anyopaque, index: i32, texts: []const []const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kurlcombobox.InsertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
@@ -7503,13 +7503,13 @@ pub const kurlcombobox = struct {
     ///
     /// ` self: QtC.KUrlComboBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` autoSuggest: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn SetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kurlcombobox.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -7535,13 +7535,13 @@ pub const kurlcombobox = struct {
     ///
     /// ` self: QtC.KUrlComboBox `
     ///
-    /// ` items: [][]const u8 `
+    /// ` items: []const []const u8 `
     ///
     /// ` autoSuggest: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: [][]const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
+    pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
         var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kurlcombobox.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
@@ -7567,9 +7567,9 @@ pub const kurlcombobox = struct {
     ///
     /// ` self: QtC.KUrlComboBox`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboBox, items: [*][*:0]const u8, autoSuggest: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KUrlComboBox, items: ?[*:null]?[*:0]const u8, autoSuggest: bool) callconv(.c) void `
     ///
-    pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8, bool) callconv(.c) void) void {
+    pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
         qtc.KUrlComboBox_OnSetCompletedItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -20,7 +20,7 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
     using KAbstractFileItemActionPlugin_MetaObject_Callback = QMetaObject* (*)();
     using KAbstractFileItemActionPlugin_Metacast_Callback = void* (*)(KAbstractFileItemActionPlugin*, const char*);
     using KAbstractFileItemActionPlugin_Metacall_Callback = int (*)(KAbstractFileItemActionPlugin*, int, int, void**);
-    using KAbstractFileItemActionPlugin_Actions_Callback = QAction** (*)(KAbstractFileItemActionPlugin*, KFileItemListProperties*, QWidget*);
+    using KAbstractFileItemActionPlugin_Actions_Callback = libqt_list /* of QAction* */ (*)(KAbstractFileItemActionPlugin*, KFileItemListProperties*, QWidget*);
     using KAbstractFileItemActionPlugin_Event_Callback = bool (*)(KAbstractFileItemActionPlugin*, QEvent*);
     using KAbstractFileItemActionPlugin_EventFilter_Callback = bool (*)(KAbstractFileItemActionPlugin*, QObject*, QEvent*);
     using KAbstractFileItemActionPlugin_TimerEvent_Callback = void (*)(KAbstractFileItemActionPlugin*, QTimerEvent*);
@@ -176,13 +176,14 @@ class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugi
             KFileItemListProperties* cbval1 = const_cast<KFileItemListProperties*>(&fileItemInfos_ret);
             QWidget* cbval2 = parentWidget;
 
-            QAction** callback_ret = kabstractfileitemactionplugin_actions_callback(this, cbval1, cbval2);
+            libqt_list /* of QAction* */ callback_ret = kabstractfileitemactionplugin_actions_callback(this, cbval1, cbval2);
             QList<QAction*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QAction** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return {};

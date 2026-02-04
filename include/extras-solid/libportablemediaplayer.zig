@@ -77,7 +77,7 @@ pub const solid__portablemediaplayer = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedProtocols(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedProtocols(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Solid__PortableMediaPlayer_SupportedProtocols(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -104,7 +104,7 @@ pub const solid__portablemediaplayer = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedDrivers(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedDrivers(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Solid__PortableMediaPlayer_SupportedDrivers(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -191,7 +191,7 @@ pub const solid__portablemediaplayer = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedDrivers1(self: ?*anyopaque, protocol: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn SupportedDrivers1(self: ?*anyopaque, protocol: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,

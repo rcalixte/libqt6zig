@@ -29,7 +29,7 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
     using KToolBarSpacerAction_CustomEvent_Callback = void (*)(KToolBarSpacerAction*, QEvent*);
     using KToolBarSpacerAction_ConnectNotify_Callback = void (*)(KToolBarSpacerAction*, QMetaMethod*);
     using KToolBarSpacerAction_DisconnectNotify_Callback = void (*)(KToolBarSpacerAction*, QMetaMethod*);
-    using KToolBarSpacerAction_CreatedWidgets_Callback = QWidget** (*)();
+    using KToolBarSpacerAction_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
     using KToolBarSpacerAction_Sender_Callback = QObject* (*)();
     using KToolBarSpacerAction_SenderSignalIndex_Callback = int (*)();
     using KToolBarSpacerAction_Receivers_Callback = int (*)(const KToolBarSpacerAction*, const char*);
@@ -320,13 +320,14 @@ class VirtualKToolBarSpacerAction final : public KToolBarSpacerAction {
             ktoolbarspaceraction_createdwidgets_isbase = false;
             return KToolBarSpacerAction::createdWidgets();
         } else if (ktoolbarspaceraction_createdwidgets_callback != nullptr) {
-            QWidget** callback_ret = ktoolbarspaceraction_createdwidgets_callback();
+            libqt_list /* of QWidget* */ callback_ret = ktoolbarspaceraction_createdwidgets_callback();
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KToolBarSpacerAction::createdWidgets();

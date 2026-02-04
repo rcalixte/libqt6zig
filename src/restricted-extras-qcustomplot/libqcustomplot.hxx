@@ -2683,7 +2683,7 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
     using QCPLayoutElement_Update_Callback = void (*)(QCPLayoutElement*, int);
     using QCPLayoutElement_MinimumOuterSizeHint_Callback = QSize* (*)();
     using QCPLayoutElement_MaximumOuterSizeHint_Callback = QSize* (*)();
-    using QCPLayoutElement_Elements_Callback = QCPLayoutElement** (*)(const QCPLayoutElement*, bool);
+    using QCPLayoutElement_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPLayoutElement*, bool);
     using QCPLayoutElement_SelectTest_Callback = double (*)(const QCPLayoutElement*, QPointF*, bool, QVariant*);
     using QCPLayoutElement_CalculateAutoMargin_Callback = int (*)(QCPLayoutElement*, int);
     using QCPLayoutElement_LayoutChanged_Callback = void (*)();
@@ -3009,13 +3009,14 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         } else if (qcplayoutelement_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcplayoutelement_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcplayoutelement_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPLayoutElement::elements(recursive);
@@ -3543,7 +3544,7 @@ class VirtualQCPLayout : public QCPLayout {
     using QCPLayout_Metacast_Callback = void* (*)(QCPLayout*, const char*);
     using QCPLayout_Metacall_Callback = int (*)(QCPLayout*, int, int, void**);
     using QCPLayout_Update_Callback = void (*)(QCPLayout*, int);
-    using QCPLayout_Elements_Callback = QCPLayoutElement** (*)(const QCPLayout*, bool);
+    using QCPLayout_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPLayout*, bool);
     using QCPLayout_ElementCount_Callback = int (*)();
     using QCPLayout_ElementAt_Callback = QCPLayoutElement* (*)(const QCPLayout*, int);
     using QCPLayout_TakeAt_Callback = QCPLayoutElement* (*)(QCPLayout*, int);
@@ -3577,7 +3578,7 @@ class VirtualQCPLayout : public QCPLayout {
     using QCPLayout_SizeConstraintsChanged_Callback = void (*)();
     using QCPLayout_AdoptElement_Callback = void (*)(QCPLayout*, QCPLayoutElement*);
     using QCPLayout_ReleaseElement_Callback = void (*)(QCPLayout*, QCPLayoutElement*);
-    using QCPLayout_GetSectionSizes_Callback = int* (*)(const QCPLayout*, libqt_list /* of int */, libqt_list /* of int */, libqt_list /* of double */, int);
+    using QCPLayout_GetSectionSizes_Callback = libqt_list /* of int */ (*)(const QCPLayout*, libqt_list /* of int */, libqt_list /* of int */, libqt_list /* of double */, int);
     using QCPLayout_InitializeParentPlot_Callback = void (*)(QCPLayout*, QCustomPlot*);
     using QCPLayout_SetParentLayerable_Callback = void (*)(QCPLayout*, QCPLayerable*);
     using QCPLayout_MoveToLayer_Callback = bool (*)(QCPLayout*, QCPLayer*, bool);
@@ -3904,13 +3905,14 @@ class VirtualQCPLayout : public QCPLayout {
         } else if (qcplayout_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcplayout_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcplayout_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPLayout::elements(recursive);
@@ -4425,12 +4427,14 @@ class VirtualQCPLayout : public QCPLayout {
             libqt_list /* of double */ cbval3 = stretchFactors_out;
             int cbval4 = totalSize;
 
-            int* callback_ret = qcplayout_getsectionsizes_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_list /* of int */ callback_ret = qcplayout_getsectionsizes_callback(this, cbval1, cbval2, cbval3, cbval4);
             QVector<int> callback_ret_QVector;
-            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<int>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPLayout::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -4638,7 +4642,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
     using QCPLayoutGrid_ElementAt_Callback = QCPLayoutElement* (*)(const QCPLayoutGrid*, int);
     using QCPLayoutGrid_TakeAt_Callback = QCPLayoutElement* (*)(QCPLayoutGrid*, int);
     using QCPLayoutGrid_Take_Callback = bool (*)(QCPLayoutGrid*, QCPLayoutElement*);
-    using QCPLayoutGrid_Elements_Callback = QCPLayoutElement** (*)(const QCPLayoutGrid*, bool);
+    using QCPLayoutGrid_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPLayoutGrid*, bool);
     using QCPLayoutGrid_Simplify_Callback = void (*)();
     using QCPLayoutGrid_MinimumOuterSizeHint_Callback = QSize* (*)();
     using QCPLayoutGrid_MaximumOuterSizeHint_Callback = QSize* (*)();
@@ -4670,7 +4674,7 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
     using QCPLayoutGrid_SizeConstraintsChanged_Callback = void (*)();
     using QCPLayoutGrid_AdoptElement_Callback = void (*)(QCPLayoutGrid*, QCPLayoutElement*);
     using QCPLayoutGrid_ReleaseElement_Callback = void (*)(QCPLayoutGrid*, QCPLayoutElement*);
-    using QCPLayoutGrid_GetSectionSizes_Callback = int* (*)(const QCPLayoutGrid*, libqt_list /* of int */, libqt_list /* of int */, libqt_list /* of double */, int);
+    using QCPLayoutGrid_GetSectionSizes_Callback = libqt_list /* of int */ (*)(const QCPLayoutGrid*, libqt_list /* of int */, libqt_list /* of int */, libqt_list /* of double */, int);
     using QCPLayoutGrid_InitializeParentPlot_Callback = void (*)(QCPLayoutGrid*, QCustomPlot*);
     using QCPLayoutGrid_SetParentLayerable_Callback = void (*)(QCPLayoutGrid*, QCPLayerable*);
     using QCPLayoutGrid_MoveToLayer_Callback = bool (*)(QCPLayoutGrid*, QCPLayer*, bool);
@@ -5063,13 +5067,14 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         } else if (qcplayoutgrid_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcplayoutgrid_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcplayoutgrid_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPLayoutGrid::elements(recursive);
@@ -5606,12 +5611,14 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             libqt_list /* of double */ cbval3 = stretchFactors_out;
             int cbval4 = totalSize;
 
-            int* callback_ret = qcplayoutgrid_getsectionsizes_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_list /* of int */ callback_ret = qcplayoutgrid_getsectionsizes_callback(this, cbval1, cbval2, cbval3, cbval4);
             QVector<int> callback_ret_QVector;
-            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<int>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPLayoutGrid::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -5824,7 +5831,7 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
     using QCPLayoutInset_Simplify_Callback = void (*)();
     using QCPLayoutInset_SelectTest_Callback = double (*)(const QCPLayoutInset*, QPointF*, bool, QVariant*);
     using QCPLayoutInset_Update_Callback = void (*)(QCPLayoutInset*, int);
-    using QCPLayoutInset_Elements_Callback = QCPLayoutElement** (*)(const QCPLayoutInset*, bool);
+    using QCPLayoutInset_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPLayoutInset*, bool);
     using QCPLayoutInset_MinimumOuterSizeHint_Callback = QSize* (*)();
     using QCPLayoutInset_MaximumOuterSizeHint_Callback = QSize* (*)();
     using QCPLayoutInset_CalculateAutoMargin_Callback = int (*)(QCPLayoutInset*, int);
@@ -5851,7 +5858,7 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
     using QCPLayoutInset_SizeConstraintsChanged_Callback = void (*)();
     using QCPLayoutInset_AdoptElement_Callback = void (*)(QCPLayoutInset*, QCPLayoutElement*);
     using QCPLayoutInset_ReleaseElement_Callback = void (*)(QCPLayoutInset*, QCPLayoutElement*);
-    using QCPLayoutInset_GetSectionSizes_Callback = int* (*)(const QCPLayoutInset*, libqt_list /* of int */, libqt_list /* of int */, libqt_list /* of double */, int);
+    using QCPLayoutInset_GetSectionSizes_Callback = libqt_list /* of int */ (*)(const QCPLayoutInset*, libqt_list /* of int */, libqt_list /* of int */, libqt_list /* of double */, int);
     using QCPLayoutInset_InitializeParentPlot_Callback = void (*)(QCPLayoutInset*, QCustomPlot*);
     using QCPLayoutInset_SetParentLayerable_Callback = void (*)(QCPLayoutInset*, QCPLayerable*);
     using QCPLayoutInset_MoveToLayer_Callback = bool (*)(QCPLayoutInset*, QCPLayer*, bool);
@@ -6279,13 +6286,14 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         } else if (qcplayoutinset_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcplayoutinset_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcplayoutinset_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPLayoutInset::elements(recursive);
@@ -6711,12 +6719,14 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             libqt_list /* of double */ cbval3 = stretchFactors_out;
             int cbval4 = totalSize;
 
-            int* callback_ret = qcplayoutinset_getsectionsizes_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_list /* of int */ callback_ret = qcplayoutinset_getsectionsizes_callback(this, cbval1, cbval2, cbval3, cbval4);
             QVector<int> callback_ret_QVector;
-            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<int>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPLayoutInset::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -6918,8 +6928,8 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
     using QCPAxisTicker_GetTickStep_Callback = double (*)(QCPAxisTicker*, QCPRange*);
     using QCPAxisTicker_GetSubTickCount_Callback = int (*)(QCPAxisTicker*, double);
     using QCPAxisTicker_GetTickLabel_Callback = const char* (*)(QCPAxisTicker*, double, QLocale*, QChar*, int);
-    using QCPAxisTicker_CreateTickVector_Callback = double* (*)(QCPAxisTicker*, double, QCPRange*);
-    using QCPAxisTicker_CreateSubTickVector_Callback = double* (*)(QCPAxisTicker*, int, libqt_list /* of double */);
+    using QCPAxisTicker_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTicker*, double, QCPRange*);
+    using QCPAxisTicker_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTicker*, int, libqt_list /* of double */);
     using QCPAxisTicker_CreateLabelVector_Callback = const char** (*)(QCPAxisTicker*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTicker_TrimTicks_Callback = void (*)(const QCPAxisTicker*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTicker_PickClosest_Callback = double (*)(const QCPAxisTicker*, double, libqt_list /* of double */);
@@ -7125,12 +7135,14 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            double* callback_ret = qcpaxisticker_createtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxisticker_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTicker::createTickVector(tickStep, range);
@@ -7155,12 +7167,14 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            double* callback_ret = qcpaxisticker_createsubtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxisticker_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTicker::createSubTickVector(subTickCount, ticks);
@@ -7198,7 +7212,7 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTicker::createLabelVector(ticks, locale, formatChar, precision);
@@ -7340,9 +7354,9 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
     using QCPAxisTickerDateTime_GetTickStep_Callback = double (*)(QCPAxisTickerDateTime*, QCPRange*);
     using QCPAxisTickerDateTime_GetSubTickCount_Callback = int (*)(QCPAxisTickerDateTime*, double);
     using QCPAxisTickerDateTime_GetTickLabel_Callback = const char* (*)(QCPAxisTickerDateTime*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerDateTime_CreateTickVector_Callback = double* (*)(QCPAxisTickerDateTime*, double, QCPRange*);
+    using QCPAxisTickerDateTime_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerDateTime*, double, QCPRange*);
     using QCPAxisTickerDateTime_Generate_Callback = void (*)(QCPAxisTickerDateTime*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
-    using QCPAxisTickerDateTime_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerDateTime*, int, libqt_list /* of double */);
+    using QCPAxisTickerDateTime_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerDateTime*, int, libqt_list /* of double */);
     using QCPAxisTickerDateTime_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerDateTime*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerDateTime_TrimTicks_Callback = void (*)(const QCPAxisTickerDateTime*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTickerDateTime_PickClosest_Callback = double (*)(const QCPAxisTickerDateTime*, double, libqt_list /* of double */);
@@ -7483,12 +7497,14 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            double* callback_ret = qcpaxistickerdatetime_createtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickerdatetime_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerDateTime::createTickVector(tickStep, range);
@@ -7572,12 +7588,14 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            double* callback_ret = qcpaxistickerdatetime_createsubtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickerdatetime_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerDateTime::createSubTickVector(subTickCount, ticks);
@@ -7615,7 +7633,7 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerDateTime::createLabelVector(ticks, locale, formatChar, precision);
@@ -7739,8 +7757,8 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
     using QCPAxisTickerTime_GetSubTickCount_Callback = int (*)(QCPAxisTickerTime*, double);
     using QCPAxisTickerTime_GetTickLabel_Callback = const char* (*)(QCPAxisTickerTime*, double, QLocale*, QChar*, int);
     using QCPAxisTickerTime_Generate_Callback = void (*)(QCPAxisTickerTime*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
-    using QCPAxisTickerTime_CreateTickVector_Callback = double* (*)(QCPAxisTickerTime*, double, QCPRange*);
-    using QCPAxisTickerTime_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerTime*, int, libqt_list /* of double */);
+    using QCPAxisTickerTime_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerTime*, double, QCPRange*);
+    using QCPAxisTickerTime_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerTime*, int, libqt_list /* of double */);
     using QCPAxisTickerTime_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerTime*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerTime_ReplaceUnit_Callback = void (*)(const QCPAxisTickerTime*, libqt_string, int, int);
     using QCPAxisTickerTime_TrimTicks_Callback = void (*)(const QCPAxisTickerTime*, QCPRange*, libqt_list /* of double */, bool);
@@ -7946,12 +7964,14 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            double* callback_ret = qcpaxistickertime_createtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickertime_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerTime::createTickVector(tickStep, range);
@@ -7976,12 +7996,14 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            double* callback_ret = qcpaxistickertime_createsubtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickertime_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerTime::createSubTickVector(subTickCount, ticks);
@@ -8019,7 +8041,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerTime::createLabelVector(ticks, locale, formatChar, precision);
@@ -8169,8 +8191,8 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
     using QCPAxisTickerFixed_Generate_Callback = void (*)(QCPAxisTickerFixed*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
     using QCPAxisTickerFixed_GetSubTickCount_Callback = int (*)(QCPAxisTickerFixed*, double);
     using QCPAxisTickerFixed_GetTickLabel_Callback = const char* (*)(QCPAxisTickerFixed*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerFixed_CreateTickVector_Callback = double* (*)(QCPAxisTickerFixed*, double, QCPRange*);
-    using QCPAxisTickerFixed_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerFixed*, int, libqt_list /* of double */);
+    using QCPAxisTickerFixed_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerFixed*, double, QCPRange*);
+    using QCPAxisTickerFixed_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerFixed*, int, libqt_list /* of double */);
     using QCPAxisTickerFixed_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerFixed*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerFixed_TrimTicks_Callback = void (*)(const QCPAxisTickerFixed*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTickerFixed_PickClosest_Callback = double (*)(const QCPAxisTickerFixed*, double, libqt_list /* of double */);
@@ -8370,12 +8392,14 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            double* callback_ret = qcpaxistickerfixed_createtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickerfixed_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerFixed::createTickVector(tickStep, range);
@@ -8400,12 +8424,14 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            double* callback_ret = qcpaxistickerfixed_createsubtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickerfixed_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerFixed::createSubTickVector(subTickCount, ticks);
@@ -8443,7 +8469,7 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerFixed::createLabelVector(ticks, locale, formatChar, precision);
@@ -8566,9 +8592,9 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
     using QCPAxisTickerText_GetTickStep_Callback = double (*)(QCPAxisTickerText*, QCPRange*);
     using QCPAxisTickerText_GetSubTickCount_Callback = int (*)(QCPAxisTickerText*, double);
     using QCPAxisTickerText_GetTickLabel_Callback = const char* (*)(QCPAxisTickerText*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerText_CreateTickVector_Callback = double* (*)(QCPAxisTickerText*, double, QCPRange*);
+    using QCPAxisTickerText_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerText*, double, QCPRange*);
     using QCPAxisTickerText_Generate_Callback = void (*)(QCPAxisTickerText*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
-    using QCPAxisTickerText_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerText*, int, libqt_list /* of double */);
+    using QCPAxisTickerText_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerText*, int, libqt_list /* of double */);
     using QCPAxisTickerText_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerText*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerText_TrimTicks_Callback = void (*)(const QCPAxisTickerText*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTickerText_PickClosest_Callback = double (*)(const QCPAxisTickerText*, double, libqt_list /* of double */);
@@ -8709,12 +8735,14 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            double* callback_ret = qcpaxistickertext_createtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickertext_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerText::createTickVector(tickStep, range);
@@ -8798,12 +8826,14 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            double* callback_ret = qcpaxistickertext_createsubtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickertext_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerText::createSubTickVector(subTickCount, ticks);
@@ -8841,7 +8871,7 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerText::createLabelVector(ticks, locale, formatChar, precision);
@@ -8965,8 +8995,8 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
     using QCPAxisTickerPi_GetSubTickCount_Callback = int (*)(QCPAxisTickerPi*, double);
     using QCPAxisTickerPi_GetTickLabel_Callback = const char* (*)(QCPAxisTickerPi*, double, QLocale*, QChar*, int);
     using QCPAxisTickerPi_Generate_Callback = void (*)(QCPAxisTickerPi*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
-    using QCPAxisTickerPi_CreateTickVector_Callback = double* (*)(QCPAxisTickerPi*, double, QCPRange*);
-    using QCPAxisTickerPi_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerPi*, int, libqt_list /* of double */);
+    using QCPAxisTickerPi_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerPi*, double, QCPRange*);
+    using QCPAxisTickerPi_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerPi*, int, libqt_list /* of double */);
     using QCPAxisTickerPi_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerPi*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerPi_SimplifyFraction_Callback = void (*)(const QCPAxisTickerPi*, int*, int*);
     using QCPAxisTickerPi_FractionToString_Callback = const char* (*)(const QCPAxisTickerPi*, int, int);
@@ -9196,12 +9226,14 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            double* callback_ret = qcpaxistickerpi_createtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickerpi_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerPi::createTickVector(tickStep, range);
@@ -9226,12 +9258,14 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            double* callback_ret = qcpaxistickerpi_createsubtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickerpi_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerPi::createSubTickVector(subTickCount, ticks);
@@ -9269,7 +9303,7 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerPi::createLabelVector(ticks, locale, formatChar, precision);
@@ -9481,11 +9515,11 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
 
     // Virtual class public types (including callbacks)
     using QCPAxisTickerLog_GetSubTickCount_Callback = int (*)(QCPAxisTickerLog*, double);
-    using QCPAxisTickerLog_CreateTickVector_Callback = double* (*)(QCPAxisTickerLog*, double, QCPRange*);
+    using QCPAxisTickerLog_CreateTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerLog*, double, QCPRange*);
     using QCPAxisTickerLog_Generate_Callback = void (*)(QCPAxisTickerLog*, QCPRange*, QLocale*, QChar*, int, libqt_list /* of double */, libqt_list /* of double */, libqt_list /* of libqt_string */);
     using QCPAxisTickerLog_GetTickStep_Callback = double (*)(QCPAxisTickerLog*, QCPRange*);
     using QCPAxisTickerLog_GetTickLabel_Callback = const char* (*)(QCPAxisTickerLog*, double, QLocale*, QChar*, int);
-    using QCPAxisTickerLog_CreateSubTickVector_Callback = double* (*)(QCPAxisTickerLog*, int, libqt_list /* of double */);
+    using QCPAxisTickerLog_CreateSubTickVector_Callback = libqt_list /* of double */ (*)(QCPAxisTickerLog*, int, libqt_list /* of double */);
     using QCPAxisTickerLog_CreateLabelVector_Callback = const char** (*)(QCPAxisTickerLog*, libqt_list /* of double */, QLocale*, QChar*, int);
     using QCPAxisTickerLog_TrimTicks_Callback = void (*)(const QCPAxisTickerLog*, QCPRange*, libqt_list /* of double */, bool);
     using QCPAxisTickerLog_PickClosest_Callback = double (*)(const QCPAxisTickerLog*, double, libqt_list /* of double */);
@@ -9588,12 +9622,14 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
 
-            double* callback_ret = qcpaxistickerlog_createtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickerlog_createtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerLog::createTickVector(tickStep, range);
@@ -9715,12 +9751,14 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
 
-            double* callback_ret = qcpaxistickerlog_createsubtickvector_callback(this, cbval1, cbval2);
+            libqt_list /* of double */ callback_ret = qcpaxistickerlog_createsubtickvector_callback(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
-            for (double* ptr = callback_ret; *ptr != -1.0; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            double* callback_ret_arr = static_cast<double*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<double>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerLog::createSubTickVector(subTickCount, ticks);
@@ -9758,7 +9796,7 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QVector;
         } else {
             return QCPAxisTickerLog::createLabelVector(ticks, locale, formatChar, precision);
@@ -13729,7 +13767,7 @@ class VirtualQCustomPlot final : public QCustomPlot {
     using QCustomPlot_RegisterItem_Callback = bool (*)(QCustomPlot*, QCPAbstractItem*);
     using QCustomPlot_UpdateLayerIndices_Callback = void (*)();
     using QCustomPlot_LayerableAt_Callback = QCPLayerable* (*)(const QCustomPlot*, QPointF*, bool);
-    using QCustomPlot_LayerableListAt_Callback = QCPLayerable** (*)(const QCustomPlot*, QPointF*, bool);
+    using QCustomPlot_LayerableListAt_Callback = libqt_list /* of QCPLayerable* */ (*)(const QCustomPlot*, QPointF*, bool);
     using QCustomPlot_DrawBackground_Callback = void (*)(QCustomPlot*, QCPPainter*);
     using QCustomPlot_SetupPaintBuffers_Callback = void (*)();
     using QCustomPlot_CreatePaintBuffer_Callback = QCPAbstractPaintBuffer* (*)();
@@ -13737,7 +13775,7 @@ class VirtualQCustomPlot final : public QCustomPlot {
     using QCustomPlot_SetupOpenGl_Callback = bool (*)();
     using QCustomPlot_FreeOpenGl_Callback = void (*)();
     using QCustomPlot_LayerableAt3_Callback = QCPLayerable* (*)(const QCustomPlot*, QPointF*, bool, QVariant*);
-    using QCustomPlot_LayerableListAt3_Callback = QCPLayerable** (*)(const QCustomPlot*, QPointF*, bool, libqt_list /* of QVariant* */);
+    using QCustomPlot_LayerableListAt3_Callback = libqt_list /* of QCPLayerable* */ (*)(const QCustomPlot*, QPointF*, bool, libqt_list /* of QVariant* */);
     using QCustomPlot_UpdateMicroFocus_Callback = void (*)();
     using QCustomPlot_Create_Callback = void (*)();
     using QCustomPlot_Destroy_Callback = void (*)();
@@ -15073,13 +15111,14 @@ class VirtualQCustomPlot final : public QCustomPlot {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
 
-            QCPLayerable** callback_ret = qcustomplot_layerablelistat_callback(this, cbval1, cbval2);
+            libqt_list /* of QCPLayerable* */ callback_ret = qcustomplot_layerablelistat_callback(this, cbval1, cbval2);
             QList<QCPLayerable*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayerable** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayerable** callback_ret_arr = static_cast<QCPLayerable**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCustomPlot::layerableListAt(pos, onlySelectable);
@@ -15203,13 +15242,14 @@ class VirtualQCustomPlot final : public QCustomPlot {
             selectionDetails_out.data = static_cast<void*>(selectionDetails_arr);
             libqt_list /* of QVariant* */ cbval3 = selectionDetails_out;
 
-            QCPLayerable** callback_ret = qcustomplot_layerablelistat3_callback(this, cbval1, cbval2, cbval3);
+            libqt_list /* of QCPLayerable* */ callback_ret = qcustomplot_layerablelistat3_callback(this, cbval1, cbval2, cbval3);
             QList<QCPLayerable*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayerable** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayerable** callback_ret_arr = static_cast<QCPLayerable**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCustomPlot::layerableListAt(pos, onlySelectable, selectionDetails);
@@ -15670,7 +15710,7 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
     using QCPAxisRect_Metacast_Callback = void* (*)(QCPAxisRect*, const char*);
     using QCPAxisRect_Metacall_Callback = int (*)(QCPAxisRect*, int, int, void**);
     using QCPAxisRect_Update_Callback = void (*)(QCPAxisRect*, int);
-    using QCPAxisRect_Elements_Callback = QCPLayoutElement** (*)(const QCPAxisRect*, bool);
+    using QCPAxisRect_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPAxisRect*, bool);
     using QCPAxisRect_ApplyDefaultAntialiasingHint_Callback = void (*)(const QCPAxisRect*, QCPPainter*);
     using QCPAxisRect_Draw_Callback = void (*)(QCPAxisRect*, QCPPainter*);
     using QCPAxisRect_CalculateAutoMargin_Callback = int (*)(QCPAxisRect*, int);
@@ -15984,13 +16024,14 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         } else if (qcpaxisrect_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcpaxisrect_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcpaxisrect_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPAxisRect::elements(recursive);
@@ -16585,7 +16626,7 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
     using QCPAbstractLegendItem_Update_Callback = void (*)(QCPAbstractLegendItem*, int);
     using QCPAbstractLegendItem_MinimumOuterSizeHint_Callback = QSize* (*)();
     using QCPAbstractLegendItem_MaximumOuterSizeHint_Callback = QSize* (*)();
-    using QCPAbstractLegendItem_Elements_Callback = QCPLayoutElement** (*)(const QCPAbstractLegendItem*, bool);
+    using QCPAbstractLegendItem_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPAbstractLegendItem*, bool);
     using QCPAbstractLegendItem_CalculateAutoMargin_Callback = int (*)(QCPAbstractLegendItem*, int);
     using QCPAbstractLegendItem_LayoutChanged_Callback = void (*)();
     using QCPAbstractLegendItem_ParentPlotInitialized_Callback = void (*)(QCPAbstractLegendItem*, QCustomPlot*);
@@ -17004,13 +17045,14 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         } else if (qcpabstractlegenditem_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcpabstractlegenditem_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcpabstractlegenditem_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPAbstractLegendItem::elements(recursive);
@@ -17441,7 +17483,7 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
     using QCPPlottableLegendItem_DeselectEvent_Callback = void (*)(QCPPlottableLegendItem*, bool*);
     using QCPPlottableLegendItem_Update_Callback = void (*)(QCPPlottableLegendItem*, int);
     using QCPPlottableLegendItem_MaximumOuterSizeHint_Callback = QSize* (*)();
-    using QCPPlottableLegendItem_Elements_Callback = QCPLayoutElement** (*)(const QCPPlottableLegendItem*, bool);
+    using QCPPlottableLegendItem_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPPlottableLegendItem*, bool);
     using QCPPlottableLegendItem_CalculateAutoMargin_Callback = int (*)(QCPPlottableLegendItem*, int);
     using QCPPlottableLegendItem_LayoutChanged_Callback = void (*)();
     using QCPPlottableLegendItem_ParentPlotInitialized_Callback = void (*)(QCPPlottableLegendItem*, QCustomPlot*);
@@ -17883,13 +17925,14 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         } else if (qcpplottablelegenditem_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcpplottablelegenditem_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcpplottablelegenditem_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPPlottableLegendItem::elements(recursive);
@@ -18369,7 +18412,7 @@ class VirtualQCPLegend final : public QCPLegend {
     using QCPLegend_ElementAt_Callback = QCPLayoutElement* (*)(const QCPLegend*, int);
     using QCPLegend_TakeAt_Callback = QCPLayoutElement* (*)(QCPLegend*, int);
     using QCPLegend_Take_Callback = bool (*)(QCPLegend*, QCPLayoutElement*);
-    using QCPLegend_Elements_Callback = QCPLayoutElement** (*)(const QCPLegend*, bool);
+    using QCPLegend_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPLegend*, bool);
     using QCPLegend_Simplify_Callback = void (*)();
     using QCPLegend_MinimumOuterSizeHint_Callback = QSize* (*)();
     using QCPLegend_MaximumOuterSizeHint_Callback = QSize* (*)();
@@ -18396,7 +18439,7 @@ class VirtualQCPLegend final : public QCPLegend {
     using QCPLegend_SizeConstraintsChanged_Callback = void (*)();
     using QCPLegend_AdoptElement_Callback = void (*)(QCPLegend*, QCPLayoutElement*);
     using QCPLegend_ReleaseElement_Callback = void (*)(QCPLegend*, QCPLayoutElement*);
-    using QCPLegend_GetSectionSizes_Callback = int* (*)(const QCPLegend*, libqt_list /* of int */, libqt_list /* of int */, libqt_list /* of double */, int);
+    using QCPLegend_GetSectionSizes_Callback = libqt_list /* of int */ (*)(const QCPLegend*, libqt_list /* of int */, libqt_list /* of int */, libqt_list /* of double */, int);
     using QCPLegend_InitializeParentPlot_Callback = void (*)(QCPLegend*, QCustomPlot*);
     using QCPLegend_SetParentLayerable_Callback = void (*)(QCPLegend*, QCPLayerable*);
     using QCPLegend_MoveToLayer_Callback = bool (*)(QCPLegend*, QCPLayer*, bool);
@@ -18906,13 +18949,14 @@ class VirtualQCPLegend final : public QCPLegend {
         } else if (qcplegend_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcplegend_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcplegend_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPLegend::elements(recursive);
@@ -19368,12 +19412,14 @@ class VirtualQCPLegend final : public QCPLegend {
             libqt_list /* of double */ cbval3 = stretchFactors_out;
             int cbval4 = totalSize;
 
-            int* callback_ret = qcplegend_getsectionsizes_callback(this, cbval1, cbval2, cbval3, cbval4);
+            libqt_list /* of int */ callback_ret = qcplegend_getsectionsizes_callback(this, cbval1, cbval2, cbval3, cbval4);
             QVector<int> callback_ret_QVector;
-            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
-                callback_ret_QVector.push_back(*ptr);
+            callback_ret_QVector.reserve(callback_ret.len);
+            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(static_cast<int>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPLegend::getSectionSizes(maxSizes, minSizes, stretchFactors, totalSize);
@@ -19593,7 +19639,7 @@ class VirtualQCPTextElement final : public QCPTextElement {
     using QCPTextElement_SelectEvent_Callback = void (*)(QCPTextElement*, QMouseEvent*, bool, QVariant*, bool*);
     using QCPTextElement_DeselectEvent_Callback = void (*)(QCPTextElement*, bool*);
     using QCPTextElement_Update_Callback = void (*)(QCPTextElement*, int);
-    using QCPTextElement_Elements_Callback = QCPLayoutElement** (*)(const QCPTextElement*, bool);
+    using QCPTextElement_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPTextElement*, bool);
     using QCPTextElement_CalculateAutoMargin_Callback = int (*)(QCPTextElement*, int);
     using QCPTextElement_LayoutChanged_Callback = void (*)();
     using QCPTextElement_ParentPlotInitialized_Callback = void (*)(QCPTextElement*, QCustomPlot*);
@@ -20057,13 +20103,14 @@ class VirtualQCPTextElement final : public QCPTextElement {
         } else if (qcptextelement_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcptextelement_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcptextelement_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPTextElement::elements(recursive);
@@ -20495,7 +20542,7 @@ class VirtualQCPColorScale final : public QCPColorScale {
     using QCPColorScale_WheelEvent_Callback = void (*)(QCPColorScale*, QWheelEvent*);
     using QCPColorScale_MinimumOuterSizeHint_Callback = QSize* (*)();
     using QCPColorScale_MaximumOuterSizeHint_Callback = QSize* (*)();
-    using QCPColorScale_Elements_Callback = QCPLayoutElement** (*)(const QCPColorScale*, bool);
+    using QCPColorScale_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPColorScale*, bool);
     using QCPColorScale_SelectTest_Callback = double (*)(const QCPColorScale*, QPointF*, bool, QVariant*);
     using QCPColorScale_CalculateAutoMargin_Callback = int (*)(QCPColorScale*, int);
     using QCPColorScale_LayoutChanged_Callback = void (*)();
@@ -20894,13 +20941,14 @@ class VirtualQCPColorScale final : public QCPColorScale {
         } else if (qcpcolorscale_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcpcolorscale_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcpcolorscale_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPColorScale::elements(recursive);
@@ -21388,12 +21436,12 @@ class VirtualQCPGraph final : public QCPGraph {
     using QCPGraph_DisconnectNotify_Callback = void (*)(QCPGraph*, QMetaMethod*);
     using QCPGraph_GetLines_Callback = void (*)(const QCPGraph*, libqt_list /* of QPointF* */, QCPDataRange*);
     using QCPGraph_GetScatters_Callback = void (*)(const QCPGraph*, libqt_list /* of QPointF* */, QCPDataRange*);
-    using QCPGraph_DataToLines_Callback = QPointF** (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
-    using QCPGraph_DataToStepLeftLines_Callback = QPointF** (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
-    using QCPGraph_DataToStepRightLines_Callback = QPointF** (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
-    using QCPGraph_DataToStepCenterLines_Callback = QPointF** (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
-    using QCPGraph_DataToImpulseLines_Callback = QPointF** (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
-    using QCPGraph_GetNonNanSegments_Callback = QCPDataRange** (*)(const QCPGraph*, libqt_list /* of QPointF* */, int);
+    using QCPGraph_DataToLines_Callback = libqt_list /* of QPointF* */ (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
+    using QCPGraph_DataToStepLeftLines_Callback = libqt_list /* of QPointF* */ (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
+    using QCPGraph_DataToStepRightLines_Callback = libqt_list /* of QPointF* */ (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
+    using QCPGraph_DataToStepCenterLines_Callback = libqt_list /* of QPointF* */ (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
+    using QCPGraph_DataToImpulseLines_Callback = libqt_list /* of QPointF* */ (*)(const QCPGraph*, libqt_list /* of QCPGraphData* */);
+    using QCPGraph_GetNonNanSegments_Callback = libqt_list /* of QCPDataRange* */ (*)(const QCPGraph*, libqt_list /* of QPointF* */, int);
     using QCPGraph_GetOverlappingSegments_Callback = libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDataRange* */ (*)(const QCPGraph*, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */);
     using QCPGraph_SegmentsIntersect_Callback = bool (*)(const QCPGraph*, double, double, double, double, int*);
     using QCPGraph_GetFillBasePoint_Callback = QPointF* (*)(const QCPGraph*, QPointF*);
@@ -22463,13 +22511,14 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
 
-            QPointF** callback_ret = qcpgraph_datatolines_callback(this, cbval1);
+            libqt_list /* of QPointF* */ callback_ret = qcpgraph_datatolines_callback(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
-            // Iterate until null pointer sentinel
-            for (QPointF** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QVector.push_back(**ptridx);
+            callback_ret_QVector.reserve(callback_ret.len);
+            QPointF** callback_ret_arr = static_cast<QPointF**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToLines(data);
@@ -22493,13 +22542,14 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
 
-            QPointF** callback_ret = qcpgraph_datatostepleftlines_callback(this, cbval1);
+            libqt_list /* of QPointF* */ callback_ret = qcpgraph_datatostepleftlines_callback(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
-            // Iterate until null pointer sentinel
-            for (QPointF** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QVector.push_back(**ptridx);
+            callback_ret_QVector.reserve(callback_ret.len);
+            QPointF** callback_ret_arr = static_cast<QPointF**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToStepLeftLines(data);
@@ -22523,13 +22573,14 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
 
-            QPointF** callback_ret = qcpgraph_datatosteprightlines_callback(this, cbval1);
+            libqt_list /* of QPointF* */ callback_ret = qcpgraph_datatosteprightlines_callback(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
-            // Iterate until null pointer sentinel
-            for (QPointF** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QVector.push_back(**ptridx);
+            callback_ret_QVector.reserve(callback_ret.len);
+            QPointF** callback_ret_arr = static_cast<QPointF**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToStepRightLines(data);
@@ -22553,13 +22604,14 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
 
-            QPointF** callback_ret = qcpgraph_datatostepcenterlines_callback(this, cbval1);
+            libqt_list /* of QPointF* */ callback_ret = qcpgraph_datatostepcenterlines_callback(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
-            // Iterate until null pointer sentinel
-            for (QPointF** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QVector.push_back(**ptridx);
+            callback_ret_QVector.reserve(callback_ret.len);
+            QPointF** callback_ret_arr = static_cast<QPointF**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToStepCenterLines(data);
@@ -22583,13 +22635,14 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
 
-            QPointF** callback_ret = qcpgraph_datatoimpulselines_callback(this, cbval1);
+            libqt_list /* of QPointF* */ callback_ret = qcpgraph_datatoimpulselines_callback(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
-            // Iterate until null pointer sentinel
-            for (QPointF** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QVector.push_back(**ptridx);
+            callback_ret_QVector.reserve(callback_ret.len);
+            QPointF** callback_ret_arr = static_cast<QPointF**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPGraph::dataToImpulseLines(data);
@@ -22614,13 +22667,14 @@ class VirtualQCPGraph final : public QCPGraph {
             libqt_list /* of QPointF* */ cbval1 = lineData_out;
             int cbval2 = static_cast<int>(keyOrientation);
 
-            QCPDataRange** callback_ret = qcpgraph_getnonnansegments_callback(this, cbval1, cbval2);
+            libqt_list /* of QCPDataRange* */ callback_ret = qcpgraph_getnonnansegments_callback(this, cbval1, cbval2);
             QVector<QCPDataRange> callback_ret_QVector;
-            // Iterate until null pointer sentinel
-            for (QCPDataRange** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QVector.push_back(**ptridx);
+            callback_ret_QVector.reserve(callback_ret.len);
+            QCPDataRange** callback_ret_arr = static_cast<QCPDataRange**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPGraph::getNonNanSegments(lineData, keyOrientation);
@@ -22684,6 +22738,7 @@ class VirtualQCPGraph final : public QCPGraph {
                 callback_ret_arr_i_QPair.second = *(callback_ret_arr[i].second);
                 callback_ret_QVector.push_back(callback_ret_arr_i_QPair);
             }
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPGraph::getOverlappingSegments(thisSegments, thisData, otherSegments, otherData);
@@ -23118,7 +23173,7 @@ class VirtualQCPCurve final : public QCPCurve {
     using QCPCurve_GetScatters_Callback = void (*)(const QCPCurve*, libqt_list /* of QPointF* */, QCPDataRange*, double);
     using QCPCurve_GetRegion_Callback = int (*)(const QCPCurve*, double, double, double, double, double, double);
     using QCPCurve_GetOptimizedPoint_Callback = QPointF* (*)(const QCPCurve*, int, double, double, double, double, double, double, double, double);
-    using QCPCurve_GetOptimizedCornerPoints_Callback = QPointF** (*)(const QCPCurve*, int, int, double, double, double, double, double, double, double, double);
+    using QCPCurve_GetOptimizedCornerPoints_Callback = libqt_list /* of QPointF* */ (*)(const QCPCurve*, int, int, double, double, double, double, double, double, double, double);
     using QCPCurve_MayTraverse_Callback = bool (*)(const QCPCurve*, int, int);
     using QCPCurve_GetTraverse_Callback = bool (*)(const QCPCurve*, double, double, double, double, double, double, double, double, QPointF*, QPointF*);
     using QCPCurve_GetTraverseCornerPoints_Callback = void (*)(const QCPCurve*, int, int, double, double, double, double, libqt_list /* of QPointF* */, libqt_list /* of QPointF* */);
@@ -24136,13 +24191,14 @@ class VirtualQCPCurve final : public QCPCurve {
             double cbval9 = keyMax;
             double cbval10 = valueMin;
 
-            QPointF** callback_ret = qcpcurve_getoptimizedcornerpoints_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8, cbval9, cbval10);
+            libqt_list /* of QPointF* */ callback_ret = qcpcurve_getoptimizedcornerpoints_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8, cbval9, cbval10);
             QVector<QPointF> callback_ret_QVector;
-            // Iterate until null pointer sentinel
-            for (QPointF** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QVector.push_back(**ptridx);
+            callback_ret_QVector.reserve(callback_ret.len);
+            QPointF** callback_ret_arr = static_cast<QPointF**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPCurve::getOptimizedCornerPoints(prevRegion, currentRegion, prevKey, prevValue, key, value, keyMin, valueMax, keyMax, valueMin);
@@ -39365,7 +39421,7 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
     using QCPPolarAxisAngular_Metacall_Callback = int (*)(QCPPolarAxisAngular*, int, int, void**);
     using QCPPolarAxisAngular_SelectTest_Callback = double (*)(const QCPPolarAxisAngular*, QPointF*, bool, QVariant*);
     using QCPPolarAxisAngular_Update_Callback = void (*)(QCPPolarAxisAngular*, int);
-    using QCPPolarAxisAngular_Elements_Callback = QCPLayoutElement** (*)(const QCPPolarAxisAngular*, bool);
+    using QCPPolarAxisAngular_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPPolarAxisAngular*, bool);
     using QCPPolarAxisAngular_ApplyDefaultAntialiasingHint_Callback = void (*)(const QCPPolarAxisAngular*, QCPPainter*);
     using QCPPolarAxisAngular_Draw_Callback = void (*)(QCPPolarAxisAngular*, QCPPainter*);
     using QCPPolarAxisAngular_SelectionCategory_Callback = int (*)();
@@ -39744,13 +39800,14 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         } else if (qcppolaraxisangular_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcppolaraxisangular_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcppolaraxisangular_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPPolarAxisAngular::elements(recursive);
@@ -41301,7 +41358,7 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
     using QCPPolarLegendItem_DeselectEvent_Callback = void (*)(QCPPolarLegendItem*, bool*);
     using QCPPolarLegendItem_Update_Callback = void (*)(QCPPolarLegendItem*, int);
     using QCPPolarLegendItem_MaximumOuterSizeHint_Callback = QSize* (*)();
-    using QCPPolarLegendItem_Elements_Callback = QCPLayoutElement** (*)(const QCPPolarLegendItem*, bool);
+    using QCPPolarLegendItem_Elements_Callback = libqt_list /* of QCPLayoutElement* */ (*)(const QCPPolarLegendItem*, bool);
     using QCPPolarLegendItem_CalculateAutoMargin_Callback = int (*)(QCPPolarLegendItem*, int);
     using QCPPolarLegendItem_LayoutChanged_Callback = void (*)();
     using QCPPolarLegendItem_ParentPlotInitialized_Callback = void (*)(QCPPolarLegendItem*, QCustomPlot*);
@@ -41743,13 +41800,14 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         } else if (qcppolarlegenditem_elements_callback != nullptr) {
             bool cbval1 = recursive;
 
-            QCPLayoutElement** callback_ret = qcppolarlegenditem_elements_callback(this, cbval1);
+            libqt_list /* of QCPLayoutElement* */ callback_ret = qcppolarlegenditem_elements_callback(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QCPLayoutElement** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QCPLayoutElement** callback_ret_arr = static_cast<QCPLayoutElement**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QCPPolarLegendItem::elements(recursive);
@@ -42251,7 +42309,7 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
     using QCPPolarGraph_DrawPolyline_Callback = void (*)(const QCPPolarGraph*, QCPPainter*, libqt_list /* of QPointF* */);
     using QCPPolarGraph_GetLines_Callback = void (*)(const QCPPolarGraph*, libqt_list /* of QPointF* */, QCPDataRange*);
     using QCPPolarGraph_GetScatters_Callback = void (*)(const QCPPolarGraph*, libqt_list /* of QPointF* */, QCPDataRange*);
-    using QCPPolarGraph_DataToLines_Callback = QPointF** (*)(const QCPPolarGraph*, libqt_list /* of QCPGraphData* */);
+    using QCPPolarGraph_DataToLines_Callback = libqt_list /* of QPointF* */ (*)(const QCPPolarGraph*, libqt_list /* of QCPGraphData* */);
     using QCPPolarGraph_InitializeParentPlot_Callback = void (*)(QCPPolarGraph*, QCustomPlot*);
     using QCPPolarGraph_SetParentLayerable_Callback = void (*)(QCPPolarGraph*, QCPLayerable*);
     using QCPPolarGraph_MoveToLayer_Callback = bool (*)(QCPPolarGraph*, QCPLayer*, bool);
@@ -43160,13 +43218,14 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
 
-            QPointF** callback_ret = qcppolargraph_datatolines_callback(this, cbval1);
+            libqt_list /* of QPointF* */ callback_ret = qcppolargraph_datatolines_callback(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
-            // Iterate until null pointer sentinel
-            for (QPointF** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QVector.push_back(**ptridx);
+            callback_ret_QVector.reserve(callback_ret.len);
+            QPointF** callback_ret_arr = static_cast<QPointF**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QVector.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QVector;
         } else {
             return QCPPolarGraph::dataToLines(data);

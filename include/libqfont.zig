@@ -30,11 +30,11 @@ pub const qfont = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` families: [][]const u8 `
+    /// ` families: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New3(families: [][]const u8, allocator: std.mem.Allocator) QtC.QFont {
+    pub fn New3(families: []const []const u8, allocator: std.mem.Allocator) QtC.QFont {
         var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New3: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
@@ -134,13 +134,13 @@ pub const qfont = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` families: [][]const u8 `
+    /// ` families: []const []const u8 `
     ///
     /// ` pointSize: i32 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New9(families: [][]const u8, pointSize: i32, allocator: std.mem.Allocator) QtC.QFont {
+    pub fn New9(families: []const []const u8, pointSize: i32, allocator: std.mem.Allocator) QtC.QFont {
         var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New9: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
@@ -161,7 +161,7 @@ pub const qfont = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` families: [][]const u8 `
+    /// ` families: []const []const u8 `
     ///
     /// ` pointSize: i32 `
     ///
@@ -169,7 +169,7 @@ pub const qfont = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New10(families: [][]const u8, pointSize: i32, weight: i32, allocator: std.mem.Allocator) QtC.QFont {
+    pub fn New10(families: []const []const u8, pointSize: i32, weight: i32, allocator: std.mem.Allocator) QtC.QFont {
         var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New10: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
@@ -190,7 +190,7 @@ pub const qfont = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` families: [][]const u8 `
+    /// ` families: []const []const u8 `
     ///
     /// ` pointSize: i32 `
     ///
@@ -200,7 +200,7 @@ pub const qfont = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New11(families: [][]const u8, pointSize: i32, weight: i32, italic: bool, allocator: std.mem.Allocator) QtC.QFont {
+    pub fn New11(families: []const []const u8, pointSize: i32, weight: i32, italic: bool, allocator: std.mem.Allocator) QtC.QFont {
         var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New11: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
@@ -269,7 +269,7 @@ pub const qfont = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Families(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Families(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFont_Families(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -294,11 +294,11 @@ pub const qfont = struct {
     ///
     /// ` self: QtC.QFont `
     ///
-    /// ` families: [][]const u8 `
+    /// ` families: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetFamilies(self: ?*anyopaque, families: []const []const u8, allocator: std.mem.Allocator) void {
         var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.SetFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
@@ -1114,7 +1114,7 @@ pub const qfont = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Substitutes(param1: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Substitutes(param1: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1143,7 +1143,7 @@ pub const qfont = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Substitutions(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Substitutions(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFont_Substitutions();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1188,11 +1188,11 @@ pub const qfont = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    /// ` param2: [][]const u8 `
+    /// ` param2: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertSubstitutions(param1: []const u8, param2: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn InsertSubstitutions(param1: []const u8, param2: []const []const u8, allocator: std.mem.Allocator) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

@@ -249,9 +249,9 @@ pub const qplacematchreply = struct {
     ///
     /// ` self: QtC.QPlaceMatchReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceMatchReply, results: [*]QtC.QPlace) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPlaceMatchReply, results: qtc.libqt_list ([]QtC.QPlace)) callconv(.c) void `
     ///
-    pub fn OnSetPlaces(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPlace) callconv(.c) void) void {
+    pub fn OnSetPlaces(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QPlaceMatchReply_OnSetPlaces(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

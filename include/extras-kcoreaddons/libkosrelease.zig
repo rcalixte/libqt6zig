@@ -81,7 +81,7 @@ pub const kosrelease = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IdLike(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn IdLike(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KOSRelease_IdLike(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -332,7 +332,7 @@ pub const kosrelease = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ExtraKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KOSRelease_ExtraKeys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

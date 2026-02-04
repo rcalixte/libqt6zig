@@ -195,7 +195,7 @@ pub const qfileselector = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraSelectors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ExtraSelectors(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileSelector_ExtraSelectors(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -220,11 +220,11 @@ pub const qfileselector = struct {
     ///
     /// ` self: QtC.QFileSelector `
     ///
-    /// ` list: [][]const u8 `
+    /// ` list: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetExtraSelectors(self: ?*anyopaque, list: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetExtraSelectors(self: ?*anyopaque, list: []const []const u8, allocator: std.mem.Allocator) void {
         var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qfileselector.SetExtraSelectors: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
@@ -248,7 +248,7 @@ pub const qfileselector = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllSelectors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllSelectors(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFileSelector_AllSelectors(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

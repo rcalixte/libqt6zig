@@ -151,11 +151,11 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ` self: QtC.QTermWidgetInterface `
     ///
-    /// ` environment: [][]const u8 `
+    /// ` environment: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetEnvironment(self: ?*anyopaque, environment: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetEnvironment(self: ?*anyopaque, environment: []const []const u8, allocator: std.mem.Allocator) void {
         var environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qtermwidgetinterface.SetEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
         for (environment, 0..environment.len) |item, i| {
@@ -225,11 +225,11 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ` self: QtC.QTermWidgetInterface `
     ///
-    /// ` args: [][]const u8 `
+    /// ` args: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetArgs(self: ?*anyopaque, args: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetArgs(self: ?*anyopaque, args: []const []const u8, allocator: std.mem.Allocator) void {
         var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("qtermwidgetinterface.SetArgs: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
@@ -269,7 +269,7 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTermWidgetInterface_GetAvailableColorSchemes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

@@ -379,7 +379,7 @@ void KNSCore__Provider_LoadingFinished(KNSCore__Provider* self, const KNSCore__P
 }
 
 void KNSCore__Provider_Connect_LoadingFinished(KNSCore__Provider* self, intptr_t slot) {
-    void (*slotFunc)(KNSCore__Provider*, KNSCore__Provider__SearchRequest*, KNSCore__Entry**) = reinterpret_cast<void (*)(KNSCore__Provider*, KNSCore__Provider__SearchRequest*, KNSCore__Entry**)>(slot);
+    void (*slotFunc)(KNSCore__Provider*, KNSCore__Provider__SearchRequest*, libqt_list /* of KNSCore__Entry* */) = reinterpret_cast<void (*)(KNSCore__Provider*, KNSCore__Provider__SearchRequest*, libqt_list /* of KNSCore__Entry* */)>(slot);
     KNSCore::Provider::connect(self, &KNSCore::Provider::loadingFinished, [self, slotFunc](const KNSCore::Provider::SearchRequest& param1, const QList<KNSCore::Entry>& param2) {
         const KNSCore::Provider::SearchRequest& param1_ret = param1;
         // Cast returned reference into pointer
@@ -390,9 +390,10 @@ void KNSCore__Provider_Connect_LoadingFinished(KNSCore__Provider* self, intptr_t
         for (qsizetype i = 0; i < param2_ret.size(); ++i) {
             param2_arr[i] = new KNSCore::Entry(param2_ret[i]);
         }
-        // Append sentinel value to the list
-        param2_arr[param2_ret.size()] = nullptr;
-        KNSCore__Entry** sigval2 = param2_arr;
+        libqt_list param2_out;
+        param2_out.len = param2_ret.size();
+        param2_out.data = static_cast<void*>(param2_arr);
+        libqt_list /* of KNSCore__Entry* */ sigval2 = param2_out;
         slotFunc(self, sigval1, sigval2);
         free(param2_arr);
     });
@@ -462,7 +463,7 @@ void KNSCore__Provider_SearchPresetsLoaded(KNSCore__Provider* self, const libqt_
 }
 
 void KNSCore__Provider_Connect_SearchPresetsLoaded(KNSCore__Provider* self, intptr_t slot) {
-    void (*slotFunc)(KNSCore__Provider*, KNSCore__Provider__SearchPreset**) = reinterpret_cast<void (*)(KNSCore__Provider*, KNSCore__Provider__SearchPreset**)>(slot);
+    void (*slotFunc)(KNSCore__Provider*, libqt_list /* of KNSCore__Provider__SearchPreset* */) = reinterpret_cast<void (*)(KNSCore__Provider*, libqt_list /* of KNSCore__Provider__SearchPreset* */)>(slot);
     KNSCore::Provider::connect(self, &KNSCore::Provider::searchPresetsLoaded, [self, slotFunc](const QList<KNSCore::Provider::SearchPreset>& presets) {
         const QList<KNSCore::Provider::SearchPreset>& presets_ret = presets;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -470,9 +471,10 @@ void KNSCore__Provider_Connect_SearchPresetsLoaded(KNSCore__Provider* self, intp
         for (qsizetype i = 0; i < presets_ret.size(); ++i) {
             presets_arr[i] = new KNSCore::Provider::SearchPreset(presets_ret[i]);
         }
-        // Append sentinel value to the list
-        presets_arr[presets_ret.size()] = nullptr;
-        KNSCore__Provider__SearchPreset** sigval1 = presets_arr;
+        libqt_list presets_out;
+        presets_out.len = presets_ret.size();
+        presets_out.data = static_cast<void*>(presets_arr);
+        libqt_list /* of KNSCore__Provider__SearchPreset* */ sigval1 = presets_out;
         slotFunc(self, sigval1);
         free(presets_arr);
     });
@@ -553,7 +555,7 @@ void KNSCore__Provider_CategoriesMetadataLoded(KNSCore__Provider* self, const li
 }
 
 void KNSCore__Provider_Connect_CategoriesMetadataLoded(KNSCore__Provider* self, intptr_t slot) {
-    void (*slotFunc)(KNSCore__Provider*, KNSCore__Provider__CategoryMetadata**) = reinterpret_cast<void (*)(KNSCore__Provider*, KNSCore__Provider__CategoryMetadata**)>(slot);
+    void (*slotFunc)(KNSCore__Provider*, libqt_list /* of KNSCore__Provider__CategoryMetadata* */) = reinterpret_cast<void (*)(KNSCore__Provider*, libqt_list /* of KNSCore__Provider__CategoryMetadata* */)>(slot);
     KNSCore::Provider::connect(self, &KNSCore::Provider::categoriesMetadataLoded, [self, slotFunc](const QList<KNSCore::Provider::CategoryMetadata>& categories) {
         const QList<KNSCore::Provider::CategoryMetadata>& categories_ret = categories;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -561,9 +563,10 @@ void KNSCore__Provider_Connect_CategoriesMetadataLoded(KNSCore__Provider* self, 
         for (qsizetype i = 0; i < categories_ret.size(); ++i) {
             categories_arr[i] = new KNSCore::Provider::CategoryMetadata(categories_ret[i]);
         }
-        // Append sentinel value to the list
-        categories_arr[categories_ret.size()] = nullptr;
-        KNSCore__Provider__CategoryMetadata** sigval1 = categories_arr;
+        libqt_list categories_out;
+        categories_out.len = categories_ret.size();
+        categories_out.data = static_cast<void*>(categories_arr);
+        libqt_list /* of KNSCore__Provider__CategoryMetadata* */ sigval1 = categories_out;
         slotFunc(self, sigval1);
         free(categories_arr);
     });

@@ -330,9 +330,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` self: QtC.KIO__WidgetsAskUserActionHandler `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, confirmationType: askuseractioninterface_enums.ConfirmationType, parent: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, urls: qtc.libqt_list ([]QtC.QUrl), deletionType: askuseractioninterface_enums.DeletionType, confirmationType: askuseractioninterface_enums.ConfirmationType, parent: QtC.QWidget) callconv(.c) void `
     ///
-    pub fn OnAskUserDelete(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QUrl, i32, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnAskUserDelete(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserDelete(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -736,9 +736,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ` self: QtC.KIO__WidgetsAskUserActionHandler `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, allowDelete: bool, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, allowDelete: bool, urls: qtc.libqt_list ([]QtC.QUrl), deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void `
     ///
-    pub fn OnAskUserDeleteResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*]QtC.QUrl, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnAskUserDeleteResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, qtc.libqt_list, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__AskUserActionInterface_Connect_AskUserDeleteResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

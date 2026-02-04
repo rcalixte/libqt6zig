@@ -136,7 +136,7 @@ pub const qmimetype = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GlobPatterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn GlobPatterns(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QMimeType_GlobPatterns(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -163,7 +163,7 @@ pub const qmimetype = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ParentMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ParentMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QMimeType_ParentMimeTypes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -190,7 +190,7 @@ pub const qmimetype = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllAncestors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AllAncestors(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QMimeType_AllAncestors(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -217,7 +217,7 @@ pub const qmimetype = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Aliases(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Aliases(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QMimeType_Aliases(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -244,7 +244,7 @@ pub const qmimetype = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Suffixes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Suffixes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QMimeType_Suffixes(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

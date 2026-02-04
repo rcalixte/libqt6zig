@@ -368,11 +368,11 @@ pub const ktexteditor__attribute = struct {
     ///
     /// ` self: QtC.KTextEditor__Attribute `
     ///
-    /// ` families: [][]const u8 `
+    /// ` families: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetFontFamilies(self: ?*anyopaque, families: []const []const u8, allocator: std.mem.Allocator) void {
         var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("ktexteditor__attribute.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
@@ -1162,11 +1162,11 @@ pub const ktexteditor__attribute = struct {
     ///
     /// ` self: QtC.KTextEditor__Attribute `
     ///
-    /// ` names: [][]const u8 `
+    /// ` names: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetAnchorNames(self: ?*anyopaque, names: []const []const u8, allocator: std.mem.Allocator) void {
         var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("ktexteditor__attribute.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
@@ -1192,7 +1192,7 @@ pub const ktexteditor__attribute = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

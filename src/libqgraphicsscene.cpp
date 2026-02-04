@@ -644,7 +644,7 @@ void QGraphicsScene_Changed(QGraphicsScene* self, const libqt_list /* of QRectF*
 }
 
 void QGraphicsScene_Connect_Changed(QGraphicsScene* self, intptr_t slot) {
-    void (*slotFunc)(QGraphicsScene*, QRectF**) = reinterpret_cast<void (*)(QGraphicsScene*, QRectF**)>(slot);
+    void (*slotFunc)(QGraphicsScene*, libqt_list /* of QRectF* */) = reinterpret_cast<void (*)(QGraphicsScene*, libqt_list /* of QRectF* */)>(slot);
     QGraphicsScene::connect(self, &QGraphicsScene::changed, [self, slotFunc](const QList<QRectF>& region) {
         const QList<QRectF>& region_ret = region;
         // Convert QList<> from C++ memory to manually-managed C memory
@@ -652,9 +652,10 @@ void QGraphicsScene_Connect_Changed(QGraphicsScene* self, intptr_t slot) {
         for (qsizetype i = 0; i < region_ret.size(); ++i) {
             region_arr[i] = new QRectF(region_ret[i]);
         }
-        // Append sentinel value to the list
-        region_arr[region_ret.size()] = nullptr;
-        QRectF** sigval1 = region_arr;
+        libqt_list region_out;
+        region_out.len = region_ret.size();
+        region_out.data = static_cast<void*>(region_arr);
+        libqt_list /* of QRectF* */ sigval1 = region_out;
         slotFunc(self, sigval1);
         free(region_arr);
     });

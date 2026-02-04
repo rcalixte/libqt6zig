@@ -30,7 +30,7 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
     using KFileItemDelegate_EventFilter_Callback = bool (*)(KFileItemDelegate*, QObject*, QEvent*);
     using KFileItemDelegate_HelpEvent_Callback = bool (*)(KFileItemDelegate*, QHelpEvent*, QAbstractItemView*, QStyleOptionViewItem*, QModelIndex*);
     using KFileItemDelegate_DestroyEditor_Callback = void (*)(const KFileItemDelegate*, QWidget*, QModelIndex*);
-    using KFileItemDelegate_PaintingRoles_Callback = int* (*)();
+    using KFileItemDelegate_PaintingRoles_Callback = libqt_list /* of int */ (*)();
     using KFileItemDelegate_Event_Callback = bool (*)(KFileItemDelegate*, QEvent*);
     using KFileItemDelegate_TimerEvent_Callback = void (*)(KFileItemDelegate*, QTimerEvent*);
     using KFileItemDelegate_ChildEvent_Callback = void (*)(KFileItemDelegate*, QChildEvent*);
@@ -422,12 +422,14 @@ class VirtualKFileItemDelegate final : public KFileItemDelegate {
             kfileitemdelegate_paintingroles_isbase = false;
             return KFileItemDelegate::paintingRoles();
         } else if (kfileitemdelegate_paintingroles_callback != nullptr) {
-            int* callback_ret = kfileitemdelegate_paintingroles_callback();
+            libqt_list /* of int */ callback_ret = kfileitemdelegate_paintingroles_callback();
             QList<int> callback_ret_QList;
-            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
-                callback_ret_QList.push_back(*ptr);
+            callback_ret_QList.reserve(callback_ret.len);
+            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(static_cast<int>(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KFileItemDelegate::paintingRoles();

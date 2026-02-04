@@ -29,7 +29,7 @@ class VirtualKActionMenu final : public KActionMenu {
     using KActionMenu_CustomEvent_Callback = void (*)(KActionMenu*, QEvent*);
     using KActionMenu_ConnectNotify_Callback = void (*)(KActionMenu*, QMetaMethod*);
     using KActionMenu_DisconnectNotify_Callback = void (*)(KActionMenu*, QMetaMethod*);
-    using KActionMenu_CreatedWidgets_Callback = QWidget** (*)();
+    using KActionMenu_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
     using KActionMenu_Sender_Callback = QObject* (*)();
     using KActionMenu_SenderSignalIndex_Callback = int (*)();
     using KActionMenu_Receivers_Callback = int (*)(const KActionMenu*, const char*);
@@ -322,13 +322,14 @@ class VirtualKActionMenu final : public KActionMenu {
             kactionmenu_createdwidgets_isbase = false;
             return KActionMenu::createdWidgets();
         } else if (kactionmenu_createdwidgets_callback != nullptr) {
-            QWidget** callback_ret = kactionmenu_createdwidgets_callback();
+            libqt_list /* of QWidget* */ callback_ret = kactionmenu_createdwidgets_callback();
             QList<QWidget*> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(*ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(callback_ret_arr[i]);
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return KActionMenu::createdWidgets();

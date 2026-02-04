@@ -118,7 +118,7 @@ pub const attica__privatedata = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__PrivateData_Keys(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

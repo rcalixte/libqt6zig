@@ -185,7 +185,7 @@ pub const sonnet__configview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreferredLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PreferredLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__ConfigView_PreferredLanguages(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -228,7 +228,7 @@ pub const sonnet__configview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn IgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__ConfigView_IgnoreList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -277,11 +277,11 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    /// ` ignoreList: [][]const u8 `
+    /// ` ignoreList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetPreferredLanguages(self: ?*anyopaque, ignoreList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetPreferredLanguages(self: ?*anyopaque, ignoreList: []const []const u8, allocator: std.mem.Allocator) void {
         var ignoreList_arr = allocator.alloc(qtc.libqt_string, ignoreList.len) catch @panic("sonnet__configview.SetPreferredLanguages: Memory allocation failed");
         defer allocator.free(ignoreList_arr);
         for (ignoreList, 0..ignoreList.len) |item, i| {
@@ -319,11 +319,11 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView `
     ///
-    /// ` ignoreList: [][]const u8 `
+    /// ` ignoreList: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetIgnoreList(self: ?*anyopaque, ignoreList: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetIgnoreList(self: ?*anyopaque, ignoreList: []const []const u8, allocator: std.mem.Allocator) void {
         var ignoreList_arr = allocator.alloc(qtc.libqt_string, ignoreList.len) catch @panic("sonnet__configview.SetIgnoreList: Memory allocation failed");
         defer allocator.free(ignoreList_arr);
         for (ignoreList, 0..ignoreList.len) |item, i| {

@@ -155,7 +155,7 @@ pub const knetworkmounts = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Paths(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Paths(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNetworkMounts_Paths(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -180,13 +180,13 @@ pub const knetworkmounts = struct {
     ///
     /// ` self: QtC.KNetworkMounts `
     ///
-    /// ` paths: [][]const u8 `
+    /// ` paths: []const []const u8 `
     ///
     /// ` typeVal: knetworkmounts_enums.KNetworkMountsType `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetPaths(self: ?*anyopaque, paths: [][]const u8, typeVal: i32, allocator: std.mem.Allocator) void {
+    pub fn SetPaths(self: ?*anyopaque, paths: []const []const u8, typeVal: i32, allocator: std.mem.Allocator) void {
         var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("knetworkmounts.SetPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
@@ -346,7 +346,7 @@ pub const knetworkmounts = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Paths1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Paths1(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNetworkMounts_Paths1(@ptrCast(self), @intCast(typeVal));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

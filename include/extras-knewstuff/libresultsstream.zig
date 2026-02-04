@@ -100,9 +100,9 @@ pub const knscore__resultsstream = struct {
     ///
     /// ` self: QtC.KNSCore__ResultsStream `
     ///
-    /// ` callback: *const fn (self: QtC.KNSCore__ResultsStream, entries: [*]QtC.KNSCore__Entry) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KNSCore__ResultsStream, entries: qtc.libqt_list ([]QtC.KNSCore__Entry)) callconv(.c) void `
     ///
-    pub fn OnEntriesFound(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.KNSCore__Entry) callconv(.c) void) void {
+    pub fn OnEntriesFound(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.KNSCore__ResultsStream_Connect_EntriesFound(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

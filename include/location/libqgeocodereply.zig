@@ -561,9 +561,9 @@ pub const qgeocodereply = struct {
     ///
     /// ` self: QtC.QGeoCodeReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoCodeReply, locations: [*]QtC.QGeoLocation) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QGeoCodeReply, locations: qtc.libqt_list ([]QtC.QGeoLocation)) callconv(.c) void `
     ///
-    pub fn OnSetLocations(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QGeoLocation) callconv(.c) void) void {
+    pub fn OnSetLocations(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGeoCodeReply_OnSetLocations(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

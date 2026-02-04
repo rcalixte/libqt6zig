@@ -173,11 +173,11 @@ pub const signon__authsession = struct {
     ///
     /// ` self: QtC.SignOn__AuthSession `
     ///
-    /// ` mechanisms: [][]const u8 `
+    /// ` mechanisms: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MechanismsAvailable(self: ?*anyopaque, mechanisms: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn MechanismsAvailable(self: ?*anyopaque, mechanisms: []const []const u8, allocator: std.mem.Allocator) void {
         var mechanisms_arr = allocator.alloc(qtc.libqt_string, mechanisms.len) catch @panic("signon__authsession.MechanismsAvailable: Memory allocation failed");
         defer allocator.free(mechanisms_arr);
         for (mechanisms, 0..mechanisms.len) |item, i| {
@@ -199,9 +199,9 @@ pub const signon__authsession = struct {
     ///
     /// ` self: QtC.SignOn__AuthSession `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__AuthSession, mechanisms: [*][*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.SignOn__AuthSession, mechanisms: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMechanismsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+    pub fn OnMechanismsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.SignOn__AuthSession_Connect_MechanismsAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -307,11 +307,11 @@ pub const signon__authsession = struct {
     ///
     /// ` self: QtC.SignOn__AuthSession `
     ///
-    /// ` wantedMechanisms: [][]const u8 `
+    /// ` wantedMechanisms: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryAvailableMechanisms1(self: ?*anyopaque, wantedMechanisms: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn QueryAvailableMechanisms1(self: ?*anyopaque, wantedMechanisms: []const []const u8, allocator: std.mem.Allocator) void {
         var wantedMechanisms_arr = allocator.alloc(qtc.libqt_string, wantedMechanisms.len) catch @panic("signon__authsession.QueryAvailableMechanisms1: Memory allocation failed");
         defer allocator.free(wantedMechanisms_arr);
         for (wantedMechanisms, 0..wantedMechanisms.len) |item, i| {

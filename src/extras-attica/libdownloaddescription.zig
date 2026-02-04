@@ -245,7 +245,7 @@ pub const attica__downloaddescription = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Attica__DownloadDescription_Tags(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -478,11 +478,11 @@ pub const attica__downloaddescription = struct {
     ///
     /// ` self: QtC.Attica__DownloadDescription `
     ///
-    /// ` tags: [][]const u8 `
+    /// ` tags: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetTags(self: ?*anyopaque, tags: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetTags(self: ?*anyopaque, tags: []const []const u8, allocator: std.mem.Allocator) void {
         var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("attica__downloaddescription.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i| {

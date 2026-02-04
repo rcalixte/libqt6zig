@@ -52,7 +52,7 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
     using QSqlQueryModel_MoveColumns_Callback = bool (*)(QSqlQueryModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QSqlQueryModel_Sort_Callback = void (*)(QSqlQueryModel*, int, int);
     using QSqlQueryModel_Buddy_Callback = QModelIndex* (*)(const QSqlQueryModel*, QModelIndex*);
-    using QSqlQueryModel_Match_Callback = QModelIndex** (*)(const QSqlQueryModel*, QModelIndex*, int, QVariant*, int, int);
+    using QSqlQueryModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QSqlQueryModel*, QModelIndex*, int, QVariant*, int, int);
     using QSqlQueryModel_Span_Callback = QSize* (*)(const QSqlQueryModel*, QModelIndex*);
     using QSqlQueryModel_MultiData_Callback = void (*)(const QSqlQueryModel*, QModelIndex*, QModelRoleDataSpan*);
     using QSqlQueryModel_Submit_Callback = bool (*)();
@@ -85,7 +85,7 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
     using QSqlQueryModel_EndMoveColumns_Callback = void (*)();
     using QSqlQueryModel_ChangePersistentIndex_Callback = void (*)(QSqlQueryModel*, QModelIndex*, QModelIndex*);
     using QSqlQueryModel_ChangePersistentIndexList_Callback = void (*)(QSqlQueryModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QSqlQueryModel_PersistentIndexList_Callback = QModelIndex** (*)();
+    using QSqlQueryModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
     using QSqlQueryModel_Sender_Callback = QObject* (*)();
     using QSqlQueryModel_SenderSignalIndex_Callback = int (*)();
     using QSqlQueryModel_Receivers_Callback = int (*)(const QSqlQueryModel*, const char*);
@@ -923,7 +923,7 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
                 QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
-            free(callback_ret);
+            libqt_free(callback_ret);
             return callback_ret_QList;
         } else {
             return QSqlQueryModel::mimeTypes();
@@ -1133,13 +1133,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            QModelIndex** callback_ret = qsqlquerymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = qsqlquerymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QSqlQueryModel::match(start, role, value, hits, flags);
@@ -1674,13 +1675,14 @@ class VirtualQSqlQueryModel final : public QSqlQueryModel {
             qsqlquerymodel_persistentindexlist_isbase = false;
             return QSqlQueryModel::persistentIndexList();
         } else if (qsqlquerymodel_persistentindexlist_callback != nullptr) {
-            QModelIndex** callback_ret = qsqlquerymodel_persistentindexlist_callback();
+            libqt_list /* of QModelIndex* */ callback_ret = qsqlquerymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            // Iterate until null pointer sentinel
-            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
-                callback_ret_QList.push_back(**ptridx);
+            callback_ret_QList.reserve(callback_ret.len);
+            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
+            for (size_t i = 0; i < callback_ret.len; ++i) {
+                callback_ret_QList.push_back(*(callback_ret_arr[i]));
             }
-            free(callback_ret);
+            libqt_free(callback_ret.data);
             return callback_ret_QList;
         } else {
             return QSqlQueryModel::persistentIndexList();

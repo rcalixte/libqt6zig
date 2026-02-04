@@ -528,9 +528,9 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeries, slices: [*]QtC.QPieSlice) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, slices: qtc.libqt_list ([]QtC.QPieSlice)) callconv(.c) void `
     ///
-    pub fn OnAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Added(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -556,9 +556,9 @@ pub const qpieseries = struct {
     ///
     /// ` self: QtC.QPieSeries `
     ///
-    /// ` callback: *const fn (self: QtC.QPieSeries, slices: [*]QtC.QPieSlice) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QPieSeries, slices: qtc.libqt_list ([]QtC.QPieSlice)) callconv(.c) void `
     ///
-    pub fn OnRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+    pub fn OnRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Removed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

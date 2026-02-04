@@ -13,11 +13,11 @@ pub const kiconengine = struct {
     ///
     /// ` iconLoader: QtC.KIconLoader `
     ///
-    /// ` overlays: [][]const u8 `
+    /// ` overlays: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New(iconName: []const u8, iconLoader: ?*anyopaque, overlays: [][]const u8, allocator: std.mem.Allocator) QtC.KIconEngine {
+    pub fn New(iconName: []const u8, iconLoader: ?*anyopaque, overlays: []const []const u8, allocator: std.mem.Allocator) QtC.KIconEngine {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
@@ -84,11 +84,11 @@ pub const kiconengine = struct {
     ///
     /// ` iconLoader: QtC.KIconLoader `
     ///
-    /// ` overlays: [][]const u8 `
+    /// ` overlays: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn New4(iconName: []const u8, colors: ?*anyopaque, iconLoader: ?*anyopaque, overlays: [][]const u8, allocator: std.mem.Allocator) QtC.KIconEngine {
+    pub fn New4(iconName: []const u8, colors: ?*anyopaque, iconLoader: ?*anyopaque, overlays: []const []const u8, allocator: std.mem.Allocator) QtC.KIconEngine {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
@@ -400,9 +400,13 @@ pub const kiconengine = struct {
     ///
     /// ` self: QtC.KIconEngine `
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) [*:null]QtC.QSize `
+    /// ` callback: *const fn (self: QtC.KIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnAvailableSizes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QSize) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QSize `
+    ///
+    pub fn OnAvailableSizes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.KIconEngine_OnAvailableSizes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -191,11 +191,11 @@ pub const sonnet__settings = struct {
     ///
     /// ` self: QtC.Sonnet__Settings `
     ///
-    /// ` lang: [][]const u8 `
+    /// ` lang: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetPreferredLanguages(self: ?*anyopaque, lang: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetPreferredLanguages(self: ?*anyopaque, lang: []const []const u8, allocator: std.mem.Allocator) void {
         var lang_arr = allocator.alloc(qtc.libqt_string, lang.len) catch @panic("sonnet__settings.SetPreferredLanguages: Memory allocation failed");
         defer allocator.free(lang_arr);
         for (lang, 0..lang.len) |item, i| {
@@ -219,7 +219,7 @@ pub const sonnet__settings = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreferredLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn PreferredLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_PreferredLanguages(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -386,11 +386,11 @@ pub const sonnet__settings = struct {
     ///
     /// ` self: QtC.Sonnet__Settings `
     ///
-    /// ` ignores: [][]const u8 `
+    /// ` ignores: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetCurrentIgnoreList(self: ?*anyopaque, ignores: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetCurrentIgnoreList(self: ?*anyopaque, ignores: []const []const u8, allocator: std.mem.Allocator) void {
         var ignores_arr = allocator.alloc(qtc.libqt_string, ignores.len) catch @panic("sonnet__settings.SetCurrentIgnoreList: Memory allocation failed");
         defer allocator.free(ignores_arr);
         for (ignores, 0..ignores.len) |item, i| {
@@ -414,7 +414,7 @@ pub const sonnet__settings = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentIgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn CurrentIgnoreList(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_CurrentIgnoreList(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -441,7 +441,7 @@ pub const sonnet__settings = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Clients(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Clients(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_Clients(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -496,7 +496,7 @@ pub const sonnet__settings = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultIgnoreList(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DefaultIgnoreList(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_DefaultIgnoreList();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -565,7 +565,7 @@ pub const sonnet__settings = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultPreferredLanguages(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn DefaultPreferredLanguages(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Settings_DefaultPreferredLanguages();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

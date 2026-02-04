@@ -63,7 +63,7 @@ pub const qstringconverter = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableCodecs(allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableCodecs(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QStringConverter_AvailableCodecs();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

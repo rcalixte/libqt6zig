@@ -133,7 +133,7 @@ pub const sonnet__speller = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Suggest(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Suggest(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
@@ -164,11 +164,11 @@ pub const sonnet__speller = struct {
     ///
     /// ` word: []const u8 `
     ///
-    /// ` suggestions: [][]const u8 `
+    /// ` suggestions: []const []const u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CheckAndSuggest(self: ?*anyopaque, word: []const u8, suggestions: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn CheckAndSuggest(self: ?*anyopaque, word: []const u8, suggestions: []const []const u8, allocator: std.mem.Allocator) bool {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
@@ -270,7 +270,7 @@ pub const sonnet__speller = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableBackends(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableBackends(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableBackends(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -297,7 +297,7 @@ pub const sonnet__speller = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableLanguages(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -324,7 +324,7 @@ pub const sonnet__speller = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableLanguageNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn AvailableLanguageNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableLanguageNames(@ptrCast(self));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

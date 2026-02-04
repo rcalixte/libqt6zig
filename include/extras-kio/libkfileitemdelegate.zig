@@ -1859,9 +1859,13 @@ pub const kfileitemdelegate = struct {
     ///
     /// ` self: QtC.KFileItemDelegate`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:-1]i32 `
+    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:-1]i32) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []i32 `
+    ///
+    pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KFileItemDelegate_OnPaintingRoles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

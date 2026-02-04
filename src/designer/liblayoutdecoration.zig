@@ -41,9 +41,13 @@ pub const qdesignerlayoutdecorationextension = struct {
     ///
     /// ` self: QtC.QDesignerLayoutDecorationExtension `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, layout: QtC.QLayout) callconv(.c) [*:null]QtC.QWidget `
+    /// ` callback: *const fn (self: QtC.QDesignerLayoutDecorationExtension, layout: QtC.QLayout) callconv(.c) qtc.libqt_list `
     ///
-    pub fn OnWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QWidget) void {
+    /// ## Callback Returns:
+    ///
+    /// ` C ABI representation of []QtC.QWidget `
+    ///
+    pub fn OnWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_list) void {
         qtc.QDesignerLayoutDecorationExtension_OnWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
