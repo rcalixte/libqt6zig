@@ -88,7 +88,7 @@ const (
 	postUrl = ")"
 )
 
-func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
+func (zfs *zigFileState) getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 	if strings.HasPrefix(pageName, "qsci") {
 		if pageType == EnumPage {
 			return ""
@@ -96,7 +96,7 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 		return preUrl + "https://www.riverbankcomputing.com/static/Docs/QScintilla/class" + className + ".html" + postUrl
 	}
 
-	if strings.HasPrefix(pageName, "layershellqt") {
+	if strings.HasPrefix(pageName, "layershellqt") || (pageType == EnumPage && zfs.currentPackageName == "foss-extras-layershellqt") {
 		return preUrl + "https://invent.kde.org/plasma/layer-shell-qt" + postUrl
 	}
 
@@ -108,20 +108,22 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 		return preUrl + "https://github.com/ksnip/kImageAnnotator" + postUrl
 	}
 
-	if strings.HasPrefix(pageName, "packagekit") {
+	if strings.HasPrefix(pageName, "packagekit") || (pageType == EnumPage && zfs.currentPackageName == "foss-extras-packagekitqt") {
 		return preUrl + "https://github.com/PackageKit/PackageKit-Qt" + postUrl
 	}
 
-	if strings.HasPrefix(pageName, "qkeychain") {
+	if strings.HasPrefix(pageName, "qkeychain") || (pageType == EnumPage && zfs.currentPackageName == "extras-qtkeychain") {
 		return preUrl + "https://github.com/frankosterfeld/qtkeychain" + postUrl
 	}
 
-	if strings.HasPrefix(pageName, "Accounts__") {
-		return preUrl + "https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1" + strings.ToUpper(pageName[10:11]) + pageName[11:] + ".html" + postUrl
+	if strings.HasPrefix(pageName, "Accounts__") || (pageType == EnumPage && zfs.currentPackageName == "posix-extras-accounts") {
+		classUrl := strings.TrimPrefix(pageName, "Accounts__")
+		return preUrl + "https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1" + strings.ToUpper(classUrl[0:1]) + classUrl[1:] + ".html" + postUrl
 	}
 
-	if strings.HasPrefix(pageName, "SignOn__") {
-		return preUrl + "https://accounts-sso.gitlab.io/signond/classSignOn_1_1" + strings.ToUpper(pageName[8:9]) + pageName[9:] + ".html" + postUrl
+	if strings.HasPrefix(pageName, "SignOn__") || (pageType == EnumPage && zfs.currentPackageName == "posix-extras-signon") {
+		classUrl := strings.TrimPrefix(pageName, "SignOn__")
+		return preUrl + "https://accounts-sso.gitlab.io/signond/classSignOn_1_1" + strings.ToUpper(classUrl[0:1]) + classUrl[1:] + ".html" + postUrl
 	}
 
 	if pageType == DtorPage && strings.Contains(className, "__") {
@@ -135,10 +137,34 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 
 	qtUrl := "https://doc.qt.io/qt-6/"
 	types := ifv(pageName == "qt", "types", "public-types")
-	if pageName[0] != 'q' && pageName != "disambiguated_t" &&
-		pageName != "partial_ordering" && pageName != "weak_ordering" && pageName != "strong_ordering" {
+	if pageName == "question" || (pageName[0] != 'q' && zfs.currentPackageName != "designer" &&
+		pageName != "partial_ordering" && pageName != "weak_ordering" && pageName != "strong_ordering") {
 		qtUrl = "https://api.kde.org/"
 		pageName = strings.TrimSuffix(pageName, "_1")
+		if pageType == EnumPage {
+			switch zfs.currentPackageName {
+			case "extras-attica":
+				pageName = "attica-" + pageName
+			case "extras-kfilemetadata":
+				pageName = "kfilemetadata-" + pageName
+			case "extras-kio":
+				if pageType == EnumPage && !strings.HasPrefix(pageName, "k") {
+					pageName = "kio-" + pageName
+				}
+			case "extras-knewstuff":
+				pageName = "knscore-" + pageName
+			case "extras-kparts":
+				pageName = "kparts-" + pageName
+			case "extras-ksvg":
+				pageName = "ksvg-" + pageName
+			case "extras-ksyntaxhighlighting":
+				pageName = "ksyntaxhighlighting-" + pageName
+			case "extras-solid":
+				pageName = "solid-" + pageName
+			case "extras-sonnet":
+				pageName = "sonnet-" + pageName
+			}
+		}
 	}
 
 	if pageName == "qcustomplot" || strings.HasPrefix(pageName, "QCP") {
@@ -219,7 +245,7 @@ func mapParamToString(param string) string {
 }
 
 func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumName bool) string {
-	if p.Pointer && p.ParameterType == "char" {
+	if p.Pointer && (p.ParameterType == "char" || p.ParameterType == "GLchar") {
 		maybeConst := ifv(p.Const, "const ", "")
 		return strings.Repeat("[]"+maybeConst, p.PointerCount-1) + "[:0]" + maybeConst + "u8"
 	}
@@ -463,11 +489,11 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 	if p.ByRef || p.Pointer {
 		if isReturnType {
 			if p.needsPointer(ret) {
-				ret = "QtC." + ret
+				ret = ifv(p.PointerCount > 1, "*", "") + "QtC." + ret
 			}
 		} else if p.QtClassType() {
 			maybeExtraPointer := ifv(p.ByRef && p.Pointer, "*", "")
-			ret = "?*" + maybeExtraPointer + "anyopaque"
+			ret = ifv(p.PointerCount > 1, "*", "") + "?*" + maybeExtraPointer + "anyopaque"
 		} else if !(p.ParameterType == "GLvoid" || p.ParameterType == "void") {
 			ret = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + ret
 		}
@@ -532,6 +558,10 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) (strin
 
 	if p.IntType() && (p.Pointer || p.ByRef) {
 		ret = "?*" + maybeConst + ret
+	}
+
+	if p.PointerCount > 1 {
+		ret = "*" + ret
 	}
 
 	if isSlot {
@@ -658,6 +688,9 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 			if p.needsPointer(paramType) {
 				paramType = "QtC." + paramType
 			}
+			if strings.HasPrefix(paramType, "QtC.") && p.PointerCount > 1 {
+				paramType = "*" + paramType
+			}
 			if p.IntType() && (p.Pointer || p.ByRef) {
 				if !p.GlIntType() {
 					paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + paramType
@@ -780,7 +813,7 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 				param = "_" + param
 			}
 			if p.needsPointer(paramType) {
-				paramType = "QtC." + paramType
+				paramType = ifv(p.PointerCount > 1, "*", "") + "QtC." + paramType
 			}
 			if (p.ParameterType == "GLvoid" || p.ParameterType == "void") && (p.Pointer || p.ByRef) {
 				paramType = ifv(p.PointerCount > 1, "*", "") + "?*" + ifv(p.Const, "const ", "") + "anyopaque"
@@ -1293,7 +1326,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			rvalue = nameprefix + "_pair"
 		}
 
-	} else if p.Pointer && p.ParameterType == "char" {
+	} else if p.Pointer && (p.ParameterType == "char" || p.ParameterType == "GLchar") {
 		switch p.PointerCount {
 		case 1:
 			// Single char* argument
@@ -1305,7 +1338,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			zfs.imports["std"] = struct{}{}
 
 			preamble += "const " + nameprefix + "_chararr = allocator.alloc([*c]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
-			if p.Const {
+			if p.ParameterName != "argv" {
 				preamble += "defer allocator.free(" + nameprefix + "_chararr);\n"
 			}
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |str, i| {\n"
@@ -2083,7 +2116,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			maybeDedupe = ifv(zigStruct == "ktexteditor" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "ktimezone" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			zigIncs[zigStruct+maybeDedupe] = "pub const " + zigStruct + maybeDedupe + ` = @import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").` + zigStruct + ";"
-			ret.WriteString(getPageUrl(QtPage, pageName, "", zigStructName) + "\n" +
+			ret.WriteString(zfs.getPageUrl(QtPage, pageName, "", zigStructName) + "\n" +
 				"pub const " + zigStruct + " = struct {")
 		}
 
@@ -2299,7 +2332,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 			if subjectURL != "" {
 				maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
-				pageURL := getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
+				pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
 				docCommentUrl = pageURL
 				ret.WriteString(docCommentUrl + "\n")
 				maybeNewLine = "///\n"
@@ -2507,7 +2540,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				cmdURL = m.VariableFieldName + "-var"
 			}
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "", "-qtcharts", "")
-			pageURL := getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
+			pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
 			documentationURL := pageURL + "\n///\n"
 
 			// Add a package-private function to call the C++ base class method
@@ -2609,7 +2642,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 			if subjectURL != "" {
 				maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
-				pageURL := getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
+				pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
 				docCommentUrl = pageURL + "\n///\n"
 			}
 
@@ -2630,7 +2663,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				(strings.Contains(src.Filename, "accounts-qt") && zigStructName[0] != 'Q') ||
 				(strings.Contains(src.Filename, "signon-qt") && zigStructName[0] != 'Q')
 
-			pageUrl := getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
+			pageUrl := zfs.getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
 			ret.WriteString(ifv(pageUrl != "", pageUrl+"\n///\n", "\n") +
 				"/// Delete this object from C++ memory.\n///\n" +
 				"/// ## Parameter:\n///\n" +
@@ -2647,21 +2680,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 	if len(src.Enums) > 0 {
 		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + `_enums = @import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").enums;`
 		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-		maybeUrlPrefix := ifv(strings.Contains(src.Filename, "KIO") && !strings.HasPrefix(getPageName(zfs.currentHeaderName), "k"), "kio-", "")
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Accounts"), "Accounts__", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Attica"), "attica-", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KNSCore"), "knscore-", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KParts"), "kparts-", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KSvg"), "ksvg-", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KSyntaxHighlighting"), "ksyntaxhighlighting-", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "LayerShellQt"), "layershellqt-", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "PackageKit"), "packagekit-", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "qt6keychain"), "qkeychain-", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "SignOn"), "SignOn__", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Solid"), "solid-", maybeUrlPrefix)
-		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
-		pageName := maybeUrlPrefix + getPageName(zfs.currentHeaderName) + maybeCharts
-		pageUrl := getPageUrl(EnumPage, pageName, "", zfs.currentHeaderName)
+		pageName := getPageName(zfs.currentHeaderName) + maybeCharts
+		pageUrl := zfs.getPageUrl(EnumPage, pageName, "", zfs.currentHeaderName)
 		ret.WriteString(pageUrl + "\npub const enums = struct {\n")
 		closeEnums = "};\n"
 	}
