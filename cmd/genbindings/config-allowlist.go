@@ -22,6 +22,10 @@ func InsertTypedefs() {
 	// Qt 6 KCoreAddons: ksandbox.h uses an inherited enum
 	KnownTypedefs["QProcess::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QProcess::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode", "")}}
 
+	// Qt 6 KFileMetaData
+	KnownTypedefs["EmbeddedImageData::ImageType"] = lookupResultTypedef{pp, CppTypedef{"KFileMetaData::EmbeddedImageData::ImageType", parseSingleTypeString("KFileMetaData::EmbeddedImageData::ImageType", "")}}
+	KnownTypedefs["Type::Type"] = lookupResultTypedef{pp, CppTypedef{"KFileMetaData::Type::Type", parseSingleTypeString("KFileMetaData::Type::Type", "")}}
+
 	// Qt 6 Solid: predicate.h has a broken inner typedef for QSet<DeviceInterface::Type> - TODO?
 	KnownTypedefs["DeviceInterface::Type"] = lookupResultTypedef{pp, CppTypedef{"Solid::DeviceInterface::Type", parseSingleTypeString("Solid::DeviceInterface::Type", "")}}
 
@@ -826,7 +830,8 @@ func AllowFieldForClass(className string) bool {
 
 func AllowStructDef(className string) bool {
 	switch className {
-	case "KIO::SslUi",
+	case "KFileMetaData::MimeUtils",
+		"KIO::SslUi",
 		"KNSCore::ErrorCode",
 		"KParts::PartLoader",
 		"KSyntaxHighlighting::WildcardMatcher":
