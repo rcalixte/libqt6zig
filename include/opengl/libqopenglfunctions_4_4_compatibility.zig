@@ -2788,10 +2788,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetUniformLocation(self: ?*anyopaque, program: u32, name: []const u8) i32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetUniformLocation(@ptrCast(self), @intCast(program), name.ptr);
+    pub fn GlGetUniformLocation(self: ?*anyopaque, program: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetUniformLocation(@ptrCast(self), @intCast(program), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetShaderSource)
@@ -2806,10 +2807,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` source: []u8 `
+    /// ` source: [:0]u8 `
     ///
-    pub fn GlGetShaderSource(self: ?*anyopaque, shader: u32, bufSize: i32, length: []i32, source: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetShaderSource(@ptrCast(self), @intCast(shader), @intCast(bufSize), length.ptr, source.ptr);
+    pub fn GlGetShaderSource(self: ?*anyopaque, shader: u32, bufSize: i32, length: []i32, source: [:0]u8) void {
+        const source_Cstring = source.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetShaderSource(@ptrCast(self), @intCast(shader), @intCast(bufSize), length.ptr, source_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetShaderInfoLog)
@@ -2824,10 +2826,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` infoLog: []u8 `
+    /// ` infoLog: [:0]u8 `
     ///
-    pub fn GlGetShaderInfoLog(self: ?*anyopaque, shader: u32, bufSize: i32, length: []i32, infoLog: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetShaderInfoLog(@ptrCast(self), @intCast(shader), @intCast(bufSize), length.ptr, infoLog.ptr);
+    pub fn GlGetShaderInfoLog(self: ?*anyopaque, shader: u32, bufSize: i32, length: []i32, infoLog: [:0]u8) void {
+        const infoLog_Cstring = infoLog.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetShaderInfoLog(@ptrCast(self), @intCast(shader), @intCast(bufSize), length.ptr, infoLog_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetShaderiv)
@@ -2858,10 +2861,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` infoLog: []u8 `
+    /// ` infoLog: [:0]u8 `
     ///
-    pub fn GlGetProgramInfoLog(self: ?*anyopaque, program: u32, bufSize: i32, length: []i32, infoLog: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramInfoLog(@ptrCast(self), @intCast(program), @intCast(bufSize), length.ptr, infoLog.ptr);
+    pub fn GlGetProgramInfoLog(self: ?*anyopaque, program: u32, bufSize: i32, length: []i32, infoLog: [:0]u8) void {
+        const infoLog_Cstring = infoLog.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramInfoLog(@ptrCast(self), @intCast(program), @intCast(bufSize), length.ptr, infoLog_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetProgramiv)
@@ -2888,10 +2892,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetAttribLocation(self: ?*anyopaque, program: u32, name: []const u8) i32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetAttribLocation(@ptrCast(self), @intCast(program), name.ptr);
+    pub fn GlGetAttribLocation(self: ?*anyopaque, program: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetAttribLocation(@ptrCast(self), @intCast(program), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetAttachedShaders)
@@ -3018,10 +3023,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` index: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlBindAttribLocation(self: ?*anyopaque, program: u32, index: u32, name: []const u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlBindAttribLocation(@ptrCast(self), @intCast(program), @intCast(index), name.ptr);
+    pub fn GlBindAttribLocation(self: ?*anyopaque, program: u32, index: u32, name: [:0]const u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlBindAttribLocation(@ptrCast(self), @intCast(program), @intCast(index), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glAttachShader)
@@ -3906,10 +3912,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetFragDataLocation(self: ?*anyopaque, program: u32, name: []const u8) i32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetFragDataLocation(@ptrCast(self), @intCast(program), name.ptr);
+    pub fn GlGetFragDataLocation(self: ?*anyopaque, program: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetFragDataLocation(@ptrCast(self), @intCast(program), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glBindFragDataLocation)
@@ -3922,10 +3929,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` color: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlBindFragDataLocation(self: ?*anyopaque, program: u32, color: u32, name: []const u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlBindFragDataLocation(@ptrCast(self), @intCast(program), @intCast(color), name.ptr);
+    pub fn GlBindFragDataLocation(self: ?*anyopaque, program: u32, color: u32, name: [:0]const u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlBindFragDataLocation(@ptrCast(self), @intCast(program), @intCast(color), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetUniformuiv)
@@ -4520,10 +4528,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` uniformBlockName: []u8 `
+    /// ` uniformBlockName: [:0]u8 `
     ///
-    pub fn GlGetActiveUniformBlockName(self: ?*anyopaque, program: u32, uniformBlockIndex: u32, bufSize: i32, length: []i32, uniformBlockName: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetActiveUniformBlockName(@ptrCast(self), @intCast(program), @intCast(uniformBlockIndex), @intCast(bufSize), length.ptr, uniformBlockName.ptr);
+    pub fn GlGetActiveUniformBlockName(self: ?*anyopaque, program: u32, uniformBlockIndex: u32, bufSize: i32, length: []i32, uniformBlockName: [:0]u8) void {
+        const uniformBlockName_Cstring = uniformBlockName.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetActiveUniformBlockName(@ptrCast(self), @intCast(program), @intCast(uniformBlockIndex), @intCast(bufSize), length.ptr, uniformBlockName_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetActiveUniformBlockiv)
@@ -4552,10 +4561,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` uniformBlockName: []const u8 `
+    /// ` uniformBlockName: [:0]const u8 `
     ///
-    pub fn GlGetUniformBlockIndex(self: ?*anyopaque, program: u32, uniformBlockName: []const u8) u32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetUniformBlockIndex(@ptrCast(self), @intCast(program), uniformBlockName.ptr);
+    pub fn GlGetUniformBlockIndex(self: ?*anyopaque, program: u32, uniformBlockName: [:0]const u8) u32 {
+        const uniformBlockName_Cstring = uniformBlockName.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetUniformBlockIndex(@ptrCast(self), @intCast(program), uniformBlockName_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetActiveUniformName)
@@ -4572,10 +4582,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` uniformName: []u8 `
+    /// ` uniformName: [:0]u8 `
     ///
-    pub fn GlGetActiveUniformName(self: ?*anyopaque, program: u32, uniformIndex: u32, bufSize: i32, length: []i32, uniformName: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetActiveUniformName(@ptrCast(self), @intCast(program), @intCast(uniformIndex), @intCast(bufSize), length.ptr, uniformName.ptr);
+    pub fn GlGetActiveUniformName(self: ?*anyopaque, program: u32, uniformIndex: u32, bufSize: i32, length: []i32, uniformName: [:0]u8) void {
+        const uniformName_Cstring = uniformName.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetActiveUniformName(@ptrCast(self), @intCast(program), @intCast(uniformIndex), @intCast(bufSize), length.ptr, uniformName_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetActiveUniformsiv)
@@ -5350,10 +5361,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetFragDataIndex(self: ?*anyopaque, program: u32, name: []const u8) i32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetFragDataIndex(@ptrCast(self), @intCast(program), name.ptr);
+    pub fn GlGetFragDataIndex(self: ?*anyopaque, program: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetFragDataIndex(@ptrCast(self), @intCast(program), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glBindFragDataLocationIndexed)
@@ -5368,10 +5380,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` index: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlBindFragDataLocationIndexed(self: ?*anyopaque, program: u32, colorNumber: u32, index: u32, name: []const u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlBindFragDataLocationIndexed(@ptrCast(self), @intCast(program), @intCast(colorNumber), @intCast(index), name.ptr);
+    pub fn GlBindFragDataLocationIndexed(self: ?*anyopaque, program: u32, colorNumber: u32, index: u32, name: [:0]const u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlBindFragDataLocationIndexed(@ptrCast(self), @intCast(program), @intCast(colorNumber), @intCast(index), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetQueryIndexediv)
@@ -5620,10 +5633,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` name: []u8 `
+    /// ` name: [:0]u8 `
     ///
-    pub fn GlGetActiveSubroutineName(self: ?*anyopaque, program: u32, shadertype: u32, index: u32, bufsize: i32, length: []i32, name: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetActiveSubroutineName(@ptrCast(self), @intCast(program), @intCast(shadertype), @intCast(index), @intCast(bufsize), length.ptr, name.ptr);
+    pub fn GlGetActiveSubroutineName(self: ?*anyopaque, program: u32, shadertype: u32, index: u32, bufsize: i32, length: []i32, name: [:0]u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetActiveSubroutineName(@ptrCast(self), @intCast(program), @intCast(shadertype), @intCast(index), @intCast(bufsize), length.ptr, name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetActiveSubroutineUniformName)
@@ -5642,10 +5656,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` name: []u8 `
+    /// ` name: [:0]u8 `
     ///
-    pub fn GlGetActiveSubroutineUniformName(self: ?*anyopaque, program: u32, shadertype: u32, index: u32, bufsize: i32, length: []i32, name: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetActiveSubroutineUniformName(@ptrCast(self), @intCast(program), @intCast(shadertype), @intCast(index), @intCast(bufsize), length.ptr, name.ptr);
+    pub fn GlGetActiveSubroutineUniformName(self: ?*anyopaque, program: u32, shadertype: u32, index: u32, bufsize: i32, length: []i32, name: [:0]u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetActiveSubroutineUniformName(@ptrCast(self), @intCast(program), @intCast(shadertype), @intCast(index), @intCast(bufsize), length.ptr, name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetActiveSubroutineUniformiv)
@@ -5678,10 +5693,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` shadertype: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetSubroutineIndex(self: ?*anyopaque, program: u32, shadertype: u32, name: []const u8) u32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetSubroutineIndex(@ptrCast(self), @intCast(program), @intCast(shadertype), name.ptr);
+    pub fn GlGetSubroutineIndex(self: ?*anyopaque, program: u32, shadertype: u32, name: [:0]const u8) u32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetSubroutineIndex(@ptrCast(self), @intCast(program), @intCast(shadertype), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetSubroutineUniformLocation)
@@ -5694,10 +5710,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` shadertype: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetSubroutineUniformLocation(self: ?*anyopaque, program: u32, shadertype: u32, name: []const u8) i32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetSubroutineUniformLocation(@ptrCast(self), @intCast(program), @intCast(shadertype), name.ptr);
+    pub fn GlGetSubroutineUniformLocation(self: ?*anyopaque, program: u32, shadertype: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetSubroutineUniformLocation(@ptrCast(self), @intCast(program), @intCast(shadertype), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetUniformdv)
@@ -6454,10 +6471,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` infoLog: []u8 `
+    /// ` infoLog: [:0]u8 `
     ///
-    pub fn GlGetProgramPipelineInfoLog(self: ?*anyopaque, pipeline: u32, bufSize: i32, length: []i32, infoLog: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramPipelineInfoLog(@ptrCast(self), @intCast(pipeline), @intCast(bufSize), length.ptr, infoLog.ptr);
+    pub fn GlGetProgramPipelineInfoLog(self: ?*anyopaque, pipeline: u32, bufSize: i32, length: []i32, infoLog: [:0]u8) void {
+        const infoLog_Cstring = infoLog.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramPipelineInfoLog(@ptrCast(self), @intCast(pipeline), @intCast(bufSize), length.ptr, infoLog_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glValidateProgramPipeline)
@@ -7876,10 +7894,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` label: []u8 `
+    /// ` label: [:0]u8 `
     ///
-    pub fn GlGetObjectPtrLabel(self: ?*anyopaque, ptr: ?*const anyopaque, bufSize: i32, length: []i32, label: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(bufSize), length.ptr, label.ptr);
+    pub fn GlGetObjectPtrLabel(self: ?*anyopaque, ptr: ?*const anyopaque, bufSize: i32, length: []i32, label: [:0]u8) void {
+        const label_Cstring = label.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(bufSize), length.ptr, label_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glObjectPtrLabel)
@@ -7892,10 +7911,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: i32 `
     ///
-    /// ` label: []const u8 `
+    /// ` label: [:0]const u8 `
     ///
-    pub fn GlObjectPtrLabel(self: ?*anyopaque, ptr: ?*const anyopaque, length: i32, label: []const u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(length), label.ptr);
+    pub fn GlObjectPtrLabel(self: ?*anyopaque, ptr: ?*const anyopaque, length: i32, label: [:0]const u8) void {
+        const label_Cstring = label.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(length), label_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetObjectLabel)
@@ -7912,10 +7932,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` label: []u8 `
+    /// ` label: [:0]u8 `
     ///
-    pub fn GlGetObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, bufSize: i32, length: []i32, label: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(bufSize), length.ptr, label.ptr);
+    pub fn GlGetObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, bufSize: i32, length: []i32, label: [:0]u8) void {
+        const label_Cstring = label.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(bufSize), length.ptr, label_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glObjectLabel)
@@ -7930,10 +7951,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: i32 `
     ///
-    /// ` label: []const u8 `
+    /// ` label: [:0]const u8 `
     ///
-    pub fn GlObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, length: i32, label: []const u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(length), label.ptr);
+    pub fn GlObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, length: i32, label: [:0]const u8) void {
+        const label_Cstring = label.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(length), label_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glPopDebugGroup)
@@ -7958,10 +7980,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: i32 `
     ///
-    /// ` message: []const u8 `
+    /// ` message: [:0]const u8 `
     ///
-    pub fn GlPushDebugGroup(self: ?*anyopaque, source: u32, id: u32, length: i32, message: []const u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlPushDebugGroup(@ptrCast(self), @intCast(source), @intCast(id), @intCast(length), message.ptr);
+    pub fn GlPushDebugGroup(self: ?*anyopaque, source: u32, id: u32, length: i32, message: [:0]const u8) void {
+        const message_Cstring = message.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlPushDebugGroup(@ptrCast(self), @intCast(source), @intCast(id), @intCast(length), message_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glDebugMessageInsert)
@@ -7980,10 +8003,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: i32 `
     ///
-    /// ` buf: []const u8 `
+    /// ` buf: [:0]const u8 `
     ///
-    pub fn GlDebugMessageInsert(self: ?*anyopaque, source: u32, typeVal: u32, id: u32, severity: u32, length: i32, buf: []const u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlDebugMessageInsert(@ptrCast(self), @intCast(source), @intCast(typeVal), @intCast(id), @intCast(severity), @intCast(length), buf.ptr);
+    pub fn GlDebugMessageInsert(self: ?*anyopaque, source: u32, typeVal: u32, id: u32, severity: u32, length: i32, buf: [:0]const u8) void {
+        const buf_Cstring = buf.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlDebugMessageInsert(@ptrCast(self), @intCast(source), @intCast(typeVal), @intCast(id), @intCast(severity), @intCast(length), buf_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glDebugMessageControl)
@@ -8228,10 +8252,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` programInterface: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetProgramResourceLocationIndex(self: ?*anyopaque, program: u32, programInterface: u32, name: []const u8) i32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramResourceLocationIndex(@ptrCast(self), @intCast(program), @intCast(programInterface), name.ptr);
+    pub fn GlGetProgramResourceLocationIndex(self: ?*anyopaque, program: u32, programInterface: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramResourceLocationIndex(@ptrCast(self), @intCast(program), @intCast(programInterface), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetProgramResourceLocation)
@@ -8244,10 +8269,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` programInterface: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetProgramResourceLocation(self: ?*anyopaque, program: u32, programInterface: u32, name: []const u8) i32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramResourceLocation(@ptrCast(self), @intCast(program), @intCast(programInterface), name.ptr);
+    pub fn GlGetProgramResourceLocation(self: ?*anyopaque, program: u32, programInterface: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramResourceLocation(@ptrCast(self), @intCast(program), @intCast(programInterface), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetProgramResourceName)
@@ -8266,10 +8292,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` name: []u8 `
+    /// ` name: [:0]u8 `
     ///
-    pub fn GlGetProgramResourceName(self: ?*anyopaque, program: u32, programInterface: u32, index: u32, bufSize: i32, length: []i32, name: []u8) void {
-        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramResourceName(@ptrCast(self), @intCast(program), @intCast(programInterface), @intCast(index), @intCast(bufSize), length.ptr, name.ptr);
+    pub fn GlGetProgramResourceName(self: ?*anyopaque, program: u32, programInterface: u32, index: u32, bufSize: i32, length: []i32, name: [:0]u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramResourceName(@ptrCast(self), @intCast(program), @intCast(programInterface), @intCast(index), @intCast(bufSize), length.ptr, name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetProgramResourceIndex)
@@ -8282,10 +8309,11 @@ pub const qopenglfunctions_4_4_compatibility = struct {
     ///
     /// ` programInterface: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetProgramResourceIndex(self: ?*anyopaque, program: u32, programInterface: u32, name: []const u8) u32 {
-        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramResourceIndex(@ptrCast(self), @intCast(program), @intCast(programInterface), name.ptr);
+    pub fn GlGetProgramResourceIndex(self: ?*anyopaque, program: u32, programInterface: u32, name: [:0]const u8) u32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_4_4_Compatibility_GlGetProgramResourceIndex(@ptrCast(self), @intCast(program), @intCast(programInterface), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-4-compatibility.html#glGetProgramInterfaceiv)

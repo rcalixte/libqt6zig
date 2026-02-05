@@ -823,10 +823,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetFragDataLocation(self: ?*anyopaque, program: u32, name: []const u8) i32 {
-        return qtc.QOpenGLExtraFunctions_GlGetFragDataLocation(@ptrCast(self), @intCast(program), name.ptr);
+    pub fn GlGetFragDataLocation(self: ?*anyopaque, program: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLExtraFunctions_GlGetFragDataLocation(@ptrCast(self), @intCast(program), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniform1ui)
@@ -1093,10 +1094,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` uniformBlockName: []const u8 `
+    /// ` uniformBlockName: [:0]const u8 `
     ///
-    pub fn GlGetUniformBlockIndex(self: ?*anyopaque, program: u32, uniformBlockName: []const u8) u32 {
-        return qtc.QOpenGLExtraFunctions_GlGetUniformBlockIndex(@ptrCast(self), @intCast(program), uniformBlockName.ptr);
+    pub fn GlGetUniformBlockIndex(self: ?*anyopaque, program: u32, uniformBlockName: [:0]const u8) u32 {
+        const uniformBlockName_Cstring = uniformBlockName.ptr;
+        return qtc.QOpenGLExtraFunctions_GlGetUniformBlockIndex(@ptrCast(self), @intCast(program), uniformBlockName_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetActiveUniformBlockiv)
@@ -1131,10 +1133,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` uniformBlockName: []u8 `
+    /// ` uniformBlockName: [:0]u8 `
     ///
-    pub fn GlGetActiveUniformBlockName(self: ?*anyopaque, program: u32, uniformBlockIndex: u32, bufSize: i32, length: []i32, uniformBlockName: []u8) void {
-        qtc.QOpenGLExtraFunctions_GlGetActiveUniformBlockName(@ptrCast(self), @intCast(program), @intCast(uniformBlockIndex), @intCast(bufSize), length.ptr, uniformBlockName.ptr);
+    pub fn GlGetActiveUniformBlockName(self: ?*anyopaque, program: u32, uniformBlockIndex: u32, bufSize: i32, length: []i32, uniformBlockName: [:0]u8) void {
+        const uniformBlockName_Cstring = uniformBlockName.ptr;
+        qtc.QOpenGLExtraFunctions_GlGetActiveUniformBlockName(@ptrCast(self), @intCast(program), @intCast(uniformBlockIndex), @intCast(bufSize), length.ptr, uniformBlockName_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniformBlockBinding)
@@ -1689,10 +1692,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` programInterface: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetProgramResourceIndex(self: ?*anyopaque, program: u32, programInterface: u32, name: []const u8) u32 {
-        return qtc.QOpenGLExtraFunctions_GlGetProgramResourceIndex(@ptrCast(self), @intCast(program), @intCast(programInterface), name.ptr);
+    pub fn GlGetProgramResourceIndex(self: ?*anyopaque, program: u32, programInterface: u32, name: [:0]const u8) u32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLExtraFunctions_GlGetProgramResourceIndex(@ptrCast(self), @intCast(program), @intCast(programInterface), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetProgramResourceName)
@@ -1711,10 +1715,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` name: []u8 `
+    /// ` name: [:0]u8 `
     ///
-    pub fn GlGetProgramResourceName(self: ?*anyopaque, program: u32, programInterface: u32, index: u32, bufSize: i32, length: []i32, name: []u8) void {
-        qtc.QOpenGLExtraFunctions_GlGetProgramResourceName(@ptrCast(self), @intCast(program), @intCast(programInterface), @intCast(index), @intCast(bufSize), length.ptr, name.ptr);
+    pub fn GlGetProgramResourceName(self: ?*anyopaque, program: u32, programInterface: u32, index: u32, bufSize: i32, length: []i32, name: [:0]u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QOpenGLExtraFunctions_GlGetProgramResourceName(@ptrCast(self), @intCast(program), @intCast(programInterface), @intCast(index), @intCast(bufSize), length.ptr, name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetProgramResourceLocation)
@@ -1727,10 +1732,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` programInterface: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetProgramResourceLocation(self: ?*anyopaque, program: u32, programInterface: u32, name: []const u8) i32 {
-        return qtc.QOpenGLExtraFunctions_GlGetProgramResourceLocation(@ptrCast(self), @intCast(program), @intCast(programInterface), name.ptr);
+    pub fn GlGetProgramResourceLocation(self: ?*anyopaque, program: u32, programInterface: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLExtraFunctions_GlGetProgramResourceLocation(@ptrCast(self), @intCast(program), @intCast(programInterface), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUseProgramStages)
@@ -2479,10 +2485,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` infoLog: []u8 `
+    /// ` infoLog: [:0]u8 `
     ///
-    pub fn GlGetProgramPipelineInfoLog(self: ?*anyopaque, pipeline: u32, bufSize: i32, length: []i32, infoLog: []u8) void {
-        qtc.QOpenGLExtraFunctions_GlGetProgramPipelineInfoLog(@ptrCast(self), @intCast(pipeline), @intCast(bufSize), length.ptr, infoLog.ptr);
+    pub fn GlGetProgramPipelineInfoLog(self: ?*anyopaque, pipeline: u32, bufSize: i32, length: []i32, infoLog: [:0]u8) void {
+        const infoLog_Cstring = infoLog.ptr;
+        qtc.QOpenGLExtraFunctions_GlGetProgramPipelineInfoLog(@ptrCast(self), @intCast(pipeline), @intCast(bufSize), length.ptr, infoLog_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glBindImageTexture)
@@ -2809,10 +2816,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` length: i32 `
     ///
-    /// ` buf: []const u8 `
+    /// ` buf: [:0]const u8 `
     ///
-    pub fn GlDebugMessageInsert(self: ?*anyopaque, source: u32, typeVal: u32, id: u32, severity: u32, length: i32, buf: []const u8) void {
-        qtc.QOpenGLExtraFunctions_GlDebugMessageInsert(@ptrCast(self), @intCast(source), @intCast(typeVal), @intCast(id), @intCast(severity), @intCast(length), buf.ptr);
+    pub fn GlDebugMessageInsert(self: ?*anyopaque, source: u32, typeVal: u32, id: u32, severity: u32, length: i32, buf: [:0]const u8) void {
+        const buf_Cstring = buf.ptr;
+        qtc.QOpenGLExtraFunctions_GlDebugMessageInsert(@ptrCast(self), @intCast(source), @intCast(typeVal), @intCast(id), @intCast(severity), @intCast(length), buf_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glPushDebugGroup)
@@ -2827,10 +2835,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` length: i32 `
     ///
-    /// ` message: []const u8 `
+    /// ` message: [:0]const u8 `
     ///
-    pub fn GlPushDebugGroup(self: ?*anyopaque, source: u32, id: u32, length: i32, message: []const u8) void {
-        qtc.QOpenGLExtraFunctions_GlPushDebugGroup(@ptrCast(self), @intCast(source), @intCast(id), @intCast(length), message.ptr);
+    pub fn GlPushDebugGroup(self: ?*anyopaque, source: u32, id: u32, length: i32, message: [:0]const u8) void {
+        const message_Cstring = message.ptr;
+        qtc.QOpenGLExtraFunctions_GlPushDebugGroup(@ptrCast(self), @intCast(source), @intCast(id), @intCast(length), message_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glPopDebugGroup)
@@ -2855,10 +2864,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` length: i32 `
     ///
-    /// ` label: []const u8 `
+    /// ` label: [:0]const u8 `
     ///
-    pub fn GlObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, length: i32, label: []const u8) void {
-        qtc.QOpenGLExtraFunctions_GlObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(length), label.ptr);
+    pub fn GlObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, length: i32, label: [:0]const u8) void {
+        const label_Cstring = label.ptr;
+        qtc.QOpenGLExtraFunctions_GlObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(length), label_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetObjectLabel)
@@ -2875,10 +2885,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` label: []u8 `
+    /// ` label: [:0]u8 `
     ///
-    pub fn GlGetObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, bufSize: i32, length: []i32, label: []u8) void {
-        qtc.QOpenGLExtraFunctions_GlGetObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(bufSize), length.ptr, label.ptr);
+    pub fn GlGetObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, bufSize: i32, length: []i32, label: [:0]u8) void {
+        const label_Cstring = label.ptr;
+        qtc.QOpenGLExtraFunctions_GlGetObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(bufSize), length.ptr, label_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glObjectPtrLabel)
@@ -2891,10 +2902,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` length: i32 `
     ///
-    /// ` label: []const u8 `
+    /// ` label: [:0]const u8 `
     ///
-    pub fn GlObjectPtrLabel(self: ?*anyopaque, ptr: ?*const anyopaque, length: i32, label: []const u8) void {
-        qtc.QOpenGLExtraFunctions_GlObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(length), label.ptr);
+    pub fn GlObjectPtrLabel(self: ?*anyopaque, ptr: ?*const anyopaque, length: i32, label: [:0]const u8) void {
+        const label_Cstring = label.ptr;
+        qtc.QOpenGLExtraFunctions_GlObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(length), label_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetObjectPtrLabel)
@@ -2909,10 +2921,11 @@ pub const qopenglextrafunctions = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` label: []u8 `
+    /// ` label: [:0]u8 `
     ///
-    pub fn GlGetObjectPtrLabel(self: ?*anyopaque, ptr: ?*const anyopaque, bufSize: i32, length: []i32, label: []u8) void {
-        qtc.QOpenGLExtraFunctions_GlGetObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(bufSize), length.ptr, label.ptr);
+    pub fn GlGetObjectPtrLabel(self: ?*anyopaque, ptr: ?*const anyopaque, bufSize: i32, length: []i32, label: [:0]u8) void {
+        const label_Cstring = label.ptr;
+        qtc.QOpenGLExtraFunctions_GlGetObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(bufSize), length.ptr, label_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetPointerv)

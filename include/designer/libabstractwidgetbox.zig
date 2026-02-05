@@ -8684,7 +8684,7 @@ pub const qdesignerwidgetboxinterface__category = struct {
     }
 };
 
-/// ### [Upstream resources](https://api.kde.org/abstractwidgetbox.html#public-types)
+/// ### [Upstream resources](https://doc.qt.io/qt-6/abstractwidgetbox.html#public-types)
 pub const enums = struct {
     pub const Type = enum(i32) {
         pub const Default: i32 = 0;

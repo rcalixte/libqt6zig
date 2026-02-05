@@ -71,7 +71,7 @@ pub const qdesignerdnditeminterface = struct {
     }
 };
 
-/// ### [Upstream resources](https://api.kde.org/abstractdnditem.html#public-types)
+/// ### [Upstream resources](https://doc.qt.io/qt-6/abstractdnditem.html#public-types)
 pub const enums = struct {
     pub const DropType = enum(i32) {
         pub const MoveDrop: i32 = 0;

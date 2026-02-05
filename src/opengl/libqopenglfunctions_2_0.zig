@@ -2214,10 +2214,11 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetUniformLocation(self: ?*anyopaque, program: u32, name: []const u8) i32 {
-        return qtc.QOpenGLFunctions_2_0_GlGetUniformLocation(@ptrCast(self), @intCast(program), name.ptr);
+    pub fn GlGetUniformLocation(self: ?*anyopaque, program: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_2_0_GlGetUniformLocation(@ptrCast(self), @intCast(program), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glGetShaderSource)
@@ -2232,10 +2233,11 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` source: []u8 `
+    /// ` source: [:0]u8 `
     ///
-    pub fn GlGetShaderSource(self: ?*anyopaque, shader: u32, bufSize: i32, length: []i32, source: []u8) void {
-        qtc.QOpenGLFunctions_2_0_GlGetShaderSource(@ptrCast(self), @intCast(shader), @intCast(bufSize), length.ptr, source.ptr);
+    pub fn GlGetShaderSource(self: ?*anyopaque, shader: u32, bufSize: i32, length: []i32, source: [:0]u8) void {
+        const source_Cstring = source.ptr;
+        qtc.QOpenGLFunctions_2_0_GlGetShaderSource(@ptrCast(self), @intCast(shader), @intCast(bufSize), length.ptr, source_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glGetShaderInfoLog)
@@ -2250,10 +2252,11 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` infoLog: []u8 `
+    /// ` infoLog: [:0]u8 `
     ///
-    pub fn GlGetShaderInfoLog(self: ?*anyopaque, shader: u32, bufSize: i32, length: []i32, infoLog: []u8) void {
-        qtc.QOpenGLFunctions_2_0_GlGetShaderInfoLog(@ptrCast(self), @intCast(shader), @intCast(bufSize), length.ptr, infoLog.ptr);
+    pub fn GlGetShaderInfoLog(self: ?*anyopaque, shader: u32, bufSize: i32, length: []i32, infoLog: [:0]u8) void {
+        const infoLog_Cstring = infoLog.ptr;
+        qtc.QOpenGLFunctions_2_0_GlGetShaderInfoLog(@ptrCast(self), @intCast(shader), @intCast(bufSize), length.ptr, infoLog_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glGetShaderiv)
@@ -2284,10 +2287,11 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` length: []i32 `
     ///
-    /// ` infoLog: []u8 `
+    /// ` infoLog: [:0]u8 `
     ///
-    pub fn GlGetProgramInfoLog(self: ?*anyopaque, program: u32, bufSize: i32, length: []i32, infoLog: []u8) void {
-        qtc.QOpenGLFunctions_2_0_GlGetProgramInfoLog(@ptrCast(self), @intCast(program), @intCast(bufSize), length.ptr, infoLog.ptr);
+    pub fn GlGetProgramInfoLog(self: ?*anyopaque, program: u32, bufSize: i32, length: []i32, infoLog: [:0]u8) void {
+        const infoLog_Cstring = infoLog.ptr;
+        qtc.QOpenGLFunctions_2_0_GlGetProgramInfoLog(@ptrCast(self), @intCast(program), @intCast(bufSize), length.ptr, infoLog_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glGetProgramiv)
@@ -2314,10 +2318,11 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` program: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlGetAttribLocation(self: ?*anyopaque, program: u32, name: []const u8) i32 {
-        return qtc.QOpenGLFunctions_2_0_GlGetAttribLocation(@ptrCast(self), @intCast(program), name.ptr);
+    pub fn GlGetAttribLocation(self: ?*anyopaque, program: u32, name: [:0]const u8) i32 {
+        const name_Cstring = name.ptr;
+        return qtc.QOpenGLFunctions_2_0_GlGetAttribLocation(@ptrCast(self), @intCast(program), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glGetAttachedShaders)
@@ -2444,10 +2449,11 @@ pub const qopenglfunctions_2_0 = struct {
     ///
     /// ` index: u32 `
     ///
-    /// ` name: []const u8 `
+    /// ` name: [:0]const u8 `
     ///
-    pub fn GlBindAttribLocation(self: ?*anyopaque, program: u32, index: u32, name: []const u8) void {
-        qtc.QOpenGLFunctions_2_0_GlBindAttribLocation(@ptrCast(self), @intCast(program), @intCast(index), name.ptr);
+    pub fn GlBindAttribLocation(self: ?*anyopaque, program: u32, index: u32, name: [:0]const u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QOpenGLFunctions_2_0_GlBindAttribLocation(@ptrCast(self), @intCast(program), @intCast(index), name_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glAttachShader)
