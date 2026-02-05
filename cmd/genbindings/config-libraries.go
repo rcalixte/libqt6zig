@@ -364,6 +364,18 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KCrash -I/usr/include/KF6/KCoreAddons " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// KFileMetaData
+		// Depends on Qt Core
+		{
+			path: "extras-kfilemetadata",
+			dirs: []string{
+				"/usr/include/KF6/KFileMetaData",
+				"/usr/include/KF6/KFileMetaData/kfilemetadata",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KFileMetaData -I/usr/include/KF6/KFileMetaData/KFileMetaData -I/usr/include/KF6/KFileMetaData/kfilemetadata " + pkgConfigCflags("Qt6Core"),
+		},
+
 		// KGuiAddons
 		// Depends on Qt Core, GUI, KCoreAddons
 		{

@@ -365,6 +365,9 @@ const qt_modules = &.{
     "KCoreAddons",
     // Qt 6 KCrash
     "KCrash",
+    // Qt 6 KFileMetaData
+    "KFileMetaData",
+    "KFileMetaData/kfilemetadata",
     // Qt 6 KGuiAddons
     "KGuiAddons",
     // Qt 6 KI18n

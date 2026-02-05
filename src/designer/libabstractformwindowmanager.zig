@@ -2353,7 +2353,7 @@ pub const qdesignerformwindowmanagerinterface = struct {
     }
 };
 
-/// ### [Upstream resources](https://api.kde.org/abstractformwindowmanager.html#public-types)
+/// ### [Upstream resources](https://doc.qt.io/qt-6/abstractformwindowmanager.html#public-types)
 pub const enums = struct {
     pub const Action = enum(i32) {
         pub const CutAction: i32 = 100;

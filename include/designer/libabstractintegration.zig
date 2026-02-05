@@ -5245,7 +5245,7 @@ pub const qdesignerintegration = struct {
     }
 };
 
-/// ### [Upstream resources](https://api.kde.org/abstractintegration.html#public-types)
+/// ### [Upstream resources](https://doc.qt.io/qt-6/abstractintegration.html#public-types)
 pub const enums = struct {
     pub const ResourceFileWatcherBehaviour = enum(i32) {
         pub const NoResourceFileWatcher: i32 = 0;

@@ -6153,7 +6153,7 @@ pub const qdesignerformwindowinterface = struct {
     }
 };
 
-/// ### [Upstream resources](https://api.kde.org/abstractformwindow.html#public-types)
+/// ### [Upstream resources](https://doc.qt.io/qt-6/abstractformwindow.html#public-types)
 pub const enums = struct {
     pub const FeatureFlag = enum(i32) {
         pub const EditFeature: i32 = 1;
