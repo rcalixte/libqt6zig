@@ -1,4 +1,8 @@
 
+### 6.8.2 rev58 (5 February 2026)
+
+* Add [KFileMetaData](https://api.kde.org/kfilemetadata-index.html) (#114)
+
 ### 6.8.2 rev57 (4 February 2026)
 
 * **BREAKING CHANGE:** Update some container-based callbacks and extend const correctness (#113)
