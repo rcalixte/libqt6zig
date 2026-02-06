@@ -42,6 +42,7 @@
 #include <QByteArray>
 #include <cstring>
 #include <QStyleOptionFrame>
+#include <QStyleOptionGraphicsItem>
 #include <QTabletEvent>
 #include <QTimerEvent>
 #include <QTransform>
@@ -638,6 +639,13 @@ void QGraphicsView_DrawForeground(QGraphicsView* self, QPainter* painter, const 
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
     if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
         vqgraphicsview->drawForeground(painter, *rect);
+    }
+}
+
+void QGraphicsView_DrawItems(QGraphicsView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) {
+    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+        vqgraphicsview->drawItems(painter, static_cast<int>(numItems), items, options);
     }
 }
 
@@ -1315,6 +1323,25 @@ void QGraphicsView_OnDrawForeground(QGraphicsView* self, intptr_t slot) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
     if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
         vqgraphicsview->setQGraphicsView_DrawForeground_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawForeground_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsView_QBaseDrawItems(QGraphicsView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) {
+    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+        vqgraphicsview->setQGraphicsView_DrawItems_IsBase(true);
+        vqgraphicsview->drawItems(painter, static_cast<int>(numItems), items, options);
+    } else {
+        ((VirtualQGraphicsView*)self)->drawItems(painter, static_cast<int>(numItems), items, options);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsView_OnDrawItems(QGraphicsView* self, intptr_t slot) {
+    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
+    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+        vqgraphicsview->setQGraphicsView_DrawItems_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawItems_Callback>(slot));
     }
 }
 

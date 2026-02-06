@@ -990,6 +990,20 @@ pub const qopenglfunctions_3_0 = struct {
         qtc.QOpenGLFunctions_3_0_GlPolygonOffset(@ptrCast(self), @floatCast(factor), @floatCast(units));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glGetPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` params: *?*anyopaque `
+    ///
+    pub fn GlGetPointerv(self: ?*anyopaque, pname: u32, params: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_3_0_GlGetPointerv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glDrawElements)
     ///
     /// ## Parameter(s):
@@ -1426,6 +1440,26 @@ pub const qopenglfunctions_3_0 = struct {
         qtc.QOpenGLFunctions_3_0_GlPointParameterf(@ptrCast(self), @intCast(pname), @floatCast(param));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glMultiDrawElements)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0 `
+    ///
+    /// ` mode: u32 `
+    ///
+    /// ` count: []const i32 `
+    ///
+    /// ` typeVal: u32 `
+    ///
+    /// ` indices: *?*const anyopaque `
+    ///
+    /// ` drawcount: i32 `
+    ///
+    pub fn GlMultiDrawElements(self: ?*anyopaque, mode: u32, count: []const i32, typeVal: u32, indices: *?*const anyopaque, drawcount: i32) void {
+        qtc.QOpenGLFunctions_3_0_GlMultiDrawElements(@ptrCast(self), @intCast(mode), count.ptr, @intCast(typeVal), @ptrCast(indices), @intCast(drawcount));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glMultiDrawArrays)
     ///
     /// ## Parameter(s):
@@ -1460,6 +1494,22 @@ pub const qopenglfunctions_3_0 = struct {
     ///
     pub fn GlBlendFuncSeparate(self: ?*anyopaque, sfactorRGB: u32, dfactorRGB: u32, sfactorAlpha: u32, dfactorAlpha: u32) void {
         qtc.QOpenGLFunctions_3_0_GlBlendFuncSeparate(@ptrCast(self), @intCast(sfactorRGB), @intCast(dfactorRGB), @intCast(sfactorAlpha), @intCast(dfactorAlpha));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glGetBufferPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0 `
+    ///
+    /// ` target: u32 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` params: *?*anyopaque `
+    ///
+    pub fn GlGetBufferPointerv(self: ?*anyopaque, target: u32, pname: u32, params: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_3_0_GlGetBufferPointerv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glGetBufferParameteriv)
@@ -2090,6 +2140,31 @@ pub const qopenglfunctions_3_0 = struct {
         qtc.QOpenGLFunctions_3_0_GlUseProgram(@ptrCast(self), @intCast(program));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glShaderSource)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0 `
+    ///
+    /// ` shader: u32 `
+    ///
+    /// ` count: i32 `
+    ///
+    /// ` stringVal: []const [:0]const u8 `
+    ///
+    /// ` length: []const i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: []const [:0]const u8, length: []const i32, allocator: std.mem.Allocator) void {
+        const stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglfunctions_3_0.GlShaderSource: Memory allocation failed");
+        defer allocator.free(stringVal_chararr);
+        for (stringVal, 0..stringVal.len) |str, i| {
+            stringVal_chararr[i] = @ptrCast(str.ptr);
+        }
+        qtc.QOpenGLFunctions_3_0_GlShaderSource(@ptrCast(self), @intCast(shader), @intCast(count), stringVal_chararr.ptr, length.ptr);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glLinkProgram)
     ///
     /// ## Parameter(s):
@@ -2124,6 +2199,22 @@ pub const qopenglfunctions_3_0 = struct {
     ///
     pub fn GlIsProgram(self: ?*anyopaque, program: u32) u8 {
         return qtc.QOpenGLFunctions_3_0_GlIsProgram(@ptrCast(self), @intCast(program));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glGetVertexAttribPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0 `
+    ///
+    /// ` index: u32 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` pointer: *?*anyopaque `
+    ///
+    pub fn GlGetVertexAttribPointerv(self: ?*anyopaque, index: u32, pname: u32, pointer: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_3_0_GlGetVertexAttribPointerv(@ptrCast(self), @intCast(index), @intCast(pname), @ptrCast(pointer));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glGetVertexAttribiv)
@@ -3466,6 +3557,31 @@ pub const qopenglfunctions_3_0 = struct {
     ///
     pub fn GlClampColor(self: ?*anyopaque, target: u32, clamp: u32) void {
         qtc.QOpenGLFunctions_3_0_GlClampColor(@ptrCast(self), @intCast(target), @intCast(clamp));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glTransformFeedbackVaryings)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_3_0 `
+    ///
+    /// ` program: u32 `
+    ///
+    /// ` count: i32 `
+    ///
+    /// ` varyings: []const [:0]const u8 `
+    ///
+    /// ` bufferMode: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlTransformFeedbackVaryings(self: ?*anyopaque, program: u32, count: i32, varyings: []const [:0]const u8, bufferMode: u32, allocator: std.mem.Allocator) void {
+        const varyings_chararr = allocator.alloc([*c]const u8, varyings.len) catch @panic("qopenglfunctions_3_0.GlTransformFeedbackVaryings: Memory allocation failed");
+        defer allocator.free(varyings_chararr);
+        for (varyings, 0..varyings.len) |str, i| {
+            varyings_chararr[i] = @ptrCast(str.ptr);
+        }
+        qtc.QOpenGLFunctions_3_0_GlTransformFeedbackVaryings(@ptrCast(self), @intCast(program), @intCast(count), varyings_chararr.ptr, @intCast(bufferMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glBindBufferBase)

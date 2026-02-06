@@ -185,6 +185,10 @@ QOpenGLContext* QOpenGLVersionFunctionsBackend_Context(const QOpenGLVersionFunct
 void QOpenGLVersionFunctionsBackend_SetContext(QOpenGLVersionFunctionsBackend* self, QOpenGLContext* context);
 void QOpenGLVersionFunctionsBackend_Delete(QOpenGLVersionFunctionsBackend* self);
 
+QOpenGLVersionFunctionsBackend** QOpenGLVersionFunctionsStorage_Backends(const QOpenGLVersionFunctionsStorage* self);
+void QOpenGLVersionFunctionsStorage_SetBackends(QOpenGLVersionFunctionsStorage* self, QOpenGLVersionFunctionsBackend** backends);
+void QOpenGLVersionFunctionsStorage_Delete(QOpenGLVersionFunctionsStorage* self);
+
 bool QAbstractOpenGLFunctions_InitializeOpenGLFunctions(QAbstractOpenGLFunctions* self);
 void QAbstractOpenGLFunctions_Delete(QAbstractOpenGLFunctions* self);
 

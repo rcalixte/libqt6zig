@@ -679,6 +679,31 @@ pub const qopenglextrafunctions = struct {
         qtc.QOpenGLExtraFunctions_GlBindBufferBase(@ptrCast(self), @intCast(target), @intCast(index), @intCast(buffer));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glTransformFeedbackVaryings)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLExtraFunctions `
+    ///
+    /// ` program: u32 `
+    ///
+    /// ` count: i32 `
+    ///
+    /// ` varyings: []const [:0]const u8 `
+    ///
+    /// ` bufferMode: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlTransformFeedbackVaryings(self: ?*anyopaque, program: u32, count: i32, varyings: []const [:0]const u8, bufferMode: u32, allocator: std.mem.Allocator) void {
+        const varyings_chararr = allocator.alloc([*c]const u8, varyings.len) catch @panic("qopenglextrafunctions.GlTransformFeedbackVaryings: Memory allocation failed");
+        defer allocator.free(varyings_chararr);
+        for (varyings, 0..varyings.len) |str, i| {
+            varyings_chararr[i] = @ptrCast(str.ptr);
+        }
+        qtc.QOpenGLExtraFunctions_GlTransformFeedbackVaryings(@ptrCast(self), @intCast(program), @intCast(count), varyings_chararr.ptr, @intCast(bufferMode));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glVertexAttribIPointer)
     ///
     /// ## Parameter(s):
@@ -1064,6 +1089,31 @@ pub const qopenglextrafunctions = struct {
     ///
     pub fn GlCopyBufferSubData(self: ?*anyopaque, readTarget: u32, writeTarget: u32, readOffset: isize, writeOffset: isize, size: isize) void {
         qtc.QOpenGLExtraFunctions_GlCopyBufferSubData(@ptrCast(self), @intCast(readTarget), @intCast(writeTarget), @intCast(readOffset), @intCast(writeOffset), @intCast(size));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetUniformIndices)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLExtraFunctions `
+    ///
+    /// ` program: u32 `
+    ///
+    /// ` uniformCount: i32 `
+    ///
+    /// ` uniformNames: []const [:0]const u8 `
+    ///
+    /// ` uniformIndices: []u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlGetUniformIndices(self: ?*anyopaque, program: u32, uniformCount: i32, uniformNames: []const [:0]const u8, uniformIndices: []u32, allocator: std.mem.Allocator) void {
+        const uniformNames_chararr = allocator.alloc([*c]const u8, uniformNames.len) catch @panic("qopenglextrafunctions.GlGetUniformIndices: Memory allocation failed");
+        defer allocator.free(uniformNames_chararr);
+        for (uniformNames, 0..uniformNames.len) |str, i| {
+            uniformNames_chararr[i] = @ptrCast(str.ptr);
+        }
+        qtc.QOpenGLExtraFunctions_GlGetUniformIndices(@ptrCast(self), @intCast(program), @intCast(uniformCount), uniformNames_chararr.ptr, uniformIndices.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetActiveUniformsiv)
@@ -1767,6 +1817,29 @@ pub const qopenglextrafunctions = struct {
     ///
     pub fn GlActiveShaderProgram(self: ?*anyopaque, pipeline: u32, program: u32) void {
         qtc.QOpenGLExtraFunctions_GlActiveShaderProgram(@ptrCast(self), @intCast(pipeline), @intCast(program));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glCreateShaderProgramv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLExtraFunctions `
+    ///
+    /// ` typeVal: u32 `
+    ///
+    /// ` count: i32 `
+    ///
+    /// ` strings: []const [:0]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlCreateShaderProgramv(self: ?*anyopaque, typeVal: u32, count: i32, strings: []const [:0]const u8, allocator: std.mem.Allocator) u32 {
+        const strings_chararr = allocator.alloc([*c]const u8, strings.len) catch @panic("qopenglextrafunctions.GlCreateShaderProgramv: Memory allocation failed");
+        defer allocator.free(strings_chararr);
+        for (strings, 0..strings.len) |str, i| {
+            strings_chararr[i] = @ptrCast(str.ptr);
+        }
+        return qtc.QOpenGLExtraFunctions_GlCreateShaderProgramv(@ptrCast(self), @intCast(typeVal), @intCast(count), strings_chararr.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glBindProgramPipeline)

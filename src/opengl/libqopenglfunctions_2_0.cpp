@@ -257,6 +257,10 @@ void QOpenGLFunctions_2_0_GlPolygonOffset(QOpenGLFunctions_2_0* self, float fact
     self->glPolygonOffset(static_cast<GLfloat>(factor), static_cast<GLfloat>(units));
 }
 
+void QOpenGLFunctions_2_0_GlGetPointerv(QOpenGLFunctions_2_0* self, uint32_t pname, void** params) {
+    self->glGetPointerv(static_cast<GLenum>(pname), params);
+}
+
 void QOpenGLFunctions_2_0_GlDrawElements(QOpenGLFunctions_2_0* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices) {
     self->glDrawElements(static_cast<GLenum>(mode), static_cast<GLsizei>(count), static_cast<GLenum>(typeVal), indices);
 }
@@ -341,12 +345,20 @@ void QOpenGLFunctions_2_0_GlPointParameterf(QOpenGLFunctions_2_0* self, uint32_t
     self->glPointParameterf(static_cast<GLenum>(pname), static_cast<GLfloat>(param));
 }
 
+void QOpenGLFunctions_2_0_GlMultiDrawElements(QOpenGLFunctions_2_0* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount) {
+    self->glMultiDrawElements(static_cast<GLenum>(mode), static_cast<const GLsizei*>(count), static_cast<GLenum>(typeVal), indices, static_cast<GLsizei>(drawcount));
+}
+
 void QOpenGLFunctions_2_0_GlMultiDrawArrays(QOpenGLFunctions_2_0* self, uint32_t mode, const int32_t* first, const int32_t* count, int32_t drawcount) {
     self->glMultiDrawArrays(static_cast<GLenum>(mode), static_cast<const GLint*>(first), static_cast<const GLsizei*>(count), static_cast<GLsizei>(drawcount));
 }
 
 void QOpenGLFunctions_2_0_GlBlendFuncSeparate(QOpenGLFunctions_2_0* self, uint32_t sfactorRGB, uint32_t dfactorRGB, uint32_t sfactorAlpha, uint32_t dfactorAlpha) {
     self->glBlendFuncSeparate(static_cast<GLenum>(sfactorRGB), static_cast<GLenum>(dfactorRGB), static_cast<GLenum>(sfactorAlpha), static_cast<GLenum>(dfactorAlpha));
+}
+
+void QOpenGLFunctions_2_0_GlGetBufferPointerv(QOpenGLFunctions_2_0* self, uint32_t target, uint32_t pname, void** params) {
+    self->glGetBufferPointerv(static_cast<GLenum>(target), static_cast<GLenum>(pname), params);
 }
 
 void QOpenGLFunctions_2_0_GlGetBufferParameteriv(QOpenGLFunctions_2_0* self, uint32_t target, uint32_t pname, int32_t* params) {
@@ -509,6 +521,10 @@ void QOpenGLFunctions_2_0_GlUseProgram(QOpenGLFunctions_2_0* self, uint32_t prog
     self->glUseProgram(static_cast<GLuint>(program));
 }
 
+void QOpenGLFunctions_2_0_GlShaderSource(QOpenGLFunctions_2_0* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length) {
+    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), static_cast<const GLchar**>(stringVal), static_cast<const GLint*>(length));
+}
+
 void QOpenGLFunctions_2_0_GlLinkProgram(QOpenGLFunctions_2_0* self, uint32_t program) {
     self->glLinkProgram(static_cast<GLuint>(program));
 }
@@ -519,6 +535,10 @@ unsigned char QOpenGLFunctions_2_0_GlIsShader(QOpenGLFunctions_2_0* self, uint32
 
 unsigned char QOpenGLFunctions_2_0_GlIsProgram(QOpenGLFunctions_2_0* self, uint32_t program) {
     return self->glIsProgram(static_cast<GLuint>(program));
+}
+
+void QOpenGLFunctions_2_0_GlGetVertexAttribPointerv(QOpenGLFunctions_2_0* self, uint32_t index, uint32_t pname, void** pointer) {
+    self->glGetVertexAttribPointerv(static_cast<GLuint>(index), static_cast<GLenum>(pname), pointer);
 }
 
 void QOpenGLFunctions_2_0_GlGetVertexAttribiv(QOpenGLFunctions_2_0* self, uint32_t index, uint32_t pname, int32_t* params) {

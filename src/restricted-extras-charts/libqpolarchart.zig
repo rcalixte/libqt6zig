@@ -5333,6 +5333,20 @@ pub const qpolarchart = struct {
 
     /// Inherited from QGraphicsItem
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QPolarChart `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ## Parameter(s):

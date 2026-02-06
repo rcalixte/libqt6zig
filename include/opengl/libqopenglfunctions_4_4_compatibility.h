@@ -183,6 +183,7 @@ void QOpenGLFunctions_4_4_Compatibility_GlUniform3f(QOpenGLFunctions_4_4_Compati
 void QOpenGLFunctions_4_4_Compatibility_GlUniform2f(QOpenGLFunctions_4_4_Compatibility* self, int32_t location, float v0, float v1);
 void QOpenGLFunctions_4_4_Compatibility_GlUniform1f(QOpenGLFunctions_4_4_Compatibility* self, int32_t location, float v0);
 void QOpenGLFunctions_4_4_Compatibility_GlUseProgram(QOpenGLFunctions_4_4_Compatibility* self, uint32_t program);
+void QOpenGLFunctions_4_4_Compatibility_GlShaderSource(QOpenGLFunctions_4_4_Compatibility* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length);
 void QOpenGLFunctions_4_4_Compatibility_GlLinkProgram(QOpenGLFunctions_4_4_Compatibility* self, uint32_t program);
 unsigned char QOpenGLFunctions_4_4_Compatibility_GlIsShader(QOpenGLFunctions_4_4_Compatibility* self, uint32_t shader);
 unsigned char QOpenGLFunctions_4_4_Compatibility_GlIsProgram(QOpenGLFunctions_4_4_Compatibility* self, uint32_t program);
@@ -291,6 +292,7 @@ void QOpenGLFunctions_4_4_Compatibility_GlVertexAttribIPointer(QOpenGLFunctions_
 void QOpenGLFunctions_4_4_Compatibility_GlEndConditionalRender(QOpenGLFunctions_4_4_Compatibility* self);
 void QOpenGLFunctions_4_4_Compatibility_GlBeginConditionalRender(QOpenGLFunctions_4_4_Compatibility* self, uint32_t id, uint32_t mode);
 void QOpenGLFunctions_4_4_Compatibility_GlClampColor(QOpenGLFunctions_4_4_Compatibility* self, uint32_t target, uint32_t clamp);
+void QOpenGLFunctions_4_4_Compatibility_GlTransformFeedbackVaryings(QOpenGLFunctions_4_4_Compatibility* self, uint32_t program, int32_t count, const GLchar** varyings, uint32_t bufferMode);
 void QOpenGLFunctions_4_4_Compatibility_GlBindBufferBase(QOpenGLFunctions_4_4_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer);
 void QOpenGLFunctions_4_4_Compatibility_GlBindBufferRange(QOpenGLFunctions_4_4_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer, intptr_t offset, intptr_t size);
 void QOpenGLFunctions_4_4_Compatibility_GlEndTransformFeedback(QOpenGLFunctions_4_4_Compatibility* self);
@@ -307,6 +309,7 @@ void QOpenGLFunctions_4_4_Compatibility_GlGetActiveUniformBlockiv(QOpenGLFunctio
 uint32_t QOpenGLFunctions_4_4_Compatibility_GlGetUniformBlockIndex(QOpenGLFunctions_4_4_Compatibility* self, uint32_t program, const GLchar* uniformBlockName);
 void QOpenGLFunctions_4_4_Compatibility_GlGetActiveUniformName(QOpenGLFunctions_4_4_Compatibility* self, uint32_t program, uint32_t uniformIndex, int32_t bufSize, int32_t* length, GLchar* uniformName);
 void QOpenGLFunctions_4_4_Compatibility_GlGetActiveUniformsiv(QOpenGLFunctions_4_4_Compatibility* self, uint32_t program, int32_t uniformCount, const uint32_t* uniformIndices, uint32_t pname, int32_t* params);
+void QOpenGLFunctions_4_4_Compatibility_GlGetUniformIndices(QOpenGLFunctions_4_4_Compatibility* self, uint32_t program, int32_t uniformCount, const GLchar** uniformNames, uint32_t* uniformIndices);
 void QOpenGLFunctions_4_4_Compatibility_GlCopyBufferSubData(QOpenGLFunctions_4_4_Compatibility* self, uint32_t readTarget, uint32_t writeTarget, intptr_t readOffset, intptr_t writeOffset, intptr_t size);
 void QOpenGLFunctions_4_4_Compatibility_GlPrimitiveRestartIndex(QOpenGLFunctions_4_4_Compatibility* self, uint32_t index);
 void QOpenGLFunctions_4_4_Compatibility_GlTexBuffer(QOpenGLFunctions_4_4_Compatibility* self, uint32_t target, uint32_t internalformat, uint32_t buffer);
@@ -476,6 +479,7 @@ unsigned char QOpenGLFunctions_4_4_Compatibility_GlIsProgramPipeline(QOpenGLFunc
 void QOpenGLFunctions_4_4_Compatibility_GlGenProgramPipelines(QOpenGLFunctions_4_4_Compatibility* self, int32_t n, uint32_t* pipelines);
 void QOpenGLFunctions_4_4_Compatibility_GlDeleteProgramPipelines(QOpenGLFunctions_4_4_Compatibility* self, int32_t n, const uint32_t* pipelines);
 void QOpenGLFunctions_4_4_Compatibility_GlBindProgramPipeline(QOpenGLFunctions_4_4_Compatibility* self, uint32_t pipeline);
+uint32_t QOpenGLFunctions_4_4_Compatibility_GlCreateShaderProgramv(QOpenGLFunctions_4_4_Compatibility* self, uint32_t typeVal, int32_t count, const GLchar** strings);
 void QOpenGLFunctions_4_4_Compatibility_GlActiveShaderProgram(QOpenGLFunctions_4_4_Compatibility* self, uint32_t pipeline, uint32_t program);
 void QOpenGLFunctions_4_4_Compatibility_GlUseProgramStages(QOpenGLFunctions_4_4_Compatibility* self, uint32_t pipeline, uint32_t stages, uint32_t program);
 void QOpenGLFunctions_4_4_Compatibility_GlProgramParameteri(QOpenGLFunctions_4_4_Compatibility* self, uint32_t program, uint32_t pname, int32_t value);

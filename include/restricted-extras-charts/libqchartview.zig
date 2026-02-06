@@ -8078,6 +8078,66 @@ pub const qchartview = struct {
         qtc.QChartView_OnDrawForeground(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#drawItems)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QChartView `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` numItems: i32 `
+    ///
+    /// ` items: *QtC.QGraphicsItem `
+    ///
+    /// ` options: QtC.QStyleOptionGraphicsItem `
+    ///
+    pub fn DrawItems(self: ?*anyopaque, painter: ?*anyopaque, numItems: i32, items: *?*anyopaque, options: ?*anyopaque) void {
+        qtc.QChartView_DrawItems(@ptrCast(self), @ptrCast(painter), @intCast(numItems), @ptrCast(items), @ptrCast(options));
+    }
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#drawItems)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QChartView `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` numItems: i32 `
+    ///
+    /// ` items: *QtC.QGraphicsItem `
+    ///
+    /// ` options: QtC.QStyleOptionGraphicsItem `
+    ///
+    pub fn QBaseDrawItems(self: ?*anyopaque, painter: ?*anyopaque, numItems: i32, items: *?*anyopaque, options: ?*anyopaque) void {
+        qtc.QChartView_QBaseDrawItems(@ptrCast(self), @ptrCast(painter), @intCast(numItems), @ptrCast(items), @ptrCast(options));
+    }
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#drawItems)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QChartView`
+    ///
+    /// ` callback: *const fn (self: QtC.QChartView, painter: QtC.QPainter, numItems: i32, items: *QtC.QGraphicsItem, options: QtC.QStyleOptionGraphicsItem) callconv(.c) void `
+    ///
+    pub fn OnDrawItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, *?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QChartView_OnDrawItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)

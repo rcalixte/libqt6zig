@@ -51,16 +51,20 @@ QImage* QImage_new7(const unsigned char* data, int width, int height, ptrdiff_t 
     return new VirtualQImage(static_cast<const uchar*>(data), static_cast<int>(width), static_cast<int>(height), (qsizetype)(bytesPerLine), static_cast<QImage::Format>(format));
 }
 
-QImage* QImage_new8(const libqt_string fileName) {
+QImage* QImage_new8(const char** xpm) {
+    return new VirtualQImage(xpm);
+}
+
+QImage* QImage_new9(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new VirtualQImage(fileName_QString);
 }
 
-QImage* QImage_new9(const QImage* param1) {
+QImage* QImage_new10(const QImage* param1) {
     return new VirtualQImage(*param1);
 }
 
-QImage* QImage_new10(const libqt_string fileName, const char* format) {
+QImage* QImage_new11(const libqt_string fileName, const char* format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new VirtualQImage(fileName_QString, format);
 }

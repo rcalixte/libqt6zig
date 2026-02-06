@@ -161,6 +161,10 @@ void QOpenGLExtraFunctions_GlBindBufferBase(QOpenGLExtraFunctions* self, uint32_
     self->glBindBufferBase(static_cast<GLenum>(target), static_cast<GLuint>(index), static_cast<GLuint>(buffer));
 }
 
+void QOpenGLExtraFunctions_GlTransformFeedbackVaryings(QOpenGLExtraFunctions* self, uint32_t program, int32_t count, const GLchar** varyings, uint32_t bufferMode) {
+    self->glTransformFeedbackVaryings(static_cast<GLuint>(program), static_cast<GLsizei>(count), static_cast<const GLchar**>(varyings), static_cast<GLenum>(bufferMode));
+}
+
 void QOpenGLExtraFunctions_GlVertexAttribIPointer(QOpenGLExtraFunctions* self, uint32_t index, int32_t size, uint32_t typeVal, int32_t stride, const void* pointer) {
     self->glVertexAttribIPointer(static_cast<GLuint>(index), static_cast<GLint>(size), static_cast<GLenum>(typeVal), static_cast<GLsizei>(stride), pointer);
 }
@@ -251,6 +255,10 @@ const uint8_t* QOpenGLExtraFunctions_GlGetStringi(QOpenGLExtraFunctions* self, u
 
 void QOpenGLExtraFunctions_GlCopyBufferSubData(QOpenGLExtraFunctions* self, uint32_t readTarget, uint32_t writeTarget, intptr_t readOffset, intptr_t writeOffset, intptr_t size) {
     self->glCopyBufferSubData(static_cast<GLenum>(readTarget), static_cast<GLenum>(writeTarget), static_cast<GLintptr>(readOffset), static_cast<GLintptr>(writeOffset), static_cast<GLsizeiptr>(size));
+}
+
+void QOpenGLExtraFunctions_GlGetUniformIndices(QOpenGLExtraFunctions* self, uint32_t program, int32_t uniformCount, const GLchar** uniformNames, uint32_t* uniformIndices) {
+    self->glGetUniformIndices(static_cast<GLuint>(program), static_cast<GLsizei>(uniformCount), static_cast<const GLchar**>(uniformNames), static_cast<GLuint*>(uniformIndices));
 }
 
 void QOpenGLExtraFunctions_GlGetActiveUniformsiv(QOpenGLExtraFunctions* self, uint32_t program, int32_t uniformCount, const uint32_t* uniformIndices, uint32_t pname, int32_t* params) {
@@ -427,6 +435,10 @@ void QOpenGLExtraFunctions_GlUseProgramStages(QOpenGLExtraFunctions* self, uint3
 
 void QOpenGLExtraFunctions_GlActiveShaderProgram(QOpenGLExtraFunctions* self, uint32_t pipeline, uint32_t program) {
     self->glActiveShaderProgram(static_cast<GLuint>(pipeline), static_cast<GLuint>(program));
+}
+
+uint32_t QOpenGLExtraFunctions_GlCreateShaderProgramv(QOpenGLExtraFunctions* self, uint32_t typeVal, int32_t count, const GLchar** strings) {
+    return self->glCreateShaderProgramv(static_cast<GLenum>(typeVal), static_cast<GLsizei>(count), static_cast<const GLchar**>(strings));
 }
 
 void QOpenGLExtraFunctions_GlBindProgramPipeline(QOpenGLExtraFunctions* self, uint32_t pipeline) {

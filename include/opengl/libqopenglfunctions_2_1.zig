@@ -990,6 +990,20 @@ pub const qopenglfunctions_2_1 = struct {
         qtc.QOpenGLFunctions_2_1_GlPolygonOffset(@ptrCast(self), @floatCast(factor), @floatCast(units));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glGetPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_1 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` params: *?*anyopaque `
+    ///
+    pub fn GlGetPointerv(self: ?*anyopaque, pname: u32, params: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_2_1_GlGetPointerv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glDrawElements)
     ///
     /// ## Parameter(s):
@@ -1426,6 +1440,26 @@ pub const qopenglfunctions_2_1 = struct {
         qtc.QOpenGLFunctions_2_1_GlPointParameterf(@ptrCast(self), @intCast(pname), @floatCast(param));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glMultiDrawElements)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_1 `
+    ///
+    /// ` mode: u32 `
+    ///
+    /// ` count: []const i32 `
+    ///
+    /// ` typeVal: u32 `
+    ///
+    /// ` indices: *?*const anyopaque `
+    ///
+    /// ` drawcount: i32 `
+    ///
+    pub fn GlMultiDrawElements(self: ?*anyopaque, mode: u32, count: []const i32, typeVal: u32, indices: *?*const anyopaque, drawcount: i32) void {
+        qtc.QOpenGLFunctions_2_1_GlMultiDrawElements(@ptrCast(self), @intCast(mode), count.ptr, @intCast(typeVal), @ptrCast(indices), @intCast(drawcount));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glMultiDrawArrays)
     ///
     /// ## Parameter(s):
@@ -1460,6 +1494,22 @@ pub const qopenglfunctions_2_1 = struct {
     ///
     pub fn GlBlendFuncSeparate(self: ?*anyopaque, sfactorRGB: u32, dfactorRGB: u32, sfactorAlpha: u32, dfactorAlpha: u32) void {
         qtc.QOpenGLFunctions_2_1_GlBlendFuncSeparate(@ptrCast(self), @intCast(sfactorRGB), @intCast(dfactorRGB), @intCast(sfactorAlpha), @intCast(dfactorAlpha));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glGetBufferPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_1 `
+    ///
+    /// ` target: u32 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` params: *?*anyopaque `
+    ///
+    pub fn GlGetBufferPointerv(self: ?*anyopaque, target: u32, pname: u32, params: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_2_1_GlGetBufferPointerv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glGetBufferParameteriv)
@@ -2090,6 +2140,31 @@ pub const qopenglfunctions_2_1 = struct {
         qtc.QOpenGLFunctions_2_1_GlUseProgram(@ptrCast(self), @intCast(program));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glShaderSource)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_1 `
+    ///
+    /// ` shader: u32 `
+    ///
+    /// ` count: i32 `
+    ///
+    /// ` stringVal: []const [:0]const u8 `
+    ///
+    /// ` length: []const i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: []const [:0]const u8, length: []const i32, allocator: std.mem.Allocator) void {
+        const stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglfunctions_2_1.GlShaderSource: Memory allocation failed");
+        defer allocator.free(stringVal_chararr);
+        for (stringVal, 0..stringVal.len) |str, i| {
+            stringVal_chararr[i] = @ptrCast(str.ptr);
+        }
+        qtc.QOpenGLFunctions_2_1_GlShaderSource(@ptrCast(self), @intCast(shader), @intCast(count), stringVal_chararr.ptr, length.ptr);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glLinkProgram)
     ///
     /// ## Parameter(s):
@@ -2124,6 +2199,22 @@ pub const qopenglfunctions_2_1 = struct {
     ///
     pub fn GlIsProgram(self: ?*anyopaque, program: u32) u8 {
         return qtc.QOpenGLFunctions_2_1_GlIsProgram(@ptrCast(self), @intCast(program));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glGetVertexAttribPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_2_1 `
+    ///
+    /// ` index: u32 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` pointer: *?*anyopaque `
+    ///
+    pub fn GlGetVertexAttribPointerv(self: ?*anyopaque, index: u32, pname: u32, pointer: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_2_1_GlGetVertexAttribPointerv(@ptrCast(self), @intCast(index), @intCast(pname), @ptrCast(pointer));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-1.html#glGetVertexAttribiv)

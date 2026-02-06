@@ -257,6 +257,10 @@ void QOpenGLFunctions_1_3_GlPolygonOffset(QOpenGLFunctions_1_3* self, float fact
     self->glPolygonOffset(static_cast<GLfloat>(factor), static_cast<GLfloat>(units));
 }
 
+void QOpenGLFunctions_1_3_GlGetPointerv(QOpenGLFunctions_1_3* self, uint32_t pname, void** params) {
+    self->glGetPointerv(static_cast<GLenum>(pname), params);
+}
+
 void QOpenGLFunctions_1_3_GlDrawElements(QOpenGLFunctions_1_3* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices) {
     self->glDrawElements(static_cast<GLenum>(mode), static_cast<GLsizei>(count), static_cast<GLenum>(typeVal), indices);
 }

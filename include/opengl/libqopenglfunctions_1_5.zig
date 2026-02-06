@@ -990,6 +990,20 @@ pub const qopenglfunctions_1_5 = struct {
         qtc.QOpenGLFunctions_1_5_GlPolygonOffset(@ptrCast(self), @floatCast(factor), @floatCast(units));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5.html#glGetPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` params: *?*anyopaque `
+    ///
+    pub fn GlGetPointerv(self: ?*anyopaque, pname: u32, params: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_1_5_GlGetPointerv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5.html#glDrawElements)
     ///
     /// ## Parameter(s):
@@ -1426,6 +1440,26 @@ pub const qopenglfunctions_1_5 = struct {
         qtc.QOpenGLFunctions_1_5_GlPointParameterf(@ptrCast(self), @intCast(pname), @floatCast(param));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5.html#glMultiDrawElements)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5 `
+    ///
+    /// ` mode: u32 `
+    ///
+    /// ` count: []const i32 `
+    ///
+    /// ` typeVal: u32 `
+    ///
+    /// ` indices: *?*const anyopaque `
+    ///
+    /// ` drawcount: i32 `
+    ///
+    pub fn GlMultiDrawElements(self: ?*anyopaque, mode: u32, count: []const i32, typeVal: u32, indices: *?*const anyopaque, drawcount: i32) void {
+        qtc.QOpenGLFunctions_1_5_GlMultiDrawElements(@ptrCast(self), @intCast(mode), count.ptr, @intCast(typeVal), @ptrCast(indices), @intCast(drawcount));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5.html#glMultiDrawArrays)
     ///
     /// ## Parameter(s):
@@ -1460,6 +1494,22 @@ pub const qopenglfunctions_1_5 = struct {
     ///
     pub fn GlBlendFuncSeparate(self: ?*anyopaque, sfactorRGB: u32, dfactorRGB: u32, sfactorAlpha: u32, dfactorAlpha: u32) void {
         qtc.QOpenGLFunctions_1_5_GlBlendFuncSeparate(@ptrCast(self), @intCast(sfactorRGB), @intCast(dfactorRGB), @intCast(sfactorAlpha), @intCast(dfactorAlpha));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5.html#glGetBufferPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_5 `
+    ///
+    /// ` target: u32 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` params: *?*anyopaque `
+    ///
+    pub fn GlGetBufferPointerv(self: ?*anyopaque, target: u32, pname: u32, params: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_1_5_GlGetBufferPointerv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-5.html#glGetBufferParameteriv)

@@ -166,6 +166,43 @@ pub const qopenglversionfunctionsbackend = struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsstorage.html)
+pub const qopenglversionfunctionsstorage = struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsstorage.html#backends-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLVersionFunctionsStorage `
+    ///
+    pub fn Backends(self: ?*anyopaque) *QtC.QOpenGLVersionFunctionsBackend {
+        return qtc.QOpenGLVersionFunctionsStorage_Backends(@ptrCast(self));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsstorage.html#backends-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLVersionFunctionsStorage `
+    ///
+    /// ` backends: *QtC.QOpenGLVersionFunctionsBackend `
+    ///
+    pub fn SetBackends(self: ?*anyopaque, backends: *?*anyopaque) void {
+        qtc.QOpenGLVersionFunctionsStorage_SetBackends(@ptrCast(self), @ptrCast(backends));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsstorage.html#dtor.QOpenGLVersionFunctionsStorage)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: QtC.QOpenGLVersionFunctionsStorage `
+    ///
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QOpenGLVersionFunctionsStorage_Delete(@ptrCast(self));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html)
 pub const qabstractopenglfunctions = struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#initializeOpenGLFunctions)

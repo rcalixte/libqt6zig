@@ -988,6 +988,10 @@ void QGraphicsItem_SetCacheMode2(QGraphicsItem* self, int mode, const QSize* cac
     self->setCacheMode(static_cast<QGraphicsItem::CacheMode>(mode), *cacheSize);
 }
 
+bool QGraphicsItem_IsBlockedByModalPanel1(const QGraphicsItem* self, QGraphicsItem** blockingPanel) {
+    return self->isBlockedByModalPanel(blockingPanel);
+}
+
 void QGraphicsItem_SetFocus1(QGraphicsItem* self, int focusReason) {
     self->setFocus(static_cast<Qt::FocusReason>(focusReason));
 }

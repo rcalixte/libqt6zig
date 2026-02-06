@@ -14,6 +14,7 @@
 #include <QEvent>
 #include <QFocusEvent>
 #include <QFrame>
+#include <QGraphicsItem>
 #include <QGraphicsView>
 #include <QHideEvent>
 #include <QInputMethodEvent>
@@ -37,6 +38,7 @@
 #include <QByteArray>
 #include <cstring>
 #include <QStyleOptionFrame>
+#include <QStyleOptionGraphicsItem>
 #include <QTabletEvent>
 #include <QTimerEvent>
 #include <QVariant>
@@ -930,6 +932,35 @@ void QChartView_OnDrawForeground(QChartView* self, intptr_t slot) {
     auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
     if (vqchartview && vqchartview->isVirtualQChartView) {
         vqchartview->setQChartView_DrawForeground_Callback(reinterpret_cast<VirtualQChartView::QChartView_DrawForeground_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void QChartView_DrawItems(QChartView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->drawItems(painter, static_cast<int>(numItems), items, options);
+    } else {
+        ((VirtualQChartView*)self)->drawItems(painter, static_cast<int>(numItems), items, options);
+    }
+}
+
+// Base class handler implementation
+void QChartView_QBaseDrawItems(QChartView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_DrawItems_IsBase(true);
+        vqchartview->drawItems(painter, static_cast<int>(numItems), items, options);
+    } else {
+        ((VirtualQChartView*)self)->drawItems(painter, static_cast<int>(numItems), items, options);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChartView_OnDrawItems(QChartView* self, intptr_t slot) {
+    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_DrawItems_Callback(reinterpret_cast<VirtualQChartView::QChartView_DrawItems_Callback>(slot));
     }
 }
 

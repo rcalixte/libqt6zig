@@ -990,6 +990,20 @@ pub const qopenglfunctions_1_4 = struct {
         qtc.QOpenGLFunctions_1_4_GlPolygonOffset(@ptrCast(self), @floatCast(factor), @floatCast(units));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-4.html#glGetPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_4 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` params: *?*anyopaque `
+    ///
+    pub fn GlGetPointerv(self: ?*anyopaque, pname: u32, params: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_1_4_GlGetPointerv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-4.html#glDrawElements)
     ///
     /// ## Parameter(s):
@@ -1424,6 +1438,26 @@ pub const qopenglfunctions_1_4 = struct {
     ///
     pub fn GlPointParameterf(self: ?*anyopaque, pname: u32, param: f32) void {
         qtc.QOpenGLFunctions_1_4_GlPointParameterf(@ptrCast(self), @intCast(pname), @floatCast(param));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-4.html#glMultiDrawElements)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_4 `
+    ///
+    /// ` mode: u32 `
+    ///
+    /// ` count: []const i32 `
+    ///
+    /// ` typeVal: u32 `
+    ///
+    /// ` indices: *?*const anyopaque `
+    ///
+    /// ` drawcount: i32 `
+    ///
+    pub fn GlMultiDrawElements(self: ?*anyopaque, mode: u32, count: []const i32, typeVal: u32, indices: *?*const anyopaque, drawcount: i32) void {
+        qtc.QOpenGLFunctions_1_4_GlMultiDrawElements(@ptrCast(self), @intCast(mode), count.ptr, @intCast(typeVal), @ptrCast(indices), @intCast(drawcount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-4.html#glMultiDrawArrays)

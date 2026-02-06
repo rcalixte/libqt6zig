@@ -47,6 +47,7 @@ class VirtualQGraphicsView final : public QGraphicsView {
     using QGraphicsView_InputMethodEvent_Callback = void (*)(QGraphicsView*, QInputMethodEvent*);
     using QGraphicsView_DrawBackground_Callback = void (*)(QGraphicsView*, QPainter*, QRectF*);
     using QGraphicsView_DrawForeground_Callback = void (*)(QGraphicsView*, QPainter*, QRectF*);
+    using QGraphicsView_DrawItems_Callback = void (*)(QGraphicsView*, QPainter*, int, QGraphicsItem**, QStyleOptionGraphicsItem*);
     using QGraphicsView_MinimumSizeHint_Callback = QSize* (*)();
     using QGraphicsView_EventFilter_Callback = bool (*)(QGraphicsView*, QObject*, QEvent*);
     using QGraphicsView_ViewportSizeHint_Callback = QSize* (*)();
@@ -120,6 +121,7 @@ class VirtualQGraphicsView final : public QGraphicsView {
     QGraphicsView_InputMethodEvent_Callback qgraphicsview_inputmethodevent_callback = nullptr;
     QGraphicsView_DrawBackground_Callback qgraphicsview_drawbackground_callback = nullptr;
     QGraphicsView_DrawForeground_Callback qgraphicsview_drawforeground_callback = nullptr;
+    QGraphicsView_DrawItems_Callback qgraphicsview_drawitems_callback = nullptr;
     QGraphicsView_MinimumSizeHint_Callback qgraphicsview_minimumsizehint_callback = nullptr;
     QGraphicsView_EventFilter_Callback qgraphicsview_eventfilter_callback = nullptr;
     QGraphicsView_ViewportSizeHint_Callback qgraphicsview_viewportsizehint_callback = nullptr;
@@ -192,6 +194,7 @@ class VirtualQGraphicsView final : public QGraphicsView {
     mutable bool qgraphicsview_inputmethodevent_isbase = false;
     mutable bool qgraphicsview_drawbackground_isbase = false;
     mutable bool qgraphicsview_drawforeground_isbase = false;
+    mutable bool qgraphicsview_drawitems_isbase = false;
     mutable bool qgraphicsview_minimumsizehint_isbase = false;
     mutable bool qgraphicsview_eventfilter_isbase = false;
     mutable bool qgraphicsview_viewportsizehint_isbase = false;
@@ -270,6 +273,7 @@ class VirtualQGraphicsView final : public QGraphicsView {
         qgraphicsview_inputmethodevent_callback = nullptr;
         qgraphicsview_drawbackground_callback = nullptr;
         qgraphicsview_drawforeground_callback = nullptr;
+        qgraphicsview_drawitems_callback = nullptr;
         qgraphicsview_minimumsizehint_callback = nullptr;
         qgraphicsview_eventfilter_callback = nullptr;
         qgraphicsview_viewportsizehint_callback = nullptr;
@@ -343,6 +347,7 @@ class VirtualQGraphicsView final : public QGraphicsView {
     inline void setQGraphicsView_InputMethodEvent_Callback(QGraphicsView_InputMethodEvent_Callback cb) { qgraphicsview_inputmethodevent_callback = cb; }
     inline void setQGraphicsView_DrawBackground_Callback(QGraphicsView_DrawBackground_Callback cb) { qgraphicsview_drawbackground_callback = cb; }
     inline void setQGraphicsView_DrawForeground_Callback(QGraphicsView_DrawForeground_Callback cb) { qgraphicsview_drawforeground_callback = cb; }
+    inline void setQGraphicsView_DrawItems_Callback(QGraphicsView_DrawItems_Callback cb) { qgraphicsview_drawitems_callback = cb; }
     inline void setQGraphicsView_MinimumSizeHint_Callback(QGraphicsView_MinimumSizeHint_Callback cb) { qgraphicsview_minimumsizehint_callback = cb; }
     inline void setQGraphicsView_EventFilter_Callback(QGraphicsView_EventFilter_Callback cb) { qgraphicsview_eventfilter_callback = cb; }
     inline void setQGraphicsView_ViewportSizeHint_Callback(QGraphicsView_ViewportSizeHint_Callback cb) { qgraphicsview_viewportsizehint_callback = cb; }
@@ -415,6 +420,7 @@ class VirtualQGraphicsView final : public QGraphicsView {
     inline void setQGraphicsView_InputMethodEvent_IsBase(bool value) const { qgraphicsview_inputmethodevent_isbase = value; }
     inline void setQGraphicsView_DrawBackground_IsBase(bool value) const { qgraphicsview_drawbackground_isbase = value; }
     inline void setQGraphicsView_DrawForeground_IsBase(bool value) const { qgraphicsview_drawforeground_isbase = value; }
+    inline void setQGraphicsView_DrawItems_IsBase(bool value) const { qgraphicsview_drawitems_isbase = value; }
     inline void setQGraphicsView_MinimumSizeHint_IsBase(bool value) const { qgraphicsview_minimumsizehint_isbase = value; }
     inline void setQGraphicsView_EventFilter_IsBase(bool value) const { qgraphicsview_eventfilter_isbase = value; }
     inline void setQGraphicsView_ViewportSizeHint_IsBase(bool value) const { qgraphicsview_viewportsizehint_isbase = value; }
@@ -886,6 +892,23 @@ class VirtualQGraphicsView final : public QGraphicsView {
             qgraphicsview_drawforeground_callback(this, cbval1, cbval2);
         } else {
             QGraphicsView::drawForeground(painter, rect);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void drawItems(QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) override {
+        if (qgraphicsview_drawitems_isbase) {
+            qgraphicsview_drawitems_isbase = false;
+            QGraphicsView::drawItems(painter, numItems, items, options);
+        } else if (qgraphicsview_drawitems_callback != nullptr) {
+            QPainter* cbval1 = painter;
+            int cbval2 = numItems;
+            QGraphicsItem** cbval3 = items;
+            QStyleOptionGraphicsItem* cbval4 = (QStyleOptionGraphicsItem*)options;
+
+            qgraphicsview_drawitems_callback(this, cbval1, cbval2, cbval3, cbval4);
+        } else {
+            QGraphicsView::drawItems(painter, numItems, items, options);
         }
     }
 
@@ -1511,6 +1534,8 @@ class VirtualQGraphicsView final : public QGraphicsView {
     friend void QGraphicsView_QBaseDrawBackground(QGraphicsView* self, QPainter* painter, const QRectF* rect);
     friend void QGraphicsView_DrawForeground(QGraphicsView* self, QPainter* painter, const QRectF* rect);
     friend void QGraphicsView_QBaseDrawForeground(QGraphicsView* self, QPainter* painter, const QRectF* rect);
+    friend void QGraphicsView_DrawItems(QGraphicsView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options);
+    friend void QGraphicsView_QBaseDrawItems(QGraphicsView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options);
     friend bool QGraphicsView_EventFilter(QGraphicsView* self, QObject* param1, QEvent* param2);
     friend bool QGraphicsView_QBaseEventFilter(QGraphicsView* self, QObject* param1, QEvent* param2);
     friend QSize* QGraphicsView_ViewportSizeHint(const QGraphicsView* self);

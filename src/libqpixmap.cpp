@@ -39,16 +39,20 @@ QPixmap* QPixmap_new4(const libqt_string fileName) {
     return new VirtualQPixmap(fileName_QString);
 }
 
-QPixmap* QPixmap_new5(const QPixmap* param1) {
+QPixmap* QPixmap_new5(const char** xpm) {
+    return new VirtualQPixmap(xpm);
+}
+
+QPixmap* QPixmap_new6(const QPixmap* param1) {
     return new VirtualQPixmap(*param1);
 }
 
-QPixmap* QPixmap_new6(const libqt_string fileName, const char* format) {
+QPixmap* QPixmap_new7(const libqt_string fileName, const char* format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new VirtualQPixmap(fileName_QString, format);
 }
 
-QPixmap* QPixmap_new7(const libqt_string fileName, const char* format, int flags) {
+QPixmap* QPixmap_new8(const libqt_string fileName, const char* format, int flags) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new VirtualQPixmap(fileName_QString, format, static_cast<Qt::ImageConversionFlags>(flags));
 }

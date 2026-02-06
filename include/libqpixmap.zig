@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
+const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html)
 pub const qpixmap = struct {
@@ -52,28 +53,28 @@ pub const qpixmap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPixmap `
+    /// ` xpm: []const [:0]const u8 `
     ///
-    pub fn New5(param1: ?*anyopaque) QtC.QPixmap {
-        return qtc.QPixmap_new5(@ptrCast(param1));
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn New5(xpm: []const [:0]const u8, allocator: std.mem.Allocator) QtC.QPixmap {
+        const xpm_chararr = allocator.alloc([*c]const u8, xpm.len) catch @panic("qpixmap.New5: Memory allocation failed");
+        defer allocator.free(xpm_chararr);
+        for (xpm, 0..xpm.len) |str, i| {
+            xpm_chararr[i] = @ptrCast(str.ptr);
+        }
+
+        return qtc.QPixmap_new5(xpm_chararr.ptr);
     }
 
     /// New6 constructs a new QPixmap object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` param1: QtC.QPixmap `
     ///
-    /// ` format: [:0]const u8 `
-    ///
-    pub fn New6(fileName: []const u8, format: [:0]const u8) QtC.QPixmap {
-        const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
-        };
-        const format_Cstring = format.ptr;
-
-        return qtc.QPixmap_new6(fileName_str, format_Cstring);
+    pub fn New6(param1: ?*anyopaque) QtC.QPixmap {
+        return qtc.QPixmap_new6(@ptrCast(param1));
     }
 
     /// New7 constructs a new QPixmap object.
@@ -84,16 +85,34 @@ pub const qpixmap = struct {
     ///
     /// ` format: [:0]const u8 `
     ///
-    /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
-    ///
-    pub fn New7(fileName: []const u8, format: [:0]const u8, flags: i32) QtC.QPixmap {
+    pub fn New7(fileName: []const u8, format: [:0]const u8) QtC.QPixmap {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
 
-        return qtc.QPixmap_new7(fileName_str, format_Cstring, @intCast(flags));
+        return qtc.QPixmap_new7(fileName_str, format_Cstring);
+    }
+
+    /// New8 constructs a new QPixmap object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` fileName: []const u8 `
+    ///
+    /// ` format: [:0]const u8 `
+    ///
+    /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
+    ///
+    pub fn New8(fileName: []const u8, format: [:0]const u8, flags: i32) QtC.QPixmap {
+        const fileName_str = qtc.libqt_string{
+            .len = fileName.len,
+            .data = fileName.ptr,
+        };
+        const format_Cstring = format.ptr;
+
+        return qtc.QPixmap_new8(fileName_str, format_Cstring, @intCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#operator-eq)

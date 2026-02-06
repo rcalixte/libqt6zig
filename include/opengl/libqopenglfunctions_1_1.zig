@@ -990,6 +990,20 @@ pub const qopenglfunctions_1_1 = struct {
         qtc.QOpenGLFunctions_1_1_GlPolygonOffset(@ptrCast(self), @floatCast(factor), @floatCast(units));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetPointerv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_1_1 `
+    ///
+    /// ` pname: u32 `
+    ///
+    /// ` params: *?*anyopaque `
+    ///
+    pub fn GlGetPointerv(self: ?*anyopaque, pname: u32, params: *?*anyopaque) void {
+        qtc.QOpenGLFunctions_1_1_GlGetPointerv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glDrawElements)
     ///
     /// ## Parameter(s):
