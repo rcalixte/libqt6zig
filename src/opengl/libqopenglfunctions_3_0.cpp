@@ -257,6 +257,10 @@ void QOpenGLFunctions_3_0_GlPolygonOffset(QOpenGLFunctions_3_0* self, float fact
     self->glPolygonOffset(static_cast<GLfloat>(factor), static_cast<GLfloat>(units));
 }
 
+void QOpenGLFunctions_3_0_GlGetPointerv(QOpenGLFunctions_3_0* self, uint32_t pname, void** params) {
+    self->glGetPointerv(static_cast<GLenum>(pname), params);
+}
+
 void QOpenGLFunctions_3_0_GlDrawElements(QOpenGLFunctions_3_0* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices) {
     self->glDrawElements(static_cast<GLenum>(mode), static_cast<GLsizei>(count), static_cast<GLenum>(typeVal), indices);
 }
@@ -341,12 +345,20 @@ void QOpenGLFunctions_3_0_GlPointParameterf(QOpenGLFunctions_3_0* self, uint32_t
     self->glPointParameterf(static_cast<GLenum>(pname), static_cast<GLfloat>(param));
 }
 
+void QOpenGLFunctions_3_0_GlMultiDrawElements(QOpenGLFunctions_3_0* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount) {
+    self->glMultiDrawElements(static_cast<GLenum>(mode), static_cast<const GLsizei*>(count), static_cast<GLenum>(typeVal), indices, static_cast<GLsizei>(drawcount));
+}
+
 void QOpenGLFunctions_3_0_GlMultiDrawArrays(QOpenGLFunctions_3_0* self, uint32_t mode, const int32_t* first, const int32_t* count, int32_t drawcount) {
     self->glMultiDrawArrays(static_cast<GLenum>(mode), static_cast<const GLint*>(first), static_cast<const GLsizei*>(count), static_cast<GLsizei>(drawcount));
 }
 
 void QOpenGLFunctions_3_0_GlBlendFuncSeparate(QOpenGLFunctions_3_0* self, uint32_t sfactorRGB, uint32_t dfactorRGB, uint32_t sfactorAlpha, uint32_t dfactorAlpha) {
     self->glBlendFuncSeparate(static_cast<GLenum>(sfactorRGB), static_cast<GLenum>(dfactorRGB), static_cast<GLenum>(sfactorAlpha), static_cast<GLenum>(dfactorAlpha));
+}
+
+void QOpenGLFunctions_3_0_GlGetBufferPointerv(QOpenGLFunctions_3_0* self, uint32_t target, uint32_t pname, void** params) {
+    self->glGetBufferPointerv(static_cast<GLenum>(target), static_cast<GLenum>(pname), params);
 }
 
 void QOpenGLFunctions_3_0_GlGetBufferParameteriv(QOpenGLFunctions_3_0* self, uint32_t target, uint32_t pname, int32_t* params) {
@@ -509,6 +521,10 @@ void QOpenGLFunctions_3_0_GlUseProgram(QOpenGLFunctions_3_0* self, uint32_t prog
     self->glUseProgram(static_cast<GLuint>(program));
 }
 
+void QOpenGLFunctions_3_0_GlShaderSource(QOpenGLFunctions_3_0* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length) {
+    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), static_cast<const GLchar**>(stringVal), static_cast<const GLint*>(length));
+}
+
 void QOpenGLFunctions_3_0_GlLinkProgram(QOpenGLFunctions_3_0* self, uint32_t program) {
     self->glLinkProgram(static_cast<GLuint>(program));
 }
@@ -519,6 +535,10 @@ unsigned char QOpenGLFunctions_3_0_GlIsShader(QOpenGLFunctions_3_0* self, uint32
 
 unsigned char QOpenGLFunctions_3_0_GlIsProgram(QOpenGLFunctions_3_0* self, uint32_t program) {
     return self->glIsProgram(static_cast<GLuint>(program));
+}
+
+void QOpenGLFunctions_3_0_GlGetVertexAttribPointerv(QOpenGLFunctions_3_0* self, uint32_t index, uint32_t pname, void** pointer) {
+    self->glGetVertexAttribPointerv(static_cast<GLuint>(index), static_cast<GLenum>(pname), pointer);
 }
 
 void QOpenGLFunctions_3_0_GlGetVertexAttribiv(QOpenGLFunctions_3_0* self, uint32_t index, uint32_t pname, int32_t* params) {
@@ -855,6 +875,10 @@ void QOpenGLFunctions_3_0_GlBeginConditionalRender(QOpenGLFunctions_3_0* self, u
 
 void QOpenGLFunctions_3_0_GlClampColor(QOpenGLFunctions_3_0* self, uint32_t target, uint32_t clamp) {
     self->glClampColor(static_cast<GLenum>(target), static_cast<GLenum>(clamp));
+}
+
+void QOpenGLFunctions_3_0_GlTransformFeedbackVaryings(QOpenGLFunctions_3_0* self, uint32_t program, int32_t count, const GLchar** varyings, uint32_t bufferMode) {
+    self->glTransformFeedbackVaryings(static_cast<GLuint>(program), static_cast<GLsizei>(count), static_cast<const GLchar**>(varyings), static_cast<GLenum>(bufferMode));
 }
 
 void QOpenGLFunctions_3_0_GlBindBufferBase(QOpenGLFunctions_3_0* self, uint32_t target, uint32_t index, uint32_t buffer) {

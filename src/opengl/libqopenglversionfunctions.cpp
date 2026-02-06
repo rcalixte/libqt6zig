@@ -95,6 +95,18 @@ void QOpenGLVersionFunctionsBackend_Delete(QOpenGLVersionFunctionsBackend* self)
     delete self;
 }
 
+QOpenGLVersionFunctionsBackend** QOpenGLVersionFunctionsStorage_Backends(const QOpenGLVersionFunctionsStorage* self) {
+    return self->backends;
+}
+
+void QOpenGLVersionFunctionsStorage_SetBackends(QOpenGLVersionFunctionsStorage* self, QOpenGLVersionFunctionsBackend** backends) {
+    self->backends = backends;
+}
+
+void QOpenGLVersionFunctionsStorage_Delete(QOpenGLVersionFunctionsStorage* self) {
+    delete self;
+}
+
 bool QAbstractOpenGLFunctions_InitializeOpenGLFunctions(QAbstractOpenGLFunctions* self) {
     return self->initializeOpenGLFunctions();
 }

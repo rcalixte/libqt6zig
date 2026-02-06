@@ -84,6 +84,7 @@ void QOpenGLFunctions_1_3_GlCopyTexSubImage1D(QOpenGLFunctions_1_3* self, uint32
 void QOpenGLFunctions_1_3_GlCopyTexImage2D(QOpenGLFunctions_1_3* self, uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t height, int32_t border);
 void QOpenGLFunctions_1_3_GlCopyTexImage1D(QOpenGLFunctions_1_3* self, uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t border);
 void QOpenGLFunctions_1_3_GlPolygonOffset(QOpenGLFunctions_1_3* self, float factor, float units);
+void QOpenGLFunctions_1_3_GlGetPointerv(QOpenGLFunctions_1_3* self, uint32_t pname, void** params);
 void QOpenGLFunctions_1_3_GlDrawElements(QOpenGLFunctions_1_3* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices);
 void QOpenGLFunctions_1_3_GlDrawArrays(QOpenGLFunctions_1_3* self, uint32_t mode, int32_t first, int32_t count);
 void QOpenGLFunctions_1_3_GlCopyTexSubImage3D(QOpenGLFunctions_1_3* self, uint32_t target, int32_t level, int32_t xoffset, int32_t yoffset, int32_t zoffset, int32_t x, int32_t y, int32_t width, int32_t height);

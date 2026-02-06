@@ -256,6 +256,7 @@ void QGraphicsItem_SetExtension(QGraphicsItem* self, int extension, const QVaria
 QVariant* QGraphicsItem_Extension(const QGraphicsItem* self, const QVariant* variant);
 void QGraphicsItem_SetFlag2(QGraphicsItem* self, int flag, bool enabled);
 void QGraphicsItem_SetCacheMode2(QGraphicsItem* self, int mode, const QSize* cacheSize);
+bool QGraphicsItem_IsBlockedByModalPanel1(const QGraphicsItem* self, QGraphicsItem** blockingPanel);
 void QGraphicsItem_SetFocus1(QGraphicsItem* self, int focusReason);
 void QGraphicsItem_EnsureVisible1(QGraphicsItem* self, const QRectF* rect);
 void QGraphicsItem_EnsureVisible22(QGraphicsItem* self, const QRectF* rect, int xmargin);

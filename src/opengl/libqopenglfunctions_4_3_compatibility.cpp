@@ -257,6 +257,10 @@ void QOpenGLFunctions_4_3_Compatibility_GlPolygonOffset(QOpenGLFunctions_4_3_Com
     self->glPolygonOffset(static_cast<GLfloat>(factor), static_cast<GLfloat>(units));
 }
 
+void QOpenGLFunctions_4_3_Compatibility_GlGetPointerv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t pname, void** params) {
+    self->glGetPointerv(static_cast<GLenum>(pname), params);
+}
+
 void QOpenGLFunctions_4_3_Compatibility_GlDrawElements(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices) {
     self->glDrawElements(static_cast<GLenum>(mode), static_cast<GLsizei>(count), static_cast<GLenum>(typeVal), indices);
 }
@@ -341,12 +345,20 @@ void QOpenGLFunctions_4_3_Compatibility_GlPointParameterf(QOpenGLFunctions_4_3_C
     self->glPointParameterf(static_cast<GLenum>(pname), static_cast<GLfloat>(param));
 }
 
+void QOpenGLFunctions_4_3_Compatibility_GlMultiDrawElements(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount) {
+    self->glMultiDrawElements(static_cast<GLenum>(mode), static_cast<const GLsizei*>(count), static_cast<GLenum>(typeVal), indices, static_cast<GLsizei>(drawcount));
+}
+
 void QOpenGLFunctions_4_3_Compatibility_GlMultiDrawArrays(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mode, const int32_t* first, const int32_t* count, int32_t drawcount) {
     self->glMultiDrawArrays(static_cast<GLenum>(mode), static_cast<const GLint*>(first), static_cast<const GLsizei*>(count), static_cast<GLsizei>(drawcount));
 }
 
 void QOpenGLFunctions_4_3_Compatibility_GlBlendFuncSeparate(QOpenGLFunctions_4_3_Compatibility* self, uint32_t sfactorRGB, uint32_t dfactorRGB, uint32_t sfactorAlpha, uint32_t dfactorAlpha) {
     self->glBlendFuncSeparate(static_cast<GLenum>(sfactorRGB), static_cast<GLenum>(dfactorRGB), static_cast<GLenum>(sfactorAlpha), static_cast<GLenum>(dfactorAlpha));
+}
+
+void QOpenGLFunctions_4_3_Compatibility_GlGetBufferPointerv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t pname, void** params) {
+    self->glGetBufferPointerv(static_cast<GLenum>(target), static_cast<GLenum>(pname), params);
 }
 
 void QOpenGLFunctions_4_3_Compatibility_GlGetBufferParameteriv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t pname, int32_t* params) {
@@ -509,6 +521,10 @@ void QOpenGLFunctions_4_3_Compatibility_GlUseProgram(QOpenGLFunctions_4_3_Compat
     self->glUseProgram(static_cast<GLuint>(program));
 }
 
+void QOpenGLFunctions_4_3_Compatibility_GlShaderSource(QOpenGLFunctions_4_3_Compatibility* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length) {
+    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), static_cast<const GLchar**>(stringVal), static_cast<const GLint*>(length));
+}
+
 void QOpenGLFunctions_4_3_Compatibility_GlLinkProgram(QOpenGLFunctions_4_3_Compatibility* self, uint32_t program) {
     self->glLinkProgram(static_cast<GLuint>(program));
 }
@@ -519,6 +535,10 @@ unsigned char QOpenGLFunctions_4_3_Compatibility_GlIsShader(QOpenGLFunctions_4_3
 
 unsigned char QOpenGLFunctions_4_3_Compatibility_GlIsProgram(QOpenGLFunctions_4_3_Compatibility* self, uint32_t program) {
     return self->glIsProgram(static_cast<GLuint>(program));
+}
+
+void QOpenGLFunctions_4_3_Compatibility_GlGetVertexAttribPointerv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t index, uint32_t pname, void** pointer) {
+    self->glGetVertexAttribPointerv(static_cast<GLuint>(index), static_cast<GLenum>(pname), pointer);
 }
 
 void QOpenGLFunctions_4_3_Compatibility_GlGetVertexAttribiv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t index, uint32_t pname, int32_t* params) {
@@ -857,6 +877,10 @@ void QOpenGLFunctions_4_3_Compatibility_GlClampColor(QOpenGLFunctions_4_3_Compat
     self->glClampColor(static_cast<GLenum>(target), static_cast<GLenum>(clamp));
 }
 
+void QOpenGLFunctions_4_3_Compatibility_GlTransformFeedbackVaryings(QOpenGLFunctions_4_3_Compatibility* self, uint32_t program, int32_t count, const GLchar** varyings, uint32_t bufferMode) {
+    self->glTransformFeedbackVaryings(static_cast<GLuint>(program), static_cast<GLsizei>(count), static_cast<const GLchar**>(varyings), static_cast<GLenum>(bufferMode));
+}
+
 void QOpenGLFunctions_4_3_Compatibility_GlBindBufferBase(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer) {
     self->glBindBufferBase(static_cast<GLenum>(target), static_cast<GLuint>(index), static_cast<GLuint>(buffer));
 }
@@ -925,6 +949,10 @@ void QOpenGLFunctions_4_3_Compatibility_GlGetActiveUniformsiv(QOpenGLFunctions_4
     self->glGetActiveUniformsiv(static_cast<GLuint>(program), static_cast<GLsizei>(uniformCount), static_cast<const GLuint*>(uniformIndices), static_cast<GLenum>(pname), static_cast<GLint*>(params));
 }
 
+void QOpenGLFunctions_4_3_Compatibility_GlGetUniformIndices(QOpenGLFunctions_4_3_Compatibility* self, uint32_t program, int32_t uniformCount, const GLchar** uniformNames, uint32_t* uniformIndices) {
+    self->glGetUniformIndices(static_cast<GLuint>(program), static_cast<GLsizei>(uniformCount), static_cast<const GLchar**>(uniformNames), static_cast<GLuint*>(uniformIndices));
+}
+
 void QOpenGLFunctions_4_3_Compatibility_GlPrimitiveRestartIndex(QOpenGLFunctions_4_3_Compatibility* self, uint32_t index) {
     self->glPrimitiveRestartIndex(static_cast<GLuint>(index));
 }
@@ -963,6 +991,10 @@ void QOpenGLFunctions_4_3_Compatibility_GlGetInteger64v(QOpenGLFunctions_4_3_Com
 
 void QOpenGLFunctions_4_3_Compatibility_GlProvokingVertex(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mode) {
     self->glProvokingVertex(static_cast<GLenum>(mode));
+}
+
+void QOpenGLFunctions_4_3_Compatibility_GlMultiDrawElementsBaseVertex(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount, const int32_t* basevertex) {
+    self->glMultiDrawElementsBaseVertex(static_cast<GLenum>(mode), static_cast<const GLsizei*>(count), static_cast<GLenum>(typeVal), indices, static_cast<GLsizei>(drawcount), static_cast<const GLint*>(basevertex));
 }
 
 void QOpenGLFunctions_4_3_Compatibility_GlDrawElementsInstancedBaseVertex(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices, int32_t instancecount, int32_t basevertex) {
@@ -1711,6 +1743,10 @@ void QOpenGLFunctions_4_3_Compatibility_GlDeleteProgramPipelines(QOpenGLFunction
 
 void QOpenGLFunctions_4_3_Compatibility_GlBindProgramPipeline(QOpenGLFunctions_4_3_Compatibility* self, uint32_t pipeline) {
     self->glBindProgramPipeline(static_cast<GLuint>(pipeline));
+}
+
+uint32_t QOpenGLFunctions_4_3_Compatibility_GlCreateShaderProgramv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t typeVal, int32_t count, const GLchar** strings) {
+    return self->glCreateShaderProgramv(static_cast<GLenum>(typeVal), static_cast<GLsizei>(count), static_cast<const GLchar**>(strings));
 }
 
 void QOpenGLFunctions_4_3_Compatibility_GlActiveShaderProgram(QOpenGLFunctions_4_3_Compatibility* self, uint32_t pipeline, uint32_t program) {

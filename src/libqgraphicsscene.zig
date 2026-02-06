@@ -2016,6 +2016,62 @@ pub const qgraphicsscene = struct {
         qtc.QGraphicsScene_QBaseDrawForeground(@ptrCast(self), @ptrCast(painter), @ptrCast(rect));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#drawItems)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsScene `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` numItems: i32 `
+    ///
+    /// ` items: *QtC.QGraphicsItem `
+    ///
+    /// ` options: QtC.QStyleOptionGraphicsItem `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    pub fn DrawItems(self: ?*anyopaque, painter: ?*anyopaque, numItems: i32, items: *?*anyopaque, options: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QGraphicsScene_DrawItems(@ptrCast(self), @ptrCast(painter), @intCast(numItems), @ptrCast(items), @ptrCast(options), @ptrCast(widget));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#drawItems)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsScene `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsScene, painter: QtC.QPainter, numItems: i32, items: *QtC.QGraphicsItem, options: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void `
+    ///
+    pub fn OnDrawItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, *?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsScene_OnDrawItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#drawItems)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsScene `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` numItems: i32 `
+    ///
+    /// ` items: *QtC.QGraphicsItem `
+    ///
+    /// ` options: QtC.QStyleOptionGraphicsItem `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    pub fn QBaseDrawItems(self: ?*anyopaque, painter: ?*anyopaque, numItems: i32, items: *?*anyopaque, options: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QGraphicsScene_QBaseDrawItems(@ptrCast(self), @ptrCast(painter), @intCast(numItems), @ptrCast(items), @ptrCast(options), @ptrCast(widget));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#focusNextPrevChild)
     ///
     /// ## Parameter(s):

@@ -1909,6 +1909,7 @@ pub const qopengltimerquery = @import("opengl/libqopengltimerquery.zig").qopengl
 pub const qopenglversionfunctions_enums = @import("opengl/libqopenglversionfunctions.zig").enums;
 pub const qopenglversionfunctionsbackend = @import("opengl/libqopenglversionfunctions.zig").qopenglversionfunctionsbackend;
 pub const qopenglversionfunctionsfactory = @import("opengl/libqopenglversionfunctionsfactory.zig").qopenglversionfunctionsfactory;
+pub const qopenglversionfunctionsstorage = @import("opengl/libqopenglversionfunctions.zig").qopenglversionfunctionsstorage;
 pub const qopenglversionprofile = @import("opengl/libqopenglversionprofile.zig").qopenglversionprofile;
 pub const qopenglversionstatus = @import("opengl/libqopenglversionfunctions.zig").qopenglversionstatus;
 pub const qopenglvertexarrayobject = @import("opengl/libqopenglvertexarrayobject.zig").qopenglvertexarrayobject;

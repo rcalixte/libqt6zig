@@ -41,6 +41,7 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     using QGraphicsScene_InputMethodEvent_Callback = void (*)(QGraphicsScene*, QInputMethodEvent*);
     using QGraphicsScene_DrawBackground_Callback = void (*)(QGraphicsScene*, QPainter*, QRectF*);
     using QGraphicsScene_DrawForeground_Callback = void (*)(QGraphicsScene*, QPainter*, QRectF*);
+    using QGraphicsScene_DrawItems_Callback = void (*)(QGraphicsScene*, QPainter*, int, QGraphicsItem**, QStyleOptionGraphicsItem*, QWidget*);
     using QGraphicsScene_FocusNextPrevChild_Callback = bool (*)(QGraphicsScene*, bool);
     using QGraphicsScene_TimerEvent_Callback = void (*)(QGraphicsScene*, QTimerEvent*);
     using QGraphicsScene_ChildEvent_Callback = void (*)(QGraphicsScene*, QChildEvent*);
@@ -78,6 +79,7 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     QGraphicsScene_InputMethodEvent_Callback qgraphicsscene_inputmethodevent_callback = nullptr;
     QGraphicsScene_DrawBackground_Callback qgraphicsscene_drawbackground_callback = nullptr;
     QGraphicsScene_DrawForeground_Callback qgraphicsscene_drawforeground_callback = nullptr;
+    QGraphicsScene_DrawItems_Callback qgraphicsscene_drawitems_callback = nullptr;
     QGraphicsScene_FocusNextPrevChild_Callback qgraphicsscene_focusnextprevchild_callback = nullptr;
     QGraphicsScene_TimerEvent_Callback qgraphicsscene_timerevent_callback = nullptr;
     QGraphicsScene_ChildEvent_Callback qgraphicsscene_childevent_callback = nullptr;
@@ -114,6 +116,7 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     mutable bool qgraphicsscene_inputmethodevent_isbase = false;
     mutable bool qgraphicsscene_drawbackground_isbase = false;
     mutable bool qgraphicsscene_drawforeground_isbase = false;
+    mutable bool qgraphicsscene_drawitems_isbase = false;
     mutable bool qgraphicsscene_focusnextprevchild_isbase = false;
     mutable bool qgraphicsscene_timerevent_isbase = false;
     mutable bool qgraphicsscene_childevent_isbase = false;
@@ -158,6 +161,7 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         qgraphicsscene_inputmethodevent_callback = nullptr;
         qgraphicsscene_drawbackground_callback = nullptr;
         qgraphicsscene_drawforeground_callback = nullptr;
+        qgraphicsscene_drawitems_callback = nullptr;
         qgraphicsscene_focusnextprevchild_callback = nullptr;
         qgraphicsscene_timerevent_callback = nullptr;
         qgraphicsscene_childevent_callback = nullptr;
@@ -195,6 +199,7 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     inline void setQGraphicsScene_InputMethodEvent_Callback(QGraphicsScene_InputMethodEvent_Callback cb) { qgraphicsscene_inputmethodevent_callback = cb; }
     inline void setQGraphicsScene_DrawBackground_Callback(QGraphicsScene_DrawBackground_Callback cb) { qgraphicsscene_drawbackground_callback = cb; }
     inline void setQGraphicsScene_DrawForeground_Callback(QGraphicsScene_DrawForeground_Callback cb) { qgraphicsscene_drawforeground_callback = cb; }
+    inline void setQGraphicsScene_DrawItems_Callback(QGraphicsScene_DrawItems_Callback cb) { qgraphicsscene_drawitems_callback = cb; }
     inline void setQGraphicsScene_FocusNextPrevChild_Callback(QGraphicsScene_FocusNextPrevChild_Callback cb) { qgraphicsscene_focusnextprevchild_callback = cb; }
     inline void setQGraphicsScene_TimerEvent_Callback(QGraphicsScene_TimerEvent_Callback cb) { qgraphicsscene_timerevent_callback = cb; }
     inline void setQGraphicsScene_ChildEvent_Callback(QGraphicsScene_ChildEvent_Callback cb) { qgraphicsscene_childevent_callback = cb; }
@@ -231,6 +236,7 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     inline void setQGraphicsScene_InputMethodEvent_IsBase(bool value) const { qgraphicsscene_inputmethodevent_isbase = value; }
     inline void setQGraphicsScene_DrawBackground_IsBase(bool value) const { qgraphicsscene_drawbackground_isbase = value; }
     inline void setQGraphicsScene_DrawForeground_IsBase(bool value) const { qgraphicsscene_drawforeground_isbase = value; }
+    inline void setQGraphicsScene_DrawItems_IsBase(bool value) const { qgraphicsscene_drawitems_isbase = value; }
     inline void setQGraphicsScene_FocusNextPrevChild_IsBase(bool value) const { qgraphicsscene_focusnextprevchild_isbase = value; }
     inline void setQGraphicsScene_TimerEvent_IsBase(bool value) const { qgraphicsscene_timerevent_isbase = value; }
     inline void setQGraphicsScene_ChildEvent_IsBase(bool value) const { qgraphicsscene_childevent_isbase = value; }
@@ -592,6 +598,24 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     }
 
     // Virtual method for C ABI access and custom callback
+    virtual void drawItems(QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options, QWidget* widget) override {
+        if (qgraphicsscene_drawitems_isbase) {
+            qgraphicsscene_drawitems_isbase = false;
+            QGraphicsScene::drawItems(painter, numItems, items, options, widget);
+        } else if (qgraphicsscene_drawitems_callback != nullptr) {
+            QPainter* cbval1 = painter;
+            int cbval2 = numItems;
+            QGraphicsItem** cbval3 = items;
+            QStyleOptionGraphicsItem* cbval4 = (QStyleOptionGraphicsItem*)options;
+            QWidget* cbval5 = widget;
+
+            qgraphicsscene_drawitems_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+        } else {
+            QGraphicsScene::drawItems(painter, numItems, items, options, widget);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
         if (qgraphicsscene_focusnextprevchild_isbase) {
             qgraphicsscene_focusnextprevchild_isbase = false;
@@ -779,6 +803,8 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     friend void QGraphicsScene_QBaseDrawBackground(QGraphicsScene* self, QPainter* painter, const QRectF* rect);
     friend void QGraphicsScene_DrawForeground(QGraphicsScene* self, QPainter* painter, const QRectF* rect);
     friend void QGraphicsScene_QBaseDrawForeground(QGraphicsScene* self, QPainter* painter, const QRectF* rect);
+    friend void QGraphicsScene_DrawItems(QGraphicsScene* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options, QWidget* widget);
+    friend void QGraphicsScene_QBaseDrawItems(QGraphicsScene* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options, QWidget* widget);
     friend bool QGraphicsScene_FocusNextPrevChild(QGraphicsScene* self, bool next);
     friend bool QGraphicsScene_QBaseFocusNextPrevChild(QGraphicsScene* self, bool next);
     friend void QGraphicsScene_TimerEvent(QGraphicsScene* self, QTimerEvent* event);

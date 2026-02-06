@@ -316,6 +316,10 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
+	if className == "QDirListing::const_iterator" && mm.MethodName == "operator->" {
+		return ErrTooComplex // Skip double-pointer rvalue type
+	}
+
 	if className == "QWebEngineClientHints" && mm.MethodName == "qt_qmlMarker_uncreatable" {
 		return ErrTooComplex // Removed in Qt 6.10
 	}
@@ -672,10 +676,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex
 	}
 
-	if p.ParameterType == "QFormLayout::ItemRole" && p.Pointer && !isReturnType { // Out-parameters in QFormLayout
-		return ErrTooComplex
-	}
-
 	// Qt 6 OpenGL
 	if strings.HasPrefix(p.ParameterType, "QOpenGL") && strings.Contains(p.ParameterType, "Backend::") {
 		// e.g. QOpenGLFunctions_1_0_CoreBackend, QOpenGLFunctions_1_0_DeprecatedBackend, QOpenGLVersionFunctionsBackend
@@ -711,18 +711,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex
 	}
 
-	if p.Pointer && p.PointerCount >= 2 { // Out-parameters
-		if p.ParameterType != "char" && p.ParameterType != "void" {
-			return ErrTooComplex // e.g. QGraphicsItem_IsBlockedByModalPanel1
-		}
-		if p.ParameterType == "char" && p.ParameterName == "xpm" {
-			// Array parameters:
-			// - QPixmap and QImage ctors from an xpm char*[]
-			// TODO support these
-			return ErrTooComplex
-		}
-	}
-
 	switch p.ParameterType {
 	case
 		"QPolygon", "QPolygonF", // QPolygon extends a template type
@@ -743,6 +731,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QXmlStreamNamespaceDeclarations", // e.g. qxmlstream.h. As above
 		"QXmlStreamNotationDeclarations",  // e.g. qxmlstream.h. As above
 		"LineLayout::ValidLevel",          // ..
+		"void QMetaObject::Connection::",  // qobjectdefs.h operator void* overload
 		"QtMsgType",                       // e.g. qdebug.h TODO Defined in qlogging.h, but omitted because it's predefined in qglobal.h, and our clangexec is too aggressive
 		"QTextStreamFunction",             // e.g. qdebug.h
 		"QFactoryInterface",               // qfactoryinterface.h

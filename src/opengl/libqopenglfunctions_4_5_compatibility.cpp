@@ -653,6 +653,10 @@ void QOpenGLFunctions_4_5_Compatibility_GlUseProgram(QOpenGLFunctions_4_5_Compat
     self->glUseProgram(static_cast<GLuint>(program));
 }
 
+void QOpenGLFunctions_4_5_Compatibility_GlShaderSource(QOpenGLFunctions_4_5_Compatibility* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length) {
+    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), static_cast<const GLchar**>(stringVal), static_cast<const GLint*>(length));
+}
+
 void QOpenGLFunctions_4_5_Compatibility_GlLinkProgram(QOpenGLFunctions_4_5_Compatibility* self, uint32_t program) {
     self->glLinkProgram(static_cast<GLuint>(program));
 }
@@ -1085,6 +1089,10 @@ void QOpenGLFunctions_4_5_Compatibility_GlClampColor(QOpenGLFunctions_4_5_Compat
     self->glClampColor(static_cast<GLenum>(target), static_cast<GLenum>(clamp));
 }
 
+void QOpenGLFunctions_4_5_Compatibility_GlTransformFeedbackVaryings(QOpenGLFunctions_4_5_Compatibility* self, uint32_t program, int32_t count, const GLchar** varyings, uint32_t bufferMode) {
+    self->glTransformFeedbackVaryings(static_cast<GLuint>(program), static_cast<GLsizei>(count), static_cast<const GLchar**>(varyings), static_cast<GLenum>(bufferMode));
+}
+
 void QOpenGLFunctions_4_5_Compatibility_GlBindBufferBase(QOpenGLFunctions_4_5_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer) {
     self->glBindBufferBase(static_cast<GLenum>(target), static_cast<GLuint>(index), static_cast<GLuint>(buffer));
 }
@@ -1147,6 +1155,10 @@ void QOpenGLFunctions_4_5_Compatibility_GlGetActiveUniformName(QOpenGLFunctions_
 
 void QOpenGLFunctions_4_5_Compatibility_GlGetActiveUniformsiv(QOpenGLFunctions_4_5_Compatibility* self, uint32_t program, int32_t uniformCount, const uint32_t* uniformIndices, uint32_t pname, int32_t* params) {
     self->glGetActiveUniformsiv(static_cast<GLuint>(program), static_cast<GLsizei>(uniformCount), static_cast<const GLuint*>(uniformIndices), static_cast<GLenum>(pname), static_cast<GLint*>(params));
+}
+
+void QOpenGLFunctions_4_5_Compatibility_GlGetUniformIndices(QOpenGLFunctions_4_5_Compatibility* self, uint32_t program, int32_t uniformCount, const GLchar** uniformNames, uint32_t* uniformIndices) {
+    self->glGetUniformIndices(static_cast<GLuint>(program), static_cast<GLsizei>(uniformCount), static_cast<const GLchar**>(uniformNames), static_cast<GLuint*>(uniformIndices));
 }
 
 void QOpenGLFunctions_4_5_Compatibility_GlCopyBufferSubData(QOpenGLFunctions_4_5_Compatibility* self, uint32_t readTarget, uint32_t writeTarget, intptr_t readOffset, intptr_t writeOffset, intptr_t size) {
@@ -1823,6 +1835,10 @@ void QOpenGLFunctions_4_5_Compatibility_GlDeleteProgramPipelines(QOpenGLFunction
 
 void QOpenGLFunctions_4_5_Compatibility_GlBindProgramPipeline(QOpenGLFunctions_4_5_Compatibility* self, uint32_t pipeline) {
     self->glBindProgramPipeline(static_cast<GLuint>(pipeline));
+}
+
+uint32_t QOpenGLFunctions_4_5_Compatibility_GlCreateShaderProgramv(QOpenGLFunctions_4_5_Compatibility* self, uint32_t typeVal, int32_t count, const GLchar** strings) {
+    return self->glCreateShaderProgramv(static_cast<GLenum>(typeVal), static_cast<GLsizei>(count), static_cast<const GLchar**>(strings));
 }
 
 void QOpenGLFunctions_4_5_Compatibility_GlActiveShaderProgram(QOpenGLFunctions_4_5_Compatibility* self, uint32_t pipeline, uint32_t program) {

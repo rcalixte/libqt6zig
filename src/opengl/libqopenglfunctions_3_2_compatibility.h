@@ -84,6 +84,7 @@ void QOpenGLFunctions_3_2_Compatibility_GlCopyTexSubImage1D(QOpenGLFunctions_3_2
 void QOpenGLFunctions_3_2_Compatibility_GlCopyTexImage2D(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t height, int32_t border);
 void QOpenGLFunctions_3_2_Compatibility_GlCopyTexImage1D(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t border);
 void QOpenGLFunctions_3_2_Compatibility_GlPolygonOffset(QOpenGLFunctions_3_2_Compatibility* self, float factor, float units);
+void QOpenGLFunctions_3_2_Compatibility_GlGetPointerv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t pname, void** params);
 void QOpenGLFunctions_3_2_Compatibility_GlDrawElements(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices);
 void QOpenGLFunctions_3_2_Compatibility_GlDrawArrays(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode, int32_t first, int32_t count);
 void QOpenGLFunctions_3_2_Compatibility_GlCopyTexSubImage3D(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int32_t level, int32_t xoffset, int32_t yoffset, int32_t zoffset, int32_t x, int32_t y, int32_t width, int32_t height);
@@ -105,8 +106,10 @@ void QOpenGLFunctions_3_2_Compatibility_GlPointParameteriv(QOpenGLFunctions_3_2_
 void QOpenGLFunctions_3_2_Compatibility_GlPointParameteri(QOpenGLFunctions_3_2_Compatibility* self, uint32_t pname, int32_t param);
 void QOpenGLFunctions_3_2_Compatibility_GlPointParameterfv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t pname, const float* params);
 void QOpenGLFunctions_3_2_Compatibility_GlPointParameterf(QOpenGLFunctions_3_2_Compatibility* self, uint32_t pname, float param);
+void QOpenGLFunctions_3_2_Compatibility_GlMultiDrawElements(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount);
 void QOpenGLFunctions_3_2_Compatibility_GlMultiDrawArrays(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode, const int32_t* first, const int32_t* count, int32_t drawcount);
 void QOpenGLFunctions_3_2_Compatibility_GlBlendFuncSeparate(QOpenGLFunctions_3_2_Compatibility* self, uint32_t sfactorRGB, uint32_t dfactorRGB, uint32_t sfactorAlpha, uint32_t dfactorAlpha);
+void QOpenGLFunctions_3_2_Compatibility_GlGetBufferPointerv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t pname, void** params);
 void QOpenGLFunctions_3_2_Compatibility_GlGetBufferParameteriv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t pname, int32_t* params);
 unsigned char QOpenGLFunctions_3_2_Compatibility_GlUnmapBuffer(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target);
 void* QOpenGLFunctions_3_2_Compatibility_GlMapBuffer(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t access);
@@ -147,9 +150,11 @@ void QOpenGLFunctions_3_2_Compatibility_GlUniform3f(QOpenGLFunctions_3_2_Compati
 void QOpenGLFunctions_3_2_Compatibility_GlUniform2f(QOpenGLFunctions_3_2_Compatibility* self, int32_t location, float v0, float v1);
 void QOpenGLFunctions_3_2_Compatibility_GlUniform1f(QOpenGLFunctions_3_2_Compatibility* self, int32_t location, float v0);
 void QOpenGLFunctions_3_2_Compatibility_GlUseProgram(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program);
+void QOpenGLFunctions_3_2_Compatibility_GlShaderSource(QOpenGLFunctions_3_2_Compatibility* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length);
 void QOpenGLFunctions_3_2_Compatibility_GlLinkProgram(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program);
 unsigned char QOpenGLFunctions_3_2_Compatibility_GlIsShader(QOpenGLFunctions_3_2_Compatibility* self, uint32_t shader);
 unsigned char QOpenGLFunctions_3_2_Compatibility_GlIsProgram(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program);
+void QOpenGLFunctions_3_2_Compatibility_GlGetVertexAttribPointerv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t index, uint32_t pname, void** pointer);
 void QOpenGLFunctions_3_2_Compatibility_GlGetVertexAttribiv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t index, uint32_t pname, int32_t* params);
 void QOpenGLFunctions_3_2_Compatibility_GlGetVertexAttribfv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t index, uint32_t pname, float* params);
 void QOpenGLFunctions_3_2_Compatibility_GlGetVertexAttribdv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t index, uint32_t pname, double* params);
@@ -234,6 +239,7 @@ void QOpenGLFunctions_3_2_Compatibility_GlVertexAttribIPointer(QOpenGLFunctions_
 void QOpenGLFunctions_3_2_Compatibility_GlEndConditionalRender(QOpenGLFunctions_3_2_Compatibility* self);
 void QOpenGLFunctions_3_2_Compatibility_GlBeginConditionalRender(QOpenGLFunctions_3_2_Compatibility* self, uint32_t id, uint32_t mode);
 void QOpenGLFunctions_3_2_Compatibility_GlClampColor(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t clamp);
+void QOpenGLFunctions_3_2_Compatibility_GlTransformFeedbackVaryings(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program, int32_t count, const GLchar** varyings, uint32_t bufferMode);
 void QOpenGLFunctions_3_2_Compatibility_GlBindBufferBase(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer);
 void QOpenGLFunctions_3_2_Compatibility_GlBindBufferRange(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer, intptr_t offset, intptr_t size);
 void QOpenGLFunctions_3_2_Compatibility_GlEndTransformFeedback(QOpenGLFunctions_3_2_Compatibility* self);
@@ -251,6 +257,7 @@ void QOpenGLFunctions_3_2_Compatibility_GlGetActiveUniformBlockiv(QOpenGLFunctio
 uint32_t QOpenGLFunctions_3_2_Compatibility_GlGetUniformBlockIndex(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program, const GLchar* uniformBlockName);
 void QOpenGLFunctions_3_2_Compatibility_GlGetActiveUniformName(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program, uint32_t uniformIndex, int32_t bufSize, int32_t* length, GLchar* uniformName);
 void QOpenGLFunctions_3_2_Compatibility_GlGetActiveUniformsiv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program, int32_t uniformCount, const uint32_t* uniformIndices, uint32_t pname, int32_t* params);
+void QOpenGLFunctions_3_2_Compatibility_GlGetUniformIndices(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program, int32_t uniformCount, const GLchar** uniformNames, uint32_t* uniformIndices);
 void QOpenGLFunctions_3_2_Compatibility_GlPrimitiveRestartIndex(QOpenGLFunctions_3_2_Compatibility* self, uint32_t index);
 void QOpenGLFunctions_3_2_Compatibility_GlTexBuffer(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t internalformat, uint32_t buffer);
 void QOpenGLFunctions_3_2_Compatibility_GlDrawElementsInstanced(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices, int32_t instancecount);
@@ -261,6 +268,7 @@ void QOpenGLFunctions_3_2_Compatibility_GlTexImage3DMultisample(QOpenGLFunctions
 void QOpenGLFunctions_3_2_Compatibility_GlTexImage2DMultisample(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int32_t samples, int32_t internalformat, int32_t width, int32_t height, unsigned char fixedsamplelocations);
 void QOpenGLFunctions_3_2_Compatibility_GlGetInteger64v(QOpenGLFunctions_3_2_Compatibility* self, uint32_t pname, int64_t* params);
 void QOpenGLFunctions_3_2_Compatibility_GlProvokingVertex(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode);
+void QOpenGLFunctions_3_2_Compatibility_GlMultiDrawElementsBaseVertex(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount, const int32_t* basevertex);
 void QOpenGLFunctions_3_2_Compatibility_GlDrawElementsInstancedBaseVertex(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices, int32_t instancecount, int32_t basevertex);
 void QOpenGLFunctions_3_2_Compatibility_GlDrawRangeElementsBaseVertex(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode, uint32_t start, uint32_t end, int32_t count, uint32_t typeVal, const void* indices, int32_t basevertex);
 void QOpenGLFunctions_3_2_Compatibility_GlDrawElementsBaseVertex(QOpenGLFunctions_3_2_Compatibility* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices, int32_t basevertex);

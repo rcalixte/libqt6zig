@@ -49,6 +49,7 @@ class VirtualQPixmap final : public QPixmap {
     VirtualQPixmap(int w, int h) : QPixmap(w, h) {};
     VirtualQPixmap(const QSize& param1) : QPixmap(param1) {};
     VirtualQPixmap(const QString& fileName) : QPixmap(fileName) {};
+    VirtualQPixmap(const char** xpm) : QPixmap(xpm) {};
     VirtualQPixmap(const QPixmap& param1) : QPixmap(param1) {};
     VirtualQPixmap(const QString& fileName, const char* format) : QPixmap(fileName, format) {};
     VirtualQPixmap(const QString& fileName, const char* format, Qt::ImageConversionFlags flags) : QPixmap(fileName, format, flags) {};

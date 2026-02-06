@@ -61,6 +61,7 @@ void QOpenGLExtraFunctions_GlBeginTransformFeedback(QOpenGLExtraFunctions* self,
 void QOpenGLExtraFunctions_GlEndTransformFeedback(QOpenGLExtraFunctions* self);
 void QOpenGLExtraFunctions_GlBindBufferRange(QOpenGLExtraFunctions* self, uint32_t target, uint32_t index, uint32_t buffer, intptr_t offset, intptr_t size);
 void QOpenGLExtraFunctions_GlBindBufferBase(QOpenGLExtraFunctions* self, uint32_t target, uint32_t index, uint32_t buffer);
+void QOpenGLExtraFunctions_GlTransformFeedbackVaryings(QOpenGLExtraFunctions* self, uint32_t program, int32_t count, const GLchar** varyings, uint32_t bufferMode);
 void QOpenGLExtraFunctions_GlVertexAttribIPointer(QOpenGLExtraFunctions* self, uint32_t index, int32_t size, uint32_t typeVal, int32_t stride, const void* pointer);
 void QOpenGLExtraFunctions_GlGetVertexAttribIiv(QOpenGLExtraFunctions* self, uint32_t index, uint32_t pname, int32_t* params);
 void QOpenGLExtraFunctions_GlGetVertexAttribIuiv(QOpenGLExtraFunctions* self, uint32_t index, uint32_t pname, uint32_t* params);
@@ -84,6 +85,7 @@ void QOpenGLExtraFunctions_GlClearBufferfv(QOpenGLExtraFunctions* self, uint32_t
 void QOpenGLExtraFunctions_GlClearBufferfi(QOpenGLExtraFunctions* self, uint32_t buffer, int32_t drawbuffer, float depth, int32_t stencil);
 const uint8_t* QOpenGLExtraFunctions_GlGetStringi(QOpenGLExtraFunctions* self, uint32_t name, uint32_t index);
 void QOpenGLExtraFunctions_GlCopyBufferSubData(QOpenGLExtraFunctions* self, uint32_t readTarget, uint32_t writeTarget, intptr_t readOffset, intptr_t writeOffset, intptr_t size);
+void QOpenGLExtraFunctions_GlGetUniformIndices(QOpenGLExtraFunctions* self, uint32_t program, int32_t uniformCount, const GLchar** uniformNames, uint32_t* uniformIndices);
 void QOpenGLExtraFunctions_GlGetActiveUniformsiv(QOpenGLExtraFunctions* self, uint32_t program, int32_t uniformCount, const uint32_t* uniformIndices, uint32_t pname, int32_t* params);
 uint32_t QOpenGLExtraFunctions_GlGetUniformBlockIndex(QOpenGLExtraFunctions* self, uint32_t program, const GLchar* uniformBlockName);
 void QOpenGLExtraFunctions_GlGetActiveUniformBlockiv(QOpenGLExtraFunctions* self, uint32_t program, uint32_t uniformBlockIndex, uint32_t pname, int32_t* params);
@@ -128,6 +130,7 @@ void QOpenGLExtraFunctions_GlGetProgramResourceName(QOpenGLExtraFunctions* self,
 int32_t QOpenGLExtraFunctions_GlGetProgramResourceLocation(QOpenGLExtraFunctions* self, uint32_t program, uint32_t programInterface, const GLchar* name);
 void QOpenGLExtraFunctions_GlUseProgramStages(QOpenGLExtraFunctions* self, uint32_t pipeline, uint32_t stages, uint32_t program);
 void QOpenGLExtraFunctions_GlActiveShaderProgram(QOpenGLExtraFunctions* self, uint32_t pipeline, uint32_t program);
+uint32_t QOpenGLExtraFunctions_GlCreateShaderProgramv(QOpenGLExtraFunctions* self, uint32_t typeVal, int32_t count, const GLchar** strings);
 void QOpenGLExtraFunctions_GlBindProgramPipeline(QOpenGLExtraFunctions* self, uint32_t pipeline);
 void QOpenGLExtraFunctions_GlDeleteProgramPipelines(QOpenGLExtraFunctions* self, int32_t n, const uint32_t* pipelines);
 void QOpenGLExtraFunctions_GlGenProgramPipelines(QOpenGLExtraFunctions* self, int32_t n, uint32_t* pipelines);

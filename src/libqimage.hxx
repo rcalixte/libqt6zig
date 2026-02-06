@@ -79,6 +79,7 @@ class VirtualQImage final : public QImage {
     VirtualQImage(const uchar* data, int width, int height, QImage::Format format) : QImage(data, width, height, format) {};
     VirtualQImage(uchar* data, int width, int height, qsizetype bytesPerLine, QImage::Format format) : QImage(data, width, height, bytesPerLine, format) {};
     VirtualQImage(const uchar* data, int width, int height, qsizetype bytesPerLine, QImage::Format format) : QImage(data, width, height, bytesPerLine, format) {};
+    VirtualQImage(const char** xpm) : QImage(xpm) {};
     VirtualQImage(const QString& fileName) : QImage(fileName) {};
     VirtualQImage(const QImage& param1) : QImage(param1) {};
     VirtualQImage(const QString& fileName, const char* format) : QImage(fileName, format) {};

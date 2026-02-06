@@ -103,8 +103,10 @@ void QOpenGLFunctions_3_1_GlPointParameteriv(QOpenGLFunctions_3_1* self, uint32_
 void QOpenGLFunctions_3_1_GlPointParameteri(QOpenGLFunctions_3_1* self, uint32_t pname, int32_t param);
 void QOpenGLFunctions_3_1_GlPointParameterfv(QOpenGLFunctions_3_1* self, uint32_t pname, const float* params);
 void QOpenGLFunctions_3_1_GlPointParameterf(QOpenGLFunctions_3_1* self, uint32_t pname, float param);
+void QOpenGLFunctions_3_1_GlMultiDrawElements(QOpenGLFunctions_3_1* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount);
 void QOpenGLFunctions_3_1_GlMultiDrawArrays(QOpenGLFunctions_3_1* self, uint32_t mode, const int32_t* first, const int32_t* count, int32_t drawcount);
 void QOpenGLFunctions_3_1_GlBlendFuncSeparate(QOpenGLFunctions_3_1* self, uint32_t sfactorRGB, uint32_t dfactorRGB, uint32_t sfactorAlpha, uint32_t dfactorAlpha);
+void QOpenGLFunctions_3_1_GlGetBufferPointerv(QOpenGLFunctions_3_1* self, uint32_t target, uint32_t pname, void** params);
 void QOpenGLFunctions_3_1_GlGetBufferParameteriv(QOpenGLFunctions_3_1* self, uint32_t target, uint32_t pname, int32_t* params);
 unsigned char QOpenGLFunctions_3_1_GlUnmapBuffer(QOpenGLFunctions_3_1* self, uint32_t target);
 void* QOpenGLFunctions_3_1_GlMapBuffer(QOpenGLFunctions_3_1* self, uint32_t target, uint32_t access);
@@ -145,9 +147,11 @@ void QOpenGLFunctions_3_1_GlUniform3f(QOpenGLFunctions_3_1* self, int32_t locati
 void QOpenGLFunctions_3_1_GlUniform2f(QOpenGLFunctions_3_1* self, int32_t location, float v0, float v1);
 void QOpenGLFunctions_3_1_GlUniform1f(QOpenGLFunctions_3_1* self, int32_t location, float v0);
 void QOpenGLFunctions_3_1_GlUseProgram(QOpenGLFunctions_3_1* self, uint32_t program);
+void QOpenGLFunctions_3_1_GlShaderSource(QOpenGLFunctions_3_1* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length);
 void QOpenGLFunctions_3_1_GlLinkProgram(QOpenGLFunctions_3_1* self, uint32_t program);
 unsigned char QOpenGLFunctions_3_1_GlIsShader(QOpenGLFunctions_3_1* self, uint32_t shader);
 unsigned char QOpenGLFunctions_3_1_GlIsProgram(QOpenGLFunctions_3_1* self, uint32_t program);
+void QOpenGLFunctions_3_1_GlGetVertexAttribPointerv(QOpenGLFunctions_3_1* self, uint32_t index, uint32_t pname, void** pointer);
 void QOpenGLFunctions_3_1_GlGetVertexAttribiv(QOpenGLFunctions_3_1* self, uint32_t index, uint32_t pname, int32_t* params);
 void QOpenGLFunctions_3_1_GlGetVertexAttribfv(QOpenGLFunctions_3_1* self, uint32_t index, uint32_t pname, float* params);
 void QOpenGLFunctions_3_1_GlGetVertexAttribdv(QOpenGLFunctions_3_1* self, uint32_t index, uint32_t pname, double* params);
@@ -232,6 +236,7 @@ void QOpenGLFunctions_3_1_GlVertexAttribIPointer(QOpenGLFunctions_3_1* self, uin
 void QOpenGLFunctions_3_1_GlEndConditionalRender(QOpenGLFunctions_3_1* self);
 void QOpenGLFunctions_3_1_GlBeginConditionalRender(QOpenGLFunctions_3_1* self, uint32_t id, uint32_t mode);
 void QOpenGLFunctions_3_1_GlClampColor(QOpenGLFunctions_3_1* self, uint32_t target, uint32_t clamp);
+void QOpenGLFunctions_3_1_GlTransformFeedbackVaryings(QOpenGLFunctions_3_1* self, uint32_t program, int32_t count, const GLchar** varyings, uint32_t bufferMode);
 void QOpenGLFunctions_3_1_GlBindBufferBase(QOpenGLFunctions_3_1* self, uint32_t target, uint32_t index, uint32_t buffer);
 void QOpenGLFunctions_3_1_GlBindBufferRange(QOpenGLFunctions_3_1* self, uint32_t target, uint32_t index, uint32_t buffer, intptr_t offset, intptr_t size);
 void QOpenGLFunctions_3_1_GlEndTransformFeedback(QOpenGLFunctions_3_1* self);
@@ -249,6 +254,7 @@ void QOpenGLFunctions_3_1_GlGetActiveUniformBlockiv(QOpenGLFunctions_3_1* self, 
 uint32_t QOpenGLFunctions_3_1_GlGetUniformBlockIndex(QOpenGLFunctions_3_1* self, uint32_t program, const GLchar* uniformBlockName);
 void QOpenGLFunctions_3_1_GlGetActiveUniformName(QOpenGLFunctions_3_1* self, uint32_t program, uint32_t uniformIndex, int32_t bufSize, int32_t* length, GLchar* uniformName);
 void QOpenGLFunctions_3_1_GlGetActiveUniformsiv(QOpenGLFunctions_3_1* self, uint32_t program, int32_t uniformCount, const uint32_t* uniformIndices, uint32_t pname, int32_t* params);
+void QOpenGLFunctions_3_1_GlGetUniformIndices(QOpenGLFunctions_3_1* self, uint32_t program, int32_t uniformCount, const GLchar** uniformNames, uint32_t* uniformIndices);
 void QOpenGLFunctions_3_1_GlPrimitiveRestartIndex(QOpenGLFunctions_3_1* self, uint32_t index);
 void QOpenGLFunctions_3_1_GlTexBuffer(QOpenGLFunctions_3_1* self, uint32_t target, uint32_t internalformat, uint32_t buffer);
 void QOpenGLFunctions_3_1_GlDrawElementsInstanced(QOpenGLFunctions_3_1* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices, int32_t instancecount);

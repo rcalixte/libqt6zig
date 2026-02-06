@@ -39,6 +39,7 @@
 #include <QByteArray>
 #include <cstring>
 #include <QStyle>
+#include <QStyleOptionGraphicsItem>
 #include <QTimerEvent>
 #include <QTransform>
 #include <QVariant>
@@ -622,6 +623,13 @@ void QGraphicsScene_DrawForeground(QGraphicsScene* self, QPainter* painter, cons
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->drawForeground(painter, *rect);
+    }
+}
+
+void QGraphicsScene_DrawItems(QGraphicsScene* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options, QWidget* widget) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->drawItems(painter, static_cast<int>(numItems), items, options, widget);
     }
 }
 
@@ -1419,6 +1427,25 @@ void QGraphicsScene_OnDrawForeground(QGraphicsScene* self, intptr_t slot) {
     auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
     if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
         vqgraphicsscene->setQGraphicsScene_DrawForeground_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DrawForeground_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void QGraphicsScene_QBaseDrawItems(QGraphicsScene* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options, QWidget* widget) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DrawItems_IsBase(true);
+        vqgraphicsscene->drawItems(painter, static_cast<int>(numItems), items, options, widget);
+    } else {
+        ((VirtualQGraphicsScene*)self)->drawItems(painter, static_cast<int>(numItems), items, options, widget);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGraphicsScene_OnDrawItems(QGraphicsScene* self, intptr_t slot) {
+    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
+    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
+        vqgraphicsscene->setQGraphicsScene_DrawItems_Callback(reinterpret_cast<VirtualQGraphicsScene::QGraphicsScene_DrawItems_Callback>(slot));
     }
 }
 

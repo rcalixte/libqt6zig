@@ -84,6 +84,7 @@ void QOpenGLFunctions_2_1_GlCopyTexSubImage1D(QOpenGLFunctions_2_1* self, uint32
 void QOpenGLFunctions_2_1_GlCopyTexImage2D(QOpenGLFunctions_2_1* self, uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t height, int32_t border);
 void QOpenGLFunctions_2_1_GlCopyTexImage1D(QOpenGLFunctions_2_1* self, uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t border);
 void QOpenGLFunctions_2_1_GlPolygonOffset(QOpenGLFunctions_2_1* self, float factor, float units);
+void QOpenGLFunctions_2_1_GlGetPointerv(QOpenGLFunctions_2_1* self, uint32_t pname, void** params);
 void QOpenGLFunctions_2_1_GlDrawElements(QOpenGLFunctions_2_1* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices);
 void QOpenGLFunctions_2_1_GlDrawArrays(QOpenGLFunctions_2_1* self, uint32_t mode, int32_t first, int32_t count);
 void QOpenGLFunctions_2_1_GlCopyTexSubImage3D(QOpenGLFunctions_2_1* self, uint32_t target, int32_t level, int32_t xoffset, int32_t yoffset, int32_t zoffset, int32_t x, int32_t y, int32_t width, int32_t height);
@@ -105,8 +106,10 @@ void QOpenGLFunctions_2_1_GlPointParameteriv(QOpenGLFunctions_2_1* self, uint32_
 void QOpenGLFunctions_2_1_GlPointParameteri(QOpenGLFunctions_2_1* self, uint32_t pname, int32_t param);
 void QOpenGLFunctions_2_1_GlPointParameterfv(QOpenGLFunctions_2_1* self, uint32_t pname, const float* params);
 void QOpenGLFunctions_2_1_GlPointParameterf(QOpenGLFunctions_2_1* self, uint32_t pname, float param);
+void QOpenGLFunctions_2_1_GlMultiDrawElements(QOpenGLFunctions_2_1* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount);
 void QOpenGLFunctions_2_1_GlMultiDrawArrays(QOpenGLFunctions_2_1* self, uint32_t mode, const int32_t* first, const int32_t* count, int32_t drawcount);
 void QOpenGLFunctions_2_1_GlBlendFuncSeparate(QOpenGLFunctions_2_1* self, uint32_t sfactorRGB, uint32_t dfactorRGB, uint32_t sfactorAlpha, uint32_t dfactorAlpha);
+void QOpenGLFunctions_2_1_GlGetBufferPointerv(QOpenGLFunctions_2_1* self, uint32_t target, uint32_t pname, void** params);
 void QOpenGLFunctions_2_1_GlGetBufferParameteriv(QOpenGLFunctions_2_1* self, uint32_t target, uint32_t pname, int32_t* params);
 unsigned char QOpenGLFunctions_2_1_GlUnmapBuffer(QOpenGLFunctions_2_1* self, uint32_t target);
 void* QOpenGLFunctions_2_1_GlMapBuffer(QOpenGLFunctions_2_1* self, uint32_t target, uint32_t access);
@@ -147,9 +150,11 @@ void QOpenGLFunctions_2_1_GlUniform3f(QOpenGLFunctions_2_1* self, int32_t locati
 void QOpenGLFunctions_2_1_GlUniform2f(QOpenGLFunctions_2_1* self, int32_t location, float v0, float v1);
 void QOpenGLFunctions_2_1_GlUniform1f(QOpenGLFunctions_2_1* self, int32_t location, float v0);
 void QOpenGLFunctions_2_1_GlUseProgram(QOpenGLFunctions_2_1* self, uint32_t program);
+void QOpenGLFunctions_2_1_GlShaderSource(QOpenGLFunctions_2_1* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length);
 void QOpenGLFunctions_2_1_GlLinkProgram(QOpenGLFunctions_2_1* self, uint32_t program);
 unsigned char QOpenGLFunctions_2_1_GlIsShader(QOpenGLFunctions_2_1* self, uint32_t shader);
 unsigned char QOpenGLFunctions_2_1_GlIsProgram(QOpenGLFunctions_2_1* self, uint32_t program);
+void QOpenGLFunctions_2_1_GlGetVertexAttribPointerv(QOpenGLFunctions_2_1* self, uint32_t index, uint32_t pname, void** pointer);
 void QOpenGLFunctions_2_1_GlGetVertexAttribiv(QOpenGLFunctions_2_1* self, uint32_t index, uint32_t pname, int32_t* params);
 void QOpenGLFunctions_2_1_GlGetVertexAttribfv(QOpenGLFunctions_2_1* self, uint32_t index, uint32_t pname, float* params);
 void QOpenGLFunctions_2_1_GlGetVertexAttribdv(QOpenGLFunctions_2_1* self, uint32_t index, uint32_t pname, double* params);

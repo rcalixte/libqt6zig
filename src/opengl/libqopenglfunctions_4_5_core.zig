@@ -2648,6 +2648,31 @@ pub const qopenglfunctions_4_5_core = struct {
         qtc.QOpenGLFunctions_4_5_Core_GlUseProgram(@ptrCast(self), @intCast(program));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-core.html#glShaderSource)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_5_Core `
+    ///
+    /// ` shader: u32 `
+    ///
+    /// ` count: i32 `
+    ///
+    /// ` stringVal: []const [:0]const u8 `
+    ///
+    /// ` length: []const i32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: []const [:0]const u8, length: []const i32, allocator: std.mem.Allocator) void {
+        const stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglfunctions_4_5_core.GlShaderSource: Memory allocation failed");
+        defer allocator.free(stringVal_chararr);
+        for (stringVal, 0..stringVal.len) |str, i| {
+            stringVal_chararr[i] = @ptrCast(str.ptr);
+        }
+        qtc.QOpenGLFunctions_4_5_Core_GlShaderSource(@ptrCast(self), @intCast(shader), @intCast(count), stringVal_chararr.ptr, length.ptr);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-core.html#glLinkProgram)
     ///
     /// ## Parameter(s):
@@ -4346,6 +4371,31 @@ pub const qopenglfunctions_4_5_core = struct {
         qtc.QOpenGLFunctions_4_5_Core_GlClampColor(@ptrCast(self), @intCast(target), @intCast(clamp));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-core.html#glTransformFeedbackVaryings)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_5_Core `
+    ///
+    /// ` program: u32 `
+    ///
+    /// ` count: i32 `
+    ///
+    /// ` varyings: []const [:0]const u8 `
+    ///
+    /// ` bufferMode: u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlTransformFeedbackVaryings(self: ?*anyopaque, program: u32, count: i32, varyings: []const [:0]const u8, bufferMode: u32, allocator: std.mem.Allocator) void {
+        const varyings_chararr = allocator.alloc([*c]const u8, varyings.len) catch @panic("qopenglfunctions_4_5_core.GlTransformFeedbackVaryings: Memory allocation failed");
+        defer allocator.free(varyings_chararr);
+        for (varyings, 0..varyings.len) |str, i| {
+            varyings_chararr[i] = @ptrCast(str.ptr);
+        }
+        qtc.QOpenGLFunctions_4_5_Core_GlTransformFeedbackVaryings(@ptrCast(self), @intCast(program), @intCast(count), varyings_chararr.ptr, @intCast(bufferMode));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-core.html#glBindBufferBase)
     ///
     /// ## Parameter(s):
@@ -4607,6 +4657,31 @@ pub const qopenglfunctions_4_5_core = struct {
     ///
     pub fn GlGetActiveUniformsiv(self: ?*anyopaque, program: u32, uniformCount: i32, uniformIndices: []const u32, pname: u32, params: []i32) void {
         qtc.QOpenGLFunctions_4_5_Core_GlGetActiveUniformsiv(@ptrCast(self), @intCast(program), @intCast(uniformCount), uniformIndices.ptr, @intCast(pname), params.ptr);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-core.html#glGetUniformIndices)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_5_Core `
+    ///
+    /// ` program: u32 `
+    ///
+    /// ` uniformCount: i32 `
+    ///
+    /// ` uniformNames: []const [:0]const u8 `
+    ///
+    /// ` uniformIndices: []u32 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlGetUniformIndices(self: ?*anyopaque, program: u32, uniformCount: i32, uniformNames: []const [:0]const u8, uniformIndices: []u32, allocator: std.mem.Allocator) void {
+        const uniformNames_chararr = allocator.alloc([*c]const u8, uniformNames.len) catch @panic("qopenglfunctions_4_5_core.GlGetUniformIndices: Memory allocation failed");
+        defer allocator.free(uniformNames_chararr);
+        for (uniformNames, 0..uniformNames.len) |str, i| {
+            uniformNames_chararr[i] = @ptrCast(str.ptr);
+        }
+        qtc.QOpenGLFunctions_4_5_Core_GlGetUniformIndices(@ptrCast(self), @intCast(program), @intCast(uniformCount), uniformNames_chararr.ptr, uniformIndices.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-core.html#glCopyBufferSubData)
@@ -7508,6 +7583,29 @@ pub const qopenglfunctions_4_5_core = struct {
     ///
     pub fn GlBindProgramPipeline(self: ?*anyopaque, pipeline: u32) void {
         qtc.QOpenGLFunctions_4_5_Core_GlBindProgramPipeline(@ptrCast(self), @intCast(pipeline));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-core.html#glCreateShaderProgramv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QOpenGLFunctions_4_5_Core `
+    ///
+    /// ` typeVal: u32 `
+    ///
+    /// ` count: i32 `
+    ///
+    /// ` strings: []const [:0]const u8 `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn GlCreateShaderProgramv(self: ?*anyopaque, typeVal: u32, count: i32, strings: []const [:0]const u8, allocator: std.mem.Allocator) u32 {
+        const strings_chararr = allocator.alloc([*c]const u8, strings.len) catch @panic("qopenglfunctions_4_5_core.GlCreateShaderProgramv: Memory allocation failed");
+        defer allocator.free(strings_chararr);
+        for (strings, 0..strings.len) |str, i| {
+            strings_chararr[i] = @ptrCast(str.ptr);
+        }
+        return qtc.QOpenGLFunctions_4_5_Core_GlCreateShaderProgramv(@ptrCast(self), @intCast(typeVal), @intCast(count), strings_chararr.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-5-core.html#glActiveShaderProgram)

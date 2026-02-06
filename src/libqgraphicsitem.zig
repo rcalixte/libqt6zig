@@ -3428,6 +3428,18 @@ pub const qgraphicsitem = struct {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ## Parameter(s):
@@ -7088,6 +7100,20 @@ pub const qgraphicsobject = struct {
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsObject `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
     }
 
     /// Inherited from QGraphicsItem
@@ -11923,6 +11949,20 @@ pub const qabstractgraphicsshapeitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QAbstractGraphicsShapeItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ## Parameter(s):
@@ -16584,6 +16624,20 @@ pub const qgraphicspathitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsPathItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ## Parameter(s):
@@ -20909,6 +20963,20 @@ pub const qgraphicsrectitem = struct {
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsRectItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
     }
 
     /// Inherited from QGraphicsItem
@@ -25286,6 +25354,20 @@ pub const qgraphicsellipseitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsEllipseItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ## Parameter(s):
@@ -29541,6 +29623,20 @@ pub const qgraphicspolygonitem = struct {
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsPolygonItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
     }
 
     /// Inherited from QGraphicsItem
@@ -33840,6 +33936,20 @@ pub const qgraphicslineitem = struct {
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsLineItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
     }
 
     /// Inherited from QGraphicsItem
@@ -38153,6 +38263,20 @@ pub const qgraphicspixmapitem = struct {
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsPixmapItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
     }
 
     /// Inherited from QGraphicsItem
@@ -44711,6 +44835,20 @@ pub const qgraphicstextitem = struct {
 
     /// Inherited from QGraphicsItem
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsTextItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ## Parameter(s):
@@ -48656,6 +48794,20 @@ pub const qgraphicssimpletextitem = struct {
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsSimpleTextItem `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
     }
 
     /// Inherited from QGraphicsItem
@@ -52661,6 +52813,20 @@ pub const qgraphicsitemgroup = struct {
     ///
     pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
+    }
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#isBlockedByModalPanel)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsItemGroup `
+    ///
+    /// ` blockingPanel: *QtC.QGraphicsItem `
+    ///
+    pub fn IsBlockedByModalPanel1(self: ?*anyopaque, blockingPanel: *?*anyopaque) bool {
+        return qtc.QGraphicsItem_IsBlockedByModalPanel1(@ptrCast(self), @ptrCast(blockingPanel));
     }
 
     /// Inherited from QGraphicsItem

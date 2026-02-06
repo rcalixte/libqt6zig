@@ -257,6 +257,10 @@ void QOpenGLFunctions_1_5_GlPolygonOffset(QOpenGLFunctions_1_5* self, float fact
     self->glPolygonOffset(static_cast<GLfloat>(factor), static_cast<GLfloat>(units));
 }
 
+void QOpenGLFunctions_1_5_GlGetPointerv(QOpenGLFunctions_1_5* self, uint32_t pname, void** params) {
+    self->glGetPointerv(static_cast<GLenum>(pname), params);
+}
+
 void QOpenGLFunctions_1_5_GlDrawElements(QOpenGLFunctions_1_5* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices) {
     self->glDrawElements(static_cast<GLenum>(mode), static_cast<GLsizei>(count), static_cast<GLenum>(typeVal), indices);
 }
@@ -341,12 +345,20 @@ void QOpenGLFunctions_1_5_GlPointParameterf(QOpenGLFunctions_1_5* self, uint32_t
     self->glPointParameterf(static_cast<GLenum>(pname), static_cast<GLfloat>(param));
 }
 
+void QOpenGLFunctions_1_5_GlMultiDrawElements(QOpenGLFunctions_1_5* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount) {
+    self->glMultiDrawElements(static_cast<GLenum>(mode), static_cast<const GLsizei*>(count), static_cast<GLenum>(typeVal), indices, static_cast<GLsizei>(drawcount));
+}
+
 void QOpenGLFunctions_1_5_GlMultiDrawArrays(QOpenGLFunctions_1_5* self, uint32_t mode, const int32_t* first, const int32_t* count, int32_t drawcount) {
     self->glMultiDrawArrays(static_cast<GLenum>(mode), static_cast<const GLint*>(first), static_cast<const GLsizei*>(count), static_cast<GLsizei>(drawcount));
 }
 
 void QOpenGLFunctions_1_5_GlBlendFuncSeparate(QOpenGLFunctions_1_5* self, uint32_t sfactorRGB, uint32_t dfactorRGB, uint32_t sfactorAlpha, uint32_t dfactorAlpha) {
     self->glBlendFuncSeparate(static_cast<GLenum>(sfactorRGB), static_cast<GLenum>(dfactorRGB), static_cast<GLenum>(sfactorAlpha), static_cast<GLenum>(dfactorAlpha));
+}
+
+void QOpenGLFunctions_1_5_GlGetBufferPointerv(QOpenGLFunctions_1_5* self, uint32_t target, uint32_t pname, void** params) {
+    self->glGetBufferPointerv(static_cast<GLenum>(target), static_cast<GLenum>(pname), params);
 }
 
 void QOpenGLFunctions_1_5_GlGetBufferParameteriv(QOpenGLFunctions_1_5* self, uint32_t target, uint32_t pname, int32_t* params) {

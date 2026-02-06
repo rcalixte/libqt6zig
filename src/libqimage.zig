@@ -111,28 +111,46 @@ pub const qimage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` xpm: []const [:0]const u8 `
     ///
-    pub fn New8(fileName: []const u8) QtC.QImage {
-        const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
-        };
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn New8(xpm: []const [:0]const u8, allocator: std.mem.Allocator) QtC.QImage {
+        const xpm_chararr = allocator.alloc([*c]const u8, xpm.len) catch @panic("qimage.New8: Memory allocation failed");
+        defer allocator.free(xpm_chararr);
+        for (xpm, 0..xpm.len) |str, i| {
+            xpm_chararr[i] = @ptrCast(str.ptr);
+        }
 
-        return qtc.QImage_new8(fileName_str);
+        return qtc.QImage_new8(xpm_chararr.ptr);
     }
 
     /// New9 constructs a new QImage object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QImage `
+    /// ` fileName: []const u8 `
     ///
-    pub fn New9(param1: ?*anyopaque) QtC.QImage {
-        return qtc.QImage_new9(@ptrCast(param1));
+    pub fn New9(fileName: []const u8) QtC.QImage {
+        const fileName_str = qtc.libqt_string{
+            .len = fileName.len,
+            .data = fileName.ptr,
+        };
+
+        return qtc.QImage_new9(fileName_str);
     }
 
     /// New10 constructs a new QImage object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QtC.QImage `
+    ///
+    pub fn New10(param1: ?*anyopaque) QtC.QImage {
+        return qtc.QImage_new10(@ptrCast(param1));
+    }
+
+    /// New11 constructs a new QImage object.
     ///
     /// ## Parameter(s):
     ///
@@ -140,14 +158,14 @@ pub const qimage = struct {
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn New10(fileName: []const u8, format: [:0]const u8) QtC.QImage {
+    pub fn New11(fileName: []const u8, format: [:0]const u8) QtC.QImage {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
 
-        return qtc.QImage_new10(fileName_str, format_Cstring);
+        return qtc.QImage_new11(fileName_str, format_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#operator-eq)

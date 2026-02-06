@@ -780,6 +780,54 @@ pub const qformlayout = struct {
         return qtc.QFormLayout_ItemAt(@ptrCast(self), @intCast(row), @intCast(role));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#getItemPosition)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormLayout `
+    ///
+    /// ` index: i32 `
+    ///
+    /// ` rowPtr: *i32 `
+    ///
+    /// ` rolePtr: *qformlayout_enums.ItemRole `
+    ///
+    pub fn GetItemPosition(self: ?*anyopaque, index: i32, rowPtr: *i32, rolePtr: *i32) void {
+        qtc.QFormLayout_GetItemPosition(@ptrCast(self), @intCast(index), @ptrCast(rowPtr), @ptrCast(rolePtr));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#getWidgetPosition)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormLayout `
+    ///
+    /// ` widget: QtC.QWidget `
+    ///
+    /// ` rowPtr: *i32 `
+    ///
+    /// ` rolePtr: *qformlayout_enums.ItemRole `
+    ///
+    pub fn GetWidgetPosition(self: ?*anyopaque, widget: ?*anyopaque, rowPtr: *i32, rolePtr: *i32) void {
+        qtc.QFormLayout_GetWidgetPosition(@ptrCast(self), @ptrCast(widget), @ptrCast(rowPtr), @ptrCast(rolePtr));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#getLayoutPosition)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QFormLayout `
+    ///
+    /// ` layout: QtC.QLayout `
+    ///
+    /// ` rowPtr: *i32 `
+    ///
+    /// ` rolePtr: *qformlayout_enums.ItemRole `
+    ///
+    pub fn GetLayoutPosition(self: ?*anyopaque, layout: ?*anyopaque, rowPtr: *i32, rolePtr: *i32) void {
+        qtc.QFormLayout_GetLayoutPosition(@ptrCast(self), @ptrCast(layout), @ptrCast(rowPtr), @ptrCast(rolePtr));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformlayout.html#labelForField)
     ///
     /// ## Parameter(s):

@@ -84,6 +84,7 @@ void QOpenGLFunctions_1_4_GlCopyTexSubImage1D(QOpenGLFunctions_1_4* self, uint32
 void QOpenGLFunctions_1_4_GlCopyTexImage2D(QOpenGLFunctions_1_4* self, uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t height, int32_t border);
 void QOpenGLFunctions_1_4_GlCopyTexImage1D(QOpenGLFunctions_1_4* self, uint32_t target, int32_t level, uint32_t internalformat, int32_t x, int32_t y, int32_t width, int32_t border);
 void QOpenGLFunctions_1_4_GlPolygonOffset(QOpenGLFunctions_1_4* self, float factor, float units);
+void QOpenGLFunctions_1_4_GlGetPointerv(QOpenGLFunctions_1_4* self, uint32_t pname, void** params);
 void QOpenGLFunctions_1_4_GlDrawElements(QOpenGLFunctions_1_4* self, uint32_t mode, int32_t count, uint32_t typeVal, const void* indices);
 void QOpenGLFunctions_1_4_GlDrawArrays(QOpenGLFunctions_1_4* self, uint32_t mode, int32_t first, int32_t count);
 void QOpenGLFunctions_1_4_GlCopyTexSubImage3D(QOpenGLFunctions_1_4* self, uint32_t target, int32_t level, int32_t xoffset, int32_t yoffset, int32_t zoffset, int32_t x, int32_t y, int32_t width, int32_t height);
@@ -105,6 +106,7 @@ void QOpenGLFunctions_1_4_GlPointParameteriv(QOpenGLFunctions_1_4* self, uint32_
 void QOpenGLFunctions_1_4_GlPointParameteri(QOpenGLFunctions_1_4* self, uint32_t pname, int32_t param);
 void QOpenGLFunctions_1_4_GlPointParameterfv(QOpenGLFunctions_1_4* self, uint32_t pname, const float* params);
 void QOpenGLFunctions_1_4_GlPointParameterf(QOpenGLFunctions_1_4* self, uint32_t pname, float param);
+void QOpenGLFunctions_1_4_GlMultiDrawElements(QOpenGLFunctions_1_4* self, uint32_t mode, const int32_t* count, uint32_t typeVal, const void** indices, int32_t drawcount);
 void QOpenGLFunctions_1_4_GlMultiDrawArrays(QOpenGLFunctions_1_4* self, uint32_t mode, const int32_t* first, const int32_t* count, int32_t drawcount);
 void QOpenGLFunctions_1_4_GlBlendFuncSeparate(QOpenGLFunctions_1_4* self, uint32_t sfactorRGB, uint32_t dfactorRGB, uint32_t sfactorAlpha, uint32_t dfactorAlpha);
 void QOpenGLFunctions_1_4_GlTranslatef(QOpenGLFunctions_1_4* self, float x, float y, float z);

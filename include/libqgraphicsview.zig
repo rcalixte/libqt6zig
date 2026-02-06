@@ -2206,6 +2206,58 @@ pub const qgraphicsview = struct {
         qtc.QGraphicsView_QBaseDrawForeground(@ptrCast(self), @ptrCast(painter), @ptrCast(rect));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#drawItems)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsView `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` numItems: i32 `
+    ///
+    /// ` items: *QtC.QGraphicsItem `
+    ///
+    /// ` options: QtC.QStyleOptionGraphicsItem `
+    ///
+    pub fn DrawItems(self: ?*anyopaque, painter: ?*anyopaque, numItems: i32, items: *?*anyopaque, options: ?*anyopaque) void {
+        qtc.QGraphicsView_DrawItems(@ptrCast(self), @ptrCast(painter), @intCast(numItems), @ptrCast(items), @ptrCast(options));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#drawItems)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QtC.QGraphicsView `
+    ///
+    /// ` callback: *const fn (self: QtC.QGraphicsView, painter: QtC.QPainter, numItems: i32, items: *QtC.QGraphicsItem, options: QtC.QStyleOptionGraphicsItem) callconv(.c) void `
+    ///
+    pub fn OnDrawItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, *?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsView_OnDrawItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#drawItems)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QtC.QGraphicsView `
+    ///
+    /// ` painter: QtC.QPainter `
+    ///
+    /// ` numItems: i32 `
+    ///
+    /// ` items: *QtC.QGraphicsItem `
+    ///
+    /// ` options: QtC.QStyleOptionGraphicsItem `
+    ///
+    pub fn QBaseDrawItems(self: ?*anyopaque, painter: ?*anyopaque, numItems: i32, items: *?*anyopaque, options: ?*anyopaque) void {
+        qtc.QGraphicsView_QBaseDrawItems(@ptrCast(self), @ptrCast(painter), @intCast(numItems), @ptrCast(items), @ptrCast(options));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):

@@ -47,6 +47,7 @@ class VirtualQChartView final : public QChartView {
     using QChartView_InputMethodEvent_Callback = void (*)(QChartView*, QInputMethodEvent*);
     using QChartView_DrawBackground_Callback = void (*)(QChartView*, QPainter*, QRectF*);
     using QChartView_DrawForeground_Callback = void (*)(QChartView*, QPainter*, QRectF*);
+    using QChartView_DrawItems_Callback = void (*)(QChartView*, QPainter*, int, QGraphicsItem**, QStyleOptionGraphicsItem*);
     using QChartView_MinimumSizeHint_Callback = QSize* (*)();
     using QChartView_EventFilter_Callback = bool (*)(QChartView*, QObject*, QEvent*);
     using QChartView_ViewportSizeHint_Callback = QSize* (*)();
@@ -120,6 +121,7 @@ class VirtualQChartView final : public QChartView {
     QChartView_InputMethodEvent_Callback qchartview_inputmethodevent_callback = nullptr;
     QChartView_DrawBackground_Callback qchartview_drawbackground_callback = nullptr;
     QChartView_DrawForeground_Callback qchartview_drawforeground_callback = nullptr;
+    QChartView_DrawItems_Callback qchartview_drawitems_callback = nullptr;
     QChartView_MinimumSizeHint_Callback qchartview_minimumsizehint_callback = nullptr;
     QChartView_EventFilter_Callback qchartview_eventfilter_callback = nullptr;
     QChartView_ViewportSizeHint_Callback qchartview_viewportsizehint_callback = nullptr;
@@ -192,6 +194,7 @@ class VirtualQChartView final : public QChartView {
     mutable bool qchartview_inputmethodevent_isbase = false;
     mutable bool qchartview_drawbackground_isbase = false;
     mutable bool qchartview_drawforeground_isbase = false;
+    mutable bool qchartview_drawitems_isbase = false;
     mutable bool qchartview_minimumsizehint_isbase = false;
     mutable bool qchartview_eventfilter_isbase = false;
     mutable bool qchartview_viewportsizehint_isbase = false;
@@ -270,6 +273,7 @@ class VirtualQChartView final : public QChartView {
         qchartview_inputmethodevent_callback = nullptr;
         qchartview_drawbackground_callback = nullptr;
         qchartview_drawforeground_callback = nullptr;
+        qchartview_drawitems_callback = nullptr;
         qchartview_minimumsizehint_callback = nullptr;
         qchartview_eventfilter_callback = nullptr;
         qchartview_viewportsizehint_callback = nullptr;
@@ -343,6 +347,7 @@ class VirtualQChartView final : public QChartView {
     inline void setQChartView_InputMethodEvent_Callback(QChartView_InputMethodEvent_Callback cb) { qchartview_inputmethodevent_callback = cb; }
     inline void setQChartView_DrawBackground_Callback(QChartView_DrawBackground_Callback cb) { qchartview_drawbackground_callback = cb; }
     inline void setQChartView_DrawForeground_Callback(QChartView_DrawForeground_Callback cb) { qchartview_drawforeground_callback = cb; }
+    inline void setQChartView_DrawItems_Callback(QChartView_DrawItems_Callback cb) { qchartview_drawitems_callback = cb; }
     inline void setQChartView_MinimumSizeHint_Callback(QChartView_MinimumSizeHint_Callback cb) { qchartview_minimumsizehint_callback = cb; }
     inline void setQChartView_EventFilter_Callback(QChartView_EventFilter_Callback cb) { qchartview_eventfilter_callback = cb; }
     inline void setQChartView_ViewportSizeHint_Callback(QChartView_ViewportSizeHint_Callback cb) { qchartview_viewportsizehint_callback = cb; }
@@ -415,6 +420,7 @@ class VirtualQChartView final : public QChartView {
     inline void setQChartView_InputMethodEvent_IsBase(bool value) const { qchartview_inputmethodevent_isbase = value; }
     inline void setQChartView_DrawBackground_IsBase(bool value) const { qchartview_drawbackground_isbase = value; }
     inline void setQChartView_DrawForeground_IsBase(bool value) const { qchartview_drawforeground_isbase = value; }
+    inline void setQChartView_DrawItems_IsBase(bool value) const { qchartview_drawitems_isbase = value; }
     inline void setQChartView_MinimumSizeHint_IsBase(bool value) const { qchartview_minimumsizehint_isbase = value; }
     inline void setQChartView_EventFilter_IsBase(bool value) const { qchartview_eventfilter_isbase = value; }
     inline void setQChartView_ViewportSizeHint_IsBase(bool value) const { qchartview_viewportsizehint_isbase = value; }
@@ -886,6 +892,23 @@ class VirtualQChartView final : public QChartView {
             qchartview_drawforeground_callback(this, cbval1, cbval2);
         } else {
             QChartView::drawForeground(painter, rect);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void drawItems(QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) override {
+        if (qchartview_drawitems_isbase) {
+            qchartview_drawitems_isbase = false;
+            QChartView::drawItems(painter, numItems, items, options);
+        } else if (qchartview_drawitems_callback != nullptr) {
+            QPainter* cbval1 = painter;
+            int cbval2 = numItems;
+            QGraphicsItem** cbval3 = items;
+            QStyleOptionGraphicsItem* cbval4 = (QStyleOptionGraphicsItem*)options;
+
+            qchartview_drawitems_callback(this, cbval1, cbval2, cbval3, cbval4);
+        } else {
+            QChartView::drawItems(painter, numItems, items, options);
         }
     }
 
@@ -1511,6 +1534,8 @@ class VirtualQChartView final : public QChartView {
     friend void QChartView_QBaseDrawBackground(QChartView* self, QPainter* painter, const QRectF* rect);
     friend void QChartView_DrawForeground(QChartView* self, QPainter* painter, const QRectF* rect);
     friend void QChartView_QBaseDrawForeground(QChartView* self, QPainter* painter, const QRectF* rect);
+    friend void QChartView_DrawItems(QChartView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options);
+    friend void QChartView_QBaseDrawItems(QChartView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options);
     friend bool QChartView_EventFilter(QChartView* self, QObject* param1, QEvent* param2);
     friend bool QChartView_QBaseEventFilter(QChartView* self, QObject* param1, QEvent* param2);
     friend QSize* QChartView_ViewportSizeHint(const QChartView* self);
