@@ -1,4 +1,8 @@
 
+### 6.8.2 rev59 (6 February 2026)
+
+* **BREAKING CHANGE:** Unblock additional pointer types (#115)
+
 ### 6.8.2 rev58 (5 February 2026)
 
 * Add [KFileMetaData](https://api.kde.org/kfilemetadata-index.html) (#114)
