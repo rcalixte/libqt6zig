@@ -28,12 +28,7 @@ pub const qstringencoder = struct {
     /// ` name: []const u8 `
     ///
     pub fn New3(name: []const u8) QtC.QStringEncoder {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-
-        return qtc.QStringEncoder_new3(name_str);
+        return qtc.QStringEncoder_new3(name.ptr);
     }
 
     /// New4 constructs a new QStringEncoder object.
@@ -57,12 +52,7 @@ pub const qstringencoder = struct {
     /// ` flags: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn New5(name: []const u8, flags: i32) QtC.QStringEncoder {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-
-        return qtc.QStringEncoder_new5(name_str, @intCast(flags));
+        return qtc.QStringEncoder_new5(name.ptr, @intCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringencoder.html#requiredSpace)
@@ -204,12 +194,7 @@ pub const qstringdecoder = struct {
     /// ` name: []const u8 `
     ///
     pub fn New3(name: []const u8) QtC.QStringDecoder {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-
-        return qtc.QStringDecoder_new3(name_str);
+        return qtc.QStringDecoder_new3(name.ptr);
     }
 
     /// New4 constructs a new QStringDecoder object.
@@ -233,12 +218,7 @@ pub const qstringdecoder = struct {
     /// ` f: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn New5(name: []const u8, f: i32) QtC.QStringDecoder {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-
-        return qtc.QStringDecoder_new5(name_str, @intCast(f));
+        return qtc.QStringDecoder_new5(name.ptr, @intCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringdecoder.html#requiredSpace)
@@ -261,9 +241,9 @@ pub const qstringdecoder = struct {
     ///
     /// ` out: QtC.QChar `
     ///
-    /// ` ba: []const u8 `
+    /// ` ba: []u8 `
     ///
-    pub fn AppendToBuffer(self: ?*anyopaque, out: ?*anyopaque, ba: []const u8) QtC.QChar {
+    pub fn AppendToBuffer(self: ?*anyopaque, out: ?*anyopaque, ba: []u8) QtC.QChar {
         const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
@@ -275,9 +255,9 @@ pub const qstringdecoder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    pub fn DecoderForHtml(data: []const u8) QtC.QStringDecoder {
+    pub fn DecoderForHtml(data: []u8) QtC.QStringDecoder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

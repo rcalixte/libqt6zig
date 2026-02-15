@@ -1794,7 +1794,7 @@ pub const qlocale = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CreateSeparatedList(self: ?*anyopaque, strl: []const []const u8, allocator: std.mem.Allocator) []const u8 {
-        var strl_arr = allocator.alloc(qtc.libqt_string, strl.len) catch @panic("qlocale.CreateSeparatedList: Memory allocation failed");
+        const strl_arr = allocator.alloc(qtc.libqt_string, strl.len) catch @panic("qlocale.CreateSeparatedList: Memory allocation failed");
         defer allocator.free(strl_arr);
         for (strl, 0..strl.len) |item, i| {
             strl_arr[i] = .{

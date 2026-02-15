@@ -229,7 +229,7 @@ pub const qstandardpaths = struct {
             .len = executableName.len,
             .data = executableName.ptr,
         };
-        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qstandardpaths.FindExecutable2: Memory allocation failed");
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qstandardpaths.FindExecutable2: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{

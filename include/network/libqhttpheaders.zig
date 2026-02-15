@@ -58,15 +58,7 @@ pub const qhttpheaders = struct {
     /// ` value: []const u8 `
     ///
     pub fn Append(self: ?*anyopaque, name: []const u8, value: []const u8) bool {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
-        };
-        return qtc.QHttpHeaders_Append(@ptrCast(self), name_str, value_str);
+        return qtc.QHttpHeaders_Append(@ptrCast(self), name.ptr, value.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#append)
@@ -80,11 +72,7 @@ pub const qhttpheaders = struct {
     /// ` value: []const u8 `
     ///
     pub fn Append2(self: ?*anyopaque, name: i32, value: []const u8) bool {
-        const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
-        };
-        return qtc.QHttpHeaders_Append2(@ptrCast(self), @intCast(name), value_str);
+        return qtc.QHttpHeaders_Append2(@ptrCast(self), @intCast(name), value.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#insert)
@@ -100,15 +88,7 @@ pub const qhttpheaders = struct {
     /// ` value: []const u8 `
     ///
     pub fn Insert(self: ?*anyopaque, i: i64, name: []const u8, value: []const u8) bool {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
-        };
-        return qtc.QHttpHeaders_Insert(@ptrCast(self), @intCast(i), name_str, value_str);
+        return qtc.QHttpHeaders_Insert(@ptrCast(self), @intCast(i), name.ptr, value.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#insert)
@@ -124,11 +104,7 @@ pub const qhttpheaders = struct {
     /// ` value: []const u8 `
     ///
     pub fn Insert2(self: ?*anyopaque, i: i64, name: i32, value: []const u8) bool {
-        const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
-        };
-        return qtc.QHttpHeaders_Insert2(@ptrCast(self), @intCast(i), @intCast(name), value_str);
+        return qtc.QHttpHeaders_Insert2(@ptrCast(self), @intCast(i), @intCast(name), value.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replace)
@@ -144,15 +120,7 @@ pub const qhttpheaders = struct {
     /// ` newValue: []const u8 `
     ///
     pub fn Replace(self: ?*anyopaque, i: i64, name: []const u8, newValue: []const u8) bool {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        const newValue_str = qtc.libqt_string{
-            .len = newValue.len,
-            .data = newValue.ptr,
-        };
-        return qtc.QHttpHeaders_Replace(@ptrCast(self), @intCast(i), name_str, newValue_str);
+        return qtc.QHttpHeaders_Replace(@ptrCast(self), @intCast(i), name.ptr, newValue.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replace)
@@ -168,11 +136,7 @@ pub const qhttpheaders = struct {
     /// ` newValue: []const u8 `
     ///
     pub fn Replace2(self: ?*anyopaque, i: i64, name: i32, newValue: []const u8) bool {
-        const newValue_str = qtc.libqt_string{
-            .len = newValue.len,
-            .data = newValue.ptr,
-        };
-        return qtc.QHttpHeaders_Replace2(@ptrCast(self), @intCast(i), @intCast(name), newValue_str);
+        return qtc.QHttpHeaders_Replace2(@ptrCast(self), @intCast(i), @intCast(name), newValue.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replaceOrAppend)
@@ -186,15 +150,7 @@ pub const qhttpheaders = struct {
     /// ` newValue: []const u8 `
     ///
     pub fn ReplaceOrAppend(self: ?*anyopaque, name: []const u8, newValue: []const u8) bool {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        const newValue_str = qtc.libqt_string{
-            .len = newValue.len,
-            .data = newValue.ptr,
-        };
-        return qtc.QHttpHeaders_ReplaceOrAppend(@ptrCast(self), name_str, newValue_str);
+        return qtc.QHttpHeaders_ReplaceOrAppend(@ptrCast(self), name.ptr, newValue.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#replaceOrAppend)
@@ -208,11 +164,7 @@ pub const qhttpheaders = struct {
     /// ` newValue: []const u8 `
     ///
     pub fn ReplaceOrAppend2(self: ?*anyopaque, name: i32, newValue: []const u8) bool {
-        const newValue_str = qtc.libqt_string{
-            .len = newValue.len,
-            .data = newValue.ptr,
-        };
-        return qtc.QHttpHeaders_ReplaceOrAppend2(@ptrCast(self), @intCast(name), newValue_str);
+        return qtc.QHttpHeaders_ReplaceOrAppend2(@ptrCast(self), @intCast(name), newValue.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#contains)
@@ -224,11 +176,7 @@ pub const qhttpheaders = struct {
     /// ` name: []const u8 `
     ///
     pub fn Contains(self: ?*anyopaque, name: []const u8) bool {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        return qtc.QHttpHeaders_Contains(@ptrCast(self), name_str);
+        return qtc.QHttpHeaders_Contains(@ptrCast(self), name.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#contains)
@@ -262,11 +210,7 @@ pub const qhttpheaders = struct {
     /// ` name: []const u8 `
     ///
     pub fn RemoveAll(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QHttpHeaders_RemoveAll(@ptrCast(self), name_str);
+        qtc.QHttpHeaders_RemoveAll(@ptrCast(self), name.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html#removeAll)
@@ -303,15 +247,11 @@ pub const qhttpheaders = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        var _str = qtc.QHttpHeaders_Value(@ptrCast(self), name_str);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qhttpheaders.Value: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Value(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value(@ptrCast(self), name.ptr);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qhttpheaders.Value: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -325,11 +265,11 @@ pub const qhttpheaders = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value2(self: ?*anyopaque, name: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QHttpHeaders_Value2(@ptrCast(self), @intCast(name));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qhttpheaders.Value2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Value2(self: ?*anyopaque, name: i32, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value2(@ptrCast(self), @intCast(name));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qhttpheaders.Value2: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -344,11 +284,7 @@ pub const qhttpheaders = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Values(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) [][]u8 {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        const _arr: qtc.libqt_list = qtc.QHttpHeaders_Values(@ptrCast(self), name_str);
+        const _arr: qtc.libqt_list = qtc.QHttpHeaders_Values(@ptrCast(self), name.ptr);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -405,11 +341,11 @@ pub const qhttpheaders = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ValueAt(self: ?*anyopaque, i: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QHttpHeaders_ValueAt(@ptrCast(self), @intCast(i));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qhttpheaders.ValueAt: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn ValueAt(self: ?*anyopaque, i: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_ValueAt(@ptrCast(self), @intCast(i));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qhttpheaders.ValueAt: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -424,11 +360,7 @@ pub const qhttpheaders = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn CombinedValue(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []u8 {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_CombinedValue(@ptrCast(self), name_str);
+        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_CombinedValue(@ptrCast(self), name.ptr);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qhttpheaders.CombinedValue: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -493,11 +425,11 @@ pub const qhttpheaders = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WellKnownHeaderName(name: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QHttpHeaders_WellKnownHeaderName(@intCast(name));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qhttpheaders.WellKnownHeaderName: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn WellKnownHeaderName(name: i32, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_WellKnownHeaderName(@intCast(name));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qhttpheaders.WellKnownHeaderName: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -510,9 +442,9 @@ pub const qhttpheaders = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FromListOfPairs(headers: []struct_u8_u8, allocator: std.mem.Allocator) QtC.QHttpHeaders {
-        var headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("qhttpheaders.FromListOfPairs: Memory allocation failed");
+        const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("qhttpheaders.FromListOfPairs: Memory allocation failed");
         defer allocator.free(headers_pairs);
-        var headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("qhttpheaders.FromListOfPairs: Memory allocation failed");
+        const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("qhttpheaders.FromListOfPairs: Memory allocation failed");
         defer allocator.free(headers_str);
         for (headers, 0..) |headers_item, i| {
             headers_str[i * 2] = qtc.libqt_string{
@@ -765,23 +697,19 @@ pub const qhttpheaders = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` defaultValue: []const u8 `
+    /// ` defaultValue: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value22(self: ?*anyopaque, name: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
+    pub fn Value22(self: ?*anyopaque, name: []const u8, defaultValue: []u8, allocator: std.mem.Allocator) []u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        var _str = qtc.QHttpHeaders_Value22(@ptrCast(self), name_str, defaultValue_str);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qhttpheaders.Value22: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value22(@ptrCast(self), name.ptr, defaultValue_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qhttpheaders.Value22: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -793,19 +721,19 @@ pub const qhttpheaders = struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    /// ` defaultValue: []const u8 `
+    /// ` defaultValue: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value23(self: ?*anyopaque, name: i32, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Value23(self: ?*anyopaque, name: i32, defaultValue: []u8, allocator: std.mem.Allocator) []u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        var _str = qtc.QHttpHeaders_Value23(@ptrCast(self), @intCast(name), defaultValue_str);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qhttpheaders.Value23: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value23(@ptrCast(self), @intCast(name), defaultValue_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qhttpheaders.Value23: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 

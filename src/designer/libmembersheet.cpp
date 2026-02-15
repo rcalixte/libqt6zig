@@ -196,9 +196,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterTypes(co
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
             _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
             memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -213,9 +212,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterTypes(co
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
             _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
             memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -235,9 +233,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterNames(co
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
             _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
             memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -252,9 +249,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterNames(co
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
             _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
             memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -570,9 +566,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterTyp
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
             _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
             memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -587,9 +582,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterTyp
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
             _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
             memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -619,9 +613,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterNam
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
             _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
             memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -636,9 +629,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_QBaseParameterNam
             QByteArray _lv_qb = _ret[i];
             libqt_string _lv_str;
             _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
             memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;

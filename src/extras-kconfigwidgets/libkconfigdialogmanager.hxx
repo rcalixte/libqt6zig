@@ -29,10 +29,10 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
     using KConfigDialogManager_DisconnectNotify_Callback = void (*)(KConfigDialogManager*, QMetaMethod*);
     using KConfigDialogManager_Init_Callback = void (*)(KConfigDialogManager*, bool);
     using KConfigDialogManager_ParseChildren_Callback = bool (*)(KConfigDialogManager*, QWidget*, bool);
-    using KConfigDialogManager_GetUserProperty_Callback = const char* (*)(const KConfigDialogManager*, QWidget*);
-    using KConfigDialogManager_GetCustomProperty_Callback = const char* (*)(const KConfigDialogManager*, QWidget*);
-    using KConfigDialogManager_GetUserPropertyChangedSignal_Callback = const char* (*)(const KConfigDialogManager*, QWidget*);
-    using KConfigDialogManager_GetCustomPropertyChangedSignal_Callback = const char* (*)(const KConfigDialogManager*, QWidget*);
+    using KConfigDialogManager_GetUserProperty_Callback = libqt_string (*)(const KConfigDialogManager*, QWidget*);
+    using KConfigDialogManager_GetCustomProperty_Callback = libqt_string (*)(const KConfigDialogManager*, QWidget*);
+    using KConfigDialogManager_GetUserPropertyChangedSignal_Callback = libqt_string (*)(const KConfigDialogManager*, QWidget*);
+    using KConfigDialogManager_GetCustomPropertyChangedSignal_Callback = libqt_string (*)(const KConfigDialogManager*, QWidget*);
     using KConfigDialogManager_SetProperty_Callback = void (*)(KConfigDialogManager*, QWidget*, QVariant*);
     using KConfigDialogManager_Property_Callback = QVariant* (*)(const KConfigDialogManager*, QWidget*);
     using KConfigDialogManager_SetupWidget_Callback = void (*)(KConfigDialogManager*, QWidget*, KConfigSkeletonItem*);
@@ -365,8 +365,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         } else if (kconfigdialogmanager_getuserproperty_callback != nullptr) {
             QWidget* cbval1 = (QWidget*)widget;
 
-            const char* callback_ret = kconfigdialogmanager_getuserproperty_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = kconfigdialogmanager_getuserproperty_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return KConfigDialogManager::getUserProperty(widget);
@@ -381,8 +381,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         } else if (kconfigdialogmanager_getcustomproperty_callback != nullptr) {
             QWidget* cbval1 = (QWidget*)widget;
 
-            const char* callback_ret = kconfigdialogmanager_getcustomproperty_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = kconfigdialogmanager_getcustomproperty_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return KConfigDialogManager::getCustomProperty(widget);
@@ -397,8 +397,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         } else if (kconfigdialogmanager_getuserpropertychangedsignal_callback != nullptr) {
             QWidget* cbval1 = (QWidget*)widget;
 
-            const char* callback_ret = kconfigdialogmanager_getuserpropertychangedsignal_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = kconfigdialogmanager_getuserpropertychangedsignal_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return KConfigDialogManager::getUserPropertyChangedSignal(widget);
@@ -413,8 +413,8 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         } else if (kconfigdialogmanager_getcustompropertychangedsignal_callback != nullptr) {
             QWidget* cbval1 = (QWidget*)widget;
 
-            const char* callback_ret = kconfigdialogmanager_getcustompropertychangedsignal_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = kconfigdialogmanager_getcustompropertychangedsignal_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return KConfigDialogManager::getCustomPropertyChangedSignal(widget);

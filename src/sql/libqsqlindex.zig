@@ -249,11 +249,7 @@ pub const qsqlindex = struct {
     /// ` name: []const u8 `
     ///
     pub fn Value2(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        return qtc.QSqlRecord_Value2(@ptrCast(self), name_str);
+        return qtc.QSqlRecord_Value2(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QSqlRecord
@@ -285,11 +281,7 @@ pub const qsqlindex = struct {
     /// ` val: QtC.QVariant `
     ///
     pub fn SetValue2(self: ?*anyopaque, name: []const u8, val: ?*anyopaque) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QSqlRecord_SetValue2(@ptrCast(self), name_str, @ptrCast(val));
+        qtc.QSqlRecord_SetValue2(@ptrCast(self), name.ptr, @ptrCast(val));
     }
 
     /// Inherited from QSqlRecord
@@ -317,11 +309,7 @@ pub const qsqlindex = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetNull2(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QSqlRecord_SetNull2(@ptrCast(self), name_str);
+        qtc.QSqlRecord_SetNull2(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QSqlRecord
@@ -349,11 +337,7 @@ pub const qsqlindex = struct {
     /// ` name: []const u8 `
     ///
     pub fn IsNull2(self: ?*anyopaque, name: []const u8) bool {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        return qtc.QSqlRecord_IsNull2(@ptrCast(self), name_str);
+        return qtc.QSqlRecord_IsNull2(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QSqlRecord
@@ -367,11 +351,7 @@ pub const qsqlindex = struct {
     /// ` name: []const u8 `
     ///
     pub fn IndexOf(self: ?*anyopaque, name: []const u8) i32 {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        return qtc.QSqlRecord_IndexOf(@ptrCast(self), name_str);
+        return qtc.QSqlRecord_IndexOf(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QSqlRecord
@@ -419,11 +399,7 @@ pub const qsqlindex = struct {
     /// ` name: []const u8 `
     ///
     pub fn Field2(self: ?*anyopaque, name: []const u8) QtC.QSqlField {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        return qtc.QSqlRecord_Field2(@ptrCast(self), name_str);
+        return qtc.QSqlRecord_Field2(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QSqlRecord
@@ -451,11 +427,7 @@ pub const qsqlindex = struct {
     /// ` name: []const u8 `
     ///
     pub fn IsGenerated2(self: ?*anyopaque, name: []const u8) bool {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        return qtc.QSqlRecord_IsGenerated2(@ptrCast(self), name_str);
+        return qtc.QSqlRecord_IsGenerated2(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QSqlRecord
@@ -471,11 +443,7 @@ pub const qsqlindex = struct {
     /// ` generated: bool `
     ///
     pub fn SetGenerated(self: ?*anyopaque, name: []const u8, generated: bool) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QSqlRecord_SetGenerated(@ptrCast(self), name_str, generated);
+        qtc.QSqlRecord_SetGenerated(@ptrCast(self), name.ptr, generated);
     }
 
     /// Inherited from QSqlRecord
@@ -563,11 +531,7 @@ pub const qsqlindex = struct {
     /// ` name: []const u8 `
     ///
     pub fn Contains(self: ?*anyopaque, name: []const u8) bool {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        return qtc.QSqlRecord_Contains(@ptrCast(self), name_str);
+        return qtc.QSqlRecord_Contains(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QSqlRecord

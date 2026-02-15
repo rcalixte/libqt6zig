@@ -537,9 +537,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             QByteArrayView data_qb = data;
             libqt_string data_str;
             data_str.len = data_qb.length();
-            data_str.data = static_cast<const char*>(malloc(data_str.len + 1));
+            data_str.data = static_cast<char*>(malloc(data_str.len));
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
-            ((char*)data_str.data)[data_str.len] = '\0';
             libqt_string cbval1 = data_str;
             QList<int>& pnrsInUse_ret = pnrsInUse;
             // Convert QList<> from C++ memory to manually-managed C memory
@@ -568,9 +567,8 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             QByteArrayView data_qb = data;
             libqt_string data_str;
             data_str.len = data_qb.length();
-            data_str.data = static_cast<const char*>(malloc(data_str.len + 1));
+            data_str.data = static_cast<char*>(malloc(data_str.len));
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
-            ((char*)data_str.data)[data_str.len] = '\0';
             libqt_string cbval1 = data_str;
             QList<QGeoSatelliteInfo>& infos_ret = infos;
             // Convert QList<> from C++ memory to manually-managed C memory

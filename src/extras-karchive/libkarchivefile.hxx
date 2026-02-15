@@ -17,7 +17,7 @@ class VirtualKArchiveFile final : public KArchiveFile {
     bool isVirtualKArchiveFile = true;
 
     // Virtual class public types (including callbacks)
-    using KArchiveFile_Data_Callback = const char* (*)();
+    using KArchiveFile_Data_Callback = libqt_string (*)();
     using KArchiveFile_CreateDevice_Callback = QIODevice* (*)();
     using KArchiveFile_IsFile_Callback = bool (*)();
     using KArchiveFile_VirtualHook_Callback = void (*)(KArchiveFile*, int, void*);
@@ -76,8 +76,8 @@ class VirtualKArchiveFile final : public KArchiveFile {
             karchivefile_data_isbase = false;
             return KArchiveFile::data();
         } else if (karchivefile_data_callback != nullptr) {
-            const char* callback_ret = karchivefile_data_callback();
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = karchivefile_data_callback();
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return KArchiveFile::data();

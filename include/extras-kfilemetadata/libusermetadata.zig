@@ -83,7 +83,7 @@ pub const kfilemetadata__usermetadata = struct {
     /// ` usermetadata_enums.Error `
     ///
     pub fn SetTags(self: ?*anyopaque, tags: []const []const u8, allocator: std.mem.Allocator) i32 {
-        var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("kfilemetadata__usermetadata.SetTags: Memory allocation failed");
+        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("kfilemetadata__usermetadata.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i| {
             tags_arr[i] = .{

@@ -2911,7 +2911,7 @@ pub const qstandarditemmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetHorizontalHeaderLabels(self: ?*anyopaque, labels: []const []const u8, allocator: std.mem.Allocator) void {
-        var labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qstandarditemmodel.SetHorizontalHeaderLabels: Memory allocation failed");
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qstandarditemmodel.SetHorizontalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i| {
             labels_arr[i] = .{
@@ -2937,7 +2937,7 @@ pub const qstandarditemmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetVerticalHeaderLabels(self: ?*anyopaque, labels: []const []const u8, allocator: std.mem.Allocator) void {
-        var labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qstandarditemmodel.SetVerticalHeaderLabels: Memory allocation failed");
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qstandarditemmodel.SetVerticalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i| {
             labels_arr[i] = .{
@@ -4060,11 +4060,7 @@ pub const qstandarditemmodel = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

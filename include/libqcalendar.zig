@@ -49,12 +49,7 @@ pub const qcalendar = struct {
     /// ` name: []const u8 `
     ///
     pub fn New5(name: []const u8) QtC.QCalendar {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-
-        return qtc.QCalendar_new5(name_str);
+        return qtc.QCalendar_new5(name.ptr);
     }
 
     /// New6 constructs a new QCalendar object.

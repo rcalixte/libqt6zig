@@ -472,7 +472,7 @@ pub const ksyntaxhighlighting__definition = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        var content_arr = allocator.alloc(qtc.libqt_string, content.len) catch @panic("ksyntaxhighlighting__definition.SetKeywordList: Memory allocation failed");
+        const content_arr = allocator.alloc(qtc.libqt_string, content.len) catch @panic("ksyntaxhighlighting__definition.SetKeywordList: Memory allocation failed");
         defer allocator.free(content_arr);
         for (content, 0..content.len) |item, i| {
             content_arr[i] = .{

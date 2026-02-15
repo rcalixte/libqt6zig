@@ -13,9 +13,8 @@ libqt_string KCodecs_QuotedPrintableEncode(libqt_string param1, bool param2) {
     QByteArray _qb = KCodecs::quotedPrintableEncode(param1_QByteArrayView, param2);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -30,9 +29,8 @@ libqt_string KCodecs_QuotedPrintableDecode(libqt_string param1) {
     QByteArray _qb = KCodecs::quotedPrintableDecode(param1_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -47,9 +45,8 @@ libqt_string KCodecs_Uudecode(libqt_string param1) {
     QByteArray _qb = KCodecs::uudecode(param1_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -64,9 +61,8 @@ libqt_string KCodecs_Base64Encode(libqt_string param1) {
     QByteArray _qb = KCodecs::base64Encode(param1_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -81,9 +77,8 @@ libqt_string KCodecs_Base64Decode(libqt_string param1) {
     QByteArray _qb = KCodecs::base64Decode(param1_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -98,9 +93,8 @@ libqt_string KCodecs_Base45Decode(libqt_string param1) {
     QByteArray _qb = KCodecs::base45Decode(param1_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -138,9 +132,8 @@ libqt_string KCodecs__Codec_Encode2(const KCodecs__Codec* self, libqt_string src
     QByteArray _qb = self->encode(src_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -149,9 +142,8 @@ libqt_string KCodecs__Codec_Decode2(const KCodecs__Codec* self, libqt_string src
     QByteArray _qb = self->decode(src_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -164,9 +156,8 @@ libqt_string KCodecs__Codec_Encode22(const KCodecs__Codec* self, libqt_string sr
     QByteArray _qb = self->encode(src_QByteArrayView, static_cast<KCodecs::Codec::NewlineType>(newline));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -175,9 +166,8 @@ libqt_string KCodecs__Codec_Decode22(const KCodecs__Codec* self, libqt_string sr
     QByteArray _qb = self->decode(src_QByteArrayView, static_cast<KCodecs::Codec::NewlineType>(newline));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

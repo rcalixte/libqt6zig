@@ -374,7 +374,7 @@ pub const kconfigviewstatesaver = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn RestoreSelection(self: ?*anyopaque, indexStrings: []const []const u8, allocator: std.mem.Allocator) void {
-        var indexStrings_arr = allocator.alloc(qtc.libqt_string, indexStrings.len) catch @panic("kconfigviewstatesaver.RestoreSelection: Memory allocation failed");
+        const indexStrings_arr = allocator.alloc(qtc.libqt_string, indexStrings.len) catch @panic("kconfigviewstatesaver.RestoreSelection: Memory allocation failed");
         defer allocator.free(indexStrings_arr);
         for (indexStrings, 0..indexStrings.len) |item, i| {
             indexStrings_arr[i] = .{
@@ -420,7 +420,7 @@ pub const kconfigviewstatesaver = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn RestoreExpanded(self: ?*anyopaque, indexStrings: []const []const u8, allocator: std.mem.Allocator) void {
-        var indexStrings_arr = allocator.alloc(qtc.libqt_string, indexStrings.len) catch @panic("kconfigviewstatesaver.RestoreExpanded: Memory allocation failed");
+        const indexStrings_arr = allocator.alloc(qtc.libqt_string, indexStrings.len) catch @panic("kconfigviewstatesaver.RestoreExpanded: Memory allocation failed");
         defer allocator.free(indexStrings_arr);
         for (indexStrings, 0..indexStrings.len) |item, i| {
             indexStrings_arr[i] = .{
@@ -480,11 +480,7 @@ pub const kconfigviewstatesaver = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

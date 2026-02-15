@@ -49,7 +49,7 @@ pub const kshell = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn JoinArgs(param1: []const []const u8, allocator: std.mem.Allocator) []const u8 {
-        var param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
+        const param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
         defer allocator.free(param1_arr);
         for (param1, 0..param1.len) |item, i| {
             param1_arr[i] = .{

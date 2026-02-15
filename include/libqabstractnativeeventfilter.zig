@@ -37,9 +37,9 @@ pub const qabstractnativeeventfilter = struct {
     ///
     /// ` self: QtC.QAbstractNativeEventFilter `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractNativeEventFilter, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QAbstractNativeEventFilter, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

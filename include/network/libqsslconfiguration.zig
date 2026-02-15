@@ -812,7 +812,7 @@ pub const qsslconfiguration = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetAllowedNextProtocols(self: ?*anyopaque, protocols: [][]u8, allocator: std.mem.Allocator) void {
-        var protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qsslconfiguration.SetAllowedNextProtocols: Memory allocation failed");
+        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qsslconfiguration.SetAllowedNextProtocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
         for (protocols, 0..protocols.len) |item, i| {
             protocols_arr[i] = .{

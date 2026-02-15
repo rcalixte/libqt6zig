@@ -1023,9 +1023,9 @@ pub const qwebsocket = struct {
     ///
     /// ` self: QtC.QWebSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QWebSocket, frame: [*:0]u8, isLastFrame: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebSocket, frame: qtc.libqt_string, isLastFrame: bool) callconv(.c) void `
     ///
-    pub fn OnBinaryFrameReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, bool) callconv(.c) void) void {
+    pub fn OnBinaryFrameReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, bool) callconv(.c) void) void {
         qtc.QWebSocket_Connect_BinaryFrameReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1079,9 +1079,9 @@ pub const qwebsocket = struct {
     ///
     /// ` self: QtC.QWebSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QWebSocket, message: [*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebSocket, message: qtc.libqt_string) callconv(.c) void `
     ///
-    pub fn OnBinaryMessageReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) void) void {
+    pub fn OnBinaryMessageReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
         qtc.QWebSocket_Connect_BinaryMessageReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1145,9 +1145,9 @@ pub const qwebsocket = struct {
     ///
     /// ` self: QtC.QWebSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QWebSocket, elapsedTime: u64, payload: [*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.QWebSocket, elapsedTime: u64, payload: qtc.libqt_string) callconv(.c) void `
     ///
-    pub fn OnPong(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, [*:0]u8) callconv(.c) void) void {
+    pub fn OnPong(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, qtc.libqt_string) callconv(.c) void) void {
         qtc.QWebSocket_Connect_Pong(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1456,11 +1456,7 @@ pub const qwebsocket = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

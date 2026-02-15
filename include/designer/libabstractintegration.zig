@@ -663,7 +663,7 @@ pub const qdesignerintegrationinterface = struct {
             .len = signalSignature.len,
             .data = signalSignature.ptr,
         };
-        var parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegrationinterface.EmitNavigateToSlot: Memory allocation failed");
+        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegrationinterface.EmitNavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
         for (parameterNames, 0..parameterNames.len) |item, i| {
             parameterNames_arr[i] = .{
@@ -807,7 +807,7 @@ pub const qdesignerintegrationinterface = struct {
             .len = signalSignature.len,
             .data = signalSignature.ptr,
         };
-        var parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegrationinterface.NavigateToSlot: Memory allocation failed");
+        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegrationinterface.NavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
         for (parameterNames, 0..parameterNames.len) |item, i| {
             parameterNames_arr[i] = .{
@@ -1357,11 +1357,7 @@ pub const qdesignerintegrationinterface = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -3775,7 +3771,7 @@ pub const qdesignerintegration = struct {
             .len = signalSignature.len,
             .data = signalSignature.ptr,
         };
-        var parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegration.EmitNavigateToSlot: Memory allocation failed");
+        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegration.EmitNavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
         for (parameterNames, 0..parameterNames.len) |item, i| {
             parameterNames_arr[i] = .{
@@ -3931,7 +3927,7 @@ pub const qdesignerintegration = struct {
             .len = signalSignature.len,
             .data = signalSignature.ptr,
         };
-        var parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegration.NavigateToSlot: Memory allocation failed");
+        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegration.NavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
         for (parameterNames, 0..parameterNames.len) |item, i| {
             parameterNames_arr[i] = .{
@@ -3993,11 +3989,7 @@ pub const qdesignerintegration = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

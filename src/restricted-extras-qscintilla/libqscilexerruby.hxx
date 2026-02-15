@@ -61,7 +61,7 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     using QsciLexerRuby_CustomEvent_Callback = void (*)(QsciLexerRuby*, QEvent*);
     using QsciLexerRuby_ConnectNotify_Callback = void (*)(QsciLexerRuby*, QMetaMethod*);
     using QsciLexerRuby_DisconnectNotify_Callback = void (*)(QsciLexerRuby*, QMetaMethod*);
-    using QsciLexerRuby_TextAsBytes_Callback = const char* (*)(const QsciLexerRuby*, libqt_string);
+    using QsciLexerRuby_TextAsBytes_Callback = libqt_string (*)(const QsciLexerRuby*, libqt_string);
     using QsciLexerRuby_BytesAsText_Callback = const char* (*)(const QsciLexerRuby*, const char*, int);
     using QsciLexerRuby_Sender_Callback = QObject* (*)();
     using QsciLexerRuby_SenderSignalIndex_Callback = int (*)();
@@ -1013,8 +1013,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerruby_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerruby_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerRuby::textAsBytes(text);

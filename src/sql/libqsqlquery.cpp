@@ -60,9 +60,8 @@ bool QSqlQuery_IsNull(const QSqlQuery* self, int field) {
     return self->isNull(static_cast<int>(field));
 }
 
-bool QSqlQuery_IsNull2(const QSqlQuery* self, libqt_string name) {
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    return self->isNull(QAnyStringView(name_QString));
+bool QSqlQuery_IsNull2(const QSqlQuery* self, const char* name) {
+    return self->isNull(QAnyStringView(name));
 }
 
 int QSqlQuery_At(const QSqlQuery* self) {
@@ -126,9 +125,8 @@ QVariant* QSqlQuery_Value(const QSqlQuery* self, int i) {
     return new QVariant(self->value(static_cast<int>(i)));
 }
 
-QVariant* QSqlQuery_Value2(const QSqlQuery* self, libqt_string name) {
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    return new QVariant(self->value(QAnyStringView(name_QString)));
+QVariant* QSqlQuery_Value2(const QSqlQuery* self, const char* name) {
+    return new QVariant(self->value(QAnyStringView(name)));
 }
 
 void QSqlQuery_SetNumericalPrecisionPolicy(QSqlQuery* self, int precisionPolicy) {

@@ -178,7 +178,7 @@ pub const signon__authsession = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MechanismsAvailable(self: ?*anyopaque, mechanisms: []const []const u8, allocator: std.mem.Allocator) void {
-        var mechanisms_arr = allocator.alloc(qtc.libqt_string, mechanisms.len) catch @panic("signon__authsession.MechanismsAvailable: Memory allocation failed");
+        const mechanisms_arr = allocator.alloc(qtc.libqt_string, mechanisms.len) catch @panic("signon__authsession.MechanismsAvailable: Memory allocation failed");
         defer allocator.free(mechanisms_arr);
         for (mechanisms, 0..mechanisms.len) |item, i| {
             mechanisms_arr[i] = .{
@@ -312,7 +312,7 @@ pub const signon__authsession = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QueryAvailableMechanisms1(self: ?*anyopaque, wantedMechanisms: []const []const u8, allocator: std.mem.Allocator) void {
-        var wantedMechanisms_arr = allocator.alloc(qtc.libqt_string, wantedMechanisms.len) catch @panic("signon__authsession.QueryAvailableMechanisms1: Memory allocation failed");
+        const wantedMechanisms_arr = allocator.alloc(qtc.libqt_string, wantedMechanisms.len) catch @panic("signon__authsession.QueryAvailableMechanisms1: Memory allocation failed");
         defer allocator.free(wantedMechanisms_arr);
         for (wantedMechanisms, 0..wantedMechanisms.len) |item, i| {
             wantedMechanisms_arr[i] = .{
@@ -458,11 +458,7 @@ pub const signon__authsession = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

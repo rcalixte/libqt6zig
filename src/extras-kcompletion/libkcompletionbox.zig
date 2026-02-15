@@ -273,7 +273,7 @@ pub const kcompletionbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InsertItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbox.InsertItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbox.InsertItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -299,7 +299,7 @@ pub const kcompletionbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbox.SetItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbox.SetItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -793,7 +793,7 @@ pub const kcompletionbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InsertItems2(self: ?*anyopaque, items: []const []const u8, index: i32, allocator: std.mem.Allocator) void {
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbox.InsertItems2: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbox.InsertItems2: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -917,7 +917,7 @@ pub const kcompletionbox = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AddItems(self: ?*anyopaque, labels: []const []const u8, allocator: std.mem.Allocator) void {
-        var labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("kcompletionbox.AddItems: Memory allocation failed");
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("kcompletionbox.AddItems: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i| {
             labels_arr[i] = .{
@@ -7363,11 +7363,7 @@ pub const kcompletionbox = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -12314,9 +12310,9 @@ pub const kcompletionbox = struct {
     ///
     /// ` self: QtC.KCompletionBox`
     ///
-    /// ` callback: *const fn (self: QtC.KCompletionBox, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KCompletionBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KCompletionBox_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

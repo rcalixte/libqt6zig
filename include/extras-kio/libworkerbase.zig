@@ -983,9 +983,9 @@ pub const kio__workerbase = struct {
     ///
     /// ` self: QtC.KIO__WorkerBase `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__WorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult `
+    /// ` callback: *const fn (self: QtC.KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult `
     ///
-    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
+    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1711,9 +1711,9 @@ pub const kio__workerbase = struct {
     ///
     /// ` self: QtC.KIO__WorkerBase `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__WorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult `
+    /// ` callback: *const fn (self: QtC.KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult `
     ///
-    pub fn OnSpecial(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
+    pub fn OnSpecial(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnSpecial(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

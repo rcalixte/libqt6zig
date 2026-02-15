@@ -339,7 +339,7 @@ pub const kzipfileentry = struct {
     ///
     /// ` self: QtC.KZipFileEntry `
     ///
-    pub fn Permissions(self: ?*anyopaque) u16 {
+    pub fn Permissions(self: ?*anyopaque) u32 {
         return @intCast(qtc.KArchiveEntry_Permissions(@ptrCast(self)));
     }
 

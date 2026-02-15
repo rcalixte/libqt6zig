@@ -379,11 +379,11 @@ pub const qnetworkcookie = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` cookieString: []const u8 `
+    /// ` cookieString: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ParseCookies(cookieString: []const u8, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
+    pub fn ParseCookies(cookieString: []u8, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
         const cookieString_str = qtc.libqt_string{
             .len = cookieString.len,
             .data = cookieString.ptr,

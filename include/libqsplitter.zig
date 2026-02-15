@@ -5013,11 +5013,7 @@ pub const qsplitter = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -7304,9 +7300,9 @@ pub const qsplitter = struct {
     ///
     /// ` self: QtC.QSplitter`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitter, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QSplitter, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QSplitter_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -12884,11 +12880,7 @@ pub const qsplitterhandle = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -14979,9 +14971,9 @@ pub const qsplitterhandle = struct {
     ///
     /// ` self: QtC.QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QtC.QSplitterHandle, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QSplitterHandle, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QSplitterHandle_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

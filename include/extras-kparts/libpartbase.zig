@@ -255,7 +255,7 @@ pub const kparts__partbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FindMostRecentXMLFile(files: []const []const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
-        var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kparts__partbase.FindMostRecentXMLFile: Memory allocation failed");
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kparts__partbase.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
             files_arr[i] = .{

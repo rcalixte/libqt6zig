@@ -46,7 +46,7 @@ pub const kmimetypechooser = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New3: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New3: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -79,7 +79,7 @@ pub const kmimetypechooser = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New4: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New4: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -118,7 +118,7 @@ pub const kmimetypechooser = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New5: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New5: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -134,7 +134,7 @@ pub const kmimetypechooser = struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        var groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooser.New5: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooser.New5: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
         for (groupsToShow, 0..groupsToShow.len) |item, i| {
             groupsToShow_arr[i] = .{
@@ -171,7 +171,7 @@ pub const kmimetypechooser = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New6: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New6: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -187,7 +187,7 @@ pub const kmimetypechooser = struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        var groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooser.New6: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooser.New6: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
         for (groupsToShow, 0..groupsToShow.len) |item, i| {
             groupsToShow_arr[i] = .{
@@ -226,7 +226,7 @@ pub const kmimetypechooser = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New7: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooser.New7: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -242,7 +242,7 @@ pub const kmimetypechooser = struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        var groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooser.New7: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooser.New7: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
         for (groupsToShow, 0..groupsToShow.len) |item, i| {
             groupsToShow_arr[i] = .{
@@ -4359,11 +4359,7 @@ pub const kmimetypechooser = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -6786,9 +6782,9 @@ pub const kmimetypechooser = struct {
     ///
     /// ` self: QtC.KMimeTypeChooser`
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooser, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooser, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -7982,7 +7978,7 @@ pub const kmimetypechooserdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New2: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New2: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -8059,7 +8055,7 @@ pub const kmimetypechooserdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New5: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New5: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -8098,7 +8094,7 @@ pub const kmimetypechooserdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New6: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New6: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -8143,7 +8139,7 @@ pub const kmimetypechooserdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New7: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New7: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -8159,7 +8155,7 @@ pub const kmimetypechooserdialog = struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        var groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooserdialog.New7: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooserdialog.New7: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
         for (groupsToShow, 0..groupsToShow.len) |item, i| {
             groupsToShow_arr[i] = .{
@@ -8202,7 +8198,7 @@ pub const kmimetypechooserdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New8: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New8: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -8218,7 +8214,7 @@ pub const kmimetypechooserdialog = struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        var groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooserdialog.New8: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooserdialog.New8: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
         for (groupsToShow, 0..groupsToShow.len) |item, i| {
             groupsToShow_arr[i] = .{
@@ -8263,7 +8259,7 @@ pub const kmimetypechooserdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New9: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New9: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -8279,7 +8275,7 @@ pub const kmimetypechooserdialog = struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        var groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooserdialog.New9: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("kmimetypechooserdialog.New9: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
         for (groupsToShow, 0..groupsToShow.len) |item, i| {
             groupsToShow_arr[i] = .{
@@ -8320,7 +8316,7 @@ pub const kmimetypechooserdialog = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New10: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("kmimetypechooserdialog.New10: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
         for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i| {
             selectedMimeTypes_arr[i] = .{
@@ -12579,11 +12575,7 @@ pub const kmimetypechooserdialog = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -15238,9 +15230,9 @@ pub const kmimetypechooserdialog = struct {
     ///
     /// ` self: QtC.KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialog, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KMimeTypeChooserDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

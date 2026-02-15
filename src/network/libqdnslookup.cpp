@@ -262,9 +262,8 @@ libqt_list /* of libqt_string */ QDnsTextRecord_Values(const QDnsTextRecord* sel
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -325,9 +324,8 @@ libqt_string QDnsTlsAssociationRecord_Value(const QDnsTlsAssociationRecord* self
     QByteArray _qb = self->value();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

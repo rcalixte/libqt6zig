@@ -5541,11 +5541,7 @@ pub const qabstractspinbox = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -7160,9 +7156,9 @@ pub const qabstractspinbox = struct {
     ///
     /// ` self: QtC.QAbstractSpinBox`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSpinBox, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QAbstractSpinBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

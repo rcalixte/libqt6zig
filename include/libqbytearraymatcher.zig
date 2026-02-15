@@ -29,9 +29,9 @@ pub const qbytearraymatcher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` pattern: []const u8 `
+    /// ` pattern: []u8 `
     ///
-    pub fn New3(pattern: []const u8) QtC.QByteArrayMatcher {
+    pub fn New3(pattern: []u8) QtC.QByteArrayMatcher {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
@@ -125,9 +125,9 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` self: QtC.QByteArrayMatcher `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    pub fn IndexIn2(self: ?*anyopaque, data: []const u8) i64 {
+    pub fn IndexIn2(self: ?*anyopaque, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -174,11 +174,11 @@ pub const qbytearraymatcher = struct {
     ///
     /// ` self: QtC.QByteArrayMatcher `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` from: i64 `
     ///
-    pub fn IndexIn22(self: ?*anyopaque, data: []const u8, from: i64) i64 {
+    pub fn IndexIn22(self: ?*anyopaque, data: []u8, from: i64) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

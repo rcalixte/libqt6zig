@@ -17,7 +17,7 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
     bool isVirtualKZipFileEntry = true;
 
     // Virtual class public types (including callbacks)
-    using KZipFileEntry_Data_Callback = const char* (*)();
+    using KZipFileEntry_Data_Callback = libqt_string (*)();
     using KZipFileEntry_CreateDevice_Callback = QIODevice* (*)();
     using KZipFileEntry_IsFile_Callback = bool (*)();
     using KZipFileEntry_VirtualHook_Callback = void (*)(KZipFileEntry*, int, void*);
@@ -76,8 +76,8 @@ class VirtualKZipFileEntry final : public KZipFileEntry {
             kzipfileentry_data_isbase = false;
             return KZipFileEntry::data();
         } else if (kzipfileentry_data_callback != nullptr) {
-            const char* callback_ret = kzipfileentry_data_callback();
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = kzipfileentry_data_callback();
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return KZipFileEntry::data();

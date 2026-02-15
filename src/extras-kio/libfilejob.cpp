@@ -59,16 +59,15 @@ void KIO__FileJob_Data(KIO__FileJob* self, KIO__Job* job, const libqt_string dat
 }
 
 void KIO__FileJob_Connect_Data(KIO__FileJob* self, intptr_t slot) {
-    void (*slotFunc)(KIO__FileJob*, KIO__Job*, const char*) = reinterpret_cast<void (*)(KIO__FileJob*, KIO__Job*, const char*)>(slot);
+    void (*slotFunc)(KIO__FileJob*, KIO__Job*, libqt_string) = reinterpret_cast<void (*)(KIO__FileJob*, KIO__Job*, libqt_string)>(slot);
     KIO::FileJob::connect(self, &KIO::FileJob::data, [self, slotFunc](KIO::Job* job, const QByteArray& data) {
         KIO__Job* sigval1 = job;
         const QByteArray data_qb = data;
         libqt_string data_str;
         data_str.len = data_qb.length();
-        data_str.data = static_cast<const char*>(malloc(data_str.len + 1));
+        data_str.data = static_cast<char*>(malloc(data_str.len));
         memcpy((void*)data_str.data, data_qb.data(), data_str.len);
-        ((char*)data_str.data)[data_str.len] = '\0';
-        const char* sigval2 = data_str.data;
+        libqt_string sigval2 = data_str;
         slotFunc(self, sigval1, sigval2);
     });
 }

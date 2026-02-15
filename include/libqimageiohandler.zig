@@ -786,9 +786,9 @@ pub const qimageioplugin = struct {
     ///
     /// ` self: QtC.QImageIOPlugin `
     ///
-    /// ` callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: [*:0]u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: qtc.libqt_string) callconv(.c) i32 `
     ///
-    pub fn OnCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]u8) callconv(.c) i32) void {
+    pub fn OnCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_string) callconv(.c) i32) void {
         qtc.QImageIOPlugin_OnCapabilities(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -842,9 +842,9 @@ pub const qimageioplugin = struct {
     ///
     /// ` self: QtC.QImageIOPlugin `
     ///
-    /// ` callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: [*:0]u8) callconv(.c) QtC.QImageIOHandler `
+    /// ` callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: qtc.libqt_string) callconv(.c) QtC.QImageIOHandler `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]u8) callconv(.c) QtC.QImageIOHandler) void {
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_string) callconv(.c) QtC.QImageIOHandler) void {
         qtc.QImageIOPlugin_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -939,11 +939,7 @@ pub const qimageioplugin = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

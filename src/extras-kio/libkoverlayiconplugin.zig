@@ -242,7 +242,7 @@ pub const koverlayiconplugin = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn OverlaysChanged(self: ?*anyopaque, url: ?*anyopaque, overlays: []const []const u8, allocator: std.mem.Allocator) void {
-        var overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("koverlayiconplugin.OverlaysChanged: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("koverlayiconplugin.OverlaysChanged: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i| {
             overlays_arr[i] = .{
@@ -340,11 +340,7 @@ pub const koverlayiconplugin = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

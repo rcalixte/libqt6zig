@@ -230,11 +230,7 @@ pub const qversionnumber = struct {
     /// ` stringVal: []const u8 `
     ///
     pub fn FromString(stringVal: []const u8) QtC.QVersionNumber {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
-        };
-        return qtc.QVersionNumber_FromString(stringVal_str);
+        return qtc.QVersionNumber_FromString(stringVal.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
@@ -251,11 +247,7 @@ pub const qversionnumber = struct {
             else => @compileError("Unsupported operating system"),
         }
 
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
-        };
-        return qtc.QVersionNumber_FromString2(stringVal_str, @ptrCast(suffixIndex));
+        return qtc.QVersionNumber_FromString2(stringVal.ptr, @ptrCast(suffixIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#dtor.QVersionNumber)

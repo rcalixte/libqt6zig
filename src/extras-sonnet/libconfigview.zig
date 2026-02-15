@@ -282,7 +282,7 @@ pub const sonnet__configview = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetPreferredLanguages(self: ?*anyopaque, ignoreList: []const []const u8, allocator: std.mem.Allocator) void {
-        var ignoreList_arr = allocator.alloc(qtc.libqt_string, ignoreList.len) catch @panic("sonnet__configview.SetPreferredLanguages: Memory allocation failed");
+        const ignoreList_arr = allocator.alloc(qtc.libqt_string, ignoreList.len) catch @panic("sonnet__configview.SetPreferredLanguages: Memory allocation failed");
         defer allocator.free(ignoreList_arr);
         for (ignoreList, 0..ignoreList.len) |item, i| {
             ignoreList_arr[i] = .{
@@ -324,7 +324,7 @@ pub const sonnet__configview = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetIgnoreList(self: ?*anyopaque, ignoreList: []const []const u8, allocator: std.mem.Allocator) void {
-        var ignoreList_arr = allocator.alloc(qtc.libqt_string, ignoreList.len) catch @panic("sonnet__configview.SetIgnoreList: Memory allocation failed");
+        const ignoreList_arr = allocator.alloc(qtc.libqt_string, ignoreList.len) catch @panic("sonnet__configview.SetIgnoreList: Memory allocation failed");
         defer allocator.free(ignoreList_arr);
         for (ignoreList, 0..ignoreList.len) |item, i| {
             ignoreList_arr[i] = .{
@@ -4277,11 +4277,7 @@ pub const sonnet__configview = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -6704,9 +6700,9 @@ pub const sonnet__configview = struct {
     ///
     /// ` self: QtC.Sonnet__ConfigView`
     ///
-    /// ` callback: *const fn (self: QtC.Sonnet__ConfigView, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.Sonnet__ConfigView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.Sonnet__ConfigView_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -273,7 +273,7 @@ pub const kservicegroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetLayoutInfo(self: ?*anyopaque, layout: []const []const u8, allocator: std.mem.Allocator) void {
-        var layout_arr = allocator.alloc(qtc.libqt_string, layout.len) catch @panic("kservicegroup.SetLayoutInfo: Memory allocation failed");
+        const layout_arr = allocator.alloc(qtc.libqt_string, layout.len) catch @panic("kservicegroup.SetLayoutInfo: Memory allocation failed");
         defer allocator.free(layout_arr);
         for (layout, 0..layout.len) |item, i| {
             layout_arr[i] = .{

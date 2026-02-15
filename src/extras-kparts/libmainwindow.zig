@@ -5977,11 +5977,7 @@ pub const kparts__mainwindow = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -7090,7 +7086,7 @@ pub const kparts__mainwindow = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FindMostRecentXMLFile(files: []const []const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
-        var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kparts__mainwindow.FindMostRecentXMLFile: Memory allocation failed");
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kparts__mainwindow.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
             files_arr[i] = .{
@@ -9431,9 +9427,9 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` self: QtC.KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KParts__MainWindow, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KParts__MainWindow_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

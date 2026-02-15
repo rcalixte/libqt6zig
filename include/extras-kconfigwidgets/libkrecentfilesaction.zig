@@ -784,7 +784,7 @@ pub const krecentfilesaction = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetItems(self: ?*anyopaque, lst: []const []const u8, allocator: std.mem.Allocator) void {
-        var lst_arr = allocator.alloc(qtc.libqt_string, lst.len) catch @panic("krecentfilesaction.SetItems: Memory allocation failed");
+        const lst_arr = allocator.alloc(qtc.libqt_string, lst.len) catch @panic("krecentfilesaction.SetItems: Memory allocation failed");
         defer allocator.free(lst_arr);
         for (lst, 0..lst.len) |item, i| {
             lst_arr[i] = .{
@@ -2159,11 +2159,7 @@ pub const krecentfilesaction = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

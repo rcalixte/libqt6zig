@@ -269,9 +269,9 @@ pub const qtimezone = struct {
     ///
     /// ` self: QtC.QTimeZone `
     ///
-    /// ` alias: []const u8 `
+    /// ` alias: []u8 `
     ///
-    pub fn HasAlternativeName(self: ?*anyopaque, alias: []const u8) bool {
+    pub fn HasAlternativeName(self: ?*anyopaque, alias: []u8) bool {
         const alias_str = qtc.libqt_string{
             .len = alias.len,
             .data = alias.ptr,

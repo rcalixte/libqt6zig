@@ -66,7 +66,7 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     using QsciLexerJavaScript_CustomEvent_Callback = void (*)(QsciLexerJavaScript*, QEvent*);
     using QsciLexerJavaScript_ConnectNotify_Callback = void (*)(QsciLexerJavaScript*, QMetaMethod*);
     using QsciLexerJavaScript_DisconnectNotify_Callback = void (*)(QsciLexerJavaScript*, QMetaMethod*);
-    using QsciLexerJavaScript_TextAsBytes_Callback = const char* (*)(const QsciLexerJavaScript*, libqt_string);
+    using QsciLexerJavaScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerJavaScript*, libqt_string);
     using QsciLexerJavaScript_BytesAsText_Callback = const char* (*)(const QsciLexerJavaScript*, const char*, int);
     using QsciLexerJavaScript_Sender_Callback = QObject* (*)();
     using QsciLexerJavaScript_SenderSignalIndex_Callback = int (*)();
@@ -1113,8 +1113,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerjavascript_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerjavascript_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerJavaScript::textAsBytes(text);

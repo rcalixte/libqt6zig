@@ -279,9 +279,8 @@ libqt_string QCborValue_ToByteArray(const QCborValue* self) {
     QByteArray _qb = self->toByteArray();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -388,9 +387,8 @@ libqt_string QCborValue_ToCbor(const QCborValue* self) {
     QByteArray _qb = self->toCbor();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -439,9 +437,8 @@ libqt_string QCborValue_ToByteArray1(const QCborValue* self, const libqt_string 
     QByteArray _qb = self->toByteArray(defaultValue_QByteArray);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -491,9 +488,8 @@ libqt_string QCborValue_ToCbor1(const QCborValue* self, int opt) {
     QByteArray _qb = self->toCbor(static_cast<QCborValue::EncodingOptions>(opt));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -641,9 +637,8 @@ libqt_string QCborValueConstRef_ToByteArray(const QCborValueConstRef* self) {
     QByteArray _qb = self->toByteArray();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -716,9 +711,8 @@ libqt_string QCborValueConstRef_ToCbor(const QCborValueConstRef* self) {
     QByteArray _qb = self->toCbor();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -767,9 +761,8 @@ libqt_string QCborValueConstRef_ToByteArray1(const QCborValueConstRef* self, con
     QByteArray _qb = self->toByteArray(defaultValue_QByteArray);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -806,9 +799,8 @@ libqt_string QCborValueConstRef_ToCbor1(const QCborValueConstRef* self, int opt)
     QByteArray _qb = self->toCbor(static_cast<QCborValue::EncodingOptions>(opt));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -977,9 +969,8 @@ libqt_string QCborValueRef_ToByteArray(const QCborValueRef* self) {
     QByteArray _qb = self->toByteArray();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -1052,9 +1043,8 @@ libqt_string QCborValueRef_ToCbor(QCborValueRef* self) {
     QByteArray _qb = self->toCbor();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -1103,9 +1093,8 @@ libqt_string QCborValueRef_ToByteArray1(const QCborValueRef* self, const libqt_s
     QByteArray _qb = self->toByteArray(defaultValue_QByteArray);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -1142,9 +1131,8 @@ libqt_string QCborValueRef_ToCbor1(QCborValueRef* self, int opt) {
     QByteArray _qb = self->toCbor(static_cast<QCborValue::EncodingOptions>(opt));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

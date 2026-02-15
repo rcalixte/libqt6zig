@@ -61,7 +61,7 @@ class VirtualQsciLexerJSON final : public QsciLexerJSON {
     using QsciLexerJSON_CustomEvent_Callback = void (*)(QsciLexerJSON*, QEvent*);
     using QsciLexerJSON_ConnectNotify_Callback = void (*)(QsciLexerJSON*, QMetaMethod*);
     using QsciLexerJSON_DisconnectNotify_Callback = void (*)(QsciLexerJSON*, QMetaMethod*);
-    using QsciLexerJSON_TextAsBytes_Callback = const char* (*)(const QsciLexerJSON*, libqt_string);
+    using QsciLexerJSON_TextAsBytes_Callback = libqt_string (*)(const QsciLexerJSON*, libqt_string);
     using QsciLexerJSON_BytesAsText_Callback = const char* (*)(const QsciLexerJSON*, const char*, int);
     using QsciLexerJSON_Sender_Callback = QObject* (*)();
     using QsciLexerJSON_SenderSignalIndex_Callback = int (*)();
@@ -1013,8 +1013,8 @@ class VirtualQsciLexerJSON final : public QsciLexerJSON {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerjson_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerjson_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerJSON::textAsBytes(text);

@@ -255,7 +255,7 @@ pub const ksvg__imageset = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSelectors(self: ?*anyopaque, selectors: []const []const u8, allocator: std.mem.Allocator) void {
-        var selectors_arr = allocator.alloc(qtc.libqt_string, selectors.len) catch @panic("ksvg__imageset.SetSelectors: Memory allocation failed");
+        const selectors_arr = allocator.alloc(qtc.libqt_string, selectors.len) catch @panic("ksvg__imageset.SetSelectors: Memory allocation failed");
         defer allocator.free(selectors_arr);
         for (selectors, 0..selectors.len) |item, i| {
             selectors_arr[i] = .{
@@ -560,11 +560,7 @@ pub const ksvg__imageset = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

@@ -74,9 +74,8 @@ libqt_string QDtlsClientVerifier_VerifiedHello(const QDtlsClientVerifier* self) 
     QByteArray _qb = self->verifiedHello();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -614,9 +613,8 @@ libqt_string QDtls_DecryptDatagram(QDtls* self, QUdpSocket* socket, const libqt_
     QByteArray _qb = self->decryptDatagram(socket, dgram_QByteArray);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -1097,9 +1095,8 @@ libqt_string QDtlsClientVerifier__GeneratorParameters_Secret(const QDtlsClientVe
     QByteArray secret_qb = self->secret;
     libqt_string secret_str;
     secret_str.len = secret_qb.length();
-    secret_str.data = static_cast<const char*>(malloc(secret_str.len + 1));
+    secret_str.data = static_cast<char*>(malloc(secret_str.len));
     memcpy((void*)secret_str.data, secret_qb.data(), secret_str.len);
-    ((char*)secret_str.data)[secret_str.len] = '\0';
     return secret_str;
 }
 

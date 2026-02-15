@@ -12,12 +12,7 @@ pub const qanystringview = struct {
     /// ` other: []const u8 `
     ///
     pub fn New(other: []const u8) QtC.QAnyStringView {
-        const other_str = qtc.libqt_string{
-            .len = other.len,
-            .data = other.ptr,
-        };
-
-        return qtc.QAnyStringView_new(other_str);
+        return qtc.QAnyStringView_new(other.ptr);
     }
 
     /// New2 constructs a new QAnyStringView object and invalidates the source QAnyStringView object.
@@ -27,12 +22,7 @@ pub const qanystringview = struct {
     /// ` other: []const u8 `
     ///
     pub fn New2(other: []const u8) QtC.QAnyStringView {
-        const other_str = qtc.libqt_string{
-            .len = other.len,
-            .data = other.ptr,
-        };
-
-        return qtc.QAnyStringView_new2(other_str);
+        return qtc.QAnyStringView_new2(other.ptr);
     }
 
     /// New3 constructs a new QAnyStringView object.
@@ -78,12 +68,7 @@ pub const qanystringview = struct {
     /// ` param1: []const u8 `
     ///
     pub fn New6(param1: []const u8) QtC.QAnyStringView {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
-        };
-
-        return qtc.QAnyStringView_new6(param1_str);
+        return qtc.QAnyStringView_new6(param1.ptr);
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -118,14 +103,9 @@ pub const qanystringview = struct {
     ///
     /// ` pos: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Mid(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Mid(@ptrCast(self), @intCast(pos));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Mid: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Mid(self: ?*anyopaque, pos: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Mid(@ptrCast(self), @intCast(pos));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#left)
@@ -136,14 +116,9 @@ pub const qanystringview = struct {
     ///
     /// ` n: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Left(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Left(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Left: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Left(self: ?*anyopaque, n: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Left(@ptrCast(self), @intCast(n));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#right)
@@ -154,14 +129,9 @@ pub const qanystringview = struct {
     ///
     /// ` n: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Right(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Right(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Right: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Right(self: ?*anyopaque, n: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Right(@ptrCast(self), @intCast(n));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#sliced)
@@ -172,14 +142,9 @@ pub const qanystringview = struct {
     ///
     /// ` pos: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Sliced(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Sliced(@ptrCast(self), @intCast(pos));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Sliced: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Sliced(self: ?*anyopaque, pos: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Sliced(@ptrCast(self), @intCast(pos));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#sliced)
@@ -192,14 +157,9 @@ pub const qanystringview = struct {
     ///
     /// ` n: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Sliced2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Sliced2(@ptrCast(self), @intCast(pos), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Sliced2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Sliced2(self: ?*anyopaque, pos: i64, n: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Sliced2(@ptrCast(self), @intCast(pos), @intCast(n));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#first)
@@ -210,14 +170,9 @@ pub const qanystringview = struct {
     ///
     /// ` n: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn First(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_First(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.First: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn First(self: ?*anyopaque, n: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_First(@ptrCast(self), @intCast(n));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#last)
@@ -228,14 +183,9 @@ pub const qanystringview = struct {
     ///
     /// ` n: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Last(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Last(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Last: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Last(self: ?*anyopaque, n: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Last(@ptrCast(self), @intCast(n));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#chopped)
@@ -246,14 +196,9 @@ pub const qanystringview = struct {
     ///
     /// ` n: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Chopped(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Chopped(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Chopped: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Chopped(self: ?*anyopaque, n: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Chopped(@ptrCast(self), @intCast(n));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#slice)
@@ -264,14 +209,9 @@ pub const qanystringview = struct {
     ///
     /// ` pos: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Slice(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Slice(@ptrCast(self), @intCast(pos));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Slice: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Slice(self: ?*anyopaque, pos: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Slice(@ptrCast(self), @intCast(pos));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#slice)
@@ -284,14 +224,9 @@ pub const qanystringview = struct {
     ///
     /// ` n: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Slice2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Slice2(@ptrCast(self), @intCast(pos), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Slice2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Slice2(self: ?*anyopaque, pos: i64, n: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Slice2(@ptrCast(self), @intCast(pos), @intCast(n));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#truncate)
@@ -363,15 +298,7 @@ pub const qanystringview = struct {
     /// ` rhs: []const u8 `
     ///
     pub fn Compare(lhs: []const u8, rhs: []const u8) i32 {
-        const lhs_str = qtc.libqt_string{
-            .len = lhs.len,
-            .data = lhs.ptr,
-        };
-        const rhs_str = qtc.libqt_string{
-            .len = rhs.len,
-            .data = rhs.ptr,
-        };
-        return qtc.QAnyStringView_Compare(lhs_str, rhs_str);
+        return qtc.QAnyStringView_Compare(lhs.ptr, rhs.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#equal)
@@ -383,15 +310,7 @@ pub const qanystringview = struct {
     /// ` rhs: []const u8 `
     ///
     pub fn Equal(lhs: []const u8, rhs: []const u8) bool {
-        const lhs_str = qtc.libqt_string{
-            .len = lhs.len,
-            .data = lhs.ptr,
-        };
-        const rhs_str = qtc.libqt_string{
-            .len = rhs.len,
-            .data = rhs.ptr,
-        };
-        return qtc.QAnyStringView_Equal(lhs_str, rhs_str);
+        return qtc.QAnyStringView_Equal(lhs.ptr, rhs.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#front)
@@ -484,14 +403,9 @@ pub const qanystringview = struct {
     ///
     /// ` n: i64 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Mid2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAnyStringView_Mid2(@ptrCast(self), @intCast(pos), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.Mid2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
+    pub fn Mid2(self: ?*anyopaque, pos: i64, n: i64) []const u8 {
+        const _ret = qtc.QAnyStringView_Mid2(@ptrCast(self), @intCast(pos), @intCast(n));
+        return std.mem.span(_ret);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#compare)
@@ -505,15 +419,7 @@ pub const qanystringview = struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i32) i32 {
-        const lhs_str = qtc.libqt_string{
-            .len = lhs.len,
-            .data = lhs.ptr,
-        };
-        const rhs_str = qtc.libqt_string{
-            .len = rhs.len,
-            .data = rhs.ptr,
-        };
-        return qtc.QAnyStringView_Compare3(lhs_str, rhs_str, @intCast(cs));
+        return qtc.QAnyStringView_Compare3(lhs.ptr, rhs.ptr, @intCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#dtor.QAnyStringView)

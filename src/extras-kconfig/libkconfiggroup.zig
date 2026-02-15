@@ -277,7 +277,7 @@ pub const kconfiggroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MoveValuesTo(self: ?*anyopaque, keys: [][:0]const u8, other: ?*anyopaque, allocator: std.mem.Allocator) void {
-        var keys_cStr = allocator.alloc([*c]const u8, keys.len) catch @panic("kconfiggroup.MoveValuesTo: Memory allocation failed");
+        const keys_cStr = allocator.alloc([*c]const u8, keys.len) catch @panic("kconfiggroup.MoveValuesTo: Memory allocation failed");
         defer allocator.free(keys_cStr);
         for (keys, 0..keys.len) |keys_item, i| {
             keys_cStr[i] = @ptrCast(keys_item.ptr);
@@ -619,7 +619,7 @@ pub const kconfiggroup = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadEntry9: Memory allocation failed");
+        const aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadEntry9: Memory allocation failed");
         defer allocator.free(aDefault_arr);
         for (aDefault, 0..aDefault.len) |item, i| {
             aDefault_arr[i] = .{
@@ -663,7 +663,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn ReadEntry10(self: ?*anyopaque, key: [:0]const u8, aDefault: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_Cstring = key.ptr;
-        var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadEntry10: Memory allocation failed");
+        const aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadEntry10: Memory allocation failed");
         defer allocator.free(aDefault_arr);
         for (aDefault, 0..aDefault.len) |item, i| {
             aDefault_arr[i] = .{
@@ -826,7 +826,7 @@ pub const kconfiggroup = struct {
             .len = pKey.len,
             .data = pKey.ptr,
         };
-        var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadPathEntry3: Memory allocation failed");
+        const aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadPathEntry3: Memory allocation failed");
         defer allocator.free(aDefault_arr);
         for (aDefault, 0..aDefault.len) |item, i| {
             aDefault_arr[i] = .{
@@ -870,7 +870,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn ReadPathEntry4(self: ?*anyopaque, key: [:0]const u8, aDefault: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_Cstring = key.ptr;
-        var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadPathEntry4: Memory allocation failed");
+        const aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadPathEntry4: Memory allocation failed");
         defer allocator.free(aDefault_arr);
         for (aDefault, 0..aDefault.len) |item, i| {
             aDefault_arr[i] = .{
@@ -1108,7 +1108,7 @@ pub const kconfiggroup = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry9: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry9: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -1137,7 +1137,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn WriteEntry10(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry10: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry10: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -1210,7 +1210,7 @@ pub const kconfiggroup = struct {
             .len = pKey.len,
             .data = pKey.ptr,
         };
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -1239,7 +1239,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn WriteXdgListEntry2(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry2: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry2: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -1312,7 +1312,7 @@ pub const kconfiggroup = struct {
             .len = pKey.len,
             .data = pKey.ptr,
         };
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry3: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry3: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -1341,7 +1341,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn WritePathEntry4(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry4: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry4: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -1860,7 +1860,7 @@ pub const kconfiggroup = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MoveValuesTo3(self: ?*anyopaque, keys: [][:0]const u8, other: ?*anyopaque, pFlags: i32, allocator: std.mem.Allocator) void {
-        var keys_cStr = allocator.alloc([*c]const u8, keys.len) catch @panic("kconfiggroup.MoveValuesTo3: Memory allocation failed");
+        const keys_cStr = allocator.alloc([*c]const u8, keys.len) catch @panic("kconfiggroup.MoveValuesTo3: Memory allocation failed");
         defer allocator.free(keys_cStr);
         for (keys, 0..keys.len) |keys_item, i| {
             keys_cStr[i] = @ptrCast(keys_item.ptr);
@@ -1962,7 +1962,7 @@ pub const kconfiggroup = struct {
             .len = pKey.len,
             .data = pKey.ptr,
         };
-        var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadXdgListEntry22: Memory allocation failed");
+        const aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadXdgListEntry22: Memory allocation failed");
         defer allocator.free(aDefault_arr);
         for (aDefault, 0..aDefault.len) |item, i| {
             aDefault_arr[i] = .{
@@ -2006,7 +2006,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn ReadXdgListEntry23(self: ?*anyopaque, key: [:0]const u8, aDefault: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
         const key_Cstring = key.ptr;
-        var aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadXdgListEntry23: Memory allocation failed");
+        const aDefault_arr = allocator.alloc(qtc.libqt_string, aDefault.len) catch @panic("kconfiggroup.ReadXdgListEntry23: Memory allocation failed");
         defer allocator.free(aDefault_arr);
         for (aDefault, 0..aDefault.len) |item, i| {
             aDefault_arr[i] = .{
@@ -2274,7 +2274,7 @@ pub const kconfiggroup = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry310: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry310: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -2305,7 +2305,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn WriteEntry311(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry311: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteEntry311: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -2384,7 +2384,7 @@ pub const kconfiggroup = struct {
             .len = pKey.len,
             .data = pKey.ptr,
         };
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry3: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry3: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -2415,7 +2415,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn WriteXdgListEntry32(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry32: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WriteXdgListEntry32: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -2494,7 +2494,7 @@ pub const kconfiggroup = struct {
             .len = pKey.len,
             .data = pKey.ptr,
         };
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry34: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry34: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -2525,7 +2525,7 @@ pub const kconfiggroup = struct {
     ///
     pub fn WritePathEntry35(self: ?*anyopaque, key: [:0]const u8, value: []const []const u8, pFlags: i32, allocator: std.mem.Allocator) void {
         const key_Cstring = key.ptr;
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry35: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("kconfiggroup.WritePathEntry35: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{

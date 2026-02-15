@@ -563,7 +563,7 @@ pub const qfontdatabase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetApplicationFallbackFontFamilies(param1: i32, familyNames: []const []const u8, allocator: std.mem.Allocator) void {
-        var familyNames_arr = allocator.alloc(qtc.libqt_string, familyNames.len) catch @panic("qfontdatabase.SetApplicationFallbackFontFamilies: Memory allocation failed");
+        const familyNames_arr = allocator.alloc(qtc.libqt_string, familyNames.len) catch @panic("qfontdatabase.SetApplicationFallbackFontFamilies: Memory allocation failed");
         defer allocator.free(familyNames_arr);
         for (familyNames, 0..familyNames.len) |item, i| {
             familyNames_arr[i] = .{

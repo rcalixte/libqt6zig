@@ -335,7 +335,7 @@ pub const kcompletionbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbase.SetCompletedItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbase.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -379,7 +379,7 @@ pub const kcompletionbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetCompletedItems(self: ?*anyopaque, items: []const []const u8, autoSuggest: bool, allocator: std.mem.Allocator) void {
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbase.SetCompletedItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kcompletionbase.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{

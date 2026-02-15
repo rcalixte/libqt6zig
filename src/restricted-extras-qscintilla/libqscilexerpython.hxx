@@ -64,7 +64,7 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     using QsciLexerPython_CustomEvent_Callback = void (*)(QsciLexerPython*, QEvent*);
     using QsciLexerPython_ConnectNotify_Callback = void (*)(QsciLexerPython*, QMetaMethod*);
     using QsciLexerPython_DisconnectNotify_Callback = void (*)(QsciLexerPython*, QMetaMethod*);
-    using QsciLexerPython_TextAsBytes_Callback = const char* (*)(const QsciLexerPython*, libqt_string);
+    using QsciLexerPython_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPython*, libqt_string);
     using QsciLexerPython_BytesAsText_Callback = const char* (*)(const QsciLexerPython*, const char*, int);
     using QsciLexerPython_Sender_Callback = QObject* (*)();
     using QsciLexerPython_SenderSignalIndex_Callback = int (*)();
@@ -1073,8 +1073,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerpython_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerpython_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerPython::textAsBytes(text);

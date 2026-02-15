@@ -193,7 +193,7 @@ pub const kfileitemactions = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InsertOpenWithActionsTo(self: ?*anyopaque, before: ?*anyopaque, topMenu: ?*anyopaque, excludedDesktopEntryNames: []const []const u8, allocator: std.mem.Allocator) void {
-        var excludedDesktopEntryNames_arr = allocator.alloc(qtc.libqt_string, excludedDesktopEntryNames.len) catch @panic("kfileitemactions.InsertOpenWithActionsTo: Memory allocation failed");
+        const excludedDesktopEntryNames_arr = allocator.alloc(qtc.libqt_string, excludedDesktopEntryNames.len) catch @panic("kfileitemactions.InsertOpenWithActionsTo: Memory allocation failed");
         defer allocator.free(excludedDesktopEntryNames_arr);
         for (excludedDesktopEntryNames, 0..excludedDesktopEntryNames.len) |item, i| {
             excludedDesktopEntryNames_arr[i] = .{
@@ -379,7 +379,7 @@ pub const kfileitemactions = struct {
             .len = additionalActions.len,
             .data = @ptrCast(additionalActions.ptr),
         };
-        var excludeList_arr = allocator.alloc(qtc.libqt_string, excludeList.len) catch @panic("kfileitemactions.AddActionsTo4: Memory allocation failed");
+        const excludeList_arr = allocator.alloc(qtc.libqt_string, excludeList.len) catch @panic("kfileitemactions.AddActionsTo4: Memory allocation failed");
         defer allocator.free(excludeList_arr);
         for (excludeList, 0..excludeList.len) |item, i| {
             excludeList_arr[i] = .{
@@ -423,11 +423,7 @@ pub const kfileitemactions = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

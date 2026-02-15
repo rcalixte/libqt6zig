@@ -120,9 +120,8 @@ libqt_string QNetworkCookie_Name(const QNetworkCookie* self) {
     QByteArray _qb = self->name();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -135,9 +134,8 @@ libqt_string QNetworkCookie_Value(const QNetworkCookie* self) {
     QByteArray _qb = self->value();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -150,9 +148,8 @@ libqt_string QNetworkCookie_ToRawForm(const QNetworkCookie* self) {
     QByteArray _qb = self->toRawForm();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -182,9 +179,8 @@ libqt_string QNetworkCookie_ToRawForm1(const QNetworkCookie* self, int form) {
     QByteArray _qb = self->toRawForm(static_cast<QNetworkCookie::RawForm>(form));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

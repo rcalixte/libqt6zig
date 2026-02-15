@@ -1196,7 +1196,7 @@ pub const kfileplacesmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: []const []const u8, allocator: std.mem.Allocator) void {
-        var schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("kfileplacesmodel.SetSupportedSchemes: Memory allocation failed");
+        const schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("kfileplacesmodel.SetSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
         for (schemes, 0..schemes.len) |item, i| {
             schemes_arr[i] = .{
@@ -2079,11 +2079,7 @@ pub const kfileplacesmodel = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

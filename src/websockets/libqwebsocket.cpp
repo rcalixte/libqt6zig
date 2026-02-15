@@ -444,15 +444,14 @@ void QWebSocket_BinaryFrameReceived(QWebSocket* self, const libqt_string frame, 
 }
 
 void QWebSocket_Connect_BinaryFrameReceived(QWebSocket* self, intptr_t slot) {
-    void (*slotFunc)(QWebSocket*, const char*, bool) = reinterpret_cast<void (*)(QWebSocket*, const char*, bool)>(slot);
+    void (*slotFunc)(QWebSocket*, libqt_string, bool) = reinterpret_cast<void (*)(QWebSocket*, libqt_string, bool)>(slot);
     QWebSocket::connect(self, &QWebSocket::binaryFrameReceived, [self, slotFunc](const QByteArray& frame, bool isLastFrame) {
         const QByteArray frame_qb = frame;
         libqt_string frame_str;
         frame_str.len = frame_qb.length();
-        frame_str.data = static_cast<const char*>(malloc(frame_str.len + 1));
+        frame_str.data = static_cast<char*>(malloc(frame_str.len));
         memcpy((void*)frame_str.data, frame_qb.data(), frame_str.len);
-        ((char*)frame_str.data)[frame_str.len] = '\0';
-        const char* sigval1 = frame_str.data;
+        libqt_string sigval1 = frame_str;
         bool sigval2 = isLastFrame;
         slotFunc(self, sigval1, sigval2);
     });
@@ -484,15 +483,14 @@ void QWebSocket_BinaryMessageReceived(QWebSocket* self, const libqt_string messa
 }
 
 void QWebSocket_Connect_BinaryMessageReceived(QWebSocket* self, intptr_t slot) {
-    void (*slotFunc)(QWebSocket*, const char*) = reinterpret_cast<void (*)(QWebSocket*, const char*)>(slot);
+    void (*slotFunc)(QWebSocket*, libqt_string) = reinterpret_cast<void (*)(QWebSocket*, libqt_string)>(slot);
     QWebSocket::connect(self, &QWebSocket::binaryMessageReceived, [self, slotFunc](const QByteArray& message) {
         const QByteArray message_qb = message;
         libqt_string message_str;
         message_str.len = message_qb.length();
-        message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
+        message_str.data = static_cast<char*>(malloc(message_str.len));
         memcpy((void*)message_str.data, message_qb.data(), message_str.len);
-        ((char*)message_str.data)[message_str.len] = '\0';
-        const char* sigval1 = message_str.data;
+        libqt_string sigval1 = message_str;
         slotFunc(self, sigval1);
     });
 }
@@ -519,16 +517,15 @@ void QWebSocket_Pong(QWebSocket* self, unsigned long long elapsedTime, const lib
 }
 
 void QWebSocket_Connect_Pong(QWebSocket* self, intptr_t slot) {
-    void (*slotFunc)(QWebSocket*, unsigned long long, const char*) = reinterpret_cast<void (*)(QWebSocket*, unsigned long long, const char*)>(slot);
+    void (*slotFunc)(QWebSocket*, unsigned long long, libqt_string) = reinterpret_cast<void (*)(QWebSocket*, unsigned long long, libqt_string)>(slot);
     QWebSocket::connect(self, &QWebSocket::pong, [self, slotFunc](quint64 elapsedTime, const QByteArray& payload) {
         unsigned long long sigval1 = static_cast<unsigned long long>(elapsedTime);
         const QByteArray payload_qb = payload;
         libqt_string payload_str;
         payload_str.len = payload_qb.length();
-        payload_str.data = static_cast<const char*>(malloc(payload_str.len + 1));
+        payload_str.data = static_cast<char*>(malloc(payload_str.len));
         memcpy((void*)payload_str.data, payload_qb.data(), payload_str.len);
-        ((char*)payload_str.data)[payload_str.len] = '\0';
-        const char* sigval2 = payload_str.data;
+        libqt_string sigval2 = payload_str;
         slotFunc(self, sigval1, sigval2);
     });
 }

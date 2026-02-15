@@ -501,7 +501,7 @@ pub const kimageannotator__kimageannotator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetStickers(self: ?*anyopaque, stickerPaths: []const []const u8, keepDefault: bool, allocator: std.mem.Allocator) void {
-        var stickerPaths_arr = allocator.alloc(qtc.libqt_string, stickerPaths.len) catch @panic("kimageannotator__kimageannotator.SetStickers: Memory allocation failed");
+        const stickerPaths_arr = allocator.alloc(qtc.libqt_string, stickerPaths.len) catch @panic("kimageannotator__kimageannotator.SetStickers: Memory allocation failed");
         defer allocator.free(stickerPaths_arr);
         for (stickerPaths, 0..stickerPaths.len) |item, i| {
             stickerPaths_arr[i] = .{
@@ -4616,11 +4616,7 @@ pub const kimageannotator__kimageannotator = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -6999,9 +6995,9 @@ pub const kimageannotator__kimageannotator = struct {
     ///
     /// ` self: QtC.kImageAnnotator__KImageAnnotator`
     ///
-    /// ` callback: *const fn (self: QtC.kImageAnnotator__KImageAnnotator, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.kImageAnnotator__KImageAnnotator, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.kImageAnnotator__KImageAnnotator_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

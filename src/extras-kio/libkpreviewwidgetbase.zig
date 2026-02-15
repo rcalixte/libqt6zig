@@ -265,7 +265,7 @@ pub const kpreviewwidgetbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSupportedMimeTypes(self: ?*anyopaque, mimeTypes: []const []const u8, allocator: std.mem.Allocator) void {
-        var mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kpreviewwidgetbase.SetSupportedMimeTypes: Memory allocation failed");
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kpreviewwidgetbase.SetSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i| {
             mimeTypes_arr[i] = .{
@@ -307,7 +307,7 @@ pub const kpreviewwidgetbase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetSupportedMimeTypes(self: ?*anyopaque, mimeTypes: []const []const u8, allocator: std.mem.Allocator) void {
-        var mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kpreviewwidgetbase.SetSupportedMimeTypes: Memory allocation failed");
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kpreviewwidgetbase.SetSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i| {
             mimeTypes_arr[i] = .{
@@ -4238,11 +4238,7 @@ pub const kpreviewwidgetbase = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -6665,9 +6661,9 @@ pub const kpreviewwidgetbase = struct {
     ///
     /// ` self: QtC.KPreviewWidgetBase`
     ///
-    /// ` callback: *const fn (self: QtC.KPreviewWidgetBase, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KPreviewWidgetBase, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPreviewWidgetBase_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

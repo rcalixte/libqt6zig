@@ -68,9 +68,8 @@ void QNetworkRequest_SetHeader(QNetworkRequest* self, int header, const QVariant
     self->setHeader(static_cast<QNetworkRequest::KnownHeaders>(header), *value);
 }
 
-bool QNetworkRequest_HasRawHeader(const QNetworkRequest* self, libqt_string headerName) {
-    QString headerName_QString = QString::fromUtf8(headerName.data, headerName.len);
-    return self->hasRawHeader(QAnyStringView(headerName_QString));
+bool QNetworkRequest_HasRawHeader(const QNetworkRequest* self, const char* headerName) {
+    return self->hasRawHeader(QAnyStringView(headerName));
 }
 
 libqt_list /* of libqt_string */ QNetworkRequest_RawHeaderList(const QNetworkRequest* self) {
@@ -81,9 +80,8 @@ libqt_list /* of libqt_string */ QNetworkRequest_RawHeaderList(const QNetworkReq
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -92,14 +90,12 @@ libqt_list /* of libqt_string */ QNetworkRequest_RawHeaderList(const QNetworkReq
     return _out;
 }
 
-libqt_string QNetworkRequest_RawHeader(const QNetworkRequest* self, libqt_string headerName) {
-    QString headerName_QString = QString::fromUtf8(headerName.data, headerName.len);
-    QByteArray _qb = self->rawHeader(QAnyStringView(headerName_QString));
+libqt_string QNetworkRequest_RawHeader(const QNetworkRequest* self, const char* headerName) {
+    QByteArray _qb = self->rawHeader(QAnyStringView(headerName));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

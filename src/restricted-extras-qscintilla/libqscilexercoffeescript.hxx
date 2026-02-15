@@ -61,7 +61,7 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     using QsciLexerCoffeeScript_CustomEvent_Callback = void (*)(QsciLexerCoffeeScript*, QEvent*);
     using QsciLexerCoffeeScript_ConnectNotify_Callback = void (*)(QsciLexerCoffeeScript*, QMetaMethod*);
     using QsciLexerCoffeeScript_DisconnectNotify_Callback = void (*)(QsciLexerCoffeeScript*, QMetaMethod*);
-    using QsciLexerCoffeeScript_TextAsBytes_Callback = const char* (*)(const QsciLexerCoffeeScript*, libqt_string);
+    using QsciLexerCoffeeScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerCoffeeScript*, libqt_string);
     using QsciLexerCoffeeScript_BytesAsText_Callback = const char* (*)(const QsciLexerCoffeeScript*, const char*, int);
     using QsciLexerCoffeeScript_Sender_Callback = QObject* (*)();
     using QsciLexerCoffeeScript_SenderSignalIndex_Callback = int (*)();
@@ -1013,8 +1013,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexercoffeescript_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexercoffeescript_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerCoffeeScript::textAsBytes(text);

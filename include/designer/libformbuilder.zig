@@ -74,7 +74,7 @@ pub const qformbuilder = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetPluginPath(self: ?*anyopaque, pluginPaths: []const []const u8, allocator: std.mem.Allocator) void {
-        var pluginPaths_arr = allocator.alloc(qtc.libqt_string, pluginPaths.len) catch @panic("qformbuilder.SetPluginPath: Memory allocation failed");
+        const pluginPaths_arr = allocator.alloc(qtc.libqt_string, pluginPaths.len) catch @panic("qformbuilder.SetPluginPath: Memory allocation failed");
         defer allocator.free(pluginPaths_arr);
         for (pluginPaths, 0..pluginPaths.len) |item, i| {
             pluginPaths_arr[i] = .{

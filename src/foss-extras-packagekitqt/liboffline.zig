@@ -167,7 +167,7 @@ pub const packagekit__offline = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn PreparedUpdates(self: ?*anyopaque, updates: []const []const u8, allocator: std.mem.Allocator) void {
-        var updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("packagekit__offline.PreparedUpdates: Memory allocation failed");
+        const updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("packagekit__offline.PreparedUpdates: Memory allocation failed");
         defer allocator.free(updates_arr);
         for (updates, 0..updates.len) |item, i| {
             updates_arr[i] = .{
@@ -317,11 +317,7 @@ pub const packagekit__offline = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

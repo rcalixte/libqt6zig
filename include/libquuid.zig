@@ -79,12 +79,7 @@ pub const quuid = struct {
     /// ` stringVal: []const u8 `
     ///
     pub fn New6(stringVal: []const u8) QtC.QUuid {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
-        };
-
-        return qtc.QUuid_new6(stringVal_str);
+        return qtc.QUuid_new6(stringVal.ptr);
     }
 
     /// New7 constructs a new QUuid object.
@@ -140,11 +135,7 @@ pub const quuid = struct {
     /// ` stringVal: []const u8 `
     ///
     pub fn FromString(stringVal: []const u8) QtC.QUuid {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
-        };
-        return qtc.QUuid_FromString(stringVal_str);
+        return qtc.QUuid_FromString(stringVal.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toString)
@@ -219,9 +210,9 @@ pub const quuid = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
-    pub fn FromRfc4122(param1: []const u8) QtC.QUuid {
+    pub fn FromRfc4122(param1: []u8) QtC.QUuid {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -251,9 +242,9 @@ pub const quuid = struct {
     ///
     /// ` ns: QtC.QUuid `
     ///
-    /// ` baseData: []const u8 `
+    /// ` baseData: []u8 `
     ///
-    pub fn CreateUuidV5(ns: QtC.QUuid, baseData: []const u8) QtC.QUuid {
+    pub fn CreateUuidV5(ns: QtC.QUuid, baseData: []u8) QtC.QUuid {
         const baseData_str = qtc.libqt_string{
             .len = baseData.len,
             .data = baseData.ptr,
@@ -267,9 +258,9 @@ pub const quuid = struct {
     ///
     /// ` ns: QtC.QUuid `
     ///
-    /// ` baseData: []const u8 `
+    /// ` baseData: []u8 `
     ///
-    pub fn CreateUuidV3(ns: QtC.QUuid, baseData: []const u8) QtC.QUuid {
+    pub fn CreateUuidV3(ns: QtC.QUuid, baseData: []u8) QtC.QUuid {
         const baseData_str = qtc.libqt_string{
             .len = baseData.len,
             .data = baseData.ptr,
@@ -470,11 +461,11 @@ pub const quuid__id128bytes = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToQByteArrayView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QUuid__Id128Bytes_ToQByteArrayView(@ptrCast(self));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid__id128bytes.ToQByteArrayView: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn ToQByteArrayView(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QUuid__Id128Bytes_ToQByteArrayView(@ptrCast(self));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid__id128bytes.ToQByteArrayView: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 

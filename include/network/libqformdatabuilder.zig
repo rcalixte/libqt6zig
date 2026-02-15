@@ -37,9 +37,9 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ` self: QtC.QFormDataPartBuilder `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    pub fn SetBody(self: ?*anyopaque, data: []const u8) QtC.QFormDataPartBuilder {
+    pub fn SetBody(self: ?*anyopaque, data: []u8) QtC.QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -77,20 +77,16 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ` self: QtC.QFormDataPartBuilder `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn SetBody2(self: ?*anyopaque, data: []const u8, fileName: []const u8) QtC.QFormDataPartBuilder {
+    pub fn SetBody2(self: ?*anyopaque, data: []u8, fileName: []const u8) QtC.QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
-        };
-        return qtc.QFormDataPartBuilder_SetBody2(@ptrCast(self), data_str, fileName_str);
+        return qtc.QFormDataPartBuilder_SetBody2(@ptrCast(self), data_str, fileName.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
@@ -99,26 +95,18 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ` self: QtC.QFormDataPartBuilder `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` fileName: []const u8 `
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn SetBody3(self: ?*anyopaque, data: []const u8, fileName: []const u8, mimeType: []const u8) QtC.QFormDataPartBuilder {
+    pub fn SetBody3(self: ?*anyopaque, data: []u8, fileName: []const u8, mimeType: []const u8) QtC.QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
-        };
-        const mimeType_str = qtc.libqt_string{
-            .len = mimeType.len,
-            .data = mimeType.ptr,
-        };
-        return qtc.QFormDataPartBuilder_SetBody3(@ptrCast(self), data_str, fileName_str, mimeType_str);
+        return qtc.QFormDataPartBuilder_SetBody3(@ptrCast(self), data_str, fileName.ptr, mimeType.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
@@ -132,11 +120,7 @@ pub const qformdatapartbuilder = struct {
     /// ` fileName: []const u8 `
     ///
     pub fn SetBodyDevice2(self: ?*anyopaque, body: ?*anyopaque, fileName: []const u8) QtC.QFormDataPartBuilder {
-        const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
-        };
-        return qtc.QFormDataPartBuilder_SetBodyDevice2(@ptrCast(self), @ptrCast(body), fileName_str);
+        return qtc.QFormDataPartBuilder_SetBodyDevice2(@ptrCast(self), @ptrCast(body), fileName.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
@@ -152,15 +136,7 @@ pub const qformdatapartbuilder = struct {
     /// ` mimeType: []const u8 `
     ///
     pub fn SetBodyDevice3(self: ?*anyopaque, body: ?*anyopaque, fileName: []const u8, mimeType: []const u8) QtC.QFormDataPartBuilder {
-        const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
-        };
-        const mimeType_str = qtc.libqt_string{
-            .len = mimeType.len,
-            .data = mimeType.ptr,
-        };
-        return qtc.QFormDataPartBuilder_SetBodyDevice3(@ptrCast(self), @ptrCast(body), fileName_str, mimeType_str);
+        return qtc.QFormDataPartBuilder_SetBodyDevice3(@ptrCast(self), @ptrCast(body), fileName.ptr, mimeType.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#dtor.QFormDataPartBuilder)
@@ -205,11 +181,7 @@ pub const qformdatabuilder = struct {
     /// ` name: []const u8 `
     ///
     pub fn Part(self: ?*anyopaque, name: []const u8) QtC.QFormDataPartBuilder {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        return qtc.QFormDataBuilder_Part(@ptrCast(self), name_str);
+        return qtc.QFormDataBuilder_Part(@ptrCast(self), name.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#dtor.QFormDataBuilder)

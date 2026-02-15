@@ -1320,7 +1320,7 @@ pub const qfilesystemmodel = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetNameFilters(self: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) void {
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfilesystemmodel.SetNameFilters: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfilesystemmodel.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -2299,11 +2299,7 @@ pub const qfilesystemmodel = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

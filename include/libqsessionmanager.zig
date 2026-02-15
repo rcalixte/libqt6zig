@@ -168,7 +168,7 @@ pub const qsessionmanager = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetRestartCommand(self: ?*anyopaque, restartCommand: []const []const u8, allocator: std.mem.Allocator) void {
-        var restartCommand_arr = allocator.alloc(qtc.libqt_string, restartCommand.len) catch @panic("qsessionmanager.SetRestartCommand: Memory allocation failed");
+        const restartCommand_arr = allocator.alloc(qtc.libqt_string, restartCommand.len) catch @panic("qsessionmanager.SetRestartCommand: Memory allocation failed");
         defer allocator.free(restartCommand_arr);
         for (restartCommand, 0..restartCommand.len) |item, i| {
             restartCommand_arr[i] = .{
@@ -221,7 +221,7 @@ pub const qsessionmanager = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetDiscardCommand(self: ?*anyopaque, discardCommand: []const []const u8, allocator: std.mem.Allocator) void {
-        var discardCommand_arr = allocator.alloc(qtc.libqt_string, discardCommand.len) catch @panic("qsessionmanager.SetDiscardCommand: Memory allocation failed");
+        const discardCommand_arr = allocator.alloc(qtc.libqt_string, discardCommand.len) catch @panic("qsessionmanager.SetDiscardCommand: Memory allocation failed");
         defer allocator.free(discardCommand_arr);
         for (discardCommand, 0..discardCommand.len) |item, i| {
             discardCommand_arr[i] = .{
@@ -302,7 +302,7 @@ pub const qsessionmanager = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        var value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("qsessionmanager.SetManagerProperty2: Memory allocation failed");
+        const value_arr = allocator.alloc(qtc.libqt_string, value.len) catch @panic("qsessionmanager.SetManagerProperty2: Memory allocation failed");
         defer allocator.free(value_arr);
         for (value, 0..value.len) |item, i| {
             value_arr[i] = .{
@@ -438,11 +438,7 @@ pub const qsessionmanager = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

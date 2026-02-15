@@ -101,9 +101,8 @@ libqt_map* /* of libqt_string to libqt_string */ KConfigDialogManager_PropertyMa
         QByteArray _hashval_qb = _itr->second;
         libqt_string _hashval_str;
         _hashval_str.len = _hashval_qb.length();
-        _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
         memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-        ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
         _varr[_ctr] = _hashval_str;
         _ctr++;
     }
@@ -455,17 +454,15 @@ libqt_string KConfigDialogManager_GetUserProperty(const KConfigDialogManager* se
         QByteArray _qb = vkconfigdialogmanager->getUserProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getUserProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -478,17 +475,15 @@ libqt_string KConfigDialogManager_QBaseGetUserProperty(const KConfigDialogManage
         QByteArray _qb = vkconfigdialogmanager->getUserProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getUserProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -508,17 +503,15 @@ libqt_string KConfigDialogManager_GetCustomProperty(const KConfigDialogManager* 
         QByteArray _qb = vkconfigdialogmanager->getCustomProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getCustomProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -531,17 +524,15 @@ libqt_string KConfigDialogManager_QBaseGetCustomProperty(const KConfigDialogMana
         QByteArray _qb = vkconfigdialogmanager->getCustomProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getCustomProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -561,17 +552,15 @@ libqt_string KConfigDialogManager_GetUserPropertyChangedSignal(const KConfigDial
         QByteArray _qb = vkconfigdialogmanager->getUserPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getUserPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -584,17 +573,15 @@ libqt_string KConfigDialogManager_QBaseGetUserPropertyChangedSignal(const KConfi
         QByteArray _qb = vkconfigdialogmanager->getUserPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getUserPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -614,17 +601,15 @@ libqt_string KConfigDialogManager_GetCustomPropertyChangedSignal(const KConfigDi
         QByteArray _qb = vkconfigdialogmanager->getCustomPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getCustomPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -637,17 +622,15 @@ libqt_string KConfigDialogManager_QBaseGetCustomPropertyChangedSignal(const KCon
         QByteArray _qb = vkconfigdialogmanager->getCustomPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getCustomPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }

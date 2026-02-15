@@ -75,7 +75,7 @@ pub const karchiveentry = struct {
     ///
     /// ` self: QtC.KArchiveEntry `
     ///
-    pub fn Permissions(self: ?*anyopaque) u16 {
+    pub fn Permissions(self: ?*anyopaque) u32 {
         return @intCast(qtc.KArchiveEntry_Permissions(@ptrCast(self)));
     }
 

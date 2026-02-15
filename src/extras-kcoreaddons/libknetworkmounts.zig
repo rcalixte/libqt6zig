@@ -187,7 +187,7 @@ pub const knetworkmounts = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetPaths(self: ?*anyopaque, paths: []const []const u8, typeVal: i32, allocator: std.mem.Allocator) void {
-        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("knetworkmounts.SetPaths: Memory allocation failed");
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("knetworkmounts.SetPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{
@@ -424,11 +424,7 @@ pub const knetworkmounts = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

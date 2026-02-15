@@ -150,9 +150,9 @@ pub const qnetworkcachemetadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetRawHeaders(self: ?*anyopaque, headers: []struct_u8_u8, allocator: std.mem.Allocator) void {
-        var headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("qnetworkcachemetadata.SetRawHeaders: Memory allocation failed");
+        const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("qnetworkcachemetadata.SetRawHeaders: Memory allocation failed");
         defer allocator.free(headers_pairs);
-        var headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("qnetworkcachemetadata.SetRawHeaders: Memory allocation failed");
+        const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("qnetworkcachemetadata.SetRawHeaders: Memory allocation failed");
         defer allocator.free(headers_str);
         for (headers, 0..) |headers_item, i| {
             headers_str[i * 2] = qtc.libqt_string{
@@ -584,11 +584,7 @@ pub const qabstractnetworkcache = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

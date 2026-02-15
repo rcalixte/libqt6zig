@@ -34,7 +34,7 @@ pub const kio__previewjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn New2(items: ?*anyopaque, size: ?*anyopaque, enabledPlugins: []const []const u8, allocator: std.mem.Allocator) QtC.KIO__PreviewJob {
-        var enabledPlugins_arr = allocator.alloc(qtc.libqt_string, enabledPlugins.len) catch @panic("kio__previewjob.New2: Memory allocation failed");
+        const enabledPlugins_arr = allocator.alloc(qtc.libqt_string, enabledPlugins.len) catch @panic("kio__previewjob.New2: Memory allocation failed");
         defer allocator.free(enabledPlugins_arr);
         for (enabledPlugins, 0..enabledPlugins.len) |item, i| {
             enabledPlugins_arr[i] = .{
@@ -1327,11 +1327,7 @@ pub const kio__previewjob = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -3846,7 +3842,7 @@ pub const kio = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FilePreview(param1: ?*anyopaque, param2: ?*anyopaque, param3: []const []const u8, allocator: std.mem.Allocator) QtC.KIO__PreviewJob {
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kio.FilePreview: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kio.FilePreview: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{

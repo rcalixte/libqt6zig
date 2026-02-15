@@ -1363,17 +1363,15 @@ libqt_string QsciLexerFortran_TextAsBytes(const QsciLexerFortran* self, const li
         QByteArray _qb = vqscilexerfortran->textAsBytes(text_QString);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualQsciLexerFortran*)self)->textAsBytes(text_QString);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -1387,17 +1385,15 @@ libqt_string QsciLexerFortran_QBaseTextAsBytes(const QsciLexerFortran* self, con
         QByteArray _qb = vqscilexerfortran->textAsBytes(text_QString);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualQsciLexerFortran*)self)->textAsBytes(text_QString);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }

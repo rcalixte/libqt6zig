@@ -61,7 +61,7 @@ class VirtualQsciLexerEDIFACT final : public QsciLexerEDIFACT {
     using QsciLexerEDIFACT_CustomEvent_Callback = void (*)(QsciLexerEDIFACT*, QEvent*);
     using QsciLexerEDIFACT_ConnectNotify_Callback = void (*)(QsciLexerEDIFACT*, QMetaMethod*);
     using QsciLexerEDIFACT_DisconnectNotify_Callback = void (*)(QsciLexerEDIFACT*, QMetaMethod*);
-    using QsciLexerEDIFACT_TextAsBytes_Callback = const char* (*)(const QsciLexerEDIFACT*, libqt_string);
+    using QsciLexerEDIFACT_TextAsBytes_Callback = libqt_string (*)(const QsciLexerEDIFACT*, libqt_string);
     using QsciLexerEDIFACT_BytesAsText_Callback = const char* (*)(const QsciLexerEDIFACT*, const char*, int);
     using QsciLexerEDIFACT_Sender_Callback = QObject* (*)();
     using QsciLexerEDIFACT_SenderSignalIndex_Callback = int (*)();
@@ -1013,8 +1013,8 @@ class VirtualQsciLexerEDIFACT final : public QsciLexerEDIFACT {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexeredifact_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexeredifact_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerEDIFACT::textAsBytes(text);

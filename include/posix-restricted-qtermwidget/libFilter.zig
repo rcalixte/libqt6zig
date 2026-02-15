@@ -259,11 +259,7 @@ pub const konsole__filter = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1915,11 +1911,7 @@ pub const konsole__regexpfilter = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -3881,11 +3873,7 @@ pub const konsole__urlfilter = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -5617,11 +5605,7 @@ pub const konsole__filterobject = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -7495,7 +7479,7 @@ pub const konsole__regexpfilter__hotspot = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetCapturedTexts(self: ?*anyopaque, texts: []const []const u8, allocator: std.mem.Allocator) void {
-        var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("konsole__regexpfilter__hotspot.SetCapturedTexts: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("konsole__regexpfilter__hotspot.SetCapturedTexts: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
             texts_arr[i] = .{
@@ -7869,7 +7853,7 @@ pub const konsole__urlfilter__hotspot = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetCapturedTexts(self: ?*anyopaque, texts: []const []const u8, allocator: std.mem.Allocator) void {
-        var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("konsole__urlfilter__hotspot.SetCapturedTexts: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("konsole__urlfilter__hotspot.SetCapturedTexts: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
             texts_arr[i] = .{

@@ -356,7 +356,7 @@ pub const kfontchooser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetFontListItems(self: ?*anyopaque, fontList: []const []const u8, allocator: std.mem.Allocator) void {
-        var fontList_arr = allocator.alloc(qtc.libqt_string, fontList.len) catch @panic("kfontchooser.SetFontListItems: Memory allocation failed");
+        const fontList_arr = allocator.alloc(qtc.libqt_string, fontList.len) catch @panic("kfontchooser.SetFontListItems: Memory allocation failed");
         defer allocator.free(fontList_arr);
         for (fontList, 0..fontList.len) |item, i| {
             fontList_arr[i] = .{
@@ -4347,11 +4347,7 @@ pub const kfontchooser = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -6730,9 +6726,9 @@ pub const kfontchooser = struct {
     ///
     /// ` self: QtC.KFontChooser`
     ///
-    /// ` callback: *const fn (self: QtC.KFontChooser, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KFontChooser, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KFontChooser_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -475,7 +475,7 @@ pub const kxmlguiclient = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FindMostRecentXMLFile(files: []const []const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
-        var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kxmlguiclient.FindMostRecentXMLFile: Memory allocation failed");
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kxmlguiclient.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
             files_arr[i] = .{
@@ -1109,7 +1109,7 @@ pub const kxmlguiclient__statechange = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetActionsToEnable(self: ?*anyopaque, actionsToEnable: []const []const u8, allocator: std.mem.Allocator) void {
-        var actionsToEnable_arr = allocator.alloc(qtc.libqt_string, actionsToEnable.len) catch @panic("kxmlguiclient__statechange.SetActionsToEnable: Memory allocation failed");
+        const actionsToEnable_arr = allocator.alloc(qtc.libqt_string, actionsToEnable.len) catch @panic("kxmlguiclient__statechange.SetActionsToEnable: Memory allocation failed");
         defer allocator.free(actionsToEnable_arr);
         for (actionsToEnable, 0..actionsToEnable.len) |item, i| {
             actionsToEnable_arr[i] = .{
@@ -1162,7 +1162,7 @@ pub const kxmlguiclient__statechange = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetActionsToDisable(self: ?*anyopaque, actionsToDisable: []const []const u8, allocator: std.mem.Allocator) void {
-        var actionsToDisable_arr = allocator.alloc(qtc.libqt_string, actionsToDisable.len) catch @panic("kxmlguiclient__statechange.SetActionsToDisable: Memory allocation failed");
+        const actionsToDisable_arr = allocator.alloc(qtc.libqt_string, actionsToDisable.len) catch @panic("kxmlguiclient__statechange.SetActionsToDisable: Memory allocation failed");
         defer allocator.free(actionsToDisable_arr);
         for (actionsToDisable, 0..actionsToDisable.len) |item, i| {
             actionsToDisable_arr[i] = .{

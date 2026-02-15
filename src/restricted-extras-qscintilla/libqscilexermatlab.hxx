@@ -61,7 +61,7 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     using QsciLexerMatlab_CustomEvent_Callback = void (*)(QsciLexerMatlab*, QEvent*);
     using QsciLexerMatlab_ConnectNotify_Callback = void (*)(QsciLexerMatlab*, QMetaMethod*);
     using QsciLexerMatlab_DisconnectNotify_Callback = void (*)(QsciLexerMatlab*, QMetaMethod*);
-    using QsciLexerMatlab_TextAsBytes_Callback = const char* (*)(const QsciLexerMatlab*, libqt_string);
+    using QsciLexerMatlab_TextAsBytes_Callback = libqt_string (*)(const QsciLexerMatlab*, libqt_string);
     using QsciLexerMatlab_BytesAsText_Callback = const char* (*)(const QsciLexerMatlab*, const char*, int);
     using QsciLexerMatlab_Sender_Callback = QObject* (*)();
     using QsciLexerMatlab_SenderSignalIndex_Callback = int (*)();
@@ -1013,8 +1013,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexermatlab_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexermatlab_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerMatlab::textAsBytes(text);

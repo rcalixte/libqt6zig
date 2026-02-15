@@ -49,7 +49,7 @@ pub const kmountpoint = struct {
     ///
     /// ` self: QtC.KMountPoint `
     ///
-    pub fn DeviceId(self: ?*anyopaque) u32 {
+    pub fn DeviceId(self: ?*anyopaque) u64 {
         return @intCast(qtc.KMountPoint_DeviceId(@ptrCast(self)));
     }
 

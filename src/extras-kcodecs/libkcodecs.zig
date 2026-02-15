@@ -9,13 +9,13 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` param2: bool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QuotedPrintableEncode(param1: []const u8, param2: bool, allocator: std.mem.Allocator) []u8 {
+    pub fn QuotedPrintableEncode(param1: []u8, param2: bool, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -31,13 +31,13 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` param2: []u8 `
     ///
     /// ` param3: bool `
     ///
-    pub fn QuotedPrintableEncode2(param1: []const u8, param2: []u8, param3: bool) void {
+    pub fn QuotedPrintableEncode2(param1: []u8, param2: []u8, param3: bool) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -53,11 +53,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QuotedPrintableDecode(param1: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn QuotedPrintableDecode(param1: []u8, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -73,11 +73,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` param2: []u8 `
     ///
-    pub fn QuotedPrintableDecode2(param1: []const u8, param2: []u8) void {
+    pub fn QuotedPrintableDecode2(param1: []u8, param2: []u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -93,11 +93,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Uudecode(param1: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn Uudecode(param1: []u8, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -113,11 +113,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` param2: []u8 `
     ///
-    pub fn Uudecode2(param1: []const u8, param2: []u8) void {
+    pub fn Uudecode2(param1: []u8, param2: []u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -133,11 +133,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Base64Encode(param1: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn Base64Encode(param1: []u8, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -153,13 +153,13 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` param2: []u8 `
     ///
     /// ` param3: bool `
     ///
-    pub fn Base64Encode2(param1: []const u8, param2: []u8, param3: bool) void {
+    pub fn Base64Encode2(param1: []u8, param2: []u8, param3: bool) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -175,11 +175,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Base64Decode(param1: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn Base64Decode(param1: []u8, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -195,11 +195,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` param2: []u8 `
     ///
-    pub fn Base64Decode2(param1: []const u8, param2: []u8) void {
+    pub fn Base64Decode2(param1: []u8, param2: []u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -215,11 +215,11 @@ pub const kcodecs = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Base45Decode(param1: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn Base45Decode(param1: []u8, allocator: std.mem.Allocator) []u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -238,9 +238,9 @@ pub const kcodecs__codec = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` name: []u8 `
     ///
-    pub fn CodecForName(name: []const u8) QtC.KCodecs__Codec {
+    pub fn CodecForName(name: []u8) QtC.KCodecs__Codec {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -354,11 +354,11 @@ pub const kcodecs__codec = struct {
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    /// ` src: []const u8 `
+    /// ` src: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Encode2(self: ?*anyopaque, src: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn Encode2(self: ?*anyopaque, src: []u8, allocator: std.mem.Allocator) []u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
@@ -376,11 +376,11 @@ pub const kcodecs__codec = struct {
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    /// ` src: []const u8 `
+    /// ` src: []u8 `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Decode2(self: ?*anyopaque, src: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn Decode2(self: ?*anyopaque, src: []u8, allocator: std.mem.Allocator) []u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
@@ -409,13 +409,13 @@ pub const kcodecs__codec = struct {
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    /// ` src: []const u8 `
+    /// ` src: []u8 `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Encode22(self: ?*anyopaque, src: []const u8, newline: i32, allocator: std.mem.Allocator) []u8 {
+    pub fn Encode22(self: ?*anyopaque, src: []u8, newline: i32, allocator: std.mem.Allocator) []u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
@@ -433,13 +433,13 @@ pub const kcodecs__codec = struct {
     ///
     /// ` self: QtC.KCodecs__Codec `
     ///
-    /// ` src: []const u8 `
+    /// ` src: []u8 `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Decode22(self: ?*anyopaque, src: []const u8, newline: i32, allocator: std.mem.Allocator) []u8 {
+    pub fn Decode22(self: ?*anyopaque, src: []u8, newline: i32, allocator: std.mem.Allocator) []u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,

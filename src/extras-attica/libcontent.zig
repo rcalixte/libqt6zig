@@ -556,7 +556,7 @@ pub const attica__content = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetTags(self: ?*anyopaque, tags: []const []const u8, allocator: std.mem.Allocator) void {
-        var tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("attica__content.SetTags: Memory allocation failed");
+        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("attica__content.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i| {
             tags_arr[i] = .{

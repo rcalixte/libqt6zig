@@ -210,9 +210,8 @@ libqt_string QsciScintilla_Bytes(const QsciScintilla* self, int start, int end) 
     QByteArray _qb = self->bytes(static_cast<int>(start), static_cast<int>(end));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -3722,17 +3721,15 @@ libqt_string QsciScintilla_FromMimeData(const QsciScintilla* self, const QMimeDa
         QByteArray _qb = vqsciscintilla->fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualQsciScintilla*)self)->fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -3745,17 +3742,15 @@ libqt_string QsciScintilla_QBaseFromMimeData(const QsciScintilla* self, const QM
         QByteArray _qb = vqsciscintilla->fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = ((VirtualQsciScintilla*)self)->fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }

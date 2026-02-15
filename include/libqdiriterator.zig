@@ -63,7 +63,7 @@ pub const qdiriterator = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdiriterator.New4: Memory allocation failed");
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdiriterator.New4: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
             nameFilters_arr[i] = .{
@@ -144,7 +144,7 @@ pub const qdiriterator = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdiriterator.New8: Memory allocation failed");
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdiriterator.New8: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
             nameFilters_arr[i] = .{
@@ -179,7 +179,7 @@ pub const qdiriterator = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdiriterator.New9: Memory allocation failed");
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdiriterator.New9: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
             nameFilters_arr[i] = .{

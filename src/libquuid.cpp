@@ -30,9 +30,8 @@ QUuid* QUuid_new5(QUuid__Id128Bytes* id128) {
     return new QUuid(*id128);
 }
 
-QUuid* QUuid_new6(libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QUuid(QAnyStringView(stringVal_QString));
+QUuid* QUuid_new6(const char* stringVal) {
+    return new QUuid(QAnyStringView(stringVal));
 }
 
 QUuid* QUuid_new7(const QUuid* param1) {
@@ -51,9 +50,8 @@ void QUuid_MoveAssign(QUuid* self, QUuid* other) {
     *self = std::move(*other);
 }
 
-QUuid* QUuid_FromString(libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QUuid(QUuid::fromString(QAnyStringView(stringVal_QString)));
+QUuid* QUuid_FromString(const char* stringVal) {
+    return new QUuid(QUuid::fromString(QAnyStringView(stringVal)));
 }
 
 libqt_string QUuid_ToString(const QUuid* self) {
@@ -72,9 +70,8 @@ libqt_string QUuid_ToByteArray(const QUuid* self) {
     QByteArray _qb = self->toByteArray();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -86,9 +83,8 @@ libqt_string QUuid_ToRfc4122(const QUuid* self) {
     QByteArray _qb = self->toRfc4122();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -167,9 +163,8 @@ libqt_string QUuid_ToByteArray1(const QUuid* self, int mode) {
     QByteArray _qb = self->toByteArray(static_cast<QUuid::StringFormat>(mode));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -197,9 +192,8 @@ libqt_string QUuid__Id128Bytes_ToQByteArrayView(const QUuid__Id128Bytes* self) {
     QByteArrayView _qb = self->operator QByteArrayView();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

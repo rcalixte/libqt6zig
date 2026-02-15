@@ -228,7 +228,7 @@ pub const qdbusargument = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn OperatorShiftLeft15(self: ?*anyopaque, arg: []const []const u8, allocator: std.mem.Allocator) QtC.QDBusArgument {
-        var arg_arr = allocator.alloc(qtc.libqt_string, arg.len) catch @panic("qdbusargument.OperatorShiftLeft15: Memory allocation failed");
+        const arg_arr = allocator.alloc(qtc.libqt_string, arg.len) catch @panic("qdbusargument.OperatorShiftLeft15: Memory allocation failed");
         defer allocator.free(arg_arr);
         for (arg, 0..arg.len) |item, i| {
             arg_arr[i] = .{
@@ -596,7 +596,7 @@ pub const qdbusargument = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn OperatorShiftRight15(self: ?*anyopaque, arg: []const []const u8, allocator: std.mem.Allocator) QtC.QDBusArgument {
-        var arg_arr = allocator.alloc(qtc.libqt_string, arg.len) catch @panic("qdbusargument.OperatorShiftRight15: Memory allocation failed");
+        const arg_arr = allocator.alloc(qtc.libqt_string, arg.len) catch @panic("qdbusargument.OperatorShiftRight15: Memory allocation failed");
         defer allocator.free(arg_arr);
         for (arg, 0..arg.len) |item, i| {
             arg_arr[i] = .{

@@ -82,7 +82,7 @@ pub const qwebsockethandshakeoptions = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSubprotocols(self: ?*anyopaque, protocols: []const []const u8, allocator: std.mem.Allocator) void {
-        var protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qwebsockethandshakeoptions.SetSubprotocols: Memory allocation failed");
+        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qwebsockethandshakeoptions.SetSubprotocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
         for (protocols, 0..protocols.len) |item, i| {
             protocols_arr[i] = .{

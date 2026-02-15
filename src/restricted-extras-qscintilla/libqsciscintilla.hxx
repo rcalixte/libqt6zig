@@ -108,7 +108,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
     using QsciScintilla_ContextMenuEvent_Callback = void (*)(QsciScintilla*, QContextMenuEvent*);
     using QsciScintilla_WheelEvent_Callback = void (*)(QsciScintilla*, QWheelEvent*);
     using QsciScintilla_CanInsertFromMimeData_Callback = bool (*)(const QsciScintilla*, QMimeData*);
-    using QsciScintilla_FromMimeData_Callback = const char* (*)(const QsciScintilla*, QMimeData*, bool*);
+    using QsciScintilla_FromMimeData_Callback = libqt_string (*)(const QsciScintilla*, QMimeData*, bool*);
     using QsciScintilla_ToMimeData_Callback = QMimeData* (*)(const QsciScintilla*, libqt_string, bool);
     using QsciScintilla_DragEnterEvent_Callback = void (*)(QsciScintilla*, QDragEnterEvent*);
     using QsciScintilla_DragLeaveEvent_Callback = void (*)(QsciScintilla*, QDragLeaveEvent*);
@@ -2360,8 +2360,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QMimeData* cbval1 = (QMimeData*)source;
             bool* cbval2 = &rectangular;
 
-            const char* callback_ret = qsciscintilla_frommimedata_callback(this, cbval1, cbval2);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qsciscintilla_frommimedata_callback(this, cbval1, cbval2);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciScintilla::fromMimeData(source, rectangular);
@@ -2377,9 +2377,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QByteArray text_qb = text;
             libqt_string text_str;
             text_str.len = text_qb.length();
-            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
+            text_str.data = static_cast<char*>(malloc(text_str.len));
             memcpy((void*)text_str.data, text_qb.data(), text_str.len);
-            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
             bool cbval2 = rectangular;
 
@@ -2932,9 +2931,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<const char*>(malloc(eventType_str.len + 1));
+            eventType_str.data = static_cast<char*>(malloc(eventType_str.len));
             memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
-            ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
             void* cbval2 = message;
             qintptr* result_ret = result;

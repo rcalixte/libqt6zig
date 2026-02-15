@@ -37,7 +37,7 @@ pub const kio__commandlauncherjob = struct {
             .len = executable.len,
             .data = executable.ptr,
         };
-        var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kio__commandlauncherjob.New2: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kio__commandlauncherjob.New2: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
             args_arr[i] = .{
@@ -87,7 +87,7 @@ pub const kio__commandlauncherjob = struct {
             .len = executable.len,
             .data = executable.ptr,
         };
-        var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kio__commandlauncherjob.New4: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kio__commandlauncherjob.New4: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
             args_arr[i] = .{
@@ -799,11 +799,7 @@ pub const kio__commandlauncherjob = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

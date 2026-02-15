@@ -41,7 +41,7 @@ pub const qjsonarray = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FromStringList(list: []const []const u8, allocator: std.mem.Allocator) QtC.QJsonArray {
-        var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qjsonarray.FromStringList: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qjsonarray.FromStringList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
             list_arr[i] = .{

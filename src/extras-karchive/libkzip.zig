@@ -124,7 +124,7 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
@@ -132,7 +132,7 @@ pub const kzip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn DoWriteSymLink(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn DoWriteSymLink(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -160,9 +160,9 @@ pub const kzip = struct {
     ///
     /// ` self: QtC.KZip `
     ///
-    /// ` callback: *const fn (self: QtC.KZip, name: [*:0]const u8, target: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, perm: u16, atime: QtC.QDateTime, mtime: QtC.QDateTime, ctime: QtC.QDateTime) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KZip, name: [*:0]const u8, target: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, perm: u32, atime: QtC.QDateTime, mtime: QtC.QDateTime, ctime: QtC.QDateTime) callconv(.c) bool `
     ///
-    pub fn OnDoWriteSymLink(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, u16, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    pub fn OnDoWriteSymLink(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, u32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KZip_OnDoWriteSymLink(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -182,7 +182,7 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
@@ -190,7 +190,7 @@ pub const kzip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn QBaseDoWriteSymLink(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn QBaseDoWriteSymLink(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -224,7 +224,7 @@ pub const kzip = struct {
     ///
     /// ` size: i64 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
@@ -232,7 +232,7 @@ pub const kzip = struct {
     ///
     /// ` creationTime: QtC.QDateTime `
     ///
-    pub fn DoPrepareWriting(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque, creationTime: ?*anyopaque) bool {
+    pub fn DoPrepareWriting(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, creationTime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -256,9 +256,9 @@ pub const kzip = struct {
     ///
     /// ` self: QtC.KZip `
     ///
-    /// ` callback: *const fn (self: QtC.KZip, name: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, size: i64, perm: u16, atime: QtC.QDateTime, mtime: QtC.QDateTime, creationTime: QtC.QDateTime) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KZip, name: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, size: i64, perm: u32, atime: QtC.QDateTime, mtime: QtC.QDateTime, creationTime: QtC.QDateTime) callconv(.c) bool `
     ///
-    pub fn OnDoPrepareWriting(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, i64, u16, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    pub fn OnDoPrepareWriting(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, i64, u32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KZip_OnDoPrepareWriting(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -278,7 +278,7 @@ pub const kzip = struct {
     ///
     /// ` size: i64 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
@@ -286,7 +286,7 @@ pub const kzip = struct {
     ///
     /// ` creationTime: QtC.QDateTime `
     ///
-    pub fn QBaseDoPrepareWriting(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque, creationTime: ?*anyopaque) bool {
+    pub fn QBaseDoPrepareWriting(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, creationTime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -476,7 +476,7 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
@@ -484,7 +484,7 @@ pub const kzip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn DoWriteDir(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn DoWriteDir(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -508,9 +508,9 @@ pub const kzip = struct {
     ///
     /// ` self: QtC.KZip `
     ///
-    /// ` callback: *const fn (self: QtC.KZip, name: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, perm: u16, atime: QtC.QDateTime, mtime: QtC.QDateTime, ctime: QtC.QDateTime) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KZip, name: [*:0]const u8, user: [*:0]const u8, group: [*:0]const u8, perm: u32, atime: QtC.QDateTime, mtime: QtC.QDateTime, ctime: QtC.QDateTime) callconv(.c) bool `
     ///
-    pub fn OnDoWriteDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, u16, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    pub fn OnDoWriteDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, u32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.KZip_OnDoWriteDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -528,7 +528,7 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
@@ -536,7 +536,7 @@ pub const kzip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn QBaseDoWriteDir(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn QBaseDoWriteDir(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -826,9 +826,9 @@ pub const kzip = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    pub fn WriteFile(self: ?*anyopaque, name: []const u8, data: []const u8) bool {
+    pub fn WriteFile(self: ?*anyopaque, name: []const u8, data: []u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -897,9 +897,9 @@ pub const kzip = struct {
     ///
     /// ` self: QtC.KZip `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    pub fn WriteData2(self: ?*anyopaque, data: []const u8) bool {
+    pub fn WriteData2(self: ?*anyopaque, data: []u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -989,9 +989,9 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
-    pub fn WriteDir4(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u16) bool {
+    pub fn WriteDir4(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1021,11 +1021,11 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
-    pub fn WriteDir5(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque) bool {
+    pub fn WriteDir5(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1055,13 +1055,13 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
     /// ` mtime: QtC.QDateTime `
     ///
-    pub fn WriteDir6(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque) bool {
+    pub fn WriteDir6(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1091,7 +1091,7 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
@@ -1099,7 +1099,7 @@ pub const kzip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn WriteDir7(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn WriteDir7(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1197,9 +1197,9 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
-    pub fn WriteSymLink5(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u16) bool {
+    pub fn WriteSymLink5(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1235,11 +1235,11 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
-    pub fn WriteSymLink6(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque) bool {
+    pub fn WriteSymLink6(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1275,13 +1275,13 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
     /// ` mtime: QtC.QDateTime `
     ///
-    pub fn WriteSymLink7(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque) bool {
+    pub fn WriteSymLink7(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1317,7 +1317,7 @@ pub const kzip = struct {
     ///
     /// ` group: []const u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
@@ -1325,7 +1325,7 @@ pub const kzip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn WriteSymLink8(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn WriteSymLink8(self: ?*anyopaque, name: []const u8, target: []const u8, user: []const u8, group: []const u8, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1355,11 +1355,11 @@ pub const kzip = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
-    pub fn WriteFile3(self: ?*anyopaque, name: []const u8, data: []const u8, perm: u16) bool {
+    pub fn WriteFile3(self: ?*anyopaque, name: []const u8, data: []u8, perm: u32) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1381,13 +1381,13 @@ pub const kzip = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` user: []const u8 `
     ///
-    pub fn WriteFile4(self: ?*anyopaque, name: []const u8, data: []const u8, perm: u16, user: []const u8) bool {
+    pub fn WriteFile4(self: ?*anyopaque, name: []const u8, data: []u8, perm: u32, user: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1413,15 +1413,15 @@ pub const kzip = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` user: []const u8 `
     ///
     /// ` group: []const u8 `
     ///
-    pub fn WriteFile5(self: ?*anyopaque, name: []const u8, data: []const u8, perm: u16, user: []const u8, group: []const u8) bool {
+    pub fn WriteFile5(self: ?*anyopaque, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1451,9 +1451,9 @@ pub const kzip = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` user: []const u8 `
     ///
@@ -1461,7 +1461,7 @@ pub const kzip = struct {
     ///
     /// ` atime: QtC.QDateTime `
     ///
-    pub fn WriteFile6(self: ?*anyopaque, name: []const u8, data: []const u8, perm: u16, user: []const u8, group: []const u8, atime: ?*anyopaque) bool {
+    pub fn WriteFile6(self: ?*anyopaque, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8, atime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1491,9 +1491,9 @@ pub const kzip = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` user: []const u8 `
     ///
@@ -1503,7 +1503,7 @@ pub const kzip = struct {
     ///
     /// ` mtime: QtC.QDateTime `
     ///
-    pub fn WriteFile7(self: ?*anyopaque, name: []const u8, data: []const u8, perm: u16, user: []const u8, group: []const u8, atime: ?*anyopaque, mtime: ?*anyopaque) bool {
+    pub fn WriteFile7(self: ?*anyopaque, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8, atime: ?*anyopaque, mtime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1533,9 +1533,9 @@ pub const kzip = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` user: []const u8 `
     ///
@@ -1547,7 +1547,7 @@ pub const kzip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn WriteFile8(self: ?*anyopaque, name: []const u8, data: []const u8, perm: u16, user: []const u8, group: []const u8, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn WriteFile8(self: ?*anyopaque, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1583,9 +1583,9 @@ pub const kzip = struct {
     ///
     /// ` size: i64 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
-    pub fn PrepareWriting5(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u16) bool {
+    pub fn PrepareWriting5(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1617,11 +1617,11 @@ pub const kzip = struct {
     ///
     /// ` size: i64 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
-    pub fn PrepareWriting6(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u16, atime: ?*anyopaque) bool {
+    pub fn PrepareWriting6(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32, atime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1653,13 +1653,13 @@ pub const kzip = struct {
     ///
     /// ` size: i64 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
     /// ` mtime: QtC.QDateTime `
     ///
-    pub fn PrepareWriting7(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque) bool {
+    pub fn PrepareWriting7(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1691,7 +1691,7 @@ pub const kzip = struct {
     ///
     /// ` size: i64 `
     ///
-    /// ` perm: u16 `
+    /// ` perm: u32 `
     ///
     /// ` atime: QtC.QDateTime `
     ///
@@ -1699,7 +1699,7 @@ pub const kzip = struct {
     ///
     /// ` ctime: QtC.QDateTime `
     ///
-    pub fn PrepareWriting8(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u16, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
+    pub fn PrepareWriting8(self: ?*anyopaque, name: []const u8, user: []const u8, group: []const u8, size: i64, perm: u32, atime: ?*anyopaque, mtime: ?*anyopaque, ctime: ?*anyopaque) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,

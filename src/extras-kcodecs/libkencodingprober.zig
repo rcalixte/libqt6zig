@@ -54,13 +54,13 @@ pub const kencodingprober = struct {
     ///
     /// ` self: QtC.KEncodingProber `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ## Returns:
     ///
     /// ` kencodingprober_enums.ProberState `
     ///
-    pub fn Feed(self: ?*anyopaque, data: []const u8) i32 {
+    pub fn Feed(self: ?*anyopaque, data: []u8) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

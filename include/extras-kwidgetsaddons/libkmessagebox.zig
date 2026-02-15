@@ -116,7 +116,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.QuestionTwoActionsList: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.QuestionTwoActionsList: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -208,7 +208,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningTwoActionsList: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningTwoActionsList: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -344,7 +344,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningContinueCancelList: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningContinueCancelList: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -440,7 +440,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningTwoActionsCancelList: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningTwoActionsCancelList: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -534,7 +534,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.ErrorList: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.ErrorList: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -668,7 +668,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.InformationList: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.InformationList: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -876,7 +876,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        var param5_arr = allocator.alloc(qtc.libqt_string, param5.len) catch @panic("kmessagebox.CreateKMessageBox: Memory allocation failed");
+        const param5_arr = allocator.alloc(qtc.libqt_string, param5.len) catch @panic("kmessagebox.CreateKMessageBox: Memory allocation failed");
         defer allocator.free(param5_arr);
         for (param5, 0..param5.len) |item, i| {
             param5_arr[i] = .{
@@ -934,7 +934,7 @@ pub const kmessagebox = struct {
             .len = param4.len,
             .data = param4.ptr,
         };
-        var param5_arr = allocator.alloc(qtc.libqt_string, param5.len) catch @panic("kmessagebox.CreateKMessageBox2: Memory allocation failed");
+        const param5_arr = allocator.alloc(qtc.libqt_string, param5.len) catch @panic("kmessagebox.CreateKMessageBox2: Memory allocation failed");
         defer allocator.free(param5_arr);
         for (param5, 0..param5.len) |item, i| {
             param5_arr[i] = .{
@@ -1066,7 +1066,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.QuestionTwoActionsListWId: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.QuestionTwoActionsListWId: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -1158,7 +1158,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningTwoActionsListWId: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningTwoActionsListWId: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -1250,7 +1250,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningContinueCancelListWId: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningContinueCancelListWId: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -1346,7 +1346,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningTwoActionsCancelListWId: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.WarningTwoActionsCancelListWId: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -1414,7 +1414,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.ErrorListWId: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.ErrorListWId: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{
@@ -1548,7 +1548,7 @@ pub const kmessagebox = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        var param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.InformationListWId: Memory allocation failed");
+        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kmessagebox.InformationListWId: Memory allocation failed");
         defer allocator.free(param3_arr);
         for (param3, 0..param3.len) |item, i| {
             param3_arr[i] = .{

@@ -994,7 +994,7 @@ pub const kcolorcombo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AddItems(self: ?*anyopaque, texts: []const []const u8, allocator: std.mem.Allocator) void {
-        var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kcolorcombo.AddItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kcolorcombo.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
             texts_arr[i] = .{
@@ -1066,7 +1066,7 @@ pub const kcolorcombo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InsertItems(self: ?*anyopaque, index: i32, texts: []const []const u8, allocator: std.mem.Allocator) void {
-        var texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kcolorcombo.InsertItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kcolorcombo.InsertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i| {
             texts_arr[i] = .{
@@ -5497,11 +5497,7 @@ pub const kcolorcombo = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -8204,9 +8200,9 @@ pub const kcolorcombo = struct {
     ///
     /// ` self: QtC.KColorCombo`
     ///
-    /// ` callback: *const fn (self: QtC.KColorCombo, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KColorCombo, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KColorCombo_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

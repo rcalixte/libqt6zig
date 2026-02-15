@@ -267,9 +267,9 @@ pub const attica__metadata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetHeaders(self: ?*anyopaque, headers: []struct_u8_u8, allocator: std.mem.Allocator) void {
-        var headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
+        const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
         defer allocator.free(headers_pairs);
-        var headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
+        const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
         defer allocator.free(headers_str);
         for (headers, 0..) |headers_item, i| {
             headers_str[i * 2] = qtc.libqt_string{

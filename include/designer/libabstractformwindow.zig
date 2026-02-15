@@ -374,7 +374,7 @@ pub const qdesignerformwindowinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetIncludeHints(self: ?*anyopaque, includeHints: []const []const u8, allocator: std.mem.Allocator) void {
-        var includeHints_arr = allocator.alloc(qtc.libqt_string, includeHints.len) catch @panic("qdesignerformwindowinterface.SetIncludeHints: Memory allocation failed");
+        const includeHints_arr = allocator.alloc(qtc.libqt_string, includeHints.len) catch @panic("qdesignerformwindowinterface.SetIncludeHints: Memory allocation failed");
         defer allocator.free(includeHints_arr);
         for (includeHints, 0..includeHints.len) |item, i| {
             includeHints_arr[i] = .{
@@ -874,7 +874,7 @@ pub const qdesignerformwindowinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ActivateResourceFilePaths(self: ?*anyopaque, paths: []const []const u8, allocator: std.mem.Allocator) void {
-        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qdesignerformwindowinterface.ActivateResourceFilePaths: Memory allocation failed");
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qdesignerformwindowinterface.ActivateResourceFilePaths: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{
@@ -1276,7 +1276,7 @@ pub const qdesignerformwindowinterface = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ActivateResourceFilePaths2(self: ?*anyopaque, paths: []const []const u8, errorCount: *i32, allocator: std.mem.Allocator) void {
-        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qdesignerformwindowinterface.ActivateResourceFilePaths2: Memory allocation failed");
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qdesignerformwindowinterface.ActivateResourceFilePaths2: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{
@@ -5271,11 +5271,7 @@ pub const qdesignerformwindowinterface = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

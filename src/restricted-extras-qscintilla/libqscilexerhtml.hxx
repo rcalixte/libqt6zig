@@ -64,7 +64,7 @@ class VirtualQsciLexerHTML final : public QsciLexerHTML {
     using QsciLexerHTML_CustomEvent_Callback = void (*)(QsciLexerHTML*, QEvent*);
     using QsciLexerHTML_ConnectNotify_Callback = void (*)(QsciLexerHTML*, QMetaMethod*);
     using QsciLexerHTML_DisconnectNotify_Callback = void (*)(QsciLexerHTML*, QMetaMethod*);
-    using QsciLexerHTML_TextAsBytes_Callback = const char* (*)(const QsciLexerHTML*, libqt_string);
+    using QsciLexerHTML_TextAsBytes_Callback = libqt_string (*)(const QsciLexerHTML*, libqt_string);
     using QsciLexerHTML_BytesAsText_Callback = const char* (*)(const QsciLexerHTML*, const char*, int);
     using QsciLexerHTML_Sender_Callback = QObject* (*)();
     using QsciLexerHTML_SenderSignalIndex_Callback = int (*)();
@@ -1073,8 +1073,8 @@ class VirtualQsciLexerHTML final : public QsciLexerHTML {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerhtml_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerhtml_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerHTML::textAsBytes(text);

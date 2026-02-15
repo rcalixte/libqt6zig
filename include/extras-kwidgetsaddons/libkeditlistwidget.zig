@@ -291,7 +291,7 @@ pub const keditlistwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InsertStringList(self: ?*anyopaque, list: []const []const u8, allocator: std.mem.Allocator) void {
-        var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("keditlistwidget.InsertStringList: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("keditlistwidget.InsertStringList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
             list_arr[i] = .{
@@ -414,7 +414,7 @@ pub const keditlistwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("keditlistwidget.SetItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("keditlistwidget.SetItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -666,7 +666,7 @@ pub const keditlistwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn InsertStringList2(self: ?*anyopaque, list: []const []const u8, index: i32, allocator: std.mem.Allocator) void {
-        var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("keditlistwidget.InsertStringList2: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("keditlistwidget.InsertStringList2: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
             list_arr[i] = .{
@@ -4573,11 +4573,7 @@ pub const keditlistwidget = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -7000,9 +6996,9 @@ pub const keditlistwidget = struct {
     ///
     /// ` self: QtC.KEditListWidget`
     ///
-    /// ` callback: *const fn (self: QtC.KEditListWidget, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KEditListWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KEditListWidget_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

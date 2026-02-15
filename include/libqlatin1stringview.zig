@@ -71,9 +71,9 @@ pub const qlatin1string = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: []u8 `
     ///
-    pub fn New6(s: []const u8) QtC.QLatin1String {
+    pub fn New6(s: []u8) QtC.QLatin1String {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
