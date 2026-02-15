@@ -34,14 +34,18 @@ const (
 )
 
 func (p CppParameter) RenderTypeCabi(isSlot bool) string {
-	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
-		p.ParameterType == "QAnyStringView" || p.ParameterType == "QByteArrayView" ||
-		p.ParameterType == "SignOn::MethodName" {
+	if p.ParameterType == "QString" || p.ParameterType == "SignOn::MethodName" {
 		if isSlot {
 			return "const char*"
 		} else {
 			return "libqt_string"
 		}
+
+	} else if p.ParameterType == "QAnyStringView" {
+		return "const char*"
+
+	} else if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" {
+		return "libqt_string"
 
 	} else if inner, _, ok := p.QListOf(); ok {
 		innerType := inner.RenderTypeCabi(false)
@@ -302,7 +306,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 		return preamble, maybePointer + nameprefix + "_QString"
 
 	} else if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" {
-		if isSlot {
+		if (isSlot && strings.Contains(p.ParameterName, "_arr[")) || strings.HasSuffix(p.ParameterName, "_arr") {
 			preamble += indent + p.ParameterType + " " + nameprefix + "_" + p.ParameterType + "(" + p.ParameterName + ");\n"
 		} else {
 			// The caller will free the libqt_string data
@@ -312,8 +316,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 		return preamble, nameprefix + "_" + p.ParameterType
 
 	} else if p.ParameterType == "QAnyStringView" {
-		preamble += indent + "QString " + nameprefix + "_QString = QString::fromUtf8(" + p.ParameterName + ".data, " + p.ParameterName + ".len);\n"
-		return preamble, p.ParameterType + "(" + nameprefix + "_QString)"
+		return preamble, p.ParameterType + "(" + nameprefix + ")"
 
 	} else if listType, containerType, ok := p.QListOf(); ok {
 
@@ -337,7 +340,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			maybePointer = "*"
 		}
 
-		lType := listType.RenderTypeCabi(isSlot)
+		lType := ifv(isSlot && listType.ParameterType == "QByteArray", "const char*", listType.RenderTypeCabi(isSlot))
 
 		preamble += indent + containerQtType + maybePointer + " " + nameprefix + "_" + containerType + ";\n"
 
@@ -522,13 +525,20 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 		}
 
 	} else if t, ok := p.QSetOf(); ok {
+		preamble += "// Convert libqt_list to QSet<>\n"
+		preamble += "QSet<" + t.ParameterType + "> " + p.ParameterName + "_set;\n"
+		preamble += p.ParameterName + "_set.reserve(" + p.ParameterName + ".len);\n"
+
 		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
-			preamble += "// Convert libqt_list to QSet<>\n"
-			preamble += "QSet<" + t.ParameterType + "> " + p.ParameterName + "_set;\n"
-			preamble += p.ParameterName + "_set.reserve(" + p.ParameterName + ".len);\n"
 			preamble += "const libqt_string* " + p.ParameterName + "_strarr = static_cast<const libqt_string*>(" + p.ParameterName + ".data);\n"
 			preamble += "for (size_t i = 0; i < " + p.ParameterName + ".len; ++i) {\n"
 			preamble += "    " + p.ParameterName + "_set.insert(QString::fromUtf8(" + p.ParameterName + "_strarr[i].data));\n"
+			preamble += "}\n"
+
+		} else if e, ok := KnownEnums[t.ParameterType]; ok {
+			preamble += e.EnumTypeCABI + "* " + p.ParameterName + "_setarr = static_cast<" + e.EnumTypeCABI + "*>(" + p.ParameterName + ".data);\n"
+			preamble += "for (size_t i = 0; i < " + p.ParameterName + ".len; ++i) {\n"
+			preamble += "    " + p.ParameterName + "_set.insert(static_cast<" + t.ParameterType + ">(" + p.ParameterName + "_setarr[i]));\n"
 			preamble += "}\n"
 
 		} else {
@@ -641,7 +651,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		afterCall += indent + namePrefix + "_str.data = static_cast<const char*>(malloc(" + namePrefix + "_str.len + 1));\n"
 		afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_b.data(), " + namePrefix + "_str.len);\n"
 		afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + `_str.len] = '\0'` + ";\n"
-		afterCall += indent + assignExpression + namePrefix + "_str;\n"
+		afterCall += indent + assignExpression + namePrefix + "_str.data;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall, cleanupType
 
 	} else if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" {
@@ -651,14 +661,11 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		shouldReturn = maybeConst + p.ParameterType + " " + namePrefix + "_qb = "
 
-		maybeField := ifv(isSignal, ".data", "")
-
 		afterCall += indent + "libqt_string " + namePrefix + "_str;\n"
 		afterCall += indent + namePrefix + "_str.len = " + namePrefix + "_qb.length();\n"
-		afterCall += indent + namePrefix + "_str.data = static_cast<const char*>(malloc(" + namePrefix + "_str.len + 1));\n"
+		afterCall += indent + namePrefix + "_str.data = static_cast<char*>(malloc(" + namePrefix + "_str.len));\n"
 		afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_qb.data(), " + namePrefix + "_str.len);\n"
-		afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + `_str.len] = '\0'` + ";\n"
-		afterCall += indent + assignExpression + namePrefix + "_str" + maybeField + ";\n"
+		afterCall += indent + assignExpression + namePrefix + "_str;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall, cleanupType
 
 	} else if t, containerType, ok := p.QListOf(); ok {
@@ -781,7 +788,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 			if kType.ParameterType == "QByteArray" {
 				afterCall += namePrefix + "_karr[i].len = key.length();\n"
-				afterCall += namePrefix + "_karr[i].data = static_cast<" + kType.RenderTypeCabi(true) + ">(malloc(" + namePrefix + "_karr[i].len + 1));\n"
+				afterCall += namePrefix + "_karr[i].data = static_cast<char*>(malloc(" + namePrefix + "_karr[i].len + 1));\n"
 				afterCall += "memcpy((void*)" + namePrefix + "_karr[i].data, key.data(), " + namePrefix + "_karr[i].len);\n"
 				afterCall += "((char*)" + namePrefix + "_karr[i].data)[" + namePrefix + `_karr[i].len] = '\0'` + ";\n"
 			} else if kType.IntType() {
@@ -803,7 +810,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 				afterCall += "((char*)" + namePrefix + "_array[j].data)[" + namePrefix + `_array[j].len] = '\0'` + ";\n"
 			} else if vType.ParameterType == "QByteArray" {
 				afterCall += namePrefix + "_array[j].len = values[j].length();\n"
-				afterCall += namePrefix + "_array[j].data = static_cast<" + vType.RenderTypeCabi(true) + ">(malloc(" + namePrefix + "_array[j].len + 1));\n"
+				afterCall += namePrefix + "_array[j].data = static_cast<char*>(malloc(" + namePrefix + "_array[j].len + 1));\n"
 				afterCall += "memcpy((void*)" + namePrefix + "_array[j].data, values[j].data(), " + namePrefix + "_array[j].len);\n"
 				afterCall += "((char*)" + namePrefix + "_array[j].data)[" + namePrefix + `_array[j].len] = '\0'` + ";\n"
 			} else if IsKnownClass(vType.ParameterType) {
@@ -1421,7 +1428,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 				}
 
 				retString := ifv(len(signalCode) > 0, signalCode+"\n", "")
-				if m.ReturnType.QtClassType() && !m.ReturnType.Pointer && m.ReturnType.ParameterType != "QString" && m.ReturnType.ParameterType != "QByteArray" {
+				if IsKnownClass(m.ReturnType.ParameterType) && !m.ReturnType.Pointer && m.ReturnType.ParameterType != "QByteArrayView" {
 					retString += maybeReturn2 + callbackName + "(" + strings.Join(paramArgs, ", ") + ");\n"
 					retString += "return *callback_ret;\n"
 				} else {
@@ -2210,8 +2217,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			baseName := methodPrefixName + "_" + mSafeMethodName
 			isBaseName := baseName + "_IsBase"
 
-			if m.ReturnType.QtClassType() && !m.ReturnType.Pointer &&
-				m.ReturnType.ParameterType != "QString" && m.ReturnType.ParameterType != "QByteArray" {
+			if IsKnownClass(m.ReturnType.ParameterType) && !m.ReturnType.Pointer && m.ReturnType.ParameterType != "QByteArrayView" {
 				// For Qt class types returned by value, we need to:
 				// 1. Get the result and store it in a temporary
 				// 2. Create a new heap instance from that temporary
