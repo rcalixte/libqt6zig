@@ -16,7 +16,7 @@ import (
 // not language-reserved words, but binding-reserved words
 func zigReservedWord(s string) bool {
 	// block some Zig arbitrary width integers
-	if len(s) < 3 && (s[0] == 'i' || s[0] == 'u') {
+	if len(s) > 0 && len(s) < 3 && (s[0] == 'i' || s[0] == 'u') {
 		_, err := strconv.Atoi(s[1:])
 		if err == nil {
 			return true
@@ -249,12 +249,11 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		maybeConst := ifv(p.Const, "const ", "")
 		return strings.Repeat("[]"+maybeConst, p.PointerCount-1) + "[:0]" + maybeConst + "u8"
 	}
-	if p.ParameterType == "QString" || p.ParameterType == "QAnyStringView" ||
-		p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" ||
+	if p.ParameterType == "QString" || p.ParameterType == "QAnyStringView" || p.ParameterType == "QStringView" ||
 		p.ParameterType == "SignOn::MethodName" {
 		return "[]const u8"
 	}
-	if p.ParameterType == "QByteArray" {
+	if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" {
 		return "[]u8"
 	}
 
@@ -368,7 +367,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += "i8" // Signed
 	case "short", "qint16", "int16_t", "GLshort":
 		ret += "i16"
-	case "ushort", "quint16", "unsigned short", "uint16_t", "mode_t", "GLushort":
+	case "ushort", "quint16", "unsigned short", "uint16_t", "GLushort":
 		ret += "u16"
 	case "long":
 		// Windows ILP32 - 32-bits
@@ -385,13 +384,13 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			ret += "u64"
 		}
 
-	case "unsigned int", "quint32", "uint32_t", "uint", "gid_t", "uid_t", "dev_t", "GL", "GLbitfield", "GLenum", "GLuint":
+	case "unsigned int", "quint32", "uint32_t", "uint", "mode_t", "gid_t", "uid_t", "GL", "GLbitfield", "GLenum", "GLuint":
 		ret += "u32"
 	case "qint32", "int", "int32_t", "pid_t", "GLint", "GLsizei":
 		ret += "i32"
 	case "qlonglong", "qint64", "long long", "GLint64":
 		ret += "i64"
-	case "qulonglong", "quint64", "unsigned long long", "GLuint64":
+	case "qulonglong", "quint64", "unsigned long long", "dev_t", "GLuint64":
 		ret += "u64"
 	case "float", "GLclampf", "GLfloat":
 		ret += "f32"
@@ -705,14 +704,14 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 				} else {
 					// C calling convention limitations
 					switch paramType {
-					case "[][]const u8", "[]const []const u8":
+					case "[][]const u8", "[]const []const u8", "[]const [:0]const u8":
 						paramType = "?[*:null]?[*:0]const u8"
 					case "[][]u8":
 						paramType = "?[*:null]?[*:0]u8"
 					case "[]const u8", "[:0]const u8":
 						paramType = "[*:0]const u8"
 					case "[]u8", "[:0]u8":
-						paramType = "[*:0]u8"
+						paramType = "qtc.libqt_string"
 					default:
 						if strings.HasPrefix(paramType, "map_") {
 							paramType = "qtc.libqt_map (" + paramType + ")"
@@ -824,14 +823,14 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 				} else {
 					// C calling convention limitations
 					switch paramType {
-					case "[][]const u8", "[]const []const u8":
+					case "[][]const u8", "[]const []const u8", "[]const [:0]const u8":
 						paramType = "?[*:null]?[*:0]const u8"
 					case "[][]u8":
 						paramType = "?[*:null]?[*:0]u8"
 					case "[]const u8", "[:0]const u8":
 						paramType = "[*:0]const u8"
 					case "[]u8", "[:0]u8":
-						paramType = "[*:0]u8"
+						paramType = "qtc.libqt_string"
 					default:
 						if strings.HasPrefix(paramType, "map_") {
 							paramType = "qtc.libqt_map"
@@ -986,8 +985,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 	lowerClass := strings.ToLower(zfs.currentClassName)
 
-	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
-		p.ParameterType == "QAnyStringView" || p.ParameterType == "QByteArrayView" ||
+	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
 		p.ParameterType == "SignOn::MethodName" {
 		// Zig: convert [](const) u8 -> libqt_string
 		// C ABI: convert libqt_string -> real QString
@@ -999,7 +997,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		rvalue = nameprefix + "_str"
 
-	} else if p.ParameterType == "QStringView" {
+	} else if p.ParameterType == "QAnyStringView" || p.ParameterType == "QStringView" {
 		rvalue = p.ParameterName + ".ptr"
 
 	} else if t, _, ok := p.QListOf(); ok {
@@ -1009,8 +1007,9 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		// We need to use the C ABI type for that.
 		zfs.imports["std"] = struct{}{}
 
-		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" || t.ParameterType == "SignOn::MethodName" {
-			preamble += "var " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" || t.ParameterType == "SignOn::MethodName" ||
+			t.ParameterType == "QByteArrayView" {
+			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |item, i| {\n"
 			preamble += "    " + nameprefix + "_arr[i] = .{\n"
@@ -1020,14 +1019,14 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			preamble += "}\n"
 
 		} else if t.ParameterType == "char" && t.PointerCount == 1 {
-			preamble += "var " + nameprefix + "_cStr = allocator.alloc([*c]" + ifv(t.Const, "const ", "") + " u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_cStr = allocator.alloc([*c]" + ifv(t.Const, "const ", "") + " u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_cStr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |" + p.ParameterName + "_item, i| {\n"
 			preamble += "    " + nameprefix + "_cStr[i] = @ptrCast(" + p.ParameterName + "_item.ptr);\n"
 			preamble += "}\n"
 
 		} else if _, _, ok := t.QListOf(); ok {
-			preamble += "var " + nameprefix + "_arr = allocator.alloc(qtc.libqt_list, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_list, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + ") |" + nameprefix + "_inner, i| {\n"
 			preamble += "    " + nameprefix + "_arr[i] = qtc.libqt_list{\n"
@@ -1038,9 +1037,9 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		} else if f, s, ok := t.QPairOf(); ok {
 			if (f.ParameterType == "QString" || f.ParameterType == "QByteArray") && (s.ParameterType == "QString" || s.ParameterType == "QByteArray") {
-				preamble += "var " + p.ParameterName + "_pairs = allocator.alloc(qtc.libqt_pair, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				preamble += "const " + p.ParameterName + "_pairs = allocator.alloc(qtc.libqt_pair, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				preamble += "defer allocator.free(" + p.ParameterName + "_pairs);\n"
-				preamble += "var " + nameprefix + "_str = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len * 2) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				preamble += "const " + nameprefix + "_str = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len * 2) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				preamble += "defer allocator.free(" + nameprefix + "_str);\n"
 				preamble += "for (" + p.ParameterName + ", 0.." + ") |" + p.ParameterName + "_item, i| {\n"
 				preamble += "    " + p.ParameterName + "_str[i * 2] = qtc.libqt_string{\n"
@@ -1061,7 +1060,8 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		preamble += "const " + nameprefix + "_list = qtc.libqt_list{\n"
 		preamble += "    .len = " + p.ParameterName + ".len,\n"
-		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" || t.ParameterType == "SignOn::MethodName" {
+		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" || t.ParameterType == "SignOn::MethodName" ||
+			t.ParameterType == "QByteArrayView" {
 			preamble += "    .data = " + nameprefix + "_arr.ptr,\n"
 
 		} else if t.ParameterType == "char" && t.PointerCount == 1 {
@@ -1089,22 +1089,41 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		// QSet<T>
 		zfs.imports["std"] = struct{}{}
 
+		preamble += "const " + nameprefix + "_count = " + p.ParameterName + ".count();\n"
+
 		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
-			preamble += "const " + nameprefix + "_count = " + p.ParameterName + ".count();\n"
-			preamble += "var " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + nameprefix + `_count) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + nameprefix + `_count) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
 			preamble += "var " + nameprefix + "_it = " + nameprefix + ".keyIterator();\n"
 			preamble += "var " + nameprefix + "_i: usize = 0;\n"
-			preamble += "while (" + nameprefix + "_it.next()) |item| : (" + nameprefix + "_i += 1) {\n"
+			preamble += "while (" + nameprefix + "_it.next()) |" + nameprefix + "_item| : (" + nameprefix + "_i += 1) {\n"
 			preamble += "    " + nameprefix + "_arr[" + nameprefix + "_i] = .{\n"
-			preamble += "        .len = item.*.len,\n"
-			preamble += "        .data = item.*.ptr,\n"
+			preamble += "        .len = " + nameprefix + "_item.*.len,\n"
+			preamble += "        .data = " + nameprefix + "_item.*.ptr,\n"
 			preamble += "    };\n"
 			preamble += "}\n"
 
 			preamble += "const " + nameprefix + "_set = qtc.libqt_list{\n"
 			preamble += "    .len = " + nameprefix + "_count,\n"
 			preamble += "    .data = " + nameprefix + "_arr.ptr,\n"
+			preamble += "};\n"
+			rvalue = nameprefix + "_set"
+
+		} else if e, ok := KnownEnums[t.ParameterType]; ok {
+			zfs.imports["std"] = struct{}{}
+
+			preamble += "const " + nameprefix + "_keys = allocator.alloc(" + e.EnumTypeZig + ", " + nameprefix + `_count) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "defer allocator.free(" + nameprefix + "_keys);\n"
+			preamble += "var i: usize = 0;\n"
+			preamble += "var " + p.ParameterName + "_it = " + p.ParameterName + ".iterator();\n"
+			preamble += "while (" + nameprefix + "_it.next()) |" + nameprefix + "_item| : (i += 1) {\n"
+			preamble += "const " + nameprefix + "_key = " + nameprefix + "_item.key_ptr.*;\n"
+			preamble += nameprefix + "_keys[i] = @bitCast(" + nameprefix + "_key);\n"
+			preamble += "}\n"
+
+			preamble += "const " + nameprefix + "_set = qtc.libqt_list{\n"
+			preamble += "    .len = " + nameprefix + "_count,\n"
+			preamble += "    .data = " + nameprefix + "_keys.ptr,\n"
 			preamble += "};\n"
 			rvalue = nameprefix + "_set"
 
@@ -1398,7 +1417,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 	} else if (rt.ParameterType == "void" || rt.ParameterType == "GLvoid") && rt.Pointer {
 		return assignExpr + rvalue + ";"
 
-	} else if rt.ParameterType == "char" && rt.Pointer {
+	} else if (rt.ParameterType == "char" && rt.Pointer) || rt.ParameterType == "QAnyStringView" {
 		// Qt functions normally return QString - anything returning char*
 		// is something like QByteArray.Data() where it returns an unsafe
 		// internal pointer.
@@ -1412,9 +1431,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		afterword += assignExpr + " std.mem.span(" + namePrefix + "_ret);\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
-	} else if rt.ParameterType == "QString" || rt.ParameterType == "QAnyStringView" ||
-		rt.ParameterType == "QByteArrayView" || rt.ParameterType == "QStringView" ||
-		rt.ParameterType == "SignOn::MethodName" {
+	} else if rt.ParameterType == "QString" || rt.ParameterType == "QStringView" || rt.ParameterType == "SignOn::MethodName" {
 		zfs.imports["std"] = struct{}{}
 
 		shouldReturn = "var " + namePrefix + "_str ="
@@ -1424,7 +1441,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		afterword += assignExpr + " " + namePrefix + "_ret;\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
-	} else if rt.ParameterType == "QByteArray" {
+	} else if rt.ParameterType == "QByteArray" || rt.ParameterType == "QByteArrayView" {
 		// We receive the C ABI type of a libqt_string. Convert it into []byte
 		// We must free the libqt_string data pointer - this is a data copy,
 		// not an alias.
@@ -1492,7 +1509,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "    }\n"
 			afterword += "}\n"
 
-		} else if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
+		} else if t.ParameterType == "QString" || t.ParameterType == "QByteArray" || t.ParameterType == "QByteArrayView" {
 			afterword += "var " + namePrefix + "_str: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 			afterword += "defer {\n"
 			afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
