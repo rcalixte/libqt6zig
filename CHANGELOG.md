@@ -1,4 +1,8 @@
 
+### 6.8.2 rev60 (15 February 2026)
+
+* **BREAKING CHANGE:** Update projections for QAnyStringView, QByteArray, QByteArrayView, and structured data types (#118)
+
 ### 6.8.2 rev59 (6 February 2026)
 
 * **BREAKING CHANGE:** Unblock additional pointer types (#115)
