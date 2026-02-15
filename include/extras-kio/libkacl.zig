@@ -34,9 +34,9 @@ pub const kacl = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` basicPermissions: u16 `
+    /// ` basicPermissions: u32 `
     ///
-    pub fn New3(basicPermissions: u16) QtC.KACL {
+    pub fn New3(basicPermissions: u32) QtC.KACL {
         return qtc.KACL_new3(basicPermissions);
     }
 
@@ -164,7 +164,7 @@ pub const kacl = struct {
     ///
     /// ` self: QtC.KACL `
     ///
-    pub fn BasePermissions(self: ?*anyopaque) u16 {
+    pub fn BasePermissions(self: ?*anyopaque) u32 {
         return @intCast(qtc.KACL_BasePermissions(@ptrCast(self)));
     }
 

@@ -450,7 +450,7 @@ pub const qicon = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetThemeSearchPaths(searchpath: []const []const u8, allocator: std.mem.Allocator) void {
-        var searchpath_arr = allocator.alloc(qtc.libqt_string, searchpath.len) catch @panic("qicon.SetThemeSearchPaths: Memory allocation failed");
+        const searchpath_arr = allocator.alloc(qtc.libqt_string, searchpath.len) catch @panic("qicon.SetThemeSearchPaths: Memory allocation failed");
         defer allocator.free(searchpath_arr);
         for (searchpath, 0..searchpath.len) |item, i| {
             searchpath_arr[i] = .{
@@ -499,7 +499,7 @@ pub const qicon = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetFallbackSearchPaths(paths: []const []const u8, allocator: std.mem.Allocator) void {
-        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qicon.SetFallbackSearchPaths: Memory allocation failed");
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qicon.SetFallbackSearchPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{

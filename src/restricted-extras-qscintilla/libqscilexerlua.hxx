@@ -62,7 +62,7 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     using QsciLexerLua_CustomEvent_Callback = void (*)(QsciLexerLua*, QEvent*);
     using QsciLexerLua_ConnectNotify_Callback = void (*)(QsciLexerLua*, QMetaMethod*);
     using QsciLexerLua_DisconnectNotify_Callback = void (*)(QsciLexerLua*, QMetaMethod*);
-    using QsciLexerLua_TextAsBytes_Callback = const char* (*)(const QsciLexerLua*, libqt_string);
+    using QsciLexerLua_TextAsBytes_Callback = libqt_string (*)(const QsciLexerLua*, libqt_string);
     using QsciLexerLua_BytesAsText_Callback = const char* (*)(const QsciLexerLua*, const char*, int);
     using QsciLexerLua_Sender_Callback = QObject* (*)();
     using QsciLexerLua_SenderSignalIndex_Callback = int (*)();
@@ -1033,8 +1033,8 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerlua_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerlua_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerLua::textAsBytes(text);

@@ -62,7 +62,7 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     using QsciLexerYAML_CustomEvent_Callback = void (*)(QsciLexerYAML*, QEvent*);
     using QsciLexerYAML_ConnectNotify_Callback = void (*)(QsciLexerYAML*, QMetaMethod*);
     using QsciLexerYAML_DisconnectNotify_Callback = void (*)(QsciLexerYAML*, QMetaMethod*);
-    using QsciLexerYAML_TextAsBytes_Callback = const char* (*)(const QsciLexerYAML*, libqt_string);
+    using QsciLexerYAML_TextAsBytes_Callback = libqt_string (*)(const QsciLexerYAML*, libqt_string);
     using QsciLexerYAML_BytesAsText_Callback = const char* (*)(const QsciLexerYAML*, const char*, int);
     using QsciLexerYAML_Sender_Callback = QObject* (*)();
     using QsciLexerYAML_SenderSignalIndex_Callback = int (*)();
@@ -1033,8 +1033,8 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexeryaml_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexeryaml_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerYAML::textAsBytes(text);

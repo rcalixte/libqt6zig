@@ -293,9 +293,9 @@ pub const kcodecaction = struct {
     ///
     /// ` self: QtC.KCodecAction `
     ///
-    /// ` callback: *const fn (self: QtC.KCodecAction, name: [*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KCodecAction, name: qtc.libqt_string) callconv(.c) void `
     ///
-    pub fn OnCodecNameTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) void) void {
+    pub fn OnCodecNameTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
         qtc.KCodecAction_Connect_CodecNameTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -679,7 +679,7 @@ pub const kcodecaction = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetItems(self: ?*anyopaque, lst: []const []const u8, allocator: std.mem.Allocator) void {
-        var lst_arr = allocator.alloc(qtc.libqt_string, lst.len) catch @panic("kcodecaction.SetItems: Memory allocation failed");
+        const lst_arr = allocator.alloc(qtc.libqt_string, lst.len) catch @panic("kcodecaction.SetItems: Memory allocation failed");
         defer allocator.free(lst_arr);
         for (lst, 0..lst.len) |item, i| {
             lst_arr[i] = .{
@@ -2066,11 +2066,7 @@ pub const kcodecaction = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

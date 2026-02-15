@@ -29,15 +29,15 @@ void QFormDataPartBuilder_Swap(QFormDataPartBuilder* self, QFormDataPartBuilder*
 QFormDataPartBuilder* QFormDataPartBuilder_SetBody(QFormDataPartBuilder* self, libqt_string data);
 QFormDataPartBuilder* QFormDataPartBuilder_SetBodyDevice(QFormDataPartBuilder* self, QIODevice* body);
 QFormDataPartBuilder* QFormDataPartBuilder_SetHeaders(QFormDataPartBuilder* self, const QHttpHeaders* headers);
-QFormDataPartBuilder* QFormDataPartBuilder_SetBody2(QFormDataPartBuilder* self, libqt_string data, libqt_string fileName);
-QFormDataPartBuilder* QFormDataPartBuilder_SetBody3(QFormDataPartBuilder* self, libqt_string data, libqt_string fileName, libqt_string mimeType);
-QFormDataPartBuilder* QFormDataPartBuilder_SetBodyDevice2(QFormDataPartBuilder* self, QIODevice* body, libqt_string fileName);
-QFormDataPartBuilder* QFormDataPartBuilder_SetBodyDevice3(QFormDataPartBuilder* self, QIODevice* body, libqt_string fileName, libqt_string mimeType);
+QFormDataPartBuilder* QFormDataPartBuilder_SetBody2(QFormDataPartBuilder* self, libqt_string data, const char* fileName);
+QFormDataPartBuilder* QFormDataPartBuilder_SetBody3(QFormDataPartBuilder* self, libqt_string data, const char* fileName, const char* mimeType);
+QFormDataPartBuilder* QFormDataPartBuilder_SetBodyDevice2(QFormDataPartBuilder* self, QIODevice* body, const char* fileName);
+QFormDataPartBuilder* QFormDataPartBuilder_SetBodyDevice3(QFormDataPartBuilder* self, QIODevice* body, const char* fileName, const char* mimeType);
 void QFormDataPartBuilder_Delete(QFormDataPartBuilder* self);
 
 QFormDataBuilder* QFormDataBuilder_new();
 void QFormDataBuilder_Swap(QFormDataBuilder* self, QFormDataBuilder* other);
-QFormDataPartBuilder* QFormDataBuilder_Part(QFormDataBuilder* self, libqt_string name);
+QFormDataPartBuilder* QFormDataBuilder_Part(QFormDataBuilder* self, const char* name);
 void QFormDataBuilder_Delete(QFormDataBuilder* self);
 
 #ifdef __cplusplus

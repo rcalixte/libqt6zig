@@ -370,9 +370,9 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, data: [*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, data: qtc.libqt_string) callconv(.c) void `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]u8) callconv(.c) void) void {
+    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_Data(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -404,9 +404,9 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, data: [*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__SpecialJob, job: QtC.KIO__Job, data: qtc.libqt_string) callconv(.c) void `
     ///
-    pub fn OnDataReq(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]u8) callconv(.c) void) void {
+    pub fn OnDataReq(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_DataReq(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1402,11 +1402,7 @@ pub const kio__specialjob = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -2301,9 +2297,9 @@ pub const kio__specialjob = struct {
     ///
     /// ` self: QtC.KIO__SpecialJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__SpecialJob, data: [*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__SpecialJob, data: qtc.libqt_string) callconv(.c) void `
     ///
-    pub fn OnSlotData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) void) void {
+    pub fn OnSlotData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
         qtc.KIO__SpecialJob_OnSlotData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

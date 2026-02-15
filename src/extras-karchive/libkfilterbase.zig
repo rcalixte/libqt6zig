@@ -240,9 +240,9 @@ pub const kfilterbase = struct {
     ///
     /// ` self: QtC.KFilterBase `
     ///
-    /// ` callback: *const fn (self: QtC.KFilterBase, filename: [*:0]u8) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KFilterBase, filename: qtc.libqt_string) callconv(.c) bool `
     ///
-    pub fn OnWriteHeader(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) bool) void {
+    pub fn OnWriteHeader(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) bool) void {
         qtc.KFilterBase_OnWriteHeader(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -287,9 +287,9 @@ pub const kfilterbase = struct {
     ///
     /// ` self: QtC.KFilterBase `
     ///
-    /// ` callback: *const fn (self: QtC.KFilterBase, data: [*:0]u8, maxlen: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KFilterBase, data: qtc.libqt_string, maxlen: u32) callconv(.c) void `
     ///
-    pub fn OnSetOutBuffer(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, u32) callconv(.c) void) void {
+    pub fn OnSetOutBuffer(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, u32) callconv(.c) void) void {
         qtc.KFilterBase_OnSetOutBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

@@ -5,13 +5,13 @@ const C = @import("qt6c");
 /// These C container structs are exported for use in specific callbacks when needed.
 /// Otherwise, they should not need to be used.
 /// This data structure correlates to QList<>
-pub const libqt_list = ?*C.libqt_list;
+pub const libqt_list = C.libqt_list;
 /// This data structure correlates to QHash<>, QMap<>, QMultiHash<>, and QMultiMap<>
-pub const libqt_map = ?*C.libqt_map;
+pub const libqt_map = C.libqt_map;
 /// This data structure correlates to QPair<>
-pub const libqt_pair = ?*C.libqt_pair;
+pub const libqt_pair = C.libqt_pair;
 /// This data structure correlates to QString, QByteArray, and similar types
-pub const libqt_string = ?*C.libqt_string;
+pub const libqt_string = C.libqt_string;
 
 pub const Accounts__Account = ?*C.Accounts__Account;
 pub const Accounts__AccountService = ?*C.Accounts__AccountService;

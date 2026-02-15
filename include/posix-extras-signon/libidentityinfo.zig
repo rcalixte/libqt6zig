@@ -246,7 +246,7 @@ pub const signon__identityinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetRealms(self: ?*anyopaque, realms: []const []const u8, allocator: std.mem.Allocator) void {
-        var realms_arr = allocator.alloc(qtc.libqt_string, realms.len) catch @panic("signon__identityinfo.SetRealms: Memory allocation failed");
+        const realms_arr = allocator.alloc(qtc.libqt_string, realms.len) catch @panic("signon__identityinfo.SetRealms: Memory allocation failed");
         defer allocator.free(realms_arr);
         for (realms, 0..realms.len) |item, i| {
             realms_arr[i] = .{
@@ -331,7 +331,7 @@ pub const signon__identityinfo = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetAccessControlList(self: ?*anyopaque, accessControlList: []const []const u8, allocator: std.mem.Allocator) void {
-        var accessControlList_arr = allocator.alloc(qtc.libqt_string, accessControlList.len) catch @panic("signon__identityinfo.SetAccessControlList: Memory allocation failed");
+        const accessControlList_arr = allocator.alloc(qtc.libqt_string, accessControlList.len) catch @panic("signon__identityinfo.SetAccessControlList: Memory allocation failed");
         defer allocator.free(accessControlList_arr);
         for (accessControlList, 0..accessControlList.len) |item, i| {
             accessControlList_arr[i] = .{
@@ -423,7 +423,7 @@ pub const signon__identityinfo = struct {
             .len = method.len,
             .data = method.ptr,
         };
-        var mechanismsList_arr = allocator.alloc(qtc.libqt_string, mechanismsList.len) catch @panic("signon__identityinfo.SetMethod: Memory allocation failed");
+        const mechanismsList_arr = allocator.alloc(qtc.libqt_string, mechanismsList.len) catch @panic("signon__identityinfo.SetMethod: Memory allocation failed");
         defer allocator.free(mechanismsList_arr);
         for (mechanismsList, 0..mechanismsList.len) |item, i| {
             mechanismsList_arr[i] = .{

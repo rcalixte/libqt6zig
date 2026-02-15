@@ -209,7 +209,7 @@ pub const qbarcategoryaxis = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Append(self: ?*anyopaque, categories: []const []const u8, allocator: std.mem.Allocator) void {
-        var categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("qbarcategoryaxis.Append: Memory allocation failed");
+        const categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("qbarcategoryaxis.Append: Memory allocation failed");
         defer allocator.free(categories_arr);
         for (categories, 0..categories.len) |item, i| {
             categories_arr[i] = .{
@@ -317,7 +317,7 @@ pub const qbarcategoryaxis = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetCategories(self: ?*anyopaque, categories: []const []const u8, allocator: std.mem.Allocator) void {
-        var categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("qbarcategoryaxis.SetCategories: Memory allocation failed");
+        const categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("qbarcategoryaxis.SetCategories: Memory allocation failed");
         defer allocator.free(categories_arr);
         for (categories, 0..categories.len) |item, i| {
             categories_arr[i] = .{
@@ -2366,11 +2366,7 @@ pub const qbarcategoryaxis = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

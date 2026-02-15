@@ -504,7 +504,7 @@ pub const qwebsocketserver = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSupportedSubprotocols(self: ?*anyopaque, protocols: []const []const u8, allocator: std.mem.Allocator) void {
-        var protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qwebsocketserver.SetSupportedSubprotocols: Memory allocation failed");
+        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qwebsocketserver.SetSupportedSubprotocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
         for (protocols, 0..protocols.len) |item, i| {
             protocols_arr[i] = .{
@@ -1000,11 +1000,7 @@ pub const qwebsocketserver = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

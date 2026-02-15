@@ -71,7 +71,7 @@ pub const kconfigwatcher = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ConfigChanged(self: ?*anyopaque, group: ?*anyopaque, names: [][]u8, allocator: std.mem.Allocator) void {
-        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("kconfigwatcher.ConfigChanged: Memory allocation failed");
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("kconfigwatcher.ConfigChanged: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -199,11 +199,7 @@ pub const kconfigwatcher = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

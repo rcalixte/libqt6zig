@@ -1222,9 +1222,9 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    pub fn LoadFromData(self: ?*anyopaque, data: []const u8) bool {
+    pub fn LoadFromData(self: ?*anyopaque, data: []u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1294,9 +1294,9 @@ pub const qimage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
-    pub fn FromData(data: []const u8) QtC.QImage {
+    pub fn FromData(data: []u8) QtC.QImage {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2280,11 +2280,11 @@ pub const qimage = struct {
     ///
     /// ` self: QtC.QImage `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn LoadFromData22(self: ?*anyopaque, data: []const u8, format: [:0]const u8) bool {
+    pub fn LoadFromData22(self: ?*anyopaque, data: []u8, format: [:0]const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2405,11 +2405,11 @@ pub const qimage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn FromData22(data: []const u8, format: [:0]const u8) QtC.QImage {
+    pub fn FromData22(data: []u8, format: [:0]const u8) QtC.QImage {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

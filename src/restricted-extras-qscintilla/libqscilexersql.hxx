@@ -64,7 +64,7 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     using QsciLexerSQL_CustomEvent_Callback = void (*)(QsciLexerSQL*, QEvent*);
     using QsciLexerSQL_ConnectNotify_Callback = void (*)(QsciLexerSQL*, QMetaMethod*);
     using QsciLexerSQL_DisconnectNotify_Callback = void (*)(QsciLexerSQL*, QMetaMethod*);
-    using QsciLexerSQL_TextAsBytes_Callback = const char* (*)(const QsciLexerSQL*, libqt_string);
+    using QsciLexerSQL_TextAsBytes_Callback = libqt_string (*)(const QsciLexerSQL*, libqt_string);
     using QsciLexerSQL_BytesAsText_Callback = const char* (*)(const QsciLexerSQL*, const char*, int);
     using QsciLexerSQL_Sender_Callback = QObject* (*)();
     using QsciLexerSQL_SenderSignalIndex_Callback = int (*)();
@@ -1073,8 +1073,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexersql_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexersql_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerSQL::textAsBytes(text);

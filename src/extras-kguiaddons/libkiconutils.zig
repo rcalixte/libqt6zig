@@ -62,7 +62,7 @@ pub const kiconutils = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AddOverlays2(param1: ?*anyopaque, param2: []const []const u8, allocator: std.mem.Allocator) QtC.QIcon {
-        var param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("kiconutils.AddOverlays2: Memory allocation failed");
+        const param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("kiconutils.AddOverlays2: Memory allocation failed");
         defer allocator.free(param2_arr);
         for (param2, 0..param2.len) |item, i| {
             param2_arr[i] = .{
@@ -92,7 +92,7 @@ pub const kiconutils = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        var param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("kiconutils.AddOverlays3: Memory allocation failed");
+        const param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("kiconutils.AddOverlays3: Memory allocation failed");
         defer allocator.free(param2_arr);
         for (param2, 0..param2.len) |item, i| {
             param2_arr[i] = .{

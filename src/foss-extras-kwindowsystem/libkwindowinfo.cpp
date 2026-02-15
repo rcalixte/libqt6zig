@@ -158,9 +158,8 @@ libqt_string KWindowInfo_WindowClassClass(const KWindowInfo* self) {
     QByteArray _qb = self->windowClassClass();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -168,9 +167,8 @@ libqt_string KWindowInfo_WindowClassName(const KWindowInfo* self) {
     QByteArray _qb = self->windowClassName();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -178,9 +176,8 @@ libqt_string KWindowInfo_WindowRole(const KWindowInfo* self) {
     QByteArray _qb = self->windowRole();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -188,9 +185,8 @@ libqt_string KWindowInfo_ClientMachine(const KWindowInfo* self) {
     QByteArray _qb = self->clientMachine();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -198,9 +194,8 @@ libqt_string KWindowInfo_DesktopFileName(const KWindowInfo* self) {
     QByteArray _qb = self->desktopFileName();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -208,9 +203,8 @@ libqt_string KWindowInfo_GtkApplicationId(const KWindowInfo* self) {
     QByteArray _qb = self->gtkApplicationId();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -222,9 +216,8 @@ libqt_string KWindowInfo_ApplicationMenuServiceName(const KWindowInfo* self) {
     QByteArray _qb = self->applicationMenuServiceName();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -232,9 +225,8 @@ libqt_string KWindowInfo_ApplicationMenuObjectPath(const KWindowInfo* self) {
     QByteArray _qb = self->applicationMenuObjectPath();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

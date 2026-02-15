@@ -59,7 +59,7 @@ libqt_map /* of libqt_string to libqt_list of libqt_string */ QWebEngineLoadingI
     for (auto i = 0; i < _numUniqueKeys; ++i) {
         QByteArray key = _uniqueKeys[i];
         _karr[i].len = key.length();
-        _karr[i].data = static_cast<const char*>(malloc(_karr[i].len + 1));
+        _karr[i].data = static_cast<char*>(malloc(_karr[i].len + 1));
         memcpy((void*)_karr[i].data, key.data(), _karr[i].len);
         ((char*)_karr[i].data)[_karr[i].len] = '\0';
         QList<QByteArray> values = _ret.values(key);
@@ -67,7 +67,7 @@ libqt_map /* of libqt_string to libqt_list of libqt_string */ QWebEngineLoadingI
         libqt_string* _array = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * numValues));
         for (size_t j = 0; j < numValues; ++j) {
             _array[j].len = values[j].length();
-            _array[j].data = static_cast<const char*>(malloc(_array[j].len + 1));
+            _array[j].data = static_cast<char*>(malloc(_array[j].len + 1));
             memcpy((void*)_array[j].data, values[j].data(), _array[j].len);
             ((char*)_array[j].data)[_array[j].len] = '\0';
         }

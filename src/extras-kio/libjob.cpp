@@ -25,8 +25,7 @@ libqt_string KIO_RawErrorDetail(int param1, const libqt_string param2, const QUr
     QByteArray _qb = KIO::rawErrorDetail(static_cast<int>(param1), param2_QString, param3, static_cast<int>(param4));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }

@@ -64,7 +64,7 @@ class VirtualQsciLexerPascal final : public QsciLexerPascal {
     using QsciLexerPascal_CustomEvent_Callback = void (*)(QsciLexerPascal*, QEvent*);
     using QsciLexerPascal_ConnectNotify_Callback = void (*)(QsciLexerPascal*, QMetaMethod*);
     using QsciLexerPascal_DisconnectNotify_Callback = void (*)(QsciLexerPascal*, QMetaMethod*);
-    using QsciLexerPascal_TextAsBytes_Callback = const char* (*)(const QsciLexerPascal*, libqt_string);
+    using QsciLexerPascal_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPascal*, libqt_string);
     using QsciLexerPascal_BytesAsText_Callback = const char* (*)(const QsciLexerPascal*, const char*, int);
     using QsciLexerPascal_Sender_Callback = QObject* (*)();
     using QsciLexerPascal_SenderSignalIndex_Callback = int (*)();
@@ -1073,8 +1073,8 @@ class VirtualQsciLexerPascal final : public QsciLexerPascal {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerpascal_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerpascal_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerPascal::textAsBytes(text);

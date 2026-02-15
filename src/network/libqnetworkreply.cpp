@@ -84,9 +84,8 @@ QVariant* QNetworkReply_Header(const QNetworkReply* self, int header) {
     return new QVariant(self->header(static_cast<QNetworkRequest::KnownHeaders>(header)));
 }
 
-bool QNetworkReply_HasRawHeader(const QNetworkReply* self, libqt_string headerName) {
-    QString headerName_QString = QString::fromUtf8(headerName.data, headerName.len);
-    return self->hasRawHeader(QAnyStringView(headerName_QString));
+bool QNetworkReply_HasRawHeader(const QNetworkReply* self, const char* headerName) {
+    return self->hasRawHeader(QAnyStringView(headerName));
 }
 
 libqt_list /* of libqt_string */ QNetworkReply_RawHeaderList(const QNetworkReply* self) {
@@ -97,9 +96,8 @@ libqt_list /* of libqt_string */ QNetworkReply_RawHeaderList(const QNetworkReply
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -108,14 +106,12 @@ libqt_list /* of libqt_string */ QNetworkReply_RawHeaderList(const QNetworkReply
     return _out;
 }
 
-libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, libqt_string headerName) {
-    QString headerName_QString = QString::fromUtf8(headerName.data, headerName.len);
-    QByteArray _qb = self->rawHeader(QAnyStringView(headerName_QString));
+libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, const char* headerName) {
+    QByteArray _qb = self->rawHeader(QAnyStringView(headerName));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -131,16 +127,14 @@ libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QNetworkRe
         QByteArray _lv_first_qb = _lv_ret.first;
         libqt_string _lv_first_str;
         _lv_first_str.len = _lv_first_qb.length();
-        _lv_first_str.data = static_cast<const char*>(malloc(_lv_first_str.len + 1));
+        _lv_first_str.data = static_cast<char*>(malloc(_lv_first_str.len));
         memcpy((void*)_lv_first_str.data, _lv_first_qb.data(), _lv_first_str.len);
-        ((char*)_lv_first_str.data)[_lv_first_str.len] = '\0';
         *_lv_first = _lv_first_str;
         QByteArray _lv_second_qb = _lv_ret.second;
         libqt_string _lv_second_str;
         _lv_second_str.len = _lv_second_qb.length();
-        _lv_second_str.data = static_cast<const char*>(malloc(_lv_second_str.len + 1));
+        _lv_second_str.data = static_cast<char*>(malloc(_lv_second_str.len));
         memcpy((void*)_lv_second_str.data, _lv_second_qb.data(), _lv_second_str.len);
-        ((char*)_lv_second_str.data)[_lv_second_str.len] = '\0';
         *_lv_second = _lv_second_str;
         libqt_pair _lv_out;
         _lv_out.first = static_cast<void*>(_lv_first);

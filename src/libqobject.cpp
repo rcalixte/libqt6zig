@@ -96,9 +96,8 @@ libqt_string QObject_ObjectName(const QObject* self) {
     return _str;
 }
 
-void QObject_SetObjectName(QObject* self, libqt_string name) {
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    self->setObjectName(QAnyStringView(name_QString));
+void QObject_SetObjectName(QObject* self, const char* name) {
+    self->setObjectName(QAnyStringView(name));
 }
 
 bool QObject_IsWidgetType(const QObject* self) {
@@ -226,9 +225,8 @@ libqt_list /* of libqt_string */ QObject_DynamicPropertyNames(const QObject* sel
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;

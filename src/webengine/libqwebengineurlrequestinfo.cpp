@@ -31,9 +31,8 @@ libqt_string QWebEngineUrlRequestInfo_RequestMethod(const QWebEngineUrlRequestIn
     QByteArray _qb = self->requestMethod();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -69,16 +68,14 @@ libqt_map /* of libqt_string to libqt_string */ QWebEngineUrlRequestInfo_HttpHea
         QByteArray _hashkey_qb = _itr->first;
         libqt_string _hashkey_str;
         _hashkey_str.len = _hashkey_qb.length();
-        _hashkey_str.data = static_cast<const char*>(malloc(_hashkey_str.len + 1));
+        _hashkey_str.data = static_cast<char*>(malloc(_hashkey_str.len));
         memcpy((void*)_hashkey_str.data, _hashkey_qb.data(), _hashkey_str.len);
-        ((char*)_hashkey_str.data)[_hashkey_str.len] = '\0';
         _karr[_ctr] = _hashkey_str;
         QByteArray _hashval_qb = _itr->second;
         libqt_string _hashval_str;
         _hashval_str.len = _hashval_qb.length();
-        _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
         memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-        ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
         _varr[_ctr] = _hashval_str;
         _ctr++;
     }

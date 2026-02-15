@@ -556,7 +556,7 @@ pub const qcoreapplication = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetLibraryPaths(libraryPaths: []const []const u8, allocator: std.mem.Allocator) void {
-        var libraryPaths_arr = allocator.alloc(qtc.libqt_string, libraryPaths.len) catch @panic("qcoreapplication.SetLibraryPaths: Memory allocation failed");
+        const libraryPaths_arr = allocator.alloc(qtc.libqt_string, libraryPaths.len) catch @panic("qcoreapplication.SetLibraryPaths: Memory allocation failed");
         defer allocator.free(libraryPaths_arr);
         for (libraryPaths, 0..libraryPaths.len) |item, i| {
             libraryPaths_arr[i] = .{
@@ -1113,11 +1113,7 @@ pub const qcoreapplication = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

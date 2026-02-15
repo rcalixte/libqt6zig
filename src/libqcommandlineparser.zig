@@ -175,7 +175,7 @@ pub const qcommandlineparser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Process(self: ?*anyopaque, arguments: []const []const u8, allocator: std.mem.Allocator) void {
-        var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Process: Memory allocation failed");
+        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Process: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{
@@ -213,7 +213,7 @@ pub const qcommandlineparser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Parse(self: ?*anyopaque, arguments: []const []const u8, allocator: std.mem.Allocator) bool {
-        var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Parse: Memory allocation failed");
+        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Parse: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{

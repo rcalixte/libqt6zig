@@ -587,7 +587,7 @@ pub const kpluginmetadata = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kpluginmetadata.Value8: Memory allocation failed");
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kpluginmetadata.Value8: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i| {
             defaultValue_arr[i] = .{

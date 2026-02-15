@@ -614,7 +614,7 @@ pub const kdirlister = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetMimeFilter(self: ?*anyopaque, mimeList: []const []const u8, allocator: std.mem.Allocator) void {
-        var mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kdirlister.SetMimeFilter: Memory allocation failed");
+        const mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kdirlister.SetMimeFilter: Memory allocation failed");
         defer allocator.free(mimeList_arr);
         for (mimeList, 0..mimeList.len) |item, i| {
             mimeList_arr[i] = .{
@@ -642,7 +642,7 @@ pub const kdirlister = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetMimeExcludeFilter(self: ?*anyopaque, mimeList: []const []const u8, allocator: std.mem.Allocator) void {
-        var mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kdirlister.SetMimeExcludeFilter: Memory allocation failed");
+        const mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kdirlister.SetMimeExcludeFilter: Memory allocation failed");
         defer allocator.free(mimeList_arr);
         for (mimeList, 0..mimeList.len) |item, i| {
             mimeList_arr[i] = .{
@@ -1331,11 +1331,7 @@ pub const kdirlister = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

@@ -103,7 +103,7 @@ pub const kacceleratormanager = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AddStandardActionNames(names: []const []const u8, allocator: std.mem.Allocator) void {
-        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("kacceleratormanager.AddStandardActionNames: Memory allocation failed");
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("kacceleratormanager.AddStandardActionNames: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{

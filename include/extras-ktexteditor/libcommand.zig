@@ -15,7 +15,7 @@ pub const ktexteditor__command = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn New(cmds: []const []const u8, allocator: std.mem.Allocator) QtC.KTextEditor__Command {
-        var cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("ktexteditor__command.New: Memory allocation failed");
+        const cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("ktexteditor__command.New: Memory allocation failed");
         defer allocator.free(cmds_arr);
         for (cmds, 0..cmds.len) |item, i| {
             cmds_arr[i] = .{
@@ -42,7 +42,7 @@ pub const ktexteditor__command = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn New2(cmds: []const []const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KTextEditor__Command {
-        var cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("ktexteditor__command.New2: Memory allocation failed");
+        const cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("ktexteditor__command.New2: Memory allocation failed");
         defer allocator.free(cmds_arr);
         for (cmds, 0..cmds.len) |item, i| {
             cmds_arr[i] = .{
@@ -619,11 +619,7 @@ pub const ktexteditor__command = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

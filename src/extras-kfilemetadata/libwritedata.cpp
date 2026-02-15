@@ -104,9 +104,8 @@ libqt_map /* of int to libqt_string */ KFileMetaData__WriteData_ImageData(const 
         QByteArray _mapval_qb = _itr->second;
         libqt_string _mapval_str;
         _mapval_str.len = _mapval_qb.length();
-        _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
+        _mapval_str.data = static_cast<char*>(malloc(_mapval_str.len));
         memcpy((void*)_mapval_str.data, _mapval_qb.data(), _mapval_str.len);
-        ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
         _varr[_ctr] = _mapval_str;
         _ctr++;
     }

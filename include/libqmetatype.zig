@@ -528,9 +528,9 @@ pub const qmetatype = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` name: []u8 `
     ///
-    pub fn FromName(name: []const u8) QtC.QMetaType {
+    pub fn FromName(name: []u8) QtC.QMetaType {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,

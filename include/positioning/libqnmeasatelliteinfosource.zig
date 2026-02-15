@@ -603,7 +603,7 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` pnrsInUse: []i32 `
     ///
@@ -611,7 +611,7 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn ParseSatellitesInUseFromNmea2(self: ?*anyopaque, data: []const u8, pnrsInUse: []i32) i32 {
+    pub fn ParseSatellitesInUseFromNmea2(self: ?*anyopaque, data: []u8, pnrsInUse: []i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -631,9 +631,9 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, pnrsInUse: qtc.libqt_list ([]i32)) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: qtc.libqt_string, pnrsInUse: qtc.libqt_list ([]i32)) callconv(.c) i32 `
     ///
-    pub fn OnParseSatellitesInUseFromNmea2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, qtc.libqt_list) callconv(.c) i32) void {
+    pub fn OnParseSatellitesInUseFromNmea2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, qtc.libqt_list) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatellitesInUseFromNmea2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -645,7 +645,7 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` pnrsInUse: []i32 `
     ///
@@ -653,7 +653,7 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn QBaseParseSatellitesInUseFromNmea2(self: ?*anyopaque, data: []const u8, pnrsInUse: []i32) i32 {
+    pub fn QBaseParseSatellitesInUseFromNmea2(self: ?*anyopaque, data: []u8, pnrsInUse: []i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -741,7 +741,7 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` infos: []QtC.QGeoSatelliteInfo `
     ///
@@ -751,7 +751,7 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` qnmeasatelliteinfosource_enums.SatelliteInfoParseStatus `
     ///
-    pub fn ParseSatelliteInfoFromNmea2(self: ?*anyopaque, data: []const u8, infos: []QtC.QGeoSatelliteInfo, system: *i32) i32 {
+    pub fn ParseSatelliteInfoFromNmea2(self: ?*anyopaque, data: []u8, infos: []QtC.QGeoSatelliteInfo, system: *i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -771,9 +771,9 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: [*:0]const u8, infos: qtc.libqt_list ([]QtC.QGeoSatelliteInfo), system: *qgeosatelliteinfo_enums.SatelliteSystem) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QtC.QNmeaSatelliteInfoSource, data: qtc.libqt_string, infos: qtc.libqt_list ([]QtC.QGeoSatelliteInfo), system: *qgeosatelliteinfo_enums.SatelliteSystem) callconv(.c) i32 `
     ///
-    pub fn OnParseSatelliteInfoFromNmea2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, qtc.libqt_list, *i32) callconv(.c) i32) void {
+    pub fn OnParseSatelliteInfoFromNmea2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, qtc.libqt_list, *i32) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatelliteInfoFromNmea2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -785,7 +785,7 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` self: QtC.QNmeaSatelliteInfoSource `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` infos: []QtC.QGeoSatelliteInfo `
     ///
@@ -795,7 +795,7 @@ pub const qnmeasatelliteinfosource = struct {
     ///
     /// ` qnmeasatelliteinfosource_enums.SatelliteInfoParseStatus `
     ///
-    pub fn QBaseParseSatelliteInfoFromNmea2(self: ?*anyopaque, data: []const u8, infos: []QtC.QGeoSatelliteInfo, system: *i32) i32 {
+    pub fn QBaseParseSatelliteInfoFromNmea2(self: ?*anyopaque, data: []u8, infos: []QtC.QGeoSatelliteInfo, system: *i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1175,11 +1175,7 @@ pub const qnmeasatelliteinfosource = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

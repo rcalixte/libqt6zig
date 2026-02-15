@@ -316,7 +316,7 @@ pub const attica__achievement = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetDependencies(self: ?*anyopaque, dependencies: []const []const u8, allocator: std.mem.Allocator) void {
-        var dependencies_arr = allocator.alloc(qtc.libqt_string, dependencies.len) catch @panic("attica__achievement.SetDependencies: Memory allocation failed");
+        const dependencies_arr = allocator.alloc(qtc.libqt_string, dependencies.len) catch @panic("attica__achievement.SetDependencies: Memory allocation failed");
         defer allocator.free(dependencies_arr);
         for (dependencies, 0..dependencies.len) |item, i| {
             dependencies_arr[i] = .{
@@ -453,7 +453,7 @@ pub const attica__achievement = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetOptions(self: ?*anyopaque, options: []const []const u8, allocator: std.mem.Allocator) void {
-        var options_arr = allocator.alloc(qtc.libqt_string, options.len) catch @panic("attica__achievement.SetOptions: Memory allocation failed");
+        const options_arr = allocator.alloc(qtc.libqt_string, options.len) catch @panic("attica__achievement.SetOptions: Memory allocation failed");
         defer allocator.free(options_arr);
         for (options, 0..options.len) |item, i| {
             options_arr[i] = .{

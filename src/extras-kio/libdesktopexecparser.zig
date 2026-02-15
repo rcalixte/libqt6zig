@@ -130,7 +130,7 @@ pub const kio__desktopexecparser = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn IsProtocolInSupportedList(url: ?*anyopaque, supportedProtocols: []const []const u8, allocator: std.mem.Allocator) bool {
-        var supportedProtocols_arr = allocator.alloc(qtc.libqt_string, supportedProtocols.len) catch @panic("kio__desktopexecparser.IsProtocolInSupportedList: Memory allocation failed");
+        const supportedProtocols_arr = allocator.alloc(qtc.libqt_string, supportedProtocols.len) catch @panic("kio__desktopexecparser.IsProtocolInSupportedList: Memory allocation failed");
         defer allocator.free(supportedProtocols_arr);
         for (supportedProtocols, 0..supportedProtocols.len) |item, i| {
             supportedProtocols_arr[i] = .{

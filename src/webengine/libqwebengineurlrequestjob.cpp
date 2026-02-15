@@ -34,9 +34,8 @@ libqt_string QWebEngineUrlRequestJob_RequestMethod(const QWebEngineUrlRequestJob
     QByteArray _qb = self->requestMethod();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -54,16 +53,14 @@ libqt_map /* of libqt_string to libqt_string */ QWebEngineUrlRequestJob_RequestH
         QByteArray _mapkey_qb = _itr->first;
         libqt_string _mapkey_str;
         _mapkey_str.len = _mapkey_qb.length();
-        _mapkey_str.data = static_cast<const char*>(malloc(_mapkey_str.len + 1));
+        _mapkey_str.data = static_cast<char*>(malloc(_mapkey_str.len));
         memcpy((void*)_mapkey_str.data, _mapkey_qb.data(), _mapkey_str.len);
-        ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
         QByteArray _mapval_qb = _itr->second;
         libqt_string _mapval_str;
         _mapval_str.len = _mapval_qb.length();
-        _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
+        _mapval_str.data = static_cast<char*>(malloc(_mapval_str.len));
         memcpy((void*)_mapval_str.data, _mapval_qb.data(), _mapval_str.len);
-        ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
         _varr[_ctr] = _mapval_str;
         _ctr++;
     }

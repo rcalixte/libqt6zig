@@ -814,7 +814,7 @@ pub const kconfigskeleton = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigskeleton.AddItemStringList: Memory allocation failed");
+        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigskeleton.AddItemStringList: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -1939,7 +1939,7 @@ pub const kconfigskeleton = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigskeleton.AddItemStringList3: Memory allocation failed");
+        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigskeleton.AddItemStringList3: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -1951,7 +1951,7 @@ pub const kconfigskeleton = struct {
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kconfigskeleton.AddItemStringList3: Memory allocation failed");
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kconfigskeleton.AddItemStringList3: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i| {
             defaultValue_arr[i] = .{
@@ -1989,7 +1989,7 @@ pub const kconfigskeleton = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigskeleton.AddItemStringList4: Memory allocation failed");
+        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigskeleton.AddItemStringList4: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -2001,7 +2001,7 @@ pub const kconfigskeleton = struct {
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kconfigskeleton.AddItemStringList4: Memory allocation failed");
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kconfigskeleton.AddItemStringList4: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i| {
             defaultValue_arr[i] = .{
@@ -2115,11 +2115,7 @@ pub const kconfigskeleton = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

@@ -40,9 +40,8 @@ libqt_string QCryptographicHash_Result(const QCryptographicHash* self) {
     QByteArray _qb = self->result();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -50,9 +49,8 @@ libqt_string QCryptographicHash_ResultView(const QCryptographicHash* self) {
     QByteArrayView _qb = self->resultView();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -61,9 +59,8 @@ libqt_string QCryptographicHash_Hash(libqt_string data, int method) {
     QByteArray _qb = QCryptographicHash::hash(data_QByteArrayView, static_cast<QCryptographicHash::Algorithm>(method));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -78,9 +75,8 @@ libqt_string QCryptographicHash_HashInto(libqt_list /* of char */ buffer, libqt_
     QByteArrayView _qb = QCryptographicHash::hashInto(buffer_QSpan, data_QByteArrayView, static_cast<QCryptographicHash::Algorithm>(method));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -95,9 +91,8 @@ libqt_string QCryptographicHash_HashInto2(libqt_list /* of unsigned char */ buff
     QByteArrayView _qb = QCryptographicHash::hashInto(buffer_QSpan, data_QByteArrayView, static_cast<QCryptographicHash::Algorithm>(method));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -118,9 +113,8 @@ libqt_string QCryptographicHash_HashInto4(libqt_list /* of char */ buffer, libqt
     QByteArrayView _qb = QCryptographicHash::hashInto(buffer_QSpan, data_QSpan, static_cast<QCryptographicHash::Algorithm>(method));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -141,9 +135,8 @@ libqt_string QCryptographicHash_HashInto5(libqt_list /* of unsigned char */ buff
     QByteArrayView _qb = QCryptographicHash::hashInto(buffer_QSpan, data_QSpan, static_cast<QCryptographicHash::Algorithm>(method));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

@@ -596,13 +596,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ` self: QtC.QNmeaPositionInfoSource `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` posInfo: QtC.QGeoPositionInfo `
     ///
     /// ` hasFix: *bool `
     ///
-    pub fn ParsePosInfoFromNmeaData2(self: ?*anyopaque, data: []const u8, posInfo: ?*anyopaque, hasFix: *bool) bool {
+    pub fn ParsePosInfoFromNmeaData2(self: ?*anyopaque, data: []u8, posInfo: ?*anyopaque, hasFix: *bool) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -618,9 +618,9 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ` self: QtC.QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, data: [*:0]const u8, posInfo: QtC.QGeoPositionInfo, hasFix: *bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, data: qtc.libqt_string, posInfo: QtC.QGeoPositionInfo, hasFix: *bool) callconv(.c) bool `
     ///
-    pub fn OnParsePosInfoFromNmeaData2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, *bool) callconv(.c) bool) void {
+    pub fn OnParsePosInfoFromNmeaData2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *bool) callconv(.c) bool) void {
         qtc.QNmeaPositionInfoSource_OnParsePosInfoFromNmeaData2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -632,13 +632,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ` self: QtC.QNmeaPositionInfoSource `
     ///
-    /// ` data: []const u8 `
+    /// ` data: []u8 `
     ///
     /// ` posInfo: QtC.QGeoPositionInfo `
     ///
     /// ` hasFix: *bool `
     ///
-    pub fn QBaseParsePosInfoFromNmeaData2(self: ?*anyopaque, data: []const u8, posInfo: ?*anyopaque, hasFix: *bool) bool {
+    pub fn QBaseParsePosInfoFromNmeaData2(self: ?*anyopaque, data: []u8, posInfo: ?*anyopaque, hasFix: *bool) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1020,11 +1020,7 @@ pub const qnmeapositioninfosource = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

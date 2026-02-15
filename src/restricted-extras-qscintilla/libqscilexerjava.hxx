@@ -66,7 +66,7 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     using QsciLexerJava_CustomEvent_Callback = void (*)(QsciLexerJava*, QEvent*);
     using QsciLexerJava_ConnectNotify_Callback = void (*)(QsciLexerJava*, QMetaMethod*);
     using QsciLexerJava_DisconnectNotify_Callback = void (*)(QsciLexerJava*, QMetaMethod*);
-    using QsciLexerJava_TextAsBytes_Callback = const char* (*)(const QsciLexerJava*, libqt_string);
+    using QsciLexerJava_TextAsBytes_Callback = libqt_string (*)(const QsciLexerJava*, libqt_string);
     using QsciLexerJava_BytesAsText_Callback = const char* (*)(const QsciLexerJava*, const char*, int);
     using QsciLexerJava_Sender_Callback = QObject* (*)();
     using QsciLexerJava_SenderSignalIndex_Callback = int (*)();
@@ -1113,8 +1113,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerjava_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerjava_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerJava::textAsBytes(text);

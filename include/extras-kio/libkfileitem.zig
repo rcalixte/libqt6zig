@@ -110,9 +110,9 @@ pub const kfileitem = struct {
     ///
     /// ` mimeType: []const u8 `
     ///
-    /// ` mode: u16 `
+    /// ` mode: u32 `
     ///
-    pub fn New9(url: ?*anyopaque, mimeType: []const u8, mode: u16) QtC.KFileItem {
+    pub fn New9(url: ?*anyopaque, mimeType: []const u8, mode: u32) QtC.KFileItem {
         const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
@@ -225,7 +225,7 @@ pub const kfileitem = struct {
     ///
     /// ` self: QtC.KFileItem `
     ///
-    pub fn Permissions(self: ?*anyopaque) u16 {
+    pub fn Permissions(self: ?*anyopaque) u32 {
         return @intCast(qtc.KFileItem_Permissions(@ptrCast(self)));
     }
 
@@ -281,7 +281,7 @@ pub const kfileitem = struct {
     ///
     /// ` self: QtC.KFileItem `
     ///
-    pub fn Mode(self: ?*anyopaque) u16 {
+    pub fn Mode(self: ?*anyopaque) u32 {
         return @intCast(qtc.KFileItem_Mode(@ptrCast(self)));
     }
 

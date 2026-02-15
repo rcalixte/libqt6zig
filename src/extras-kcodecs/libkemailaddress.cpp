@@ -92,9 +92,8 @@ libqt_string KEmailAddress_ExtractEmailAddress(const libqt_string param1) {
     QByteArray _qb = KEmailAddress::extractEmailAddress(param1_QByteArray);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -104,9 +103,8 @@ libqt_string KEmailAddress_ExtractEmailAddress2(const libqt_string param1, libqt
     QByteArray _qb = KEmailAddress::extractEmailAddress(param1_QByteArray, param2_QString);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -142,9 +140,8 @@ libqt_string KEmailAddress_FirstEmailAddress(const libqt_string param1) {
     QByteArray _qb = KEmailAddress::firstEmailAddress(param1_QByteArray);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -154,9 +151,8 @@ libqt_string KEmailAddress_FirstEmailAddress2(const libqt_string param1, libqt_s
     QByteArray _qb = KEmailAddress::firstEmailAddress(param1_QByteArray, param2_QString);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

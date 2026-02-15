@@ -72,9 +72,8 @@ libqt_map /* of int to libqt_string */ KNSCore__ProvidersModel_RoleNames(const K
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
             memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
             _ctr++;
         }
@@ -94,9 +93,8 @@ libqt_map /* of int to libqt_string */ KNSCore__ProvidersModel_RoleNames(const K
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
             memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
             _ctr++;
         }
@@ -210,9 +208,8 @@ libqt_map /* of int to libqt_string */ KNSCore__ProvidersModel_QBaseRoleNames(co
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
             memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
             _ctr++;
         }
@@ -232,9 +229,8 @@ libqt_map /* of int to libqt_string */ KNSCore__ProvidersModel_QBaseRoleNames(co
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
+            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
             memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
             _ctr++;
         }

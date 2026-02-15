@@ -1248,9 +1248,9 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSocket, data: [*:0]u8, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QtC.QAbstractSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
+    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.QAbstractSocket_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1294,9 +1294,9 @@ pub const qabstractsocket = struct {
     ///
     /// ` self: QtC.QAbstractSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSocket, data: [*:0]u8, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QtC.QAbstractSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
+    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.QAbstractSocket_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2442,11 +2442,7 @@ pub const qabstractsocket = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

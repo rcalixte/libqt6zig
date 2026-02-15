@@ -21,7 +21,7 @@ pub const terminalinterface = struct {
             .len = program.len,
             .data = program.ptr,
         };
-        var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("terminalinterface.StartProgram: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("terminalinterface.StartProgram: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
             args_arr[i] = .{

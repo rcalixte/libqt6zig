@@ -32,28 +32,22 @@ QFormDataPartBuilder* QFormDataPartBuilder_SetHeaders(QFormDataPartBuilder* self
     return new QFormDataPartBuilder(self->setHeaders(*headers));
 }
 
-QFormDataPartBuilder* QFormDataPartBuilder_SetBody2(QFormDataPartBuilder* self, libqt_string data, libqt_string fileName) {
+QFormDataPartBuilder* QFormDataPartBuilder_SetBody2(QFormDataPartBuilder* self, libqt_string data, const char* fileName) {
     QByteArrayView data_QByteArrayView(data.data, data.len);
-    QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    return new QFormDataPartBuilder(self->setBody(data_QByteArrayView, QAnyStringView(fileName_QString)));
+    return new QFormDataPartBuilder(self->setBody(data_QByteArrayView, QAnyStringView(fileName)));
 }
 
-QFormDataPartBuilder* QFormDataPartBuilder_SetBody3(QFormDataPartBuilder* self, libqt_string data, libqt_string fileName, libqt_string mimeType) {
+QFormDataPartBuilder* QFormDataPartBuilder_SetBody3(QFormDataPartBuilder* self, libqt_string data, const char* fileName, const char* mimeType) {
     QByteArrayView data_QByteArrayView(data.data, data.len);
-    QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    QString mimeType_QString = QString::fromUtf8(mimeType.data, mimeType.len);
-    return new QFormDataPartBuilder(self->setBody(data_QByteArrayView, QAnyStringView(fileName_QString), QAnyStringView(mimeType_QString)));
+    return new QFormDataPartBuilder(self->setBody(data_QByteArrayView, QAnyStringView(fileName), QAnyStringView(mimeType)));
 }
 
-QFormDataPartBuilder* QFormDataPartBuilder_SetBodyDevice2(QFormDataPartBuilder* self, QIODevice* body, libqt_string fileName) {
-    QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    return new QFormDataPartBuilder(self->setBodyDevice(body, QAnyStringView(fileName_QString)));
+QFormDataPartBuilder* QFormDataPartBuilder_SetBodyDevice2(QFormDataPartBuilder* self, QIODevice* body, const char* fileName) {
+    return new QFormDataPartBuilder(self->setBodyDevice(body, QAnyStringView(fileName)));
 }
 
-QFormDataPartBuilder* QFormDataPartBuilder_SetBodyDevice3(QFormDataPartBuilder* self, QIODevice* body, libqt_string fileName, libqt_string mimeType) {
-    QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    QString mimeType_QString = QString::fromUtf8(mimeType.data, mimeType.len);
-    return new QFormDataPartBuilder(self->setBodyDevice(body, QAnyStringView(fileName_QString), QAnyStringView(mimeType_QString)));
+QFormDataPartBuilder* QFormDataPartBuilder_SetBodyDevice3(QFormDataPartBuilder* self, QIODevice* body, const char* fileName, const char* mimeType) {
+    return new QFormDataPartBuilder(self->setBodyDevice(body, QAnyStringView(fileName), QAnyStringView(mimeType)));
 }
 
 void QFormDataPartBuilder_Delete(QFormDataPartBuilder* self) {
@@ -68,9 +62,8 @@ void QFormDataBuilder_Swap(QFormDataBuilder* self, QFormDataBuilder* other) {
     self->swap(*other);
 }
 
-QFormDataPartBuilder* QFormDataBuilder_Part(QFormDataBuilder* self, libqt_string name) {
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    return new QFormDataPartBuilder(self->part(QAnyStringView(name_QString)));
+QFormDataPartBuilder* QFormDataBuilder_Part(QFormDataBuilder* self, const char* name) {
+    return new QFormDataPartBuilder(self->part(QAnyStringView(name)));
 }
 
 void QFormDataBuilder_Delete(QFormDataBuilder* self) {

@@ -43,7 +43,7 @@ pub const kuitsetup = struct {
             .len = tagName.len,
             .data = tagName.ptr,
         };
-        var attribNames_arr = allocator.alloc(qtc.libqt_string, attribNames.len) catch @panic("kuitsetup.SetTagPattern: Memory allocation failed");
+        const attribNames_arr = allocator.alloc(qtc.libqt_string, attribNames.len) catch @panic("kuitsetup.SetTagPattern: Memory allocation failed");
         defer allocator.free(attribNames_arr);
         for (attribNames, 0..attribNames.len) |item, i| {
             attribNames_arr[i] = .{

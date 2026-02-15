@@ -225,7 +225,7 @@ pub const qfileselector = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetExtraSelectors(self: ?*anyopaque, list: []const []const u8, allocator: std.mem.Allocator) void {
-        var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qfileselector.SetExtraSelectors: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qfileselector.SetExtraSelectors: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
             list_arr[i] = .{
@@ -338,11 +338,7 @@ pub const qfileselector = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

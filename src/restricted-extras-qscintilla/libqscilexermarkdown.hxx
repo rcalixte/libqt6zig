@@ -61,7 +61,7 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
     using QsciLexerMarkdown_CustomEvent_Callback = void (*)(QsciLexerMarkdown*, QEvent*);
     using QsciLexerMarkdown_ConnectNotify_Callback = void (*)(QsciLexerMarkdown*, QMetaMethod*);
     using QsciLexerMarkdown_DisconnectNotify_Callback = void (*)(QsciLexerMarkdown*, QMetaMethod*);
-    using QsciLexerMarkdown_TextAsBytes_Callback = const char* (*)(const QsciLexerMarkdown*, libqt_string);
+    using QsciLexerMarkdown_TextAsBytes_Callback = libqt_string (*)(const QsciLexerMarkdown*, libqt_string);
     using QsciLexerMarkdown_BytesAsText_Callback = const char* (*)(const QsciLexerMarkdown*, const char*, int);
     using QsciLexerMarkdown_Sender_Callback = QObject* (*)();
     using QsciLexerMarkdown_SenderSignalIndex_Callback = int (*)();
@@ -1013,8 +1013,8 @@ class VirtualQsciLexerMarkdown final : public QsciLexerMarkdown {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexermarkdown_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexermarkdown_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerMarkdown::textAsBytes(text);

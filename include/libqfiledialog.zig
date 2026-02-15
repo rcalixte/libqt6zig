@@ -399,7 +399,7 @@ pub const qfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetNameFilters(self: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) void {
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetNameFilters: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -500,7 +500,7 @@ pub const qfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetMimeTypeFilters(self: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) void {
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetMimeTypeFilters: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -770,7 +770,7 @@ pub const qfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetHistory(self: ?*anyopaque, paths: []const []const u8, allocator: std.mem.Allocator) void {
-        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qfiledialog.SetHistory: Memory allocation failed");
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qfiledialog.SetHistory: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{
@@ -903,7 +903,7 @@ pub const qfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: []const []const u8, allocator: std.mem.Allocator) void {
-        var schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("qfiledialog.SetSupportedSchemes: Memory allocation failed");
+        const schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("qfiledialog.SetSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
         for (schemes, 0..schemes.len) |item, i| {
             schemes_arr[i] = .{
@@ -1096,7 +1096,7 @@ pub const qfiledialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FilesSelected(self: ?*anyopaque, files: []const []const u8, allocator: std.mem.Allocator) void {
-        var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("qfiledialog.FilesSelected: Memory allocation failed");
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("qfiledialog.FilesSelected: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
             files_arr[i] = .{
@@ -2116,7 +2116,7 @@ pub const qfiledialog = struct {
             .len = caption.len,
             .data = caption.ptr,
         };
-        var supportedSchemes_arr = allocator.alloc(qtc.libqt_string, supportedSchemes.len) catch @panic("qfiledialog.GetExistingDirectoryUrl5: Memory allocation failed");
+        const supportedSchemes_arr = allocator.alloc(qtc.libqt_string, supportedSchemes.len) catch @panic("qfiledialog.GetExistingDirectoryUrl5: Memory allocation failed");
         defer allocator.free(supportedSchemes_arr);
         for (supportedSchemes, 0..supportedSchemes.len) |item, i| {
             supportedSchemes_arr[i] = .{
@@ -6413,11 +6413,7 @@ pub const qfiledialog = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -8976,9 +8972,9 @@ pub const qfiledialog = struct {
     ///
     /// ` self: QtC.QFileDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFileDialog, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QFileDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QFileDialog_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

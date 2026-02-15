@@ -157,9 +157,9 @@ pub const kio__filejob = struct {
     ///
     /// ` self: QtC.KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KIO__Job, data: [*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QtC.KIO__FileJob, job: QtC.KIO__Job, data: qtc.libqt_string) callconv(.c) void `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]u8) callconv(.c) void) void {
+    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_string) callconv(.c) void) void {
         qtc.KIO__FileJob_Connect_Data(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1325,11 +1325,7 @@ pub const kio__filejob = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

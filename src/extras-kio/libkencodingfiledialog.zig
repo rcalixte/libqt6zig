@@ -4899,11 +4899,7 @@ pub const kencodingfiledialog = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -5819,7 +5815,7 @@ pub const kencodingfiledialog__result = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetFileNames(self: ?*anyopaque, fileNames: []const []const u8, allocator: std.mem.Allocator) void {
-        var fileNames_arr = allocator.alloc(qtc.libqt_string, fileNames.len) catch @panic("kencodingfiledialog__result.SetFileNames: Memory allocation failed");
+        const fileNames_arr = allocator.alloc(qtc.libqt_string, fileNames.len) catch @panic("kencodingfiledialog__result.SetFileNames: Memory allocation failed");
         defer allocator.free(fileNames_arr);
         for (fileNames, 0..fileNames.len) |item, i| {
             fileNames_arr[i] = .{

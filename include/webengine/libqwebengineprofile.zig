@@ -624,7 +624,7 @@ pub const qwebengineprofile = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSpellCheckLanguages(self: ?*anyopaque, languages: []const []const u8, allocator: std.mem.Allocator) void {
-        var languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("qwebengineprofile.SetSpellCheckLanguages: Memory allocation failed");
+        const languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("qwebengineprofile.SetSpellCheckLanguages: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i| {
             languages_arr[i] = .{
@@ -944,11 +944,7 @@ pub const qwebengineprofile = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

@@ -332,9 +332,8 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             const QByteArray data_qb = data;
             libqt_string data_str;
             data_str.len = data_qb.length();
-            data_str.data = static_cast<const char*>(malloc(data_str.len + 1));
+            data_str.data = static_cast<char*>(malloc(data_str.len));
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
-            ((char*)data_str.data)[data_str.len] = '\0';
             libqt_string cbval1 = data_str;
 
             KIO__WorkerResult* callback_ret = kio__workerbase_write_callback(this, cbval1);
@@ -645,9 +644,8 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             const QByteArray data_qb = data;
             libqt_string data_str;
             data_str.len = data_qb.length();
-            data_str.data = static_cast<const char*>(malloc(data_str.len + 1));
+            data_str.data = static_cast<char*>(malloc(data_str.len));
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
-            ((char*)data_str.data)[data_str.len] = '\0';
             libqt_string cbval1 = data_str;
 
             KIO__WorkerResult* callback_ret = kio__workerbase_special_callback(this, cbval1);

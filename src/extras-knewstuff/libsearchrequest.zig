@@ -126,7 +126,7 @@ pub const knscore__searchrequest = struct {
             .len = searchTerm_.len,
             .data = searchTerm_.ptr,
         };
-        var categories__arr = allocator.alloc(qtc.libqt_string, categories_.len) catch @panic("knscore__searchrequest.New6: Memory allocation failed");
+        const categories__arr = allocator.alloc(qtc.libqt_string, categories_.len) catch @panic("knscore__searchrequest.New6: Memory allocation failed");
         defer allocator.free(categories__arr);
         for (categories_, 0..categories_.len) |item, i| {
             categories__arr[i] = .{
@@ -163,7 +163,7 @@ pub const knscore__searchrequest = struct {
             .len = searchTerm_.len,
             .data = searchTerm_.ptr,
         };
-        var categories__arr = allocator.alloc(qtc.libqt_string, categories_.len) catch @panic("knscore__searchrequest.New7: Memory allocation failed");
+        const categories__arr = allocator.alloc(qtc.libqt_string, categories_.len) catch @panic("knscore__searchrequest.New7: Memory allocation failed");
         defer allocator.free(categories__arr);
         for (categories_, 0..categories_.len) |item, i| {
             categories__arr[i] = .{
@@ -202,7 +202,7 @@ pub const knscore__searchrequest = struct {
             .len = searchTerm_.len,
             .data = searchTerm_.ptr,
         };
-        var categories__arr = allocator.alloc(qtc.libqt_string, categories_.len) catch @panic("knscore__searchrequest.New8: Memory allocation failed");
+        const categories__arr = allocator.alloc(qtc.libqt_string, categories_.len) catch @panic("knscore__searchrequest.New8: Memory allocation failed");
         defer allocator.free(categories__arr);
         for (categories_, 0..categories_.len) |item, i| {
             categories__arr[i] = .{

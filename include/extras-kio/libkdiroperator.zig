@@ -276,7 +276,7 @@ pub const kdiroperator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetMimeFilter(self: ?*anyopaque, mimetypes: []const []const u8, allocator: std.mem.Allocator) void {
-        var mimetypes_arr = allocator.alloc(qtc.libqt_string, mimetypes.len) catch @panic("kdiroperator.SetMimeFilter: Memory allocation failed");
+        const mimetypes_arr = allocator.alloc(qtc.libqt_string, mimetypes.len) catch @panic("kdiroperator.SetMimeFilter: Memory allocation failed");
         defer allocator.free(mimetypes_arr);
         for (mimetypes, 0..mimetypes.len) |item, i| {
             mimetypes_arr[i] = .{
@@ -329,7 +329,7 @@ pub const kdiroperator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetNewFileMenuSupportedMimeTypes(self: ?*anyopaque, mime: []const []const u8, allocator: std.mem.Allocator) void {
-        var mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("kdiroperator.SetNewFileMenuSupportedMimeTypes: Memory allocation failed");
+        const mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("kdiroperator.SetNewFileMenuSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mime_arr);
         for (mime, 0..mime.len) |item, i| {
             mime_arr[i] = .{
@@ -2240,7 +2240,7 @@ pub const kdiroperator = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: []const []const u8, allocator: std.mem.Allocator) void {
-        var schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("kdiroperator.SetSupportedSchemes: Memory allocation failed");
+        const schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("kdiroperator.SetSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
         for (schemes, 0..schemes.len) |item, i| {
             schemes_arr[i] = .{
@@ -6965,11 +6965,7 @@ pub const kdiroperator = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -9344,9 +9340,9 @@ pub const kdiroperator = struct {
     ///
     /// ` self: QtC.KDirOperator`
     ///
-    /// ` callback: *const fn (self: QtC.KDirOperator, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KDirOperator, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KDirOperator_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

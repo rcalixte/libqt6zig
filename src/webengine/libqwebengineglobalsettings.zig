@@ -69,7 +69,7 @@ pub const qwebengineglobalsettings__dnsmode = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetServerTemplates(self: ?*anyopaque, serverTemplates: []const []const u8, allocator: std.mem.Allocator) void {
-        var serverTemplates_arr = allocator.alloc(qtc.libqt_string, serverTemplates.len) catch @panic("qwebengineglobalsettings__dnsmode.SetServerTemplates: Memory allocation failed");
+        const serverTemplates_arr = allocator.alloc(qtc.libqt_string, serverTemplates.len) catch @panic("qwebengineglobalsettings__dnsmode.SetServerTemplates: Memory allocation failed");
         defer allocator.free(serverTemplates_arr);
         for (serverTemplates, 0..serverTemplates.len) |item, i| {
             serverTemplates_arr[i] = .{

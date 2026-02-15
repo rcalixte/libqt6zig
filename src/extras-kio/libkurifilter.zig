@@ -265,7 +265,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetKeys(self: ?*anyopaque, keys: []const []const u8, allocator: std.mem.Allocator) void {
-        var keys_arr = allocator.alloc(qtc.libqt_string, keys.len) catch @panic("kurifiltersearchprovider.SetKeys: Memory allocation failed");
+        const keys_arr = allocator.alloc(qtc.libqt_string, keys.len) catch @panic("kurifiltersearchprovider.SetKeys: Memory allocation failed");
         defer allocator.free(keys_arr);
         for (keys, 0..keys.len) |item, i| {
             keys_arr[i] = .{
@@ -307,7 +307,7 @@ pub const kurifiltersearchprovider = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetKeys(self: ?*anyopaque, keys: []const []const u8, allocator: std.mem.Allocator) void {
-        var keys_arr = allocator.alloc(qtc.libqt_string, keys.len) catch @panic("kurifiltersearchprovider.SetKeys: Memory allocation failed");
+        const keys_arr = allocator.alloc(qtc.libqt_string, keys.len) catch @panic("kurifiltersearchprovider.SetKeys: Memory allocation failed");
         defer allocator.free(keys_arr);
         for (keys, 0..keys.len) |item, i| {
             keys_arr[i] = .{
@@ -862,7 +862,7 @@ pub const kurifilterdata = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetAlternateSearchProviders(self: ?*anyopaque, providers: []const []const u8, allocator: std.mem.Allocator) void {
-        var providers_arr = allocator.alloc(qtc.libqt_string, providers.len) catch @panic("kurifilterdata.SetAlternateSearchProviders: Memory allocation failed");
+        const providers_arr = allocator.alloc(qtc.libqt_string, providers.len) catch @panic("kurifilterdata.SetAlternateSearchProviders: Memory allocation failed");
         defer allocator.free(providers_arr);
         for (providers, 0..providers.len) |item, i| {
             providers_arr[i] = .{
@@ -1098,7 +1098,7 @@ pub const kurifilter = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FilterUri22(self: ?*anyopaque, data: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) bool {
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilterUri22: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilterUri22: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -1126,7 +1126,7 @@ pub const kurifilter = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FilterUri23(self: ?*anyopaque, uri: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) bool {
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilterUri23: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilterUri23: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -1158,7 +1158,7 @@ pub const kurifilter = struct {
             .len = uri.len,
             .data = uri.ptr,
         };
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilterUri24: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilterUri24: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -1186,7 +1186,7 @@ pub const kurifilter = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FilteredUri22(self: ?*anyopaque, uri: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) QtC.QUrl {
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilteredUri22: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilteredUri22: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -1218,7 +1218,7 @@ pub const kurifilter = struct {
             .len = uri.len,
             .data = uri.ptr,
         };
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilteredUri23: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurifilter.FilteredUri23: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{

@@ -73,16 +73,15 @@ void KIO__TransferJob_Data(KIO__TransferJob* self, KIO__Job* job, const libqt_st
 }
 
 void KIO__TransferJob_Connect_Data(KIO__TransferJob* self, intptr_t slot) {
-    void (*slotFunc)(KIO__TransferJob*, KIO__Job*, const char*) = reinterpret_cast<void (*)(KIO__TransferJob*, KIO__Job*, const char*)>(slot);
+    void (*slotFunc)(KIO__TransferJob*, KIO__Job*, libqt_string) = reinterpret_cast<void (*)(KIO__TransferJob*, KIO__Job*, libqt_string)>(slot);
     KIO::TransferJob::connect(self, &KIO::TransferJob::data, [self, slotFunc](KIO::Job* job, const QByteArray& data) {
         KIO__Job* sigval1 = job;
         const QByteArray data_qb = data;
         libqt_string data_str;
         data_str.len = data_qb.length();
-        data_str.data = static_cast<const char*>(malloc(data_str.len + 1));
+        data_str.data = static_cast<char*>(malloc(data_str.len));
         memcpy((void*)data_str.data, data_qb.data(), data_str.len);
-        ((char*)data_str.data)[data_str.len] = '\0';
-        const char* sigval2 = data_str.data;
+        libqt_string sigval2 = data_str;
         slotFunc(self, sigval1, sigval2);
     });
 }
@@ -93,16 +92,15 @@ void KIO__TransferJob_DataReq(KIO__TransferJob* self, KIO__Job* job, libqt_strin
 }
 
 void KIO__TransferJob_Connect_DataReq(KIO__TransferJob* self, intptr_t slot) {
-    void (*slotFunc)(KIO__TransferJob*, KIO__Job*, const char*) = reinterpret_cast<void (*)(KIO__TransferJob*, KIO__Job*, const char*)>(slot);
+    void (*slotFunc)(KIO__TransferJob*, KIO__Job*, libqt_string) = reinterpret_cast<void (*)(KIO__TransferJob*, KIO__Job*, libqt_string)>(slot);
     KIO::TransferJob::connect(self, &KIO::TransferJob::dataReq, [self, slotFunc](KIO::Job* job, QByteArray& data) {
         KIO__Job* sigval1 = job;
         QByteArray data_qb = data;
         libqt_string data_str;
         data_str.len = data_qb.length();
-        data_str.data = static_cast<const char*>(malloc(data_str.len + 1));
+        data_str.data = static_cast<char*>(malloc(data_str.len));
         memcpy((void*)data_str.data, data_qb.data(), data_str.len);
-        ((char*)data_str.data)[data_str.len] = '\0';
-        const char* sigval2 = data_str.data;
+        libqt_string sigval2 = data_str;
         slotFunc(self, sigval1, sigval2);
     });
 }

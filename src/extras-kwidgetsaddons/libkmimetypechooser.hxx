@@ -898,9 +898,8 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<const char*>(malloc(eventType_str.len + 1));
+            eventType_str.data = static_cast<char*>(malloc(eventType_str.len));
             memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
-            ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
             void* cbval2 = message;
             qintptr* result_ret = result;
@@ -2359,9 +2358,8 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<const char*>(malloc(eventType_str.len + 1));
+            eventType_str.data = static_cast<char*>(malloc(eventType_str.len));
             memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
-            ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
             void* cbval2 = message;
             qintptr* result_ret = result;

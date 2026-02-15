@@ -370,7 +370,7 @@ pub const qinputdialog = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetComboBoxItems(self: ?*anyopaque, items: []const []const u8, allocator: std.mem.Allocator) void {
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.SetComboBoxItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.SetComboBoxItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -871,7 +871,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -1563,7 +1563,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem5: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem5: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -1609,7 +1609,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem6: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem6: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -1657,7 +1657,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem7: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem7: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -1707,7 +1707,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem8: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem8: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -1759,7 +1759,7 @@ pub const qinputdialog = struct {
             .len = label.len,
             .data = label.ptr,
         };
-        var items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem9: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("qinputdialog.GetItem9: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i| {
             items_arr[i] = .{
@@ -6182,11 +6182,7 @@ pub const qinputdialog = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -8701,9 +8697,9 @@ pub const qinputdialog = struct {
     ///
     /// ` self: QtC.QInputDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QInputDialog, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QInputDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QInputDialog_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

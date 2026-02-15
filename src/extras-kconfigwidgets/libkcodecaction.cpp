@@ -97,15 +97,14 @@ void KCodecAction_CodecNameTriggered(KCodecAction* self, const libqt_string name
 }
 
 void KCodecAction_Connect_CodecNameTriggered(KCodecAction* self, intptr_t slot) {
-    void (*slotFunc)(KCodecAction*, const char*) = reinterpret_cast<void (*)(KCodecAction*, const char*)>(slot);
+    void (*slotFunc)(KCodecAction*, libqt_string) = reinterpret_cast<void (*)(KCodecAction*, libqt_string)>(slot);
     KCodecAction::connect(self, &KCodecAction::codecNameTriggered, [self, slotFunc](const QByteArray& name) {
         const QByteArray name_qb = name;
         libqt_string name_str;
         name_str.len = name_qb.length();
-        name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
+        name_str.data = static_cast<char*>(malloc(name_str.len));
         memcpy((void*)name_str.data, name_qb.data(), name_str.len);
-        ((char*)name_str.data)[name_str.len] = '\0';
-        const char* sigval1 = name_str.data;
+        libqt_string sigval1 = name_str;
         slotFunc(self, sigval1);
     });
 }

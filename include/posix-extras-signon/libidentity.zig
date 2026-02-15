@@ -260,7 +260,7 @@ pub const signon__identity = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn MethodsAvailable(self: ?*anyopaque, methods: []const []const u8, allocator: std.mem.Allocator) void {
-        var methods_arr = allocator.alloc(qtc.libqt_string, methods.len) catch @panic("signon__identity.MethodsAvailable: Memory allocation failed");
+        const methods_arr = allocator.alloc(qtc.libqt_string, methods.len) catch @panic("signon__identity.MethodsAvailable: Memory allocation failed");
         defer allocator.free(methods_arr);
         for (methods, 0..methods.len) |item, i| {
             methods_arr[i] = .{
@@ -682,11 +682,7 @@ pub const signon__identity = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

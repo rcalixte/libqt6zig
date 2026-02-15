@@ -160,7 +160,7 @@ pub const attica__field = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetOptions(self: ?*anyopaque, options: []const []const u8, allocator: std.mem.Allocator) void {
-        var options_arr = allocator.alloc(qtc.libqt_string, options.len) catch @panic("attica__field.SetOptions: Memory allocation failed");
+        const options_arr = allocator.alloc(qtc.libqt_string, options.len) catch @panic("attica__field.SetOptions: Memory allocation failed");
         defer allocator.free(options_arr);
         for (options, 0..options.len) |item, i| {
             options_arr[i] = .{

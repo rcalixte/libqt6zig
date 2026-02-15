@@ -236,7 +236,7 @@ pub const qplacesearchsuggestionreply = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSuggestions(self: ?*anyopaque, suggestions: []const []const u8, allocator: std.mem.Allocator) void {
-        var suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("qplacesearchsuggestionreply.SetSuggestions: Memory allocation failed");
+        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("qplacesearchsuggestionreply.SetSuggestions: Memory allocation failed");
         defer allocator.free(suggestions_arr);
         for (suggestions, 0..suggestions.len) |item, i| {
             suggestions_arr[i] = .{
@@ -278,7 +278,7 @@ pub const qplacesearchsuggestionreply = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetSuggestions(self: ?*anyopaque, suggestions: []const []const u8, allocator: std.mem.Allocator) void {
-        var suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("qplacesearchsuggestionreply.SetSuggestions: Memory allocation failed");
+        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("qplacesearchsuggestionreply.SetSuggestions: Memory allocation failed");
         defer allocator.free(suggestions_arr);
         for (suggestions, 0..suggestions.len) |item, i| {
             suggestions_arr[i] = .{
@@ -550,11 +550,7 @@ pub const qplacesearchsuggestionreply = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

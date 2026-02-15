@@ -186,12 +186,12 @@ bool QDomDocument_SetContent(QDomDocument* self, const libqt_string text, bool n
 bool QDomDocument_SetContent2(QDomDocument* self, const libqt_string text, bool namespaceProcessing);
 bool QDomDocument_SetContent3(QDomDocument* self, QIODevice* dev, bool namespaceProcessing);
 bool QDomDocument_SetContent7(QDomDocument* self, QXmlStreamReader* reader, bool namespaceProcessing);
-QDomDocument__ParseResult* QDomDocument_SetContent8(QDomDocument* self, libqt_string data);
+QDomDocument__ParseResult* QDomDocument_SetContent8(QDomDocument* self, const char* data);
 QDomDocument__ParseResult* QDomDocument_SetContent9(QDomDocument* self, QIODevice* device);
 QDomDocument__ParseResult* QDomDocument_SetContent10(QDomDocument* self, QXmlStreamReader* reader);
 libqt_string QDomDocument_ToString(const QDomDocument* self);
 libqt_string QDomDocument_ToByteArray(const QDomDocument* self);
-QDomDocument__ParseResult* QDomDocument_SetContent22(QDomDocument* self, libqt_string data, int options);
+QDomDocument__ParseResult* QDomDocument_SetContent22(QDomDocument* self, const char* data, int options);
 QDomDocument__ParseResult* QDomDocument_SetContent23(QDomDocument* self, QIODevice* device, int options);
 QDomDocument__ParseResult* QDomDocument_SetContent24(QDomDocument* self, QXmlStreamReader* reader, int options);
 libqt_string QDomDocument_ToString1(const QDomDocument* self, int indent);

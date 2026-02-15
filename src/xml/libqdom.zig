@@ -2849,11 +2849,7 @@ pub const qdomdocument = struct {
     /// ` data: []const u8 `
     ///
     pub fn SetContent8(self: ?*anyopaque, data: []const u8) QtC.QDomDocument__ParseResult {
-        const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
-        };
-        return qtc.QDomDocument_SetContent8(@ptrCast(self), data_str);
+        return qtc.QDomDocument_SetContent8(@ptrCast(self), data.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
@@ -2923,11 +2919,7 @@ pub const qdomdocument = struct {
     /// ` options: flag of qdom_enums.ParseOption `
     ///
     pub fn SetContent22(self: ?*anyopaque, data: []const u8, options: i32) QtC.QDomDocument__ParseResult {
-        const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
-        };
-        return qtc.QDomDocument_SetContent22(@ptrCast(self), data_str, @intCast(options));
+        return qtc.QDomDocument_SetContent22(@ptrCast(self), data.ptr, @intCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)

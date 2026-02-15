@@ -1932,7 +1932,7 @@ pub const qwebenginepage = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn ChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: []const []const u8, acceptedMimeTypes: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
-        var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
+        const oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
         for (oldFiles, 0..oldFiles.len) |item, i| {
             oldFiles_arr[i] = .{
@@ -1944,7 +1944,7 @@ pub const qwebenginepage = struct {
             .len = oldFiles.len,
             .data = oldFiles_arr.ptr,
         };
-        var acceptedMimeTypes_arr = allocator.alloc(qtc.libqt_string, acceptedMimeTypes.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
+        const acceptedMimeTypes_arr = allocator.alloc(qtc.libqt_string, acceptedMimeTypes.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(acceptedMimeTypes_arr);
         for (acceptedMimeTypes, 0..acceptedMimeTypes.len) |item, i| {
             acceptedMimeTypes_arr[i] = .{
@@ -2007,7 +2007,7 @@ pub const qwebenginepage = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: []const []const u8, acceptedMimeTypes: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
-        var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
+        const oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
         for (oldFiles, 0..oldFiles.len) |item, i| {
             oldFiles_arr[i] = .{
@@ -2019,7 +2019,7 @@ pub const qwebenginepage = struct {
             .len = oldFiles.len,
             .data = oldFiles_arr.ptr,
         };
-        var acceptedMimeTypes_arr = allocator.alloc(qtc.libqt_string, acceptedMimeTypes.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
+        const acceptedMimeTypes_arr = allocator.alloc(qtc.libqt_string, acceptedMimeTypes.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(acceptedMimeTypes_arr);
         for (acceptedMimeTypes, 0..acceptedMimeTypes.len) |item, i| {
             acceptedMimeTypes_arr[i] = .{
@@ -2528,11 +2528,7 @@ pub const qwebenginepage = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

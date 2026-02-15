@@ -63,7 +63,7 @@ pub const sonnet__guesslanguage = struct {
             .len = text.len,
             .data = text.ptr,
         };
-        var suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("sonnet__guesslanguage.Identify2: Memory allocation failed");
+        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("sonnet__guesslanguage.Identify2: Memory allocation failed");
         defer allocator.free(suggestions_arr);
         for (suggestions, 0..suggestions.len) |item, i| {
             suggestions_arr[i] = .{

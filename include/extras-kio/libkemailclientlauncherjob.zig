@@ -165,7 +165,7 @@ pub const kemailclientlauncherjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetTo(self: ?*anyopaque, to: []const []const u8, allocator: std.mem.Allocator) void {
-        var to_arr = allocator.alloc(qtc.libqt_string, to.len) catch @panic("kemailclientlauncherjob.SetTo: Memory allocation failed");
+        const to_arr = allocator.alloc(qtc.libqt_string, to.len) catch @panic("kemailclientlauncherjob.SetTo: Memory allocation failed");
         defer allocator.free(to_arr);
         for (to, 0..to.len) |item, i| {
             to_arr[i] = .{
@@ -191,7 +191,7 @@ pub const kemailclientlauncherjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetCc(self: ?*anyopaque, cc: []const []const u8, allocator: std.mem.Allocator) void {
-        var cc_arr = allocator.alloc(qtc.libqt_string, cc.len) catch @panic("kemailclientlauncherjob.SetCc: Memory allocation failed");
+        const cc_arr = allocator.alloc(qtc.libqt_string, cc.len) catch @panic("kemailclientlauncherjob.SetCc: Memory allocation failed");
         defer allocator.free(cc_arr);
         for (cc, 0..cc.len) |item, i| {
             cc_arr[i] = .{
@@ -217,7 +217,7 @@ pub const kemailclientlauncherjob = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetBcc(self: ?*anyopaque, bcc: []const []const u8, allocator: std.mem.Allocator) void {
-        var bcc_arr = allocator.alloc(qtc.libqt_string, bcc.len) catch @panic("kemailclientlauncherjob.SetBcc: Memory allocation failed");
+        const bcc_arr = allocator.alloc(qtc.libqt_string, bcc.len) catch @panic("kemailclientlauncherjob.SetBcc: Memory allocation failed");
         defer allocator.free(bcc_arr);
         for (bcc, 0..bcc.len) |item, i| {
             bcc_arr[i] = .{
@@ -835,11 +835,7 @@ pub const kemailclientlauncherjob = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

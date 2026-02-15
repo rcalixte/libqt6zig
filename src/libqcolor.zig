@@ -208,11 +208,7 @@ pub const qcolor = struct {
     /// ` name: []const u8 `
     ///
     pub fn FromString(name: []const u8) QtC.QColor {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        return qtc.QColor_FromString(name_str);
+        return qtc.QColor_FromString(name.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#operator-eq)
@@ -1351,11 +1347,7 @@ pub const qcolor = struct {
     /// ` param1: []const u8 `
     ///
     pub fn IsValidColorName(param1: []const u8) bool {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
-        };
-        return qtc.QColor_IsValidColorName(param1_str);
+        return qtc.QColor_IsValidColorName(param1.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#name)

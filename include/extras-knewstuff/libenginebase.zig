@@ -413,7 +413,7 @@ pub const knscore__enginebase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetTagFilter(self: ?*anyopaque, filter: []const []const u8, allocator: std.mem.Allocator) void {
-        var filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("knscore__enginebase.SetTagFilter: Memory allocation failed");
+        const filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("knscore__enginebase.SetTagFilter: Memory allocation failed");
         defer allocator.free(filter_arr);
         for (filter, 0..filter.len) |item, i| {
             filter_arr[i] = .{
@@ -482,7 +482,7 @@ pub const knscore__enginebase = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetDownloadTagFilter(self: ?*anyopaque, filter: []const []const u8, allocator: std.mem.Allocator) void {
-        var filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("knscore__enginebase.SetDownloadTagFilter: Memory allocation failed");
+        const filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("knscore__enginebase.SetDownloadTagFilter: Memory allocation failed");
         defer allocator.free(filter_arr);
         for (filter, 0..filter.len) |item, i| {
             filter_arr[i] = .{
@@ -924,11 +924,7 @@ pub const knscore__enginebase = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

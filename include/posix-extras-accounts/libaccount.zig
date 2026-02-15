@@ -250,11 +250,7 @@ pub const accounts__watch = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -2303,7 +2299,7 @@ pub const accounts__account = struct {
             .len = key.len,
             .data = key.ptr,
         };
-        var tokens_cStr = allocator.alloc([*c]const u8, tokens.len) catch @panic("accounts__account.VerifyWithTokens: Memory allocation failed");
+        const tokens_cStr = allocator.alloc([*c]const u8, tokens.len) catch @panic("accounts__account.VerifyWithTokens: Memory allocation failed");
         defer allocator.free(tokens_cStr);
         for (tokens, 0..tokens.len) |tokens_item, i| {
             tokens_cStr[i] = @ptrCast(tokens_item.ptr);
@@ -2787,11 +2783,7 @@ pub const accounts__account = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

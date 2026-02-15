@@ -123,16 +123,14 @@ libqt_map* /* of libqt_string to libqt_string */ KParts__NavigationExtension_Act
         QByteArray _mapkey_qb = _itr->first;
         libqt_string _mapkey_str;
         _mapkey_str.len = _mapkey_qb.length();
-        _mapkey_str.data = static_cast<const char*>(malloc(_mapkey_str.len + 1));
+        _mapkey_str.data = static_cast<char*>(malloc(_mapkey_str.len));
         memcpy((void*)_mapkey_str.data, _mapkey_qb.data(), _mapkey_str.len);
-        ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
         QByteArray _mapval_qb = _itr->second;
         libqt_string _mapval_str;
         _mapval_str.len = _mapval_qb.length();
-        _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
+        _mapval_str.data = static_cast<char*>(malloc(_mapval_str.len));
         memcpy((void*)_mapval_str.data, _mapval_qb.data(), _mapval_str.len);
-        ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
         _varr[_ctr] = _mapval_str;
         _ctr++;
     }

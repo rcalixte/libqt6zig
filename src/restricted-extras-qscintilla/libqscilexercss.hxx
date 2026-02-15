@@ -63,7 +63,7 @@ class VirtualQsciLexerCSS final : public QsciLexerCSS {
     using QsciLexerCSS_CustomEvent_Callback = void (*)(QsciLexerCSS*, QEvent*);
     using QsciLexerCSS_ConnectNotify_Callback = void (*)(QsciLexerCSS*, QMetaMethod*);
     using QsciLexerCSS_DisconnectNotify_Callback = void (*)(QsciLexerCSS*, QMetaMethod*);
-    using QsciLexerCSS_TextAsBytes_Callback = const char* (*)(const QsciLexerCSS*, libqt_string);
+    using QsciLexerCSS_TextAsBytes_Callback = libqt_string (*)(const QsciLexerCSS*, libqt_string);
     using QsciLexerCSS_BytesAsText_Callback = const char* (*)(const QsciLexerCSS*, const char*, int);
     using QsciLexerCSS_Sender_Callback = QObject* (*)();
     using QsciLexerCSS_SenderSignalIndex_Callback = int (*)();
@@ -1053,8 +1053,8 @@ class VirtualQsciLexerCSS final : public QsciLexerCSS {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexercss_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexercss_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerCSS::textAsBytes(text);

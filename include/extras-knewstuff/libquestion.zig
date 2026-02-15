@@ -279,7 +279,7 @@ pub const knscore__question = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetList(self: ?*anyopaque, newList: []const []const u8, allocator: std.mem.Allocator) void {
-        var newList_arr = allocator.alloc(qtc.libqt_string, newList.len) catch @panic("knscore__question.SetList: Memory allocation failed");
+        const newList_arr = allocator.alloc(qtc.libqt_string, newList.len) catch @panic("knscore__question.SetList: Memory allocation failed");
         defer allocator.free(newList_arr);
         for (newList, 0..newList.len) |item, i| {
             newList_arr[i] = .{
@@ -470,11 +470,7 @@ pub const knscore__question = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

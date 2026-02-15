@@ -402,9 +402,9 @@ pub const qdebug = struct {
     ///
     /// ` self: QtC.QDebug `
     ///
-    /// ` t: []const u8 `
+    /// ` t: []u8 `
     ///
-    pub fn OperatorShiftLeft24(self: ?*anyopaque, t: []const u8) QtC.QDebug {
+    pub fn OperatorShiftLeft24(self: ?*anyopaque, t: []u8) QtC.QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,

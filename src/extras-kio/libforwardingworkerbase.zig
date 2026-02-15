@@ -941,11 +941,7 @@ pub const kio__forwardingworkerbase = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -3572,9 +3568,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult `
+    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, data: qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult `
     ///
-    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
+    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -3840,9 +3836,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// ` self: QtC.KIO__ForwardingWorkerBase`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult `
+    /// ` callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, data: qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult `
     ///
-    pub fn OnSpecial(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
+    pub fn OnSpecial(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSpecial(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

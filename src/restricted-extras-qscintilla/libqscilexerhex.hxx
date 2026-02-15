@@ -61,7 +61,7 @@ class VirtualQsciLexerHex : public QsciLexerHex {
     using QsciLexerHex_CustomEvent_Callback = void (*)(QsciLexerHex*, QEvent*);
     using QsciLexerHex_ConnectNotify_Callback = void (*)(QsciLexerHex*, QMetaMethod*);
     using QsciLexerHex_DisconnectNotify_Callback = void (*)(QsciLexerHex*, QMetaMethod*);
-    using QsciLexerHex_TextAsBytes_Callback = const char* (*)(const QsciLexerHex*, libqt_string);
+    using QsciLexerHex_TextAsBytes_Callback = libqt_string (*)(const QsciLexerHex*, libqt_string);
     using QsciLexerHex_BytesAsText_Callback = const char* (*)(const QsciLexerHex*, const char*, int);
     using QsciLexerHex_Sender_Callback = QObject* (*)();
     using QsciLexerHex_SenderSignalIndex_Callback = int (*)();
@@ -1013,8 +1013,8 @@ class VirtualQsciLexerHex : public QsciLexerHex {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerhex_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerhex_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerHex::textAsBytes(text);

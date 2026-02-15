@@ -75,9 +75,8 @@ void QColor_MoveAssign(QColor* self, QColor* other) {
     *self = std::move(*other);
 }
 
-QColor* QColor_FromString(libqt_string name) {
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    return new QColor(QColor::fromString(QAnyStringView(name_QString)));
+QColor* QColor_FromString(const char* name) {
+    return new QColor(QColor::fromString(QAnyStringView(name)));
 }
 
 void QColor_OperatorAssign(QColor* self, int color) {
@@ -475,9 +474,8 @@ bool QColor_IsValidColor(const libqt_string name) {
     return QColor::isValidColor(name_QString);
 }
 
-bool QColor_IsValidColorName(libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return QColor::isValidColorName(QAnyStringView(param1_QString));
+bool QColor_IsValidColorName(const char* param1) {
+    return QColor::isValidColorName(QAnyStringView(param1));
 }
 
 libqt_string QColor_Name1(const QColor* self, int format) {

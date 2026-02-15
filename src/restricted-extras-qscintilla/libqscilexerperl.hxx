@@ -63,7 +63,7 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
     using QsciLexerPerl_CustomEvent_Callback = void (*)(QsciLexerPerl*, QEvent*);
     using QsciLexerPerl_ConnectNotify_Callback = void (*)(QsciLexerPerl*, QMetaMethod*);
     using QsciLexerPerl_DisconnectNotify_Callback = void (*)(QsciLexerPerl*, QMetaMethod*);
-    using QsciLexerPerl_TextAsBytes_Callback = const char* (*)(const QsciLexerPerl*, libqt_string);
+    using QsciLexerPerl_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPerl*, libqt_string);
     using QsciLexerPerl_BytesAsText_Callback = const char* (*)(const QsciLexerPerl*, const char*, int);
     using QsciLexerPerl_Sender_Callback = QObject* (*)();
     using QsciLexerPerl_SenderSignalIndex_Callback = int (*)();
@@ -1053,8 +1053,8 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerperl_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerperl_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerPerl::textAsBytes(text);

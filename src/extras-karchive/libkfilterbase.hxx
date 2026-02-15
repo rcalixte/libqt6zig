@@ -186,9 +186,8 @@ class VirtualKFilterBase : public KFilterBase {
             const QByteArray filename_qb = filename;
             libqt_string filename_str;
             filename_str.len = filename_qb.length();
-            filename_str.data = static_cast<const char*>(malloc(filename_str.len + 1));
+            filename_str.data = static_cast<char*>(malloc(filename_str.len));
             memcpy((void*)filename_str.data, filename_qb.data(), filename_str.len);
-            ((char*)filename_str.data)[filename_str.len] = '\0';
             libqt_string cbval1 = filename_str;
 
             bool callback_ret = kfilterbase_writeheader_callback(this, cbval1);

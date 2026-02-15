@@ -171,9 +171,8 @@ libqt_list /* set of libqt_string */ QOpenGLContext_Extensions(const QOpenGLCont
         QByteArray _sv_qb = _itr.next();
         libqt_string _sv_str;
         _sv_str.len = _sv_qb.length();
-        _sv_str.data = static_cast<const char*>(malloc(_sv_str.len + 1));
+        _sv_str.data = static_cast<char*>(malloc(_sv_str.len));
         memcpy((void*)_sv_str.data, _sv_qb.data(), _sv_str.len);
-        ((char*)_sv_str.data)[_sv_str.len] = '\0';
         _arr[_ctr++] = _sv_str;
     }
     libqt_list _out;

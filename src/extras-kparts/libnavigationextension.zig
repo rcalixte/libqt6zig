@@ -840,9 +840,9 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    /// ` mode: u16 `
+    /// ` mode: u32 `
     ///
-    pub fn PopupMenu32(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16) void {
+    pub fn PopupMenu32(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32) void {
         qtc.KParts__NavigationExtension_PopupMenu32(@ptrCast(self), @ptrCast(global), @ptrCast(url), mode);
     }
 
@@ -856,11 +856,11 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    /// ` mode: u16 `
+    /// ` mode: u32 `
     ///
     /// ` arguments: QtC.KParts__OpenUrlArguments `
     ///
-    pub fn PopupMenu42(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16, arguments: ?*anyopaque) void {
+    pub fn PopupMenu42(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32, arguments: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_PopupMenu42(@ptrCast(self), @ptrCast(global), @ptrCast(url), mode, @ptrCast(arguments));
     }
 
@@ -874,13 +874,13 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    /// ` mode: u16 `
+    /// ` mode: u32 `
     ///
     /// ` arguments: QtC.KParts__OpenUrlArguments `
     ///
     /// ` flags: flag of navigationextension_enums.PopupFlag `
     ///
-    pub fn PopupMenu52(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16, arguments: ?*anyopaque, flags: i32) void {
+    pub fn PopupMenu52(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32, arguments: ?*anyopaque, flags: i32) void {
         qtc.KParts__NavigationExtension_PopupMenu52(@ptrCast(self), @ptrCast(global), @ptrCast(url), mode, @ptrCast(arguments), @intCast(flags));
     }
 
@@ -894,7 +894,7 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` url: QtC.QUrl `
     ///
-    /// ` mode: u16 `
+    /// ` mode: u32 `
     ///
     /// ` arguments: QtC.KParts__OpenUrlArguments `
     ///
@@ -904,7 +904,7 @@ pub const kparts__navigationextension = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PopupMenu6(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16, arguments: ?*anyopaque, flags: i32, actionGroups: map_constu8_sliceqtcqaction, allocator: std.mem.Allocator) void {
+    pub fn PopupMenu6(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32, arguments: ?*anyopaque, flags: i32, actionGroups: map_constu8_sliceqtcqaction, allocator: std.mem.Allocator) void {
         const actionGroups_count = actionGroups.count();
         const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("kparts__navigationextension.PopupMenu6: Memory allocation failed");
         defer allocator.free(actionGroups_keys);
@@ -961,11 +961,7 @@ pub const kparts__navigationextension = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

@@ -480,7 +480,7 @@ pub const ktexteditor__editor = struct {
             .len = widgets.len,
             .data = @ptrCast(widgets.ptr),
         };
-        var variables_arr = allocator.alloc(qtc.libqt_string, variables.len) catch @panic("ktexteditor__editor.AddVariableExpansion2: Memory allocation failed");
+        const variables_arr = allocator.alloc(qtc.libqt_string, variables.len) catch @panic("ktexteditor__editor.AddVariableExpansion2: Memory allocation failed");
         defer allocator.free(variables_arr);
         for (variables, 0..variables.len) |item, i| {
             variables_arr[i] = .{
@@ -554,11 +554,7 @@ pub const ktexteditor__editor = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

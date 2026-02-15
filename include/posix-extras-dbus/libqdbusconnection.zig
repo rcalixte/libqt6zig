@@ -318,7 +318,7 @@ pub const qdbusconnection = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        var argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("qdbusconnection.Connect3: Memory allocation failed");
+        const argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("qdbusconnection.Connect3: Memory allocation failed");
         defer allocator.free(argumentMatch_arr);
         for (argumentMatch, 0..argumentMatch.len) |item, i| {
             argumentMatch_arr[i] = .{
@@ -463,7 +463,7 @@ pub const qdbusconnection = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        var argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("qdbusconnection.Disconnect3: Memory allocation failed");
+        const argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("qdbusconnection.Disconnect3: Memory allocation failed");
         defer allocator.free(argumentMatch_arr);
         for (argumentMatch, 0..argumentMatch.len) |item, i| {
             argumentMatch_arr[i] = .{

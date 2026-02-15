@@ -700,7 +700,7 @@ pub const qtermwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetEnvironment(self: ?*anyopaque, environment: []const []const u8, allocator: std.mem.Allocator) void {
-        var environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qtermwidget.SetEnvironment: Memory allocation failed");
+        const environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qtermwidget.SetEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
         for (environment, 0..environment.len) |item, i| {
             environment_arr[i] = .{
@@ -742,7 +742,7 @@ pub const qtermwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetEnvironment(self: ?*anyopaque, environment: []const []const u8, allocator: std.mem.Allocator) void {
-        var environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qtermwidget.SetEnvironment: Memory allocation failed");
+        const environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qtermwidget.SetEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
         for (environment, 0..environment.len) |item, i| {
             environment_arr[i] = .{
@@ -914,7 +914,7 @@ pub const qtermwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetArgs(self: ?*anyopaque, args: []const []const u8, allocator: std.mem.Allocator) void {
-        var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("qtermwidget.SetArgs: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("qtermwidget.SetArgs: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
             args_arr[i] = .{
@@ -956,7 +956,7 @@ pub const qtermwidget = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn QBaseSetArgs(self: ?*anyopaque, args: []const []const u8, allocator: std.mem.Allocator) void {
-        var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("qtermwidget.SetArgs: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("qtermwidget.SetArgs: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
             args_arr[i] = .{
@@ -7442,11 +7442,7 @@ pub const qtermwidget = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -9791,9 +9787,9 @@ pub const qtermwidget = struct {
     ///
     /// ` self: QtC.QTermWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QTermWidget, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.QTermWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QTermWidget_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

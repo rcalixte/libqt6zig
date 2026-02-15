@@ -239,9 +239,8 @@ libqt_string QSslConfiguration_SessionTicket(const QSslConfiguration* self) {
     QByteArray _qb = self->sessionTicket();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -298,9 +297,8 @@ libqt_string QSslConfiguration_PreSharedKeyIdentityHint(const QSslConfiguration*
     QByteArray _qb = self->preSharedKeyIdentityHint();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -327,9 +325,8 @@ libqt_map /* of libqt_string to QVariant* */ QSslConfiguration_BackendConfigurat
         QByteArray _mapkey_qb = _itr->first;
         libqt_string _mapkey_str;
         _mapkey_str.len = _mapkey_qb.length();
-        _mapkey_str.data = static_cast<const char*>(malloc(_mapkey_str.len + 1));
+        _mapkey_str.data = static_cast<char*>(malloc(_mapkey_str.len));
         memcpy((void*)_mapkey_str.data, _mapkey_qb.data(), _mapkey_str.len);
-        ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
         _varr[_ctr] = new QVariant(_itr->second);
         _ctr++;
@@ -417,9 +414,8 @@ libqt_list /* of libqt_string */ QSslConfiguration_AllowedNextProtocols(const QS
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -432,9 +428,8 @@ libqt_string QSslConfiguration_NextNegotiatedProtocol(const QSslConfiguration* s
     QByteArray _qb = self->nextNegotiatedProtocol();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

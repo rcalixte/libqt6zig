@@ -9,9 +9,9 @@ pub const qbytearrayview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: []const u8 `
+    /// ` other: []u8 `
     ///
-    pub fn New(other: []const u8) QtC.QByteArrayView {
+    pub fn New(other: []u8) QtC.QByteArrayView {
         const other_str = qtc.libqt_string{
             .len = other.len,
             .data = other.ptr,
@@ -24,9 +24,9 @@ pub const qbytearrayview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: []const u8 `
+    /// ` other: []u8 `
     ///
-    pub fn New2(other: []const u8) QtC.QByteArrayView {
+    pub fn New2(other: []u8) QtC.QByteArrayView {
         const other_str = qtc.libqt_string{
             .len = other.len,
             .data = other.ptr,
@@ -45,9 +45,9 @@ pub const qbytearrayview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` param1: []u8 `
     ///
-    pub fn New4(param1: []const u8) QtC.QByteArrayView {
+    pub fn New4(param1: []u8) QtC.QByteArrayView {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -162,11 +162,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn First(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_First(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.First: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn First(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_First(@ptrCast(self), @intCast(n));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.First: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -180,11 +180,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Last(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Last(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Last: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Last(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Last(@ptrCast(self), @intCast(n));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Last: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -198,11 +198,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Sliced(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Sliced(@ptrCast(self), @intCast(pos));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Sliced: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Sliced(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Sliced(@ptrCast(self), @intCast(pos));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Sliced: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -218,11 +218,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Sliced2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Sliced2(@ptrCast(self), @intCast(pos), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Sliced2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Sliced2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Sliced2(@ptrCast(self), @intCast(pos), @intCast(n));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Sliced2: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -236,11 +236,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Slice(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Slice(@ptrCast(self), @intCast(pos));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Slice: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Slice(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Slice(@ptrCast(self), @intCast(pos));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Slice: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -256,11 +256,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Slice2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Slice2(@ptrCast(self), @intCast(pos), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Slice2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Slice2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Slice2(@ptrCast(self), @intCast(pos), @intCast(n));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Slice2: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -274,11 +274,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Chopped(self: ?*anyopaque, lenVal: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Chopped(@ptrCast(self), @intCast(lenVal));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Chopped: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Chopped(self: ?*anyopaque, lenVal: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Chopped(@ptrCast(self), @intCast(lenVal));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Chopped: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -292,11 +292,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Left(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Left(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Left: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Left(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Left(@ptrCast(self), @intCast(n));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Left: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -310,11 +310,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Right(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Right(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Right: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Right(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Right(@ptrCast(self), @intCast(n));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Right: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -328,11 +328,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Mid(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Mid(@ptrCast(self), @intCast(pos));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Mid: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Mid(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Mid(@ptrCast(self), @intCast(pos));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Mid: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -368,11 +368,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Trimmed(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Trimmed(@ptrCast(self));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Trimmed: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Trimmed(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Trimmed(@ptrCast(self));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Trimmed: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -482,9 +482,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` other: []const u8 `
+    /// ` other: []u8 `
     ///
-    pub fn StartsWith(self: ?*anyopaque, other: []const u8) bool {
+    pub fn StartsWith(self: ?*anyopaque, other: []u8) bool {
         const other_str = qtc.libqt_string{
             .len = other.len,
             .data = other.ptr,
@@ -510,9 +510,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` other: []const u8 `
+    /// ` other: []u8 `
     ///
-    pub fn EndsWith(self: ?*anyopaque, other: []const u8) bool {
+    pub fn EndsWith(self: ?*anyopaque, other: []u8) bool {
         const other_str = qtc.libqt_string{
             .len = other.len,
             .data = other.ptr,
@@ -538,9 +538,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` a: []const u8 `
+    /// ` a: []u8 `
     ///
-    pub fn IndexOf(self: ?*anyopaque, a: []const u8) i64 {
+    pub fn IndexOf(self: ?*anyopaque, a: []u8) i64 {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -566,9 +566,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` a: []const u8 `
+    /// ` a: []u8 `
     ///
-    pub fn Contains(self: ?*anyopaque, a: []const u8) bool {
+    pub fn Contains(self: ?*anyopaque, a: []u8) bool {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -594,9 +594,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` a: []const u8 `
+    /// ` a: []u8 `
     ///
-    pub fn LastIndexOf(self: ?*anyopaque, a: []const u8) i64 {
+    pub fn LastIndexOf(self: ?*anyopaque, a: []u8) i64 {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -610,11 +610,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` a: []const u8 `
+    /// ` a: []u8 `
     ///
     /// ` from: i64 `
     ///
-    pub fn LastIndexOf2(self: ?*anyopaque, a: []const u8, from: i64) i64 {
+    pub fn LastIndexOf2(self: ?*anyopaque, a: []u8, from: i64) i64 {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -640,9 +640,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` a: []const u8 `
+    /// ` a: []u8 `
     ///
-    pub fn Count(self: ?*anyopaque, a: []const u8) i64 {
+    pub fn Count(self: ?*anyopaque, a: []u8) i64 {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -668,9 +668,9 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` a: []const u8 `
+    /// ` a: []u8 `
     ///
-    pub fn Compare(self: ?*anyopaque, a: []const u8) i32 {
+    pub fn Compare(self: ?*anyopaque, a: []u8) i32 {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -840,11 +840,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Mid2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QByteArrayView_Mid2(@ptrCast(self), @intCast(pos), @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Mid2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn Mid2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QByteArrayView_Mid2(@ptrCast(self), @intCast(pos), @intCast(n));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.Mid2: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -1086,11 +1086,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` a: []const u8 `
+    /// ` a: []u8 `
     ///
     /// ` from: i64 `
     ///
-    pub fn IndexOf22(self: ?*anyopaque, a: []const u8, from: i64) i64 {
+    pub fn IndexOf22(self: ?*anyopaque, a: []u8, from: i64) i64 {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,
@@ -1132,11 +1132,11 @@ pub const qbytearrayview = struct {
     ///
     /// ` self: QtC.QByteArrayView `
     ///
-    /// ` a: []const u8 `
+    /// ` a: []u8 `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn Compare2(self: ?*anyopaque, a: []const u8, cs: i32) i32 {
+    pub fn Compare2(self: ?*anyopaque, a: []u8, cs: i32) i32 {
         const a_str = qtc.libqt_string{
             .len = a.len,
             .data = a.ptr,

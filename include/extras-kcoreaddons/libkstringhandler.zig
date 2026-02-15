@@ -33,7 +33,7 @@ pub const kstringhandler = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn Capwords2(param1: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
-        var param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kstringhandler.Capwords2: Memory allocation failed");
+        const param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kstringhandler.Capwords2: Memory allocation failed");
         defer allocator.free(param1_arr);
         for (param1, 0..param1.len) |item, i| {
             param1_arr[i] = .{

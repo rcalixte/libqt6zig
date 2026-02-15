@@ -65,7 +65,7 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     using QsciLexerPostScript_CustomEvent_Callback = void (*)(QsciLexerPostScript*, QEvent*);
     using QsciLexerPostScript_ConnectNotify_Callback = void (*)(QsciLexerPostScript*, QMetaMethod*);
     using QsciLexerPostScript_DisconnectNotify_Callback = void (*)(QsciLexerPostScript*, QMetaMethod*);
-    using QsciLexerPostScript_TextAsBytes_Callback = const char* (*)(const QsciLexerPostScript*, libqt_string);
+    using QsciLexerPostScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPostScript*, libqt_string);
     using QsciLexerPostScript_BytesAsText_Callback = const char* (*)(const QsciLexerPostScript*, const char*, int);
     using QsciLexerPostScript_Sender_Callback = QObject* (*)();
     using QsciLexerPostScript_SenderSignalIndex_Callback = int (*)();
@@ -1093,8 +1093,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            const char* callback_ret = qscilexerpostscript_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret);
+            libqt_string callback_ret = qscilexerpostscript_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerPostScript::textAsBytes(text);

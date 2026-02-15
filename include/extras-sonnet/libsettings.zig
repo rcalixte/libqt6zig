@@ -196,7 +196,7 @@ pub const sonnet__settings = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetPreferredLanguages(self: ?*anyopaque, lang: []const []const u8, allocator: std.mem.Allocator) void {
-        var lang_arr = allocator.alloc(qtc.libqt_string, lang.len) catch @panic("sonnet__settings.SetPreferredLanguages: Memory allocation failed");
+        const lang_arr = allocator.alloc(qtc.libqt_string, lang.len) catch @panic("sonnet__settings.SetPreferredLanguages: Memory allocation failed");
         defer allocator.free(lang_arr);
         for (lang, 0..lang.len) |item, i| {
             lang_arr[i] = .{
@@ -391,7 +391,7 @@ pub const sonnet__settings = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetCurrentIgnoreList(self: ?*anyopaque, ignores: []const []const u8, allocator: std.mem.Allocator) void {
-        var ignores_arr = allocator.alloc(qtc.libqt_string, ignores.len) catch @panic("sonnet__settings.SetCurrentIgnoreList: Memory allocation failed");
+        const ignores_arr = allocator.alloc(qtc.libqt_string, ignores.len) catch @panic("sonnet__settings.SetCurrentIgnoreList: Memory allocation failed");
         defer allocator.free(ignores_arr);
         for (ignores, 0..ignores.len) |item, i| {
             ignores_arr[i] = .{
@@ -875,11 +875,7 @@ pub const sonnet__settings = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject

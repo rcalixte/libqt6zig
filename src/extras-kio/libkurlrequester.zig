@@ -292,7 +292,7 @@ pub const kurlrequester = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetNameFilters(self: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) void {
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurlrequester.SetNameFilters: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurlrequester.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -361,7 +361,7 @@ pub const kurlrequester = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetMimeTypeFilters(self: ?*anyopaque, mimeTypes: []const []const u8, allocator: std.mem.Allocator) void {
-        var mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kurlrequester.SetMimeTypeFilters: Memory allocation failed");
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kurlrequester.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i| {
             mimeTypes_arr[i] = .{
@@ -4729,11 +4729,7 @@ pub const kurlrequester = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -7156,9 +7152,9 @@ pub const kurlrequester = struct {
     ///
     /// ` self: QtC.KUrlRequester`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlRequester, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KUrlRequester, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KUrlRequester_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -8527,7 +8523,7 @@ pub const kurlcomborequester = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetNameFilters(self: ?*anyopaque, filters: []const []const u8, allocator: std.mem.Allocator) void {
-        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurlcomborequester.SetNameFilters: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurlcomborequester.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -8602,7 +8598,7 @@ pub const kurlcomborequester = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetMimeTypeFilters(self: ?*anyopaque, mimeTypes: []const []const u8, allocator: std.mem.Allocator) void {
-        var mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kurlcomborequester.SetMimeTypeFilters: Memory allocation failed");
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kurlcomborequester.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i| {
             mimeTypes_arr[i] = .{
@@ -12856,11 +12852,7 @@ pub const kurlcomborequester = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
@@ -15427,9 +15419,9 @@ pub const kurlcomborequester = struct {
     ///
     /// ` self: QtC.KUrlComboRequester`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlComboRequester, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QtC.KUrlComboRequester, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

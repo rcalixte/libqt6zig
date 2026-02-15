@@ -173,7 +173,7 @@ pub const sonnet__speller = struct {
             .len = word.len,
             .data = word.ptr,
         };
-        var suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("sonnet__speller.CheckAndSuggest: Memory allocation failed");
+        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("sonnet__speller.CheckAndSuggest: Memory allocation failed");
         defer allocator.free(suggestions_arr);
         for (suggestions, 0..suggestions.len) |item, i| {
             suggestions_arr[i] = .{

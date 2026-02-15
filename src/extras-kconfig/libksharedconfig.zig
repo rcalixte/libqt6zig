@@ -191,7 +191,7 @@ pub const ksharedconfig = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn AddConfigSources(self: ?*anyopaque, sources: []const []const u8, allocator: std.mem.Allocator) void {
-        var sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("ksharedconfig.AddConfigSources: Memory allocation failed");
+        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("ksharedconfig.AddConfigSources: Memory allocation failed");
         defer allocator.free(sources_arr);
         for (sources, 0..sources.len) |item, i| {
             sources_arr[i] = .{

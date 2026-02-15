@@ -57,7 +57,7 @@ pub const kfileutils = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn FindAllUniqueFiles(param1: []const []const u8, param2: []const []const u8, allocator: std.mem.Allocator) []const []const u8 {
-        var param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
+        const param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
         defer allocator.free(param1_arr);
         for (param1, 0..param1.len) |item, i| {
             param1_arr[i] = .{
@@ -69,7 +69,7 @@ pub const kfileutils = struct {
             .len = param1.len,
             .data = param1_arr.ptr,
         };
-        var param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
+        const param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
         defer allocator.free(param2_arr);
         for (param2, 0..param2.len) |item, i| {
             param2_arr[i] = .{

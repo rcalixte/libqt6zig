@@ -34,9 +34,8 @@ libqt_string KRemoteEncoding_Encode(const KRemoteEncoding* self, const libqt_str
     QByteArray _qb = self->encode(name_QString);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -44,9 +43,8 @@ libqt_string KRemoteEncoding_Encode2(const KRemoteEncoding* self, const QUrl* ur
     QByteArray _qb = self->encode(*url);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -54,9 +52,8 @@ libqt_string KRemoteEncoding_Directory(const KRemoteEncoding* self, const QUrl* 
     QByteArray _qb = self->directory(*url);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -64,9 +61,8 @@ libqt_string KRemoteEncoding_FileName(const KRemoteEncoding* self, const QUrl* u
     QByteArray _qb = self->fileName(*url);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -89,9 +85,8 @@ libqt_string KRemoteEncoding_Directory2(const KRemoteEncoding* self, const QUrl*
     QByteArray _qb = self->directory(*url, ignore_trailing_slash);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

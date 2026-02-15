@@ -217,7 +217,7 @@ pub const knewfilemenu = struct {
     /// ` allocator: std.mem.Allocator `
     ///
     pub fn SetSupportedMimeTypes(self: ?*anyopaque, mime: []const []const u8, allocator: std.mem.Allocator) void {
-        var mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("knewfilemenu.SetSupportedMimeTypes: Memory allocation failed");
+        const mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("knewfilemenu.SetSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mime_arr);
         for (mime, 0..mime.len) |item, i| {
             mime_arr[i] = .{
@@ -1790,11 +1790,7 @@ pub const knewfilemenu = struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
+        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
     }
 
     /// Inherited from QObject
