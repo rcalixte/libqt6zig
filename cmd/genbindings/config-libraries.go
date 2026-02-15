@@ -870,13 +870,13 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		"\n\n/// These C container structs are exported for use in specific callbacks when needed." +
 		"\n/// Otherwise, they should not need to be used.\n\n" +
 		"\n/// This data structure correlates to QList<>\n" +
-		"\npub const libqt_list = ?*C.libqt_list;" +
+		"\npub const libqt_list = C.libqt_list;" +
 		"\n/// This data structure correlates to QHash<>, QMap<>, QMultiHash<>, and QMultiMap<>\n" +
-		"\npub const libqt_map = ?*C.libqt_map;" +
+		"\npub const libqt_map = C.libqt_map;" +
 		"\n/// This data structure correlates to QPair<>\n" +
-		"\npub const libqt_pair = ?*C.libqt_pair;" +
+		"\npub const libqt_pair = C.libqt_pair;" +
 		"\n/// This data structure correlates to QString, QByteArray, and similar types\n" +
-		"\npub const libqt_string = ?*C.libqt_string;\n\n"
+		"\npub const libqt_string = C.libqt_string;\n\n"
 
 	for _, k := range structdefs {
 		typedefHeader += k + "\n"
