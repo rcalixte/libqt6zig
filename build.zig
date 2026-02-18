@@ -325,6 +325,8 @@ const qt_modules = &.{
     "QtSpatialAudio",
     // Qt 6 SQL
     "QtSql",
+    // Qt 6 State Machine
+    "QtStateMachine",
     // Qt 6 SVG
     "QtSvg",
     "QtSvgWidgets",
