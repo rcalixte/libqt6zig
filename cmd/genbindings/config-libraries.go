@@ -192,6 +192,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Sql"),
 		},
 
+		// Qt 6 State Machine
+		// Depends on Qt Core
+		{
+			path: "statemachine",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtStateMachine",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6StateMachine"),
+		},
+
 		// Qt 6 SVG
 		// Depends on Qt Core, GUI, Widgets
 		{
